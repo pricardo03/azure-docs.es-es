@@ -10,21 +10,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 57e71261bad950b409da7a58b53712d84dc1b3df
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 023be5d0a5320163b3eabfe80f35894763ab89fb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56815865"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58099617"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Tutorial: Uso de condiciones en plantillas de Azure Resource Manager
 
 Aprenda a implementar recursos de Azure según condiciones.
 
 En el tutorial [Establecimiento del orden de implementación de los recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md), se crean una máquina virtual, una red virtual y algunos otros recursos dependientes incluidos en una cuenta de almacenamiento. En lugar de crear una nueva cuenta de almacenamiento, cada vez, dejará que la gente elija entre crear una nueva cuenta de almacenamiento y usar una existente. Para lograr este objetivo, definirá un parámetro adicional. Si el valor del parámetro es "new", se crea una nueva cuenta de almacenamiento.
+
+![Diagrama de las condiciones de uso de la plantilla de Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-template-use-condition-diagram.png)
 
 En este tutorial se describen las tareas siguientes:
 
@@ -61,13 +63,13 @@ Las plantillas de inicio rápido de Azure consisten en un repositorio de plantil
 3. Seleccione **Abrir** para abrir el archivo.
 4. La plantilla define cinco recursos:
 
-    * `Microsoft.Storage/storageAccounts`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-    * `Microsoft.Network/publicIPAddresses`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-    * `Microsoft.Network/virtualNetworks`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-    * `Microsoft.Network/networkInterfaces`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-    * `Microsoft.Compute/virtualMachines`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * `Microsoft.Storage/storageAccounts`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+   * `Microsoft.Network/publicIPAddresses`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+   * `Microsoft.Network/virtualNetworks`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+   * `Microsoft.Network/networkInterfaces`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+   * `Microsoft.Compute/virtualMachines`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
-    Resulta útil obtener cierta información básica de la plantilla antes de personalizarla.
+     Resulta útil obtener cierta información básica de la plantilla antes de personalizarla.
 5. Seleccione **Archivo**>**Guardar como** para guardar una copia del archivo en la máquina local con el nombre **azuredeploy.json**.
 
 ## <a name="modify-the-template"></a>Modificación de la plantilla

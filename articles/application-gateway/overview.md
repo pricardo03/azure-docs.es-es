@@ -6,14 +6,14 @@ author: vhorne
 ms.service: application-gateway
 ms.topic: overview
 ms.custom: mvc
-ms.date: 1/22/2019
+ms.date: 03/20/2019
 ms.author: victorh
-ms.openlocfilehash: c574e3ab82f97f5fffc7c834a53d19df93fc426f
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
+ms.openlocfilehash: bb849e80e83edc4a25ad2f891d2c6c433ba0d106
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54448949"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225542"
 ---
 # <a name="what-is-azure-application-gateway"></a>¿Qué es Azure Application Gateway?
 
@@ -70,11 +70,15 @@ Firewall de aplicaciones web (WAF) es una característica de Application Gateway
 
 Las aplicaciones web son cada vez más los objetivos de ataques malintencionados que aprovechan vulnerabilidades comunes conocidas, como ataques por inyección de código SQL o ataques de scripts de sitios, por nombrar unos pocos. Impedir tales ataques en el código de aplicación puede ser un verdadero desafío y requerir tareas rigurosas de mantenimiento, aplicación de revisiones y supervisión en varias capas de la topología de aplicación. Un firewall de aplicaciones web centralizado facilita enormemente la administración de la seguridad y proporciona mayor protección a los administradores de la aplicación frente a amenazas o intrusiones. Las soluciones de WAF también pueden reaccionar más rápido ante una amenaza de la seguridad aplicando revisiones que aborden una vulnerabilidad conocida en una ubicación central en lugar de proteger cada una de las aplicaciones web por separado. Las puertas de enlace de aplicaciones existentes pueden transformarse rápidamente en puertas de enlace con un firewall de aplicaciones web habilitado.
 
+Para más información, consulte [Firewall de aplicaciones web (WAF)](https://docs.microsoft.com/azure/application-gateway/waf-overview).
+
 ## <a name="url-based-routing"></a>Enrutamiento basado en dirección URL
 
 El enrutamiento basado en URL le permite enrutar el tráfico a los grupos de servidores back-end en función de las direcciones URL de la solicitud. Uno de los escenarios podría ser enrutar las solicitudes de diferentes tipos de contenido a otro grupo diferente.
 
 Por ejemplo, las solicitudes para `http://contoso.com/video/*` se enrutan a VideoServerPool y para `http://contoso.com/images/*` se enrutan a ImageServerPool. DefaultServerPool se selecciona si ninguno de los patrones de ruta de acceso coincide.
+
+Para obtener más información, consulte [enrutamiento basado en la dirección URL con Application Gateway](https://docs.microsoft.com/azure/application-gateway/url-route-overview).
 
 ## <a name="multiple-site-hosting"></a>Hospedaje de varios sitios
 
@@ -83,6 +87,8 @@ El hospedaje de varios sitios permite configurar más de un sitio web en la mism
 Las solicitudes para `http://contoso.com` se enrutan a ContosoServerPool y para `http://fabrikam.com` se enrutan a FabrikamServerPool.
 
 De forma similar, dos subdominios del mismo dominio primario pueden hospedarse en la misma implementación de la puerta de enlace de aplicaciones. Ejemplos del uso de subdominios podrían incluir `http://blog.contoso.com` y `http://app.contoso.com` hospedados en una única implementación de la puerta de enlace de aplicaciones.
+
+Para más información, consulte [Hospedaje de varios sitios de Application Gateway](https://docs.microsoft.com/azure/application-gateway/multiple-site-overview).
 
 ## <a name="redirection"></a>Redireccionamiento
 
@@ -96,6 +102,8 @@ La compatibilidad con la redirección de Application Gateway ofrece las siguient
 - Redirección basada en la ruta de acceso. Este tipo de redireccionamiento permite el redireccionamiento de HTTP a HTTPS solamente para un área de un sitio específico, por ejemplo un área de carro de la compra que se indica mediante `/cart/*`.
 - Redireccionamiento a un sitio externo
 
+Para más información, consulte [Introducción a la redirección de Application Gateway](https://docs.microsoft.com/azure/application-gateway/redirect-overview).
+
 ## <a name="session-affinity"></a>Afinidad de sesión
 
 La característica de afinidad de sesión basada en cookies es útil cuando se quiere mantener una sesión de usuario en el mismo servidor. Mediante el uso de cookies administradas por la puerta de enlace, Application Gateway puede dirigir el tráfico posterior de una sesión de usuario hasta el mismo servidor para su procesamiento. Esto es importante en aquellos casos en los que se guarda el estado de la sesión de forma local en el servidor para una sesión de usuario.
@@ -105,6 +113,9 @@ La característica de afinidad de sesión basada en cookies es útil cuando se q
 Application Gateway proporciona compatibilidad nativa con los protocolos Websocket y HTTP/2. No hay ninguna opción de configuración que permita al usuario habilitar o deshabilitar la compatibilidad con WebSocket.
 
 Los protocolos WebSocket y HTTP/2 permiten una comunicación dúplex completa entre un servidor y un cliente a través de una conexión TCP de larga duración. Esto permite una comunicación más interactiva entre el servidor web y el cliente, que puede ser bidireccional sin necesidad de realizar sondeos como en las implementaciones basadas en HTTP. Estos protocolos tienen, a diferencia de HTTP, una sobrecarga reducida y pueden reutilizar la misma conexión TCP para varias solicitudes y respuestas, con lo que se utilizan los recursos de una manera más eficaz. Estos protocolos están diseñados para utilizarse a través de los puertos HTTP tradicionales 80 y 443.
+
+Para más información, consulte [Compatibilidad con WebSocket
+](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) y [Compatibilidad con HTTP/2](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http2-support). 
 
 ## <a name="rewrite-http-headers-public-preview"></a>Reescritura de los encabezados HTTP (versión preliminar pública)
 

@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: dfdccaf929aa382c8003bc4c3cc0988a7123bf2d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: d802fade0ff9c5b4bc329c7451144d8c782f8d3c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53316019"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097947"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analizar los datos de llamadas de teléfono con Stream Analytics y visualizar los resultados en un panel de Power BI
 
@@ -180,7 +180,7 @@ El último paso consiste en definir un receptor de salida para el trabajo en el 
 3. Seleccione **+ Agregar** > **Power BI**. Luego, rellene el formulario con los siguientes detalles y seleccione **Autorizar**:
 
    |**Configuración**  |**Valor sugerido**  |
-   |---------|---------|---------|
+   |---------|---------|
    |Alias de salida  |  MyPBIoutput  |
    |Nombre del conjunto de datos  |   ASAdataset  |
    |Nombre de tabla |  ASATable  |

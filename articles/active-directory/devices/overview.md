@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/31/2019
+ms.date: 03/01/2019
 ms.author: markvi
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3711f2b2901ddbe49b4d6a49cabef12ac5dab3e
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b303841dffd09e2c2f8250e4a7885fda36ab4a38
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56192479"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58168612"
 ---
 # <a name="what-is-device-management-in-azure-active-directory"></a>¿Qué es la administración de dispositivos en Azure Active Directory?
 
@@ -89,7 +89,7 @@ La **unión a Azure AD** está diseñada para organizaciones que quieren prioriz
 
 La implementación de dispositivos unidos a Azure AD ofrece las siguientes ventajas:
 
-- **Inicio de sesión único (SSO)** a las aplicaciones y servicios SaaS administrados por Azure. Los usuarios no ven mensajes de autenticación adicionales al acceder a los recursos de trabajo. Cuentan con la funcionalidad SSO incluso cuando no están conectados a la red de dominios disponible.
+- **Inicio de sesión único (SSO)** a las aplicaciones y servicios SaaS administrados por Azure. Los usuarios no ven mensajes de autenticación adicionales al acceder a los recursos de trabajo. Cuentan con la funcionalidad SSO incluso cuando no están conectados a la red de dominios.
 
 - **Itinerancia de las configuraciones de usuario** conforme a la empresa entre dispositivos unidos. Los usuarios no necesitan conectarse a una cuenta de Microsoft (por ejemplo, Hotmail) para ver la configuración en todos los dispositivos.
 

@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 03/01/2019
 ms.author: juliako
-ms.openlocfilehash: 394efd023382f9153a6869944a8a3a815203f9dd
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 410955936e07b79128e1892d72644eaeb18ee036
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338604"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863770"
 ---
 # <a name="tutorial-stream-live-with-media-services-v3-using-net"></a>Tutorial: Streaming en vivo con Media Services v3 mediante .NET
 
@@ -33,7 +33,7 @@ En este tutorial se muestra cómo realizar las siguientes acciones:
 > [!div class="checklist"]
 > * Descarga de la aplicación de ejemplo que se describe en el tema
 > * Examen del código que realiza el streaming en vivo
-> * Vea el evento con [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) en http://ampdemo.azureedge.net
+> * Vea el evento con [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) en https://ampdemo.azureedge.net
 > * Limpieza de recursos
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -81,8 +81,8 @@ Para empezar a usar las API de Media Services con. NET, debe crear un objeto **A
 
 ### <a name="create-a-live-event"></a>Creación de un evento en directo
 
-En esta sección se muestra cómo crear un tipo de objeto LiveEvent **paso a través** (el valor de LiveEventEncodingType es None). Si desea crear un objeto LiveEvent habilitado para la codificación en directo, establezca LiveEventEncodingType en **Standard**. 
-
+En esta sección se muestra cómo crear un tipo de objeto LiveEvent **paso a través** (el valor de LiveEventEncodingType es None). Para obtener más información sobre los tipos disponibles de objetos LiveEvent, consulte [Tipos de objetos LiveEvent](live-events-outputs-concept.md#live-event-types). 
+ 
 Algunos de los aspectos que podría especificar al crear el evento en directo son:
 
 * Ubicación de Media Services 
@@ -166,7 +166,7 @@ El siguiente código muestra cómo eliminar todos los eventos en directo de su c
 
 ## <a name="watch-the-event"></a>Visualización del evento
 
-Para ver el evento, copie la dirección URL de streaming que obtuvo al ejecutar el código descrito en Creación de un objeto StreamingLocator y utilice el reproductor que prefiera. Puede usar [Azure Media Player](http://amp.azure.net/libs/amp/latest/docs/index.html) para probar la secuencia en http://ampdemo.azureedge.net. 
+Para ver el evento, copie la dirección URL de streaming que obtuvo al ejecutar el código descrito en Creación de un objeto StreamingLocator y utilice el reproductor que prefiera. Puede usar [Azure Media Player](https://amp.azure.net/libs/amp/latest/docs/index.html) para probar la secuencia en https://ampdemo.azureedge.net. 
 
 El evento en directo convierte automáticamente los eventos en contenido a petición cuando se detiene. Incluso después de detener y eliminar el evento, los usuarios podrán transmitir el contenido archivado como un vídeo a petición siempre que no elimine el recurso. No se puede eliminar un recurso si lo está usando un evento; primero se debe eliminar el evento. 
 

@@ -8,29 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6826bb88591e467928944ff81acebac36a705675
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0b6430a31f31f85f01f67994f6b6fa0f30af9575
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55865199"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57879929"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-curl-in-computer-vision"></a>Inicio rápido: Generación de una miniatura mediante la API de REST y cURL en Computer Vision
 
-En esta guía de inicio rápido, generará una miniatura de una imagen mediante la API de REST de Computer Vision. Con el método [Obtener miniatura](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), puede generar una miniatura de una imagen. Debe especificar el alto y el ancho, que pueden ser diferentes a la relación de aspecto de la imagen de entrada. Computer Vision usa el recorte inteligente para identificar el área de interés de forma inteligente y generar coordenadas de recorte en función de esa región.
+En este inicio rápido, generará una miniatura de una imagen mediante la API REST de Computer Vision. Debe especificar el alto y el ancho deseados, con una relación de aspecto que puede ser distinta a la de la imagen de entrada. Computer Vision usa el recorte inteligente para identificar el área de interés de forma inteligente y generar coordenadas de recorte alrededor de esa región.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para usar Computer Vision, necesita una clave de suscripción; consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Debe tener [cURL](https://curl.haxx.se/windows).
+- Debe tener una clave de suscripción para Computer Vision. Para obtener una clave de suscripción, consulte [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Cómo obtener las claves de suscripción).
 
 ## <a name="get-thumbnail-request"></a>Solicitud Get Thumbnail
 
-Con el método [Get Thumbnail](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), puede generar una miniatura de una imagen. Debe especificar el alto y el ancho, que pueden ser diferentes a la relación de aspecto de la imagen de entrada. Computer Vision usa el recorte inteligente para identificar el área de interés de forma inteligente y generar coordenadas de recorte en función de esa región.
+Con el método [Get Thumbnail](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), puede generar una miniatura de una imagen.
 
 Para ejecutar el ejemplo, siga estos pasos:
 
@@ -45,11 +46,6 @@ Para ejecutar el ejemplo, siga estos pasos:
 >[!NOTE]
 >Debe utilizar la misma ubicación en la llamada de REST que utilizó para obtener las claves de la suscripción. Por ejemplo, si obtuvo sus claves de suscripción de westus, reemplace "westcentralus" en la siguiente URL por "westus".
 
-## <a name="prerequisites"></a>Requisitos previos
-
-- Debe tener [cURL](https://curl.haxx.se/windows).
-- Debe tener una clave de suscripción para Computer Vision. Para obtener una clave de suscripción, consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
-
 ## <a name="create-and-run-the-sample-command"></a>Creación y ejecución del comando de ejemplo
 
 Para crear y ejecutar el ejemplo, siga estos pasos:
@@ -63,21 +59,17 @@ Para crear y ejecutar el ejemplo, siga estos pasos:
 1. Abra una ventana de símbolo del sistema.
 1. Pegue el comando del editor de texto en la ventana del símbolo del sistema y después ejecute el comando.
 
-```console
-curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
-```
+    ```console
+    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
+    ```
 
 ## <a name="examine-the-response"></a>Examen de la respuesta
 
 Una respuesta correcta escribe la imagen en miniatura en el archivo especificado en `<thumbnailFile>`. Si se produce un error en la solicitud, la respuesta contiene un código de error y un mensaje para ayudar a determinar qué salió mal.
 
-## <a name="clean-up-resources"></a>Limpieza de recursos
-
-Cuando ya no sean necesarios, cierre la ventana del símbolo del sistema y el editor de texto.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explore las versiones de Computer Vision API que se usan para analizar una imagen, detectar celebridades y sitios emblemáticos, crear una miniatura y extraer texto impreso y manuscrito. Para experimentar rápidamente con la versión de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explore las versiones de Computer Vision API para ver cómo analizar una imagen, detectar celebridades y sitios emblemáticos, crear una miniatura y extraer texto impreso y manuscrito. Para experimentar rápidamente con la versión de Computer Vision API, pruebe la [consola de pruebas de Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Explore Computer Vision API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

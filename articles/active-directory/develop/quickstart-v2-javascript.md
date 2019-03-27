@@ -4,7 +4,7 @@ description: Aprenda la forma en que las aplicaciones de JavaScript pueden llama
 services: active-directory
 documentationcenter: dev-center-name
 author: navyasric
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.service: active-directory
 ms.subservice: develop
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a97e03f3c195b9fbd0ee7a09950414b7a940c7c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fe8c2287da7a7eabc26ff134d8bb44c5e45085f1
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56217486"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58203054"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-application"></a>Inicio rápido: Inicio de sesión y adquisición de un token de acceso por parte de los usuarios desde una aplicación de JavaScript
 
@@ -29,7 +29,7 @@ ms.locfileid: "56217486"
 
 En esta guía de inicio rápido aprenderá a usar un código de ejemplo que muestra cómo una aplicación de página única (SPA) de JavaScript puede iniciar sesión en cuentas personales, profesionales y educativas, obtener un token de acceso para llamar a Microsoft Graph API o a cualquier API web.
 
-![Funcionamiento de la aplicación de ejemplo que se genera en esta guía de inicio rápido](media/quickstart-v2-javascript/javascriptspa-intro.png)
+![Muestra cómo funciona la aplicación de ejemplo generada por este inicio rápido.](media/quickstart-v2-javascript/javascriptspa-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>Registro y descarga de la aplicación de inicio rápido
@@ -74,14 +74,15 @@ Puede elegir entre estas opciones la más adecuada para su entorno de desarrollo
 * [Descargue el proyecto de Visual Studio](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)
 
 Extraiga el archivo ZIP en una carpeta local (por ejemplo, **C:\Azure-Samples**).
+Para abrir los archivos de la carpeta, use un editor como [Visual Studio Code](https://code.visualstudio.com/).
 
 #### <a name="step-3-configure-your-javascript-app"></a>Paso 3: Configuración de la aplicación de JavaScript
 
 > [!div renderon="docs"]
-> Edite `index.html` y establezca los valores `clientID` y `authority` bajo `applicationConfig`.
+> En la carpeta *JavaScriptSPA*, edite `index.html` y establezca los valores `clientID` y `authority` que hay bajo `applicationConfig`.
 
 > [!div class="sxs-lookup" renderon="portal"]
-> Edite `index.html` y reemplace `applicationConfig` por:
+> En la carpeta *JavaScriptSPA*, edite `index.html` y reemplace `applicationConfig` por:
 
 ```javascript
 var applicationConfig = {
@@ -103,13 +104,9 @@ var applicationConfig = {
 > > [!TIP]
 > > Para buscar los valores de **Identificador de aplicación (cliente)**, **Identificador de directorio (inquilino)** y **Tipos de cuenta admitidos**, vaya a la página **Información general** en Azure Portal.
 
-> [!NOTE]
-> El servidor está configurado para escuchar en el puerto 30662 en el archivo *server.js* en el proyecto [Node.js](https://nodejs.org/en/download/) y el archivo *.csproj* en el proyecto de [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
->
-
 #### <a name="step-4-run-the-project"></a>Paso 4: Ejecución del proyecto
 
-* Si usa Node.js:
+* Si usa [Node.js](https://nodejs.org/en/download/):
 
     1. Ejecute el comando siguiente desde el directorio del proyecto para iniciar el servidor:
 
@@ -122,7 +119,7 @@ var applicationConfig = {
     1. Haga clic en el botón **Iniciar sesión**, inicie sesión y llame a Microsoft Graph API.
 
 
-* Si usa Visual Studio, asegúrese de seleccionar la solución del proyecto y presione **F5** para ejecutar el proyecto.
+* Si usa [Visual Studio](https://visualstudio.microsoft.com/downloads/), asegúrese de seleccionar la solución del proyecto y presione **F5** para ejecutar el proyecto.
 
 ## <a name="more-information"></a>Más información
 
@@ -217,9 +214,9 @@ Para obtener una guía paso a paso más detallada acerca de cómo compilar la ap
 ### <a name="learn-the-steps-to-create-the-application-for-this-quickstart"></a>Más información acerca de los pasos para crear la aplicación para esta guía de inicio rápido
 
 > [!div class="nextstepaction"]
-> [Llamar al tutorial de Graph API](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-javascriptspa)
+> [Tutorial para iniciar sesión y llamar a MS Graph](https://docs.microsoft.com/azure/active-directory/develop/guidedsetups/active-directory-javascriptspa)
 
 ### <a name="browse-the-msal-repo-for-documentation-faq-issues-and-more"></a>Examen del repositorio de MSAL para encontrar documentación, preguntas más frecuentes, problemas, etc.
 
 > [!div class="nextstepaction"]
-> [Repositorio de GitHub msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)
+> [Repositorio de GitHub MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)

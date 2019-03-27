@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 3/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be4cbc7e955e56853809378f98e9733ffe4a20c3
-ms.sourcegitcommit: c8088371d1786d016f785c437a7b4f9c64e57af0
+ms.openlocfilehash: 288a6e1b1d88fcef6fbd5554ba811acc1dab776e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52633731"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994245"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutorial: Implementación y configuración de Azure Firewall mediante Azure Portal
 
@@ -54,7 +54,7 @@ En primer lugar, cree un grupo de recursos para que contenga los recursos necesa
 
 El grupo de recursos contiene todos los recursos necesarios para el tutorial.
 
-1. Inicie sesión en Azure Portal en [http://portal.azure.com](http://portal.azure.com).
+1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 2. En la página principal de Azure Portal, haga clic en **Grupos de recursos** > **Agregar**.
 3. En **Nombre del grupo de recursos**, escriba **Test-FW-RG**.
 4. En **Suscripción**, seleccione la suscripción.
@@ -110,7 +110,7 @@ Ahora cree las máquinas virtuales de salto y de cargas de trabajo, y colóquela
 5. En **Seleccionar puertos de entrada**, seleccione **RDP (3389)**.
 
 6. Acepte los valores predeterminados y haga clic en **Siguiente: Discos**.
-7. Acepte los discos predeterminados y haga clic en **Siguiente: Redes**.
+7. Acepte los valores predeterminados de disco y haga clic en **Siguiente: Redes**.
 8. Asegúrese de que **Test-FW-VN** está seleccionada como red virtual y que la subred es **Jump-SN**.
 9. En **Dirección IP pública**, haga clic en **Crear nueva**.
 10. Escriba **Srv-Jump-PIP** para el nombre de la dirección IP pública y haga clic en **Aceptar**.
@@ -168,7 +168,7 @@ En la subred **Workload-SN**, configure la ruta predeterminada de salida que pas
 9. Haga clic en **Actualizar**y, a continuación, haga clic en la tabla de rutas **Firewall-route**.
 10. Haga clic en **Subredes** > **Asociar**.
 11. Haga clic en **Red virtual** > **FW-Test-VN**.
-12. En **Subred**, haga clic en **Workload-SN**. Asegúrese de seleccionar únicamente la subred **Workload-SN** para esta ruta, o el firewall no funcionará correctamente.
+12. En **Subred**, haga clic en **Workload-SN**. Asegúrese de seleccionar únicamente la subred **Workload-SN** para esta ruta o el firewall no funcionará correctamente.
 
 13. Haga clic en **OK**.
 14. Haga clic en **Rutas** > **Agregar**.
@@ -235,16 +235,16 @@ Ahora, pruebe el firewall para confirmar que funciona según lo previsto.
 1. En Azure Portal, revise la configuración de red de la máquina virtual **Srv-Work** y anote la dirección IP privada.
 2. Conecte un escritorio remoto a la máquina virtual **Srv-Jump** y desde allí abra una conexión de escritorio remoto a la dirección IP privada **Srv-Work**.
 
-3. Abra Internet Explorer y vaya a http://msn.com.
+3. Abra Internet Explorer y vaya a https://msn.com.
 4. Haga clic en **Aceptar** > **Cerrar** en las alertas de seguridad.
 
    Debería ver la página principal de MSN.
 
-5. Vaya a http://www.msn.com.
+5. Vaya a https://www.msn.com.
 
    El firewall debería bloquearle.
 
-Con ello, ha comprobado que funcionan las reglas de firewall:
+Con ello, ha comprobado que las reglas de firewall funcionan:
 
 - Puede navegar al FQDN permitido pero no a ningún otro.
 - Puede resolver nombres DNS con el servidor DNS externo configurado.

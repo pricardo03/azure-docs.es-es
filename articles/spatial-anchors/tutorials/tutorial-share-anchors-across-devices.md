@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Uso compartido entre sesiones y dispositivos con Azure Spatial Anchors | Microsoft Docs'
-description: En este tutorial, obtendrá información sobre cómo compartir los identificadores espaciales de Azure Spatial Anchors entre los dispositivos de Unity con un servicio de back-end.
+description: En este tutorial, obtendrá información sobre cómo compartir los identificadores espaciales de Azure Spatial Anchors entre dispositivos Android/iOS de Unity con un servicio de back-end.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: df7f8aa5b49e3fe17be3b17a6e0f5d8861b26253
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 7d9fe58b7db60513eed81aae628ebd7ca754a53a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753511"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901311"
 ---
 # <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors"></a>Tutorial: Uso compartido entre sesiones y dispositivos con Azure Spatial Anchors
 
@@ -41,11 +41,19 @@ Es importante destacar que, aunque se va a usar Unity y una aplicación web de A
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
+## <a name="open-the-sample-project-in-unity"></a>Apertura del proyecto de ejemplo en Unity
+
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
+
 ## <a name="deploy-your-sharing-anchors-service"></a>Implementación del uso compartido del servicio de delimitadores
 
 Abra Visual Studio y abra el proyecto en la carpeta `Sharing\SharingServiceSample`.
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
+
+## <a name="open-the-sample-project-in-unity"></a>Apertura del proyecto de ejemplo en Unity
+
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
 
@@ -53,7 +61,9 @@ Abra Visual Studio y abra el proyecto en la carpeta `Sharing\SharingServiceSampl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha implementado una aplicación web de ASP.NET Core en Azure y ha configurado e implementado una aplicación de Unity. Ha creado delimitadores espaciales con la aplicación y los ha compartido con otros dispositivos mediante la aplicación web de ASP.NET Core. Para más información sobre cómo mejorar su aplicación web de ASP.NET Core para que use Cosmos DB para almacenar los delimitadores espaciales compartidos, continúe con el tutorial siguiente.
+En este tutorial, ha implementado una aplicación web de ASP.NET Core en Azure y ha configurado e implementado una aplicación de Unity. Ha creado delimitadores espaciales con la aplicación y los ha compartido con otros dispositivos mediante la aplicación web de ASP.NET Core.
+
+Para más información sobre cómo mejorar su aplicación web de ASP.NET Core para que use Azure Cosmos DB para almacenar los delimitadores espaciales compartidos, continúe con el tutorial siguiente.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Uso de Cosmos DB para almacenar delimitadores](./tutorial-use-cosmos-db-to-store-anchors.md)
+> [Tutorial: Uso de Azure Cosmos DB para almacenar delimitadores](./tutorial-use-cosmos-db-to-store-anchors.md)

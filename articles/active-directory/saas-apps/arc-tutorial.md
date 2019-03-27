@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: ae609583-f875-4cb8-b68e-1b0b7938e9a7
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2029b90b4f23b22fa20ad8a89af308f6c16b410e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8eec05507cd66e2b856e3110bfb60f24c87dfdf7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872580"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57879978"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arc-publishing---sso"></a>Tutorial: Integración de Azure Active Directory con Arc Publishing - SSO
 
@@ -154,11 +154,11 @@ Para configurar el inicio de sesión único de Azure AD con Arc Publishing - SSO
     > [!NOTE]
     > Aquí, el atributo **groups** se asigna a **user.assignedroles**. Son roles personalizados creados en Azure AD para asignar los nombres de los grupos en la aplicación. [Aquí](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) encontrará más información sobre cómo crear roles personalizados en Azure AD. 
 
-8. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
+1. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-9. En la sección **Set up Arc Publishing - SSO** (Configurar Arc Publishing - SSO), copie las direcciones URL adecuadas según sus necesidades.
+1. En la sección **Set up Arc Publishing - SSO** (Configurar Arc Publishing - SSO), copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -190,7 +190,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

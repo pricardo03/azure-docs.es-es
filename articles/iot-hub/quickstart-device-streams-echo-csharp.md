@@ -8,18 +8,20 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 7b3a8ac0500652b8c4250b4bc3b4f5514b62c4aa
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 0b39943b318afd6f9aabd6ab0711651d64e975cf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816948"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58121611"
 ---
 # <a name="quickstart-communicate-to-device-applications-in-c-via-iot-hub-device-streams-preview"></a>Inicio rápido: Comunicación con aplicaciones de dispositivo en C# mediante flujos de dispositivo de IoT Hub (versión preliminar)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
+
+Microsoft Azure IoT Hub actualmente admite flujos de dispositivos como una [versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [Los flujos de dispositivo de IoT Hub](./iot-hub-device-streams-overview.md) permiten que las aplicaciones de servicio y de dispositivo se comuniquen de forma segura y apta para el firewall. En este artículo de inicio rápido se trabaja con dos programas de C# que aprovechan los flujos de dispositivo para enviar datos de un lado a otro (eco).
 
@@ -28,6 +30,11 @@ ms.locfileid: "56816948"
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+La versión preliminar de los flujos de dispositivos solo se admite en este momento en instancias de IoT Hub creadas en las siguientes regiones:
+
+  - **Centro de EE. UU.**
+  - **EUAP de centro de EE. UU.**
 
 Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con C#. Necesita el SDK de .NET Core 2.1.0 o una versión posterior en el equipo de desarrollo.
 
@@ -79,7 +86,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
    **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --hub-name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
     Tome nota del valor devuelto, que es similar a este:
@@ -140,7 +147,7 @@ dotnet run "<DeviceConnectionString>"
 dotnet run <DeviceConnectionString>
 ```
 
-Al final del último paso, el programa del lado del servicio iniciará un flujo hacia el dispositivo y, una vez que establecido, enviará un búfer de cadena al servicio a través de dicho flujo. En este ejemplo, el programa del lado de servicio simplemente devuelve los mismos datos al dispositivo, lo que demuestra que la comunicación entre las dos aplicaciones es correcta. Consulte la figura siguiente.
+Al final del último paso, el programa del lado del servicio iniciará un flujo hacia el dispositivo y, una vez que establecido, enviará un búfer de cadena al servicio a través de dicho flujo. En este ejemplo, el programa del lado de servicio simplemente devuelve los mismos datos al dispositivo, lo que demuestra que la comunicación bidireccional entre las dos aplicaciones es correcta. Consulte la figura siguiente.
 
 Salida de la consola en el lado del dispositivo: ![alt text](./media/quickstart-device-streams-echo-csharp/device-console-output.png "Salida de la consola en el lado del dispositivo")
 

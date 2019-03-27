@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 58ee5481-ae40-4e4a-a3c9-86343851fc9a
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52f5dd0971574d7f95483adb0e311abc6041c126
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 8896922cf3f95439b76e12faf9577ca6570fbdf7
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869968"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880728"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cimpl"></a>Tutorial: Integración de Azure Active Directory con Cimpl
 
@@ -148,7 +148,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

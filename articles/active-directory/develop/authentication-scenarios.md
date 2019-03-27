@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58b0d2c12a4e2088964e397b1bc499fa4adfdff3
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
+ms.openlocfilehash: 172bc96857c6aa0ab19fd4f1a13870dd493100bf
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56244562"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295715"
 ---
 # <a name="what-is-authentication"></a>¿Qué es la autenticación?
 
@@ -79,7 +79,7 @@ Azure AD representa aplicaciones siguiendo un modelo específico que se ha dise�
 
 En Azure AD, un **objeto de aplicación** describe una aplicación como entidad abstracta. Los desarrolladores trabajan con aplicaciones. Durante la implementación, Azure AD usa un objeto de aplicación determinado como plano técnico para crear una **entidad de servicio**, que representa una instancia concreta de una aplicación en un directorio o inquilino. Es la entidad de servicio la que define lo que la aplicación realmente puede hacer en un directorio de destino específico, quién la puede usar, a qué recursos tiene acceso, etc. Azure AD crea una entidad de servicio desde un objeto de aplicación a través del **consentimiento**.
 
-En el siguiente diagrama se muestra un flujo de aprovisionamiento de Azure AD basado en el consentimiento.
+En el siguiente diagrama se muestra un flujo de aprovisionamiento de Azure AD basado en el consentimiento.  En él, existen dos inquilinos (A y B), el inquilino A es propietario de la aplicación y el inquilino B crea una instancia de la aplicación mediante una entidad de servicio.  
 
 ![Flujo de aprovisionamiento simplificado basado en el consentimiento](./media/authentication-scenarios/simplified-provisioning-flow-consent.png)
 
@@ -87,14 +87,14 @@ En este flujo de aprovisionamiento:
 
 |   |   |
 |---|---|
-| 1 | Un usuario de B intenta iniciar sesión con la aplicación |
+| 1 | Un usuario del inquilino B intenta iniciar sesión con la aplicación |
 | 2 | Se adquieren y verifican las credenciales de usuario |
 | 3 | El usuario debe dar su consentimiento para que la aplicación tenga acceso al inquilino B |
-| 4 | Azure AD usa el objeto de aplicación de A como plano técnico para crear una entidad de servicio en B |
+| 4 | Azure AD usa el objeto de aplicación de A como plano técnico para crear una entidad de servicio en el inquilino B |
 | 5 | El usuario recibe el token solicitado |
 |   |   |
 
-Puede repetir este proceso tantas veces como quiera para otros inquilinos (C, D, etc.). El directorio A conserva el plano técnico para la aplicación (objeto de aplicación). Los usuarios y administradores del resto de inquilinos en que se concede consentimiento a la aplicación conservan el control sobre lo que puede hacer la aplicación a través del objeto de la entidad de servicio correspondiente de cada inquilino. Para más información, consulte [Objetos de aplicación y de entidad de servicio en Azure AD](app-objects-and-service-principals.md).
+Puede repetir este proceso tantas veces como quiera para otros inquilinos (C, D, etc.). El inquilino A conserva el plano técnico de la aplicación (objeto de aplicación). Los usuarios y administradores del resto de inquilinos en que se concede consentimiento a la aplicación conservan el control sobre lo que puede hacer la aplicación a través del objeto de la entidad de servicio correspondiente de cada inquilino. Para más información, consulte [Objetos de aplicación y de entidad de servicio en Azure AD](app-objects-and-service-principals.md).
 
 ## <a name="claims-in-azure-ad-security-tokens"></a>Notificaciones de tokens de seguridad de Azure AD
 

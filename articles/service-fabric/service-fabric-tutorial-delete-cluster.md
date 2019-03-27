@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 09/26/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: d4f530e38b6fd69d814765f4133201dd12a87f22
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 62372b4ce4032e019219b5be8c5a49ea135782c1
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668589"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223281"
 ---
 # <a name="tutorial-remove-a-service-fabric-cluster-running-in-azure"></a>Tutorial: Eliminación de un clúster de Service Fabric que se ejecuta en Azure
 
-Este tutorial es la cuarta parte de una serie y le muestra cómo eliminar un clúster de Service Fabric que se ejecuta en Azure. Para eliminar completamente un clúster de Service Fabric, también debe eliminar todos los recursos que usa el clúster. Tiene dos opciones: eliminar el grupo de recursos en el que se encuentra el clúster (lo que elimina el recurso del clúster y todos los demás recursos del grupo) o eliminar específicamente el recurso del clúster y sus recursos asociados (pero ningún otro recurso del grupo).
+Este tutorial es la quinta parte de una serie y le muestra cómo eliminar un clúster de Service Fabric que se ejecuta en Azure. Para eliminar completamente un clúster de Service Fabric, también debe eliminar todos los recursos que usa el clúster. Tiene dos opciones: eliminar el grupo de recursos en el que se encuentra el clúster (lo que elimina el recurso del clúster y todos los demás recursos del grupo) o eliminar específicamente el recurso del clúster y sus recursos asociados (pero ningún otro recurso del grupo).
 
 En este tutorial, aprenderá a:
 
@@ -35,6 +35,7 @@ En este tutorial, aprenderá a:
 En esta serie de tutoriales, se aprende a:
 > [!div class="checklist"]
 > * Creación de un [clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) en Azure mediante una plantilla
+> * [Supervisión de un clúster](service-fabric-tutorial-monitor-cluster.md)
 > * [Escalado o reducción horizontal](service-fabric-tutorial-scale-cluster.md)
 > * [Actualización del entorno en tiempo de ejecución de un clúster](service-fabric-tutorial-upgrade-cluster.md)
 > * Eliminación de un clúster
@@ -50,7 +51,7 @@ Antes de empezar este tutorial:
 ## <a name="delete-the-resource-group-containing-the-service-fabric-cluster"></a>Eliminación del grupo de recursos que contiene el clúster de Service Fabric
 La manera más sencilla de eliminar el clúster y todos los recursos que consume es eliminar el grupo de recursos.
 
-Inicie sesión en Azure y seleccione el identificador de suscripción con el que quiere quitar el clúster.  Para encontrar el identificador de suscripción, inicie sesión en [Azure Portal](http://portal.azure.com). Elimine el grupo de recursos y todos los recursos de clúster mediante el cmdlet [Remove-AzureRMResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) o el comando [az group delete](/cli/azure/group?view=azure-cli-latest).
+Inicie sesión en Azure y seleccione el identificador de suscripción con el que quiere quitar el clúster.  Para encontrar el identificador de suscripción, inicie sesión en [Azure Portal](https://portal.azure.com). Elimine el grupo de recursos y todos los recursos de clúster mediante el cmdlet [Remove-AzureRMResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) o el comando [az group delete](/cli/azure/group?view=azure-cli-latest).
 
 ```powershell
 Connect-AzureRmAccount

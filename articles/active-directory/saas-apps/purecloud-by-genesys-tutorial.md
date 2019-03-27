@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: e16a46db-5de2-4681-b7e0-94c670e3e54e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: c9b2770f861098993623d69f6b9f6a1577c9cf27
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: d1cc7735b8caa952a5ab7695d3e1f35b03fec1bb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56890596"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57890685"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-purecloud-by-genesys"></a>Tutorial: Integración de Azure Active Directory con PureCloud by Genesys
 
@@ -105,6 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con PureCloud by Genesys
     ![Información de dominio y direcciones URL de inicio de sesión único de PureCloud by Genesys](common/idp-intiated.png)
 
      a. En el cuadro de texto **Identificador**, escriba una dirección URL según su región:
+
     | |
     |--|
     | `https://login.mypurecloud.com/saml` |
@@ -114,6 +115,7 @@ Para configurar el inicio de sesión único de Azure AD con PureCloud by Genesys
     | `https://login.mypurecloud.au/saml` |
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL según su región:
+
     | |
     |--|
     | `https://login.mypurecloud.com/saml` |
@@ -127,6 +129,7 @@ Para configurar el inicio de sesión único de Azure AD con PureCloud by Genesys
     ![Información de dominio y direcciones URL de inicio de sesión único de PureCloud by Genesys](common/metadata-upload-additional-signon.png)
 
     En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL según su región:
+    
     | |
     |--|
     | `https://login.mypurecloud.com` |
@@ -220,7 +223,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -275,7 +278,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en PureCloud by Genes
 
      a. En el cuadro de texto **Full Name** (Nombre), escriba el nombre de usuario **Brittasimon**.
 
-    b. En el cuadro de texto **E-mail** (Correo electrónico), escriba el correo electrónico del usuario; por ejemplo, **brittasimon@contoso.com**.
+    b. En el cuadro de texto **Email** (Correo electrónico), escriba el correo electrónico del usuario; por ejemplo, **brittasimon\@contoso.com**.
     
     c. Haga clic en **Create**(Crear).
 

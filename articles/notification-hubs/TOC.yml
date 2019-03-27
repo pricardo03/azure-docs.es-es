@@ -114,6 +114,20 @@ items:
       href: notification-hubs-php-push-notification-tutorial.md
     - name: 'Creación de un centro de notificaciones: Python'
       href: notification-hubs-python-push-notification-tutorial.md
+  - name: Configuración de Platform Notification Service
+    items:
+    - name: Configuración de Apple Push Notification Service
+      href: configure-apple-push-notification-service.md
+    - name: Configuración de Google Firebase Cloud Messaging
+      href: configure-google-firebase-cloud-messaging.md
+    - name: Configuración de Servicios de notificaciones de inserción de Windows
+      href: configure-windows-push-notification-service.md
+    - name: Configuración del Servicio de notificaciones push de Microsoft
+      href: configure-microsoft-push-notification-service.md
+    - name: Configuración de Mensajería de dispositivos Android
+      href: configure-android-device-messaging.md
+    - name: Configuración de Baidu Cloud Push
+      href: configure-baidu-cloud-push.md
   - name: Registro con back-end de aplicación
     href: notification-hubs-ios-aspnet-register-user-from-backend-to-push-notification.md
   - name: Uso de la autenticación basada en token con dispositivos de Apple
@@ -150,9 +164,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Opciones de soporte técnico
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: a618c3788c501f28d822021b35c925fcf85c7b3c
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: a5681a615638fdd14aecb2654e2c6d46f0a7bda4
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438774"
+ms.locfileid: "58486961"

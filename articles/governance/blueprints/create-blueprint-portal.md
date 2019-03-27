@@ -4,17 +4,17 @@ description: Utilice los planos técnicos de Azure Blueprints para crear, defini
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/01/2019
+ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 7aeb3cf2d56dbe20c85adca2243f5830575693e3
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: fdf87bff026dee4969b3995b37c31de3ead7714b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818670"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58004907"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definición y asignación de un plano técnico de Azure Blueprint en Azure Portal
 
@@ -42,7 +42,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
    ![Creación de un plano técnico](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Proporcione un **Nombre del plano técnico** como "MyBlueprint" (letras y números, hasta 48 caracteres, pero sin espacios ni caracteres especiales) para el plano técnico, pero deje **Descripción del plano técnico** en blanco por ahora.  En el cuadro **Ubicación de definición**, haga clic en el botón de puntos suspensivos de la derecha, seleccione el [grupo de administración](../management-groups/overview.md) o la suscripción donde desea guardar el plano técnico y haga clic en **Seleccionar**.
+1. Proporcione un **Nombre del plano técnico** como "MyBlueprint" (letras y números, hasta 48 caracteres, pero sin espacios ni caracteres especiales) para el plano técnico, pero deje **Descripción del plano técnico** en blanco por ahora. En el cuadro **Ubicación de definición**, haga clic en el botón de puntos suspensivos de la derecha, seleccione el [grupo de administración](../management-groups/overview.md) o la suscripción donde desea guardar el plano técnico y haga clic en **Seleccionar**.
 
 1. Compruebe que la información es correcta (los campos **Nombre del plano técnico** y **Ubicación de definición** no se pueden cambiar posteriormente) y haga clic en **Siguiente: Artefactos** en la parte inferior de la página o en la pestaña **Artefactos** en la parte superior de la página.
 
@@ -84,7 +84,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
            },
            "location": {
                "type": "string",
-               "defaultValue": "[resourceGroup().location]",
+               "defaultValue": "[resourceGroups('ResourceGroup').location]",
                "metadata": {
                    "description": "Location for all resources."
                }
@@ -129,7 +129,7 @@ En [Crear un plano técnico](#create-a-blueprint), no se proporcionó una descri
 
 1. En la lista de planos técnicos, haga clic con el botón derecho en el que creó anteriormente y seleccione **Editar plano técnico**.
 
-1. En **Descripción del plano técnico**, proporcione información sobre el plano técnico y los artefactos que lo componen.  En este caso, escriba un texto similar al siguiente: "Este plano técnico establece la directiva de etiquetas y la asignación de roles en la suscripción, crea un grupo de recursos e implementa una plantilla de recursos y una asignación de roles a ese grupo de recursos".
+1. En **Descripción del plano técnico**, proporcione información sobre el plano técnico y los artefactos que lo componen. En este caso, escriba un texto similar al siguiente: "Este plano técnico establece la directiva de etiquetas y la asignación de roles en la suscripción, crea un grupo de recursos e implementa una plantilla de recursos y una asignación de roles a ese grupo de recursos".
 
 1. Haga clic en **Siguiente: Artefactos** en la parte inferior de la página o en la pestaña **Artefactos** en la parte superior de la página.
 
@@ -188,11 +188,15 @@ Una vez que se publica un plano técnico, se puede asignar a una suscripción. A
 
 1. En **Nombre asignado**, proporcione un nombre único para esta asignación.
 
-1. En **Ubicación**, seleccione una región para la identidad administrada que se va a crear. Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado. Para más información, consulte [Identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+1. En **Ubicación**, seleccione una región donde crear la identidad administrada y el objeto de implementación de suscripción. Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado. Para más información, consulte [Identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-1. Deje el menú desplegable **Blueprint definition version** (Versión de definición del plano técnico) de versiones **publicadas** en la entrada "v1" (de forma predeterminada, como la versión **publicada** más reciente).
+1. Deje el menú desplegable **Blueprint definition version** (Versión de definición del plano técnico) de versiones **publicadas** en la entrada "v1" (de forma predeterminada, es la versión **publicada** más reciente).
 
 1. En **Asignación de bloqueo**, deje el valor predeterminado de **No bloquear**. Para más información, consulte [Bloqueo de recursos en planos técnicos](./concepts/resource-locking.md).
+
+   ![Asignación - Bloqueo e identidades administradas](./media/create-blueprint-portal/assignment-locking-mi.png)
+
+1. En **Identidad administrada**, deje el valor predeterminado de **Asignado por el sistema**.
 
 1. Para la asignación de roles a nivel de suscripción **[Nombre de aplicación o grupo de usuarios]: Colaborador**, busque y seleccione un usuario, aplicación o grupo.
 

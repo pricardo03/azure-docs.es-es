@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 02/19/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: f9ed10c84be86304722020606873b0c7866df1e8
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: aae3ec8ff713959c5cc2485951aba025a6f89a1e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594056"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58113289"
 ---
 # <a name="validate-oem-packages"></a>Validación de paquetes de OEM
 
@@ -41,56 +41,98 @@ Al usar el flujo de trabajo **Validación del paquete** para validar un paquete,
 
 Cree un contenedor en la cuenta de almacenamiento para los blobs de paquetes. Este contenedor puede utilizarse para todas las ejecuciones de Package Validation (Validación del paquete).
 
-1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento que creó en [Configuración de los recursos de Validación como servicio](azure-stack-vaas-set-up-resources.md).
-2. En la hoja izquierda de **Blob Service**, seleccione **Containers**.
-3. Seleccione **+ Contenedor** en la barra de menús y proporcione un nombre al contenedor, por ejemplo, `vaaspackages`.
+1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento que creó en [Configuración de los recursos de validación como servicio](azure-stack-vaas-set-up-resources.md).
+
+2. En la hoja izquierda de **Blob Service**, seleccione **Contenedores**.
+
+3. Seleccione **+ Contenedor** en la barra de menús.
+    1. Proporcione un nombre para el contenedor, por ejemplo, `vaaspackages`.
+    1. Seleccione el nivel de acceso deseado para los clientes no autenticados como VaaS. Para más información acerca de cómo conceder acceso de VaaS a los paquetes en cada escenario, consulte [Control del nivel de acceso de un contenedor](#handling-container-access-level).
 
 ### <a name="upload-package-to-storage-account"></a>Carga de un paquete en una cuenta de almacenamiento
 
-1. Prepare el paquete que desea validar. Si tiene varios archivos, comprímalos en un archivo `.zip`.
-2. En [Azure Portal](https://portal.azure.com), seleccione el contenedor del paquete y cargue el paquete; para ello, seleccione **Cargar** en la barra de menús.
-3. Seleccione el archivo `.zip` del paquete que se va a cargar. Mantenga los valores predeterminados para **Tipo de blob** (es decir, **Blob en bloques**) y **Tamaño de bloque**.
+1. Prepare el paquete que desea validar. Se trata de un archivo `.zip` cuyo contenido tiene que coincidir con la estructura descrita en [Creación de un paquete de OEM](azure-stack-vaas-create-oem-package.md).
 
-> [!NOTE]
-> Asegúrese de que el contenido del archivo `.zip` se coloca en la raíz del archivo `.zip`. El paquete no debe tener subcarpetas.
+    > [!NOTE]
+    > Asegúrese de que el contenido del archivo `.zip` se coloca en la raíz del archivo `.zip`. El paquete no debe tener subcarpetas.
+
+1. En [Azure Portal](https://portal.azure.com), seleccione el contenedor del paquete y cargue el paquete; para ello, seleccione **Cargar** en la barra de menús.
+
+1. Seleccione el archivo `.zip` del paquete que se va a cargar. Mantenga los valores predeterminados para **Tipo de blob** (es decir, **Blob en bloques**) y **Tamaño de bloque**.
 
 ### <a name="generate-package-blob-url-for-vaas"></a>Generación de la dirección URL del blob del paquete para VaaS
 
-Al crear un flujo de trabajo de **Package Validation** (Validación del paquete) en el portal de VaaS, deberá proporcionar una dirección URL a la instancia de Azure Storage Blob que contiene el paquete.
+Al crear un flujo de trabajo de **Package Validation** (Validación del paquete) en el portal de VaaS, deberá proporcionar una dirección URL a la instancia de Azure Storage Blob que contiene el paquete. Algunas pruebas *interactivas*, incluidas **Monthly AzureStack Update Verification** (Comprobación de actualización mensual de AzureStack) y **OEM Extension Package Verification** (Comprobación del paquete de extensión de OEM), también requieren una dirección URL para los blobs del paquete.
 
-#### <a name="option-1-generating-a-blob-sas-url"></a>Opción 1: Generar una dirección URL de SAS de blob
+#### <a name="handling-container-access-level"></a>Control del nivel de acceso de un contenedor
 
-Use esta opción si no desea habilitar el acceso de lectura público a su contenedor de almacenamiento o blobs.
+El nivel de acceso mínimo requerido por VaaS depende de si va a crear un flujo de trabajo de validación del paquete o programar una prueba *interactiva*.
 
-1. En el [Azure Portal](https://portal.azure.com/), vaya a la cuenta de almacenamiento y, después, al archivo .zip que contiene el paquete.
+En el caso de los niveles de acceso **Privado** y **Blob**, tiene que conceder acceso temporalmente al blob del paquete proporcionando a VaaS una [firma de acceso compartido](https://docs.microsoft.com/en-us/azure/storage/common/storage-dotnet-shared-access-signature-part-1?) (SAS). El nivel de acceso **Contenedor** no necesita que se generen direcciones URL de SAS, pero permite el acceso no autenticado al contenedor y sus blobs.
+
+|Nivel de acceso | Requisito de flujo de trabajo | Requisito de prueba |
+|---|---------|---------|
+|Privada | Generar una dirección URL de SAS por blob de paquete ([Opción 1](#option-1-generate-a-blob-sas-url)). | Generar una dirección URL de SAS en el nivel de cuenta y agregar manualmente el nombre del blob de paquete ([Opción 2](#option-2-construct-a-container-sas-url)). |
+|Blob | Proporcionar la propiedad de dirección URL de blob ([Opción 3](#option-3-grant-public-read-access)). | Generar una dirección URL de SAS en el nivel de cuenta y agregar manualmente el nombre del blob de paquete ([Opción 2](#option-2-construct-a-container-sas-url)). |
+|Contenedor | Proporcionar la propiedad de dirección URL de blob ([Opción 3](#option-3-grant-public-read-access)). | Proporcionar la propiedad de dirección URL de blob ([Opción 3](#option-3-grant-public-read-access)).
+
+Las opciones para conceder acceso a los paquetes se ordenan desde el menor acceso al mayor acceso.
+
+#### <a name="option-1-generate-a-blob-sas-url"></a>Opción 1: Generar una dirección URL de SAS de blob
+
+Use esta opción si se establece el nivel de acceso de su contenedor de almacenamiento en **Privado**, donde el contenedor no permite el acceso de lectura público para el contenedor o sus blobs.
+
+> [!NOTE]
+> Este método no funcionará para pruebas *interactivas*. Consulte [Opción 2: Construir un dirección URL de SAS del contenedor](#option-2-construct-a-container-sas-url).
+
+1. En [Azure Portal](https://portal.azure.com/), vaya a la cuenta de almacenamiento y, después, al archivo .zip que contiene el paquete.
 
 2. Seleccione **Generar SAS** en el menú contextual.
 
 3. Seleccione **Lectura** en **Permisos**.
 
-4. En **Hora de inicio** especifique la hora actual y en **Hora de finalización** una hora que sea al menos 48 horas posterior a la de inicio **.** Si va a ejecutar otras pruebas con el mismo paquete, considere la posibilidad de aumentar el valor de **Hora de finalización** para que abarque todo el tiempo que duren las pruebas. Las pruebas programadas mediante VaaS después del valor de **Hora de finalización** producirán un error y tendrá que generarse una nueva SAS.
+4. En **Hora de inicio** especifique la hora actual y en **Hora de finalización** una hora que sea al menos 48 horas posterior a la de inicio **.** Si va a crear otros flujos de trabajo con el mismo paquete, considere la posibilidad de aumentar el valor de **Hora de finalización** para que abarque todo el tiempo que duren las pruebas.
 
 5. Seleccione **Generate blob SAS token and URL** (Generar URL y token de SAS del blob).
 
 Use la **dirección URL de SAS del blob** al proporcionar las direcciones URL del blob de paquete para el portal.
 
-#### <a name="option-2-grant-public-read-access"></a>Opción 2: Conceder el acceso de lectura público
+#### <a name="option-2-construct-a-container-sas-url"></a>Opción 2: Construir un dirección URL de SAS del contenedor
+
+Use esta opción si el nivel de acceso de su contenedor de almacenamiento se establece en **Privado** y tiene que suministrar una dirección URL de blob de paquete a una prueba *interactiva*. También se puede usar esta dirección URL en el nivel de flujo de trabajo.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+
+1. Seleccione **Blob** en las **opciones de Servicios permitidos**. Anule la selección de las opciones restantes.
+
+1. Seleccione **Contenedor** y **Objeto** en **Tipos de recursos permitidos**.
+
+1. Seleccione **Lectura** y **Lista** en **Permisos permitidos**. Anule la selección de las opciones restantes.
+
+1. Seleccione para **Hora de inicio** la hora actual y para **Hora de finalización** un valor que sea al menos 14 días posterior a la **Hora de inicio.** Si va a ejecutar otras pruebas con el mismo paquete, considere la posibilidad de aumentar el valor de **Hora de finalización** para que abarque todo el tiempo que duren las pruebas. Las pruebas programadas mediante VaaS después del valor de **Hora de finalización** producirán un error y tendrá que generarse una nueva SAS.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
+    El formato debe ser similar al siguiente: `https://storageaccountname.blob.core.windows.net/?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+
+1. Modifique la dirección URL de SAS generada para incluir el contenedor del paquete, `{containername}`, y el nombre del blob del paquete, `{mypackage.zip}`, como sigue: `https://storageaccountname.blob.core.windows.net/{containername}/{mypackage.zip}?sv=2016-05-31&ss=b&srt=co&sp=rl&se=2017-05-11T21:41:05Z&st=2017-05-11T13:41:05Z&spr=https`
+
+    Use este valor al proporcionar las direcciones URL del blob de paquete para el portal.
+
+#### <a name="option-3-grant-public-read-access"></a>Opción 3: Conceder el acceso de lectura público
+
+Use esta opción si es aceptable permitir el acceso de clientes no autenticados a los blobs individuales o, en el caso de las pruebas *interactivas*, al contenedor.
 
 > [!CAUTION]
 > Esta opción abre los blobs para el acceso anónimo de solo lectura.
 
-1. Conceda **acceso de lectura público solo para blobs** al contenedor del paquete; para ello, siga las instrucciones de la sección [Concesión de permisos a usuarios anónimos a contenedores y blobs](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
+1. Establezca el nivel de acceso del contenedor de paquete en **Blob** o **Contenedor**; para ello, siga las instrucciones de la sección [Concesión de permisos a usuarios anónimos a contenedores y blobs](https://docs.microsoft.com/azure/storage/storage-manage-access-to-resources#grant-anonymous-users-permissions-to-containers-and-blobs).
 
-> [!NOTE]
-> Si va a proporcionar una dirección URL del paquete a una *prueba interactiva* (por ejemplo, la comprobación de la actualización mensual de AzureStack o la comprobación del paquete de extensión de OEM), debe conceder **acceso de lectura público completo** para seguir con las pruebas.
+    > [!NOTE]
+    > Si va a proporcionar una dirección URL del paquete a una prueba *interactiva*, tiene que conceder **acceso de lectura público completo** al contenedor para continuar con las pruebas.
 
-2. En el contenedor del paquete, seleccione el blob del paquete para abrir el panel de propiedades.
+1. En el contenedor del paquete, seleccione el blob del paquete para abrir el panel de propiedades.
 
-3. Copie la **dirección URL**. Use este valor al proporcionar las direcciones URL del blob de paquete para el portal.
-
-## <a name="apply-monthly-update"></a>Aplicación de actualización mensual
-
-[!INCLUDE [azure-stack-vaas-workflow-section_update-azs](includes/azure-stack-vaas-workflow-section_update-azs.md)]
+1. Copie la **dirección URL**. Use este valor al proporcionar las direcciones URL del blob de paquete para el portal.
 
 ## <a name="create-a-package-validation-workflow"></a>Creación de un flujo de trabajo Package Validation (Validación del paquete)
 
@@ -133,17 +175,44 @@ Las pruebas siguientes son necesarias para la validación del paquete de OEM:
 
     > [!NOTE]
     > La programación a través de una prueba de validación a través de una instancia existente creará una nueva instancia en el lugar de la anterior en el portal. Los registros de la instancia anterior se conservarán, pero no se podrá acceder a ellos desde el portal.  
-    Una vez finalizada una prueba correctamente, la acción **Schedule** (Programar) pasará a estar deshabilitada.
+    > Una vez finalizada una prueba correctamente, la acción **Schedule** (Programar) pasará a estar deshabilitada.
 
 2. Seleccione el agente que ejecutará la prueba. Para más información acerca de cómo agregar agentes de ejecución de prueba, consulte [Implementación del agente local](azure-stack-vaas-local-agent.md).
 
-3. Para completar la comprobación del paquete de extensión de OEM, seleccione **Schedule** (Programar) desde el menú contextual para abrir un símbolo del sistema y programar la instancia de prueba.
+3. Para completar la prueba OEM Extension Package Verification (Comprobación del paquete de extensión de OEM), seleccione **Schedule** (Programar) desde el menú contextual para abrir un símbolo del sistema y programar la instancia de prueba.
 
 4. Revise los parámetros de prueba y, luego, seleccione **Submit** (Enviar) para programar la ejecución de la comprobación del paquete de extensión de OEM.
 
+    OEM Extension Package Verification (Comprobación del paquete de extensión de OEM) se divide en dos pasos manuales: Actualización de Azure Stack y actualización de OEM.
+
+   1. **Seleccione** "Ejecutar" en la interfaz de usuario para ejecutar el script de comprobaciones previas. Se trata de una prueba automatizada que tarda aproximadamente 5 minutos en completarse y no requiere ninguna acción.
+
+   1. Una vez finalizado el script de comprobaciones previas, realice el paso manual: **instalar** la actualización más reciente disponible de Azure Stack mediante el portal de Azure Stack.
+
+   1. **Ejecute** Test-AzureStack en la marca. Si se produce algún error, no continúe con la prueba y póngase en contacto con [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
+
+       Para más información acerca de cómo ejecutar el comando Test-AzureStack, consulte [Validación del estado del sistema de Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-diagnostic-test).
+
+   1. **Seleccione** "Siguiente" para ejecutar el script de comprobaciones posteriores. Este es una prueba automatizada y marca el final del proceso de actualización de Azure Stack.
+
+   1. **Seleccione** "Ejecutar" para ejecutar el script de comprobaciones previas para la actualización de OEM.
+
+   1. Una vez finalizada la comprobación previa, realice el paso manual: **instalar** el paquete de extensión de OEM a través del portal.
+
+   1. **Ejecute** Test-AzureStack en la marca.
+
+      > [!NOTE]
+      > Como en el caso anterior, si se produce algún error, no continúe con la prueba y póngase en contacto con [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com). Este paso es fundamental, ya que le ahorrará una reimplementación.
+
+   1. **Seleccione** "Siguiente" para ejecutar el script de comprobaciones posteriores. Esto marca el final del paso de actualización de OEM.
+
+   1. Responda a cualquier pregunta que pueda haber al final de la prueba y **seleccione** "Enviar".
+
+   1. Esto marca el final de la prueba interactiva.
+
 5. Revise el resultado de la comprobación del paquete de extensión de OEM. Una vez que la prueba se haya realizado correctamente, programe el motor de simulación en la nube para ejecutarse.
 
-Cuando todas las pruebas finalicen correctamente, envíe el nombre de la solución de VaaS y la validación del paquete a [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) para solicitar la firma del paquete.
+Para enviar un solicitud de firma del paquete, envíe a [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com) el nombre de la solución y el nombre de la validación del paquete asociado con esta ejecución.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

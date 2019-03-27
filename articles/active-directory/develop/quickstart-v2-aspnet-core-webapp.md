@@ -4,7 +4,7 @@ description: Aprenda a implementar el inicio de sesión de Microsoft en una apli
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
-manager: mtillman
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/05/2018
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35cf4fbe17df05b6d55f3ce309ff8cecbb47d455
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: fed62dfc3f7e7dc974fb709261e363f26ce97c51
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204719"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200997"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de ASP.NET Core
 
@@ -30,8 +30,7 @@ ms.locfileid: "56204719"
 
 En esta guía de inicio rápido, obtendrá información sobre cómo una aplicación web ASP.NET Core puede iniciar sesión en cuentas personales (hotmail.com, outlook.com y otras), profesionales y educativas desde cualquier instancia de Azure Active Directory (Azure AD).
 
-![Funcionamiento de la aplicación de ejemplo generada por esta guía de inicio rápido](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.png)
-
+![Muestra cómo funciona la aplicación de ejemplo generada por este inicio rápido.](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registro y descarga de la aplicación de inicio rápido
@@ -143,7 +142,7 @@ La línea que contiene `.AddAzureAd` agrega la autenticación de Azure AD a la a
 > |Where  |  |
 > |---------|---------|
 > | ClientId  | El identificador de aplicación (cliente) de la aplicación registrada en Azure Portal. |
-> | Autoridad | El punto de conexión de STS para que el usuario se autentique. Normalmente es https://login.microsoftonline.com/{tenant}/v2.0 para la nube pública, donde {tenant} es el nombre del inquilino o el identificador del inquilino o *common* para hacer referencia al punto de conexión común (que se usa para las aplicaciones multiinquilino) |
+> | Autoridad | El punto de conexión de STS para que el usuario se autentique. Normalmente es <https://login.microsoftonline.com/{tenant}/v2.0> para la nube pública, donde {tenant} es el nombre del inquilino o el identificador del inquilino o *common* para hacer referencia al punto de conexión común (que se usa para las aplicaciones multiinquilino) |
 > | TokenValidationParameters | Una lista de parámetros para la validación del token. En este caso, `ValidateIssuer` se establece en `false` para indicar que puede aceptar inicios de sesión desde cualquier cuenta personal, profesional o educativa. |
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Protección de un controlador o del método de un controlador

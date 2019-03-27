@@ -2,21 +2,21 @@
 title: 'Tutorial: Uso de Azure Database Migration Service para migrar MongoDB a la API de Azure Cosmos DB para MongoDB en línea | Microsoft Docs'
 description: Aprenda a migrar desde el entorno local de MongoDB a la API de Azure Cosmos DB para MongoDB en línea mediante Azure Database Migration Service.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/27/2019
-ms.openlocfilehash: 06e76b8eed283c6ef09f38e876c60b05477cf0ce
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.date: 03/12/2019
+ms.openlocfilehash: dd14ec4f4b6395e5733f4f17165e94ca7e77f883
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56985825"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58008635"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms-preview"></a>Tutorial: Migración de MongoDB a la API de Azure Cosmos DB para MongoDB sin conexión mediante DMS (versión preliminar)
 Puede usar Azure Database Migration Service para realizar una migración en línea (tiempo de inactividad mínimo) de las bases de datos desde una instancia local o en la nube de MongoDB a la API de Azure Cosmos DB para MongoDB.
@@ -45,6 +45,15 @@ En este artículo se describe una migración en línea desde MongoDB a la API de
 Para completar este tutorial, necesita:
 - [Crear una cuenta para la API de Azure Cosmos DB para MongoDB](https://ms.portal.azure.com/#create/Microsoft.DocumentDB).
 - Crear una instancia de Azure Virtual Network para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local mediante [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+
+    > [!NOTE]
+    > Durante la configuración de la red virtual, si usa ExpressRoute con emparejamiento de redes con Microsoft, agregue los siguientes [puntos de conexión](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de servicio a la subred en la que se aprovisionará el servicio:
+    > - Punto de conexión de base de datos de destino (por ejemplo, punto de conexión de SQL, punto de conexión de Cosmos DB, etc.)
+    > - Punto de conexión de Storage
+    > - Punto de conexión de Service Bus
+    >
+    > Esta configuración es necesaria porque la instancia de Azure Database Migration Service carece de conectividad a internet.
+
 - Asegúrese de que las reglas del grupo de seguridad de red de VNET no bloquean los puertos de comunicación: 443, 53, 9354, 445 y 12000. Para obtener información más detallada sobre el filtrado de tráfico con NSG de Azure VNET, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Cambie el firewall del servidor de origen para permitir que Azure Database Migration Service acceda al servidor de MongoDB de origen que, de manera predeterminada, es el puerto TCP 27017.
 - Cuando se usa un dispositivo de firewall frente a las bases de datos de origen, puede que sea necesario agregar reglas de firewall para permitir que Azure Database Migration Service acceda a las bases de datos de origen para realizar la migración.
@@ -117,20 +126,20 @@ Después de crear el servicio, búsquelo en Azure Portal, ábralo y cree un proy
 1. En la pantalla **Detalles del origen**, especifique los detalles de conexión del servidor de MongoDB de origen.
 
     Hay tres modos de conexión a un origen:
-       * **Modo estándar**, que acepta un nombre de dominio completo o una dirección IP, número de puerto y las credenciales de conexión.
-       * **Modo de cadena de conexión**, que acepta una cadena de conexión de MongoDB, como se describe en el artículo [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/) (Formato de identificador URI de cadena de conexión).
-       * **Datos de Azure Storage**, que acepta un dirección URL de SAS del contenedor de blobs. Seleccione **El blob contiene volcados BSON** si el contenedor de blobs tiene volcados BSON producidos por la [herramienta bsondump](https://docs.mongodb.com/manual/reference/program/bsondump/) de MongoDB y anule su selección si el contenedor contiene archivos JSON.
+   * **Modo estándar**, que acepta un nombre de dominio completo o una dirección IP, número de puerto y las credenciales de conexión.
+   * **Modo de cadena de conexión**, que acepta una cadena de conexión de MongoDB, como se describe en el artículo [Connection String URI Format](https://docs.mongodb.com/manual/reference/connection-string/) (Formato de identificador URI de cadena de conexión).
+   * **Datos de Azure Storage**, que acepta un dirección URL de SAS del contenedor de blobs. Seleccione **El blob contiene volcados BSON** si el contenedor de blobs tiene volcados BSON producidos por la [herramienta bsondump](https://docs.mongodb.com/manual/reference/program/bsondump/) de MongoDB y anule su selección si el contenedor contiene archivos JSON.
 
-      Si selecciona esta opción, asegúrese de que la cadena de conexión de la cuenta de almacenamiento aparece en el formato:
+     Si selecciona esta opción, asegúrese de que la cadena de conexión de la cuenta de almacenamiento aparece en el formato:
 
-    ```
-    https://blobnameurl/container?SASKEY
-    ```
-      Además, según la información del tipo de volcado de memoria de Azure Storage, tenga en cuenta el siguiente detalle.
+     ```
+     https://blobnameurl/container?SASKEY
+     ```
+     Además, según la información del tipo de volcado de memoria de Azure Storage, tenga en cuenta el siguiente detalle.
 
-      * En el caso de los volcados de BSON, los datos del contenedor de blobs deben estar en formato bsondump, con el fin de que dichos archivos se coloquen en carpetas que se llamen igual que las bases de datos que contienen en el formato colección.bson. A los archivos de metadatos (si hubiera) se les deben asignar el nombre con el formato *colección*.metadata.json.
+     * En el caso de los volcados de BSON, los datos del contenedor de blobs deben estar en formato bsondump, con el fin de que dichos archivos se coloquen en carpetas que se llamen igual que las bases de datos que contienen en el formato colección.bson. A los archivos de metadatos (si hubiera) se les deben asignar el nombre con el formato *colección*.metadata.json.
 
-      * En el caso de los volcados de JSON, los archivos del contenedor de blobs deben colocarse en carpetas que se llamen igual que las bases de datos que contienen. Dentro de cada una de estas carpetas, los archivos de datos se deben colocar en una subcarpeta denominada "data" y se le debe asignar el nombre con el formato *colección*.json. Los archivos de metadatos (si hubiera) se deben colocar en una subcarpeta denominada "metadata" y se le debe asignar el nombre con el mismo formato, *colección*.json. Los archivos de metadatos deben estar en el mismo formato que los que genera la herramienta bsondump de MongoDB.
+     * En el caso de los volcados de JSON, los archivos del contenedor de blobs deben colocarse en carpetas que se llamen igual que las bases de datos que contienen. Dentro de cada una de estas carpetas, los archivos de datos se deben colocar en una subcarpeta denominada "data" y se le debe asignar el nombre con el formato *colección*.json. Los archivos de metadatos (si hubiera) se deben colocar en una subcarpeta denominada "metadata" y se le debe asignar el nombre con el mismo formato, *colección*.json. Los archivos de metadatos deben estar en el mismo formato que los que genera la herramienta bsondump de MongoDB.
 
    La dirección IP se puede usar en situaciones en las que no es posible la resolución de nombres de DNS.
 

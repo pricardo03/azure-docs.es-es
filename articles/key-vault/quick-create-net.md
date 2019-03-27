@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 8127a7a10c117edaefc4a215366990d847a165ec
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 346d97e6e3dad6ebacaae6c789137df4f33e2e72
+ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56238290"
+ms.lasthandoff: 03/04/2019
+ms.locfileid: "57316394"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una aplicación web de .NET
 
@@ -171,7 +171,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --s
 
 ```
 
-Ahora, cuando ejecute la aplicación debería ver el valor del secreto recuperado. En el comando anterior, otorga a la identidad de App Service los permisos para realizar operaciones **get** y **list** en Key Vault.
+Ahora, cuando ejecute la aplicación debería ver el valor del secreto recuperado. En el comando anterior, otorga a la identidad de App Service los permisos para realizar operaciones **get** y **list** en su almacén de claves.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 Elimine el grupo de recursos, la máquina virtual y todos los recursos relacionados Cuando ya no los necesite. Para ello, seleccione el grupo de recursos de la máquina virtual y seleccione **Eliminar**.

@@ -4,13 +4,13 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: c877cff20a2329ae07a15e1b198c4d407721c4ed
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 3e0f2593f6a5cf0ddfe74b51523476f7db8ae4de
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752922"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305088"
 ---
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha creado una cuenta de Spatial Anchors. Después, ha configurado e implementado una aplicación para guardar y recuperar los delimitadores espaciales. Para más información sobre cómo mejorar la aplicación para que pueda compartir delimitadores espaciales con otros dispositivos, continúe con el siguiente tutorial.
+En este inicio rápido, ha creado una cuenta de Spatial Anchors. Después, ha configurado e implementado una aplicación para guardar y recuperar los anclajes espaciales. Para más información acerca de cómo mejorar la aplicación para que pueda compartir anclajes espaciales con otros dispositivos, diríjase al siguiente tutorial.

@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/01/2018
+ms.date: 03/04/2018
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 12/01/2018
-ms.openlocfilehash: be7bf4596989cf8dfd154e0a366f93650546224b
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: c3ea877e3271dcb5bea527d661e12827eb64fa0c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55247364"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997421"
 ---
 # <a name="tutorial-create-a-staged-data-analytics-solution-with-azure-and-azure-stack"></a>Tutorial: Creación de una solución de análisis de datos almacenados provisionalmente con Azure y Azure Stack 
 
@@ -54,7 +54,7 @@ Se requiere cierta preparación para crear esta solución:
 
 -   Una suscripción de Azure. (Cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 
--   Descargue e instale el [Explorador de Microsoft Azure Storage](http://storageexplorer.com/).
+-   Descargue e instale el [Explorador de Microsoft Azure Storage](https://storageexplorer.com/).
 
 -   Deberá proporcionar sus propios datos para que los procesen las funciones. Los datos se deben generar y estar disponibles para cargarlos en el contenedor de blobs de almacenamiento de Azure Stack.
 
@@ -110,7 +110,7 @@ La cuenta de almacenamiento y el contenedor de blobs contienen todos los datos o
 
 6.  En la hoja de la cuenta, en el encabezado **BLOB SERVICE**, seleccione **Contenedores**.
 
-7.  En la parte superior de la hoja, seleccione **+ Contenedor.** y seleccione **Contenedor**.
+7.  En la parte superior de la hoja, seleccione **+ Contenedor** y **Contenedor**.
 
     ![Texto alternativo](media/azure-stack-solution-staged-data-analytics/image2.png)
 
@@ -175,25 +175,25 @@ Cree una función de Azure Stack para mover los datos limpios de Azure Stack a A
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Creación de una función desencadenada por Blob Storage
 
-1.  Expanda la aplicación de función y seleccione el botón **+**, que se encuentra junto a **Funciones**.
+1. Expanda la aplicación de función y seleccione el botón **+**, que se encuentra junto a **Funciones**.
 
-2.  En el campo de búsqueda, escriba `blob` y seleccione el lenguaje que desee para la plantilla **Desencadenador de blobs**.
+2. En el campo de búsqueda, escriba `blob` y seleccione el lenguaje que desee para la plantilla **Desencadenador de blobs**.
 
-  ![Elija la plantilla de desencadenador de Blob Storage.](media/azure-stack-solution-staged-data-analytics/image10.png)
+   ![Elija la plantilla de desencadenador de Blob Storage.](media/azure-stack-solution-staged-data-analytics/image10.png)
 
-3.  Use la configuración que se especifica en la tabla siguiente:
+3. Use la configuración que se especifica en la tabla siguiente:
 
-    | Configuración | Valor sugerido | DESCRIPCIÓN |
-    | ------- | ------- | ------- |
-    | NOMBRE | Único en la Function App | Nombre de la función desencadenada por este blob. |
-    | Ruta de acceso | \<ruta de acceso desde la ubicación de almacenamiento anterior> | Ubicación de Blob Storage que se está supervisando. El nombre de archivo del blob se pasa en el enlace como parámetro name. |
-    | Conexión de la cuenta de almacenamiento | Conexión de la aplicación de función | Puede usar la conexión de cuenta de almacenamiento que ya usa la aplicación de función o crear una nueva. |
+   | Configuración | Valor sugerido | DESCRIPCIÓN |
+   | ------- | ------- | ------- |
+   | NOMBRE | Único en la Function App | Nombre de la función desencadenada por este blob. |
+   | Ruta de acceso | \<ruta de acceso desde la ubicación de almacenamiento anterior> | Ubicación de Blob Storage que se está supervisando. El nombre de archivo del blob se pasa en el enlace como parámetro name. |
+   | Conexión de la cuenta de almacenamiento | Conexión de la aplicación de función | Puede usar la conexión de cuenta de almacenamiento que ya usa la aplicación de función o crear una nueva. |
 
-    **Ejemplo:**
+   **Ejemplo:**
 
-    ![Cree la función desencadenada por Blob Storage.](media/azure-stack-solution-staged-data-analytics/image11.png)
+   ![Cree la función desencadenada por Blob Storage.](media/azure-stack-solution-staged-data-analytics/image11.png)
 
-4.  Seleccione **Crear** para crear la función.
+4. Seleccione **Crear** para crear la función.
 
 ### <a name="test-the-function"></a>Prueba de la función
 
@@ -253,21 +253,21 @@ Utilice los pasos y valores que se han descrito anteriormente para crear otra cu
 
 ## <a name="test-the-queue-triggered-function"></a>Prueba de la función desencadenada por la cola
 
-1.  En el portal de Azure Stack, vaya a la función. Expanda los **registros** de la parte inferior de la página y asegúrese de que el streaming de registros no está en pausa.
+1. En el portal de Azure Stack, vaya a la función. Expanda los **registros** de la parte inferior de la página y asegúrese de que el streaming de registros no está en pausa.
 
-2.  Abra el Explorador de Storage y conéctese a la cuenta de almacenamiento que creó al principio de esta sección.
+2. Abra el Explorador de Storage y conéctese a la cuenta de almacenamiento que creó al principio de esta sección.
 
-3.  Expanda la cuenta de almacenamiento, **Contenedores de blobs**, y el blob que creó anteriormente. Seleccione **Cargar** y, después, **Cargar archivos**.
+3. Expanda la cuenta de almacenamiento, **Contenedores de blobs**, y el blob que creó anteriormente. Seleccione **Cargar** y, después, **Cargar archivos**.
 
-    ![Cargue un archivo en el contenedor de blobs.](media/azure-stack-solution-staged-data-analytics/image12.png)
+   ![Cargue un archivo en el contenedor de blobs.](media/azure-stack-solution-staged-data-analytics/image12.png)
 
-4.  En el cuadro de diálogo Cargar archivos, seleccione el campo Archivos. Busque un archivo en la máquina local, como un archivo de imagen, selecciónelo y haga clic en **Abrir** y, después, en **Cargar**.
+4. En el cuadro de diálogo Cargar archivos, seleccione el campo Archivos. Busque un archivo en la máquina local, como un archivo de imagen, selecciónelo y haga clic en **Abrir** y, después, en **Cargar**.
 
-5.  Vuelva a los registros de función y compruebe que se ha leído el blob.
+5. Vuelva a los registros de función y compruebe que se ha leído el blob.
 
-  **Ejemplo:**
+   **Ejemplo:**
 
-    ![Vea el mensaje en los registros.](media/azure-stack-solution-staged-data-analytics/image13.png)
+   ![Vea el mensaje en los registros.](media/azure-stack-solution-staged-data-analytics/image13.png)
 
 ## <a name="securely-stored-and-accessed-compliant-data"></a>Datos compatibles almacenados y a los que se accede de forma segura
 

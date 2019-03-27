@@ -9,12 +9,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: 5cf09753645d8238232e064af2ba1a301a2a7217
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: d247369647106cf1671a8770a6dce21f1a34a4b9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41919933"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58082201"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Incorporación de soluciones de actualización y control de cambios a Azure Automation
 
@@ -81,7 +81,7 @@ Ahora que las soluciones están habilitadas, puede agregar la máquina virtual d
    ![Habilitar la solución de actualizaciones para la máquina virtual](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> Si no espera hasta que la otra solución finalice, al habilitar la solución siguiente recibirá un mensaje que indica: *La instalación de otra solución está en curso en esta máquina virtual o en una distinta. Cuando finalice esa instalación estará habilitado el botón Habilitar y podrá solicitar la instalación de la solución en esta máquina virtual.*
+> Si no espera a que la otra solución finalice, al habilitar la siguiente solución recibirá este mensaje: *Instalación de otra solución en curso en esta o otra máquina virtual. Cuando finalice esa instalación estará habilitado el botón Habilitar y podrá solicitar la instalación de la solución en esta máquina virtual.*
 
 ## <a name="install-and-update-modules"></a>Instalar y actualizar módulos
 
@@ -105,7 +105,7 @@ Desde la página **Módulos**, seleccione **Explorar la galería** para abrir la
 1. Seleccione **Explorar la galería**.
 1. Busque **actualización y control de cambios**, haga clic en el runbook y seleccione **Importar** en la página **Ver código fuente**. Seleccione **Aceptar** para importar el runbook en la cuenta de Automation.
 
-  ![Importación de un runbook de incorporación](media/automation-onboard-solutions/import-from-gallery.png)
+   ![Importación de un runbook de incorporación](media/automation-onboard-solutions/import-from-gallery.png)
 
 1. En la página **Runbook**, seleccione **Editar** y, a continuación, seleccione **Publicar**. En el cuadro de diálogo **Publicar runbook**, seleccione **Sí** para publicar el runbook.
 

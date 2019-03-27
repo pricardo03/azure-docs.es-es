@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/07/2019
+ms.date: 03/14/2019
 ms.author: barclayn
-ms.openlocfilehash: 4dd81fd03c39dec3c34e614234a563ec8c2ced38
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0902e3fb64a73a095b457306aa561c13519e4066
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56117109"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58000615"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante Azure Portal
 
@@ -28,7 +28,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal en http://portal.azure.com.
+Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="create-a-vault"></a>Creación de un almacén
 
@@ -43,7 +43,6 @@ Inicie sesión en Azure Portal en http://portal.azure.com.
     - **Suscripción**: Elija una suscripción.
     - En **Grupo de recursos** elija **Crear nuevo** y escriba un nombre para el grupo de recursos.
     - En el menú desplegable **Ubicación**, elija una ubicación.
-    - Seleccione la casilla **Anclar al panel**.
     - Deje las restantes opciones con sus valores predeterminados.
 6. Después de proporcionar la información descrita anteriormente, seleccione **Crear**.
 
@@ -70,7 +69,11 @@ Para agregar un secreto al almacén, simplemente debe realizar un par de pasos a
 
 Una vez recibido el mensaje de que el secreto se ha creado correctamente, puede hacer clic en él en la lista. A continuación, puede ver algunas de las propiedades. Si hace clic en la versión actual puede ver el valor especificado en el paso anterior.
 
-![Propiedades del secreto](./media/quick-create-portal/version.png)
+![Propiedades del secreto](./media/quick-create-portal/current-version-hidden.png)
+
+Si hace clic en el botón "Mostrar valor secreto" en el panel de la derecha, puede usar el valor oculto. 
+
+![Valor secreto visible](./media/quick-create-portal/current-version-shown.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

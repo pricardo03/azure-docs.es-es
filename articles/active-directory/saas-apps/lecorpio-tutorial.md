@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31fc8eeb67c6ed3cb90f5ce1f5cc57eb9e6ff88a
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: e8eaa3abdaecd3c4a8d5b8ba3932f6bc1e561baf
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984074"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57858930"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lecorpio"></a>Tutorial: Integración de Azure Active Directory con Lecorpio
 
@@ -148,7 +148,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
      a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**.  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

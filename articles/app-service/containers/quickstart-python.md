@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 02/08/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 24d282b6e6e6f627d5893bb3514a77e4f82968e1
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 5cca0d866442583c87665b3a1db8c65c66d12f0a
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56309452"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285384"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Creación de una aplicación de Python en Azure App Service en Linux (versión preliminar)
 
@@ -109,12 +109,12 @@ Checking connectivity... done.
 
 Cambie al directorio que contiene el código de ejemplo y ejecute el comando `az webapp up`.
 
-En el siguiente ejemplo, reemplace <app_name > por un nombre único.
+En el siguiente ejemplo, reemplace <app-name> por un nombre de aplicación único.
 
 ```bash
 cd python-docs-hello-world
 
-az webapp up -n <app_name>
+az webapp up -n <app-name>
 ```
 
 Este comando puede tardar varios minutos en ejecutarse. Durante la ejecución, muestra información similar a la del ejemplo siguiente:
@@ -125,15 +125,15 @@ Creating Resource group 'appsvc_rg_Linux_CentralUS' ...
 Resource group creation complete
 Creating App service plan 'appsvc_asp_Linux_CentralUS' ...
 App service plan creation complete
-Creating app '<app_name>' ....
+Creating app '<app-name>' ....
 Webapp creation complete
 Creating zip with contents of dir /home/username/quickstart/python-docs-hello-world ...
 Preparing to deploy contents to app.
 All done.
 {
-  "app_url": "https:/<app_name>.azurewebsites.net",
+  "app_url": "https:/<app-name>.azurewebsites.net",
   "location": "Central US",
-  "name": "<app_name>",
+  "name": "<app-name>",
   "os": "Linux",
   "resourcegroup": "appsvc_rg_Linux_CentralUS ",
   "serverfarm": "appsvc_asp_Linux_CentralUS",
@@ -144,22 +144,14 @@ All done.
 }
 ```
 
-El comando `az webapp up` realiza las acciones siguientes:
-
-- Crear un grupo de recursos predeterminado.
-
-- Crear un plan de App Service predeterminado.
-
-- Crear una aplicación con el nombre especificado.
-
-- [Implementar con ZIP](https://docs.microsoft.com/azure/app-service/deploy-zip) archivos desde el directorio de trabajo actual a la aplicación.
+[!INCLUDE [AZ Webapp Up Note](../../../includes/app-service-web-az-webapp-up-note.md)]
 
 ## <a name="browse-to-the-app"></a>Navegación hasta la aplicación
 
 Vaya a la aplicación implementada mediante el explorador web.
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 El código de ejemplo de Python se ejecuta en App Service en Linux con una imagen integrada.
@@ -182,10 +174,10 @@ return "Hello Azure!"
 
 Guarde los cambios y salga del editor. Use el comando `^S` para guardar y `^Q` para salir.
 
-Ahora va a volver a implementar la aplicación. Sustituya `<app_name>` por su aplicación.
+Ahora va a volver a implementar la aplicación. Sustituya `<app-name>` por su aplicación.
 
 ```bash
-az webapp up -n <app_name>
+az webapp up -n <app-name>
 ```
 
 Una vez que la implementación haya finalizado, vuelva a la ventana del explorador que abrió en el paso **Navegación hasta la aplicación** y actualice la página.

@@ -9,14 +9,15 @@ ms.date: 07/02/2018
 ms.author: mimart
 author: msmimart
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: mal
+ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb01ae6514dfb97cc8a923619513383ace0b09a5
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: f4935cc15bf3edeccd6b6ce9da701904a32606db
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669982"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295035"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>Inicio rápido: Incorporación de usuarios invitados a su directorio en Azure Portal
 
@@ -39,15 +40,15 @@ Para completar el escenario de este tutorial, necesita:
 2. En el panel izquierdo, seleccione **Azure Active Directory**.
 3.  En **Administrar**, seleccione **Usuarios**.
 
-    ![Seleccione Azure Active Directory.](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
+    ![Captura de pantalla que muestra dónde se selecciona la opción Usuarios](media/quickstart-add-users-portal/quickstart-users-portal-user.png)
 
 4.  Seleccione **Nuevo usuario invitado**.
 
-    ![Seleccione Azure Active Directory.](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
+    ![Captura de pantalla que muestra dónde se selecciona la opción Nuevo usuario invitado](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
 
 5.  En **Nombre de usuario**, escriba la dirección de correo electrónico del usuario externo. En **Incluir un mensaje personal en la invitación**, escriba un mensaje de bienvenida. 
 
-    ![Seleccione Azure Active Directory.](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
+    ![Captura de pantalla que muestra dónde se escribe el mensaje de invitación](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
 
 6. Seleccione **Invitar** para enviar automáticamente la invitación al usuario invitado. Aparece una notificación en la esquina superior derecha con el mensaje **Usuario invitado correctamente**. 
 7.  Después de enviar la invitación, la cuenta de usuario se agrega automáticamente al directorio como invitado.
@@ -59,7 +60,7 @@ Agregue la aplicación de Salesforce a su inquilino de prueba y asigne el usuari
 3.  Seleccione **Nueva aplicación**.
 4. En **Agregar desde la galería**, busque **Salesforce** y después selecciónelo.
 
-    ![Seleccione Azure Active Directory.](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
+    ![Screenshot que muestra el cuadro de búsqueda Agregar desde la galería](media/quickstart-add-users-portal/quickstart-users-portal-select-salesforce.png)
 5. Seleccione **Agregar**.
 6. En **Administrar**, seleccione **Inicio de sesión único** y, en **Modo de inicio de sesión único**, seleccione **Inicio de sesión con contraseña** y haga clic en **Guardar**.
 7. En **Administrar**, seleccione **Usuarios y grupos** > **Agregar usuario** > **Usuarios y grupos**.
@@ -71,11 +72,11 @@ Ahora inicie sesión como usuario invitado para ver la invitación.
 1.  Inicie sesión en la cuenta de correo electrónico del usuario invitado de prueba.
 2.  En su Bandeja de entrada, busque el correo electrónico "Está invitado".
 
-    ![Correo electrónico de invitación a B2B](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
+    ![Captura de pantalla que muestra el correo electrónico de invitación de B2B](media/quickstart-add-users-portal/quickstart-users-portal-email-small.png)
 
 3.  En el cuerpo del correo electrónico, seleccione **Comenzar**. Se abre una página **Revisar permisos** en el explorador. 
 
-    ![Página de aceptación de la invitación a B2B](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
+    ![Captura de pantalla que muestra la página Revisar permisos](media/quickstart-add-users-portal/quickstart-users-portal-accept.png)
 
 4. Seleccione **Aceptar**. Se abre el panel de acceso, donde se enumeran las aplicaciones a las que el usuario invitado puede acceder.
 

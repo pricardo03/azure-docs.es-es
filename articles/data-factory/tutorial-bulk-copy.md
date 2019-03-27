@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: d22ea75dff884adbfaaa7975eb1d1542b4721f16
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 718e34cdba31b3b747ebb5c10f5c5708c0572448
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54438582"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57436602"
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copia de varias tablas en bloque mediante Azure Data Factory
 En este tutorial se muestra cómo puede **copiar varias tablas de Azure SQL Database a Azure SQL Data Warehouse**. Además, puede aplicar el mismo patrón en otros escenarios de copia. Por ejemplo, para copiar tablas de SQL Server u Oracle a Azure SQL Database, Data Warehouse o el blob de Azure, o bien para copiar diferentes rutas de acceso de blob a tablas de Azure SQL Database.
@@ -46,7 +46,9 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+* **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-Az-ps).
 * **Cuenta de Azure Storage**. La cuenta de Azure Storage se usa como almacenamiento de blobs de almacenamiento provisional en la operación de copia masiva. 
 * **Azure SQL Database**. Esta base de datos contiene los datos de origen. 
 * **Azure SQL Data Warehouse**. Este almacén de datos contiene los datos que se copian de SQL Database. 
@@ -78,24 +80,24 @@ Permita que los servicios de Azure accedan a SQL Server tanto para SQL Database 
     Ejecute el siguiente comando y escriba el nombre de usuario y la contraseña que utiliza para iniciar sesión en Azure Portal:
         
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
     Ejecute el siguiente comando para ver todas las suscripciones de esta cuenta:
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
     Ejecute el comando siguiente para seleccionar la suscripción con la que desea trabajar. Reemplace **SubscriptionId** con el identificador de la suscripción de Azure:
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"
+    Select-AzSubscription -SubscriptionId "<SubscriptionId>"
     ```
-2. Ejecute el cmdlet **AzureRmDataFactoryV2 Set** para crear una factoría de datos. Reemplace los marcadores de posición con sus propios valores antes de ejecutar el comando. 
+2. Ejecute el cmdlet **Set-AzDataFactoryV2** para crear una factoría de datos. Reemplace los marcadores de posición con sus propios valores antes de ejecutar el comando. 
 
     ```powershell
     $resourceGroupName = "<your resource group to create the factory>"
     $dataFactoryName = "<specify the name of data factory to create. It must be globally unique.>"
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName
     ```
 
     Tenga en cuenta los siguientes puntos:
@@ -137,10 +139,10 @@ En este tutorial, creará tres servicios vinculados para el origen, el receptor,
 
 2. En **Azure PowerShell**, cambie a la carpeta **ADFv2TutorialBulkCopy**.
 
-3. Ejecute el cmdlet **Set-AzureRmDataFactoryV2LinkedService** para crear el servicio vinculado: **AzureSqlDatabaseLinkedService**. 
+3. Ejecute el cmdlet **Set-AzDataFactoryV2LinkedService** para crear el servicio vinculado: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"
     ```
 
     Este es la salida de ejemplo:
@@ -174,10 +176,10 @@ En este tutorial, creará tres servicios vinculados para el origen, el receptor,
     }
     ```
 
-2. Para crear el servicio vinculado: **AzureSqlDWLinkedService**, ejecute el cmdlet **Set-AzureRmDataFactoryV2LinkedService**.
+2. Para crear el servicio vinculado: **AzureSqlDWLinkedService**, ejecute el cmdlet **Set-AzDataFactoryV2LinkedService**.
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWLinkedService" -File ".\AzureSqlDWLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWLinkedService" -File ".\AzureSqlDWLinkedService.json"
     ```
 
     Este es la salida de ejemplo:
@@ -213,10 +215,10 @@ En este tutorial, debe usar Azure Blob Storage como un área de almacenamiento p
     }
     ```
 
-2. Para crear el servicio vinculado: **AzureStorageLinkedService**, ejecute el cmdlet **Set-AzureRmDataFactoryV2LinkedService**.
+2. Para crear el servicio vinculado: **AzureStorageLinkedService**, ejecute el cmdlet **Set-AzDataFactoryV2LinkedService**.
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
     ```
 
     Este es la salida de ejemplo:
@@ -252,10 +254,10 @@ En este tutorial, creará los conjuntos de datos de origen y recepción que espe
     }
     ```
 
-2. Para crear el conjunto de datos: **AzureSqlDatabaseDataset**, ejecute el cmdlet **Set-AzureRmDataFactoryV2Dataset**.
+2. Para crear el conjunto de datos: **AzureSqlDatabaseDataset**, ejecute el cmdlet **Set-AzDataFactoryV2Dataset**.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseDataset" -File ".\AzureSqlDatabaseDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDatabaseDataset" -File ".\AzureSqlDatabaseDataset.json"
     ```
 
     Este es la salida de ejemplo:
@@ -296,10 +298,10 @@ En este tutorial, creará los conjuntos de datos de origen y recepción que espe
     }
     ```
 
-2. Para crear el conjunto de datos: **AzureSqlDWDataset**, ejecute el cmdlet **Set-AzureRmDataFactoryV2Dataset**.
+2. Para crear el conjunto de datos: **AzureSqlDWDataset**, ejecute el cmdlet **Set-AzDataFactoryV2Dataset**.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWDataset" -File ".\AzureSqlDWDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSqlDWDataset" -File ".\AzureSqlDWDataset.json"
     ```
 
     Este es la salida de ejemplo:
@@ -388,10 +390,10 @@ Esta canalización toma la lista de tablas como un parámetro. Para cada tabla d
     }
     ```
 
-2. Para crear la canalización: **IterateAndCopySQLTables**, ejecute el cmdlet **Set-AzureRmDataFactoryV2Pipeline**.
+2. Para crear la canalización: **IterateAndCopySQLTables**, ejecute el cmdlet **Set-AzDataFactoryV2Pipeline**.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IterateAndCopySQLTables" -File ".\IterateAndCopySQLTables.json"
+    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IterateAndCopySQLTables" -File ".\IterateAndCopySQLTables.json"
     ```
 
     Este es la salida de ejemplo:
@@ -464,10 +466,10 @@ Esta canalización lleva a cabo dos pasos:
     }
     ```
 
-2. Para crear la canalización: **GetTableListAndTriggerCopyData**, ejecute el cmdlet **Set-AzureRmDataFactoryV2Pipeline**.
+2. Para crear la canalización: **GetTableListAndTriggerCopyData**, ejecute el cmdlet **Set-AzDataFactoryV2Pipeline**.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "GetTableListAndTriggerCopyData" -File ".\GetTableListAndTriggerCopyData.json"
+    Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "GetTableListAndTriggerCopyData" -File ".\GetTableListAndTriggerCopyData.json"
     ```
 
     Este es la salida de ejemplo:
@@ -485,14 +487,14 @@ Esta canalización lleva a cabo dos pasos:
 1. Inicie una ejecución para la canalización principal "GetTableListAndTriggerCopyData" y capture el identificador de ejecución de la canalización a fin de poder realizar una supervisión en el futuro. De forma subyacente, desencadena la ejecución de la canalización "IterateAndCopySQLTables" tal como se especifica en la actividad ExecutePipeline.
 
     ```powershell
-    $runId = Invoke-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName 'GetTableListAndTriggerCopyData'
+    $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineName 'GetTableListAndTriggerCopyData'
     ```
 
 2.  Ejecute el siguiente script para comprobar continuamente el estado de ejecución de la canalización **GetTableListAndTriggerCopyData** e imprima la ejecución de la canalización final y el resultado de la ejecución de actividad.
 
     ```powershell
     while ($True) {
-        $run = Get-AzureRmDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
+        $run = Get-AzDataFactoryV2PipelineRun -ResourceGroupName $resourceGroupName -DataFactoryName $DataFactoryName -PipelineRunId $runId
 
         if ($run) {
             if ($run.Status -ne 'InProgress') {
@@ -507,7 +509,7 @@ Esta canalización lleva a cabo dos pasos:
         Start-Sleep -Seconds 15
     }
 
-    $result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $runId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     Write-Host "Activity run details:" -foregroundcolor "Yellow"
     $result
     ```
@@ -574,7 +576,7 @@ Esta canalización lleva a cabo dos pasos:
     ```
 
     ```powershell
-    $result2 = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId <copy above run ID> -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $result2 = Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId <copy above run ID> -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     $result2
     ```
 

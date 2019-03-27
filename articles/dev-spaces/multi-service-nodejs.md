@@ -1,21 +1,20 @@
 ---
-title: Ejecución de varios servicios dependientes con Node.js y VS Code | Microsoft Docs
+title: Ejecución de varios servicios dependientes con Node.js y VS Code
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 author: DrEsteban
 ms.author: stevenry
 ms.date: 11/21/2018
 ms.topic: tutorial
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: 8d305e051bd6708977926e3a4de47c15a784c7b6
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s '
+ms.openlocfilehash: 8d17ece1426c2aedda2ef98cb465dad532d4dba6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818823"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902712"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Desarrollo de varios servicios con Azure Dev Spaces
 
@@ -33,8 +32,8 @@ Ya debería tener el código de ejemplo de `mywebapi` necesario en esta guía, e
 ### <a name="run-mywebapi"></a>Ejecución de *mywebapi*
 1. Abra la carpeta `mywebapi` en una *ventana independiente de VS Code*.
 1. Abra la **Paleta de comandos** (mediante el menú **Vista | Paleta de comandos**) y use Autocompletar para escribir y seleccionar este comando: `Azure Dev Spaces: Prepare configuration files for Azure Dev Spaces`. Este comando no se debe confundir con el comando `azds prep`, que configura el proyecto para la implementación.
-1. Presione F5 y espere a que el servicio se compile e implemente. Sabrá que está listo cuando aparezca la barra de depuración de VS Code.
-1. Anote la dirección URL del punto de conexión; se parecerá a esta http://localhost:\<portnumber\>. **Sugerencia: La barra de estado de VS Code mostrará una dirección URL en la que se puede hacer clic.** Puede parecer que el contenedor se ejecuta localmente, pero en realidad se ejecuta en el entorno de desarrollo de Azure. La razón de la dirección de localhost es que `mywebapi` no ha definido ningún punto de conexión público y solo se puede acceder a él desde la instancia de Kubernetes. Para mayor comodidad, y para facilitar la interacción con el servicio privado desde la máquina local, Azure Dev Spaces crea un túnel SSH temporal al contenedor que se ejecuta en Azure.
+1. Presione F5 y espere a que el servicio se compile e implemente. Sabrá que está listo cuando aparezca el mensaje *Listening on port 80* (Escuchando en el puerto 80) en la consola de depuración.
+1. Anote la dirección URL del punto de conexión; se parecerá a esta `http://localhost:<portnumber>`. **Sugerencia: La barra de estado de VS Code mostrará una dirección URL en la que se puede hacer clic.** Puede parecer que el contenedor se ejecuta localmente, pero en realidad se ejecuta en el entorno de desarrollo de Azure. La razón de la dirección de localhost es que `mywebapi` no ha definido ningún punto de conexión público y solo se puede acceder a él desde la instancia de Kubernetes. Para mayor comodidad, y para facilitar la interacción con el servicio privado desde la máquina local, Azure Dev Spaces crea un túnel SSH temporal al contenedor que se ejecuta en Azure.
 1. Cuando `mywebapi` esté listo, abra el explorador en la dirección de localhost. Verá una respuesta del servicio `mywebapi` ("Hello from mywebapi").
 
 
@@ -61,7 +60,7 @@ Vamos ahora a escribir código en `webfrontend` que realiza una solicitud a `myw
        });
     });
     ```
- 4. *Quite* la línea `server.close()` al final de `server.js`
+   1. *Quite* la línea `server.close()` al final de `server.js`
 
 En el código de ejemplo anterior se reenvía el encabezado `azds-route-as` de la solicitud entrante a la solicitud saliente. Más adelante verá cómo esta función ayuda a los equipos con el desarrollo en colaboración.
 

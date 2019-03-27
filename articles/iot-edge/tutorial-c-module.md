@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 798cf405c222a443dbbd3a316d20c482daf4429f
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 98406df3746bb0ca2fc658697ee25b1f11b54c0b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55563259"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58084596"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desarrollo de un módulo IoT Edge con C en el dispositivo simulado
 
@@ -120,7 +120,7 @@ El archivo del entorno almacena las credenciales del registro de contenedor y la
 
 Agregue al módulo C código que le permita leer datos del sensor, compruebe si la temperatura que se ha notificado que tiene la máquina ha superado un umbral seguro y pase dicha información a IoT Hub.
 
-5. En este escenario, los datos del sensor están en formato JSON. Para filtrar los mensajes en formato JSON, importe una biblioteca JSON para C. En este tutorial se usa Parson.
+1. En este escenario, los datos del sensor están en formato JSON. Para filtrar los mensajes en formato JSON, importe una biblioteca JSON para C. En este tutorial se usa Parson.
 
    1. Descargue el [repositorio de Parson GitHub](https://github.com/kgabis/parson). Copie los archivos **parson.c** y **parson.h** en la carpeta **CModule**.
 
@@ -137,19 +137,19 @@ Agregue al módulo C código que le permita leer datos del sensor, compruebe si 
 
    4. Guarde el archivo **CMakeLists.txt**.
 
-   5. Abra los **módulos** > **CModule** > **main.c**. Al final de la lista de instrucciones include, agregue una nueva para incluir `parson.h`, con el fin de lograr compatibilidad con JSON:
+   5. Abra los **módulos** > **CModule** > **main.c**. Al final de la lista de instrucciones include, agregue una nueva para incluir `parson.h` con el fin de lograr compatibilidad con JSON:
 
       ```c
       #include "parson.h"
       ```
 
-6. En el archivo **main.c**, agregue una variable global denominada `temperatureThreshold` después de la sección de include. Esta variable establece el valor que debe superar la temperatura medida para que los datos se envíen a IoT Hub.
+1. En el archivo **main.c**, agregue una variable global denominada `temperatureThreshold` después de la sección de include. Esta variable establece el valor que debe superar la temperatura medida para que los datos se envíen a IoT Hub.
 
     ```c
     static double temperatureThreshold = 25;
     ```
 
-7. Reemplace toda la función `CreateMessageInstance` por el código siguiente. Esta función asigna un contexto para la devolución de llamada.
+1. Reemplace toda la función `CreateMessageInstance` por el código siguiente. Esta función asigna un contexto para la devolución de llamada.
 
     ```c
     static MESSAGE_INSTANCE* CreateMessageInstance(IOTHUB_MESSAGE_HANDLE message)
@@ -183,7 +183,7 @@ Agregue al módulo C código que le permita leer datos del sensor, compruebe si 
     }
     ```
 
-8. Reemplace toda la función `InputQueue1Callback` por el código siguiente. Esta función implementa el filtro de mensajería real.
+1. Reemplace toda la función `InputQueue1Callback` por el código siguiente. Esta función implementa el filtro de mensajería real.
 
     ```c
     static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
@@ -245,7 +245,7 @@ Agregue al módulo C código que le permita leer datos del sensor, compruebe si 
     }
     ```
 
-9. Agregue una función `moduleTwinCallback`. Este método recibe las actualizaciones sobre las propiedades que se quieren del módulo gemelo y actualiza la variable **temperatureThreshold** para que coincida. Todos los módulos tienen su propio módulo gemelo, que le permite configurar el código que se ejecuta dentro de un módulo directamente desde la nube.
+1. Agregue una función `moduleTwinCallback`. Este método recibe las actualizaciones sobre las propiedades que se quieren del módulo gemelo y actualiza la variable **temperatureThreshold** para que coincida. Todos los módulos tienen su propio módulo gemelo, que le permite configurar el código que se ejecuta dentro de un módulo directamente desde la nube.
 
     ```c
     static void moduleTwinCallback(DEVICE_TWIN_UPDATE_STATE update_state, const unsigned char* payLoad, size_t size, void* userContextCallback)
@@ -263,35 +263,35 @@ Agregue al módulo C código que le permita leer datos del sensor, compruebe si 
     }
     ```
 
-10. Reemplace la función `SetupCallbacksForModule` por el código siguiente.
+1. Reemplace la función `SetupCallbacksForModule` por el código siguiente.
 
-    ```c
-    static int SetupCallbacksForModule(IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle)
-    {
-        int ret;
+   ```c
+   static int SetupCallbacksForModule(IOTHUB_MODULE_CLIENT_LL_HANDLE iotHubModuleClientHandle)
+   {
+       int ret;
 
-        if (IoTHubModuleClient_LL_SetInputMessageCallback(iotHubModuleClientHandle, "input1", InputQueue1Callback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
-        {
-            printf("ERROR: IoTHubModuleClient_LL_SetInputMessageCallback(\"input1\")..........FAILED!\r\n");
-            ret = __FAILURE__;
-        }
-        else if (IoTHubModuleClient_LL_SetModuleTwinCallback(iotHubModuleClientHandle, moduleTwinCallback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
-        {
-            printf("ERROR: IoTHubModuleClient_LL_SetModuleTwinCallback(default)..........FAILED!\r\n");
-            ret = __FAILURE__;
-        }
-        else
-        {
-            ret = 0;
-        }
+       if (IoTHubModuleClient_LL_SetInputMessageCallback(iotHubModuleClientHandle, "input1", InputQueue1Callback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
+       {
+           printf("ERROR: IoTHubModuleClient_LL_SetInputMessageCallback(\"input1\")..........FAILED!\r\n");
+           ret = __FAILURE__;
+       }
+       else if (IoTHubModuleClient_LL_SetModuleTwinCallback(iotHubModuleClientHandle, moduleTwinCallback, (void*)iotHubModuleClientHandle) != IOTHUB_CLIENT_OK)
+       {
+           printf("ERROR: IoTHubModuleClient_LL_SetModuleTwinCallback(default)..........FAILED!\r\n");
+           ret = __FAILURE__;
+       }
+       else
+       {
+           ret = 0;
+       }
 
-        return ret;
-    }
-    ```
+       return ret;
+   }
+   ```
 
-11. Guarde el archivo main.c.
+1. Guarde el archivo main.c.
 
-12. En el explorador de VS Code, abra el archivo **deployment.template.json** en el área de trabajo de la solución de IoT Edge. Este archivo le indica al agente de IoT Edge qué módulos implementar, en este caso **tempSensor** y **CModule**, y a IoT Edge Hub cómo enrutar los mensajes entre ellos. La extensión de Visual Studio Code rellena de forma automática la mayor parte de la información que necesita en la plantilla de implementación, aunque comprueba que todo sea correcto para la solución: 
+1. En el explorador de VS Code, abra el archivo **deployment.template.json** en el área de trabajo de la solución de IoT Edge. Este archivo le indica al agente de IoT Edge qué módulos implementar, en este caso **tempSensor** y **CModule**, y a IoT Edge Hub cómo enrutar los mensajes entre ellos. La extensión de Visual Studio Code rellena de forma automática la mayor parte de la información que necesita en la plantilla de implementación, aunque comprueba que todo sea correcto para la solución: 
 
    1. La plataforma predeterminada de la instancia de IoT Edge está establecida en **amd64** en la barra de estado de VS Code, lo que significa que **CModule** está establecido en la versión amd64 de Linux de la imagen. Cambie la plataforma predeterminada en la barra de estado de **amd64** a **arm32v7** si esa es la arquitectura del dispositivo de IoT Edge. 
 
@@ -303,19 +303,19 @@ Agregue al módulo C código que le permita leer datos del sensor, compruebe si 
 
    4. Si desea más información sobre los manifiestos de implementación, consulte [Obtenga información sobre cómo implementar módulos y establecer rutas en IoT Edge](module-composition.md).
 
-13. Agregue el módulo gemelo CModule al manifiesto de implementación. Inserte el siguiente contenido JSON en la parte inferior de la sección `moduleContent`, después del módulo gemelo `$edgeHub`:
+1. Agregue el módulo gemelo CModule al manifiesto de implementación. Inserte el siguiente contenido JSON en la parte inferior de la sección `moduleContent`, después del módulo gemelo `$edgeHub`:
 
-    ```json
-        "CModule": {
-            "properties.desired":{
-                "TemperatureThreshold":25
-            }
-        }
-    ```
+   ```json
+       "CModule": {
+           "properties.desired":{
+               "TemperatureThreshold":25
+           }
+       }
+   ```
 
    ![Adición de un gemelo de CModule gemelo a una plantilla de implementación](./media/tutorial-c-module/module-twin.png)
 
-14. Guarde el archivo **deployment.template.json**.
+1. Guarde el archivo **deployment.template.json**.
 
 ## <a name="build-and-push-your-solution"></a>Compilación e inserción de la solución
 

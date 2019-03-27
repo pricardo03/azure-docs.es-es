@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/07/2018
+ms.date: 03/18/2019
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 02ff1822bab0abb4850541135a6ea51ea0e7119f
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: df4994475bf10fa902a2902b69b231821601d33b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53083570"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58174348"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutorial: Administración de costos mediante Cloudyn
 
@@ -23,7 +23,7 @@ Administre los costos y genere informes de visualización de costos con Cloudyn 
 
 Por ejemplo, puede ser que quiera obtener el reembolso de los costos de ingeniería. Debe poder demostrar al equipo de ingeniería que necesita un importe concreto, en función de los costos de los recursos. Puede mostrarles un informe de todos los recursos consumidos y etiquetados con el término *ingeniería*.
 
-En este artículo, etiquetas y categorías a veces son sinónimos. Las categorías son colecciones amplias y pueden ser muchas cosas. Pueden incluir unidades de negocio, centros de costos, servicios web o cualquier cosa que esté etiquetada. Las etiquetas son pares nombre-valor que le permiten categorizar los recursos y ver y administrar una información de facturación consolidada mediante la aplicación de la misma etiqueta en varios recursos y grupos de recursos. En versiones anteriores de Azure Portal, se hacía referencia a un *nombre de etiqueta* como *clave*. Las etiquetas se crean para una única suscripción de Azure y se almacenan solo en ella. Las etiquetas de AWS constan de pares clave-valor. Dado que Azure y AWS han usado el término *clave*, Cloudyn también usa ese término. El administrador de categorías usa claves (nombres de etiqueta) para combinar etiquetas.
+En este artículo, etiquetas y categorías a veces son sinónimos. Las categorías son colecciones amplias y pueden ser muchas cosas. Pueden incluir unidades de negocio, centros de costos, servicios web o cualquier cosa que esté etiquetada. Las etiquetas son pares nombre-valor que le permiten clasificar los recursos y ver y administrar información de facturación consolidada mediante la aplicación de la misma etiqueta a varios recursos y grupos de recursos. En versiones anteriores de Azure Portal, se hacía referencia a un *nombre de etiqueta* como *clave*. Las etiquetas se crean para una única suscripción de Azure y se almacenan solo en ella. Las etiquetas de AWS constan de pares clave-valor. Dado que Azure y AWS han usado el término *clave*, Cloudyn también usa ese término. El administrador de categorías usa claves (nombres de etiqueta) para combinar etiquetas.
 
 En este tutorial, aprenderá a:
 

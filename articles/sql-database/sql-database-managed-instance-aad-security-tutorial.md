@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 39877e01eb8b9690dc1ac7b1dbb79bab450814c4
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 7511b85384c2c64c823d93df4369b0fea3e64b51
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56456935"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226222"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutorial: Seguridad de una instancia administrada de Azure SQL Database mediante entidades de seguridad del servidor de Azure AD (inicios de sesión)
 
@@ -148,13 +148,13 @@ Cuando se ha creado la entidad de seguridad (inicio de sesión) de un servidor d
 
 1. Conéctese a la instancia administrada con la entidad de seguridad (inicio de sesión) de un servidor de Azure AD mediante SQL Server Management Studio. Escriba el nombre de host de la instancia administrada. Para la autenticación en SSMS, hay tres opciones para elegir al iniciar sesión con una cuenta de AD de Azure:
 
-    - Active Directory - Universal compatible con MFA
-    - Active Directory - Contraseña
-    - Active Directory - Integrado </br>
+   - Active Directory - Universal compatible con MFA
+   - Active Directory - Contraseña
+   - Active Directory - Integrado </br>
 
-    ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
+     ![ssms-login-prompt.png](media/sql-database-managed-instance-security-tutorial/ssms-login-prompt.png)
 
-    Para más información, consulte el artículo siguiente: [Autenticación universal con SQL Database y SQL Data Warehouse (compatibilidad de SSMS con MFA)](sql-database-ssms-mfa-authentication.md)
+     Para más información, consulte el artículo siguiente: [Autenticación universal con SQL Database y SQL Data Warehouse (compatibilidad de SSMS con MFA)](sql-database-ssms-mfa-authentication.md)
 
 1. Seleccione **Active Directory - Universal compatible con MFA**. Esto abre una ventana de inicio de sesión de Multi-Factor Authentication (MFA). Inicie sesión con la contraseña de Azure AD.
 
@@ -207,10 +207,10 @@ Cuando se ha creado la entidad de seguridad (inicio de sesión) de un servidor d
 1. En el **Explorador de objetos**, haga clic con el botón derecho en el servidor y elija **Nueva consulta** para la nueva conexión.
 1. Compruebe los permisos del servidor para la entidad de seguridad (inicio de sesión) de un servidor de Azure AD recién creada, para lo que debe ejecutar el siguiente comando:
 
-    ```sql
-    SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
-    GO
-    ```
+      ```sql
+      SELECT * FROM sys.fn_my_permissions (NULL, 'DATABASE')
+      GO
+      ```
 
 > [!NOTE]
 > Se admiten usuarios invitados de Azure AD en los inicios de sesión de instancia administrada, solo cuando se agregan como parte de un grupo de Azure AD. Un usuario invitado de Azure AD es una cuenta que se ha invitado a la instancia de Azure AD a la que pertenece la instancia administrada, desde otra instancia de Azure AD. Por ejemplo, joe@contoso.com (cuenta de Azure AD) o steve@outlook.com (cuenta MSA) pueden agregarse a un grupo en el dominio aadsqlmi de Azure AD. Una vez que los usuarios se agregan a un grupo, se puede crear un inicio de sesión en la base de datos **maestra** de la instancia administrada para el grupo mediante la sintaxis **CREATE LOGIN**. Los usuarios invitados que son miembros de este grupo pueden conectarse a la instancia administrada con sus inicios de sesión actuales (por ejemplo, joe@contoso.com o steve@outlook.com).
@@ -360,7 +360,7 @@ La instancia administrada admite la suplantación de las entidades de seguridad 
     GO
     ```
 
-1. Utilice el siguiente comando para ver que el usuario que está suplantando al ejecutar el procedimiento almacenado es **bob@aadsqlmi.net**.
+1. Utilice el siguiente comando para ver que el usuario que está suplantando al ejecutar el procedimiento almacenado es **bob\@aadsqlmi.net**.
 
     ```sql
     Exec dbo.usp_Demo

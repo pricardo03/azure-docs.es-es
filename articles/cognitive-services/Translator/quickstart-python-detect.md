@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: 0fd0fe06c218c6ad7427f6495fb315b42dd87101
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4400b466927253e6eb81cf2ec29994d0606beea6
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728478"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58176708"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-detect-text-language-using-python"></a>Inicio rápido: Uso de Translator Text API para detectar el idioma del texto con Python
 
@@ -126,6 +126,8 @@ python detect.py
 Si desea comparar su código con el nuestro, el ejemplo completo está disponible en [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
 
 ## <a name="sample-response"></a>Respuesta de muestra
+
+Busque la abreviatura del país en esta [lista de idiomas](https://docs.microsoft.com/en-us/azure/cognitive-services/translator/language-support).
 
 ```json
 [

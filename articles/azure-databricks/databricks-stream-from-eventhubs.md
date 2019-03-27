@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: 006286b492b7431ca15b8a2dc9ac5b4116f7d1b1
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: bc712885169730aa9cbbd8de35b96e645ff1cea2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56876284"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087132"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Tutorial: Streaming de datos a Azure Databricks con Event Hubs
 
@@ -39,6 +39,10 @@ En este tutorial se describen las tareas siguientes:
 > * Lectura de tweets desde Event Hubs
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+
+> [!Note]
+> Este tutorial no puede llevarse a cabo mediante una **suscripción de evaluación gratuita de Azure**.
+> Para usar una cuenta gratuita para crear el clúster de Azure Databricks, antes de crear el clúster, vaya a su perfil y cambie su suscripción a **pago por uso**. Para más información consulte el sitio de [cuentas gratuitas de Azure](https://azure.microsoft.com/free/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -96,11 +100,11 @@ En esta sección, creará un área de trabajo de Azure Databricks mediante Azure
 
     Acepte los demás valores predeterminados, salvo los siguientes:
 
-    * Escriba un nombre para el clúster.
-    * Para este artículo, cree un clúster con el entorno en tiempo de ejecución **4.0**.
-    * Asegúrese de que selecciona la casilla **Terminate after \_\_ minutes of inactivity** (Terminar después de \_\_ minutos de inactividad). Proporcione una duración (en minutos) para terminar el clúster, si este no se usa.
+   * Escriba un nombre para el clúster.
+   * Para este artículo, cree un clúster con el entorno en tiempo de ejecución **4.0**.
+   * Asegúrese de que selecciona la casilla **Terminate after \_\_ minutes of inactivity** (Terminar después de \_\_ minutos de inactividad). Proporcione una duración (en minutos) para terminar el clúster, si este no se usa.
 
-    Seleccione **Create cluster** (Crear clúster). Una vez que el clúster se está ejecutando, puede asociarle notebooks y ejecutar trabajos de Spark.
+     Seleccione **Create cluster** (Crear clúster). Una vez que el clúster se está ejecutando, puede asociarle notebooks y ejecutar trabajos de Spark.
 
 ## <a name="create-a-twitter-application"></a>Crear una aplicación de Twitter
 
@@ -124,16 +128,16 @@ Guarde los valores que ha recuperado de la aplicación de Twitter. Necesitará e
 
 En este tutorial, se utilizan las API de Twitter para enviar tweets a Event Hubs. Se utiliza también el [conector de Event Hubs para Apache Spark](https://github.com/Azure/azure-event-hubs-spark) para leer y escribir datos en Azure Event Hubs. Para usar estas API como parte del clúster, puede agregarlas como bibliotecas a Azure Databricks y, a continuación, asociarlas al clúster de Spark. Las instrucciones siguientes muestran cómo agregar la biblioteca a la carpeta **Shared** (Compartidos) del área de trabajo.
 
-1.  En el área de trabajo de Azure Databricks, seleccione **Workspace** (Área de trabajo) y, a continuación, haga clic con el botón derecho en **Shared** (Compartidos). En el menú contextual, seleccione **Create** > **Library** (Crear > Biblioteca).
+1. En el área de trabajo de Azure Databricks, seleccione **Workspace** (Área de trabajo) y, a continuación, haga clic con el botón derecho en **Shared** (Compartidos). En el menú contextual, seleccione **Create** > **Library** (Crear > Biblioteca).
 
-    ![Cuadro de diálogo Agregar biblioteca](./media/databricks-stream-from-eventhubs/databricks-add-library-option.png "Add library dialog box")
+   ![Cuadro de diálogo Agregar biblioteca](./media/databricks-stream-from-eventhubs/databricks-add-library-option.png "Add library dialog box")
 
 2. En la página New Library (Nueva biblioteca), en **Source** (Origen), seleccione **Maven Coordinate** (Coordenada de Maven). En **Coordinate** (Coordenada), escriba la coordenada del paquete que desea agregar. Estas son las coordenadas de Maven para las bibliotecas que se utilizan en este tutorial:
 
-    * Conector de Event Hubs para Spark: `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
-    * API de Twitter: `org.twitter4j:twitter4j-core:4.0.6`
+   * Conector de Event Hubs para Spark: `com.microsoft.azure:azure-eventhubs-spark_2.11:2.3.1`
+   * API de Twitter: `org.twitter4j:twitter4j-core:4.0.6`
 
-    ![Proporcionar coordenadas Maven](./media/databricks-stream-from-eventhubs/databricks-eventhub-specify-maven-coordinate.png "Provide Maven coordinates")
+     ![Proporcionar coordenadas Maven](./media/databricks-stream-from-eventhubs/databricks-eventhub-specify-maven-coordinate.png "Provide Maven coordinates")
 
 3. Seleccione **Create Library** (Crear biblioteca).
 

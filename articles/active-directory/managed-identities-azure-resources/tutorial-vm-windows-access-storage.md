@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/12/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 220c419142f31261a193795da85eedd841183db9
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 7308d5715b1ac8abc62bb26ad3636423bbd727ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56202713"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57889767"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Uso de las identidades administradas asignadas por el sistema de una máquina virtual Windows para acceder a Azure Storage
 
@@ -30,8 +30,8 @@ En este tutorial se muestra cómo usar una identidad administrada asignada por e
 
 > [!div class="checklist"]
 > * Crear un contenedor de blobs en una cuenta de almacenamiento
-> * Conceder a la identidad administrada asignada por el sistema de la máquina virtual Windows acceso a una cuenta de almacenamiento 
-> * Obtener un acceso y usarlo para llamar a Azure Storage 
+> * Conceder a la identidad administrada asignada por el sistema de la máquina virtual Windows acceso a una cuenta de almacenamiento
+> * Obtener un acceso y usarlo para llamar a Azure Storage
 
 > [!NOTE]
 > La autenticación de Azure Active Directory para Azure Storage está en versión preliminar pública.
@@ -40,14 +40,14 @@ En este tutorial se muestra cómo usar una identidad administrada asignada por e
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento 
+## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-En esta sección se creará una cuenta de almacenamiento. 
+En esta sección se creará una cuenta de almacenamiento.
 
 1. Haga clic en el botón **+Crear un recurso** de la esquina superior izquierda de Azure Portal.
 2. Haga clic en **Storage** (Almacenamiento) y, luego, en **Storage account - blob, file, table, queue** (Cuenta de almacenamiento: blob, archivo, tabla, cola).
-3. En **Name** (Nombre), escriba un nombre para la cuenta de almacenamiento.  
-4. **Deployment model** (Modelo de implementación) y **Account kind** (Clase de cuenta) se deben establecer en **Resource Manager** y **Storage (general purpose v1)** (Almacenamiento [de uso general v1]). 
+3. En **Name** (Nombre), escriba un nombre para la cuenta de almacenamiento.
+4. **Deployment model** (Modelo de implementación) y **Account kind** (Clase de cuenta) se deben establecer en **Resource Manager** y **Storage (general purpose v1)** (Almacenamiento [de uso general v1]).
 5. Asegúrese de que **Suscripción** y **Grupo de recursos** coinciden con los que especificó cuando creó la máquina virtual en el paso anterior.
 6. Haga clic en **Create**(Crear).
 
@@ -64,22 +64,22 @@ Los archivos requieren almacenamiento de blobs, por lo que es necesario crear un
 
     ![Creación de contenedores de almacenamiento](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-5. Elija un editor de su preferencia y cree un archivo denominado *hello world.txt* en la máquina local.  Abra el archivo y agregue el texto (sin comillas) "Hola mundo :)" y guárdelo. 
+5. Elija un editor de su preferencia y cree un archivo denominado *hello world.txt* en la máquina local. Abra el archivo y agregue el texto (sin comillas) "Hola mundo :)" y guárdelo.
 6. Para cargar el archivo en el contenedor recién creado, haga clic en el nombre del contenedor y en **Cargar**.
 7. En el panel **Carga de blob**, en **Archivos**, haga clic en el icono de carpeta y vaya al archivo **hello_world.txt** en la máquina virtual, selecciónelo y haga clic en **Cargar**.
     ![Carga de un archivo de texto](./media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
-## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Concesión de acceso a un contenedor de Azure Storage para la máquina virtual 
+## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Concesión de acceso a un contenedor de Azure Storage para la máquina virtual
 
-Puede usar la identidad administrada asignada por el sistema de la máquina virtual para recuperar los datos en Azure Storage Blob.   
+Puede usar la identidad administrada asignada por el sistema de la máquina virtual para recuperar los datos en Azure Storage Blob.
 
-1. Vuelva a la cuenta de almacenamiento recién creada.  
-2. Haga clic en el vínculo **Control de acceso (IAM)** en el panel izquierdo.  
+1. Vuelva a la cuenta de almacenamiento recién creada.
+2. Haga clic en el vínculo **Control de acceso (IAM)** en el panel izquierdo.
 3. Haga clic en **+ Agregar asignación de rol** en la parte superior de la página para agregar una asignación de roles nueva para la máquina virtual.
-4. En la lista desplegable de **Rol**, seleccione **Lector de datos de blobs de almacenamiento (versión preliminar)**. 
-5. En la lista desplegable siguiente, en **Asignar acceso a**, elija **Máquina virtual**.  
-6. A continuación, asegúrese de que la suscripción adecuada aparece en el menú desplegable **Suscripción** y establezca **Grupo de recursos** en **Todos los grupos de recursos**.  
-7. En **Seleccionar**, elija la máquina virtual y haga clic en **Guardar**. 
+4. En la lista desplegable de **Rol**, seleccione **Lector de datos de blobs de almacenamiento (versión preliminar)**.
+5. En la lista desplegable siguiente, en **Asignar acceso a**, elija **Máquina virtual**.
+6. A continuación, asegúrese de que la suscripción adecuada aparece en el menú desplegable **Suscripción** y establezca **Grupo de recursos** en **Todos los grupos de recursos**.
+7. En **Seleccionar**, elija la máquina virtual y haga clic en **Guardar**.
 
     ![Asignación de permisos](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
@@ -97,7 +97,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Net;
-using System.Web.Script.Serialization; 
+using System.Web.Script.Serialization;
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
 
@@ -109,7 +109,7 @@ namespace StorageOAuthToken
         {
             //get token
             string accessToken = GetMSIToken("https://storage.azure.com/");
-           
+
             //create token credential
             TokenCredential tokenCredential = new TokenCredential(accessToken);
 
@@ -120,7 +120,7 @@ namespace StorageOAuthToken
 
             //create block blob using storage credentials
             CloudBlockBlob blob = new CloudBlockBlob(blobAddress, storageCredentials);
-        
+
             //retrieve blob contents
             Console.WriteLine(blob.DownloadText());
             Console.ReadLine();
@@ -152,7 +152,7 @@ namespace StorageOAuthToken
                 string errorText = String.Format("{0} \n\n{1}", e.Message, e.InnerException != null ? e.InnerException.Message : "Acquire token failed");
                 return accessToken;
             }
-        }            
+        }
     }
 }
 ```
@@ -167,6 +167,3 @@ En este tutorial, ha aprendido a habilitar una identidad asignada por el sistema
 
 > [!div class="nextstepaction"]
 > [Azure Storage](/azure/storage/common/storage-introduction)
-
-
-

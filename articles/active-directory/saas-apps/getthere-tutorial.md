@@ -4,144 +4,138 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 0441087e-953f-4b51-9842-316da7b72392
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/17/2018
+ms.topic: tutorial
+ms.date: 02/18/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b132da4a763490fa6c7a73c80f8e2e3a11b42e9b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 26b3e2144094bfd9b10367a48226c836c6152b79
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173137"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899917"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-getthere"></a>Tutorial: integración de Azure Active Directory con GetThere
 
 En este tutorial, aprenderá a integrar GetThere con Azure Active Directory (Azure AD).
-
 La integración de GetThere con Azure AD le proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a GetThere.
-- Puede permitir que los usuarios inicien sesión automáticamente en GetThere (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Puede controlar en Azure AD quién tiene acceso a GetThere.
+* Puede permitir que los usuarios inicien sesión automáticamente en GetThere (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con GetThere, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único en GetThere.
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Suscripción habilitada para el inicio de sesión único en GetThere
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Adición de GetThere desde la galería
-2. Configuración y comprobación del inicio de sesión único de Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+
+* GetThere admite el inicio de sesión único iniciado por **IDP**
 
 ## <a name="adding-getthere-from-the-gallery"></a>Adición de GetThere desde la galería
+
 Para configurar la integración de GetThere en Azure AD, será preciso que agregue GetThere desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar GetThere desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![imagen](./media/getthere-tutorial/selectazuread.png)
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![imagen](./media/getthere-tutorial/a_select_app.png)
-    
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+
 3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![imagen](./media/getthere-tutorial/a_new_app.png)
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
 4. En el cuadro de búsqueda, escriba **GetThere**, seleccione **GetThere** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-     ![imagen](./media/getthere-tutorial/tutorial_getthere_addfromgallery.png)
+     ![GetThere en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con GetThere con un usuario de prueba llamado "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de GetThere para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario asociado de GetThere.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con GetThere con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de GetThere.
 
 Para configurar y probar el inicio de sesión único de Azure AD con GetThere, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de GetThere](#create-a-getthere-test-user)**: para tener un homólogo de Britta Simon en GetThere que esté vinculado a la representación del usuario en Azure AD.
+2. **[Configuración del inicio de sesión único de GetThere](#configure-getthere-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+5. **[Creación de un usuario de prueba de GetThere](#create-getthere-test-user)**: para tener un homólogo de Britta Simon en GetThere que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación GetThere.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con GetThere, siga estos pasos:**
+Para configurar el inicio de sesión único de Azure AD con GetThere, siga estos pasos:
 
 1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **GetThere**, seleccione **Inicio de sesión único**.
 
-    ![imagen](./media/getthere-tutorial/B1_B2_Select_SSO.png)
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML** para habilitar el inicio de sesión único.
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-    ![imagen](./media/getthere-tutorial/b1_b2_saml_sso.png)
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-    ![imagen](./media/getthere-tutorial/b1-domains_and_urlsedit.png)
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, siga estos pasos:
+4. En la página **Configurar inicio de sesión único con SAML** realice los siguientes pasos:
 
-    ![imagen](./media/getthere-tutorial/tutorial_getthere_url.png)
+    ![Información sobre dominio y direcciones URL de inicio de sesión único de GetThere](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba cualquiera de las siguientes direcciones URL:
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL:
+
     | |
     |--|
     | `getthere.com` |
     | `http://idp.getthere.com` |
 
     b. En el cuadro de texto **Dirección URL de respuesta**, escriba cualquiera de las siguientes direcciones URL:
+    
     | |
     |--|
     | `https://wx1.getthere.net/login/saml/post.act` |
     | `https://gtx2-gcte2.getthere.net/login/saml/post.act` |
     | `https://gtx2-gcte2.getthere.net/login/saml/ssoaasvalidate.act` |
     | `https://wx1.getthere.net/login/saml/ssoaavalidate.act` |
-    
-5. La aplicación GetThere espera el valor **Nombre de usuario** único en la notificación de nombre de usuario. El cliente puede asignar el valor correcto de la notificación del nombre de usuario. En el ejemplo siguiente, hemos asignado el **nombre de usuario** a **user.mail**, pero se puede cambiar la asignación según la configuración de la organización. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Atributos de usuario**.
 
-    ![imagen](./media/getthere-tutorial/i4-attribute.png)
+5. La aplicación GetThere espera las aserciones de SAML en un formato específico, que requiere que se agreguen asignaciones de atributos personalizados a la configuración de los atributos del token de SAML. La siguiente captura de muestra la lista de atributos predeterminados. Haga clic en el icono  **Editar**  para abrir el cuadro de diálogo Atributos de usuario.
 
-6. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, configure el atributo Token SAML como muestra la imagen anterior y realice los siguientes pasos:
-    
+    ![imagen](common/edit-attribute.png)
+
+6. Además de lo anterior, la aplicación GetThere espera que se usen algunos atributos más en la respuesta de SAML. En la sección **Notificaciones del usuario** del cuadro de diálogo **Atributos de usuario**, realice los siguientes pasos para agregar el atributo Token SAML como se muestra en la tabla siguientes:
+
     | NOMBRE |  Atributo de origen |  Espacio de nombres |
     | ---------------| --------------- | --------------- |
     | Sitename | "Proporcione el valor según la organización" | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/sitename |
     | Nombre de usuario |  user.mail | http://schemas.xmlsoap.org/ws/2005/05/identity/claims/username |
-    
+
      a. Haga clic en **Agregar nueva notificación** para abrir el cuadro de diálogo **Administrar las notificaciones del usuario**.
 
-    ![imagen](./media/getthere-tutorial/i2-attribute.png)
+    ![imagen](common/new-save-attribute.png)
 
-    ![imagen](./media/getthere-tutorial/i3-attribute.png)
+    ![imagen](common/new-attribute-details.png)
 
     b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
 
@@ -151,87 +145,94 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     e. En la lista **Atributo de origen**, escriba el valor de atributo que se muestra para esa fila.
 
-    f. Haga clic en **Save**(Guardar).
+    f. Haga clic en **Aceptar**.
 
-7. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** y guárdelo en su equipo.
+    g. Haga clic en **Save**(Guardar).
 
-    ![imagen](./media/getthere-tutorial/tutorial_getthere_certficate.png) 
+7. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
-8. En la sección **Configurar GetThere**, copie la dirección URL adecuada según sus necesidades.
+    ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-    Tenga en cuenta que en la dirección URL puede poner lo siguiente:
+8. En la sección **Set up GetThere** (Configurar GetThere), copie las direcciones URL adecuadas según sus necesidades.
 
-     a. URL de inicio de sesión
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
+    a. URL de inicio de sesión
 
     b. Identificador de Azure AD
 
     c. URL de cierre de sesión
 
-    ![imagen](./media/getthere-tutorial/d1_samlsonfigure.png) 
+### <a name="configure-getthere-single-sign-on"></a>Configuración del inicio de sesión único de GetThere
 
-9. Para configurar el inicio de sesión único en **GetThere**, es preciso enviar el **certificado (Base64)** descargado y el valor de **Login URL, Azure Ad Identifier, Logout URL** (URL de cierre de sesión, identificador de Azure AD y URL de inicio de sesión) copiado a [GetThere Client support team](mailto:dataintegration@sabre.com) (Equipo de soporte técnico del cliente GetThere). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **GetThere**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL correspondientes copiadas de Azure Portal al [equipo de soporte técnico de GetThere](mailto:dataintegration@sabre.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
 1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-    ![imagen](./media/getthere-tutorial/d_users_and_groups.png)
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
 2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![imagen](./media/getthere-tutorial/d_adduser.png)
+    ![Botón Nuevo usuario](common/new-user.png)
 
 3. En las propiedades Usuario, siga estos pasos.
 
-    ![imagen](./media/getthere-tutorial/d_userproperties.png)
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
      a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
-    c. Seleccione **Propiedades**, active la casilla **Mostrar contraseña** y escriba el valor que se muestra en el cuadro de contraseña.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-    d. Seleccione **Crear**.
- 
-### <a name="create-a-getthere-test-user"></a>Creación de un usuario de prueba de GetThere
-
-En esta sección, creará un usuario llamado Britta Simon en GetThere. Trabaje con el  [equipo de soporte técnico de GetThere](mailto:dataintegration@sabre.com) para agregar usuarios a la plataforma de GetThere. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+    d. Haga clic en **Create**(Crear).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a GetThere.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **GetThere**.
 
-    ![imagen](./media/getthere-tutorial/d_all_applications.png)
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
 2. En la lista de aplicaciones, seleccione **GetThere**.
 
-    ![imagen](./media/getthere-tutorial/tutorial_getthere_app.png)
+    ![Vínculo a GetThere en la lista de aplicaciones](common/all-applications.png)
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![imagen](./media/getthere-tutorial/d_leftpaneusers.png)
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-4. Seleccione el botón **Agregar** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![imagen](./media/getthere-tutorial/d_assign_user.png)
+    ![Panel Agregar asignación](common/add-assign-user.png)
 
-4. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-5. En el cuadro de diálogo **Agregar asignación**, seleccione el botón **Asignar**.
-    
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol**, seleccione el rol adecuado para el usuario de la lista y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
+
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
+
+### <a name="create-getthere-test-user"></a>Creación de un usuario de prueba de GetThere
+
+En esta sección, creará un usuario llamado Britta Simon en GetThere. Trabaje con el  [equipo de soporte técnico de GetThere](mailto:dataintegration@sabre.com) para agregar usuarios a la plataforma de GetThere. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de GetThere en el panel de acceso, debería iniciar sesión automáticamente en su aplicación GetThere.
-Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../active-directory-saas-access-panel-introduction.md). 
+Al hacer clic en el icono de GetThere en el panel de acceso, debería iniciar sesión automáticamente en la versión de GetThere para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+

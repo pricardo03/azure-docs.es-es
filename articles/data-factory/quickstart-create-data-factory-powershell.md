@@ -13,12 +13,12 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 0e6db6ad4d2f3dfdf6aa95c0ee2255328de7e4ef
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b675ab9663be674ec2439bfe9139b7c79c144cbd
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55996328"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453395"
 ---
 # <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Inicio rápido: Creación de una factoría de datos de Azure con PowerShell
 
@@ -35,7 +35,9 @@ En esta guía de inicio rápido se describe cómo usar PowerShell para crear una
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
-Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-Az-ps).
 
 #### <a name="log-in-to-powershell"></a>Inicio de sesión en PowerShell
 
@@ -44,19 +46,19 @@ Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo i
 2. Ejecute el siguiente comando y escriba los mismos nombre de usuario y contraseña de Azure que utiliza para iniciar sesión en Azure Portal:
 
     ```powershell
-    Connect-AzureRmAccount
+    Connect-AzAccount
     ```
 
 3. Ejecute el siguiente comando para ver todas las suscripciones de esta cuenta:
 
     ```powershell
-    Get-AzureRmSubscription
+    Get-AzSubscription
     ```
 
 4. Si ve varias suscripciones de Azure asociadas a su cuenta, ejecute el siguiente comando para seleccionar la suscripción con la que desea trabajar. Reemplace **SubscriptionId** con el identificador de la suscripción de Azure:
 
     ```powershell
-    Select-AzureRmSubscription -SubscriptionId "<SubscriptionId>"
+    Select-AzSubscription -SubscriptionId "<SubscriptionId>"
     ```
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
@@ -72,7 +74,7 @@ Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo i
 2. Para crear el grupo de recursos de Azure, ejecute el comando siguiente:
 
     ```powershell
-    $ResGrp = New-AzureRmResourceGroup $resourceGroupName -location 'East US'
+    $ResGrp = New-AzResourceGroup $resourceGroupName -location 'East US'
     ```
 
     Si el grupo de recursos ya existe, puede que no desee sobrescribirlo. Asigne otro valor a la variable `$ResourceGroupName` y ejecute el comando de nuevo.
@@ -86,10 +88,10 @@ Instale los módulos de Azure PowerShell siguiendo las instrucciones de [Cómo i
     $dataFactoryName = "ADFQuickStartFactory";
     ```
 
-4. Para crear la factoría de datos, ejecute el siguiente cmdlet **Set-AzureRmDataFactoryV2** con las propiedades ResourceGroupName y Location de la variable $ResGrp:
+4. Para crear la factoría de datos, ejecute el siguiente cmdlet **Set-AzDataFactoryV2** con las propiedades ResourceGroupName y Location de la variable $ResGrp:
 
     ```powershell
-    $DataFactory = Set-AzureRmDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName `
+    $DataFactory = Set-AzDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName `
         -Location $ResGrp.Location -Name $dataFactoryName
     ```
 
@@ -137,10 +139,10 @@ Cree servicios vinculados en una factoría de datos para vincular los almacenes 
     Set-Location 'C:\ADFv2QuickStartPSH'
     ```
 
-3. Ejecute el cmdlet **Set-AzureRmDataFactoryV2LinkedService** para crear el servicio vinculado: **AzureStorageLinkedService**.
+3. Ejecute el cmdlet **Set-AzDataFactoryV2LinkedService** para crear el servicio vinculado: **AzureStorageLinkedService**.
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName `
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName `
         -ResourceGroupName $ResGrp.ResourceGroupName -Name "AzureStorageLinkedService" `
         -DefinitionFile ".\AzureStorageLinkedService.json"
     ```
@@ -181,10 +183,10 @@ En este paso, define un conjunto de datos que representa los datos que se copian
     }
     ```
 
-2. Para crear el conjunto de datos: **BlobDataset**, ejecute el cmdlet **Set-AzureRmDataFactoryV2Dataset**.
+2. Para crear el conjunto de datos: **BlobDataset**, ejecute el cmdlet **Set-AzDataFactoryV2Dataset**.
 
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
+    Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
         -ResourceGroupName $ResGrp.ResourceGroupName -Name "BlobDataset" `
         -DefinitionFile ".\BlobDataset.json"
     ```
@@ -253,10 +255,10 @@ En esta guía de inicio rápido, creará una canalización con una actividad que
     }
     ```
 
-2. Para crear la canalización: **Adfv2QuickStartPipeline**, ejecute el cmdlet **Set-AzureRmDataFactoryV2Pipeline**.
+2. Para crear la canalización: **Adfv2QuickStartPipeline**, ejecute el cmdlet **Set-AzDataFactoryV2Pipeline**.
 
     ```powershell
-    $DFPipeLine = Set-AzureRmDataFactoryV2Pipeline `
+    $DFPipeLine = Set-AzDataFactoryV2Pipeline `
         -DataFactoryName $DataFactory.DataFactoryName `
         -ResourceGroupName $ResGrp.ResourceGroupName `
         -Name "Adfv2QuickStartPipeline" `
@@ -275,10 +277,10 @@ En este paso, define los valores para los parámetros de canalización: **inputP
         "outputPath": "adftutorial/output"
     }
     ```
-2. Ejecute el cmdlet **Invoke-AzureRmDataFactoryV2Pipeline** para crear una ejecución de canalización y pasar los valores de parámetro. El cmdlet devuelve el identificador de ejecución de la canalización para realizar una supervisión en un futuro.
+2. Ejecute el cmdlet **Invoke-AzDataFactoryV2Pipeline** para crear una ejecución de canalización y pasar los valores de parámetro. El cmdlet devuelve el identificador de ejecución de la canalización para realizar una supervisión en un futuro.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline `
+    $RunId = Invoke-AzDataFactoryV2Pipeline `
         -DataFactoryName $DataFactory.DataFactoryName `
         -ResourceGroupName $ResGrp.ResourceGroupName `
         -PipelineName $DFPipeLine.Name `
@@ -291,7 +293,7 @@ En este paso, define los valores para los parámetros de canalización: **inputP
 
     ```powershell
     while ($True) {
-        $Run = Get-AzureRmDataFactoryV2PipelineRun `
+        $Run = Get-AzDataFactoryV2PipelineRun `
             -ResourceGroupName $ResGrp.ResourceGroupName `
             -DataFactoryName $DataFactory.DataFactoryName `
             -PipelineRunId $RunId
@@ -356,7 +358,7 @@ En este paso, define los valores para los parámetros de canalización: **inputP
 
     ```powershell
     Write-Output "Activity run details:"
-    $Result = Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineRunId $RunId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
+    $Result = Get-AzDataFactoryV2ActivityRun -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -PipelineRunId $RunId -RunStartedAfter (Get-Date).AddMinutes(-30) -RunStartedBefore (Get-Date).AddMinutes(30)
     $Result
 
     Write-Output "Activity 'Output' section:"

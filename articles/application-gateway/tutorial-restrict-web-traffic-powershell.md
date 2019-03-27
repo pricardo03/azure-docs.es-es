@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 6a43d96bc59ea348c8bcd456e1e06d70e851d182
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 5ba19c5156f25c2ff4a616e1482b6dfc83cadc27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454472"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57894468"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Habilitación de un firewall de aplicaciones web con Azure PowerShell
 
@@ -36,39 +36,41 @@ Si lo prefiere, puede realizar los pasos de este tutorial mediante la [CLI de Az
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Si decide instalar y usar PowerShell localmente, para este tutorial se requiere la versión 3.6 del módulo de Azure PowerShell, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzureRmAccount` para crear una conexión con Azure.
+Si decide instalar y usar PowerShell de forma local, en este tutorial necesitará la versión 1.0.0 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzAccount` para crear una conexión con Azure.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos de Azure con [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup).  
+Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos de Azure con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
 
 ```azurepowershell-interactive
-New-AzureRmResourceGroup -Name myResourceGroupAG -Location eastus
+New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 ```
 
 ## <a name="create-network-resources"></a>Crear recursos de red 
 
-Cree las configuraciones de subred llamadas *myBackendSubnet* y *myAGSubnet* mediante [New-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig). Cree la red virtual llamada *myVNet* mediante [New-AzureRmVirtualNetwork](/powershell/module/azurerm.network/new-azurermvirtualnetwork) con las configuraciones de subred. Y, por último, cree la dirección IP pública llamada *myAGPublicIPAddress* con [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Estos recursos se usan para proporcionar conectividad de red a la puerta de enlace de aplicaciones y sus recursos asociados.
+Cree las configuraciones de subred llamadas *myBackendSubnet* y *myAGSubnet* mediante [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Cree la red virtual llamada *myVNet* mediante [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) con las configuraciones de subred. Y, por último, cree la dirección IP pública llamada *myAGPublicIPAddress* con [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Estos recursos se usan para proporcionar conectividad de red a la puerta de enlace de aplicaciones y sus recursos asociados.
 
 ```azurepowershell-interactive
-$backendSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+$backendSubnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name myBackendSubnet `
   -AddressPrefix 10.0.1.0/24
 
-$agSubnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
+$agSubnetConfig = New-AzVirtualNetworkSubnetConfig `
   -Name myAGSubnet `
   -AddressPrefix 10.0.2.0/24
 
-$vnet = New-AzureRmVirtualNetwork `
+$vnet = New-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myVNet `
   -AddressPrefix 10.0.0.0/16 `
   -Subnet $backendSubnetConfig, $agSubnetConfig
 
-$pip = New-AzureRmPublicIpAddress `
+$pip = New-AzPublicIpAddress `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
   -Name myAGPublicIPAddress `
@@ -85,37 +87,37 @@ En esta sección se crearán recursos que admitan la puerta de enlace de aplicac
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Creación de las configuraciones IP y el puerto de front-end
 
-Asocie el elemento *myAGSubnet* que creó anteriormente a la puerta de enlace de aplicaciones mediante [New-AzureRmApplicationGatewayIPConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewayipconfiguration). Asigne el elemento *myAGPublicIPAddress* a la puerta de enlace de aplicaciones mediante [New-AzureRmApplicationGatewayFrontendIPConfig](/powershell/module/azurerm.network/new-azurermapplicationgatewayfrontendipconfig).
+Asocie el elemento *myAGSubnet* que creó anteriormente a la puerta de enlace de aplicaciones mediante [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Asigne el elemento *myAGPublicIPAddress* a la puerta de enlace de aplicaciones mediante [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig).
 
 ```azurepowershell-interactive
-$vnet = Get-AzureRmVirtualNetwork `
+$vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Name myVNet
 
 $subnet=$vnet.Subnets[0]
 
-$gipconfig = New-AzureRmApplicationGatewayIPConfiguration `
+$gipconfig = New-AzApplicationGatewayIPConfiguration `
   -Name myAGIPConfig `
   -Subnet $subnet
 
-$fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig `
+$fipconfig = New-AzApplicationGatewayFrontendIPConfig `
   -Name myAGFrontendIPConfig `
   -PublicIPAddress $pip
 
-$frontendport = New-AzureRmApplicationGatewayFrontendPort `
+$frontendport = New-AzApplicationGatewayFrontendPort `
   -Name myFrontendPort `
   -Port 80
 ```
 
 ### <a name="create-the-backend-pool-and-settings"></a>Creación de la configuración y el grupo de servidores back-end
 
-Cree el grupo de servidores back-end llamado *appGatewayBackendPool* para la puerta de enlace de aplicaciones mediante [New-AzureRmApplicationGatewayBackendAddressPool](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendaddresspool). Configure los valores de los grupos de direcciones de los servidores back-end mediante [New-AzureRmApplicationGatewayBackendHttpSettings](/powershell/module/azurerm.network/new-azurermapplicationgatewaybackendhttpsettings).
+Cree el grupo de servidores back-end llamado *appGatewayBackendPool* para la puerta de enlace de aplicaciones mediante [New-AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configure los valores de los grupos de direcciones de los servidores back-end mediante [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsettings).
 
 ```azurepowershell-interactive
-$defaultPool = New-AzureRmApplicationGatewayBackendAddressPool `
+$defaultPool = New-AzApplicationGatewayBackendAddressPool `
   -Name appGatewayBackendPool
 
-$poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
+$poolSettings = New-AzApplicationGatewayBackendHttpSettings `
   -Name myPoolSettings `
   -Port 80 `
   -Protocol Http `
@@ -127,16 +129,16 @@ $poolSettings = New-AzureRmApplicationGatewayBackendHttpSettings `
 
 Un agente de escucha es necesario para permitir que la puerta de enlace de aplicaciones enrute el tráfico de forma adecuada a los grupos de direcciones de los servidores back-end. En este ejemplo, creará un agente de escucha básico que escucha el tráfico en la dirección URL raíz. 
 
-Cree un agente de escucha llamado *mydefaultListener* mediante [New-AzureRmApplicationGatewayHttpListener](/powershell/module/azurerm.network/new-azurermapplicationgatewayhttplistener) con la configuración de front-end y el puerto de front-end creados anteriormente. Es necesaria una regla para que el agente de escucha sepa qué grupo de servidores back-end se usa para el tráfico entrante. Cree una regla básica llamada *rule1* mediante [New-AzureRmApplicationGatewayRequestRoutingRule](/powershell/module/azurerm.network/new-azurermapplicationgatewayrequestroutingrule).
+Cree un agente de escucha llamado *mydefaultListener* mediante [New-AzApplicationGatewayHttpListener](/powershell/module/az.network/new-azapplicationgatewayhttplistener) con la configuración de front-end y el puerto de front-end creados anteriormente. Es necesaria una regla para que el agente de escucha sepa qué grupo de servidores back-end se usa para el tráfico entrante. Cree una regla básica llamada *rule1* mediante [New-AzApplicationGatewayRequestRoutingRule](/powershell/module/az.network/new-azapplicationgatewayrequestroutingrule).
 
 ```azurepowershell-interactive
-$defaultlistener = New-AzureRmApplicationGatewayHttpListener `
+$defaultlistener = New-AzApplicationGatewayHttpListener `
   -Name mydefaultListener `
   -Protocol Http `
   -FrontendIPConfiguration $fipconfig `
   -FrontendPort $frontendport
 
-$frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
+$frontendRule = New-AzApplicationGatewayRequestRoutingRule `
   -Name rule1 `
   -RuleType Basic `
   -HttpListener $defaultlistener `
@@ -146,19 +148,19 @@ $frontendRule = New-AzureRmApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway-with-the-waf"></a>Creación de la puerta de enlace de aplicaciones con WAF
 
-Ahora que ha creado los recursos complementarios necesarios, especifique los parámetros para la puerta de enlace de aplicaciones mediante [New-AzureRmApplicationGatewaySku](/powershell/module/azurerm.network/new-azurermapplicationgatewaysku). Especifique la configuración de WAF mediante [New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration](/powershell/module/azurerm.network/new-azurermapplicationgatewaywebapplicationfirewallconfiguration). Y, a continuación, cree la puerta de enlace de aplicaciones llamada *myAppGateway* mediante [New-AzureRmApplicationGateway](/powershell/module/azurerm.network/new-azurermapplicationgateway).
+Ahora que ha creado los recursos complementarios necesarios, especifique los parámetros para la puerta de enlace de aplicaciones mediante [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku). Especifique la configuración de WAF mediante [New-AzApplicationGatewayWebApplicationFirewallConfiguration](/powershell/module/az.network/new-azapplicationgatewaywebapplicationfirewallconfiguration). Y, a continuación, cree la puerta de enlace de aplicaciones llamada *myAppGateway* mediante [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
 
 ```azurepowershell-interactive
-$sku = New-AzureRmApplicationGatewaySku `
+$sku = New-AzApplicationGatewaySku `
   -Name WAF_Medium `
   -Tier WAF `
   -Capacity 2
 
-$wafConfig = New-AzureRmApplicationGatewayWebApplicationFirewallConfiguration `
+$wafConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration `
   -Enabled $true `
   -FirewallMode "Detection"
 
-$appgw = New-AzureRmApplicationGateway `
+$appgw = New-AzApplicationGateway `
   -Name myAppGateway `
   -ResourceGroupName myResourceGroupAG `
   -Location eastus `
@@ -178,48 +180,48 @@ $appgw = New-AzureRmApplicationGateway `
 En este ejemplo, creará un conjunto de escalado de máquinas virtuales para proporcionar servidores al grupo de servidores back-end de la puerta de enlace de aplicaciones. Asignará el conjunto de escalado al grupo de servidores back-end cuando configure los valores de IP.
 
 ```azurepowershell-interactive
-$vnet = Get-AzureRmVirtualNetwork `
+$vnet = Get-AzVirtualNetwork `
   -ResourceGroupName myResourceGroupAG `
   -Name myVNet
 
-$appgw = Get-AzureRmApplicationGateway `
+$appgw = Get-AzApplicationGateway `
   -ResourceGroupName myResourceGroupAG `
   -Name myAppGateway
 
-$backendPool = Get-AzureRmApplicationGatewayBackendAddressPool `
+$backendPool = Get-AzApplicationGatewayBackendAddressPool `
   -Name appGatewayBackendPool `
   -ApplicationGateway $appgw
 
-$ipConfig = New-AzureRmVmssIpConfig `
+$ipConfig = New-AzVmssIpConfig `
   -Name myVmssIPConfig `
   -SubnetId $vnet.Subnets[1].Id `
   -ApplicationGatewayBackendAddressPoolsId $backendPool.Id
 
-$vmssConfig = New-AzureRmVmssConfig `
+$vmssConfig = New-AzVmssConfig `
   -Location eastus `
   -SkuCapacity 2 `
   -SkuName Standard_DS2 `
   -UpgradePolicyMode Automatic
 
-Set-AzureRmVmssStorageProfile $vmssConfig `
+Set-AzVmssStorageProfile $vmssConfig `
   -ImageReferencePublisher MicrosoftWindowsServer `
   -ImageReferenceOffer WindowsServer `
   -ImageReferenceSku 2016-Datacenter `
-  -ImageReferenceVersion latest
+  -ImageReferenceVersion latest `
   -OsDiskCreateOption FromImage
 
-Set-AzureRmVmssOsProfile $vmssConfig `
+Set-AzVmssOsProfile $vmssConfig `
   -AdminUsername azureuser `
   -AdminPassword "Azure123456!" `
   -ComputerNamePrefix myvmss
 
-Add-AzureRmVmssNetworkInterfaceConfiguration `
+Add-AzVmssNetworkInterfaceConfiguration `
   -VirtualMachineScaleSet $vmssConfig `
   -Name myVmssNetConfig `
   -Primary $true `
   -IPConfiguration $ipConfig
 
-New-AzureRmVmss `
+New-AzVmss `
   -ResourceGroupName myResourceGroupAG `
   -Name myvmss `
   -VirtualMachineScaleSet $vmssConfig
@@ -231,16 +233,16 @@ New-AzureRmVmss `
 $publicSettings = @{ "fileUris" = (,"https://raw.githubusercontent.com/Azure/azure-docs-powershell-samples/master/application-gateway/iis/appgatewayurl.ps1"); 
   "commandToExecute" = "powershell -ExecutionPolicy Unrestricted -File appgatewayurl.ps1" }
 
-$vmss = Get-AzureRmVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
+$vmss = Get-AzVmss -ResourceGroupName myResourceGroupAG -VMScaleSetName myvmss
 
-Add-AzureRmVmssExtension -VirtualMachineScaleSet $vmss `
+Add-AzVmssExtension -VirtualMachineScaleSet $vmss `
   -Name "customScript" `
   -Publisher "Microsoft.Compute" `
   -Type "CustomScriptExtension" `
   -TypeHandlerVersion 1.8 `
   -Setting $publicSettings
 
-Update-AzureRmVmss `
+Update-AzVmss `
   -ResourceGroupName myResourceGroupAG `
   -Name myvmss `
   -VirtualMachineScaleSet $vmss
@@ -252,10 +254,10 @@ En este tutorial, la puerta de enlace de aplicaciones usa una cuenta de almacena
 
 ### <a name="create-the-storage-account"></a>Creación de la cuenta de almacenamiento
 
-Cree una cuenta de almacenamiento llamada *myagstore1* mediante [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount).
+Cree una cuenta de almacenamiento llamada *myagstore1* mediante [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount).
 
 ```azurepowershell-interactive
-$storageAccount = New-AzureRmStorageAccount `
+$storageAccount = New-AzStorageAccount `
   -ResourceGroupName myResourceGroupAG `
   -Name myagstore1 `
   -Location eastus `
@@ -264,18 +266,18 @@ $storageAccount = New-AzureRmStorageAccount `
 
 ### <a name="configure-diagnostics"></a>Configuración de diagnóstico
 
-Configure los diagnósticos para registrar datos en los registros ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog y ApplicationGatewayFirewallLog mediante [Set-AzureRmDiagnosticSetting](/powershell/module/azurerm.insights/set-azurermdiagnosticsetting).
+Configure los diagnósticos para registrar datos en los registros ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog y ApplicationGatewayFirewallLog mediante [Set-AzDiagnosticSetting](/powershell/module/az.monitor/set-azdiagnosticsetting).
 
 ```azurepowershell-interactive
-$appgw = Get-AzureRmApplicationGateway `
+$appgw = Get-AzApplicationGateway `
   -ResourceGroupName myResourceGroupAG `
   -Name myAppGateway
 
-$store = Get-AzureRmStorageAccount `
+$store = Get-AzStorageAccount `
   -ResourceGroupName myResourceGroupAG `
   -Name myagstore1
 
-Set-AzureRmDiagnosticSetting `
+Set-AzDiagnosticSetting `
   -ResourceId $appgw.Id `
   -StorageAccountId $store.Id `
   -Categories ApplicationGatewayAccessLog, ApplicationGatewayPerformanceLog, ApplicationGatewayFirewallLog `
@@ -286,20 +288,20 @@ Set-AzureRmDiagnosticSetting `
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-Puede usar [Get-AzureRmPublicIPAddress](/powershell/module/azurerm.network/get-azurermpublicipaddress) para obtener la dirección IP pública de la puerta de enlace de aplicaciones. Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
+Puede usar [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) para obtener la dirección IP pública de la puerta de enlace de aplicaciones. Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
 
 ```azurepowershell-interactive
-Get-AzureRmPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
+Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
 ```
 
 ![Prueba de la dirección URL base en la puerta de enlace de aplicaciones](./media/tutorial-restrict-web-traffic-powershell/application-gateway-iistest.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no los necesite, puede usar el comando [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para quitar el grupo de recursos, la puerta de enlace de aplicaciones y todos los recursos relacionados.
+Cuando ya no los necesite, puede usar el comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos, la puerta de enlace de aplicaciones y todos los recursos relacionados.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroupAG
+Remove-AzResourceGroup -Name myResourceGroupAG
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

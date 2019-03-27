@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 181e2c1d1a9758d6f196c9cb2b281eefa141d81a
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: fcf3fe85b6dd184b4f58060aab4fcf3ce146af13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984771"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58015161"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Ejecución de un cuaderno de Databricks con la actividad Notebook de Databricks en Azure Data Factory
 
@@ -151,7 +151,7 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
 
           ![Crear una carpeta](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image13.png)
 
-       1. [Cree un nuevo cuaderno](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), al que va a llamar **mynotebook** en la carpeta **adftutorial** **,** haga clic en **Crear**.
+       1. [Cree un cuaderno](https://docs.databricks.com/user-guide/notebooks/index.html#creating-a-notebook) (Python), al que llamaremos **mynotebook**, en la carpeta **adftutorial**, y haga clic en **Crear**.
 
           ![Creación un nuevo cuaderno](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image14.png)
 
@@ -173,13 +173,13 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
 
        1. La **ruta de acceso del cuaderno** en este caso es **/adftutorial/mynotebook**.
 
-1.  Vuelva a la **herramienta de creación de interfaz de usuario de Data Factory**. Vaya a la pestaña **Configuración** en la **actividad Notebook1**. 
-    
+1.  Vuelva a la **herramienta de creación de interfaz de usuario de Data Factory**. Vaya a la pestaña **Configuración** en la **actividad Notebook1**.
+
      a.  **Agregue un parámetro** a la actividad Notebook. Utilice el mismo parámetro que se ha agregado antes a la **canalización**.
 
        ![Agregar un parámetro](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 
-    b.  Llame al parámetro **input** y proporcione el valor como expresión **@pipeline().parameters.name**.
+    b.  Denomine **input** al parámetro y proporcione el valor como expresión **\@pipeline().parameters.name**.
 
 1.  Para comprobar la canalización, seleccione el botón  **Validate**  (Comprobar) en la barra de herramientas. Para cerrar la ventana de validación, seleccione el botón  **\>\>**  (flecha derecha).
 

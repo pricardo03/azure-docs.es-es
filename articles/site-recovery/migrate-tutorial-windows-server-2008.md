@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 11/27/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 875548b8277e50ccb813cf6b36541a053abdbb70
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
+ms.openlocfilehash: c91fa2c269b507988d2bdefcd2882b2ab55fec35
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55222072"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58094872"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migración de servidores que ejecutan Windows Server 2008 a Azure
 
@@ -51,6 +51,8 @@ Antes de empezar, es útil revisar la arquitectura de Azure Site Recovery para [
 Para migrar máquinas virtuales de Hyper-V que ejecutan Windows Server 2008 o Windows Server 2008 R2, siga los pasos descritos en el tutorial [migrar máquinas locales a Azure](migrate-tutorial-on-premises-azure.md).
 
 El resto de este tutorial muestra cómo puede migrar máquinas virtuales de VMware locales y servidores físicos que ejecutan Windows Server 2008 o 2008 R2.
+> [!TIP]
+> ¿Busca una manera sin agente de migrar máquinas virtuales de VMware a Azure? [Haga clic aquí](https://aka.ms/migrateVMs-signup)
 
 
 ## <a name="limitations-and-known-issues"></a>Limitaciones y problemas conocidos

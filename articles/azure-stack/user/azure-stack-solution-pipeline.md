@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 11/07/2018
-ms.openlocfilehash: deaf7defe5aca4f53df073b19e471a52bd7b8a5d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 9c7e6640bdb17e9f996545c2c3315c0c1ade42d1
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878751"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902219"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutorial: Implementación de aplicaciones en Azure y Azure Stack
 
@@ -78,17 +78,17 @@ En este tutorial se da por supuesto que tiene algunos conocimientos básicos de 
 ### <a name="azure-stack-requirements"></a>Requisitos de Azure Stack
 
 * Use un sistema integrado de Azure Stack o implemente el Kit de desarrollo de Azure Stack (ASDK). Para implementar ASDK:
-    * El [Tutorial: Implementación de ASDK con el instalador](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) ofrece instrucciones de implementación detalladas.
-    * Use el script de PowerShell [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) para automatizar los pasos posteriores a la implementación de ASDK.
+  * El [Tutorial: Implementación de ASDK con el instalador](https://docs.microsoft.com/azure/azure-stack/asdk/asdk-deploy) ofrece instrucciones de implementación detalladas.
+  * Use el script de PowerShell [ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1 ) para automatizar los pasos posteriores a la implementación de ASDK.
 
     > [!Note]
     > La instalación de ASDK tarda aproximadamente siete horas en completarse, así que realice los preparativos oportunos.
 
- * Implemente servicios PaaS de [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) para Azure Stack.
- * Cree [Planes y ofertas](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) en Azure Stack.
- * Cree una [suscripción de inquilino](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) en Azure Stack.
- * Cree una aplicación web en la suscripción de inquilino. Anote la nueva dirección URL de aplicación web, ya que la usará más adelante.
- * Implemente una máquina virtual Windows Server 2012 en la suscripción del inquilino. Este servidor se utilizará como servidor de compilación y para ejecutar Azure DevOps Services.
+  * Implemente servicios PaaS de [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) para Azure Stack.
+  * Cree [Planes y ofertas](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) en Azure Stack.
+  * Cree una [suscripción de inquilino](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) en Azure Stack.
+  * Cree una aplicación web en la suscripción de inquilino. Anote la nueva dirección URL de aplicación web, ya que la usará más adelante.
+  * Implemente una máquina virtual Windows Server 2012 en la suscripción del inquilino. Este servidor se utilizará como servidor de compilación y para ejecutar Azure DevOps Services.
 * Proporcione una imagen de Windows Server 2016 con .NET 3.5 para una máquina virtual (VM). Esta máquina virtual se crea en la instancia de Azure Stack como un agente de compilación privado.
 
 ### <a name="developer-tool-requirements"></a>Requisitos de la herramienta para desarrolladores
@@ -97,8 +97,8 @@ En este tutorial se da por supuesto que tiene algunos conocimientos básicos de 
 * [Instale Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) e [inicie sesión en Azure DevOps Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Conéctese al proyecto y [realice la clonación localmente](https://www.visualstudio.com/docs/git/gitquickstart).
 
- > [!Note]
- > El entorno de Azure Stack necesita las imágenes correctas sindicadas para ejecutar Windows Server y SQL Server. También debe tener implementado App Service.
+  > [!Note]
+  > El entorno de Azure Stack necesita las imágenes correctas sindicadas para ejecutar Windows Server y SQL Server. También debe tener implementado App Service.
 
 ## <a name="prepare-the-private-azure-pipelines-agent-for-azure-devops-services-integration"></a>Preparación del agente de Azure Pipelines privado para la integración de Azure DevOps Services
 
@@ -363,7 +363,7 @@ La canalización de CI/CD híbrida se puede aplicar al código de aplicación y 
 
 2. Vaya a la página **Build Web Application** (Compilar aplicación web) del proyecto.
 
-3. En **Argumentos**, agregue el código **-r win10-x64**. Esto es necesario para desencadenar una implementación independiente con .Net Core.
+3. En **Argumentos**, agregue el código **-r win10-x64**. Esto es necesario para desencadenar una implementación independiente con .NET Core.
 
     ![Adición del argumento de canalización de compilación](media/azure-stack-solution-hybrid-pipeline/020_publish_additions.png)
 

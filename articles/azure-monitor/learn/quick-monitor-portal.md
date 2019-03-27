@@ -10,18 +10,18 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 8d4b5bb987e04e30953c7a2bb3a3d2387e51fdeb
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 9a4c6b8046934159533755f048e1aa158e7e591e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54080892"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011775"
 ---
 # <a name="start-monitoring-your-aspnet-web-application"></a>Inicio de la supervisión de la aplicación web ASP.NET
 
 Con Azure Application Insights puede supervisar fácilmente la disponibilidad, el rendimiento y el uso de su aplicación web.  También puede identificar y diagnosticar errores en la aplicación rápidamente sin tener que esperar a que un usuario informe de ellos.  Con la información que recopile de Application Insights sobre el rendimiento y la eficacia de la aplicación, puede tomar decisiones informadas para hacer el mantenimiento de la aplicación y mejorarla.
 
-En esta guía de inicio rápido se muestra cómo agregar Application Insights a una aplicación web ASP.NET existente y empezar a analizar las estadísticas en vivo, que es solo uno de los distintos métodos que puede usar para analizar la aplicación. Si no tiene una aplicación web ASP.NET, puede seguir la [guía de inicio rápido de aplicaciones web ASP.NET](../../app-service/app-service-web-get-started-dotnet-framework.md) para crear una.
+En esta guía de inicio rápido se muestra cómo agregar Application Insights a una aplicación web ASP.NET existente y empezar a analizar las estadísticas en vivo, que es solo uno de los distintos métodos que puede usar para analizar la aplicación. Si no tiene una aplicación web ASP.NET, puede seguir el artículo de [Inicio rápido de creación de aplicaciones web ASP.NET](../../app-service/app-service-web-get-started-dotnet-framework.md) para crear una.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para completar esta guía de inicio rápido:

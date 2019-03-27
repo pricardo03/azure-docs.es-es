@@ -10,17 +10,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.lastreviewed: 01/07/2019
+ms.lastreviewed: 03/11/2019
 ROBOTS: NOINDEX
-ms.openlocfilehash: 20a48e67a24763af7bcce9e8831e2a1d1846d094
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: d3db8ea8639f73f3522ddaa358195e7c9ef2f9a9
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56594311"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57766009"
 ---
 # <a name="interactive-feature-verification-testing"></a>Pruebas de comprobación de características interactivas  
 
@@ -35,13 +35,13 @@ En este artículo se describe un escenario manual simple. La prueba comprueba la
 
 ## <a name="overview-of-interactive-testing"></a>Introducción a las pruebas interactivas
 
-La realización de una prueba antes de sustituir un disco es un escenario común. En este ejemplo, la prueba tiene siete pasos:
+La realización de una prueba antes de sustituir un disco es un escenario común. En este ejemplo, la prueba tiene cinco pasos:
 
-1. Cree un flujo de trabajo de **Test Pass** (Paso de prueba) nuevo
-1. Seleccione la **prueba de identificación de disco**
-1. Complete el paso manual cuando se le pida
-1. Compruebe el resultado del escenario
-1. Envíe el resultado de la prueba a Microsoft
+1. Cree un flujo de trabajo de **Test Pass** (Prueba superada).
+2. Seleccione la **prueba de identificación de disco**.
+3. Complete el paso manual cuando se le pida.
+4. Compruebe el resultado del escenario.
+5. Envíe el resultado de la prueba a Microsoft.
 
 ## <a name="create-a-new-test-pass"></a>Creación de una prueba
 

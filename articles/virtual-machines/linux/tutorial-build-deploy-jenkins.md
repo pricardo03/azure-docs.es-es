@@ -5,20 +5,20 @@ author: tomarchermsft
 manager: jpconnock
 tags: azure-resource-manager
 ms.assetid: ''
-ms.service: devops
+ms.service: virtual-machines-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
+ms.tgt_pltfrm: jenkins
 ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 651e8505c6d3a3952347bba5e598ec9a0a518e8e
-ms.sourcegitcommit: fbf0124ae39fa526fc7e7768952efe32093e3591
+ms.openlocfilehash: 7cd7b8f7b49915db9fcf17602429e47c1b9da95d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54074774"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901430"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutorial: Implementación de la aplicación en máquinas virtuales Linux de Azure con Jenkins y Azure DevOps Services
 
@@ -35,7 +35,7 @@ en un [grupo de implementación](https://docs.microsoft.com/azure/devops/pipelin
 > * Configurar Jenkins para la integración con Azure DevOps Services.
 > * Crear un punto de conexión de servicio de Jenkins.
 > * Crear un grupo de implementación para las máquinas virtuales de Azure.
-> * Crear una canalización de Azure Pipelines.
+> * Crear una canalización de versión de Azure Pipelines.
 > * Ejecutar las implementaciones desencadenadas por CI y de manera manual.
 
 ## <a name="before-you-begin"></a>Antes de empezar
@@ -60,7 +60,7 @@ Para este tutorial se recomienda usar [esta aplicación de ejemplo disponible en
 Cree una bifurcación de esta aplicación y anote la ubicación (URL) para usarla en pasos posteriores de este tutorial. Para obtener más información, consulte [Fork a repo](https://help.github.com/articles/fork-a-repo/) (Bifurcar un repositorio).    
 
 > [!NOTE]
-> La aplicación se ha compilado con [Yeoman](http://yeoman.io/learning/index.html). Utiliza Express, bower y Grunt. Y tiene algunos paquetes de npm dependientes.
+> La aplicación se ha compilado con [Yeoman](https://yeoman.io/learning/index.html). Utiliza Express, bower y Grunt. Y tiene algunos paquetes de npm dependientes.
 > El ejemplo también contiene un script que configura Nginx e implementa la aplicación. Se ejecuta en las máquinas virtuales. En concreto, el script:
 > 1. Instala Node, Nginx y PM2.
 > 2. Configura Nginx y PM2.
@@ -141,7 +141,7 @@ Necesita un [grupo de implementación](https://www.visualstudio.com/docs/build/c
 8. Después de la instalación, se le pedirán etiquetas para el grupo de implementación. Acepte los valores predeterminados.
 9. En Azure DevOps Services, busque la máquina virtual recién registrada en **Destinos**, debajo de **Grupos de implementación**.
 
-## <a name="create-a-azure-pipelines-release-pipeline"></a>Creación de una canalización de Azure Pipelines
+## <a name="create-an-azure-pipelines-release-pipeline"></a>Creación de una canalización de versión de Azure Pipelines
 
 Una canalización de versión especifica el proceso que Azure Pipelines usa para implementar la aplicación. En este ejemplo, se ejecuta un script de shell.
 

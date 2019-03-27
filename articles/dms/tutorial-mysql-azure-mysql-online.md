@@ -3,20 +3,20 @@ title: 'Tutorial: Uso de Azure Database Migration Service para realizar una migr
 description: Aprenda a realizar una migración en línea de MySQL local a Azure Database for MySQL mediante Azure Database Migration Service.
 services: dms
 author: HJToland3
-ms.author: scphang
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 12/19/2018
-ms.openlocfilehash: 52346e25c0b0e1b1b0c0befb6b5285f66b9a95d7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.date: 03/12/2019
+ms.openlocfilehash: 2fe104868e4f11b39edfb52ae0dae0365ebed954
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53724579"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183210"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>Tutorial: Migración de MySQL a Azure Database for MySQL en línea mediante DMS
 Puede usar Azure Database Migration Service para migrar las bases de datos de una instancia de MySQL local a [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/) con un tiempo de inactividad mínimo. En otras palabras, se puede lograr la migración con un tiempo de inactividad mínimo para la aplicación. En este tutorial, va a migrar la base de datos de ejemplo **Employees** de una instancia local de MySQL 5.7 a Azure Database for MySQL mediante una actividad de migración en línea de Azure Database Migration Service.
@@ -40,8 +40,17 @@ Para completar este tutorial, necesita:
 
 - Descargue e instale [MySQL community edition](https://dev.mysql.com/downloads/mysql/) 5.6 o 5.7. La versión de MySQL local debe coincidir con la versión de Azure Database for MySQL. Por ejemplo, MySQL 5.6 solo puede migrar a Azure Database for MySQL 5.6 y no a la versión actualizada 5.7.
 - [Creación de una instancia en Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal). Consulte el artículo [Uso de MySQL Workbench para conectarse y consultar datos](https://docs.microsoft.com/azure/mysql/connect-workbench) para más información acerca de cómo conectarse y crear una base de datos mediante Azure Portal.  
-- Crear una red virtual para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local utilizando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Asegúrese de que el grupo de seguridad de red de Azure Virtual Network (VNET) no bloquea los puertos de comunicación 443, 53, 9354, 445 y 12000. Para obtener información más detallada sobre el filtrado de tráfico con NSG de Azure VNET, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
+- Crear una instancia de Azure Virtual Network para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local mediante [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+
+    > [!NOTE]
+    > Durante la configuración de la red virtual, si usa ExpressRoute con emparejamiento de red con Microsoft, agregue los siguientes [puntos de conexión](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de servicio a la subred en la que se aprovisionará el servicio:
+    > - punto de conexión de base de datos de destino (por ejemplo, punto de conexión de SQL, punto de conexión de Cosmos DB, etc.)
+    > - Punto de conexión de Storage
+    > - Punto de conexión de Service Bus
+    >
+    > Esta configuración es necesaria porque la instancia de Azure Database Migration Service carece de conectividad a Internet.
+ 
+- Asegúrese de que las reglas del grupo de seguridad de red de VNET no bloquean los siguientes puertos de comunicación, 443, 53, 9354, 445, 12000. Para obtener información más detallada sobre el filtrado de tráfico con NSG de Azure VNET, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-network-vnet-plan-design-arm).
 - Configurar su [Firewall de Windows para acceder al motor de base de datos](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Abra el Firewall de Windows para permitir que Azure Database Migration Service acceda al servidor MySQL de origen que, de manera predeterminada, es el puerto TCP 3306.
 - Cuando se usa un dispositivo de firewall frente a las bases de datos de origen, puede que sea necesario agregar reglas de firewall para permitir que Azure Database Migration Service acceda a las bases de datos de origen para realizar la migración.

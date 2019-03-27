@@ -15,12 +15,12 @@ ms.date: 02/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: c53b9f13c365a5ace227f792f5b0c80ae8fac6ff
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 1b7183da84b994da8694440183e367f143722002
+ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56807361"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58295186"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Roles de administrador de suscripciones clásico de RBAC de Azure y de administrador de Azure AD
 
@@ -81,7 +81,7 @@ El resto de los roles integrados permiten la administración de recursos especí
 
 RBAC de Azure solo es compatible con Azure Portal y las API de Azure Resource Manager. Los usuarios, los grupos y las aplicaciones a los que se asignan roles de RBAC no pueden usar las [API del modelo de implementación clásica de Azure](../azure-resource-manager/resource-manager-deployment-model.md).
 
-En Azure Portal, las asignaciones de roles mediante RBAC aparecen en la hoja **Control de acceso (IAM)**. Esta hoja se puede encontrar en todo el portal, como grupos de administración, suscripciones, grupos de recursos y distintos recursos.
+En Azure Portal, las asignaciones de roles mediante RBAC aparecen en la hoja **Control de acceso (IAM)**. Esta hoja se puede encontrar en todo el portal, como en grupos de administración, suscripciones, grupos de recursos y distintos recursos.
 
 ![Hoja de control de acceso (IAM) en Azure Portal](./media/rbac-and-directory-admin-roles/access-control-role-assignments.png)
 
@@ -98,7 +98,7 @@ Los roles de administrador de Azure AD se utilizan para administrar los recursos
 | Rol de administrador de Azure AD | Permisos | Notas |
 | --- | --- | --- |
 | [Administrador global](../active-directory/users-groups-roles/directory-assign-admin-roles.md#company-administrator) | <ul><li>Administrar el acceso a todas las características administrativas en Azure Active Directory, así como los servicios que se federan con Azure Active Directory</li><li>Asignar roles de administrador a otros usuarios</li><li>Restablecer la contraseña de cualquier usuario y de todos los demás administradores</li></ul> | La persona que se suscribe al inquilino de Azure Active Directory se convierte en un administrador global. |
-| [Administrador de usuarios](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-account-administrator) | <ul><li>Crear y administrar todos los aspectos de usuarios y grupos</li><li>Administrar incidencias de soporte técnico</li><li>Supervisar el estado del servicio</li><li>Cambiar las contraseñas de los usuarios, de los administradores del departamento de soporte técnico y de otros administradores de usuario</li></ul> |  |
+| [Administrador de usuarios](../active-directory/users-groups-roles/directory-assign-admin-roles.md#user-administrator) | <ul><li>Crear y administrar todos los aspectos de usuarios y grupos</li><li>Administrar incidencias de soporte técnico</li><li>Supervisar el estado del servicio</li><li>Cambiar las contraseñas de los usuarios, de los administradores del departamento de soporte técnico y de otros administradores de usuario</li></ul> |  |
 | [Administrador de facturación](../active-directory/users-groups-roles/directory-assign-admin-roles.md#billing-administrator) | <ul><li>Realizar compras</li><li>Administrar suscripciones</li><li>Administrar incidencias de soporte técnico</li><li>Supervisa el mantenimiento del servicio</li></ul> |  |
 
 En Azure Portal, puede ver la lista de roles de administrador de Azure AD en la hoja **Roles y administradores**. Para una lista de todos los roles de administrador de Azure AD, consulte [Permisos de roles de administrador en Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md).
@@ -114,7 +114,7 @@ En un nivel superior, los roles de RBAC de Azure controlan los permisos para adm
 | Administración del acceso de usuarios a los recursos de Azure | Administrar el acceso a recursos de Azure Active Directory |
 | Admite los roles personalizados | No puede crear sus propios roles |
 | El ámbito se puede especificar en varios niveles (grupo de administración, suscripción, grupo de recursos, recurso). | El ámbito está en el nivel de inquilino |
-| Se puede acceder a la información de roles en Azure Portal, CLI de Azure, Azure PowerShell, plantillas de Azure Resource Manager, API REST | Se puede acceder a la información de roles en el portal de administración de Azure, portal de administración de Office 365, Microsoft Graph, AzureAD PowerShell |
+| Se puede acceder a la información de roles en Azure Portal, CLI de Azure, Azure PowerShell, plantillas de Azure Resource Manager, API REST | Se puede acceder a la información de roles en el portal de administración de Azure, el centro de administración de Microsoft 365, Microsoft Graph y AzureAD PowerShell |
 
 ### <a name="do-azure-rbac-roles-and--azure-ad-administrator-roles-overlap"></a>¿Se superponen los roles de RBAC de Azure y los roles de administrador de Azure AD?
 

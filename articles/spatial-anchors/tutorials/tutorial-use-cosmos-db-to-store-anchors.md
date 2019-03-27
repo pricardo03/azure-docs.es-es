@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Uso compartido entre sesiones y dispositivos con Azure Spatial Anchors y un back-end de Azure Cosmos DB | Microsoft Docs'
-description: En este tutorial, obtendrá información sobre cómo compartir identificadores espaciales de Azure Spatial Anchors entre los dispositivos de Unity con un servicio de back-end y Azure Cosmos DB.
+description: En este tutorial, aprenderá a compartir identificadores de Azure Spatial Anchors entre los dispositivos Android o iOS de Unity con un servicio de back-end y Azure Cosmos DB.
 author: ramonarguelles
 manager: vicenterivera
 services: azure-spatial-anchors
@@ -8,36 +8,36 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f0cd42fc37727099ed95a1c6fc2d427b7862412e
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 0e7011b9778221869940b137a2b87239f2d8db9b
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56753490"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286404"
 ---
-# <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors-and-an-azure-cosmos-db-back-end"></a>Tutorial: Uso compartido entre sesiones y dispositivos con Azure Spatial Anchors y un back-end de Azure Cosmos DB | Microsoft Docs
+# <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors-and-an-azure-cosmos-db-back-end"></a>Tutorial: Uso compartido entre sesiones y dispositivos con Azure Spatial Anchors y un back-end de Azure Cosmos DB
 
-En este tutorial se muestra cómo usar [Azure Spatial Anchors](../overview.md) para:
+En este tutorial aprenderá a usar [Azure Spatial Anchors](../overview.md) para:
 
-1. Crear delimitadores en una sesión y encontrarlos en otra sesión en el mismo dispositivo u otro. Por ejemplo, en otro momento.
-2. Crear delimitadores que puedan encontrar varios dispositivos en el mismo lugar al mismo tiempo.
+- Crear delimitadores en una sesión y encontrarlos en otra sesión, en el mismo dispositivo o en otro. Por ejemplo, la segunda sesión podría ser otro día.
+- Crear delimitadores que puedan encontrar varios dispositivos en el mismo lugar y al mismo tiempo.
 
-![Persistencia](./media/persistence.gif)
+![GIF que ilustra la persistencia de objetos](./media/persistence.gif)
 
-[Azure Spatial Anchors](../overview.md) es un servicio multiplataforma para desarrolladores que le permite crear experiencias de realidad mixta mediante objetos cuya ubicación persiste en todos los dispositivos a lo largo del tiempo. Cuando haya terminado, tendrá una aplicación que se puede implementar en dos o más dispositivos. Los delimitadores espaciales creados por una instancia de Azure Spatial Anchors compartirán sus identificadores con las demás mediante Cosmos DB.
+[Azure Spatial Anchors](../overview.md) es un servicio multiplataforma para desarrolladores que se puede usar para crear experiencias de realidad mixta con objetos cuya ubicación persiste en todos los dispositivos a lo largo del tiempo. Cuando haya terminado, tendrá una aplicación que se puede implementar en dos o más dispositivos. Los delimitadores espaciales creados por una instancia de Spatial Anchors compartirán sus identificadores con las demás mediante Azure Cosmos DB.
 
 Aprenderá a:
 
 > [!div class="checklist"]
-> * Implementar una aplicación web de ASP.NET Core en Azure que se pueda usar para compartir los delimitadores y almacenarlos en Cosmos DB.
-> * Configurar la escena AzureSpatialAnchorsLocalSharedDemo dentro del ejemplo de Unity de nuestros inicios rápidos para aprovechar las ventajas del uso compartido de la aplicación web de delimitadores.
-> * Realizar la implementación y ejecución en uno o varios dispositivos.
+> * Implementar una aplicación web de ASP.NET Core en Azure que se pueda usar para compartir los delimitadores y almacenarlos en Azure Cosmos DB.
+> * Configurar la escena AzureSpatialAnchorsLocalSharedDemo del ejemplo de Unity de los tutoriales de inicio rápido de Azure para aprovechar las ventajas del uso compartido de la aplicación web Sharing Anchors.
+> * Implementar una aplicación en uno o varios dispositivos y ejecutarla.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [Share Anchors Sample Prerequisites](../../../includes/spatial-anchors-share-sample-prereqs.md)]
 
-Es importante destacar que, aunque se va a usar Unity y Azure Cosmos DB en este tutorial, es solo para mostrar un ejemplo sobre cómo compartir los identificadores espaciales de Azure Spatial Anchors con otros dispositivos. Se pueden usar otros lenguajes y tecnologías de back-end para lograr el mismo objetivo. Además, la aplicación web de ASP.NET Core usada en este tutorial tiene una dependencia del SDK de .NET Core 2.2. Funciona bien en aplicaciones web de Azure normales (para Windows), pero no funciona en aplicaciones web de Azure para Linux.
+Es importante destacar que, aunque en este tutorial se van a usar Unity y Azure Cosmos DB, es solo para proporcionar un ejemplo de cómo compartir los identificadores de Spatial Anchors entre dispositivos. Se pueden usar otros lenguajes y tecnologías de back-end para lograr el mismo objetivo. Además, la aplicación web ASP.NET Core que se usa en este tutorial requiere el SDK de .NET Core 2.2. Funciona bien en Web Apps para Windows, pero actualmente no funciona en Web Apps para Linux.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -45,21 +45,25 @@ Es importante destacar que, aunque se va a usar Unity y Azure Cosmos DB en este 
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../../includes/cosmos-db-create-dbaccount-table.md)]
 
-Anote el valor de `Connection String` porque lo usaremos más adelante.
+Copie `Connection String`, ya que lo va a necesitar.
 
-## <a name="deploy-your-sharing-anchors-service"></a>Implementación del uso compartido del servicio de delimitadores
+## <a name="open-the-sample-project-in-unity"></a>Apertura del proyecto de ejemplo en Unity
 
-Abra Visual Studio y abra el proyecto en la carpeta `Sharing\SharingServiceSample`.
+[!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-### <a name="configure-the-service-so-that-it-uses-your-cosmos-db"></a>Configuración del servicio para que use Cosmos DB
+## <a name="deploy-the-sharing-anchors-service"></a>Implementación del servicio de delimitadores de uso compartido
+
+Abra Visual Studio y, después, abra el proyecto de la carpeta `Sharing\SharingServiceSample`.
+
+### <a name="configure-the-service-to-use-your-azure-cosmos-db-database"></a>Configuración del servicio para que use una base de datos de Azure Cosmos DB
 
 En el **Explorador de soluciones**, abra `SharingService\Startup.cs`.
 
-Busque la línea `#define INMEMORY_DEMO` en la parte superior del archivo y márquela como comentario. Guarde el archivo.
+Busque `#define INMEMORY_DEMO` al principio del archivo y marque la línea como comentario. Guarde el archivo.
 
 En el **Explorador de soluciones**, abra `SharingService\appsettings.json`.
 
-Busque la propiedad `StorageConnectionString` y establezca como valor el valor de `Connection String` que anotó en el [paso de creación de la cuenta de base de datos](#create-a-database-account). Guarde el archivo.
+Busque la propiedad `StorageConnectionString` y establezca que el valor sea el mismo que el de `Connection String`, que copió en el [paso de creación de la cuenta de base de datos](#create-a-database-account). Guarde el archivo.
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 

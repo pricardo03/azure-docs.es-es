@@ -11,33 +11,34 @@ author: juliemsft
 ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 4ea6841992d61bd12a1180608abf0fa0ec4421c2
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.date: 03/12/2019
+ms.openlocfilehash: 6df4809bde395ce3bdceb1336813c73d60e45808
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55471630"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57851292"
 ---
 # <a name="use-powershell-to-monitor-and-scale-an-elastic-pool-in-azure-sql-database"></a>Uso de PowerShell para supervisar y escalar un grupo elástico en Azure SQL Database
 
 Este ejemplo de script de PowerShell supervisa las métricas de rendimiento de un grupo elástico, lo escala a un tamaño de proceso superior y crea una regla de alertas en una de las métricas de rendimiento.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si decide instalar y usar PowerShell localmente, para este tutorial se requiere la versión 5.7.0 del módulo de Azure PowerShell o cualquier versión posterior. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzureRmAccount` para crear una conexión con Azure.
+Si decide instalar y usar PowerShell de manera local, en este tutorial se requiere la versión 1.4.0 de AZ PowerShell o posterior. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
 ## <a name="sample-script"></a>Script de ejemplo
 
-[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/monitor-and-scale-pool/monitor-and-scale-pool.ps1?highlight=16-17 "Monitor and scale a single SQL Database")]
+[!code-powershell-interactive[main](../../../powershell_scripts/sql-database/monitor-and-scale-pool/monitor-and-scale-pool.ps1?highlight=17-18 "Monitor and scale a single SQL Database")]
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
 Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos y todos los recursos asociados.
 
 ```powershell
-Remove-AzureRmResourceGroup -ResourceGroupName $resourcegroupname
+Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
 ```
 
 ## <a name="script-explanation"></a>Explicación del script
@@ -46,15 +47,15 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Notas |
 |---|---|
- [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
-| [New-AzureRmSqlServer](/powershell/module/azurerm.sql/new-azurermsqlserver) | Crea un servidor de SQL Database que hospeda una base de datos única o un grupo elástico. |
-| [New-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/new-azurermsqlelasticpool) | Crea un grupo elástico. |
-| [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) | Crea una base de datos única o una base de datos en un grupo elástico. |
-| [Get-AzureRmMetric](/powershell/module/azurerm.insights/get-azurermmetric) | Muestra la información de uso del tamaño de la base de datos.|
-| [Add-AzureRMMetricAlertRule](/powershell/module/azurerm.insights/add-azurermmetricalertrule) | Agrega o actualiza una regla de alerta basada en métricas. |
-| [Set-AzureRmSqlElasticPool](/powershell/module/azurerm.sql/set-azurermsqlelasticpool) | Actualiza las propiedades del grupo elástico |
-| [Add-AzureRMMetricAlertRule](/powershell/module/azurerm.insights/add-azurermmetricalertrule) | Establece una regla de alerta para supervisar automáticamente las DTU en el futuro. |
-| [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
+ [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
+| [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Crea un servidor de SQL Database que hospeda una base de datos única o un grupo elástico. |
+| [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Crea un grupo elástico. |
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Crea una base de datos única o una base de datos en un grupo elástico. |
+| [Get-AzMetric](/powershell/module/az.monitor/get-azmetric) | Muestra la información de uso del tamaño de la base de datos.|
+| [Add-AzMetricAlertRule](/powershell/module/az.monitor/add-azmetricalertrule) | Agrega o actualiza una regla de alerta basada en métricas. |
+| [Set-AzSqlElasticPool](/powershell/module/az.sql/set-azsqlelasticpool) | Actualiza las propiedades del grupo elástico |
+| [Add-AzMetricAlertRule](/powershell/module/az.monitor/add-azmetricalertrule) | Establece una regla de alerta para supervisar automáticamente las DTU en el futuro. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 |||
 
 ## <a name="next-steps"></a>Pasos siguientes

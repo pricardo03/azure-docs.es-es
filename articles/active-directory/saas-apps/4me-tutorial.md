@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 983eecc6-41f8-49b7-b7f6-dcf833dde121
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d3a2995fa1dc0b0c77898b0fa76791bb76e18c0
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 11cc42f9ed7e427620b22ce65365183bc62cc0be
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56883971"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57891729"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-4me"></a>Tutorial: Integración de Azure Active Directory con 4me
 
@@ -213,7 +213,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

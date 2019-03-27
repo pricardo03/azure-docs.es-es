@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2019
+ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: eb8791a4031eeeeeccddda024514af208ff66251
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: fd5c47bb3c7bc3dfc9c0e140531ff832e7e6ef56
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56806583"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58011042"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>¿Qué es el control de acceso basado en rol (RBAC) para los recursos de Azure?
 
@@ -108,7 +108,10 @@ Por tanto, ¿qué ocurre si tiene varias asignaciones de roles que se superponen
 
 ## <a name="deny-assignments"></a>Asignaciones de denegación
 
-Anteriormente, RBAC era un modelo solo de permiso sin denegación, pero ahora RBAC admite asignaciones de denegación de manera limitada. De forma similar a una asignación de roles, una *asignación de denegación* asocia un conjunto de acciones de denegación a un usuario, grupo, entidad de servicio o identidad administrada en un ámbito determinado con el fin de denegar el acceso. Una asignación de roles define un conjunto de acciones que están *permitidas*, mientras que una asignación de denegación define un conjunto de acciones *no permitidas*. En otras palabras, denegar asignaciones impide que los usuarios realicen acciones especificadas, incluso si una asignación de roles les concede acceso. Las asignaciones de denegación tienen prioridad sobre las asignaciones de roles. Actualmente, las asignaciones de denegación son de **solo lectura** y únicamente Microsoft puede establecerlas. Para más información, consulte [Descripción de las asignaciones de denegación para los recursos de Azure](deny-assignments.md) y [Visualización de las asignaciones de denegación para los recursos de Azure mediante Azure Portal](deny-assignments-portal.md).
+Anteriormente, RBAC era un modelo solo de permiso sin denegación, pero ahora RBAC admite asignaciones de denegación de manera limitada. De forma similar a una asignación de roles, una *asignación de denegación* asocia un conjunto de acciones de denegación a un usuario, grupo, entidad de servicio o identidad administrada en un ámbito determinado con el fin de denegar el acceso. Una asignación de roles define un conjunto de acciones que están *permitidas*, mientras que una asignación de denegación define un conjunto de acciones *no permitidas*. En otras palabras, denegar asignaciones impide que los usuarios realicen acciones especificadas, incluso si una asignación de roles les concede acceso. Las asignaciones de denegación tienen prioridad sobre las asignaciones de roles. Para más información, consulte [Descripción de las asignaciones de denegación para los recursos de Azure](deny-assignments.md) y [Visualización de las asignaciones de denegación para los recursos de Azure mediante Azure Portal](deny-assignments-portal.md).
+
+> [!NOTE]
+> En este momento, la única manera de agregar sus propias asignaciones de denegación es usar Azure Blueprints. Para más información, consulte [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md) (Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints).
 
 ## <a name="how-rbac-determines-if-a-user-has-access-to-a-resource"></a>Cómo determina RBAC si un usuario tiene acceso a un recurso
 

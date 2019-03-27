@@ -1,23 +1,23 @@
 ---
 title: Inicio rápido para controlar un dispositivo desde Azure IoT Hub (Python) | Microsoft Docs
 description: En este inicio rápido, ejecuta dos aplicaciones Python de muestra. Una aplicación es una aplicación back-end que puede controlar dispositivos conectados al centro de manera remota. La otra aplicación simula un dispositivo conectado al centro que se puede controlar de manera remota.
-author: dominicbetts
-manager: timlt
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/30/2018
-ms.author: dobett
-ms.openlocfilehash: 08b2018ec1f1d34291778df0fa217b874cc3ffab
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 801258f2f6f56fc3fd9e7c830e93bf0dbfa9c134
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51515104"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170367"
 ---
-# <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Inicio rápido: controlar un dispositivo conectado a IoT Hub (Python)
+# <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Inicio rápido: Control de un dispositivo conectado a un centro de IoT (Python)
 
 [!INCLUDE [iot-hub-quickstarts-2-selector](../../includes/iot-hub-quickstarts-2-selector.md)]
 
@@ -53,13 +53,13 @@ Si aún no lo ha hecho, descargue el proyecto de Python de muestra desde https:/
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
-Si ha completado el anterior [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md) (Inicio rápido: enviar datos de telemetría desde un dispositivo a IoT Hub), puede omitir este paso.
+Si ha completado la anterior [Guía de inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-python.md) puede omitir este paso.
 
 [!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Registrar un dispositivo
 
-Si ha completado el anterior [Quickstart: Send telemetry from a device to an IoT hub](quickstart-send-telemetry-python.md) (Inicio rápido: enviar datos de telemetría desde un dispositivo a IoT Hub), puede omitir este paso.
+Si ha completado la anterior [Guía de inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT](quickstart-send-telemetry-python.md) puede omitir este paso.
 
 Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta guía de inicio rápido, usará Azure Cloud Shell para registrar un dispositivo simulado.
 
@@ -67,7 +67,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
     **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
-    **MyPythonDevice**: es el nombre que se da al dispositivo registrado. Use MyPythonDevice como se muestra. Si elige otro nombre para el dispositivo, tendrá que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
+    **MyPythonDevice**: nombre que se da al dispositivo registrado. Use MyPythonDevice como se muestra. Si elige otro nombre para el dispositivo, tendrá que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
 
     ```azurecli-interactive
     az extension add --name azure-cli-iot-ext
@@ -90,11 +90,11 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
 
 3. También necesita una _cadena de conexión de servicio_ para permitir que la aplicación back-end se conecte a IoT Hub y recupere los mensajes. El comando siguiente recupera la cadena de conexión del servicio de su instancia de IoT Hub:
 
-    **YourIoTHubName**: reemplace este marcador de posición por el nombre que eligió para su centro de IoT.
+    **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
     ```azurecli-interactive
     az iot hub show-connection-string \
-      --hub-name YourIoTHubName \
+      --name YourIoTHubName \
       --output table
     ```
 

@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf9211508eca911e1a0fcc6db356284452a0d0c6
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 239298959efa5c17d2f3d0c0aa5c4c30853c076f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878258"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57902042"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Tutorial: Integración de Azure Active Directory con Salesforce
 
@@ -206,7 +206,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -257,4 +257,4 @@ Al hacer clic en el icono de Salesforce en el panel de acceso y debería iniciar
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-* [Configuración del aprovisionamiento de usuarios](salesforce-provisioning-tutorial.md)
+- [Configuración del aprovisionamiento de usuarios](salesforce-provisioning-tutorial.md)

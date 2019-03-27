@@ -10,22 +10,24 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/26/2019
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 1390a3be20dd1fc66bb04939f9ce41139db3cb2e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 50882fc383d4dfab85b5afb919b24c7940eb5ee0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56873277"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58122748"
 ---
 # <a name="tutorial-integrate-azure-key-vault-in-resource-manager-template-deployment"></a>Tutorial: Integración de Azure Key Vault en la implementación de la plantilla de Resource Manager
 
 Aprenda a recuperar los secretos de Azure Key Vault y a usarlos como parámetros durante la implementación de Resource Manager. El valor nunca se expone debido a que solo hace referencia a su identificador de almacén de claves. Para más información, consulte [Uso de Azure Key Vault para pasar el valor de parámetro seguro durante la implementación](./resource-manager-keyvault-parameter.md)
 
 En el tutorial [Establecimiento del orden de implementación de los recursos](./resource-manager-tutorial-create-templates-with-dependent-resources.md), se crean una máquina virtual, una red virtual y algunos otros recursos dependientes. En este tutorial se personaliza la plantilla para recuperar la contraseña de administrador de la máquina virtual desde un almacén de claves.
+
+![Diagrama de la integración de Key Vault en la plantilla de Resource Manager](./media/resource-manager-tutorial-use-key-vault/resource-manager-template-key-vault-diagram.png)
 
 En este tutorial se describen las tareas siguientes:
 
@@ -143,13 +145,13 @@ Las plantillas de inicio rápido de Azure consisten en un repositorio de plantil
 3. Seleccione **Abrir** para abrir el archivo. Es el mismo escenario que se ha usado en [Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes](./resource-manager-tutorial-create-templates-with-dependent-resources.md).
 4. La plantilla define cinco recursos:
 
-    * `Microsoft.Storage/storageAccounts`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-    * `Microsoft.Network/publicIPAddresses`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-    * `Microsoft.Network/virtualNetworks`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-    * `Microsoft.Network/networkInterfaces`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-    * `Microsoft.Compute/virtualMachines`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * `Microsoft.Storage/storageAccounts`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+   * `Microsoft.Network/publicIPAddresses`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+   * `Microsoft.Network/virtualNetworks`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+   * `Microsoft.Network/networkInterfaces`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+   * `Microsoft.Compute/virtualMachines`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
-    Resulta útil obtener cierta información básica de la plantilla antes de personalizarla.
+     Resulta útil obtener cierta información básica de la plantilla antes de personalizarla.
 5. Seleccione **Archivo**>**Guardar como** para guardar una copia del archivo en la máquina local con el nombre **azuredeploy.json**.
 6. Repita los pasos 1 a 4 para abrir la dirección URL siguiente y, después, guarde el archivo como **azuredeploy.parameters.json**.
 

@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: f00cc893f21db302c2efe63da285c8843958b1ee
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 55cb9564205c99abc868413ebf43e575999198ed
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731249"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58183703"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-python"></a>Inicio rápido: Búsqueda de palabras con un diccionario bilingüe mediante Python
 
@@ -32,7 +32,7 @@ Esta guía de inicio rápido requiere:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creación de un proyecto e importación de los módulos necesarios
 
-Cree un nuevo proyecto de Python con su IDE o editor favorito. A continuación, copie este fragmento de código en un archivo llamado `dictionary-lookup.py`.
+Cree un proyecto de Python con su editor o IDE favoritos, o bien cree una carpeta en el escritorio. Copie este fragmento de código en un archivo llamado `dictionary-lookup.py` en el proyecto o carpeta.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -60,8 +60,8 @@ else:
     print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
     exit()
 # If you want to set your subscription key as a string, uncomment the line
-# below and add your subscription key.
-#subscriptionKey = 'put_your_key_here'
+# below and add your subscription key. Then, be sure to delete your "os" import.
+# subscriptionKey = 'put_your_key_here'
 ```
 
 El punto de conexión global de Translator Text se establece como `base_url`. `path` establece la ruta de `dictionary/lookup` e identifica que deseamos usar la versión 3 de la API.
@@ -123,7 +123,7 @@ print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separat
 Eso es todo, ha creado un sencillo programa que llama a Translator Text API y devuelve una respuesta JSON. Ahora es el momento de ejecutar el programa:
 
 ```console
-python dictionary-lookup.py
+python alt-translations.py
 ```
 
 Si desea comparar su código con el nuestro, el ejemplo completo está disponible en [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).

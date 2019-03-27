@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 09d43386b994ffc046f8c3e22c82f13ec15acd38
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: bfe4abe4a83a6b22d05942f91f4152d5c0e62be9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428978"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58124105"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>Tutorial: Registro del tráfico de red de entrada y salida de una máquina virtual mediante Azure Portal
 
@@ -100,7 +100,10 @@ Para iniciar sesión en el flujo de NSG, es necesario recurrir al proveedor **Mi
 
 6. En la lista de NSG, seleccione el NSG denominado **myVm-nsg**.
 7. En **Configuración de los registros de flujo**, seleccione **Activada**.
-8. Seleccione la versión del registro de flujos. La versión 2 contiene estadísticas de la sesión de flujo (Bytes y paquetes). ![Seleccionar la versión de los registros de flujo](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+8. Seleccione la versión del registro de flujos. La versión 2 contiene estadísticas de la sesión de flujo (Bytes y paquetes)
+
+   ![Seleccionar la versión de los registros de flujo](./media/network-watcher-nsg-flow-logging-portal/select-flow-log-version.png)
+
 9. Seleccione la cuenta de almacenamiento que creó anteriormente en el paso 3:
 10. Establezca el valor de **Retención (días)** en 5 y, a continuación, seleccione **Guardar**.
 
@@ -109,17 +112,13 @@ Para iniciar sesión en el flujo de NSG, es necesario recurrir al proveedor **Mi
 1. En el portal de Network Watcher, seleccione **Registro de flujos de NSG** en **REGISTROS**.
 2. Seleccione **You can download flow logs from configured storage accounts** (Puede descargar los registros de flujo desde cuentas de almacenamiento configuradas), tal como se muestra en la siguiente imagen.
 
-  ![Descarga de registros de flujo](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
+   ![Descarga de registros de flujo](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. Seleccione la cuenta de almacenamiento que configuró en el paso 2 de la opción [Habilitar los registros de flujo de NSG](#enable-nsg-flow-log).
-4. Seleccione **Contenedores** en **SERVICIO DE BLOB** y, a continuación, seleccione el contenedor **insights-logs-networksecuritygroupflowevent**, tal como se muestra en la siguiente imagen:
+4. En **Blob service** seleccione **Blobs** y, a continuación, seleccione el contenedor **insights-logs-networksecuritygroupflowevent**.
+5. En el contenedor, explore la jerarquía de carpetas hasta llegar a un archivo PT1H.json, tal como se muestra en la imagen a continuación. Los archivos de registro se escriben en una jerarquía de carpetas que tiene la siguiente convención de nomenclatura: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
-    ![Seleccionar el contenedor](./media/network-watcher-nsg-flow-logging-portal/select-container.png)
-5. Explore la jerarquía de carpetas hasta llegar a un archivo PT1H.json, tal como se muestra en la siguiente imagen:
-
-    ![Archivo de registro](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
-
-    Los archivos de registro se escriben en una jerarquía de carpetas que tiene la siguiente convención de nomenclatura: https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
+   ![Registro de flujo](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
 
 6. Seleccione **...** a la derecha del archivo PT1H.json de y **Descargar**.
 
@@ -196,7 +195,6 @@ El siguiente formato JSON es un ejemplo de lo que verá en el archivo PT1H.json 
 }
 ```
 
-
 El valor de **mac** en la salida anterior es la dirección MAC de la interfaz de red que se creó cuando creó la máquina virtual. La información separada por comas de **flowTuples** tiene el siguiente aspecto:
 
 | Datos de ejemplo | Qué representan los datos   | Explicación                                                                              |
@@ -213,7 +211,7 @@ El valor de **mac** en la salida anterior es la dirección MAC de la interfaz de
 | 30 | Paquetes enviados: origen a destino **solo versión 2** | El número total de paquetes TCP o UDP enviados desde el origen al destino desde la última actualización. |
 | 16978 | Bytes enviados: origen a destino **solo versión 2** | El número total de bytes de paquetes TCP o UDP enviados desde el origen al destino desde la última actualización. Los bytes de paquete incluyen el encabezado y la carga del paquete. | 
 | 24 | Paquetes enviados: destino a origen **solo versión 2** | El número total de paquetes TCP o UDP enviados desde el destino al origen desde la última actualización. |
-| 14008| Bytes enviados: destino a origen **solo versión 2** | El número total de bytes de paquetes TCP y UDP enviados desde el destino al origen desde la última actualización. Los bytes de paquete incluyen el encabezado y la carga del paquete.| |
+| 14008| Bytes enviados: destino a origen **solo versión 2** | El número total de bytes de paquetes TCP y UDP enviados desde el destino al origen desde la última actualización. Los bytes de paquete incluyen el encabezado y la carga del paquete.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,20 +7,20 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 01/16/2019
+ms.date: 02/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e49bc5a468777197eaf88a492566a606e7b9f93
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 6f58c8c3ea76cf44730a54897e6b77ef6e648a49
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961880"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901668"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: Integración de Azure Active Directory con Amazon Web Services (AWS)
 
@@ -133,7 +133,7 @@ Para configurar el inicio de sesión único de Azure AD con Amazon Web Services 
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, el usuario no tiene que realizar ningún paso porque la aplicación ya se ha integrado previamente con Azure.  Haga clic en **Save**(Guardar).
+4. En la sección **Configuración básica de SAML**, la aplicación está preconfigurada y las direcciones URL necesarias ya se han rellenado previamente con Azure. El usuario debe guardar la configuración, para lo que debe hacer clic en el botón **Guardar**.
 
     ![imagen](./media/amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_url.png)
 
@@ -401,7 +401,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

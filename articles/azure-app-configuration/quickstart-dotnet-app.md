@@ -14,18 +14,18 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: b5e41b1f9ee982b8ff8c86232f715d5dab705cd6
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 551b884f032eaba3f052fcb7571ba907038152ff
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56962169"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226851"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Inicio rápido: Creación de una aplicación de .NET Framework con Azure App Configuration
 
-Azure App Configuration es un servicio de configuración administrado de Azure. Permite almacenar y administrar fácilmente toda la configuración de una aplicación en un solo lugar que está separado del código. En este artículo de inicio rápido se muestra cómo incorporar el servicio en una aplicación de consola de escritorio de Windows basada en .NET Framework.
+Azure App Configuration es un servicio de configuración administrado de Azure. Puede usarlo para almacenar y administrar fácilmente toda la configuración de una aplicación en un solo lugar que esté separado del código. En este artículo de inicio rápido se muestra cómo incorporar el servicio en una aplicación de consola de escritorio de Windows basada en .NET Framework.
 
-![Guía de inicio rápido completo local](./media/quickstarts/dotnet-fx-app-run.png)
+![Inicio rápido completo local](./media/quickstarts/dotnet-fx-app-run.png)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -41,11 +41,11 @@ Para completar este artículo de inicio rápido, instale [Visual Studio 2017](ht
 
 1. Inicie Visual Studio y seleccione **Archivo** > **Nuevo** > **Proyecto**.
 
-2. En el cuadro de diálogo **Nuevo proyecto**, seleccione **Instalado**, expanda **Visual C#**  > **Escritorio de Windows** , seleccione  **Aplicación de consola (.NET Framework)**, escriba el **nombre** del proyecto, elija **.NET Framework 4.7.1**, o superior, y haga clic en **Aceptar**.
+2. En **Nuevo proyecto**, seleccione **Instalado** > **Visual C#** > **Escritorio clásico de Windows**. Seleccione **Aplicación de consola (.NET Framework)** y escriba un nombre para el proyecto. Seleccione **.NET Framework 4.7.1** u otra versión posterior y seleccione **Aceptar**.
 
-## <a name="connect-to-app-configuration-store"></a>Conexión a un almacén de configuración de aplicaciones
+## <a name="connect-to-an-app-configuration-store"></a>Conexión a un almacén de configuración de aplicaciones
 
-1. Haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes NuGet...** En la pestaña **Examinar**, busque y agregue los siguientes paquetes NuGet al proyecto (seleccione la casilla **Incluir versión preliminar** si no los encuentra).
+1. Haga clic con el botón derecho en el proyecto y seleccione **Administrar paquetes NuGet**. En la pestaña **Examinar**, busque y agregue los siguientes paquetes NuGet al proyecto. Si no los encuentra, seleccione la casilla **Incluir versión preliminar**.
     ```
     Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later
     Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later
@@ -71,7 +71,7 @@ Para completar este artículo de inicio rápido, instale [Visual Studio 2017](ht
     </appSettings>
     ```
 
-   Tenga en cuenta que como se va a leer la cadena de conexión de su almacén de configuración de aplicaciones desde la variable de entorno `ConnectionString`, es importante agregar el generador de configuraciones `Environment` antes de `MyConfigStore` en la propiedad `configBuilders` de la sección `appSettings`.
+   La cadena de conexión del almacén de configuración de la aplicación se lee en la variable de entorno `ConnectionString`. Agregue el generador de configuración `Environment` antes de `MyConfigStore` en la propiedad `configBuilders` de la sección `appSettings`.
 
 3. Abra *Program.cs* y actualice el método `Main` para usar App Configuration mediante una llamada a `ConfigurationManager`.
 
@@ -94,7 +94,7 @@ Para completar este artículo de inicio rápido, instale [Visual Studio 2017](ht
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-2. Reinicie Visual Studio para que el cambio surta efecto y, después, presione **Ctrl + F5** en el teclado para compilar y ejecutar la aplicación de consola.
+2. Reinicie Visual Studio para permitir que el cambio surta efecto. Presione Ctrl + F5 para compilar y ejecutar la aplicación de consola.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -102,7 +102,7 @@ Para completar este artículo de inicio rápido, instale [Visual Studio 2017](ht
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha creado un almacén de configuración de aplicaciones y lo ha usado con una aplicación de consola de .NET Framework. Para más información acerca del uso de App Configuration, continúe con el siguiente tutorial, ya que en él se muestra cómo realizar la autenticación.
+En este inicio rápido, ha creado un almacén de configuración de aplicaciones y lo ha usado con una aplicación de consola de .NET Framework. Para más información acerca del uso de App Configuration, continúe con el siguiente tutorial, ya que en él se muestra cómo realizar la autenticación.
 
 > [!div class="nextstepaction"]
 > [Integración de Managed Identities for Azure Resources](./integrate-azure-managed-service-identity.md)

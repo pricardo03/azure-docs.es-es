@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 83c3db81b2836fca15c8cac1e9665a73a89ba06d
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 5a87563e54e0d932acefc5bd5808ac49b3cbf30a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980268"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58005241"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación de reglas de escalado automático de conjuntos de escalado de máquinas virtuales con Azure PowerShell
 
@@ -188,7 +188,7 @@ IpAddress
 52.168.121.216
 ```
 
-Cree una conexión remota a la primera instancia de máquina virtual. Especifique su dirección IP pública y el número de puerto de la instancia de máquina virtual necesaria, tal como se muestra en los comandos anteriores. Cuando se le solicite, escriba las credenciales que ha utilizado al crear el conjunto de escalado (de forma predeterminada en los comandos de ejemplo, *azureuser* y *P@ssw0rd!*). Si se utiliza Azure Cloud Shell, realice este paso desde un símbolo del sistema local de PowerShell o un cliente de Escritorio remoto. En el ejemplo siguiente se realiza una conexión a la instancia de máquina virtual *0*:
+Cree una conexión remota a la primera instancia de máquina virtual. Especifique su dirección IP pública y el número de puerto de la instancia de máquina virtual necesaria, tal como se muestra en los comandos anteriores. Cuando se le solicite, escriba las credenciales que ha utilizado al crear el conjunto de escalado (de forma predeterminada en los comandos de ejemplo, *azureuser* y *P\@ssw0rd!*). Si se utiliza Azure Cloud Shell, realice este paso desde un símbolo del sistema local de PowerShell o un cliente de Escritorio remoto. En el ejemplo siguiente se realiza una conexión a la instancia de máquina virtual *0*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001

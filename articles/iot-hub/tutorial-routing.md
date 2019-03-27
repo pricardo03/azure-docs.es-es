@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: cc3f7c72acc0723c522b595ea106f72947e9d014
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 87d0339de117330bf6d586cd653b0d4d16a8cbca
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728733"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58087710"
 ---
 # <a name="tutorial-configure-message-routing-with-iot-hub"></a>Tutorial: Configuración del enrutamiento de mensajes con IoT Hub
 
@@ -144,7 +144,7 @@ echo "Service Bus namespace = " $sbNameSpace
 az servicebus namespace create --resource-group $resourceGroup \
     --name $sbNameSpace \
     --location $location
-    
+
 # The Service Bus queue name must be globally unique, so add a random number to the end.
 sbQueueName=ContosoSBQueue$RANDOM
 echo "Service Bus queue name = " $sbQueueName
@@ -276,7 +276,7 @@ Va a enrutar mensajes a diferentes recursos en función de propiedades que el di
 
 Ahora, configure el enrutamiento de la cuenta de almacenamiento. Vaya al panel de enrutamiento de mensajes y agregue una ruta. Al agregar la ruta, defina un nuevo punto de conexión para la misma. Una vez tenga todo configurado, los mensajes en los que la propiedad **level** esté establecida en **storage** se escriben automáticamente en una cuenta de almacenamiento. 
 
-Los datos se escriben en Blob Storage en el formato Avro.
+Los datos se escriben en Blob Storage en el formato Avro de manera predeterminada.
 
 1. En [Azure Portal](https://portal.azure.com), haga clic en **Grupos de recursos** y seleccione un grupo de recursos. En este tutorial se usa **ContosoResources**. 
 
@@ -301,8 +301,9 @@ Los datos se escriben en Blob Storage en el formato Avro.
    > 
    > Por ejemplo, con el formato de nombre de archivo del blob predeterminado, si el nombre del centro es ContosoTestHub y la fecha y hora es el 30 de octubre de 2018 a las 10:56 a.m., el nombre del blob tendrá este aspecto: `ContosoTestHub/0/2018/10/30/10/56`.
    > 
-   > Los blobs se escriben en el formato Avro.
-   >
+   > De manera predeterminada, los blobs se escriben en el formato Avro. Puede elegir escribir archivos en formato JSON. La funcionalidad de codificar en formato JSON está en versión preliminar en todas las regiones donde IoT Hub está disponible, excepto en el Este de Estados Unidos, el Oeste de Estados Unidos y Europa occidental. Consulte la [guía sobre el enrutamiento a Blob Storage](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+   > 
+   > Al enrutar a Blob Storage, se recomienda dar de alta los blobs e iterar sobre ellos para garantizar que se leen todos los contenedores sin pasar por alto ninguna partición. El intervalo de partición podría cambiar durante una [conmutación por error iniciada por Microsoft](iot-hub-ha-dr.md#microsoft-initiated-failover) o una [conmutación por error manual](iot-hub-ha-dr.md#manual-failover-preview) de IoT Hub. Para aprender a enumerar la lista de blobs, consulte el [enrutamiento a Blob Storage](iot-hub-devguide-messages-d2c.md#azure-blob-storage)
 
 8. Haga clic en **Crear** para crear el punto de conexión de almacenamiento y agregarlo a la ruta. Volverá al panel **Agregar una ruta**.
 
@@ -311,15 +312,15 @@ Los datos se escriben en Blob Storage en el formato Avro.
    **Nombre**: escriba el nombre de la consulta de enrutamiento. En este tutorial se usa **StorageRoute**.
 
    **Punto de conexión**: seleccione el punto de conexión que acaba de configurar. 
-   
+
    **Origen de datos**: seleccione **Mensajes de telemetría del dispositivo** en la lista desplegable.
 
    **Habilitar ruta**: asegúrese de que esta opción esté habilitada.
-   
+
    **Consulta de enrutamiento**: escriba `level="storage"` como cadena de consulta. 
 
    ![Captura de pantalla que muestra la creación de una consulta de enrutamiento para la cuenta de almacenamiento.](./media/tutorial-routing/message-routing-finish-route-storage-ep.png)  
-   
+
    Haga clic en **Save**(Guardar). Al terminar, vuelve al panel Enrutamiento de mensajes, donde podrá ver la nueva consulta de enrutamiento del almacenamiento. Cierre el panel Rutas, lo que le devolverá a la página Grupo de recursos.
 
 ### <a name="routing-to-a-service-bus-queue"></a>Enrutamiento a una cola de Service Bus. 
@@ -337,14 +338,14 @@ Ahora, configure el enrutamiento de la cola de Service Bus. Vaya al panel de enr
 4. Rellene los campos:
 
    **Nombre del punto de conexión**: Escriba el nombre del punto de conexión. En este tutorial se usa **CriticalQueue**.
-   
+
    **Espacio de nombres de Service Bus**: haga clic en este campo para mostrar la lista desplegable; seleccione el espacio de nombres de Service Bus que configuró en los pasos de preparación. En este tutorial se usa **ContosoSBNamespace**.
 
    **Cola de Service Bus**: haga clic en este campo para mostrar la lista desplegable; seleccione la cola de Service Bus. En este tutorial se usa **contososbqueue**.
 
 5. Haga clic en **Crear** para agregar el punto de conexión de cola de Service Bus. Volverá al panel **Agregar una ruta**. 
 
-6.  Ahora, complete el resto de la información de la consulta de enrutamiento. En esta consulta se especifican los criterios para enviar mensajes a la cola de Service Bus que acaba de agregar como punto de conexión. Rellene los campos de la pantalla. 
+6. Ahora, complete el resto de la información de la consulta de enrutamiento. En esta consulta se especifican los criterios para enviar mensajes a la cola de Service Bus que acaba de agregar como punto de conexión. Rellene los campos de la pantalla. 
 
    **Nombre**: escriba el nombre de la consulta de enrutamiento. En este tutorial se usa **SBQueueRoute**. 
 
@@ -401,7 +402,7 @@ La cola de Service Bus se debe usar para recibir los mensajes designados como cr
    ![Captura de pantalla que muestra la configuración de la conexión para la cola de Service Bus.](./media/tutorial-routing/logic-app-define-connection.png)
 
    Haga clic en el espacio de nombre de Service Bus. En este tutorial se usa **ContosoSBNamespace**. Cuando se selecciona el espacio de nombres, el portal consulta el espacio de nombres de Service Bus para recuperar las claves. Seleccione **RootManageSharedAccessKey** y haga clic en **Crear**. 
-   
+
    ![Captura de pantalla que muestra la finalización d la configuración de la conexión.](./media/tutorial-routing/logic-app-finish-connection.png)
 
 6. En la siguiente pantalla, seleccione el nombre de la cola (en este tutorial se usa **contososbqueue**) en la lista desplegable. En los restantes campos puede dejar los valores predeterminados. 
@@ -442,9 +443,9 @@ Para ver los datos en una visualización de Power BI, primero es preciso configu
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Adición de una entrada al trabajo de Stream Analytics
 
-4. En **Topología de trabajo**, haga clic en **Entradas**.
+1. En **Topología de trabajo**, haga clic en **Entradas**.
 
-5. En el panel **Entradas**, haga clic en **Agregar entrada de flujo** y seleccione IoT Hub. En la pantalla que aparece, rellene los campos siguientes:
+1. En el panel **Entradas**, haga clic en **Agregar entrada de flujo** y seleccione IoT Hub. En la pantalla que aparece, rellene los campos siguientes:
 
    **Alias de entrada**: En este tutorial se usa **contosoinputs**.
 
@@ -457,12 +458,12 @@ Para ver los datos en una visualización de Power BI, primero es preciso configu
    **Nombre de directiva de acceso compartido**: seleccione **iothubowner**. El portal rellena automáticamente el campo Clave de directiva de acceso compartido.
 
    **Grupo de consumidores**: seleccione el grupo de consumidores que creó anteriormente. En este tutorial se usa **contosoconsumers**.
-   
+
    En cuanto al resto de los campos, acepte los valores predeterminados. 
 
    ![Captura de pantalla que muestra cómo se configuran las entradas en el trabajo de Stream Analytics.](./media/tutorial-routing/stream-analytics-job-inputs.png)
 
-6. Haga clic en **Save**(Guardar).
+1. Haga clic en **Save**(Guardar).
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Adición de una salida al trabajo de Stream Analytics
 
@@ -631,4 +632,4 @@ En este tutorial, ha aprendido a utilizar el enrutamiento de mensajes para enrut
 En el siguiente tutorial aprender a administrar el estado de un dispositivo IoT. 
 
 > [!div class="nextstepaction"]
-[Configuración y uso de métricas y diagnósticos con un centro de IoT](tutorial-use-metrics-and-diags.md)
+> [Configuración y uso de métricas y diagnósticos con un centro de IoT](tutorial-use-metrics-and-diags.md)

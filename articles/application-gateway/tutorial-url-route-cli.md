@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 10/25/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 68532ec4ae7e6d6b496ece8d08755555f756a60e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 4f0c93c41a468b62baf1ec50d030f235d36a8dd2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50413458"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58006479"
 ---
-# <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Tutorial: redirigir el tráfico web basado en la dirección URL mediante la CLI de Azure
+# <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Tutorial: Redirección del tráfico web en función de la dirección URL mediante la CLI de Azure
 
 Como administrador de IT que administra el tráfico web, desea ayudar a los clientes o usuarios a obtener la información que necesitan lo más rápidamente posible. Una manera en la que puede optimizar su experiencia es mediante el enrutamiento de diferentes clases de tráfico web a diferentes recursos de servidor. Este tutorial le muestra cómo usar la CLI de Azure para instalar y configurar el enrutamiento de Application Gateway para distintos tipos de tráfico de la aplicación. Posteriormente, el enrutamiento dirige el tráfico a diferentes granjas de servidores según la dirección URL.
 
@@ -234,7 +234,7 @@ done
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, use az network public-ip show. Copie la dirección IP pública y péguela en la barra de direcciones del explorador. Como, por ejemplo, *http://40.121.222.19*, *http://40.121.222.19:8080/images/test.htm* o *http://40.121.222.19:8080/video/test.htm*.
+Para obtener la dirección IP pública de la puerta de enlace de aplicaciones, use az network public-ip show. Copie la dirección IP pública y péguela en la barra de direcciones del explorador. Como, por ejemplo, `http://40.121.222.19`, `http://40.121.222.19:8080/images/test.htm` o `http://40.121.222.19:8080/video/test.htm`.
 
 ```azurecli-interactive
 az network public-ip show \

@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50ef84c9795065d4186fae9542c18d4df06c85c2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 2e5ddc8a1190161d9492cd083a50120ca9d5fc5f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56880383"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901294"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>Tutorial: Integración de Azure Active Directory con Central Desktop
 
@@ -108,6 +108,7 @@ Para configurar el inicio de sesión único de Azure AD con Central Desktop, sig
      a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.centraldesktop.com`
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón:
+    
     | |
     |--|
     | `https://<companyname>.centraldesktop.com/saml2-metadata.php`|
@@ -185,7 +186,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

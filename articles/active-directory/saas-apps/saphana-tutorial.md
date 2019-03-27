@@ -7,7 +7,7 @@ author: jeevansd
 manager: daveba
 ms.reviewer: barbkess
 ms.assetid: cef4a146-f4b0-4e94-82de-f5227a4b462c
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 017d693f0d71692abfb432216ca0645dee80d7df
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f8def13360bba2f82d5adf315503dc7d655f490d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56865236"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57899834"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-hana"></a>Tutorial: Integración de Azure Active Directory con SAP HANA
 
@@ -195,7 +195,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -248,8 +248,8 @@ Si tiene que crear manualmente un usuario, siga los pasos siguientes:
 
 4. Agregue la **Identidad externa** (en este caso, BrittaSimon) o elija **Cualquiera**. Después seleccione **Aceptar**.
 
-    >[!Note]
-    >Si no está seleccionada la casilla **Cualquiera**, el nombre de usuario en HANA debe coincidir exactamente con el nombre del usuario en UPN antes del sufijo de dominio. (Por ejemplo, BrittaSimon@contoso.com se convierte en BrittaSimon en HANA.)
+   > [!Note]
+   > Si no está seleccionada la casilla **Cualquiera**, el nombre de usuario en HANA debe coincidir exactamente con el nombre del usuario en UPN antes del sufijo de dominio. (Por ejemplo, BrittaSimon@contoso.com se convierte en BrittaSimon en HANA.)
 
 5. Para realizar pruebas, asigne todos los roles de **XS** para el usuario.
 

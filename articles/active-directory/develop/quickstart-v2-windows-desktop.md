@@ -3,8 +3,8 @@ title: Guía de inicio rápido del escritorio de Windows en Azure AD v2 | Micros
 description: Más información acerca de cómo una aplicación .NET de escritorio de Windows (XAML) puede obtener un token de acceso y llamar a una API protegida por un punto de conexión de Azure Active Directory v2.0
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/18/2019
+ms.date: 03/20/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dccb1385cb5c7909b5b15ae57c6b6cadf4d10f16
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
+ms.openlocfilehash: 74f024ee55a707534fbd42b647845179baed01ce
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408585"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201048"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de escritorio de Windows
 
@@ -30,7 +30,7 @@ ms.locfileid: "56408585"
 
 En esta guía de inicio rápido aprenderá cómo escribir una aplicación .NET de escritorio de Windows (WPF) que puede iniciar sesión en cuentas personales, profesionales y educativas, obtener un token de acceso y llamar a Microsoft Graph API.
 
-![Funcionamiento de la aplicación de ejemplo generada por esta guía de inicio rápido](media/quickstart-v2-windows-desktop/windesktop-intro.png)
+![Muestra cómo funciona la aplicación de ejemplo generada por este inicio rápido.](media/quickstart-v2-windows-desktop/windesktop-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registro y descarga de la aplicación de inicio rápido

@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 01/30/2019
+ms.date: 02/22/2019
 ms.author: diberry
-ms.openlocfilehash: 3fe549a63f0fb4662ba5beb2e28f1ca72fcc1ee4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 33541d2a61c52476f6e314f6981a623390de8fa9
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55855891"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193745"
 ---
 # <a name="tutorial-add-common-pattern-template-utterance-formats"></a>Tutorial: Incorporación de formatos comunes de expresión de plantilla de patrón
 
@@ -221,22 +221,7 @@ Para que un patrón coincida con una expresión, las entidades dentro de la expr
 
 **Si bien los patrones permiten proporcionar menos expresiones de ejemplo, si no se detectan las entidades, el patrón no coincide.**
 
-En este tutorial se agregan dos nuevas intenciones: `OrgChart-Manager` y `OrgChart-Reports`. 
-
-|Intención|Expresión|
-|--|--|
-|OrgChart-Manager (Organigrama-Administrador)|Who does Jill Jones report to? (¿A quién informa Jill Jones?)|
-|OrgChart-Reports|Who reports to Jill Jones? (¿Quién informa a Jill Jones?)|
-
-Una vez que LUIS devuelve una predicción a la aplicación cliente, el nombre de la intención se puede usar como un nombre de función en la aplicación cliente y la entidad Employee (Empleado) podría usarse como un parámetro para esa función.
-
-```javascript
-OrgChartManager(employee){
-    ///
-}
-```
-
-Recuerde que los empleados se crearon en el [tutorial de la entidad de lista](luis-quickstart-intent-and-list-entity.md).
+## <a name="add-the-patterns-for-the-orgchart-manager-intent"></a>Agregar los patrones de la intención de OrgChart-Manager
 
 1. Seleccione **Build** (Compilación) en el menú superior.
 
@@ -259,7 +244,7 @@ Recuerde que los empleados se crearon en el [tutorial de la entidad de lista](lu
 
     [![Captura de pantalla del ingreso de expresiones de plantilla para la intención](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. Seleccione la intención **OrgChart-Reports** y luego escriba las siguientes expresiones de plantilla:
+4. Mientras sigue en la página de patrones, seleccione la intención **OrgChart-Reports** y luego escriba las siguientes expresiones de plantilla:
 
     |Expresiones de plantilla|
     |:--|
@@ -272,11 +257,13 @@ Recuerde que los empleados se crearon en el [tutorial de la entidad de lista](lu
 
 ## <a name="query-endpoint-when-patterns-are-used"></a>Consulta de punto de conexión cuando se usan patrones
 
+Ahora que los patrones se han agregado a la aplicación, entrenar, publique y consulte la aplicación en el punto de conexión en tiempo de ejecución de predicción.
+
 1. Vuelva a entrenar y publicar la aplicación.
 
-2. Cambie las pestañas de explorador de vuelta a la pestaña de la dirección URL del punto de conexión.
+1. Cambie las pestañas de explorador de vuelta a la pestaña de la dirección URL del punto de conexión.
 
-3. Vaya al final de la dirección URL en la dirección y escriba `Who is the boss of Jill Jones?` como la expresión. El último parámetro de la cadena de consulta es `q`, la expresión **query**. 
+1. Vaya al final de la dirección URL en la dirección y escriba `Who is the boss of Jill Jones?` como la expresión. El último parámetro de la cadena de consulta es `q`, la expresión **query**. 
 
     ```json
     {
@@ -362,11 +349,11 @@ Recuerde que los empleados se crearon en el [tutorial de la entidad de lista](lu
     }
     ```
 
-La predicción de la intención ahora es considerablemente más alta.
+La predicción de la intención ahora es bastante más confiable.
 
 ## <a name="working-with-optional-text-and-prebuilt-entities"></a>Trabajo con texto opcional y entidades creadas previamente
 
-Las expresiones de plantilla del patrón anterior de este tutorial tenían algunos ejemplos de texto opcional, como el uso posesivo de la letra s, `'s` y el uso del signo de interrogación, `?`. Suponga que las expresiones del punto de conexión muestran que los administradores y los representantes de recursos humanos buscan datos históricos, así como traslados de empleados previstos dentro de la empresa que ocurrirán en una fecha futura.
+Las expresiones de plantilla del patrón anterior de este tutorial tenían algunos ejemplos de texto opcional, como el uso posesivo de la letra s, `'s` y el uso del signo de interrogación, `?`. Supongamos que necesita permitir fechas actuales y futuras en el texto de la expresión.
 
 Las expresiones de ejemplo son:
 
@@ -379,23 +366,22 @@ Las expresiones de ejemplo son:
 
 Cada uno de estos ejemplos usa un tiempo verbal, `was`, `is`, `will be`, así como una fecha, `March 3`, `now` y `in a month`, que LUIS debe predecir correctamente. Observe que los dos últimos ejemplos usan casi el mismo texto, excepto para `in` y `on`.
 
-Expresiones de plantilla de ejemplo:
+Ejemplo de declaraciones de plantilla que permiten esta información opcional: 
+
 |Intención|Expresiones de ejemplo con texto opcional y entidades creadas previamente|
 |:--|:--|
 |OrgChart-Manager (Organigrama-Administrador)|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
 |OrgChart-Manager (Organigrama-Administrador)|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
-|OrgChart-Manager (Organigrama-Administrador)|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
-|Organigrama-Administrador|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
 
 El uso de la sintaxis opcional de corchetes, `[]`, facilita la adición de este texto opcional a la expresión de plantilla y se pueden anidar hasta un segundo nivel, `[[]]` e incluir entidades o texto.
 
-**Pregunta: ¿Por qué no se pueden combinar las dos últimas expresiones de ejemplo combinar en una expresión de plantilla única?** La plantilla del patrón no admite la sintaxis OR. Con el fin de capturar tanto la versión `in` como la versión `on`, cada una debe ser una expresión de plantilla independiente.
 
 **Pregunta: ¿Por qué están todas las letras `w`, la primera letra de cada expresión de plantilla, en minúsculas? ¿No deberían estar en mayúsculas o minúsculas opcionalmente?** La expresión enviada al punto de conexión de consulta por la aplicación cliente se convierte en minúsculas. La expresión de plantilla puede estar en mayúsculas o minúsculas y la expresión del punto de conexión también puede estar en cualquiera de las dos. La comparación siempre se realiza después de la conversión a minúsculas.
 
 **Pregunta: ¿Por qué el número creado previamente no forma parte de la expresión de plantilla si el 3 de marzo se predice como número `3` y fecha `March 3`?** La expresión de plantilla contextualmente usa una fecha, ya sea de modo literal, como en `March 3` o abstracto, como en `in a month`. Una fecha puede contener un número, pero un número es posible que no necesariamente se considere como una fecha. Use siempre la entidad que mejor representa el tipo en el que desea que se devuelvan los resultados JSON de la predicción.  
 
-**Pregunta: ¿Qué sucede con las expresiones de composición incorrecta como `Who will {Employee}['s] manager be on March 3?`?** Los tiempos verbales diferentes gramaticalmente, como este en el que `will` y `be` son independientes, deben ser una nueva expresión de plantilla. La expresión de plantilla existente no producirá coincidencia. Aunque no ha cambiado la intención de la expresión, ha cambiado la colocación de las palabras en la expresión. Este cambio afecta a la predicción de LUIS.
+**Pregunta: ¿Qué sucede con las expresiones de composición incorrecta como `Who will {Employee}['s] manager be on March 3?`?** Los tiempos verbales diferentes gramaticalmente, como este en el que `will` y `be` son independientes, deben ser una nueva expresión de plantilla. La expresión de plantilla existente no producirá coincidencia. Aunque no ha cambiado la intención de la expresión, ha cambiado la colocación de las palabras en la expresión. Este cambio afecta a la predicción de LUIS. También puede usar la sintaxis [group y OR](#use-the-or-operator-and-groups) con los tiempos verbales para combinar estas expresiones. 
 
 **Recuerde: primero se encuentran las entidades y, a continuación, se compara el patrón.**
 
@@ -403,11 +389,9 @@ El uso de la sintaxis opcional de corchetes, `[]`, facilita la adición de este 
 
 1. En el sitio web de LUIS, seleccione **Build** (Crear) en el menú superior y, a continuación, seleccione **Patterns** (Patrones) en el menú izquierdo. 
 
-2. Busque la expresión de plantilla existente, `Who is {Employee}['s] manager[?]` y seleccione los puntos suspensivos (***...***) a la derecha. 
+1. Busque la expresión de plantilla existente, `Who is {Employee}['s] manager[?]`, seleccione los puntos suspensivos (***...*** ) a la derecha y, luego, seleccione **Edit** (Editar). 
 
-3. Seleccione **Edit** (Editar) en el menú emergente. 
-
-4. Cambie la expresión de plantilla a: `who is {Employee}['s] manager [[on]{datetimeV2}?]]`
+1. Cambie la expresión de plantilla a: `who is {Employee}['s] manager [[on]{datetimeV2}?]`
 
 ## <a name="add-new-pattern-template-utterances"></a>Adición de nuevas expresiones de plantilla del patrón
 
@@ -416,7 +400,6 @@ El uso de la sintaxis opcional de corchetes, `[]`, facilita la adición de este 
     |Intención|Expresiones de ejemplo con texto opcional y entidades creadas previamente|
     |--|--|
     |OrgChart-Manager (Organigrama-Administrador)|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
-    |OrgChart-Manager (Organigrama-Administrador)|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
     |OrgChart-Manager (Organigrama-Administrador)|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
     |OrgChart-Manager (Organigrama-Administrador)|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
 
@@ -426,7 +409,7 @@ El uso de la sintaxis opcional de corchetes, `[]`, facilita la adición de este 
 
 4. Especifique varias expresiones de prueba para comprobar que el patrón coincide y la puntuación de la intención es considerablemente alta. 
 
-    Después de escribir la primera expresión, seleccione **Inspect** (Inspeccionar) en el resultado para ver todos los resultados de la predicción.
+    Después de escribir la primera expresión, seleccione **Inspect** (Inspeccionar) en el resultado para ver todos los resultados de la predicción. Cada expresión debe tener la intención **OrgChart Manager** y debe extraer los valores de las entidades de empleado y datetimeV2.
 
     |Expresión|
     |--|
@@ -438,6 +421,51 @@ El uso de la sintaxis opcional de corchetes, `[]`, facilita la adición de este 
     |Who will be Jill Jones manager in a month? (¿Quién será el administrador de Jill Jones dentro de un mes?)|
 
 Todas estas expresiones encuentran las entidades, por lo tanto coinciden con el mismo patrón y tienen una puntuación de predicción alta.
+
+## <a name="use-the-or-operator-and-groups"></a>Uso del operador OR y los grupos
+
+Varias de las expresiones de plantilla anteriores son muy parecidas. Use la sintaxis **group** `()` y **OR** `|` para reducir las expresiones de plantilla. 
+
+Los dos siguientes patrones se pueden combinar en un único patrón mediante la sintaxis group `()` y OR `|`.
+
+|Intención|Expresiones de ejemplo con texto opcional y entidades creadas previamente|
+|--|--|
+|OrgChart-Manager (Organigrama-Administrador)|`who will be {Employee}['s] manager [[in]{datetimeV2}?]`|
+|OrgChart-Manager (Organigrama-Administrador)|`who will be {Employee}['s] manager [[on]{datetimeV2}?]`|
+
+La nueva expresión de plantilla será: 
+
+`who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`. 
+
+Esta expresión usa un elemento **group** alrededor del tiempo verbal necesario y los elementos opcionales `in` y `on` con una barra vertical **or** entre ellos. 
+
+1. En la página **Patterns** (Patrones), seleccione el filtro **OrgChart Manager**. Para limitar la lista, busque `manager`. 
+
+    ![Búsqueda del término "manager" en los patrones de intención de OrgChart-Manager](./media/luis-tutorial-pattern/search-patterns.png)
+
+1. Guarde una versión de la expresión de plantilla (para editarla en el paso siguiente) y elimine las otras variaciones. 
+
+1. Cambie la expresión de plantilla a: 
+
+    `who ( was | is | will be ) {Employee}['s] manager [([in]|[on]){datetimeV2}?]`.
+
+1. Entrene la aplicación.
+
+1. Use el panel de prueba para probar las versiones de la expresión:
+
+    |Expresiones para escribir en el panel de prueba|
+    |--|
+    |`Who is Jill Jones manager this month`|
+    |`Who is Jill Jones manager on July 5th`|
+    |`Who was Jill Jones manager last month`|
+    |`Who was Jill Jones manager on July 5th`|    
+    |`Who will be Jill Jones manager in a month`|
+    |`Who will be Jill Jones manager on July 5th`|
+
+
+## <a name="use-the-utterance-beginning-and-ending-anchors"></a>Uso de los delimitadores inicial y final de la expresión
+
+La sintaxis del patrón proporciona la sintaxis de delimitador de inicio y final de un símbolo de intercalación, `^`. Los delimitadores de inicio y final de expresión se pueden usar juntos para dirigirse a expresiones muy específicas o posiblemente literales, o se pueden usar por separado para dirigirse a intenciones. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

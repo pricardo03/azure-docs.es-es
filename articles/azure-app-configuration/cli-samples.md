@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 053baf072c667c46f9e6d955125c13f711c20c20
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a8a60f23511f71128bea4cc560ad8401b238732d
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56884302"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58223655"
 ---
 # <a name="azure-cli-samples"></a>Ejemplos de la CLI de Azure
 
@@ -30,9 +30,9 @@ En la tabla siguiente se incluyen vínculos a scripts de Bash para Azure App Con
 |**Creación**||
 | [Creación de un almacén de App Configuration](./scripts/cli-create-service.md) | Crea un grupo de recursos y una instancia de almacén de App Configuration.  |
 |**Uso**||
-| [Uso de pares clave-valor](./scripts/cli-work-with-keys.md) | Permite crear, ver, actualizar y eliminar pares clave-valor. |
-| [Importación de pares clave-valor](./scripts/cli-import.md) | Importa pares clave-valor de otros orígenes. |
-| [Exportación de pares clave-valor](./scripts/cli-export.md) | Exporta pares clave-valor a otros destinos. |
+| [Trabajar con valores de clave](./scripts/cli-work-with-keys.md) | Permite crear, ver, actualizar y eliminar valores de clave'. |
+| [Importar valores de clave](./scripts/cli-import.md) | Permite importar valores de clave de otros orígenes. |
+| [Exportar valores de clave](./scripts/cli-export.md) | Permite exportar valores de clave a otros destinos. |
 |**Eliminar**||
 | [Eliminación de un almacén de App Configuration](./scripts/cli-delete-service.md) | Elimina una instancia del almacén de App Configuration.  |
 | | |

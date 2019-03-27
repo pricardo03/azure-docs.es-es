@@ -8,18 +8,20 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/15/2019
+ms.date: 03/14/2019
 ms.author: rezas
-ms.openlocfilehash: 566523b1ca461d6a8a0ffaf8830481e5dc3ce26f
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: ffd5f4baf3bbd2b7f0fe90272f896e438a30a35f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55770374"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079237"
 ---
 # <a name="quickstart-sshrdp-over-iot-hub-device-streams-using-c-proxy-applications-preview"></a>Inicio rápido: SSH/RDP mediante flujos de dispositivo de IoT Hub con aplicaciones proxy de C# (versión preliminar)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
+
+Microsoft Azure IoT Hub actualmente admite flujos de dispositivos como [Característica en vista previa (GB)](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [Los flujos de dispositivo de IoT Hub](./iot-hub-device-streams-overview.md) permiten que las aplicaciones de servicio y de dispositivo se comuniquen de forma segura y apta para el firewall. En este artículo de inicio rápido se trabaja con dos programas de C# que habilitan el tráfico de la aplicación cliente/servidor (como SSH y RDP) para su envío mediante un flujo de dispositivo establecido con IoT Hub. Consulte [aquí](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp) para obtener información general de la configuración.
 
@@ -48,6 +50,11 @@ En la siguiente ilustración se muestra la configuración de cómo los programas
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+La versión preliminar de los flujos de dispositivos solo se admite en este momento en instancias de IoT Hub creadas en las siguientes regiones:
+
+  - **Centro de EE. UU.**
+  - **EUAP de centro de EE. UU.**
 
 Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con C#. Necesita el SDK de .NET Core 2.1.0 o una versión posterior en el equipo de desarrollo.
 
@@ -100,7 +107,7 @@ Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta gu�
    **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --policy-name service --hub-name YourIoTHubName
+    az iot hub show-connection-string --policy-name service --name YourIoTHubName
     ```
 
     Tome nota del valor devuelto, que es similar a este:

@@ -1,6 +1,6 @@
 ---
 title: 'Inicio rápido: Ingesta de blobs de Azure en Azure Data Explorer'
-description: En este artículo de inicio rápido aprenderá a enviar datos de la cuenta de almacenamiento a Azure Data Explorer mediante una suscripción de Event Grid.
+description: En este inicio rápido, aprenderá a enviar datos de la cuenta de almacenamiento a Azure Data Explorer mediante una suscripción de Event Grid.
 services: data-explorer
 author: radennis
 ms.author: radennis
@@ -8,28 +8,31 @@ ms.reviewer: orspod
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 1/30/2019
-ms.openlocfilehash: 6dac6fb18f221ddb45e5b5b7e325868915732368
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+Customer intent: As a database administrator, I want Azure Data Explorer to track my blob storage and ingest new blobs.
+ms.openlocfilehash: 625556986c5034303e83cc23b4ba06b1638115d1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804658"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57448431"
 ---
-# <a name="quickstart-ingest-azure-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Inicio rápido: Ingesta de blobs de Azure en Azure Data Explorer mediante la suscripción a las notificaciones de Event Grid
+# <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Inicio rápido: Ingesta de blobs en Azure Data Explorer mediante la suscripción a las notificaciones de Event Grid
 
-El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Azure Data Explorer ofrece una ingesta continua (carga de datos) a partir de blobs escritos en contenedores de blobs. Esto se logra al establecer una suscripción de [Azure Event Grid](/azure/event-grid/overview) a los eventos de creación de blobs y el enrutar estos eventos a Kusto mediante un centro de eventos. Para este artículo de inicio rápido debe tener una cuenta de almacenamiento con una suscripción de Event Grid que envíe notificaciones al centro de eventos. Entonces podrá crear una conexión de datos de Event Grid y ver el flujo de datos por el sistema.
+Azure Data Explorer es un servicio de exploración de datos escalable y rápido para datos de telemetría y registro. Ofrece una ingesta continua (carga de datos) a partir de blobs escritos en contenedores de blobs. 
+
+En este inicio rápido, obtendrá información sobre cómo configurar una suscripción a [Azure Event Grid](/azure/event-grid/overview) para enrutar eventos a Azure Data Explorer mediante un centro de eventos. Para empezar, debe tener una cuenta de almacenamiento con una suscripción de Event Grid que envíe notificaciones a Azure Event Hubs. Después, podrá crear una conexión de datos de Event Grid y ver el flujo de datos por el sistema.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-1. Si no tiene una suscripción a Azure, cree una [cuenta de Azure gratuita](https://azure.microsoft.com/free/)
-1. [Base de datos y clúster de prueba](create-cluster-database-portal.md)
-1. [Una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
-1. [Un centro de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
+* Una suscripción de Azure. Cree una [cuenta de Azure gratuita](https://azure.microsoft.com/free/).
+* [Un clúster y una base de datos](create-cluster-database-portal.md).
+* [Una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+* [Un centro de eventos](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
 ## <a name="create-an-event-grid-subscription-in-your-storage-account"></a>Creación de una suscripción de Event Grid en la cuenta de almacenamiento
 
-1. En Azure Portal, vaya a la cuenta de almacenamiento
-1. Haga clic en la pestaña **Eventos** y en **Suscripción de eventos**
+1. En Azure Portal, busque la cuenta de almacenamiento.
+1. Seleccione **Eventos** > **Suscripción de eventos**.
 
     ![Vínculo a la aplicación Consulta](media/ingest-data-event-grid/create-event-grid-subscription.png)
 
@@ -37,24 +40,24 @@ El Explorador de datos de Azure es un servicio de exploración de datos altament
 
     **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
-    | NOMBRE | *test-grid-connection* | Nombre de la cuadrícula de eventos que desea crear.|
-    | Esquema de eventos | *Esquema de Event Grid* | Esquema que se debe usar para la cuadrícula de eventos. |
+    | NOMBRE | *test-grid-connection* | Nombre de la instancia de Event Grid que desea crear.|
+    | Esquema de eventos | *Esquema de Event Grid* | Esquema que se debe usar para la instancia de Event Grid. |
     | Tipo de tema | *Cuenta de almacenamiento* | Tipo de tema de la cuadrícula de eventos. |
     | Recurso de tema | *gridteststorage* | El nombre de la cuenta de almacenamiento. |
-    | Suscribirse a todos los tipos de evento | *Desactivar* | No recibir notificaciones de los eventos. |
-    | Tipos de evento definidos | *Blob Created* (Creados por el blob) | Eventos específicos de los que recibir notificaciones. |
+    | Suscribirse a todos los tipos de evento | *clear* | No recibir notificaciones de los eventos. |
+    | Tipos de evento definidos | *Blob created* | Eventos específicos de los que recibir notificaciones. |
     | Tipo de punto de conexión | *Event Hubs* | Tipo de punto de conexión al que enviar los eventos. |
     | Punto de conexión | *test-hub* | El centro de eventos que creó. |
     | | |
 
 1. Seleccione la pestaña **Características adicionales** si desea realizar el seguimiento de los archivos de un contenedor específico. Establezca los filtros para las notificaciones de la manera siguiente:
-    * El campo **Asunto comienza por** es el prefijo *literal* del contenedor de blobs (como el patrón aplicado es *startswith*, abarca varios contenedores). No se permiten comodines.
+    * El campo **El asunto comienza por** es el prefijo *literal* del contenedor de blobs. Como el patrón aplicado es *Comienza con*, puede abarcar varios contenedores. No se permiten comodines.
      *Debe* establecerse como sigue: *`/blobServices/default/containers/`*[prefijo del contenedor]
     * El campo **Asunto termina con** es el sufijo *literal* del blob. No se permiten comodines.
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Creación de una tabla de destino en el Explorador de datos de Azure
 
-Cree una tabla en Azure Data Explorer a la que Event Hubs enviará datos. La tabla se crea en el clúster y la base de datos se aprovisiona en **Requisitos previos**.
+Cree una tabla en Azure Data Explorer a la que Event Hubs enviará los datos. Cree la tabla en el clúster y la base de datos preparados en los requisitos previos.
 
 1. En Azure Portal, bajo el clúster, seleccione **Consulta**.
 
@@ -76,21 +79,21 @@ Cree una tabla en Azure Data Explorer a la que Event Hubs enviará datos. La tab
 
 ## <a name="create-an-event-grid-data-connection-in-azure-data-explorer"></a>Creación de una conexión de datos de Event Grid en Azure Data Explorer
 
-Ahora se conectará a la cuadrícula de eventos desde Azure Data Explorer para que el flujo de datos del contenedor de blobs fluya también a la tabla de prueba.
+Ahora, conéctese a la instancia de Event Grid desde Azure Data Explorer, para que el flujo de datos del contenedor de blobs se transmita también a la tabla de prueba.
 
 1. Seleccione **Notificaciones** en la barra de herramientas para comprobar que la implementación del centro de eventos se ha realizado correctamente.
 
-1. En el clúster que creó, seleccione **Bases de datos** y **TestDatabase**.
+1. En el clúster que creó, seleccione **Bases de datos** > **TestDatabase**.
 
     ![Selección de la base de datos de prueba](media/ingest-data-event-grid/select-test-database.png)
 
-1. Seleccione **Ingesta de datos** y **Agregar conexión de datos**.
+1. Seleccione **Ingesta de datos** > **Agregar la conexión de datos**.
 
     ![Ingesta de datos](media/ingest-data-event-grid/data-ingestion-create.png)
 
-1. Seleccione el tipo de conexión: **Blob Storage**.
+1.  Seleccione el tipo de conexión: **Blob Storage**.
 
-1. Rellene el formulario con la siguiente información y haga clic en **Crear**.
+1. Rellene el formulario con la siguiente información y seleccione **Crear**.
 
     ![Conexión del centro de eventos](media/ingest-data-event-grid/create-event-grid-data-connection.png)
 
@@ -98,11 +101,11 @@ Ahora se conectará a la cuadrícula de eventos desde Azure Data Explorer para q
 
     **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
-    | Nombre de la conexión de datos | *test-hub-connection* | Nombre de la conexión que desea crear en el Explorador de datos de Azure.|
+    | Nombre de la conexión de datos | *test-hub-connection* | Nombre de la conexión que desea crear en Azure Data Explorer.|
     | Suscripción de la cuenta de almacenamiento | Su Id. de suscripción | Identificador de la suscripción donde reside la cuenta de almacenamiento.|
     | Cuenta de almacenamiento | *gridteststorage* | Nombre de la cuenta de almacenamiento que creó anteriormente.|
-    | Event Grid | *test-grid-connection* | Nombre de la cuadrícula de eventos que ha creado. |
-    | Nombre del centro de eventos | *test-hub* | El centro de eventos que creó. Esto se rellena automáticamente al elegir una cuadrícula de eventos. |
+    | Event Grid | *test-grid-connection* | Nombre de la instancia de Event Grid que creó. |
+    | Nombre del centro de eventos | *test-hub* | El centro de eventos que creó. Este campo se rellena automáticamente al elegir una instancia de Event Grid. |
     | Grupo de consumidores | *test-group* | Grupo de consumidores de eventos definido en el centro de eventos que creó. |
     | | |
 
@@ -117,11 +120,11 @@ Ahora se conectará a la cuadrícula de eventos desde Azure Data Explorer para q
 
 ## <a name="generate-sample-data"></a>Generación de datos de ejemplo
 
-Ahora que Azure Data Explorer y la cuenta de almacenamiento están conectados, puede crear datos de ejemplo y cargarlos al almacenamiento en blobs.
+Ahora que Azure Data Explorer y la cuenta de almacenamiento están conectados, puede crear datos de ejemplo y cargarlos en Blob Storage.
 
-Vamos a trabajar con un pequeño script de shell que emite algunos comandos básicos de la CLI de Azure para interactuar con recursos de Azure Storage. El script crea primero un nuevo contenedor en su cuenta de almacenamiento, y después carga un archivo existente (p. ej., un blob) en ese contenedor. A continuación, enumera todos los blobs del contenedor. Puede usar [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para ejecutar el script directamente en el portal.
+Vamos a trabajar con un pequeño script de shell que emite algunos comandos básicos de la CLI de Azure para interactuar con recursos de Azure Storage. Este script crea un contenedor en la cuenta de almacenamiento, carga un archivo existente (como un blob) en un contenedor y luego enumera los blobs en el contenedor. Puede usar [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para ejecutar el script directamente en el portal.
 
-Guarde los datos siguientes en un archivo y úselos con el siguiente script:
+Guarde los datos en un archivo y cárguelo con este script:
 
 ```Json
 {"TimeStamp": "1987-11-16 12:00","Value": "Hello World","Source": "TestSource"}
@@ -154,7 +157,7 @@ Guarde los datos siguientes en un archivo y úselos con el siguiente script:
 ## <a name="review-the-data-flow"></a>Revisión del flujo de datos
 
 > [!NOTE]
-> ADX tiene una directiva de agregación (procesamiento por lotes) para la ingesta de datos diseñada para optimizar el proceso.
+> Azure Data Explorer tiene una directiva de agregación (procesamiento por lotes) para la ingesta de datos diseñada para optimizar dicho proceso.
 De forma predeterminada, la directiva se configura en 5 minutos.
 Si es necesario, podrá modificar la directiva más adelante. En este artículo de inicio rápido puede esperar una latencia de unos minutos.
 
@@ -191,7 +194,7 @@ Si no piensa volver a usar la cuadrícula de eventos, limpie **test-hub-rg** par
 
 1. En **test-resource-group**, seleccione **Eliminar grupo de recursos**.
 
-1. En la nueva ventana, escriba el nombre del grupo de recursos que quiere eliminar (*test-hub-rg*) y seleccione **Eliminar**.
+1. En la nueva ventana, escriba el nombre del grupo de recursos que quiere eliminar (*test-hub-rg*) y, después, seleccione **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

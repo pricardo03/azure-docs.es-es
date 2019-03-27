@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: alkohli
-ms.openlocfilehash: 62675df9f440df77d1098d5c89bd6810349fb3af
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 3474d4ee8751bcd472aa109e9e541d639344276d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56750011"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58118091"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-via-smb"></a>Tutorial: Copia de datos a Azure Data Box Disk mediante SMB
 
@@ -41,7 +41,8 @@ Antes de comenzar, asegúrese de que:
 
 En función de la cuenta de almacenamiento seleccionada, Data Box crea hasta:
 - Tres recursos compartidos para cada cuenta de almacenamiento asociada (GPv1 y GPv2).
-- Un recurso compartido para las cuentas Premium Storage o Blob Storage.
+- Un recurso compartido para Premium Storage. 
+- Un recurso compartido para una cuenta de Blob Storage. 
 
 En los recursos compartidos de blob en bloques y en páginas, las entidades de primer nivel son contenedores y las entidades de segundo nivel son blobs. En los recursos compartidos de Azure Files, las entidades de primer nivel son los recursos compartidos y las entidades de segundo nivel son los archivos.
 
@@ -195,8 +196,8 @@ El ejemplo siguiente muestra la salida del comando robocopy para copiar archivos
 Para optimizar el rendimiento, use los siguientes parámetros de robocopy al copiar los datos.
 
 |    Plataforma    |    Archivos pequeños principalmente < 512 KB                           |    Archivos medianos principalmente, de 512 KB a 1 MB                      |    Archivos grandes principalmente > 1 MB                             |   
-|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|---|
-|    Data Box         |    2 sesiones de Robocopy <br> 16 subprocesos por sesión    |    3 sesiones de Robocopy <br> 16 subprocesos por sesión    |    2 sesiones de Robocopy <br> 24 subprocesos por sesión    |  |
+|----------------|--------------------------------------------------------|--------------------------------------------------------|--------------------------------------------------------|
+|    Data Box         |    2 sesiones de Robocopy <br> 16 subprocesos por sesión    |    3 sesiones de Robocopy <br> 16 subprocesos por sesión    |    2 sesiones de Robocopy <br> 24 subprocesos por sesión    |
 
 
 Para más información sobre el comando Robocopy, consulte [Robocopy and a few examples](https://social.technet.microsoft.com/wiki/contents/articles/1073.robocopy-and-a-few-examples.aspx) (Robocopy y algunos ejemplos).

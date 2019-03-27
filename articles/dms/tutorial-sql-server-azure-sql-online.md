@@ -2,21 +2,21 @@
 title: 'Tutorial: Uso de Azure Database Migration Service para migrar de SQL Server en línea a una base de datos única o agrupada en Azure SQL Database | Microsoft Docs'
 description: Aprenda a migrar de SQL Server local en línea a una base de datos única o agrupada en Azure SQL Database mediante Azure Database Migration Service.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/07/2019
-ms.openlocfilehash: acb5c5851c65c42995f2018a8155a72a55814bca
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/12/2019
+ms.openlocfilehash: 6c026fe06fcfa5a06d700ba8dfc3789c59776a15
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999720"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093116"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>Tutorial: Migración de SQL Server a una base de datos única o agrupada en Azure SQL Database en línea mediante DMS
 
@@ -53,8 +53,17 @@ Para completar este tutorial, necesita:
     > Si usa SQL Server Integration Services (SSIS) y desea migrar la base de datos de catálogo para los proyectos y paquetes SSIS (SSISDB) de SQL Server a Azure SQL Database, la SSISDB de destino se creará y administrará automáticamente en su nombre cuando aprovisione SSIS en Azure Data Factory (ADF). Para más información acerca de la migración de paquetes de SSIS, consulte el artículo [Migración de paquetes de SQL Server Integration Services a Azure](https://docs.microsoft.com/azure/dms/how-to-migrate-ssis-packages).
 
 - Descargar e instalar [Data Migration Assistant](https://www.microsoft.com/download/details.aspx?id=53595) (DMA) versión 3.3 o posterior.
-- Crear una red virtual para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local utilizando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
-- Asegúrese de que las reglas del grupo de seguridad de red de Azure Virtual Network (VNET) no bloquean los puertos de comunicación 443, 53, 9354, 445 y 12000. Para obtener información más detallada sobre el filtrado de tráfico con NSG de Azure VNET, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Crear una instancia de Azure Virtual Network para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local mediante [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways).
+
+    > [!NOTE]
+    > Durante la configuración de la red virtual, si usa ExpressRoute con emparejamiento de redes con Microsoft, agregue los siguientes [puntos de conexión](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de servicio a la subred en la que se aprovisionará el servicio:
+    > - Punto de conexión de base de datos de destino (por ejemplo, punto de conexión de SQL, punto de conexión de Cosmos DB, etc.)
+    > - Punto de conexión de Storage
+    > - Punto de conexión de Service Bus
+    >
+    > Esta configuración es necesaria porque la instancia de Azure Database Migration Service carece de conectividad a internet.
+
+- Asegúrese de que las reglas del grupo de seguridad de red de VNET no bloquean los siguientes puertos de comunicación, 443, 53, 9354, 445, 12000. Para obtener información más detallada sobre el filtrado de tráfico con NSG de Azure VNET, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Configurar su [Firewall de Windows para acceder al motor de base de datos](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Abra el Firewall de Windows para permitir que Azure Database Migration Service acceda a la instancia de SQL Server de origen que, de manera predeterminada, es el puerto TCP 1433.
 - Si se ejecutan varias instancias con nombre de SQL Server con puertos dinámicos, puede ser conveniente habilitar el servicio SQL Browser y permitir el acceso al puerto UDP 1434 mediante los firewalls para que Azure Database Migration Service pueda conectarse a una instancia con nombre en el servidor de origen.
@@ -121,10 +130,10 @@ Para evaluar una base de datos de local, realice los pasos siguientes:
 
     Cuando esté evaluando la base de datos de SQL Server de origen que se migrará a una base de datos única o agrupada de Azure SQL Database, puede elegir uno o ambos de los siguientes tipos de informes de evaluación:
 
-    - Check database compatibility (Comprobar compatibilidad de bases de datos)
-    - Check feature parity (Comprobar paridad de características)
+   - Check database compatibility (Comprobar compatibilidad de bases de datos)
+   - Check feature parity (Comprobar paridad de características)
 
-    De forma predeterminada, se seleccionan los dos tipos de informes.
+     De forma predeterminada, se seleccionan los dos tipos de informes.
 
 3. En DMA, en la pantalla **Opciones**, seleccione **Siguiente**.
 4. En la pantalla **Seleccionar orígenes**, cuadro de diálogo **Conectar a un servidor**, proporcione los detalles de conexión en su instancia de SQL Server y, luego, seleccione **Conectar**.

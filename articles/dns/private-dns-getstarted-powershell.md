@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: tutorial
-ms.date: 7/24/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 73b8dfd741543560cd6ebf26178618a70bdae5f6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: b4d75c7a6db89b19d88cddcc564fd4e6a9ad0f49
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992779"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57770467"
 ---
 # <a name="tutorial-create-an-azure-dns-private-zone-using-azure-powershell"></a>Tutorial: Creación de una zona privada de Azure DNS mediante Azure PowerShell
 
@@ -53,7 +53,7 @@ New-AzResourceGroup -name MyAzureResourceGroup -location "eastus"
 
 ## <a name="create-a-dns-private-zone"></a>Creación de una zona DNS privada
 
-Para crear zona DNS se utiliza el cmdlet `New-AzDnsZone` con el valor *Private* en el parámetro **ZoneType**. En el ejemplo siguiente se crea una zona DNS denominada **contoso.local** en el grupo de recursos denominado **MyAzureResourceGroup** y pone la zona DNS a disposición de la red virtual denominada **MyAzureVnet**.
+Para crear zona DNS se utiliza el cmdlet `New-AzDnsZone` con el valor *Private* en el parámetro **ZoneType**. En el ejemplo siguiente se crea una zona DNS denominada **private.contoso.com** en el grupo de recursos denominado **MyAzureResourceGroup** y pone la zona DNS a disposición de la red virtual denominada **MyAzureVnet**.
 
 Si se omite el parámetro **ZoneType**, la zona se crea como zona pública, por lo que es necesario para crear una zona privada. 
 
@@ -66,7 +66,7 @@ $vnet = New-AzVirtualNetwork `
   -AddressPrefix 10.2.0.0/16 `
   -Subnet $backendSubnet
 
-New-AzDnsZone -Name contoso.local -ResourceGroupName MyAzureResourceGroup `
+New-AzDnsZone -Name private.contoso.com -ResourceGroupName MyAzureResourceGroup `
    -ZoneType Private `
    -RegistrationVirtualNetworkId @($vnet.Id)
 ```
@@ -118,10 +118,10 @@ Esta operación tardará algunos minutos en completarse.
 
 ## <a name="create-an-additional-dns-record"></a>Creación de un registro de DNS adicional
 
-Los conjuntos de registros se crean mediante el cmdlet `New-AzDnsRecordSet`. En el ejemplo siguiente se crea un registro con el nombre relativo **db** en la zona DNS **contoso.local** del grupo de recursos **MyAzureResourceGroup**. El nombre completo del conjunto de registros es **db.contoso.local**. El tipo de registro es "D", con la dirección IP 10.2.0.4 y el valor de TTL es de 3600 segundos.
+Los conjuntos de registros se crean mediante el cmdlet `New-AzDnsRecordSet`. En el ejemplo siguiente se crea un registro con el nombre relativo **db** en la zona DNS **private.contoso.com** del grupo de recursos **MyAzureResourceGroup**. El nombre completo del conjunto de registros es **db.private.contoso.com**. El tipo de registro es "D", con la dirección IP 10.2.0.4 y el valor de TTL es de 3600 segundos.
 
 ```azurepowershell
-New-AzDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
+New-AzDnsRecordSet -Name db -RecordType A -ZoneName private.contoso.com `
    -ResourceGroupName MyAzureResourceGroup -Ttl 3600 `
    -DnsRecords (New-AzDnsRecordConfig -IPv4Address "10.2.0.4")
 ```
@@ -131,13 +131,13 @@ New-AzDnsRecordSet -Name db -RecordType A -ZoneName contoso.local `
 Para enumerar los registros DNS de su zona, ejecute:
 
 ```azurepowershell
-Get-AzDnsRecordSet -ZoneName contoso.local -ResourceGroupName MyAzureResourceGroup
+Get-AzDnsRecordSet -ZoneName private.contoso.com -ResourceGroupName MyAzureResourceGroup
 ```
 Recuerde que no verá los registros D creados automáticamente de las dos máquinas virtuales de prueba.
 
 ## <a name="test-the-private-zone"></a>Prueba de la zona privada
 
-Ya puede probar la resolución de nombres de la zona privada **contoso.local**.
+Ya puede probar la resolución de nombres de la zona privada **private.contoso.com**.
 
 ### <a name="configure-vms-to-allow-inbound-icmp"></a>Configuración de máquinas virtuales para permitir ICMP de entrada
 
@@ -156,13 +156,13 @@ Repita la operación con myVM02.
 
 1. En el símbolo del sistema de Windows PowerShell de myVM02, haga ping a myVM01 con el nombre de host registrado automáticamente:
    ```
-   ping myVM01.contoso.local
+   ping myVM01.private.contoso.com
    ```
    La salida es similar a esta:
    ```
-   PS C:\> ping myvm01.contoso.local
+   PS C:\> ping myvm01.private.contoso.com
 
-   Pinging myvm01.contoso.local [10.2.0.4] with 32 bytes of data:
+   Pinging myvm01.private.contoso.com [10.2.0.4] with 32 bytes of data:
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time=1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
@@ -176,13 +176,13 @@ Repita la operación con myVM02.
    ```
 2. Ahora haga ping en el nombre de la **base de datos** que creó anteriormente:
    ```
-   ping db.contoso.local
+   ping db.private.contoso.com
    ```
    La salida es similar a esta:
    ```
-   PS C:\> ping db.contoso.local
+   PS C:\> ping db.private.contoso.com
 
-   Pinging db.contoso.local [10.2.0.4] with 32 bytes of data:
+   Pinging db.private.contoso.com [10.2.0.4] with 32 bytes of data:
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128
    Reply from 10.2.0.4: bytes=32 time<1ms TTL=128

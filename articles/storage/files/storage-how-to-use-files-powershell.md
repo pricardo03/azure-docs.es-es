@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 10/26/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 53f2b59032e7e9725b067ef472b2b6dcf94bcb72
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: 59d8b9ffa8c0cbeaaa354f2497d279ac8c285ae1
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55662481"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57437129"
 ---
 # <a name="quickstart-create-and-manage-an-azure-file-share-with-azure-powershell"></a>Inicio rápido: Creación y administración de un recurso compartido de archivos de Azure con Azure PowerShell 
 En esta guía se describen los conceptos básicos sobre cómo trabajar con [recursos compartidos de archivos de Azure](storage-files-introduction.md) con PowerShell. Los recursos compartidos de archivos de Azure son iguales a otros recursos compartidos de archivos, pero se almacenan en la nube y están respaldados por la plataforma Azure. Los recursos compartidos de archivos de Azure admiten el protocolo SMB estándar del sector y permiten el uso compartido entre varias máquinas, aplicaciones e instancias. 
@@ -166,7 +166,7 @@ Ahora, si enumera los archivos en el nuevo recurso compartido, debería ver el a
 Get-AzStorageFile -Context $storageAcct.Context -ShareName "myshare2" -Path "myDirectory2" 
 ```
 
-Aunque el cmdlet `Start-AzStorageFileCopy` es conveniente para los movimientos de archivos ad hoc entre recursos compartidos de archivos de Azure y contenedores de almacenamiento de Azure Blob, se recomienda usar AzCopy para movimientos mayores (en cuanto al número o el tamaño de los archivos que se van a mover). Obtenga más información sobre [AzCopy para Windows](../common/storage-use-azcopy.md) y [AzCopy para Linux](../common/storage-use-azcopy-linux.md). AzCopy se debe instalar localmente; ya que no está disponible en Cloud Shell. 
+Aunque el cmdlet `Start-AzStorageFileCopy` es conveniente para los movimientos de archivos ad hoc entre recursos compartidos de archivos de Azure y contenedores de Azure Blob Storage, se recomienda usar AzCopy para movimientos mayores (en cuanto al número o el tamaño de los archivos que se van a mover). Obtenga más información sobre [AzCopy para Windows](../common/storage-use-azcopy.md) y [AzCopy para Linux](../common/storage-use-azcopy-linux.md). AzCopy se debe instalar localmente; ya que no está disponible en Cloud Shell. 
 
 ## <a name="create-and-manage-share-snapshots"></a>Creación y administración de instantáneas de recurso compartido
 Una tarea útil adicional que puede hacer con un recurso compartido de archivos de Azure consiste en crear instantáneas de recurso compartido. Una instantánea conserva un punto en el tiempo para un recurso compartido de archivos de Azure. Las instantáneas de recurso compartido son similares a las tecnologías de sistemas operativos que es posible que conozca, como son:

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 183a6ddf3fd47be552ba13ce42c1f6e29fca4410
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 3a30281012d28489a40e3366585164628d87c220
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162244"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994610"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users"></a>Tutorial: Invitación en masa a usuarios de colaboración de Azure AD B2B
 
@@ -119,7 +119,7 @@ Para verificar que se agregaron los usuarios invitados a Azure AD, ejecute el si
 ```powershell
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
-Debería ver los usuarios invitados en la lista, con un nombre principal de usuario (UPN) con el formato *emailaddress*#EXT#@*dominio*. Por ejemplo, *lstokes_fabrikam.com#EXT#@contoso.onmicrosoft.com*, donde contoso.onmicrosoft.com es la organización desde la que se enviaron las invitaciones.
+Debería ver los usuarios invitados en la lista, con un nombre principal de usuario (UPN) con el formato *direccióndecorreoelectrónico*#EXT#\@*dominio*. Por ejemplo, *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, donde contoso.onmicrosoft.com es la organización desde la que se enviaron las invitaciones.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

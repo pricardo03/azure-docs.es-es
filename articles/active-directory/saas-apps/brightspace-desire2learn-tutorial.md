@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: e2d3065b-1f6c-4c45-af78-0d5da3266999
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/08/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27881854bea6194b601496a1fc32f24beccd5273
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 3e927aa4b407103b1efed33a4305532c590780d9
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878530"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57849999"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Tutorial: Integración de Azure Active Directory con Brightspace by Desire2Learn
 
@@ -106,6 +106,7 @@ Para configurar el inicio de sesión único de Azure AD con Brightspace by Desir
     ![Información de dominio y direcciones URL de inicio de sesión único de Brightspace by Desire2Learn](common/idp-intiated.png)
 
      a. En el cuadro de texto **Identificador**, escriba una dirección URL con el patrón siguiente:
+    
     | |
     |--|
     | `https://<companyname>.tenants.brightspace.com/samlLogin`|
@@ -152,7 +153,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

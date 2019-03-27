@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 2bba5d54c2b6298c2dd8059d47e5975ad3f176c8
-ms.sourcegitcommit: fa758779501c8a11d98f8cacb15a3cc76e9d38ae
+ms.openlocfilehash: 8ba217cb9ce849e57b15d3e6cc73529c78bf340e
+ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/20/2018
-ms.locfileid: "52264767"
+ms.lasthandoff: 03/06/2019
+ms.locfileid: "57453778"
 ---
 # <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Tutorial: Implementación de la aplicación de ASP.NET Core en Azure Service Fabric mediante Azure DevOps Projects
 
@@ -29,17 +29,17 @@ En este tutorial, aprenderá lo siguiente:
 
 > [!div class="checklist"]
 > * A usar DevOps Projects para crear una aplicación de ASP.NET Core e implementarla en Service Fabric
-> * A configurar Azure DevOps y una suscripción de Azure 
-> * A examinar la canalización de CI
-> * A examinar la canalización de CD
-> * A confirmar los cambios en Git e implementación automática en Azure
-> * A limpiar recursos
+> * Configuración de Azure DevOps y una suscripción de Azure 
+> * Examen de la canalización de CI
+> * Examen de la canalización de CD
+> * Confirmación de los cambios en Git e implementación automática en Azure
+> * Limpieza de recursos
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Una suscripción de Azure. Puede obtener una gratuita mediante [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/).
 
-## <a name="use-devops-projects-to-create-an-aspnet-core-app-and-deploy-it-to-service-fabricc"></a>Uso de DevOps Projects para crear una aplicación de ASP.NET Core e implementarla en Service Fabric
+## <a name="use-devops-projects-to-create-an-aspnet-core-app-and-deploy-it-to-service-fabric"></a>A usar DevOps Projects para crear una aplicación de ASP.NET Core e implementarla en Service Fabric
 
 DevOps Projects crea una canalización de CI/CD en Azure Pipelines. Puede crear una organización de Azure DevOps nueva o usar una existente. DevOps Projects también crea recursos de Azure, como un clúster de Service Fabric, en la suscripción de Azure que elija.
 
@@ -90,7 +90,7 @@ DevOps Projects configura automáticamente una canalización de CI/CD en Azure P
 1. Seleccione **Editar**.
 
 1. En este panel puede examinar las distintas tareas de la canalización de compilación.  
-    La compilación ejecuta varias tareas, como capturar códigos fuente del repositorio Git, restaurar dependencias y publicar salidas usadas para implementaciones.
+    La compilación ejecuta varias tareas, como capturar códigos fuente del repositorio Git, restaurar dependencias y publicar las salidas usadas para implementaciones.
 
 1. En la parte superior de la canalización de compilación, seleccione el nombre de esta. 
 
@@ -165,11 +165,11 @@ Si lo desea, puede modificar las canalizaciones de CI/CD de Azure para satisface
 
 > [!div class="checklist"]
 > * A usar DevOps Projects para crear una aplicación de ASP.NET Core e implementarla en Service Fabric
-> * A configurar Azure DevOps y una suscripción de Azure 
-> * A examinar la canalización de CI
-> * A examinar la canalización de CD
-> * A confirmar los cambios en Git e implementarlos automáticamente en Azure
-> * A limpiar recursos
+> * Configuración de Azure DevOps y una suscripción de Azure 
+> * Examen de la canalización de CI
+> * Examen de la canalización de CD
+> * Confirmación de los cambios en Git y su implementación automática en Azure
+> * Limpieza de recursos
 
 Para más información acerca de Service Fabric y los microservicios, consulte:
 

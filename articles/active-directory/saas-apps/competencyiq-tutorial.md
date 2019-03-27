@@ -7,7 +7,7 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: e262bf7e-cc7d-4d0e-aea7-861f00d8837d
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecb4674139d789da8944437f6b28ba543e156df2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 45063107cdaf5ea8a720233c47e5b9007faa6d13
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867667"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57880405"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-competencyiq"></a>Tutorial: Integración de Azure Active Directory con CompetencyIQ
 
@@ -148,7 +148,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

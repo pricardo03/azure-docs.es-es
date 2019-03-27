@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 11/02/2018
 ms.author: dech
 ms.reviewer: sngun
-ms.openlocfilehash: b4d8214608e8193172da078fc352c66145253ada
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c8f7e3cd6a2b4b6105547d7a4429803a00f6999f
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56878972"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58285520"
 ---
 # <a name="set-up-a-cicd-pipeline-with-the-azure-cosmos-db-emulator-build-task-in-azure-devops"></a>Configuración de una canalización de CI/CD con la tarea de compilación del emulador de Azure Cosmos DB en Azure DevOps
 
@@ -39,7 +39,7 @@ A continuación, elija la organización en la que desea instalar la extensión.
 
 Ahora que la extensión está instalada, inicie sesión en la cuenta de Azure DevOps y busque el proyecto en el panel. Puede agregar una [canalización de compilación](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav) al proyecto o modificar una existente. Si ya dispone de una canalización de compilación, puede pasar directamente al apartado de [incorporación de una tarea de compilación del emulador a una definición de compilación](#addEmulatorBuildTaskToBuildDefinition).
 
-1. Para crear una definición de compilación, vaya a la pestaña **Compilaciones** de Azure DevOps. Seleccione **+Nuevo.**  >  **Nueva canalización de compilación**
+1. Para crear una definición de compilación, vaya a la pestaña **Compilaciones** de Azure DevOps. Seleccione **+Nuevo.**  \> **Nueva canalización de compilación**
 
    ![Creación de una canalización de compilación](./media/tutorial-setup-ci-cd/CreateNewBuildDef_1.png)
 

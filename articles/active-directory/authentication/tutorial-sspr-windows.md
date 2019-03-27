@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0463a2ad3fa74f33a52e15a246dfd4ffd63107a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 0f8e0b79d5aebd1e92dd71bba72efa7430aa475b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200877"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224658"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutorial: Restablecimiento de la contraseña de Azure AD desde la pantalla de inicio de sesión
 
@@ -33,8 +33,10 @@ En este tutorial va a permitir a los usuarios restablecer sus contraseñas desde
    * [Unidos a Azure AD](../device-management-azure-portal.md) o
    * [Unidos a Azure AD híbrido](../device-management-hybrid-azuread-joined-devices-setup.md), con conectividad de red a un controlador de dominio.
 * Debe habilitar el autoservicio de restablecimiento de contraseña de Azure AD.
-* Si los dispositivos Windows 10 se encuentran detrás de un servidor proxy o un firewall, debe agregar las direcciones URL, `passwordreset.microsoftonline.com` y `ajax.aspnetcdn.com` a la lista de direcciones URL permitidas (puerto 443) del tráfico HTTPS.
+* Si los dispositivos Windows 10 se encuentran detrás de un servidor proxy o un firewall, debe agregar las direcciones URL, `passwordreset.microsoftonline.com` y `ajax.aspnetcdn.com` a la lista de direcciones URL permitidas del tráfico HTTPS (puerto 443).
+* SSPR para Windows 10 solo es compatible con servidores proxy de nivel de máquina.
 * Revise las limitaciones siguientes antes de probar esta característica en su entorno.
+* Si usa una imagen, antes del proceso sysprep, asegúrese de que se borra la memoria caché de web para la cuenta predefinida de administrador antes de realizar el paso de CopyProfile. Encontrará más información al respecto en el artículo de soporte técnico [Rendimiento deficiente cuando se usa el perfil de usuario predeterminado personalizado](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 
 ## <a name="configure-reset-password-link-using-intune"></a>Configuración del vínculo de restablecimiento de contraseña con Intune
 

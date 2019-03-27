@@ -1,32 +1,31 @@
 ---
 title: 'Tutorial para la indexación de bases de datos SQL de Azure en Azure Portal: Azure Search'
-description: En este tutorial, va a rastrear Azure SQL Database para extraer los datos que permiten búsqueda y rellenar un índice de Azure Search.
+description: En este tutorial, se conectará a Azure SQL Database, extraerá datos que permiten búsquedas y los cargará en un índice de Azure Search.
 author: HeidiSteen
 manager: cgronlun
 services: search
 ms.service: search
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 03/18/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 872871d2ab9a9c693ad81081f24c8de68457982d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
+ms.openlocfilehash: 4e94f4c1b5de47e36dd9a5be6b9e7f43d264de82
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53312058"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58201405"
 ---
 # <a name="tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Tutorial: Cómo rastrear una base de datos SQL de Azure mediante los indexadores de Azure Search
 
-En este tutorial se muestra cómo configurar un indexador para extraer datos que permiten búsqueda de una base de datos SQL de Azure de ejemplo. [Los indexadores](search-indexer-overview.md) son un componente de Azure Search que rastrean orígenes de datos externos y rellenan un [índice de búsqueda](search-what-is-an-index.md) con contenido. De todos los indexadores, el más usado es el indexador de base de datos SQL de Azure. 
+Aprenda a configurar un indexador para extraer datos que permiten búsquedas de una base de datos SQL de Azure de ejemplo. [Los indexadores](search-indexer-overview.md) son un componente de Azure Search que rastrean orígenes de datos externos y rellenan un [índice de búsqueda](search-what-is-an-index.md) con contenido. De todos los indexadores, el más usado es el indexador de Azure SQL Database. 
 
 Tener un profundo conocimiento de la configuración del indexador resulta de utilidad porque simplifica la cantidad de código que se tiene que escribir y mantener. En lugar de preparar e insertar un conjunto de datos JSON conforme a un esquema, puede asociar un indexador a un origen de datos, hacer que el indexador extraiga los datos y los inserte en un índice y, luego, de manera opcional, puede ejecutar el indexador según una programación recurrente para seleccionar los cambios en el origen subyacente.
 
-En este tutorial, se usarán las [bibliotecas de cliente de Azure Search .NET](https://aka.ms/search-sdk) y una aplicación de consola de .NET Core para realizar estas tareas:
+En este tutorial, se usarán las [bibliotecas cliente .NET de Azure Search](https://aka.ms/search-sdk) y una aplicación de consola de .NET Core para realizar las siguientes tareas:
 
 > [!div class="checklist"]
-> * Descargar y configurar la solución
 > * Agregar información del servicio de búsqueda a la configuración de la aplicación
 > * Preparar un conjunto de datos externo en la base de datos SQL de Azure 
 > * Revisar las definiciones de índice e indexador en el código de ejemplo
@@ -38,16 +37,16 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un servicio Azure Search. Para configurar uno, consulte [Creación de un servicio de búsqueda](search-create-service-portal.md).
+[Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial.
 
-* Una base de datos SQL de Azure que proporcione el origen de datos externo usado por un indexador. La solución de ejemplo proporciona un archivo de datos SQL para crear la tabla.
+* Una instancia de [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) que proporcione el origen de datos externo usado por un indexador. La solución de ejemplo proporciona un archivo de datos SQL para crear la tabla.
 
-* Visual Studio 2017. Puede usar la [edición gratuita de Visual Studio 2017 Community](https://www.visualstudio.com/downloads/). 
+* + [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/) (cualquier edición). Se ha probado código de ejemplo e instrucciones en la edición gratuita Community.
 
 > [!Note]
 > Si va a usar el servicio gratuito de Azure Search, está limitado a tres índices, tres indexadores y tres orígenes de datos. En este tutorial se crea uno de cada uno. Asegúrese de que haya espacio en el servicio para aceptar los nuevos recursos.
 
-## <a name="download-the-solution"></a>Descarga de la solución
+### <a name="download-the-solution"></a>Descarga de la solución
 
 La solución de indexador usada en este tutorial es de una colección de ejemplos de Azure Search proporcionados en una única descarga maestra. La solución que se usa en este tutorial es *DotNetHowToIndexers*.
 
@@ -63,7 +62,7 @@ La solución de indexador usada en este tutorial es de una colección de ejemplo
 
 6. En el **Explorador de soluciones**, haga clic con el botón derecho en la solución primaria del nodo superior > **Restaurar paquetes Nuget**.
 
-## <a name="set-up-connections"></a>Configuración de las conexiones
+### <a name="set-up-connections"></a>Configuración de las conexiones
 La información de conexión para los servicios requeridos se especifica en el archivo **appsettings.json** de la solución. 
 
 En el Explorador de soluciones, abra **appsettings.json** para que pueda rellenar cada valor de configuración, y siga las instrucciones de este tutorial.  
@@ -90,22 +89,22 @@ Puede encontrar el punto de conexión y la clave del servicio de búsqueda en el
 
 4. Cópielo y péguelo como primera entrada en **appsettings.json** en Visual Studio.
 
-  > [!Note]
-  > Un nombre de servicio es parte del punto de conexión que incluye search.windows.net. Si tiene curiosidad, puede ver la dirección URL completa en **Información esencial** en la página de información general. La dirección URL es similar a la de este ejemplo: https://your-service-name.search.windows.net
+   > [!Note]
+   > Un nombre de servicio es parte del punto de conexión que incluye search.windows.net. Si tiene curiosidad, puede ver la dirección URL completa en **Información esencial** en la página de información general. La dirección URL es similar a la de este ejemplo: https://your-service-name.search.windows.net
 
 5. En el lado izquierdo, en **Configuración** > **Claves**, copie una de las claves de administración y péguela como segunda entrada en **appsettings.json**. Las claves son cadenas alfanuméricas generadas para el servicio durante el aprovisionamiento y son necesarias para el acceso autorizado a las operaciones de servicio. 
 
-  Después de agregar ambos valores de configuración, el archivo debe tener un aspecto parecido a este ejemplo:
+   Después de agregar ambos valores de configuración, el archivo debe tener un aspecto parecido a este ejemplo:
 
-  ```json
-  {
+   ```json
+   {
     "SearchServiceName": "azs-tutorial",
     "SearchServiceAdminApiKey": "A1B2C3D4E5F6G7H8I9J10K11L12M13N14",
     . . .
-  }
-  ```
+   }
+   ```
 
-## <a name="prepare-an-external-data-source"></a>Preparación de un origen de datos externo
+## <a name="prepare-sample-data"></a>Preparación de datos de ejemplo
 
 En este paso, creará un origen de datos externo que se pueda rastrear con un indexador. El archivo de datos en este tutorial es *hotels.sql*, proporcionado en la carpeta de solución \DotNetHowToIndexers. 
 
@@ -125,7 +124,7 @@ En el ejercicio siguiente se da por supuesto que no hay ningún servidor ni base
 
 4. Abra la página SQL Database de la nueva base de datos, si aún no está abierta. En el nombre del recurso debe poner *SQL Database* y no *SQL Server*.
 
-  ![Página SQL Database](./media/search-indexer-tutorial/hotels-db.png)
+   ![Página SQL Database](./media/search-indexer-tutorial/hotels-db.png)
 
 4. En la barra de comandos, haga clic en **Herramientas** > **Editor de consultas**.
 
@@ -135,24 +134,24 @@ En el ejercicio siguiente se da por supuesto que no hay ningún servidor ni base
 
 7. Seleccione el archivo y haga clic en **Abrir**. El script debe tener un aspecto similar a la siguiente captura de pantalla:
 
-  ![Script de SQL](./media/search-indexer-tutorial/sql-script.png)
+   ![Script de SQL](./media/search-indexer-tutorial/sql-script.png)
 
 8. Haga clic en **Ejecutar** para ejecutar la consulta. En el panel de resultados, verá un mensaje de consulta correcta, correspondiente a 3 filas.
 
 9. Para devolver un conjunto de filas de esta tabla, puede ejecutar la siguiente consulta como paso de comprobación:
 
-   ```sql
-   SELECT HotelId, HotelName, Tags FROM Hotels
-   ```
-   La consulta prototipo, `SELECT * FROM Hotels`, no funciona en el Editor de consultas. Los datos de ejemplo incluyen coordenadas geográficas en el campo Ubicación, que no se gestionan en el editor por el momento. Para obtener una lista de otras columnas para consultar, puede ejecutar esta instrucción:`SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
+    ```sql
+    SELECT HotelId, HotelName, Tags FROM Hotels
+    ```
+    La consulta prototipo, `SELECT * FROM Hotels`, no funciona en el Editor de consultas. Los datos de ejemplo incluyen coordenadas geográficas en el campo Ubicación, que no se gestionan en el editor por el momento. Para obtener una lista de otras columnas para consultar, puede ejecutar esta instrucción:`SELECT * FROM sys.columns WHERE object_id = OBJECT_ID('dbo.Hotels')`
 
 10. Ahora que tiene un conjunto de datos externo, copie la cadena de conexión de ADO.NET correspondiente a la base de datos. En la página SQL Database de la base de datos, vaya a **Configuración** > **Cadenas de conexión** y copie la cadena de conexión de ADO.NET.
  
-  Una cadena de conexión de ADO.NET se parece al ejemplo siguiente, modificada para usar un nombre de base de datos, un nombre de usuario y una contraseña válidos.
+    Una cadena de conexión de ADO.NET se parece al ejemplo siguiente, modificada para usar un nombre de base de datos, un nombre de usuario y una contraseña válidos.
 
-  ```sql
-  Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
-  ```
+    ```sql
+    Server=tcp:hotels-db.database.windows.net,1433;Initial Catalog=hotels-db;Persist Security Info=False;User ID={your_username};Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
+    ```
 11. Pegue la cadena de conexión en "AzureSqlConnectionString" como tercera entrada en el archivo **appsettings.json** en Visual Studio.
 
     ```json
@@ -250,15 +249,15 @@ En Azure Portal, en la página Información general del servicio de búsqueda, h
 
 2. Haga clic en el botón **Buscar** para emitir una búsqueda vacía. 
 
-  Las tres entradas del índice se devuelven como documentos JSON. El Explorador de búsqueda devuelve documentos en JSON para que pueda ver la estructura completa.
+   Las tres entradas del índice se devuelven como documentos JSON. El Explorador de búsqueda devuelve documentos en JSON para que pueda ver la estructura completa.
 
 3. A continuación, escriba una cadena de búsqueda: `search=river&$count=true`. 
 
-  Esta consulta invoca la búsqueda de texto completo en el término `river`, y el resultado incluye un recuento de los documentos coincidentes. Devolver el número de documentos coincidencias es útil en escenarios de pruebas cuando se tiene un índice grande con miles o millones de documentos. En este caso, solo un documento coincide con la consulta.
+   Esta consulta invoca la búsqueda de texto completo en el término `river`, y el resultado incluye un recuento de los documentos coincidentes. Devolver el número de documentos coincidencias es útil en escenarios de pruebas cuando se tiene un índice grande con miles o millones de documentos. En este caso, solo un documento coincide con la consulta.
 
 4. Por último, escriba una cadena de búsqueda que limite la salida JSON a los campos de interés: `search=river&$count=true&$select=hotelId, baseRate, description`. 
 
-  La respuesta de la consulta se reduce a los campos seleccionados, lo que da lugar a una salida más concisa.
+   La respuesta de la consulta se reduce a los campos seleccionados, lo que da lugar a una salida más concisa.
 
 ## <a name="view-indexer-configuration"></a>Visualización de la configuración del indexador
 
@@ -268,7 +267,7 @@ Todos los indexadores, incluido el que acaba de crear mediante programación, se
 2. Desplácese hacia abajo hasta encontrar los iconos de **Indexadores** y **Orígenes de datos**.
 3. Haga clic en un icono para abrir una lista de cada recurso. Puede seleccionar indexadores u orígenes de datos individuales para ver o modificar la configuración.
 
-  ![Iconos de indexador y origen de datos](./media/search-indexer-tutorial/tiles-portal.png)
+   ![Iconos de indexador y origen de datos](./media/search-indexer-tutorial/tiles-portal.png)
 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

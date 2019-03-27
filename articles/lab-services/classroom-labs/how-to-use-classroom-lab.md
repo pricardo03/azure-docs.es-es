@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 387e59eccc7dd9b20142bd692a1fe361435d3d57
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 7c4a73c86245067a07dc253041c43ae6c17f7172
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55965025"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58096986"
 ---
 # <a name="how-to-access-a-classroom-lab-in-azure-lab-services"></a>Acceso a un laboratorio de clase en Azure Lab Services
 En este artículo se describe cómo acceder a un laboratorio de clase, conectarse a la máquina virtual en el laboratorio y detener la máquina virtual. 
@@ -46,10 +46,10 @@ Después de registrarse en los laboratorios, puede ver todos los laboratorios ed
 
 1. Inicie la máquina virtual si aún no se ha iniciado y seleccione **Iniciar** en el elemento del control. 
 2. Seleccione **Conectar** en el icono que representa la máquina virtual del laboratorio al que quiere acceder. 
-3. Guarde el archivo RDP (para máquinas virtuales Windows) en el disco duro y ábralo. 
-4. Utilice el **nombre de usuario** y la **contraseña** que obtiene de su profesor o educador para iniciar sesión en la máquina. 
-
-## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>Detención de la máquina virtual en un laboratorio de clase
+3. Realice uno de los siguientes pasos: 
+   1. Para máquinas virtuales **Windows**, guarde el archivo **RDP** en el disco duro. Abra el archivo RDP para conectarse a la máquina virtual. Utilice el **nombre de usuario** y la **contraseña** que obtenga de su profesor o educador para iniciar sesión en la máquina. 
+   3. Para máquinas virtuales **Linux**, copie y guarde la cadena de conexión de SSH en el cuadro de diálogo **Conectarse a su máquina virtual**. Utilice esta cadena de conexión desde un terminal de SSH (como [Putty](https://www.putty.org/)) para conectarse a la máquina virtual.
+      ## <a name="stop-the-virtual-machine-in-a-classroom-lab"></a>Detención de la máquina virtual en un laboratorio de clase
 
 Para detener la máquina virtual, seleccione **Detener** en el icono. Cuando se detiene la máquina virtual, el botón **Iniciar** en el icono se habilita. 
 

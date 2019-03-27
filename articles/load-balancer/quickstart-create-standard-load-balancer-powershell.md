@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/22/2018
+ms.date: 03/05/2019
 ms.author: kumud
 ms:custom: seodec18
-ms.openlocfilehash: 56fc3942b82d43273ea39f6075382bcb255fc0f7
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 87c1d047e783715b3a5beee4604e064322f965dd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56673826"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58101894"
 ---
 # <a name="get-started"></a>Guía de inicio rápido: Creación de una instancia de Standard Load Balancer mediante Azure PowerShell
 
@@ -227,7 +227,7 @@ Cree NIC virtuales creadas con [New-AzNetworkInterface](/powershell/module/az.ne
 $nicVM1 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic1' `
+-Name 'MyVM1' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule1 `
@@ -237,27 +237,14 @@ $nicVM1 = New-AzNetworkInterface `
 $nicVM2 = New-AzNetworkInterface `
 -ResourceGroupName 'myResourceGroupLB' `
 -Location 'EastUS' `
--Name 'MyNic2' `
+-Name 'MyVM2' `
 -LoadBalancerBackendAddressPool $backendPool `
 -NetworkSecurityGroup $nsg `
 -LoadBalancerInboundNatRule $natrule2 `
 -Subnet $vnet.Subnets[0]
 ```
 
-### <a name="create-virtual-machines"></a>Crear máquinas virtuales
-Para mejorar la alta disponibilidad de la aplicación, coloque las máquinas virtuales en un conjunto de disponibilidad.
-
-Cree un conjunto de disponibilidad con [New-AzAvailabilitySet](/powershell/module/az.compute/new-azavailabilityset). En el ejemplo siguiente se crea un conjunto de disponibilidad denominado *myAvailabilitySet*:
-
-```azurepowershell-interactive
-$availabilitySet = New-AzAvailabilitySet `
-  -ResourceGroupName "myResourceGroupLB" `
-  -Name "myAvailabilitySet" `
-  -Location "EastUS" `
-  -Sku aligned `
-  -PlatformFaultDomainCount 2 `
-  -PlatformUpdateDomainCount 2
-```
+### <a name="create-virtual-machines"></a>Creación de máquinas virtuales
 
 Establezca un nombre de usuario de administrador y una contraseña para las máquinas virtuales con [Get-Credential](https://msdn.microsoft.com/powershell/reference/5.1/microsoft.powershell.security/Get-Credential):
 
@@ -265,7 +252,7 @@ Establezca un nombre de usuario de administrador y una contraseña para las máq
 $cred = Get-Credential
 ```
 
-Ahora puede crear las máquinas virtuales con [New-AzVM](/powershell/module/az.compute/new-azvm). En el ejemplo siguiente, se crean dos máquinas virtuales y los componentes de red virtual necesarios, si aún no existen:
+Ahora puede crear las máquinas virtuales con [New-AzVM](/powershell/module/az.compute/new-azvm). En el ejemplo siguiente, se crean dos máquinas virtuales y los componentes de red virtual necesarios, si aún no existen. En este ejemplo, las NIC (*VM1* y *VM2*) creadas en el paso anterior se asignan automáticamente a las máquinas virtuales *VM1* y *VM2*, puesto que tienen nombres idénticos y se asignan a la misma red virtual (*myVnet*) y subred (*mySubnet*). Además, como las NIC se asocian al grupo de servidores back-end del equilibrador de carga, las máquinas virtuales se agregan automáticamente al grupo de servidores back-end.
 
 ```azurepowershell-interactive
 for ($i=1; $i -le 2; $i++)
@@ -278,7 +265,6 @@ for ($i=1; $i -le 2; $i++)
         -SubnetName "mySubnet" `
         -SecurityGroupName "myNetworkSecurityGroup" `
         -OpenPorts 80 `
-        -AvailabilitySetName "myAvailabilitySet" `
         -Credential $cred `
         -AsJob
 }
@@ -292,11 +278,11 @@ Siga estos pasos para instalar IIS con una página web personalizada en las dos 
 
 1. Obtenga la dirección IP pública del equilibrador de carga. Para ello, use `Get-AzPublicIPAddress`.
 
-  ```azurepowershell-interactive
+   ```azurepowershell-interactive
     Get-AzPublicIPAddress `
     -ResourceGroupName "myResourceGroupLB" `
     -Name "myPublicIP" | select IpAddress
-  ```
+   ```
 2. Cree una conexión de Escritorio remoto a VM1 utilizando la dirección IP pública del paso anterior. 
 
    ```azurepowershell-interactive

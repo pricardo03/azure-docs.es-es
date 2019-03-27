@@ -4,27 +4,27 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: ea01900926f0a2e9b3481b64a191a58e04839513
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 9ef71ef67f53a37e5bbd5a672569114c3cd8af4e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752959"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58305103"
 ---
-Abra Unity y abra el proyecto en la carpeta `Unity`.
+En Unity, abra el proyecto en la carpeta `Unity`.
 
-Seleccione **File** -> **Build Settings** (Archivo > Configuración de compilación) para abrir **Build Settings** (Configuración de compilación).
+Seleccione **File** > **Build Settings** (Archivo > Configuración de compilación) para abrir **Build Settings** (Configuración de compilación).
 
 En la sección **Platform** (Plataforma), seleccione **iOS**.
 
-Seleccione **Switch Platform** (Cambiar plataforma) para cambiar la plataforma a **iOS**.
+Seleccione **Switch Platform** (Cambiar plataforma) para cambiar la plataforma a **iOS**. Unity puede solicitarle que instale los componentes de compatibilidad con iOS si no están presentes.
 
-![Configuración de compilación de Unity](./media/spatial-anchors-unity/unity-ios-build-settings.png)
+![Ventana Build Settings (Configuración de compilación) de Unity](./media/spatial-anchors-unity/unity-ios-build-settings.png)
 
 Cierre la ventana **Build Settings** (Configuración de compilación).
 
 ### <a name="download-and-import-the-unity-arkit-plugin"></a>Descargar e importar el complemento ARKit de Unity
 
-Descargue [Unity ARKit Plugin v2.0.0](https://bitbucket.org/Unity-Technologies/unity-arkit-plugin/get/v2.0.0.zip) y extraiga el archivo.
+Descargue [Unity ARKit Plugin, versión 2.2.0.0](https://bitbucket.org/Unity-Technologies/unity-arkit-plugin/get/v2.0.0.zip) y extraiga el archivo.
 
 Copie el contenido de la carpeta `Assets` desde la carpeta extraída de Unity ARKit Plugin a la carpeta `Assets` del ejemplo.

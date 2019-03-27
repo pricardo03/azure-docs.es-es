@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: overview
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: b0b835dde4b98619238eaac9449432aaa9acffd3
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 724352ae9f7c66dfeab293473ea79438e3b36254
+ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670494"
+ms.lasthandoff: 02/28/2019
+ms.locfileid: "56989326"
 ---
 # <a name="what-is-avere-vfxt-for-azure"></a>¿Qué es Avere vFXT for Azure? 
 
@@ -19,8 +19,8 @@ Avere vFXT for Azure proporciona una solución de almacenamiento en caché del s
 
 Avere vFXT admite estos escenarios de informática comunes: 
 
-* Arquitectura de nube híbrida: Avere vFXT for Azure puede trabajar con un sistema de almacenamiento de hardware, que proporciona el beneficio de la informática en la nube sin tener que mover los archivos. 
-* Ampliación en la nube: Avere vFXT for Azure puede ayudarle a mover los datos a la nube para un solo proyecto, o migrar mediante lift-and-shift todo el flujo de trabajo de manera permanente. 
+* Arquitectura de nube híbrida: Avere vFXT for Azure puede funcionar con un sistema de almacenamiento de hardware, que proporciona la ventaja de la informática en la nube sin tener que mover los archivos. 
+* Ampliación en la nube: Avere vFXT for Azure puede ayudarle a mover los datos a la nube para un solo proyecto, o a migrar mediante lift-and-shift todo el flujo de trabajo de manera permanente. 
 
 ![diagrama que muestra los detalles del sistema Avere vFXT dentro de una suscripción de Azure conectada al almacenamiento de blobs y a un centro de datos local](media/avere-vfxt-hybrid.png)
 
@@ -67,8 +67,8 @@ Avere vFXT utiliza los siguientes recursos de Azure:
 
 |Componente de Azure|   |
 |----------|-----------|
-|Máquinas virtuales|3 o más D16s_v3 o E32s_v3|
-|Almacenamiento SSD Premium|200 GB de espacio de sistema operativo más de 1 TB a 4 TB de espacio en caché por nodo |
+|Máquinas virtuales|3 o más E32s_v3|
+|Almacenamiento SSD Premium|200 GB de espacio de sistema operativo y de 1 TB a 4 TB de espacio en caché por nodo |
 |Cuenta de almacenamiento (opcional) |v2|
 |Almacenamiento back-end de datos (opcional) | Un contenedor de blobs LRS vacío |
 

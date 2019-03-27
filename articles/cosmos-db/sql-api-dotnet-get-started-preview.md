@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 12/01/2018
 ms.author: dech
-ms.openlocfilehash: 2e0dc5c69a6cc875f4e673a494387db79c1dd1fa
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: a942f91dfa03eea2d9dc14b4b44e2ef5ee57c1ba
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672559"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078642"
 ---
 # <a name="build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account-sdk-version-3-preview"></a>Compilación de una aplicación de consola .NET para administrar datos de la cuenta de API de SQL de Azure Cosmos DB (versión preliminar del SDK versión 3)
 
@@ -61,7 +61,7 @@ Vamos a crear una cuenta de Azure Cosmos DB. Si ya tiene una cuenta que desea us
 1. Abra **Visual Studio 2017** en el equipo.
 1. En el menú **Archivo**, seleccione **Nuevo** y elija **Proyecto**.
 1. En el cuadro de diálogo **Nuevo proyecto**, seleccione **Visual C#** / **Aplicación de consola (.NET Framework)**, asigne un nombre al proyecto y, luego, haga clic en **Aceptar**.
-    ![Captura de pantalla de la ventana Nuevo proyecto](./media/sql-api-get-started/dotnet-tutorial-visual-studio-new-project.png)
+    ![Captura de pantalla de la ventana de nuevo proyecto](./media/sql-api-get-started/dotnet-tutorial-visual-studio-new-project.png)
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en la nueva aplicación de la consola, que se encuentra en la solución de Visual Studio y, a continuación, haga clic en **Administrar paquetes NuGet...**
     
     ![Captura de pantalla del menú contextual del proyecto](./media/sql-api-get-started/dotnet-tutorial-visual-studio-manage-nuget.png)
@@ -121,7 +121,7 @@ Estupendo. Ahora que hemos terminado la configuración, comencemos a escribir al
 
    ![Captura de pantalla para obtener las claves de Azure Cosmos DB de Azure Portal](./media/sql-api-get-started/dotnet-tutorial-portal-keys.png)
 
-1. A continuación, se creará una instancia de ```CosmosClient``` y se configurará algo de scaffolding para nuestro programa.
+1. A continuación, se creará una nueva instancia de ```CosmosClient``` y se configurará algo de scaffolding para el programa.
 
     Debajo del método **Main**, agregue una nueva tarea asincrónica denominada **GetStartedDemoAsync**, que creará una instancia del nuevo ```CosmosClient```. Se usará **GetStartedDemoAsync** como punto de entrada que llama a los métodos que operan en recursos de Azure Cosmos DB.
 
@@ -321,7 +321,7 @@ Para crear un contenedor se puede usar o bien la función [**CreateContainerIfNo
         await this.CreateContainer();
     }
     ```
-Presione **F5** para ejecutar la aplicación.
+   Presione **F5** para ejecutar la aplicación.
 
 Felicidades. Ha creado correctamente un contenedor de Azure Cosmos DB.  
 
@@ -599,7 +599,7 @@ Ahora, se va a actualizar un elemento en Azure Cosmos DB.
         await this.ReplaceFamilyItem();
     }
     ```
-Presione **F5** para ejecutar la aplicación.
+   Presione **F5** para ejecutar la aplicación.
 
 Felicidades. Ha sustituido correctamente un elemento de Azure Cosmos DB.
 

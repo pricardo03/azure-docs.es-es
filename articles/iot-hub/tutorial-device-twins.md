@@ -3,23 +3,22 @@ title: Sincronización del estado del dispositivo desde Azure IoT Hub | Microsof
 description: Utilice dispositivos gemelos para sincronizar el estado entre los dispositivos y el centro de IoT
 services: iot-hub
 documentationcenter: ''
-author: dominicbetts
-manager: timlt
-ms.assetid: ''
+author: wesmc7777
+manager: philmea
+ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/18/2019
-ms.author: dobett
 ms.custom: mvc
-ms.openlocfilehash: 63ef5a36dc5a9d770e3474e15b4733d4165b9937
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: b0e6e75f962383055d4f28356c3db57aac4a088b
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54421919"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58088084"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -76,7 +75,7 @@ az group create --name tutorial-iot-hub-rg --location $location
 az iot hub create --name $hubname --location $location --resource-group tutorial-iot-hub-rg --sku F1
 
 # Make a note of the service connection string, you need it later:
-az iot hub show-connection-string --hub-name $hubname -o table
+az iot hub show-connection-string --name $hubname -o table
 
 ```
 
@@ -241,7 +240,7 @@ La siguientes captura de pantalla muestra el resultado de la aplicación de disp
 
 ![Dispositivo simulado](./media/tutorial-device-twins/SimulatedDevice2.png)
 
-La siguiente captura de pantalla muestra el resultado de la aplicación back-end y resalta cómo recibe y procesa una actualización de la propiedad notificada desde un dispositivo:
+La siguiente captura de pantalla muestra la salida de la aplicación back-end y resalta cómo recibe y procesa una actualización de la propiedad notificada desde un dispositivo:
 
 ![Aplicación back-end](./media/tutorial-device-twins/BackEnd2.png)
 
@@ -263,4 +262,4 @@ az group delete --name tutorial-iot-hub-rg
 En este tutorial, ha aprendido a sincronizar la información de estado entre los dispositivos y el centro de IoT. Avance hasta el siguiente tutorial para aprender a usar dispositivos gemelos para implementar un proceso de actualización de firmware.
 
 > [!div class="nextstepaction"]
-[Implementación de un proceso de actualización de firmware de dispositivos](tutorial-firmware-update.md)
+> [Implementación de un proceso de actualización de firmware de dispositivos](tutorial-firmware-update.md)

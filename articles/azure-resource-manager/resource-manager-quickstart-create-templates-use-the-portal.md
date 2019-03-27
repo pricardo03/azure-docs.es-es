@@ -10,19 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 01/11/2019
+ms.date: 03/04/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: c7759b9f0787b7926b3642b8b912ec5391347adf
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
+ms.openlocfilehash: 84025953e74cb2ace358aa041f55dc1498d22f2f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54911496"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58079067"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Inicio rápido: Creación e implementación de plantillas de Azure Resource Manager mediante Azure Portal
 
 Aprenda a generar una plantilla de Azure Resource Manager desde Azure Portal, así como el proceso de editar e implementar la plantilla desde el portal. Las plantillas de Resource Manager son archivos JSON que definen los recursos que necesita para implementar la solución. Para entender los conceptos asociados a la implementación y administración de sus soluciones de Azure, consulte [Introducción a Azure Resource Manager](resource-group-overview.md).
+
+![Diagrama de inicio rápido de la plantilla de Resource Manager desde el portal](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
 Tras completar el tutorial implemente una cuenta de Azure Storage. El mismo proceso se puede usar para implementar otros recursos de Azure.
 
@@ -32,7 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 La creación de una plantilla de Resource Manager desde cero no es una tarea fácil, sobre todo es la primera vez que se realiza una implementación de Azure y no se conoce el formato JSON. Desde Azure Portal se puede configurar un recurso, por ejemplo una cuenta de Azure Storage. Antes de implementar el recurso, puede exportar la configuración a una plantilla de Resource Manager. Puede guardar la plantilla y volver a usarla en el futuro.
 
-Muchos desarrolladores de plantillas experimentados usan este método para generar plantillas de trabajo cuando intentan implementar recursos de Azure con los que no están familiarizados.
+Muchos desarrolladores de plantillas experimentados usan este método para generar plantillas cuando intentan implementar recursos de Azure con los que no están familiarizados. Para más información acerca de cómo exportar plantillas mediante el portal, consulte [Exportar grupos de recursos en plantillas](./manage-resource-groups-portal.md#export-resource-groups-to-templates). La otra forma de encontrar una plantilla de trabajo es entre las [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/).
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 2. Seleccione **Crear un recurso** > **Storage** > **Cuenta de almacenamiento: blob, archivo, tabla, cola**.
@@ -40,8 +42,10 @@ Muchos desarrolladores de plantillas experimentados usan este método para gener
     ![Creación de una cuenta de Azure Storage con Azure Portal](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 3. Escriba la siguiente información:
 
-    - **Grupo de recursos**: seleccione **Crear nuevo** y especifique el nombre que prefiera para el grupo de recursos. En la captura de pantalla, el nombre del grupo de recursos es *mystorage1016rg*. Un grupo de recursos es un contenedor para recursos de Azure. El grupo de recursos facilita la administración de recursos de Azure.
-    - **Nombre**: escriba un nombre único para la cuenta de almacenamiento. En la captura de pantalla, el nombre es *mystorage1016*.
+    |NOMBRE|Valor|
+    |----|----|
+    |**Grupos de recursos**|seleccione **Crear nuevo** y especifique el nombre que prefiera para el grupo de recursos. En la captura de pantalla, el nombre del grupo de recursos es *mystorage1016rg*. Un grupo de recursos es un contenedor para recursos de Azure. El grupo de recursos facilita la administración de recursos de Azure. |
+    |**Nombre**|escriba un nombre único para la cuenta de almacenamiento. El nombre de la cuenta de almacenamiento proporcionado debe ser único entre todos los de Azure y contener solo letras minúsculas y números. El nombre debe tener entre 3 y 24 caracteres. Si recibe el mensaje de error "The storage account name 'mystorage1016' is already taken" (El nombre de cuenta de almacenamiento 'mystorage1016' no está disponible), pruebe a usar **&lt;su nombre>storage&lt;fecha de hoy en MMDD>**, por ejemplo, **johndolestorage1016**. Para más información, consulte [Reglas y restricciones de nomenclatura](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions).|
 
     Puede usar los valores predeterminados para el resto de propiedades.
 
@@ -50,7 +54,7 @@ Muchos desarrolladores de plantillas experimentados usan este método para gener
     > [!NOTE]
     > Algunas de las plantillas exportadas requieren algunas modificaciones antes de poder implementarlas.
 
-4. Seleccione **Revisar y crear** en la parte inferior de la pantalla.
+4. Seleccione **Revisar y crear** en la parte inferior de la pantalla. No seleccione **Crear** en el paso siguiente.
 5. Seleccione **Descargar una plantilla para la automatización** en la parte inferior de la pantalla. El portal muestra la plantilla generada:
 
     ![Generación de una plantilla desde el portal](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
@@ -59,13 +63,14 @@ Muchos desarrolladores de plantillas experimentados usan este método para gener
 
     Hay seis parámetros definidos. Uno de ellos se denomina **storageAccountName**. La segunda parte resaltada de la captura de pantalla anterior muestra cómo hacer referencia a este parámetro en la plantilla. En la sección siguiente, edite la plantilla para usar un nombre generado para la cuenta de almacenamiento.
 
-    En la plantilla, se define un recurso de Azure. El tipo es [Microsoft.Storage/storageAccounts]. Vea cómo se define el recurso y la estructura de definición.
-6. Seleccione **Descargar**. Guarde **template.json** del paquete descargado en el equipo. En la siguiente sección, usará una herramienta de implementación de plantilla para modificar la plantilla.
-7. Seleccione la pestaña **Parámetro** para ver los valores proporcionados para los parámetros. Anote estos valores, porque los necesitará en la sección siguiente al implementar la plantilla.
+    En la plantilla, se define un recurso de Azure. El tipo es `Microsoft.Storage/storageAccounts`. Observe cómo se define el recurso y la estructura de definición.
+6. Seleccione **Descargar** en la parte superior de la pantalla. 
+7. Abra el archivo zip descargado y guarde **template.json** en su equipo. En la siguiente sección, usará una herramienta de implementación de plantilla para modificar la plantilla.
+8. Seleccione la pestaña **Parámetro** para ver los valores proporcionados para los parámetros. Anote estos valores, porque los necesitará en la sección siguiente al implementar la plantilla.
 
     ![Generación de una plantilla desde el portal](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
 
-    Mediante la plantilla y los archivos de parámetros, puede crear un recurso, que en este tutorial será una cuenta de Azure Storage.
+    Mediante la plantilla y el archivo de parámetros, puede crear un recurso, que en este tutorial será una cuenta de Azure Storage.
 
 ## <a name="edit-and-deploy-the-template"></a>Edición e implementación de la plantilla
 
@@ -81,79 +86,82 @@ Azure requiere que cada servicio de Azure tenga un nombre único. Se podría pro
 4. Seleccione **Crear**.
 5. Seleccione **Cree su propia plantilla en el editor**.
 6. Seleccione **Cargar archivo** y, después, siga las instrucciones para cargar template.json que descargó en la última sección.
-7. Agregue una variable, tal como se muestra en la siguiente captura de pantalla:
+7. Realice los siguientes tres cambios en la plantilla:
 
-    ```json
-    "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
-    ```
     ![Plantillas del Administrador de recursos de Azure](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
 
-    Aquí se usan dos funciones de plantilla: `concat()` y `uniqueString()`.
+   - Quite el parámetro **storageAccountName** como aparece en la captura de pantalla anterior.
+   - Agregue una variable denominada **storageAccountName** como se muestra en la captura de pantalla anterior:
 
-8. Quite el parámetro **storageAccountName** resaltado en la captura de pantalla anterior.
-9. Actualice el elemento name del recurso **Microsoft.Storage/storageAccounts** para usar la variable recién definida en lugar del parámetro:
+       ```json
+       "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+       ```
 
-    ```json
-    "name": "[variables('storageAccountName')]",
-    ```
+       Aquí se usan dos funciones de plantilla: `concat()` y `uniqueString()`.
+   - Actualice el elemento name del recurso **Microsoft.Storage/storageAccounts** para usar la variable recién definida en lugar del parámetro:
 
-    La plantilla final debe parecerse a esta:
+       ```json
+       "name": "[variables('storageAccountName')]",
+       ```
 
-    ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "location": {
-                "type": "string"
-            },
-            "accountType": {
-                "type": "string"
-            },
-            "kind": {
-                "type": "string"
-            },
-            "accessTier": {
-                "type": "string"
-            },
-            "supportsHttpsTrafficOnly": {
-                "type": "bool"
-            }
-        },
-        "variables": {
-            "storageAccountName": "[concat(uniquestring(resourceGroup().id), 'standardsa')]"
-        },
-        "resources": [
-            {
-                "name": "[variables('storageAccountName')]",
-                "type": "Microsoft.Storage/storageAccounts",
-                "apiVersion": "2018-07-01",
-                "location": "[parameters('location')]",
-                "properties": {
-                    "accessTier": "[parameters('accessTier')]",
-                    "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
-                },
-                "dependsOn": [],
-                "sku": {
-                    "name": "[parameters('accountType')]"
-                },
-                "kind": "[parameters('kind')]"
-            }
-        ],
-        "outputs": {}
-    }
-    ```
-7. Seleccione **Guardar**.
-8. Escriba los siguientes valores:
+     La plantilla final debe parecerse a esta:
 
-    - **Grupo de recursos**: seleccione **Crear nuevo** y asigne un nombre único a su grupo de recursos.
-    - **Ubicación**: seleccione una ubicación para el grupo de recursos. Por ejemplo, **Centro de EE. UU.**. 
-    - **Ubicación**: seleccione la ubicación para la cuenta de almacenamiento. Por ejemplo, **Centro de EE. UU.**.
-    - **Tipo de cuenta**: escriba **Standard_LRS** para este artículo de inicio rápido.
-    - **Variante**: escriba **StorageV2** para este artículo de inicio rápido.
-    - **Nivel de acceso**: escriba **Frecuente** para este artículo de inicio rápido.
-    - **Https Traffic Only Enabled** (Solo tráfico HTTPS habilitado).  Seleccione **true** para esta guía de inicio rápido.
-    - **Acepto los términos y condiciones indicados anteriormente**: (seleccionar)
+     ```json
+     {
+       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion": "1.0.0.0",
+       "parameters": {
+           "location": {
+               "type": "string"
+           },
+           "accountType": {
+               "type": "string"
+           },
+           "kind": {
+               "type": "string"
+           },
+           "accessTier": {
+               "type": "string"
+           },
+           "supportsHttpsTrafficOnly": {
+               "type": "bool"
+           }
+       },
+       "variables": {
+           "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+       },
+       "resources": [
+           {
+               "name": "[variables('storageAccountName')]",
+               "type": "Microsoft.Storage/storageAccounts",
+               "apiVersion": "2018-07-01",
+               "location": "[parameters('location')]",
+               "properties": {
+                   "accessTier": "[parameters('accessTier')]",
+                   "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
+               },
+               "dependsOn": [],
+               "sku": {
+                   "name": "[parameters('accountType')]"
+               },
+               "kind": "[parameters('kind')]"
+           }
+       ],
+       "outputs": {}
+     }
+     ```
+8. Seleccione **Guardar**.
+9. Escriba los siguientes valores:
+
+    |NOMBRE|Valor|
+    |----|----|
+    |**Grupos de recursos**|Seleccione el nombre del grupo de recursos creado en la última sección. |
+    |**Ubicación**|Seleccione la ubicación para la cuenta de almacenamiento. Por ejemplo, **Centro de EE. UU.**. |
+    |**Tipo de cuenta**|escriba **Standard_LRS** para este artículo de inicio rápido. |
+    |**Variante**|escriba **StorageV2** para este artículo de inicio rápido. |
+    |**Nivel de acceso**|escriba **Frecuente** para este artículo de inicio rápido. |
+    |**Https Traffic Only Enabled** (Solo tráfico HTTPS habilitado)| Seleccione **true** para esta guía de inicio rápido. |
+    |**Acepto los términos y condiciones indicados anteriormente**|(Seleccionar)|
 
     Esta es una captura de pantalla de una implementación de ejemplo:
 

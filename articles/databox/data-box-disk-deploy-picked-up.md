@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 01/09/2019
+ms.date: 02/21/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 357fa8a34afc8b426d308940462e22895130169f
-ms.sourcegitcommit: 33091f0ecf6d79d434fa90e76d11af48fd7ed16d
+ms.openlocfilehash: 0dd0474ad1ad360fd82cfdf746d2e9837f74833a
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54158778"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58108382"
 ---
 # <a name="tutorial-return-azure-data-box-disk-and-verify-data-upload-to-azure"></a>Tutorial: Devolución de Azure Data Box Disk y comprobación de la carga de datos en Azure
 
@@ -33,7 +33,7 @@ Antes de comenzar, asegúrese de que ha completado [Tutorial: Copia de datos a A
 
 1. Una vez completada la validación de datos, desconecte los discos. Quite los cables de conexión.
 2. Envuelva todos los discos y los cables de conexión en un envoltorio de burbujas y colóquelos en la caja de envío.
-3. Utilice la etiqueta de envío de devolución en la funda plástica transparente fijada en la caja. Si la etiqueta se daña o se pierde, descargue una nueva etiqueta de envío desde Azure Portal y péguela en el dispositivo. Vaya a **Overview > Download shipping label** (Información general > Descargar etiqueta de envío). 
+3. Utilice la etiqueta de envío de devolución en la funda plástica transparente fijada en la caja. Si la etiqueta se daña o se pierde, descargue una nueva etiqueta de envío desde Azure Portal y péguela en el dispositivo. Vaya a **Overview > Download shipping label** (Información general > Descargar etiqueta de envío).
 
     ![Descarga de la etiqueta de envío](media/data-box-disk-deploy-picked-up/download-shipping-label.png)
 
@@ -44,7 +44,7 @@ Antes de comenzar, asegúrese de que ha completado [Tutorial: Copia de datos a A
 4. Selle la caja de envío y asegúrese de que la etiqueta de envío de devolución está visible.
 5. Programe una recogida con UPS, si está devolviendo el dispositivo en Estados Unidos. Si va a devolver el dispositivo en Europa con DHL, para solicitar la recogida de DHL, visite su sitio Web y especifique el número de factura de porte aéreo. Visite el sitio Web de DHL Express del país y elija **Book a Courier Collection > eReturn Shipment** (Reservar una colección Courier > Envío eReturn).
 
-    ![Envío de DHL ereturn](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
+    ![Envío de devolución de DHL](media/data-box-disk-deploy-picked-up/dhl-ship-1.png)
     
     Especifique el número de factura de porte aéreo y haga clic en **Schedule Pickup** (Programar la recogida) para organizar la recogida.
 
@@ -66,7 +66,28 @@ Una vez finalizada la copia, el estado del pedido se actualiza a **Completed** (
 
 ![Copia de datos finalizada](media/data-box-disk-deploy-picked-up/data-box-portal-completed.png)
 
-Compruebe que los datos estén en las cuentas de almacenamiento antes de eliminarlos del origen. Para comprobar que los datos se han cargado en Azure, realice los pasos siguientes:
+Compruebe que los datos estén en las cuentas de almacenamiento antes de eliminarlos del origen. Los datos pueden estar en:
+
+- Sus cuentas de Azure Storage. Al copiar los datos en Data Box, dependiendo del tipo, estos se cargan en una de las siguientes rutas de acceso de la cuenta de Azure Storage.
+
+  - Para los blobs en bloques y los blobs en páginas: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
+  - Para Azure Files: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
+
+    Como alternativa, puede ir a su cuenta de almacenamiento de Azure en Azure Portal e ir desde allí.
+
+- Sus grupos de recursos de disco administrados. Al crear discos administrados, los discos duros virtuales se cargan como blobs en páginas y se convierten en discos administrados. Los discos administrados se conectan a los grupos de recursos especificados en el momento de creación del pedido.
+
+  - Si la copia en los discos administrados de Azure se realizó correctamente, puede ir a **Detalles del pedido** en Azure Portal y tomar nota de los grupos de recursos especificados para los discos administrados.
+
+      ![Visualización de los detalles de pedido](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
+
+    Vaya al grupo de recursos anotado y busque los discos administrados.
+
+      ![Grupo de recursos para discos administrados](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
+
+  - Si copió un VHDX o un disco duro virtual dinámico o de diferenciación, el VHD o VHDX se carga en la cuenta de almacenamiento provisional como si fuera un blob en bloques. Vaya a su almacenamiento provisional **Cuenta de almacenamiento > Blobs** y seleccione el contenedor adecuado (SSD estándar, HDD estándar o SSD prémium). Los VHD/VHDX deberían aparecer como blobs en bloques en su cuenta de almacenamiento provisional.
+
+Para comprobar que los datos se han cargado en Azure, realice los pasos siguientes:
 
 1. Vaya a la cuenta de almacenamiento asociada al pedido de disco.
 2. Vaya a **Blob service > Examinar blobs**. Se presenta la lista de contenedores. En la subcarpeta que creó bajo las carpetas *BlockBlob* y *PageBlob*, se crean contenedores con el mismo nombre en la cuenta de almacenamiento.
@@ -78,7 +99,7 @@ Compruebe que los datos estén en las cuentas de almacenamiento antes de elimina
 
 ## <a name="erasure-of-data-from-data-box-disk"></a>Eliminación de los datos de Data Box Disk
 
-Una vez que se ha completado la copia y ha comprobado que los datos están en la cuenta de almacenamiento de Azure, los discos se borran de forma segura según el estándar NIST. 
+Una vez que se ha completado la copia y ha comprobado que los datos están en la cuenta de almacenamiento de Azure, los discos se borran de forma segura según el estándar NIST.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

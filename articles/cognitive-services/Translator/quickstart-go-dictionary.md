@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: b9f1b3b7ab99ca878227d8bf618545ec90aca4ac
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 356c414d6e3823f927cbb201aeb0a0186e421b5e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56732048"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58175540"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary-using-go"></a>Inicio rápido: Búsqueda de palabras con un diccionario bilingüe mediante Go
 
@@ -32,7 +32,7 @@ Esta guía de inicio rápido requiere:
 
 ## <a name="create-a-project-and-import-required-modules"></a>Creación de un proyecto e importación de los módulos necesarios
 
-Cree un proyecto de Go con su IDE o editor favorito. A continuación, copie este fragmento de código en un archivo llamado `alt-translations.go`.
+Cree un proyecto de Go con su IDE o editor favoritos, o bien en una nueva carpeta en el escritorio. A continuación, copie este fragmento de código en un archivo llamado `alt-translations.go` en el proyecto o carpeta.
 
 ```go
 package main
@@ -60,7 +60,7 @@ func main() {
      * Read your subscription key from an env variable.
      * Please note: You can replace this code block with
      * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables.
+     * want to use env variables. Then, be sure to delete the "os" import.
      */
     subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
     if subscriptionKey == "" {
@@ -227,10 +227,10 @@ Si desea comparar su código con el nuestro, el ejemplo completo está disponibl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explorar los paquetes de Go para Cognitive Services APIs desde el [Azure SDK para Go](https://github.com/Azure/azure-sdk-for-go) en GitHub.
+Explore los ejemplos de Go para Cognitive Services APIs de [Azure SDK para Go](https://github.com/Azure/azure-sdk-for-go) en GitHub.
 
 > [!div class="nextstepaction"]
-> [Explore los paquetes de Go en GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+> [Explorar ejemplos de Go en GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
 
 ## <a name="see-also"></a>Otras referencias
 

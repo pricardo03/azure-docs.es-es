@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: quickstart
 ms.date: 02/21/2019
 ms.author: erhopf
-ms.openlocfilehash: a1218442aedf94028fe1e08f02f13ce1c0d05008
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f0690d2e95084712c4260ade9df493ee078979a0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56738120"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57863736"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-a-string-using-go"></a>Inicio rápido: Uso de Translator Text API para traducir una cadena mediante Go
 
@@ -60,7 +60,7 @@ func main() {
      * Read your subscription key from an env variable.
      * Please note: You can replace this code block with
      * var subscriptionKey = "YOUR_SUBSCRIPTION_KEY" if you don't
-     * want to use env variables.
+     * want to use env variables. If so, be sure to delete the "os" import.
      */
     subscriptionKey := os.Getenv("TRANSLATOR_TEXT_KEY")
     if subscriptionKey == "" {
@@ -191,10 +191,10 @@ Se devuelve una respuesta correcta en JSON, tal como se muestra en el siguiente 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Explorar los paquetes de Go para Cognitive Services APIs desde el [Azure SDK para Go](https://github.com/Azure/azure-sdk-for-go) en GitHub.
+Explore los ejemplos de Go para Cognitive Services APIs de [Azure SDK para Go](https://github.com/Azure/azure-sdk-for-go) en GitHub.
 
 > [!div class="nextstepaction"]
-> [Explore los paquetes de Go en GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
+> [Explorar ejemplos de Go en GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)
 
 ## <a name="see-also"></a>Otras referencias
 

@@ -10,17 +10,17 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 01/02/2019
 ms.author: assafi
-ms.openlocfilehash: 9b56104934c1ddcc60222c988efdf173ca33d77b
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: bc4553df239dbb8b62a31414539b10998cd74f02
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871016"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189655"
 ---
 # <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Inicio rápido: Uso de C# para llamar a Text Analytics de Cognitive Services
 <a name="HOLTop"></a>
 
-En este artículo se muestra cómo detectar el idioma, analizar las opiniones y extraer las frases clave mediante  [instancias de Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711)  con C#. El código se escribió para que funcione en una aplicación de .NET Core, con las referencias mínimas a bibliotecas externas, por lo que también se podría ejecutar en Linux o MacOS.
+En este artículo se muestra cómo detectar el idioma, analizar las opiniones y extraer las frases clave mediante  [instancias de Text Analytics API](//go.microsoft.com/fwlink/?LinkID=759711)  con C#. El código se escribió para que funcione en una aplicación de .NET Core, con referencias mínimas a bibliotecas externas, por lo que también se podría ejecutar en Linux o MacOS.
 
 Consulte las [definiciones de API](//go.microsoft.com/fwlink/?LinkID=759346) para obtener la documentación técnica de las API.
 
@@ -30,26 +30,25 @@ Consulte las [definiciones de API](//go.microsoft.com/fwlink/?LinkID=759346) par
 
 También debe tener la [clave de acceso y punto de conexión](../How-tos/text-analytics-how-to-access-key.md) que se generó automáticamente durante el registro.
 
-
 ## <a name="install-the-nuget-sdk-package"></a>Instalación del paquete SDK de NuGet
 1. Cree una solución de consola en Visual Studio.
 1. Haga clic con el botón derecho en la solución y seleccione **Administrar paquetes NuGet para la solución**
 1. Active la casilla **Incluir versión preliminar**.
 1. Seleccione la pestaña **Examinar** y busque **Microsoft.Azure.CognitiveServices.Language.TextAnalytics**.
-1. Seleccione el paquete NuGet e instálelo.
+1. Seleccione el paquete NuGet e instálelo. Puede que necesite v2.8.0 por ahora (3-18-2019), en lugar de v3.0.0, hasta que se resuelva un error en el software.
 
 > [!Tip]
 >  Aunque puede llamar a los [puntos de conexión HTTP](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) directamente desde C#, el SDK de Microsoft.Azure.CognitiveServices.Language, hace que resulte más fácil llamar al servicio sin tener que preocuparse sobre la serialización y deserialización de JSON.
 >
 > Algunos vínculos útiles:
-> - [Página del SDK de NuGet](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics)
+> - [Página del SDK de NuGet](<https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Language.TextAnalytics>)
 > - [Código del SDK](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/CognitiveServices/dataPlane/Language/TextAnalytics)
 
-
 ## <a name="call-the-text-analytics-api-using-the-sdk"></a>Llamada a la API de Text Analytics mediante el SDK
+
 1. Reemplace Program.cs por el código que se proporciona a continuación. En este programa, se muestran las funciones de Text Analytics API en tres secciones (extracción del idioma, extracción de frases clave y análisis de la opinión).
 1. Reemplace el valor de encabezado `Ocp-Apim-Subscription-Key` por una clave de acceso válida para la suscripción.
-1. Reemplace la ubicación de `Endpoint` por el punto de conexión para el que se ha registrado. Puede encontrar el punto de conexión en el recurso de Azure Portal. El punto de conexión normalmente comienza con "https://[región].api.cognitive.microsoft.com" y aquí incluya solo el protocolo y el nombre de host.
+1. Reemplace la región en `Endpoint`. Puede encontrar el punto de conexión en la sección de información general de los recursos de Text Analytics en [Azure Portal](<https://ms.portal.azure.com>). Incluya solo esta parte del punto de conexión: "https://[region].api.cognitive.microsoft.com".
 1. Ejecute el programa.
 
 ```csharp

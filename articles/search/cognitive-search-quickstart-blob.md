@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/02/2019
+ms.date: 03/17/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 191cff21cdaa6a4e94358ed0b9c63cd942f71a6e
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: f00df841f81ea5c7aa1fd53309b00487602e5143
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564568"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200638"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Guía de inicio rápido: Creación de una canalización de Cognitive Search mediante aptitudes y datos de ejemplo
 
@@ -32,21 +32,7 @@ En este artículo de inicio rápido, cree su primera la canalización de enrique
 
 ## <a name="supported-regions"></a> Regiones admitidas
 
-Puede probar Cognitive Search en el servicio Azure Search creado en las siguientes regiones:
-
-* Centro occidental de EE.UU.
-* Centro-Sur de EE. UU
-* Este de EE. UU
-* Este de EE. UU. 2
-* Oeste de EE. UU. 2
-* Centro de Canadá
-* Europa occidental
-* Sur de Reino Unido 2
-* Europa del Norte
-* Sur de Brasil
-* Sudeste asiático
-* India Central
-* Este de Australia
+La indexación enriquecida con inteligencia artificial mediante Cognitive Services está disponible en todas las regiones de Azure Search.
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
@@ -69,11 +55,11 @@ Los servicios de Azure se utilizan exclusivamente en este escenario. Crear los s
 
 En primer lugar, regístrese en el servicio Azure Search. 
 
-1. Vaya a [Azure Portal](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
+1. Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azure.
 
 1. Haga clic en **Crear un recurso**, busque Azure Search y haga clic en **Crear**. Consulte [Creación de un servicio Azure Search en el portal](search-create-service-portal.md) si está configurando un servicio de búsqueda por primera vez y necesita más ayuda.
 
-  ![Panel del portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Creación de un servicio Azure Search en el portal")
+   ![Panel del portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Creación de un servicio Azure Search en el portal")
 
 1. En Grupo de recursos, cree un grupo de recursos en el que se incluirán todos los recursos que cree en este artículo de inicio rápido. De este modo, será más fácil borrar los recursos tras finalizar los pasos de la guía.
 
@@ -81,16 +67,16 @@ En primer lugar, regístrese en el servicio Azure Search.
 
 1. En la opción Plan de tarifa, puede crear un servicio **Gratis** para completar tutoriales y guías de inicio rápido. Si quiere realizar una investigación detallada con sus propios datos, cree un [servicio de pago](https://azure.microsoft.com/pricing/details/search/) como **Básico** o **Estándar**. 
 
-  El servicio gratuito se limita a 3 índices, un tamaño máximo de blob de 16 MB y 2 minutos de indexación, lo que es insuficiente para usar todas las funcionalidades de Cognitive Search. Para revisar los límites de los distintos planes, consulte [Límites de servicio](search-limits-quotas-capacity.md).
+   El servicio gratuito se limita a 3 índices, un tamaño máximo de blob de 16 MB y 2 minutos de indexación, lo que es insuficiente para usar todas las funcionalidades de Cognitive Search. Para revisar los límites de los distintos planes, consulte [Límites de servicio](search-limits-quotas-capacity.md).
 
-  ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Página de definición del servicio en el portal")
+   ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Página de definición del servicio en el portal")
 
-  > [!NOTE]
-  > Cognitive Search está disponible en la versión preliminar pública. Actualmente, la ejecución del conjunto de aptitudes está disponible en todos los planes, incluido el gratuito. Podrá realizar una cantidad limitada de enriquecimientos sin tener que asociar un recurso de Cognitive Services pagado. [Más información](cognitive-search-attach-cognitive-services.md).
+   > [!NOTE]
+   > Cognitive Search está disponible en la versión preliminar pública. Actualmente, la ejecución del conjunto de aptitudes está disponible en todos los planes, incluido el gratuito. Podrá realizar una cantidad limitada de enriquecimientos sin tener que asociar un recurso de Cognitive Services pagado. [Más información](cognitive-search-attach-cognitive-services.md).
 
 1. Ancle el servicio al panel para acceder rápidamente a la información del servicio.
 
-  ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Página de definición del servicio en el portal")
+   ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Página de definición del servicio en el portal")
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurar el servicio de Azure Blob y cargar los datos de ejemplo
 
@@ -98,11 +84,13 @@ La canalización de enriquecimiento extrae contenido de los orígenes de datos d
 
 1. [Descargue los datos de ejemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) que están formados por un pequeño conjunto de archivos de diferentes tipos. 
 
-1. Regístrese en Azure Blob Storage, cree una cuenta de almacenamiento, abra las páginas de servicios de blob y cree un contenedor. En el contenedor, establezca el nivel de acceso público en **Contenedor**. Para más información, consulte la [sección sobre la creación de un contenedor](../storage/blobs/storage-unstructured-search.md#create-a-container) del tutorial *Búsqueda de datos no estructurados*.
+1. Regístrese en Azure Blob Storage, cree una cuenta de almacenamiento, abra las páginas de servicios de blob y cree un contenedor. 
+
+1. En el contenedor, establezca el nivel de acceso público en **Container (anonymous read access for containers and blobs)** (Contenedor [acceso anónimo de lectura para contenedores y blobs]). Para más información, consulte la [sección sobre la creación de un contenedor](../storage/blobs/storage-unstructured-search.md#create-a-container) del tutorial *Búsqueda de datos no estructurados*.
 
 1. En el contenedor que creó, haga clic en **Cargar** para cargar los archivos de ejemplo que descargó en un paso anterior.
 
-  ![Archivos de origen en Azure Blob Storage](./media/cognitive-search-quickstart-blob/sample-data.png)
+   ![Archivos de origen en Azure Blob Storage](./media/cognitive-search-quickstart-blob/sample-data.png)
 
 ## <a name="create-the-enrichment-pipeline"></a>Crear la canalización de enriquecimiento
 
@@ -126,17 +114,17 @@ A continuación, agregue los pasos de enriquecimiento a la canalización de inde
 
 1. Expanda **Adjuntar Cognitive Services** para ver las opciones de asignación de recursos de Cognitive Services APIs. A los efectos de este tutorial, puede usar el recurso **Gratis**.
 
-  ![Adjuntar Cognitive Services](media/cognitive-search-quickstart-blob/cog-search-attach.png)
+   ![Adjuntar Cognitive Services](media/cognitive-search-quickstart-blob/cog-search-attach.png)
 
 2. Expanda **Agregar enriquecimiento** y seleccione las aptitudes que realizan el procesamiento de lenguaje natural. En esta guía de inicio rápido, elija el reconocimiento de entidades para los contactos, las organizaciones y las ubicaciones.
 
-  ![Adjuntar Cognitive Services](media/cognitive-search-quickstart-blob/skillset.png)
+   ![Adjuntar Cognitive Services](media/cognitive-search-quickstart-blob/skillset.png)
 
-  El portal ofrece aptitudes integradas para el análisis de texto y el procesamiento de OCR. En el portal, un conjunto de aptitudes opera en un solo campo de origen. Esto puede parecer un objetivo pequeño, pero para los blobs de Azure, el campo `content` contiene la mayor parte del documento de blobs (por ejemplo, un documento de Word o unas diapositivas de PowerPoint). Por lo tanto, este campo es una entrada ideal, ya que todo el contenido de un blob está ahí.
+   El portal ofrece aptitudes integradas para el análisis de texto y el procesamiento de OCR. En el portal, un conjunto de aptitudes opera en un solo campo de origen. Esto puede parecer un objetivo pequeño, pero para los blobs de Azure, el campo `content` contiene la mayor parte del documento de blobs (por ejemplo, un documento de Word o unas diapositivas de PowerPoint). Por lo tanto, este campo es una entrada ideal, ya que todo el contenido de un blob está ahí.
 
 3. Continúe en la siguiente página.
 
-  ![Índice de personalización de la página siguiente](media/cognitive-search-quickstart-blob/next-button-customize-index.png)
+   ![Índice de personalización de la página siguiente](media/cognitive-search-quickstart-blob/next-button-customize-index.png)
 
 > [!NOTE]
 > Las aptitudes de procesamiento de lenguaje natural operan en el contenido de texto que se encuentra en el conjunto de datos de ejemplo. Puesto que no seleccionamos ninguna opción de OCR, los archivos JPEG y PNG que se encontraron en el conjunto de datos de ejemplo no se procesarán en este artículo de inicio rápido. 

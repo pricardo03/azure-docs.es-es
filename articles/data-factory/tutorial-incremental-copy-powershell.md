@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/22/2018
 ms.author: yexu
-ms.openlocfilehash: 1c074b4e7cee7a05611fd88b601e6e1f9fa559ce
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
+ms.openlocfilehash: 568b00007f2c95a5a63c236863f0c599c6b6f86f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54439211"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57992311"
 ---
 # <a name="incrementally-load-data-from-an-azure-sql-database-to-azure-blob-storage"></a>Carga de datos de forma incremental de Azure SQL Database a Azure Blob Storage
 En este tutorial, creará una instancia de Azure Data Factory con una canalización que carga los datos diferenciales de una tabla en una base de datos SQL de Azure en Azure Blob Storage. 
@@ -58,9 +58,12 @@ Estos son los pasos importantes para crear esta solución:
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 * **Azure SQL Database**. La base de datos se usa como almacén de datos de origen. Si no tiene ninguna, consulte [Creación de una instancia de Azure SQL Database](../sql-database/sql-database-get-started-portal.md) para ver los pasos para su creación.
 * **Azure Storage**. Blob Storage se usa como almacén de datos receptor. Si no tiene una cuenta de almacenamiento, consulte la sección [Crear una cuenta de almacenamiento](../storage/common/storage-quickstart-create-account.md) para ver los pasos para su creación. Cree un contenedor denominado adftutorial. 
-* **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+* **Azure PowerShell**. Siga las instrucciones de [Instalación y configuración de Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ### <a name="create-a-data-source-table-in-your-sql-database"></a>Creación de una tabla de origen de datos en la base de datos SQL
 1. Abra SQL Server Management Studio. En el **Explorador de servidores**, haga clic con el botón derecho en la base de datos y elija **Nueva consulta**.
@@ -160,7 +163,7 @@ END
 3. Para crear el grupo de recursos de Azure, ejecute el comando siguiente: 
 
     ```powershell
-    New-AzureRmResourceGroup $resourceGroupName $location
+    New-AzResourceGroup $resourceGroupName $location
     ``` 
     Si el grupo de recursos ya existe, puede que no desee sobrescribirlo. Asigne otro valor a la variable `$resourceGroupName` y vuelva a ejecutar el comando.
 
@@ -172,10 +175,10 @@ END
     ```powershell
     $dataFactoryName = "ADFIncCopyTutorialFactory";
     ```
-5. Para crear la factoría de datos, ejecute el siguiente cmdlet, **Set-AzureRmDataFactoryV2**: 
+5. Para crear la factoría de datos, ejecute el siguiente cmdlet, **Set-AzDataFactoryV2**: 
     
     ```powershell       
-    Set-AzureRmDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
+    Set-AzDataFactoryV2 -ResourceGroupName $resourceGroupName -Location "East US" -Name $dataFactoryName 
     ```
 
 Tenga en cuenta los siguientes puntos:
@@ -212,10 +215,10 @@ Los servicios vinculados se crean en una factoría de datos para vincular los al
     ```
 2. En PowerShell, cambie a la carpeta ADF.
 
-3. Ejecute el cmdlet **Set-AzureRmDataFactoryV2LinkedService** para crear el servicio vinculado AzureStorageLinkedService. En el ejemplo siguiente, debe pasar los valores de los parámetros *ResourceGroupName* y *DataFactoryName*: 
+3. Ejecute el cmdlet **Set-AzDataFactoryV2LinkedService** para crear el servicio vinculado AzureStorageLinkedService. En el ejemplo siguiente, debe pasar los valores de los parámetros *ResourceGroupName* y *DataFactoryName*: 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureStorageLinkedService" -File ".\AzureStorageLinkedService.json"
     ```
 
     Este es la salida de ejemplo:
@@ -246,10 +249,10 @@ Los servicios vinculados se crean en una factoría de datos para vincular los al
     ```
 2. En PowerShell, cambie a la carpeta ADF.
 
-3. Ejecute el cmdlet **Set-AzureRmDataFactoryV2LinkedService** para crear el servicio vinculado AzureSQLDatabaseLinkedService. 
+3. Ejecute el cmdlet **Set-AzDataFactoryV2LinkedService** para crear el servicio vinculado AzureSQLDatabaseLinkedService. 
 
     ```powershell
-    Set-AzureRmDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
+    Set-AzDataFactoryV2LinkedService -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "AzureSQLDatabaseLinkedService" -File ".\AzureSQLDatabaseLinkedService.json"
     ```
 
     Este es la salida de ejemplo:
@@ -287,10 +290,10 @@ En este paso, debe crear conjuntos de datos que representan los datos de origen 
     ```
     En este tutorial, usará el nombre de tabla data_source_table. Reemplácelo si utiliza una tabla con otro nombre.
 
-2. Ejecute el cmdlet **Set-AzureRmDataFactoryV2Dataset** para crear el conjunto de datos SourceDataset.
+2. Ejecute el cmdlet **Set-AzDataFactoryV2Dataset** para crear el conjunto de datos SourceDataset.
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SourceDataset" -File ".\SourceDataset.json"
     ```
 
     Esta es la salida de ejemplo del cmdlet:
@@ -330,10 +333,10 @@ En este paso, debe crear conjuntos de datos que representan los datos de origen 
     > [!IMPORTANT]
     > Con este fragmento de código se da por supuesto que tiene un contenedor de blob denominado adftutorial en Blob Storage. Cree el contenedor si no existe o asígnele el nombre de uno existente. La carpeta de salida `incrementalcopy` se crea automáticamente si no existe en el contenedor. En este tutorial, el nombre de archivo se genera dinámicamente mediante la expresión `@CONCAT('Incremental-', pipeline().RunId, '.txt')`.
 
-2. Ejecute el cmdlet **Set-AzureRmDataFactoryV2Dataset** para crear el conjunto de datos SinkDataset.
+2. Ejecute el cmdlet **Set-AzDataFactoryV2Dataset** para crear el conjunto de datos SinkDataset.
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "SinkDataset" -File ".\SinkDataset.json"
     ```
 
     Esta es la salida de ejemplo del cmdlet:
@@ -366,10 +369,10 @@ En este paso, creará un conjunto de datos para almacenar un valor de límite m�
         }
     }    
     ```
-2.  Ejecute el cmdlet **Set-AzureRmDataFactoryV2Dataset** para crear el conjunto de datos WatermarkDataset.
+2.  Ejecute el cmdlet **Set-AzDataFactoryV2Dataset** para crear el conjunto de datos WatermarkDataset.
     
     ```powershell
-    Set-AzureRmDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
+    Set-AzDataFactoryV2Dataset -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "WatermarkDataset" -File ".\WatermarkDataset.json"
     ```
 
     Esta es la salida de ejemplo del cmdlet:
@@ -498,10 +501,10 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     ```
     
 
-2. Ejecute el cmdlet **Set-AzureRmDataFactoryV2Pipeline** para crear la canalización IncrementalCopyPipeline.
+2. Ejecute el cmdlet **Set-AzDataFactoryV2Pipeline** para crear la canalización IncrementalCopyPipeline.
     
    ```powershell
-   Set-AzureRmDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
+   Set-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -Name "IncrementalCopyPipeline" -File ".\IncrementalCopyPipeline.json"
    ``` 
 
    Este es la salida de ejemplo: 
@@ -516,15 +519,15 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
  
 ## <a name="run-the-pipeline"></a>Ejecución de la canalización
 
-1. Ejecute la canalización IncrementalCopyPipeline mediante el cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. Reemplace los marcadores de posición por su propio grupo de recursos y el nombre de la factoría de datos.
+1. Ejecute la canalización IncrementalCopyPipeline mediante el cmdlet **Invoke-AzDataFactoryV2Pipeline**. Reemplace los marcadores de posición por su propio grupo de recursos y el nombre de la factoría de datos.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
+    $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ``` 
-2. Compruebe el estado de la canalización ejecutando el cmdlet **Get-AzureRmDataFactoryV2ActivityRun** hasta que vea que todas las actividades se ejecutan correctamente. Reemplace los marcadores de posición con la hora que le resulte adecuada para los parámetros *RunStartedAfter* y *RunStartedBefore*. En este tutorial, se usará  *-RunStartedAfter "2017/09/14"* y *-RunStartedBefore "2017/09/15"*.
+2. Compruebe el estado de la canalización ejecutando el cmdlet **Get-AzDataFactoryV2ActivityRun** hasta que vea que todas las actividades se ejecutan correctamente. Reemplace los marcadores de posición con la hora que le resulte adecuada para los parámetros *RunStartedAfter* y *RunStartedBefore*. En este tutorial, se usará  *-RunStartedAfter "2017/09/14"* y *-RunStartedBefore "2017/09/15"*.
 
     ```powershell
-    Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
+    Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
     ```
 
     Este es la salida de ejemplo:
@@ -609,7 +612,7 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
  
     TableName | WatermarkValue
     --------- | --------------
-    data_source_table   2017-09-05  8:06:00.000
+    data_source_table | 2017-09-05  8:06:00.000
 
 ### <a name="insert-data-into-the-data-source-store-to-verify-delta-data-loading"></a>Inserción de datos en el almacén de origen de datos para comprobar la carga de datos diferencial
 
@@ -636,15 +639,15 @@ En este tutorial, creará una canalización con dos actividades de búsqueda, un
     6 | newdata | 2017-09-06 02:23:00.000
     7 | newdata | 2017-09-07 09:01:00.000
     ```
-2. Ejecute de nuevo la canalización IncrementalCopyPipeline mediante el cmdlet **Invoke-AzureRmDataFactoryV2Pipeline**. Reemplace los marcadores de posición por su propio grupo de recursos y el nombre de la factoría de datos.
+2. Ejecute de nuevo la canalización IncrementalCopyPipeline mediante el cmdlet **Invoke-AzDataFactoryV2Pipeline**. Reemplace los marcadores de posición por su propio grupo de recursos y el nombre de la factoría de datos.
 
     ```powershell
-    $RunId = Invoke-AzureRmDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
+    $RunId = Invoke-AzDataFactoryV2Pipeline -PipelineName "IncrementalCopyPipeline" -ResourceGroupName $resourceGroupName -dataFactoryName $dataFactoryName
     ```
-3. Compruebe el estado de la canalización ejecutando el cmdlet **Get-AzureRmDataFactoryV2ActivityRun** hasta que vea que todas las actividades se ejecutan correctamente. Reemplace los marcadores de posición con la hora que le resulte adecuada para los parámetros *RunStartedAfter* y *RunStartedBefore*. En este tutorial, se usará  *-RunStartedAfter "2017/09/14"* y *-RunStartedBefore "2017/09/15"*.
+3. Compruebe el estado de la canalización ejecutando el cmdlet **Get-AzDataFactoryV2ActivityRun** hasta que vea que todas las actividades se ejecutan correctamente. Reemplace los marcadores de posición con la hora que le resulte adecuada para los parámetros *RunStartedAfter* y *RunStartedBefore*. En este tutorial, se usará  *-RunStartedAfter "2017/09/14"* y *-RunStartedBefore "2017/09/15"*.
 
     ```powershell
-    Get-AzureRmDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
+    Get-AzDataFactoryV2ActivityRun -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName -PipelineRunId $RunId -RunStartedAfter "<start time>" -RunStartedBefore "<end time>"
     ```
 
     Este es la salida de ejemplo:

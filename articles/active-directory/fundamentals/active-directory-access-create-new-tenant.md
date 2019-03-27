@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: lizross
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39a5ef9d929899ac5e66c5a0e342040fc3c5074b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: b294163a4486ab1db0590f39ca9235ae46ef1dfe
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56194825"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286999"
 ---
 # <a name="quickstart-create-a-new-tenant-in-azure-active-directory"></a>Inicio rápido: Creación de un inquilino en Azure Active Directory
 Puede hacer todas las tareas administrativas mediante el portal de Azure Active Directory (Azure AD), incluida la creación de un inquilino para su organización. 
@@ -29,7 +29,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal
 Inicie sesión en [Azure Portal](https://portal.azure.com/) en su organización con una cuenta de administrador global.
 
-![Pantalla de Azure Portal](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
+![Pantalla de Azure Portal, con la opción de Azure AD](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 
 ## <a name="create-a-new-tenant-for-your-organization"></a>Creación de un inquilino para la organización
 Después de iniciar sesión en Azure Portal, puede crear un inquilino para su organización. El nuevo inquilino representa a su organización y le ayuda a administrar una instancia específica de Servicios en la nube de Microsoft para los usuarios internos y externos.
@@ -60,7 +60,7 @@ Si no va a seguir usando esta aplicación, puede eliminar el inquilino mediante 
 
     El inquilino y su información asociada se eliminarán.
 
-    ![Página Crear directorio](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
+    ![Página Crear directorio, con información de ejemplo](media/active-directory-access-create-new-tenant/azure-ad-delete-new-tenant.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Para cambiar o agregar nombres de dominio adicionales, vea [Incorporación de su nombre de dominio personalizado a Azure Active Directory](add-custom-domain.md).

@@ -3,7 +3,6 @@ title: Automatización de trabajos de Azure SQL | Microsoft Docs
 description: Uso de automatización de trabajos para ejecutar scripts de Transact-SQL (T-SQL) en un conjunto de una o varias instancias de Azure SQL Database
 services: sql-database
 ms.service: sql-database
-ms.subservice: database-features
 ms.custom: ''
 ms.devlang: ''
 ms.topic: overview
@@ -12,18 +11,20 @@ ms.author: jovanpop
 ms.reviewer: carlr
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 1fd524e858b20c75aef4101ad98ac54c4f485d1e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 4e80bbc868376a41212d924bd31df6ac70a52ded
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457214"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901974"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatización de tareas de administración mediante trabajos de base de datos
 
 Azure SQL Database le permite crear y programar trabajos que se pueden ejecutar periódicamente en una o varias bases de datos para realizar consultas T-SQL y llevar a cabo tareas de mantenimiento. Cada trabajo registra el estado de ejecución y también reintenta automáticamente las operaciones si se produce algún error.
 Puede definir la base de datos o los grupos de instancias de Azure SQL Database de destino donde se ejecutará el trabajo y también las programaciones para ejecutar un trabajo.
 Un trabajo gestiona la tarea de iniciar sesión en la base de datos de destino. También definirá, mantendrá y conservará los scripts de Transact-SQL que se van a ejecutar en un grupo de instancias de Azure SQL Database.
+
+## <a name="when-to-use-automated-jobs"></a>Cuándo usar trabajos automatizados
 
 Son varios los escenarios en los que podría usar la automatización de trabajos:
 
@@ -36,8 +37,10 @@ Son varios los escenarios en los que podría usar la automatización de trabajos
   - Agregue datos de una colección de instancias de Azure SQL Database en una tabla de destino única.
   - Ejecute consultas de procesamiento de datos de ejecución más larga en un conjunto grande de bases de datos; por ejemplo, la recopilación de telemetría de cliente. Los resultados se recopilan en una sola tabla de destino para su posterior análisis.
 - Movimientos de datos
- - Cree trabajos que repliquen los cambios realizados en las bases de datos a otras bases de datos o que recopilen las actualizaciones realizadas en las bases de datos remotas y apliquen los cambios en la base de datos.
- - Cree trabajos que carguen los datos desde o hacia sus bases de datos mediante SQL Server Integration Services (SSIS).
+  - Cree trabajos que repliquen los cambios realizados en las bases de datos a otras bases de datos o que recopilen las actualizaciones realizadas en las bases de datos remotas y apliquen los cambios en la base de datos.
+  - Cree trabajos que carguen los datos desde o hacia sus bases de datos mediante SQL Server Integration Services (SSIS).
+
+## <a name="overview"></a>Información general
 
 Las siguientes tecnologías de programación de trabajos están disponibles en Azure SQL Database:
 
@@ -158,9 +161,9 @@ Algunas de las características del Agente SQL que están disponibles en SQL Ser
 - La configuración del Agente SQL es de solo lectura. El procedimiento `sp_set_agent_properties` no se admite en Instancia administrada.
 - La habilitación o deshabilitación del agente no se admite actualmente en Instancia administrada. El Agente SQL siempre está en ejecución.
 - Las notificaciones se admiten parcialmente.
- - No se admite el paginador.
- - No se admite NetSend.
- - Aún no se admiten las alertas.
+  - No se admite el paginador.
+  - No se admite NetSend.
+  - Aún no se admiten las alertas.
 - No se admiten servidores proxy.
 - No se admite Eventlog.
 

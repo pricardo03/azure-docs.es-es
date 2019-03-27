@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 260dfc829d0869b1fc4f58ae399351c5f68dd926
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
+ms.openlocfilehash: 85fc8a42f5220aa8f05495aa260d05ce009884f0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56270341"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58137834"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Inicio rápido: Uso de herramientas integradas el portal para la importación, indexación y consultas de Azure Search
 
@@ -34,13 +34,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-[Cree un servicio Azure Search](search-create-service-portal.md) o busque un servicio existente en su suscripción actual.
-
-1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-2. Abra el panel del servicio Azure Search. Si no ancló el icono del servicio en el panel, pude encontrar su servicio de esta manera:
-
-   * En la barra de accesos, haga clic en **Todos los servicios** en el panel de navegación izquierdo.
-   * En el cuadro de búsqueda, escriba *search* (búsqueda) para obtener una lista de servicios de búsqueda para su suscripción. Haga clic en **Search services** (Servicios de búsqueda). El servicio debe aparecer en la lista.
+[Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido. 
 
 ### <a name="check-for-space"></a>Búsqueda de espacio
 
@@ -100,7 +94,7 @@ De forma predeterminada, el asistente busca en el origen de datos identificadore
 
    Si vuelve a ejecutar el asistente con un origen de datos de realestate existente, el índice no se configurará con los atributos predeterminados. En las siguientes importaciones tendrá que seleccionar los atributos manualmente.
 
-   ![Índice de realestate generado](media/search-get-started-portal/realestateindex2.png)
+   ![Índice realestate generado](media/search-get-started-portal/realestateindex2.png)
 
 2. Continúe en la siguiente página.
 

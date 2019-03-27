@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5cfa07b1-a792-4f0a-8c6f-1a13142193d9
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
-ms.openlocfilehash: c56c03637e5a8eb7716673974292482a9fb75212
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: f39952c74006964155fd23920c85506cac13a878
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877799"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57892732"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-knowledge-anywhere-lms"></a>Tutorial: Integración de Azure Active Directory con Knowledge Anywhere LMS
 
@@ -191,7 +191,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

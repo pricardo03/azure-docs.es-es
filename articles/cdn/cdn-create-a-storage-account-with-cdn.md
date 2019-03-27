@@ -15,14 +15,14 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 025f2ecef070170fef216d7533150359cf11c50f
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ea4134c486310592f1f0f344ae26a11276143faf
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092596"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57193371"
 ---
-# <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Guía de inicio rápido: Integración de una cuenta de Azure Storage con Azure CDN
+# <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>Inicio rápido: Integración de una cuenta de una instancia de Azure Storage con Azure CDN
 En esta guía de inicio rápido, habilitará [Azure Content Delivery Network (CDN)](cdn-overview.md) para almacenar en caché el contenido de Azure Storage. Azure CDN ofrece a los desarrolladores una solución global para entregar contenido con alto ancho de banda. Es posible almacenar en caché blobs y contenido estático de instancias de proceso en nodos físicos en los Estados Unidos, Europa, Asia, Australia y Sudamérica.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -31,7 +31,7 @@ En esta guía de inicio rápido, habilitará [Azure Content Delivery Network (CD
 Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azure.
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
-Use el siguiente procedimiento para crear una nueva cuenta de almacenamiento para una suscripción de Azure. Una cuenta de almacenamiento proporciona acceso a los servicios de Azure Storage. La cuenta de almacenamiento representa el máximo nivel del espacio de nombres para el acceso a todos los componentes del servicio Azure Storage: Azure Blob, Queue y Table Storage. Para más información, consulte [Introducción a Microsoft Azure Storage](../storage/common/storage-introduction.md).
+Use el siguiente procedimiento para crear una nueva cuenta de almacenamiento para una suscripción de Azure. Una cuenta de almacenamiento proporciona acceso a los servicios de Azure Storage. La cuenta de almacenamiento representa el máximo nivel del espacio de nombres para el acceso a todos los componentes del servicio Azure Storage: Azure Blob, Queue y Table storage. Para más información, consulte [Introducción a Microsoft Azure Storage](../storage/common/storage-introduction.md).
 
 Para crear una cuenta de almacenamiento, debe ser administrador del servicio o coadministrador de la suscripción asociada.
 
@@ -96,9 +96,10 @@ Puede habilitar Azure CDN para la cuenta de almacenamiento directamente desde es
 
     | Configuración  | Valor |
     | -------- | ----- |
-    | **Perfil de CDN** | Seleccione **Crear nuevo** y escriba *my-cdn-profile-123* para el nombre de perfil. Este nombre debe ser único globalmente; si ya está en uso, puede especificar otro diferente.  |
+    | **Perfil de CDN** | Seleccione **Crear nuevo** y escriba su nombre de perfil, por ejemplo, *my-cdn-profile-123*. Este nombre debe ser único globalmente.  |
     | **Plan de tarifa** | Seleccione **Verizon estándar** en la lista desplegable. |
-    | **Nombre del punto de conexión de CDN** | Escriba *my-endpoint-123* para el nombre de host del punto de conexión. Este nombre debe ser único globalmente; si ya está en uso, puede especificar otro diferente. Este nombre se usa para acceder a los recursos almacenados en caché en el dominio _&lt;nombre del punto de conexión&gt;_.azureedge.net. De forma predeterminada, un nuevo punto de conexión de CDN usa el nombre de host de la cuenta de almacenamiento como servidor de origen.|
+    | **Nombre del punto de conexión de CDN** | Escriba el nombre de host de su punto de conexión, por ejemplo, *my-endpoint-123*. Este nombre debe ser único globalmente. Este nombre se usa para acceder a los recursos almacenados en caché en el dominio _&lt;nombre del punto de conexión&gt;_.azureedge.net. |
+    | **Nombre de host de origen** | De forma predeterminada, un nuevo punto de conexión de CDN usa el nombre de host de la cuenta de almacenamiento como servidor de origen. |
 
 3. Seleccione **Crear**. Después de que se crea el punto de conexión, aparece en la lista de puntos de conexión.
 
@@ -145,5 +146,5 @@ En los pasos anteriores, ha creado un perfil y un punto de conexión de CDN en u
 Para obtener información sobre cómo agregar un dominio personalizado y habilitar HTTPS en el punto de conexión de CDN, vea el tutorial siguiente:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Acceso a blobs mediante un dominio personalizado a través de HTTPS](cdn-storage-custom-domain-https.md)
+> [Tutorial: Acceso a blobs de almacenamiento mediante un dominio personalizado de Azure CDN a través de HTTPS](cdn-storage-custom-domain-https.md)
 

@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 07/31/2018
-ms.openlocfilehash: 9d2fe2c18452537f734a8bf176130e1ad68d40e1
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: e1d845d1d90a3a70590778013504fea7c0aec85c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50231039"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58097668"
 ---
 # <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Inicio rápido: Creación y automatización de tareas, procesos y flujos de trabajo con Azure Logic Apps en Visual Studio
 
@@ -83,11 +83,13 @@ Para empezar, cree un [proyecto de grupo de recursos de Azure](../azure-resource
 
 Después de crear el proyecto del grupo de recursos de Azure, cree y compile la aplicación lógica a partir de la plantilla **Blank Logic App**.
 
-1. En el Explorador de soluciones, abra el menú contextual para el archivo **LogicApp.json**. Seleccione **Open with Logic App Designer** (Abrir con Diseñador de aplicación lógica). (Teclado: Ctrl+L)
+1. En el Explorador de soluciones, abra el menú contextual para el archivo **LogicApp.json**. 
+   Seleccione **Open with Logic App Designer** (Abrir con Diseñador de aplicación lógica). (Teclado: Ctrl+L)
 
    ![Abrir archivo logicapp.json en el Diseñador de aplicación lógica](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
-2. En **Suscripción**, seleccione la suscripción de Azure que quiera usar. Para **Grupo de recursos**, seleccione **Crear nuevo...**, que crea un nuevo grupo de recursos de Azure. 
+2. En **Suscripción**, seleccione la suscripción de Azure que quiera usar. 
+   Para **Grupo de recursos**, seleccione **Crear nuevo...**, que crea un nuevo grupo de recursos de Azure. 
 
    ![Selección de una suscripción de Azure, un grupo de recursos y una ubicación de recursos](./media/quickstart-create-logic-apps-with-visual-studio/select-azure-subscription-resource-group-location.png)
 
@@ -101,7 +103,8 @@ Después de crear el proyecto del grupo de recursos de Azure, cree y compile la 
    | **Ubicación** | MyLogicApp-RG2 <br> (Oeste de EE. UU.) | Ubicación diferente si no desea usar la ubicación del grupo de recursos |
    ||||
 
-3. El Diseñador de aplicación lógica se abre y muestra una página con un vídeo de introducción y desencadenadores utilizados frecuentemente. Desplácese más allá del vídeo y los desencadenadores. En **Plantillas**, elija **Blank Logic App**.
+3. El Diseñador de aplicación lógica se abre y muestra una página con un vídeo de introducción y desencadenadores utilizados frecuentemente. 
+   Desplácese más allá del vídeo y los desencadenadores. En **Plantillas**, elija **Blank Logic App**.
 
    ![Selección de "Blank Logic App"](./media/quickstart-create-logic-apps-with-visual-studio/choose-blank-logic-app-template.png)
 
@@ -109,7 +112,7 @@ Después de crear el proyecto del grupo de recursos de Azure, cree y compile la 
 
 A continuación, añada un [desencadenador](../logic-apps/logic-apps-overview.md#logic-app-concepts) que se active cuando aparezca un nuevo elemento en la fuente RSS. Cada aplicación lógica debe comenzar con un desencadenador, que se desencadena cuando se cumplen criterios específicos. Cada vez que el desencadenador se activa, el motor de Logic Apps crea una instancia de aplicación lógica que ejecuta el flujo de trabajo.
 
-1. En el Diseñador de aplicación lógica, escriba "rss" en el cuadro de búsqueda. Seleccione este desencadenador: **When a feed item is published** (Cuando se publica un elemento de fuente)
+1. En el Diseñador de aplicación lógica, escriba "rss" en el cuadro de búsqueda. Seleccione este desencadenador: **Cuando se publica un elemento de fuente**
 
    ![Cree la aplicación lógica mediante la incorporación de un desencadenador y acciones](./media/quickstart-create-logic-apps-with-visual-studio/add-trigger-logic-app.png)
 
@@ -123,7 +126,7 @@ A continuación, añada un [desencadenador](../logic-apps/logic-apps-overview.md
 
    ![Aplicación lógica terminada](./media/quickstart-create-logic-apps-with-visual-studio/finished-logic-app.png)
 
-3. Para guardar la aplicación lógica, guarde la solución de Visual Studio. (Teclado: Ctrl+S)
+3. Para guardar la aplicación lógica, guarde la solución de Visual Studio. (Teclado: Ctrl + S)
 
 Antes de poder probar la aplicación lógica, implemente la aplicación en Azure.
 

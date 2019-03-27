@@ -10,21 +10,23 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: be1249969fc50f5305dc5844f2578f8a24a6a220
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7e6ac19d3116b51a309816170413b694a15ef0c2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817956"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58086231"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Tutorial: Creación de plantillas de Azure Resource Manager con recursos dependientes
 
-Aprenda a crear una plantilla de Azure Resource Manager para implementar varios recursos.  Después de crear la plantilla, puede implementarla mediante Cloud Shell en Azure Portal.
+Aprenda a crear una plantilla de Azure Resource Manager para implementar varios recursos y configurar la orden de implementación. Después de crear la plantilla, puede implementarla mediante Cloud Shell en Azure Portal.
 
 En este tutorial, creará una cuenta de almacenamiento, una máquina virtual, una red virtual y algunos otros recursos dependientes. Algunos de los recursos no se pueden implementar hasta que existe otro recurso. Por ejemplo, no se puede crear la máquina virtual hasta que existe su cuenta de almacenamiento y la interfaz de red. Esta relación se define al marcar un recurso como dependiente de los otros. Administrador de recursos evalúa las dependencias entre recursos y los implementa en su orden dependiente. Cuando no hay recursos dependientes entre sí, Resource Manager los implementa en paralelo. Para más información consulte [Definición del orden de implementación de recursos en plantillas de Azure Resource Manager](./resource-group-define-dependencies.md).
+
+![Diagrama de orden de implementación de recursos dependientes de la plantilla de Resource Manager](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-dependent-resources-diagram.png)
 
 En este tutorial se describen las tareas siguientes:
 
@@ -75,13 +77,13 @@ Al explorar la plantilla de esta sección, intente responder estas preguntas:
 
     La plantilla define cinco recursos:
 
-    * `Microsoft.Storage/storageAccounts`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
-    * `Microsoft.Network/publicIPAddresses`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
-    * `Microsoft.Network/virtualNetworks`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
-    * `Microsoft.Network/networkInterfaces`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
-    * `Microsoft.Compute/virtualMachines`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
+   * `Microsoft.Storage/storageAccounts`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
+   * `Microsoft.Network/publicIPAddresses`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses).
+   * `Microsoft.Network/virtualNetworks`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks).
+   * `Microsoft.Network/networkInterfaces`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
+   * `Microsoft.Compute/virtualMachines`. Consulte la [referencia de plantilla](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
-    Resulta útil obtener cierta información básica de la plantilla antes de personalizarla.
+     Resulta útil obtener cierta información básica de la plantilla antes de personalizarla.
 
 2. Expanda el primer recurso. Es una cuenta de almacenamiento. Compare la definición del recurso con la [referencia de la plantilla](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
 

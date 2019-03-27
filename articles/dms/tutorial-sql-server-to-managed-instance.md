@@ -1,24 +1,24 @@
 ---
 title: 'Tutorial: Uso de DMS para migrar una instancia administrada de Azure SQL Database | Microsoft Docs'
-description: En este artículo, se describe cómo migrar bases de datos de instancias locales de SQL Server a una instancia administrada de Azure SQL Database mediante Azure Database Migration Service.
+description: Aprenda a migrar del entorno local de SQL Server a una instancia administrada de Azure SQL Database mediante Azure Database Migration Service.
 services: dms
-author: pochiraju
-ms.author: rajpo
+author: HJToland3
+ms.author: jtoland
 manager: craigg
-ms.reviewer: douglasl
+ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 02/08/2019
-ms.openlocfilehash: b1c635e5b4374b0369a0cf3d1cbff6d8087085a6
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.date: 03/12/2019
+ms.openlocfilehash: 450d47e4c20da1d9d9760ababf58c75eef2814b3
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55990265"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182377"
 ---
-# <a name="tutorial-migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>Tutorial: Migración de SQL Server a una instancia administrada de Azure SQL Database sin conexión mediante DMS
+# <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-offline-using-dms"></a>Tutorial: Migración de SQL Server a una instancia administrada de Azure SQL Database sin conexión mediante DMS
 
 Puede usar Azure Database Migration Service para migrar las bases de datos de una instancia de SQL Server local a una [instancia administrada de Azure SQL Database](../sql-database/sql-database-managed-instance.md). Para ver otros métodos que requieren realizar acciones manuales, consulte [Migración de una instancia de SQL Server a una instancia administrada de Azure SQL Database](../sql-database/sql-database-managed-instance-migrate.md).
 
@@ -40,8 +40,17 @@ En este artículo se describe una migración sin conexión desde SQL Server hast
 
 Para completar este tutorial, necesita:
 
-- Crear una red virtual para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local utilizando [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Conozca las topologías de red para migrar a una instancia administrada de Azure SQL Database con Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
-- Asegúrese de que las reglas del grupo de seguridad de red de Azure Virtual Network (VNET) no bloquean los puertos de comunicación 443, 53, 9354, 445 y 12000. Para obtener información más detallada sobre el filtrado de tráfico con NSG de Azure VNET, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Crear una instancia de Azure Virtual Network para Azure Database Migration Service mediante el modelo de implementación de Azure Resource Manager, que proporciona conectividad de sitio a sitio a los servidores de origen local mediante [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) o [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). [Conozca las topologías de red para migrar a una instancia administrada de Azure SQL Database con Azure Database Migration Service](https://aka.ms/dmsnetworkformi).
+
+    > [!NOTE]
+    > Durante la configuración de la red virtual, si usa ExpressRoute con emparejamiento de red con Microsoft, agregue los siguientes [puntos de conexión](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de servicio a la subred en la que se aprovisionará el servicio:
+    > - punto de conexión de base de datos de destino (por ejemplo, punto de conexión de SQL, punto de conexión de Cosmos DB, etc.)
+    > - Punto de conexión de Storage
+    > - Punto de conexión de Service Bus
+    >
+    > Esta configuración es necesaria porque la instancia de Azure Database Migration Service carece de conectividad a Internet.
+
+- Asegúrese de que las reglas del grupo de seguridad de red de VNET no bloquean los siguientes puertos de comunicación, 443, 53, 9354, 445, 12000. Para obtener información más detallada sobre el filtrado de tráfico con NSG de Azure VNET, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Configure el [Firewall de Windows para acceder al motor de base de datos de origen](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Abra el Firewall de Windows para permitir que Azure Database Migration Service acceda a la instancia de SQL Server de origen que, de manera predeterminada, es el puerto TCP 1433.
 - Si se ejecutan varias instancias con nombre de SQL Server con puertos dinámicos, puede ser conveniente habilitar el servicio SQL Browser y permitir el acceso al puerto UDP 1434 mediante los firewalls para que Azure Database Migration Service pueda conectarse a una instancia con nombre en el servidor de origen.

@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 1/30/2019
+ms.date: 3/18/2019
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: cf3c691553f2bc7ae8f10345daee92a8380aba25
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: 973d5c5c3822eaddce2bc77d06d01930606994c5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815751"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58182581"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Tutorial: Implementación y configuración de Azure Firewall en una red híbrida con Azure PowerShell
 
@@ -25,7 +25,7 @@ En este tutorial se crearán tres redes virtuales:
 
 - **VNet-Hub**: el firewall está en esta red virtual.
 - **VNet-Spoke**: la red virtual Spoke representa la carga de trabajo ubicada en Azure.
-- **VNet-Onprem**: la red virtual local representa una red local. En una implementación real, puede estar conectado por una conexión Route o VPN. Para simplificar, este tutorial usa una conexión de puerta de enlace de VPN y una red virtual ubicada en Azure para representar una red local.
+- **VNet-Onprem**: la red virtual local representa una red local. En una implementación real, se puede conectar mediante una conexión VPN o ExpressRoute. Para simplificar, este tutorial usa una conexión de puerta de enlace de VPN y una red virtual ubicada en Azure para representar una red local.
 
 ![Firewall en una red híbrida](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
@@ -51,13 +51,16 @@ Hay tres requisitos clave para que este escenario funcione correctamente:
 
 - Una ruta definida por el usuario en la subred de radio que apunte a la dirección IP de Azure Firewall como puerta de enlace predeterminada. La propagación de las rutas BGP debe **deshabilitarse** en esta tabla de rutas.
 - Una ruta definida por el usuario en la subred de la puerta de enlace del centro debe apuntar a la dirección IP del firewall como próximo salto para las redes de radio.
-- No se requiere ninguna ruta definida por el usuario en la subred de Azure Firewall, ya que obtiene las rutas de BGP.
+
+   No se requiere ninguna ruta definida por el usuario en la subred de Azure Firewall, ya que obtiene las rutas de BGP.
 - Asegúrese de establecer **AllowGatewayTransit** al emparejar VNet-Hub con VNet-Spoke y **UseRemoteGateways** al emparejar VNet-Spoke con VNet-Hub.
 
-Consulte la sección Creación de rutas en este tutorial para ver cómo se crean estas rutas.
+Consulte la sección [Creación de rutas](#create-the-routes) en este tutorial para ver cómo se crean estas rutas.
 
 >[!NOTE]
->Azure Firewall debe tener conectividad directa a Internet. Si ha habilitado la tunelización forzada a local a través de Application Gateway o ExpressRoute, deberá configurar UDR 0.0.0.0/0 con el valor **NextHopType** establecido en **Internet** y, a continuación, asignarlo a **AzureFirewallSubnet**.
+>Azure Firewall debe tener conectividad directa a Internet. De forma predeterminada, AzureFirewallSubnet solo debe permitir una UDR 0.0.0.0/0 con **NextHopType** establecido como **Internet**.
+>
+>Si permite la tunelización forzada hacia el entorno local mediante ExpressRoute o Application Gateway, es posible que deba configurar explícitamente una UDR 0.0.0.0/0 con el valor de NextHopType establecido como **Internet** y asociarla a su valor de AzureFirewallSubnet. Si su organización requiere la tunelización forzada para el tráfico de Azure Firewall, póngase en contacto con el soporte técnico para que se pueda incluir su suscripción en la lista de permitidos y garantizar que se mantiene la conectividad a Internet del firewall necesario.
 
 >[!NOTE]
 >El tráfico entre redes virtuales emparejadas directamente se enruta directamente aunque una ruta definida por el usuario apunte a Azure Firewall como puerta de enlace predeterminada. Para enviar tráfico de subred a subred al firewall en este escenario, una UDR debe contener el prefijo de red de la subred de destino de forma explícita en ambas subredes.

@@ -8,17 +8,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals
 ms.topic: quickstart
-ms.date: 08/22/2018
+ms.date: 03/01/2019
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 037638367da4b34868befa9934d3b1fbb1b9420d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 78e83f4a1aea04bbaea12181419de6c5c06034f2
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161564"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287084"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Creación de un grupo básico e incorporación de miembros con Azure Active Directory
 Puede crear un grupo básico con el portal de Azure Active Directory (Azure AD). Para los fines de este artículo, el propietario del recurso (administrador) agrega un grupo básico a un único recurso e incluye miembros específicos (empleados) que necesitan acceder a dicho recurso. Para escenarios más complejos, incluida la creación de reglas y las pertenencias dinámicas, vea la [documentación de administración de usuarios de Azure Active Directory](../users-groups-roles/index.yml).
@@ -31,32 +31,32 @@ Puede crear un grupo básico y agregar los miembros al mismo tiempo.
 
 2. Seleccione **Azure Active Directory**, **Grupos** y, a continuación, seleccione **Nuevo grupo**.
 
-    ![Azure AD con grupos mostrados](media/active-directory-groups-create-azure-portal/group-full-screen.png)
+    ![Página de Azure AD en la que se muestra Grupos](media/active-directory-groups-create-azure-portal/group-full-screen.png)
 
 3. En la página **Grupo**, rellene la información necesaria.
 
     ![Página del grupo nuevo, rellenada con información de ejemplo](media/active-directory-groups-create-azure-portal/new-group-blade.png)
 
-    - **Tipo de grupo (obligatorio).** Seleccione un tipo de grupo definido previamente. Esto incluye:
+   - **Tipo de grupo (obligatorio).** Seleccione un tipo de grupo definido previamente. Esto incluye:
         
-        - **Seguridad**. Se usa para administrar el acceso de miembros y del equipo a los recursos compartidos de un grupo de usuarios. Por ejemplo, puede crear un grupo de seguridad para una directiva de seguridad específica. De esta forma, puede conceder una serie de permisos a todos los miembros a la vez, en lugar de tener que agregar permisos a cada miembro individualmente. Para más información sobre la administración de acceso a los recursos, vea [Administración de acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md).
+       - **Seguridad**. Se usa para administrar el acceso de miembros y del equipo a los recursos compartidos de un grupo de usuarios. Por ejemplo, puede crear un grupo de seguridad para una directiva de seguridad específica. De esta forma, puede conceder una serie de permisos a todos los miembros a la vez, en lugar de tener que agregar permisos a cada miembro individualmente. Para más información sobre la administración de acceso a los recursos, vea [Administración de acceso a los recursos con grupos de Azure Active Directory](active-directory-manage-groups.md).
         
-        - **Office 365**. Ofrece oportunidades de colaboración al conceder acceso a los miembros a un correo compartido, calendarios, archivos, el sitio de SharePoint y mucho más. Esta opción también permite ofrecer a personas de fuera de su organización acceso al grupo. Para más información sobre los Grupos de Office 365, vea [Obtenga más información sobre los grupos de Office 365](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
+       - **Office 365**. Ofrece oportunidades de colaboración al conceder acceso a los miembros a un correo compartido, calendarios, archivos, el sitio de SharePoint y mucho más. Esta opción también permite ofrecer a personas de fuera de su organización acceso al grupo. Para más información sobre los Grupos de Office 365, vea [Obtenga más información sobre los grupos de Office 365](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
-    - **Nombre de grupo (obligatorio).** Agregue un nombre para el grupo, algo que sea fácil de recordar y que tenga sentido.
+   - **Nombre de grupo (obligatorio).** Agregue un nombre para el grupo, algo que sea fácil de recordar y que tenga sentido.
 
-    - **Descripción del grupo.** Agregue una descripción opcional al grupo.
+   - **Descripción del grupo.** Agregue una descripción opcional al grupo.
 
-    - **Tipo de pertenencia (obligatorio).** Seleccione un tipo de pertenencia definido previamente. Esto incluye:
+   - **Tipo de pertenencia (obligatorio).** Seleccione un tipo de pertenencia definido previamente. Esto incluye:
 
-        - **Asignado.** Le permite agregar usuarios específicos para que sean miembros de este grupo y para que tengan permisos exclusivos. Para los fines de este artículo, vamos a usar esta opción.
+     - **Asignado.** Le permite agregar usuarios específicos para que sean miembros de este grupo y para que tengan permisos exclusivos. Para los fines de este artículo, vamos a usar esta opción.
 
-        - **Usuario dinámico.** Le permite usar reglas de grupo dinámico para agregar y quitar miembros automáticamente. Si los atributos de un miembro cambian, el sistema examina las reglas del grupo dinámico del directorio para ver si el miembro cumple los requisitos de la regla (se agrega) o ya no cumple los requisitos de las reglas (se elimina).
+     - **Usuario dinámico.** Permite usar reglas de pertenencia dinámicas para agregar y quitar miembros automáticamente. Si los atributos de un miembro cambian, el sistema examina las reglas del grupo dinámico del directorio para ver si el miembro cumple los requisitos de la regla (se agrega) o ya no cumple los requisitos de las reglas (se elimina).
 
-        - **Dispositivo dinámico.** Le permite usar reglas de grupo dinámico para agregar y quitar dispositivos automáticamente. Si los atributos de un dispositivo cambian, el sistema examina las reglas del grupo dinámico del directorio para ver si el dispositivo cumple los requisitos de la regla (se agrega) o ya no cumple los requisitos de las reglas (se elimina).
+     - **Dispositivo dinámico.** Le permite usar reglas de grupo dinámico para agregar y quitar dispositivos automáticamente. Si los atributos de un dispositivo cambian, el sistema examina las reglas del grupo dinámico del directorio para ver si el dispositivo cumple los requisitos de la regla (se agrega) o ya no cumple los requisitos de las reglas (se elimina).
 
-        >[!Important]
-        >Puede crear un grupo dinámico para dispositivos o usuarios, pero no para ambos. Tampoco se puede crear un grupo de dispositivos basado en los atributos de los propietarios de los dispositivos. Las reglas de pertenencia de dispositivo solo pueden hacer referencia a atribuciones de dispositivos. Para más información sobre cómo crear un grupo dinámico para los usuarios y dispositivos, consulte [Creación de un grupo dinámico y comprobación de su estado](../users-groups-roles/groups-create-rule.md).
+       >[!Important]
+       >Puede crear un grupo dinámico para dispositivos o usuarios, pero no para ambos. Tampoco se puede crear un grupo de dispositivos basado en los atributos de los propietarios de los dispositivos. Las reglas de pertenencia de dispositivo solo pueden hacer referencia a atribuciones de dispositivos. Para más información sobre cómo crear un grupo dinámico para los usuarios y dispositivos, consulte [Creación de un grupo dinámico y comprobación de su estado](../users-groups-roles/groups-create-rule.md).
 
 4. Seleccione **Crear**.
 
@@ -71,6 +71,10 @@ Puede crear un grupo básico y agregar los miembros al mismo tiempo.
     La página **Información general del grupo** se actualiza para mostrar el número de miembros que ahora se agregan al grupo.
 
     ![Página Información general del grupo con el número de miembros resaltado](media/active-directory-groups-create-azure-portal/group-overview-blade-number-highlight.png)
+
+## <a name="turn-on-or-off-welcome-email"></a>Activación o desactivación del correo electrónico de bienvenida
+
+Siempre que se crea un grupo de Office 365, independientemente de que la pertenencia sea estática o dinámica, se envía una notificación de bienvenida a todos los usuarios que se agregan al grupo. Cuando cambian los atributos de un usuario o dispositivo, se procesan todas las reglas de grupo dinámico de la organización para comprobar si hay posibles cambios de pertenencia. Los usuarios que se agregan también reciben la notificación de bienvenida. Este comportamiento se puede desactivar en [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha agregado un grupo y al menos un usuario, puede:

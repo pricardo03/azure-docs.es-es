@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: f93c581b916a7f9c4f454833cb37f603cc177856
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.openlocfilehash: 410317d0a075f7c9e82fbed8d041437819ef06d2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53540476"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57875879"
 ---
 # <a name="azure-database-for-mysql-use-mysql-workbench-to-connect-and-query-data"></a>Azure Database for MySQL: uso de MySQL Workbench para conectarse a los datos y consultarlos
 En esta guía de inicio rápido se muestra cómo conectarse a Azure Database for MySQL mediante la aplicación MySQL Workbench. 
@@ -52,7 +52,7 @@ Para conectarse al servidor Azure MySQL mediante la herramienta MySQL Workbench 
     | Método de conexión | Estándar (TCP/IP) | Estándar (TCP/IP) es suficiente. |
     | Nombre de host. | *nombre del servidor* | Especifique el valor de nombre de servidor que se usó cuando creó el servidor de Azure Database for MySQL. Nuestro servidor de ejemplo es mydemoserver.mysql.database.azure.com. Use el nombre de dominio completo (\*.mysql.database.azure.com) tal como se muestra en el ejemplo. Siga los pasos de la sección anterior para obtener la información de conexión si no recuerda el nombre del servidor.  |
     | Port | 3306 | Utilice siempre el puerto 3306 para conectarse a Azure Database for MySQL. |
-    | Nombre de usuario |  *nombre de inicio de sesión del administrador del servidor* | Escriba el valor de nombre de inicio de sesión del administrador del servidor que se usó al crear el servidor de Azure Database for MySQL. El nombre de usuario de nuestro ejemplo es myadmin@mydemoserver. Siga los pasos de la sección anterior para obtener la información de conexión si no recuerda el nombre de usuario. El formato es *username@servername*.
+    | Nombre de usuario |  *nombre de inicio de sesión del administrador del servidor* | Escriba el valor de nombre de inicio de sesión del administrador del servidor que se usó al crear el servidor de Azure Database for MySQL. El nombre de usuario de nuestro ejemplo es myadmin@mydemoserver. Siga los pasos de la sección anterior para obtener la información de conexión si no recuerda el nombre de usuario. El formato es *nombre de usuario\@nombre de servidor*.
     | Contraseña | la contraseña | Haga clic en el botón **Store in Vault...** (Almacenar en el almacén) para guardar la contraseña. |
 
 3.   Haga clic en **Probar conexión** para probar si todos los parámetros están configurados correctamente. 

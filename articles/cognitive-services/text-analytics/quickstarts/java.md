@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: quickstart
 ms.date: 02/15/2019
 ms.author: aahi
-ms.openlocfilehash: 6462e48e2edb662c9968a9e22e431638a054e98b
-ms.sourcegitcommit: d2329d88f5ecabbe3e6da8a820faba9b26cb8a02
+ms.openlocfilehash: 70f95ca83e225d7fe66875907afb1f829a2c896b
+ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/16/2019
-ms.locfileid: "56326279"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58189094"
 ---
 # <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Inicio rápido: Uso de Java para llamar a Text Analytics de Cognitive Services
 <a name="HOLTop"></a>
@@ -28,7 +28,7 @@ Consulte las [definiciones de API](//go.microsoft.com/fwlink/?LinkID=759346) par
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
-También debe tener la [clave de acceso y punto de conexión](../How-tos/text-analytics-how-to-access-key.md) que se generó automáticamente durante el registro. 
+También debe tener la [clave de acceso y punto de conexión](../How-tos/text-analytics-how-to-access-key.md) que se generó automáticamente durante el registro.
 
 <a name="Detect"></a>
 
@@ -36,11 +36,12 @@ También debe tener la [clave de acceso y punto de conexión](../How-tos/text-an
 
 Language Detection API detecta el idioma de un documento de texto mediante el  [método de detección de idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
 
-1. Cree un nuevo proyecto de Java en su IDE favorito.
-2. Agregue el código que se proporciona a continuación.
-3. Reemplace el valor `accessKey` por una clave de acceso válida para la suscripción.
-4. Reemplace la ubicación de `host` (actualmente `westus`) por la región para la que se ha registrado.
-5. Ejecute el programa.
+1. Cree un proyecto de Java en su IDE favorito (o en una nueva carpeta de su escritorio). Cree una clase denominada `DetectLanguage.java`.
+1. Agregue a la clase el código que se proporciona a continuación.
+1. Reemplace el valor `accessKey` por la clave de su suscripción de Text Analytics en [Azure](https://ms.portal.azure.com).
+1. Reemplace la ubicación de `host` (actualmente `westus`) por la región para la que se ha registrado.
+1. Asegúrese de que tiene instalada la biblioteca [Gson](https://github.com/google/gson).
+1. Ejecute el programa en el IDE o use la línea de comandos para ejecutarlo (puede encontrar instrucciones en los comentarios del código).
 
 ```java
 import java.io.*;
@@ -59,6 +60,7 @@ import javax.net.ssl.HttpsURLConnection;
  * same folder as this file (DetectLanguage.java), you can compile and run this program at
  * the command line as follows.
  *
+ * Execute the following two commands to build and run (change gson version if needed):
  * javac DetectLanguage.java -classpath .;gson-2.8.1.jar -encoding UTF-8
  * java -cp .;gson-2.8.1.jar DetectLanguage
  */
@@ -107,7 +109,7 @@ public class DetectLanguage {
     static String host = "https://westus.api.cognitive.microsoft.com";
 
     static String path = "/text/analytics/v2.0/languages";
-    
+
     public static String GetLanguage (Documents documents) throws Exception {
         String text = new Gson().toJson(documents);
         byte[] encoded_text = text.getBytes("UTF-8");
@@ -160,7 +162,7 @@ public class DetectLanguage {
 }
 ```
 
-**Respuesta de detección de idioma**
+### <a name="language-detection-response"></a>Respuesta de detección de idioma
 
 Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
 
@@ -208,13 +210,14 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 ## <a name="analyze-sentiment"></a>Análisis de opinión
 
-La API de análisis de sentimiento detecta la opinión de un conjunto de registros de texto mediante el [método de sentimiento](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). En el ejemplo siguiente se puntúan dos documentos, uno en inglés y otro en español.
+Sentiment Analysis API detecta la opinión de un conjunto de registros de texto mediante el [método Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). El análisis de opinión se puede usar para averiguar qué piensan los clientes de su marca o de un tema concreto mediante el análisis de texto sin formato, con el fin de obtener pistas acerca de si sus opiniones son positivas o negativas. En el ejemplo siguiente se proporcionan las puntuaciones de dos documentos, uno en inglés y otro en español.
 
-1. Cree un nuevo proyecto de Java en su IDE favorito.
-2. Agregue el código que se proporciona a continuación.
-3. Reemplace el valor `accessKey` por una clave de acceso válida para la suscripción.
-4. Reemplace la ubicación de `uriBase` (actualmente `westus`) por la región para la que se ha registrado.
-5. Ejecute el programa.
+1. Cree un proyecto de Java en su IDE favorito (o en una nueva carpeta de su escritorio). Cree en él una clase llamada `GetSentiment.java`.
+1. Agregue a la clase el código que se proporciona a continuación.
+1. Reemplace el valor `accessKey` por la clave de su suscripción de Text Analytics en [Azure](https://ms.portal.azure.com).
+1. Reemplace la ubicación de `host` (actualmente `westus`) por la región para la que se ha registrado.
+1. Asegúrese de que tiene instalada la biblioteca [Gson](https://github.com/google/gson).
+1. Ejecute el programa en el IDE o use la línea de comandos para ejecutarlo (puede encontrar instrucciones en los comentarios del código).
 
 ```java
 import java.io.*;
@@ -233,6 +236,7 @@ import javax.net.ssl.HttpsURLConnection;
  * same folder as this file (GetSentiment.java), you can compile and run this program at
  * the command line as follows.
  *
+ * Execute the following two commands to build and run (change gson version if needed):
  * javac GetSentiment.java -classpath .;gson-2.8.1.jar -encoding UTF-8
  * java -cp .;gson-2.8.1.jar GetSentiment
  */
@@ -283,7 +287,7 @@ public class GetSentiment {
 
     static String path = "/text/analytics/v2.0/sentiment";
     
-    public static String GetSentiment (Documents documents) throws Exception {
+    public static String getTheSentiment (Documents documents) throws Exception {
         String text = new Gson().toJson(documents);
         byte[] encoded_text = text.getBytes("UTF-8");
 
@@ -324,7 +328,7 @@ public class GetSentiment {
             documents.add ("1", "en", "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable.");
             documents.add ("2", "es", "Este ha sido un dia terrible, llegué tarde al trabajo debido a un accidente automobilistico.");
 
-            String response = GetSentiment (documents);
+            String response = getTheSentiment (documents);
             System.out.println (prettify (response));
         }
         catch (Exception e) {
@@ -333,9 +337,11 @@ public class GetSentiment {
     }
 }
 ```
-**Respuesta de análisis de sentimiento**
 
-Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
+### <a name="sentiment-analysis-response"></a>Respuesta de análisis de opinión
+
+El resultado se mide como positivo si la puntuación se acerca a 1,0 y como negativo si se acerca a 0,0.
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo:
 
 ```json
 {
@@ -357,13 +363,14 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 ## <a name="extract-key-phrases"></a>Extracción de frases clave
 
-Key Phrase Extraction API extrae frases clave de un documento de texto con el [método de frases clave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). En el ejemplo siguiente se extraen frases clave de documentos tanto en inglés y como en español.
+Key Phrase Extraction API extrae frases clave de un documento de texto con el [método de frases clave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). La extracción de frases clave se usa para identificar rápidamente los puntos principales de un documento o texto. En el ejemplo siguiente se extraen frases clave de documentos tanto en inglés y como en español.
 
-1. Cree un nuevo proyecto de Java en su IDE favorito.
-2. Agregue el código que se proporciona a continuación.
-3. Reemplace el valor `accessKey` por una clave de acceso válida para la suscripción.
-4. Reemplace la ubicación de `uriBase` (actualmente `westus`) por la región para la que se ha registrado.
-5. Ejecute el programa.
+1. Cree un proyecto de Java en su IDE favorito (o en una nueva carpeta de su escritorio). Cree en él una clase llamada `GetKeyPhrases.java`.
+1. Agregue a la clase el código que se proporciona a continuación.
+1. Reemplace el valor `accessKey` por la clave de su suscripción de Text Analytics en [Azure](https://ms.portal.azure.com).
+1. Reemplace la ubicación de `host` (actualmente `westus`) por la región para la que se ha registrado.
+1. Asegúrese de que tiene instalada la biblioteca [Gson](https://github.com/google/gson).
+1. Ejecute el programa en el IDE o use la línea de comandos para ejecutarlo (puede encontrar instrucciones en los comentarios del código).
 
 ```java
 import java.io.*;
@@ -382,6 +389,7 @@ import javax.net.ssl.HttpsURLConnection;
  * same folder as this file (GetKeyPhrases.java), you can compile and run this program at
  * the command line as follows.
  *
+ * Execute the following two commands to build and run (change gson version if needed):
  * javac GetKeyPhrases.java -classpath .;gson-2.8.1.jar -encoding UTF-8
  * java -cp .;gson-2.8.1.jar GetKeyPhrases
  */
@@ -483,9 +491,10 @@ public class GetKeyPhrases {
     }
 }
 ```
-**Respuesta de extracción de frases clave**
 
-Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
+### <a name="key-phrase-extraction-response"></a>Respuesta de extracción de frases clave
+
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo:
 
 ```json
 {
@@ -526,13 +535,14 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 
 ## <a name="identify-entities"></a>Identificación de entidades
 
-Entities API identifica las entidades conocidas en un documento de texto mediante el [método Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). En el ejemplo siguiente se identifican las entidades de documentos en inglés.
+Entities API identifica las entidades conocidas en un documento de texto mediante el [método Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). Las [entidades](https://docs.microsoft.com/en-us/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking) extraen palabras de texto, como "Estados Unidos" y, luego, le proporcionan el tipo o un vínculo a la Wikipedia en relación con estas palabras. El tipo de "Estados Unidos" es `location`, mientras que el vínculo a la Wikipedia es `https://en.wikipedia.org/wiki/United_States`.  En el ejemplo siguiente se identifican las entidades de documentos en inglés.
 
-1. Cree un nuevo proyecto de Java en su IDE favorito.
-2. Agregue el código que se proporciona a continuación.
-3. Reemplace el valor `accessKey` por una clave de acceso válida para la suscripción.
-4. Reemplace la ubicación de `uriBase` (actualmente `westus`) por la región para la que se ha registrado.
-5. Ejecute el programa.
+1. Cree un proyecto de Java en su IDE favorito (o en una nueva carpeta de su escritorio). Cree en él una clase llamada `GetEntities.java`.
+1. Agregue a la clase el código que se proporciona a continuación.
+1. Reemplace el valor `accessKey` por la clave de su suscripción de Text Analytics en [Azure](https://ms.portal.azure.com).
+1. Reemplace la ubicación de `host` (actualmente `westus`) por la región para la que se ha registrado.
+1. Asegúrese de que tiene instalada la biblioteca [Gson](https://github.com/google/gson).
+1. Ejecute el programa en el IDE o use la línea de comandos para ejecutarlo (puede encontrar instrucciones en los comentarios del código).
 
 ```java
 import java.io.*;
@@ -551,6 +561,7 @@ import javax.net.ssl.HttpsURLConnection;
  * same folder as this file (GetEntities.java), you can compile and run this program at
  * the command line as follows.
  *
+ * Execute the following two commands to build and run (change gson version if needed):
  * javac GetEntities.java -classpath .;gson-2.8.1.jar -encoding UTF-8
  * java -cp .;gson-2.8.1.jar GetEntities
  */
@@ -651,9 +662,10 @@ public class GetEntities {
     }
 }
 ```
-**Respuesta de extracción de entidades**
 
-Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo: 
+### <a name="entity-extraction-response"></a>Respuesta de extracción de entidades
+
+Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejemplo:
 
 ```json
 {
@@ -816,7 +828,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 > [!div class="nextstepaction"]
 > [Text Analytics con Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
-## <a name="see-also"></a>Otras referencias 
+## <a name="see-also"></a>Otras referencias
 
  [Información general de Text Analytics](../overview.md)  
  [Preguntas más frecuentes](../text-analytics-resource-faq.md)

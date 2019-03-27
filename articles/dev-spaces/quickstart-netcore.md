@@ -1,21 +1,20 @@
 ---
-title: Creación de un espacio de desarrollo de Kubernetes en la nube | Microsoft Docs
+title: Creación de un espacio de desarrollo de Kubernetes en la nube
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.subservice: azds-kubernetes
 ms.author: zarhoads
 ms.date: 09/26/2018
 ms.topic: quickstart
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: 98c6d092f7c0a2310745496d95cf45d60ea26c7e
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, malla de servicio, enrutamiento de malla de servicio, kubectl, k8s '
+ms.openlocfilehash: f3aafc0db746914bf5cbb60dea9c73948d043b44
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56817633"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57897476"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-vs-code"></a>Inicio rápido: Creación de un espacio de desarrollo de Kubernetes con Azure Dev Spaces (.NET Core y VS Code)
 
@@ -37,7 +36,7 @@ En esta guía, aprenderá a:
 
     ```cmd
     az group create --name MyResourceGroup --location <region>
-    az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.10.9 --generate-ssh-keys
+    az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
     ```
 
 ## <a name="set-up-azure-dev-spaces"></a>Configuración de Azure Dev Spaces
@@ -57,12 +56,12 @@ Siga estos pasos para configurar Azure Dev Spaces:
 1. Compile y ejecute el código en AKS. En la ventana del terminal, ejecute este comando desde la **carpeta webfrontend**: `azds up`
 1. Examine la salida de la consola para obtener información acerca de la dirección URL que creó el comando `up`. Tendrá el formato siguiente: 
 
-   `(pending registration) Service 'webfrontend' port 'http' will be available at <url>\r\nService 'webfrontend' port 80 (TCP) is available at http://localhost:<port>` 
+   `(pending registration) Service 'webfrontend' port 'http' will be available at <url>\r\nService 'webfrontend' port 80 (TCP) is available at 'http://localhost:<port>'` 
 
    Abra esta dirección URL en una ventana del explorador y verá la aplicación web de carga. 
    
    > [!Note]
-   > En la primera ejecución, puede tardar varios minutos hasta que el DNS público esté preparado. Si no se resuelve la dirección URL pública, puede usar la dirección URL alternativa http://localhost:<portnumber> que se muestra en la salida de la consola. Si utiliza la dirección URL del host local, puede parecer que el contenedor se ejecuta localmente, pero en realidad se ejecuta en AKS. Para mayor comodidad y para facilitar la interacción con el servicio desde la máquina local, Azure Dev Spaces crea un túnel SSH temporal al contenedor que se ejecuta en Azure. Puede volver y probar la dirección URL pública más adelante cuando el registro DNS esté listo.
+   > En la primera ejecución, puede tardar varios minutos hasta que el DNS público esté preparado. Si no se resuelve la dirección URL pública, puede usar la dirección URL alternativa `http://localhost:<portnumber>` que se muestra en la salida de la consola. Si utiliza la dirección URL del host local, puede parecer que el contenedor se ejecuta localmente, pero en realidad se ejecuta en AKS. Para mayor comodidad y para facilitar la interacción con el servicio desde la máquina local, Azure Dev Spaces crea un túnel SSH temporal al contenedor que se ejecuta en Azure. Puede volver y probar la dirección URL pública más adelante cuando el registro DNS esté listo.
 
 ### <a name="update-a-content-file"></a>Actualización de un archivo de contenido
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 10fc55886e4c91a2d468704d13d3b206f4a9cf51
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 0eb5a33b91925260c89e0b1c23800614ed637bdb
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55980261"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57990639"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>Tutorial: Creación y administración de un conjunto de escalado de máquinas virtuales con Azure PowerShell
 
@@ -140,7 +140,7 @@ IpAddress
 52.168.121.216
 ```
 
-Cree una conexión remota a la primera instancia de máquina virtual. Especifique la dirección IP pública y el número de puerto de la instancia de máquina virtual necesaria, tal como se muestra en los comandos anteriores. Cuando se le solicite, escriba las credenciales que ha utilizado al crear el conjunto de escalado (de forma predeterminada en los comandos de ejemplo, *azureuser* y  *P@ssw0rd!*). Si se utiliza Azure Cloud Shell, realice este paso desde un símbolo del sistema local de PowerShell o un cliente de Escritorio remoto. En el ejemplo siguiente, se realiza una conexión a una instancia de máquina virtual *1*:
+Cree una conexión remota a la primera instancia de máquina virtual. Especifique la dirección IP pública y el número de puerto de la instancia de máquina virtual necesaria, tal como se muestra en los comandos anteriores. Cuando se le solicite, escriba las credenciales que ha utilizado al crear el conjunto de escalado (de forma predeterminada en los comandos de ejemplo, *azureuser* y *P\@ssw0rd!*). Si se utiliza Azure Cloud Shell, realice este paso desde un símbolo del sistema local de PowerShell o un cliente de Escritorio remoto. En el ejemplo siguiente, se realiza una conexión a una instancia de máquina virtual *1*:
 
 ```powershell
 mstsc /v 52.168.121.216:50001

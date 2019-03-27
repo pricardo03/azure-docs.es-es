@@ -16,17 +16,20 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: 2ff32bf5a8e3c5c31b13e2e8a1594f94647ed689
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.openlocfilehash: d52e710cadbc37b8ad6c1de61f75df3b96704daa
+ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55695396"
+ms.lasthandoff: 03/02/2019
+ms.locfileid: "57243914"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-to-same-or-different-subscription-with-cli"></a>Copia de instantánea de un disco administrado en la misma suscripción o en otra con CLI
 
-Este script copia una instantánea de un disco administrado en la misma suscripción o en otra. Use este script para mover una instantánea a la misma o a otra suscripción en la misma región que la instantánea primaria.
+Este script copia una instantánea de un disco administrado en la misma suscripción o en otra. Use este script en los escenarios siguientes:
 
+1. Migrar una instantánea de Premium Storage (Premium_LRS) a Standard Storage (Standard_LRS o Standard_ZRS) para reducir el costo.
+1. Migrar una instantánea de almacenamiento con redundancia local (Premium_LRS, Standard_LRS) a almacenamiento con redundancia de zona (Standard_ZRS) para beneficiarse de la mayor confiabilidad del almacenamiento ZRS.
+1. Mover una instantánea a otra suscripción de la misma región para alargar la retención.
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
@@ -48,7 +51,7 @@ Este script usa los siguientes comandos para crear una instantánea en la suscri
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Creación de una máquina virtual a partir de una instantánea](./virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json)
+[Creación de una máquina virtual a partir de una instantánea](./virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 Para más información sobre la CLI de Azure, consulte la [documentación de la CLI de Azure](https://docs.microsoft.com/cli/azure).
 

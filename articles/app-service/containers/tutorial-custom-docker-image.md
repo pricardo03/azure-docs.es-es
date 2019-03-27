@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: seodec18
-ms.openlocfilehash: 6b57c3a172f39c596250b05024ad954a5d065440
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: ee91c9f152d72fbcc58cb4707af9420a57a1517b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984824"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224210"
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Uso de una imagen personalizada de Docker para Web App for Containers
 
@@ -193,7 +193,7 @@ v1.0.0: digest: sha256:21f2798b20555f4143f2ca0591a43b4f6c8138406041f2d32ec908974
 
 ## <a name="deploy-app-to-azure"></a>Implementación de aplicación en Azure
 
-Para crear una aplicación que use la imagen que acaba de insertar, hay que ejecutar los comandos de la CLI de Azure que crean un grupo, luego un plan de servicios y, finalmente, la aplicación web misma. 
+Para crear una aplicación que use la imagen que acaba de insertar, ejecutará comandos de la CLI de Azure que crean un grupo, luego un plan de servicios y, finalmente, la aplicación web propiamente dicha. 
 
 ### <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
@@ -526,6 +526,9 @@ az webapp config container set --name <app_name> --resource-group myResourceGrou
 > [!NOTE]
 > `https://` se requiere en *\<docker-registry-server-url>*.
 >
+> [!NOTE]
+> Cuando se usa un registro que no sea dockerhub, `docker-custom-image-name` debe incluir el nombre de dominio completo (FQDN) del registro.  
+> En Azure Container Registry, será similar a `<azure-container-registry>.azurecr.io/mydockerimage`.
 
 El comando revela una salida similar a la cadena JSON siguiente, lo que muestra que el cambio de configuración se realizó correctamente:
 

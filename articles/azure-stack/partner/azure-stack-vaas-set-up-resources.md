@@ -10,44 +10,42 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 03/04/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 11/26/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: c866bb1ff5603f08377ed96ddd81eedf71e243bf
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 55c9120547472bb9a9a74533fe532d346844e89c
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593241"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58081770"
 ---
 # <a name="tutorial-set-up-resources-for-validation-as-a-service"></a>Tutorial: Configuración de recursos para la validación como servicio
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Deberá crear una solución. Una solución de validación como servicio (VaaS) representa una solución de Azure Stack con una lista de materiales de hardware en particular. Usará la solución para comprobar si el hardware puede admitir la ejecución de Azure Stack. Siga este tutorial y prepárese para el uso del servicio con la solución.
+Validation as a Service (VaaS) es un servicio de Azure que sirve para validar y admitir soluciones de Azure Stack en el mercado. Siga este artículo antes de usar el servicio para validar la solución.
 
 En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Prepararse para usar VaaS mediante la configuración de la instancia de Azure AD.
+> * Prepárese usar VaaS; para ello, configure Azure Active Directory (AD).
 > * Cree una cuenta de almacenamiento.
 
 ## <a name="configure-an-azure-ad-tenant"></a>Configurar un inquilino de Azure AD
 
-Se necesita un inquilino de Azure AD para autenticarse y registrarse con VaaS. El asociado usará las características de control de acceso basado en rol (RBAC) para administrar qué usuarios de la organización del asociado pueden usar VaaS.
-
-Registre el directorio de inquilino de la organización de Azure AD (en lugar del directorio de inquilino de Azure AD usado para Azure Stack) y establezca una directiva para administrar las cuentas de usuario que contiene. Para más información, consulte [Administración del directorio de Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-administer).
+Se usa un inquilino de Azure AD para registrar una organización y autenticar los usuarios mediante VaaS. El asociado usará las características de control de acceso basado en rol (RBAC) del inquilino para administrar qué usuarios de la organización del asociado pueden usar VaaS. Para más información, consulte [¿Qué es Azure Active Directory?](https://docs.microsoft.com/en-us/azure/active-directory/fundamentals/active-directory-whatis)
 
 ### <a name="create-a-tenant"></a>Creación de un inquilino
 
-Cree un inquilino para usarlo específicamente con VaaS con un nombre descriptivo, como por ejemplo, `ContosoVaaS@onmicrosoft.com`.
+Cree un inquilino para que la organización lo use para acceder a los servicios de VaaS. Use un nombre descriptivo, como `ContosoVaaS@onmicrosoft.com`.
 
 1. Cree un inquilino de Azure AD en [Azure Portal](https://portal.azure.com) o use un inquilino existente. <!-- For instructions on creating new Azure AD tenants, see [Get started with Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). -->
 
 2. Agregue miembros de la organización al inquilino. Estos usuarios serán responsables de usar el servicio para ver o programar las pruebas. Una vez que termine el registro, definirá los niveles de acceso de los usuarios.
- 
+
     Autorice a los usuarios de su inquilino para ejecutar acciones en VaaS mediante la asignación de uno de los roles siguientes:
 
     | Nombre de rol | DESCRIPCIÓN |
@@ -58,13 +56,13 @@ Cree un inquilino para usarlo específicamente con VaaS con un nombre descriptiv
 
     Para asignar roles en la aplicación **Azure Stack Validation Service**:
 
-    1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
-    2. Seleccione **Todos los servicios** > **Azure Active Directory** en la sección **Identidad**.
-    3. Seleccione la aplicación **Aplicaciones empresariales** > **Azure Stack Validation Service**.
-    4. Seleccione **Usuarios y grupos**. En la hoja **Azure Stack Validation Service: Usuarios y grupos** se enumeran los usuarios con permiso para usar la aplicación.
-    5. Seleccione **+ Agregar usuario** para agregar un usuario del inquilino y asignar un rol.
-   
-    Si quiere aislar recursos y acciones de VaaS entre diferentes grupos dentro de una organización, puede crear varios directorios de inquilino de Azure AD.
+   1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
+   2. Seleccione **Todos los servicios** > **Azure Active Directory** en la sección **Identidad**.
+   3. Seleccione la aplicación **Aplicaciones empresariales** > **Azure Stack Validation Service**.
+   4. Seleccione **Usuarios y grupos**. En la hoja **Azure Stack Validation Service: Usuarios y grupos** se enumeran los usuarios con permiso para usar la aplicación.
+   5. Seleccione **+ Agregar usuario** para agregar un usuario del inquilino y asignar un rol.
+
+      Si quiere aislar recursos y acciones de VaaS entre diferentes grupos dentro de una organización, puede crear varios directorios de inquilino de Azure AD.
 
 ### <a name="register-your-tenant"></a>Registro del inquilino
 
@@ -102,10 +100,7 @@ La cuenta de almacenamiento de Azure se hospeda en la nube pública de Azure, no
 
 3. En **Grupo de recursos**, seleccione **Crear nuevo**. Escriba un nombre para el nuevo grupo de recursos.
 
-4. Escriba un nombre para la cuenta de almacenamiento. El nombre que elija debe cumplir estos requisitos:
-    - Ser único en Azure
-    - Tener entre 3 y 24 caracteres
-    - Contener solo números y letras minúsculas
+4. Revise las [convenciones de nomenclatura](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions#storage) para las cuentas Azure Storage. Escriba un nombre para la cuenta de almacenamiento.
 
 5. Seleccione la región **Oeste de EE. UU.** para la cuenta de almacenamiento.
 
@@ -119,7 +114,7 @@ La cuenta de almacenamiento de Azure se hospeda en la nube pública de Azure, no
     - De manera predeterminada, el campo **Replicación** se establece en **Almacenamiento con redundancia local (LRS)**.
     - El **nivel de acceso** se establece en **Frecuente** de forma predeterminada.
 
-7. Haga clic en **Revisar y crear** para revisar la configuración de la cuenta de almacenamiento y crear la cuenta.
+7. Seleccione **Revisar y crear** para revisar la configuración de la cuenta de almacenamiento y crear la cuenta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

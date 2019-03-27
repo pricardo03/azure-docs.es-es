@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 8bb1733090ac2a4f3fad837e55943706309c4a5a
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 9cb43cfdf930b14449f5c7130df275ef0b8d6484
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56344019"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57842624"
 ---
 # <a name="advanced-resource-graph-queries"></a>Consultas avanzadas de Resource Graph
 
@@ -74,7 +74,7 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 ## <a name="vm-regex"></a>Máquinas virtuales que coinciden con regex
 
 Esta consulta busca las máquinas virtuales que coincidan con una [expresión regular](/dotnet/standard/base-types/regular-expression-language-quick-reference) (conocida como _regex_).
-**matches regex @** nos permite definir regex para coincidir, que es `^Contoso(.*)[0-9]+$`. Esa definición de regex se explica como:
+**matches regex \@** nos permite definir regex para coincidir, que es `^Contoso(.*)[0-9]+$`. Esa definición de regex se explica como:
 
 - `^` - La coincidencia debe empezar al principio de la cadena.
 - `Contoso`: la cadena distingue mayúsculas de minúsculas.

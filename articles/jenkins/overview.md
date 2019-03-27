@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: overview
 ms.date: 07/25/2018
-ms.openlocfilehash: 69e9a49bf83be5b58faf3e71ab0ffbfb6c6f11a1
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 86d32726280cce12888f125c65254a7b02166704
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54329726"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57194757"
 ---
 # <a name="azure-and-jenkins"></a>Azure y Jenkins
 
@@ -29,7 +29,7 @@ Hospede Jenkins en Azure para centralizar la automatización de compilaciones y 
 - [Máquinas virtuales de Azure](/azure/virtual-machines/linux/overview). Consulte nuestro [tutorial](/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd) para crear una instancia de Jenkins en una máquina virtual.
 - Para crearla en un clúster de Kubernetes en [Azure Container Service](/azure/container-service/kubernetes/container-service-kubernetes-walkthrough), consulte nuestra [guía de procedimientos](/azure/container-service/kubernetes/container-service-kubernetes-jenkins).
 
-Supervise y administre la implementación de Azure Jenkins mediante [Log Analytics](/azure/log-analytics/log-analytics-overview) y la [CLI de Azure](/cli/azure).
+Supervise y administre la implementación de Azure Jenkins mediante los [registros de Azure Monitor](/azure/log-analytics/log-analytics-overview) y la [CLI de Azure](/cli/azure).
 
 ## <a name="scale-your-build-automation-on-demand"></a>Escalado a petición de la automatización de compilaciones
 

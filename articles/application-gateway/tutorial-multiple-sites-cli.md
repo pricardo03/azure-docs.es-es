@@ -10,16 +10,16 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8fede6907b2b5fac475758b1bb8b1493b86ed408
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: a1f1b464b2ac6fc62ea23a80a3887961ebe2d87e
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55756553"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58100730"
 ---
 # <a name="tutorial-create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Tutorial: Creación de una puerta de enlace de aplicaciones que hospede varios sitios web mediante la CLI de Azure
 
-Puede usar la CLI de Azure para [configurar el hospedaje de varios sitios web](multiple-site-overview.md) cuando se crea una [puerta de enlace de aplicaciones](overview.md). En este tutorial, definirá grupos de direcciones de back-end mediante conjuntos de escalado de máquinas virtuales. Después, configurará agentes de escucha y reglas basados en los dominios que posee para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos. En este tutorial se da por supuesto que posee varios dominios y se van a utilizar los ejemplos de *www.contoso.com* y *www.fabrikam.com*.
+Puede usar la CLI de Azure para [configurar el hospedaje de varios sitios web](multiple-site-overview.md) cuando se crea una [puerta de enlace de aplicaciones](overview.md). En este tutorial, definirá grupos de direcciones de back-end mediante conjuntos de escalado de máquinas virtuales. Después, configurará agentes de escucha y reglas basados en los dominios que posee para asegurarse de que el tráfico web llega a los servidores adecuados en los grupos. En este tutorial se da por supuesto que posee varios dominios y se van a utilizar los ejemplos de *www\.contoso.com* y *www\.fabrikam.com*.
 
 En este tutorial, aprenderá a:
 

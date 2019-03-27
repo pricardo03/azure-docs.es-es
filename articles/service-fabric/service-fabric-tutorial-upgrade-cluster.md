@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: e34856704b474ac1b7d25d589be5f98be2b113cc
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 02f973af71f0ee7e1fd1bcf712a08e001ec41667
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56671563"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224964"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Actualización del runtime de un clúster de Service Fabric en Azure
 
-Este tutorial es la tercera parte de una serie, y muestra cómo actualizar el entorno en tiempo de ejecución de Service Fabric en un clúster de Azure Service Fabric. Esta parte del tutorial se escribe para los clústeres de Service Fabric que se ejecutan en Azure y no se aplica a los clústeres de Service Fabric independientes.
+Este tutorial es la cuarta parte de una serie, y muestra cómo actualizar el runtime de Service Fabric en un clúster de Azure Service Fabric. Esta parte del tutorial se escribe para los clústeres de Service Fabric que se ejecutan en Azure y no se aplica a los clústeres de Service Fabric independientes.
 
 > [!WARNING]
 > Esta parte del tutorial requiere PowerShell. La actualización del runtime del clúster no se admite todavía con las herramientas de la CLI de Azure. Como alternativa, un clúster se puede actualizar en el portal. Para obtener más información, consulte [Actualización de un clúster de Azure Service Fabric](service-fabric-cluster-upgrade.md).
@@ -40,6 +40,7 @@ En este tutorial, aprenderá a:
 En esta serie de tutoriales, se aprende a:
 > [!div class="checklist"]
 > * Creación de un [clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) en Azure mediante una plantilla
+> * [Supervisión de un clúster](service-fabric-tutorial-monitor-cluster.md)
 > * [Escalado o reducción horizontal](service-fabric-tutorial-scale-cluster.md)
 > * Actualización del entorno en tiempo de ejecución de un clúster
 > * [Eliminación de un clúster](service-fabric-tutorial-delete-cluster.md)

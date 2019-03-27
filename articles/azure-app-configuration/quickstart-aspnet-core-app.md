@@ -14,22 +14,24 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: ce19041b29d567f061dde59fbe041adf61f889a0
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: f9d21cb1b047fcc1043ca2d92f718bb5821879a3
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961489"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226069"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Inicio rápido: Creación de una aplicación ASP.NET Core con Azure App Configuration
 
-Azure App Configuration es un servicio de configuración administrado de Azure. Permite almacenar y administrar fácilmente toda la configuración de una aplicación en un solo lugar que está separado del código. En este manual de inicio rápido se muestra cómo incorporar el servicio en una aplicación web de ASP.NET Core. ASP.NET Core genera un objeto de configuración basado en un par clave-valor, para lo que usa la configuración de uno o varios orígenes de datos, que se conocen como *proveedores de configuración*, especificada por una aplicación. Dado que es cliente .NET Core de App Configuration se implementa como un proveedor, el servicio aparece igual que cualquier otro origen de datos.
+Azure App Configuration es un servicio de configuración administrado de Azure. Puede usarlo para almacenar y administrar fácilmente toda la configuración de una aplicación en un solo lugar que esté separado del código. En este manual de inicio rápido se muestra cómo incorporar el servicio en una aplicación web de ASP.NET Core. 
 
-Puede usar cualquier editor de código para realizar los pasos de esta guía de inicio rápido. Sin embargo, [Visual Studio Code](https://code.visualstudio.com/) es una excelente opción disponible en las plataformas Windows, macOS y Linux.
+ASP.NET Core genera un objeto de configuración basado en un par clave-valor, para lo que usa la configuración de uno o varios orígenes de datos, que una aplicación especifica. Estos orígenes de datos se conocen como *proveedores de configuración*. Dado que el cliente .NET Core de App Configuration se implementa como un proveedor, el servicio aparece igual que cualquier otro origen de datos.
+
+Para realizar los pasos de este inicio rápido, puede usar cualquier editor de código. [Visual Studio Code](https://code.visualstudio.com/) es una excelente opción disponible en las plataformas Windows, macOS y Linux.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar esta inicio rápido, instale el [SDK de .NET Core](https://dotnet.microsoft.com/download).
+Para realizar este inicio rápido, instale el [SDK de .NET Core](https://dotnet.microsoft.com/download).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -49,9 +51,9 @@ Va a utilizar la [interfaz de la línea de comandos (CLI) de .NET Core](https://
 
 ## <a name="add-secret-manager"></a>Incorporación de Secret Manager
 
-Va a agregar la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets) al proyecto. La herramienta Secret Manager almacena información confidencial para el trabajo de desarrollo fuera de su árbol de proyecto. Este enfoque ayuda a evitar el uso compartido accidental de secretos de la aplicación en el código fuente.
+Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets) al proyecto. La herramienta Secret Manager almacena información confidencial para el trabajo de desarrollo fuera de su árbol de proyecto. Este enfoque ayuda a evitar el uso compartido accidental de secretos de la aplicación en el código fuente.
 
-- Abra el archivo *.csproj*. Agregue un elemento `UserSecretsId` como se muestra a continuación y reemplace el valor de este por el suyo propio, que suele ser un GUID. Guarde el archivo.
+- Abra el archivo *.csproj*. Agregue un elemento `UserSecretsId` como se muestra a continuación y reemplace su valor por el suyo propio, que suele ser un GUID. Guarde el archivo.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -69,29 +71,29 @@ Va a agregar la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/c
     </Project>
     ```
 
-## <a name="connect-to-app-configuration-store"></a>Conexión a un almacén de configuración de aplicaciones
+## <a name="connect-to-an-app-configuration-store"></a>Conexión a un almacén de configuración de aplicaciones
 
-1. Para agregar una referencia al paquete de NuGet `Microsoft.Extensions.Configuration.AzureAppConfiguration`, ejecute el comando siguiente:
+1. Para agregar una referencia al paquete NuGet `Microsoft.Extensions.Configuration.AzureAppConfiguration`, ejecute el comando siguiente:
 
         dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
 
-2. Ejecute el siguiente comando para restaurar los paquetes para el proyecto.
+2. Ejecute el siguiente comando para restaurar los paquetes para el proyecto:
 
         dotnet restore
 
 3. Agregue un secreto llamado *ConnectionStrings:AppConfig* a Secret Manager.
 
-    Este secreto contendrá la cadena de conexión necesaria para acceder a su almacén de configuración de aplicaciones. Sustituya el valor en el comando siguiente por la cadena de conexión de su almacén de configuración de aplicaciones.
+    Este secreto contiene la cadena de conexión necesaria para acceder a su almacén de configuración de aplicaciones. Sustituya el valor en el comando siguiente por la cadena de conexión de su almacén de configuración de aplicaciones.
 
     Este comando debe ejecutarse en el mismo directorio que el archivo *.csproj*.
 
         dotnet user-secrets set ConnectionStrings:AppConfig "Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>"
 
-    Secret Manager solo se usará para probar la aplicación web en el entorno local. Cuando la aplicación se implemente (por ejemplo, en [Azure App Service](https://azure.microsoft.com/services/app-service/web)), usará un valor de la aplicación (por ejemplo, **Cadenas de conexión** en App Service), en lugar de almacenar la cadena de conexión con Secret Manager.
+    Secret Manager solo se utiliza para probar la aplicación web localmente. Cuando la aplicación se implementa, por ejemplo, en [Azure App Service](https://azure.microsoft.com/services/app-service/web), se usa un valor de la aplicación, por ejemplo, **Cadenas de conexión** en App Service. Use esta opción en lugar de almacenar la cadena de conexión con Secret Manager.
 
-    Se accede a este secreto con la API de configuración. Un signo de dos puntos (:) funciona en el nombre de configuración con la API de configuración en todas las plataformas compatibles. Para más información, consulte [Configuración por entornos](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0#configuration-by-environment).
+    Se accede a este secreto con la API de configuración. Un signo de dos puntos (:) funciona en el nombre de configuración con la API de configuración en todas las plataformas compatibles. Consulte [Configuración en ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-4. Abra *Program.cs* y actualice el método `CreateWebHostBuilder` para usar App Configuration mediante una llamada al método `config.AddAzureAppConfiguration()`.
+4. Abra Program.cs y actualice el método `CreateWebHostBuilder` para usar App Configuration mediante una llamada al método `config.AddAzureAppConfiguration()`.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -104,7 +106,7 @@ Va a agregar la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/c
             .UseStartup<Startup>();
     ```
 
-5. Abra el archivo *Index.cshtml*, que se encuentra en el directorio *Views* > *Home*, y sustituya su contenido por el siguiente código:
+5. Abra el archivo Index.cshtml, que se encuentra en el directorio Views > Home, y sustituya su contenido por el siguiente código:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -130,7 +132,7 @@ Va a agregar la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/c
     </html>
     ```
 
-6. Abra el archivo *_Layout.cshtml*, que se encuentra en el directorio *Views* > *Shared*, y sustituya su contenido por el siguiente código:
+6. Abra el archivo _Layout.cshtml, que se encuentra en el directorio Views > Shared, y sustituya su contenido por el siguiente código:
 
     ```html
     <!DOCTYPE html>
@@ -163,7 +165,7 @@ Va a agregar la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/c
 
         dotnet build
 
-2. Una vez que la compilación se complete correctamente, ejecute el siguiente comando para ejecutar la aplicación web localmente:
+2. Una vez que la compilación se haya realizado correctamente, ejecute el siguiente comando para ejecutar la aplicación web localmente:
 
         dotnet run
 
@@ -180,4 +182,4 @@ Va a agregar la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/c
 En este inicio rápido, ha creado un nuevo almacén de configuración de aplicaciones y lo ha usado con una aplicación web de ASP.NET Core. Para más información acerca del uso de App Configuration, continúe con el siguiente tutorial, ya que en él se muestra cómo realizar la autenticación.
 
 > [!div class="nextstepaction"]
-> [Integración de Managed Identities for Azure Resources](./integrate-azure-managed-service-identity.md)
+> [Managed Identities for Azure Resources](./integrate-azure-managed-service-identity.md)

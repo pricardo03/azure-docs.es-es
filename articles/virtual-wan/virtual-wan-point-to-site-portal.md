@@ -5,15 +5,15 @@ services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 01/07/2019
+ms.date: 02/27/2019
 ms.author: alzam
 Customer intent: As someone with a networking background, I want to connect remote users to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 87b8543d8cb658b46ab5e589a310a17a69508a47
-ms.sourcegitcommit: 82cdc26615829df3c57ee230d99eecfa1c4ba459
+ms.openlocfilehash: 9fe0c7f7ae0c19833421b647449f0e4100904f5b
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2019
-ms.locfileid: "54411397"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226239"
 ---
 # <a name="tutorial-create-a-point-to-site-connection-using-azure-virtual-wan-preview"></a>Tutorial: Creación de una conexión de punto a sitio mediante Azure Virtual WAN (Versión preliminar)
 
@@ -38,11 +38,13 @@ En este tutorial, aprenderá a:
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 [!INCLUDE [Before you begin](../../includes/virtual-wan-tutorial-vwan-before-include.md)]
 
 ## <a name="register"></a>Registro de esta característica
 
-Haga clic en **Probar** para registrar esta característica fácilmente mediante Azure Cloud Shell. Si prefiere ejecutar PowerShell localmente, asegúrese de tener la última versión e inicie sesión con los comandos **Connect-AzureRmAccount** y **Select-AzureRmSubscription**.
+Haga clic en **Probar** para registrar esta característica fácilmente mediante Azure Cloud Shell. Si prefiere ejecutar PowerShell localmente, asegúrese de tener la versión más reciente e inicie sesión con los comandos **Connect-AzAccount** y **Select-AzSubscription**.
 
 >[!NOTE]
 >Si no la registra, no podrá usarla ni verla en el portal.
@@ -52,25 +54,25 @@ Haga clic en **Probar** para registrar esta característica fácilmente mediante
 Después de hacer clic en **Probar** para abrir Azure Cloud Shell, copie y pegue los siguientes comandos:
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
 ```
  
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+Register-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowP2SCortexAccess
 ```
 
 ```azurepowershell-interactive
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowVnetGatewayOpenVpnProtocol
 ```
 
 Una vez que la característica se muestre como registrada, vuelva a registrar la suscripción en el espacio de nombres Microsoft.Network.
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ## <a name="vnet"></a>1. Creación de una red virtual
@@ -101,13 +103,13 @@ Una configuración de P2S define los parámetros para conectarse a los clientes 
 4. Haga clic en **+Agregar configuración de punto a sitio** en la parte superior de la página para abrir la página **Crear nueva configuración de punto a sitio**.
 5. En la página **Crear nueva configuración de punto a sitio**, rellene los campos siguientes:
 
-  *  **Nombre de la configuración**: nombre que desea usar para hacer referencia a su configuración.
-  *  **Tipo de túnel**: el protocolo que se usará para el túnel.
-  *  **Grupo de direcciones**: grupo de direcciones IP que se asignará a los clientes.
-  *  **Nombre del certificado raíz**: nombre descriptivo para el certificado.
-  *  **Datos del certificado raíz**: datos del certificado X.509 codificado en Base 64.
+   *  **Nombre de la configuración**: nombre que desea usar para hacer referencia a su configuración.
+   *  **Tipo de túnel**: el protocolo que se usará para el túnel.
+   *  **Grupo de direcciones**: grupo de direcciones IP que se asignará a los clientes.
+   *  **Nombre del certificado raíz**: nombre descriptivo para el certificado.
+   *  **Datos del certificado raíz**: datos del certificado X.509 codificado en Base 64.
 
-5. Haga clic en **Crear** para crear la configuración.
+6. Haga clic en **Crear** para crear la configuración.
 
 ## <a name="hub"></a>5. Edición de la asignación del concentrador
 
@@ -115,15 +117,16 @@ Una configuración de P2S define los parámetros para conectarse a los clientes 
 2. Seleccione el centro al que desea asignar la configuración de punto a sitio.
 3. Haga clic en **"..."** y elija **Editar concentrador virtual**
 4. Seleccione **Incluir puerta de enlace de punto a sitio**.
-5. Elija los valores de **Unidades de escalado de puerta de enlace** y **Configuración de punto a sitio**, junto con un **grupo de direcciones** para los clientes.
-6. Haga clic en **Confirmar**. 
-7. La operación puede tardar un máximo de 30 minutos en completarse.
+5. En la lista desplegable, seleccione las **unidades de escaña de puerta de enlace**.
+6. En la lista desplegable, seleccione la **configuración de punto a sitio** que creó.
+7. Configure el **grupo de direcciones** para los clientes.
+8. Haga clic en **Confirmar**. La operación puede tardar un máximo de 30 minutos en completarse.
 
 ## <a name="vnet"></a>6. Conexión de la red virtual a un concentrador
 
 En este paso, creará la conexión de emparejamiento entre una red virtual y el concentrador. Repita estos pasos para cada red virtual que desee conectar.
 
-1. En la página de la red virtual WAN, haga clic en **Conexión de red virtual**.
+1. En la página de la red WAN virtual, haga clic en **Conexiones de red virtual**.
 2. En la página de conexión de red virtual, haga clic en **+ Agregar conexión**.
 3. En la página **Agregar conexión**, rellene los campos siguientes:
 
@@ -131,6 +134,7 @@ En este paso, creará la conexión de emparejamiento entre una red virtual y el 
     * **Centros**: seleccione el concentrador que desea asociar a esta conexión.
     * **Suscripción**: compruebe la suscripción.
     * **Red virtual**: seleccione la red virtual que quiere conectar con este concentrador. La red virtual no puede tener una puerta de enlace de red virtual ya existente.
+4. Haga clic en **Aceptar** para agregar la conexión.
 
 ## <a name="device"></a>7. Descarga del perfil de VPN
 
@@ -149,7 +153,7 @@ Use el perfil descargado para configurar los clientes de acceso remoto. El proce
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Descargue e instale el cliente OpenVPN desde el sitio web oficial.
-2.  Descargue el perfil de VPN para la puerta de enlace. Esto puede hacerse desde la pestaña de configuraciones de punto a sitio de Azure Portal o mediante New-AzureRmVpnClientConfiguration en PowerShell.
+2.  Descargue el perfil de VPN para la puerta de enlace. Esto puede hacerse desde la pestaña de configuraciones de punto a sitio de Azure Portal o mediante New-AzVpnClientConfiguration en PowerShell.
 3.  Descomprima el perfil. Abra el archivo de configuración vpnconfig.ovpn desde la carpeta OpenVPN en el Bloc de notas.
 4.  Rellene la sección de certificado cliente de P2S con la clave pública del certificado cliente de P2S en Base64. En un certificado con formato PEM, puede abrir el archivo .cer y copiar la clave de base64 entre los encabezados del certificado. Vea aquí cómo exportar un certificado para obtener la clave pública codificada.
 5.  Rellene la sección de la clave privada con la clave privada del certificado cliente de P2S en Base64. Vea aquí cómo extraer la clave privada.
@@ -168,7 +172,7 @@ Use el perfil descargado para configurar los clientes de acceso remoto. El proce
 #### <a name="openvpn"></a>OpenVPN
 
 1.  Descargue e instale un cliente OpenVPN, como TunnelBlik, desde https://tunnelblick.net/downloads.html 
-2.  Descargue el perfil de VPN para la puerta de enlace. Esto puede hacerse desde la pestaña Configuración de punto a sitio de Azure Portal o mediante New-AzureRmVpnClientConfiguration en PowerShell.
+2.  Descargue el perfil de VPN para la puerta de enlace. Esto puede hacerse desde la pestaña de configuraciones de punto a sitio de Azure Portal o mediante New-AzVpnClientConfiguration en PowerShell.
 3.  Descomprima el perfil. Abra el archivo de configuración vpnconfig.ovpn desde la carpeta OpenVPN en el Bloc de notas.
 4.  Rellene la sección de certificado cliente de P2S con la clave pública del certificado cliente de P2S en Base64. En un certificado con formato PEM, puede abrir el archivo .cer y copiar la clave de base64 entre los encabezados del certificado. Vea aquí cómo exportar un certificado para obtener la clave pública codificada.
 5.  Rellene la sección de la clave privada con la clave privada del certificado cliente de P2S en Base64. Vea aquí cómo extraer la clave privada.
@@ -201,10 +205,10 @@ Cree una conexión para supervisar la comunicación entre una máquina virtual d
 
 ## <a name="cleanup"></a>12. Limpieza de recursos
 
-Cuando ya no necesite estos recursos, puede usar [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene. Reemplace "myResourceGroup" con el nombre del grupo de recursos y ejecute el siguiente comando de PowerShell:
+Cuando ya no necesite estos recursos, puede usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene. Reemplace "myResourceGroup" con el nombre del grupo de recursos y ejecute el siguiente comando de PowerShell:
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name myResourceGroup -Force
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes

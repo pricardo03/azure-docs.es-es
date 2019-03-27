@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Visualización de datos mediante el conector de Azure Data Explorer para Power BI'
+title: 'Inicio rápido: Visualización de datos mediante el conector de Azure Data Explorer para Power BI'
 description: 'En esta guía de inicio rápido aprenderá a usar una de las tres opciones de visualización de datos de Power BI: el conector de Power BI para Azure Data Explorer.'
 services: data-explorer
 author: orspod
@@ -8,14 +8,14 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 3cb8f52677991997a0176a9f8d408e2fd6d2d8d9
-ms.sourcegitcommit: 8314421d78cd83b2e7d86f128bde94857134d8e1
+ms.openlocfilehash: de920a9addf9d2053a3c101c6b1f9a2c1a2feb27
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/19/2018
-ms.locfileid: "51974278"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58106753"
 ---
-# <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Guía de inicio rápido: Visualización de datos mediante el conector de Azure Data Explorer para Power BI
+# <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Inicio rápido: Visualización de datos mediante el conector de Azure Data Explorer para Power BI
 
 El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Power BI es una solución de análisis de negocios que le permite visualizar sus datos y compartir los resultados en su organización.
 
@@ -53,7 +53,7 @@ En primer lugar, conéctese al clúster de ayuda de Azure Data Explorer, despué
     |---|---|---|
     | Clúster | *https://help.kusto.windows.net* | La dirección URL para el clúster de ayuda. Para otros clústeres, la dirección URL tiene el formato *https://\<NombreCluster\>.\<Región\>.kusto.windows.net*. |
     | Base de datos | Déjelo en blanco | Una base de datos que se hospeda en el clúster al que se va a conectar. Se seleccionará en un paso posterior. |
-    | Nombre de tabla | Déjelo en blanco | Una de las tablas de la base de datos o una consulta como "StormEvents | take 1000". Se seleccionará en un paso posterior. |
+    | Nombre de tabla | Déjelo en blanco | Una de las tablas de la base de datos o una consulta como <code>StormEvents \| take 1000</code>. Se seleccionará en un paso posterior. |
     | Opciones avanzadas | Déjelo en blanco | Opciones para las consultas como, por ejemplo, el tamaño del conjunto de resultados. |
     | Modo Conectividad de datos | *DirectQuery* | Determina si Power BI importa los datos o se conecta directamente al origen de datos. Puede usar cualquiera de las opciones con este conector. |
     | | | |
@@ -91,4 +91,4 @@ Si ya no necesita el informe que ha creado para esta guía de inicio rápido, el
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Guía de inicio rápido: Visualización de datos mediante una consulta importada en Power BI](power-bi-imported-query.md)
+> [Inicio rápido: Visualización de datos mediante una consulta importada en Power BI](power-bi-imported-query.md)

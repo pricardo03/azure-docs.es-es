@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: bb64e2b633957ca92636a03333be40aa275dfd25
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: a5d34b2964d805cdbeced0d4fad3dd889da9f3e8
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870251"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900631"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>Inicio rápido: Crear una aplicación iOS con Azure Spatial Anchors en Swift u Objective-C
 
@@ -33,11 +33,14 @@ Aprenderá a:
 Para completar esta guía de inicio rápido, asegúrese de que dispone de lo siguiente:
 
 - Una máquina macOS habilitada para el desarrollo que tenga instalados <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10+</a> y <a href="https://cocoapods.org" target="_blank">CocoaPods</a>.
+- GIT instalado mediante HomeBrew. Escriba el siguiente comando en una sola línea de Terminal: `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`. A continuación, ejecute `brew install git`.
 - Un dispositivo iOS <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">compatible con ARKit</a> habilitado para el desarrollo.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
 ## <a name="open-the-sample-project"></a>Apertura del proyecto de ejemplo
+
+Use Terminal para realizar las acciones siguientes:
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
@@ -81,7 +84,7 @@ open ./SampleObjC.xcworkspace
 
 ## <a name="configure-account-identifier-and-key"></a>Configuración del identificador y la clave de la cuenta
 
-El siguiente paso es usar el identificador de cuenta y la clave de cuenta registrados anteriormente al configurar el recurso de Spatial Anchors para configurar la aplicación.
+El paso siguiente es configurar la aplicación para usar el identificador de cuenta y la clave de cuenta. Los copió en un editor cuando [configuró el recurso de Spatial Anchors](#create-a-spatial-anchors-resource).
 
 # <a name="swifttabopenproject-swift"></a>[Swift](#tab/openproject-swift)
 

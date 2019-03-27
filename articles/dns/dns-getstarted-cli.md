@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: quickstart
-ms.date: 12/4/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: e61975d81fd5920feb5fd47845c67d0aa5293ae6
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 7a2c300e30050e7e46a2b2c724258539df85e410
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52962018"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58093429"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Inicio rápido: Creación de una zona y un registro de Azure DNS mediante la CLI de Azure
 
@@ -38,20 +38,20 @@ az group create --name MyResourceGroup --location "East US"
 
 Una zona DNS se crea con el comando `az network dns zone create` . Para ver la ayuda sobre este comando, escriba `az network dns zone create -h`.
 
-En el ejemplo siguiente, se crea una zona DNS llamada *contoso.com* en el grupo de recursos *MyResourceGroup*. Utilice el ejemplo para crear una zona DNS, sustituyendo los valores por los suyos.
+En el ejemplo siguiente, se crea una zona DNS llamada *contoso.xyz* en el grupo de recursos *MyResourceGroup*. Utilice el ejemplo para crear una zona DNS, sustituyendo los valores por los suyos.
 
 ```azurecli
-az network dns zone create -g MyResourceGroup -n contoso.com
+az network dns zone create -g MyResourceGroup -n contoso.xyz
 ```
 
 ## <a name="create-a-dns-record"></a>Creación de un registro de DNS
 
 Para crear un registro de DNS, use el comando `az network dns record-set [record type] add-record`. Para obtener ayuda sobre los registros A, consulte `azure network dns record-set A add-record -h`.
 
-En el ejemplo siguiente se crea un registro con el nombre relativo "www" en la zona DNS "contoso.com" del grupo de recursos "MyResourceGroup". El nombre completo del conjunto de registros es www.contoso.com. El tipo de registro es "A", con la dirección IP "1.2.3.4" y un valor predeterminado TTL de 3600 segundos (1 hora).
+En el ejemplo siguiente se crea un registro con el nombre relativo "www" en la zona DNS "contoso.xyz" del grupo de recursos "MyResourceGroup". El nombre completo del conjunto de registros es "www.contoso.xyz". El tipo de registro es "A", con la dirección IP "10.10.10.10" y un valor predeterminado TTL de 3600 segundos (1 hora).
 
 ```azurecli
-az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www -a 1.2.3.4
+az network dns record-set a add-record -g MyResourceGroup -z contoso.xyz -n www -a 10.10.10.10
 ```
 
 ## <a name="view-records"></a>Visualización de los registros
@@ -59,41 +59,43 @@ az network dns record-set a add-record -g MyResourceGroup -z contoso.com -n www 
 Para enumerar los registros DNS de su zona, ejecute:
 
 ```azurecli
-az network dns record-set list -g MyResourceGroup -z contoso.com
+az network dns record-set list -g MyResourceGroup -z contoso.xyz
 ```
 
-## <a name="update-name-servers"></a>Actualización de los servidores de nombres
+## <a name="test-the-name-resolution"></a>Probar la resolución de nombres
 
-Una vez haya comprobado que la zona y los registros DNS se han configurado correctamente, tiene que configurar el nombre de dominio para usar los servidores de nombres DNS de Azure para permitir que otros usuarios de Internet encuentren sus registros DNS.
+Ahora que tiene una zona DNS de prueba, con un registro "A" de prueba, puede probar la resolución de nombres con una herramienta llamada *nslookup*. 
 
-Los servidores de nombres de su zona se proporcionan con el comando `az network dns zone show`. Para ver los nombres del servidor de nombres, utilice la salida JSON, como se muestra en el ejemplo siguiente.
+**Para probar la resolución de nombres DNS:**
 
-```azurecli
-az network dns zone show -g MyResourceGroup -n contoso.com -o json
+1. Ejecute el siguiente cmdlet para obtener la lista de servidores de nombres para la zona:
 
-{
-  "etag": "00000003-0000-0000-b40d-0996b97ed101",
-  "id": "/subscriptions/a385a691-bd93-41b0-8084-8213ebc5bff7/resourceGroups/myresourcegroup/providers/Microsoft.Network/dnszones/contoso.com",
-  "location": "global",
-  "maxNumberOfRecordSets": 5000,
-  "name": "contoso.com",
-  "nameServers": [
-    "ns1-01.azure-dns.com.",
-    "ns2-01.azure-dns.net.",
-    "ns3-01.azure-dns.org.",
-    "ns4-01.azure-dns.info."
-  ],
-  "numberOfRecordSets": 3,
-  "resourceGroup": "myresourcegroup",
-  "tags": {},
-  "type": "Microsoft.Network/dnszones"
-}
-```
+   ```azurecli
+   az network dns record-set ns show --resource-group MyResourceGroup --zone-name contoso.xyz --name @
+   ```
 
-Estos servidores de nombres deben configurarse con el registrador de nombres de dominio (donde adquirió el nombre de dominio). El registrador ofrece la opción de configurar los servidores de nombres para el dominio. Para más información, vea [Tutorial: Hospedaje del dominio en Azure DNS](dns-delegate-domain-azure-dns.md#delegate-the-domain).
+1. Copie uno de los nombres de servidor de la salida del paso anterior.
+
+1. Abra un símbolo del sistema y ejecute el comando siguiente:
+
+   ```
+   nslookup www.contoso.xyz <name server name>
+   ```
+
+   Por ejemplo: 
+
+   ```
+   nslookup www.contoso.xyz ns1-08.azure-dns.com.
+   ```
+
+   Debe ver algo parecido a la pantalla siguiente:
+
+   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+
+El nombre de host **www\.contoso.xyz** se resuelve en **10.10.10.10**, que es como lo ha configurado. Este resultado confirma que la resolución de nombres funciona correctamente.
 
 ## <a name="delete-all-resources"></a>Eliminación de todos los recursos
- 
+
 Cuando ya no los necesite, puede eliminar todos los recursos creados en este inicio rápido mediante la eliminación del grupo de recursos:
 
 ```azurecli

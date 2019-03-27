@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 634b175ec0b5771e3ff2fa061532106eb124ea4e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 9dada3c6f0718db41a24368aca594bbd3215fec5
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338434"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57994863"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definición y asignación de un plano técnico de Azure Blueprint con API REST
 
@@ -70,6 +70,9 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
 
 - `{YourMG}`: reemplácelo por el identificador del grupo de administración
 - `{subscriptionId}`: reemplácelo por el identificador de suscripción
+
+> [!NOTE]
+> Los planos técnicos también pueden crearse en el nivel de suscripción. Para ver un ejemplo, consulte el artículo de [creación de un plano técnico en el ejemplo de suscripción](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
 
 1. Cree el objeto _blueprint_ inicial. El **cuerpo de la solicitud** incluye propiedades sobre el plano técnico, cualquier grupo de recursos que se vaya a crear y todos los parámetros en el nivel del plano técnico. Los parámetros se establecen durante la asignación y son utilizados por los artefactos que se agregan en pasos posteriores.
 
@@ -262,7 +265,7 @@ En cada identificador URI de la API REST, hay variables usadas que se deben reem
                      "tags": {
                         "[parameters('tagNameFromBP')]": "[parameters('tagValueFromBP')]"
                      },
-                     "location": "[resourceGroup().location]",
+                     "location": "[resourceGroups('storageRG').location]",
                      "sku": {
                          "name": "[parameters('storageAccountTypeFromBP')]"
                      },

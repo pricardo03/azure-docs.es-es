@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2c7d200b-9242-44a5-ac8a-ab3214a78e41
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: ac3242725438a7d5eaa6b93cb1f86f9344b59c1f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: c3a2a92eb01943ab87c12d3ffefc4999cd9ff518
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56864998"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57901702"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gigya"></a>Tutorial: Integración de Azure Active Directory con Gigya
 
@@ -133,7 +133,7 @@ Para configurar el inicio de sesión único de Azure AD con Gigya, realice los p
    
     ![Inicio de sesión SAML](./media/gigya-tutorial/ic789532.png "Inicio de sesión SAML")
 
-3. En la sección **Inicio de sesión de SAML**, realice los pasos siguientes:
+3. En la sección **Inicio de sesión de SAML** , realice los pasos siguientes:
    
     ![Configuración de SAML](./media/gigya-tutorial/ic789533.png "Configuración de SAML")
    
@@ -167,7 +167,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -216,7 +216,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Gigya, deben aprov
    
     ![Invitar a usuarios](./media/gigya-tutorial/ic789536.png "Invitar a usuarios")
    
-     a. En el cuadro de texto **Correo electrónico**, escriba el alias de correo electrónico de la cuenta válida de Azure Active Directory que quiera aprovisionar.
+     a. En el cuadro de texto **Correo electrónico** , escriba el alias de correo electrónico de la cuenta válida de Azure Active Directory que quiera aprovisionar.
     
     b. Haga clic en **Invitar a usuario**.
       

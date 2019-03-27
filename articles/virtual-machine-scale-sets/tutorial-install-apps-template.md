@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 262d7a6a4399a72e762c4ad3c87a878c54e22af4
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 176cf31d7a87b08755ee2acb94aea23684647213
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750399"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57996569"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Tutorial: Instalación de aplicaciones en conjuntos de escalado de máquinas virtuales con una plantilla de Azure
 Para ejecutar aplicaciones en las instancias de máquinas virtuales (VM) de un conjunto de escalado, primero debe instalar los componentes de la aplicación y los archivos necesarios. En un tutorial anterior, aprendió a crear y usar una imagen de máquina virtual personalizada para implementar las instancias de máquina virtual. Esta imagen personalizada incluía instalaciones y configuraciones manuales de aplicaciones. También puede automatizar la instalación de aplicaciones en un conjunto de escalado después de implementar cada instancia de máquina virtual, o actualizar una aplicación que ya se ejecuta en un conjunto de escalado. En este tutorial, aprenderá a:
@@ -115,7 +115,7 @@ Deje el explorador web abierto para que pueda ver una versión actualizada en el
 
 
 ## <a name="update-app-deployment"></a>Actualización de la implementación de aplicaciones
-A lo largo del ciclo de vida de un conjunto de escalado, puede que deba implementar una versión actualizada de la aplicación. Con la extensión de script personalizado, puede hacer referencia a un script de implementación actualizado y, luego, volver a aplicar la extensión al conjunto de escalado. Cuando se creó el conjunto de escalado en un paso anterior, el parámetro *upgradePolicy` se estableció en *Automatic*. Esta configuración permite que las instancias de máquina virtual del conjunto de escalado se actualicen y apliquen automáticamente la versión más reciente de la aplicación.
+A lo largo del ciclo de vida de un conjunto de escalado, puede que deba implementar una versión actualizada de la aplicación. Con la extensión de script personalizado, puede hacer referencia a un script de implementación actualizado y, luego, volver a aplicar la extensión al conjunto de escalado. Cuando se creó el conjunto de escalado en un paso anterior, el parámetro *upgradePolicy* se estableció en *Automatic*. Esta configuración permite que las instancias de máquina virtual del conjunto de escalado se actualicen y apliquen automáticamente la versión más reciente de la aplicación.
 
 Para actualizar la definición de la extensión de script personalizado, edite la plantilla para que haga referencia a un nuevo script de instalación. Debe usarse un nuevo nombre de archivo para la extensión de script personalizado para que reconozca el cambio. La extensión de script personalizado no examina el contenido del script para determinar los cambios. La definición siguiente usa un script de instalación actualizado con *_v2* anexado al nombre:
 

@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 10/24/2018
 ms.author: alkohli
-ms.openlocfilehash: ab6048ff54f9c593bb62fb3e9c40af930bf1edad
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 4759676eff03606998759a586f758b7a26ead23d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091596"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58077554"
 ---
 # <a name="cabling-options-for-your-azure-data-box"></a>Opciones de cableado para Azure Data Box
 
@@ -39,7 +39,7 @@ Realice los pasos siguientes para cablear el dispositivo.
     - **Dirección IP** en 192.168.100.5
     - **Subred** en 255.255.255.0
 
-3. Acceda a la interfaz de usuario web local del dispositivo en 192.168.100.10. Inicie sesión y desbloquee el dispositivo Data Box con la contraseña de desbloqueo de Azure Portal.
+3. Acceda a la interfaz de usuario web local del dispositivo en: 192.168.100.10. Inicie sesión y desbloquee el dispositivo Data Box con la contraseña de desbloqueo de Azure Portal.
 
 
 ## <a name="transfer-via-data-port-with-static-ips"></a>Transferencia mediante el puerto DATA con direcciones IP estáticas
@@ -62,12 +62,12 @@ Realice los pasos siguientes para cablear el dispositivo.
 2. Utilice un cable RJ45 para DATA 3 o cables SFP+ para conectar DATA 1 o DATA 2 al servidor que actúa como origen de datos. Se recomienda usar los puertos DATA 1 o DATA 2 de 10 GbE para un buen rendimiento.
 3. En el servidor, establezca:
 
-    - **Dirección IP** en 192.168.100.5
-    - **Subred** en 255.255.255.0
+   - **Dirección IP** en 192.168.100.5
+   - **Subred** en 255.255.255.0
 
-    ![Configuración de dos puertos](media/data-box-cable-options/cabling-2-port-setup.png)
+     ![Configuración de dos puertos](media/data-box-cable-options/cabling-2-port-setup.png)
 
-3. Acceda a la interfaz de usuario web local del dispositivo en 192.168.100.10. Inicie sesión y desbloquee el dispositivo Data Box con la contraseña de desbloqueo de Azure Portal.
+3. Acceda a la interfaz de usuario web local del dispositivo en: 192.168.100.10. Inicie sesión y desbloquee el dispositivo Data Box con la contraseña de desbloqueo de Azure Portal.
 4. Asigne direcciones IP estáticas a los puertos de datos que ha configurado.
 
 ### <a name="option-2---initial-setup-via-separate-computer"></a>Opción 2: instalación inicial mediante equipo independiente
@@ -78,12 +78,12 @@ Realice los pasos siguientes para cablear el dispositivo.
 2. Utilice un cable RJ45 para DATA 3 o cables SFP+ para conectar DATA 1 o DATA 2 al servidor. Se recomienda usar los puertos DATA 1 o DATA 2 de 10 GbE para un buen rendimiento. Los puertos de datos se conectan mediante un conmutador de 10 GbE al servidor que tiene los datos.
 3. Configure el adaptador Ethernet del portátil que usa para conectarse al dispositivo con:
 
-    - **Dirección IP** establecida en 192.168.100.5
-    - **Subred** establecida en 255.255.255.0
+   - **Dirección IP** establecida en 192.168.100.5
+   - **Subred** establecida en 255.255.255.0
 
-    ![Configuración de dos puertos con un conmutador](media/data-box-cable-options/cabling-with-static-ip.png)
+     ![Configuración de dos puertos con un conmutador](media/data-box-cable-options/cabling-with-static-ip.png)
 
-3. Acceda a la interfaz de usuario web local del dispositivo en 192.168.100.10. Inicie sesión y desbloquee el dispositivo Data Box con la contraseña de desbloqueo de Azure Portal.
+3. Acceda a la interfaz de usuario web local del dispositivo en: 192.168.100.10. Inicie sesión y desbloquee el dispositivo Data Box con la contraseña de desbloqueo de Azure Portal.
 4. Identifique las direcciones IP asignadas por el servidor DHCP.
 
 ## <a name="transfer-via-data-port-with-static-ips-using-a-switch"></a>Transferencia mediante el puerto DATA con direcciones IP estáticas y un conmutador 
@@ -102,12 +102,12 @@ Realice los pasos siguientes para cablear el dispositivo.
 2. Utilice un cable RJ45 para DATA 3 o cables SFP+ para conectar DATA 1 o DATA 2 al servidor. Se recomienda usar los puertos DATA 1 o DATA 2 de 10 GbE para un buen rendimiento.
 3. Configure el adaptador Ethernet del portátil que usa para conectarse al dispositivo con:
 
-    - **Dirección IP** establecida en 192.168.100.5
-    - **Subred** establecida en 255.255.255.0
+   - **Dirección IP** establecida en 192.168.100.5
+   - **Subred** establecida en 255.255.255.0
 
-    ![Configuración de dos puertos con un conmutador](media/data-box-cable-options/cabling-with-switch-static-ip.png)
+     ![Configuración de dos puertos con un conmutador](media/data-box-cable-options/cabling-with-switch-static-ip.png)
 
-3. Acceda a la interfaz de usuario web local del dispositivo en 192.168.100.10. Inicie sesión y desbloquee el dispositivo Data Box con la contraseña de desbloqueo de Azure Portal.
+3. Acceda a la interfaz de usuario web local del dispositivo en: 192.168.100.10. Inicie sesión y desbloquee el dispositivo Data Box con la contraseña de desbloqueo de Azure Portal.
 4. Asigne direcciones IP estáticas a los puertos de datos que ha configurado.
 
 

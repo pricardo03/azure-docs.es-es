@@ -3,8 +3,8 @@ title: 'Guía de inicio rápido: servidor web ASP.NET para Azure AD v2.0 | Micro
 description: Obtenga información sobre cómo implementar el inicio de sesión de Microsoft en una aplicación web ASP.NET mediante OpenID Connect.
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
-manager: mtillman
+author: jmprieur
+manager: CelesteDG
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/20/2018
-ms.author: andret
+ms.date: 03/20/2019
+ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdc5200156533abf940ce8fc7ff2186ba3a961bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9ae388798716565c1fdeeb10b274c2a168ca86ea
+ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200486"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58200266"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET
 
@@ -29,7 +29,7 @@ ms.locfileid: "56200486"
 
 En esta guía de inicio rápido, obtendrá información sobre cómo una aplicación web ASP.NET puede iniciar sesión en cuentas personales (hotmail.com, outlook.com y otras), profesionales y educativas desde cualquier instancia de Azure Active Directory (Azure AD).
 
-![Funcionamiento de la aplicación de ejemplo generada por esta guía de inicio rápido](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.png)
+![Muestra cómo funciona la aplicación de ejemplo generada por este inicio rápido.](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro-updated.png)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registro y descarga de la aplicación de inicio rápido
@@ -147,7 +147,7 @@ public void Configuration(IAppBuilder app)
 > |Where  |  |
 > |---------|---------|
 > | `ClientId`     | El identificador de la aplicación registrada en Azure Portal |
-> | `Authority`    | El punto de conexión STS para el usuario que se autenticará. Normalmente es https://login.microsoftonline.com/{tenant}/v2.0 para la nube pública, donde {tenant} es el nombre del inquilino, el id. de inquilino o *common* para hacer referencia al punto de conexión común (que se usa para las aplicaciones multiinquilino) |
+> | `Authority`    | El punto de conexión STS para el usuario que se autenticará. Normalmente es <https://login.microsoftonline.com/{tenant}/v2.0> para la nube pública, donde {tenant} es el nombre del inquilino, el id. de inquilino o *common* para hacer referencia al punto de conexión común (que se usa para las aplicaciones multiinquilino) |
 > | `RedirectUri`  | Dirección URL a donde se redirige a los usuarios después de la autenticación en el punto de conexión de Azure AD v2.0 |
 > | `PostLogoutRedirectUri`     | Dirección URL a donde se redirige a los usuarios después de cerrar sesión |
 > | `Scope`     | La lista de ámbitos que se solicitan, separados por espacios |

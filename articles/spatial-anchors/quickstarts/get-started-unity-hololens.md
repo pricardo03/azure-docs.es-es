@@ -1,5 +1,5 @@
 ---
-title: 'Inicio rápido: Creación de una aplicación HoloLens en Unitiy con Azure Spatial Anchors | Microsoft Docs'
+title: 'Inicio rápido: Creación de una aplicación HoloLens en Unity con Azure Spatial Anchors | Microsoft Docs'
 description: En este inicio rápido, aprenderá a crear una aplicación HoloLens en Unity con Spatial Anchors.
 author: craigktreasure
 manager: aliemami
@@ -8,36 +8,36 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: b2bfec47bc92ebf5db1561d8fca33940dc376866
-ms.sourcegitcommit: e88188bc015525d5bead239ed562067d3fae9822
+ms.openlocfilehash: 2c29d9860f1c8fc4f0f6d9f4d84c06e8ade8dee5
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/24/2019
-ms.locfileid: "56752947"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58286982"
 ---
-# <a name="quickstart-create-a-hololens-unity-app-using-azure-spatial-anchors"></a>Inicio rápido: Creación de una aplicación HoloLens en Unity con Azure Spatial Anchors
+# <a name="quickstart-create-a-hololens-unity-app-that-uses-azure-spatial-anchors"></a>Inicio rápido: Creación de una aplicación en Unity para HoloLens que use Azure Spatial Anchors
 
-En este inicio rápido se describe cómo crear una aplicación HoloLens en Unity con [Azure Spatial Anchors](../overview.md). Azure Spatial Anchors es un servicio multiplataforma para desarrolladores que le permite crear experiencias de realidad mixta mediante objetos cuya ubicación persiste en todos los dispositivos a lo largo del tiempo. Cuando haya terminado, tendrá una aplicación HoloLens compilada con Unity que puede guardar y recuperar un delimitador espacial.
+En este inicio rápido se creará una aplicación en Unity para HoloLens con [Azure Spatial Anchors](../overview.md). Spatial Anchors es un servicio multiplataforma para desarrolladores que permite crear experiencias de realidad mixta con objetos cuya ubicación persiste en todos los dispositivos a lo largo del tiempo. Cuando haya terminado, tendrá una aplicación HoloLens compilada con Unity que puede guardar y recuperar un delimitador espacial.
 
 Aprenderá a:
 
-> [!div class="checklist"]
-> * Crear una cuenta de Spatial Anchors
-> * Preparar la configuración de compilación de Unity
-> * Configurar la clave y el identificador de la cuenta de Spatial Anchors
-> * Exportar el proyecto de HoloLens de Visual Studio
-> * Realizar implementaciones y ejecuciones en un dispositivo HoloLens
+- Crear una cuenta de Spatial Anchors.
+- Preparar la configuración de compilación de Unity.
+- Configurar la clave y el identificador de la cuenta de Spatial Anchors.
+- Exportar el proyecto HoloLens de Visual Studio.
+- Implementar la aplicación y ejecutarla en un dispositivo HoloLens.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar esta guía de inicio rápido, asegúrese de que dispone de lo siguiente:
+Para completar esta guía de inicio rápido:
 
-- Una máquina Windows con <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3 o versiones posteriores</a> y <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017 o versiones posteriores</a> instalado con la carga de trabajo **desarrollo de Plataforma universal de Windows**.
-- Un dispositivo HoloLens con el [modo de desarrollador](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio) habilitado.
-- La aplicación debe establecer la funcionalidad **SpatialPerception** en **Build Settings**->**Player Settings**->**Publishing Settings**->**Capabilities** (Configuración de compilación > Configuración del reproductor > Configuración de publicación > Funcionalidades).
-- La aplicación debe habilitar **Virtual Reality Supported** (Realidad virtual admitida) con **Windows Mixed Reality SDK** en **Build Settings**->**Player Settings**->**XR Settings** (Configuración de compilación > Configuración del reproductor > Configuración de XR).
+
+- Necesita un equipo Windows en el que estén instalados <a href="https://unity3d.com/get-unity/download" target="_blank">Unity 2018.3</a>, o cualquier versión posterior, y <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a>, o cualquier versión posterior. La instalación de Visual Studio 2017 debe incluir la carga de trabajo de **desarrollo de la Plataforma universal de Windows**. También se debe instalar <a href="https://git-scm.com/download/win" target="_blank">Git para Windows</a>.
+- Se necesita un dispositivo HoloLens en el que esté habilitado el [modo de desarrollador](https://docs.microsoft.com/windows/mixed-reality/using-visual-studio). La [actualización de Windows 10 de octubre de 2018](https://docs.microsoft.com/en-us/windows/mixed-reality/release-notes-october-2018) (también conocida como RS5) debe estar instalada en el dispositivo. Para actualizar a la versión más reciente en HoloLens, abra la aplicación **Settings** (Configuración), vaya a **Update & Security** (Actualización y seguridad) y seleccione **Check for updates** (Buscar actualizaciones).
+- En la aplicación, debe habilitar la funcionalidad **SpatialPerception**. Este valor está en **Build Settings** > **Player Settings** > **Publishing Settings** > **Capabilities** (Configuración de compilación > Configuración del reproductor > Configuración de publicación > Funcionalidades).
+- En la aplicación, es preciso habilitar **Virtual Reality Supported** (Admite realidad virtual) con el **SDK de Windows Mixed Reality**. Este valor está en **Build Settings** > **Player Settings** > **XR Settings** (Configuración de compilación > Configuración del reproductor > Configuración de XR).
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -45,41 +45,41 @@ Para completar esta guía de inicio rápido, asegúrese de que dispone de lo sig
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-Abra Unity y abra el proyecto en la carpeta `Unity`.
+En Unity, abra el proyecto en la carpeta de Unity.
 
-Seleccione **File** -> **Build Settings** (Archivo > Configuración de compilación) para abrir **Build Settings** (Configuración de compilación).
+Seleccione **File** > **Build Settings** (Archivo > Configuración de compilación) para abrir **Build Settings** (Configuración de compilación).
 
-En la sección **Platform** (Plataforma), seleccione **Universal Windows Platform** (Plataforma universal de Windows). Después, cambie **Target Device** (Dispositivo de destino) a **HoloLens**.
+En la sección **Platform** (Plataforma), seleccione **Universal Windows Platform** (Plataforma universal de Windows). Cambie el valor de **Target Device** (Dispositivo de destino) a **HoloLens**.
 
-Seleccione **Switch Platform** (Cambiar plataforma) para cambiar la plataforma a **Universal Windows Platform** (Plataforma universal de Windows).
+Seleccione **Switch Platform** (Cambiar plataforma) para cambiar la plataforma a **Universal Windows Platform** (Plataforma universal de Windows). Unity puede solicitarle que instale los componentes de compatibilidad con Plataforma universal de Windows si no están presentes.
 
-![Configuración de compilación de Unity](./media/get-started-unity-hololens/unity-build-settings.png)
+   ![Ventana Build Settings (Configuración de compilación) de Unity](./media/get-started-unity-hololens/unity-build-settings.png)
 
 Cierre la ventana **Build Settings** (Configuración de compilación).
 
-## <a name="configure-account-identifier-and-key"></a>Configuración del identificador y la clave de la cuenta
+## <a name="configure-the-account-identifier-and-key"></a>Configuración del identificador y la clave de la cuenta
 
 En el panel **Project** (Proyecto), vaya a `Assets/AzureSpatialAnchorsPlugin/Examples` y abra el archivo de escena `AzureSpatialAnchorsBasicDemo.unity`.
 
 [!INCLUDE [Configure Unity Scene](../../../includes/spatial-anchors-unity-configure-scene.md)]
 
-Para guardar la escena, seleccione **File** -> **Save** (Archivo > Guardar).
+Para guardar la escena, seleccione **File** > **Save** (Archivo > Guardar).
 
 ## <a name="export-the-hololens-visual-studio-project"></a>Exportar el proyecto de HoloLens de Visual Studio
 
 [!INCLUDE [Export Unity Project](../../../includes/spatial-anchors-unity-export-project-snip.md)]
 
-Seleccione **Compilar** para abrir un cuadro de diálogo. A continuación, seleccione una carpeta para exportar el proyecto HoloLens de Visual Studio.
+Seleccione **Build** (Compilar). En el cuadro de diálogo, seleccione la carpeta en la que se va a exportar el proyecto HoloLens de Visual Studio.
 
-Una vez completada la exportación, se mostrará una carpeta que contiene el proyecto HoloLens exportado.
+Cuando se complete la exportación, aparecerá una carpeta que contiene el proyecto HoloLens exportado.
 
 ## <a name="deploy-the-hololens-application"></a>Implementación de la aplicación HoloLens
 
-En la carpeta, haga doble clic en `HelloAR U3D.sln` para abrir el proyecto en Visual Studio.
+En la carpeta, haga doble clic en **HelloAR U3D.sln** para abrir el proyecto en Visual Studio.
 
-Cambiar **Configuración de la solución** a **Versión**, cambie **Plataforma de la solución** a **x86** y seleccione **Dispositivo**  en las opciones de destino de implementación.
+Cambie el valor de **Configuración de solución** a **Versión**, cambie el de **Plataforma de solución** a **x86** y seleccione **Dispositivo** en las opciones de destino de implementación.
 
-![Configuración de Visual Studio](./media/get-started-unity-hololens/visual-studio-configuration.png)
+   ![Configuración de Visual Studio](./media/get-started-unity-hololens/visual-studio-configuration.png)
 
 Encienda el dispositivo HoloLens, inicie sesión y conéctelo al equipo mediante un cable USB.
 
@@ -87,7 +87,7 @@ Seleccione **Depurar** > **Iniciar depuración** para implementar la aplicación
 
 Siga las instrucciones de la aplicación para colocar y recuperar un delimitador.
 
-En Visual Studio, seleccione **Detener depuración** o presione **Mayús + F5** para detener la depuración.
+En Visual Studio, seleccione **Detener depuración** o presione Mayús + F5 para detener la depuración.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

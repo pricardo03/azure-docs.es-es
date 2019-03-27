@@ -3,18 +3,18 @@ title: Supervisión de los dispositivos en Azure IoT Central | Microsoft Docs
 description: Como un operador, puede usar la aplicación de Azure IoT Central para supervisar los dispositivos.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/12/2018
+ms.date: 02/01/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 941fbffaa7a0129de30d6fdf14d3d0559429309f
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
+ms.openlocfilehash: 561477d8bf3a64397e9964499339c368dec5470d
+ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200248"
+ms.lasthandoff: 03/12/2019
+ms.locfileid: "57760479"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Tutorial: Uso de Azure IoT Central para supervisar los dispositivos
 
@@ -41,7 +41,7 @@ Azure IoT Central envía notificaciones acerca de los dispositivos como mensajes
 
 Abra el mensaje de correo electrónico que recibió al final del tutorial [Configuración de reglas y acciones para el dispositivo](tutorial-configure-rules.md). En el correo electrónico, elija **Haga clic aquí para abrir el dispositivo**:
 
-![Reglas del generador de aplicaciones](media/tutorial-monitor-devices/email.png)
+![Correo electrónico de notificación de alerta](media/tutorial-monitor-devices/email.png)
 
 La página **Device** (Dispositivo) del dispositivo simulado **Connected Air Conditioner-1** (Acondicionador de aire conectado-1) que creó en los tutoriales anteriores se abre en el explorador:
 
@@ -55,13 +55,13 @@ Elija la vista **Dashboard** (Panel) para ver información acerca del dispositiv
 
 ![Panel del dispositivo](media/tutorial-monitor-devices/initial_screen.png)
 
-El gráfico del panel muestra un trazado de la temperatura del dispositivo. También puede ver la temperatura de destino actual del dispositivo en el icono **Set target temperature** (Establecer temperatura de destino). Imaginemos que decide que la temperatura de destino es demasiado alta.
+El gráfico del panel muestra un trazado de la temperatura del dispositivo. También puede ver la temperatura de destino actual del dispositivo en el icono **Device properties** (Propiedades del dispositivo). Imaginemos que decide que la temperatura de destino es demasiado alta.
 
 ## <a name="remediate-an-issue"></a>Corregir un problema
 
 Para cambiar la temperatura de destino del dispositivo, use la página **Settings** (Configuración):
 
-1. Elija **Settings** (Configuración). Cambie **Set Temperature** (Establecer temperatura) a 75. Elija **Update** (Actualizar) para enviar la nueva temperatura de destino al dispositivo. Cuando el dispositivo confirma el cambio de configuración, el estado del valor de configuración se cambia a **sincronizado**:
+1. Elija **Settings** (Configuración). Cambie **Set Temperature** (Establecer temperatura) a 75. Elija **Update** (Actualizar) para enviar la nueva temperatura de destino al dispositivo. Cuando el dispositivo confirma el cambio de configuración, el estado del valor cambia a **sincronizado**:
 
     ![Actualización de la configuración](media/tutorial-monitor-devices/change_settings.png)
 

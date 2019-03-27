@@ -14,22 +14,22 @@ ms.tgt_pltfrm: .NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: cd4115aaeec15d14d48dcb71cbdc75212c6dc2db
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 5501e92b9a9d977f74bf4ed028b3cd3de4e56133
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56960687"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225389"
 ---
-# <a name="quickstart-create-an-net-core-app-with-app-configuration"></a>Inicio rápido: Creación de una aplicación .NET Core con App Configuration
+# <a name="quickstart-create-a-net-core-app-with-app-configuration"></a>Inicio rápido: Creación de una aplicación .NET Core con App Configuration
 
-Azure App Configuration es un servicio de configuración administrado de Azure. Permite almacenar y administrar fácilmente toda la configuración de una aplicación en un solo lugar que está separado del código. En este manual de inicio rápido se muestra cómo incorporar el servicio en una aplicación de consola de .NET Core.
+Azure App Configuration es un servicio de configuración administrado de Azure. Puede usarlo para almacenar y administrar fácilmente toda la configuración de una aplicación en un solo lugar que esté separado del código. En este manual de inicio rápido se muestra cómo incorporar el servicio en una aplicación de consola de .NET Core.
 
-Puede usar cualquier editor de código para realizar los pasos de esta guía de inicio rápido. Sin embargo, [Visual Studio Code](https://code.visualstudio.com/) es una excelente opción disponible en las plataformas Windows, macOS y Linux.
+Para realizar los pasos de este inicio rápido, puede usar cualquier editor de código. [Visual Studio Code](https://code.visualstudio.com/) es una excelente opción disponible en las plataformas Windows, macOS y Linux.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar esta inicio rápido, instale el [SDK de .NET Core](https://dotnet.microsoft.com/download).
+Para realizar este inicio rápido, instale el [SDK de .NET Core](https://dotnet.microsoft.com/download).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -47,13 +47,13 @@ Va a utilizar la [interfaz de la línea de comandos (CLI) de .NET Core](https://
 
         dotnet new console
 
-## <a name="connect-to-app-configuration-store"></a>Conexión a un almacén de configuración de aplicaciones
+## <a name="connect-to-an-app-configuration-store"></a>Conexión a un almacén de configuración de aplicaciones
 
-1. Para agregar una referencia al paquete de NuGet `Microsoft.Extensions.Configuration.AzureAppConfiguration`, ejecute el comando siguiente:
+1. Para agregar una referencia al paquete NuGet `Microsoft.Extensions.Configuration.AzureAppConfiguration`, ejecute el comando siguiente:
 
         dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
 
-2. Ejecute el siguiente comando para restaurar los paquetes para el proyecto.
+2. Ejecute el siguiente comando para restaurar los paquetes para el proyecto:
 
         dotnet restore
 
@@ -72,7 +72,7 @@ Va a utilizar la [interfaz de la línea de comandos (CLI) de .NET Core](https://
 
 ## <a name="build-and-run-the-app-locally"></a>Compilación y ejecución de la aplicación en un entorno local
 
-1. Establezca una variable de entorno llamada **ConnectionString** y defínala como la clave de acceso a su almacén de configuración de aplicaciones. Si usa el símbolo del sistema de Windows, ejecute el siguiente comando y reinicie el símbolo del sistema para que se aplique el cambio:
+1. Establezca una variable de entorno llamada **ConnectionString** y defínala como la clave de acceso a su almacén de configuración de aplicaciones. Si usa el símbolo del sistema de Windows, ejecute el siguiente comando y reinícielo para que se aplique el cambio:
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -88,7 +88,7 @@ Va a utilizar la [interfaz de la línea de comandos (CLI) de .NET Core](https://
 
         dotnet build
 
-3. Una vez que la compilación se complete correctamente, ejecute el siguiente comando para ejecutar la aplicación localmente:
+3. Una vez que la compilación se haya realizado correctamente, ejecute el siguiente comando para ejecutar la aplicación localmente:
 
         dotnet run
 
@@ -103,4 +103,4 @@ Va a utilizar la [interfaz de la línea de comandos (CLI) de .NET Core](https://
 En este inicio rápido, ha creado un almacén de configuración de aplicaciones y lo ha usado con una aplicación de consola de .NET Core. Para más información acerca del uso de App Configuration, continúe con el siguiente tutorial, ya que en él se muestra cómo realizar la autenticación.
 
 > [!div class="nextstepaction"]
-> [Integración de Managed Identities for Azure Resources](./integrate-azure-managed-service-identity.md)
+> [Managed Identities for Azure Resources](./integrate-azure-managed-service-identity.md)

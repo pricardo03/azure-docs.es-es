@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 11/18/2018
+ms.date: 02/28/2019
 ms.author: diberry
-ms.openlocfilehash: 587661236e28b9e0fdf7d527b762897d417d0d98
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 8a6a46708b78b3f92087ace02173f9f081fa85b2
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55866855"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170520"
 ---
 # <a name="quickstart-publish-a-knowledge-base-in-qna-maker-using-c"></a>Inicio rápido: Publicación de una base de conocimiento en QnA Maker con C#
 
@@ -41,7 +41,7 @@ En esta guía de inicio rápido se llama a las siguientes API de QnA Maker:
 ## <a name="create-knowledge-base-project"></a>Creación del proyecto de base de conocimiento
 
 1. Abra Visual Studio 2017 Community Edition.
-1. Cree un nuevo proyecto de **aplicación de consola (.Net Core)** y asígnele el nombre `QnaMakerQuickstart`. Acepte los valores predeterminados del resto de la configuración.
+1. Cree un proyecto de **aplicación de consola (.Net Core)** y asígnele el nombre `QnaMakerQuickstart`. Acepte los valores predeterminados del resto de la configuración.
 
 ## <a name="add-required-dependencies"></a>Incorporación de las dependencias necesarias
 

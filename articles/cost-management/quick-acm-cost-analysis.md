@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 931732c047a5ffe22ad456a115c36d7c882d01bc
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 55407ec1846a0fe2eb037756dc2e97d8b05e7330
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769858"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57997305"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Guía de inicio rápido: Explore y analice los costos con Análisis de costos
 
@@ -51,7 +51,7 @@ Para más información acerca de cómo asignar acceso a los datos de Cost Manage
 
 ## <a name="review-costs-in-cost-analysis"></a>Revise los costos en análisis de costos
 
-Para examinar los costos con el análisis de costos, en Azure Portal, vaya a **Administración de costos + facturación**  &gt; **Análisis de costos**. Seleccione **Ámbito: _nombreDeÁmbito_**, elija un ámbito y haga clic en **Seleccionar**.
+Para revisar los costos en el análisis de costos, abra el ámbito deseado en Azure Portal y seleccione **Análisis de costos** en el menú. Por ejemplo, vaya a **Suscripciones**, seleccione una suscripción de la lista y **Análisis de costos**, en el menú. Use la píldora **Ámbito** para cambiar a un ámbito diferente en el análisis de costos. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
 El ámbito que seleccione se utiliza en todo Cost Management para proporcionar la consolidación de datos y controlar el acceso a la información de costos. Cuando use ámbitos, no realice una selección múltiple de ellos. En su lugar, seleccione un ámbito mayor al que otros se acumulan y luego filtre lo que desee. Es importante comprender esto porque algunas personas no deberían tener acceso a un ámbito principal al que se acumulan los ámbitos secundarios.
 

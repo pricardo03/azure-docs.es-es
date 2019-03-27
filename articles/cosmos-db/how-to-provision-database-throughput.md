@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 11/06/2018
 ms.author: mjbrown
-ms.openlocfilehash: 759adf95604e66209cf3ec5083246d16e952114a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: c0a947c9cf2c1d4a11d310b9bab0774a70534a1e
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884195"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259438"
 ---
 # <a name="provision-throughput-for-a-database-in-azure-cosmos-db"></a>Aprovisionamiento del rendimiento de una base de datos en Azure Cosmos DB
 
-En este artículo se explica cómo aprovisionar el rendimiento de una base de datos en Azure Cosmos DB. Puede aprovisionar el rendimiento de un único [contenedor](how-to-provision-container-throughput.md), o bien de una base de datos y compartir el rendimiento entre los contenedores que se incluyen en ella. Para aprovisionar el rendimiento en el nivel de base de datos, se puede usar Azure Portal o los SDK de Azure Cosmos DB.
+En este artículo se explica cómo aprovisionar el rendimiento de una base de datos en Azure Cosmos DB. Puede aprovisionar el rendimiento de un único [contenedor](how-to-provision-container-throughput.md), o bien de una base de datos y compartir el rendimiento entre los contenedores que se incluyen en ella. Para saber cuándo se debe usar el rendimiento de nivel de contenedor y de nivel de base de datos, consulte el artículo [Aprovisionamiento del rendimiento en contenedores y bases de datos](set-throughput.md). Para aprovisionar el rendimiento en el nivel de base de datos, se puede usar Azure Portal o los SDK de Azure Cosmos DB.
 
 ## <a name="provision-throughput-by-using-azure-portal"></a>Aprovisionamiento del rendimiento mediante Azure Portal
 
@@ -23,7 +23,7 @@ En este artículo se explica cómo aprovisionar el rendimiento de una base de da
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
-1. [Cree una nueva cuenta de Azure Cosmos DB](create-sql-api-dotnet.md#create-a-database-account) o seleccione una existente.
+1. [Cree una nueva cuenta de Azure Cosmos DB](create-sql-api-dotnet.md#create-account) o seleccione una existente.
 
 1. Abra el panel de **Data Explorer** y seleccione **Nueva base de datos**. Especifique los detalles siguientes:
 

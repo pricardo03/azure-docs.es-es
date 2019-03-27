@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 7ce66d3f6117a5e395920dc2232efb0e43f4cd18
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
+ms.openlocfilehash: 9dade2ccebfb96cd54bdb9c8ef70c14fdeadad76
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53106454"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225780"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer"></a>Guía de inicio rápido: Consulta de datos en Azure Data Explorer
 
@@ -37,9 +37,13 @@ Al abrir la aplicación por primera vez, no hay ninguna conexión.
 
 Debe agregar una conexión a al menos un clúster antes de poder empezar a ejecutar consultas. En esta sección, agrega conexiones al *clúster de ayuda* del Explorador de datos de Azure que hemos configurado para facilitar el aprendizaje y al clúster de prueba que creó en una guía de inicio rápido anterior.
 
-1. En la parte superior izquierda de la aplicación, seleccione **Agregar clúster**.
+1. En la parte superior izquierda de la aplicación, haga clic en **Agregar clúster**.
 
-1. En el cuadro de diálogo **Agregar clúster**, escriba `https://help.kusto.windows.net` y, a continuación, seleccione **Agregar**.
+1. En el cuadro de diálogo **Agregar clúster**, escriba el identificador URI y, a continuación, seleccione **Agregar**.
+
+   Puede usar el identificador URI del clúster de ayuda, `https://help.kusto.windows.net`. Si tiene su propio clúster, proporcione su URI. Por ejemplo, `https://mydataexplorercluster.westus.kusto.windows.net` tal como se muestra en la siguiente imagen:
+
+    ![Identificador URI de servidor en el portal](media/web-query-data/server-uri.png)
 
 1. En el panel izquierdo, debería ver ahora el clúster de **ayuda**. Expanda la base de datos de **ejemplo** para que pueda ver las tablas de ejemplo a las que tiene acceso.
 

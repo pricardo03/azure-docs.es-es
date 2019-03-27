@@ -7,19 +7,19 @@ author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 3788b28c-49aa-4208-9acd-630362008e89
-ms.service: Azure-Active-Directory
+ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 9dde23d0d860e5777239cb9c51e96a8d46e67841
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 8debca0b473807c3ef6d49dcd29d528b266a1e31
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983390"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "57900801"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mercer-benefitscentral-mbc"></a>Tutorial: Integración de Azure Active Directory con Mercer BenefitsCentral (MBC)
 
@@ -147,7 +147,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

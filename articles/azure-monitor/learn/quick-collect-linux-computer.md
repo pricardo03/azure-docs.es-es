@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 1292e3261173e3513e185c58732235ba8b6238f1
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
+ms.openlocfilehash: d3aaa6fb09a65c65bea6bb1ad9a305fe3a67bdbd
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53186351"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58078727"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Configuración del agente de Log Analytics para los equipos Linux en un entorno híbrido
 [Azure Log Analytics](../../azure-monitor/platform/agent-windows.md) puede recopilar datos directamente de los equipos Linux físicos o virtuales en un centro de datos o en otro entorno en la nube dentro de un único repositorio para llevar a cabo una correlación y un análisis detallados.  En esta guía de inicio rápido se muestra cómo configurar y recopilar datos de equipos Linux con unos pasos sencillos.  Para máquinas virtuales Linux de Azure, vea el tema [Recopilación de datos acerca de máquinas virtuales de Azure](quick-collect-azurevm.md).  
@@ -35,13 +35,13 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 1. En Azure Portal, haga clic en **Todos los servicios**. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics**.<br><br> ![Azure Portal](media/quick-collect-linux-computer/azure-portal-01.png)<br><br>  
 2. Haga clic en **Crear** y, a continuación, seleccione opciones para los elementos siguientes:
 
-  * Proporcione el nombre de la nueva **área de trabajo de Log Analytics** como, por ejemplo, *DefaultLAWorkspace*. Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics.   
-  * Seleccione una **suscripción** a la que vincularlo en la lista desplegable si la opción predeterminada seleccionada no es adecuada.
-  * Para **Grupo de recursos**, seleccione un grupo de recursos existente que contenga una o más máquinas virtuales de Azure.  
-  * Seleccione la **Ubicación** en que están implementadas las VM.  Para obtener más información, consulte en qué [regiones está disponible Log Analytics](https://azure.microsoft.com/regions/services/).  
-  * Si va a crear un área de trabajo en una nueva suscripción creada después del 2 de abril de 2018, esta utilizará automáticamente el plan de precios *Por GB* y la opción para seleccionar un plan de tarifas no estará disponible.  Si va a crear un área de trabajo para una suscripción existente creada antes del 2 de abril o para una suscripción asociada a una inscripción de EA existente, seleccione el plan de tarifa que prefiera.  Para obtener más información sobre planes concretos, consulte los [detalles de precios de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
+   * Proporcione el nombre de la nueva **área de trabajo de Log Analytics** como, por ejemplo, *DefaultLAWorkspace*. Las áreas de trabajo de OMS ahora se conocen como áreas de trabajo de Log Analytics.   
+   * Seleccione una **suscripción** a la que vincularlo en la lista desplegable si la opción predeterminada seleccionada no es adecuada.
+   * Para **Grupo de recursos**, seleccione un grupo de recursos existente que contenga una o más máquinas virtuales de Azure.  
+   * Seleccione la **Ubicación** en que están implementadas las VM.  Para obtener más información, consulte en qué [regiones está disponible Log Analytics](https://azure.microsoft.com/regions/services/).  
+   * Si va a crear un área de trabajo en una nueva suscripción creada después del 2 de abril de 2018, esta utilizará automáticamente el plan de precios *Por GB* y la opción para seleccionar un plan de tarifas no estará disponible.  Si va a crear un área de trabajo para una suscripción existente creada antes del 2 de abril o para una suscripción asociada a una inscripción de EA existente, seleccione el plan de tarifa que prefiera.  Para obtener más información sobre planes concretos, consulte los [detalles de precios de Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/).
 
-        ![Create Log Analytics resource blade](media/quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
+        ![Creación de una hoja de recursos de Log Analytics](media/quick-collect-linux-computer/create-loganalytics-workspace-02.png)<br>  
 
 3. Después de proporcionar la información necesaria en el panel **Área de trabajo de Log Analytics**, haga clic en **Aceptar**.  
 

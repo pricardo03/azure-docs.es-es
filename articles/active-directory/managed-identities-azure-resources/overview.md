@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: priyamo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dc56384d550854c05a813157b32ac36f5ebfb76
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: df2c4e447ff41e56c4d8b9862282b6fcb452a8c9
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56211927"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58224301"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>¿Qué es Managed Identities for Azure Resources?
 
@@ -64,13 +64,12 @@ En el diagrama siguiente se muestra cómo funcionan las identidades de servicio 
     1. Actualiza el punto de conexión de la identidad de Azure Instance Metadata Service con el identificador de cliente de la entidad de servicio y el certificado.
     1. Aprovisiona la extensión de máquina virtual (plan de desuso previsto para enero de 2019), y agrega el identificador de cliente de la entidad de servicio y el certificado. (Está previsto que este paso se ponga en desuso).
 4. Ahora que la máquina virtual tiene una identidad, se usa la información de la entidad de servicio para conceder a la máquina virtual acceso a los recursos de Azure. Para llamar a Azure Resource Manager, use el control de acceso basado en rol (RBAC) de Azure AD para asignar el rol apropiado a la entidad de servicio de la máquina virtual. Para llamar a Key Vault, conceda a su código acceso al secreto o a la clave específicos en Key Vault.
-5. El código que se ejecuta en la máquina virtual puede solicitar un token en dos puntos de conexión que solo son accesibles desde la máquina virtual:
+5. El código que se ejecuta en la máquina virtual puede solicitar un token del punto de conexión de Azure Instance Metadata Service, accesible únicamente desde dentro de la máquina virtual: `http://169.254.169.254/metadata/identity/oauth2/token`
+    - El parámetro del recurso especifica el servicio al que se va a enviar el token. Para autenticarse en Azure Resource Manager, use `resource=https://management.azure.com/`.
+    - El parámetro de versión de API especifica la versión de IMDS, use api-version=2018-02-01 o posterior.
 
-    - Punto de conexión de la identidad de Azure Instance Metadata Service (recomendado): `http://169.254.169.254/metadata/identity/oauth2/token`
-        - El parámetro del recurso especifica el servicio al que se va a enviar el token. Para autenticarse en Azure Resource Manager, use `resource=https://management.azure.com/`.
-        - El parámetro de versión de API especifica la versión de IMDS, use api-version=2018-02-01 o posterior.
-    - Punto de conexión de la extensión de máquina virtual (plan de desuso previsto para enero de 2019): `http://localhost:50342/oauth2/token` 
-        - El parámetro del recurso especifica el servicio al que se va a enviar el token. Para autenticarse en Azure Resource Manager, use `resource=https://management.azure.com/`.
+> [!NOTE]
+> El código también puede solicitar un token del punto de conexión de extensión de máquina virtual, pero está previsto que pronto esté en desuso. Para más información sobre la extensión de máquina virtual, consulte [Migración de la extensión de máquina virtual a IMDS de Azure para la autenticación](howto-migrate-vm-extension.md).
 
 6. Se realiza una llamada a Azure AD para solicitar un token de acceso, tal y como se especifica en el paso 5, con el identificador de cliente y el certificado configurado en el paso 3. Azure AD devuelve un token de acceso JSON Web Token (JWT).
 7. El código envía el token de acceso en una llamada a un servicio que admite la autenticación de Azure AD.
@@ -87,16 +86,14 @@ En el diagrama siguiente se muestra cómo funcionan las identidades de servicio 
    > [!Note]
    > También puede realizar este paso antes del paso 3.
 
-5. El código que se ejecuta en la máquina virtual puede solicitar un token en dos puntos de conexión que solo son accesibles desde la máquina virtual:
+5. El código que se ejecuta en la máquina virtual puede solicitar un token del punto de conexión de identidad de Azure Instance Metadata Service, accesible únicamente desde dentro de la máquina virtual: `http://169.254.169.254/metadata/identity/oauth2/token`.
+    - El parámetro del recurso especifica el servicio al que se va a enviar el token. Para autenticarse en Azure Resource Manager, use `resource=https://management.azure.com/`.
+    - El parámetro de identificador de cliente especifica la identidad para la que se solicita el token. Este valor es necesario para eliminar la ambigüedad cuando hay varias identidades asignadas por el usuario en la misma máquina virtual.
+    - El parámetro de versión de API especifica la versión de Azure Instance Metadata Service. Use `api-version=2018-02-01` o superior.
 
-    - Punto de conexión de la identidad de Azure Instance Metadata Service (recomendado): `http://169.254.169.254/metadata/identity/oauth2/token`
-        - El parámetro del recurso especifica el servicio al que se va a enviar el token. Para autenticarse en Azure Resource Manager, use `resource=https://management.azure.com/`.
-        - El parámetro de identificador de cliente especifica la identidad para la que se solicita el token. Este valor es necesario para eliminar la ambigüedad cuando hay varias identidades asignadas por el usuario en la misma máquina virtual.
-        - El parámetro de versión de API especifica la versión de Azure Instance Metadata Service. Use `api-version=2018-02-01` o superior.
+> [!NOTE]
+> El código también puede solicitar un token del punto de conexión de extensión de máquina virtual, pero está previsto que pronto esté en desuso. Para más información sobre la extensión de máquina virtual, consulte [Migración de la extensión de máquina virtual a IMDS de Azure para la autenticación](howto-migrate-vm-extension.md).
 
-    - Punto de conexión de la extensión de máquina virtual (plan de desuso previsto para enero de 2019): `http://localhost:50342/oauth2/token`
-        - El parámetro del recurso especifica el servicio al que se va a enviar el token. Para autenticarse en Azure Resource Manager, use `resource=https://management.azure.com/`.
-        - El parámetro de identificador de cliente especifica la identidad para la que se solicita el token. Este valor es necesario para eliminar la ambigüedad cuando hay varias identidades asignadas por el usuario en la misma máquina virtual.
 6. Se realiza una llamada a Azure AD para solicitar un token de acceso, tal y como se especifica en el paso 5, con el identificador de cliente y el certificado configurado en el paso 3. Azure AD devuelve un token de acceso JSON Web Token (JWT).
 7. El código envía el token de acceso en una llamada a un servicio que admite la autenticación de Azure AD.
 

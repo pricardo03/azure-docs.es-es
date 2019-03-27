@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial para llamar a Cognitive Search API: Azure Search'
+title: 'Tutorial para llamar a Cognitive Services APIs en una canalización de indexación: Azure Search'
 description: En este tutorial se analiza un ejemplo de procesamiento de IA de imágenes, extracción de datos y lenguaje natural en la indexación de Azure Search para la extracción y transformación de datos.
 manager: pablocas
 author: luiscabrer
@@ -7,19 +7,19 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 07/11/2018
+ms.date: 03/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: a4481e1bbc6248a9616fa7b3fe1d67c7d90af56e
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.openlocfilehash: c888c134054f50bc8ab17d17524a4f89d5081dfc
+ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56429424"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58259625"
 ---
-# <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutorial: Procedimiento para llamar a Cognitive Search API (versión preliminar)
+# <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Tutorial: Llamada a Cognitive Services APIs en una canalización de indexación de Azure Search (versión preliminar)
 
-En este tutorial, aprenderá la mecánica para programar el enriquecimiento de datos en Azure Search mediante *aptitudes cognitivas*. Las aptitudes cognitivas son operaciones de procesamiento del lenguaje natural (NLP) y de análisis de imágenes que extraen texto y representaciones de texto de una imagen, detectan el idioma, las entidades, las frases clave, etc. El resultado final es contenido adicional abundante en un índice de Azure Search, creado por una canalización de indexación de Cognitive Search. 
+En este tutorial, aprenderá la mecánica para programar el enriquecimiento de datos en Azure Search mediante *aptitudes cognitivas*. Las aptitudes tienen el respaldo de las funcionalidades del procesamiento de lenguaje natural (NLP) y del análisis de imágenes de Cognitive Services. A través de la composición y configuración del conjunto de aptitudes puede extraer texto y representaciones de texto de un archivo con una imagen o con un documento digitalizado. También puede detectar el idioma, las entidades, las frases clave, etc. El resultado final es un contenido adicional abundante en un índice de Azure Search, creado por una canalización de indexación alimentado por inteligencia artificial. 
 
 En este tutorial, se realizan llamadas a la API de REST para llevar a cabo las siguientes tareas:
 
@@ -55,27 +55,27 @@ En primer lugar, regístrese en el servicio Azure Search.
 
 1. Haga clic en **Crear un recurso**, busque Azure Search y haga clic en **Crear**. Consulte [Creación de un servicio Azure Search en el portal](search-create-service-portal.md) si está configurando un servicio de búsqueda por primera vez.
 
-  ![Panel del portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Creación de un servicio Azure Search en el portal")
+   ![Panel del portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Creación de un servicio Azure Search en el portal")
 
 1. En Grupo de recursos, cree un grupo de recursos en el que se incluirán todos los recursos que cree en este tutorial. De este modo, será más fácil limpiar los recursos tras finalizar el tutorial.
 
-1. En Ubicación, elija una de las [regiones admitidas](https://docs.microsoft.com/azure/search/cognitive-search-quickstart-blob#supported-regions) para Cognitive Search.
+1. En Ubicación, elija una región cercana a los datos y a otras aplicaciones en la nube.
 
 1. En la opción Plan de tarifa, puede crear un servicio **Gratis** para completar tutoriales y guías de inicio rápido. Si quiere realizar una investigación detallada con sus propios datos, cree un [servicio de pago](https://azure.microsoft.com/pricing/details/search/) como **Básico** o **Estándar**. 
 
-  El servicio gratuito se limita a 3 índices, un tamaño máximo de blob de 16 MB y 2 minutos de indexación, lo que es insuficiente para usar todas las funcionalidades de Cognitive Search. Para revisar los límites de los distintos planes, consulte [Límites de servicio](search-limits-quotas-capacity.md).
+   El servicio gratuito se limita a 3 índices, un tamaño máximo de blob de 16 MB y 2 minutos de indexación, lo que es insuficiente para usar todas las funcionalidades de Cognitive Search. Para revisar los límites de los distintos planes, consulte [Límites de servicio](search-limits-quotas-capacity.md).
 
-  ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "Página de definición del servicio en el portal")
-  ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Página de definición del servicio en el portal")
+   ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "Página de definición del servicio en el portal")
+   ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Página de definición del servicio en el portal")
 
  
 1. Ancle el servicio al panel para acceder rápidamente a la información del servicio.
 
-  ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Página de definición del servicio en el portal")
+   ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Página de definición del servicio en el portal")
 
 1. Una vez creado el servicio, recopile la información siguiente: La **dirección URL** de la página de información general y **api-key** (ya sea principal o secundaria) de la página Claves.
 
-  ![Información del punto de conexión y la clave en el portal](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "Información del punto de conexión y la clave en el portal")
+   ![Información del punto de conexión y la clave en el portal](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "Información del punto de conexión y la clave en el portal")
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configuración del servicio Blob de Azure y carga de datos de ejemplo
 
@@ -89,7 +89,7 @@ La canalización de enriquecimiento extrae los orígenes de datos de Azure. Los 
 
 1. Una vez cargados los archivos de ejemplo, obtenga el nombre del contenedor y una cadena de conexión de Blob Storage. Para hacerlo puede navegar a la cuenta de almacenamiento en Azure Portal. Vaya a **Claves de acceso** y copie el valor del campo **Cadena de conexión**.
 
-  La cadena de conexión debe ser una URL similar a la del ejemplo siguiente:
+   La cadena de conexión debe ser una URL similar a la del ejemplo siguiente:
 
       ```http
       DefaultEndpointsProtocol=https;AccountName=cogsrchdemostorage;AccountKey=<your account key>;EndpointSuffix=core.windows.net
@@ -106,21 +106,21 @@ Para este tutorial, use la API de REST y una herramienta que pueda formular y en
 ### <a name="sample-request"></a>Solicitud de ejemplo
 ```http
 POST https://[service name].search.windows.net/datasources?api-version=2017-11-11-Preview
-Content-Type: application/json  
-api-key: [admin key]  
+Content-Type: application/json
+api-key: [admin key]
 ```
 #### <a name="request-body-syntax"></a>Sintaxis del cuerpo de la solicitud
 ```json
-{   
-    "name" : "demodata",  
-    "description" : "Demo files to demonstrate cognitive search capabilities.",  
-    "type" : "azureblob",
-    "credentials" :
-    { "connectionString" :
-      "DefaultEndpointsProtocol=https;AccountName=<your account name>;AccountKey=<your account key>;"
-    },  
-    "container" : { "name" : "<your blob container name>" }
-}  
+{
+  "name" : "demodata",
+  "description" : "Demo files to demonstrate cognitive search capabilities.",
+  "type" : "azureblob",
+  "credentials" :
+  { "connectionString" :
+    "DefaultEndpointsProtocol=https;AccountName=<your account name>;AccountKey=<your account key>;"
+  },
+  "container" : { "name" : "<your blob container name>" }
+}
 ```
 Envíe la solicitud. La herramienta de prueba web debe devolver un código de estado 201 que confirme el éxito de la operación. 
 
@@ -158,7 +158,7 @@ Content-Type: application/json
 #### <a name="request-body-syntax"></a>Sintaxis del cuerpo de la solicitud
 ```json
 {
-  "description": 
+  "description":
   "Extract entities, detect language and extract key-phrases",
   "skills":
   [
@@ -193,26 +193,26 @@ Content-Type: application/json
     },
     {
       "@odata.type": "#Microsoft.Skills.Text.SplitSkill",
-      "textSplitMode" : "pages", 
+      "textSplitMode" : "pages",
       "maximumPageLength": 4000,
       "inputs": [
-      {
-        "name": "text",
-        "source": "/document/content"
-      },
-      { 
-        "name": "languageCode",
-        "source": "/document/languageCode"
-      }
-    ],
-    "outputs": [
-      {
-            "name": "textItems",
-            "targetName": "pages"
-      }
-    ]
-  },
-  {
+        {
+          "name": "text",
+          "source": "/document/content"
+        },
+        {
+          "name": "languageCode",
+          "source": "/document/languageCode"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "textItems",
+          "targetName": "pages"
+        }
+      ]
+    },
+    {
       "@odata.type": "#Microsoft.Skills.Text.KeyPhraseExtractionSkill",
       "context": "/document/pages/*",
       "inputs": [
@@ -256,7 +256,7 @@ En esta sección, se define el esquema de índice. Para ello, se especifican los
 
 En este ejercicio se utilizan los siguientes campos y tipos de campos:
 
-| field-names: | id       | contenido   | languageCode | keyPhrases         | organizations     |
+| field-names: | `id`       | contenido   | languageCode | keyPhrases         | organizations     |
 |--------------|----------|-------|----------|--------------------|-------------------|
 | field-types: | Edm.String|Edm.String| Edm.String| List<Edm.String>  | List<Edm.String>  |
 
@@ -351,41 +351,41 @@ Content-Type: application/json
   "targetIndexName" : "demoindex",
   "skillsetName" : "demoskillset",
   "fieldMappings" : [
-        {
-          "sourceFieldName" : "metadata_storage_path",
-          "targetFieldName" : "id",
-          "mappingFunction" : 
-            { "name" : "base64Encode" }
-        },
-        {
-          "sourceFieldName" : "content",
-          "targetFieldName" : "content"
-        }
-   ],
-  "outputFieldMappings" : 
+    {
+      "sourceFieldName" : "metadata_storage_path",
+      "targetFieldName" : "id",
+      "mappingFunction" :
+        { "name" : "base64Encode" }
+    },
+    {
+      "sourceFieldName" : "content",
+      "targetFieldName" : "content"
+    }
+  ],
+  "outputFieldMappings" :
   [
-        {
-          "sourceFieldName" : "/document/organizations", 
-          "targetFieldName" : "organizations"
-        },
-        {
-          "sourceFieldName" : "/document/pages/*/keyPhrases/*", 
-          "targetFieldName" : "keyPhrases"
-        },
-        {
-            "sourceFieldName": "/document/languageCode",
-            "targetFieldName": "languageCode"
-        }      
+    {
+      "sourceFieldName" : "/document/organizations",
+      "targetFieldName" : "organizations"
+    },
+    {
+      "sourceFieldName" : "/document/pages/*/keyPhrases/*",
+      "targetFieldName" : "keyPhrases"
+    },
+    {
+      "sourceFieldName": "/document/languageCode",
+      "targetFieldName": "languageCode"
+    }
   ],
   "parameters":
   {
     "maxFailedItems":-1,
     "maxFailedItemsPerBatch":-1,
-    "configuration": 
+    "configuration":
     {
-        "dataToExtract": "contentAndMetadata",
-        "imageAction": "generateNormalizedImages"
-        }
+      "dataToExtract": "contentAndMetadata",
+      "imageAction": "generateNormalizedImages"
+    }
   }
 }
 ```
@@ -443,7 +443,7 @@ Content-Type: application/json
 
 Repita el proceso para otros campos: contenido, idioma, frases clave y organizaciones del ejercicio. Puede devolver varios campos a través de `$select` con una lista delimitada por comas.
 
-Puede usar GET o POST, según la longitud y la complejidad de la cadena de consulta. Para más información, consulte la [Realización de una consulta al índice de Azure Search con la API de REST](https://docs.microsoft.com/azure/search/search-query-rest-api).
+Puede usar GET o POST, según la longitud y la complejidad de la cadena de consulta. Para más información, consulte la [Realización de una consulta al índice de Azure Search con la API de REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 
 <a name="access-enriched-document"></a>
 

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 01/24/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8585557672c7db15e07be6a5e663ba1811e07694
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 4b47b0c5af98198d829c4658877acae2edff5455
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961319"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58001186"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>¿Qué es la aplicación Microsoft Authenticator?
 
@@ -28,18 +28,21 @@ La aplicación Microsoft Authenticator le ayuda a iniciar sesión en sus cuentas
 
 Puede usar la aplicación Microsoft Authenticator de varias formas, por ejemplo:
 
-- Para proporcionar un aviso de un segundo método de comprobación después de iniciar sesión con su nombre de usuario y contraseña.
+- Responda a una solicitud de autenticación después de iniciar sesión con el nombre de usuario y la contraseña.
 
-- Para proporcionar inicio de sesión sin necesidad de una contraseña, mediante su nombre de usuario y su dispositivo móvil con su huella digital, cara o PIN.
+- Inicie sesión sin escribir contraseña, con su nombre de usuario, la aplicación de autenticación y el dispositivo móvil con su huella digital, cara o PIN.
 
->[!Important]
->La aplicación Microsoft Authenticator funciona con cualquier aplicación que utilice la verificación de dos fases y con cualquier cuenta que admita los estándares de contraseña de un solo uso y duración definida (TOTP).
+- Como generador de código de cualquier otra cuenta que admite aplicaciones de autenticación.
 
->Su organización puede exigirle que use una aplicación autenticadora para iniciar sesión y acceder a sus datos y documentos. Aunque su nombre de usuario puede aparecer en la aplicación, la cuenta no estará configurada para actuar como un método de comprobación hasta que se complete el proceso de registro. Para más información, consulte [Adición de una cuenta profesional o educativa](user-help-auth-app-overview.md).
-
->Si tiene problemas para iniciar sesión en su cuenta, puede encontrar ayuda en [Cuando no consigues iniciar sesión en tu cuenta de Microsoft](https://support.microsoft.com/help/12429). Obtenga más información acerca de lo que debe hacer cuando recibe el mensaje ["Esa cuenta de Microsoft no existe"](https://support.microsoft.com/help/13811) al intentar iniciar sesión en su cuenta Microsoft.
+> [!Important]
+> La aplicación Microsoft Authenticator funciona con cualquier cuenta que use la comprobación en dos fases y admita los estándares de contraseña de un solo uso y duración definida (TOTP).
+> 
+> Su organización puede exigirle que use una aplicación autenticadora para iniciar sesión y acceder a sus datos y documentos. Aunque su nombre de usuario puede aparecer en la aplicación, la cuenta no estará configurada para actuar como un método de comprobación hasta que se complete el proceso de registro. Para más información, consulte [Adición de una cuenta profesional o educativa](user-help-auth-app-add-work-school-account.md).
+> 
+> Si tiene problemas para iniciar sesión en su cuenta, puede encontrar ayuda en [Cuando no consigues iniciar sesión en tu cuenta de Microsoft](https://support.microsoft.com/help/12429). Obtenga más información acerca de lo que debe hacer cuando recibe el mensaje ["Esa cuenta de Microsoft no existe"](https://support.microsoft.com/help/13811) al intentar iniciar sesión en su cuenta Microsoft.
 
 ## <a name="terminology"></a>Terminología
+
 |Término|DESCRIPCIÓN|
 |----|-----------|
 |Comprobación en dos fases |Un proceso de comprobación que requiere que se usen específicamente únicamente dos factores de comprobación, como por ejemplo una contraseña y un PIN. La aplicación Microsoft Authenticator admite tanto la comprobación en dos fases estándar como el inicio de sesión sin contraseña.|

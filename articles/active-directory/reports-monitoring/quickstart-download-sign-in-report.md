@@ -17,16 +17,16 @@ ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eeb5a06aa4eb21ba374344623f9f96ce92a59ff5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 39f3f0954a271f3abd30e99e306ebfc940e20a7f
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168824"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57547816"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Inicio rápido: Descarga de un informe de inicio de sesión mediante Azure Portal
 
-En esta guía de inicio rápido, obtendrá información sobre cómo descargar los datos de inicio de sesión para el inquilino durante las 24 últimas horas. Puede descargar hasta 5000 registros de Azure Portal. Los registros se ordenan a partir de los más recientes, así que, de forma predeterminada, se obtienen los últimos 5000 registros. 
+En esta guía de inicio rápido, obtendrá información sobre cómo descargar los datos de inicio de sesión para el inquilino durante las 24 últimas horas. Puede descargar hasta 250 000 registros de Azure Portal. Los registros se ordenan a partir de los más recientes, así que, de forma predeterminada, se obtienen los 250 000 últimos registros. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -41,7 +41,7 @@ Necesita:
 2. Seleccione **Azure Active Directory** desde el panel de navegación izquierdo y use el botón **Cambiar directorio** para seleccionar su directorio activo.
 3. En el panel, seleccione **Azure Active Directory** y luego **Inicios de sesión**. 
 4. Elija **Últimas 24 horas** en el menú desplegable de filtro **Fecha** y seleccione **Aplicar** para ver los inicios de sesión de las 24 últimas horas. 
-5. Seleccione el botón **Descargar** para descargar un archivo CSV que contiene los registros filtrados. 
+5. Seleccione el botón **Descargar**, elija **CSV** como el formato de archivo y especifique un nombre de archivo para descargar un archivo CSV que contiene los registros filtrados. 
 
 ![Informes](./media/quickstart-download-sign-in-report/download-sign-ins.png)
 

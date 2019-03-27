@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/26/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7916995d2630e9b33e3695c5c505925851ba4934
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: fba54fa1d2ca6675b41728b460a07515b05758f8
+ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092802"
+ms.lasthandoff: 03/07/2019
+ms.locfileid: "57531596"
 ---
 # <a name="tutorial-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Tutorial: Supervisión y actualización de una máquina virtual Linux en Azure
 
@@ -177,7 +177,7 @@ Para llevar a cabo alguna acción adicional en máquinas virtuales que requieran
 
 El proceso de validación también comprueba si la máquina virtual se aprovisiona con un agente de Log Analytics y un trabajo de runbook híbrido de Automation. Este agente se usa para comunicarse con la máquina virtual y obtener información sobre el estado de actualización.
 
-Para habilitar la solución, elija el área de trabajo de Log Analytics y la cuenta de Automation, y seleccione **Habilitar**. La solución tarda hasta 15 minutos en habilitarse.
+Para habilitar la solución, elija el área de trabajo de Log Analytics y la cuenta de Automation y, después, seleccione **Habilitar**. La solución tarda hasta 15 minutos en habilitarse.
 
 Si se detecta que falta alguno de los siguientes requisitos previos durante la incorporación, estos se agregarán automáticamente:
 
@@ -189,7 +189,7 @@ Se abre la pantalla **Update Management**. Configure la ubicación, el área de 
 
 ![Habilitar la solución Update Management](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
-La habilitación de la solución puede tardar hasta 15 minutos. Durante este tiempo, no debería cerrar la ventana del explorador. Después de habilitar la solución, la información sobre las actualizaciones que faltan en la máquina virtual se pasa a Log Analytics. Los datos pueden tardar entre 30 minutos y 6 horas en estar disponibles para el análisis.
+La habilitación de la solución puede tardar hasta 15 minutos. Durante este tiempo, no debería cerrar la ventana del explorador. Después de habilitar la solución, la información sobre las actualizaciones que faltan en la máquina virtual se pasa a los registros de Azure Monitor. Los datos pueden tardar entre 30 minutos y 6 horas en estar disponibles para el análisis.
 
 ### <a name="view-update-assessment"></a>Ver evaluación de la actualización
 
@@ -294,7 +294,7 @@ Puede realizar una supervisión más avanzada de la máquina virtual con una sol
 
 Desde el área de trabajo de Log Analytics a la que la máquina virtual está conectada, también puede recuperar, consolidar y analizar los datos recopilados con el [lenguaje de consulta enriquecido](../../azure-monitor/log-query/log-query-overview.md). 
 
-![Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Área de trabajo de Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

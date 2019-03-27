@@ -5,14 +5,14 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: quickstart
-ms.date: 12/4/2018
+ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 839c97ccccbc1ce2cf646afcd27894a190eda1b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.openlocfilehash: 75ac8a45eb49ac5c4ec3b39667542f4f454a9954
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56000902"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58110331"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-powershell"></a>Inicio rápido: Creación de una zona y un registro de Azure DNS mediante Azure PowerShell
 
@@ -38,18 +38,18 @@ New-AzResourceGroup -name MyResourceGroup -location "eastus"
 
 ## <a name="create-a-dns-zone"></a>Creación de una zona DNS
 
-Una zona DNS se crea mediante el cmdlet `New-AzDnsZone` . En el ejemplo siguiente, se crea una zona DNS llamada *contoso.com* en el grupo de recursos *MyResourceGroup*. Utilice el ejemplo para crear una zona DNS, sustituyendo los valores por los suyos.
+Una zona DNS se crea mediante el cmdlet `New-AzDnsZone` . En el ejemplo siguiente, se crea una zona DNS llamada *contoso.xyz* en el grupo de recursos *MyResourceGroup*. Utilice el ejemplo para crear una zona DNS, sustituyendo los valores por los suyos.
 
 ```powershell
-New-AzDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
+New-AzDnsZone -Name contoso.xyz -ResourceGroupName MyResourceGroup
 ```
 
 ## <a name="create-a-dns-record"></a>Creación de un registro de DNS
 
-Los conjuntos de registros se crean mediante el cmdlet `New-AzDnsRecordSet`. En el ejemplo siguiente se crea un conjunto de registros con el nombre relativo "www" en la zona DNS "contoso.com" del grupo de recursos "MyResourceGroup". El nombre completo del conjunto de registros es "www.contoso.com". El tipo de registro es "A", con la dirección IP 1.2.3.4 y el valor de TTL es de 3600 segundos.
+Los conjuntos de registros se crean mediante el cmdlet `New-AzDnsRecordSet`. En el ejemplo siguiente se crea un registro con el nombre relativo "www" en la zona DNS "contoso.xyz" del grupo de recursos "MyResourceGroup". El nombre completo del conjunto de registros es "www.contoso.xyz". El tipo de registro es "A", con la dirección IP 10.10.10.10 y el valor de TTL es de 3600 segundos.
 
 ```powershell
-New-AzDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address "1.2.3.4")
+New-AzDnsRecordSet -Name www -RecordType A -ZoneName contoso.xyz -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzDnsRecordConfig -IPv4Address "10.10.10.10")
 ```
 
 ## <a name="view-records"></a>Visualización de los registros
@@ -57,28 +57,40 @@ New-AzDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupN
 Para enumerar los registros DNS de su zona, use lo siguiente:
 
 ```powershell
-Get-AzDnsRecordSet -ZoneName contoso.com -ResourceGroupName MyResourceGroup
+Get-AzDnsRecordSet -ZoneName contoso.xyz -ResourceGroupName MyResourceGroup
 ```
 
-## <a name="update-name-servers"></a>Actualización de los servidores de nombres
+## <a name="test-the-name-resolution"></a>Probar la resolución de nombres
 
-Una vez haya comprobado que la zona y los registros DNS se han configurado correctamente, tiene que configurar el nombre de dominio para usar los servidores de nombres DNS de Azure. De esta forma, otros usuarios en Internet podrán encontrar los registros DNS.
+Ahora que tiene una zona DNS de prueba, con un registro "A" de prueba, puede probar la resolución de nombres con una herramienta llamada *nslookup*. 
 
-Los servidores de nombres de su zona se proporcionan con el cmdlet `Get-AzDnsZone`:
+**Para probar la resolución de nombres DNS:**
 
-```powershell
-Get-AzDnsZone -Name contoso.com -ResourceGroupName MyResourceGroup
+1. Ejecute el siguiente cmdlet para obtener la lista de servidores de nombres para la zona:
 
-Name                  : contoso.com
-ResourceGroupName     : myresourcegroup
-Etag                  : 00000003-0000-0000-b40d-0996b97ed101
-Tags                  : {}
-NameServers           : {ns1-01.azure-dns.com., ns2-01.azure-dns.net., ns3-01.azure-dns.org., ns4-01.azure-dns.info.}
-NumberOfRecordSets    : 3
-MaxNumberOfRecordSets : 5000
-```
+   ```azurepowershell
+   Get-AzDnsRecordSet -ZoneName contoso.xyz -ResourceGroupName MyResourceGroup -RecordType ns
+   ```
 
-Estos servidores de nombres deben configurarse con el registrador de nombres de dominio (donde adquirió el nombre de dominio). El registrador ofrece la opción de configurar los servidores de nombres para el dominio. Para más información, vea [Tutorial: Hospedaje del dominio en Azure DNS](dns-delegate-domain-azure-dns.md#delegate-the-domain).
+1. Copie uno de los nombres de servidor de la salida del paso anterior.
+
+1. Abra un símbolo del sistema y ejecute el comando siguiente:
+
+   ```
+   nslookup www.contoso.xyz <name server name>
+   ```
+
+   Por ejemplo: 
+
+   ```
+   nslookup www.contoso.xyz ns1-08.azure-dns.com.
+   ```
+
+   Debe ver algo parecido a la pantalla siguiente:
+
+   ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
+
+El nombre de host **www\.contoso.xyz** se resuelve en **10.10.10.10**, que es como lo ha configurado. Este resultado confirma que la resolución de nombres funciona correctamente.
 
 ## <a name="delete-all-resources"></a>Eliminación de todos los recursos
 

@@ -99,12 +99,16 @@ items:
         href: map-accessibility.md
     - name: Módulo de servicios
       items:
+      - name: Uso del módulo de servicios
+        href: how-to-use-services-module.md
       - name: Presentación de los resultados de la búsqueda
         href: map-search-location.md
       - name: Obtención de información de una coordenada
         href: map-get-information-from-coordinate.md
       - name: Presentación de indicaciones de ruta de A a B
         href: map-route.md
+    - name: Exploradores compatibles
+      href: supported-browsers.md
   - name: Desarrollo con Android SDK
     items:
     - name: Uso del control de mapa de Android
@@ -193,15 +197,15 @@ items:
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
     - name: Time Series Insights
       href: /azure/time-series-insights
-  - name: perimetral
+  - name: IoT Edge
     items:
     - name: IoT Edge
       href: /azure/iot-edge
     - name: SDK de dispositivo IoT
       href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
-ms.openlocfilehash: 2753badd048840eb518fbcfaa97cde6f185688bc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7cb06543874f24a6d339e4e0ce402c838b572f9a
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58014611"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500124"

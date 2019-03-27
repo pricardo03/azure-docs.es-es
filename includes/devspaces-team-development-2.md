@@ -10,12 +10,12 @@ ms.author: stevenry
 ms.date: 12/17/2018
 ms.topic: include
 manager: yuvalm
-ms.openlocfilehash: 7dddf7e48913aea9d84e0f8b66c2c9d29449ee6f
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 5d66dcaccc6ca2e40fbd516f535ec56c1baf6b17
+ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825631"
+ms.lasthandoff: 03/01/2019
+ms.locfileid: "57195619"
 ---
 ### <a name="run-the-service"></a>Ejecución del servicio
 
@@ -81,7 +81,7 @@ Una vez que tenga un espacio _dev_ que contenga siempre los cambios más recient
 > * Desarrollar y probar de forma productiva el código en un entorno de equipo.
 > * Establecer una base de referencia de la funcionalidad con el uso de Dev Spaces para probar fácilmente los cambios aislados dentro del contexto de una aplicación de microservicio más grande
 
-Ahora que ha explorado Azure Dev Spaces, [comparta su espacio de desarrollo con un miembro del equipo](../articles/dev-spaces/how-to/share-dev-spaces.md) y ayúdele a ver lo fácil que es colaborar con otros.
+Ahora que ha explorado Azure Dev Spaces, [comparta su espacio de desarrollo con un miembro del equipo](../articles/dev-spaces/how-to/share-dev-spaces.md) y comience a colaborar.
 
 ## <a name="clean-up"></a>Limpieza
 Para eliminar completamente una instancia de Azure Dev Spaces en un clúster, incluidos todos los espacios de desarrollo y los servicios en ejecución dentro de él, utilice el comando `az aks remove-dev-spaces`. Tenga en cuenta que esta acción es irreversible. Puede agregar compatibilidad para Azure Dev Spaces de nuevo en el clúster, pero será como si comienza de nuevo. No se restaurarán los servicios y espacios anteriores.

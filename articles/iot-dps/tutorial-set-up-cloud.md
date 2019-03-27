@@ -1,20 +1,20 @@
 ---
 title: Configuración de la nube del servicio Azure IoT Hub Device Provisioning en el portal | Microsoft Docs
 description: Aprovisionamiento automático de dispositivos de IoT Hub en Azure Portal
-author: sethmanheim
-ms.author: sethm
+author: wesmc7777
+ms.author: wesmc
 ms.date: 09/05/2017
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 971b00f54d59782d5aa7ca752fc06e490d372760
-ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
+ms.openlocfilehash: 8f06d3f033a2bf5907dc2ee324359bef0eb247d0
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/10/2018
-ms.locfileid: "51514849"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58170741"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Configurar los recursos de la nube para el aprovisionamiento de dispositivos con el servicio IoT Hub Device Provisioning
 
@@ -81,23 +81,23 @@ El paso siguiente es vincular el servicio Device Provisioning a una instancia de
 
 4. En la página **Agregar un vínculo a IoT Hub**, proporcione la información siguiente y haga clic en **Guardar**:
 
-    * **Suscripción:** asegúrese de que está seleccionada la suscripción que contiene el centro de IoT. Puede vincular a un centro de IoT que resida en una suscripción diferente.
+    * **Subscription** (Suscripción): Asegúrese de que está seleccionada la suscripción que contiene el centro de IoT. Puede vincular a un centro de IoT que resida en una suscripción diferente.
 
-    * **Centro de IoT:** elija el nombre del centro de IoT que desea vincular con esta instancia de Device Provisioning Service.
+    * **Centro de IoT:** elija el nombre del centro de IoT que quiere vincular con esta instancia de Device Provisioning Service.
 
-    * **Directiva de acceso:** seleccione **iothubowner** como las credenciales para establecer el vínculo con el centro de IoT.
+    * **Directiva de acceso:** seleccione **iothubowner** como credenciales para establecer el vínculo con el centro de IoT.
 
    ![Vínculo del nombre del centro al servicio de aprovisionamiento de dispositivos en el portal](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Establecer la directiva de asignación del servicio Device Provisioning
 
-La directiva de asignación es una configuración del servicio IoT Hub Device Provisioning que determina cómo se asignan los dispositivos a una instancia de IoT Hub. Hay tres directivas de asignación admitidas: 
+La directiva de asignación es una configuración del servicio IoT Hub Device Provisioning que determina cómo se asignan los dispositivos a un centro de IoT. Hay tres directivas de asignación admitidas: 
 
-1. **Latencia más baja**: los dispositivos se aprovisionan en una instancia de IoT Hub en función del centro con la latencia más baja en el dispositivo.
+1. **Latencia más baja**: los dispositivos se aprovisionan en un centro de IoT en función del centro con la latencia más baja en el dispositivo.
 
-2. **Distribución uniformemente ponderada** (predeterminada): las instancias de IoT Hub vinculadas tienen la misma probabilidad de tener dispositivos aprovisionados para ellos. Esta es la configuración predeterminada. Si va a aprovisionar dispositivos para un único centro de IoT Hub, puede mantener esta configuración. 
+2. **Distribución ponderada uniformemente** (predeterminada): los centros de IoT vinculados tienen la misma probabilidad de tener dispositivos aprovisionados para ellos. Esta es la configuración predeterminada. Si va a aprovisionar dispositivos para un único centro de IoT Hub, puede mantener esta configuración. 
 
-3. **Configuración estática a través de la lista de inscripción**: la especificación de la instancia de IoT deseada en la lista de inscripción tiene prioridad sobre la directiva de asignación del nivel del servicio Device Provisioning.
+3. **Configuración estática a través de la lista de inscripción**: la especificación del centro de IoT deseado en la lista de inscripción tiene prioridad sobre la directiva de asignación de nivel del servicio Device Provisioning.
 
 Para establecer la directiva de asignación, en la página del servicio Device Provisioning haga clic en **Manage allocation policy** (Administrar directiva de asignación). Asegúrese de que la directiva de asignación está establecida en **Distribución uniformemente ponderada** (la opción predeterminada). Si realiza cambios, haga clic en **Guardar** cuando haya terminado.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Uso de .NET para crear un blob en el almacenamiento de objetos - Azure Storage'
+title: 'Inicio rápido: Uso de .NET para crear un blob en el almacenamiento de objetos: Azure Storage'
 description: En esta guía de inicio rápido, obtendrá información sobre cómo usar la biblioteca cliente de Azure Storage para .NET para crear un contenedor y un blob en Blob Storage (objeto). A continuación, aprenderá a descargar el blob en un equipo local y a enumerar todos los blobs en un contenedor.
 services: storage
 author: tamram
@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.author: tamram
-ms.openlocfilehash: 4b632d9aab89e4c8d79983855bdd12aeafb05147
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 50bb13ecaa9e6076f00749d54b492a1e6663a93e
+ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51712031"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58287119"
 ---
-# <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Guía de inicio rápido: Uso de .NET para crear un blob en el almacenamiento de objetos
+# <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Inicio rápido: Uso de .NET para crear un blob en el almacenamiento de objetos
 
 En esta guía de inicio rápido, obtendrá información sobre cómo usar la biblioteca cliente de Azure Storage para .NET para crear un contenedor y un blob en Blob Storage (objeto). A continuación, aprenderá a descargar el blob en un equipo local y a enumerar todos los blobs en un contenedor.
 
@@ -162,6 +162,7 @@ Lo primero que el ejemplo realiza es comprobar que la variable de entorno contie
 string storageConnectionString = Environment.GetEnvironmentVariable("storageconnectionstring");
 
 // Check whether the connection string can be parsed.
+CloudStorageAccount storageAccount;
 if (CloudStorageAccount.TryParse(storageConnectionString, out storageAccount))
 {
     // If the connection string is valid, proceed with operations against Blob storage here.
@@ -172,7 +173,7 @@ else
     // Otherwise, let the user know that they need to define the environment variable.
     Console.WriteLine(
         "A connection string has not been defined in the system environment variables. " +
-        "Add a environment variable named 'storageconnectionstring' with your storage " +
+        "Add an environment variable named 'storageconnectionstring' with your storage " +
         "connection string as a value.");
     Console.WriteLine("Press any key to exit the sample application.");
     Console.ReadLine();
@@ -196,7 +197,7 @@ En este caso, el ejemplo llama al método [CreateAsync](/dotnet/api/microsoft.wi
 CloudBlobClient cloudBlobClient = storageAccount.CreateCloudBlobClient();
 
 // Create a container called 'quickstartblobs' and append a GUID value to it to make the name unique. 
-cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
+CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference("quickstartblobs" + Guid.NewGuid().ToString());
 await cloudBlobContainer.CreateAsync();
 
 // Set the permissions so the blobs are public. 

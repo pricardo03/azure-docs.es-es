@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 17a147b12d660e25bfba1e3b987f9c6ae219942d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 951cf377c7e33dd3dd5e13a7b42fa05bec06245d
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56882593"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58012372"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>Tutorial: Diseño de una base de datos de Azure Database for MySQL con la CLI de Azure
 
@@ -53,13 +53,13 @@ az group create --name myresourcegroup --location westus
 ## <a name="create-an-azure-database-for-mysql-server"></a>Creación de un servidor de Azure Database for MySQL
 Cree un servidor de Azure Database for MySQL con el comando az mysql server create. Un servidor puede administrar varias bases de datos. Normalmente se usa una base de datos independiente para cada proyecto o para cada usuario.
 
-En el ejemplo siguiente se crea una Base de datos de Azure para el servidor MySQL situado en `westus` en el grupo de recursos `myresourcegroup` con el nombre `mydemoserver`. El servidor tiene un inicio de sesión de administrador con el nombre `myadmin`. Se trata de un servidor Gen 4 de uso general con dos núcleos virtuales. Sustituya `<server_admin_password>` por su propio valor.
+En el ejemplo siguiente se crea una Base de datos de Azure para el servidor MySQL situado en `westus` en el grupo de recursos `myresourcegroup` con el nombre `mydemoserver`. El servidor tiene un inicio de sesión de administrador con el nombre `myadmin`. Se trata de un servidor Gen 5 de uso general con 2 núcleos virtuales. Sustituya `<server_admin_password>` por su propio valor.
 
 ```azurecli-interactive
-az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 5.7
+az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
 ```
 El valor del parámetro sku-name sigue la convención {plan de tarifa}\_{generación de proceso}\_{núcleos virtuales} como en los ejemplos siguientes:
-+ `--sku-name B_Gen4_4` se asigna a Básico, Gen 4 y 4 núcleos virtuales.
++ `--sku-name B_Gen5_2` se asigna a Básico, Gen 5 y 2 núcleos virtuales.
 + `--sku-name GP_Gen5_32` se asigna a De uso general, Gen 5 y 32 núcleos virtuales.
 + `--sku-name MO_Gen5_2` se asigna a Optimizado para memoria, Gen 5 y 2 núcleos virtuales.
 
@@ -97,8 +97,8 @@ El resultado está en formato JSON. Tome nota de los valores de **fullyQualified
   "resourceGroup": "myresourcegroup",
  "sku": {
     "capacity": 2,
-    "family": "Gen4",
-    "name": "GP_Gen4_2",
+    "family": "Gen5",
+    "name": "GP_Gen5_2",
     "size": null,
     "tier": "GeneralPurpose"
   },
@@ -184,6 +184,7 @@ az mysql server restore --resource-group myresourcegroup --name mydemoserver-res
 ```
 
 El comando `az mysql server restore` necesita los parámetros siguientes:
+
 | Configuración | Valor sugerido | DESCRIPCIÓN  |
 | --- | --- | --- |
 | resource-group |  myresourcegroup |  Grupo de recursos en el que existe el servidor de origen.  |

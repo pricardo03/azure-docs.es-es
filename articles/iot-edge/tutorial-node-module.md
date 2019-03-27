@@ -9,12 +9,12 @@ ms.date: 01/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: f5cf14ae1dcbbb00d723a86213c2707ad91794b7
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 10026f0a9ff702ee45926ca097e9123ea3db06d5
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564925"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58225933"
 ---
 # <a name="tutorial-develop-and-deploy-a-nodejs-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desarrollo e implementación de un módulo de Node.js de IoT Edge en su dispositivo simulado
 
@@ -61,14 +61,14 @@ Si no dispone de un registro de contenedores, siga estos pasos para crear uno nu
 
 2. Especifique los siguientes valores para crear un registro de contenedor:
 
-   | Campo | Valor | 
+   | Campo | Valor |
    | ----- | ----- |
    | Nombre de registro | Especifique un nombre único. |
    | Subscription | Seleccione una suscripción en la lista desplegable. |
    | Grupos de recursos | Se recomienda usar el mismo grupo de recursos para todos los recursos de prueba que se crean en las guías de inicio rápido y los tutoriales de IoT Edge. Por ejemplo, **IoTEdgeResources**. |
    | Ubicación | Elija una ubicación cercana a usted. |
    | Usuario administrador | Seleccione **Habilitar**. |
-   | SKU | Seleccione **Básica**. | **Terminal**
+   | SKU | Seleccione **Básica**. |
 
 5. Seleccione **Crear**.
 
@@ -107,7 +107,7 @@ Use **npm** para crear una plantilla de solución de Node.js que se puede compil
  
    ![Especificación del repositorio de imágenes de Docker](./media/tutorial-node-module/repository.png)
 
-El área de trabajo de la solución de IoT Edge se carga en la ventana de Visual Studio Code. El área de trabajo de la solución contiene cinco componentes de nivel superior. La carpeta **modules** contiene el código de Node.js del módulo, así como archivos Dockerfile para compilar el módulo como una imagen de contenedor. El archivo **\.env** almacena las credenciales del registro de contenedor. El archivo **deployment.template.json** contiene la información que usa el entorno de ejecución de IoT Edge para implementar módulos en un dispositivo. Y el archivo **deployment.debug.template.json** contiene la versión de depuración de los módulos. En este tutorial no se editarán la carpeta **\.vscode** ni el archivo **\.gitignore**. 
+El área de trabajo de la solución de IoT Edge se carga en la ventana de Visual Studio Code. El área de trabajo de la solución contiene cinco componentes de nivel superior. La carpeta **modules** contiene el código de Node.js del módulo, así como archivos Dockerfile para compilar el módulo como una imagen de contenedor. El archivo **\.env** almacena las credenciales del registro de contenedor. El archivo **deployment.template.json** contiene la información que usa el entorno de ejecución de Azure IoT Edge para implementar módulos en un dispositivo y el archivo **deployment.debug.template.json** contiene la versión de depuración de los módulos. En este tutorial no se editarán la carpeta **\.vscode** ni el archivo **\.gitignore**. 
 
 Si no especificó un registro de contenedor al crear la solución y aceptó el valor predeterminado localhost:5000, no tendrá un archivo \.env. 
 
@@ -197,11 +197,11 @@ Cada plantilla viene con un código de ejemplo incluido, que toma los datos del 
 11. Agregue el módulo gemelo NodeModule al manifiesto de implementación. Inserte el siguiente contenido JSON en la parte inferior de la sección `moduleContent`, después del módulo gemelo `$edgeHub`: 
 
    ```json
-       "NodeModule": {
-           "properties.desired":{
-               "TemperatureThreshold":25
-           }
-       }
+     "NodeModule": {
+         "properties.desired":{
+             "TemperatureThreshold":25
+         }
+     }
    ```
 
    ![Adición de un módulo gemelo a una plantilla de implementación](./media/tutorial-node-module/module-twin.png)
@@ -224,7 +224,7 @@ En la sección anterior se ha creado una solución de IoT Edge y se ha agregado 
 
 Cuando le indica a Visual Studio Code que compile la solución, esta herramienta primero toma la información de la plantilla de implementación y genera un archivo `deployment.json` en una nueva carpeta **config**. Después, ejecuta dos comandos en el terminal integrado: `docker build` y `docker push`. Estos dos comandos construyen el código, empaquetan el código de Node.js en contenedores y lo insertan en el registro de contenedores que ha especificado cuando inicializó la solución. 
 
-Puede ver la dirección de la imagen de contenedor completa con la etiqueta en el comando `docker build` que se ejecuta en la terminal integrada de VS Code. La dirección de la imagen se crea a partir de la información del archivo `module.json`, con el formato **\<repositorio\>:\<versión\>-\<plataforma\>**. Para este tutorial, debería ser similar a **registryname.azurecr.io/nodemodule:0.0.1-amd64**.
+Puede ver la dirección completa de la imagen de contenedor con la etiqueta del comando `docker build` que se ejecuta en el terminal integrado de VS Code. La dirección de la imagen se crea a partir de la información del archivo `module.json`, con el formato **\<repositorio\>:\<versión\>-\<plataforma\>**. Para este tutorial, debería ser similar a **registryname.azurecr.io/nodemodule:0.0.1-amd64**.
 
 >[!TIP]
 >Si recibe un error al intentar compilar e insertar su módulo, realice las siguientes comprobaciones:

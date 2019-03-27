@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/10/2019
 ms.author: v-gedod
 ms.custom: seodec2018
-ms.openlocfilehash: 262f7f49987dba8340ba4a1f0e6e505b9858e1e5
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 1930ef761b4be9d8085fd6e1785e78146c6b5547
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863880"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58109175"
 ---
 # <a name="quickstart-perform-a-news-search-with-the-bing-news-search-sdk-for-nodejs"></a>Guía de inicio rápido: Realizar una búsqueda de noticias con el SDK de Bing News Search para Node.js
 
@@ -35,7 +35,7 @@ Para configurar una aplicación de consola mediante el SDK de Bing News Search:
 
 ## <a name="create-and-initialize-the-application"></a>Creación e inicialización de la aplicación
 
-1. Creación de una instancia de `CognitiveServicesCredentials`. Cree variables para la clave de suscripción y para un término de búsqueda.
+1. Creación de una instancia de `CognitiveServicesCredentials`. Cree variables para el término de búsqueda y la clave de suscripción.
 
     ```javascript
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
@@ -52,7 +52,7 @@ Para configurar una aplicación de consola mediante el SDK de Bing News Search:
 
 ## <a name="send-a-search-query"></a>Envío de una consulta de búsqueda
 
-3. Utilice el cliente para buscar un término de consulta, en este caso "Juegos olímpicos de invierno":
+1. Utilice el cliente para buscar un término de consulta, en este caso "Juegos olímpicos de invierno":
     
     ```javascript
     client.newsOperations.search(search_term).then((result) => {
@@ -72,4 +72,4 @@ El código imprime `result.value` elementos en la consola sin analizar ningún t
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-[Creación de una aplicación web de una sola página](tutorial-bing-news-search-single-page-app.md)
+> [Creación de una aplicación web de una sola página](tutorial-bing-news-search-single-page-app.md)

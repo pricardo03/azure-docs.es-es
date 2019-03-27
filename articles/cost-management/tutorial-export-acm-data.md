@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/05/2019
+ms.date: 03/13/2019
 ms.topic: tutorial
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: a7c503fba534b72323472fa58b14188bc412003c
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
+ms.openlocfilehash: a0b50b86ca164199ca723354e39e194c6cd7423f
+ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100714"
+ms.lasthandoff: 03/19/2019
+ms.locfileid: "58014136"
 ---
 # <a name="tutorial-create-and-manage-exported-data"></a>Tutorial: Creación y administración de datos exportados
 
@@ -30,7 +30,7 @@ En este tutorial, aprenderá a:
 > * Verificación de la recopilación de los datos
 
 ## <a name="prerequisites"></a>Requisitos previos
-La exportación de datos está disponible para varios tipos de cuenta de Azure, entre las que se incluyen las de los clientes con [contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/). Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Se admiten los siguientes permisos de Azure por suscripción para la exportación de datos por usuario y grupo:
+La exportación de datos está disponible para varios tipos de cuenta de Azure, entre las que se incluyen las de los clientes con [contrato Enterprise](https://azure.microsoft.com/pricing/enterprise-agreement/). Para ver la lista completa de tipos de cuenta compatibles, consulte [Understand Cost Management data](understand-cost-mgt-data.md) (Información sobre los datos de Cost Management). Para la exportación de datos por usuario y grupo, se admiten los siguientes permisos o ámbitos de Azure por suscripción. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
 - Propietario: puede crear, modificar o eliminar exportaciones programadas para una suscripción.
 - Colaborador: puede crear, modificar o eliminar sus propias exportaciones programadas. Puede modificar el nombre de las exportaciones programadas creadas por otros usuarios.
@@ -45,9 +45,9 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 ## <a name="create-a-daily-export"></a>Creación de una exportación diaria
 
-Cost Management + facturación &gt;Cost Management &gt; seleccione una suscripción o grupo de recursos de una suscripción &gt; Exportar &gt; **Agregar**.
+Para crear o ver una exportación de datos o programar una exportación, abra el ámbito deseado en Azure Portal y seleccione **Análisis de costos** en el menú. Por ejemplo, vaya a **Suscripciones**, seleccione una suscripción de la lista y **Análisis de costos**, en el menú. En la parte superior de la página Análisis de costos, haga clic en **Exportar** y elija una opción de exportación. Por ejemplo, haga clic en **Programar exportación**. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
-Escriba un nombre para la exportación y seleccione la opción "Exportación diaria de costos desde ese mes hasta la fecha actual". Haga clic en **Next**.
+Haga clic en **Agregar**, escriba un nombre para la exportación y seleccione la opción **Exportación diaria de costos desde ese mes hasta la fecha actual**. Haga clic en **Next**.
 
 ![Nuevo ejemplo de exportación que muestra el tipo de exportación](./media/tutorial-export-acm-data/basics_exports.png)
 
