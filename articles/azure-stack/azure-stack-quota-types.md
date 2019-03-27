@@ -11,17 +11,17 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 12/07/2018
+ms.topic: conceptual
+ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: def9026fb0422d8868af098f12180617aefe7eff
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: aff9dade7fe0238c0ea8ccc3ae5bba57437c6f89
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877952"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339574"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de cuota en Azure Stack
 
@@ -29,7 +29,7 @@ ms.locfileid: "56877952"
 
 Las [cuotas](azure-stack-plan-offer-quota-overview.md#plans) definen los límites de recursos que puede aprovisionar o consumir una suscripción de usuario. Por ejemplo, una cuota podría permitir que un usuario creara hasta cinco máquinas virtuales. Cada recurso puede tener sus propios tipos de cuotas.
 
-## <a name="compute-quota-types"></a>Tipos de cuota de proceso 
+## <a name="compute-quota-types"></a>Tipos de cuota de proceso
 
 | **Tipo** | **Valor predeterminado** | **Descripción** |
 | --- | --- | --- |
@@ -40,16 +40,15 @@ Las [cuotas](azure-stack-plan-offer-quota-overview.md#plans) definen los límite
 | Capacidad máxima (en GB) de disco administrado estándar | 2048 | La capacidad máxima de los discos administrados estándar que se pueden crear en esta ubicación. |
 | Capacidad máxima (en GB) de disco administrado premium | 2048 | La capacidad máxima de discos administrados premium que se pueden crear en esta ubicación. |
 
-## <a name="storage-quota-types"></a>Tipos de cuotas de almacenamiento 
+## <a name="storage-quota-types"></a>Tipos de cuotas de almacenamiento
 
 | **Elemento** | **Valor predeterminado** | **Descripción** |
 | --- | --- | --- |
-| Capacidad máxima (GB) |2048 |Capacidad de almacenamiento total que puede consumir una suscripción en esta ubicación. |
+| Capacidad máxima (GB) |2048 |Capacidad de almacenamiento total (incluidos los blobs y todas las instantáneas, tablas y colas asociadas) que puede consumir una suscripción en esta ubicación. |
 | Número total de cuentas de almacenamiento |20 |El número máximo de cuentas de almacenamiento que puede crear una suscripción en esta ubicación. |
 
 > [!NOTE]  
 > Puede que el proceso tarde hasta dos horas antes de aplicar una cuota de almacenamiento.
-
 
 ## <a name="network-quota-types"></a>Tipos de cuota de red
 
@@ -69,10 +68,10 @@ Hay dos maneras diferentes de ver una cuota existente:
 
 ### <a name="plans"></a>Planes
 
-1.  En el panel de navegación izquierdo del portal de administración, seleccione **Plans** (Planes).
-2.  Haga clic en el nombre del plan cuyos detalles desea ver para seleccionarlo.
-3.  En la hoja que se abre, seleccione **Services and quotas** (Servicios y cuotas).
-4.  Haga clic en la columna **Name** (Nombre) para seleccionar la columna que quiere ver.
+1. En el panel de navegación izquierdo del portal de administración, seleccione **Plans** (Planes).
+2. Haga clic en el nombre del plan cuyos detalles desea ver para seleccionarlo.
+3. En la hoja que se abre, seleccione **Services and quotas** (Servicios y cuotas).
+4. Haga clic en la columna **Name** (Nombre) para seleccionar la columna que quiere ver.
 
     [![Cuotas](media/azure-stack-quota-types/quotas1sm.png "Ver cuotas")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
@@ -88,14 +87,14 @@ Hay dos maneras diferentes de editar una cuota:
 
 ### <a name="edit-a-plan"></a>Edición de un plan
 
-1.  En el panel de navegación izquierdo del portal de administración, seleccione **Plans** (Planes).
-2.  Haga clic en el nombre del plan cuya cuota quiere editar para seleccionarlo.
-3.  En la hoja que se abre, seleccione **Services and quotas** (Servicios y cuotas).
-4.  Haga clic en la columna **Name** (Nombre) para seleccionar la cuota que quiere editar.
+1. En el panel de navegación izquierdo del portal de administración, seleccione **Plans** (Planes).
+2. Haga clic en el nombre del plan cuya cuota quiere editar para seleccionarlo.
+3. En la hoja que se abre, seleccione **Services and quotas** (Servicios y cuotas).
+4. Haga clic en la columna **Name** (Nombre) para seleccionar la cuota que quiere editar.
     [![Cuotas](media/azure-stack-quota-types/quotas1sm.png "Ver cuotas")](media/azure-stack-quota-types/quotas1.png#lightbox)
 
-5.  En la hoja que se abre, seleccione **Edit in Compute** (Editar en Compute), **Edit in Network** (Editar en Network) o **Edit in Storage** (Editar en Storage).
-    ![Cuotas](media/azure-stack-quota-types/quotas3.png "Ver cuotas")    
+5. En la hoja que se abre, seleccione **Edit in Compute** (Editar en Compute), **Edit in Network** (Editar en Network) o **Edit in Storage** (Editar en Storage).
+    ![Cuotas](media/azure-stack-quota-types/quotas3.png "Ver cuotas")
 
 Como alternativa, puede seguir este procedimiento para editar una cuota:
 
@@ -106,9 +105,9 @@ Como alternativa, puede seguir este procedimiento para editar una cuota:
 
 ### <a name="edit-original-configuration"></a>Edición de la configuración original
   
-Puede elegir editar la configuración original de una cuota en lugar de [utilizar un plan complementario](create-add-on-plan.md). Al editar una cuota, la nueva configuración se aplica automáticamente de forma global a todos los planes que utilizan esa cuota y a todas las suscripciones existentes que usan esos planes. La edición de una cuota es diferente a cuando se utiliza un plan complementario para proporcionar una cuota modificada a la que un usuario decide suscribirse. 
+Puede elegir editar la configuración original de una cuota en lugar de [utilizar un plan complementario](create-add-on-plan.md). Al editar una cuota, la nueva configuración se aplica automáticamente de forma global a todos los planes que utilizan esa cuota y a todas las suscripciones existentes que usan esos planes. La edición de una cuota es diferente a cuando se utiliza un plan complementario para proporcionar una cuota modificada a la que un usuario decide suscribirse.
 
-Los nuevos valores para la cuota se aplican globalmente a todos los planes que utilizan la cuota modificada y a todas las suscripciones existentes que usan esos planes. 
+Los nuevos valores para la cuota se aplican globalmente a todos los planes que utilizan la cuota modificada y a todas las suscripciones existentes que usan esos planes.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

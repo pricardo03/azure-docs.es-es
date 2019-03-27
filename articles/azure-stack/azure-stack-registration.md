@@ -12,16 +12,16 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2019
+ms.date: 03/21/2019
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 62fde78cce05e62489931868da3d21c8b2e16928
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
+ms.lastreviewed: 03/04/2019
+ms.openlocfilehash: ab5679f374753d6620b6a0eccca12ac9f162f199
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430359"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337932"
 ---
 # <a name="register-azure-stack-with-azure"></a>Registro de Azure Stack con Azure
 
@@ -53,13 +53,18 @@ Antes de registrar Azure Stack con Azure, debe tener:
 
 - El nombre de usuario y la contraseña de una cuenta que sea propietaria de la suscripción.
 
-- La cuenta de usuario debe tener acceso a la suscripción de Azure y contar con permisos para crear aplicaciones de identidad y entidades de servicio en el directorio asociado a esa suscripción. Se recomienda registrar Azure Stack con Azure con la administración con privilegios mínimos mediante la [creación de una cuenta de servicio que se usará para el registro](azure-stack-registration-role.md) en lugar del uso de credenciales de administrador global.
+- La cuenta de usuario debe tener acceso a la suscripción de Azure y contar con permisos para crear aplicaciones de identidad y entidades de servicio en el directorio asociado a esa suscripción. Le recomendamos que registre Azure Stack con Azure mediante la administración con privilegios mínimos. Para obtener más información sobre cómo crear una definición de roles personalizada que limite el acceso a su suscripción para el registro, consulte [Creación de un rol de registro para Azure Stack](azure-stack-registration-role.md).
 
 - Haber registrado el proveedor de recursos de Azure Stack (para más información, consulte la siguiente sección Registro de un proveedor de recursos de Azure Stack).
 
 Después del registro, no se necesita el permiso de administrador global de Azure Active Directory. Pero algunas operaciones pueden requerir la credencial de administrador global. Por ejemplo, un script del instalador del proveedor de recursos o una nueva característica que necesita la concesión de un permiso. Puede restablecer temporalmente los permisos de administrador global de la cuenta o usar una cuenta de administrador global independiente que sea propietaria de la *suscripción del proveedor predeterminada*.
 
+El usuario que registra Azure Stack es el propietario de la entidad de servicio en Azure Active Directory. Solo el usuario que registró Azure Stack puede modificar el registro de Azure Stack. Si un usuario que no sea administrador ni propietario de la entidad de servicio de registro intenta registrar o volver a registrar Azure Stack, es posible que obtenga una respuesta 403. Una respuesta 403 indica que el usuario no tiene permisos suficientes para completar la operación.
+
 Si no tiene una suscripción de Azure que cumpla estos requisitos, puede [crear una cuenta gratuita de Azure aquí](https://azure.microsoft.com/free/?b=17.06). El registro de Azure Stack no supone ningún costo en su suscripción de Azure.
+
+> [!NOTE]
+> Si tiene más de una instancia de Azure Stack, se recomienda que registre cada una de ellas en su propia suscripción. Así le resultará más fácil para realizar un seguimiento del uso.
 
 ### <a name="powershell-language-mode"></a>Modo de lenguaje de PowerShell
 
@@ -75,7 +80,7 @@ Asegúrese de que la salida devuelve **FullLanguageMode**. Si se devuelve cualqu
 
 Para registrarse en Azure, use la versión más reciente de PowerShell para Azure Stack.
 
-Si no está instalada aún la versión más reciente, consulte [Instalación de PowerShell para Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
+Si la versión más reciente aún no está instalada, consulte [Instalación de PowerShell para Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-install).
 
 ### <a name="download-the-azure-stack-tools"></a>Descarga de las herramientas de Azure Stack
 
@@ -106,7 +111,7 @@ Para determinar el id. de nube de la implementación de Azure Stack, abra PowerS
 
 ```powershell
 Run: Enter-PSSession -ComputerName <privileged endpoint computer name> -ConfigurationName PrivilegedEndpoint
-Run: get-azurestackstampinformation 
+Run: Get-AzureStackStampInformation 
 ```
 
 ## <a name="register-connected-with-pay-as-you-go-billing"></a>Registro conectado con la facturación de pago por uso
@@ -123,7 +128,7 @@ Los entornos conectados pueden acceder a Internet y a Azure. Para estos entornos
 2. Agregue la cuenta de Azure que usará para registrar Azure Stack. Para agregar la cuenta, ejecute el cmdlet **Add-AzureRmAccount**. Se le pedirá que escriba sus credenciales de cuenta de Azure y puede que tenga que utilizar la autenticación en dos fases en función de la configuración de la cuenta.
 
    ```PowerShell
-      Add-AzureRmAccount -EnvironmentName "<environment name>"
+   Add-AzureRmAccount -EnvironmentName "<environment name>"
    ```
 
    | Parámetro | DESCRIPCIÓN |  
@@ -133,7 +138,7 @@ Los entornos conectados pueden acceder a Internet y a Azure. Para estos entornos
 3. Si tiene varias suscripciones, ejecute el siguiente comando para seleccionar la suscripción con la que quiera trabajar:  
 
    ```PowerShell  
-      Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
 4. Ejecute el siguiente comando para registrar el proveedor de recursos de Azure Stack en su suscripción de Azure:
@@ -151,7 +156,7 @@ Los entornos conectados pueden acceder a Internet y a Azure. Para estos entornos
 6. A continuación, en la misma sesión de PowerShell, asegúrese de que ha iniciado sesión en el contexto correcto de Azure PowerShell. Se trata de la cuenta de Azure que se usó para registrar el proveedor de recursos de Azure Stack anteriormente. PowerShell que se ejecuta:
 
    ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<environment name>"
+   Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
    | Parámetro | DESCRIPCIÓN |  
@@ -171,7 +176,7 @@ Los entornos conectados pueden acceder a Internet y a Azure. Para estos entornos
    ```
    Para más información acerca del cmdlet Set-AzsRegistration, consulte [Referencia del registro](#registration-reference).
 
-  El proceso tarda entre 10 y 15 minutos. Cuando finalice el comando, verá el mensaje **"Your environment is now registered and activated using the provided parameters."** (El entorno ya está registrado y se ha activado mediante los parámetros proporcionados).
+   El proceso tarda entre 10 y 15 minutos. Cuando finalice el comando, verá el mensaje **"Your environment is now registered and activated using the provided parameters."** (El entorno ya está registrado y se ha activado mediante los parámetros proporcionados).
 
 ## <a name="register-connected-with-capacity-billing"></a>Registro conectado con la facturación por capacidad
 
@@ -187,7 +192,7 @@ Los entornos conectados pueden acceder a Internet y a Azure. Para estos entornos
 2. Agregue la cuenta de Azure que usará para registrar Azure Stack. Para agregar la cuenta, ejecute el cmdlet **Add-AzureRmAccount**. Se le pedirá que escriba sus credenciales de cuenta de Azure y puede que tenga que utilizar la autenticación en dos fases en función de la configuración de la cuenta.
 
    ```PowerShell  
-      Add-AzureRmAccount -EnvironmentName "<environment name>"
+   Connect-AzureRmAccount -Environment "<environment name>"
    ```
 
    | Parámetro | DESCRIPCIÓN |  
@@ -197,7 +202,7 @@ Los entornos conectados pueden acceder a Internet y a Azure. Para estos entornos
 3. Si tiene varias suscripciones, ejecute el siguiente comando para seleccionar la suscripción con la que quiera trabajar:  
 
    ```PowerShell  
-      Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
+   Get-AzureRmSubscription -SubscriptionID '<Your Azure Subscription GUID>' | Select-AzureRmSubscription
    ```
 
 4. Ejecute el siguiente comando para registrar el proveedor de recursos de Azure Stack en su suscripción de Azure:
@@ -208,20 +213,20 @@ Los entornos conectados pueden acceder a Internet y a Azure. Para estos entornos
 
 5. Inicie PowerShell ISE como administrador y vaya a la carpeta **Registration**del directorio **AzureStack-Tools-master** que creó cuando descargó las herramientas de Azure Stack. Importe el módulo **RegisterWithAzure.psm1** mediante PowerShell:
 
-  ```PowerShell  
-  $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
-  $RegistrationName = "<unique-registration-name>"
-  Set-AzsRegistration `
+   ```PowerShell  
+   $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
+   $RegistrationName = "<unique-registration-name>"
+   Set-AzsRegistration `
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
       -AgreementNumber <EA agreement number> `
       -BillingModel Capacity `
       -RegistrationName $RegistrationName
-  ```
+   ```
    > [!Note]  
    > Puede deshabilitar el uso de informes con el parámetro UsageReportingEnabled para el cmdlet**Set-AzsRegistration** al establecer el parámetro en false. 
    
-  Para más información acerca del cmdlet Set-AzsRegistration, consulte [Referencia del registro](#registration-reference).
+   Para más información acerca del cmdlet Set-AzsRegistration, consulte [Referencia del registro](#registration-reference).
 
 ## <a name="register-disconnected-with-capacity-billing"></a>Registro desconectado con la facturación por capacidad
 
@@ -238,7 +243,7 @@ Si va a registrar Azure Stack en un entorno desconectado (sin conexión a Intern
 2. Para obtener el token de registro, ejecute los siguientes cmdlets de PowerShell:  
 
    ```Powershell
-   $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
+   $FilePathForRegistrationToken = "$env:SystemDrive\RegistrationToken.txt"
    $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential $YourCloudAdminCredential -UsageReportingEnabled:$False -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
    Para más información acerca del cmdlet Get-AzsRegistrationToken, consulte [Referencia del registro](#registration-reference).
@@ -253,16 +258,16 @@ Si va a registrar Azure Stack en un entorno desconectado (sin conexión a Intern
 En el equipo que esté conectado a Internet, siga los mismos pasos para importar el módulo de RegisterWithAzure.psm1 e inicie sesión en el contexto correcto de Azure Powershell. Luego, llame a Register-AzsEnvironment. Especifique el token de registro que desea registrar en Azure. Si va a registrar más de una instancia de Azure Stack mediante el mismo identificador de suscripción de Azure, especifique un nombre de registro único. Ejecute el siguiente cmdlet:
 
   ```PowerShell  
-  $registrationToken = "<Your Registration Token>"
+  $RegistrationToken = "<Your Registration Token>"
   $RegistrationName = "<unique-registration-name>"
-  Register-AzsEnvironment -RegistrationToken $registrationToken  -RegistrationName $RegistrationName
+  Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
   ```
 
 Si lo desea, puede usar el cmdlet Get-Content para señalar a un archivo que contenga el token de registro:
 
   ```PowerShell  
-  $registrationToken = Get-Content -Path '<Path>\<Registration Token File>'
-  Register-AzsEnvironment -RegistrationToken $registrationToken -RegistrationName $RegistrationName
+  $RegistrationToken = Get-Content -Path '<Path>\<Registration Token File>'
+  Register-AzsEnvironment -RegistrationToken $RegistrationToken -RegistrationName $RegistrationName
   ```
 
   > [!Note]  
@@ -285,7 +290,7 @@ Para obtener la clave de activación, ejecute los siguientes cmdlets de PowerShe
 
 ### <a name="create-an-activation-resource-in-azure-stack"></a>Crear un recurso de activación en Azure Stack
 
-Vuelva al entorno de Azure Stack con el archivo o el texto de la clave de activación creada a partir de Get-AzsActivationKey. Luego, creará un recurso de activación en Azure Stack con dicha clave de activación. Para crear un recurso de activación, ejecute los siguientes cmdlets de PowerShell:  
+Vuelva al entorno de Azure Stack con el archivo o el texto de la clave de activación creada a partir de Get-AzsActivationKey. Luego, creará un recurso de activación en Azure Stack con dicha clave de activación. Para crear un recurso de activación, ejecute los siguientes cmdlets de PowerShell: 
 
   ```Powershell
   $ActivationKey = "<activation key>"
@@ -301,7 +306,7 @@ Si lo desea, puede usar el cmdlet Get-Content para señalar a un archivo que con
 
 ## <a name="verify-azure-stack-registration"></a>Comprobación del registro de Azure Stack
 
-Puede usar el icono de **administración de regiones** para comprobar si el registro de Azure Stack se realizó correctamente. Este icono está disponible en el panel predeterminado del portal del administrador. El estado puede ser Registrado o No registrado. Si el estado es registrado, también muestra el identificador de la suscripción de Azure que usó para registrar Azure Stack, junto con el grupo de recursos de registro y el nombre.
+Puede usar el icono de **administración de regiones** para comprobar si el registro de Azure Stack se realizó correctamente. Este icono está disponible en el panel predeterminado del portal de administración. El estado puede ser Registrado o No registrado. Si el estado es registrado, también muestra el identificador de la suscripción de Azure que usó para registrar Azure Stack, junto con el grupo de recursos de registro y el nombre.
 
 1. Inicie sesión en el [portal de administración de Azure Stack](https://adminportal.local.azurestack.external).
 
@@ -309,7 +314,7 @@ Puede usar el icono de **administración de regiones** para comprobar si el regi
 
 3. Seleccione **Propiedades**. Esta hoja muestra el estado y los detalles de su entorno. El estado puede ser **Registrado** o **No registrado**.
 
-    [ ![Icono de administración de regiones](media/azure-stack-registration/admin1sm.png "icono de administración de regiones") ](media/azure-stack-registration/admin1.png#lightbox)
+    [![Icono de administración de regiones](media/azure-stack-registration/admin1sm.png "Region management tile")](media/azure-stack-registration/admin1.png#lightbox)
 
     Si ya se ha registrado, las propiedades incluyen:
     
@@ -323,7 +328,7 @@ Puede usar el icono de **administración de regiones** para comprobar si el regi
 
     Los registros de aplicaciones de Azure Stack tienen el prefijo **Azure Stack**.
 
-Como alternativa, puede comprobar si el registro es correcto mediante la característica de administración de Marketplace. Si ve una lista de elementos de marketplace en la hoja de administración de Marketplace, significa que su registro se realizó correctamente. Sin embargo, en entornos desconectados, no verá los elementos de marketplace en la característica de administración de Marketplace. Pero, puede usar la herramienta sin conexión para comprobar el registro.
+Como alternativa, puede comprobar si el registro es correcto mediante la característica de administración de Marketplace. Si ve una lista de elementos de marketplace en la hoja de administración de Marketplace, significa que su registro se realizó correctamente. Sin embargo, en entornos desconectados, no verá los elementos de marketplace en la característica de administración de Marketplace.
 
 > [!NOTE]
 > Una vez completado el registro, ya no aparecerá la advertencia activa para no registrar. En escenarios desconectados, verá un mensaje en la característica de administración de Marketplace que le solicita registrar y activar Azure Stack, incluso si se ha registrado correctamente.
@@ -379,15 +384,15 @@ A continuación, para quitar el recurso de registro en Azure, asegúrese de que 
 Puede usar el token de registro que se usó para crear el recurso:  
 
   ```Powershell
-  $registrationToken = "<registration token>"
-  Unregister-AzsEnvironment -RegistrationToken $registrationToken
+  $RegistrationToken = "<registration token>"
+  Unregister-AzsEnvironment -RegistrationToken $RegistrationToken
   ```
 
 O bien, puede usar el nombre de registro:
 
   ```Powershell
-  $registrationName = "AzureStack-<unique-registration-name>"
-  Unregister-AzsEnvironment -RegistrationName $registrationName
+  $RegistrationName = "AzureStack-<unique-registration-name>"
+  Unregister-AzsEnvironment -RegistrationName $RegistrationName
   ```
 
 ### <a name="re-register-using-disconnected-steps"></a>Segundo registro mediante pasos desconectados
@@ -439,11 +444,11 @@ Para ejecutar el cmdlet, necesitará:
 - También debe haberse registrado en Azure PowerShell con una cuenta que sea de un propietario o colaborador de dicha suscripción.
 
 ```PowerShell
-    Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String> [[-AzureContext]
+Set-AzsRegistration [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String> [[-AzureContext]
     <PSObject>] [[-ResourceGroupName] <String>] [[-ResourceGroupLocation] <String>] [[-BillingModel] <String>]
     [-MarketplaceSyndicationEnabled] [-UsageReportingEnabled] [[-AgreementNumber] <String>] [[-RegistrationName]
     <String>] [<CommonParameters>]
-   ```
+```
 
 | Parámetro | Type | DESCRIPCIÓN |
 |-------------------------------|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -463,7 +468,7 @@ Para ejecutar el cmdlet, necesitará:
 Get-AzsRegistrationToken genera un token de registro a partir de los parámetros de entrada.
 
 ```PowerShell  
-    Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String>
+Get-AzsRegistrationToken [-PrivilegedEndpointCredential] <PSCredential> [-PrivilegedEndpoint] <String>
     [-BillingModel] <String> [[-TokenOutputFilePath] <String>] [-UsageReportingEnabled] [[-AgreementNumber] <String>]
     [<CommonParameters>]
 ```
@@ -479,6 +484,20 @@ Get-AzsRegistrationToken genera un token de registro a partir de los parámetros
 | UsageReportingEnabled | True/False | Azure Stack informa de las métricas de uso de forma predeterminada. Los operadores que tienen usos de capacidad o admiten un entorno desconectado deben desactivar los informes de uso. Los valores permitidos para este parámetro son: True y False. |
 | AgreementNumber | string |  |
 
+## <a name="registration-failures"></a>Errores de registro
+
+Es posible que vea uno de los errores siguientes al intentar registrar Azure Stack:
+1. No se pudo recuperar la información de hardware obligatoria para $hostName. Compruebe la conectividad y el host físico y, a continuación, intente volver a ejecutar el registro.
+
+2. No se puede conectar a $hostName para obtener la información de hardware. Compruebe la conectividad y el host físico y, a continuación, intente volver a ejecutar el registro.
+
+> Causa: suele deberse al intento de obtener los detalles de hardware, como el UUID, el Bios y la CPU de los hosts, para intentar realizar la activación, que no fue posible debido a la incapacidad de establecer conexión con el host físico.
+
+Al intentar acceder a la administración de Marketplace, se produce un error cuando se intenta distribuir productos. 
+> Causa: suele ocurrir cuando Azure Stack no puede acceder al recurso de registro. Un motivo común es que, cuando cambia el inquilino de directorio de una suscripción a Azure, se restablece el registro. No puede acceder al Marketplace de Azure Stack ni notificar el uso si cambió el inquilino de directorio de la suscripción. Debe volver a realizar el registro para corregir este problema.
+
+La administración de Marketplace todavía le pide que registre y active Azure Stack, aunque ya ha registrado su marca mediante el proceso sin conexión. 
+> Causa: se trata de un problema conocido para entornos desconectados. Puede comprobar su estado de registro siguiendo [estos pasos](azure-stack-registration.md#verify-azure-stack-registration). Para poder usar la administración de Marketplace, deberá usar [la herramienta sin conexión](azure-stack-download-azure-marketplace-item.md#disconnected-or-a-partially-connected-scenario). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

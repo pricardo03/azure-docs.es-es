@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 03/21/2018
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 11/27/2018
-ms.openlocfilehash: c28fce9c6c9d7b0ddeba54e1ba643817436adb4e
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 29e4bb23b4b80f6e472d2dcb27fe5e5279a35890
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55244970"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58337721"
 ---
 # <a name="region-management-in-azure-stack"></a>Administración de regiones en Azure Stack
 
@@ -29,7 +29,7 @@ ms.locfileid: "55244970"
 
 Azure Stack usa el concepto de *regiones*, entidades lógicas que constan de los recursos de hardware que conforman la infraestructura de Azure Stack. En la administración de regiones, puede buscar todos los recursos necesarios para usar correctamente la infraestructura de Azure Stack.
 
-Una implementación de sistema integrada (lo que se conoce como una *nube de Azure Stack*) constituye una región única. Cada Kit de desarrollo de Azure Stack tiene una región, llamada **local**. Si implementa un segundo sistema integrado de Azure Stack o configura otra instancia del kit de desarrollo en otro hardware, esta nube de Azure Stack es una región diferente.
+Una implementación de sistema integrada (lo que se conoce como una *nube de Azure Stack*) constituye una región única. Cada Kit de desarrollo de Azure Stack (ASDK) tiene una región, llamada **local**. Si implementa un segundo sistema integrado de Azure Stack o configura otra instancia del kit de desarrollo en otro hardware, esta nube de Azure Stack es una región diferente.
 
 ## <a name="information-available-through-the-region-management-tile"></a>Información disponible a través del icono Administración de regiones
 
@@ -39,11 +39,11 @@ Azure Stack tiene un conjunto de funciones de administración de regiones dispon
 
 Si hace clic en una región en el icono **Region Management** (Administración de regiones), puede tener acceso a la siguiente información:
 
-[ ![Descripción de los paneles en la hoja Region Management](media/azure-stack-region-management/regionssm.png "Hoja Region Management") ](media/azure-stack-region-management/regions.png#lightbox)
+[![Descripción de los paneles en la hoja Region Management (Administración de regiones)](media/azure-stack-region-management/regionssm.png "Hoja Region Management (Administración de regiones)")](media/azure-stack-region-management/regions.png#lightbox)
 
 1. **El menú de recursos**. Acceda a áreas de administración de infraestructura específicas y vea y administre recursos de usuario, como cuentas de almacenamiento y redes virtuales.
 
-2. **Alertas**. Le muestra las alertas de todo el sistema y proporciona detalles sobre cada una.
+2. **Alertas**. Muestra las alertas de todo el sistema y proporciona detalles sobre cada una.
 
 3. **Actualizaciones**. Visualice la versión actual de la infraestructura de Azure Stack, las actualizaciones disponibles y el historial de actualizaciones. También puede actualizar el sistema integrado.
 
