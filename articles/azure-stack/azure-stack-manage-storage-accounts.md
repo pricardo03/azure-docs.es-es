@@ -10,30 +10,31 @@ ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
-ms.topic: get-started-article
-ms.date: 01/18/2019
+ms.topic: conceptual
+ms.date: 03/19/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.lastreviewed: 01/18/2019
-ms.openlocfilehash: aa88c2c63d348d0c82e0ad93115ea49437a63567
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.lastreviewed: 03/19/2019
+ms.openlocfilehash: 34e49060a28869015f067f058b81239ec13eff47
+ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895075"
+ms.lasthandoff: 03/20/2019
+ms.locfileid: "58226409"
 ---
-# <a name="manage-storage-accounts-in-azure-stack"></a>Administración de cuentas de almacenamiento en Azure Stack
+# <a name="manage-azure-stack-storage-accounts"></a>Administración de cuentas de almacenamiento de Azure Stack
 
-Aprenda a administrar cuentas de almacenamiento en Azure Stack para buscar, recuperar y reclamar capacidad de almacenamiento según las necesidades empresariales.
+Aprenda a administrar las cuentas de almacenamiento de Azure Stack. Busque, recupere y reclame la capacidad de almacenamiento según sus necesidades empresariales.
 
 ## <a name="find-a-storage-account"></a>Búsqueda de una cuenta de almacenamiento
+
 La lista de cuentas de almacenamiento de la región se puede ver en Azure Stack de las maneras siguientes:
 
 1. Inicie sesión en el [portal de administración](https://adminportal.local.azurestack.external).
 
-2. Seleccione **Todos los servicios** > **Cuentas de almacenamiento**.
+2. Seleccione **Todos los servicios** > **Almacenamiento** > **Cuentas de almacenamiento**.
 
-   ![](media/azure-stack-manage-storage-accounts/image4.png)
+   ![Cuentas de almacenamiento de Azure Stack](media/azure-stack-manage-storage-accounts/image4.png)
 
 De forma predeterminada, se muestran las 10 primeras cuentas. Puede hacer clic en el vínculo **Cargar más** de la parte inferior de la lista para capturar más.
 
@@ -45,17 +46,18 @@ Si está interesado en una cuenta de almacenamiento determinada, puede **filtrar
 **Para filtrar las cuentas:**
 
 1. Seleccione **Filtrar** en la parte superior del panel.
-2. En el panel Filtro, puede especificar el **nombre de cuenta**, el identificador de **suscripción o el **estado** para ajustar la lista de cuentas de almacenamiento que se mostrará. Use esta información de la manera adecuada.
-3. Seleccione **Actualizar**. La lista se debe actualizar de forma correspondiente.
+2. En el panel Filtro, puede especificar el **nombre de cuenta**, el **identificador de suscripción** o el **estado** para ajustar la lista de cuentas de almacenamiento que se mostrará. Use esta información de la manera adecuada.
+3. A medida que escriba, la lista aplicará automáticamente el filtro.  .
    
-    ![](media/azure-stack-manage-storage-accounts/image5.png)
+    ![Filtrar las cuentas de almacenamiento de Azure Stack](media/azure-stack-manage-storage-accounts/image5.png)
+
 4. Para restablecer el filtro: seleccione **Filtro**, borre las selecciones y actualice.
 
 El cuadro de texto de búsqueda (de la parte superior del panel de lista de cuentas de almacenamiento) permite resaltar el texto seleccionado en la lista de cuentas. Puede utilizar esto cuando el nombre completo o el identificador no están fácilmente disponibles.
 
 Aquí puede usar texto sin formato para ayudar a encontrar la cuenta que le interese.
 
-![](media/azure-stack-manage-storage-accounts/image6.png)
+![Buscar las cuentas de almacenamiento de Azure Stack](media/azure-stack-manage-storage-accounts/image6.png)
 
 ## <a name="look-at-account-details"></a>Examen de los detalles de la cuenta
 Cuando haya encontrado las cuentas que le interese ver, puede seleccionar una en particular para ver determinados detalles. Se abre un nuevo panel con los detalles de la cuenta, como el tipo de cuenta, la hora de creación, la ubicación, etc.
@@ -97,9 +99,8 @@ La configuración del período de retención permite a un operador de nube espec
 
 1. Inicie sesión en el [portal de administración](https://adminportal.local.azurestack.external).
 2. Seleccione **Todos los servicios** > **Administración de regiones** en **Administración**.
-3. Seleccione **Almacenamiento** en la lista **Proveedores de recursos**.
-4. Seleccione **Configuración** en la parte superior para abrir el panel de configuración.
-5. Seleccione **Configuración** y, luego, edite el valor del período de retención.
+3. Seleccione **Proveedores de recursos** > **Almacenamiento** > **Configuración**. La ruta de acceso es Inicio > *región* - Proveedores de recursos > Almacenamiento.
+4. Seleccione **Configuración** y, luego, edite el valor del período de retención.
 
    Establezca el número de días y, a continuación, guárdelo.
    
