@@ -5,14 +5,14 @@ services: batch
 ms.service: batch
 author: laurenhughes
 ms.author: lahugh
-ms.date: 12/11/2018
+ms.date: 03/26/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8ce430d83c52014b3d1d3d2a985f74aeb488caea
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 84b2ca30f1ccd49e18e2f9d42133f8672d3f8ad6
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57791892"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496027"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>Aplicaciones preinstaladas en imágenes de máquina virtual de representación
 
@@ -22,7 +22,7 @@ Si procede, hay licencias de pago por uso disponibles para las aplicaciones de r
 
 Algunas aplicaciones solo admiten Windows, pero la mayoría son compatibles con Windows y con Linux.
 
-## <a name="applications-on-centos-7-rendering-nodes"></a>Aplicaciones en nodos de representación de CentOS 7
+## <a name="applications-on-centos-7-rendering-images"></a>Aplicaciones en representar imágenes de CentOS 7
 
 * Autodesk Maya I/O 2017 Actualización 5 (versión 201708032230)
 * Autodesk Maya I/O 2018 Actualización 2 (versión 201711281015)
@@ -32,7 +32,29 @@ Algunas aplicaciones solo admiten Windows, pero la mayoría son compatibles con 
 * Chaos Group V-Ray para Maya 2018 (versión 3.60.04)
 * Blender (2.68)
 
-## <a name="applications-on-windows-server-2016-rendering-nodes"></a>Aplicaciones en nodos de representación de Windows Server 2016
+## <a name="applications-on-latest-windows-server-2016-rendering-images"></a>Aplicaciones en representar imágenes de Windows Server 2016 más recientes
+
+En la lista siguiente se aplica a Windows Server 2016, representar imágenes de versión 1.3.4.
+
+* Autodesk Maya I/O 2017 Actualización 5 (versión 17.4.5459)
+* Autodesk Maya I/O 2018 Actualización 4 (versión 18.4.0.7622)
+* Autodesk 3ds Max I/O 2019 Actualización 1 (versión 21.2.0.2219)
+* Autodesk 3ds Max I/O 2018 Actualización 4 (versión 20.4.0.4254)
+* Autodesk Arnold para Maya 2017 (Arnold versión 5.2.0.1) MtoA-3.1.0.1-2017
+* Autodesk Arnold para Maya 2018 (Arnold versión 5.2.0.1) MtoA-3.1.0.1-2018
+* Autodesk Arnold para 3ds Max (Arnold versión 5.0.2.4 )(versión 1.2.926)
+* Caos grupo V-Ray para Maya 2018 (versión 3.52.03)
+* Caos grupo V-Ray para 3ds Max 2018 (versión 3.60.02)
+* Caos grupo V-Ray para Maya 2019 (versión 3.52.03)
+* Caos grupo V-Ray para 3ds Max 2019 (versión 4.10.01)
+* Blender (2.79)
+
+> [!NOTE]
+> Caos grupo V-Ray para 3ds Max 2019 (versión 4.10.01) presenta cambios importantes a V-ray. Para usar la versión anterior (versión 3.60.02), use Windows Server 2016, los nodos de representación de la versión 1.3.2.
+
+## <a name="applications-on-previous-windows-server-2016-rendering-images"></a>Aplicaciones en las imágenes anteriores de representación de Windows Server 2016
+
+En la lista siguiente se aplica a Windows Server 2016, las imágenes de representación de la versión 1.3.2.
 
 * Autodesk Maya I/O 2017 Actualización 5 (versión 17.4.5459)
 * Autodesk Maya I/O 2018 Actualización 4 (versión 18.4.0.7622)  
@@ -41,8 +63,8 @@ Algunas aplicaciones solo admiten Windows, pero la mayoría son compatibles con 
 * Autodesk Arnold para Maya 2017 (Arnold versión 5.2.0.1) MtoA-3.1.0.1-2017
 * Autodesk Arnold para Maya 2018 (Arnold versión 5.2.0.1) MtoA-3.1.0.1-2018
 * Autodesk Arnold para 3ds Max (Arnold versión 5.0.2.4 )(versión 1.2.926)
-* Chaos Group V-Ray para Maya (versión 3.52.03)
-* Chaos Group V-Ray para 3ds Max (versión 3.60.02)
+* Caos grupo V-Ray para Maya 2019 (versión 3.52.03)
+* Caos grupo V-Ray para 3ds Max 2018 (versión 3.60.02)
 * Blender (2.79)
 
 ## <a name="next-steps"></a>Pasos siguientes

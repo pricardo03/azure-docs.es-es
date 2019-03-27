@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4f9628be1d1f1d146ed0dbc5ebd9579f0512aeac
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a0192b88525d326840283f79ecea7027516ce8c7
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997368"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483445"
 ---
 # <a name="install-sap-netweaver-high-availability-on-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances-on-azure"></a>Instalación de alta disponibilidad para SAP NetWeaver en un clúster de conmutación por error de Windows y un recurso compartido de archivos para instancias de SAP ASCS/SCS
 
@@ -253,7 +253,7 @@ Quite el recurso compartido de archivos SAPMNT en *ambos* nodos del clúster de 
 
 Ejecute el siguiente script de PowerShell:
 
-```PowerShell
+```powershell
 Remove-SmbShare sapmnt -ScopeName * -Force
  ```
 
@@ -261,7 +261,7 @@ Si no existe el recurso compartido SAPLOC, cree uno en *ambos* nodos del clúste
 
 Ejecute el siguiente script de PowerShell:
 
-```PowerShell
+```powershell
 #Create SAPLOC share and set security
 $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
@@ -289,12 +289,12 @@ Cree el volumen y el recurso compartido de archivos siguientes en el clúster de
 Para crear un nuevo volumen CSV con resistencia reflejada, ejecute el siguiente cmdlet de PowerShell en uno de los nodos del clúster de SOFS:
 
 
-```PowerShell
+```powershell
 New-Volume -StoragePoolFriendlyName S2D* -FriendlyName SAPPR1 -FileSystem CSVFS_ReFS -Size 5GB -ResiliencySettingName Mirror
 ```
 Para crear SAPMNT y establecer la seguridad de la carpeta y el recurso compartido, ejecute el siguiente script de PowerShell en uno de los nodos del clúster de SOFS:
 
-```PowerShell
+```powershell
 # Create SAPMNT on file share
 $SAPSID = "PR1"
 $DomainName = "SAPCLUSTER"
@@ -354,7 +354,7 @@ Ejecute los pasos siguientes:
 
 Ejecute el siguiente script de PowerShell en uno de los nodos del clúster de SAP ASCS/SCS:
 
-```PowerShell
+```powershell
 # Grant <DOMAIN>\SAP_<SID>_GlobalAdmin group access to the cluster
 
 $SAPSID = "PR1"
@@ -419,7 +419,7 @@ Para usar el nuevo nombre de host virtual de SAP ASCS/SCS y el nombre de host gl
 
 Copie [**SAPScripts.psm1**][sap-powershell-scrips] en la unidad local C:\tmp y ejecute el siguiente cmdlet de PowerShell:
 
-```PowerShell
+```powershell
 Import-Module C:\tmp\SAPScripts.psm1
 
 Update-SAPASCSSCSProfile -PathToAscsScsInstanceProfile \\sapglobal\sapmnt\PR1\SYS\profile\PR1_ASCS00_ascs-1 -NewASCSHostName pr1-ascs -NewSAPGlobalHostName sapglobal -Verbose  
@@ -463,7 +463,7 @@ Para más información, consulte [SAP Note 1596496 - How to update SAP Resource 
 
 Para crear un grupo de clústeres de SAP \<SID>, un nombre de red de ASCS/SCS y una dirección IP correspondiente, ejecute el siguiente cmdlet de PowerShell:
 
-```PowerShell
+```powershell
 # Create SAP Cluster Group
 $SAPSID = "PR1"
 $SAPClusterGroupName = "SAP $SAPSID"
@@ -533,7 +533,7 @@ Para finalizar la creación de recursos del grupo de recursos de SAP SAP\<SID >,
 
 Ejecute el siguiente cmdlet de PowerShell:
 
-```PowerShell
+```powershell
 $SAPSID = "PR1"
 $SAPInstanceNumber = "00"
 $SAPNetworkNameClusterResourceName = "pr1-ascs"

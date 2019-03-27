@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4e8253238bf5edb5e0ea3f89fe67d6aa39f4a2d7
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: 501c5ffa86f2360e44c187e087f7285bbf4084fd
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54855462"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482970"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Escenarios admitidos para instancias grandes de HANA
 En este documento se describen los escenarios admitidos junto con sus detalles de arquitectura para instancias grandes de HANA (HLI).
@@ -50,7 +50,7 @@ El diseño de arquitectura obtenido es simplemente desde la perspectiva de infra
 En este documento se describen los detalles de los dos componentes de cada arquitectura admitida:
 
 - Ethernet
-- Storage
+- Almacenamiento
 
 ### <a name="ethernet"></a>Ethernet
 
@@ -68,10 +68,10 @@ Cada servidor aprovisionado viene preconfigurado con los conjuntos de interfaces
 | b | TIPO I | eth2.tenant | eno3.tenant | Nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | STONITH |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Cliente a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Nodo a nodo |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | STONITH |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| b | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Nodo a nodo |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nodo a almacenamiento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | STONITH |
 
 Usará las interfaces en función de la topología configurada en la unidad HLI. Por ejemplo, la interfaz "B" está configurada para la comunicación nodo a nodo, lo que resulta útil si tiene configurada una topología de escalabilidad horizontal. En el caso de una configuración de escalabilidad horizontal de un único nodo, esta interfaz no se usa. Revise los requisitos de su escenario (más adelante en este documento) para más información sobre el uso de la interfaz. 
 
@@ -97,11 +97,11 @@ Para los casos de implementación de la replicación del sistema de HANA o el es
 - La Ethernet "D" debe usarse exclusivamente para el acceso al dispositivo STONITH para Pacemaker. Esta interfaz es necesaria cuando configura la replicación del sistema HANA (HSR) y quiere conseguir la conmutación por error automática en el sistema operativo con un dispositivo basado en SBD.
 
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 El almacenamiento está preconfigurado en función de la topología solicitada. Los tamaños de volumen y el punto de montaje varían en función del número de servidores, las SKU y la topología configurados. Revise los requisitos de su escenario (más adelante en este documento) para más información. Si se requiere más espacio de almacenamiento, puede adquirirlo en incrementos de un TB.
 
 >[!NOTE]
->El punto de montaje /usr/sap/<SID> es un vínculo simbólico al punto de montaje /hana/shared.
+>Punto demontaje/usr/sap/\<SID > es un vínculo simbólico para el punto de montaje / hana/shared.
 
 
 ## <a name="supported-scenarios"></a>Escenarios admitidos
@@ -142,12 +142,12 @@ Las siguientes interfaces de red están preconfiguradas:
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurado pero no en uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Cliente a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Configurado pero no en uso |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| b | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado pero no en uso |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nodo a almacenamiento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado pero no en uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 Los puntos de montaje siguientes están preconfigurados:
 
 | Punto de montaje | Caso de uso | 
@@ -177,12 +177,12 @@ Las siguientes interfaces de red están preconfiguradas:
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurado pero no en uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Cliente a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Configurado pero no en uso |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| b | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado pero no en uso |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nodo a almacenamiento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado pero no en uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 Los puntos de montaje siguientes están preconfigurados:
 
 | Punto de montaje | Caso de uso | 
@@ -217,12 +217,12 @@ Las siguientes interfaces de red están preconfiguradas:
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurado pero no en uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Cliente a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Configurado pero no en uso |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| b | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado pero no en uso |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nodo a almacenamiento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado pero no en uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 Los puntos de montaje siguientes están preconfigurados:
 
 | Punto de montaje | Caso de uso | 
@@ -258,12 +258,12 @@ Las siguientes interfaces de red están preconfiguradas:
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurado pero no en uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Cliente a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Configurado pero no en uso |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| b | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado pero no en uso |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nodo a almacenamiento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado pero no en uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 Los puntos de montaje siguientes están preconfigurados:
 
 | Punto de montaje | Caso de uso | 
@@ -312,12 +312,12 @@ Las siguientes interfaces de red están preconfiguradas:
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurado pero no en uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Usado para STONITH |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Cliente a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Configurado pero no en uso |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | Usado para STONITH |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| b | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado pero no en uso |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nodo a almacenamiento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Usado para STONITH |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 Los puntos de montaje siguientes están preconfigurados:
 
 | Punto de montaje | Caso de uso | 
@@ -360,12 +360,12 @@ Las siguientes interfaces de red están preconfiguradas:
 | b | TIPO I | eth2.tenant | eno3.tenant | Configurado pero no en uso |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Usado para STONITH |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Cliente a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Configurado pero no en uso |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | Usado para STONITH |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| b | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Configurado pero no en uso |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nodo a almacenamiento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Usado para STONITH |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 Los puntos de montaje siguientes están preconfigurados:
 
 | Punto de montaje | Caso de uso | 
@@ -419,12 +419,12 @@ Las siguientes interfaces de red están preconfiguradas:
 | b | TIPO I | eth2.tenant | eno3.tenant | Comunicación nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Cliente a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Comunicación nodo a nodo |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| b | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Comunicación nodo a nodo |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nodo a almacenamiento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado pero no en uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 Los puntos de montaje siguientes están preconfigurados:
 
 | Punto de montaje | Caso de uso | 
@@ -460,12 +460,12 @@ Las siguientes interfaces de red están preconfiguradas:
 | b | TIPO I | eth2.tenant | eno3.tenant | Comunicación nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Cliente a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Comunicación nodo a nodo |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| b | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Comunicación nodo a nodo |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nodo a almacenamiento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado pero no en uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 Los puntos de montaje siguientes están preconfigurados:
 
 | Punto de montaje | Caso de uso | 
@@ -496,12 +496,12 @@ Las siguientes interfaces de red están preconfiguradas:
 | b | TIPO I | eth2.tenant | eno3.tenant | Comunicación nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Cliente a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Comunicación nodo a nodo |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| b | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Comunicación nodo a nodo |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nodo a almacenamiento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado pero no en uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 Los puntos de montaje siguientes están preconfigurados:
 
 | Punto de montaje | Caso de uso | 
@@ -535,12 +535,12 @@ Las siguientes interfaces de red están preconfiguradas:
 | b | TIPO I | eth2.tenant | eno3.tenant | Comunicación nodo a nodo |
 | C | TIPO I | eth1.tenant | eno2.tenant | Nodo a almacenamiento |
 | D | TIPO I | eth4.tenant | eno4.tenant | Configurado pero no en uso |
-| Una  | TIPO II | vlan<tenantNo> | team0.tenant | Cliente a HLI |
-| b | TIPO II | vlan<tenantNo+2> | team0.tenant+2 | Comunicación nodo a nodo |
-| C | TIPO II | vlan<tenantNo+1> | team0.tenant+1 | Nodo a almacenamiento |
-| D | TIPO II | vlan<tenantNo+3> | team0.tenant+3 | Configurado pero no en uso |
+| Una  | TIPO II | vlan\<tenantNo> | team0.tenant | Cliente a HLI |
+| b | TIPO II | VLAN\<tenantNo + 2 > | team0.tenant+2 | Comunicación nodo a nodo |
+| C | TIPO II | VLAN\<tenantNo + 1 > | team0.tenant+1 | Nodo a almacenamiento |
+| D | TIPO II | VLAN\<tenantNo + 3 > | team0.tenant+3 | Configurado pero no en uso |
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>Almacenamiento
 Los puntos de montaje siguientes están preconfigurados:
 
 | Punto de montaje | Caso de uso | 
