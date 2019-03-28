@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: ''
-ms.date: 03/13/2019
+ms.date: 03/23/2019
 ms.author: jeffgilb
 ms.reviewer: anwestg
-ms.lastreviewed: 03/13/2019
-ms.openlocfilehash: db95be94028fcf16871a9dcfee5f0d87eb5d2cdc
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.lastreviewed: 03/23/2019
+ms.openlocfilehash: 1c105548f19994c4ca0ce161eedcfe11736864c7
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285673"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370030"
 ---
 # <a name="deploy-app-service-in-a-highly-available-configuration"></a>Implementación de App Service en una configuración de alta disponibilidad
 
@@ -54,8 +54,7 @@ Antes de usar esta plantilla, asegúrese de que los siguientes [elementos de mar
 ### <a name="deploy-the-app-service-infrastructure"></a>Implementación de la infraestructura de App Service
 Use los pasos de esta sección para crear una implementación personalizada con la plantilla de inicio rápido de Azure Stack **appservice-fileshare-sqlserver-ha**.
 
-1. 
-   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+1. [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Seleccione **\+** **Crear un recurso** > **Personalizar** y, a continuación, **Implementación de plantilla**.
 
@@ -94,8 +93,7 @@ Asegúrese de registrar todos estos valores para los resultados:
 
 Siga estos pasos para detectar los valores de los resultados de la plantilla:
 
-1. 
-   [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
+1. [!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. En el portal de administración, seleccione **Grupos de recursos** y, a continuación, el nombre del grupo de recursos que creó para la implementación personalizada (**app-service-ha** en este ejemplo). 
 
@@ -168,9 +166,20 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
     ![Información de los resultados del recurso compartido de archivos](media/app-service-deploy-ha/07.png)
 
-9. Dado que la máquina que se usa para instalar App Service no se encuentra en la misma red virtual que el servidor de archivos utilizado para hospedar el recurso compartido de archivos de App Service, no podrá resolver el nombre. Este es el comportamiento esperado.<br><br>Verifique que la información especificada para los datos de las cuentas y la ruta de acceso UNC del recurso compartido de archivos es correcta y presione **Sí** en el cuadro de diálogo de alerta para continuar con la instalación de App Service.
+9. Dado que la máquina que se usa para instalar App Service no se encuentra en la misma red virtual que el servidor de archivos utilizado para hospedar el recurso compartido de archivos de App Service, no podrá resolver el nombre. **Este es el comportamiento esperado.**<br><br>Verifique que la información especificada para los datos de las cuentas y la ruta de acceso UNC del recurso compartido de archivos es correcta y presione **Sí** en el cuadro de diálogo de alerta para continuar con la instalación de App Service.
 
     ![Cuadro de diálogo de error esperado](media/app-service-deploy-ha/08.png)
+
+    Si decide realizar una implementación en una red virtual existente y en una dirección IP interna para conectarse al servidor de archivos, debe agregar una regla de seguridad de salida. De ese modo, permite que exista tráfico SMB entre la subred del rol de trabajo y el servidor de archivos. Vaya a WorkersNsg en el portal de administración y agregue una regla de seguridad de salida con las siguientes propiedades:
+    - Origen: Cualquiera
+    - Intervalo de puertos de origen: *
+    - Destino: Direcciones IP
+    - Intervalo de direcciones IP de destino: Intervalo de direcciones IP del servidor de archivos
+    - Intervalo de puertos de destino: 445
+    - Protocolo: TCP
+    - Acción: PERMITIR
+    - Prioridad: 700
+    - Nombre: Outbound_Allow_SMB445
 
 10. Proporcione el identificador de la aplicación de identidad y la ruta de acceso y las contraseñas de los certificados de identidad y haga clic en **Siguiente**:
     - Certificado de la aplicación de identidad (con el formato de **sso.appservice.local.azurestack.external.pfx**)
@@ -189,7 +198,7 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 
     ![Información de conexión de SQL Server](media/app-service-deploy-ha/10.png)
 
-12. Dado que la máquina que se usa para instalar App Service no se encuentra en la misma red virtual que el servidor SQL Server utilizado para hospedar las bases de datos de App Service, no podrá resolver el nombre.  Este es el comportamiento esperado.<br><br>Verifique que la información especificada para los datos de las cuentas y el nombre de SQL Server es correcta y presione **Sí** para continuar con la instalación de App Service. Haga clic en **Next**.
+12. Dado que la máquina que se usa para instalar App Service no se encuentra en la misma red virtual que el servidor SQL Server utilizado para hospedar las bases de datos de App Service, no podrá resolver el nombre.  **Este es el comportamiento esperado.**<br><br>Verifique que la información especificada para los datos de las cuentas y el nombre de SQL Server es correcta y presione **Sí** para continuar con la instalación de App Service. Haga clic en **Next**.
 
     ![Información de conexión de SQL Server](media/app-service-deploy-ha/11.png)
 
@@ -231,3 +240,5 @@ Para implementar el proveedor de recursos de App Service, siga estos pasos:
 [Escalar horizontalmente App Service](azure-stack-app-service-add-worker-roles.md). Puede que necesite agregar trabajos de rol de la infraestructura de App Service adicionales para satisfacer la demanda esperada de la aplicación en el entorno. De forma predeterminada, App Service en Azure Stack es compatible con los niveles de trabajo gratuito y compartido. Para agregar otros niveles de trabajo, debe agregar más roles de trabajo.
 
 [Configuración de orígenes de implementación](azure-stack-app-service-configure-deployment-sources.md). Se requiere una configuración adicional para admitir la implementación a petición de varios proveedores de control de código fuente como GitHub, BitBucket, OneDrive y DropBox.
+
+[Copia de seguridad de App Service](app-service-back-up.md). Una vez haya implementado y configurado correctamente App Service, debe asegurarse de que se haya realizado una copia de seguridad de todos los componentes necesarios para la recuperación ante desastres a fin de evitar la pérdida de datos y el tiempo de inactividad innecesario del servicio durante las operaciones de recuperación.
