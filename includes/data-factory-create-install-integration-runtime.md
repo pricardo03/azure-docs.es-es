@@ -4,12 +4,12 @@ ms.service: data-factory
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 1b0289f5771663f3800ff4e58ba5c0528eb89cb0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a2858ac73838b50c21a76db5860675171a306192
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58124446"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505794"
 ---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Creación de una instancia de Integration Runtime autohospedada
 
@@ -23,7 +23,7 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
 2. Cree una instancia de Integration Runtime autohospedada. 
 
    ```powershell
-   Set-AzureRmDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
+   Set-AzDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
    ```
 
    Este es la salida de ejemplo:
@@ -40,7 +40,7 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
 3. Para recuperar el estado de la instancia de Integration Runtime creada, ejecute el siguiente comando. Confirme que el valor de la propiedad **Estado** está establecida en **NeedRegistration**. 
 
    ```powershell
-   Get-AzureRmDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
+   Get-AzDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
    ```
 
    Este es la salida de ejemplo:
@@ -65,7 +65,7 @@ En esta sección se crea una instancia de Integration Runtime autohospedada y se
 4. Para recuperar las claves de autenticación utilizadas para registrar la instancia de Integration Runtime autohospedado con el servicio Azure Data Factory en la nube, ejecute el siguiente comando: 
 
    ```powershell
-   Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
+   Get-AzDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
    ```
 
    Este es la salida de ejemplo:

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: b17a9660e16a1cb05c088e97d4ad18dd20fd4216
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
+ms.openlocfilehash: 5c5465562c1af3dbd3fcaff2031149e510a43cfd
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588796"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540744"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Ruta a un punto de interés mediante Azure Maps
 
@@ -43,11 +43,11 @@ En los pasos siguientes se muestra cómo crear una página HTML estática insert
     <html>
     <head>
         <title>Map Route</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" />
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
         <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
 
         <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
@@ -88,11 +88,11 @@ En los pasos siguientes se muestra cómo crear una página HTML estática insert
     ```JavaScript
    //Instantiate a map object
    var map = new atlas.Map("myMap", {
-       //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
-       authOptions: {
-        authType: 'subscriptionKey',
-        subscriptionKey: '<Your Azure Maps Key>'
-       }
+        //Add your Azure Maps subscription key to the map SDK. Get an Azure Maps key at https://azure.com/maps
+        authOptions: {
+           authType: 'subscriptionKey',
+           subscriptionKey: '<Your Azure Maps Key>'
+        }
    });
    ```
 
@@ -110,7 +110,7 @@ En este tutorial, se representará una ruta simple mediante un icono de símbolo
 
     ```JavaScript
     //Wait until the map resources have fully loaded.
-    map.events.add('load', function () {
+    map.events.add('load', function() {
 
         //Create a data source and add it to the map.
         datasource = new atlas.source.DataSource();
@@ -158,7 +158,7 @@ En este tutorial, se representará una ruta simple mediante un icono de símbolo
 
     //Add the data to the data source.
     datasource.add([startPoint, endPoint]);
-    
+
     map.setCamera({
         bounds: atlas.data.BoundingBox.fromData([startPoint, endPoint]),
         padding: 80
@@ -179,7 +179,7 @@ En esta sección, se muestra cómo usar Route Service API de Azure Maps para bus
 
 1. En la función GetMap, agregue lo siguiente al código JavaScript.
 
-    ```Javascript
+    ```JavaScript
     // Use SubscriptionKeyCredential with a subscription key
     var subscriptionKeyCredential = new atlas.service.SubscriptionKeyCredential(atlas.getSubscriptionKey());
 
@@ -189,6 +189,7 @@ En esta sección, se muestra cómo usar Route Service API de Azure Maps para bus
     // Construct the RouteURL object
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
+
    **SubscriptionKeyCredential** crea **SubscriptionKeyCredentialPolicy** para autenticar las solicitudes HTTP en Azure Maps con la clave de suscripción. **atlas.service.MapsURL.newPipeline()** adopta la directiva **SubscriptionKeyCredential** y crea una instancia de [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest). **routeURL** representa una dirección URL para las operaciones [Route](https://docs.microsoft.com/rest/api/maps/route) de Azure Maps.
 
 2. Después de configurar las credenciales y la dirección URL, agregue el siguiente código JavaScript para construir la ruta desde el punto inicial hasta el final. **routeURL** solicita a Route Service de Azure Maps que calcule las direcciones de la ruta. Se extrae una colección de características de GeoJSON de la respuesta con el método **geojson.getFeatures()** y se agregan al origen de datos.
@@ -199,9 +200,9 @@ En esta sección, se muestra cómo usar Route Service API de Azure Maps para bus
 
     //Make a search route request
     routeURL.calculateRouteDirections(atlas.service.Aborter.timeout(10000), coordinates).then((directions) => {
-      //Get data features from response
-      var data = directions.geojson.getFeatures(); 
-      datasource.add(data);
+        //Get data features from response
+        var data = directions.geojson.getFeatures();
+        datasource.add(data);
     });
     ```
 

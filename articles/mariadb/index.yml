@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b1e6ffc985c35b6711b8e602dbb877e840ab3f1b
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: dcd0461e185fa97853bcd84e53bb43aacc5799c0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992386"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517019"
 documentType: LandingData
 title: Documentación de Azure Database for MariaDB
 metadata:
@@ -14,7 +14,7 @@ metadata:
   ms.author: andrela
   ms.service: mariadb
   ms.topic: landing-page
-  ms.date: 02/25/2018
+  ms.date: 03/25/2019
 abstract:
   description: Azure Database for MariaDB es un servicio de base de datos relacional basado en el motor de servidor de código abierto de MariaDB.  Es una base de datos como servicio totalmente administrada que puede manejar cargas de trabajo críticas con un rendimiento predecible y escalabilidad dinámica. Desarrolle aplicaciones con Azure Database for MariaDB aprovechando las herramientas y plataformas de código abierto que prefiera. Obtenga información sobre cómo a usar Azure Database for MariaDB con nuestros inicios rápidos, tutoriales y ejemplos.
 sections:
@@ -38,7 +38,7 @@ sections:
   - type: paragraph
     text: 'Aprenda a diseñar la base de datos y a desarrollar aplicaciones:'
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: Diseño de una base de datos&#58; <a href="/azure/mariadb/tutorial-design-database-using-portal">Azure Portal</a> | <a href="/azure/mariadb/tutorial-design-database-cli">CLI de Azure</a>
 - title: Ejemplos

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 7245fd60af91833dab26772e2aac08f675b14e6c
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
+ms.openlocfilehash: 95826cb3928f9a3220505040ef3162fe5016d08b
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55982461"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58447638"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Script de ejemplo para cargar un disco duro virtual en Azure y crear una máquina virtual nueva
 
@@ -149,7 +149,7 @@ Este script usa los siguientes comandos para crear la implementación. Cada elem
 | [Set-AzVMSourceImage](https://docs.microsoft.com/powershell/module/az.compute/set-azvmsourceimage)                           | Especifica una imagen para una máquina virtual.                                                                                                                                            |
 | [Set-AzVMOSDisk](https://docs.microsoft.com/powershell/module/az.compute/set-azvmosdisk)                                     | Establece las propiedades del disco del sistema operativo en una máquina virtual.                                                                                                                      |
 | [Set-AzVMOperatingSystem](https://docs.microsoft.com/powershell/module/az.compute/set-azvmoperatingsystem)                   | Establece las propiedades del disco del sistema operativo en una máquina virtual.                                                                                                                      |
-| [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface?view=azurermps-6.8.1)                 | Agrega una interfaz de red a una máquina virtual.                                                                                                                                       |
+| [Add-AzVMNetworkInterface](https://docs.microsoft.com/powershell/module/az.compute/add-azvmnetworkinterface)                 | Agrega una interfaz de red a una máquina virtual.                                                                                                                                       |
 | [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm)                                                 | Cree una máquina virtual.                                                                                                                                                            |
 | [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup)                     | Quita un grupo de recursos y todos los recursos incluidos en él.                                                                                                                         |
 

@@ -11,12 +11,12 @@ ms.date: 02/20/2019
 author: gauravmalhot
 ms.author: gamal
 manager: craigg
-ms.openlocfilehash: 1d4eb3d2978be98d81b42dd66a75b21563c23a1a
-ms.sourcegitcommit: 30a0007f8e584692fe03c0023fe0337f842a7070
+ms.openlocfilehash: 2b25dff29563dcf44077465f3e563d04f04b3119
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57576657"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58483121"
 ---
 # <a name="tutorial-create-an-azure-data-factory-using-azure-resource-manager-template"></a>Tutorial: Creación de una instancia de Azure Data Factory mediante una plantilla de Azure Resource Manager
 
@@ -328,7 +328,7 @@ Cree un archivo JSON denominado **ADFTutorialARM Parameters.json** que contenga 
 
 En PowerShell, ejecute el siguiente comando para implementar las entidades de Data Factory mediante la plantilla de Resource Manager que ha creado en esta guía de inicio rápido.
 
-```PowerShell
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFTutorial\ADFTutorialARM.json -TemplateParameterFile C:\ADFTutorial\ADFTutorialARM-Parameters.json
 ```
 
@@ -647,7 +647,7 @@ En el tutorial, ha creado una plantilla para definir las entidades de Data Facto
 
 Ejemplo:
 
-```PowerShell
+```powershell
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Dev.json
 
 New-AzResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile ADFTutorialARM.json -TemplateParameterFile ADFTutorialARM-Parameters-Test.json
