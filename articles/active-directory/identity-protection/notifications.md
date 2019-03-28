@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo contribuyen las notificaciones a s
 services: active-directory
 keywords: azure active directory identity protection, detección de aplicaciones en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.assetid: 65ca79b9-4da1-4d5b-bebd-eda776cc32c7
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
-ms.author: markvi
-ms.reviewer: nigu
+ms.author: joflore
+ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0368c57d25372f7f4a33130d70abd95ccfbd5f8
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 482b69752cc889ff99c3d9082d3bc20a7caa6d76
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56175360"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522186"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notificaciones de Azure Active Directory Identity Protection
 
@@ -81,6 +81,6 @@ Para abrir el cuadro de diálogo relacionado, haga clic en **Resumen semanal** e
 ![Correo electrónico de los usuarios en riesgo detectados](./media/notifications/04.png)
 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 - [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)

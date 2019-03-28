@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: raynew
-ms.openlocfilehash: 3133f22a4d9ecd8a0ee4bff9f8b0be9c1f4eb705
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 7fc724f1aff40c6dedff59ce3919496a30b30337
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403670"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520180"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services
 
@@ -32,7 +32,7 @@ En este artículo, aprenderá a:
 > [!NOTE]
    > En este artículo se describe cómo configurar un almacén y seleccione las máquinas virtuales para realizar copias de seguridad. Resulta útil si desea realizar copias de seguridad de varias máquinas virtuales. Como alternativa, puede [copia de seguridad de una sola máquina virtual de Azure](backup-azure-vms-first-look-arm.md) directamente desde la configuración de máquina virtual.
 
-## <a name="before-you-start"></a>Antes de empezar
+## <a name="before-you-start"></a>Antes de comenzar
 
 
 - [Revise](backup-architecture.md#architecture-direct-backup-of-azure-vms) la arquitectura de copia de seguridad de máquinas virtuales de Azure.
@@ -220,7 +220,8 @@ Después de habilitar la copia de seguridad:
 - Una copia de seguridad inicial se ejecuta según la programación de copia de seguridad.
 - El servicio Backup instala la extensión de copia de seguridad tanto si la máquina virtual está en ejecución como si no lo está.
     - Una máquina virtual en ejecución ofrece más probabilidad de obtener un punto de recuperación coherente con la aplicación.
-    -  Sin embargo, se realiza una copia de seguridad de la máquina virtual aunque está desactivada y no se pueda instalar la extensión. Se le conoce como una máquina virtual sin conexión. En este caso, el punto de recuperación será coherente con el bloqueo. [Obtenga más información]() tenga en cuenta que Azure Backup no admite el ajuste automático de reloj para los cambios del horario de verano para copias de seguridad de máquina virtual de Azure. Modifique las directivas de copia de seguridad manualmente según sea necesario.
+    -  Sin embargo, se realiza una copia de seguridad de la máquina virtual aunque está desactivada y no se pueda instalar la extensión. Se le conoce como una máquina virtual sin conexión. En este caso, el punto de recuperación será coherente con el bloqueo.
+    Tenga en cuenta que Azure Backup no admite el ajuste automático del reloj para los cambios de horario de verano para realizar copias de seguridad de máquinas virtuales de Azure. Modifique las directivas de copia de seguridad manualmente según sea necesario.
 
 ## <a name="run-the-initial-backup"></a>Ejecución de la copia de seguridad inicial
 

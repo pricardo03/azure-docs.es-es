@@ -2,7 +2,7 @@
 title: Preguntas frecuentes sobre Azure Dedicated HSM | Microsoft Docs
 description: Preguntas frecuentes que abarcan diferentes temas sobre Azure Dedicated HSM
 services: dedicated-hsm
-author: johndaw
+author: johncdawson
 manager: barbkess
 tags: azure-resource-manager
 ms.custom: mvc
@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/19/2019
+ms.date: 3/27/2019
 ms.author: barclayn
-ms.openlocfilehash: b28d9607bf35d37e252d7d0bc59d1ce808e38665
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 19e2fb7736457884d29a142e997338e3c7ef72e7
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259999"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540829"
 ---
 # <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
 
@@ -58,9 +58,28 @@ En este momento, Azure Dedicated HSM solo proporciona módulos HSM con autentica
 
 Microsoft solo ofrece el módulo SafeNet Luna Network HSM de Gemalto mediante el servicio Dedicated HSM y no puede hospedar ningún servicio proporcionado por el cliente.
 
-### <a name="q-does-azure-dedicated-hsm-support-pinetf-features-or-meet-pci-hsm-v1-or-v2-certification-requirements"></a>P: ¿Admite Azure Dedicated HSM características PIN/ETF o cumple los requisitos de certificación PCI HSM v1 o v2?
+### <a name="q-does-azure-dedicated-hsm-support-payment-pinetf-features"></a>P: ¿Realiza el pago de soporte técnico de HSM de Azure dedicado características (ANCLAR/ETF)?
 
-El servicio Azure Dedicated HSM usa dispositivos SafeNet Luna Network HSM 7 (modelo A790). Estos dispositivos no admiten la funcionalidad específica de HSM de pago (por ejemplo, PIN o ETF) ni certificaciones. Si quiere que el servicio Azure Dedicated HSM admita módulos HSM de pago en el futuro, proporcione la siguiente información.
+El servicio Azure Dedicated HSM usa dispositivos SafeNet Luna Network HSM 7 (modelo A790). Estos dispositivos no admiten la funcionalidad específica de HSM de pago (por ejemplo, PIN o ETF) ni certificaciones. Si desea que el servicio HSM de Azure dedicada para admitir el pago HSM en el futuro, pase los comentarios a su representante de cuenta de Microsoft.
+
+### <a name="q-which-azure-regions-is-dedicated-hsm-available-in"></a>P: ¿Qué regiones de Azure está disponible en la HSM dedicado?
+
+A partir de finales de marzo de 2019, HSM dedicados está disponible en las 14 regiones que se enumeran a continuación. Más regiones se planean y se describen a través de su representante de cuenta de Microsoft.
+
+* Este de EE. UU
+* Este de EE. UU. 2
+* Oeste de EE. UU.
+* Centro-Sur de EE. UU
+* Sudeste asiático
+* Asia oriental
+* Europa del Norte
+* Europa occidental
+* Sur de Reino Unido 2
+* Oeste de Reino Unido
+* Centro de Canadá
+* Este de Canadá
+* Este de Australia
+* Sudeste de Australia
 
 ## <a name="interoperability"></a>Interoperabilidad
 

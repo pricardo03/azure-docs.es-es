@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 8f0eaf8918913836cfe724ffea4f93b62eb3bf6a
-ms.sourcegitcommit: 11d8ce8cd720a1ec6ca130e118489c6459e04114
-ms.translationtype: HT
+ms.openlocfilehash: 4030b1905f8d5b50ef6be3ffa61eda74d8a27951
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/04/2018
-ms.locfileid: "52841649"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541059"
 ---
 # <a name="run-a-failback-for-hyper-v-vms"></a>Ejecución de una conmutación por recuperación para máquinas virtuales de Hyper-V
 
@@ -54,7 +54,7 @@ Si ha implementado la protección entre un [sitio de Hyper-V y Azure](site-recov
 
 1. Si configura nuevo hardware, instale Windows Server 2012 R2 y el rol de Hyper-V en el servidor.
 2. Cree un conmutador de red virtual con el mismo nombre que tenía en el servidor original.
-3. Seleccione **Elementos protegidos** -> **Grupo de protección** -> <ProtectionGroupName> -> <VirtualMachineName> en el que desea realizar la conmutación por recuperación y seleccione **Conmutación por error planeada**.
+3. Seleccione **elementos protegidos** -> **grupo de protección** -> \<Nombredelgrupodeprotección > -> \<VirtualMachineName > que desea conmutar por recuperación, y seleccione **conmutación por error planeada**.
 4. En **Confirmar conmutación por error planeada** select **Crear máquina virtual local si no existe**.
 5. En Nombre de host,** seleccione el nuevo servidor host de Hyper-V en el que desea incluir la máquina virtual.
 6. En Sincronización de datos, se recomienda seleccionar la opción para sincronizar los datos antes de la conmutación por error. Así se reduce el tiempo de inactividad de las máquinas virtuales, ya que la sincronización se realiza sin apagarlas. Hace lo siguiente:
@@ -63,7 +63,7 @@ Si ha implementado la protección entre un [sitio de Hyper-V y Azure](site-recov
     - Fase 2: apaga la máquina virtual en Azure para que no se realice ningún nuevo cambio allí. El último conjunto de cambios se transfiere al servidor local y se inicia la máquina virtual local.
     
 7. Haga clic en la marca de verificación para iniciar la conmutación por error (conmutación por recuperación).
-8. Después de que finalice la sincronización inicial y esté listo para apagar la máquina virtual en Azure, haga clic en **Trabajos** > <planned failover job> > **Completar conmutación por error**. Esta opción apaga la máquina de Azure, transfiere los últimos cambios a la máquina virtual local y la inicia.
+8. Una vez finalizada la sincronización inicial y esté listo para apagar la máquina virtual en Azure, haga clic en **trabajos** > \<trabajo de conmutación por error planeada >> **completar conmutación por error** . Esta opción apaga la máquina de Azure, transfiere los últimos cambios a la máquina virtual local y la inicia.
 9. Puede iniciar sesión en la máquina virtual local para comprobar que todo funciona según lo esperado. A continuación, haga clic en **Confirmar** para finalizar la conmutación por error. La confirmación elimina la máquina virtual de Azure y sus discos, y la prepara para volver a protegerla.
 10. Haga clic en **Replicación inversa** para comenzar a proteger la máquina virtual local.
 

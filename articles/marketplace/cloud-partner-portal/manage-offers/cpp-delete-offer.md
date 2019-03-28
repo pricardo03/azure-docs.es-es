@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: pbutlerm
-ms.openlocfilehash: f26597022b89bcd113ee250db75a842c634273eb
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 1d5d02d65dd3dcf5978639818fba4ebe36ffaaff
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371390"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540013"
 ---
 # <a name="delete-azure-marketplace-and-appsource-offers-or-skus"></a>Eliminación de las ofertas o SKU de Azure Marketplace y AppSource
 
@@ -28,7 +28,7 @@ Por diversas razones, puede decidir retirar su oferta del Marketplace de Microso
 - La *eliminación de ofertas* garantiza que los clientes nuevos ya no puedan adquirir ni implementar la oferta, pero no afecta a los clientes existentes, a quienes debe ofrecer soporte técnico según su contrato de licencia y las leyes aplicables. 
 - La *finalización de la oferta* es el proceso de terminación del servicio o contrato de licencia entre usted y los clientes existentes. 
 
-Orientación y las directivas relacionadas con la eliminación y la terminación de la oferta se rigen por [contrato del anunciante de Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) (sección 7) y el [directivas de participación](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (sección [ Oferta de suspensión y eliminación](https://docs.microsoft.com/en-us/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
+Orientación y las directivas relacionadas con la eliminación y la terminación de la oferta se rigen por [contrato del anunciante de Microsoft Marketplace](https://go.microsoft.com/fwlink/?LinkID=699560) y [directivas de participación](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (sección [oferta suspensión y eliminación](https://docs.microsoft.com/en-us/legal/marketplace/participation-policy#offering-suspension-and-removal)). 
 
 En este artículo se habla de los diferentes escenarios de eliminación admitidos y los pasos necesarios para llevarlos a cabo.  
 

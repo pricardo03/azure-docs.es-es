@@ -7,14 +7,14 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: hrasheed
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 03/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 96766a12d7e78dacd93432e30d12f313d52ad4c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2b7364a2bb32f2d38f5cf9ddeddd5e4e1f928e01
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176181"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519806"
 ---
 # <a name="configure-a-hdinsight-cluster-with-enterprise-security-package-by-using-azure-active-directory-domain-services"></a>Configurar un clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services
 
@@ -87,7 +87,7 @@ Una vez emparejadas las redes virtuales, configure la red virtual de HDInsight p
 
 ![Configuración de servidores DNS personalizados para la red virtual emparejada](./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png)
 
-Si utiliza reglas de grupos de seguridad de red (NSG) en la subred de HDInsight, debe permitir las [direcciones IP necesarias](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network#hdinsight-ip-1) para el tráfico entrante y saliente. 
+Si utiliza reglas de grupos de seguridad de red (NSG) en la subred de HDInsight, debe permitir las [direcciones IP necesarias](https://docs.microsoft.com/azure/hdinsight/hdinsight-extend-hadoop-virtual-network) para el tráfico entrante y saliente. 
 
 **Para probar** si las redes están configuradas correctamente, agregue una máquina virtual Windows a la subred o red virtual de HDInsight y haga ping en el nombre de dominio (debe resolverse en una dirección IP) y luego ejecute **ldp.exe** para acceder al dominio de Azure AD-DS. A continuación, **agregue esta máquina virtual Windows al dominio para confirmar** que todas las llamadas de RPC requeridas se realizaron correctamente entre el cliente y el servidor. También puede usar **nslookup** para confirmar el acceso de red a la cuenta de almacenamiento o a cualquier base de datos externa que pueda usar (por ejemplo, una instancia externa de Hive Metastore o Ranger DB).
 Si un grupo de seguridad de red se encarga de proteger AAD DS, debe asegurarse de que todos los [puertos necesarios](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772723(v=ws.10)#communication-to-domain-controllers) estén en la lista blanca que se encuentra en las reglas del grupo de seguridad de red de la subred AAD DS. Si la unión a un dominio de esta máquina virtual Windows se realiza correctamente, puede proceder con el siguiente paso y crear clústeres de ESP.

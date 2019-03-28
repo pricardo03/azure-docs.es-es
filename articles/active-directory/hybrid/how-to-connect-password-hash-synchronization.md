@@ -9,16 +9,16 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6d0b3f3d53d6e8204e23ac9aaa8a428b25dc4dd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 74a7316ea00f5c38d6a2b1a98d81affeeffcd5e9
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195556"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518004"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 En este artículo se ofrece información que se necesita para sincronizar las contraseñas de usuario desde una instancia de Active Directory local con otra de Azure Active Directory (Azure AD) basado en la nube.
@@ -46,7 +46,7 @@ Un usuario debe escribir sus credenciales corporativas una segunda vez para aute
 ### <a name="detailed-description-of-how-password-hash-synchronization-works"></a>Descripción detallada de cómo funciona la sincronización de hash de contraseñas
 En la sección siguiente se describe con detalle cómo funciona la sincronización de hash de contraseñas entre Active Directory y Azure AD.
 
-![Flujo detallado de contraseñas](./media/how-to-connect-password-hash-synchronization/arch3.png)
+![Flujo detallado de contraseñas](./media/how-to-connect-password-hash-synchronization/arch3a.png)
 
 
 1. Cada dos minutos, el agente de sincronización de hash de contraseñas en el servidor de AD Connect solicita hashes de contraseña almacenados (el atributo unicodePwd) desde un controlador de dominio.  Esta solicitud es a través del protocolo de replicación [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) estándar que se utiliza para sincronizar datos entre controladores de dominio. La cuenta de servicio debe tener los permisos para replicar cambios de directorio y para replicar cambios de directorio en todos los AD (se conceden de manera predeterminada en la instalación) para obtener los hashes de contraseña.

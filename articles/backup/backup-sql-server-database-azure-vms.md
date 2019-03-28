@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 6709bb2beae6dd1964f475ce2ba07b569b9ad4ab
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 899068141a936aa5257501e733c6600185f22b8e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285078"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522169"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
 
@@ -145,7 +145,7 @@ Configure la copia de seguridad de la manera siguiente:
 
    - Selección de la directiva predeterminada: HourlyLogBackup.
    - Elegir una directiva de copia de seguridad existente creada previamente para SQL.
-   - [Definir una nueva directiva](#configure-a-backup-policy) basada en el objetivo de punto de recuperación (RPO) y en la duración de retención.
+   - Definir una nueva directiva basada en el intervalo de retención y RPO.
 
      ![Seleccionar directiva de copia de seguridad](./media/backup-azure-sql-database/select-backup-policy.png)
 

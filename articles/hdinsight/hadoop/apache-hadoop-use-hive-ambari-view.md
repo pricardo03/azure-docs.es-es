@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/16/2018
+ms.date: 03/21/2019
 ms.author: hrasheed
-ms.openlocfilehash: 92c09e7defe159818b22bc8275d011d05512aa66
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 978b865f6dd7e3427a0139e7e71ed4b2d937fbe5
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446574"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517307"
 ---
 # <a name="use-apache-ambari-hive-view-with-apache-hadoop-in-hdinsight"></a>Uso de Apache Ambari Hive View con Apache Hadoop en HDInsight
 
@@ -24,22 +24,14 @@ Aprenda a ejecutar consultas de Hive utilizando Apache Ambari Hive View. La vist
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* Un clúster de Apache Hadoop en HDInsight basado en Linux versión 3.4 o posterior.
-
-  > [!IMPORTANT]  
-  > Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las superiores. Consulte la información sobre la [retirada de HDInsight en Windows](../hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
+* Un clúster de Hadoop en HDInsight. Consulte [empezar a trabajar con HDInsight en Linux](./apache-hadoop-linux-tutorial-get-started.md).
 * Un explorador web
 
 ## <a name="run-a-hive-query"></a>Ejecución de una consulta de Hive
 
-1. Abra [Azure Portal](https://portal.azure.com).
+1. Desde el [portal Azure](https://portal.azure.com/), seleccione el clúster.  Consulte [lista y visualización de clústeres](../hdinsight-administer-use-portal-linux.md#showClusters) para obtener instrucciones. El clúster se abre en una nueva hoja del portal.
 
-2. Seleccione el clúster de HDInsight y después **Vistas de Ambari** en la sección **Vínculos rápidos**.
-
-    ![Sección Vínculos rápidos del portal](./media/apache-hadoop-use-hive-ambari-view/quicklinks.png)
-
-    Cuando se le solicite autenticarse, use el nombre de cuenta y la contraseña de inicio de sesión del clúster (el valor predeterminado es `admin`) que proporcionó al crear el clúster.
+2. Desde **paneles de clúster**, seleccione **vistas de Ambari**. Cuando se le solicite autenticarse, use el nombre de cuenta y la contraseña de inicio de sesión del clúster (el valor predeterminado es `admin`) que proporcionó al crear el clúster.
 
 3. En la lista de vistas, seleccione __Vista de Hive__.
 
@@ -81,30 +73,30 @@ Aprenda a ejecutar consultas de Hive utilizando Apache Ambari Hive View. La vist
 
    * `SELECT`: selecciona un recuento de todas las filas donde la columna t4 contiene el valor [ERROR].
 
-     > [!IMPORTANT]  
-     > Deje la selección de __base de datos__ en el __valor predeterminado__. Los ejemplos de este documento usan la base de datos predeterminada que se incluye en HDInsight.
+   > [!IMPORTANT]  
+   > Deje la selección de __base de datos__ en el __valor predeterminado__. Los ejemplos de este documento usan la base de datos predeterminada que se incluye en HDInsight.
 
-5. Para iniciar la consulta, use el botón **Ejecutar** que se encuentra debajo de la hoja de cálculo. El botón se vuelve de color naranja y el texto cambia a **Detener**.
+5. Para iniciar la consulta, seleccione **Execute** debajo de la hoja de cálculo. El botón se vuelve de color naranja y el texto cambia a **Detener**.
 
 6. Cuando finalice la consulta, los resultados de la operación aparecerán en la pestaña **Resultados**. El texto siguiente es el resultado de la consulta:
 
         loglevel       count
         [ERROR]        3
 
-    Puede utilizar la pestaña **Registros** para ver la información de registro creada por el trabajo.
+    Puede usar el **registro** pestaña para ver la información de registro que crea el trabajo.
 
    > [!TIP]  
-   > Descargue o guarde los resultados en el cuadro de diálogo **Guardar resultados** situado en la parte superior izquierda de la sección **Query Process Results** (Resultados del proceso de consulta).
+   > Descargar o guardar los resultados de la **acciones** cuadro de diálogo desplegable bajo el **resultados** ficha.
 
 ### <a name="visual-explain"></a>Explicación visual
 
 Para mostrar una visualización del plan de consulta, seleccione la pestaña **Explicación visual** que se encuentra debajo de la hoja de cálculo.
 
-La vista de **explicación visual** de la consulta puede ser útil para comprender el flujo de las consultas complejas. Puede ver un vista de texto equivalente a esta con el botón **Explicar** del Editor de consultas.
+La vista de **explicación visual** de la consulta puede ser útil para comprender el flujo de las consultas complejas.
 
 ### <a name="tez-ui"></a>Interfaz de usuario de Tez
 
-Para mostrar la interfaz de usuario de Tez, seleccione la pestaña **Tez** que se encuentra debajo de la hoja de cálculo.
+Para mostrar la UI de Tez para la consulta, seleccione el **UI de Tez** ficha debajo de la hoja de cálculo.
 
 > [!IMPORTANT]  
 > Tez no se usa para resolver todas las consultas. No es necesario usar Tez para resolver muchas consultas. 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/03/2018
 ms.author: mbullwin
-ms.openlocfilehash: 934d0a73bf6345edd79ae00526a1db0361b3524d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ae0d3658d9ae8534b1596fa7363495926cd0dfe7
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482790"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520758"
 ---
 # <a name="application-insights-for-aspnet-core"></a>Application Insights para ASP.NET Core
 
@@ -409,6 +409,6 @@ El problema de usar alguno de estos métodos es que no deshabilitan solo Applica
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Explore los flujos de usuarios](../../azure-monitor/app/usage-flows.md) para saber cómo navegan por la aplicación.
-* [Configure la colección de instantáneas](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger#configure-snapshot-collection-for-aspnet-core-20-applications) para ver el estado del código fuente y las variables en el momento en que se produzca una excepción.
+* [Configure la colección de instantáneas](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger) para ver el estado del código fuente y las variables en el momento en que se produzca una excepción.
 * [Use la API](../../azure-monitor/app/api-custom-events-metrics.md) para enviar sus propios eventos y métricas para obtener una vista más detallada del rendimiento y el uso de la aplicación.
 * [Las pruebas de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md) comprueban la aplicación constantemente desde cualquier parte del mundo.

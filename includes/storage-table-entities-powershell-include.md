@@ -2,14 +2,14 @@
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 03/27/2019
 ms.author: tamram
-ms.openlocfilehash: e8c5bf8e3c4cd63b7eec278c480527e95455140d
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.openlocfilehash: 9a60c624b181a1efd2f6deebd349daa82214a8a4
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164892"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541390"
 ---
 <!--created by Robin Shahan to go in the articles for table storage w/powershell.
     There is one for Azure Table Storage and one for Azure Cosmos DB Table API -->
@@ -18,53 +18,54 @@ ms.locfileid: "50164892"
 
 Ya tenemos la tabla. Pasemos a ver ahora cómo administrar las entidades (o filas) de esa tabla. 
 
-Una entidad puede tener hasta 255 propiedades, incluyendo 3 propiedades de sistema: **PartitionKey**, **RowKey** y **Timestamp**. Usted será el que deba encargarse de insertar y actualizar los valores de **PartitionKey** y **RowKey**. El servidor se encargará de administrar el valor **Timestamp**, así que no podrá modificarlo. Tanto **PartitionKey** como **RowKey** identifican de forma exclusiva todas las entidades de una tabla.
+Las entidades pueden tener hasta 255 propiedades, incluidas tres propiedades del sistema: **PartitionKey**, **RowKey**, y **Timestamp**. Usted es responsable de insertar y actualizar los valores de **PartitionKey** y **RowKey**. El servidor administra el valor de **Timestamp**, que no se puede modificar. Tanto **PartitionKey** como **RowKey** identifican de forma exclusiva todas las entidades de una tabla.
 
-* **PartitionKey**: determina la partición en la que se almacena la entidad.
-* **RowKey**: identifica de forma única la entidad dentro de la partición.
+* **PartitionKey**: Determina la partición que se almacena la entidad.
+* **RowKey**: Identifica la entidad dentro de la partición.
 
 Puede definir hasta 252 propiedades personalizadas para una entidad. 
 
 ### <a name="add-table-entities"></a>Agregar entidades de tabla
 
-Agregue entidades a una tabla con **Add-StorageTableRow**. En estos ejemplos se usan claves de partición con los valores "partition1" y "partition2" y las claves de fila equivalen a abreviaturas de estados americanos. Las propiedades de cada entidad son el nombre y el identificador de usuario. 
+Agregar entidades a una tabla con **agregar AzTableRow**. Estos ejemplos utilizan las claves de partición con valores `partition1` y `partition2`, y las claves de fila equivalen a abreviaturas de estado. Las propiedades de cada entidad son `username` y `userid`. 
 
 ```powershell
 $partitionKey1 = "partition1"
 $partitionKey2 = "partition2"
 
 # add four rows 
-Add-StorageTableRow `
-    -table $storageTable `
+Add-AzTableRow `
+    -table $cloudTable `
     -partitionKey $partitionKey1 `
     -rowKey ("CA") -property @{"username"="Chris";"userid"=1}
 
-Add-StorageTableRow `
-    -table $storageTable `
+Add-AzTableRow `
+    -table $cloudTable `
     -partitionKey $partitionKey2 `
     -rowKey ("NM") -property @{"username"="Jessie";"userid"=2}
 
-Add-StorageTableRow `
-    -table $storageTable `
+Add-AzTableRow `
+    -table $cloudTable `
     -partitionKey $partitionKey1 `
     -rowKey ("WA") -property @{"username"="Christine";"userid"=3}
 
-Add-StorageTableRow `
-    -table $storageTable `
+Add-AzTableRow `
+    -table $cloudTable `
     -partitionKey $partitionKey2 `
     -rowKey ("TX") -property @{"username"="Steven";"userid"=4}
 ```
 
 ### <a name="query-the-table-entities"></a>Consultar las entidades de tabla
 
-Existen diversas formas de consultar las entidades de una tabla.
+Puede consultar las entidades de una tabla utilizando la **Get AzTableRow** comando.
+
+> [!NOTE]
+> Los cmdlets **Get-AzureStorageTableRowAll**, **Get-AzureStorageTableRowByPartitionKey**, **Get AzureStorageTableRowByColumnName**, y  **Get-AzureStorageTableRowByCustomFilter** están en desuso y se quitará en una actualización de una versión futura.
 
 #### <a name="retrieve-all-entities"></a>Recuperar todas las entidades
 
-Use **Get-AzureStorageTableRowAll** para recuperar todas las entidades.
-
 ```powershell
-Get-AzureStorageTableRowAll -table $storageTable | ft
+Get-AzTableRow -table $cloudTable | ft
 ```
 
 Este comando devuelve un valor similar a la siguiente tabla:
@@ -78,11 +79,10 @@ Este comando devuelve un valor similar a la siguiente tabla:
 
 #### <a name="retrieve-entities-for-a-specific-partition"></a>Recuperar entidades de una partición específica
 
-Use **Get-AzureStorageTableRowByPartitionKey** para recuperar todas las entidades de una partición concreta.
-
 ```powershell
-Get-AzureStorageTableRowByPartitionKey -table $storageTable -partitionKey $partitionKey1 | ft
+Get-AzTableRow -table $cloudTable -partitionKey $partitionKey1 | ft
 ```
+
 El resultado es similar a la siguiente tabla:
 
 | userid | nombre de usuario | partición | clave de fila |
@@ -92,10 +92,8 @@ El resultado es similar a la siguiente tabla:
 
 #### <a name="retrieve-entities-for-a-specific-value-in-a-specific-column"></a>Recuperar entidades con un valor específico en una columna específica
 
-Use **AzureStorageTableRowByColumnName Get** para recuperar las entidades en las que el valor de una columna específica es igual a un valor particular.
-
 ```powershell
-Get-AzureStorageTableRowByColumnName -table $storageTable `
+Get-AzTableRow -table $cloudTable `
     -columnName "username" `
     -value "Chris" `
     -operator Equal
@@ -112,11 +110,9 @@ Con esta consulta se recupera un único registro.
 
 #### <a name="retrieve-entities-using-a-custom-filter"></a>Recuperar entidades con un filtro personalizado 
 
-Use **Get-AzureStorageTableRowByCustomFilter** para recuperar entidades con un filtro personalizado.
-
 ```powershell
-Get-AzureStorageTableRowByCustomFilter `
-    -table $storageTable `
+Get-AzTableRow `
+    -table $cloudTable `
     -customFilter "(userid eq 1)"
 ```
 
@@ -131,27 +127,27 @@ Con esta consulta se recupera un único registro.
 
 ### <a name="updating-entities"></a>Actualización de entidades 
 
-La actualización de las entidades es un proceso de tres pasos: Primero se recupera la entidad que se va a cambiar, después se realiza el cambio y, finalmente, se confirma el cambio con **Update-AzureStorageTableRow**.
+La actualización de las entidades es un proceso de tres pasos: Primero se recupera la entidad que se va a cambiar, después se realiza el cambio En tercer lugar, se confirma el cambio con **actualización AzTableRow**.
 
-Actualice la entidad con el nombre de usuario = "Jessie" para que refleje el nombre de usuario = "Jessie2". En este ejemplo se indica también otra forma de crear un filtro personalizado con tipos de .NET. 
+Actualice la entidad con el nombre de usuario = "Jessie" para que refleje el nombre de usuario = "Jessie2". En este ejemplo se indica también otra forma de crear un filtro personalizado con tipos de .NET.
 
 ```powershell
 # Create a filter and get the entity to be updated.
 [string]$filter = `
-    [Microsoft.WindowsAzure.Storage.Table.TableQuery]::GenerateFilterCondition("username",`
-    [Microsoft.WindowsAzure.Storage.Table.QueryComparisons]::Equal,"Jessie")
-$user = Get-AzureStorageTableRowByCustomFilter `
-    -table $storageTable `
+    [Microsoft.Azure.Cosmos.Table.TableQuery]::GenerateFilterCondition("username",`
+    [Microsoft.Azure.Cosmos.Table.QueryComparisons]::Equal,"Jessie")
+$user = Get-AzTableRow `
+    -table $cloudTable `
     -customFilter $filter
 
 # Change the entity.
-$user.username = "Jessie2" 
+$user.username = "Jessie2"
 
 # To commit the change, pipe the updated record into the update cmdlet.
-$user | Update-AzureStorageTableRow -table $storageTable 
+$user | Update-AzTableRow -table $cloudTable
 
 # To see the new record, query the table.
-Get-AzureStorageTableRowByCustomFilter -table $storageTable `
+Get-AzTableRow -table $cloudTable `
     -customFilter "(username eq 'Jessie2')"
 ```
 
@@ -170,33 +166,33 @@ Se puede eliminar una o todas las entidades de la tabla.
 
 #### <a name="deleting-one-entity"></a>Eliminar una entidad
 
-Para eliminar solo una entidad, obtenga una referencia a esa entidad y canalícela en **Remove-AzureStorageTableRow**.
+Para eliminar una entidad única, obtenga una referencia a esa entidad y canalícela en **Remove-AzTableRow**.
 
 ```powershell
 # Set filter.
 [string]$filter = `
-  [Microsoft.WindowsAzure.Storage.Table.TableQuery]::GenerateFilterCondition("username",`
-  [Microsoft.WindowsAzure.Storage.Table.QueryComparisons]::Equal,"Jessie2")
+  [Microsoft.Azure.Cosmos.Table.TableQuery]::GenerateFilterCondition("username",`
+  [Microsoft.Azure.Cosmos.Table.QueryComparisons]::Equal,"Jessie2")
 
 # Retrieve entity to be deleted, then pipe it into the remove cmdlet.
-$userToDelete = Get-AzureStorageTableRowByCustomFilter `
-    -table $storageTable `
+$userToDelete = Get-AzTableRow `
+    -table $cloudTable `
     -customFilter $filter
-$userToDelete | Remove-AzureStorageTableRow -table $storageTable 
+$userToDelete | Remove-AzTableRow -table $cloudTable
 
 # Retrieve entities from table and see that Jessie2 has been deleted.
-Get-AzureStorageTableRowAll -table $storageTable | ft
+Get-AzTableRow -table $cloudTable | ft
 ```
 
-#### <a name="delete-all-entities-in-the-table"></a>Eliminar todas las entidades de la tabla 
+#### <a name="delete-all-entities-in-the-table"></a>Eliminar todas las entidades de la tabla
 
 Para eliminar todas las entidades de la tabla, recupérelas y canalice los resultados al cmdlet de eliminación. 
 
 ```powershell
 # Get all rows and pipe the result into the remove cmdlet.
-Get-AzureStorageTableRowAll `
-    -table $storageTable | Remove-AzureStorageTableRow -table $storageTable 
+Get-AzTableRow `
+    -table $cloudTable | Remove-AzTableRow -table $cloudTable 
 
 # List entities in the table (there won't be any).
-Get-AzureStorageTableRowAll -table $storageTable | ft
+Get-AzTableRow -table $cloudTable | ft
 ```

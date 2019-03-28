@@ -4,14 +4,14 @@ description: Aprenda cómo establecer el rendimiento aprovisionado para las base
 author: aliuy
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 03/19/2019
 ms.author: andrl
-ms.openlocfilehash: 439b48c271260e9744bb9c9ca0e2b21e61cf4687
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 8335a235de708227136400f3af8fa7b4d0a52e29
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005070"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520911"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar rendimiento en contenedores y bases de datos
 
@@ -75,6 +75,20 @@ Puede combinar los dos modelos. Se permite el aprovisionamiento del rendimiento 
 * Puede configurar explícitamente RU de "P" de rendimiento aprovisionado en el contenedor denominado "B".
 * El rendimiento de RU de "K" se comparte entre los cuatro contenedores: A, C, D y E. La cantidad exacta de rendimiento disponible para A, C, D o E varía. No hay ningún Acuerdo de Nivel de Servicio para el rendimiento de cada contenedor individual.
 * Se garantiza que el contenedor denominado "B" obtendrá el rendimiento de RU de "P" todo el tiempo. Estará respaldado por los Acuerdos de Nivel de Servicio.
+
+## <a name="update-throughput-on-a-database-or-a-container"></a>Rendimiento de la actualización en una base de datos o un contenedor
+
+Después de crear un contenedor de Cosmos Azure o en una base de datos, puede actualizar el rendimiento aprovisionado. No hay ningún límite en el rendimiento aprovisionado máximo que puede configurar en la base de datos o el contenedor. El rendimiento aprovisionado mínimo depende de los siguientes factores: 
+
+* El tamaño máximo de los datos que nunca se almacena en el contenedor
+* El rendimiento máximo que nunca se aprovisiona en el contenedor
+* El número máximo de contenedores de Azure Cosmos que nunca de crear en una base de datos con un rendimiento compartido. 
+
+Puede recuperar el rendimiento mínimo de un contenedor o una base de datos mediante programación utilizando los SDK o ver el valor en el portal de Azure. Al usar el SDK. NET, el [DocumentClient.ReplaceOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.replaceofferasync?view=azure-dotnet) método le permite escalar el valor de rendimiento aprovisionado. Al usar el SDK de Java, el [RequestOptions.setOfferThroughput](sql-api-java-samples.md#offer-examples) método le permite escalar el valor de rendimiento aprovisionado. 
+
+Al usar el SDK. NET, el [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) método le permite recuperar el rendimiento mínimo de un contenedor o una base de datos. 
+
+Puede escalar el rendimiento aprovisionado de un contenedor o una base de datos en cualquier momento. Puede ejecutar la operación de reducción después del período de inactividad de 4 horas. El período de inactividad se define como el tiempo período cuando se ha producido ninguna oferta las operaciones de reemplazo (que incluye el escalado vertical y horizontalmente) en un contenedor o una base de datos. 
 
 ## <a name="comparison-of-models"></a>Comparación de modelos
 

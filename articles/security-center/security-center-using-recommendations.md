@@ -12,19 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/24/2019
+ms.date: 3/26/2019
 ms.author: monhaber
-ms.openlocfilehash: 8c8108697e39153aef8727942c166a741cb8398c
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 82a46ae9523c4c2778f86c445e35d0bec961307f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402769"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517698"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Uso de las recomendaciones de Azure Security Center para mejorar la seguridad
 Puede reducir las posibilidades de que se produzca un incidente de seguridad importante configurando una directiva de seguridad y, luego, implementando las recomendaciones de Azure Security Center. En este artículo se muestra cómo usar las recomendaciones y directivas de seguridad de Security Center para ayudar a mitigar un ataque de seguridad. 
 
-Security Center se ejecuta automáticamente un análisis continuo para analizar el estado de seguridad de los recursos de Azure. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles de seguridad necesarios. Security Center actualiza las recomendaciones una vez cada 24 horas.
+Security Center se ejecuta automáticamente un análisis continuo para analizar el estado de seguridad de los recursos de Azure. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles de seguridad necesarios. Security Center actualiza sus recomendaciones dentro de 24 horas, con las siguientes excepciones:
+
+- Las recomendaciones de configuración de seguridad del sistema operativo se actualizan en 48 horas
+- Recomendaciones de problemas de protección de puntos de conexión se actualizan en 8 horas
 
 ## <a name="scenario"></a>Escenario
 Este escenario muestra cómo usar Security Center para ayudar a reducir las posibilidades de que se produzca un incidente de seguridad al supervisar las recomendaciones de Security Center y tomar medidas. El escenario utiliza la compañía ficticia Contoso y los roles de la [Guía de planeamiento y operaciones](security-center-planning-and-operations-guide.md#security-roles-and-access-controls) de Security Center. En este escenario, nos centraremos en los roles siguientes:

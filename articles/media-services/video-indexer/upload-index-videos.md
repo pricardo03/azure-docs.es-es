@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
-ms.openlocfilehash: e7f39b6298dd950147fea7ac21969c53e1b58e2e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f9bf23094f47f5c200f7a02f81a8e185f469c580
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877877"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58516976"
 ---
 # <a name="upload-and-index-your-videos"></a>Carga e indexación de los vídeos  
 
@@ -26,7 +26,7 @@ Al cargar vídeos con Video Indexer API, tiene las siguientes opciones de carga:
 
 En el artículo se muestra cómo usar la API [Cargar vídeo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) para cargar e indexar los vídeos según una dirección URL. En el ejemplo de código del artículo se incluye el código con comentarios que muestra cómo cargar la matriz de bytes. <br/>En el artículo también se explican algunos de los parámetros que puede establecer en la API para cambiar el proceso y la salida de la API.
 
-Una vez cargado el vídeo, Video Indexer codifica opcionalmente el vídeo (lo cual se explica en este artículo). Al crear una cuenta de Video Indexer, puede elegir una cuenta de evaluación gratuita (donde obtendrá un número determinado de minutos gratuitos de indexación) o una opción de pago (donde no está limitado por la cuota). Con la versión de evaluación gratuita, Video Indexer proporciona hasta 600 horas de indexación gratuita a los usuarios de sitios web y hasta 2400 horas de indexación gratuita a los usuarios de API. Con la opción de pago, crear una cuenta de Video Indexer es [conectado a su suscripción de Azure y una cuenta de Azure Media Services](connect-to-azure.md). Se paga por minutos de indexación y por los cargos relacionados con la cuenta de Media Services. 
+Una vez cargado el vídeo, Video Indexer codifica opcionalmente el vídeo (lo cual se explica en este artículo). Al crear una cuenta de Video Indexer, puede elegir una cuenta de evaluación gratuita (donde obtendrá un número determinado de minutos gratuitos de indexación) o una opción de pago (donde no está limitado por la cuota). Con la versión de evaluación gratuita, Video Indexer proporciona hasta 600 horas de indexación gratuita a los usuarios de sitios web y hasta 2400 horas de indexación gratuita a los usuarios de API. Con la opción de pago, se crea una cuenta de Video Indexer que está [conectada a su suscripción de Azure y a una cuenta de Azure Media Services](connect-to-azure.md). Se paga por minutos de indexación y por los cargos relacionados con la cuenta de Media Services. 
 
 ## <a name="uploading-considerations"></a>Consideraciones de la carga
 
@@ -37,6 +37,7 @@ Una vez cargado el vídeo, Video Indexer codifica opcionalmente el vídeo (lo cu
 - La opción de matriz de bytes agota el tiempo de espera a los 30 minutos
 - La dirección URL que se proporciona en el parámetro `videoURL` debe estar codificada.
 - Indización de recursos de Media Services tiene la misma limitación que la indización de dirección URL
+- Indexador de vídeo tiene un límite de duración máxima de 4 horas para un solo archivo
 
 > [!Tip]
 > Es recomendable que use .NET Framework versión 4.6.2 o superior porque las versiones anteriores de .NET Framework no usan de forma predeterminada TLS 1.2.

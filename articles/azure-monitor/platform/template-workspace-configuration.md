@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: magoedte
-ms.openlocfilehash: c59e0e7cd846f77082b7131aaec15e4945a18191
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0578b50952c12d4587f7a4751bc831d3134c64e7
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110161"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540778"
 ---
-# <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Administración de Log Analytics mediante las plantillas de Azure Resource Manager
+# <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Administrar el área de trabajo de Log Analytics mediante plantillas de Azure Resource Manager
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Puede utilizar las [plantillas de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para crear y configurar áreas de trabajo de Log Analytics. Estos son algunos ejemplos de las tareas que puede realizar con las plantillas:
+Puede usar [plantillas Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para crear y configurar áreas de trabajo de Log Analytics en Azure Monitor. Estos son algunos ejemplos de las tareas que puede realizar con las plantillas:
 
 * Crear un área de trabajo, incluyendo el establecimiento del plan de tarifa 
 * Agregar una solución

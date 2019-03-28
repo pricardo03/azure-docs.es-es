@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0ada3055a3347cb42179fddbba671f2f03f502d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4d7d194d810e0fd3b9fb57b0876bee12447f65c6
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57885074"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519874"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infinite-campus"></a>Tutorial: Integración de Azure Active Directory con Infinite Campus
 
@@ -90,7 +90,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Infinite Ca
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
 2. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de Campus infinito](#creating-a-infinite-campus-test-user)**  : para tener un homólogo de Britta Simon en Campus infinito que esté vinculado a la representación del usuario en Azure AD.
+3. **[Creación de un usuario de prueba de Campus infinito](#creating-an-infinite-campus-test-user)**  : para tener un homólogo de Britta Simon en Campus infinito que esté vinculado a la representación del usuario en Azure AD.
 4. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 5. **[Prueba del inicio de sesión único](#testing-single-sign-on)**: para comprobar si funciona la configuración.
 
@@ -196,7 +196,7 @@ El objetivo de esta sección es crear un _único_ usuario de prueba en Azure Por
 
      a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el **nombre de usuario** , escriba **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Seleccione **Propiedades**, active la casilla **Mostrar contraseña** y escriba el valor que se muestra en el cuadro de contraseña.

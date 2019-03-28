@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 1c2f302d7b87426115df716dfba638eee0756f79
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 14aec0bb8f821110579b0447b1fcb146e486cf4d
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480743"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539299"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Modificación del modelo de licencia para una máquina virtual de SQL Server en Azure
 En este artículo se describe cómo cambiar el modelo de licencia para una máquina virtual con SQL Server en Azure mediante el nuevo proveedor de recursos de VM con SQL, **Microsoft.SqlVirtualMachine**. Hay dos modelos para una máquina virtual (VM) que hospeda SQL Server - pago por uso, de licencia y traiga su propia licencia (BYOL). Y ahora, con PowerShell o la CLI de Azure, puede modificar qué modelo de licencia usa la VM con SQL Server. 
@@ -217,7 +217,7 @@ Use el código siguiente para comprobar la versión de Azure PowerShell:
 Get-Module -ListAvailable -Name Azure -Refresh
 ```
 
-### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found-the-property-sqlserverlicensetype-cannot-be-found-on-this-object-verify-that-the-property-exists-and-can-be-set"></a>No se encontró el recurso 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/ < resource-group >' en '< resource-group >' del grupo de recursos. La propiedad 'sqlServerLicenseType' no se encuentra en este objeto. Compruebe que la propiedad existe y se puede establecer.
+### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found-the-property-sqlserverlicensetype-cannot-be-found-on-this-object-verify-that-the-property-exists-and-can-be-set"></a>El recurso ' Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<grupo de recursos >' en el grupo de recursos '\<grupo de recursos >' no se encontró. La propiedad 'sqlServerLicenseType' no se encuentra en este objeto. Compruebe que la propiedad existe y se puede establecer.
 Este error se produce cuando la máquina virtual de SQL Server no se ha registrado con el proveedor de recursos SQL. Deberá registrar el proveedor de recursos con su [suscripción](#register-sql-resource-provider-with-your-subscription)y, a continuación, registre la máquina virtual de SQL Server con el lenguaje SQL [proveedor de recursos](#register-sql-server-vm-with-sql-resource-provider). 
 
 ## <a name="next-steps"></a>Pasos siguientes

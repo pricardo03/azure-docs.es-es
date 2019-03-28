@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: acf338afdf33408637bf7cca79d28f5e90888eba
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 6400e3d3fa7f0317ff927f2931e705365a450770
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224447"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520673"
 ---
 # <a name="what-is-speech-to-text"></a>¿Qué es el texto a voz?
 
 Voz a texto de los servicios de voz de Azure, también conocido como voz a texto, habilita la transcripción en tiempo real de secuencias de audio en texto que pueden consumir las aplicaciones, herramientas o dispositivos, mostrar y actuar en como entrada de comando. Este servicio funciona con la misma tecnología de reconocimiento que Microsoft utiliza para productos de Cortana y Office y funciona sin problemas con la traducción y el texto a voz.  Para obtener una lista completa de idiomas de voz a texto disponibles, consulte [idiomas admitidos](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/language-support#speech-to-text).
 
-De forma predeterminada, el servicio de voz a texto utiliza el modelo de lenguaje Universal. Este modelo se entrena con datos de la propiedad de Microsoft y está implementado en la nube. Resulta óptimo para la conversación y escenarios de dictado. Si usa texto a voz para el reconocimiento y la transcripción en un entorno único, puede crear y entrenar modelos acústicos, el idioma y la pronunciación personalizados ruido ambiental de dirección o el vocabulario específicas del sector. 
+De forma predeterminada, el servicio de voz a texto utiliza el modelo de lenguaje Universal. Este modelo se entrena con datos de la propiedad de Microsoft y está implementado en la nube. Resulta óptimo para la conversación y escenarios de dictado. Si usa voz a texto para el reconocimiento y la transcripción en un entorno único, puede crear y entrenar modelos acústicos, de lenguaje y pronunciación personalizados para dirigir el sonido ambiental o vocabulario específico del sector. 
 
-Puede capturar audio desde un micrófono fácilmente, leer de una secuencia o tener acceso a archivos de audio desde el almacenamiento con la Speech SDK y API de REST. Speech SDK admite WAV/PCM 16 bits, kHz 16, audio de canal único para el reconocimiento de voz. Se admiten los formatos de audio adicionales mediante el [punto de conexión REST de voz a texto](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-formats) o [transcripción del servicio batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
+Puede capturar audio desde un micrófono fácilmente, leer de una secuencia o tener acceso a archivos de audio desde el almacenamiento con la Speech SDK y API de REST. Speech SDK admite WAV/PCM 16 bits, kHz 16, audio de canal único para el reconocimiento de voz. Se admiten los formatos de audio adicionales mediante el [punto de conexión REST de voz a texto](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) o [transcripción del servicio batch](https://docs.microsoft.com/azure/cognitive-services/speech-service/batch-transcription#supported-formats).
 
 ## <a name="core-features"></a>Características principales
 
@@ -47,7 +47,7 @@ Estas son las características disponibles a través de las API de REST y Speech
 
 ## <a name="get-started-with-speech-to-text"></a>Empezar a trabajar con texto a voz
 
-Ofrecemos inicios rápidos en lenguajes de programación más populares, cada uno se ha diseñado para que se ejecuta código en menos de 10 minutos. Esta tabla incluye una lista completa de los inicios rápidos de Speech SDK organizadas por lenguaje.
+Ofrecemos guías de inicio rápido en los lenguajes de programación más populares, cuyo diseño individual le permite ejecutar código en menos de 10 minutos. Esta tabla incluye una lista completa de los inicios rápidos de Speech SDK organizadas por lenguaje.
 
 | Guía de inicio rápido | Plataforma | Referencia de API |
 |------------|----------|---------------|
@@ -67,14 +67,14 @@ Si prefiere usar el servicio REST de voz a texto, consulte [las API de REST](htt
 
 ## <a name="tutorials-and-sample-code"></a>Tutoriales y código de ejemplo
 
-Una vez que haya tenido la oportunidad de usar los servicios de voz, pruebe nuestro tutorial que le enseña cómo reconocer las intenciones del contenido de voz con el SDK de voz y LUIS.
+Una vez que haya tenido la oportunidad de usar los servicios de voz, pruebe nuestro tutorial, que le enseña a reconocer intenciones a partir de contenido de voz mediante el SDK de voz y LUIS.
 
-* [Tutorial: Reconoce las intenciones del contenido de voz con el SDK de voz y LUIS,C#](how-to-recognize-intents-from-speech-csharp.md)
+* [Tutorial: Reconocimiento de intenciones a partir de contenido de voz con el SDK de voz y LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 
-Código de ejemplo de Speech SDK está disponible en GitHub. Estos ejemplos tratan escenarios comunes como leer audio desde un archivo o flujo, reconocimiento sola fase y continuo y trabajar con modelos personalizados.
+Código de ejemplo de Speech SDK está disponible en GitHub. En estos ejemplos se tratan escenarios comunes como la lectura de audio de un archivo o flujo, el reconocimiento continuo y de una sola emisión, y el trabajo con modelos personalizados.
 
 * [Ejemplos de voz a texto (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-* [Ejemplos de transcripción de Batch (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+* [Ejemplos de transcripción de Azure Batch (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 
 ## <a name="customization"></a>Personalización
 
@@ -84,7 +84,7 @@ Además del modelo Universal usado por los servicios de voz, se pueden crear mod
 |-------|-------------|
 | [Modelo acústico](how-to-customize-acoustic-models.md) | Creación de un modelo acústico personalizado resulta útil si su aplicación, herramientas o los dispositivos se usan en un entorno determinado, como en un automóvil o una fábrica con condiciones específicas de grabación. Los ejemplos incluyen el habla con acento, ruidos de fondo específicos o el uso de un micrófono específico para la grabación. |
 | [Modelo de lenguaje](how-to-customize-language-model.md) | Crear un modelo de lenguaje personalizado para mejorar la transcripción de vocabulario específicas del sector y la gramática, como terminología médica o jerga de TI. |
-| [Modelo de pronunciación](how-to-customize-pronunciation.md) | Con un modelo de pronunciación personalizado, puede definir el formulario fonética y la presentación de una palabra o término. Es útil para controlar términos personalizados, como nombres de producto o acrónimos. Basta con un archivo de pronunciación (un archivo .txt simple). |
+| [Modelo de pronunciación](how-to-customize-pronunciation.md) | Con un modelo de pronunciación personalizado, puede definir el formato fonético y mostrar una palabra o un término. Es útil para controlar términos personalizados, como nombres de producto o acrónimos. Basta con un archivo de pronunciación (un archivo .txt simple). |
 
 > [!NOTE]
 > Opciones de personalización varían según el idioma o configuración regional (vea [idiomas admitidos](supported-languages.md)).
@@ -103,11 +103,11 @@ Si sus aplicaciones, herramientas o productos usa voz personalizada o Bing Speec
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
-* [API REST: Speech-to-text](rest-speech-to-text.md)
-* [API REST: Text-to-speech](rest-text-to-speech.md)
-* [API REST: Personalización y transcripción de lote](https://westus.cris.ai/swagger/ui/index)
+* [API REST: Speech-to-text](rest-speech-to-text.md) (API de REST: Voz a texto)
+* [API REST: Text-to-speech](rest-text-to-speech.md) (API de REST: Texto a voz)
+* [API REST: Batch transcription and customization](https://westus.cris.ai/swagger/ui/index) (API de REST: Transcripción y personalización de Azure Batch)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Obtenga una clave de suscripción de servicios de voz de forma gratuita](get-started.md)
+* [Get a Speech Services subscription key for free](get-started.md) (Consiga una clave de suscripción a los servicios de voz gratis)
 * [Obtención de Speech SDK](speech-sdk.md)

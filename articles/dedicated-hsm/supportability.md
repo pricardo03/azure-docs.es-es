@@ -10,21 +10,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seodec18
-ms.date: 03/18/2019
+ms.date: 03/27/2019
 ms.author: barclayn
-ms.openlocfilehash: 8e4bbe3a5e2de8ba919cf0b641ee4e6776c5e8d4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3fd460409cab8dce0f5c4ce31f5323f19706d268
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225559"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541110"
 ---
 # <a name="azure-dedicated-hsm-supportability"></a>Compatibilidad de Azure Dedicated HSM
 
 El servicio Azure Dedicated HSM proporciona un dispositivo físico para uso exclusivo del cliente, con un control administrativo y una responsabilidad en la administración completos. El dispositivo disponible es un [Gemalto SafeNet Luna 7 HSM modelo A790](https://safenet.gemalto.com/data-encryption/hardware-security-modules-hsms/safenet-network-hsm/). Microsoft no tendrá acceso administrativo después de que un cliente lo aprovisione, aparte de la conexión del puerto serie físico como rol de supervisión.  Sin acceso, Microsoft no puede tener ninguna responsabilidad en la administración del sistema o el mantenimiento continuo a nivel de software. En consecuencia, los clientes son responsables de las actividades operativas habituales.
 Los clientes son completamente responsables de las aplicaciones que usan los HSM y deben contactar con Gemalto para obtener soporte técnico y consultoría. Debido a la extensión de la propiedad del cliente de la higiene operativa, no es posible que Microsoft ofrezca ningún tipo de garantía de alta disponibilidad para este servicio. Es responsabilidad del cliente asegurarse de que sus aplicaciones están configuradas correctamente para lograr una alta disponibilidad. Microsoft supervisará y mantendrá la conectividad de red y el buen estado de los dispositivos.
 
-## <a name="getting-support"></a>Obtener soporte técnico
+## <a name="getting-support"></a>Obtención de soporte técnico
 
 Asistencia al cliente de HSM dedicado es una iniciativa conjunta entre Microsoft y Gemalto. Se tratarán los problemas de hardware o problemas de la ruta de acceso de red por Microsoft, y nada que ver con el HSM real, como la configuración, software, desarrollo de aplicaciones y firmware, se corregirá por Gemalto. Este modelo de compatibilidad garantiza que la ruta más rápida con el soporte técnico más eficaz. En caso de duda con un problema en particular, presente una solicitud de soporte técnico con Microsoft y nos aseguramos de que se dirige adecuadamente. Microsoft se mantengan el interés en todos los escenarios de soporte técnico y nos esforzamos por obtener la mejor experiencia de soporte técnico para nuestros clientes.
 
@@ -97,4 +97,4 @@ Se recomienda que todos los conceptos clave, como la alta disponibilidad y la se
 * [Alta disponibilidad](high-availability.md)
 * [Seguridad física](physical-security.md)
 * [Redes](networking.md)
-* [Supervisión](monitoring.md)
+

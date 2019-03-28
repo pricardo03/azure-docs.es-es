@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo se usan las condiciones en el acce
 services: active-directory
 keywords: acceso condicional a aplicaciones, acceso condicional con Azure AD, acceso seguro a recursos de empresa, directivas de acceso condicional
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: ''
 ms.assetid: 8c1d978f-e80b-420e-853a-8bbddc4bcdad
@@ -15,15 +15,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/14/2018
-ms.author: markvi
+ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0245fa060f22b2f59a037af5323397409a59da69
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f95fd85b5a0fd9e905b93b9b90f18f963dbf1690
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58165941"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518242"
 ---
 # <a name="what-are-conditions-in-azure-active-directory-conditional-access"></a>¿Qué son las condiciones en el acceso condicional de Azure Active Directory? 
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2019
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 845bf72f52bb83fa597c597871599c826e5749f6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a840deb2349d952b1ef4faeab4ee860e6b0b99df
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58479987"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540149"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -241,7 +241,7 @@ El objetivo es poder instalar varias instancias en clúster de SAP Advanced Busi
 
 _**Ilustración 2:** Configuración de varios identificadores de seguridad para SAP en dos clústeres_
 
-La instalación de un sistema **SAP \<SID2>** adicional es idéntica a la de un sistema <SID>. Se necesitan dos pasos de preparación adicionales en el clúster de ASCS/SCS y en el de SOFS con recurso compartido de archivos.
+La instalación de más **SAP \<SID2 >** es idéntico a la instalación de un sistema \<SID > sistema. Se necesitan dos pasos de preparación adicionales en el clúster de ASCS/SCS y en el de SOFS con recurso compartido de archivos.
 
 ## <a name="prepare-the-infrastructure-for-an-sap-multi-sid-scenario"></a>Preparación de la infraestructura para un escenario de varios identificadores de seguridad de SAP
 
@@ -261,7 +261,7 @@ Estos pasos se describen en [Preparación de la infraestructura para el escenari
 
 ### <a name="prepare-the-infrastructure-on-an-sofs-cluster-by-using-the-existing-sap-global-host"></a>Preparación de la infraestructura en un clúster de SOFS mediante el host global de SAP existente
 
-Puede reutilizar \<SAPGlobalHost> y Volume1 existentes del primer sistema <SID1> SAP.
+Puede reutilizar los existentes \<SAPGlobalHost > y Volume1 de la primera SAP \<SID1 > sistema.
 
 ![Ilustración 3: SOFS con varios identificadores de seguridad es lo mismo que el nombre de host global de SAP][sap-ha-guide-figure-8014]
 
@@ -271,7 +271,7 @@ _**Ilustración 3:** SOFS con varios identificadores de seguridad es lo mismo q
 >Para el segundo sistema **SAP \<SID2>**, se usan los mismos Volume1 y nombre de red **\<SAPGlobalHost>**.
 >Dado que ya ha definido **SAPMNT** como nombre del recurso compartido para los distintos sistemas de SAP, para volver a usar el nombre de red **\<SAPGlobalHost>**, debe utilizar el mismo **Volume1**.
 >
->La ruta de acceso de archivo para el host global de <SID2> es: C:\ClusterStorage\\**Volume1**\usr\sap\<SID2>\SYS\\.
+>La ruta de acceso del \<SID2 > host global es C:\ClusterStorage\\**Volume1**\usr\sap\<SID2 > \SYS\.
 >
 
 Para el sistema \<SID2>, debe preparar la carpeta ..\SYS\.. del host global de SAP en el clúster de SOFS.

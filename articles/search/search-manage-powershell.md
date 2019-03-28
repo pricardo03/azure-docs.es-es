@@ -9,12 +9,12 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: heidist
-ms.openlocfilehash: 541feee2005428226b3f46927bc0e4bfb53cc98d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7a91ad691089ac816b31ebe1fce202110e580f71
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57781722"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520571"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Administración del servicio Azure Search con PowerShell
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ Puede ejecutar los scripts y cmdlets de PowerShell en Windows, Linux, o en [Azur
 > * [Lista de todos los servicios de búsqueda en su suscripción](#list-search-services)
 > * [Obtenga información acerca de un servicio de búsqueda específica](#get-search-service-information)
 > * [Crear o eliminar un servicio](#create-or-delete-a-service)
-> * [Volver a generar las claves de API de administración](#regenerate-admin-api-keys)
+> * Volver a generar las claves de API de administración
 > * [Crear o eliminar claves de api de consulta](#create-or-delete-query-keys)
 > * [Escalar un servicio aumentando o reduciendo las réplicas y particiones](#scale-replicas-and-partitions)
 

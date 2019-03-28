@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: b007575c614134f298a16b32c3179f7f0dfd31e5
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: edd035bc95cd2e694a7cfac39e447c63fce0f7d3
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436700"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520163"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Instalar y ejecutar contenedores de docker de LUIS
  
@@ -309,6 +309,11 @@ En el portal de LUIS, seleccione la aplicación y la opción **Import endpoint l
 
 Después de cargar el registro, [revise las expresiones del punto de conexión](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-review-endpoint-utterances) en el portal de LUIS.
 
+
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## <a name="stop-the-container"></a>Detención del contenedor
 
 Para apagar el contenedor, en el entorno de la línea de comandos en la que se ejecuta el contenedor, presione **Ctrl + C**.
@@ -316,10 +321,6 @@ Para apagar el contenedor, en el entorno de la línea de comandos en la que se e
 ## <a name="troubleshooting"></a>solución de problemas
 
 Si ejecuta el contenedor con un [montaje](luis-container-configuration.md#mount-settings) de salida y el registro habilitados, el contenedor genera archivos de registro que resultan útiles para solucionar problemas que se producen al iniciar o ejecutar el contenedor. 
-
-## <a name="containers-api-documentation"></a>Documentación de las API del contenedor
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Facturación
 

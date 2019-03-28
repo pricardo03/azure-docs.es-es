@@ -1,6 +1,6 @@
 ---
 title: Uso de PowerShell para crear y configurar un área de trabajo de Log Analytics | Microsoft Docs
-description: Log Analytics usa datos de los servidores de la infraestructura local o de nube. Puede recopilar datos de equipo del almacenamiento de Azure cuando son generados por Diagnósticos de Azure.
+description: Áreas de trabajo de log Analytics en Azure Monitor almacenan datos de servidores en local o en la nube de infraestructura. Puede recopilar datos de equipo del almacenamiento de Azure cuando son generados por Diagnósticos de Azure.
 services: log-analytics
 author: richrundmsft
 ms.service: log-analytics
@@ -8,18 +8,18 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: richrund
-ms.openlocfilehash: 956c6c7c17812996853f35440c60251aa5a91057
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: f37c8290defa5e7c9baa3b705393aba376936fd8
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482114"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539384"
 ---
-# <a name="manage-log-analytics-using-powershell"></a>Administración de Log Analytics mediante PowerShell
+# <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>Administrar el área de trabajo de Log Analytics en Azure Monitor con PowerShell
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Puede usar los [cmdlets de PowerShell de Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) para realizar una serie de funciones en Log Analytics desde una línea de comandos o como parte de un script.  A continuación se indican algunos ejemplos de las tareas que puede realizar con PowerShell:
+Puede usar el [cmdlets de PowerShell de Log Analytics](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/) para realizar varias funciones en un área de Log Analytics en Azure Monitor desde una línea de comandos o como parte de una secuencia de comandos.  A continuación se indican algunos ejemplos de las tareas que puede realizar con PowerShell:
 
 * Crear un área de trabajo
 * Agregar o quitar una solución
@@ -195,7 +195,7 @@ En el ejemplo anterior, regexDelimiter se definió como "\\n" para la nueva lín
 | `yyyy-MM-ddTHH:mm:ss` <br> La T es una letra T literal | `((\\\\d{2})\|(\\\\d{4}))-([0-1]\\\\d)-(([0-3]\\\\d)\|(\\\\d))T((\\\\d)\|([0-1]\\\\d)\|(2[0-4])):[0-5][0-9]:[0-5][0-9]` | | |
 
 ## <a name="configuring-log-analytics-to-send-azure-diagnostics"></a>Configuración de Log Analytics para enviar diagnósticos de Azure
-Para la supervisión de recursos de Azure sin agente, los recursos necesitan tener Diagnósticos de Azure habilitado y configurado para escribir en un área de trabajo de Log Analytics. Este método envía los datos directamente a Log Analytics y no requiere que los datos se escriban en una cuenta de almacenamiento. Los recursos admitidos son los siguientes:
+Para la supervisión de recursos de Azure sin agente, los recursos necesitan tener Diagnósticos de Azure habilitado y configurado para escribir en un área de trabajo de Log Analytics. Este método envía los datos directamente al área de trabajo y no requiere datos se escriban en una cuenta de almacenamiento. Los recursos admitidos son los siguientes:
 
 | Tipo de recurso | Registros | Métricas |
 | --- | --- | --- |
@@ -233,15 +233,15 @@ Set-AzDiagnosticSetting -ResourceId $resourceId -WorkspaceId $workspaceId -Ena
 También puede usar el cmdlet anterior para recopilar registros de recursos que se encuentran en distintas suscripciones. El cmdlet funciona en suscripciones distintas porque se proporciona tanto el identificador del recurso que crea los registros como del área de trabajo a la que se envían los registros.
 
 
-## <a name="configuring-log-analytics-to-collect-azure-diagnostics-from-storage"></a>Configuración de Log Analytics para recopilar diagnósticos de Azure de almacenamiento
-Para recopilar datos de registro desde una instancia en ejecución de un servicio en la nube clásico o un clúster de Service Fabric, tiene que escribir primero los datos en Azure Storage. Después, Log Analytics se puede configurar para recopilar los registros de la cuenta de almacenamiento. Los recursos admitidos son los siguientes:
+## <a name="configuring-log-analytics-workspace-to-collect-azure-diagnostics-from-storage"></a>Configuración de área de trabajo de Log Analytics para recopilar diagnósticos de Azure de almacenamiento
+Para recopilar datos de registro desde una instancia en ejecución de un servicio en la nube clásico o un clúster de Service Fabric, tiene que escribir primero los datos en Azure Storage. A continuación, se configura un área de trabajo de Log Analytics para recopilar los registros de la cuenta de almacenamiento. Los recursos admitidos son los siguientes:
 
 * Servicios en la nube clásicos (roles web y de trabajo)
 * Clústeres de Service Fabric
 
 El ejemplo siguiente muestra cómo:
 
-1. Enumerar las cuentas de almacenamiento existentes y las ubicaciones desde las que Log Analytics indizará datos
+1. Enumerar las cuentas de almacenamiento existentes y las ubicaciones que el área de trabajo indizará datos desde
 2. Crear una configuración para leer desde una cuenta de almacenamiento
 3. Actualizar la configuración recién creada para indizar datos desde ubicaciones adicionales
 4. Eliminar la configuración recién creada
@@ -250,7 +250,7 @@ El ejemplo siguiente muestra cómo:
 # validTables = "WADWindowsEventLogsTable", "LinuxsyslogVer2v0", "WADServiceFabric*EventTable", "WADETWEventTable"
 $workspace = (Get-AzOperationalInsightsWorkspace).Where({$_.Name -eq "your workspace name"})
 
-# Update these two lines with the storage account resource ID and the storage account key for the storage account you want to Log Analytics to index
+# Update these two lines with the storage account resource ID and the storage account key for the storage account you want the workspace to index
 $storageId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/demo/providers/Microsoft.Storage/storageAccounts/wadv2storage"
 $key = "abcd=="
 

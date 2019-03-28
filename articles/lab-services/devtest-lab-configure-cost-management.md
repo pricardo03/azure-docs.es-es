@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 1f6887a403e03ac11bb080a1d9855daff66ca088
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f761af3a5a3f08e4da89d8869aea5d666ecd69d0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096782"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517273"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Realizar un seguimiento de los costos asociados con un laboratorio en Azure DevTest Labs
 En este artículo se proporciona información sobre cómo controlar el costo del laboratorio. Muestra cómo ver el estimado costo trent durante el mes actual para el laboratorio. El artículo también muestra cómo ver el costo del mes hasta la fecha por recurso en el laboratorio.
@@ -71,7 +71,7 @@ DevTest Labs le permite administrar mejor los costos de su laboratorio estableci
    - Especifique un **Costo objetivo**. Por ejemplo, ¿cuánto planea gastar en este laboratorio en el período de tiempo definido.
    - Seleccione habilitar o deshabilitar cualquier umbral del que desee que le informen, en incrementos del 25 %, hasta un 125 % del **Costo objetivo** que ha especificado.
       - **Notificar a**: Cuando se alcanza este umbral, se le notificará mediante una dirección URL de webhook que especifique.
-      - **Vykreslit v grafu**: Cuando se alcanza este umbral, los resultados se trazan en el gráfico de tendencia de costos que se puede ver, como se describe en [visualización del gráfico de tendencias de costos mensuales estimados](#viewing-the-monthly-estimated-cost-trend-chart).
+      - **Vykreslit v grafu**: Cuando se alcanza este umbral, los resultados se trazan en el gráfico de tendencia de costos que se puede ver, como se describe en la visualización del gráfico de tendencias de costos mensuales estimados.
    - Si opta por **Notificar** cuando se alcanza el umbral, debe especificar una dirección URL de webhook. En el área de integraciones de costos, seleccione **Haga clic aquí para agregar una integración**. Escriba un **dirección URL del Webhook** en el panel Configurar notificación y seleccione **Aceptar**.
 
        ![Panel Configurar notificación](./media/devtest-lab-configure-cost-management/configure-notification.png)

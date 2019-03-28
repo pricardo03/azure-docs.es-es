@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2017
 ms.author: kasing
-ms.openlocfilehash: bc83a2cde841e7d1e90cb46304c879fcc6cedb72
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: a8c29f015b6b3652361a886585cb4ccc3f3b7293
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56105780"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519959"
 ---
 # <a name="set-up-key-vault-for-virtual-machines-in-azure-resource-manager"></a>Configuración de Key Vault para máquinas virtuales en Azure Resource Manager
 
@@ -50,7 +50,7 @@ Para crear un almacén de claves mediante la interfaz de la línea de comandos (
 
 Para la CLI, primero debe crear el almacén de claves y luego asignar la directiva de implementación. Para ello, puede usar el siguiente comando:
 
-    azure keyvault set-policy ContosoKeyVault –enabled-for-deployment true
+    az keyvault set-policy ContosoKeyVault –enabled-for-deployment true
 
 ## <a name="use-templates-to-set-up-key-vault"></a>Uso de plantillas para configurar Key Vault
 Al utilizar plantillas, deberá establecer la propiedad `enabledForDeployment` en `true` para el recurso de Key Vault.

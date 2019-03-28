@@ -11,12 +11,12 @@ ms.subservice: face-api
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: diberry
-ms.openlocfilehash: 3f77b7b71fa2ef4e7262656540b8562d3a2ff33c
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 3e6b220e7193c5e683fc8a6c06a6e9e3dd3e3f6e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437601"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521625"
 ---
 # <a name="install-and-run-face-containers"></a>Instalar y ejecutar contenedores de cara
 
@@ -120,6 +120,11 @@ El contenedor proporciona varias API de puntos de conexión de predicción de co
 
 Utilice el host, `https://localhost:5000`, con las API de contenedor.
 
+
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
 ## <a name="stop-the-container"></a>Detención del contenedor
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
@@ -128,9 +133,6 @@ Utilice el host, `https://localhost:5000`, con las API de contenedor.
 
 Si ejecuta el contenedor con un [montaje](./face-resource-container-config.md#mount-settings) de salida y el registro habilitados, el contenedor genera archivos de registro que resultan útiles para solucionar problemas que se producen al iniciar o ejecutar el contenedor. 
 
-## <a name="containers-api-documentation"></a>Documentación de las API del contenedor
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Facturación
 

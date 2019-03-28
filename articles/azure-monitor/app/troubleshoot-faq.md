@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 400583f50e898bfc750a387bf0ee83a3147e5006
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6834ab15f3d46b8b7116a48b0e970f553eb65ba8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57905074"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521829"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Preguntas frecuentes
 
@@ -153,7 +153,7 @@ Es posible si el código envía tales datos. También puede ocurrir si las varia
 
 **Todos** los octetos de la dirección web del cliente siempre se establecen en 0 después de que se buscan los atributos de ubicación geográfica.
 
-## <a name="my-ikey-is-visible-in-my-web-page-source"></a>Mi iKey es visible en el origen de mi página web. 
+## <a name="my-instrumentation-key-is-visible-in-my-web-page-source"></a>Mi clave de instrumentación es visible en mi página web de origen. 
 
 * Esta es una práctica común en las soluciones de supervisión.
 * No se puede usar para robar sus datos.
@@ -162,7 +162,7 @@ Es posible si el código envía tales datos. También puede ocurrir si las varia
 
 Podría:
 
-* Usar dos iKeys independientes (recursos independientes de Application Insights), para los datos de cliente y servidor. o
+* Use dos diferentes claves de instrumentación (separe los recursos de Application Insights), para los datos de cliente y servidor. o
 * Escribir un servidor proxy que se ejecute en el servidor y hacer que el cliente web envíe datos a través de dicho servidor proxy.
 
 ## <a name="post"></a>¿Cómo puedo ver datos POST en Búsqueda de diagnóstico?

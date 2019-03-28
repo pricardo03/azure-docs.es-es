@@ -8,12 +8,12 @@ ms.date: 03/01/2019
 ms.author: normesta
 ms.topic: article
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 1c0a04a074cfbd96423502ac92dd5821bade78e1
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 841193305556e3bc9e543abc47974c7b91b0cea1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258537"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518050"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Usar Azure Data Box para migrar datos desde un almacén HDFS local a Azure Storage
 
@@ -111,7 +111,7 @@ Para mejorar la velocidad de copia:
 
 Siga estos pasos para preparar y enviar el dispositivo Data Box a Microsoft.
 
-1. Una vez completada la copia de datos, ejecute [preparación para el envío](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest#prepare-to-ship) en el cuadro de datos. Una vez completada la preparación del dispositivo, descargue los archivos de la lista de materiales. Usará estos BOM o los archivos más adelante para comprobar los datos cargados en Azure de manifiesto. Apagar el dispositivo y quite los cables. 
+1. Una vez completada la copia de datos, ejecute [preparación para el envío](https://docs.microsoft.com/azure/databox/data-box-deploy-copy-data-via-rest) en el cuadro de datos. Una vez completada la preparación del dispositivo, descargue los archivos de la lista de materiales. Usará estos BOM o los archivos más adelante para comprobar los datos cargados en Azure de manifiesto. Apagar el dispositivo y quite los cables. 
 2.  Programar una recogida con UPS a [incluyen el cuadro de datos a Azure](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up). 
 3.  Después de que Microsoft recibe el dispositivo, está conectado al centro de datos de red y se cargan datos en la cuenta de almacenamiento especificada (con espacios de nombres jerárquico deshabilitado) al pedir Data Box. Comprobar los archivos de la lista de materiales que todos los datos se carga en Azure. Ahora puede pasar estos datos a una cuenta de almacenamiento de Data Lake Storage Gen2.
 

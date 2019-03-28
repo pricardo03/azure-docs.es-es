@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: eff79b31e926d382d98416b585ca2af54b3e87d0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a7713576565ca2632d7d91857040ece4d02c411b
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872653"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520843"
 ---
 # <a name="quickstart-convert-text-to-speech-using-nodejs"></a>Inicio rápido: Conversión de texto a voz con Node.js
 
@@ -82,7 +82,7 @@ En la siguiente sección, vamos a crear la función para llamar a la API de text
 
 Aquí va a generar la solicitud a la API de texto a voz y guardar la respuesta de voz. En este ejemplo se da por hecho que está utilizando el punto de conexión de Oeste de EE. UU. Si el recurso está registrado en una región diferente, asegúrese de actualizar `uri`. Para obtener más información, consulte [regiones de servicios de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-A continuación, deberá agregar los encabezados necesarios para la solicitud. Asegúrese de actualizar `User-Agent` con el nombre del recurso (que se encuentra en Azure Portal) y establezca `X-Microsoft-OutputFormat` en la salida de audio preferida. Para obtener una lista completa de los formatos de salida, vea [Salidas de Audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#audio-outputs).
+A continuación, deberá agregar los encabezados necesarios para la solicitud. Asegúrese de actualizar `User-Agent` con el nombre del recurso (que se encuentra en Azure Portal) y establezca `X-Microsoft-OutputFormat` en la salida de audio preferida. Para obtener una lista completa de los formatos de salida, vea [Salidas de Audio](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
 A continuación, cree el cuerpo de solicitud mediante el lenguaje de marcado de síntesis de voz (SSML). Este ejemplo define la estructura y usa la entrada `text` que creó anteriormente.
 
@@ -187,6 +187,6 @@ Asegúrese de quitar cualquier información confidencial del código fuente de l
 
 ## <a name="see-also"></a>Vea también
 
-* [Referencia de Text-to-speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api)
+* [Referencia de Text-to-speech API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
 * [Crear fuentes de voz personalizada](how-to-customize-voice-font.md)
 * [Grabación de muestras de voz para crear una voz personalizada](record-custom-voice-samples.md)

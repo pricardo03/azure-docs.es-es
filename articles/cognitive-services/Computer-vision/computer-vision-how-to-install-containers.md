@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 3/22/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 84af16c156635f7f7dbfb42972e564dd21a554bb
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: b7e60b4fbdf076c50a7d9a29092de9ab1c32b210
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436896"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520656"
 ---
 # <a name="install-and-run-recognize-text-containers"></a>Instalar y ejecutar contenedores de Reconocer texto
 
@@ -133,6 +133,11 @@ Puede usar las operaciones `POST /vision/v2.0/recognizeText` y `GET /vision/v2.0
 
 Puede usar la operación `POST /vision/v2.0/recognizeTextDirect` para reconocer sincrónicamente texto impreso en una imagen. Dado que esta operación es sincrónica, el cuerpo de solicitud para esta operación es el mismo que para la operación `POST /vision/v2.0/recognizeText`, pero el cuerpo de la respuesta para esta operación es el mismo que el devuelto por la operación `GET /vision/v2.0/textOperations/*{id}*`.
 
+<!--  ## Validate container is running -->
+
+[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
+
+
 ## <a name="stop-the-container"></a>Detención del contenedor
 
 [!INCLUDE [How to stop the container](../../../includes/cognitive-services-containers-stop.md)]
@@ -141,9 +146,6 @@ Puede usar la operación `POST /vision/v2.0/recognizeTextDirect` para reconocer 
 
 Si ejecuta el contenedor con un [montaje](./computer-vision-resource-container-config.md#mount-settings) de salida y el registro habilitados, el contenedor genera archivos de registro que resultan útiles para solucionar problemas que se producen al iniciar o ejecutar el contenedor. 
 
-## <a name="containers-api-documentation"></a>Documentación de las API del contenedor
-
-[!INCLUDE [Container's API documentation](../../../includes/cognitive-services-containers-api-documentation.md)]
 
 ## <a name="billing"></a>Facturación
 

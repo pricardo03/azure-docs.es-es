@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 283808c0bd3f5297011b25619d6f978c99d4dc32
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d9c5d731120f939cf7fb28c718cc4159a3702e44
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439233"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518792"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrar de contrato Enterprise a las API de acuerdo al cliente de Microsoft
 
@@ -60,7 +60,7 @@ Las API de EA usan una clave de API para la autenticación y autorización. Las 
 | Hoja de precios | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/default/download format=json|CSV Microsoft.Billing/billingAccounts/.../billingProfiles/.../invoices/... formato /pricesheet/default/download = json|CSV Microsoft.Billing/billingAccounts/... / billingProfiles /.. /Providers/Microsoft.Consumption/pricesheets/download  |
 | Compras de reserva | [/reservationcharges](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) | Microsoft.Billing/billingAccounts/billingProfiles/transactions |
 | Recomendaciones de reserva | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)[/](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)[SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
-| Uso de reserva | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-details)[/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-summary) | [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails)[Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) |
+| Uso de reserva | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-details)[/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails)[Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) |
 
 <sup>1</sup> servicio de azure y el uso de Marketplace de terceros están disponibles con el [API de detalles de uso](/rest/api/consumption/usagedetails).
 
@@ -501,7 +501,7 @@ Puede obtener el uso de reserva en una inscripción con la API de uso de instanc
 Entre ellos se incluyen los siguientes:
 
 - [Detalles de uso de instancias reservadas](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-details)
-- [Resumen de uso de instancias reservadas](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for--reserved-instance-usage-summary)
+- [Resumen de uso de instancias reservadas](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)
 
 Todas las API de consumo se reemplazan por las API nativas de Azure que usan Azure AD para la autenticación y autorización. Para obtener más información sobre cómo llamar a las API de REST de Azure, consulte [Introducción a REST](/rest/api/azure/#create-the-request). Las recomendaciones de reserva, las API enumeradas anteriormente se reemplazan por el [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails) y [Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) API.
 

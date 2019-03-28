@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: bc4de2d406ea2c1814825daf89d5e6a576c94036
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4b3bba1da5238655ca749f6464c539e53ca48f27
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57764819"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540064"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montaje de Azure File Storage en máquinas virtuales Linux con SMB
 
@@ -42,7 +42,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>Crear una cuenta de almacenamiento
 
-Cree una cuenta de almacenamiento, en el grupo de recursos que ha creado, con [az storage account create](/cli/azure/storage/account). En este ejemplo se crea una cuenta de almacenamiento denominada *mySTORAGEACCT<random number>* y coloca el nombre de esa cuenta de almacenamiento en la variable **STORAGEACCT**. Los nombres de la cuenta de almacenamiento deben ser únicos, usar `$RANDOM` anexa un número al final para que sea único.
+Cree una cuenta de almacenamiento, en el grupo de recursos que ha creado, con [az storage account create](/cli/azure/storage/account). Este ejemplo crea una cuenta de almacenamiento denominada *mySTORAGEACCT\<número aleatorio >* y coloca el nombre de esa cuenta de almacenamiento en la variable **STORAGEACCT**. Los nombres de la cuenta de almacenamiento deben ser únicos, usar `$RANDOM` anexa un número al final para que sea único.
 
 ```bash
 STORAGEACCT=$(az storage account create \

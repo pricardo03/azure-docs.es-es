@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 10497d40dcf67fb18d40eba02ec9e95c45be097b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 1897ddf328413decdc13cffaab0fb569d8d95665
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56820865"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521676"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Reenvío del estado del trabajo y flujos de trabajo de Automation a los registros de Azure Monitor
 
@@ -63,7 +63,7 @@ Si necesita encontrar el *nombre* de la cuenta de Automation, en Azure Portal se
    $workspaceId = "[resource id of the log analytics workspace]"
    $automationAccountId = "[resource id of your automation account]"
 
-   Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled $true
+   Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId -WorkspaceId $workspaceId -Enabled 1
    ```
 
 Después de ejecutar este script, puede tardar una hora antes de empezar a ver registros en los registros de Azure Monitor de los nuevos JobLogs o JobStreams.

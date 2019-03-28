@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 02/06/2019
-ms.openlocfilehash: 36b2f3817c7e96a35c1e8f3aba22db201224ceba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/26/2019
+ms.openlocfilehash: 5247183f50301554a986fde474b27a9bfc67d91d
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075942"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540676"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Preguntas más frecuentes sobre las bases de datos de hiperescalado de Azure SQL
 
@@ -216,7 +216,7 @@ Sí. Puede mover las bases de datos SQL de Azure existentes a Hiperescalado. En 
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>¿Pierdo alguna funcionalidad al migrar al nivel de servicio de Hiperescalado?
 
-Sí. Algunas de las características de Azure SQL Database no se admiten en Hiperescalado durante la versión preliminar pública, incluyendo, entre otras, el cifrado de datos transparente y la copia de seguridad con retención a largo plazo. Después de migrar las bases de datos a Hiperescalado, esas características dejan de funcionar.
+Sí. Algunas de las características de Azure SQL Database no se admiten en hiperescala durante la versión preliminar pública, incluyendo pero sin limitarse a largo plazo retención copia de seguridad. Después de migrar las bases de datos a Hiperescalado, esas características dejan de funcionar.
 
 ### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>¿Puedo mover mi base de datos de SQL Server local o mi base de datos de máquina virtual de SQL Server a Hiperescalado?
 

@@ -1,6 +1,6 @@
 ---
 title: Solución de problemas de implementación de la máquina virtual Linux en Azure | Microsoft Docs
-description: Solución de problemas de implementación de la máquina virtual Linux en el modelo de implementación de Azure Resource Manager.
+description: Solucionar problemas de implementación de máquina virtual Linux en el modelo de implementación de Azure Resource Manager.
 services: virtual-machines-windows
 documentationcenter: ''
 author: genlin
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 56df020b7948ff41ee7710fca19d05924e118c81
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: 1317a4731d3598c5fba317167ba4a45d95823ca2
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55729717"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539826"
 ---
 # <a name="troubleshoot-deploying-linux-virtual-machine-issues-in-azure"></a>Solución de problemas de implementación de la máquina virtual Linux en Azure
 
@@ -32,11 +32,7 @@ Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en
 [!INCLUDE [virtual-machines-linux-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-linux-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>El clúster no admite el tamaño de máquina virtual solicitado
-<properties
-supportTopicIds="123456789"
-resourceTags="windows"
-productPesIds="1234, 5678"
-/>
+\<propiedades supportTopicIds = resourceTags "123456789" = "windows" productPesIds = "1234, 5678" / >
 - Vuelva a intentar la solicitud con un tamaño de máquina virtual menor.
 - Si no se puede cambiar el tamaño de la máquina virtual solicitada:
     - Detenga todas las máquinas virtuales en el conjunto de disponibilidad. Haga clic en **Grupos de recursos** > su grupo de recursos > **Recursos** > su conjunto de disponibilidad > **Máquinas virtuales** > su máquina virtual > **Detener**.
@@ -45,11 +41,7 @@ productPesIds="1234, 5678"
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>El clúster no tiene recursos disponibles
-<properties
-supportTopicIds="123456789"
-resourceTags="windows"
-productPesIds="1234, 5678"
-/>
+\<propiedades supportTopicIds = resourceTags "123456789" = "windows" productPesIds = "1234, 5678" / >
 - Vuelva a intentar realizar la solicitud más tarde.
 - Si la nueva máquina virtual puede formar parte de un conjunto de disponibilidad diferente
     - Cree una máquina virtual en un conjunto de disponibilidad diferente (en la misma región).

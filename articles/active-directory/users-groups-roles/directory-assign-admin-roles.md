@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9793ad76859fdd14b3194dfeb77e68905ff58fe5
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: b62b710a7217792276392e8815013848ef607733
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58362074"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522373"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Permisos de roles de administrador en Azure Active Directory
 
@@ -231,7 +231,7 @@ Los roles de administrador disponibles son los siguientes:
 
 * **[Especialista de soporte técnico de comunicaciones de Teams](#teams-communications-support-specialist)**: los usuarios con este rol pueden solucionar problemas de comunicación de Microsoft Teams y Skype Empresarial mediante las herramientas de solución de problemas de llamadas del usuario del centro de administración de Microsoft Teams y Skype Empresarial. Los usuarios con este rol solo pueden ver los detalles del usuario en la llamada al usuario específico que han buscado. Este rol no tiene acceso para ver, crear o administrar incidencias de soporte técnico.
 
-* **[Usuario administrador](#user-account-administrator)**: Los usuarios con este rol se puede creación usuarios y administran todos los aspectos de los usuarios con algunas restricciones (ver abajo) y pueden actualizar las directivas de expiración de contraseña. Además, los usuarios con este rol pueden crear y administrar todos los grupos. Este rol también incluye la capacidad de crear y administrar vistas de usuarios, administrar las incidencias de soporte técnico y supervisar el estado del servicio.
+* **Usuario administrador**: Los usuarios con este rol se puede creación usuarios y administran todos los aspectos de los usuarios con algunas restricciones (ver abajo) y pueden actualizar las directivas de expiración de contraseña. Además, los usuarios con este rol pueden crear y administrar todos los grupos. Este rol también incluye la capacidad de crear y administrar vistas de usuarios, administrar las incidencias de soporte técnico y supervisar el estado del servicio.
 
   | | |
   | --- | --- |

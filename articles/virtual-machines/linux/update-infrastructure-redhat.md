@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 1/7/2019
 ms.author: borisb
-ms.openlocfilehash: 2fc881aac096ccbafa351fcac2d726cc51d8f178
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 7d5c0a2a05bbdb19681641f53fb4e1cfcf30f6ca
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286897"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519976"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Red Hat Update Infrastructure para máquinas virtuales Red Hat Enterprise Linux a petición en Azure
  [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) (RHUI) permite que los proveedores de nube, como Azure, reflejen el contenido del repositorio hospedado en Red Hat, creen repositorios personalizados con contenido específico de Azure y lo pongan a disposición de las máquinas virtuales del usuario final.
@@ -108,6 +108,11 @@ sudo yum update -y --disablerepo='*' --enablerepo='*microsoft*'
 
 Como alternativa, al ejecutar `sudo yum update` también se actualiza el paquete del certificado de cliente (según la versión de RHEL) a pesar de los errores de "certificado SSL expirado" que verá para otros repositorios. Si esta actualización es correcta, se debería restaurar la conectividad normal a otros repositorios de RHUI, de modo que podrá ejecutar `sudo yum update` correctamente.
 
+Si experimenta un error 404 mientras se está ejecutando un `yum update`, intente lo siguiente para actualizar la memoria caché de yum:
+```bash
+sudo yum clean all;
+sudo yum makecache
+```
 
 ### <a name="troubleshoot-connection-problems-to-azure-rhui"></a>Solución de problemas de conexión a RHUI de Azure
 Si experimenta problemas al conectarse a RHUI de Azure desde la máquina virtual de Azure RHEL PAYG, siga estos pasos:

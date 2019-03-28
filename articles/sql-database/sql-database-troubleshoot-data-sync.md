@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 12/20/2018
-ms.openlocfilehash: 8b86103f76e2425acea1b4f7c590204f0a893510
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 4e2808378834a0270586ce674e1043ca443320c5
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484435"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539639"
 ---
 # <a name="troubleshoot-issues-with-sql-data-sync"></a>Solución de problemas de SQL Data Sync
 
@@ -40,7 +40,7 @@ Para obtener información general acerca de SQL Data Sync, consulte [Sincronizac
 
 - [Veo una degradación significativa del rendimiento](#sync-perf)
 
-- [He recibido el mensaje: "No se puede insertar el valor NULL en la columna <column>. La columna no admite valores NULL." ¿Qué significa esto y cómo puedo corregir este error?](#sync-nulls)
+- [He recibido el mensaje: "No se puede insertar el valor NULL en la columna \<columna >. La columna no admite valores NULL." ¿Qué significa esto y cómo puedo corregir este error?](#sync-nulls)
 
 - [¿Cómo trata Data Sync las referencias circulares? En otras palabras, ¿cuándo se sincronizan los mismos datos en varios grupos de sincronización y siguen cambiando como resultado?](#sync-circ)
 
@@ -105,7 +105,7 @@ El rendimiento disminuye considerablemente, posiblemente hasta tal punto que ni 
 
 - **Resolución**. La mejor corrección es la prevención. Asegúrese de que no haya referencias circulares en los grupos de sincronización. Cualquier fila sincronizada por un grupo de sincronización no puede ser sincronizada por otro grupo de sincronización.
 
-### <a name="sync-nulls"></a>He recibido el mensaje: "No se puede insertar el valor NULL en la columna <column>. La columna no admite valores NULL." ¿Qué significa esto y cómo puedo corregir este error? 
+### <a name="sync-nulls"></a>He recibido el mensaje: "No se puede insertar el valor NULL en la columna \<columna >. La columna no admite valores NULL." ¿Qué significa esto y cómo puedo corregir este error? 
 Este mensaje de error indica que se ha producido uno de los dos problemas siguientes:
 -  Una tabla no tiene ninguna clave principal. Para corregir este problema, agregue una clave principal a todas las tablas que va a sincronizar.
 -  Hay una cláusula WHERE en la instrucción CREATE INDEX. Data Sync no controla esta condición. Para solucionar este problema, quite la cláusula WHERE o realice los cambios manualmente en todas las bases de datos. 
@@ -250,7 +250,7 @@ Para más información acerca de SQL Data Sync, consulte:
         -  [Uso de PowerShell para realizar la sincronización entre Azure SQL Database y una base de datos de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md)
 -   Agente de sincronización de datos: [Agente de sincronización de datos para Azure SQL Data Sync](sql-database-data-sync-agent.md)
 -   Procedimientos recomendados: [Procedimientos recomendados para Azure SQL Data Sync](sql-database-best-practices-data-sync.md)
--   Monitor - [los registros de supervisión de SQL Data Sync con Azure Monitor](sql-database-sync-monitor-oms.md)
+-   Supervisión: [Monitor SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md) (Supervisión de SQL Data Sync con registros de Azure Monitor)
 -   Actualización del esquema de sincronización
     -   Con Transact-SQL: [Automatización de la replicación de los cambios de esquema en Azure SQL Data Sync](sql-database-update-sync-schema.md)
     -   Con PowerShell: [Usar PowerShell para actualizar el esquema de sincronización en un grupo de sincronización existente](scripts/sql-database-sync-update-schema.md)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: aae081232d3633d3f7d8094979764606bf99430d
-ms.sourcegitcommit: eb9dd01614b8e95ebc06139c72fa563b25dc6d13
-ms.translationtype: HT
+ms.openlocfilehash: 76892e22e940476ca26cde7a91bfe928b47f22ba
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53311191"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522271"
 ---
 # <a name="how-to-filter-by-language-in-azure-search"></a>Filtro por idioma en Azure Search 
 
@@ -39,11 +39,11 @@ En nuestros ejemplos, incluido el de la [inmobiliaria](search-get-started-portal
   ![](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> Para ver ejemplos de código que muestran definiciones de campo con analizadores de idiomas, consulte [Definición de un índice (. NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet#define-your-azure-search-index) y [Definición de un índice (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api#define-your-azure-search-index-using-well-formed-json).
+> Para ver ejemplos de código que muestran definiciones de campo con analizadores de idiomas, consulte [Definición de un índice (. NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) y [Definición de un índice (REST)](https://docs.microsoft.com/azure/search/search-create-index-rest-api-using-well-formed-json).
 
 ## <a name="build-and-load-an-index"></a>Creación y carga de un índice
 
-Un paso intermedio (y, quizás, obvio) es que tiene que [crear y completar el índice](https://docs.microsoft.com/azure/search/search-create-index-dotnet#create-the-index) antes de formular una consulta. Hemos mencionado este paso aquí para mayor integridad. Una manera de determinar si el índice está disponible es comprobar la lista de índices en el [portal](https://portal.azure.com).
+Un paso intermedio (y, quizás, obvio) es que tiene que [crear y completar el índice](https://docs.microsoft.com/azure/search/search-create-index-dotnet) antes de formular una consulta. Hemos mencionado este paso aquí para mayor integridad. Una manera de determinar si el índice está disponible es comprobar la lista de índices en el [portal](https://portal.azure.com).
 
 ## <a name="constrain-the-query-and-trim-results"></a>Restricción de la consulta y recorte de los resultados
 
@@ -62,7 +62,7 @@ parameters =
 > [!Note]
 > Aunque no hay ningún argumento $filter en la consulta, este caso de uso está fuertemente vinculado a los conceptos de filtro, por lo que se presenta como un escenario de filtrado.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 + [Filtros de Azure Search](search-filters.md)
 + [Analizadores de idiomas](https://docs.microsoft.com/rest/api/searchservice/language-support)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 5f97c2997711c30ad52e5209ba86e0d1bfe30ea8
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 12bcf665fafca3df7fc2d21c77c2f8d2fbec84fc
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57251884"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58542444"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: diseño de alto rendimiento
 
@@ -235,7 +235,7 @@ Azure Premium Storage ofrece tres tamaños de disco que están actualmente en ve
 
 | Tipo de discos Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Tamaño del disco           | 32 GiB | 64 GiB | 128 GB| 256 GiB| 512 GB            | 1024 GiB (1 TiB)    | 2048 GiB (2 TiB)    | 4095 GiB (4 TiB)    | 8192 GiB (8 TiB)    | 16 384 GiB (16 TiB)    | 32 767 GiB (32 GiB)    |
+| Tamaño del disco           | 32 GiB | 64 GiB | 128 GB| 256 GiB| 512 GB            | 1024 GiB (1 TiB)    | 2048 GiB (2 TiB)    | 4095 GiB (4 TiB)    | 8192 GiB (8 TiB)    | 16 384 GiB (16 TiB)    | 32 767 GiB (32 TiB)    |
 | IOPS por disco       | 120   | 240   | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12 500              | 15 000              | 20.000              |
 | Rendimiento de disco. | 25 MiB por segundo  | 50 MiB por segundo  | 100 MiB por segundo |125 MiB por segundo | 150 MiB por segundo | 200 MiB por segundo | 250 MiB por segundo | 250 MiB por segundo | 480 MiB por segundo | 750 MiB por segundo | 750 MiB por segundo |
 

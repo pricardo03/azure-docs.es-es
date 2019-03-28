@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 121226ad9ca1ea0c29dd192ed69797b37245da46
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a4f1b26a20da3b22561538f7814105b356c4148a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213932"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519143"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Información general sobre las funcionalidades de seguridad de Azure SQL Database
 
@@ -100,12 +100,16 @@ La detección de amenazas mejora las auditorías mediante el análisis de regist
 
 SQL Database protege los datos de los clientes mediante el cifrado de datos en movimiento con [Seguridad de la capa de transporte](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
+SQL Server aplica el cifrado (SSL/TLS) en todo momento para todas las conexiones. Esto garantiza que todos los datos se cifran "en tránsito" entre el cliente y servidor independientemente de la configuración de **Encrypt** o **TrustServerCertificate** en la cadena de conexión.
+
+Como práctica recomendada, se recomienda que, en la conexión de la aplicación de cadena especifica una conexión cifrada y _**no**_ confiar en el certificado de servidor. Esto obliga la la aplicación para comprobar el certificado de servidor y, por tanto, impide que la aplicación sea vulnerable a ataques de tipo de medio de.
+
+Por ejemplo, cuando se utiliza el controlador ADO.NET esto se logra a través de **Encrypt = True** y **TrustServerCertificate = False**. Si obtiene la cadena de conexión de Azure portal, tendrá la configuración correcta.
+
 > [!IMPORTANT]
-> Azure SQL Database aplica cifrado (SSL/TLS) en todo momento para todas las conexiones, lo que garantiza que todos los datos se cifran "en tránsito" entre la base de datos y el cliente. Esto ocurre independientemente del valor de **Encrypt** o **TrustServerCertificate** en la cadena de conexión.
+> Tenga en cuenta que algunos controladores no son de Microsoft no pueden usar TLS de forma predeterminada o se basan en una versión anterior de TLS (< 2.0) para poder funcionar. En este caso SQL Server permite conectarse a la base de datos. Sin embargo, recomendamos que evalúe los riesgos de seguridad de permitir que los controladores y aplicaciones para conectarse a SQL Database, especialmente si se almacenan datos confidenciales. 
 >
-> En la cadena de conexión de la aplicación, asegúrese de especificar una conexión cifrada y _no_ confiar en el certificado de servidor (para el controlador ADO.NET, este es **Encrypt=True** y  **TrustServerCertificate=False**). Esto contribuye a evitar que la aplicación sea objeto de un ataque de tipo "Man in the middle", al obligar a la aplicación a comprobar el servidor e imponer el cifrado. Si obtiene la cadena de conexión en Azure Portal, tendrá la configuración correcta.
->
-> Para información sobre TLS y la conectividad, consulte [Consideraciones de TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity).
+> Para obtener más información acerca de TLS y conectividad, consulte [consideraciones de TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>Cifrado de datos transparente (cifrado en reposo)
 

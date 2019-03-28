@@ -8,14 +8,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 03/25/2019
 ms.author: jingwang
-ms.openlocfilehash: f27e7eba11dd98bc30f4f1b5d796488d3973f64a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: d589714be387bdff14d76ccd9417123295a62770
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405630"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522016"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copia de datos con Azure Data Lake Storage Gen2 como origen o destino mediante Azure Data Factory
 
@@ -104,10 +104,10 @@ Antes de usar la autenticación de entidad de servicio, siga estos pasos:
     - **Como receptor**, en el Explorador de Storage, conceda al menos **escritura + ejecución** permiso para crear elementos secundarios en la carpeta. Como alternativa, en el control de acceso (IAM), conceda al menos **colaborador de datos de almacenamiento Blob** rol.
 
 >[!NOTE]
->En la lista de carpetas a partir de la raíz, deberá establecer el permiso de la entidad de servicio que se concede al **nivel raíz con el permiso "Execute"** o el permiso IAM. Esto es válido cuando se usa la:
+>En la lista de carpetas a partir de nivel de cuenta, deberá establecer el permiso de la entidad de servicio que se concede al **cuenta de almacenamiento con el permiso "Execute"** o el permiso IAM. Esto es válido cuando se usa la:
 >- **Herramienta Copy Data** para crear la canalización de la copia.
 >- **Interfaz de usuario de Data Factory** para probar la conexión y el desplazamiento por las carpetas durante la creación. 
->Si dispone de preocupación sobre la concesión de permiso de nivel raíz, puede omitir ruta de acceso de entrada y de conexión de prueba manualmente durante la creación. Actividad de copia seguirá funcionando siempre y cuando se le concede la entidad de servicio con los permisos adecuados en los archivos que se va a copiar.
+>Si dispone de preocupación acerca de cómo conceder permiso a nivel de cuenta, puede omitir ruta de acceso de entrada y de conexión de prueba manualmente durante la creación. Actividad de copia seguirá funcionando siempre y cuando se le concede la entidad de servicio con los permisos adecuados en los archivos que se va a copiar.
 
 Estas propiedades son compatibles en el servicio vinculado:
 
@@ -158,10 +158,10 @@ Para usar identidades administradas para la autenticación de recursos de Azure,
     - **Como receptor**, en el Explorador de Storage, conceda al menos **escritura + ejecución** permiso para crear elementos secundarios en la carpeta. Como alternativa, en el control de acceso (IAM), conceda al menos **colaborador de datos de almacenamiento Blob** rol.
 
 >[!NOTE]
->En la lista de carpetas a partir de la raíz, deberá establecer el permiso de la identidad administrada que se concede al **nivel raíz con el permiso "Execute"** o el permiso IAM. Esto es válido cuando se usa la:
+>En la lista de carpetas a partir de nivel de cuenta, deberá establecer el permiso de la identidad administrada que se concede al **cuenta de almacenamiento con el permiso "Execute"** o el permiso IAM. Esto es válido cuando se usa la:
 >- **Herramienta Copy Data** para crear la canalización de la copia.
 >- **Interfaz de usuario de Data Factory** para probar la conexión y el desplazamiento por las carpetas durante la creación. 
->Si dispone de preocupación sobre la concesión de permiso de nivel raíz, puede omitir ruta de acceso de entrada y de conexión de prueba manualmente durante la creación. Actividad de copia seguirá funcionando siempre y cuando se concede la identidad administrada con los permisos adecuados en los archivos que se va a copiar.
+>Si dispone de preocupación acerca de cómo conceder permiso a nivel de cuenta, puede omitir ruta de acceso de entrada y de conexión de prueba manualmente durante la creación. Actividad de copia seguirá funcionando siempre y cuando se concede la identidad administrada con los permisos adecuados en los archivos que se va a copiar.
 
 Estas propiedades son compatibles en el servicio vinculado:
 
@@ -196,7 +196,7 @@ Si desea ver una lista completa de las secciones y propiedades disponibles para 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del conjunto de datos debe establecerse en: **AzureBlobFSFile**. |Sí |
-| folderPath | Ruta de acceso a la carpeta de Data Lake Storage Gen2. Si no se especifica, apunta a la raíz. <br/><br/>Se admite el filtro de comodín, los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br/><br/>Ejemplos: rootfolder/subfolder/ver más en [Ejemplos de filtros de carpetas y archivos](#folder-and-file-filter-examples). |Sin  |
+| folderPath | Ruta de acceso a la carpeta de Data Lake Storage Gen2. Si no se especifica, apunta a la raíz. <br/><br/>Se admite el filtro de comodín, los caracteres comodín permitidos son: `*` (coincide con cero o más caracteres) y `?` (coincide con cero o carácter individual); use `^` para el escape si el nombre real de la carpeta tiene un carácter comodín o este carácter de escape dentro. <br/><br/>Ejemplos: sistema de archivos o carpeta / ver más ejemplos en [ejemplos de filtros de archivos y carpetas](#folder-and-file-filter-examples). |Sin  |
 | fileName | **Filtro de nombre o de comodín** para los archivos de la ruta "folderPath" especificada. Si no especifica ningún valor para esta propiedad, el conjunto de datos apunta a todos los archivos de la carpeta. <br/><br/>Para filtrar, los caracteres comodín permitidos son: `*` (equivale a cero o a varios caracteres) y `?` (equivale a cero o a un único carácter).<br/>- Ejemplo 1: `"fileName": "*.csv"`<br/>- Ejemplo 2: `"fileName": "???20180427.txt"`<br/>Use `^` como escape si el nombre de archivo real contiene un comodín o este carácter de escape.<br/><br/>Cuando fileName no se especifica para un conjunto de datos de salida y **preserveHierarchy** no se determina en el receptor de la actividad, la actividad de copia generará automáticamente el nombre de archivo con el siguiente patrón: "*Datos.[GUID del id. de ejecución de actividad].[GUID si FlattenHierarchy].[formato si está configurado].[Compresión si está configurada]*", p. ej. "Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.gz"; si realiza una copia desde el origen tabular utilizando el nombre de la tabla en lugar de la consulta, el patrón del nombre es "*[nombre de la tabla].[formato].[compresión si está configurada]*", p. ej. "MyTable.csv". |Sin  |
 | modifiedDatetimeStart | Filtro de archivos basado en el atributo: Última modificación. Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br/><br/> Las propiedades pueden ser NULL, lo que significa que no se aplicará ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.| Sin  |
 | modifiedDatetimeEnd | Filtro de archivos basado en el atributo: Última modificación. Los archivos se seleccionarán si la hora de su última modificación está dentro del intervalo de tiempo entre `modifiedDatetimeStart` y `modifiedDatetimeEnd`. La hora se aplica a la zona horaria UTC en el formato "2018-12-01T05:00:00Z". <br/><br/> Las propiedades pueden ser NULL, lo que significa que no se aplicará ningún filtro de atributo de archivo al conjunto de datos.  Cuando `modifiedDatetimeStart` tiene el valor de fecha y hora, pero `modifiedDatetimeEnd` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea mayor o igual que el valor de fecha y hora.  Cuando `modifiedDatetimeEnd` tiene el valor de fecha y hora, pero `modifiedDatetimeStart` es NULL, significa que se seleccionarán los archivos cuyo último atributo modificado sea inferior al valor de fecha y hora.| Sin  |

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: glenga
-ms.openlocfilehash: e9e47eff3df941b0c1437083dc7440fab4091418
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 0224d9ba5a430635e4675c2fb2bf354e7c975f31
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317075"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518737"
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
@@ -24,7 +24,7 @@ ms.locfileid: "58317075"
 
 ![Explorador de métricas de Application Insights](media/functions-monitoring/metrics-explorer.png)
 
-Azure Functions también tiene [supervisión incorporada que no usa Application Insights](#monitoring-without-application-insights). Se recomienda Application Insights porque ofrece más datos y mejores maneras de analizar los datos.
+Azure Functions también tiene supervisión incorporada que no usa Application Insights. Se recomienda Application Insights porque ofrece más datos y mejores maneras de analizar los datos.
 
 ## <a name="application-insights-pricing-and-limits"></a>Precios y límites de Application Insights
 
@@ -77,7 +77,7 @@ El paso siguiente consiste en [deshabilitar el registro integrado](#disable-buil
 
 ## <a name="disable-built-in-logging"></a>Deshabilitar el registro integrado
 
-Cuando se habilita Application Insights, deshabilite la [registro integrado que usa Azure Storage](#logging-to-storage). El registro integrado es útil para realizar pruebas con cargas de trabajo ligeras, pero no está pensado para su uso en producción de carga alta. Para la supervisión de producción, se recomienda Application Insights. Si el registro integrado se usa en producción, el registro resultante podría ser incompleto debido a limitaciones en Azure Storage.
+Cuando se habilita Application Insights, deshabilite el registro integrado que usa el almacenamiento de Azure. El registro integrado es útil para realizar pruebas con cargas de trabajo ligeras, pero no está pensado para su uso en producción de carga alta. Para la supervisión de producción, se recomienda Application Insights. Si el registro integrado se usa en producción, el registro resultante podría ser incompleto debido a limitaciones en Azure Storage.
 
 Para deshabilitar el registro integrado, elimine la configuración de la aplicación `AzureWebJobsDashboard`. Para obtener información acerca de cómo eliminar la configuración de la aplicación en Azure Portal, consulte la sección **Application settings** (Configuración de la aplicación) en [How to manage a function app](functions-how-to-use-azure-function-app-settings.md#settings) (Cómo administrar una aplicación de función). Antes de eliminar la configuración de aplicación, asegúrese de que ninguna función existente en la misma aplicación de función use la configuración de enlaces o desencadenadores de Azure Storage.
 
@@ -125,7 +125,7 @@ En [Explorador de métricas](../azure-monitor/app/metrics-explorer.md), puede cr
 
 ![Explorador de métricas](media/functions-monitoring/metrics-explorer.png)
 
-En la pestaña [Errores](../azure-monitor/app/asp-net-exceptions.md), puede crear alertas y gráficos basados en errores de funciones y excepciones del servidor. **Nombre de la operación** es el nombre de la función. Errores en las dependencias no se muestran a menos que implemente [telemetría personalizada](#custom-telemetry-in-c-functions) para las dependencias.
+En la pestaña [Errores](../azure-monitor/app/asp-net-exceptions.md), puede crear alertas y gráficos basados en errores de funciones y excepciones del servidor. **Nombre de la operación** es el nombre de la función. Errores en las dependencias no se muestran a menos que implemente la telemetría personalizada para las dependencias.
 
 ![Errores](media/functions-monitoring/failures.png)
 
@@ -423,7 +423,7 @@ En funciones de secuencia de comandos de C#, puede usar el método de extensión
 logger.LogMetric("TestMetric", 1234);
 ```
 
-Este código es una alternativa a llamar a `TrackMetric` utilizando [la API de Application Insights para .NET](#custom-telemetry-in-c-functions).
+Este código es una alternativa a llamar a `TrackMetric` mediante la API de Application Insights para .NET.
 
 ## <a name="write-logs-in-javascript-functions"></a>Escribir registros en las funciones de JavaScript
 
@@ -441,7 +441,7 @@ Cuando se ejecutan [versión 1.x](functions-versions.md#creating-1x-apps) del ti
 context.log.metric("TestMetric", 1234);
 ```
 
-Este código es una alternativa a llamar a `trackMetric` utilizando [el SDK de Node.js de Application Insights](#custom-telemetry-in-javascript-functions).
+Este código es una alternativa a llamar a `trackMetric` mediante el SDK de Node.js de Application Insights.
 
 ## <a name="log-custom-telemetry-in-c-functions"></a>Telemetría personalizada de registro C# funciones
 
@@ -632,7 +632,7 @@ El `tagOverrides` conjuntos de parámetros la `operation_Id` al identificador de
 
 ### <a name="dependencies"></a>Dependencias
 
-Las dependencias que la función tiene a otros servicios no se muestran automáticamente. Puede escribir código personalizado para mostrar las dependencias. Para obtener ejemplos, vea el código de ejemplo en el [ C# sección telemetría personalizada](#custom-telemetry-in-c-functions). El código de ejemplo da como resultado un *mapa de aplicación* en Application Insights, similar a la siguiente imagen:
+Las dependencias que la función tiene a otros servicios no se muestran automáticamente. Puede escribir código personalizado para mostrar las dependencias. Para obtener ejemplos, vea el código de ejemplo en el [ C# sección telemetría personalizada](#log-custom-telemetry-in-c-functions). El código de ejemplo da como resultado un *mapa de aplicación* en Application Insights, similar a la siguiente imagen:
 
 ![Mapa de aplicación](media/functions-monitoring/app-map.png)
 

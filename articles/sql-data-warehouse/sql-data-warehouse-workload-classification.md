@@ -10,19 +10,19 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: bcc09095955a28bde3ed999f23180e08485543fc
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: c27856da0a5131f2c0e8dfd4d929b577a0a68421
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "57994001"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520149"
 ---
 # <a name="sql-data-warehouse-workload-classification-preview"></a>Clasificación de carga de trabajo de SQL Data Warehouse (versión preliminar)
 
 En este artículo se explica el proceso de clasificación de la carga de trabajo de SQL Data Warehouse de asignación de una clase de recursos y la importancia a las solicitudes entrantes.
 
 > [!Note]
-> Clasificación de la carga de trabajo está disponible en SQL Data Warehouse Gen2.
+> La clasificación de la carga de trabajo está disponible en SQL Data Warehouse Gen2.
 
 ## <a name="classification"></a>clasificación
 
@@ -33,6 +33,8 @@ Clasificación de la administración de cargas de trabajo permite que las direct
 Aunque hay muchas maneras de clasificar las cargas de trabajo de almacenamiento de datos, la clasificación más sencilla y común es la carga y la consulta. Cargar datos con insert, update y las instrucciones delete.  Consultar los datos mediante instrucciones SELECT. Una solución de almacenamiento de datos a menudo tendrá una directiva de carga de trabajo para la actividad de carga, como la asignación de una clase de recurso superior con más recursos. Podría aplicar una directiva de carga de trabajo diferentes a las consultas, como la importancia menor en comparación con las actividades de carga.
 
 También puede subclassify las cargas de trabajo de carga y la consulta. Subclasificación ofrece un mayor control de las cargas de trabajo. Por ejemplo, las cargas de trabajo de consulta pueden constar de las actualizaciones de cubos, las consultas del panel o consultas ad hoc. Puede clasificar cada una de estas cargas de trabajo de consulta con diferentes clases de recursos o la configuración de importancia. Carga también puede beneficiarse de subclasificación. Transformaciones de gran tamaño pueden asignarse a las clases de recursos más grandes. Mayor importancia se puede usar para asegurarse de que los datos de ventas claves están una fuente de datos sociales o de cargador antes de los datos meteorológicos.
+
+No todas las instrucciones se clasifican como no se requieren recursos ni necesita importancia para influir en ejecución.  Comandos DBCC, las instrucciones BEGIN, COMMIT y ROLLBACK TRANSACTION no se clasifican.
 
 ## <a name="classification-process"></a>Proceso de clasificación
 

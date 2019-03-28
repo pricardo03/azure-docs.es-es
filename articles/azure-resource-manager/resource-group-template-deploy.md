@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2019
 ms.author: tomfitz
-ms.openlocfilehash: 8005b187f300375b62c254516a61f4993675b0b9
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 3b9a35cb5a37aa17a2f7803f3e996d51bede81e0
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403115"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518565"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell
 
@@ -47,7 +47,7 @@ Los ejemplos en este artículo usan las implementaciones de grupo de recursos. P
 
 Necesita una plantilla para implementar. Si aún no tiene uno, descargue y guarde un [plantilla de ejemplo](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) desde el repositorio de plantillas de inicio rápido de Azure. El nombre de archivo local que se utiliza en este artículo es **c:\MyTemplates\azuredeploy.json**.
 
-A menos que use [Azure Cloud Shell](#deploy-templates-from-azure-cloud-shell) para implementar las plantillas, deberá instalar Azure PowerShell y conectarse a Azure:
+A menos que use Azure Cloud shell para implementar plantillas, es preciso instalar Azure PowerShell y conéctese a Azure:
 
 - **Instale los cmdlets de Azure PowerShell en el equipo local.** Para más información, consulte el artículo de [introducción a Azure PowerShell](/powershell/azure/get-started-azureps).
 - **Conéctese a Azure utilizando [Connect-AZAccount](/powershell/module/az.accounts/connect-azaccount)**. Si tiene varias suscripciones de Azure, es posible que también tenga que ejecutar [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext). Para más información, consulte [Use multiple Azure subscriptions](/powershell/azure/manage-subscriptions-azureps) (Uso de varias suscripciones de Azure).

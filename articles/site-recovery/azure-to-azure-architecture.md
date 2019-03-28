@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: raynew
-ms.openlocfilehash: 73def6b659676cc4fecf1d9ef499247c23888566
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 96873b5fdefc74893929f8150230118a162f195b
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310292"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540727"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Arquitectura de recuperación ante desastres de Azure a Azure
 
@@ -144,7 +144,7 @@ Para controlar la conectividad de salida para máquinas virtuales con direccione
 
 **Regla** |  **Detalles** | **Etiqueta de servicio**
 --- | --- | --- 
-Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cuentas de almacenamiento en la región de origen. | Storage.<nombre-de-la-región>.
+Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cuentas de almacenamiento en la región de origen. | Almacenamiento. \<nombre de la región >.
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure Active Directory (Azure AD).<br/><br/> Si se agregan direcciones de Azure AD en el futuro, debe crear reglas de grupo de seguridad de red.  | AzureActiveDirectory
 Permitir HTTPS de salida: puerto 443 | Permitir el acceso a los [puntos de conexión de Site Recovery](https://aka.ms/site-recovery-public-ips) que correspondan a la ubicación de destino. 
 
@@ -152,7 +152,7 @@ Permitir HTTPS de salida: puerto 443 | Permitir el acceso a los [puntos de conex
 
 **Regla** |  **Detalles** | **Etiqueta de servicio**
 --- | --- | --- 
-Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cuentas de almacenamiento en la región de destino. | Storage.<nombre-de-la-región>.
+Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a las cuentas de almacenamiento en la región de destino. | Almacenamiento. \<nombre de la región >.
 Permitir HTTPS de salida: puerto 443 | Permitir rangos que correspondan a Azure AD.<br/><br/> Si se agregan direcciones de Azure AD en el futuro, debe crear reglas de grupo de seguridad de red.  | AzureActiveDirectory
 Permitir HTTPS de salida: puerto 443 | Permitir el acceso a los [puntos de conexión de Site Recovery](https://aka.ms/site-recovery-public-ips) que correspondan a la ubicación de origen. 
 

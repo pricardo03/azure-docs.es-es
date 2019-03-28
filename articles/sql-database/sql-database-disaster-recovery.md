@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 5fcd7f05aeb294441b16bab0aeb18ef5d0bf5c28
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
-ms.translationtype: HT
+ms.openlocfilehash: 1e1bc92c684bf6ddbb7dc4ff0f882ad61ddeb27e
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55749043"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540489"
 ---
 # <a name="restore-an-azure-sql-database-or-failover-to-a-secondary"></a>Restauración de una instancia de Azure SQL Database o una conmutación por error en una secundaria
 
@@ -32,6 +32,13 @@ Para obtener información sobre los escenarios de continuidad empresarial y sus 
 
 > [!NOTE]
 > Si usa bases de datos o grupos de nivel Premium o Crítico para la empresa con redundancia de zona, el proceso de recuperación se automatiza y el resto de este material no se aplica.
+
+> [!NOTE]
+> Es necesario que tanto la base de datos principal como las secundarias tengan el mismo nivel de servicio. Se recomienda encarecidamente también que la base de datos secundaria se crea con el mismo tamaño de proceso (Dtu o núcleos virtuales) que la réplica principal. Para obtener más información, consulte [actualizar o degradar como base de datos principal](sql-database-active-geo-replication.md#upgrading-or-downgrading-a-primary-database).
+
+> [!NOTE]
+> Use uno o varios grupos de conmutación por error para administrar la conmutación por error de varias bases de datos.
+> Si agrega una relación de replicación geográfica existente al grupo de conmutación por error, asegúrese de que la base de datos geográfica secundaria esté configurada con el mismo nivel de servicio y tamaño de proceso que la principal. Para obtener más información, consulte [usar grupos de conmutación por error automática para permitir una recuperación de varias bases de datos transparente y coordinada](sql-database-auto-failover-group.md).
 
 ## <a name="prepare-for-the-event-of-an-outage"></a>Preparación ante interrupciones
 
@@ -73,6 +80,7 @@ Utilice una de las siguientes guías para realizar la conmutación por error en 
 
 - [Conmutar por error un servidor secundario replicado geográficamente mediante Azure Portal](sql-database-geo-replication-portal.md)
 - [Conmutar por error el servidor secundario mediante PowerShell](scripts/sql-database-setup-geodr-and-failover-database-powershell.md)
+- [Conmutación por error a un servidor secundario con Transact-SQL (T-SQL)](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current#e-failover-to-a-geo-replication-secondary)
 
 ## <a name="recover-using-geo-restore"></a>Recuperación mediante la restauración geográfica
 

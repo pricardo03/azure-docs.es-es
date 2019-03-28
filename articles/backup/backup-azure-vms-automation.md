@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: a3fd89ee67b495d3ca1173faa9381ceba117ef63
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 230c68b0b1de1ef452de51b7b0661a3c3786ea76
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259319"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521710"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Copia de seguridad y restauración de máquinas virtuales de Azure con PowerShell
 
@@ -24,7 +24,7 @@ En este artículo, aprenderá a:
 > * Crear un almacén de Recovery Services y a establecer el contexto de este.
 > * Definición de una directiva de copia de seguridad
 > * Aplicación de la directiva de copia de seguridad para proteger varias máquinas virtuales
-> * Un trabajo de copia de seguridad y a petición para las máquinas virtuales protegidas antes de desencadenador puede realizar copias de seguridad (o proteger) una máquina virtual, debe completar el [requisitos previos](backup-azure-arm-vms-prepare.md) para preparar el entorno para proteger las máquinas virtuales. 
+> * Desencadenar un trabajo de copia de seguridad a petición para las máquinas virtuales protegidas. Para poder realizar una copia de seguridad de una máquina virtual, o protegerla, es necesario reunir los [requisitos previos](backup-azure-arm-vms-prepare.md) a fin de preparar el entorno para la protección de las máquinas virtuales. 
 
 
 
@@ -420,7 +420,7 @@ Los detalles del trabajo resultante ofrecen la plantilla de URI que se puede con
    $templateBlobURI = $properties["Template Blob Uri"]
 ```
 
-Basta con implementar la plantilla para crear una nueva máquina virtual como se explicó [aquí](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy#deploy-a-template-from-an-external-source).
+Basta con implementar la plantilla para crear una nueva máquina virtual como se explicó [aquí](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy).
 
 ```powershell
 New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleResourceGroup -TemplateUri $templateBlobURI -storageAccountType Standard_GRS

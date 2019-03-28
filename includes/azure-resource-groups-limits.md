@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: a528fad10144ec733a3db5340ef12dee5ce5411c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3dc09de6afaddeb06b0243eb46e888b673109545
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553892"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505647"
 ---
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
@@ -37,4 +37,4 @@ ms.locfileid: "57553892"
 
 Puede superar algunos límites de plantilla utilizando una plantilla anidada. Para obtener más información, consulte [usar plantillas vinculadas al implementar recursos de Azure](../articles/azure-resource-manager/resource-group-linked-templates.md). Para reducir el número de parámetros, variables o salidas, puede combinar varios valores en un objeto. Para más información, consulte [Objetos como parámetros](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).
 
-Si se alcanza el límite de 800 implementaciones por grupo de recursos, elimine las implementaciones que ya no necesite del historial. Puede eliminar las entradas del historial con [eliminar la implementación del grupo az](/cli/azure/group/deployment) para la CLI de Azure. También puede usar [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) en PowerShell. Eliminar una entrada del historial de implementación no afecta a los recursos de implementación. 
+Si se alcanza el límite de 800 implementaciones por grupo de recursos, elimine las implementaciones que ya no necesite del historial. Puede eliminar las entradas del historial con [eliminar la implementación del grupo az](/cli/azure/group/deployment) para la CLI de Azure. También puede usar [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) en PowerShell. Eliminar una entrada del historial de implementación no afecta a los recursos de implementación. 

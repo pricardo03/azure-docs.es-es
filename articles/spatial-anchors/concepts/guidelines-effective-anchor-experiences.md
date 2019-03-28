@@ -8,12 +8,12 @@ ms.author: mattwoj
 ms.date: 02/24/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 4714ea7aa4bf55f7cbd4500977b09505788233dd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9e77dcd96ffa0fbd57aa0ed1b4f857279ca768a7
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895811"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520809"
 ---
 # <a name="create-an-effective-anchor-experience-by-using-azure-spatial-anchors"></a>Crear una experiencia eficaz delimitador mediante delimitadores espacial de Azure
 
@@ -86,7 +86,7 @@ En el escenario de destino, pueden ayudar las fotos. Si se muestra a los usuario
 
 En el escenario de espacio, los usuarios especificar un espacio con simplemente saber que hay un delimitador de aquí en algún lugar. Los usuarios examen el espacio con su dispositivo y encontrar rápidamente el delimitador.
 
-Esta experiencia normalmente requiere que cree delimitadores bien protegidos, como se describe en [varias perspectivas de visualización](#consider-various-viewing-perspectives). Si ha examinado la sala de muchas perspectivas cuando creó el delimitador, los usuarios pueden analizar prácticamente en cualquier parte cuando intenten buscarla.
+Esta experiencia normalmente requiere que crear delimitadores bien protegidos, como se describe en varias perspectivas de visualización. Si ha examinado la sala de muchas perspectivas cuando creó el delimitador, los usuarios pueden analizar prácticamente en cualquier parte cuando intenten buscarla.
 
 ![Ilustración de cómo un usuario puede examinar una habitación para buscar un delimitador](./media/scan-room.png)
 

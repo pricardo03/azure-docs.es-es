@@ -1,19 +1,19 @@
 ---
 title: Información general sobre los registros de diagnóstico de Azure
 description: Aprenda qué son los registros de diagnóstico de Azure y cómo puede usarlos para entender los eventos que se producen en un recurso de Azure.
-author: johnkemnetz
+author: nkiest
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/07/2018
-ms.author: johnkem
+ms.date: 03/26/2019
+ms.author: nikiest
 ms.subservice: logs
-ms.openlocfilehash: 07ea18a767044f0f74249859bb46d8285d52d7ab
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 890f2224a4053ec8cad65b44b85eab0e31be3b64
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57310189"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519398"
 ---
 # <a name="collect-and-consume-log-data-from-your-azure-resources"></a>Recopile y use los datos de registro provenientes de los recursos de Azure
 
@@ -49,11 +49,6 @@ Puede usar una cuenta de almacenamiento o un espacio de nombres de Event Hubs qu
 > [!NOTE]
 >  Actualmente, no puede archivar registros de flujo de red en una cuenta de almacenamiento que está detrás de una red virtual protegida.
 
-> [!WARNING]
-> El formato de los datos de registro de la cuenta de almacenamiento cambiará a JSON Lines el 1 de noviembre de 2018. [Consulte este artículo para obtener una descripción de la repercusión y del modo de actualizar las herramientas para administrar el nuevo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md) 
->
-> 
-
 ## <a name="diagnostic-settings"></a>Configuración de diagnóstico
 
 Los registros de diagnóstico de recursos se configuran mediante la configuración de diagnóstico de recursos. Los registros de diagnóstico de inquilino se configuran mediante la configuración de diagnóstico de inquilino. **Configuración de diagnóstico** para un control de servicio:
@@ -61,7 +56,7 @@ Los registros de diagnóstico de recursos se configuran mediante la configuraci�
 * Dónde se envían los registros de diagnóstico y las métricas (cuenta de almacenamiento, Event Hubs o Azure Monitor).
 * Qué categorías de registro se envían y si se envían también datos de métrica.
 * Cuánto tiempo se debe conservar cada categoría de registro en una cuenta de almacenamiento
-    - Una retención de cero días significa que los registros se conservan de forma indefinida. De lo contrario, el valor puede ser cualquier número de días comprendido entre 1 y 2147483647.
+    - Una retención de cero días significa que los registros se conservan de forma indefinida. En caso contrario, el valor puede ser cualquier número de días comprendido entre 1 y 365.
     - Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones Event Hubs o Log Analytics), las directivas de retención no surten ningún efecto.
     - Las directivas de retención se aplican a diario, por lo que al final de un día (UTC) se eliminan los registros del día que quede fuera de la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy. El proceso de eliminación empieza a medianoche (UTC), pero tenga en cuenta que eliminar los registros de la cuenta de almacenamiento puede tardar hasta 24 horas.
 

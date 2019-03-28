@@ -4,7 +4,7 @@ description: Proporciona información sobre la configuración de directiva de gr
 services: active-directory
 keywords: ¿cuál es la configuración de directiva de grupo y MDM para Enterprise State Roaming, Enterprise State Roaming, nube de windows
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 editor: curtand
 ms.subservice: devices
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2018
-ms.author: markvi
+ms.author: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33638d9b22fb1717fadcb1717f816e95076a7d66
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5f1b23862edeabbf8e03d4589fa3f22a3fab9f72
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56161106"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58520996"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Configuración de MDM y directivas de grupo
 Use esta configuración de directiva de grupo y de dispositivos móviles (MDM) de solo en dispositivos de empresa, dado que estas directivas se aplican en todo el dispositivo del usuario. Aplicar una directiva MDM para deshabilitar la sincronización de configuración para un dispositivo de usuario personal ejercerá un impacto negativo en el uso de ese dispositivo. Además, otras cuentas de usuario en el dispositivo también se verán afectadas por la directiva.

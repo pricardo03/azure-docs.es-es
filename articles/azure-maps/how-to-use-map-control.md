@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 57850f67b56113036cb6cc37e9f1f2694ba9eb8f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 56580454753ae6af60f5f8c51d9504f813f91e97
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56672736"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540132"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Uso del Control de mapa de Azure Maps
 
@@ -26,11 +26,11 @@ Puede insertar un mapa en una página web mediante la biblioteca de Javascript d
 1. Cree un archivo HTML.
 
 2. Cárguelo en el SDK web de Azure Maps. Esto se puede hacer mediante una de estas dos opciones.
-    
+
      a. Use la versión de CDN hospedada globalmente del SDK web de Azure Maps mediante la adición de los puntos de conexión de direcciones URL a las referencias de script y de hojas de estilo en el elemento `<head>` del archivo:
 
-    ```html
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" />
+    ```HTML
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
     <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
     ```
 
@@ -40,19 +40,19 @@ Puede insertar un mapa en una página web mediante la biblioteca de Javascript d
 
     Agregue las referencias de hoja de estilos y origen de script de Azure Maps al elemento `<head>` del archivo:
 
-    ```html
-    <link rel="stylesheet" href="node_modules/azure-maps-control/dist/css/atlas.min.css" type="text/css" />
+    ```HTML
+    <link rel="stylesheet" href="node_modules/azure-maps-control/dist/css/atlas.min.css" type="text/css">
     <script src="node_modules/azure-maps-control/dist/js/atlas.min.js"></script>
     ```
 
 3. Para representar el mapa para que rellene el cuerpo completo de la página, agregue el siguiente elemento `<style>` al elemento `<head>`.
 
-    ```html
+    ```HTML
     <style>
         html, body {
             margin: 0;
         }
-    
+
         #myMap {
             height: 100vh;
             width: 100vw;
@@ -60,9 +60,9 @@ Puede insertar un mapa en una página web mediante la biblioteca de Javascript d
     </style>
     ```
 
-4. En el cuerpo de la página, agregue un elemento `<div>` y asígnele un `id` de **myMap**. 
+4. En el cuerpo de la página, agregue un elemento `<div>` y asígnele un `id` de **myMap**.
 
-    ```html
+    ```HTML
     <body>
         <div id="myMap"></div>
     </body>
@@ -70,8 +70,8 @@ Puede insertar un mapa en una página web mediante la biblioteca de Javascript d
 
 5. Para inicializar el control de mapa, defina una nueva sección en el cuerpo HTML y cree un script. Use su propia clave de cuenta de Azure Maps o las credenciales de Azure Active Directory (AAD) para autenticar el mapa mediante las [opciones de autenticación](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions). Si necesita crear una cuenta o buscar la clave, consulte [Cómo administrar su cuenta y claves de Azure Maps](how-to-manage-account-keys.md). La opción de **idioma** especifica el idioma que se usará para las etiquetas de mapa y los controles. Para información sobre los idiomas admitidos, consulte [Idiomas admitidos en Azure Maps](supported-languages.md). Si usa una clave de suscripción para la autenticación.
 
-    ```html
-    <script type='text/javascript'>
+    ```HTML
+    <script type="text/javascript">
         var map = new atlas.Map('myMap', {
             center: [-122.33, 47.6],
             zoom: 12,
@@ -86,8 +86,8 @@ Puede insertar un mapa en una página web mediante la biblioteca de Javascript d
 
     Si usa Azure Active Directory (AAD) para la autenticación:
 
-    ```html
-    <script type='text/javascript'>
+    ```HTML
+    <script type="text/javascript">
         var map = new atlas.Map('myMap', {
             center: [-122.33, 47.6],
             zoom: 12,
@@ -103,41 +103,42 @@ Puede insertar un mapa en una página web mediante la biblioteca de Javascript d
     ```
 
     Consulte [autenticación con Azure Maps](azure-maps-authentication.md) para obtener más detalles.
+
 6. Opcionalmente, puede que agregar los siguientes elementos de la etiqueta meta al encabezado de la página le resulte útil:
 
-    ```html
+    ```HTML
     <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
-    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
-    
+    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+
     <!-- Ensures the web page looks good on all screen sizes. -->
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     ```
 
 7. Si combina todo con el archivo HTML, el aspecto debería ser parecido a este:
 
-    ```html
+    ```HTML
     <!DOCTYPE html>
     <html>
     <head>
         <title></title>
-    
-        <meta charset="utf-8" />
-        
+
+        <meta charset="utf-8">
+
         <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
-        <meta http-equiv="x-ua-compatible" content="IE=Edge" />
-    
+        <meta http-equiv="x-ua-compatible" content="IE=Edge">
+
         <!-- Ensures the web page looks good on all screen sizes. -->
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css" />
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
         <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
-    
+
         <style>
             html, body {
                 margin: 0;
             }
-        
+
             #myMap {
                 height: 100vh;
                 width: 100vw;
@@ -146,8 +147,8 @@ Puede insertar un mapa en una página web mediante la biblioteca de Javascript d
     </head>
     <body>
         <div id="myMap"></div>
-        
-        <script type='text/javascript'>
+
+        <script type="text/javascript">
             //Create an instance of the map control and set some options.
             var map = new atlas.Map('myMap', {
                 center: [-122.33, 47.6],

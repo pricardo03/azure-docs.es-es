@@ -4,15 +4,17 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 432d0d4c201d0d73e5695a1726129e7fa744bdde
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 2a1bf160926bc2f90e326d773bf6a3e7fdc37103
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319782"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58505739"
 ---
 # <a name="common-errors-during-classic-to-azure-resource-manager-migration"></a>Errores comunes durante la migración del modelo clásico a Azure Resource Manager
 En este artículo se catalogan los errores y las soluciones más comunes durante la migración de recursos de IaaS del modelo de implementación clásica a la pila de Azure Resource Manager.
+
+[!INCLUDE [updated-for-az](./updated-for-az.md)]
 
 ## <a name="list-of-errors"></a>Lista de errores
 
@@ -22,7 +24,7 @@ En este artículo se catalogan los errores y las soluciones más comunes durante
 | No se admite la migración para la implementación {nombre de implementación} en HostedService {nombre del servicio hospedado} porque es una implementación PaaS (web/trabajo). |Esto sucede cuando una implementación contiene un rol web o de trabajo. Dado que solo se admite la migración de máquinas virtuales, quite el rol web o de trabajo de la implementación y vuelva a intentar la migración. |
 | Error de implementación de plantilla {nombre de plantilla}. CorrelationId={guid} |En el back-end del servicio de migración, usamos plantillas de Azure Resource Manager para crear recursos en la pila de Azure Resource Manager. Puesto que las plantillas son idempotentes, lo normal es que pueda reintentar la operación de migración para solucionar este error. Si este error continúa, [póngase en contacto con el soporte técnico de Azure](../articles/azure-supportability/how-to-create-azure-support-request.md) y proporcióneles el CorrelationId. <br><br> **NOTA:** Cuando la incidencia ya esté en manos del equipo de soporte técnico, no intente ninguna mitigación de riesgos por su cuenta ya que podría tener consecuencias imprevistas sobre su entorno. |
 | La red virtual {nombre de la red virtual} no existe. |Esto puede ocurrir si ha creado la red virtual en el nuevo Azure Portal. El nombre de la red virtual real sigue el patrón "Grupo * <VNET name>". |
-| La máquina virtual {nombre de la máquina virtual} de HostedService {nombre del servicio hospedado} contiene la extensión {nombre de la extensión} que no se admite en Azure Resource Manager. Se recomienda desinstalarla de la máquina virtual antes de continuar con la migración. |Las extensiones XML como BGInfo 1.* no se admiten en Azure Resource Manager. Por lo tanto, no se pueden migrar estas extensiones. Si estas extensiones se dejan instaladas en la máquina virtual, se desinstalan automáticamente antes de completar la migración. |
+| La máquina virtual {nombre de la máquina virtual} de HostedService {nombre del servicio hospedado} contiene la extensión {nombre de la extensión} que no se admite en Azure Resource Manager. Se recomienda desinstalarla de la máquina virtual antes de continuar con la migración. |Extensiones XML como BGInfo 1. \* no se admiten en Azure Resource Manager. Por lo tanto, no se pueden migrar estas extensiones. Si estas extensiones se dejan instaladas en la máquina virtual, se desinstalan automáticamente antes de completar la migración. |
 | La máquina virtual {nombre de la máquina virtual} de HostedService {nombre del servicio hospedado} contiene la extensión VMSnapshot/VMSnapshotLinux que actualmente no se admite para migración. Desinstálela de la máquina virtual y vuelva a agregarla mediante Azure Resource Manager después de completar la migración |Este es el escenario donde la máquina virtual está configurada para Azure Backup. Puesto que este no es actualmente un escenario admitido, siga la solución alternativa en https://aka.ms/vmbackupmigration. |
 | La máquina virtual {nombre de la máquina virtual} en HostedService {nombre del servicio hospedado} contiene la extensión {nombre de la extensión} cuyo estado no está notificando la máquina virtual. Por lo tanto, esta máquina virtual no se puede migrar. Asegúrese de que se notifica el estado de la extensión o desinstale la extensión de la máquina virtual y vuelva a intentar la migración. <br><br> La máquina virtual {nombre de la máquina virtual} en HostedService {nombre del servicio hospedado} contiene la extensión {nombre de la extensión} que notifica el estado del controlador: {estado del controlador}. Por lo tanto, la VM no se puede migra. Asegúrese de que el estado del controlador de la extensión que se notifica sea {estado del controlador} o desinstálelo de la máquina virtual y vuelva a intentar la migración. <br><br> El agente de máquina virtual de la máquina virtual {nombre de la máquina virtual} en HostedService {nombre del servicio hospedado} está notificando el estado general del agente como no preparado. Por lo tanto si tiene una extensión que es migrable, la máquina virtual no se puede migrar. Asegúrese de que el agente de máquina virtual está notificando el estado general del agente como listo. Consulte https://aka.ms/classiciaasmigrationfaqs. |Las extensiones del agente invitado de Azure y de la máquina virtual necesitan acceso de salida a Internet a la cuenta de almacenamiento de la máquina virtual para rellenar su estado. Entre las causas comunes del error de estado se incluyen: <li> Un grupo de seguridad de red que bloquea el acceso de salida a Internet. <li> Si la red virtual tiene localmente los servidores DNS y se pierde la conectividad DNS <br><br> Si continúa viendo un estado no admitido, puede desinstalar las extensiones para omitir esta comprobación y seguir adelante con la migración. |
 | No se admite la migración para la implementación {nombre de implementación} en HostedService {nombre del servicio hospedado} porque tiene varios conjuntos de disponibilidad. |Actualmente, solo se pueden migrar los servicios hospedados que tengan como mucho un conjunto de disponibilidad. Para solucionar este problema, mueva los conjuntos de disponibilidad adicionales y las máquinas virtuales de esos conjuntos de disponibilidad a otro servicio hospedado. |
@@ -44,7 +46,7 @@ Esto se produce cuando el tamaño lógico del disco de datos pueda desincronizar
 
 #### <a name="verifying-the-issue"></a>Comprobación del problema
 
-```PowerShell
+```powershell
 # Store the VM details in the VM object
 $vm = Get-AzureVM -ServiceName $servicename -Name $vmname
 
@@ -65,7 +67,7 @@ ExtensionData       :
 
 # Now get the properties of the blob backing the data disk above
 # NOTE the size of the blob is about 15 GB which is different from LogicalDiskSizeInGB above
-$blob = Get-AzureStorageblob -Blob "coreosvm-dd1.vhd" -Container vhds 
+$blob = Get-AzStorageblob -Blob "coreosvm-dd1.vhd" -Container vhds 
 
 $blob
 
@@ -82,7 +84,7 @@ Name              : coreosvm-dd1.vhd
 
 #### <a name="mitigating-the-issue"></a>Mitigación del problema
 
-```PowerShell
+```powershell
 # Convert the blob size in bytes to GB into a variable which we'll use later
 $newSize = [int]($blob.Length / 1GB)
 

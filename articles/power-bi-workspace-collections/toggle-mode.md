@@ -1,20 +1,19 @@
 ---
 title: Alternancia entre los modo de visualización y de edición de informes en Colecciones de áreas de trabajo de Power BI | Microsoft Docs
 description: Aprenda a alternar entre los modos de visualización y de edición en los informes de Colecciones de áreas de trabajo de Power BI.
-services: power-bi-embedded
+services: power-bi-workspace-collections
+ms.service: power-bi-workspace-collections
 author: markingmyname
-ROBOTS: NOINDEX
-ms.service: power-bi-embedded
+ms.author: maghan
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
-ms.author: maghan
-ms.openlocfilehash: 689ab38f2fc2d7643fb61c7137a4d88c297615db
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 38824c40db1f4fb3de9a0a124f74b71eb1ee2f17
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57834190"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517137"
 ---
 # <a name="toggle-between-view-and-edit-mode-for-reports-in-power-bi-workspace-collections"></a>Alternancia entre los modos de visualización y de edición de informes en Colecciones de áreas de trabajo de Power BI
 

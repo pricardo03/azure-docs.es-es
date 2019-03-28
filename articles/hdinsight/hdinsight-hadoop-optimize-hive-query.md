@@ -8,17 +8,17 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.openlocfilehash: 1c863bc3b0ded0558e052ee3d98586ad815a0cfd
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.date: 03/21/2019
+ms.openlocfilehash: 63def1464c3c219b5181a31bf19cc80a1e487025
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202748"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521744"
 ---
 # <a name="optimize-apache-hive-queries-in-azure-hdinsight"></a>Optimización de las consultas de Azure Hive en Azure HDInsight
 
-En Azure HDInsight, hay varios tipos de clúster y tecnologías que pueden ejecutar consultas de Apache Hive. Al crear el clúster de HDInsight, elija el tipo de clúster adecuado para ayudar a optimizar el rendimiento de sus necesidades de carga de trabajo. 
+En Azure HDInsight, hay varios tipos de clúster y tecnologías que pueden ejecutar consultas de Apache Hive. Al crear el clúster de HDInsight, elija el tipo de clúster adecuado para ayudar a optimizar el rendimiento de sus necesidades de carga de trabajo.
 
 Por ejemplo, elija **Interactive Query** tipo para optimizar las consultas ad hoc e interactivas de clúster. Elija el tipo de clúster Apache **Hadoop** para optimizar la consultas de Hive utilizadas como un proceso por lotes. Los tipos de clúster **Spark** y **HBase** también pueden ejecutar consultas de Hive. Para más información sobre la ejecución de consultas de Hive en diversos tipos de clúster de HDInsight, vea [¿Qué son Apache Hive y HiveQL en Azure HDInsight?](hadoop/hdinsight-use-hive.md)
 

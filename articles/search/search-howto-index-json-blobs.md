@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: d70ad65f5bbc4424b4224cf601d903ad7ec10691
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: f44161586f9f4e121001b9f5e285b0e1e1dcd9d1
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57405120"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518752"
 ---
 # <a name="how-to-index-json-blobs-using-azure-search-blob-indexer"></a>Cómo indexar blobs JSON con el indexador de blobs de Azure Search
 Este artículo muestra cómo configurar un blob de Azure Search [indizador](search-indexer-overview.md) para extraer contenido estructurado de documentos JSON en Azure Blob storage y facilitar su búsqueda en Azure Search. Este flujo de trabajo crea un índice de búsqueda de Azure y lo carga con texto extraído de los blobs JSON. 
@@ -211,7 +211,7 @@ Configuración del indexador está en el cuerpo de la solicitud. Requiere un ori
 
 Programación y los parámetros son opcionales. Si se omite, el indizador se ejecuta inmediatamente, con `json` como el modo de análisis.
 
-Este indizador determinado no incluye [asignaciones de campos](#field-mappings). Dentro de la definición del indexador, puede dejar al margen **asignaciones de campos** si las propiedades del documento JSON de origen coincide con los campos del índice de búsqueda de destino. 
+Este indizador determinado no incluye las asignaciones de campos. Dentro de la definición del indexador, puede dejar al margen **asignaciones de campos** si las propiedades del documento JSON de origen coincide con los campos del índice de búsqueda de destino. 
 
 
 ### <a name="rest-example"></a>Ejemplo de REST
@@ -253,7 +253,7 @@ Todos los indizadores requieren un índice de destino que recibe los datos. El c
 
 ### <a name="indexer-request"></a>Solicitud del indexador
 
-Esta solicitud muestra un indexador completamente especificada. Incluye [asignaciones de campos](#field-mappings), que se hayan omitido en los ejemplos anteriores. Recuerde que "programar", "parameters", y "fieldMappings" son opcionales, siempre hay un valor predeterminado disponible. Si se omite "programar" hace que el indizador se ejecute inmediatamente. Si se omite "parsingMode" hace que el índice que se utilizará el valor predeterminado de "json".
+Esta solicitud muestra un indexador completamente especificada. Incluye las asignaciones de campos que se hayan omitido en los ejemplos anteriores. Recuerde que "programar", "parameters", y "fieldMappings" son opcionales, siempre hay un valor predeterminado disponible. Si se omite "programar" hace que el indizador se ejecute inmediatamente. Si se omite "parsingMode" hace que el índice que se utilizará el valor predeterminado de "json".
 
 Crear el indexador de Azure Search desencadena la importación de datos. Inmediatamente y que posteriormente se ejecuta según una programación si se ha proporcionado uno.
 

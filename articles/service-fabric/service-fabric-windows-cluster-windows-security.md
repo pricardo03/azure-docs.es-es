@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.openlocfilehash: 681ee66ca165ece170dd2a2ce2736cf55a44f1f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d599414978c44407acc1a449f853607d6a40c495
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104087"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541016"
 ---
 # <a name="secure-a-standalone-cluster-on-windows-by-using-windows-security"></a>Proteger un clúster independiente en Windows mediante la seguridad de Windows
 Para evitar accesos no autorizados a un clúster de Service Fabric, debe proteger el clúster. La seguridad es especialmente importante cuando el clúster ejecuta cargas de trabajo de producción. En este artículo se describe cómo configurar la seguridad de nodo a nodo y de cliente a nodo mediante la seguridad de Windows en el archivo *ClusterConfig.JSON*.  El proceso se corresponde con el paso de seguridad de configuración descrito en [Creación de un clúster independiente con Windows Server](service-fabric-cluster-creation-for-windows-server.md). Para más información sobre cómo Service Fabric usa la seguridad de Windows, consulte [Escenarios de seguridad de los clústeres](service-fabric-cluster-security.md).
@@ -30,7 +30,7 @@ Para evitar accesos no autorizados a un clúster de Service Fabric, debe protege
 >
 
 ## <a name="configure-windows-security-using-gmsa"></a>Configuración de la seguridad de Windows mediante gMSA  
-El archivo de configuración de ejemplo *ClusterConfig.gMSA.Windows.MultiMachine.JSON* descargado junto con el paquete de clúster independiente [Microsoft.Azure.ServiceFabric.WindowsServer<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) contiene una plantilla para configurar la seguridad de Windows mediante una [cuenta de servicio administrada de grupo (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
+El ejemplo *ClusterConfig.gMSA.Windows.MultiMachine.JSON* archivo de configuración de descarga con el [Microsoft.Azure.ServiceFabric.WindowsServer.\< versión > .zip](https://go.microsoft.com/fwlink/?LinkId=730690) paquete de clúster independiente contiene una plantilla para configurar la seguridad de Windows mediante [cuenta de servicio administrada de grupo (gMSA)](https://technet.microsoft.com/library/hh831782.aspx):  
 
 ```
 "security": {
@@ -86,7 +86,7 @@ La sección de **seguridad** del ejemplo siguiente configura la seguridad de Win
 ```
   
 ## <a name="configure-windows-security-using-a-machine-group"></a>Configuración de la seguridad de Windows mediante un grupo de máquinas  
-Este modelo está en desuso. La recomendación es usar gMSA tal como se describió anteriormente. El archivo de configuración de ejemplo *ClusterConfig.Windows.MultiMachine.JSON* descargado junto con el paquete de clúster independiente [Microsoft.Azure.ServiceFabric.WindowsServer<version>.zip](https://go.microsoft.com/fwlink/?LinkId=730690) contiene una plantilla para configurar la seguridad de Windows.  La seguridad de Windows se configura en la sección **Propiedades** : 
+Este modelo está en desuso. La recomendación es usar gMSA tal como se describió anteriormente. El ejemplo *ClusterConfig.Windows.MultiMachine.JSON* archivo de configuración de descarga con el [Microsoft.Azure.ServiceFabric.WindowsServer.\< versión > .zip](https://go.microsoft.com/fwlink/?LinkId=730690) paquete de clúster independiente contiene una plantilla para configurar la seguridad de Windows.  La seguridad de Windows se configura en la sección **Propiedades** : 
 
 ```
 "security": {

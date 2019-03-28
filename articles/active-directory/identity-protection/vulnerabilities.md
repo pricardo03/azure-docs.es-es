@@ -4,7 +4,7 @@ description: Información general de las vulnerabilidades detectadas por Azure A
 services: active-directory
 keywords: azure active directory identity protection, detección en la nube, administración de aplicaciones, seguridad, riesgo, nivel de riesgo, punto vulnerable, directiva de seguridad
 documentationcenter: ''
-author: MarkusVi
+author: MicrosoftGuyJFlo
 manager: daveba
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
-ms.author: markvi
-ms.reviewer: nigu
+ms.author: joflore
+ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5968731981e9ba602a27b6b66a53e7b67e8fa7f
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 6fec9693641ff5918f622ecceee3fb94828b508e
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187328"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517902"
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnerabilidades detectadas por Azure Active Directory Identity Protection
 Los puntos vulnerables son puntos débiles de su entorno que pueden ser aprovechados por un atacante. Se recomienda solucionar estas vulnerabilidades para mejorar la posición de seguridad de su organización y evitar que los atacantes se aprovechen de ellas.
@@ -61,7 +61,7 @@ Recomendamos que la organización utilice Privileged Identity Management de Azur
 
 Para obtener más información, vea [Azure AD Privileged Identity Management](../privileged-identity-management/pim-configure.md). 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
 

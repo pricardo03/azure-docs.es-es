@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2018
 ms.author: bwren
-ms.openlocfilehash: 11372894e1dbcac6a49205ff56d8b30ffb6ee976
-ms.sourcegitcommit: c61777f4aa47b91fb4df0c07614fdcf8ab6dcf32
-ms.translationtype: HT
+ms.openlocfilehash: d3eb0fba2b7178b8b1702d4ca89ff85a441c20d6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/14/2019
-ms.locfileid: "54261271"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541084"
 ---
-# <a name="create-custom-fields-in-log-analytics"></a>Creación de campos personalizados en Log Analytics
+# <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Crear campos personalizados en un área de trabajo de Log Analytics en Azure Monitor
 
 > [!NOTE]
-> En este artículo se describe cómo analizar los datos de texto en Log Analytics cuando se recopilan. El análisis de los datos de texto en una consulta una vez recopilados presenta varias ventajas, tal y como se describe en [Análisis de los datos de texto en Log Analytics](../log-query/parse-text.md).
+> En este artículo se describe cómo analizar datos de texto en un área de trabajo de Log Analytics, tal y como se recopila. Existen ventajas en el análisis de datos de texto en una consulta que se recopila como se describe en [analizar datos de texto en Azure Monitor](../log-query/parse-text.md).
 
-La característica **Campos personalizados** de Log Analytics le permite ampliar los registros existentes de Log Analytics agregando sus propios campos de búsqueda.  Los campos personalizados se rellenan automáticamente a partir de los datos extraídos de otras propiedades del mismo registro.
+El **campos personalizados** característica de Azure Monitor le permite ampliar los registros existentes en el área de trabajo de Log Analytics agregando sus propios campos de búsqueda.  Los campos personalizados se rellenan automáticamente a partir de los datos extraídos de otras propiedades del mismo registro.
 
 ![Introducción a los campos personalizados](media/custom-fields/overview.png)
 

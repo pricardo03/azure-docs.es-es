@@ -1,6 +1,6 @@
 ---
-title: Recopilación de registros y métricas de servicios de Azure en Log Analytics | Microsoft Docs
-description: Configure los diagnósticos en recursos de Azure para escribir registros y métricas en Log Analytics.
+title: Recopilar registros del servicio de Azure y las métricas en el área de trabajo de Log Analytics | Microsoft Docs
+description: Configurar los diagnósticos en recursos de Azure para escribir registros y métricas en el área de trabajo de Log Analytics en Azure Monitor.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -13,21 +13,21 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
-ms.openlocfilehash: 034abe4e3c37c94afbe431a51efd9493b707fa89
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 5a619b768d61875a03e53a613dfb9a3fb01dd7aa
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/27/2019
-ms.locfileid: "58498543"
+ms.locfileid: "58540185"
 ---
-# <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Recopilación de registros y métricas de Azure para servicios de Log Analytics
+# <a name="collect-azure-service-logs-and-metrics-into-log-analytics-workspace-in-azure-monitor"></a>Recopilar métricas y registros de servicio de Azure en el área de trabajo de Log Analytics en Azure Monitor
 
 Hay cuatro maneras diferentes de recopilar registros y métricas para servicios de Azure:
 
-1. Diagnósticos de Azure directos a Log Analytics (*Diagnósticos* en la tabla siguiente)
-2. Azure Diagnostics a Azure Storage y luego a Log Analytics (*Storage* en la tabla siguiente)
+1. Diagnósticos de Azure directos al área de trabajo de Log Analytics en Azure Monitor (*diagnósticos* en la tabla siguiente)
+2. Diagnósticos de Azure en Azure storage al área de trabajo de Log Analytics en Azure Monitor (*almacenamiento* en la tabla siguiente)
 3. Conectores para servicios de Azure (*Conectores* en la tabla siguiente)
-4. Scripts para recopilar y después publicar datos en Log Analytics (espacios en blanco en la tabla siguiente y para servicios que no aparecen)
+4. Scripts para recopilar y, a continuación, publicar datos en el área de trabajo de Log Analytics en Azure Monitor (espacios en blanco en la tabla siguiente y servicios que no aparecen)
 
 
 | Servicio                 | Tipo de recurso                           | Registros        | Métricas     | Solución |
@@ -64,12 +64,12 @@ Hay cuatro maneras diferentes de recopilar registros y métricas para servicios 
 >
 
 ## <a name="azure-diagnostics-direct-to-log-analytics"></a>Diagnósticos de Azure directos a Log Analytics
-Muchos recursos de Azure son capaces de escribir registros de diagnóstico y métricas directamente en Log Analytics; de hecho, esta es la forma preferida de recopilar los datos para el análisis. Al utilizar los diagnósticos de Azure, los datos se escriben inmediatamente en Log Analytics y no es necesario escribir primero los datos en el almacenamiento.
+Muchos recursos de Azure son capaces de escribir registros de diagnóstico y métricas directamente a un área de trabajo de Log Analytics en Azure Monitor y esta es la manera preferida de recopilar datos de análisis. Al utilizar diagnóstico de Azure, los datos se escriben inmediatamente en el área de trabajo, y no es necesario escribir primero los datos en almacenamiento.
 
-Los recursos de Azure que admiten [Azure Monitor](../../azure-monitor/overview.md) pueden enviar sus registros y métricas directamente a Log Analytics.
+Recursos de Azure que admiten [Azure monitor](../../azure-monitor/overview.md) puede enviar sus registros y métricas directamente a un área de trabajo de Log Analytics.
 
 > [!NOTE]
-> Actualmente no se admite el envío de métricas de varias dimensiones a Log Analytics a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión.
+> Actualmente no se admite el envío de métricas multidimensionales para un área de trabajo de Log Analytics a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión.
 >
 > *Por ejemplo*: la métrica "Mensajes entrantes" de una instancia de Event Hub se puede explorar y representar gráficamente por colas. Sin embargo, cuando se exporta a través de la configuración de diagnóstico, la métrica se representa con todos los mensajes entrantes de todas las colas de Event Hub.
 >
@@ -125,9 +125,9 @@ Para habilitar los diagnósticos en un recurso cuando se crea, y que los diagnó
 
 ## <a name="azure-diagnostics-to-storage-then-to-log-analytics"></a>Diagnósticos de Azure a almacenamiento y luego a Log Analytics
 
-Para recopilar registros desde dentro de algunos recursos, es posible enviar los registros al almacenamiento de Azure y luego configurar Log Analytics para leer los registros del almacenamiento.
+Para recopilar registros desde dentro de algunos recursos, es posible enviar los registros al almacenamiento de Azure y, a continuación, configurar el área de trabajo de Log Analytics para leer los registros de almacenamiento.
 
-Log Analytics puede usar este enfoque para recopilar diagnósticos del almacenamiento de Azure para los recursos y registros siguientes:
+Azure Monitor puede usar este enfoque para recopilar diagnósticos de Azure storage para los registros y los recursos siguientes:
 
 | Recurso | Registros |
 | --- | --- |
@@ -136,23 +136,23 @@ Log Analytics puede usar este enfoque para recopilar diagnósticos del almacenam
 | Roles web <br> Roles de trabajo |Syslog de Linux <br> Evento de Windows <br> Registro de IIS <br> Windows ETWEvent |
 
 > [!NOTE]
-> Al enviar diagnósticos a una cuenta de almacenamiento y por las lecturas de Log Analytics de los datos de la cuenta de almacenamiento se le cobrarán las tarifas de datos de Azure habituales por el almacenamiento y las transacciones.
+> Se le cobrará tarifas Azure normales de almacenamiento y transacciones al enviar diagnósticos a una cuenta de almacenamiento y para cuando el área de trabajo de Log Analytics lee los datos de la cuenta de almacenamiento.
 >
 >
 
-Vea [Uso de Blob Storage para IIS y Table Storage para eventos](azure-storage-iis-table.md) para más información sobre cómo Log Analytics puede recopilar estos registros.
+Consulte [Use blob storage para IIS y table storage para eventos](azure-storage-iis-table.md) para obtener más información sobre cómo puede recopilar estos registros de Azure Monitor.
 
 ## <a name="connectors-for-azure-services"></a>Conectores para servicios de Azure
 
-Hay un conector para Application Insights, que permite que los datos que recopila Application Insights se envíen a Log Analytics.
+Hay un conector para Application Insights, que permite que los datos recopilados por Application Insights se envíen a un área de trabajo de Log Analytics.
 
 Obtenga más información sobre el [conector de Application Insights](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/).
 
-## <a name="scripts-to-collect-and-post-data-to-log-analytics"></a>Scripts para recopilar datos y publicarlos en Log Analytics
+## <a name="scripts-to-collect-and-post-data-to-log-analytics-workspace"></a>Scripts para recopilar y publicar datos en el área de trabajo de Log Analytics
 
-Para los servicios de Azure que no proporcionan una manera directa de enviar registros y métricas a Log Analytics, puede usar un script de Azure Automation para recopilar el registro y las métricas. Después, el script puede enviar los datos a Log Analytics utilizando la [API del recopilador de datos](../../azure-monitor/platform/data-collector-api.md).
+Puede usar un script de automatización de Azure para recopilar el registro y métricas para servicios de Azure que no proporcionan una manera directa de enviar registros y métricas a un área de trabajo de Log Analytics. La secuencia de comandos, a continuación, puede enviar los datos en el área de trabajo mediante el [API del recopilador de datos](../../azure-monitor/platform/data-collector-api.md)
 
-La galería de plantillas de Azure tiene [ejemplos del uso de Azure Automation](https://azure.microsoft.com/resources/templates/?term=OMS) para recopilar datos de servicios y enviarlos a Log Analytics.
+La Galería de plantillas de Azure tiene [ejemplos del uso de Azure Automation](https://azure.microsoft.com/resources/templates/?term=OMS) para recopilar datos de servicios y enviarlo a Azure Monitor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

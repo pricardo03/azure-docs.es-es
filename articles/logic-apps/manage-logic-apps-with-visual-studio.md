@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
 ms.date: 03/15/2018
-ms.openlocfilehash: 9f626e2a5c277cdce78c6e90046a1d40dac2d588
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f3a9a1cb7a5829c7c824f9aa61d5f4976a533f4a
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078676"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519738"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Administración de aplicaciones lógicas con Visual Studio
 
@@ -42,6 +42,13 @@ Si bien puede crear, editar, administrar e implementación aplicaciones lógicas
   
     Puede descargar e instalar Herramientas de Azure Logic Apps directamente desde Visual Studio Marketplace o aprender <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">a instalar esta extensión desde Visual Studio</a>. 
     Asegúrese de reiniciar Visual Studio después de finalizar la instalación.
+
+* Cloud Explorer para Visual Studio 2017 o Visual Studio 2015
+
+  * Para Visual Studio 2017, ejecute el instalador de Visual Studio e instale el **carga de trabajo Azure**. Para obtener más información, consulte [administrar los recursos asociados con su accuonts Azure en Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2017).
+
+  * Para Visual Studio 2015, [Descargue el Explorador de nube desde Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
+  Para obtener más información, consulte [administrar los recursos asociados con sus cuentas de Azure en Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
 
 * Acceso a la Web mediante el diseñador integrado de Logic Apps
 

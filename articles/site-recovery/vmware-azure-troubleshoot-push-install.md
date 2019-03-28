@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 02/27/2019
-ms.openlocfilehash: 65b8253a307693d00f5eaefe7660d500dce49be4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0278332105f2102fc82122c5a74db6326f011e81
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078659"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541201"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Solución de problemas de instalación de inserción de Mobility Service
 
@@ -183,7 +183,7 @@ Si ve la cadena en negrita anterior, GRUB tiene nombres de dispositivos reales p
 Los nombres de dispositivo se deben reemplazar con el UUID correspondiente.<br>
 
 
-1. Para buscar el UUID del dispositivo, ejecute el comando "blkid <device name>". Por ejemplo: <br>
+1. Buscar el UUID del dispositivo, ejecute el comando "blkid \<nombre del dispositivo >". Por ejemplo: <br>
    ```
    blkid /dev/sda1
    /dev/sda1: UUID="6f614b44-433b-431b-9ca1-4dd2f6f74f6b" TYPE="swap"
@@ -191,7 +191,7 @@ Los nombres de dispositivo se deben reemplazar con el UUID correspondiente.<br>
    /dev/sda2: UUID="62927e85-f7ba-40bc-9993-cc1feeb191e4" TYPE="ext3" 
    ```
 
-2. Ahora, sustituya el nombre del dispositivo por su UUID utilizando el formato "root=UUID=<UUID>". Por ejemplo, si se reemplace los nombres de dispositivo con el UUID de raíz y reanuda mencionado anteriormente en los archivos de parámetro "/ boot/grub2/grub.cfg", "/ boot/grub2/grub.cfg" o "/ etcetera/predeterminado/grub: a continuación, las líneas en los archivos de aspecto. <br>
+2. Ahora reemplace el nombre del dispositivo con su UUID en el formato como "raíz = UUID =\<UUID >". Por ejemplo, si se reemplace los nombres de dispositivo con el UUID de raíz y reanuda mencionado anteriormente en los archivos de parámetro "/ boot/grub2/grub.cfg", "/ boot/grub2/grub.cfg" o "/ etcetera/predeterminado/grub: a continuación, las líneas en los archivos de aspecto. <br>
    *kernel /boot/vmlinuz-3.0.101-63-default **root=UUID=62927e85-f7ba-40bc-9993-cc1feeb191e4** **resume=UUID=6f614b44-433b-431b-9ca1-4dd2f6f74f6b** splash=silent crashkernel=256M-:128M showopts vga=0x314*
 3. Reinicie la protección
 

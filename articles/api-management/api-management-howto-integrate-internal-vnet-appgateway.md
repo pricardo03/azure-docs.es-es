@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: 46678590366021ff0f3ddb714d439c18addc578b
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 4ee970f14a6da3d65849a79ff4afae68601f106f
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361085"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521931"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Integración de API Management en una red virtual interna con Application Gateway
 
@@ -51,7 +51,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 
 En este artículo se trata cómo usar un único servicio de administración de API para consumidores tanto internos como externos y hacer que actúe como un único front-end para ambos en el entorno local y en la nube de la API. También verá cómo exponer solamente un subconjunto de las API (resaltado en verde en el ejemplo) para permitir su uso externo, usando para ello la funcionalidad de enrutamiento disponible en Application Gateway.
 
-En el primer ejemplo de la configuración, todas las API se administran únicamente desde dentro de la red virtual. Los consumidores internos (resaltados en color naranja) pueden tener acceso a todas las API internas y externas. El tráfico nunca se envía a Internet y se entrega un alto rendimiento a través de circuitos Express Route.
+En el primer ejemplo de la configuración, todas las API se administran únicamente desde dentro de la red virtual. Los consumidores internos (resaltados en color naranja) pueden tener acceso a todas las API internas y externas. El tráfico nunca sale a internet. Conectividad de alto rendimiento se entrega a través de circuitos Express Route.
 
 ![ruta de dirección URL](./media/api-management-howto-integrate-internal-vnet-appgateway/api-management-howto-integrate-internal-vnet-appgateway.png)
 

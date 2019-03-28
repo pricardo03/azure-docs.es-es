@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 18013050546cc5e204d9cc07a2f499388596164c
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: ca4f9bf00d70f327ff756558e25315762a9a77a8
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319455"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519755"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
 
@@ -72,7 +72,7 @@ Puede configurar la puerta de enlace de aplicaciones para tener una dirección I
 
 Se admite una única dirección IP pública o una dirección IP privada. Elija la dirección IP de front-end al crear la puerta de enlace de la aplicación. 
 
-- En el caso de una dirección IP pública, puede elegir crear una nueva dirección IP pública o usar una dirección IP pública existente en la misma ubicación que la puerta de enlace de la aplicación. Si crea una nueva dirección IP pública, el tipo de dirección IP seleccionado (estática o dinámica) no se puede cambiar más adelante. Para obtener más información, consulte [puertos estáticos frente a la dirección IP pública dinámica](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-vs-dynamic-public-ip) 
+- En el caso de una dirección IP pública, puede elegir crear una nueva dirección IP pública o usar una dirección IP pública existente en la misma ubicación que la puerta de enlace de la aplicación. Si crea una nueva dirección IP pública, el tipo de dirección IP seleccionado (estática o dinámica) no se puede cambiar más adelante. Para obtener más información, consulte [puertos estáticos frente a la dirección IP pública dinámica](https://docs.microsoft.com/azure/application-gateway/application-gateway-components) 
 
 - En el caso de una dirección IP privada, puede elegir especificar una dirección IP privada de la subred en la que se creó la puerta de enlace de la aplicación. Si no especifica explícitamente, se seleccionará automáticamente una dirección IP arbitraria desde la subred. Para obtener más información, consulte [crear una puerta de enlace de la aplicación con un extremo (ILB) de equilibrador de carga interno.](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm)
 
@@ -110,7 +110,7 @@ Debe elegir entre los protocolos HTTP y HTTPS.
 
 - Si elige HTTP, fluirá el tráfico entre la puerta de enlace de cliente y la aplicación sin cifrar.
 
-- Seleccione HTTPS si está interesado en [terminación de la capa de Sockets seguros (SSL)](https://docs.microsoft.com/azure/application-gateway/overview#secure-sockets-layer-ssl-terminationl) o [cifrado SSL de extremo a extremo](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Si selecciona HTTPS, se cifrarán el tráfico entre la puerta de enlace de cliente y la aplicación y se terminará la conexión SSL en application gateway.  Si desea que el cifrado SSL de extremo a extremo, además debe elegir el protocolo HTTPS al configurar *configuración HTTP de back-end*. Esto garantizará que el tráfico se vuelve a cifrar cuando su tránsito de puerta de enlace de aplicaciones back-end.
+- Seleccione HTTPS si está interesado en [terminación de la capa de Sockets seguros (SSL)](https://docs.microsoft.com/azure/application-gateway/overview) o [cifrado SSL de extremo a extremo](https://docs.microsoft.com/azure/application-gateway/ssl-overview). Si selecciona HTTPS, se cifrarán el tráfico entre la puerta de enlace de cliente y la aplicación y se terminará la conexión SSL en application gateway.  Si desea que el cifrado SSL de extremo a extremo, además debe elegir el protocolo HTTPS al configurar *configuración HTTP de back-end*. Esto garantizará que el tráfico se vuelve a cifrar cuando su tránsito de puerta de enlace de aplicaciones back-end.
 
   Para configurar el cifrado SSL de extremo a extremo y terminación de la capa de Sockets seguros (SSL), se requiere un certificado que se agregarán a la escucha con el fin de habilitar la puerta de enlace de aplicaciones derivar una clave simétrica según la especificación del protocolo SSL. A continuación, se usa la clave simétrica para cifrar y descifrar el tráfico enviado a la puerta de enlace. El certificado de la puerta de enlace debe estar en formato de Intercambio de información personal (PFX). Este formato de archivo permite la exportación de la clave privada, lo que es necesario para que la puerta de enlace de aplicaciones pueda realizar el cifrado y descifrado del tráfico. 
 

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 204ee1b812949311258be968de387dc5b66c4fc0
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 18f713198ef9aa45cb72a6718c0f7b086c019258
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726879"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540047"
 ---
 # <a name="mapping-data-flow-join-transformation"></a>Asignación de transformación combinación de flujo de datos
 
@@ -67,6 +67,10 @@ Puede lograr condiciones de autocombinación en ADF Data Flow mediante la transf
 ![Autocombinación](media/data-flow/selfjoin.png "Autocombinación")
 
 En el diagrama anterior, la transformación Selección se encuentra en la parte superior. Todo lo que está haciendo es asignar a la secuencia original el alias "OrigSourceBatting". En la transformación Combinación resaltada a continuación, puede ver que usamos esta secuencia de alias de selección como combinación de la derecha, lo que nos permite hacer referencia a la misma clave tanto en el lado derecho como el izquierdo de la combinación interna.
+
+## <a name="composite-and-custom-keys"></a>Claves compuestas y personalizadas
+
+Puede crear claves compuestas y personalizadas sobre la marcha dentro de la transformación combinación de. Agregar filas para las columnas de combinación adicionales con el signo más (+) situado junto a cada fila de la relación. O calcular un nuevo valor de clave en el generador de expresiones para un valor de combinación en la marcha.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

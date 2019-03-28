@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: cfa9f6bcb81182f4e76e995d626b207f8e130a80
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 801e3b20908c3e92693e5e800428773bf5c90539
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840926"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521472"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL
 
@@ -109,6 +109,7 @@ En la tabla siguiente se enumeran las direcciones IP principales y secundarias d
 | Centro-Sur de EE. UU | 23.98.162.75 | 13.66.62.124 |
 | Sudeste de Asia | 23.100.117.95 | 104.43.15.0 |
 | Sur de Reino Unido 2 | 51.140.184.11 | |
+| Oeste de Reino Unido | 51.141.8.11| |
 | Centro occidental de EE.UU. | 13.78.145.25 | |
 | Europa occidental | 191.237.232.75 | 40.68.37.158 |
 | Oeste de EE. UU. 1 | 23.99.34.75 | 104.42.238.205 |

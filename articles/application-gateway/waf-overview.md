@@ -1,5 +1,5 @@
 ---
-title: Introducción al firewall de aplicaciones web (WAF) de Azure Application Gateway
+title: Introducción a firewall de aplicaciones web para Azure Application Gateway
 description: Este artículo proporciona una introducción al firewall de aplicaciones web (WAF) de Application Gateway.
 services: application-gateway
 author: vhorne
@@ -7,150 +7,153 @@ ms.service: application-gateway
 ms.date: 2/22/2019
 ms.author: amsriva
 ms.topic: conceptual
-ms.openlocfilehash: 914583747d4e0e045d5023d9072451983037e57f
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: 830513a03bd65ca14cb0938ae599a676f1bb3bca
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790364"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58518191"
 ---
-# <a name="web-application-firewall-waf"></a>Firewall de aplicaciones web (WAF)
+# <a name="web-application-firewall-for-azure-application-gateway"></a>Firewall de aplicaciones Web de Azure Application Gateway
 
-Firewall de aplicaciones web (WAF) es una característica de Application Gateway que proporciona a las aplicaciones una protección centralizada contra vulnerabilidades de seguridad comunes.
+Azure Application Gateway ofrece un firewall de aplicaciones web (WAF) que proporciona una protección centralizada de las aplicaciones web contra vulnerabilidades de seguridad comunes. Las aplicaciones Web se aplica cada vez más ataques malintencionados que aprovechan vulnerabilidades conocidas comúnmente. Inyección de código SQL y el scripting entre sitios se encuentran entre los ataques más comunes.
 
-Las aplicaciones web son cada vez más los objetivos de ataques malintencionados que aprovechan vulnerabilidades comunes conocidas, como ataques por inyección de código SQL o ataques de scripts de sitios, por nombrar unos pocos. 
+Impedir tales ataques en el código de aplicación es un desafío. Puede requerir tareas rigurosas de mantenimiento, aplicación de revisiones y supervisión en varias capas de la topología de la aplicación. Un firewall de aplicaciones web centralizado facilita la administración de seguridad mucho más sencillo. Un WAF también proporciona a los administradores de aplicación mayor protección de protección contra amenazas e intrusiones.
 
-Impedir tales ataques en el código de aplicación puede ser un verdadero desafío y requerir tareas rigurosas de mantenimiento, aplicación de revisiones y supervisión en varias capas de la topología de aplicación. Un firewall de aplicaciones web centralizado facilita enormemente la administración de la seguridad y proporciona mayor protección a los administradores de la aplicación frente a amenazas o intrusiones. Las soluciones de WAF también pueden reaccionar más rápido ante una amenaza de la seguridad aplicando revisiones que aborden una vulnerabilidad conocida en una ubicación central en lugar de proteger cada una de las aplicaciones web por separado. Las puertas de enlace de aplicaciones existentes pueden transformarse rápidamente en puertas de enlace con un firewall de aplicaciones web habilitado.
+Una solución WAF puede reaccionar ante una amenaza de seguridad más rápida aplicando revisiones que aborden una vulnerabilidad conocida, en lugar de proteger cada aplicación web individual de forma centralizada. Puertas de enlace de aplicaciones existentes pueden convertirse fácilmente en puertas de enlace de aplicaciones basadas en la pared de incendios.
 
-El firewall de aplicaciones web se basa en las reglas contenidas en [OWASP Core Rule Set](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 o 2.2.9. Se actualiza automáticamente para incluir protección frente a nuevas vulnerabilidades sin necesidad de configuración adicional.
+El WAF de Application Gateway se basa en [Core Rule Set (CRS)](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 o 2.2.9 de Open Web Application Security Project (OWASP). El WAF se actualiza automáticamente para incluir la protección contra vulnerabilidades de nuevo, no necesitan configuraciones adicionales.
 
-![imageURLroute](./media/waf-overview/WAF1.png)
+![Diagrama de WAF de puerta de enlace de aplicaciones](./media/waf-overview/WAF1.png)
 
-Application Gateway funciona como un controlador de entrega de aplicaciones (ADC) y ofrece terminación SSL, afinidad de sesión basada en cookies, distribución de la carga en operaciones round-robin, enrutamiento basado en contenido, posibilidad de hospedar varios sitios y mejoras de seguridad.
+Instancia de Application Gateway funciona como un controlador de entrega de aplicaciones (ADC). Ofrece terminación de la capa de Sockets seguros (SSL), afinidad de sesión basada en cookies, distribución de carga round robin, enrutamiento basado en contenido, posibilidad de hospedar varios sitios Web y las mejoras de seguridad.
 
-Algunas de las mejoras de seguridad que se ofrecen en Application Gateway son administración de directivas SSL y compatibilidad con SSL de extremo a extremo. La seguridad de las aplicaciones se mejora mediante un WAF (firewall de aplicaciones web) integrado directamente en la oferta de ADC. De esta forma se proporciona una ubicación central fácil de configurar para administrar y proteger las aplicaciones web frente a vulnerabilidades web comunes.
+Mejoras de seguridad de puerta de enlace de aplicaciones incluyen la administración de directivas SSL y SSL de extremo a extremo admite. Se refuerza la seguridad de la aplicación mediante la integración de WAF en Application Gateway. La combinación protege las aplicaciones web contra las vulnerabilidades más comunes. Y proporciona una ubicación central para administrar y configurar.
 
 ## <a name="benefits"></a>Ventajas
 
-Estas son las principales ventajas proporcionadas por Application Gateway y el firewall de aplicaciones web:
+Esta sección describen las ventajas principales que proporcionan Application Gateway y su WAF.
 
 ### <a name="protection"></a>Protección
 
-* Protección de la aplicación web contra las vulnerabilidades y los ataques web sin modificación del código de back-end.
+* Proteja sus aplicaciones web frente a vulnerabilidades web y ataques sin modificación del código de back-end.
 
-* Protección de varias aplicaciones web al mismo tiempo detrás de una puerta de enlace de aplicaciones. Application Gateway admite el hospedaje de hasta 20 sitios web detrás de una única puerta de enlace. Todos ellos se pueden proteger contra los ataques web mediante WAF.
+* Proteger varias aplicaciones web al mismo tiempo. Puede hospedar una instancia de Application Gateway de hasta 20 sitios Web que están protegidos por un firewall de aplicaciones web.
 
 ### <a name="monitoring"></a>Supervisión
 
-* Supervise la aplicación web frente a ataques mediante un registro de WAF en tiempo real. Este registro se integra con [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) para realizar un seguimiento de los registros y alertas de WAF y permite supervisar con facilidad las tendencias.
+* Supervisar los ataques contra sus aplicaciones web mediante el uso de un registro de WAF en tiempo real. El registro se integra con [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) para realizar un seguimiento de las alertas de WAF y supervisar con facilidad las tendencias.
 
-* WAF se integra con Azure Security Center. Azure Security Center permite obtener una visión central del estado de la seguridad de todos sus recursos en Azure.
+* El WAF de Application Gateway se integra con Azure Security Center. Security Center proporciona una visión central del estado de seguridad de todos los recursos de Azure.
 
 ### <a name="customization"></a>Personalización
 
-* La capacidad para personalizar las reglas y grupos de reglas del WAF para satisfacer las necesidades de su aplicación y eliminar los falsos positivos.
+* Puede personalizar las reglas de WAF y grupos de reglas para satisfacer las necesidades de su aplicación y eliminar los falsos positivos.
 
 ## <a name="features"></a>Características
 
-- Protección contra la inyección de código SQL.
-- Protección contra scripts entre sitios.
-- Protección contra ataques web comunes, como inyección de comandos, contrabando de solicitudes HTTP, división de respuestas HTTP y ataque remoto de inclusión de archivos.
+- Protección de inyección de código SQL.
+- Protección de scripting entre sitios.
+- Protección frente a otros ataques web comunes, como inyección de comandos, contrabando de división de respuestas HTTP de solicitudes HTTP e inclusión de archivos remoto.
 - Protección contra infracciones del protocolo HTTP.
-- Protección contra anomalías del protocolo HTTP, como la falta de agentes de usuario de host y encabezados de aceptación.
-- Prevención contra bots, rastreadores y escáneres.
-- Detección de errores de configuración comunes de las aplicaciones (por ejemplo, Apache, IIS, etc.)
-- Solicitar los límites de tamaño - Firewall de aplicaciones Web permite a los usuarios configurar límites de tamaño de solicitud dentro de los límites inferior y superior.
-- Listas de exclusión - listas de exclusión de WAF permiten a los usuarios omitir determinados atributos de la solicitud de una evaluación de WAF. Un ejemplo común son los tokens insertados de Active Directory que se usan para campos de contraseña o autenticación.
+- Protección contra anomalías del protocolo HTTP, como la falta de host de agente de usuario y los encabezados de aceptación.
+- Protección contra bots, rastreadores y escáneres.
+- Detección de errores comunes (por ejemplo, Apache e IIS).
+- Límites de tamaño configurable de la solicitud con los límites inferior y superior.
+- Las listas de exclusión le permiten omitir determinados atributos de la solicitud de una evaluación de WAF. Un ejemplo común es insertada por Active Directory los tokens que se usan para la autenticación o campos de contraseña.
 
 ### <a name="core-rule-sets"></a>Conjuntos de reglas principales
 
-Application Gateway admite dos conjuntos de reglas: CRS 3.0 y CRS 2.2.9. Estos conjuntos de reglas principales son colecciones de reglas que protegen las aplicaciones web frente a actividades malintencionadas.
+Application Gateway admite dos conjuntos de reglas: CRS 3.0 y CRS 2.2.9. Estas reglas protegen sus aplicaciones web frente a actividades malintencionadas.
 
-El firewall de aplicaciones web viene preconfigurado con CRS 3.0 de forma predeterminada, aunque también puede usar la versión 2.2.9. CRS 3.0 permite reducir el número de falsos positivos con respecto a la versión 2.2.9. Se ofrece la posibilidad de [personalizar reglas para adaptarse a sus necesidades](application-gateway-customize-waf-rules-portal.md). Entre las vulnerabilidades web más habituales frente a las que protege el firewall de aplicaciones web se incluyen:
+La puerta de enlace de aplicaciones WAF viene preconfigurado con CRS 3.0 de forma predeterminada. Pero puede elegir usar CRS 2.2.9 en su lugar. CRS 3.0 permite reducir los falsos positivos en comparación con CRS 2.2.9. También puede [Personalizar reglas para satisfacer sus necesidades](application-gateway-customize-waf-rules-portal.md).
 
-- Protección contra la inyección de código SQL.
-- Protección contra scripts entre sitios.
-- Protección contra ataques web comunes, como inyección de comandos, contrabando de solicitudes HTTP, división de respuestas HTTP y ataque remoto de inclusión de archivos.
-- Protección contra infracciones del protocolo HTTP.
-- Protección contra anomalías del protocolo HTTP, como la falta de agentes de usuario de host y encabezados de aceptación.
-- Prevención contra bots, rastreadores y escáneres.
-- Detección de errores de configuración comunes de las aplicaciones (por ejemplo, Apache, IIS, etc.)
+El Firewall de aplicaciones protege contra las vulnerabilidades web siguientes:
 
-Para ver una lista más detallada de las reglas y sus mecanismos de protección, consulte [Conjuntos de reglas principales](#core-rule-sets).
+- Ataques de inyección de SQL
+- Ataques de scripts entre sitios
+- Otros ataques comunes, como la inyección de comandos, HTTP solicitan contrabando, división de la respuesta HTTP y la inclusión de archivo remoto
+- Infracciones del protocolo HTTP
+- Anomalías del protocolo HTTP, como la falta de hospedan de agente de usuario y los encabezados de aceptación
+- Los bots, rastreadores y escáneres
+- Aplicación las configuraciones erróneas comunes (por ejemplo, Apache e IIS)
 
-#### <a name="owasp30"></a>OWASP_3.0
+#### <a name="owasp-crs-30"></a>OWASP CRS 3.0
 
-CRS 3.0 proporciona 13 grupos de reglas, tal como se muestra en la tabla siguiente. Cada uno de estos grupos de reglas contiene varias reglas que se pueden deshabilitar.
+CRS 3.0 incluye 13 grupos de reglas, tal como se muestra en la tabla siguiente. Cada grupo contiene varias reglas, que se pueden deshabilitar.
 
-|RuleGroup|DESCRIPCIÓN|
+|Grupo de reglas|DESCRIPCIÓN|
 |---|---|
-|**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Contiene reglas para bloquear métodos (PUT, PATCH)|
-|**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**| Contiene reglas para protegerse de los escáneres de puertos y entornos.|
-|**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|Contiene reglas para protegerse de problemas de protocolo y codificación.|
-|**[REQUEST-921-PROTOCOL-ATTACK](application-gateway-crs-rulegroups-rules.md#crs921)**|Contiene reglas para protegerse frente a ataques por inyección de encabezado, contrabando de solicitudes y división de respuestas|
-|**[REQUEST-930-APPLICATION-ATTACK-LFI](application-gateway-crs-rulegroups-rules.md#crs930)**|Contiene reglas para protegerse contra ataques a archivos y rutas de acceso.|
-|**[REQUEST-931-APPLICATION-ATTACK-RFI](application-gateway-crs-rulegroups-rules.md#crs931)**|Contiene reglas para protegerse contra ataques remotos de inclusión de archivos (RFI)|
-|**[REQUEST-932-APPLICATION-ATTACK-RCE](application-gateway-crs-rulegroups-rules.md#crs932)**|Contiene reglas para protegerse contra la ejecución remota de código.|
-|**[REQUEST-933-APPLICATION-ATTACK-PHP](application-gateway-crs-rulegroups-rules.md#crs933)**|Contiene reglas para protegerse contra ataques por inyección en PHP.|
-|**[REQUEST-941-APPLICATION-ATTACK-XSS](application-gateway-crs-rulegroups-rules.md#crs941)**|Contiene reglas para protegerse contra los scripts entre sitios.|
-|**[REQUEST-942-APPLICATION-ATTACK-SQLI](application-gateway-crs-rulegroups-rules.md#crs942)**|Contiene reglas para protegerse contra los ataques de inyección de código SQL.|
-|**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](application-gateway-crs-rulegroups-rules.md#crs943)**|Contiene reglas para protegerse contra los ataques por fijación de sesión.|
+|**[REQUEST-911-METHOD-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs911)**|Bloquear métodos (PUT, PATCH)|
+|**[REQUEST-913-SCANNER-DETECTION](application-gateway-crs-rulegroups-rules.md#crs913)**|Protegerse frente a escáneres de puertos y entornos|
+|**[REQUEST-920-PROTOCOL-ENFORCEMENT](application-gateway-crs-rulegroups-rules.md#crs920)**|Protéjase de protocolo y problemas de codificación|
+|**[REQUEST-921-PROTOCOL-ATTACK](application-gateway-crs-rulegroups-rules.md#crs921)**|Protección contra la inyección de encabezado, contrabando de solicitudes y división de respuestas|
+|**[REQUEST-930-APPLICATION-ATTACK-LFI](application-gateway-crs-rulegroups-rules.md#crs930)**|Protección frente a ataques de archivo y ruta de acceso|
+|**[REQUEST-931-APPLICATION-ATTACK-RFI](application-gateway-crs-rulegroups-rules.md#crs931)**|Protección frente a ataques de inclusión (RFI) del archivo remoto|
+|**[REQUEST-932-APPLICATION-ATTACK-RCE](application-gateway-crs-rulegroups-rules.md#crs932)**|Protegerse contra ataques de ejecución remota de código|
+|**[REQUEST-933-APPLICATION-ATTACK-PHP](application-gateway-crs-rulegroups-rules.md#crs933)**|Protección frente a ataques de inyección en PHP|
+|**[REQUEST-941-APPLICATION-ATTACK-XSS](application-gateway-crs-rulegroups-rules.md#crs941)**|Protegerse de ataques de scripting entre sitios|
+|**[REQUEST-942-APPLICATION-ATTACK-SQLI](application-gateway-crs-rulegroups-rules.md#crs942)**|Protección frente a ataques de inyección de código SQL|
+|**[REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION](application-gateway-crs-rulegroups-rules.md#crs943)**|Protección frente a ataques de fijación de sesión|
 
-#### <a name="owasp229"></a>OWASP_2.2.9
+#### <a name="owasp-crs-229"></a>OWASP CRS 2.2.9
 
-CRS 2.2.9 proporciona 10 grupos de reglas, tal como se muestra en la tabla siguiente. Cada uno de estos grupos de reglas contiene varias reglas que se pueden deshabilitar.
+CRS 2.2.9 incluye 10 grupos de reglas, tal como se muestra en la tabla siguiente. Cada grupo contiene varias reglas, que se pueden deshabilitar.
 
-|RuleGroup|DESCRIPCIÓN|
+|Grupo de reglas|DESCRIPCIÓN|
 |---|---|
-|**[crs_20_protocol_violations](application-gateway-crs-rulegroups-rules.md#crs20)**|Contiene reglas para protegerse frente a las infracciones de protocolo (caracteres no válidos, GET con un cuerpo de solicitud, etc).|
-|**[crs_21_protocol_anomalies](application-gateway-crs-rulegroups-rules.md#crs21)**|Contiene reglas para protegerse frente a una información de encabezados incorrecta.|
-|**[crs_23_request_limits](application-gateway-crs-rulegroups-rules.md#crs23)**|Contiene reglas para protegerse frente a argumentos o archivos que superan las limitaciones.|
-|**[crs_30_http_policy](application-gateway-crs-rulegroups-rules.md#crs30)**|Contiene reglas para protegerse frente a métodos, encabezados y tipos de archivo restringidos. |
-|**[crs_35_bad_robots](application-gateway-crs-rulegroups-rules.md#crs35)**|Contiene reglas para protegerse frente a escáneres y rastreadores web.|
-|**[crs_40_generic_attacks](application-gateway-crs-rulegroups-rules.md#crs40)**|Contiene reglas para protegerse contra ataques genéricos (fijación de sesión, ataque remoto de inclusión de archivos, inyección en PHP, etc.)|
-|**[crs_41_sql_injection_attacks](application-gateway-crs-rulegroups-rules.md#crs41sql)**|Contiene reglas para protegerse contra ataques de inyección de código SQL.|
-|**[crs_41_xss_attacks](application-gateway-crs-rulegroups-rules.md#crs41xss)**|Contiene reglas para protegerse contra los scripts entre sitios.|
-|**[crs_42_tight_security](application-gateway-crs-rulegroups-rules.md#crs42)**|Contiene una regla para protegerse contra los ataques punto punto barra|
-|**[crs_45_trojans](application-gateway-crs-rulegroups-rules.md#crs45)**|Contiene reglas para protegerse frente a troyanos de puerta trasera.|
+|**[crs_20_protocol_violations](application-gateway-crs-rulegroups-rules.md#crs20)**|Proteger contra infracciones de protocolo (por ejemplo, los caracteres no válidos o una operación GET con un cuerpo de solicitud)|
+|**[crs_21_protocol_anomalies](application-gateway-crs-rulegroups-rules.md#crs21)**|Protegerse frente a la información de encabezado incorrecto|
+|**[crs_23_request_limits](application-gateway-crs-rulegroups-rules.md#crs23)**|Proteger frente a argumentos o archivos que superan las limitaciones|
+|**[crs_30_http_policy](application-gateway-crs-rulegroups-rules.md#crs30)**|Protegerse frente a métodos restringidos, encabezados y tipos de archivo|
+|**[crs_35_bad_robots](application-gateway-crs-rulegroups-rules.md#crs35)**|Proteger frente a escáneres y rastreadores web|
+|**[crs_40_generic_attacks](application-gateway-crs-rulegroups-rules.md#crs40)**|Proteger contra ataques genéricos (por ejemplo, la fijación de sesión, inclusión de archivo remoto e inyección en PHP)|
+|**[crs_41_sql_injection_attacks](application-gateway-crs-rulegroups-rules.md#crs41sql)**|Protección frente a ataques de inyección de código SQL|
+|**[crs_41_xss_attacks](application-gateway-crs-rulegroups-rules.md#crs41xss)**|Protegerse de ataques de scripting entre sitios|
+|**[crs_42_tight_security](application-gateway-crs-rulegroups-rules.md#crs42)**|Protección frente a ataques de recorrido de la ruta de acceso|
+|**[crs_45_trojans](application-gateway-crs-rulegroups-rules.md#crs45)**|Protegerse frente a troyanos de puerta trasera|
 
 ### <a name="waf-modes"></a>Modos de WAF
 
-WAF de Application Gateway se puede configurar para ejecutarse en dos modos:
+El WAF de Application Gateway puede configurarse para ejecutarse en los dos modos siguientes:
 
-* **Modo de detección**: cuando se configura para su ejecución en modo de detección, el firewall de aplicaciones web de Application Gateway supervisa y registra todas las alertas de amenazas en un archivo de registro. El registro de diagnósticos para Application Gateway se debe activar mediante la sección **Diagnósticos**. También debe asegurarse de que el registro de WAF esté seleccionado y activado. Cuando se ejecuta en modo de detección, el firewall de aplicaciones de web no bloquea las solicitudes entrantes.
-* **Modo de prevención** : en este modo, Application Gateway bloquea activamente las intrusiones y los ataques detectados por sus reglas. El atacante recibe una excepción de acceso no autorizado 403 y se termina la conexión. El modo de prevención continúa registrando estos ataques en los registros de WAF.
+* **Modo de detección**: Supervisa y registra todas las alertas de amenaza. Activar el registro de diagnósticos para Application Gateway en el **diagnósticos** sección. También hay que asegurarse de que el registro de WAF está seleccionado y activado. Firewall de aplicaciones Web no bloquea las solicitudes entrantes cuando se está ejecutando en modo de detección.
+* **Modo de prevención**: Las intrusiones de bloques y los ataques que las reglas de detección. El atacante recibe una excepción "acceso no autorizado 403", y se termina la conexión. Modo de prevención registra estos ataques en los registros de WAF.
 
-### <a name="anomaly-scoring-mode"></a>Modo de puntuación de anomalías 
+### <a name="anomaly-scoring-mode"></a>Modo de puntuación de anomalías
  
-OWASP tiene dos modos para decidir si bloqueando el tráfico o no. Hay un modo tradicional y un modo de puntuación de anomalías. En el modo tradicional, cualquier regla que coincida con el tráfico se considera independientemente de si otra regla coincida con demasiado. Mientras más fácil de entender, la falta de información sobre cuántas reglas se desencadenan por una solicitud específica es una de las limitaciones de este modo. Por lo tanto, se introdujo el modo de puntuación de anomalías, que se ha convertido en el valor predeterminado con OWASP 3.x. 
+OWASP tiene dos modos para decidir si va a bloquear el tráfico: Modo tradicional y modo de puntuación de anomalías.
 
-En el modo de puntuación de anomalías, el hecho de que una de las reglas descritas en la sección anterior coincide con en el tráfico no inmediatamente significa que el tráfico va a bloquearse, suponiendo que el firewall está en modo de prevención. Las reglas tienen una determinada gravedad (crítico, Error, advertencia y aviso) y, según esa gravedad aumentará un valor numérico para la solicitud de puntuación de anomalía. Por ejemplo, una regla de advertencia de coincidencia aportará un valor de 3, pero una regla crítica coincidente aportará un valor de 5. 
+En el modo tradicional, el tráfico que coincide con ninguna regla se considera independientemente de las otras coincidencias de regla. Este modo es fácil de entender. Pero la falta de información sobre cuántas reglas coinciden con una solicitud específica es una limitación. Por lo tanto, se introdujo el modo de puntuación de anomalías. Es el valor predeterminado de 3 OWASP. *x*.
 
-Hay un umbral para la puntuación de anomalía en el que no se elimina el tráfico, ese umbral se establece en 5. Esto significa que una sola regla crítica coincidente es suficiente para que Azure WAF bloquea una solicitud en modo de prevención (ya que la regla fundamental aumenta la puntuación de anomalía en 5, según el párrafo anterior). Sin embargo, una regla coincidente con un nivel de advertencia will solo aumenta la anomalía puntuación por 3. Puesto que es el umbral 5 3, no se bloqueará ningún tráfico, incluso si el Firewall está en modo de prevención. 
+En el modo de puntuación de anomalías, el tráfico que coincide con cualquier regla no se bloquea inmediatamente cuando el firewall está en modo de prevención. Las reglas tienen una gravedad determinada: *Crítica*, *Error*, *advertencia*, o *aviso*. Que la gravedad afecta a un valor numérico para la solicitud, que se llama a la puntuación de anomalías. Por ejemplo, una *advertencia* regla de coincidencia contribuye 3 a la puntuación. Una *crítico* regla de coincidencia contribuye a 5.
 
-Tenga en cuenta que el mensaje se registra cuando un tráfico de coincidencias de reglas de WAF incluirá el action_s campo como "Bloqueado", pero esto no significa necesariamente que realmente se ha bloqueado el tráfico. Se requiere una puntuación de anomalía de 5 o superior para bloquear el tráfico realmente.  
+Hay un umbral de 5 para la puntuación de anomalías para bloquear el tráfico. Por lo tanto, una sola *crítico* coincidencia de regla es suficiente para la puerta de enlace de aplicaciones WAF bloquear una solicitud, incluso en modo de prevención. Pero una *advertencia* regla de coincidencia solo aumenta la anomalía puntuación por 3, que no es suficiente por sí solo para bloquear el tráfico.
 
-### <a name="application-gateway-waf-reports"></a>Supervisión de WAF
+> [!NOTE]
+> El mensaje que se registra cuando una regla de WAF coincide con el tráfico incluye el valor de la acción "Bloqueado". Pero el tráfico es realmente solo bloqueadas de una puntuación de anomalía de 5 o superior.  
 
-Es importante supervisar el estado de la instancia de Application Gateway. La supervisión del estado del firewall de aplicaciones web y las aplicaciones que este protege se proporciona mediante el registro y la integración con Azure Monitor, Azure Security Center y los registros de Azure Monitor.
+### <a name="waf-monitoring"></a>Supervisión de WAF
 
-![diagnóstico](./media/waf-overview/diagnostics.png)
+Es importante supervisar el estado de la instancia de Application Gateway. Supervisión del estado de su WAF y las aplicaciones que protege es compatible con la integración con Azure Security Center, Azure Monitor, y los registros de Azure Monitor.
+
+![Diagrama de diagnóstico de WAF de Application Gateway](./media/waf-overview/diagnostics.png)
 
 #### <a name="azure-monitor"></a>Azure Monitor
 
-Cada registro de Application Gateway se integra con [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).  Esto permite realizar un seguimiento de la información de diagnóstico incluidos los registros y alertas de WAF.  Esta funcionalidad se proporciona en el recurso de Application Gateway en el portal en la pestaña **Diagnóstico** o mediante el servicio Azure Monitor directamente. Para más información acerca de cómo habilitar los registros de diagnóstico de Application Gateway, consulte [Diagnósticos de Application Gateway](application-gateway-diagnostics.md)
+Registros de puerta de enlace de aplicaciones se integran con [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md). Esto le permite realizar un seguimiento de información de diagnóstico, incluidos los registros y alertas de WAF. Puede obtener acceso a esta funcionalidad en el **diagnósticos** ficha en el recurso de Application Gateway en el portal o directamente a través de Azure Monitor. Para más información acerca de cómo habilitar los registros, consulte [diagnósticos de Application Gateway](application-gateway-diagnostics.md).
 
 #### <a name="azure-security-center"></a>Azure Security Center
 
-[Azure Security Center](../security-center/security-center-intro.md) ayuda a evitar, detectar y responder a amenazas con más visibilidad y control sobre la seguridad de sus recursos de Azure. Application Gateway ahora [se integra en Azure Security Center](application-gateway-integration-security-center.md). Azure Security Center examina su entorno para detectar aplicaciones web no protegidas. Después, puede recomendar el firewall de aplicación web (WAF) de Application Gateway para proteger estos recursos vulnerables. Puede crear el WAF de Application Gateway directamente desde Azure Security Center.  Estas instancias de WAF se integran con Azure Security Center y envían alertas e información de estado a Azure Security Center para crear informes.
+[Security Center](../security-center/security-center-intro.md) ayuda a evitar, detectar y responder a amenazas. Proporciona mayor visibilidad y control sobre la seguridad de los recursos de Azure. Application Gateway es [integrados con Security Center](application-gateway-integration-security-center.md). Security Center examina su entorno para detectar aplicaciones web no protegidas. Puede recomendar WAF de Application Gateway para proteger estos recursos vulnerables. Cree los servidores de seguridad directamente desde Security Center. Estas instancias de WAF se integran con Security Center. Envían alertas e información de estado al centro de seguridad para los informes.
 
-![Figura 1](./media/waf-overview/figure1.png)
+![Ventana de información general de Security Center](./media/waf-overview/figure1.png)
 
 #### <a name="logging"></a>Registro
 
-WAF de Application Gateway ofrece informes detallados sobre las amenazas detectadas. El registro se integra con los registros de Diagnósticos de Azure y las alertas se registran en formato json. Estos registros pueden integrarse con los [registros de Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md).
+WAF de Application Gateway ofrece informes detallados sobre cada amenaza que detecte. El registro se integra con los registros de diagnóstico de Azure. Las alertas se registran en el formato JSON. Estos registros pueden integrarse con los [registros de Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md).
 
-![imageURLroute](./media/waf-overview/waf2.png)
+![Registros de diagnóstico de puerta de enlace de aplicaciones de windows](./media/waf-overview/waf2.png)
 
 ```json
 {
@@ -182,11 +185,10 @@ WAF de Application Gateway ofrece informes detallados sobre las amenazas detecta
 
 ## <a name="application-gateway-waf-sku-pricing"></a>Precios de las SKU de WAF de Application Gateway
 
-El firewall de aplicaciones web está disponible en una nueva SKU de WAF. Esta SKU está disponible solo en el modelo de aprovisionamiento de Azure Resource Manager y no en el modelo de implementación clásica. Además, la SKU de WAF está solo disponible para tamaños de instancias medianas y grandes de Application Gateway. Todos los límites de Application Gateway también se aplican a la SKU de WAF.
+El WAF de Application Gateway está disponible en una nueva SKU. Esta SKU está disponible solo en el modelo de aprovisionamiento de Azure Resource Manager, no en el modelo de implementación clásica. Además, la SKU de WAF está disponible sólo en tamaños de instancia de Application Gateway medianas y grandes. Todos los límites de Application Gateway también se aplican a la SKU de WAF.
 
-El precio se basa en una tarifa por instancia de puerta de enlace por hora y una tarifa de procesamiento de datos. El precio de puerta de enlace por hora para una SKU de WAF es diferente a los costos de una SKU estándar y puede encontrar más información sobre estos en los [detalles de precios de Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/). Los costos por procesamiento de datos permanecen iguales. No hay ningún costo por regla o grupo de reglas. Puede proteger varias aplicaciones web mediante el mismo firewall de aplicaciones web y no hay ningún cargo adicional por admitir varias aplicaciones.
+Los precios se basan en un cargo por hora de instancia de puerta de enlace y una carga de procesamiento de datos. [Precios de Application Gateway](https://azure.microsoft.com/pricing/details/application-gateway/) difiere de la SKU de WAF de cargos de la SKU estándares. Los cargos de procesamiento de datos son los mismos. No hay ningún cargo por regla o un grupo de reglas. Puede proteger varias aplicaciones web detrás del mismo firewall de aplicación web. No se cobra por admitir varias aplicaciones.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Después de conocer más sobre las funcionalidades de WAF, consulte [Cómo configurar el firewall de aplicaciones web en Application Gateway](tutorial-restrict-web-traffic-powershell.md).
-
+Consulte [cómo configurar firewall de aplicaciones web en Application Gateway](tutorial-restrict-web-traffic-powershell.md).

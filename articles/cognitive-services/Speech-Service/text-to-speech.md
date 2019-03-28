@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 05028704c08ebd06f9b9e4e3f45c5137eb1e6b58
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 1edc2587ef8680f60082bf6271b73d30184f331b
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226919"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58521251"
 ---
 # <a name="what-is-text-to-speech"></a>¿Qué es el texto a voz?
 
-Texto a voz de servicios de voz de Azure es un servicio basado en REST que permite a las aplicaciones, herramientas o dispositivos convertir texto en voz sintetizada de natural similar a la humana. Elegir entre estándares y neuronales voces, o crear sus propios [voz personalizados](#custom-voice-fonts) exclusivos de su producto o marca. 75 voces estándares están disponibles en más de 45 idiomas y configuraciones regionales y 5 voces neuronales están disponibles en 4 idiomas y configuraciones regionales. Para obtener una lista completa, consulte [idiomas admitidos](language-support.md#text-to-speech).
+Texto a voz de servicios de voz de Azure es un servicio basado en REST que permite a las aplicaciones, herramientas o dispositivos convertir texto en voz sintetizada de natural similar a la humana. Elija entre estándares y neuronales voces, o crear su propia voz personalizados únicos para su producto o marca. 75 voces estándares están disponibles en más de 45 idiomas y configuraciones regionales y 5 voces neuronales están disponibles en 4 idiomas y configuraciones regionales. Para obtener una lista completa, consulte [idiomas admitidos](language-support.md#text-to-speech).
 
 Tecnología de texto a voz permite que los creadores de contenido interactuar con los usuarios de maneras diferentes. Texto a voz puede mejorar la accesibilidad proporcionando a los usuarios con una opción para interactuar con el contenido de forma audible. Si el usuario tiene dificultades visuales, una discapacidad de aprendizaje, o si requiere información de navegación mientras conduce, una experiencia existente puede mejorar el texto a voz. Texto a voz también es un complemento valioso para los bots de voz y asistentes virtuales.
 
@@ -56,9 +56,9 @@ Se ofrecen tutoriales rápidos diseñados para tener que ejecutar código en men
 
 | Guía de inicio rápido | Plataforma | Referencia de API |
 |------------|----------|---------------|
-| [C#, .NET core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Ventana, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
-| [Python](quickstart-python-text-to-speech.md) | Ventana, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech-api) |
+| [C#, .NET core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Ventana, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Python](quickstart-python-text-to-speech.md) | Ventana, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 
 ## <a name="sample-code"></a>Código de ejemplo
 
@@ -70,9 +70,9 @@ Código de ejemplo de texto a voz está disponible en GitHub. Estos ejemplos tra
 
 * [Speech SDK](speech-sdk-reference.md)
 * [Speech Devices SDK](speech-devices-sdk.md)
-* [API REST: Speech-to-text](rest-speech-to-text.md)
-* [API REST: Text-to-speech](rest-text-to-speech.md)
-* [API REST: Personalización y transcripción de lote](https://westus.cris.ai/swagger/ui/index)
+* [API REST: Speech-to-text](rest-speech-to-text.md) (API de REST: Voz a texto)
+* [API REST: Text-to-speech](rest-text-to-speech.md) (API de REST: Texto a voz)
+* [API REST: Batch transcription and customization](https://westus.cris.ai/swagger/ui/index) (API de REST: Transcripción y personalización de Azure Batch)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
