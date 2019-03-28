@@ -18,6 +18,8 @@ ms.author: carolz
 
 Aprenda a hacer streaming a petición de vídeo de calidad o a difundirlo en directo con Media Services, una plataforma en la nube extensible. En los tutoriales, las referencias de API y otra documentación, se muestra cómo entregar de forma segura secuencias de audio o vídeo, a petición y en directo, que se escalan a millones de usuarios.
 
+**NOTA:** No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. Finalice la compra de la versión más reciente, [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). Consulte también la [guía de migración de la versión v2 a v3](../latest/migrate-from-v2-to-v3.md).
+
 <ul class="panelContent cardsFTitle">
      <li>
         <a href="/azure/media-services/media-services-overview">
