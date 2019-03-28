@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 946d8196fbe49e452dab8fa36e4c746a1bcaf490
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c99380faee8fd1bc42922f7f0e367edde1154a9b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58137630"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58368908"
 ---
 # <a name="quickstart-explore-azure-search-rest-apis-using-postman-or-fiddler"></a>Inicio rápido: Exploración de las API REST de Azure Search mediante Postman o Fiddler
 
@@ -42,7 +42,7 @@ Las siguientes herramientas se utilizan profusamente en el desarrollo web, pero 
 
 Las llamadas de REST requieren la dirección URL del servicio y una clave de acceso en cada solicitud. Con ambos se crea un servicio de búsqueda, por lo que si ha agregado Azure Search a su suscripción, siga estos pasos para obtener la información necesaria:
 
-1. En Azure Portal, en la página de **Información general** del servicio de búsqueda, obtenga la dirección URL. Un punto de conexión de ejemplo podría ser similar a `https://my-service-name.search.windows.net`.
+1. En Azure Portal, en la página **Introducción** del servicio de búsqueda, obtenga la dirección URL. Un punto de conexión de ejemplo podría ser similar a `https://my-service-name.search.windows.net`.
 
 2. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
 
@@ -145,6 +145,7 @@ El cuerpo de la solicitud contiene cuatro documentos que se van agregar al índi
              "hotelId": "1",
              "baseRate": 199.0,
              "description": "Best hotel in town",
+             "description_fr": "Meilleur hôtel en ville"
              "hotelName": "Fancy Stay",
              "category": "Luxury",
              "tags": ["pool", "view", "wifi", "concierge"],
@@ -159,6 +160,7 @@ El cuerpo de la solicitud contiene cuatro documentos que se van agregar al índi
              "hotelId": "2",
              "baseRate": 79.99,
              "description": "Cheapest hotel in town",
+             "description_fr": "Hôtel le moins cher en ville",
              "hotelName": "Roach Motel",
              "category": "Budget",
              "tags": ["motel", "budget"],

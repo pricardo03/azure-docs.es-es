@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 51be74d0adbd5ce75234be2a5b7c99fcd36ca91c
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: e33d014bd2dddf0c7310727229f8137c9f181325
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295273"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540982"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Límites y cuotas del servicio Batch
 
@@ -77,14 +77,12 @@ Vea las cuotas de la cuenta de Batch en [Azure Portal][portal].
 1. Seleccione **Cuentas de Batch** en el portal y, luego, seleccione la cuenta de Batch que le interesan.
 1. Seleccione **Cuotas** en el menú de la cuenta de Batch.
 1. Visualización de las cuotas aplicadas actualmente a la cuenta de Batch
-   
+
     ![Cuotas de la cuenta de Batch][account_quotas]
-
-
 
 ## <a name="increase-a-quota"></a>Aumento de la cuota
 
-Siga estos pasos para solicitar un aumento de la cuota para la cuenta de Batch o la suscripción con [Azure Portal][portal]. El tipo de aumento de cuota depende del modo de asignación de grupo de su cuenta de Batch.
+Siga estos pasos para solicitar un aumento de la cuota para la cuenta de Batch o la suscripción con [Azure Portal][portal]. El tipo de aumento de cuota depende del modo de asignación de grupo de su cuenta de Batch. Para solicitar un aumento de cuota, debe incluir la serie de máquina virtual que desea aumentar la cuota de. Cuando se aplica el aumento de cuota, se aplica a todas las series de máquinas virtuales.
 
 ### <a name="increase-a-batch-cores-quota"></a>Aumento de la cuota de núcleos de Batch 
 

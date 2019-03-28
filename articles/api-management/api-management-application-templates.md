@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 0eead6201f737448b4de76476802518a506375da
-ms.sourcegitcommit: 5aed7f6c948abcce87884d62f3ba098245245196
-ms.translationtype: HT
+ms.openlocfilehash: 732fdf3f9210a1484895e0b43e061b4bbc586b43
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/28/2018
-ms.locfileid: "52446251"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541271"
 ---
 # <a name="application-templates-in-azure-api-management"></a>Plantillas de aplicación en Azure API Management
 Azure API Management le ofrece la posibilidad de personalizar el contenido de las páginas del portal para desarrolladores mediante un conjunto de plantillas que configuran su contenido. Por medio de la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y el editor que prefiera, como [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) (DotLiquid para diseñadores), y un conjunto proporcionado de [recursos de cadena](api-management-template-resources.md#strings), [recursos de glifo](api-management-template-resources.md#glyphs) y [controles de página](api-management-page-controls.md) localizados, puede disponer de una gran flexibilidad para configurar el contenido de las páginas como considere oportuno mediante estas plantillas.  
@@ -81,9 +81,9 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
   
 |Propiedad|Escriba|DESCRIPCIÓN|  
 |--------------|----------|-----------------|  
-|Paginación|Entidad [Paging](api-management-template-data-model-reference.md#Paging).|La información de paginación de la colección de aplicaciones.|  
-|APLICACIONES|Colección de entidades de [aplicación](api-management-template-data-model-reference.md#Application).|Las aplicaciones visibles para el usuario actual.|  
-|CategoryName|string|La categoría de aplicación.|  
+|`Paging`|Entidad [Paging](api-management-template-data-model-reference.md#Paging).|La información de paginación de la colección de aplicaciones.|  
+|`Applications`|Colección de entidades de [aplicación](api-management-template-data-model-reference.md#Application).|Las aplicaciones visibles para el usuario actual.|  
+|`CategoryName`|string|La categoría de aplicación.|  
   
 ### <a name="sample-template-data"></a>Ejemplo de datos de plantilla  
   

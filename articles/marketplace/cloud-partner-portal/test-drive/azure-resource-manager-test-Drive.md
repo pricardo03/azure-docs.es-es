@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 615005e265f199cd6950123aa2af8b26f4fa4637
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 2fe1a1fc1ff82415a5c2f88c72ae707b12cd5283
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57457250"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541169"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Versión de prueba de Azure Resource Manager
 
@@ -51,7 +51,7 @@ Este es el proceso para la creación de una unidad de prueba de Azure Resource M
 
 El aspecto más importante sobre la compilación de una versión de prueba de Azure Resource Manager consiste en definir los escenarios que quiere que experimenten sus clientes. ¿Se trata de un producto de firewall y quiere demostrar lo bien que controla los ataques por inyección de script? ¿Se trata de un producto de almacenamiento y quiere demostrar la rapidez y sencillez con que la solución comprime archivos?
 
-Asegúrese de dedicar el tiempo suficiente a evaluar cuáles son las mejores maneras de mostrar su producto. Específicamente en torno a todos los recursos necesarios necesitaría, ya que facilita el empaquetado de la plantilla de Resource Manager lo suficientemente más fácil.
+Asegúrese de que dedicar una cantidad suficiente de tiempo a evaluar cuáles son las mejores formas de hacer alarde de su producto. Específicamente en torno a todos los recursos necesarios necesitaría, ya que facilita el empaquetado de la plantilla de Resource Manager lo suficientemente más fácil.
 
 Para continuar con nuestro ejemplo de firewall, es posible que la arquitectura necesite una dirección URL de IP pública para el servicio y otra dirección URL de IP pública para el sitio web que el firewall protege. Cada dirección IP se implementa en una máquina virtual y se conecta con un grupo de seguridad de red y la interfaz de red.
 

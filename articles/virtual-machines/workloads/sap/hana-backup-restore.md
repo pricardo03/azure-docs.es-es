@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/28/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 04da80cd5c30d0556dc681b7bff412391aa2bcda
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ab71b8d3af573f62e69c02564c237ad433962ff9
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58107736"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58541237"
 ---
 # <a name="backup-and-restore"></a>Copia de seguridad y restauración
 
@@ -416,10 +416,10 @@ For snapshot of the volume storing the boot LUN
 Estos son los detalles de los parámetros: 
 
 - El primer parámetro caracteriza el tipo de la copia de seguridad de la instantánea. Los valores permitidos son **hana**, **logs** y **boot**. 
-- El parámetro **<HANA Large Instance Type>** solo es necesario para las copias de seguridad de volúmenes de arranque. Hay dos valores válidos con "TypeI" o "TypeII", en función de la unidad de instancia grande de HANA. Para averiguar el tipo de su unidad, consulte [Introducción y arquitectura de SAP HANA en Azure (instancias grandes)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
-- El parámetro **<snapshot_prefix>** es una instantánea o etiqueta de copia de seguridad para el tipo de instantánea. Tiene dos objetivos: uno es darle un nombre, para que sepa de qué tratan estas instantáneas. El segundo es para el script *azure\_hana\_backup.pl* para determinar el número de instantáneas de almacenamiento que se conservan bajo esa etiqueta concreta. Si programa dos copias de seguridad de instantánea de almacenamiento del mismo tipo (como **hana**), con dos etiquetas diferentes y define que deben conservarse 30 instantáneas por cada una de ellas, terminará con 60 instantáneas de almacenamiento de los volúmenes afectados. Solo se admiten caracteres alfanuméricos ("A-z, a-z, 0-9"), guión bajo ("_") y guiones ("-"). 
-- El parámetro **<snapshot_frequency>** está reservado para futuras desarrollos y no tiene ningún efecto. Establézcalo en ahora mismo en "3 min" al ejecutar copias de seguridad del tipo **registro** y en "15 min" al ejecutar los restantes tipos de copia de seguridad.
-- El parámetro **<number of snapshots retained>** define la retención de las instantáneas de manera indirecta al definir el número de instantáneas con el mismo prefijo de instantánea (etiqueta). Este parámetro es importante para las ejecuciones programada a través de cron. Si el número de instantáneas con el mismo parámetro snapshot_prefix supera el número que proporciona este parámetro, la instantánea más antigua se elimina antes de ejecutar una nueva instantánea de almacenamiento.
+- El parámetro  **\<tipo de instancia grande de HANA >** es necesario para el arranque volumen solo copias de seguridad. Hay dos valores válidos con "TypeI" o "TypeII", en función de la unidad de instancia grande de HANA. Para averiguar el tipo de su unidad, consulte [Introducción y arquitectura de SAP HANA en Azure (instancias grandes)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).  
+- El parámetro  **\<parámetro snapshot_prefix >** es una instantánea o etiqueta de copia de seguridad para el tipo de instantánea. Tiene dos objetivos: uno es darle un nombre, para que sepa de qué tratan estas instantáneas. El segundo es para el script *azure\_hana\_backup.pl* para determinar el número de instantáneas de almacenamiento que se conservan bajo esa etiqueta concreta. Si programa dos copias de seguridad de instantánea de almacenamiento del mismo tipo (como **hana**), con dos etiquetas diferentes y define que deben conservarse 30 instantáneas por cada una de ellas, terminará con 60 instantáneas de almacenamiento de los volúmenes afectados. Solo se admiten caracteres alfanuméricos ("A-z, a-z, 0-9"), guión bajo ("_") y guiones ("-"). 
+- El parámetro  **\<snapshot_frequency >** está reservado para futuras desarrollos y no tiene ningún efecto. Establézcalo en ahora mismo en "3 min" al ejecutar copias de seguridad del tipo **registro** y en "15 min" al ejecutar los restantes tipos de copia de seguridad.
+- El parámetro  **\<número de instantáneas guardadas >** define el período de retención de las instantáneas de manera indirecta al definir el número de instantáneas con el mismo prefijo de instantánea (etiqueta). Este parámetro es importante para las ejecuciones programada a través de cron. Si el número de instantáneas con el mismo parámetro snapshot_prefix supera el número que proporciona este parámetro, la instantánea más antigua se elimina antes de ejecutar una nueva instantánea de almacenamiento.
 
 En caso de escalado horizontal, el script realiza comprobaciones adicionales para asegurarse de que puede acceder a todos los servidores de HANA. El script también comprueba que todas las instancias de HANA devuelven el estado adecuado de las instancias, antes de crear una instantánea de SAP HANA. La instantánea de SAP HANA va seguida de una instantánea de almacenamiento.
 

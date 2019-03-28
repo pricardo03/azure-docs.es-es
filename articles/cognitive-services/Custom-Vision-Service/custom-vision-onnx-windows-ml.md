@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 03/21/2019
 ms.author: larryfr
-ms.openlocfilehash: 7f123187ea869931b0701fd9d68372deb0b272e1
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: af1b96b4ab47053a6737893832b484372ed37e99
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879078"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58351871"
 ---
 # <a name="tutorial-use-an-onnx-model-from-custom-vision-with-windows-ml-preview"></a>Tutorial: Uso de un modelo ONNX de Custom Vision con Windows ML (versión preliminar)
 
@@ -51,7 +51,7 @@ La aplicación de ejemplo está disponible en [https://github.com/Azure-Samples/
 
 1. Use la tecla `F5` para iniciar la aplicación desde Visual Studio. Es posible que se le solicite que habilite el modo de desarrollador. Para obtener más información, consulte el documento [Habilitar el dispositivo para el desarrollo](https://docs.microsoft.com/windows/uwp/get-started/enable-your-device-for-development).
 
-2. Cuando se inicie la aplicación, use el botón para seleccionar una imagen para la puntuación.
+1. Cuando se inicie la aplicación, use el botón para seleccionar una imagen para la puntuación.
 
 ## <a name="use-your-own-model"></a>Uso de su propio modelo
 
@@ -65,8 +65,8 @@ Para usar su propio modelo, siga estos pasos:
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en la carpeta de recursos y seleccione __Agregar elemento existente__. Seleccione el archivo ONNX.
 
-1. En el Explorador de soluciones, seleccione el archivo ONNX de la carpeta de recursos. Cambie las siguientes propiedades del archivo: 
-    
+1. En el Explorador de soluciones, seleccione el archivo ONNX de la carpeta de recursos. Cambie las siguientes propiedades del archivo:
+
     * __Acción de compilación__ -> __Contenido__
     * __Copiar en el directorio de salida__ -> __Copiar si es posterior__
 

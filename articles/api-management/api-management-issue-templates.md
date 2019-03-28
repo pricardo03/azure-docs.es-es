@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 99732a61ab64f8600ca368d4af5f47451014a993
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c70e88a572bc261ad9d25f9a742b1987d0c19b44
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760757"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540846"
 ---
 # <a name="issue-templates-in-azure-api-management"></a>Plantillas de problema en Azure API Management
 Azure API Management le ofrece la posibilidad de personalizar el contenido de las páginas del portal para desarrolladores mediante un conjunto de plantillas que configuran su contenido. Por medio de la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y el editor que prefiera, como [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) (DotLiquid para diseñadores), y un conjunto proporcionado de [recursos de cadena](api-management-template-resources.md#strings), [recursos de glifo](api-management-template-resources.md#glyphs) y [controles de página](api-management-page-controls.md) localizados, puede disponer de una gran flexibilidad para configurar el contenido de las páginas como considere oportuno mediante estas plantillas.  
@@ -97,13 +97,13 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
   
 ### <a name="data-model"></a>Modelo de datos  
   
-|Propiedad|Escriba|Descripción|  
+|Propiedad|Escriba|DESCRIPCIÓN|  
 |--------------|----------|-----------------|  
-|Issues|Colección de entidades de [problema](api-management-template-data-model-reference.md#Issue).|Los problemas visibles para el usuario actual.|  
-|Paginación|Entidad [Paging](api-management-template-data-model-reference.md#Paging).|La información de paginación de la colección de aplicaciones.|  
-|IsAuthenticated|boolean|Si el usuario actual ha iniciado sesión en el portal para desarrolladores.|  
-|CanReportIssues|boolean|Si el usuario actual tiene permisos para registrar un problema.|  
-|Search|string|Esta propiedad está en desuso y no debe utilizarse.|  
+|`Issues`|Colección de entidades de [problema](api-management-template-data-model-reference.md#Issue).|Los problemas visibles para el usuario actual.|  
+|`Paging`|Entidad [Paging](api-management-template-data-model-reference.md#Paging).|La información de paginación de la colección de aplicaciones.|  
+|`IsAuthenticated`|boolean|Si el usuario actual ha iniciado sesión en el portal para desarrolladores.|  
+|`CanReportIssues`|boolean|Si el usuario actual tiene permisos para registrar un problema.|  
+|`Search`|string|Esta propiedad está en desuso y no debe utilizarse.|  
   
 ### <a name="sample-template-data"></a>Ejemplo de datos de plantilla  
   
