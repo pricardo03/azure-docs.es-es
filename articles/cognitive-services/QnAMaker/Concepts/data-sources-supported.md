@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 03/26/2019
 ms.author: tulasim
-ms.openlocfilehash: 0e9e8456bb493ad4591c0f2a22d28bdf342f09e1
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8fcc3ea8340a8645a1983eebb4a619904f884a19
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433117"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578635"
 ---
 # <a name="data-sources-for-qna-maker-content"></a>Orígenes de datos para el contenido de QnA Maker
 
@@ -32,7 +32,11 @@ En la tabla siguiente se resumen los tipos de contenido y los formatos de archiv
 
 ## <a name="data-source-locations"></a>Ubicaciones de orígenes de datos
 
-Solo son válidas las direcciones URL públicas para todos los orígenes de datos. No envíe orígenes de datos que requieran autenticación. Puede descargar el archivo desde el sitio autenticado y luego utilizar la opción de carga de archivos para extraer preguntas y respuestas.
+La mayoría de las ubicaciones de origen de datos deben proporcionar públicas las direcciones URL o archivos, que no requieren autenticación. 
+
+[Ubicaciones de origen de datos de SharePoint](../How-to/add-sharepoint-datasources.md) tienen permiso para proporcionar archivos autenticados. Recursos de SharePoint deben ser archivos, no las páginas web. 
+
+A continuación, si tiene un archivo autenticado o la dirección URL, una opción alternativa es descargar el archivo desde el sitio autenticado en el equipo local, agregue el archivo local equipo a la base de conocimiento. 
 
 ## <a name="faq-urls"></a>Preguntas más frecuentes sobre las direcciones URL
 

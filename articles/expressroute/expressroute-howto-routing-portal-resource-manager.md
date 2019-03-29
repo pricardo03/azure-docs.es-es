@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 401827f3fa5eb6d364d0f133d8cd672cf8968031
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6d1ce56ef66d224b89f49a00c2883ebbf22a5745
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58103186"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622032"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit"></a>Creación y modificación del emparejamiento de un circuito ExpressRoute
 
@@ -35,7 +35,7 @@ Puede configurar una, dos o las tres configuraciones entre pares (Azure privado,
 
 * Antes de comenzar la configuración, asegúrese de que ha revisado la página de [requisitos previos](expressroute-prerequisites.md), la página de [requisitos de enrutamiento](expressroute-routing.md) y la página de [flujos de trabajo](expressroute-workflows.md).
 * Tiene que tener un circuito ExpressRoute activo. Antes de continuar, siga las instrucciones para [crear un circuito ExpressRoute](expressroute-howto-circuit-portal-resource-manager.md) y para que el proveedor de conectividad habilite el circuito. El circuito ExpressRoute debe estar en un estado habilitado y aprovisionado para poder ejecutar los cmdlets de las secciones siguientes.
-* Si tiene pensado usar una clave compartida o un hash MD5, asegúrese de utilizarlos en ambos lados del túnel y limite el número de caracteres a 25 como máximo.
+* Si va a usar un hash MD5/clave compartido, asegúrese de usar esto en ambos lados del túnel y limite el número de caracteres alfanuméricos, hasta un máximo de 25. No se admiten caracteres especiales. 
 
 Estas instrucciones se aplican solo a los circuitos creados con proveedores de servicios que ofrecen servicios de conectividad de capa 2. Si usa un proveedor de servicios que ofrece servicios administrados de nivel 3 (normalmente VPN IP, como MPLS), el mismo proveedor de conectividad configura y administra el enrutamiento. 
 

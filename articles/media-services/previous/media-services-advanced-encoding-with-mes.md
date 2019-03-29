@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: aa29b1e2d0e80b3134be69d17ed5be454f8a51c3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: fadf1aa54f525fb3d4c414161583f8a89f2e4c05
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850367"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576299"
 ---
 # <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Codificación avanzada mediante la personalización de valores preestablecidos de MES 
 
@@ -27,11 +27,10 @@ ms.locfileid: "57850367"
 
 Este tema muestra cómo personalizar los valores preestablecidos de Media Encoder Standard. El tema [Encoding with Media Encoder Standard using custom presets](media-services-custom-mes-presets-with-dotnet.md) (Codificación con Media Encoder Standard mediante valores preestablecidos personalizados) muestra cómo usar .NET para crear una tarea de codificación y un trabajo que ejecuta esta tarea. Después de personalizar un valor preestablecido, proporcione los valores preestablecidos personalizados a la tarea de codificación. 
 
->[!NOTE]
->Si utiliza un ajuste preestablecido XML, asegúrese de conservar el orden de los elementos, como se muestra en los ejemplos XML siguientes (por ejemplo, KeyFrameInterval debe preceder a SceneChangeDetection).
->
+Si utiliza un ajuste preestablecido XML, asegúrese de conservar el orden de los elementos, como se muestra en los ejemplos XML siguientes (por ejemplo, KeyFrameInterval debe preceder a SceneChangeDetection).
 
-En este tema se muestran los valores preestablecidos personalizados que realizan las siguientes tareas de codificación.
+> [!NOTE] 
+> Muchas de las características avanzadas de v2 de Media Services de Media Encoder Standard actualmente no están disponibles en v3. Para obtener más información, consulte [carencias de características](https://docs.microsoft.com/azure/media-services/latest/migrate-from-v2-to-v3#feature-gaps-with-respect-to-v2-apis).
 
 ## <a name="support-for-relative-sizes"></a>Compatibilidad con tamaños relativos
 

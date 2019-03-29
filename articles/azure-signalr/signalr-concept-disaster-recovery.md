@@ -6,17 +6,17 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: kenchen
-ms.openlocfilehash: 69a2d9e7858c0f152056e821c19caa9852b420d5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: eb70e65db4a086afc60e91cadf55a8844b102591
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57556607"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620283"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>Resistencia y recuperación ante desastres
 
 La resistencia y la recuperación ante desastres son una necesidad común de los sistemas en línea. Azure SignalR Service ya garantiza una disponibilidad del 99,9 %, pero sigue siendo un servicio regional.
-La instancia del servicio siempre se ejecuta en una región y no en otra región de conmutación por error cuando se produce una interrupción en toda la región.
+La instancia del servicio siempre se ejecuta en una región y no conmutación por error a otra región cuando se produzca una interrupción de toda la región.
 
 En su lugar, nuestro SDK de servicio proporciona una funcionalidad para admitir varias instancias de SignalR Service y cambiar automáticamente a otras instancias cuando algunas no estén disponibles.
 Con esta característica, podrá realizar la recuperación cuando se produzca un desastre, pero deberá configurar la topología de sistema adecuada usted mismo. En este documento se muestra cómo hacerlo.
@@ -28,8 +28,8 @@ Al conectar varias instancias de servicio al servidor de aplicaciones, hay dos r
 La principal es una instancia con el tráfico en línea y la secundaria, una instancia totalmente funcional pero de copia de seguridad de la principal.
 En nuestra implementación de SDK, la negociación solo devuelve puntos de conexión principales, ya que normalmente los clientes solo se conectan a los puntos de conexión principales.
 Pero cuando la instancia principal está inactiva, la negociación devuelve puntos de conexión secundarios para que el cliente pueda continuar realizando conexiones.
-La instancia principal y el servidor de aplicaciones están conectados mediante conexiones de servidor normales, pero la instancia secundaria y el servidor de aplicaciones están conectados mediante unas conexiones especiales denominadas "débiles".
-La principal diferencia de una conexión débil es que no acepta el enrutamiento de conexión de cliente, porque la instancia secundaria normalmente se encuentra en otra región. El enrutamiento de un cliente a otra región no suele ser una opción óptima (aumenta la latencia).
+Instancia principal y del servidor de aplicaciones se conectan a través de conexiones de servidor normal pero instancia secundaria y del servidor de aplicaciones se conectan a través de un tipo especial de conexión denominado conexión débil.
+La principal diferencia de una conexión débil es que no acepta el enrutamiento de conexión de cliente, porque la instancia secundaria se encuentra en otra región. Enrutamiento de un cliente en otra región no es una opción óptima (aumenta la latencia).
 
 Una instancia del servicio puede tener distintos roles cuando se conecta a varios servidores de aplicaciones.
 Una configuración típica de un escenario de regiones cruzadas tiene dos (o más) pares de instancias de servicio de SignalR y servidores de aplicaciones.
@@ -51,7 +51,7 @@ Esto se puede hacer de dos maneras:
 
 ### <a name="through-config"></a>Mediante configuración
 
-Ya debe saber cómo configurar la cadena de conexión de SignalR Service mediante environment variables/app settings/web.cofig, mediante una entrada de configuración denominada `Azure:SignalR:ConnectionString`.
+Debía haber sido cómo establecer la cadena de conexión de SignalR service a través de settings/web.cofig aplicación o las variables de entorno, a través de una entrada de configuración denominada `Azure:SignalR:ConnectionString`.
 Si tiene varios puntos de conexión, puede establecerlos en varias entradas de configuración, cada una de ellas con el siguiente formato:
 
 ```
@@ -121,7 +121,7 @@ SignalR Service admite ambos patrones, la principal diferencia es la manera de i
 Si estos son de tipo "activo/pasivo", SignalR también será "activo/pasivo" (ya que el servidor de aplicaciones principal solo devuelve la instancia de servicio de SignalR principal).
 Si los servidores de aplicaciones son "activo/activo", SignalR también será "activo/activo" (ya que todos los servidores de aplicaciones devolverán sus propias instancias de SignalR principales, por lo que todos pueden tener tráfico).
 
-Tenga en cuenta que, independiente de los patrones que decida usar, necesitará conectar cada instancia de servicio de SignalR a un servidor de aplicaciones como principal.
+Tener en cuenta con independencia de qué patrones opta por usar, deberá conectarse a cada instancia del servicio SignalR a un servidor de aplicaciones como principal.
 
 Además, por la naturaleza de la conexión de SignalR (es una conexión larga), los clientes experimentarán interrupciones de conexión cuando se produzca un desastre y una conmutación por error.
 Deberá tratar con esos casos desde el cliente para que sea transparente para los clientes finales. Por ejemplo, vuelva a realizar la conexión cuando se cierre.
@@ -129,3 +129,5 @@ Deberá tratar con esos casos desde el cliente para que sea transparente para lo
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo ha aprendido a configurar la aplicación para lograr resistencia para SignalR Service. Para conocer más detalles acerca de la conexión cliente/servidor y el enrutamiento de conexión en SignalR Service, consulte [este artículo](signalr-concept-internals.md) para los aspectos internos de SignalR Service.
+
+¿Para escalar escenarios como el particionamiento, que usan varias instancias juntas para controlar el gran número de conexiones, leer [cómo escalar varias instancias](signalr-howto-scale-multi-instances.md)?

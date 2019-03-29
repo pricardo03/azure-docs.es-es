@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/12/2018
+ms.date: 03/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b3c9f2f8671d5a7aa313a9f49e07230a4f9b6220
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: af67109fb7f55f365cd71714a3eefab2336b636a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58109348"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578618"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Administración de cuentas de ejecución de Azure Automation
 
@@ -30,8 +30,10 @@ Existen dos tipos de cuentas de ejecución:
   * Crea un recurso de conexión de Automation llamado *AzureRunAsConnection* en la cuenta de Automation especificada. El recurso de conexión contiene el id. de aplicación, el id. de inquilino, el id. de suscripción y la huella digital de certificado.
 
 * **Cuenta de ejecución de Azure clásico**: esta cuenta se usa para administrar recursos del modelo de implementación clásico.
+  * Crea un certificado de administración en la suscripción
   * Crea un recurso de certificado de Automation llamado *AzureClassicRunAsCertificate* en la cuenta de Automation especificada. El recurso de certificado contiene la clave privada del certificado que usa el certificado de administración.
   * Crea un recurso de conexión de Automation llamado *AzureClassicRunAsConnection* en la cuenta de Automation especificada. El recurso de conexión contiene el nombre de la suscripción, el id. de suscripción y el nombre del recurso de certificado.
+  * Debe ser Coadministrador en la suscripción para crear o renovar
   
   > [!NOTE]
   > Las suscripciones de Proveedor de soluciones en la nube de Azure (Azure CSP) solo admiten el modelo de Azure Resource Manager, los servicios que no sean de Azure Resource Manager no están disponibles en el programa. Cuando se usa una suscripción a CSP la Cuenta de ejecución de Azure clásico no se crea. Se sigue creando la Cuenta de ejecución de Azure. Para más información acerca de las suscripciones de CSP, consulte [Servicios disponibles en las suscripciones de CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments).
@@ -52,6 +54,10 @@ Para crear o actualizar una cuenta de ejecución, debe tener los permisos y priv
 <sup>1</sup> Los usuarios que no son administradores en el inquilino de Azure AD pueden [registrar aplicaciones de AD](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions) si la opción **Los usuarios pueden registrar aplicaciones** del inquilino de Azure AD en la página **Configuración de usuario** está establecida en **Sí**. Si se establecen en **No**, el usuario que realice esta acción debe ser administrador global de Azure AD.
 
 Si no es miembro de la instancia de Active Directory de la suscripción antes de que se le agregue al rol de administrador global o coadministrador de esta última, se le agregará como invitado. En este caso, recibirá una advertencia `You do not have permissions to create…` en la página **Agregar cuenta de Automation**. Los usuarios que primero se agregaron al rol de administrador global/coadministrador se pueden quitar de la instancia de Active Directory de la suscripción y volverse a agregar para convertirlos en usuarios completos en Active Directory. Para comprobar esta situación, en el panel de **Azure Active Directory** de Azure Portal, seleccione **Usuarios y grupos**, **All Users** y, después de seleccionar el usuario específico, seleccione **Perfil**. El valor del atributo **Tipo de usuario** del perfil de los usuarios no debería ser **Invitado**.
+
+## <a name="permissions-classic"></a>Permisos para configurar las cuentas de identificación clásica
+
+Para configurar o renovar las cuentas de identificación clásica, debe tener la **Coadministrador** rol en el nivel de suscripción. Para más información acerca de los permisos del modelo clásico, consulte [los administradores de suscripción de Azure clásico](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
 
 ## <a name="create-a-run-as-account-in-the-portal"></a>Creación de una cuenta de ejecución en el portal
 
@@ -197,10 +203,10 @@ Este script de PowerShell incluye compatibilidad con las siguientes configuracio
         return
     }
 
-    # To use the new Az modules to create your Run As accounts please uncomment the following lines and ensure you comment out the previous two lines to avoid any issues. To learn about about using Az modules in your Automation Account see https://docs.microsoft.com/azure/automation/az-modules
+    # To use the new Az modules to create your Run As accounts please uncomment the following lines and ensure you comment out the previous 8 lines that import the AzureRM modules to avoid any issues. To learn about about using Az modules in your Automation Account see https://docs.microsoft.com/azure/automation/az-modules
 
     # Import-Module Az.Automation
-    # Enable-AzureRmAlias 
+    # Enable-AzureRmAlias
 
 
     Connect-AzureRmAccount -Environment $EnvironmentName 
@@ -357,7 +363,7 @@ Para renovar el certificado, realice estos pasos:
 
     ![Renovación del certificado para una cuenta de ejecución](media/manage-runas-account/automation-account-renew-runas-certificate.png)
 
-1. Mientras se está renovando el certificado, puede seguir el progreso desde el menú, en **Notificaciones**. 
+1. Mientras se está renovando el certificado, puede seguir el progreso desde el menú, en **Notificaciones**.
 
 ## <a name="limiting-run-as-account-permissions"></a>Limitación de los permisos de las cuentas de ejecución
 
@@ -394,4 +400,3 @@ Rápidamente puede resolver estos problemas de la cuenta de ejecución con solo 
 
 * Para más información sobre las entidades de servicio, consulte [Objetos de aplicación y de entidad de servicio](../active-directory/develop/app-objects-and-service-principals.md).
 * Para más información sobre los certificados y los servicios de Azure, consulte [Introducción a los certificados para Azure Cloud Services](../cloud-services/cloud-services-certs-create.md).
-

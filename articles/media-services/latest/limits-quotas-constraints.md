@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 694c56cf52cb7a15230b9a2cdd34642c7820b407
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d5fc14adab956fae23aad24fa7bc488c8c2041e3
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897573"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621692"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Cuotas y limitaciones en Azure Media Services v3
 
@@ -27,7 +27,8 @@ En este artículo se describen las cuotas y limitaciones de Azure Media Services
 | Recursos por cuenta de Azure Media Services | 1 000 000|
 | Filtros de manifiesto dinámico|100|
 | JobInputs por trabajo | 50 (cantidad fija)|
-| JobOutputs por Job/TransformOutputs en una transformación | 20 (cantidad fija) |
+| JobOutputs por trabajo | 20 (cantidad fija) |
+| TransformOutputs en una transformación | 20 (cantidad fija) |
 | Archivos por JobInput|10 (cantidad fija)|
 | Tamaño de archivo| En algunos casos, existe un límite máximo de tamaño de archivo admitido para el procesamiento en Media Services. <sup>(1)</sup> |
 | Trabajos por cuenta de Media Services | 500 000 <sup>(2)</sup> (cantidad fija)|
@@ -35,7 +36,8 @@ En este artículo se describen las cuotas y limitaciones de Azure Media Services
 | Listado de trabajos|Pagine la respuesta, con 500 trabajos por página|
 | Eventos en directo por cuenta de Media Services |5|
 | Cuentas de Media Services en una suscripción única | 25 (fijo) |
-| Salidas en vivo con el estado En ejecución por LiveEvent |3|
+| Salidas en directo en estado de ejecución por el evento en directo |3|
+| Duración de la salida de Live Max | 25 horas |
 | Cuentas de almacenamiento | 100<sup>(4)</sup> (cantidad fija) |
 | Puntos de conexión de streaming (detenidos o en ejecución) por cuenta de Media Services|2 (fijo)|
 | Directivas de streaming | 100 <sup>(3)</sup> |

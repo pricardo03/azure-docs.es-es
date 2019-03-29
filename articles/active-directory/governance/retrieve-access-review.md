@@ -1,6 +1,6 @@
 ---
-title: Recuperar los resultados de la revisión de acceso para grupos o aplicaciones en las revisiones de acceso de Azure AD | Microsoft Docs
-description: Obtenga información sobre cómo recuperar los resultados de la revisión de acceso para los miembros del grupo o el acceso a la aplicación de revisiones de acceso de Azure AD.
+title: Recuperar los resultados de la revisión de acceso para grupos o aplicaciones en las revisiones de acceso - Azure Active Directory | Microsoft Docs
+description: Obtenga información sobre cómo recuperar los resultados de la revisión de acceso para los miembros del grupo o el acceso a la aplicación de revisiones de acceso de Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2516e61b6b86c3d2cee164cfcb80a1f938922908
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eae4bafb3eefcee2785c784030d7be8dde66988e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839651"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578720"
 ---
-# <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Recuperar los resultados de la revisión de acceso para grupos o aplicaciones en las revisiones de acceso de Azure AD
+# <a name="retrieve-access-review-results-for-groups-or-applications-in-azure-ad-access-reviews"></a>Revisión de acceso de recuperar las revisiones de acceso de los resultados de grupos o aplicaciones de Azure AD
 
 Los administradores pueden usar Azure Active Directory (Azure AD) para [crear una revisión de acceso](create-access-review.md) para miembros de grupo o usuarios asignados en una aplicación.  Un usuario que se encuentra en la **administrador Global**, **usuario administrador**, **Administrador de seguridad** o **lector de seguridad** rol también puede Lea los resultados de una revisión de acceso.  Para asignar usuarios a uno de estos roles, un administrador de roles con privilegios puede usar PIM de Azure AD para que se pueda activar el rol de un usuario o un administrador Global puede permanentemente [asignar un usuario a la función](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 

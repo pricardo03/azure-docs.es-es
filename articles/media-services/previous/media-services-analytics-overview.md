@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: milanga;juliako;johndeu
-ms.openlocfilehash: 0c090499ee6ae2aaaa14af18c3c38db28ecb2f3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aac9719f8d74c4b7bc283745ee2b8e01365a81f0
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57884734"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620009"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Análisis multimedia en la plataforma Media Services 
 
@@ -40,8 +40,6 @@ Los procesadores multimedia de Análisis multimedia generan archivos MP4 o JSON.
 
 ### <a name="indexer"></a>Indexer
 Con Azure Media Indexer puede realizar búsquedas en el contenido, así como generar pistas de subtítulos. En comparación con la versión anterior, Azure Media Indexer 2 Preview realiza la indexación de forma más rápida y ofrece compatibilidad con más idiomas. Los idiomas compatibles son alemán, árabe, chino, español, francés, inglés, italiano y portugués. Para obtener información detallada y ejemplos, vea [Process videos with Azure Media Indexer 2 (Procesar vídeos con Azure Media Indexer 2)](media-services-process-content-with-indexer2.md).
-### <a name="hyperlapse"></a>Hyperlapse
-Microsoft Hyperlapse combina estabilización de vídeo y capacidad time-lapse para crear vídeos rápidos consumibles a partir del contenido de formato largo. Además de crear vídeo time-lapse, puede usar Hyperlapse para crear vídeos estables a partir de vídeos temblorosos capturados con teléfonos móviles y cámaras de vídeo. Para obtener información detallada y ejemplos, vea [Archivos multimedia de Hyperlapse con Azure Media Hyperlapse](media-services-hyperlapse-content.md).
 ### <a name="motion-detector"></a>Detector de movimientos
 Puede usar Motion Detector para detectar movimiento en un vídeo con fondos quietos. Esto permite buscar falsos positivos en eventos de movimiento detectados por cámaras de vigilancia. Para obtener información detallada y ejemplos, vea [Motion Detection for Azure Media Analytics (Detección de movimiento para Análisis multimedia de Azure)](media-services-motion-detection.md).
 ### <a name="face-detector"></a>Detector de caras

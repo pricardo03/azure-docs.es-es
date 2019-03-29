@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 03/28/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 08fdc20df70e4a97dd0cb99468354ef2b5c51f2b
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: e72400a759b976b1a2a6864b2fa7d7d91e16c62f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447034"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619295"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Autenticar el acceso a los blobs de Azure y colas con Azure Active Directory
 
@@ -33,7 +33,7 @@ La CLI de Azure y PowerShell admite ahora el inicio de sesión con una identidad
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>Roles RBAC para blobs y colas
 
-Azure Active Directory (Azure AD) autoriza derechos de acceso a los recursos protegidos mediante el [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md). Azure Storage define un conjunto de roles de RBAC integrados que abarcan conjuntos comunes de permisos utilizados para acceder a los contenedores o las colas. 
+Azure Active Directory (Azure AD) autoriza derechos de acceso a los recursos protegidos mediante el [control de acceso basado en rol (RBAC)](../../role-based-access-control/overview.md). Almacenamiento de Azure define un conjunto de roles RBAC integrados que abarcan conjuntos de permisos utilizados para tener acceso a datos blob y cola comunes. También puede definir roles personalizados para el acceso a los datos de blob y cola.
 
 Cuando un rol de RBAC se asigna a una entidad de seguridad de Azure AD, Azure concede acceso a esos recursos para esa entidad de seguridad. El acceso se puede limitar al nivel de la suscripción, el grupo de recursos, la cuenta de almacenamiento o un contenedor individual o una cola. Una entidad de seguridad de Azure AD puede ser un usuario, un grupo, una entidad de servicio de aplicación, o un [la identidad de los recursos de Azure administrada](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -49,8 +49,13 @@ Para obtener información sobre cómo asignar un RBAC integrado para los recurso
 
 Para más información sobre los permisos requeridos para llamar a operaciones de Azure Storage, consulte ///[Permissions for calling REST operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations) (Permisos para llamar a operaciones de REST).
 
+## <a name="resource-scope"></a>Ámbito de recursos
+
+[!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
+
 ## <a name="next-steps"></a>Pasos siguientes
 
+- [Compatibilidad de Azure Storage con Azure Active Directory en función de control de acceso disponible con carácter general](https://azure.microsoft.com/blog/azure-storage-support-for-azure-ad-based-access-control-now-generally-available/)
 - [Autenticación con Azure Active Directory desde una aplicación para acceder a blobs y colas](storage-auth-aad-app.md)
 - [Autenticar el acceso a los blobs y colas con identidades administradas para los recursos de Azure](storage-auth-aad-msi.md)
 - Azure Files solo admite autenticación con Azure AD a través de SMB para máquinas virtuales unidas a dominios (versión preliminar). Para aprender a usar Azure AD a través de SMB de Azure Files, consulte [Introducción a la autenticación de Azure Active Directory a través de SMB para Azure Files (versión preliminar)](../files/storage-files-active-directory-overview.md).

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: ad4b244b58d741ad45463297df5bd358f3ae9918
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: a50eb45291ada23f55057f3c440c5b8b23cc4bce
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58450024"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622644"
 ---
 Antes de asignar un rol de RBAC a una entidad de seguridad, determinar el ámbito de acceso que debe tener la entidad de seguridad. Las recomendaciones dictan que siempre es mejor conceder únicamente el ámbito más restringido posible.
 
@@ -24,3 +24,6 @@ En la lista siguiente se describe los niveles en el que puede definir el ámbito
 - **La cuenta de almacenamiento.** En este ámbito, una entidad de seguridad tiene acceso a todos los contenedores y sus blobs, así como todas las colas y sus mensajes.
 - **El grupo de recursos.** En este ámbito, una entidad de seguridad tiene acceso a todos los contenedores o las colas en todas las cuentas de almacenamiento en el grupo de recursos.
 - **La suscripción.** En este ámbito, una entidad de seguridad tiene acceso a todos los contenedores o las colas en todas las cuentas de almacenamiento en todos los grupos de recursos en la suscripción.
+
+> [!IMPORTANT]
+> Si la suscripción incluye un espacio de nombres de Azure DataBricks, roles asignados en el ámbito de la suscripción no podrá conceder acceso a los datos de blob y cola.

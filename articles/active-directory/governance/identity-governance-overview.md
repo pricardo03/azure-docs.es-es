@@ -1,6 +1,6 @@
 ---
-title: Azure AD Identity Governance | Microsoft Docs
-description: Azure AD Identity Governance le permite equilibrar la productividad de los empleados y la seguridad que necesita su organización con la visibilidad y los procesos adecuados.
+title: 'Gobierno de identidades: Azure Active Directory | Microsoft Docs'
+description: Azure gobierno de identidades de Active Directory le permite equilibrar la necesidad de su organización para la productividad del empleado y la seguridad con los procesos correctos y visibilidad.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,12 +16,12 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 304399905e9dfd37557a342248c829c1f940452b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 7872a43d5000ddb1ba581f76358c8001902ab56b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167610"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579723"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>¿Qué es Azure AD Identity Governance?
 
@@ -77,7 +77,7 @@ Aunque no existe ninguna solución o recomendación perfecta para cada cliente, 
 - [¿Qué es una revisión de acceso?](access-reviews-overview.md)
 - [Administración del acceso de los usuarios con las revisiones de acceso](manage-user-access-with-access-reviews.md)
 - [Administración del acceso de los invitados con las revisiones de acceso](manage-guest-access-with-access-reviews.md)
-- [Inicio de una revisión de acceso de un rol de directorio](../privileged-identity-management/pim-how-to-start-security-review.md)
+- [Iniciar una revisión de acceso de roles de Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>Términos de uso
 

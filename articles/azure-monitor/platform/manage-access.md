@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/27/2019
 ms.author: magoedte
-ms.openlocfilehash: 6990bed4065183ecabb502ea90b5ddf26db563b4
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: fd47b5de2226d88b6295cb28713db2a5d251e768
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500192"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577253"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Administrar datos de registro y las áreas de trabajo en Azure Monitor
 Azure Monitor almacena los datos de registro en un área de trabajo de Log Analytics, que es básicamente un contenedor que incluye información de configuración y datos. Para administrar el acceso a datos del registro, tendrá que realizar varias tareas administrativas relacionadas con las áreas de trabajo. Tanto usted como otros miembros de la organización pueden usar varias áreas de trabajo para administrar diferentes conjuntos de datos, recopilados a partir de toda la infraestructura de TI o de algunos de sus componentes.
@@ -300,10 +300,10 @@ Para crear un rol con acceso únicamente a _SecurityBaseline_ y ninguna otra tab
 
 ```
     "Actions":  [
-        "Microsoft.OperationalInsights/workspaces/query/*/read"
+        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
     ],
     "NotActions":  [
-        "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
+        "Microsoft.OperationalInsights/workspaces/query/*/read"
     ],
 ```
 

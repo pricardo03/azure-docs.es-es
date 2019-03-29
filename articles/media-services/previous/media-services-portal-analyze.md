@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7a303b9d27b3708bd4f59517452fa232cc38c923
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: d3917f65d8be08d6355013393f6c6675ea6c7fc5
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259693"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619448"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Análisis del contenido multimedia mediante Azure Portal 
 > [!NOTE]
@@ -73,11 +73,6 @@ Un nombre descriptivo que permite identificar el trabajo. [Este](media-services-
 
 ### <a name="output-file"></a>Archivo de salida
 Nombre descriptivo que permite identificar el contenido de salida. 
-
-## <a name="azure-media-hyperlapse"></a>Azure Media Hyperlapse
-Azure Media Hyperlapse es un MP que crea vídeos fluidos con la técnica time-lapse a partir de contenido generado en primera persona o con una cámara de acción.  Para obtener más información, consulte [este tema](media-services-hyperlapse-content.md) . En esta sección se proporcionan algunos detalles sobre las opciones que se especifican para este MP.
-
-![Análisis de vídeos](./media/media-services-portal-analyze/media-services-portal-analyze004.png)
 
 ### <a name="speed"></a>Velocidad
 Especifique la velocidad con la que se acelerará el vídeo de entrada. El resultado es una representación estabilizada y en time-lapse del vídeo de entrada.

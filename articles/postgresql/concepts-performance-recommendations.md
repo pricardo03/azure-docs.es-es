@@ -5,19 +5,19 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/26/2018
-ms.openlocfilehash: d8edbc2847c06e95e658a1324f2e85f1758e60be
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.date: 03/28/2018
+ms.openlocfilehash: c5324618eeda90b4ef1a512385fb2f14bf391215
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487947"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620179"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql"></a>Recomendaciones de rendimiento en Azure Database for PostgreSQL
 
 **Se aplica a:** Azure Database for PostgreSQL 9.6 y 10
 
-La característica Recomendaciones de rendimiento identifica los índices principales que se pueden crear en el servidor de Azure Database for PostgreSQL para mejorar el rendimiento. Para generar recomendaciones de índices, la función tiene en cuenta diversas características de la base de datos, incluido su esquema y la carga de trabajo devueltos por el Almacén de consultas. Después de implementar cualquier recomendación de rendimiento, los clientes deben probar el rendimiento para evaluar el efecto de estos cambios. 
+La característica de las recomendaciones de rendimiento analiza las bases de datos para la creación de sugerencias personalizadas para mejorar el rendimiento. Para generar las recomendaciones, el análisis se examinan diversas características de base de datos, incluido el esquema. Habilitar [Query Store](concepts-query-store.md) en el servidor para poder utilizar la característica de las recomendaciones de rendimiento. Después de implementar las recomendaciones de rendimiento, debe probar el rendimiento para evaluar el impacto de estos cambios. 
 
 ## <a name="permissions"></a>Permisos
 Los permisos **Propietario** o **Colaborador** necesarios para ejecutar el análisis con la característica Recomendaciones de rendimiento.
@@ -25,17 +25,28 @@ Los permisos **Propietario** o **Colaborador** necesarios para ejecutar el anál
 ## <a name="performance-recommendations"></a>Recomendaciones de rendimiento
 La característica [Recomendaciones de rendimiento](concepts-performance-recommendations.md) analiza las cargas de trabajo en el servidor para identificar los índices con el potencial de mejorar el rendimiento.
 
-Abra **Recomendaciones de rendimiento** desde la sección **Soporte técnico y solución de problemas** de la barra de menús en la página de Azure Portal para el servidor PostgreSQL.
+Abra **recomendaciones de rendimiento** desde el **rendimiento inteligente** sección de la barra de menús en la página de portal de Azure para el servidor de PostgreSQL.
 
-![Página de inicio de Recomendaciones de rendimiento](./media/concepts-performance-recommendations/performance-recommendations-landing-page.png)
+![Página de inicio de Recomendaciones de rendimiento](./media/concepts-performance-recommendations/performance-recommendations-page.png)
 
-Seleccione **Analizar** y elija una base de datos. De este modo comenzará el análisis. Según la carga de trabajo, puede tardar varios minutos. Una vez que se realice el análisis, habrá una notificación en el portal.
+Seleccione **analizar** y elija una base de datos que se iniciará el análisis. Dependiendo de la carga de trabajo, análisis th pueden tardar varios minutos en completarse. Una vez que se realice el análisis, habrá una notificación en el portal. Análisis realiza un examen en profundidad de la base de datos. Se recomienda que realizar análisis durante los períodos de poca actividad. 
 
-La ventana **Recomendaciones de rendimiento** mostrará una lista de recomendaciones, si se detecta alguna. Una recomendación mostrará información sobre la **Base de datos**, la **Tabla**, la **Columna** y el **Tamaño del índice** correspondientes.
+El **recomendaciones** ventana mostrará una lista de recomendaciones si se detecta alguno.
 
 ![Nueva página Recomendaciones de rendimiento](./media/concepts-performance-recommendations/performance-recommendations-result.png)
 
-Para implementar la recomendación, copie el texto de la consulta y ejecútelo desde el cliente que prefiera.
+Las recomendaciones no se aplican automáticamente. Para aplicar la recomendación, copie el texto de consulta y ejecútelo desde el cliente de elección. No olvide probar y supervisar para evaluar la recomendación. 
+
+## <a name="recommendation-types"></a>Tipos de recomendaciones
+
+Actualmente, se admiten dos tipos de recomendaciones: *Crear índice* y *quitar índice*.
+
+### <a name="create-index-recommendations"></a>Recomendaciones para crear índice
+*Crear índice* recomendaciones sugieren nuevos índices para acelerar las consultas con más frecuencia se ejecute o que requieren mucho tiempo en la carga de trabajo. Este tipo de recomendación requiere [Query Store](concepts-query-store.md) esté habilitado. Query Store recopila información de la consulta y proporciona las estadísticas de tiempo de ejecución y la frecuencia de consulta detallada que el análisis se usa para realizar la recomendación.
+
+### <a name="drop-index-recommendations"></a>Recomendaciones para quitar índice
+Además de detectar índices que faltan,-Azure Database for PostgreSQL analiza el rendimiento de los índices existentes. Si un índice es rara vez utilizado o redundantes, el analizador recomienza descartarlo.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información acerca de la [supervisión y ajuste](concepts-monitoring.md) en Azure Database for PostgreSQL.

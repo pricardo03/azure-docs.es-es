@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: f39fee9b59dfec643a640a4e17460ed9199c858f
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 23af0d9e2d7c4033a2457676b29b5e4b2f8c15ea
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542073"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579451"
 ---
 # <a name="asc-for-iot-security-alerts"></a>ASC para las alertas de seguridad de IoT
 
@@ -27,8 +27,15 @@ ms.locfileid: "58542073"
 > ASC para IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no se recomienda para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+ASC para IoT analiza continuamente su solución de IoT con inteligencia de amenazas y análisis avanzada para alertarle de actividades malintencionadas.
+Además, puede crear alertas personalizadas según su conocimiento del comportamiento esperado del dispositivo.
+Una alerta actúa como un indicador de comprise y debe investigar y corregir.
 
-## <a name="device-alerts"></a>Alertas del dispositivo
+En este artículo, encontrará una lista de alertas integradas que puede activarse en su IoT Hub o dispositivos de IoT.
+Junto a la alerta integrada, ASC para IoT le permite definir alertas personalizadas basadas en el concentrador esperado o comportamiento del dispositivo.
+Para obtener más información, consulte [crear alertas personalizadas](quickstart-create-custom-alerts.md).
+
+## <a name="built-in-alerts-for-iot-devices"></a>Alertas integradas para dispositivos de IoT
 
 | Gravedad | NOMBRE                                                   | Origen de datos | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 |----------|--------------------------------------------------------|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -72,7 +79,7 @@ ms.locfileid: "58542073"
 | Bajo      | Borradas el historial de Bash                                   | Agente       | Se borró el registro de historial de Bash. Los adversarios pueden ocultar sus propios comandos de aparecen en los registros                                                                                                                                                                                                                                                                                                                                                   |
 | Bajo      | No se pudo fuerza bruta                                      | Agente       | Varios intentos de inicio de sesión incorrecto identificados. Ataque de fuerza un intento y la fuerza bruta con errores se realizó en el dispositivo.                                                                                                                                                                                                                                                                                                                                                  |
 
-## <a name="iot-hub-alerts"></a>Alertas de IoT Hub
+## <a name="built-in-alerts-for-iot-hub"></a>Alertas integradas para IoT Hub
 
 | Gravedad | NOMBRE                                                                         | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                            |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -88,4 +95,4 @@ ms.locfileid: "58542073"
 
 - [Información general](overview.md)
 - [Obtener acceso a los datos de seguridad](how-to-security-data-access.md)
-- [Investigar un dispositivo](tutorial-investigate-device.md)
+- [Investigar un dispositivo](how-to-investigate-device.md)

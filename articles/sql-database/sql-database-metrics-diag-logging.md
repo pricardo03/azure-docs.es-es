@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: c5be8af71fcbdf6f38f878c70180f38227070245
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: bb45062697b113b676f85381f0653c14ac8c0c67
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499332"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621237"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database
 
@@ -148,7 +148,7 @@ Puede configurar un recurso de instancia administrada para recopilar los siguien
 
 | Recurso | Telemetría de supervisión |
 | :------------------- | ------------------- |
-| **Instancia administrada** | ResourceUsageStats contiene el recuento de núcleos virtuales, porcentaje promedio de CPU, las solicitudes de E/S, bytes de espacio de almacenamiento reservado, leídos/escritos y espacio de almacenamiento usado. |
+| **Instancia administrada** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance): contiene el número de núcleos virtuales, el porcentaje medio de CPU, las solicitudes de E/S, los bytes leídos y escritos, el espacio de almacenamiento reservado y el espacio de almacenamiento utilizado. |
 
 Para configurar la transmisión de telemetría de diagnósticos para la instancia administrada y las bases de datos de instancia, deberá configurar por separado **ambos** de las acciones siguientes:
 

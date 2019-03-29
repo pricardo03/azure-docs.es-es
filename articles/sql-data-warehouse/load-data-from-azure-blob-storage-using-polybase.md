@@ -2,20 +2,20 @@
 title: 'Tutorial: Carga de datos de taxis de Nueva York en Azure SQL Data Warehouse | Microsoft Docs'
 description: En este tutorial se utiliza Azure Portal y SQL Server Management Studio para cargar datos de taxis de Nueva York de un blob de Azure público en Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
+author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: implement
-ms.date: 09/12/2018
-ms.author: cakarst
+ms.date: 03/27/2019
+ms.author: mlee3gsd
 ms.reviewer: igorstan
-ms.openlocfilehash: 979488009f7afa2ccae3993d756e92e1ae15d5a0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 57ca749aec2a72379e92c46764eb9b6558653e29
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55466536"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620196"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Tutorial: Carga de datos de taxis de Nueva York en Azure SQL Data Warehouse
 
@@ -67,7 +67,7 @@ Siga estos pasos para crear un almacenamiento de datos SQL en blanco.
 
 4. Haga clic en **Servidor** para crear y configurar un servidor nuevo para la nueva base de datos. Rellene el **formulario de servidor nuevo** con la siguiente información: 
 
-    | Configuración | Valor sugerido | DESCRIPCIÓN | 
+    | Configuración | Valor sugerido | Description | 
     | ------- | --------------- | ----------- |
     | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). | 
     | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos).|
@@ -80,7 +80,7 @@ Siga estos pasos para crear un almacenamiento de datos SQL en blanco.
 
 6. Haga clic en **Nivel de rendimiento** para especificar si el almacenamiento de datos es Gen1 o Gen2 y especificar el número de unidades de almacenamiento de datos. 
 
-7. En este tutorial, seleccione el nivel **Gen1** de SQL Data Warehouse. De forma predeterminada, el control deslizante está establecido en **DW1000c**.  Intente moverlo hacia arriba y hacia abajo para ver cómo funciona. 
+7. Para este tutorial, seleccione **Gen2** de SQL Data Warehouse. El control deslizante se establece en **DW1000c** de forma predeterminada.  Intente moverlo hacia arriba y hacia abajo para ver cómo funciona. 
 
     ![configuración del rendimiento](media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
@@ -150,7 +150,7 @@ En esta sección se usa [SQL Server Management Studio](/sql/ssms/download-sql-se
     | ------------ | --------------- | ----------- | 
     | Tipo de servidor | Motor de base de datos | Este valor es obligatorio |
     | Nombre de servidor | Nombre completo del servidor | Este nombre debería parecerse al siguiente: **mynewserver-20180430.database.windows.net**. |
-    | Autenticación | Autenticación de SQL Server | Autenticación de SQL es el único tipo de autenticación que hemos configurado en este tutorial. |
+    | Authentication | Autenticación de SQL Server | Autenticación de SQL es el único tipo de autenticación que hemos configurado en este tutorial. |
     | Inicio de sesión | La cuenta de administrador del servidor | Es la cuenta que especificó cuando creó el servidor. |
     | Contraseña | La contraseña de la cuenta de administrador del servidor | Es la contraseña que especificó cuando creó el servidor. |
 

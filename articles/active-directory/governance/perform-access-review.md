@@ -1,6 +1,6 @@
 ---
-title: Revisar el acceso a grupos o aplicaciones en las revisiones de acceso de Azure AD | Microsoft Docs
-description: Obtenga información sobre cómo revisar el acceso a los de los miembros del grupo o aplicación de revisiones de acceso de Azure Active Directory.
+title: Revisar el acceso a grupos o aplicaciones en las revisiones de acceso - Azure Active Directory | Microsoft Docs
+description: Obtenga información sobre cómo revisar el acceso a los miembros del grupo o aplicación en las revisiones de acceso de Azure Active Directory.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -15,16 +15,16 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 097d230e919e6d4b56e6c677364610bda6630f75
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 02c12a8cc8163fa70008b21995ddb35aec57dfcf
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728393"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579689"
 ---
-# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Revisar el acceso a grupos o aplicaciones en las revisiones de acceso de Azure AD
+# <a name="review-access-to-groups-or-applications-in-azure-ad-access-reviews"></a>Revisar el acceso a los grupos o las revisiones de acceso de las aplicaciones de Azure AD
 
-Azure Active Directory (Azure AD) simplifica cómo las empresas administran el acceso a grupos y aplicaciones en Azure AD y otro Microsoft Online Services con una característica denominada revisiones de acceso de Azure AD.
+Azure Active Directory (Azure AD) simplifica el modo en que las empresas administran el acceso a grupos y aplicaciones de Azure AD y revisiones de otros servicios en línea de Microsoft con una característica denominada acceso de Azure AD.
 
 En este artículo se describe cómo un revisor designado lleva a cabo una revisión de acceso para los miembros de un grupo o los usuarios con acceso a una aplicación.
 
@@ -44,7 +44,7 @@ Si no tiene el correo electrónico, puede encontrar que revisa su acceso pendien
 
     ![Portal de MyApps](./media/perform-access-review/myapps-access-panel.png)
 
-1. En la esquina superior derecha de la página, haga clic en el símbolo de usuario, que muestra su organización y el nombre predeterminado. Si aparece más de una organización, seleccione la que haya solicitado una revisión de acceso.
+1. En la esquina superior derecha de la página, haga clic en el símbolo de usuario que muestra la organización predeterminada y el nombre de usuario. Si aparece más de una organización, seleccione la que haya solicitado una revisión de acceso.
 
 1. En el lado derecho de la página, haga clic en el **las revisiones de acceso** icono para ver una lista de las revisiones de acceso pendientes.
 

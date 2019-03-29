@@ -1,5 +1,5 @@
 ---
-title: Autenticación multifactor (MFA) y PIM - Azure | Microsoft Docs
+title: Autenticación multifactor (MFA) y PIM - Azure Active Directory | Microsoft Docs
 description: Obtenga información sobre cómo Azure AD Privileged Identity Management (PIM) valida la autenticación multifactor (MFA).
 services: active-directory
 documentationcenter: ''
@@ -14,18 +14,18 @@ ms.date: 08/31/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a641f5be28e4750ba8d3d4f8b56802034aab2c5
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 8831a838a403d58d8673c6400e0dda06c03dc69f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187260"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578805"
 ---
 # <a name="multi-factor-authentication-mfa-and-pim"></a>Autenticación multifactor (MFA) y PIM
 
 Se recomienda exigir la autenticación multifactor (MFA) para todos los administradores. De esta forma, se reduce el riesgo de ataques debidos a que una contraseña se ha puesto en peligro.
 
-Puede exigir que los usuarios completen un desafío de MFA cuando inician sesión. También puede exigir que los usuarios completen un desafío de MFA cuando activan un rol en Azure AD Privileged Identity Management (PIM). De este modo, si el usuario no realizó un desafío de MFA cuando inició sesión, se le pedirá que lo haga en PIM.
+Puede exigir que los usuarios completen un desafío de MFA cuando inician sesión. También puede requerir que los usuarios completen un desafío de MFA cuando activan un rol en Azure Active Directory (Azure AD) Privileged Identity Management (PIM). De este modo, si el usuario no realizó un desafío de MFA cuando inició sesión, se le pedirá que lo haga en PIM.
 
 > [!IMPORTANT]
 > Ahora mismo, Azure MFA solo funciona con cuentas profesionales o educativas, no con cuentas de Microsoft (por lo habitual una cuenta personal que se usa para iniciar sesión en servicios de Microsoft, como Skype, Xbox, Outlook.com, etc.). Por este motivo, un usuario que use una cuenta de Microsoft no puede ser un administrador apto porque no podrá usar MFA para activar sus roles. Si estos usuarios tienen que seguir administrando cargas de trabajo con una cuenta de Microsoft, conviértalos en administradores permanentes por el momento.
@@ -40,5 +40,5 @@ Si los usuarios se autentican en el entorno local, también puede hacer que el p
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Configuración de roles de directorio de Azure AD en PIM](pim-how-to-change-default-settings.md)
+- [Configuración de rol de Azure AD en PIM](pim-how-to-change-default-settings.md)
 - [Configuración de roles de recurso de Azure en PIM](pim-resource-roles-configure-role-settings.md)

@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: ad005ff879ef5e4c0fb2fb72ce3062a5dd25d99a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: c7587b6cb2b4b30e265657b9d3792c9d4acd4428
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486791"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621556"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitectura de conectividad de una instancia administrada de Azure SQL Database 
 
@@ -107,7 +107,7 @@ Implementar una instancia administrada en una subred dentro de la red virtual de
 
 | NOMBRE       |Port          |Protocolo|Origen           |Destino|.|
 |------------|--------------|--------|-----------------|-----------|------|
-|management  |80, 443, 12000|TCP     |Cualquiera              |Internet   |PERMITIR |
+|management  |80, 443, 12000|TCP     |Cualquiera              |AzureCloud  |PERMITIR |
 |mi_subnet   |Cualquiera           |Cualquiera     |Cualquiera              |MI SUBRED *  |PERMITIR |
 
 > Asegúrese de que hay solo una regla de entrada para los puertos 9000, 9003, 1438, 1440, 1452 y una regla de salida de los puertos 80, 443, 12000. Aprovisionamiento de instancia administrada a través de implementaciones de ARM puede producir un error si las reglas de entrada y salidas se configuran por separado para cada puerto. 

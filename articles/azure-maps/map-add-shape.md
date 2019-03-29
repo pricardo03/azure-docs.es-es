@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 7598bbc879351752580247e46bc986ee84fa0d56
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 2582b277238bbfbda29156c857e7bd91cf6fe059
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497251"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579298"
 ---
 # <a name="add-a-shape-to-a-map"></a>Adición de una forma a un mapa
 
@@ -32,6 +32,16 @@ El primer bloque de código del código anterior construye un objeto de mapa. Pu
 En el segundo bloque de código, se crea un objeto de origen de datos con la clase [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Se crea un objeto [LineString](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.linestring?view=azure-iot-typescript-latest) y se agrega al origen de datos.
 
 Una clase [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) presenta objetos de línea encapsulados en [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). El último bloque de código crea una capa de línea y la agrega al mapa. Puede consultar las propiedades de una capa de líneas en [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). Se crean el origen de datos y la capa de línea, y se agregan al mapa en la función [escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para asegurarse de que la línea se muestra una vez que el mapa se cargue completamente.
+
+## <a name="add-symbols-along-a-line"></a>Agregar símbolos a lo largo de una línea
+
+Este ejemplo muestra cómo agregar iconos de flecha situados a lo largo de una línea en el mapa. Cuando el uso de una capa de símbolos, Establece la opción "selección" a "línea", se representan los símbolos a lo largo de la línea y girar los iconos (0 grados = right).
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Mostrar la flecha situada junto a línea" src="//codepen.io/azuremaps/embed/drBJwX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Consulte el Pen <a href='https://codepen.io/azuremaps/pen/drBJwX/'>flecha mostrar a lo largo de la línea</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## <a name="customize-a-line-layer"></a>Personalizar una capa de línea
 
@@ -84,6 +94,16 @@ En el segundo bloque de código, se crea un objeto de origen de datos con la cla
 En el mapa, un objeto [PolygonLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonlayer?view=azure-iot-typescript-latest) presenta los datos encapsulados en la clase [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest). Consulte las propiedades de una capa de polígonos en [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest). Una clase [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) es una matriz de líneas. Puede consultar las propiedades de una capa de líneas en [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest). El tercer bloque de código crea las capas de polígono y línea.
 
 El último bloque de código agrega las capas de polígono y línea al mapa. Se crean el origen de datos y las capas, y se agregan al mapa en la función [escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para asegurarse de que el polígono se muestra una vez que el mapa se cargue completamente.
+
+## <a name="fill-a-polygon-with-a-pattern"></a>Rellenar un polígono con un patrón
+
+Además de rellenar un polígono con un color también se puede usar un patrón de la imagen. Cargar un patrón de imagen en los recursos de mapas de imágenes sprite y, a continuación, hacer referencia a esta imagen con el `fillPattern` propiedad de la capa de polígono.
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Trama de relleno de polígono" src="//codepen.io/azuremaps/embed/JzQpYX/?height=500&theme-id=0&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Consulte el Pen <a href='https://codepen.io/azuremaps/pen/JzQpYX/'>trama de relleno de polígono</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+</iframe>
 
 ## <a name="customize-a-polygon-layer"></a>Personalizar una capa de polígono
 

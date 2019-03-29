@@ -10,12 +10,12 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b307a497e69bd6c2dcc7b415b2d94335459f7fd3
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: b929182ce1c89e7508aeae91a95b5c9b0d599774
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544995"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621386"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Control de acceso basado en rol en Azure Automation
 
@@ -231,6 +231,9 @@ Las siguientes tablas muestran los permisos mínimos necesarios para incorporar 
 |Comprobación de estado de incorporación: leer solución      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Solución         |
 |Comprobación de estado de incorporación: leer máquina virtual      | Microsoft.Compute/virtualMachines/read         | Máquina virtual         |
 |Comprobación de estado de incorporación: leer cuenta      | Microsoft.Automation/automationAccounts/read  |  Cuenta de Automation   |
+| Comprobación de área de trabajo de incorporación de máquina virtual<sup>1</sup>       | Microsoft.OperationalInsights/workspaces/read         | Subscription         |
+
+<sup>1</sup> este permiso es necesario para incorporar a través de la experiencia de portal de la máquina virtual.
 
 ### <a name="onboarding-from-automation-account"></a>Incorporación desde cuenta de Automation
 

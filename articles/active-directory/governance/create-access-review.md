@@ -1,6 +1,6 @@
 ---
-title: Creación de una revisión de acceso de grupos o aplicaciones en las revisiones de acceso de Azure AD | Microsoft Docs
-description: Obtenga información sobre cómo crear una revisión de acceso de los miembros del grupo o el acceso a la aplicación de revisiones de acceso de Azure AD.
+title: 'Creación de una revisión de acceso de grupos o aplicaciones: Azure Active Directory | Microsoft Docs'
+description: Obtenga información sobre cómo crear una revisión de acceso de los miembros del grupo o el acceso a la aplicación de revisiones de acceso de Azure Active Directory.
 services: active-directory
 author: rolyon
 manager: mtillman
@@ -15,14 +15,14 @@ ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c17078ea14a254f64a41751f2efffc16e2a1e821
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5e25af938d09a254abd5d28ca3a5eecca2d3f8f1
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847389"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576212"
 ---
-# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Creación de una revisión de acceso de grupos o aplicaciones en las revisiones de acceso de Azure AD
+# <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Creación de una revisión de acceso de los grupos o las revisiones de acceso de las aplicaciones de Azure AD
 
 El acceso a los grupos y las aplicaciones para empleados e invitados cambia a lo largo del tiempo. Para reducir el riesgo derivado de las asignaciones de acceso obsoletas, los administradores pueden usar Azure Active Directory (Azure AD) para crear revisiones de acceso para los miembros de grupo o el acceso de aplicación. Si necesita revisar el acceso de manera rutinaria, también puede crear revisiones de acceso periódicas. Para más información sobre estos escenarios, vea [Administración del acceso de los usuarios con las revisiones de acceso de Azure AD](manage-user-access-with-access-reviews.md) y [Administración del acceso de los invitados con las revisiones de acceso de Azure AD](manage-guest-access-with-access-reviews.md).
 
@@ -35,7 +35,7 @@ Este artículo describe cómo crear una o varias de las revisiones de acceso par
 
 ## <a name="create-one-or-more-access-reviews"></a>Crear una o varias revisiones de acceso
 
-1. Inicie sesión en Azure Portal y abra la página [Revisiones de acceso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Inicie sesión en el portal de Azure y abra el [página de revisiones de acceso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
 1. Haga clic en **Controles**.
 
@@ -120,7 +120,7 @@ Si alguno de los revisores es un invitado, solo se notificará a los invitados p
 
 ## <a name="manage-the-access-review"></a>Administración de la revisión de acceso
 
-Puede seguir el progreso de las revisiones a medida que los revisores las realizan en el panel de Azure AD, en la sección **Revisiones de acceso**. Los derechos de acceso no se cambian en el directorio hasta que [la revisión finaliza](complete-access-review.md).
+Puede seguir el progreso a medida que los revisores las realizan en el panel de Azure AD en el **las revisiones de acceso** sección. Los derechos de acceso no se cambian en el directorio hasta que [la revisión finaliza](complete-access-review.md).
 
 Si se trata de una revisión de un solo uso, a continuación, una vez que el período de revisión de acceso o el administrador detenga la revisión de acceso, siga los pasos de [revisión de acceso de grupos o aplicaciones](complete-access-review.md) para ver los resultados y aplicarlos.  
 
@@ -130,7 +130,7 @@ Según las selecciones de la Configuración de finalización, la aplicación aut
 
 ## <a name="create-reviews-via-apis"></a>Creación de revisiones mediante API
 
-También puede crear las revisiones de acceso mediante API. Qué hacer para administrar las revisiones de acceso de grupos y usuarios de aplicación en Azure Portal también pueden realizarse mediante Microsoft Graph API. Para más información, consulte [Azure AD Access Reviews API reference](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta) (Referencia de API de revisiones de acceso de Azure AD). Para obtener un ejemplo de código, vea [Example of retrieving Azure AD Access Reviews via Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096) (Ejemplo de recuperación de las revisiones de acceso de Azure AD a través de Microsoft Graph).
+También puede crear las revisiones de acceso mediante API. Qué hacer para administrar las revisiones de acceso de grupos y usuarios de aplicación en Azure Portal también pueden realizarse mediante Microsoft Graph API. Para obtener más información, consulte el [referencia de API de revisiones de acceso de Azure AD](https://docs.microsoft.com/graph/api/resources/accessreviews-root?view=graph-rest-beta). Para obtener un ejemplo de código, vea [revisa el ejemplo de recuperación de acceso de Azure AD a través de Microsoft Graph](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-of-retrieving-Azure-AD-access-reviews-via-Microsoft/m-p/236096).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

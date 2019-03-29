@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 8973558e0841bfd0d6651a08d39da96b544156c9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 223eff79d809a78d531d86d315fff80282cd29bb
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842464"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620162"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Conviértase en anunciante de Cloud Marketplace
 
@@ -44,6 +44,8 @@ Para participar en Cloud Marketplace de Microsoft es necesario disponer de una s
 Después de registrarse, registre el identificador de MPN de su organización. Lo necesitará en el paso 3 al enviar el formulario de registro de Marketplace.
 *   Obtenga información acerca de las ventajas de [Microsoft Partner Network](https://partner.microsoft.com/commercial)
 *   Si la organización tiene una suscripción existente, se unirá a ella durante el registro. Si usa [Centro de partners](https://partnercenter.microsoft.com/partner/home), podrá ver el identificador de la cuenta del Centro de partners. Si usa [Partner Membership Center (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx), podrá ver el identificador de la cuenta del Centro de partners. 
+
+Abra una incidencia con Microsoft [compatibilidad con el asociado](https://partner.microsoft.com/support) para problemas con el registro MPN.
 
 ---
 

@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: ec35e383a182cf783c253b9242e6abb73e39385d
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 9e910fb3bc75c285986871627d875296f1a2a746
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361105"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577329"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Cómo funciona Azure Machine Learning Service: Arquitectura y conceptos
 
@@ -46,11 +46,13 @@ El área de trabajo conserva una lista de destinos de proceso que se puede usar 
 
 Los modelos se registran con el área de trabajo. Debe usar un modelo registrado y los scripts de puntuación para crear una imagen. A continuación, la imagen se puede implementar en Azure Container Instances, en Azure Kubernetes Service o en una matriz de puerta programable en el campo (FPGA) como un punto de conexión HTTP basado en REST. También puede implementar la imagen en un dispositivo de Azure IoT Edge como un módulo.
 
-Puede crear varias áreas de trabajo, y cada área de trabajo se puede compartir entre varias personas. Al compartir un área de trabajo, puede controlar el acceso a la misma si asigna los siguientes roles a los usuarios:
+Puede crear varias áreas de trabajo, y cada área de trabajo se puede compartir entre varias personas. Cuando comparte un área de trabajo, puede controlar el acceso a ella mediante la asignación de usuarios a los roles siguientes:
 
 * Propietario
 * Colaborador
 * Lector
+
+Para obtener más información sobre estos roles, consulte el [administrar el acceso a un área de trabajo de Azure Machine Learning](how-to-assign-roles.md) artículo.
 
 Al crear una nueva área de trabajo, se crean automáticamente varios recursos de Azure que el área de trabajo utiliza:
 

@@ -1,5 +1,5 @@
 ---
-title: 'Roles que no puede administrar en PIM: Azure | Microsoft Docs'
+title: Funciones que no se puede administrar en PIM - Azure Active Directory | Microsoft Docs
 description: Describe los roles que no se pueden administrar en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 666b534c3ab07be2b1e2335015fc4723782a1249
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: aa5fb632ee5fd9c18bde7443e81fe2ef6e5335e4
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56181582"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579553"
 ---
 # <a name="roles-you-cannot-manage-in-pim"></a>Roles que no puede administrar en PIM
 
-Azure AD Privileged Identity Management (PIM) le permite administrar todos los [roles de directorio de Azure AD](../users-groups-roles/directory-assign-admin-roles.md) y todos los [roles de recursos de Azure](../../role-based-access-control/built-in-roles.md). Estos roles también incluyen sus roles personalizados asociados a los grupos de administración, suscripciones, grupos de recursos y recursos. Sin embargo, hay algunos roles que no puede administrar. En este artículo se describen los roles que no puede administrar en PIM.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) le permite administrar todo [roles de Azure AD](../users-groups-roles/directory-assign-admin-roles.md) y todos los [roles de recursos de Azure](../../role-based-access-control/built-in-roles.md). Estos roles también incluyen sus roles personalizados asociados a los grupos de administración, suscripciones, grupos de recursos y recursos. Sin embargo, hay algunos roles que no puede administrar. En este artículo se describen los roles que no puede administrar en PIM.
 
 ## <a name="classic-subscription-administrator-roles"></a>Roles de administrador de suscripciones clásicas
 
@@ -44,5 +44,5 @@ Los roles de Exchange Online o SharePoint Online, excepto para el Administrador 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Asignación de roles de directorio de Azure AD en PIM](pim-how-to-add-role-to-user.md)
+- [Asignar roles de Azure AD en PIM](pim-how-to-add-role-to-user.md)
 - [Asignación de roles de recursos de Azure en PIM](pim-resource-roles-assign-roles.md)

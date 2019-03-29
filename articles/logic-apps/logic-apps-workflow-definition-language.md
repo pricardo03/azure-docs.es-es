@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 04/30/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 3c17ec2133e278b17475e4988e1e9766b1349ba4
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
-ms.translationtype: HT
+ms.openlocfilehash: d2de2a25d67da230d539156c851cca34335a01c2
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55734647"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620843"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referencia de esquema del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 
@@ -41,7 +41,7 @@ Esta es la estructura de alto nivel de una definición de flujo de trabajo:
 | Elemento | Obligatorio | DESCRIPCIÓN |
 |---------|----------|-------------|
 | definición | Sí | El elemento inicial de la definición de flujo de trabajo. |
-| $schema | Solo cuando se hace referencia externa a una definición de flujo de trabajo. | La ubicación del archivo de esquema JSON que describe la versión del lenguaje de definición de flujo de trabajo, que puede encontrar aquí: <p>`https://schema.management.azure.com/schemas/2016-06-01/Microsoft.Logic.json`</p> |
+| $schema | Solo cuando se hace referencia externa a una definición de flujo de trabajo. | La ubicación del archivo de esquema JSON que describe la versión del lenguaje de definición de flujo de trabajo, que puede encontrar aquí: <p>`https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json`</p> |
 | contentVersion | Sin  | El número de versión de la definición de flujo de trabajo, que es "1.0.0.0" de forma predeterminada. Para ayudar a identificar y confirmar la definición correcta al implementar un flujo de trabajo, especifique el valor que usará. |
 | parameters | Sin  | Las definiciones de uno o varios parámetros que pasan datos al flujo de trabajo. <p><p>Máximo de parámetros: 50 |
 | Desencadenadores | Sin  | Las definiciones de uno o varios desencadenadores que crean una instancia del flujo de trabajo. Puede definir más de un desencadenador, pero solo con el lenguaje de definición de flujo de trabajo, no visualmente mediante el Diseñador de aplicaciones lógicas. <p><p>Máximo de desencadenadores: 10 |
@@ -72,8 +72,8 @@ Esta es la estructura general de una definición de parámetro:
 
 | Elemento | Obligatorio | Type | DESCRIPCIÓN |
 |---------|----------|------|-------------|
-| Tipo | Sí | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Nota**: Con todas las contraseñas, claves y secretos, use los tipos `securestring` y `secureobject` porque la operación `GET` no los devuelve. | El tipo del parámetro. |
-| defaultValue | Sin  | Igual que `type`. | El valor de parámetro predeterminado cuando no se especifica ningún valor al crear una instancia del flujo de trabajo. |
+| Tipo | Sí | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Nota**: Con todas las contraseñas, claves y secretos, use los tipos `securestring` y `secureobject` porque la operación `GET` no los devuelve. Para obtener más información acerca de cómo proteger los parámetros, vea [proteger la aplicación lógica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | El tipo del parámetro. |
+| defaultValue | Sí | Igual que `type`. | El valor de parámetro predeterminado cuando no se especifica ningún valor al crear una instancia del flujo de trabajo. |
 | allowedValues | Sin  | Igual que `type`. | Una matriz con valores que puede aceptar el parámetro. |
 | metadata | Sin  | Objeto JSON | Cualquier otro detalle del parámetro, por ejemplo, el nombre o una descripción legible de la aplicación lógica, o los datos de tiempo de diseño que usa Visual Studio u otras herramientas. |
 ||||

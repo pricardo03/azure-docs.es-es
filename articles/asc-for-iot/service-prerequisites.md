@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 213e6a95484b5f6953f8423474953125f8739015
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 0188dace0e666d4abfe31ac1c6c14d63c947c566
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541833"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574759"
 ---
 # <a name="asc-for-iot-prerequisites"></a>ASC para los requisitos previos de IoT
 
@@ -59,7 +59,7 @@ Compruebe la ubicación de centro de IoT para comprobar la disponibilidad del se
 
 ## <a name="supported-platforms-for-agents"></a>Plataformas compatibles con los agentes 
 
-ASC para agentes de IoT es compatible con una lista creciente de dispositivos y plataformas. Consulte la [admite la lista de plataformas](select-deploy-agent.md) para comprobar su biblioteca de dispositivos existente o planeada.  
+ASC para agentes de IoT es compatible con una lista creciente de dispositivos y plataformas. Consulte la [admite la lista de plataformas](how-to-deploy-agent.md) para comprobar su biblioteca de dispositivos existente o planeada.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Información general](overview.md)

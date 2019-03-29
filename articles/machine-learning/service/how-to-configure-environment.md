@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1d4144a2a6cf41d594ee096d8802ccc5b29009a5
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: c4bdeb4e00a59d6ba2b415801c0689d77ed9a825
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361802"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577567"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar un entorno de desarrollo para Azure Machine Learning
 
@@ -315,7 +315,9 @@ Una vez que se está ejecutando el clúster, [crear una biblioteca](https://docs
    1. En la ficha **Bibliotecas**, seleccione **Reiniciar**.
       
    También tenga en cuenta:
-   + Algunos paquetes, tales como `psutil`, pueden producirse conflictos de Databricks durante la instalación. Para evitar estos errores, instalar paquetes de versión inmovilización de lib, tales como `pstuil cryptography==1.5 pyopenssl==16.0.0 ipython==2.2.0`. 
+   + En la configuración Automl al usar Azure Databricks, agregue los siguientes parámetros:
+    1. ```max_concurrent_iterations``` según el número de nodos de trabajo en el clúster. 
+    2. ```spark_context=sc``` contexto de spark de #databricks/spark de forma predeterminada. 
    + O bien, si tiene una versión anterior del SDK, anule la selección de bibliotecas instaladas del clúster y mover a la Papelera. Instale la nueva versión del SDK y reinicie el clúster. Si hay un problema una vez hecho esto, desasocie y asocie nuevamente el clúster.
 
 Si la instalación fue correcta, la biblioteca importada debe ser uno de los siguientes:

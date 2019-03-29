@@ -19,29 +19,29 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 5a46575f6e8a0b05b65dbf49c70bddb570b514b2
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: a629a022e332eae5c8a58e9ffc0f760f96bc24dd
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497440"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577132"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Agregar proveedores de sugerencias para un índice de escritura anticipada en Azure Search
 
-Un **sugerencias** es una construcción en un [índice de Azure Search](search-what-is-an-index.md) que admite una experiencia de "búsqueda como-al escribir". Contiene una lista de campos para el que desea habilitar las entradas de la consulta de escritura anticipada. Hay dos variantes de escritura anticipada: *Autocompletar* se completa el término o frase que vaya escribiendo, *sugerencias* proporciona una breve lista de resultados. 
+Un **sugerencias** es una construcción en un [índice de Azure Search](search-what-is-an-index.md) que admite una experiencia de "búsqueda como-al escribir". Contiene una lista de campos para el que desea habilitar las entradas de la consulta de escritura anticipada. Dentro de un índice, el mismo proveedor de sugerencias es compatible con uno o ambos de estos dos variantes de escritura anticipada: *Autocompletar* se completa el término o frase que vaya escribiendo, *sugerencias* proporciona una breve lista de resultados. 
 
-En esta página de búsqueda de Xbox, los elementos de Autocompletar llevan a una nueva página de resultados de búsqueda para esa consulta, mientras que las sugerencias son los resultados reales que llevan a una página de juego en particular. Puede limitar Autocompletar para un elemento en una barra de búsqueda o proporcionar una lista como se muestra aquí. Para obtener sugerencias, puede exponer cualquier parte de un documento que mejor describe el resultado.
+Captura de pantalla siguiente muestra ambas características de escritura anticipada. En esta página de búsqueda de Xbox, los elementos de Autocompletar llevan a una nueva página de resultados de búsqueda para esa consulta, mientras que las sugerencias son los resultados reales que llevan a una página de juego en particular. Puede limitar Autocompletar para un elemento en una barra de búsqueda o proporcionar una lista como se muestra aquí. Para obtener sugerencias, puede exponer cualquier parte de un documento que mejor describe el resultado.
 
 ![Comparación visual de Autocompletar y las consultas sugeridas](./media/index-add-suggesters/visual-comparison-suggest-complete.png "comparación Visual de Autocompletar y las consultas sugeridas")
 
 Para implementar estos comportamientos en Azure Search, hay un componente de consulta e índice. 
 
-+ En un índice, agregue un proveedor de sugerencias. Puede usar el portal, API de REST o SDK de .NET para crear un proveedor de sugerencias. 
++ El componente del índice es un proveedor de sugerencias. Puede usar el portal, API de REST o SDK de .NET para crear un proveedor de sugerencias. 
 
-+ En una consulta, especifique una sugerencia o sutocomplete acción. 
++ El componente de consulta es una acción especificada en la solicitud de consulta (acción de una sugerencia o Autocompletar). 
 
 > [!Important]
-> Autocompletar está actualmente en versión preliminar, disponible en versión preliminar de las API de REST y SDK de .NET y no se admite para las aplicaciones de producción. 
+> Autocompletar está actualmente en versión preliminar, disponible en versión preliminar de las API de REST y SDK. NET. No está pensado para aplicaciones de producción. 
 
 Compatibilidad de búsqueda como-al escribir está habilitada por campo. Puede implementar ambos comportamientos de escritura anticipada en la misma solución de búsqueda si desea una experiencia similar a la indicada en la captura de pantalla. Destino de ambas solicitudes el *documentos* colección de índice específica y respuestas se devuelven después de que un usuario ha proporcionado al menos una cadena de entrada de tres caracteres.
 
@@ -77,7 +77,7 @@ Después de crea un proveedor de sugerencias, agregue el [API de sugerencias](ht
 
 ### <a name="use-the-net-sdk"></a>Uso del SDK de .NET
 
-En C#, defina un [clase de proveedor de sugerencias](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Proveedor de sugerencias es una colección, pero puede tomar solamente un elemento.
+En C#, defina un [clase de proveedor de sugerencias](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Un proveedor de sugerencias es una colección que puede tomar solamente un elemento. No olvide agregar `using System.Collections.Generic;` para que pueda crear una lista de objetos. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)
@@ -137,4 +137,4 @@ Usa un espacio aislado de servicio de búsqueda de Azure y un índice cargado pr
 Se recomienda el siguiente ejemplo para ver cómo se formulan las solicitudes.
 
 > [!div class="nextstepaction"]
-> [Ejemplo de consulta de autocompletado (versión preliminar)](search-autocomplete-tutorial.md) 
+> [Sugerencias y ejemplos de Autocompletar](search-autocomplete-tutorial.md) 

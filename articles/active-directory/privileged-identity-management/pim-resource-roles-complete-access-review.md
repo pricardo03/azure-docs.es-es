@@ -1,5 +1,5 @@
 ---
-title: Completar una revisión de acceso para los roles de recurso de Azure en PIM | Microsoft Docs
+title: Revisión de acceso para los roles de recursos de Azure en PIM - Azure Active Directory | Microsoft Docs
 description: Aprenda a completar una revisión de acceso para los roles de recurso de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,15 +15,15 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d81dc65274600359c3d886203b067b3a90b60cf
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 837be3ccdbd133f6bf372779dadff4d3c574a2e8
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56160799"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578244"
 ---
 # <a name="complete-an-access-review-for-azure-resource-roles-in-pim"></a>Completar una revisión de acceso para los roles de recurso de Azure en PIM
-Los administradores de roles con privilegios pueden revisar el acceso con privilegios una vez se [ha iniciado una revisión del acceso](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) para recursos de Azure envía automáticamente un correo electrónico para pedir a los usuarios que revisen su acceso. Si un usuario no recibe un correo electrónico, puede enviarle las instrucciones necesarias para [realizar una revisión del acceso](pim-resource-roles-perform-access-review.md).
+Los administradores de roles con privilegios pueden revisar el acceso con privilegios una vez se [ha iniciado una revisión del acceso](pim-resource-roles-start-access-review.md). Azure Active Directory (Azure AD) Privileged Identity Management (PIM) envía automáticamente un correo electrónico que se solicita a los usuarios que revisen su acceso. Si un usuario no recibe un correo electrónico, puede enviarle las instrucciones necesarias para [realizar una revisión del acceso](pim-resource-roles-perform-access-review.md).
 
 Cuando acabe el período de la revisión del acceso o una vez que todos los usuarios hayan finalizado su autorrevisión, siga los pasos de este artículo para administrar la revisión y ver los resultados.
 

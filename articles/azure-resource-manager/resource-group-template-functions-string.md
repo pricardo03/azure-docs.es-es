@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: c35352c47edb4f34100501ac791c84108fa9ac17
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 07221e5d93c004a2542adfc3a5374fd75ca34b31
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762847"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621420"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funciones de cadena para las plantillas de Azure Resource Manager
 
@@ -1809,7 +1809,7 @@ En el ejemplo siguiente se muestra cómo crear un nombre único para una cuenta 
     ...
 ```
 
-Si necesita crear un nuevo nombre único cada vez que se implementa una plantilla y no pretendemos para actualizar el recurso, puede usar el [utcNow](#utcnow) función con uniqueString. Podría utilizar este enfoque en un entorno de prueba. Para obtener un ejemplo, vea [utcNow](#utcNow).
+Si necesita crear un nuevo nombre único cada vez que se implementa una plantilla y no pretendemos para actualizar el recurso, puede usar el [utcNow](#utcnow) función con uniqueString. Podría utilizar este enfoque en un entorno de prueba. Para obtener un ejemplo, vea [utcNow](#utcnow).
 
 ### <a name="return-value"></a>Valor devuelto
 

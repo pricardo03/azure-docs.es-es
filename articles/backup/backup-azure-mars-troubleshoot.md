@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.author: saurse
-ms.openlocfilehash: a9a445208c151a537c35fa7afafa48b19486828f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4bad788156b2068f24484d3b248f2091409752ad
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008161"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621624"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent"></a>Solución de problemas del agente de Microsoft Azure Recovery Services (MARS)
 
@@ -60,7 +60,7 @@ A continuación, se indica cómo resolver los errores que pueden aparecer durant
 ## <a name="backups-dont-run-according-to-the-schedule"></a>Las copias de seguridad no se ejecutan según la programación.
 Si las copias de seguridad programadas no se desencadenan automáticamente, mientras que las copias de seguridad manuales funcionan sin problemas, pruebe las acciones siguientes:
 
-- Asegúrese de que la programación de copia de seguridad de Windows Server no entra en conflicto con la programación de copia de seguridad de archivos y carpetas de Azure.
+- Asegúrese de programación de copia de seguridad de Windows Server no entra en conflicto con la programación de copia de seguridad de archivos y carpetas de Azure.
 - Vaya a **Panel de Control** > **Herramientas administrativas** > **Programador de tareas**. Expanda **Microsoft** y seleccione **Copia de seguridad en línea**. Haga doble clic en **Microsoft-OnlineBackup** y vaya a la pestaña **Desencadenadores**. Asegúrese de que el estado de la tarea se establece en **Habilitado**. En caso contrario, seleccione **Editar**, active la casilla **Habilitado** y haga clic en **Aceptar**. En la pestaña **General**, vaya a **Opciones de seguridad** y compruebe que la cuenta de usuario seleccionada para ejecutar la tarea es **SYSTEM** o pertenece al **grupo de administradores locales** en el servidor.
 
 - Compruebe si PowerShell 3.0 o posterior está instalado en el servidor. Para comprobar la versión de PowerShell, ejecute el siguiente comando y verifique que el número de versión *principal* es igual o mayor que 3.

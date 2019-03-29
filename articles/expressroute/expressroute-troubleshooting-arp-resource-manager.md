@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/30/2017
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 01eac27b63f9eaaf62e863cd023201c3eab4b74e
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 76e242adb07f4e6176bbdc6c03c75950e3732c2b
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57432148"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622083"
 ---
 # <a name="getting-arp-tables-in-the-resource-manager-deployment-model"></a>Obtención de tablas ARP en el modelo de implementación de Resource Manager
 > [!div class="op_single_selector"]
@@ -59,6 +59,11 @@ Asegúrese de que cumple los siguientes requisitos previos antes de seguir adela
 * Intervalos de direcciones IP usados para configurar los emparejamientos (privado de Azure, público de Azure y Microsoft). Revise los ejemplos de asignación de dirección IP en [Requisitos de enrutamiento de ExpressRoute](expressroute-routing.md) para comprender cómo se asignan las direcciones IP a las interfaces en su sitio y el sitio de ExpressRoute. Puede obtener información sobre la configuración de emparejamiento en la página [Creación y modificación del enrutamiento de un circuito ExpressRoute](expressroute-howto-routing-arm.md).
 * Información del equipo de red o del proveedor de conectividad sobre las direcciones MAC de las interfaces usadas con estas direcciones IP.
 * Debe tener como mínimo el módulo más reciente de PowerShell para Azure (versión 1.50 o superior).
+
+> [!NOTE]
+> Si el proveedor de servicios proporciona el nivel 3 y las tablas ARP están en blanco en el portal y salida a continuación, actualice la configuración del circuito mediante el botón Actualizar en el portal. Esta operación aplicará la configuración de enrutamiento correcta a su circuito. 
+>
+>
 
 ## <a name="getting-the-arp-tables-for-your-expressroute-circuit"></a>Obtención de las tablas ARP para el circuito ExpressRoute
 En esta sección se proporcionan instrucciones sobre cómo ver las tablas ARP por emparejamiento mediante PowerShell. Usted o su proveedor de conectividad deben haber configurado el emparejamiento antes de seguir adelante. Cada circuito tiene dos rutas de acceso (principal y secundaria). Puede comprobar en la tabla ARP cada ruta de acceso de forma independiente.

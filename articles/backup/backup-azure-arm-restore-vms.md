@@ -7,23 +7,20 @@ manager: vijayts
 keywords: restaurar copias de seguridad; cómo restaurar; punto de recuperación;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/28/2019
 ms.author: geg
-ms.openlocfilehash: 2253e729daedc3b130919913c1616449245f9cc1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3b32418361b992b91aa96579a0cf1f84d8b9d312
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315392"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620417"
 ---
 # <a name="restore-azure-vms"></a>Restauración de máquinas virtuales de Azure
 
 En este artículo se describe cómo restaurar los datos de una máquina virtual de Azure a partir de los puntos de recuperación almacenados en los almacenes de [Azure Backup](backup-overview.md) Recovery Services.
 
-Para restaurar una máquina virtual Asegúrese de que el necesario [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) permiso.
 
-> [!NOTE]
-> Si no tienes [RBAC](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) permiso puede realizar [restaurar disco](backup-azure-arm-restore-vms.md#create-new-restore-disks) y crear la máquina virtual mediante [implementar plantilla](backup-azure-arm-restore-vms.md#use-templates-to-customize-a-restored-vm) característica.
 
 ### <a name="restore-options"></a>Opciones de restauración
 
@@ -39,6 +36,13 @@ En Azure Backup, se puede restaurar una máquina virtual de varias formas.
 > También puede recuperar archivos y carpetas específicos en una máquina virtual de Azure. [Más información](backup-azure-restore-files-from-vm.md).
 >
 > Si ejecuta la [última versión](backup-instant-restore-capability.md) de Azure Backup para máquinas virtuales de Azure (lo que se conoce como restauración instantánea), las instantáneas se conservan hasta un máximo de siete días, y puede restaurar una máquina virtual a partir de las instantáneas antes de que los datos de copia de seguridad se envíen al almacén. Si desea restaurar una máquina virtual a partir de una copia de seguridad de los siete últimos días, es más rápido restaurar desde la instantánea que desde el almacén.
+
+## <a name="before-you-start"></a>Antes de comenzar
+
+Para restaurar una máquina virtual (crear una nueva máquina virtual) asegúrese de que tiene el control de acceso correcto basado en roles (RBAC) [permisos](backup-rbac-rs-vault.md#mapping-backup-built-in-roles-to-backup-management-actions) para la operación de restaurar una máquina virtual.
+
+Si no tiene permisos, puede [restaurar un disco](#restore-disks), y, a continuación, después de restaura el disco, puede [usar la plantilla](#use-templates-to-customize-a-restored-vm) que se generó como parte de la operación de restauración para crear una nueva máquina virtual.
+
 
 
 ## <a name="select-a-restore-point"></a>Seleccione un punto de restauración
@@ -61,7 +65,7 @@ En Azure Backup, se puede restaurar una máquina virtual de varias formas.
 
 2. Especifique la configuración de la opción de restauración seleccionada.
 
-## <a name="create-new-create-a-vm"></a>Crear nuevo: crear una máquina virtual
+## <a name="create-a-vm"></a>Crear una VM
 
 Como una de las [opciones de restauración](#restore-options), puede crear una máquina virtual rápidamente con una configuración básica a partir de un punto de restauración.
 
@@ -76,7 +80,7 @@ Como una de las [opciones de restauración](#restore-options), puede crear una m
 6. En **Restaurar configuración**, seleccione **Aceptar**. En **Restaurar**, haga clic en **Restaurar** para desencadenar la operación de restauración.
 
 
-## <a name="create-new-restore-disks"></a>Crear nuevo: restaurar discos
+## <a name="restore-disks"></a>Restauración de los discos
 
 Como una de las [opciones de restauración](#restore-options), puede crear un disco a partir de un punto de restauración. Después, con el disco, puede realizar alguna de las siguientes acciones:
 
@@ -132,11 +136,11 @@ Hay una serie de escenarios comunes en los que es posible que deba restaurar las
 --- | ---
 **Restauración de máquinas virtuales con la ventaja de uso híbrido** | Si una máquina virtual Windows usa [licencias de la ventaja de uso híbrido (HUB)](../virtual-machines/windows/hybrid-use-benefit-licensing.md), restaure los discos y cree una máquina virtual mediante la plantilla proporcionada (con **Tipo de licencia** establecido en **Windows_Server**) o con PowerShell.  Esta configuración también se puede aplicar después de crear la máquina virtual.
 **Restauración de máquinas virtuales durante un desastre del centro de datos de Azure** | Si el almacén usa el almacenamiento con redundancia geográfica (GRS) y el centro de datos principal para la máquina virtual deja de funcionar, Azure Backup admite la restauración de máquinas virtuales de copia de seguridad en el centro de datos emparejado. Seleccione una cuenta de almacenamiento en el centro de datos emparejado y realice la restauración de la forma habitual. Azure Backup usa el servicio de proceso en la ubicación emparejada para crear la máquina virtual restaurada. [Obtenga más información](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md) sobre la resistencia del centro de datos.
-**Restauración de una máquina virtual de un controlador de dominio único en un dominio único** | Restaure la máquina virtual como cualquier otra. Observe lo siguiente:<br/><br/> Desde la perspectiva de Active Directory, una máquina virtual de Azure es como cualquier otra.<br/><br/> El modo de restauración de servicios de directorio (DSRM) también está disponible, de modo que todos los escenarios de recuperación de Active Directory son viables. [Obtenga más información](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v) sobre las consideraciones de copia de seguridad y restauración para controladores de dominio virtualizados.
-**Restauración de una máquina virtual de un controlador de varios dominios en un dominio único** | Cuando se pueda acceder a otros controladores de dominio del mismo dominio a través de la red, el controlador de dominio se podrá restaurar como cualquier máquina virtual. Si se trata del último controlador de dominio que queda en el dominio o bien se lleva a cabo una recuperación en una red aislada, use una [recuperación de bosques](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
+**Restauración de una máquina virtual de un controlador de dominio único en un dominio único** | Restaure la máquina virtual como cualquier otra. Observe lo siguiente:<br/><br/> Desde una perspectiva de Active Directory, la máquina virtual de Azure es como cualquier otra máquina virtual.<br/><br/> El modo de restauración de servicios de directorio (DSRM) también está disponible, de modo que todos los escenarios de recuperación de Active Directory son viables. [Obtenga más información](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v) sobre las consideraciones de copia de seguridad y restauración para controladores de dominio virtualizados.
+**Restauración de una máquina virtual de un controlador de varios dominios en un dominio único** | Si otros controladores de dominio en el mismo dominio pueden tener acceso a través de la red, se puede restaurar el controlador de dominio como cualquier máquina virtual. Si se trata del último controlador de dominio que queda en el dominio o bien se lleva a cabo una recuperación en una red aislada, use una [recuperación de bosques](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Restauración de varios dominios en un solo bosque** | Se recomienda una [recuperación de bosques](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Restauración con reconstrucción completa** | La principal diferencia entre las máquinas virtuales de Azure y los hipervisores locales es que no hay ninguna consola de máquina virtual disponible en Azure. Se necesita una consola para determinados escenarios, como para la recuperación mediante una copia de seguridad de reconstrucción completa (BMR). Sin embargo, la restauración de una VM desde el almacén es una sustitución completa para una BMR.
-**Restauración de máquinas virtuales con configuraciones de red especiales** | Las configuraciones de red especiales incluyen máquinas virtuales que usan equilibrio de carga interno o externo, varias NIC o varias direcciones IP reservadas. Restaure estas máquinas virtuales con la [opción Restaurar disco](#create-new-restore-disks). Esta opción realiza una copia de los discos duros virtuales en la cuenta de almacenamiento especificada y, a continuación, puede crear una máquina virtual con un [interno](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) o [externo](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/) equilibrador de carga, [varias NIC](../virtual-machines/windows/multiple-nics.md), o [varias direcciones IP reservadas](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), según la configuración.
+**Restauración de máquinas virtuales con configuraciones de red especiales** | Las configuraciones de red especiales incluyen máquinas virtuales que usan equilibrio de carga interno o externo, varias NIC o varias direcciones IP reservadas. Restaure estas máquinas virtuales con la [opción Restaurar disco](#restore-disks). Esta opción realiza una copia de los discos duros virtuales en la cuenta de almacenamiento especificada y, a continuación, puede crear una máquina virtual con un [interno](https://azure.microsoft.com/documentation/articles/load-balancer-internal-getstarted/) o [externo](https://azure.microsoft.com/documentation/articles/load-balancer-internet-getstarted/) equilibrador de carga, [varias NIC](../virtual-machines/windows/multiple-nics.md), o [varias direcciones IP reservadas](../virtual-network/virtual-network-multiple-ip-addresses-powershell.md), según la configuración.
 **Grupo de seguridad de red (NSG) en NIC o subred** | Azure backup para máquinas virtuales es compatible con la información de copia de seguridad y restauración de NSG en la red virtual, subred y nivel de NIC.
 
 ## <a name="track-the-restore-operation"></a>Seguimiento de la operación de restauración

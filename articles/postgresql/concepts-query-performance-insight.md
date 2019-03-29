@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 03/26/2019
-ms.openlocfilehash: 69963f34cb49482cc7eae25320a6a3a5f176f8dd
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.date: 03/28/2019
+ms.openlocfilehash: 56abdd819e78312e64209078c3966826385df7bc
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486592"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620740"
 ---
 # <a name="query-performance-insight"></a>Información de rendimiento de consultas 
 
@@ -28,11 +28,11 @@ Para que Query Performance Insight funcione, deben existir datos en el [Almacén
 ## <a name="viewing-performance-insights"></a>Ver información de rendimiento
 La vista [Query Performance Insight](concepts-query-performance-insight.md) en Azure Portal detectará visualizaciones en la información de clave del Almacén de consultas. 
 
-En la página del portal de su servidor de Azure Database for PostgreSQL, seleccione **Query Performance Insight** en la sección **Soporte técnico y solución de problemas** de la barra de menús.
+En la página del portal de su servidor Azure Database for PostgreSQL, seleccione **información de rendimiento de las consultas** bajo el **rendimiento inteligente** sección de la barra de menús.
 
 ![Consultas de larga ejecución de Query Performance Insight](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png)
 
-La pestaña **Consultas de larga ejecución** muestra las 5 principales consultas por promedio de duración por ejecución, que se agregan en intervalos de 15 minutos. Puede ver más consultas seleccionando en el lista desplegable **Número de consultas**. Al hacerlo, los colores del gráfico pueden cambiar a un identificador de consulta específico.
+El **consultas de larga ejecución** pestaña muestra las principales cinco consultas por promedio de duración por ejecución, se agregan en intervalos de 15 minutos. Puede ver más consultas seleccionando en el lista desplegable **Número de consultas**. Al hacerlo, los colores del gráfico pueden cambiar a un identificador de consulta específico.
 
 Puede hacer clic y arrastrar en el gráfico para restringir a un período de tiempo específico. Como alternativa, puede usar los iconos de acercar y alejar para ver un período de tiempo mayor o menor, respectivamente.
 
@@ -40,7 +40,7 @@ La tabla debajo del gráfico proporciona más información sobre las consultas d
 
 Seleccione la pestaña **Estadísticas de espera** para ver las visualizaciones correspondientes a esperas en el servidor.
 
-![Estadísticas de espera de Query Performance Insight](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+![Query Performance Insight de estadísticas de espera](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 - Más información acerca de la [supervisión y ajuste](concepts-monitoring.md) en Azure Database for PostgreSQL.

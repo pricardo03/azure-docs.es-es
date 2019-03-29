@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/11/2019
 ms.author: roiyz
-ms.openlocfilehash: d8b2b10f9a12fb32a522a9c87c67bb24d6d4475e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d9f634d494c3c88146ab1f243d17609cf30bbcd
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57991837"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620689"
 ---
 # <a name="nvidia-gpu-driver-extension-for-linux"></a>Extensión del controlador de GPU de NVIDIA para Linux
 
 ## <a name="overview"></a>Información general
 
-Esta extensión instala los controladores de GPU de NVIDIA en VMs de serie N de Linux. En función de la familia de VM, la extensión instala los controladores CUDA o GRID. Al instalar controladores de NVIDIA mediante esta extensión, acepta y está de acuerdo con los términos del [contrato de licencia de usuario final de NVIDIA](https://developer.download.nvidia.com/compute/cuda/5_5/rel/docs/EULA.pdf). Durante el proceso de instalación, es posible que la máquina virtual se reinicie para completar la instalación del controlador.
+Esta extensión instala los controladores de GPU de NVIDIA en VMs de serie N de Linux. En función de la familia de VM, la extensión instala los controladores CUDA o GRID. Al instalar controladores de NVIDIA mediante esta extensión, acepta y está de acuerdo con los términos del [contrato de licencia de usuario final de NVIDIA](https://go.microsoft.com/fwlink/?linkid=874330). Durante el proceso de instalación, es posible que la máquina virtual se reinicie para completar la instalación del controlador.
 
 También se dispone de una extensión para instalar controladores de GPU de NVIDIA en [MVs de la serie N para Windows](hpccompute-gpu-windows.md).
 

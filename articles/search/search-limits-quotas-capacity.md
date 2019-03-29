@@ -7,24 +7,29 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: b97c84a7a5d7732c8c895fd3074734762e5e040c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 8a6023c87dd1d68ab76c5c2342cb825e63d2b336
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57780412"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620656"
 ---
 # <a name="service-limits-in-azure-search"></a>Límites de servicio en Azure Search
-Los límites máximos del almacenamiento, las cargas de trabajo y las cantidades de índices, documentos y otros objetos dependen de si [aprovisiona Azure Search](search-create-service-portal.md) conforme a un plan de tarifa **Gratis**, **Básico** o **Estándar**.
+Los límites máximos del almacenamiento, las cargas de trabajo y las cantidades de índices, documentos y otros objetos dependen de si se [aprovisiona Azure Search](search-create-service-portal.md) en **gratis**, **básica**,  **Estándar**, o **optimizadas para almacenamiento** planes de tarifa.
 
 + **Gratis** es un servicio multiinquilino compartido incluido en su suscripción de Azure.
 
 + El plan **Básico** proporciona recursos de proceso dedicados para cargas de trabajo de producción a escala más pequeña.
 
 + **Estándar** se ejecuta en máquinas dedicadas, con más almacenamiento y capacidad de procesamiento en cada nivel. Estándar incluye cuatro niveles: S1, S2, S3 y S3 HD.
+
++ **Almacenamiento optimizado** se ejecuta en máquinas dedicadas con más almacenamiento total, el ancho de banda de almacenamiento y memoria que **estándar**. Almacenamiento optimizado viene en dos niveles: L1 y L2
+
+> [!NOTE]
+> Los niveles de servicio de almacenamiento optimizado disponibles actualmente como versión preliminar a un precio con descuento para fines de pruebas y experimentación con el fin de recabar comentarios. El precio final se anunciará más adelante cuando estos niveles están disponibles con carácter general. Aconsejamos que no se usen estos niveles para las aplicaciones de producción.
 
   S3 High Density (S3 HD) está diseñado para cargas de trabajo específicas: [multiinquilino](search-modeling-multitenant-saas-applications.md) y grandes cantidades de índices pequeños (un millón de documentos por índice, tres mil índices por servicio). Este nivel no proporciona la [característica de indexador](search-indexer-overview.md). En S3 HD, la ingesta de datos debe aprovechar el enfoque de inserción, mediante llamadas API para insertar los datos del origen en el índice. 
 
@@ -42,13 +47,13 @@ Los límites máximos del almacenamiento, las cargas de trabajo y las cantidades
 
 ## <a name="index-limits"></a>Límites de índice
 
-| Recurso | Gratuito | Básico&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD |
-| -------- | ---- | ------------------- | --- | --- | --- | --- |
-| Índices máximos |3 |5 o 15 |50 |200 |200 |1000 GB por partición o 3000 por servicio |
-| Campos máximos por índice |1000 |100 |1000 |1000 |1000 |1000 |
-| [Proveedores de sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggesters) máximos por índice |1 |1 |1 |1 |1 |1 |
-| [Perfiles de puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) máximos por índice |100 |100 |100 |100 |100 |100 |
-| Funciones máximas por perfil |8 |8 |8 |8 |8 |8 |
+| Recurso | Gratuito | Básico&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
+| Índices máximos |3 |5 o 15 |50 |200 |200 |1000 GB por partición o 3000 por servicio |10 |10 |
+| Campos máximos por índice |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
+| [Proveedores de sugerencias](https://docs.microsoft.com/rest/api/searchservice/suggesters) máximos por índice |1 |1 |1 |1 |1 |1 |1 |1 |
+| [Perfiles de puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) máximos por índice |100 |100 |100 |100 |100 |100 |100 |100 |
+| Funciones máximas por perfil |8 |8 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> Los servicios básicos creados después de finales de 2017 han aumentado su límite en 15 índices, orígenes de datos e indexadores. Los servicios creados anteriormente tienen 5. El nivel básico es la única SKU con un límite inferior de 100 campos por índice.
 
@@ -98,16 +103,16 @@ Los servicios básicos creados después de finales de 2017 han aumentado su lím
 
 Las operaciones que consumen muchos recursos, como el análisis de la imagen en la indexación de blobs de Azure o el procesamiento de lenguaje natural en la búsqueda cognitiva, tienen tiempos de ejecución máximos más cortos para que se puedan incluir otros trabajos de indexación. Si un trabajo de indexación no se puede completar en el tiempo máximo permitido, intente ejecutarlo en una programación. El programador realiza un seguimiento del estado de la indexación. Si un trabajo programado de indexación se interrumpe por cualquier motivo, el indizador puede reanudarlo donde se quedó en la siguiente ejecución programada.
 
-| Recurso | Gratis&nbsp;<sup>1</sup> | Básico&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|
-| -------- | ----------------- | ----------------- | --- | --- | --- | --- |
-| Indexadores máximos |3 |5 o 15|50 |200 |200 |N/D |
-| Orígenes de datos máximos |3 |5 o 15 |50 |200 |200 |N/D |
-| Conjuntos de habilidades máximos <sup>4</sup> |3 |5 o 15 |50 |200 |200 |N/D |
-| Carga máxima de indexación por invocación |10 000 documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |N/D |
-| Tiempo de ejecución máximo <sup>5</sup> | 1-3 minutos |24 horas |24 horas |24 horas |24 horas |N/D  |
-| Tiempo de ejecución máximo para conocimientos adicionales de búsqueda cognitiva o indización de blobs con análisis de imágenes <sup>5</sup> | 3-10 minutos |2 horas |2 horas |2 horas |2 horas |N/D  |
-| Indexador de blobs: tamaño máximo de blob, MB |16 |16 |128 |256 |256 |N/D  |
-| Indexador de blobs: número máximo de caracteres del contenido extraído de un blob |32 000 |64 000 |4 millones |4 millones |4 millones |N/D |
+| Recurso | Gratis&nbsp;<sup>1</sup> | Básico&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
+| Indexadores máximos |3 |5 o 15|50 |200 |200 |N/D |10 |10 |
+| Orígenes de datos máximos |3 |5 o 15 |50 |200 |200 |N/D |10 |10 |
+| Conjuntos de habilidades máximos <sup>4</sup> |3 |5 o 15 |50 |200 |200 |N/D |10 |10 |
+| Carga máxima de indexación por invocación |10 000 documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |Limitado solamente por el número máximo de documentos |N/D |Sin límite |Sin límite |
+| Tiempo de ejecución máximo <sup>5</sup> | 1-3 minutos |24 horas |24 horas |24 horas |24 horas |N/D  |24 horas |24 horas |
+| Tiempo de ejecución máximo para conocimientos adicionales de búsqueda cognitiva o indización de blobs con análisis de imágenes <sup>5</sup> | 3-10 minutos |2 horas |2 horas |2 horas |2 horas |N/D  |2 horas |2 horas |
+| Indexador de blobs: tamaño máximo de blob, MB |16 |16 |128 |256 |256 |N/D  |256 |256 |
+| Indexador de blobs: número máximo de caracteres del contenido extraído de un blob |32 000 |64 000 |4 millones |4 millones |4 millones |N/D |4 millones |4 millones |
 
 <sup>1</sup> Los servicios gratuitos tienen un tiempo de ejecución máximo del indexador de 3 minutos para servicios de blob y de 1 minuto para todos los demás orígenes de datos.
 
@@ -124,6 +129,8 @@ Las operaciones que consumen muchos recursos, como el análisis de la imagen en 
 Cada cliente debe desarrollar las estimaciones de QPS de manera independiente. El tamaño y la complejidad del índice, el tamaño y la complejidad de la consulta, y la cantidad de tráfico son los determinantes principales de las consultas por segundo. No hay manera de ofrecer estimaciones significativas cuando estos factores son desconocidos.
 
 Las estimaciones son más predecibles cuando se calculan en los servicios que se ejecutan en recursos dedicados (niveles Básico y Estándar). Puede calcular el número de QPS con más precisión porque tiene control sobre más parámetros. Para obtener instrucciones sobre cómo encargarse del cálculo, consulte [Consideraciones sobre el rendimiento y la optimización de Azure Search](search-performance-optimization.md).
+
+Los niveles de almacenamiento optimizado, debe esperar un rendimiento más bajo de consulta y una latencia superior que los niveles estándar.  La metodología para calcular el rendimiento de las consultas que puede experimentar es igual que los niveles estándar.
 
 ## <a name="data-limits-cognitive-search"></a>Límites de datos (búsqueda cognitiva)
 

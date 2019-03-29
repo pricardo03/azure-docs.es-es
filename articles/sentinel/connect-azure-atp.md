@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/30/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 154af3988084792331db082b99cae0ae06126f1b
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 5254e60b9b7c38e5f4534e90f8aabe938aef99b2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242180"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574950"
 ---
 # <a name="collect-data-from-azure-advanced-threat-protection-atp"></a>Recopilar datos desde Azure Advanced Threat Protection (ATP)
 
 > [!IMPORTANT]
-> Sentinel Azure está actualmente en versión preliminar pública.
+> Azure Sentinel se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
@@ -46,9 +46,10 @@ Si está implementado ATP de Azure y consumir los datos, las alertas sospechosas
 
 2. Haga clic en **Conectar**.
 
+6. Para usar el esquema correspondiente en Log Analytics para las alertas de ATP de Azure, busque **SecurityAlert**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, ha aprendido cómo conectar la protección contra amenazas avanzada de Azure a Azure Sentinel. Para obtener más información acerca de Centinela de Azure, consulte los artículos siguientes:
+En este documento, ha aprendido cómo conectar la protección contra amenazas avanzada de Azure a Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Obtenga información sobre cómo [Obtenga visibilidad sobre sus datos y las posibles amenazas](quickstart-get-visibility.md).
 - Introducción a [detección de amenazas con Azure Sentinel](tutorial-detect-threats.md).
 

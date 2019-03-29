@@ -1,5 +1,5 @@
 ---
-title: 'Requisitos de licencia para usar PIM: Azure | Microsoft Docs'
+title: Requisitos para usar Azure Active Directory PIM - de licencia | Microsoft Docs
 description: Describe los requisitos de licencia necesarios para usar Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7b7aa010b3001045566bc55fb440a2171145881
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 40e16209a185623b6e15650f70141edd6394e337
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56177261"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576163"
 ---
 # <a name="license-requirements-to-use-pim"></a>Requisitos de licencia para usar PIM
 
@@ -45,7 +45,7 @@ Cada administrador o usuario que interactúa con, o recibe un beneficio de PIM, 
 - Los administradores con roles de Azure AD administrados mediante PIM
 - Los administradores con roles de recurso de Azure AD administrados mediante PIM
 - Los administradores asignados al rol de administrador de roles con privilegios
-- Los usuarios asignados como aptos para roles de directorio que se pueden administrar con PIM
+- Los usuarios asignados como aptos a roles de Azure AD administran mediante PIM
 - Los usuarios que pueden aprobar o rechazar solicitudes en PIM
 - Los usuarios asignados a un rol de recursos de Azure con asignaciones Just-In-Time o directas (basadas en tiempo)  
 - Los usuarios asignados a una revisión de acceso

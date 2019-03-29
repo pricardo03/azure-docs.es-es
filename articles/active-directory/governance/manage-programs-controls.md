@@ -1,6 +1,6 @@
 ---
-title: Administración de programas y controles para las revisiones de acceso de Azure AD | Microsoft Docs
-description: Aprenda a crear programas adicionales para cada control, administración de riesgos e iniciativa de cumplimiento de su organización para recopilar y organizar las revisiones de acceso de Active Directory de Azure como controles.
+title: Administración de programas y controles para las revisiones de acceso - Azure Active Directory | Microsoft Docs
+description: Aprenda a crear programas adicionales para cada control, administración de riesgos e iniciativa de cumplimiento de su organización para recopilar y organizar las revisiones de acceso de Azure Active Directory como controles.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3056976ada6c0a0287eec608dbad230e8dbb2625
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 43c0f1c041bfed1b041a9926efd869d167c6f1e9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895189"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577270"
 ---
-# <a name="manage-programs-and-controls-for-azure-ad-access-reviews"></a>Administración de programas y controles para las revisiones de acceso de Azure AD
+# <a name="manage-programs-and-controls-for-azure-ad-access-reviews"></a>Administración de programas y las revisiones de acceso de los controles para Azure AD
 
 Azure Active Directory (Azure AD) incluye revisiones de acceso de los miembros del grupo y acceso a la aplicación. Estos ejemplos de controles garantizan la vigilancia de quién dispone de acceso a sus aplicaciones y pertenencias a grupos de la organización. Las organizaciones pueden usar estos controles para abordar eficazmente sus requisitos de cumplimiento de normas, administración de riesgos y regulación.
 

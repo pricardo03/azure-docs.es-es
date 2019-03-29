@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: d669842c60fb69820e6d94ad0a9359f6460101fe
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 95e984f6f08af01a2ffd7b9b4e0ec598d73f4d05
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481882"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621080"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Instalación del entorno de ejecución de Azure IoT Edge en Windows
 
@@ -26,7 +26,16 @@ Para obtener más información sobre el entorno de ejecución de IoT Edge, vea [
 En este artículo se enumeran los pasos para instalar el entorno de ejecución de Azure IoT Edge en el sistema Windows x64 (AMD e Intel). Esta compatibilidad con Windows se encuentra actualmente en versión preliminar.
 
 > [!NOTE]
-> En la configuración de producción de Azure IoT Edge, no se recomienda ni se permite utilizar contenedores Linux en sistemas Windows. Sin embargo, se puede usar con fines de desarrollo y pruebas.
+> Un problema conocido de sistema operativo de Windows impide que la transición para de suspensión e hibernación Estados de energía cuando se ejecutan los módulos de IoT Edge (contenedores de Windows Nano Server con aislamiento de proceso). Este problema afecta a la duración de la batería del dispositivo.
+>
+> Como alternativa, use el comando `Stop-Service iotedge` detener cualquier ejecución de módulos de IoT Edge antes de usar estos Estados de energía. 
+
+<!--
+> [!NOTE]
+> Using Linux containers on Windows systems is not a recommended or supported production configuration for Azure IoT Edge. However, it can be used for development and testing purposes.
+-->
+
+Con Linux contenedor en sistemas de Windows no es una configuración de producción recomendada o se admite para Azure IoT Edge. Sin embargo, se puede usar con fines de desarrollo y pruebas. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 

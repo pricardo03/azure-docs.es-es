@@ -6,20 +6,20 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 69fce34c55007daff48b2463da590ffb9cd59926
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6879dd975f97ba2746165e87a135e5d90e8b229f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775329"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620648"
 ---
 # <a name="scale-partitions-and-replicas-for-query-and-indexing-workloads-in-azure-search"></a>Escalar las particiones y réplicas para cargas de trabajo en Azure Search de indexación y consulta
 Después de [elegir un plan de tarifa](search-sku-tier.md) y [aprovisionar un servicio de búsqueda](search-create-service-portal.md), el siguiente paso es aumentar opcionalmente el número de réplicas o particiones utilizadas por el servicio. Cada nivel ofrece un número fijo de unidades de facturación. En este artículo se explica cómo asignar las unidades para lograr una configuración óptima que equilibra los requisitos para la ejecución de consulta, indexación y almacenamiento.
 
-La configuración de recursos está disponible cuando se configura un servicio en un [nivel Básico](https://aka.ms/azuresearchbasic) o uno de los [niveles Estándar](search-limits-quotas-capacity.md). Para los servicios en estos niveles, la capacidad se adquiere en incrementos de *unidades de búsqueda* (SU), en las que cada partición y réplica cuentan como una SU. 
+Configuración de recursos está disponible al configurar un servicio en la [nivel básico](https://aka.ms/azuresearchbasic) o uno de los [niveles estándar o almacenamiento optimizado](search-limits-quotas-capacity.md). Para los servicios en estos niveles, la capacidad se adquiere en incrementos de *unidades de búsqueda* (SU), en las que cada partición y réplica cuentan como una SU. 
 
 Uso de menos SU da lugar a una factura proporcionalmente menor. Mientras el servicio esté configurando, le seguiremos cobrando. Si va a estar un tiempo sin utilizar un servicio, la única forma de evitar que le cobremos será eliminando el servicio y creándolo de nuevo cuando lo necesite más adelante.
 
@@ -81,7 +81,7 @@ Como norma general, las aplicaciones de búsqueda necesitan más réplicas que p
 
 Un servicio del nivel Básico puede tener exactamente 1 partición y hasta 3 réplicas para un límite máximo de 3 SU. El único recurso que puede ajustarse son las réplicas. Se necesita un mínimo de 2 réplicas para lograr una alta disponibilidad en las consultas.
 
-Todos los servicios estándares pueden suponer que las siguientes combinaciones de réplicas y particiones, con el límite de 36-unidades de búsqueda. 
+Estándar y optimizadas para almacenamiento de todos los servicios de búsqueda pueden suponer que las siguientes combinaciones de réplicas y particiones, con el límite de 36-unidades de búsqueda. 
 
 |   | **1 partición** | **2 particiones** | **3 particiones** | **4 particiones** | **6 particiones** | **12 particiones** |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -112,7 +112,7 @@ Las recomendaciones generales para alta disponibilidad son:
 
 Los Acuerdos de Nivel de Servicio (SLA) de Azure Search están destinados a las operaciones de consulta y actualizaciones de índices que constan de procesos de incorporación, actualización o eliminación de documentos.
 
-El nivel básico alcanza el límite en una partición y tres réplicas. Si desea la flexibilidad de responder inmediatamente a las fluctuaciones en la demanda para el rendimiento de indexación y consulta, considere uno de los niveles Estándar.
+El nivel básico alcanza el límite en una partición y tres réplicas. Si desea la flexibilidad de responder inmediatamente a las fluctuaciones en la demanda para el rendimiento de indexación y consulta, considere uno de los niveles Estándar.  Si que los requisitos de almacenamiento están creciendo mucho más deprisa que el rendimiento de las consultas, considere la posibilidad de uno de los niveles de almacenamiento optimizado.
 
 ### <a name="index-availability-during-a-rebuild"></a>Disponibilidad de los índices durante un proceso de regeneración
 

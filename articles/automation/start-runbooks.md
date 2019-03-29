@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4c3c936a3d547389de3681b4f82f329c4978742d
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: cf1d36458bab867e35fa23ae702a6f6f45d8dc60
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886628"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620587"
 ---
 # <a name="start-a-runbook-in-azure-automation"></a>Inicio de un runbook en Azure Automation
 
@@ -39,7 +39,7 @@ La siguiente imagen ilustra el proceso paso a paso detallado en el ciclo de vida
 1. En Azure Portal, seleccione **Automation** y, a continuación, haga clic en el nombre de una cuenta de Automation.
 2. En el menú central, seleccione **Runbooks**.
 3. En la página **Runbooks**, seleccione un runbook y haga clic en **Iniciar**.
-4. Si el runbook tiene parámetros, se le pide que proporcione los valores de cada parámetro con un cuadro de texto. Para más información sobre los parámetros, consulte [Parámetros de runbook](#Runbook-parameters).
+4. Si el runbook tiene parámetros, se le pide que proporcione los valores de cada parámetro con un cuadro de texto. Para más información sobre los parámetros, consulte [Parámetros de runbook](#runbook-parameters).
 5. En la página **Trabajo**, puede ver el estado del trabajo de runbook.
 
 ## <a name="start-a-runbook-with-powershell"></a>Inicio de un runbook con PowerShell
@@ -69,7 +69,7 @@ While ($doLoop) {
 Get-AzureRmAutomationJobOutput –AutomationAccountName $AutomationAcct -Id $job.JobId -ResourceGroupName $ResourceGroup –Stream Output
 ```
 
-Si el runbook requiere parámetros, tiene que proporcionarlos como una [tabla hash](https://technet.microsoft.com/library/hh847780.aspx). La clave de la tabla hash tiene que coincidir con el nombre del parámetro y el valor es el valor del parámetro. En el ejemplo siguiente se muestra cómo iniciar un runbook con dos parámetros de cadena denominados FirstName y LastName, un número entero denominado RepeatCount y un parámetro booleano denominado Show. Para más información sobre los parámetros, consulte a continuación [Parámetros de runbook](#Runbook-parameters).
+Si el runbook requiere parámetros, tiene que proporcionarlos como una [tabla hash](https://technet.microsoft.com/library/hh847780.aspx). La clave de la tabla hash tiene que coincidir con el nombre del parámetro y el valor es el valor del parámetro. En el ejemplo siguiente se muestra cómo iniciar un runbook con dos parámetros de cadena denominados FirstName y LastName, un número entero denominado RepeatCount y un parámetro booleano denominado Show. Para más información sobre los parámetros, consulte a continuación [Parámetros de runbook](#runbook-parameters).
 
 ```azurepowershell-interactive
 $params = @{"FirstName"="Joe";"LastName"="Smith";"RepeatCount"=2;"Show"=$true}

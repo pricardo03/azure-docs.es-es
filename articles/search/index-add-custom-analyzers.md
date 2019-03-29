@@ -19,18 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 8eb762e8a18ea5de25413681894f692628493a2f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9a15078c953c1fab40ad521eff079a623c93b9d9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842862"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577550"
 ---
 # <a name="add-custom-analyzers-to-an-azure-search-index"></a>Incorporación de analizadores personalizados a un índice de Azure Search
 
 Un *analizador personalizado* es un tipo específico de [analizador de texto](search-analyzers.md) que se compone de una combinación definida por el usuario de un tokenizador existente y unos filtros opcionales. Si combina los tokenizadores y los filtros de nuevas formas, puede personalizar el procesamiento de texto del motor de búsqueda para lograr resultados específicos. Por ejemplo, podría crear un analizador personalizado con un *filtro de caracteres* para quitar el marcado HTML antes de que se tokenicen las entradas de texto.
 
- Puede definir varios analizadores personalizados para variar la combinación de filtros, pero cada campo solo puede usar un analizador para el análisis de indexación y otro para el análisis de la búsqueda. Para ver una ilustración del aspecto que tendría un analizador de clientes, consulte un [ejemplo de un analizador personalizado](search-analyzers.md#Example1).
+ Puede definir varios analizadores personalizados para variar la combinación de filtros, pero cada campo solo puede usar un analizador para el análisis de indexación y otro para el análisis de la búsqueda. Para ver una ilustración del aspecto que tendría un analizador de clientes, consulte un [ejemplo de un analizador personalizado](search-analyzers.md#Custom-analyzer-example).
 
 ## <a name="overview"></a>Información general
 

@@ -1,6 +1,6 @@
 ---
-title: Administrar el acceso de invitado con revisiones de acceso de Azure AD | Microsoft Docs
-description: Administrar los usuarios invitados como miembros de un grupo o asignados a una aplicación con revisiones de acceso de Azure Active Directory
+title: Administrar el acceso de invitado con revisiones de acceso - Azure Active Directory | Microsoft Docs
+description: Administración de los usuarios invitados como miembros de un grupo o asignados a una aplicación con las revisiones de acceso de Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 12/13/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bed8a5d20b50fd90922730c958cb1a36933776f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 967fbf460175dee303d26074426a1f90e4353407
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881051"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576503"
 ---
-# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Administrar el acceso de invitado con revisiones de acceso de Azure AD
+# <a name="manage-guest-access-with-azure-ad-access-reviews"></a>Administración del acceso de los invitados con las revisiones de acceso de Azure AD
 
 
 Con Azure Active Directory (Azure AD), puede habilitar fácilmente la colaboración entre distintas organizaciones mediante la [característica B2B de Azure AD](../b2b/what-is-b2b.md). Los usuarios invitados de otros inquilinos pueden ser [invitados por los administradores](../b2b/add-users-administrator.md) o por [otros usuarios](../b2b/what-is-b2b.md). Esta capacidad también se aplica a las identidades sociales como las cuentas Microsoft.

@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: a1ee95ad847d20159c79af8f080cc7878e114759
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 2d6a5c96bf99439520e26fc905668835944cee29
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444518"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578933"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>Actualizar a una cuenta de almacenamiento de uso general v2
 
@@ -21,7 +21,7 @@ Las cuentas de almacenamiento de uso general v2 admiten las características má
 Actualizar a una cuenta de almacenamiento de uso general v2 de su uso general v1 o cuentas de Blob storage es sencillo. Puede usar Azure Portal, PowerShell, o la CLI de Azure para realizar la actualización.
 
 > [!IMPORTANT]
-> Actualizar un uso general v1 o la cuenta de almacenamiento de Blob storage para uso general v2 es permanente y no se puede deshacer.
+> Actualizar un uso general v1 o cuenta de Blob storage para uso general v2 es permanente y no se puede deshacer.
 
 ## <a name="upgrade-using-the-azure-portal"></a>Actualización con Azure Portal
 

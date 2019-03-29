@@ -1,5 +1,5 @@
 ---
-title: 'Concesión de acceso a otros administradores para administrar PIM: Azure | Microsoft Docs'
+title: Conceder acceso a otros administradores para administrar PIM - Azure Active Directory | Microsoft Docs
 description: Aprenda a conceder acceso a otros administradores para administrar Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0d8cb77cda97c3141987fa8b0ea39541ace6db3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 74b938335dbace5a827bcfa43172704dc8b09da2
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191748"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579621"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-pim"></a>Concesión de acceso a otros administradores para administrar PIM
 
-El administrador global que habilita Privileged Identity Management (PIM) de Azure AD para una organización, obtiene automáticamente asignaciones de roles y acceso a PIM. Nadie más obtiene acceso de escritura de forma predeterminada, ni siquiera otros administradores globales. Otros administradores globales, administradores de seguridad y lectores de seguridad tienen acceso de solo lectura a PIM. Para conceder acceso a PIM, el primer usuario puede asignar a otros el rol **Administrador de roles con privilegios**.
+El administrador Global que habilita Azure Active Directory (Azure AD) Privileged Identity Management (PIM) para una organización de forma automática Obtenga acceso a PIM y las asignaciones de roles. Nadie más obtiene acceso de escritura de forma predeterminada, ni siquiera otros administradores globales. Otros administradores globales, administradores de seguridad y lectores de seguridad tienen acceso de solo lectura a PIM. Para conceder acceso a PIM, el primer usuario puede asignar a otros el rol **Administrador de roles con privilegios**.
 
 > [!NOTE]
 > La administración de PIM requiere Azure MFA. Dado que las cuentas de Microsoft no se pueden registrar en Azure MFA, un usuario que inicia sesión con una cuenta de Microsoft no puede tener acceso a PIM.
@@ -36,11 +36,11 @@ Asegúrese de que siempre haya al menos dos usuarios en un rol de administrador 
 
 1. Abra **Azure AD Privileged Identity Management**.
 
-1. Haga clic en **Roles de directorio de Azure AD**.
+1. Haga clic en **Roles de Azure AD**.
 
 1. Haga clic en **Roles**.
 
-    ![Roles de directorio de Azure AD de PIM: roles](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
+    ![Roles de Azure PIM AD: Roles](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
 
 1. Haga clic en el rol **Administrador de rol con privilegios** para abrir la página de miembros.
 
@@ -74,7 +74,7 @@ Antes de quitar a alguien del rol de administrador de roles con privilegios, ase
 
 1. Abra **Azure AD Privileged Identity Management**.
 
-1. Haga clic en **Roles de directorio de Azure AD**.
+1. Haga clic en **Roles de Azure AD**.
 
 1. Haga clic en **Roles**.
 

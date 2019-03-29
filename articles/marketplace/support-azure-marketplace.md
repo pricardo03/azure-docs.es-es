@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 196ad39b8b2430ed060ede032f72092b9cfd3fdb
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: f776bdba88902c0b4eaa9f27ef8ed3a4700765cc
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727441"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620826"
 ---
 # <a name="support-for-the-marketplace"></a>Soporte técnico de Azure Marketplace  
 A continuación, se muestra una lista de las opciones admitidas en Marketplace.  
@@ -28,7 +28,7 @@ También puede consultar muchas de las preguntas respondidas en el [canal Market
 
 ## <a name="onboarding"></a>Incorporación
 
-Abra una incidencia con el [soporte técnico del publicador de Marketplace](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) de Microsoft para todos los problemas relacionados con la incorporación y la introducción.
+Abra una incidencia con Microsoft [soporte técnico de publicador de marketplace](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) para problemas con la incorporación y la introducción, o con Microsoft [compatibilidad con el asociado](https://partner.microsoft.com/support) si tiene alguna pregunta sobre Microsoft Partner Network.
 
 ## <a name="cloud-partner-portal"></a>Cloud Partner Portal  
 

@@ -1,5 +1,5 @@
 ---
-title: Usar revisiones de acceso de Azure AD para administrar los usuarios que se excluyen de las directivas de acceso condicional | Microsoft Docs
+title: 'Usar revisiones de acceso para administrar usuarios excluidos de directivas de acceso condicional: Azure Active Directory | Microsoft Docs'
 description: Obtenga información sobre cómo usar las revisiones de acceso de Azure Active Directory (Azure AD) para administrar los usuarios que se han excluido de las directivas de acceso condicional
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 09/25/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a197a6c27b337d7aa97667dc07b1059e82050549
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7675441316e42c7f0a220abe77bc8c62158ef918
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57892731"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577142"
 ---
-# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Uso de revisiones de acceso de Azure AD para administrar los usuarios que se excluyen de las directivas de acceso condicional
+# <a name="use-azure-ad-access-reviews-to-manage-users-excluded-from-conditional-access-policies"></a>Revisiones de acceso de uso de Azure AD para administrar los usuarios que se excluyen de las directivas de acceso condicional
 
-En un mundo ideal, todos los usuarios deberían seguir las directivas de acceso para proteger el acceso a los recursos de la organización. A veces, sin embargo, hay casos empresariales en los que hay que hacer excepciones. En este artículo se describe algunos ejemplos donde exclusiones podrían ser necesarias y cómo, como el Administrador de TI puede administrar esta tarea, evitar la supervisión de excepciones de la directiva y proporcionar a los auditores de prueba que estas excepciones se revisan con regularidad con Azure Revisiones de acceso de Active Directory (Azure AD).
+En un mundo ideal, todos los usuarios deberían seguir las directivas de acceso para proteger el acceso a los recursos de la organización. A veces, sin embargo, hay casos empresariales en los que hay que hacer excepciones. En este artículo se describen algunos ejemplos en los que las exclusiones son necesarias y le explica cómo usted, como administrador de TI, puede administrar esta tarea, evitar la omisión de las excepciones de directivas y proporcionar a los auditores pruebas de que tales excepciones se revisan con regularidad mediante las revisiones de acceso de Azure Active Directory (Azure AD).
 
 > [!NOTE]
 > Se requiere una licencia válida de Azure AD Premium P2, Enterprise Mobility + Security E5 de pago, o una licencia de prueba para usar las revisiones de acceso de Azure AD. Para obtener más información, consulte [Ediciones de Azure Active Directory](../fundamentals/active-directory-whatis.md).
@@ -44,7 +44,7 @@ Otro caso podría ser el de una directiva de acceso condicional que [bloquea la 
 
 ## <a name="why-are-exclusions-challenging"></a>¿Por qué constituyen un reto las exclusiones?
 
-En Azure AD, puede definir el ámbito de una directiva de acceso condicional para un conjunto de usuarios. También puede excluir algunos de estos usuarios mediante la selección de roles de directorio, usuarios individuales o invitados de usuarios. Es importante recordar que cuando estas exclusiones están configuradas, la intención de la directiva no se puede aplicar para esos usuarios. Si estas exclusiones se configuraron como una lista de usuarios individuales o a través de un grupo de seguridad local heredado, esto limita la visibilidad de esta lista de exclusión (los usuarios pueden no conocer su existencia) y el control del administrador de TI sobre ella (los usuarios pueden unirse al grupo de seguridad a fin de eludir la directiva). Además, los usuarios que eran aptos para una exclusión en un momento dado, pueden no necesitarla ya más o dejar de ser aptos para ella.
+En Azure AD, puede definir el ámbito de una directiva de acceso condicional para un conjunto de usuarios. También puede excluir algunos de estos usuarios mediante la selección de roles, usuarios individuales o los invitados de usuarios de Azure AD. Es importante recordar que cuando estas exclusiones están configuradas, la intención de la directiva no se puede aplicar para esos usuarios. Si estas exclusiones se configuraron como una lista de usuarios individuales o a través de un grupo de seguridad local heredado, esto limita la visibilidad de esta lista de exclusión (los usuarios pueden no conocer su existencia) y el control del administrador de TI sobre ella (los usuarios pueden unirse al grupo de seguridad a fin de eludir la directiva). Además, los usuarios que eran aptos para una exclusión en un momento dado, pueden no necesitarla ya más o dejar de ser aptos para ella.
 
 Al principio de una exclusión, hay una breve lista de los usuarios que pueden eludir la directiva. Con el tiempo, se excluyen cada vez más usuarios y aumenta la lista. En algún momento habrá necesidad de revisar la lista y confirmar que cada uno de estos usuarios debe seguir excluido. La administración de la lista desde un punto de vista técnico puede ser relativamente sencilla, pero ¿quién toma las decisiones empresariales y cómo puede asegurarse de que todo es auditable?
 

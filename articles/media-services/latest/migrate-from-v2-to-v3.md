@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/20/2019
+ms.date: 03/27/2019
 ms.author: juliako
-ms.openlocfilehash: 61ebebaf61d1cbbc72f3e12b5ff516924cc9b8c7
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: b951da73006731b38b265dc3a2f542e670f9fbf6
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317755"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621743"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Guía de migración para mover de Media Services v2 a v3
 
@@ -79,12 +79,14 @@ Si tiene un servicio de vídeo desarrollado actualmente en la parte superior de 
 La API v3 tiene las siguientes carencias de características con respecto a la API v2. El trabajo para la solución de deficiencias está en curso.
 
 * El [codificador premium](../previous/media-services-premium-workflow-encoder-formats.md) y los [procesadores de análisis multimedia](../previous/media-services-analytics-overview.md) heredados (Azure Media Services Indexer 2 Preview, Face Redactor, etc.) no son accesibles mediante v3.<br/>Los clientes que deseen migrar de Media Indexer 1 o 2 Preview pueden usar inmediatamente el valor preestablecido de AudioAnalyzer en la API v3.  Este valor preestablecido nuevo contiene más características que la instancia anterior de Media Indexer 1 o 2. 
-* Muchas de las características avanzadas de Media Encoder Standard de las API v2 actualmente no están disponibles en v3, tales como:
+* Muchos de los [características avanzadas del Codificador multimedia estándar en la versión 2](../previous/media-services-advanced-encoding-with-mes.md) API actualmente no están disponibles en v3, tales como:
     * Recorte (para escenarios en directo y a petición)
     * Unión de recursos
     * Superposiciones
     * Recorte
     * Sprites de miniaturas
+    * Insertar una pista de audio silenciosa cuando la entrada no tiene audio
+    * Insertar una pista de vídeo cuando la entrada no tiene ningún vídeo
 * Los Eventos en directo con transcodificación actualmente no admiten la inserción de careta durante la transmisión y la inserción de anuncios mediante la llamada API. 
 
 > [!NOTE]

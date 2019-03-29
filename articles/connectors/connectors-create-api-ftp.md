@@ -1,21 +1,21 @@
 ---
-title: 'Conexión al servidor FTP: Azure Logic Apps | Microsoft Docs'
+title: Conectar al servidor FTP - Azure Logic Apps
 description: Creación, supervisión y administración de archivos en un servidor FTP con Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: divswa, LADocs
 ms.topic: article
 ms.date: 10/15/2018
 tags: connectors
-ms.openlocfilehash: 1e649f21758adedb069b38f64f083ccb85df874d
-ms.sourcegitcommit: 97d0dfb25ac23d07179b804719a454f25d1f0d46
-ms.translationtype: HT
+ms.openlocfilehash: e5aeaa707c7a839483484c524e982204d6fe055c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54913366"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576333"
 ---
 # <a name="create-monitor-and-manage-ftp-files-by-using-azure-logic-apps"></a>Creación, supervisión y administración de archivos FTP mediante Azure Logic Apps
 
@@ -28,10 +28,11 @@ Con Azure Logic Apps y el conector FTP, puede crear tareas y flujos de trabajo a
 
 Puede usar desencadenadores que obtengan respuestas de su servidor FTP y permitan que la salida esté disponible para otras acciones. Puede usar las acciones de ejecución en las aplicaciones lógicas para administrar los archivos del servidor FTP. También puede hacer que otras acciones usen la salida de las acciones de FTP. Por ejemplo, si recupera archivos del servidor FTP habitualmente, puede enviar un correo electrónico sobre esos archivos y su contenido mediante el conector Office 365 Outlook o el conector Outlook.com. Si no está familiarizado con las aplicaciones lógicas, consulte [¿Qué es Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-> [!NOTE]
-> El conector FTP solo admite archivos que tengan un máximo de 50 MB, a menos que use [fragmentación de mensajes en las acciones](../logic-apps/logic-apps-handle-large-messages.md). Actualmente, no se puede usar la fragmentación para los desencadenadores.
->
-> Además, el conector de FTP admite solo FTP por SSL (FTPS) explícito y no es compatible con FTPS implícito. 
+## <a name="limits"></a>límites
+
+* Acciones de FTP admiten sólo los archivos que están *50 MB o más pequeños* a menos que use [fragmentación del mensaje](../logic-apps/logic-apps-handle-large-messages.md), que le permiten superar este límite. Actualmente, los desencadenadores FTP no admiten la fragmentación.
+
+* El conector de FTP admite solo explícita FTP por SSL (FTPS) y no es compatible con FTPS implícito.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -51,7 +52,7 @@ Puede usar desencadenadores que obtengan respuestas de su servidor FTP y permita
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y abra la aplicación lógica en el diseñador de aplicaciones lógicas, si aún no lo ha hecho.
 
-1. Para las aplicaciones lógicas en blanco, en el cuadro de búsqueda, escriba "ftp" como filtro. En la lista de desencadenadores, seleccione el que desee. 
+1. Para las aplicaciones lógicas en blanco, en el cuadro de búsqueda, escriba "ftp" como filtro. En la lista de desencadenadores, seleccione el que desee.
 
    O bien
 
@@ -82,7 +83,7 @@ Este desencadenador inicia un flujo de trabajo de aplicación lógica cuando det
 
 **Ejemplo Enterprise**: Puede usar este desencadenador para supervisar nuevos archivos en una carpeta de SFTP que describen los pedidos de los clientes. Luego, puede usar una acción de FTP, como **Obtener contenido de archivo** para obtener el contenido del pedido para su posterior procesamiento y almacenar ese pedido en una base de datos de pedidos.
 
-Cuando se solicita el contenido del archivo, los desencadenadores no obtienen los archivos de más de 50 MB. Para obtener archivos de más de 50 MB, siga este patrón: 
+Cuando se solicita el contenido del archivo, los desencadenadores no pueden obtener los archivos mayores de 50 MB. Para obtener archivos de más de 50 MB, siga este patrón: 
 
 * Use un desencadenador que devuelva las propiedades de archivo, como **Cuando se agrega o modifica un archivo (solo propiedades)**.
 
@@ -121,7 +122,7 @@ Ahora que la aplicación lógica tiene un desencadenador, agregue las acciones q
 
 Esta acción obtiene el contenido de un archivo en un servidor FTP cuando ese archivo se agrega o actualiza. Por ejemplo, puede agregar el desencadenador del ejemplo anterior y una acción que obtiene el contenido del archivo después de que se agregue o modifique el archivo. 
 
-Cuando se solicita el contenido del archivo, los desencadenadores no obtienen los archivos de más de 50 MB. Para obtener archivos de más de 50 MB, siga este patrón: 
+Cuando se solicita el contenido del archivo, los desencadenadores no pueden obtener los archivos mayores de 50 MB. Para obtener archivos de más de 50 MB, siga este patrón: 
 
 * Use un desencadenador que devuelva las propiedades de archivo, como **Cuando se agrega o modifica un archivo (solo propiedades)**.
 
@@ -151,7 +152,7 @@ Este es un ejemplo que muestra esta acción: **Obtener contenido**
 
 ## <a name="connector-reference"></a>Referencia de conectores
 
-Para obtener detalles técnicos acerca de desencadenadores, acciones y límites, que se describen en la descripción de OpenAPI (antes Swagger) del conector, consulte la [página de referencia](/connectors/ftpconnector/) del conector.
+Para obtener información técnica acerca de los desencadenadores, acciones y los límites, que se describen mediante OpenAPI del conector (anteriormente Swagger) descripción, revise el [página de referencia del conector](/connectors/ftpconnector/).
 
 ## <a name="get-support"></a>Obtención de soporte técnico
 

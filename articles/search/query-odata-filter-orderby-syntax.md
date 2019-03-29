@@ -1,7 +1,7 @@
 ---
 title: 'Sintaxis de expresiones de OData para filtros y cláusulas OrderBy: Azure Search'
 description: Sintaxis de OData para filtros y expresiones OrderBy para consultas de Azure Search.
-ms.date: 01/31/2019
+ms.date: 03/27/2019
 services: search
 ms.service: search
 ms.topic: conceptual
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f0fd93af7cba3057ad4c2224aa1298a221505645
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8445ab2c8797226b08519e2f186350a31416f049
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541067"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578414"
 ---
 # <a name="odata-expression-syntax-for-filters-and-order-by-clauses-in-azure-search"></a>Sintaxis de expresiones de OData para filtros y cláusulas OrderBy en Azure Search
 
@@ -207,7 +207,7 @@ $filter=geo.intersects(location, geography'POLYGON((-122.031577 47.578581, -122.
 $filter=description eq null
 ```
 
-Buscar todos los hoteles cuyo nombre sea "Roach motel" o "Budget hotel"):  
+Buscar todos los hoteles con nombre igual a 'Motel Roach' o 'Hotel presupuesto'). Frases contienen espacios, que es un delimitador de forma predeterminada. Para especificar un delimitador de reemplazo, incluya el nuevo delimitador entre las comillas simples como parte de la expresión de filtro:  
 
 ```
 $filter=search.in(name, 'Roach motel,Budget hotel', ',')
@@ -223,6 +223,12 @@ Buscar todos los hoteles con la etiqueta "wifi" o "pool":
 
 ```
 $filter=tags/any(t: search.in(t, 'wifi, pool'))
+```
+
+Buscar a una coincidencia en varias etiquetas, 'toalla calentado bastidores' o 'secarse el pelo incluidos'. No olvide especificar un delimitador alternativo cuando el delimitador de espacio predeterminado no funciona. 
+
+```
+$filter=tags/any(t: search.in(t, 'heated towel racks,hairdryer included', ','))
 ```
 
 Buscar todos los hoteles sin la etiqueta "motel" ni "cabin":  

@@ -1,5 +1,5 @@
 ---
-title: Configuración de roles de recurso de Azure en PIM | Microsoft Docs
+title: Configuración de rol de recursos de Azure en PIM - Azure Active Directory | Microsoft Docs
 description: Aprenda a configurar los roles de recursos de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8f793ee22796497b96a1acbd998397dbe2ac40d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: f9db39e67cf3ee67b7990f227dbad7e3210cd14b
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162142"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577159"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Configuración de roles de recurso de Azure en PIM
 
-Cuando establece la configuración de roles de recursos de Azure, se define la configuración predeterminada que se aplica a las asignaciones de roles de recursos de Azure en Azure AD Privileged Identity Management (PIM). Para configurar el flujo de trabajo de aprobación y especificar quién puede aprobar o denegar solicitudes, use los siguientes procedimientos.
+Cuando se configura la configuración de roles de recursos de Azure, defina la configuración predeterminada que se aplica a las asignaciones de roles de recursos de Azure en Azure Active Directory (Azure AD) Privileged Identity Management (PIM). Para configurar el flujo de trabajo de aprobación y especificar quién puede aprobar o denegar solicitudes, use los siguientes procedimientos.
 
 ## <a name="open-role-settings"></a>Apertura de la configuración de roles
 

@@ -7,19 +7,22 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/08/2019
+ms.date: 03/22/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: d325a5dfd57bb6b69e6cf171487adfa8d374512f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 523c99436eb49f1658a5d4c56d64248adccc5c3a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762932"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621278"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Selección de un plan de tarifa de Azure Search
 
-En Azure Search, un [recurso se crea](search-create-service-portal.md) en el plan de tarifa o SKU que se fija para el periodo de vigencia del servicio. Los planes incluyen los niveles **Gratis**, **Básico** o **Estándar**; **este último** está disponible en varias configuraciones y capacidades. La mayoría de los clientes comienza con el nivel **Gratis** para la evaluación y, a continuación, ascienden al nivel **Estándar** para implementaciones de desarrollo y producción. Puede completar todos los inicios rápidos y tutoriales en el nivel **Gratis**, incluidos los de búsqueda cognitiva que consumen gran cantidad de recursos. 
+En Azure Search, un [recurso se crea](search-create-service-portal.md) en el plan de tarifa o SKU que se fija para el periodo de vigencia del servicio. Los niveles incluyen **gratis**, **básica**, **estándar**, o **optimizadas para almacenamiento**.  **Estándar** y **optimizadas para almacenamiento** están disponibles en varias configuraciones y capacidades. La mayoría de clientes comienzan con la **gratis** nivel para su evaluación y, a continuación, se graduará en uno de los niveles más altos de pago para las implementaciones de desarrollo y producción. Puede completar todos los inicios rápidos y tutoriales en el nivel **Gratis**, incluidos los de búsqueda cognitiva que consumen gran cantidad de recursos.
+
+> [!NOTE]
+> Los niveles de servicio de almacenamiento optimizado disponibles actualmente como versión preliminar a un precio con descuento para fines de pruebas y experimentación con el fin de recabar comentarios. El precio final se anunciará más adelante cuando estos niveles están disponibles con carácter general. Aconsejamos que no se usen estos niveles para las aplicaciones de producción.
 
 Los niveles reflejan las características del hardware que hospeda el servicio (en lugar de las características) y se diferencian por:
 
@@ -42,11 +45,16 @@ En la tabla siguiente se enumera los niveles disponibles. Incluyen otras fuentes
 |-----|-------------|
 |Gratuito | Se comparte con otros suscriptores. No escalable, limitada a 3 índices y 50 MB de almacenamiento. |
 |Básica | Recursos informáticos dedicados para cargas de trabajo de producción en una escala menor. Una partición de 2 GB y hasta tres réplicas. |
-|1 estándar (S1) | Desde S1 en seguridad de máquinas dedicadas con más capacidad de almacenamiento y procesamiento en cada nivel. Tamaño de la partición es 25 GB por partición (máximo de 300 GB de documentos por servicio) para S1. |
-|Estándar 2 (S2) | Similar a S1, pero con 100 GB/particiones (máximo documentos de 1,2 TB por servicio) |
-|Estándar 3 (S3) | 200 GB por partición (máximo 2,4 TB de documentos por servicio). |
+|1 estándar (S1) | Desde S1 en seguridad de máquinas dedicadas con más capacidad de almacenamiento y procesamiento en cada nivel. Tamaño de la partición es 25 GB por partición (máximo de 300 GB por servicio) para S1. |
+|Estándar 2 (S2) | Similar a S1, pero con 100 GB/particiones (máximo 1,2 TB por servicio) |
+|Estándar 3 (S3) | 200 GB por partición (máximo 2,4 TB por servicio) |
 |Estándar 3 alta densidad (S3-HD) | Alta densidad es una *modo del alojamiento* para S3. El hardware subyacente está optimizado para un gran número de índices más pequeños, destinado a escenarios multiinquilino. S3 HD tiene el mismo cargo por unidad como S3, pero el hardware está optimizado para las lecturas de archivos rápidas en un gran número de índices más pequeños.|
+|Almacenamiento optimizado 1 (L1) | 1 TB/partición (máximo 12 TB por servicio) |
+|Almacenamiento optimizado 2 (L2) | 2 TB o partición (máximo 24 TB por servicio) |
 
+> [!NOTE] 
+> Los niveles de almacenamiento optimizado para ofrecen mayor capacidad de almacenamiento a un precio menor por cada TB que los niveles estándar.  El principal inconveniente es mayor latencia de consulta, lo que debe validar para sus requisitos de aplicación específica.  Para obtener más información acerca de consideraciones de rendimiento de este nivel, vea [consideraciones de rendimiento y optimización](search-performance-optimization.md).
+>
 
 ## <a name="how-billing-works"></a>Cómo funciona la facturación
 
@@ -56,7 +64,7 @@ En Azure Search, hay tres maneras de incurrir en costes en Azure Search y existe
 
 Para el servicio, el cargo mínimo es la primera unidad de búsqueda (partición 1 réplica 1), y esta cantidad es constante durante la vigencia del servicio porque el servicio no se puede ejecutar en cualquier cosa menor que esta configuración. 
 
-En la siguiente captura de pantalla, por unidad de precio se indica para gratis, básico y S1 (no se muestran S2 y S3). Si ha creado un servicio básico o estándar, el costo mensual sería el valor promedio que aparece para *precio 1* y *precio 2* respectivamente. Los costos de unidad ir para cada nivel porque la capacidad de almacenamiento y potencia computacional es mayor en cada niveles consecutivos.
+En la siguiente captura de pantalla, por unidad de precio se indica para gratis, básico y S1 (no se muestran S2, S3, L1 y L2). Si ha creado un **básica**, **estándar**, o **optimizadas para almacenamiento** servicio, el costo mensual sería el valor promedio que aparece para *precio-1*y *precio 2* respectivamente. Los costos de unidad ir para cada nivel porque la capacidad de almacenamiento y potencia computacional es mayor en cada nivel consecutivo.
 
 ![Por el precio por unidades](./media/search-sku-tier/per-unit-pricing.png "por unidad de precio")
 
@@ -117,7 +125,7 @@ En Azure Search, la capacidad se estructura como *réplicas* y *particiones*.
 + Las particiones almacenan índices y dividen automáticamente los datos de búsqueda: dos particiones dividen el índice en la mitad, tres particiones en tres tercios y así sucesivamente. En términos de capacidad, el *tamaño de partición* es la principal característica diferenciadora entre niveles.
 
 > [!NOTE]
-> Todos los niveles **Estándar** admiten [combinaciones flexibles de réplicas y particiones](search-capacity-planning.md#chart) para que pueda [optimizar el sistema para velocidad o para almacenamiento](search-performance-optimization.md) cambiando el balance. El nivel **Básico** ofrece hasta tres réplicas para alta disponibilidad, pero tiene solo una partición. Los niveles **Gratis** no proporcionan recursos dedicados: los recursos de cálculo se comparten entre varios suscriptores.
+> Todos los **estándar** y **optimizadas para almacenamiento** planes de soporte técnico [particiones y réplicas de combinaciones flexibles](search-capacity-planning.md#chart) para que pueda [el sistema para acelerar el proceso de peso o almacenamiento](search-performance-optimization.md) cambiando el saldo. El nivel **Básico** ofrece hasta tres réplicas para alta disponibilidad, pero tiene solo una partición. Los niveles **Gratis** no proporcionan recursos dedicados: los recursos de cálculo se comparten entre varios suscriptores.
 
 ### <a name="more-about-service-limits"></a>Más información acerca de los límites de servicio
 
@@ -125,7 +133,7 @@ Los servicios hospedan recursos, como los índices, los indexadores y otros. Cad
 
 ## <a name="consumption-patterns"></a>Patrones de consumo
 
-La mayoría de los clientes comienza con el servicio **Gratis**, que mantienen indefinidamente y, a continuación, seleccionan uno de los niveles **Estándar** para cargas de trabajo de desarrollo o de producción relevantes. 
+La mayoría de clientes comienzan con la **gratis** de servicio, que mantienen indefinidamente y, a continuación, elija uno de la **estándar** o **almacenamiento optimizado** niveles para el desarrollo grave o cargas de trabajo de producción. 
 
 ![Niveles de Azure Search](./media/search-sku-tier/tiers.png "Planes de tarifa de Azure Search")
 
@@ -147,6 +155,15 @@ Tanto el portal como las páginas de precios centran la atención en el tamaño 
 > [!NOTE]
 > Anteriormente, los límites de documentos se debían tener en cuenta, pero ya no son aplicables para la mayoría de los servicios nuevos. Para más información acerca de las condiciones para la que se aplican todavía límites de documentos, consulte [Límites del servicio: límites de documentos](search-limits-quotas-capacity.md#document-limits).
 >
+
+Capas de almacenamiento optimizado **L1 y L2**, son ideales para aplicaciones con requisitos de datos de gran tamaño, pero con un número relativamente bajo de los usuarios finales donde minimizar la latencia de consulta no es la principal prioridad.  
+
+|  | L1 | L2 |  |  |  |  |  |
+|--|----|----|--|--|--|--|--|
+| tamaño de la partición|  1 TB | 2 TB |  |  |  |  |  |
+| límites de índices e indexadores| 10 | 10 |  |  |  |  |  |
+
+*L2* ofrece dos veces la capacidad de almacenamiento total para una *L1*.  Elija su plan según la cantidad máxima de datos que piensa que necesita el índice.  El *L1* capa de escalado crea particiones de en incrementos de 1 TB para un máximo de 12 TB, mientras que el *L2* aumentando de 2 TB por partición hasta un máximo de 24 TB.
 
 ## <a name="evaluate-capacity"></a>Evaluación de la capacidad
 
@@ -174,16 +191,17 @@ Si la muestra es representativa y es el diez por ciento del origen de datos comp
 
 Algunos clientes prefieren comenzar con recursos dedicados que pueden adaptarse a mayores tiempos de muestreo y procesamiento y, a continuación, realizan una estimación realista de volúmenes de consultas y tamaño y cantidad de índices durante el desarrollo. Inicialmente, se aprovisiona un servicio basado en un cálculo basado en suposiciones y, a continuación, a medida que el proyecto evoluciona, los equipos suelen saben si el servicio está por encima o por debajo de la capacidad necesaria para las cargas de trabajo de producción previstas. 
 
-1. [Revise los límites del servicio en cada nivel](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) para determinar si los niveles más bajos pueden admitir la cantidad de índices que necesita. En los niveles **Básico**-**S1**- **S2**, los límites de índices son 15-50-200, respectivamente.
+1. [Revise los límites del servicio en cada nivel](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) para determinar si los niveles más bajos pueden admitir la cantidad de índices que necesita. En los niveles **Básico**-**S1**-**S2**, los límites de índices son 15-50-200, respectivamente.  El **optimizadas para almacenamiento** nivel tiene un límite de 10 índices, ya que es el diseñador para admitir un número reducido de índices muy grandes.
 
 1. [Cree un servicio en un nivel facturable](search-create-service-portal.md):
 
     + Comience bajo, en **Básico** o **S1** si está al principio de la curva de aprendizaje.
     + Comience alto, en **S2** o incluso **S3**, si las cargas de consulta e indexación a gran escala son evidentes.
+    + Almacenamiento optimizado, en **L1** o **L2**si indiza una gran cantidad de datos y carga de consultas es relativamente bajo, por ejemplo, una aplicación empresarial interna.
 
 1. [Genere un índice inicial](search-create-index-portal.md) para determinar cómo se traducen los datos de origen a un índice. Esta es la única manera de calcular el tamaño del índice.
 
-1. [Supervise el almacenamiento, los límites del servicio, el volumen de consultas y la latencia](search-monitor-usage.md) en el portal. El portal muestra las consultas por segundo, las consultas limitadas y la latencia de búsqueda; esta información puede ayudarle a decidir si se encuentra en el nivel correcto. Además de las métricas del portal, puede configurar la supervisión detallada, como el análisis del porcentaje de clics, habilitando el [análisis del tráfico de búsqueda](search-traffic-analytics.md). 
+1. [Supervise el almacenamiento, los límites del servicio, el volumen de consultas y la latencia](search-monitor-usage.md) en el portal. El portal muestra las consultas por las consultas en segundo lugar, limitadas y latencia de búsqueda; todos los cuales pueden ayudarle a decidir si ha seleccionado el nivel correcto. Además de las métricas del portal, puede configurar la supervisión detallada, como el análisis del porcentaje de clics, habilitando el [análisis del tráfico de búsqueda](search-traffic-analytics.md). 
 
 El número de índices y el tamaño son igualmente importantes para el análisis porque los límites máximos se alcanzan mediante la utilización total del almacenamiento (particiones) o por los límites máximos en los recursos (índices, indexadores, etc.), lo que ocurra primero. El portal le ayuda a realizar un seguimiento de ambos, mostrando el uso actual y los límites máximos en paralelo en la página Información general.
 
@@ -197,8 +215,9 @@ Las consultas por segundo (QPS) son una medida que gana importancia durante la o
 
 Los niveles Estándar pueden entregar un balance entre réplicas y particiones, al admitir una respuesta de consultas más rápida mediante réplicas adicionales para el equilibrio de carga y particiones adicionales para el procesamiento en paralelo. Puede ajustar el rendimiento después de aprovisionar el servicio.
 
-Los clientes que esperan altos volúmenes de consultas sostenidos desde el principio deben considerar los niveles superiores, respaldados por un hardware más potente. A continuación, puede desconectar particiones y réplicas o incluso cambiar a un servicio de nivel inferior, si dichos volúmenes de consultas no se materializan. Para más información sobre cómo calcular el rendimiento de las consultas, consulte [Rendimiento y optimización de Azure Search](search-performance-optimization.md).
+Los clientes que esperan los volúmenes de consulta sostenida seguro desde el principio deben considerar mayor **estándar** niveles, respaldados por un hardware más eficaz. A continuación, puede desconectar particiones y réplicas o incluso cambiar a un servicio de nivel inferior, si dichos volúmenes de consultas no se materializan. Para más información sobre cómo calcular el rendimiento de las consultas, consulte [Rendimiento y optimización de Azure Search](search-performance-optimization.md).
 
+El almacenamiento optimizado para niveles lean hacia las cargas de trabajo de datos de gran tamaño, que admiten más general almacenamiento de índices disponible, donde los requisitos de latencia de consulta son relativamente relajados.  Todavía se deben aprovechar réplicas adicionales para la carga de las particiones de equilibrio y adicionales para el procesamiento paralelo. Puede ajustar el rendimiento después de aprovisionar el servicio.
 
 **Contratos de nivel de servicio**
 
@@ -216,7 +235,7 @@ El nivel **Gratis** y las características en versión preliminar no incluyen [c
 
 Comience con un nivel **Gratis** y cree un índice inicial con un subconjunto de los datos para comprender sus características. La estructura de datos de Azure Search es un índice invertido, donde el tamaño y la complejidad de un índice invertido se determinan por el contenido. Recuerde que un contenido de gran redundancia tiende a producir un índice más pequeño que el contenido de alta irregularidad. Por lo tanto, son las características del contenido más que el tamaño del conjunto de datos lo que determina los requisitos de almacenamiento de índices.
 
-Una vez que tenga una idea inicial del tamaño del índice, [aprovisione un servicio facturable](search-create-service-portal.md) en uno de los niveles descritos en este artículo, ya sea en el nivel **Básico** o **Estándar**. Rebaje las restricciones artificiales en los subconjuntos de datos y [vuelva a generar el índice](search-howto-reindex.md) para que incluya todos los datos sobre los que desea realizar búsquedas.
+Una vez que tenga una idea inicial del tamaño del índice, [aprovisionar un servicio facturable](search-create-service-portal.md) en uno de los niveles descritos en este artículo, ya sea **básica**, **estándar**, o **Optimizadas para almacenamiento** nivel. Relajar las restricciones sobre el tamaño de datos artificiales y [a generar el índice](search-howto-reindex.md) para incluir todos los datos que desea poder buscar.
 
 [Asigne particiones y réplicas](search-capacity-planning.md) según sea necesario para obtener el rendimiento y la escala que necesite.
 

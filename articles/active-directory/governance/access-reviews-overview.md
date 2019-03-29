@@ -1,6 +1,6 @@
 ---
-title: ¿Qué son las revisiones de acceso de Azure AD? | Microsoft Docs
-description: Con las revisiones de acceso de Azure Active Directory, puede controlar la pertenencia a grupos y el acceso a las aplicaciones para cumplir con las iniciativas de cumplimiento, de administración de riesgos y de gobierno de su organización.
+title: ¿Qué son las revisiones de acceso? Azure Active Directory | Microsoft Docs
+description: Con las revisiones de acceso de Azure Active Directory, puede controlar el acceso de suscripción y de aplicación de grupo para cumplir con las iniciativas de cumplimiento de su organización, administración de riesgos y gobierno.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,16 +16,16 @@ ms.date: 01/18/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ab3570cb7e3e8b09425bf4c05f7f5725fd21d4f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1563a023f397999deb5c6abd40843d6a376b0492
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845161"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576129"
 ---
-# <a name="what-are-azure-ad-access-reviews"></a>¿Qué son las revisiones de acceso de Azure AD?
+# <a name="what-are-azure-ad-access-reviews"></a>¿Qué acceso de Azure AD de revisiones?
 
-Las revisiones de acceso de Azure Active Directory (Azure AD) permiten a las organizaciones administrar de forma eficiente la pertenencia a grupos, el acceso a las aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado.
+Revisiones de acceso de Azure Active Directory (Azure AD) permiten a las organizaciones a administrar las pertenencias a grupos de forma eficaz, el acceso a aplicaciones empresariales y las asignaciones de roles. El acceso de los usuarios se puede revisar de forma periódica para asegurarse de que solo las personas adecuadas tengan acceso continuado.
 
 Este es un vídeo que proporciona una introducción rápida de las revisiones de acceso:
 
@@ -42,7 +42,7 @@ Azure AD le permite colaborar internamente dentro de su organización y con usua
 
 ## <a name="when-to-use-access-reviews"></a>¿Cuándo usar revisiones de acceso?
 
-- **Demasiados usuarios en roles con privilegios:** Es una buena idea comprobar cuántos usuarios tiene acceso administrativo, ¿cuántos de ellos son los administradores globales, y si hay alguna invitó invitados o socios que no se han quitado después de que se asigna para realizar una tarea administrativa. Puede volver a certificar los usuarios con asignación de roles en [roles de directorio de Azure AD](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), por ejemplo, administradores globales, o [roles de recursos de Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), por ejemplo, administrador de acceso de usuario, en la experiencia [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md).
+- **Demasiados usuarios en roles con privilegios:** Es una buena idea comprobar cuántos usuarios tiene acceso administrativo, ¿cuántos de ellos son los administradores globales, y si hay alguna invitó invitados o socios que no se han quitado después de que se asigna para realizar una tarea administrativa. Puede volver a certificar los usuarios de la asignación de rol de [roles de Azure AD](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) como los administradores globales, o [roles de recursos de Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) como administrador de acceso de usuario en el [con privilegios de Azure AD Identity Management (PIM)](../privileged-identity-management/pim-configure.md) experimentar.
 - **Cuando no es factible la automatización:** puede crear las reglas de pertenencia dinámica en grupos de seguridad o grupos de Office 365, pero ¿qué ocurre si los datos de recursos humanos no se encuentran en Azure AD o si los usuarios todavía necesitan acceso después de abandonar el grupo para entrenar a su sustituto? Luego puede crear una revisión en ese grupo para asegurarse de que los usuarios que aún necesiten acceso sigan teniendo acceso.
 - **Cuando se usa un grupo para una nueva finalidad:** si tiene un grupo que se va a sincronizar con Azure AD, o si va a habilitar la aplicación Salesforce para todos los usuarios del equipo de Ventas, sería útil solicitar al propietario del grupo que revise la pertenencia al grupo antes de usar el grupo en un contenido de riesgo distinto.
 - **Acceso a datos críticos para la empresa:** para determinados recursos y con fines de auditoría, podría exigirse a personas ajenas a TI que cierren sesión periódicamente y justifiquen por qué necesitan acceso.
@@ -52,13 +52,13 @@ Azure AD le permite colaborar internamente dentro de su organización y con usua
 
 ## <a name="where-do-you-create-reviews"></a>¿Donde se crean las revisiones?
 
-Dependiendo de lo que quiera revisar, creará la revisión de acceso en Revisiones de acceso de Azure AD, aplicaciones de empresa de Azure AD (en versión preliminar) o Azure AD PIM.
+Dependiendo de lo que desea revisar, creará la revisión de acceso en Azure AD acceso a PIM de Azure AD, aplicaciones de empresa de Azure AD (en versión preliminar) o las revisiones.
 
 | Derechos de acceso de los usuarios | Los revisores pueden ser | Revisión creada en | Experiencia del revisor |
 | --- | --- | --- | --- |
 | Miembros del grupo de seguridad</br>Miembros del grupo de Office | Revisores especificados</br>Propietarios del grupo</br>Revisión propia | Revisiones de acceso de Azure AD</br>Grupos de Azure AD | Panel de acceso |
 | Asignados a una aplicación conectada | Revisores especificados</br>Revisión propia | Revisiones de acceso de Azure AD</br>Aplicaciones de empresa de Azure AD (en versión preliminar) | Panel de acceso |
-| Rol de directorio de Azure AD | Revisores especificados</br>Revisión propia | Azure AD PIM | Azure Portal |
+| Rol de Azure AD | Revisores especificados</br>Revisión propia | Azure AD PIM | Azure Portal |
 | Rol de recursos de Azure | Revisores especificados</br>Revisión propia | Azure AD PIM | Azure Portal |
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -88,13 +88,13 @@ Para habilitar las revisiones de acceso, siga estos pasos.
 
 1. Haga clic en **Todos los servicios** y busque el servicio Revisiones de acceso.
 
-1. Haga clic en **Revisiones de acceso**.
+1. Haga clic en **las revisiones de acceso**.
 
-    ![Todos los servicios - Revisiones de acceso](./media/access-reviews-overview/all-services-access-reviews.png)
+    ![Revisiones de acceso de todos los servicios:](./media/access-reviews-overview/all-services-access-reviews.png)
 
 1. En la lista de navegación, haga clic en **Incorporar** para abrir la página **Incorporarse a las revisiones de acceso**.
 
-    ![Incorporar de Revisiones de acceso](./media/access-reviews-overview/onboard-button.png)
+    ![Incorporación de revisiones de acceso](./media/access-reviews-overview/onboard-button.png)
 
 1. Haga clic en **Crear** para habilitar las revisiones de acceso en el directorio actual.
 

@@ -7,16 +7,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: raynew
-ms.openlocfilehash: 230c68b0b1de1ef452de51b7b0661a3c3786ea76
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 3f64be35aca985d0374e224cc9c8940502005014
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521710"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578890"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Copia de seguridad y restauración de máquinas virtuales de Azure con PowerShell
 
-En este artículo se explica cómo realizar copias de seguridad y restaurar una máquina virtual de Azure en un [Azure Backup](backup-overview.md) almacén de Recovery Services mediante cmdlets de PowerShell. 
+En este artículo se explica cómo realizar copias de seguridad y restaurar una máquina virtual de Azure en un [Azure Backup](backup-overview.md) almacén de Recovery Services mediante cmdlets de PowerShell.
 
 En este artículo, aprenderá a:
 
@@ -24,10 +24,7 @@ En este artículo, aprenderá a:
 > * Crear un almacén de Recovery Services y a establecer el contexto de este.
 > * Definición de una directiva de copia de seguridad
 > * Aplicación de la directiva de copia de seguridad para proteger varias máquinas virtuales
-> * Desencadenar un trabajo de copia de seguridad a petición para las máquinas virtuales protegidas. Para poder realizar una copia de seguridad de una máquina virtual, o protegerla, es necesario reunir los [requisitos previos](backup-azure-arm-vms-prepare.md) a fin de preparar el entorno para la protección de las máquinas virtuales. 
-
-
-
+> * Desencadenar un trabajo de copia de seguridad a petición para las máquinas virtuales protegidas. Para poder realizar una copia de seguridad de una máquina virtual, o protegerla, es necesario reunir los [requisitos previos](backup-azure-arm-vms-prepare.md) a fin de preparar el entorno para la protección de las máquinas virtuales.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -44,8 +41,6 @@ En el diagrama siguiente, se resume la jerarquía de objetos.
 
 Revise el **Az.RecoveryServices** [referencia de cmdlet](https://docs.microsoft.com/powershell/module/Az.RecoveryServices/?view=azps-1.4.0) referencia en la biblioteca de Azure.
 
-
-
 ## <a name="set-up-and-register"></a>Configurar y registrar
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -58,7 +53,7 @@ Para empezar:
 
     ```powershell
     Get-Command *azrecoveryservices*
-    ```   
+    ```
  
     Aparecen los alias y cmdlets de Azure Backup, Azure Site Recovery y el almacén de Recovery Services. La imagen siguiente es un ejemplo de lo que verá. No es la lista completa de los cmdlets.
 
@@ -147,6 +142,18 @@ Antes de habilitar la protección en una máquina virtual, use [conjunto AzRecov
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
 ```
 
+### <a name="modifying-storage-replication-settings"></a>Modificar la configuración de replicación de almacenamiento
+
+Use [conjunto AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0) comando para establecer la configuración de replicación de almacenamiento del almacén en LRS y GRS
+
+```powershell
+$vault= Get-AzRecoveryServicesVault -name "testvault"
+Set-AzRecoveryServicesBackupProperties -Vault $vault -BackupStorageRedundancy GeoRedundant/LocallyRedundant
+```
+
+> [!NOTE]
+> Redundancia de almacenamiento se puede modificar únicamente si no hay ningún elemento de copia de seguridad protegido en el almacén.
+
 ### <a name="create-a-protection-policy"></a>Creación de una directiva de protección
 
 Cuando se crea un almacén de Recovery Services, este incluye las directivas de retención y protección predeterminadas. La directiva de protección predeterminada activa un trabajo de copia de seguridad cada día a la hora indicada. La directiva de retención predeterminada conserva el punto de recuperación diario durante 30 días. Puede utilizar la directiva predeterminada para proteger rápidamente la máquina virtual y modificar la directiva más adelante con detalles diferentes.
@@ -226,7 +233,6 @@ Enable-AzRecoveryServicesBackupProtection -Policy $pol -Name "V2VM" -ResourceGro
 > Si usa la nube de Azure Government, use el valor ff281ffe-705c-4f53-9f37-a40e6f2c68f3 para el parámetro ServicePrincipalName en [conjunto AzKeyVaultAccessPolicy](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) cmdlet.
 >
 
-
 ### <a name="modify-a-protection-policy"></a>Modificación de una directiva de protección
 
 Para modificar la directiva de protección, use [conjunto AzRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupprotectionpolicy) para modificar los objetos de objetos SchedulePolicy o RetentionPolicy.
@@ -239,6 +245,19 @@ $retPol.DailySchedule.DurationCountInDays = 365
 $pol = Get-AzRecoveryServicesBackupProtectionPolicy -Name "NewPolicy"
 Set-AzRecoveryServicesBackupProtectionPolicy -Policy $pol  -RetentionPolicy $RetPol
 ```
+
+#### <a name="configuring-instant-restore-snapshot-retention"></a>Configurar la retención de instantáneas de la restauración instantánea
+
+> [!NOTE]
+> De Az PS versión 1.6.0 y versiones posteriores, uno puede actualizar el período de retención de instantáneas de la restauración instantánea en la directiva con Powershell
+
+````powershell
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+$bkpPol.SnapshotRetentionInDays=7
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+````
+
+El valor predeterminado será de 2, el usuario puede establecer el valor con un mínimo de 1 y 5 como máximo. Para las directivas de copia de seguridad semanal, el período se establece en 5 y no se puede cambiar.
 
 ## <a name="trigger-a-backup"></a>Desencadenar una copia de seguridad
 
@@ -672,7 +691,7 @@ $rp[0]
 
 La salida es similar a la del ejemplo siguiente:
 
-```
+```powershell
 RecoveryPointAdditionalInfo :
 SourceVMStorageType         : NormalStorage
 Name                        : 15260861925810
@@ -719,4 +738,4 @@ Disable-AzRecoveryServicesBackupRPMountScript -RecoveryPoint $rp[0]
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si prefiere usar PowerShell para interactuar con los recursos de Azure, vea el artículo de PowerShell [Implementación y administración de copia de seguridad para Windows Server](backup-client-automation.md). Si administra copias de seguridad de DPM, vea el artículo [Implementación y administración de copias de seguridad para DPM](backup-dpm-automation.md). 
+Si prefiere usar PowerShell para interactuar con los recursos de Azure, vea el artículo de PowerShell [Implementación y administración de copia de seguridad para Windows Server](backup-client-automation.md). Si administra copias de seguridad de DPM, vea el artículo [Implementación y administración de copias de seguridad para DPM](backup-dpm-automation.md).

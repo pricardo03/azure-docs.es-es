@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cc9b2b38ae0ba97e5a29d58d1605e5452224e4b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5d933eaf99258a3f3322a915b418b52fad6e459f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445762"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576937"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 y el flujo en nombre de OAuth 2.0
 
@@ -72,8 +72,8 @@ Cuando se utiliza un secreto compartido, una solicitud de token de acceso entre 
 | Parámetro |  | DESCRIPCIÓN |
 | --- | --- | --- |
 | `grant_type` | Obligatorio | Tipo de la solicitud de token. Para una solicitud mediante un JWT, el valor debe ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Obligatorio | El identificador de la aplicación (cliente) que el [Portal de registros de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) o el nuevo [portal de registros de aplicaciones (versión preliminar)](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) ha asignado a la aplicación. |
-| `client_secret` | Obligatorio | El secreto de la aplicación que generó para la aplicación en el portal utilizado para registrar la aplicación. |
+| `client_id` | Obligatorio | IDENTIFICADOR de la aplicación (cliente) que [Azure portal: registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) página ha asignado a la aplicación. |
+| `client_secret` | Obligatorio | El secreto de cliente que ha generado para la aplicación en Azure portal: página de registros de aplicación. |
 | `assertion` | Obligatorio | Valor del token usado en la solicitud. |
 | `scope` | Obligatorio | Lista de ámbitos separados por un espacio para la solicitud de token. Para obtener más información, vea [Ámbitos](v2-permissions-and-consent.md). |
 | `requested_token_use` | Obligatorio | Especifica cómo se debe procesar la solicitud. En el flujo OBO, el valor se debe establecer en `on_behalf_of`. |
@@ -104,7 +104,7 @@ Una solicitud de token de acceso entre servicios con un certificado contiene los
 | Parámetro |  | DESCRIPCIÓN |
 | --- | --- | --- |
 | `grant_type` | Obligatorio | Tipo de la solicitud de token. Para una solicitud mediante un JWT, el valor debe ser `urn:ietf:params:oauth:grant-type:jwt-bearer`. |
-| `client_id` | Obligatorio | El identificador de la aplicación (cliente) que el [Portal de registros de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) o el nuevo [portal de registros de aplicaciones (versión preliminar)](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) ha asignado a la aplicación. |
+| `client_id` | Obligatorio |  IDENTIFICADOR de la aplicación (cliente) que [Azure portal: registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) página ha asignado a la aplicación. |
 | `client_assertion_type` | Obligatorio | El valor tiene que ser `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
 | `client_assertion` | Obligatorio | Aserción (un JSON Web Token) que debe crear y firmar con el certificado que ha registrado como credenciales de la aplicación. Para información sobre cómo registrar el certificado y el formato de la aserción, lea el artículo sobre las [credenciales de certificado](active-directory-certificate-credentials.md). |
 | `assertion` | Obligatorio | Valor del token usado en la solicitud. |
@@ -205,7 +205,7 @@ En este momento, el sistema de cuentas personales de Microsoft no admite el cons
 
 #### <a name="pre-authorized-applications"></a>Aplicaciones preautorizadas
 
-Una nueva característica del portal de aplicaciones en versión preliminar son las "aplicaciones preautorizadas". De este modo, un recurso puede indicar que una determinada aplicación siempre tiene permiso para recibir determinados ámbitos. Esto es principalmente útil para realizar conexiones más directas entre un cliente front-end y un recurso back-end. Un recurso puede declarar varias aplicaciones preautorizadas: cualquier aplicación puede solicitar estos permisos en un flujo OBO y recibirlos sin necesidad de que el usuario dé el consentimiento.
+Una característica del portal de la aplicación es "aplicaciones preautorizadas". De este modo, un recurso puede indicar que una determinada aplicación siempre tiene permiso para recibir determinados ámbitos. Esto es principalmente útil para realizar conexiones más directas entre un cliente front-end y un recurso back-end. Un recurso puede declarar varias aplicaciones preautorizadas: cualquier aplicación puede solicitar estos permisos en un flujo OBO y recibirlos sin necesidad de que el usuario dé el consentimiento.
 
 #### <a name="admin-consent"></a>Consentimiento de administrador
 

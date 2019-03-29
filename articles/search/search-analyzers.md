@@ -4,17 +4,17 @@ description: Asigne analizadores a los campos de texto que permiten búsquedas d
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/15/2019
+ms.date: 03/27/2019
 ms.author: heidist
 manager: cgronlun
 author: HeidiSteen
 ms.custom: seodec2018
-ms.openlocfilehash: 7306258b6a7eee66df0961b2b993d0bcc9de94b9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 3e6f0a2b9b935df9b12cf9146ebf05f1b1c84855
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56343279"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578771"
 ---
 # <a name="analyzers-for-text-processing-in-azure-search"></a>Analizadores para procesamientos textuales en Azure Search
 
@@ -97,16 +97,18 @@ Si se produce un error en una búsqueda para devolver los resultados esperados, 
 
 La [versión de demostración de Search Analyzer](https://alice.unearth.ai/) es una aplicación de demostración de terceros que muestra una comparación del analizador de Lucene estándar, el analizador del lenguaje para inglés de Lucene y el procesador de lenguaje natural para inglés de Microsoft. El índice es fijo: contiene texto de un caso popular. Para cada entrada de búsqueda que proporcione, se muestran los resultados de cada analizador en paneles adyacentes, lo que le ofrece una idea de la forma en la que cada analizador procesa la misma cadena. 
 
-## <a name="examples"></a>Ejemplos
+<a name="examples"></a>
+
+## <a name="rest-examples"></a>Ejemplos de REST
 
 Los ejemplos siguientes muestran las definiciones del analizador en algunos escenarios claves.
 
-+ [Ejemplo de analizador personalizado](#Example1)
-+ [Ejemplo de asignación de analizadores a un campo](#Example2)
-+ [Mezcla de analizadores para indexación y búsqueda](#Example3)
-+ [Ejemplo de analizador de idioma](#Example4)
++ [Ejemplo de analizador personalizado](#Custom-analyzer-example)
++ [Ejemplo de asignación de analizadores a un campo](#Per-field-analyzer-assignment-example)
++ [Mezcla de analizadores para indexación y búsqueda](#Mixing-analyzers-for-indexing-and-search-operations)
++ [Ejemplo de analizador de idioma](#Language-analyzer-example)
 
-<a name="Example1"></a>
+<a name="Custom-analyzer-example"></a>
 
 ### <a name="custom-analyzer-example"></a>Ejemplo de analizador personalizado
 
@@ -180,7 +182,7 @@ Descripción de este ejemplo:
   }
 ~~~~
 
-<a name="Example2"></a>
+<a name="Per-field-analyzer-assignment-example"></a>
 
 ### <a name="per-field-analyzer-assignment-example"></a>Ejemplo de asignación de analizador por campo
 
@@ -213,7 +215,7 @@ El elemento "analizador" reemplaza el analizador estándar campo a campo. No se 
   }
 ~~~~
 
-<a name="Example3"></a>
+<a name="Mixing-analyzers-for-indexing-and-search-operations"></a>
 
 ### <a name="mixing-analyzers-for-indexing-and-search-operations"></a>Mezcla de analizadores para las operaciones de indexación y búsqueda
 
@@ -241,7 +243,7 @@ Las API incluyen atributos de índice adicionales para especificar diferentes an
   }
 ~~~~
 
-<a name="Example4"></a>
+<a name="Language-analyzer-example"></a>
 
 ### <a name="language-analyzer-example"></a>Ejemplo de analizador de idioma
 
@@ -274,6 +276,69 @@ Los campos que contienen cadenas en diferentes idiomas pueden utilizar un analiz
   }
 ~~~~
 
+## <a name="c-examples"></a>C#ejemplos
+
+Si utiliza los ejemplos de código del SDK de. NET, puede anexar estos ejemplos para usar o configurar los analizadores.
+
++ [Asignar un analizador integrado](#Assign-a-language-analyzer)
++ [Configurar un analizador](#Define-a-custom-analyzer)
+
+<a name="Assign-a-language-analyzer"></a>
+
+### <a name="assign-a-language-analyzer"></a>Asignar un analizador de lenguaje
+
+Cualquier analizador que se usa como-es, sin ninguna configuración, se especifica en una definición de campo. No hay ningún requisito para la creación de una construcción de analizador. 
+
+Este ejemplo asigna a los campos de descripción analizadores de Microsoft English y francés. Es un fragmento de código que se toman de una definición del índice de hoteles, crear mediante la clase del Hotel en el archivo hotels.cs de mayor tamaño el [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) ejemplo.
+
+Llame a [analizador](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzer?view=azure-dotnet), especificando el [AnalyzerName clase](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.analyzername?view=azure-dotnet) que proporciona todos los analizadores de texto que se admiten en Azure Search.
+
+```csharp
+    public partial class Hotel
+    {
+       . . . 
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.EnMicrosoft)]
+        [JsonProperty("description")]
+        public string Description { get; set; }
+
+        [IsSearchable]
+        [Analyzer(AnalyzerName.AsString.FrLucene)]
+        [JsonProperty("description_fr")]
+        public string DescriptionFr { get; set; }
+
+      . . .
+    }
+```
+<a name="Define-a-custom-analyzer"></a>
+
+### <a name="define-a-custom-analyzer"></a>Definir un analizador personalizado
+
+Cuando se requiere la personalización o configuración, deberá agregar una construcción del analizador a un índice. Una vez que se defina, puede agregarlo la definición de campo, como se muestra en el ejemplo anterior.
+
+Use [CustomAnalyzer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.customanalyzer?view=azure-dotnet) para crear el objeto. Para obtener más ejemplos, vea [CustomAnalyzerTests.cs](https://github.com/Azure/azure-sdk-for-net/blob/master/src/SDKs/Search/DataPlane/Search.Tests/Tests/CustomAnalyzerTests.cs).
+
+```csharp
+{
+   var definition = new Index()
+   {
+         Name = "hotels",
+         Fields = FieldBuilder.BuildForType<Hotel>(),
+         Analyzers = new[]
+            {
+               new CustomAnalyzer()
+               {
+                     Name = "url-analyze",
+                     Tokenizer = TokenizerName.UaxUrlEmail,
+                     TokenFilters = new[] { TokenFilterName.Lowercase }
+               }
+            },
+   };
+
+   serviceClient.Indexes.Create(definition);
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 + Revise la explicación detallada de [Cómo funciona la búsqueda de texto completo en Azure Search](search-lucene-query-architecture.md). En este artículo se usan ejemplos que explican comportamientos que, a simple vista, podrían parecer contradictorios.
@@ -286,7 +351,7 @@ Los campos que contienen cadenas en diferentes idiomas pueden utilizar un analiz
 
 + [Compare los analizador estándar y de inglés](https://alice.unearth.ai/) en paneles adyacentes en este sitio web de demostración. 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
  [API de REST de documentos de búsqueda](https://docs.microsoft.com/rest/api/searchservice/search-documents) 
 

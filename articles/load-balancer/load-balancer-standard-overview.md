@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/11/2019
+ms.date: 03/28/2019
 ms.author: kumud
-ms.openlocfilehash: d914242b6a29e05e5b97ad11a1bde6f894113e43
-ms.sourcegitcommit: ba9f95cf821c5af8e24425fd8ce6985b998c2982
-ms.translationtype: HT
+ms.openlocfilehash: ee0dc1b9879c8a26c7f3e48cc8daf6ae3511b27a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54382560"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578533"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Introducción a Azure Standard Load Balancer
 
@@ -73,6 +73,9 @@ Además, cuando todos los sondeos del grupo de servidores back-end [están desac
 Repase [Sondeos de estado de Load Balancer](load-balancer-custom-probe-overview.md) para más información.
 
 ### <a name="az"></a>Zonas de disponibilidad
+
+>[!IMPORTANT]
+>Revisión [zonas de disponibilidad](../availability-zones/az-overview.md) para otros temas relacionados, incluida cualquier información específica de la región.
 
 Load Balancer Estándar admite otras funcionalidades en las regiones donde las zonas de disponibilidad están disponibles.  Estas características se agregan a las que Load Balancer Estándar ya proporciona.  Las configuraciones de las zonas de disponibilidad están disponibles para equilibradores de carga estándar públicos e internos.
 

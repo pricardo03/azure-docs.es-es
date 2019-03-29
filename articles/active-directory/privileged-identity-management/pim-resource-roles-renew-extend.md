@@ -1,5 +1,5 @@
 ---
-title: Ampliación o renovación de asignaciones de roles de recursos de Azure en PIM | Microsoft Docs
+title: Ampliar o renovar las asignaciones de roles de recursos de Azure en PIM - Azure Active Directory | Microsoft Docs
 description: Aprenda a ampliar o renovar asignaciones de roles de recursos de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79549c1b8ed578319e43fc1c4354c7cd76f71589
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8aef7d4ac37109233af4ffb364b6f3e4c9b291ac
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004232"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578397"
 ---
 # <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>Ampliación o renovación de asignaciones de roles de recursos de Azure en PIM
 
-Privileged Identity Management (PIM) para recursos de Azure introduce nuevos controles para administrar el ciclo de vida de acceso y asignación de los recursos de Azure. Los administradores pueden asignar pertenencia mediante las propiedades de fecha y hora de inicio y finalización. Cuando el fin de la asignación se aproxima, PIM envía notificaciones por correo electrónico a los usuarios o grupos afectados. También envía notificaciones por correo electrónico a los administradores del recurso para asegurarse de que se mantenga el acceso adecuado. Las asignaciones pueden renovarse y permanecer visibles en un estado expirado durante un máximo de 30 días, incluso si el acceso no se extiende.
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) presenta nuevos controles para administrar el ciclo de vida de acceso y asignación de recursos de Azure. Los administradores pueden asignar pertenencia mediante las propiedades de fecha y hora de inicio y finalización. Cuando el fin de la asignación se aproxima, PIM envía notificaciones por correo electrónico a los usuarios o grupos afectados. También envía notificaciones por correo electrónico a los administradores del recurso para asegurarse de que se mantenga el acceso adecuado. Las asignaciones pueden renovarse y permanecer visibles en un estado expirado durante un máximo de 30 días, incluso si el acceso no se extiende.
 
 ## <a name="who-can-extend-and-renew"></a>¿Quién puede ampliar y renovar?
 

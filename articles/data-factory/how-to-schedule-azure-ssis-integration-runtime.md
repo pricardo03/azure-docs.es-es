@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 0b84f02d11e278950e4e44874e7b1af9da58f83f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 54d7979f9fbe23e9372aa2702b46e42ca64496d2
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092453"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621641"
 ---
 # <a name="how-to-start-and-stop-azure-ssis-integration-runtime-on-a-schedule"></a>Inicio y detención de Azure-SSIS Integration Runtime mediante una programación
 En este artículo se describe cómo programar el inicio y la detención de Azure-SSIS Integration Runtime (IR) mediante Azure Data Factory (ADF). Azure-SSIS IR es un recurso de proceso de ADF dedicado a la ejecución de paquetes de SQL Server Integration Services (SSIS). La ejecución de Azure-SSIS IR lleva asociado un costo. Por lo tanto, normalmente es preferible ejecutar la instancia de IR solo cuando haya que ejecutar paquetes SSIS en Azure y detenerla cuando ya no se necesite. Puede usar la interfaz de usuario o la aplicación de ADF, o Azure PowerShell, para [iniciar o detener manualmente la instancia de IR](manage-azure-ssis-integration-runtime.md).
@@ -94,7 +94,7 @@ Si crea un tercer desencadenador que se programe para ejecutarse diariamente a m
   
     2. En **Method** (Método) seleccione **POST**. 
     3. En **Body** (Cuerpo), especifique `{"message":"Start my IR"}`. 
-    4. Para **autenticación**, seleccione **MSI** para usar la identidad administrada para la ADF, consulte [identiy administrada de Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) artículo para obtener más información.
+    4. Para **autenticación**, seleccione **MSI** para usar la identidad administrada para la ADF, consulte [identidad administrada para Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) artículo para obtener más información.
     5. En **Recurso**, escriba `https://management.azure.com/`.
     
        ![IR de SSIS de programación de actividades web en ADF](./media/how-to-schedule-azure-ssis-integration-runtime/adf-web-activity-schedule-ssis-ir.png)
@@ -348,7 +348,7 @@ En la siguiente sección se ofrecen los pasos para la creación de un runbook de
 
 ## <a name="create-schedules-for-your-runbook-to-startstop-azure-ssis-ir"></a>Creación de programaciones para que el runbook inicie o detenga Azure-SSIS IR
 
-En la sección anterior, ha creado un runbook de Azure Automation que puede iniciar o detener Azure-SSIS IR. En esta sección, va a crear dos programaciones para el runbook. Al configurar la primera programación, especifique **START** para **OPERATION**. De igual forma, al configurar la segunda programación, especifique **STOP** para **OPERATION**. Para ver el procedimiento detallado para crear programaciones, consulte el artículo [Creación de una programación](../automation/automation-schedules.md#creating-a-schedule).
+En la sección anterior, ha creado un runbook de Azure Automation que puede iniciar o detener Azure-SSIS IR. En esta sección, va a crear dos programaciones para el runbook. Al configurar la primera programación, especifique **START** para **OPERATION**. De igual forma, al configurar la segunda programación, especifique **STOP** para **OPERATION**. Para ver el procedimiento detallado para crear programaciones, consulte el artículo [Creación de una programación](../automation/shared-resources/schedules.md#creating-a-schedule).
 
 1. En la ventana **Runbook**, seleccione **Programaciones** y seleccione **+ Agregar una programación** en la barra de herramientas. 
 

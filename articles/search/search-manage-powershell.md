@@ -7,14 +7,14 @@ services: search
 ms.service: search
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 03/28/2019
 ms.author: heidist
-ms.openlocfilehash: 7a91ad691089ac816b31ebe1fce202110e580f71
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 8f07468ccff4431e1afdf66aedc72599ddc0c25b
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520571"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620604"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Administración del servicio Azure Search con PowerShell
 > [!div class="op_single_selector"]
@@ -24,17 +24,17 @@ ms.locfileid: "58520571"
 > * [SDK de .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Puede ejecutar los scripts y cmdlets de PowerShell en Windows, Linux, o en [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para crear y configurar [Azure Search](https://docs.microsoft.com/azure/search/). El [ **Az.Search** ](https://docs.microsoft.com/powershell/module/az.search/?view=azps-1.4.0#search) módulo amplía [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.4.0) con paridad completa a la [las API de REST de administración de Azure Search](https://docs.microsoft.com/rest/api/searchmanagement). Con Azure PowerShell y **Az.Search**, puede realizar las siguientes tareas:
+Puede ejecutar los scripts y cmdlets de PowerShell en Windows, Linux, o en [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) para crear y configurar Azure Search. El **Az.Search** extiende el módulo Azure PowerShell] con paridad completa a la [las API de REST de administración de Azure Search](https://docs.microsoft.com/rest/api/searchmanagement). Con Azure PowerShell y **Az.Search**, puede realizar las siguientes tareas:
 
 > [!div class="checklist"]
 > * [Lista de todos los servicios de búsqueda en su suscripción](#list-search-services)
 > * [Obtenga información acerca de un servicio de búsqueda específica](#get-search-service-information)
 > * [Crear o eliminar un servicio](#create-or-delete-a-service)
-> * Volver a generar las claves de API de administración
+> * [Volver a generar las claves de API de administración](#regenerate-admin-keys)
 > * [Crear o eliminar claves de api de consulta](#create-or-delete-query-keys)
 > * [Escalar un servicio aumentando o reduciendo las réplicas y particiones](#scale-replicas-and-partitions)
 
-No se puede usar PowerShell para cambiar el nombre, región o niveles de su servicio. Cuando se crea un servicio, se asignan recursos dedicados. Cambiar el hardware subyacente (tipo de nodo o ubicación), requiere un nuevo servicio. No hay ninguna API o herramienta de transferencia de contenido. Toda la administración de contenido es a través de [REST](https://docs.microsoft.com/rest/api/searchservice/) o [.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) API, y si desea mover los índices, se deberá volver a crear y volver a cargarlos en un nuevo servicio. 
+No se puede usar PowerShell para cambiar el nombre, región o niveles de su servicio. Cuando se crea un servicio, se asignan recursos dedicados. Cambiar el hardware subyacente (tipo de nodo o ubicación), requiere un nuevo servicio. No hay ninguna API o herramienta para transferir contenido desde un servicio a otro. Toda la administración de contenido es a través de [REST](https://docs.microsoft.com/rest/api/searchservice/) o [.NET](https://docs.microsoft.com/dotnet/api/?term=microsoft.azure.search) API, y si desea mover los índices, se deberá volver a crear y volver a cargarlos en un nuevo servicio. 
 
 Aunque no hay ningún comando de PowerShell dedicado para administración de contenido, puede escribir el script de PowerShell que llama a REST o .NET para crear y cargar índices. El **Az.Search** módulo por sí solo no proporciona estas operaciones.
 

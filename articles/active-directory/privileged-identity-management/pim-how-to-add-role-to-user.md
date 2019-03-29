@@ -1,6 +1,6 @@
 ---
-title: Asignar roles de administrador de Azure AD - Privileged Identity Management | Microsoft Docs
-description: Obtenga información sobre cómo asignar roles de administrador de Azure Active Directory en Azure AD Privileged Identity Management (PIM).
+title: Asignar roles de Azure AD en PIM - Azure Active Directory | Microsoft Docs
+description: Obtenga información sobre cómo asignar roles de Azure AD en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.subservice: pim
 ms.date: 10/30/2018
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3c8a7fb7a94dbca7b0e63ddaf756a536fbd0600
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: dfce4c918bbc7f7e30b5cb6372d4370e305ba63e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58000632"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578261"
 ---
-# <a name="assign-azure-ad-administrator-roles-in-pim"></a>Asignar roles de administrador de Azure AD en PIM
+# <a name="assign-azure-ad-roles-in-pim"></a>Asignar roles de Azure AD en PIM
 
 Con Azure Active Directory (Azure AD), puede realizar un administrador Global **permanente** las asignaciones de roles de administrador de Azure AD. Estas asignaciones de roles se pueden crear mediante [Azure Portal](../users-groups-roles/directory-assign-admin-roles.md) o mediante [comandos de PowerShell](/powershell/module/azuread#directory_roles).
 
@@ -38,11 +38,11 @@ Siga estos pasos para hacer que un usuario apto para un rol de administrador de 
 
     Si aún no ha iniciado PIM en Azure Portal, vaya a [Primer uso de PIM](pim-getting-started.md).
 
-1. Haga clic en **Roles de directorio de Azure AD**.
+1. Haga clic en **Roles de Azure AD**.
 
 1. Haga clic en **Roles** o en **Miembros**.
 
-    ![Roles de directorio de Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
+    ![Roles de Azure AD](./media/pim-how-to-add-role-to-user/pim-directory-roles.png)
 
 1. Haga clic en **Agregar miembro** para abrir Agregar miembros administrados.
 
@@ -62,7 +62,7 @@ Siga estos pasos para hacer que un usuario apto para un rol de administrador de 
 
     ![Usuario apto para un rol](./media/pim-how-to-add-role-to-user/pim-directory-role-eligible.png)
 
-1. Ahora que el usuario es apto para el rol, hágale saber que puede activarlo de acuerdo con las instrucciones que se describen en [Activación y desactivación de roles en Privileged Identity Management de Azure AD](pim-how-to-activate-role.md).
+1. Ahora que el usuario es apto para el rol, Hágale saber que puede activarlo de acuerdo con las instrucciones de [activar mis roles de Azure AD en PIM](pim-how-to-activate-role.md).
 
     A los administradores aptos se les pide que se registren en Azure Multi-factor Authentication (MFA) durante la activación. Si un usuario no puede registrarse en MFA o usa una cuenta de Microsoft (normalmente @outlook.com), deberá establecerlo como permanente en todos sus roles.
 
@@ -72,7 +72,7 @@ De forma predeterminada, los usuarios nuevos solo son aptos para un rol de admin
 
 1. Abra **Azure AD Privileged Identity Management**.
 
-1. Haga clic en **Roles de directorio de Azure AD**.
+1. Haga clic en **Roles de Azure AD**.
 
 1. Haga clic en **Miembros**.
 
@@ -96,7 +96,7 @@ Siga estos pasos para quitar un usuario específico de un rol de administrador d
 
 1. Abra **Azure AD Privileged Identity Management**.
 
-1. Haga clic en **Roles de directorio de Azure AD**.
+1. Haga clic en **Roles de Azure AD**.
 
 1. Haga clic en **Miembros**.
 

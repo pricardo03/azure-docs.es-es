@@ -1,6 +1,6 @@
 ---
-title: Revisión de acceso de grupos o aplicaciones de las revisiones de acceso de Azure AD | Microsoft Docs
-description: Obtenga información sobre cómo realizar una revisión de acceso de los miembros del grupo o el acceso a la aplicación de revisiones de acceso de Azure AD.
+title: 'Revisión de acceso de grupos o aplicaciones: Azure Active Directory | Microsoft Docs'
+description: Obtenga información sobre cómo realizar una revisión de acceso de los miembros del grupo o el acceso a la aplicación de revisiones de acceso de Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 05/02/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc5dbee47bd6a621b14b39858132ce229663481b
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4265a7e08eab079e55ce91b27142ec3e55b3f3e9
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729617"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579604"
 ---
-# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Revisión de acceso de grupos o aplicaciones de las revisiones de acceso de Azure AD
+# <a name="complete-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Revisión de acceso de los grupos o las revisiones de acceso de las aplicaciones de Azure AD
 
 Los administradores pueden usar Azure Active Directory (Azure AD) para [crear una revisión de acceso](create-access-review.md) para miembros de grupo o usuarios asignados en una aplicación. Azure AD envía automáticamente a los revisores un correo electrónico en el que se les solicita que revisen el acceso. Si un usuario no recibió un correo electrónico, puede enviarle las instrucciones en [revisen el acceso a grupos o aplicaciones](perform-access-review.md). (Tenga en cuenta que los invitados que están asignados como revisores pero no han aceptado la invitación no recibirán un correo electrónico de las revisiones de acceso, ya que primero deben aceptar una invitación antes de la revisión). Una vez finalizado el período de revisión de acceso o si el administrador detiene la revisión de acceso, siga los pasos de este artículo para ver los resultados y aplicarlos.
 

@@ -6,69 +6,60 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 03/28/2019
 ms.author: raynew
-ms.openlocfilehash: 1cc86470b9e45469d633d47121869b3c2dc1b052
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 94d66e28f8edbda6c41dcceaf427d7d7d869c90f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439012"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620124"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services
 
 En este artículo se describe cómo eliminar un [Azure Backup](backup-overview.md) almacén de Recovery Services. Contiene instrucciones para quitar las dependencias y, a continuación, eliminar un almacén y eliminar un almacén a la fuerza.
 
 
-
-
 ## <a name="before-you-start"></a>Antes de comenzar
 
 Antes de empezar, es importante entender que no se puede eliminar un almacén de Recovery Services que tiene servidores registrados en él, o que contiene datos de copia de seguridad.
 
-
-- Para eliminar un almacén correctamente, anular el registro de servidores en él y quitar los datos del almacén.
+- Para eliminar un almacén correctamente, anular el registro de servidores en él, quitar los datos del almacén y, a continuación, elimine el almacén.
+- Si se intenta eliminar un almacén que todavía tiene dependencias, se emite un mensaje de error. y deberá quitar manualmente las dependencias del almacén, incluyendo:
+    - Copia los elementos de seguridad
+    - Servidores protegidos
+    - Copia de seguridad de servidores de administración (servidor de copia de seguridad de Azure, DPM) ![seleccione el almacén para abrir su panel](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
 - Si no desea conservar los datos en el almacén de Recovery Services y quiere eliminar el almacén, puede eliminar el almacén a la fuerza.
 - Si intenta eliminar un almacén, pero no puede, el almacén todavía está configurado para recibir datos de copia de seguridad.
 
-Para obtener información sobre cómo eliminar un almacén, consulte la sección [Delete a vault from Azure Portal](#delete-a-vault-from-the-azure-portal) (Eliminación de un almacén de Azure Portal). Si la sección, [eliminar el almacén a la fuerza](backup-azure-delete-vault.md#delete-the-recovery-services-vault-by-force). Si no está seguro de lo que hay en el almacén y tiene que asegurarse de que puede eliminarlo, consulte la sección [Remove vault dependencies and delete vault](backup-azure-delete-vault.md#remove-vault-dependencies-and-delete-vault) (Quitar las dependencias del almacén y eliminarlo).
 
 ## <a name="delete-a-vault-from-the-azure-portal"></a>Eliminar un almacén de Azure portal
 
-1. Abra la lista de almacenes de Recovery Services en el portal.
-2. En la lista, seleccione el almacén que desea eliminar. Se abre el panel del almacén.
+1. Abra el panel del almacén.  
+2. En el panel, haga clic en **eliminar**. Compruebe que desea eliminar.
 
     ![Seleccionar el almacén para abrir su panel](./media/backup-azure-delete-vault/contoso-bkpvault-settings.png)
 
-1. En el panel del almacén, haga clic en **eliminar**. Compruebe que desea eliminar.
+Si recibe un error, quite [elementos de copia de seguridad](#remove-backup-items), [servidores de infraestructura](#remove-backup-infrastructure-servers), y [puntos de recuperación](#remove-azure-backup-agent-recovery-points)y, a continuación, elimine el almacén.
 
-    ![Seleccionar el almacén para abrir su panel](./media/backup-azure-delete-vault/click-delete-button-to-delete-vault.png)
+![Eliminar error de almacén](./media/backup-azure-delete-vault/error.png)
 
-2. Si hay dependencias de almacén, el **error de eliminación del almacén** aparece: 
-
-    ![Error de eliminación del almacén](./media/backup-azure-delete-vault/vault-delete-error.png)
-
-    - Siga estas instrucciones para quitar las dependencias antes de eliminar el almacén, revise
-    - [Siga estas instrucciones](#delete-the-recovery-services-vault-by-force) usar PowerShell para eliminar el almacén a la fuerza. 
 
 ## <a name="delete-the-recovery-services-vault-by-force"></a>Eliminación del almacén de Recovery Services a la fuerza
 
+Puede eliminar un almacén a la fuerza con PowerShell. Forzar la eliminación significa que se elimina permanentemente del almacén y todos sus datos de copia de seguridad.
+
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Puede usar PowerShell para eliminar un almacén de Recovery Services a la fuerza. Esto significa que el almacén y todos sus datos de copia de seguridad se elimina permanentemente. 
 
-> [!Warning]
-> Al usar PowerShell para eliminar un almacén de Recovery Services, compruebe que desea eliminar permanentemente todos los datos de copia de seguridad en el almacén.
->
-
-Para eliminar un almacén de Recovery Services:
+Para eliminar un almacén a la fuerza:
 
 1. Inicie sesión en su suscripción de Azure con el `Connect-AzAccount` comando y siga el en pantalla direcciones.
 
    ```powershell
     Connect-AzAccount
    ```
-2. La primera vez que use Azure Backup, debe registrar el proveedor de servicios de recuperación de Azure en su suscripción con [Register AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider).
+2. La primera vez que use Azure Backup, debe registrar el proveedor de Azure Recovery Services en su suscripción con [Register-AzResourceProvider](/powershell/module/az.Resources/Register-azResourceProvider).
 
    ```powershell
     Register-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -90,28 +81,18 @@ Para eliminar un almacén de Recovery Services:
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>?api-version=2015-03-15
    ```
-9. Si el almacén Value no de vacío, recibe el error "No se puede eliminar porque hay recursos existentes dentro de este almacén". Para quitar un contenedor dentro de un almacén, haga lo siguiente:
+9. Si el almacén Value no de vacío, recibe el error "No se puede eliminar porque hay recursos existentes dentro de este almacén". Para quitar un contenida dentro de un almacén, haga lo siguiente:
 
    ```powershell
    ARMClient.exe delete /subscriptions/<subscriptionID>/resourceGroups/<resourcegroupname>/providers/Microsoft.RecoveryServices/vaults/<recovery services vault name>/registeredIdentities/<container name>?api-version=2016-06-01
    ```
 
-10. Inicie sesión su suscripción en el portal de Azure y compruebe que se ha eliminado el almacén.
+10. En el portal de Azure, compruebe que se ha eliminado el almacén.
 
 
-## <a name="remove-vault-dependencies-and-delete-vault"></a>Quitar las dependencias del almacén y eliminar el almacén
+## <a name="remove-vault-items-and-delete-the-vault"></a>Quitar elementos del almacén y la eliminación del almacén
 
-Puede quitar manualmente las dependencias del almacén, como se indica a continuación:
-
-- En el **elementos de copia de seguridad** menú, quitar dependencias:
-    - Copias de seguridad de Azure Storage (Azure Files)
-    - Copias de seguridad de SQL Server en VM de Azure
-    - Copias de seguridad de máquinas virtuales de Azure
-- En el **infraestructura de copia de seguridad** menú, quitar dependencias:
-    - Copias de seguridad de Microsoft Azure Backup Server (MABS)
-    - Copias de seguridad de System Center DPM
-
-![Seleccionar el almacén para abrir su panel](./media/backup-azure-delete-vault/backup-items-backup-infrastructure.png)
+Estos procedimientos se proporcionan algunos ejemplos para quitar datos de copia de seguridad y los servidores de infraestructura. Después de quita todo el contenido de un almacén, puede eliminarlo.
 
 ### <a name="remove-backup-items"></a>Quitar elementos de copia de seguridad
 
@@ -200,12 +181,13 @@ Este procedimiento proporciona un ejemplo que muestra cómo quitar datos de copi
 
 
 
+
+
+
 ### <a name="delete-the-vault-after-removing-dependencies"></a>Eliminar el almacén después de quitar las dependencias
 
 1. Cuando se han quitado todas las dependencias, desplácese a la **Essentials** panel en el menú del almacén.
-
-    - No debería haber **elementos de copia de seguridad**, **servidores de administración de copias de seguridad** ni **elementos replicados** en la lista.
-    - Si todavía aparecen elementos en el almacén, quitarlos.
+2. Compruebe que no existe ninguna **elementos de copia de seguridad**, **servidores de administración de copia de seguridad**, o **elementos replicados** enumerados. Si todavía aparecen elementos en el almacén, quitarlos.
 
 2. Cuando no haya ningún otro elemento en el almacén, haga clic en **Eliminar** en el panel del almacén.
 

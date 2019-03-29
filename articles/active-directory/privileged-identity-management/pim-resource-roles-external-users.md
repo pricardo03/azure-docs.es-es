@@ -1,6 +1,6 @@
 ---
-title: Invitar a otros usuarios externos y asignar roles de administrador de Azure AD - Privileged Identity Management | Microsoft Docs
-description: Obtenga información sobre cómo invitar a usuarios y asignar roles de administrador de Azure Active Directory en Azure AD Privileged Identity Management.
+title: Invitar a otros usuarios y asignar roles de recursos de Azure en PIM - Azure Active Directory | Microsoft Docs
+description: Obtenga información sobre cómo invitar a usuarios externos y asignar roles de recursos de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68e76a4513d94cceb8e856c94ad6eae2bdab9c46
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 68c5e5e2ed0d3ec767a239439476a98bac73bcb4
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57853263"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576886"
 ---
-# <a name="invite-guest-users-and-assign-azure-resource-access-in-pim"></a>Invitar a usuarios y asignar acceso a los recursos de Azure en PIM
+# <a name="invite-guest-users-and-assign-azure-resource-roles-in-pim"></a>Invitar a usuarios y asignar roles de recursos de Azure en PIM
 
 Azure Active Directory (Azure AD) negocio a negocio (B2B) es un conjunto de capacidades dentro de Azure AD que permite a las organizaciones a colaborar con usuarios externos invitados (invitados) y con cualquier cuenta de proveedores. Cuando se combina B2B con Azure AD Privileged Identity Management (PIM), puede seguir aplicar los requisitos de cumplimiento y gobierno a los invitados. Por ejemplo, puede usar estas características PIM para tareas de identidad de Azure con los invitados:
 

@@ -1,6 +1,6 @@
 ---
-title: Configuración de roles de directorio de Azure AD en PIM | Microsoft Docs
-description: Aprenda a configurar los roles de directorio de Azure AD en Azure AD Privileged Identity Management (PIM).
+title: Configuración de opciones de rol de Azure AD en PIM - Azure Active Directory | Microsoft Docs
+description: Obtenga información sobre cómo configurar opciones de rol de Azure AD en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,34 +14,34 @@ ms.date: 11/30/2018
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 761bb31ca51f29547f594af99f779665a255c0be
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: b14cf76ec7b8b905c41792f4dc9a56e97dc0f7ba
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56162550"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576869"
 ---
-# <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Configuración de roles de directorio de Azure AD en PIM
+# <a name="configure-azure-ad-role-settings-in-pim"></a>Configuración de rol de Azure AD en PIM
 
-Un administrador de roles con privilegios puede personalizar Privileged Identity Management (PIM) de Azure AD en su organización, como cambiar la experiencia de un usuario que va a activar una asignación de rol apto.
+Un administrador de roles con privilegios puede personalizar Azure Active Directory (Azure AD) Privileged Identity Management (PIM) de su organización, incluido el cambio de la experiencia de un usuario que va a activar una asignación de roles elegibles.
 
 ## <a name="open-role-settings"></a>Apertura de la configuración de roles
 
-Siga estos pasos para abrir la configuración de un rol de directorio de Azure AD.
+Siga estos pasos para abrir la configuración de una función de Azure AD.
 
 1. Abra **Azure AD Privileged Identity Management**.
 
-1. Haga clic en **Roles de directorio de Azure AD**.
+1. Haga clic en **Roles de Azure AD**.
 
 1. Haga clic en **Configuración**.
 
-    ![Roles de directorio de Azure AD - Configuración](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
+    ![Roles de Azure AD - configuración](./media/pim-how-to-change-default-settings/pim-directory-roles-settings.png)
 
 1. Haga clic en **Roles**.
 
 1. Haga clic en el rol cuya configuración desea configurar.
 
-    ![Roles de directorio de Azure AD: roles de configuración](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
+    ![Roles de Azure AD - configuración de Roles](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-role.png)
 
     En la página de configuración de cada rol, hay varios valores que puede configurar. Dichos valores solo afectan a los usuarios que son asignaciones **elegibles**, no asignaciones **permanentes**.
 
@@ -98,13 +98,13 @@ Si desea solicitar aprobación para activar un rol, siga estos pasos.
 
 1. Establezca el modificador **Requerir aprobación** en **Habilitado**. El panel se expande con opciones para seleccionar aprobadores.
 
-    ![Roles de directorio de Azure AD - Configuración - Requerir aprobación](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
+    ![Roles de Azure AD - Settings - requieren la aprobación](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
     Si **NO** especifica ningún aprobador, los administradores de roles con privilegios pasarán a ser los aprobadores predeterminados. Se debería requerir que los administradores de roles con privilegios aprueben **TODAS** las solicitudes de activación de este rol.
 
 1. Para especificar los aprobadores, haga clic en **Seleccionar aprobadores**.
 
-    ![Roles de directorio de Azure AD - Configuración - Requerir aprobación](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
+    ![Roles de Azure AD - Settings - requieren la aprobación](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval-select-approvers.png)
 
 1. Seleccione uno o varios aprobadores y haga clic en **Seleccionar**. Puede seleccionar usuarios o grupos. Se recomienda al menos 2 aprobadores. No se admite la aprobación automática.
 
@@ -117,5 +117,5 @@ Si desea solicitar aprobación para activar un rol, siga estos pasos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Asignación de roles de directorio de Azure AD en PIM](pim-how-to-add-role-to-user.md)
-- [Configuración de alertas de seguridad para roles de directorio de Azure AD en PIM](pim-how-to-configure-security-alerts.md)
+- [Asignar roles de Azure AD en PIM](pim-how-to-add-role-to-user.md)
+- [Configurar alertas de seguridad para roles de Azure AD en PIM](pim-how-to-configure-security-alerts.md)

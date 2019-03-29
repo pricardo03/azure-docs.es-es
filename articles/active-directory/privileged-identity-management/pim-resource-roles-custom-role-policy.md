@@ -1,5 +1,5 @@
 ---
-title: Uso de roles personalizados para recursos de Azure en PIM | Microsoft Docs
+title: Uso de roles personalizados para recursos de Azure en PIM - Azure Active Directory | Microsoft Docs
 description: Aprenda a usar roles de personalizados para recursos de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -14,16 +14,16 @@ ms.subservice: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2767d817d6f15d38aeef4c669b2b11c3d8a8a6b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 13aef9b180a671a9b42bbc6319c487be36652093
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168024"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58574882"
 ---
 # <a name="use-custom-roles-for-azure-resources-in-pim"></a>Uso de roles personalizados para recursos de Azure en PIM
 
-Puede que sea necesario aplicar una configuración de Privileged Identity Management (PIM) estricta a algunos miembros de un rol y, al mismo tiempo, proporcionar una mayor autonomía a otros. Imagine un escenario en el que su organización contrata varios a asociados para que le ayuden en el desarrollo de una aplicación que se ejecutará en una suscripción de Azure.
+Es posible que deba aplicar la configuración de Azure Active Directory (Azure AD) Privileged Identity Management (PIM) estricta a algunos miembros de un rol, al proporcionar una mayor autonomía para que otros usuarios. Imagine un escenario en el que su organización contrata varios a asociados para que le ayuden en el desarrollo de una aplicación que se ejecutará en una suscripción de Azure.
 
 Como administrador de recursos, quiere que los empleados puedan obtener acceso sin necesidad de aprobación. Sin embargo, todos los asociados contratados deben obtener una aprobación cuando soliciten acceso a los recursos de la organización.
 

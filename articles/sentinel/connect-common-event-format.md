@@ -12,19 +12,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 3/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 31939b3b09fb36ac59efa1d7d7e302ac5f65a51c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d3ecfed766f8a1ba558e0b0cd4fe6a27c33e441
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117190"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579638"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Conecte su solución externa mediante Common Event Format
 
 > [!IMPORTANT]
-> Sentinel Azure está actualmente en versión preliminar pública.
+> Azure Sentinel se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Puede conectar Azure Sentinel con una solución externa que le permite guardar los archivos de registro de Syslog. Si su dispositivo le permite guardar los registros como Syslog Common Event Format (CEF), la integración con Azure Sentinel permite ejecutar fácilmente análisis y consultas a través de los datos.
@@ -48,11 +48,11 @@ La conexión entre su dispositivo CEF y Sentinel Azure lleva a cabo en tres paso
 
 ## <a name="step-1-connect-to-your-cef-appliance-via-dedicated-azure-vm"></a>Paso 1: Conexión al dispositivo a través de la máquina virtual de Azure dedicada CEF
 
-Deberá implementar un agente en un equipo dedicado de Linux (máquina virtual o local) para admitir la comunicación entre el dispositivo y Azure Sentinel. Puede implementar al agente de forma automática o manual. Implementación automática se basa en plantillas de Resource Manager y se puede usar solo si su máquina Linux dedicada es una nueva máquina virtual se crea en Azure.
+Deberá implementar un agente en un equipo dedicado de Linux (máquina virtual o local) para admitir la comunicación entre el dispositivo y Azure Sentinel. Puede implementar el agente automáticamente o de forma manual. Implementación automática se basa en plantillas de Resource Manager y se puede usar solo si su máquina Linux dedicada es una nueva máquina virtual se crea en Azure.
 
  ![CEF en Azure](./media/connect-cef/cef-syslog-azure.png)
 
-Como alternativa, puede implementar al agente manualmente en una VM de Azure existente, en una máquina virtual en otra nube o en una máquina local. 
+También puede implementar el agente manualmente en una máquina virtual existente, en una máquina virtual en otra nube o en una máquina local. 
 
  ![CEF local](./media/connect-cef/cef-syslog-onprem.png)
 
@@ -123,12 +123,12 @@ Puede tardar más de 20 minutos hasta que los registros se empiecen a aparecer e
 3. Si ambos de esos comandos proporcionan resultados correctos, compruebe si Log Analytics para ver si llegan los registros. Todos los eventos que se transmite por secuencias desde estos dispositivos aparecen en formato sin procesar en Log Analytics en `CommonSecurityLog ` tipo.
 1. Para comprobar si hay errores o si no que llegan los registros, buscar `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`
 4. Asegúrese de que el tamaño predeterminado de mensaje de Syslog se limita a 2048 bytes (2KB). Si los registros son demasiado largos, actualice el security_events.conf con este comando: `message_length_limit 4096`
-
+6. Para usar el esquema correspondiente en Log Analytics para los eventos CEF, busque **CommonSecurityLog**.
 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, ha aprendido cómo conectar dispositivos CEF a Centinela de Azure. Para obtener más información acerca de Centinela de Azure, consulte los artículos siguientes:
+En este documento, ha aprendido cómo conectar dispositivos CEF a Centinela de Azure. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Obtenga información sobre cómo [Obtenga visibilidad sobre sus datos y las posibles amenazas](quickstart-get-visibility.md).
 - Introducción a [detección de amenazas con Azure Sentinel](tutorial-detect-threats.md).
 

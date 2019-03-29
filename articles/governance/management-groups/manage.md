@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 51e9d44a95a3896767caf4b3f04d17c2933e8599
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: 801a37496b36be1f98408c46807f5b10db2b0282
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990551"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622066"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración
 
@@ -67,9 +67,9 @@ Para eliminar un grupo de administración, deben cumplirse los siguientes requis
 
 1. No deben existir grupos de administración secundarios ni suscripciones en el grupo de administración.
 
-   - Para mover una suscripción fuera de un grupo de administración, vea [Mover la suscripción a otro grupo de administración](#Move-subscriptions-in-the-hierarchy).
+   - Para mover una suscripción fuera de un grupo de administración, vea [Mover la suscripción a otro grupo de administración](#move-subscriptions-in-the-hierarchy).
 
-   - Para mover un grupo de administración a otro grupo de administración, consulte [Mover grupos de administración en la jerarquía](#Move-management-groups-in-the-hierarchy).
+   - Para mover un grupo de administración a otro grupo de administración, consulte [Mover grupos de administración en la jerarquía](#move-management-groups-in-the-hierarchy).
 
 1. Tener permisos de escritura en el grupo de administración ("Owner", "Colaborador" o "Colaborador de grupo de administración"). Para ver qué permisos tiene, seleccione el grupo de administración y, a continuación, seleccione **IAM**. Para más información sobre los roles de RBAC, consulte [Administración del acceso y los permisos con RBAC](../../role-based-access-control/overview.md).  
 

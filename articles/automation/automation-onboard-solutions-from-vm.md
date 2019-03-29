@@ -4,17 +4,17 @@ description: Aprenda a incorporar las soluciones Update Management, Change Track
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 03/20/2019
 ms.topic: conceptual
 ms.service: automation
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 70d9957ae5f0ec43269d371c96e3722e52edb26d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: bf81b862f978d4baab0907dc9002564062ec5228
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57837769"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58619737"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions-from-an-azure-virtual-machine"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory desde una máquina virtual de Azure
 
@@ -26,7 +26,7 @@ Inicie sesión en Azure Portal en https://portal.azure.com.
 
 ## <a name="enable-the-solutions"></a>Habilitación de las soluciones
 
-Vaya a una máquina virtual existente. En **Operaciones**, seleccione **Update Management**, **Inventory** o **Change Tracking**. La máquina virtual puede existir en cualquier región con independencia de la ubicación de la cuenta de Automation.
+Vaya a una máquina virtual existente. En **Operaciones**, seleccione **Update Management**, **Inventory** o **Change Tracking**. La máquina virtual puede existir en cualquier región con independencia de la ubicación de la cuenta de Automation. Al incorporar una solución de una máquina virtual debe tener el `Microsoft.OperationalInsights/workspaces/read` permiso para determinar si la máquina virtual esté incorporada a un área de trabajo. Para obtener información acerca de los permisos adicionales que son necesarios en general, consulte [los permisos necesarios para incorporar máquinas](automation-role-based-access-control.md#onboarding).
 
 Para habilitar la solución solo para la máquina virtual, asegúrese de que esté seleccionada la opción **Enable for this VM** (Habilitar para esta máquina virtual). Para incorporar la solución a varias máquinas, seleccione **Enable for VMs in this subscription** (Habilitar para las máquinas virtuales de esta suscripción) y, luego, seleccione **Click to select machines to enable** (Hacer clic para seleccionar las máquinas para habilitar). Para más información sobre la incorporación en varias máquinas a la vez, consulte [Incorporación de las soluciones Update Management, Change Tracking e Inventory](automation-onboard-solutions-from-automation-account.md).
 
@@ -85,13 +85,13 @@ Después de quitar estas soluciones, puede realizar los pasos siguientes para de
 
 1. En Azure Portal, abra su cuenta de Automation y, en la página de la cuenta de Automation, seleccione **Área de trabajo vinculada** en la sección **Recursos relacionados** de la izquierda.
 
-1. En la página Desvincular área de trabajo, haga clic en **Desvincular área de trabajo**.
+2. En la página Desvincular área de trabajo, haga clic en **Desvincular área de trabajo**.
 
    ![Página Desvincular área de trabajo](media/automation-onboard-solutions-from-vm/automation-unlink-workspace-blade.png).
 
    Recibirá un aviso para comprobar que desea continuar.
 
-1. Aunque Azure Automation trate de desvincular la cuenta del área de trabajo de Log Analytics, puede seguir el progreso en **Notificaciones** en el menú.
+3. Aunque Azure Automation trate de desvincular la cuenta del área de trabajo de Log Analytics, puede seguir el progreso en **Notificaciones** en el menú.
 
 Si ha usado la solución de administración de actualizaciones, también puede quitar los siguientes elementos que ya no necesite después de quitar la solución.
 

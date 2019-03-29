@@ -1,5 +1,5 @@
 ---
-title: Activación de mis roles de recursos de Azure en PIM | Microsoft Docs
+title: Activar mis roles de recursos de Azure en PIM - Azure Active Directory | Microsoft Docs
 description: Aprenda a activar sus roles de recursos de Azure en Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
@@ -15,16 +15,16 @@ ms.date: 03/05/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b574e538c407040518f3905f8fbd9fa91d5dd067
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 23fcba94a8f29d0f1bc458dd4779e5a2f0c06f38
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002041"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575813"
 ---
 # <a name="activate-my-azure-resource-roles-in-pim"></a>Activación de mis roles de recursos de Azure en PIM
 
-Con Azure AD Privileged Identity Management (PIM), los miembros del rol elegibles para los recursos de Azure pueden programar la activación de una fecha y hora futuras. Asimismo, también pueden seleccionar una duración de activación específica dentro del valor máximo establecido (configurado por los administradores).
+Con Azure Active Directory (Azure AD) Privileged Identity Management (PIM), los miembros del rol para recursos de Azure pueden programar la activación de una fecha y hora futuras. Asimismo, también pueden seleccionar una duración de activación específica dentro del valor máximo establecido (configurado por los administradores).
 
 Este artículo se dirige a los miembros que necesitan activar su rol de recursos de Azure en PIM.
 
@@ -38,7 +38,7 @@ Cuando necesite asumir un rol de recursos de Azure, puede solicitar la activaci�
 
 1. Haga clic en **Mis roles**.
 
-    ![Roles de recursos de Azure y roles de directorio de Azure AD: Mis roles](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
+    ![Roles de recursos de Azure - Mis roles y roles de Azure AD](./media/pim-resource-roles-activate-your-roles/resources-my-roles.png)
 
 1. Haga clic en **roles de recursos de Azure** para ver una lista de los roles de recursos de Azure válidas.
 
@@ -84,7 +84,7 @@ En el caso de cualquier retraso tras la activación, siga estos pasos después d
 
 1. Abra Azure AD Privileged Identity Management.
 
-1. Haga clic en **Mis roles** para ver una lista de sus roles de directorio de Azure AD y roles de recursos de Azure elegibles.
+1. Haga clic en **Mis roles** para ver una lista de su derecho a roles de recursos de Azure y roles de Azure AD.
 
 1. Haga clic en **roles de recursos de Azure**.
 
@@ -100,9 +100,9 @@ Puede ver el estado de las solicitudes pendientes de activación.
 
 1. Abra Azure AD Privileged Identity Management.
 
-1. Haga clic en **Mis solicitudes** para ver una lista de sus solicitudes de rol de directorio de Azure AD y rol de recursos de Azure.
+1. Haga clic en **Mis solicitudes** para ver una lista de su rol de Azure AD y el rol de recursos de Azure las solicitudes.
 
-    ![Roles de directorio de Azure AD y roles de recursos de Azure: Mis roles](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
+    ![Roles de Azure AD y los roles de recursos de Azure - Mis solicitudes](./media/pim-resource-roles-activate-your-roles/resources-my-requests.png)
 
 1. Desplácese a la derecha para ver la columna **Estado de solicitud**.
 
@@ -138,4 +138,4 @@ Si recibe un mensaje de que un recurso de Azure está bloqueado al intentar acti
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Ampliación o renovación de roles de recursos de Azure en PIM](pim-resource-roles-renew-extend.md)
-- [Activación de mis roles de directorio de Azure AD en PIM](pim-how-to-activate-role.md)
+- [Activar mis roles de Azure AD en PIM](pim-how-to-activate-role.md)
