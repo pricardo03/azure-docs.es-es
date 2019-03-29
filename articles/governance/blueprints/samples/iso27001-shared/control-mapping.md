@@ -8,12 +8,12 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: f655db8643a16e6818f5becf25c8761fb4c9093b
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: 34cda2f09392513b0d3f76cc5f77ea0064109410
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58008044"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58576112"
 ---
 # <a name="control-mapping-of-the-azure-blueprints-iso-27001-blueprint-sample"></a>Asignación de control de la muestra de plano técnico de Azure planos ISO 27001
 
@@ -122,7 +122,7 @@ Descripción de donde los recursos de Azure pueden tener configuraciones cifrada
 
 ## <a name="a1241-event-logging"></a>Registro de eventos A.12.4.1
 
-Esta instancia de blueprint le ayuda a asegurarse de que se registran los eventos del sistema mediante la asignación de siete [Azure Policy](../../../policy/overview.md) definiciones que auditar la configuración en los recursos de Azure de registro. Una directiva asignada también audita si las máquinas virtuales no están enviando registros a un área de trabajo de análisis de registro especificado.
+Esta instancia de blueprint le ayuda a asegurarse de que se registran los eventos del sistema mediante la asignación de siete [Azure Policy](../../../policy/overview.md) definiciones de registro de auditoría en los recursos de Azure. Una directiva asignada también audita si las máquinas virtuales no están enviando registros a un área de trabajo de análisis de registro especificado.
 
 - [Versión preliminar]: Implementación de agente de dependencia de auditoría - dados de baja de imagen de la máquina virtual (SO)
 - [Versión preliminar]: Implantación de agentes de dependencia en VMSS - dados de baja de imagen de la máquina virtual (SO) de auditoría

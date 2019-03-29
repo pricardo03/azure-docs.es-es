@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 4d3de1d0b242017f7026873ccaeba547f85981fc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a152d9242c4d272800e2e159603c2554f1d89092
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482106"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622049"
 ---
 # <a name="configure-service-map-in-azure"></a>Configuración de Service Map en Azure
 Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Puede usarlo para ver los servidores tal como los considera: sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos y puertos en cualquier arquitectura conectada TCP sin una configuración necesaria que sea distinta a la instalación de un agente.
@@ -57,13 +57,11 @@ En las secciones siguientes se enumeran los sistemas operativos compatibles para
 - Windows 7
 
 ## <a name="supported-linux-operating-systems"></a>Sistemas operativos Linux compatibles
-En la siguiente sección se enumeran los sistemas operativos compatibles para Dependency Agent en Red Hat Enterprise Linux, CentOS Linux y Oracle Linux (con kernel RHEL).  
+La siguiente sección se enumeran los sistemas operativos compatibles para el agente de dependencia en Linux.  
 
 - Se admiten solo versiones de kernel SMP Linux y predeterminados.
 - Las versiones de kernel no estándar, como PAE y Xen, no son compatibles con ninguna distribución de Linux. Por ejemplo, un sistema con la cadena de versión de "2.6.16.21-0.8-xen" no es compatible.
 - No se admiten los kernel personalizados, incluidas las recompilaciones de kernels estándar.
-- Se admite el kernel de CentOSPlus.
-- Unbreakable Enterprise Kernel (UEK) de Oracle se aborda en una sección posterior de este artículo.
 
 ### <a name="red-hat-linux-7"></a>Red Hat Linux 7
 

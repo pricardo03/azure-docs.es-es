@@ -1,6 +1,6 @@
 ---
-title: Administrar el acceso de usuario con revisiones de acceso de Azure AD | Microsoft Docs
-description: Aprenda a administrar el acceso de los usuarios como la pertenencia a un grupo o la asignación a una aplicación con revisiones de acceso de Azure Active Directory
+title: Administrar el acceso de usuario con revisiones de acceso - Azure Active Directory | Microsoft Docs
+description: Aprenda a administrar el acceso de los usuarios, como la pertenencia a un grupo o la asignación a una aplicación con revisiones de acceso de Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.date: 06/21/2018
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 656a1d387a345d9ffcc549c19a131de758e18c35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f8dee430b0ae1bf0c8cd7151272045467ce51c57
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57879997"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575069"
 ---
-# <a name="manage-user-access-with-azure-ad-access-reviews"></a>Administrar el acceso de usuario con revisiones de acceso de Azure AD
+# <a name="manage-user-access-with-azure-ad-access-reviews"></a>Administración del acceso de los usuarios con las revisiones de acceso de Azure AD
 
 Con Azure Active Directory (Azure AD), puede asegurarse de que los usuarios tienen el acceso adecuado. Puede pedir a los propios usuarios o a quien decida en su lugar que participen en una revisión de acceso y vuelvan a certificar (o atestiguar) el acceso de los usuarios. Los revisores pueden dar su aprobación para cada necesidad de acceso continuado de los usuarios, en función de las sugerencias de Azure AD. Cuando una revisión de acceso haya terminado, es posible hacer cambios y retirar la concesión de acceso a los usuarios que ya no lo necesitan.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2018
 ms.author: monhaber
-ms.openlocfilehash: 2ce3a94b7ea4745ec3727e508cd10bb580a74c98
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: cabd3d58c3b6bf76b294e1edf1cf94aad5d30f2f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401029"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578958"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolección de datos en Azure Security Center
 Security Center recopila datos de sus máquinas virtuales (VM), conjuntos de escalado de máquinas virtuales, contenedores de IaaS y los equipos que no son de Azure (incluido local) para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con Microsoft Monitoring Agent, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP y usuario conectado. El agente de Microsoft Monitoring Agent también copia los archivos de volcado en el área de trabajo.
@@ -50,7 +50,7 @@ Para habilitar el aprovisionamiento automático de Microsoft Monitoring Agent:
 1. En el menú principal de Security Center, seleccione **Directiva de seguridad**.
 2. Haga clic en **Editar configuración** en la columna Configuración de la suscripción deseada en la lista.
 
-   ![Seleccionar suscripción][7]
+   ![Selección de la suscripción][7]
 
 3. En **Directiva de seguridad**, seleccione **Recopilación de datos**.
 4. En **Aprovisionamiento automático**, seleccione **Activado** para habilitarlo.
@@ -79,7 +79,7 @@ Para seleccionar un área de trabajo creada por Security Center:
 1. En **Configuración del área de trabajo predeterminada**, seleccione Use workspace(s) created by Security center (Usar áreas de trabajo creadas por Security Center).
    ![Selección del plan de tarifa][10] 
 
-1. Haga clic en **Guardar**.<br>
+1. Haga clic en **Save**(Guardar).<br>
     Security Center crea un nuevo grupo de recursos y un área de trabajo predeterminada en esa geolocalización y la conecta al agente. La convención de nomenclatura del área de trabajo y el grupo de recursos es:<br>
    **Área de trabajo: DefaultWorkspace-[subscription-ID]-[geo]<br> Grupo de recursos: DefaultResourceGroup-[geo]**
 
@@ -134,7 +134,7 @@ Para seleccionar un área de trabajo existente de Log Analytics:
 
 5. Seleccione el plan de tarifa del área de trabajo deseada en la que se va a configurar Microsoft Monitoring Agent. <br>Para usar un área de trabajo existente, establezca el plan de tarifa del área de trabajo. Esto instalará una solución de Security Center en el área de trabajo si todavía no está presente.
 
-    a.  En el menú principal de Security Center, seleccione **Directiva de seguridad**.
+     a.  En el menú principal de Security Center, seleccione **Directiva de seguridad**.
      
     b.  Para seleccionar el área de trabajo deseada en la que quiere conectar el agente, haga clic en **Editar configuración** en la columna de Configuración de la suscripción deseada en la lista.
         ![Selección del área de trabajo][8] c. Establezca el plan de tarifa.
@@ -251,7 +251,7 @@ Puede instalar Microsoft Monitoring Agent manualmente para que Security Center p
 1. Seleccione aprovisionamiento automático: Desactivado.
 2. Cree un área de trabajo y seleccione el plan de tarifa del área de trabajo en la que se va a configurar Microsoft Monitoring Agent:
 
-   a.  En el menú principal de Security Center, seleccione **Directiva de seguridad**.
+    a.  En el menú principal de Security Center, seleccione **Directiva de seguridad**.
      
    b.  Seleccione el área de trabajo deseada en la que quiere conectar al agente. Asegúrese de que el área de trabajo está en la misma suscripción que se usa en Security Center y que tiene permisos de lectura/escritura en el área de trabajo.
        ![Selección del área de trabajo][8]
@@ -263,7 +263,7 @@ Puede instalar Microsoft Monitoring Agent manualmente para que Security Center p
 
 4. Si desea implementar los agentes en nuevas máquinas virtuales mediante una plantilla de Resource Manager, instale la extensión de máquina virtual de OMS:
 
-   a.  [Instalación de la extensión de máquina virtual de OMS para Windows](../virtual-machines/extensions/oms-windows.md)
+    a.  [Instalación de la extensión de máquina virtual de OMS para Windows](../virtual-machines/extensions/oms-windows.md)
     
    b.  [Instalación de la extensión de máquina virtual de OMS para Linux](../virtual-machines/extensions/oms-linux.md)
 5. Para implementar las extensiones en máquinas virtuales existentes, siga las instrucciones de [Recopilación de datos acerca de máquinas virtuales de Azure](../azure-monitor/learn/quick-collect-azurevm.md).
@@ -286,7 +286,7 @@ Puede instalar Microsoft Monitoring Agent manualmente para que Security Center p
    3. Rellene la configuración pública y la configuración privada con estos valores:
      
            $PublicConf = '{
-               "workspaceId": "WorkspaceID value",
+               "workspaceId": "WorkspaceID value"
            }' 
  
            $PrivateConf = '{
@@ -304,7 +304,7 @@ Puede instalar Microsoft Monitoring Agent manualmente para que Security Center p
 > [!NOTE]
 > Para obtener instrucciones sobre cómo incorporar Security Center mediante PowerShell, consulte [Automatización de la incorporación de Azure Security Center mediante PowerShell](security-center-powershell-onboarding.md).
 
-## <a name="troubleshooting"></a>Solución de problemas
+## <a name="troubleshooting"></a>solución de problemas
 
 -   Para identificar problemas de instalación de aprovisionamiento automático, consulte [Supervisión de problemas de Agent Health](security-center-troubleshooting-guide.md#mon-agent).
 

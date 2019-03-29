@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: apimpm
-ms.openlocfilehash: 39284805d9b9b5c10f5e211dc7d4c461d15cc6bc
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a0459eb67b5a79219e556cb03473a5ddf691b49d
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763544"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577023"
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Incorporación del almacenamiento en caché para mejorar el rendimiento en Azure API Management
 
 En Administración de API, las operaciones se pueden configurar para el almacenamiento en caché de respuestas. El almacenamiento en caché de respuestas puede reducir significativamente la latencia de la API, el consumo de ancho de banda y la carga del servicio web en cuanto a datos que no cambian con frecuencia.
- 
+
 Para más información acerca del almacenamiento en caché, consulte [Directivas de almacenamiento en caché de API Management](api-management-caching-policies.md) y [Almacenamiento en caché personalizado en Azure API Management](api-management-sample-cache-by-key.md).
 
 ![directivas de caché](media/api-management-howto-cache/cache-policies.png)
@@ -59,7 +59,7 @@ Con las directivas de almacenamiento en caché que se muestran en este ejemplo, 
 6. En la parte superior de la pantalla, seleccione la pestaña **Diseño**.
 7. En la sección **Procesamiento de entrada**, haga clic en el icono **</>**.
 
-    ![editor de código](media/api-management-howto-cache/code-editor.png) 
+    ![editor de código](media/api-management-howto-cache/code-editor.png)
 
 8. En el elemento **inbound**, agregue la siguiente directiva:
 
@@ -76,7 +76,7 @@ Con las directivas de almacenamiento en caché que se muestran en este ejemplo, 
     **Duración** especifica el intervalo de expiración de las respuestas almacenadas en caché. En este ejemplo, el intervalo es **20** segundos.
 
 > [!TIP]
-> Si usa una memoria caché externa, como se describe en [Uso de una memoria caché de Redis externa en Azure API Management](api-management-howto-cache-external.md), es posible que desee especificar el atributo `cache-preference` de las directivas de almacenamiento en caché. Consulte [Directivas de almacenamiento en caché de API Management](api-management-caching-policies.md) para más detalles.
+> Si usa una memoria caché externa, como se describe en [Uso de una memoria caché de Redis externa en Azure API Management](api-management-howto-cache-external.md), es posible que desee especificar el atributo `caching-type` de las directivas de almacenamiento en caché. Consulte [Directivas de almacenamiento en caché de API Management](api-management-caching-policies.md) para más detalles.
 
 ## <a name="test-operation"></a>Llamada a una operación y prueba del almacenamiento en caché
 Para ver cómo funciona el almacenamiento en caché, llame a la operación desde el portal para desarrolladores.

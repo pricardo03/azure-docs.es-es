@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/5/2019
+ms.date: 03/24/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02183abb60fe24b9ee9c769f7af696355966ab24
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 698dc61d42adb398376161480cf4d32180846c48
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551065"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58577601"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocolos de la versión 2.0: Flujo de código de autorización de OAuth 2.0
 
@@ -67,7 +67,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parámetro    | Obligatorio/opcional | DESCRIPCIÓN |
 |--------------|-------------|--------------|
 | `tenant`    | requerido    | El valor `{tenant}` de la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para obtener más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints).  |
-| `client_id`   | requerido    | Identificador de la aplicación (cliente) que la experiencia del portal de registro ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) o **Registros de aplicaciones (versión preliminar)** de Azure Portal asignó a su aplicación.  |
+| `client_id`   | requerido    | El **Id. de aplicación (cliente)** que la [Azure portal: registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) experiencia asignado a la aplicación.  |
 | `response_type` | requerido    | Debe incluir `code` para el flujo de código de autorización.       |
 | `redirect_uri`  | recomendado | El redirect_uri de su aplicación, a donde su aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los redirect_uris que registró en el portal, con la excepción de que debe estar codificado como URL. En el caso de las aplicaciones nativas y móviles, es preciso usar el valor predeterminado, `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
 | `scope`  | requerido    | Una lista separada por espacios de [ámbitos](v2-permissions-and-consent.md) que desea que el usuario consienta. |
@@ -154,7 +154,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parámetro  | Obligatorio/opcional | DESCRIPCIÓN     |
 |------------|-------------------|----------------|
 | `tenant`   | requerido   | El valor `{tenant}` de la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para obtener más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints).  |
-| `client_id` | requerido  | El identificador de la aplicación que el portal de registro ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) asignó a su aplicación. |
+| `client_id` | requerido  | IDENTIFICADOR de la aplicación (cliente) que el [Azure portal: registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) página asignada a la aplicación. |
 | `grant_type` | requerido   | Debe ser `authorization_code` para el flujo de código de autorización.   |
 | `scope`      | requerido   | Una lista de ámbitos separada por espacios. Los ámbitos solicitados en esta fase deben ser un subconjunto de los ámbitos solicitados en el primer segmento o un equivalente de este. Si los ámbitos especificados en esta solicitud abarcan varios servidores de recursos, el extremo v2.0 devolverá un token para el recurso especificado en el primer ámbito. Para obtener una explicación más detallada de los ámbitos, consulte [permisos, consentimiento y ámbitos](v2-permissions-and-consent.md). |
 | `code`          | requerido  | El authorization_code que adquirió en el primer segmento del flujo. |
@@ -267,7 +267,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parámetro     |                | DESCRIPCIÓN        |
 |---------------|----------------|--------------------|
 | `tenant`        | requerido     | El valor `{tenant}` de la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para obtener más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints).   |
-| `client_id`     | requerido    | **Identificador de la aplicación (cliente)** que la experiencia del portal de registro ([apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList)) o **Registros de aplicaciones (versión preliminar)** de Azure Portal asignó a su aplicación.  |
+| `client_id`     | requerido    | El **Id. de aplicación (cliente)** que la [Azure portal: registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) experiencia asignado a la aplicación. |
 | `grant_type`    | requerido    | Debe ser `refresh_token` para este segmento del flujo de código de autorización. |
 | `scope`         | requerido    | Una lista de ámbitos separada por espacios. Los ámbitos solicitados en este segmento deben ser un subconjunto de los ámbitos solicitados en el segmento de la solicitud del  authorization_code original o un equivalente de este. Si los ámbitos especificados en esta solicitud abarcan varios servidores de recursos, el extremo v2.0 devolverá un token para el recurso especificado en el primer ámbito. Para obtener una explicación más detallada de los ámbitos, consulte [permisos, consentimiento y ámbitos](v2-permissions-and-consent.md). |
 | `refresh_token` | requerido    | El refresh_token que adquirió en el segundo segmento del flujo. |

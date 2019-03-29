@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 1eba32683883e60ae48f4d6fec9c434c27ce55da
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 8940d629d2f4827ee724c813a40394378dde5a4c
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541938"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58575154"
 ---
 # <a name="asc-for-iot-frequently-asked-questions"></a>Preguntas más frecuentes de ASC para IoT  
 
@@ -77,7 +77,7 @@ Encontrará información detallada sobre instalación y agente de implementació
 
 ## <a name="what-are-the-dependencies-and-prerequisites-of-the-agent"></a>¿Cuáles son las dependencias y requisitos previos del agente?
 
-ASC para IoT admite una amplia variedad de plataformas. Consulte [plataformas de dispositivos compatibles](select-deploy-agent.md) para comprobar la compatibilidad para los dispositivos específicos. 
+ASC para IoT admite una amplia variedad de plataformas. Consulte [plataformas de dispositivos compatibles](how-to-deploy-agent.md) para comprobar la compatibilidad para los dispositivos específicos. 
 
 ## <a name="which-data-is-collected-by-the-agent"></a>¿El agente recopila los datos?
 
@@ -97,9 +97,9 @@ Sí. Los datos del agente transmitido se contabilizarán en su cuota de IoT Hub.
 
 ## <a name="what-next-ive-installed-an-agent-and-dont-see-any-activities-or-logs"></a>¿Qué más? Ha instalado a un agente y no verán ninguna actividad o registros
 
-1. Compruebe el [tipo de agente se ajusta a la plataforma de SO designada de su dispositivo](select-deploy-agent.md)
+1. Compruebe el [tipo de agente se ajusta a la plataforma de SO designada de su dispositivo](how-to-deploy-agent.md)
 
-1. Confirme la [agente se está ejecutando en el dispositivo](concept-agent-configuration.md).
+1. Confirme la [agente se está ejecutando en el dispositivo](how-to-agent-configuration.md).
 
 2. Compruebe el [servicio se ha habilitado correctamente](quickstart-onboard-iot-hub.md) a **seguridad** en IoT Hub. 
 

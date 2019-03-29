@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/11/2019
+ms.date: 3/28/2019
 ms.author: amitsriva
-ms.openlocfilehash: 14b99f648bb1d7e1926aa9d5dd9926e267ba9709
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 367da8a1948b9feb42bc82d85762ae314fe165a0
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309135"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620883"
 ---
 # <a name="back-end-health-diagnostic-logs-and-metrics-for-application-gateway"></a>Mantenimiento del back-end, registro de diagnóstico y métricas de Application Gateway
 
@@ -131,7 +131,7 @@ El registro de actividades se habilita automáticamente para todos los recursos 
 
 ### <a name="enable-logging-through-the-azure-portal"></a>Habilitación del registro mediante Azure Portal
 
-1. En Azure Portal, busque el recurso y haga clic en **Registros de diagnóstico**.
+1. En Azure portal, busque el recurso y seleccione **configuración de diagnóstico**.
 
    Hay tres registros de auditoría disponibles para Application Gateway:
 
@@ -139,21 +139,15 @@ El registro de actividades se habilita automáticamente para todos los recursos 
    * Registro de rendimiento
    * Registro de firewall
 
-2. Para empezar a recopilar los datos, clic en **Activar diagnósticos**.
+2. Para iniciar la recopilación de datos, seleccione **Activar diagnósticos**.
 
    ![Activación de los diagnósticos][1]
 
-3. En la hoja **Configuración de diagnóstico**, se encuentran las opciones de configuración de los registros de diagnóstico. En este ejemplo, se utiliza Log Analytics para almacenar los registros. Haga clic en la opción **Configurar** de **Log Analytics** para configurar el área de trabajo. Se pueden utilizar también Events Hubs y la cuenta de almacenamiento para guardar los registros de diagnóstico.
+3. En la página **Configuración de diagnóstico**, se encuentran las opciones de configuración de los registros de diagnóstico. En este ejemplo, se utiliza Log Analytics para almacenar los registros. Se pueden utilizar también Events Hubs y la cuenta de almacenamiento para guardar los registros de diagnóstico.
 
    ![Inicio del proceso de configuración][2]
 
-4. Seleccione un área de trabajo de Log Analytics existente o cree una. Este ejemplo utiliza una existente.
-
-   ![Opciones para áreas de trabajo de Log Analytics][3]
-
-5. Confirme la configuración y haga clic en **Guardar**.
-
-   ![Hoja de configuración de diagnóstico con selecciones][4]
+5. Escriba un nombre para la configuración, confirme la configuración y seleccione **guardar**.
 
 ### <a name="activity-log"></a>Registro de actividades
 
@@ -334,7 +328,7 @@ Las métricas son una característica de determinados recursos de Azure en los q
 
    También puede filtrar en función de grupos de back-end para mostrar hosts en buen/mal estado en un grupo de back-end específico.
 
-Navegue a una puerta de enlace de aplicación y, en **Supervisión** haga clic en **Métricas**. Para ver los valores disponibles, seleccione la lista desplegable **MÉTRICA**.
+Vaya a una instancia de application gateway en **supervisión** seleccione **métricas**. Para ver los valores disponibles, seleccione la lista desplegable **MÉTRICA**.
 
 En la siguiente imagen, verá un ejemplo con tres métricas que se muestran para los últimos 30 minutos:
 
@@ -348,11 +342,11 @@ Puede iniciar las reglas de alerta en función de las métricas de un recurso. P
 
 En el ejemplo siguiente, se explica paso a paso cómo crear una regla de alerta que envía un correo electrónico a un administrador cuando el rendimiento supera un umbral:
 
-1. Haga clic en **Agregar alerta de métrica** para abrir la hoja **Agregar regla**. A esta hoja también se puede acceder desde la hoja de métricas.
+1. Seleccione **Agregar alerta de métrica** para abrir el **Agregar regla** página. También puede tener acceso a esta página desde la página de métricas.
 
    ![Botón “Agregar alerta de métrica”][6]
 
-2. En la hoja **Agregar regla**, rellene las secciones de nombre, condición y notificación, y haga clic en **Aceptar**.
+2. En el **Agregar regla** página, rellene el nombre, condición y notificar a las secciones y seleccione **Aceptar**.
 
    * En el selector **Condición**, seleccione uno de los cuatro valores: **Mayor que**, **Mayor o igual que**, **Menor que** o **Menor o igual que**.
 
@@ -360,7 +354,7 @@ En el ejemplo siguiente, se explica paso a paso cómo crear una regla de alerta 
 
    * Al seleccionar **Lectores, colaboradores y propietarios de correo electrónico**, el correo electrónico puede ser dinámico según los usuarios que tengan acceso a ese recurso. De lo contrario, puede proporcionar una lista separada por comas de los usuarios en el cuadro de texto **Correos electrónicos de administrador adicionales**.
 
-   ![Hoja Agregar regla][7]
+   ![Agregar página de reglas][7]
 
 Si se supera el umbral, llegará un correo electrónico similar al que se muestra en la siguiente imagen:
 

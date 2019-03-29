@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 63c649f0850c4ffc60ce2087e91f3f69917e4837
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 93e74eb6aefbaeeddf7c4f15d62f4a9ee3d617d4
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56868551"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622219"
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema de eventos del registro de actividad de Azure
 El **registro de actividad de Azure** es un registro que proporciona información de los eventos de nivel de suscripción que se han producido en Azure. En este artículo se describe el esquema de eventos por categoría de datos. El esquema de los datos es diferente en función de si va a leer los datos en el portal, PowerShell, la CLI o directamente mediante la API REST en comparación con la [transmisión de datos a Storage o Event Hubs mediante un perfil de registro](./../../azure-monitor/platform/activity-logs-overview.md#export-the-activity-log-with-a-log-profile). Los ejemplos siguientes muestran el esquema puesto a disposición por el portal, PowerShell, la CLI y la API REST. Al final del artículo se proporciona una asignación de estas propiedades al [esquema de registros de diagnóstico de Azure](./diagnostic-logs-schema.md).
@@ -358,6 +358,7 @@ Esta categoría contiene el registro de todas las activaciones de alertas de Azu
 | correlationId | GUID en formato de cadena. |
 | description |Descripción de texto estático del evento de alerta. |
 | eventDataId |Identificador único del evento de alerta. |
+| categoría | Siempre "alerta" |
 | level |Nivel del evento. Uno de los valores siguientes: “Critical”, “Error”, “Warning” e “Informational” |
 | resourceGroupName |Nombre del grupo de recursos del recurso afectado si se trata de una alerta de métrica. En otros tipos de alertas, es el nombre del grupo de recursos que contiene la propia alerta. |
 | resourceProviderName |Nombre del proveedor de recursos del recurso afectado si se trata de una alerta de métrica. En otros tipos de alertas, es el nombre del proveedor de recursos de la propia alerta. |
@@ -556,6 +557,7 @@ Esta categoría contiene el registro de todas las alertas generado por Azure Sec
 | description |Descripción de texto estático del evento de seguridad. |
 | eventDataId |Identificador único del evento de seguridad. |
 | eventName |Nombre descriptivo del evento de seguridad. |
+| categoría | Siempre "seguridad" |
 | id |Identificador único del recurso del evento de seguridad. |
 | level |Nivel del evento. Uno de los valores siguientes: “Critical”, “Error”, “Warning” o “Informational” |
 | resourceGroupName |Nombre del grupo de recursos del recurso. |

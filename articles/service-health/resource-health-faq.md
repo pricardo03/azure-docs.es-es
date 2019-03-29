@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 01/29/2019
 ms.workload: Supportability
-ms.openlocfilehash: c0de42935c1e46fd51e82a58083f85f6cee83ce3
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: b4062b3f0bc389de4403ac81b56688508f5ea50e
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55884552"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58579570"
 ---
 # <a name="azure-resource-health-faq"></a>P+F sobre Azure Resource Health
 Aprenda las respuestas a las preguntas más frecuentes sobre Azure Resource Health.
@@ -50,7 +50,7 @@ Sí, cuando un recurso no está disponible, Resource Health incluye la causa pri
 En el portal, las acciones iniciadas por el usuario aparecen con un icono de notificación azul, mientras que los eventos planeados y no planeados se muestran con un icono de advertencia de color rojo. Se proporcionan más detalles en [Información general sobre Resource Health](Resource-health-overview.md).  
 
 ## <a name="can-i-integrate-resource-health-with-my-monitoring-tools"></a>¿Puedo integrar Resource Health con mis herramientas de supervisión?
-Resource Health es un servicio diseñado para ayudarle a diagnosticar y mitigar problemas de servicio de Azure que afectan sus recursos. Si bien puede usar la API de Resource Health para obtener el estado mediante programación, se recomienda usar métricas para supervisar los recursos. Cuando se detecta un problema, Resource Health le ayuda a determinar la causa principal y le guía con acciones para abordarlo. Visite [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) para más información sobre cómo puede usar métricas para comprobar los recursos.
+Tiene el estado de los recursos [compatibilidad con versión preliminar](resource-health-alert-arm-template-guide.md) para alertas basadas en el registro de actividad. Uso de alertas de registro de actividad [grupos de acciones](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups) notificar a los usuarios que se ha desencadenado una alerta. Grupos de acciones admiten una variedad de canales de notificación, como correo electrónico, SMS, webhook y acciones de ITSM.
 
 ## <a name="where-do-i-find-resource-health"></a>¿Dónde se encuentra Resource Health?
 Después de iniciar sesión en Azure Portal, puede acceder a Resource Health de varias maneras:
@@ -67,13 +67,7 @@ La lista de comprobaciones de estado y los tipos de recursos compatibles con Res
 Cuando se comprueba el estado de un recurso, justo debajo del estado de mantenimiento puede hacer clic en **Informe de estado de mantenimiento incorrecto**. Antes de enviar el informe, tiene la opción de proporcionar detalles adicionales sobre por qué cree que el estado de mantenimiento actual no es correcto.
 
 ## <a name="is-resource-health-available-for-all-azure-regions"></a>¿Está Resource Health disponible en todas las regiones de Azure? 
-Resource Health está disponible en todas las geoáreas de Azure, excepto en las regiones siguientes:
-- Gobierno de EE. UU. - Virginia
-- US Gov Iowa
-- Departamento de Defensa de EE. UU. Este
-- Departamento de Defensa de EE. UU. Centro
-- Centro de Alemania
-- Noreste de Alemania
+Resource health está disponible en todas las zonas geográficas de Azure.
 
 ## <a name="how-is-resource-health-different-from-azure-status-or-the-service-health-dashboard"></a>¿Cuál es la diferencia entre Resource Health, estado de Azure y el panel de Service Health?
 La información que Resource Health proporciona es más específica que la que proporciona el estado de Azure o el panel de Service Health.
