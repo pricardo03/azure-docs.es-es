@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: genli
-ms.openlocfilehash: 3a295a5c8a202b2f3186e696bb281002090fcad4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9e7a5772dd1e10abf43eddf0548833d625ecfb24
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112609"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652174"
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipos de direcciones IP y métodos de asignación (clásico) en Azure
 Puede asignar direcciones IP a los recursos de Azure para que se comuniquen con otros recursos de Azure, la red local e Internet. Hay dos tipos de direcciones IP que puede usar en Azure: públicas y privadas.
@@ -41,7 +41,7 @@ Una dirección IP pública se asocia a los siguientes tipos de recursos:
 * Puertas de enlace de aplicaciones
 
 ### <a name="allocation-method"></a>Método de asignación
-Cuando se necesita asignar una dirección IP pública a un recurso de Azure, se asigna *dinámicamente* desde un grupo de dirección IP pública disponible dentro de la ubicación en la que se crea el recurso. Esta dirección IP se libera cuando se detiene el recurso. Con un servicio en la nube, esto sucede cuando se detienen todas las instancias de rol, lo que puede evitarse mediante el uso de una dirección IP *estática* (reservada) (consulte [Cloud Services](#Cloud-services)).
+Cuando se necesita asignar una dirección IP pública a un recurso de Azure, se asigna *dinámicamente* desde un grupo de dirección IP pública disponible dentro de la ubicación en la que se crea el recurso. Esta dirección IP se libera cuando se detiene el recurso. Con un servicio en la nube, esto sucede cuando se detienen todas las instancias de rol, lo que puede evitarse mediante el uso de una dirección IP *estática* (reservada) (consulte [Cloud Services](#cloud-services)).
 
 > [!NOTE]
 > La lista de intervalos IP desde la que se asignan direcciones IP públicas a recursos de Azure está publicada en [Intervalos IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653).

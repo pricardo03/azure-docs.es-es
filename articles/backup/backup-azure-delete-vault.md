@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: raynew
-ms.openlocfilehash: 94d66e28f8edbda6c41dcceaf427d7d7d869c90f
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 23e98fd7ea3decc478fc359cec457c70b8fc99dc
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620124"
+ms.locfileid: "58652229"
 ---
 # <a name="delete-a-recovery-services-vault"></a>Eliminación de un almacén de Recovery Services
 
@@ -108,7 +108,7 @@ Este procedimiento proporciona un ejemplo que muestra cómo quitar datos de copi
 
 
 3. En **Detener copia de seguridad** > **elija una opción**, seleccione **eliminar datos de copia de seguridad**.
-4. Escriba el nombre del elemento y haga clic en **Detener copia de seguridad**. 
+4. Escriba el nombre del elemento y haga clic en **Detener copia de seguridad**.
    - Esto confirma que desea eliminar el elemento.
    - El **Detener copia de seguridad** botón activa después de comprobar.
    - Si se conservan y no eliminan los datos, no podrá eliminar el almacén.
@@ -126,7 +126,7 @@ Este procedimiento proporciona un ejemplo que muestra cómo quitar datos de copi
 ### <a name="remove-backup-infrastructure-servers"></a>Quitar servidores de infraestructura de copia de seguridad
 
 1. En el menú del panel del almacén, haga clic en **infraestructura de copia de seguridad**.
-2. Haga clic en **servidores de administración de copia de seguridad** para ver los servidores. 
+2. Haga clic en **servidores de administración de copia de seguridad** para ver los servidores.
 
     ![Seleccionar el almacén para abrir su panel](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
 
@@ -135,7 +135,7 @@ Este procedimiento proporciona un ejemplo que muestra cómo quitar datos de copi
     ![Seleccionar el tipo de copia de seguridad](./media/backup-azure-delete-vault/azure-storage-selected-list.png)
 
 3. . En **Detener copia de seguridad** > **elija una opción**, seleccione **eliminar datos de copia de seguridad**.
-4. Escriba el nombre del elemento y haga clic en **Detener copia de seguridad**. 
+4. Escriba el nombre del elemento y haga clic en **Detener copia de seguridad**.
    - Esto confirma que desea eliminar el elemento.
    - El **Detener copia de seguridad** botón activa después de comprobar.
    - Si se conservan y no eliminan los datos, no podrá eliminar el almacén.

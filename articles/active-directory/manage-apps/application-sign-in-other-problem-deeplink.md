@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: celested
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3525436c61038d9cdda3a1b1da8e226ab153134f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d7ad6eeba09c81de33b92722992c6762a4b4327c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098260"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649346"
 ---
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Problemas de inicio de sesión con un vínculo profundo en una aplicación
 
@@ -113,7 +113,7 @@ También puede descargar la extensión para Chrome y Firefox desde los siguiente
 
 Para configurar una aplicación desde la galería de Azure AD, debe realizar los siguientes pasos:
 
--   [Incorporación de una aplicación desde la galería de Azure AD](#add-an-application-from-the-Azure-AD-gallery)
+-   [Incorporación de una aplicación desde la galería de Azure AD](#add-an-application-from-the-azure-ad-gallery)
 
 -   [Configuración de la aplicación para el inicio de sesión único con contraseña](#configure-the-application-for-password-single-sign-on)
 

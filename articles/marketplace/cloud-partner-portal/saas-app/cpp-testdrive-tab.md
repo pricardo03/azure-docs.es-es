@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.author: pbutlerm
-ms.openlocfilehash: e97e79ef3077431d8fc627cd634a67b0a01b6f8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b12ba53f847b46479b3100c088c29372b58c1b8e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993108"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649040"
 ---
 # <a name="saas-application-test-drive-tab"></a>Pestaña Versión de prueba de una aplicación SaaS
 
@@ -53,7 +53,7 @@ Hay cuatro tipos diferentes de versiones de prueba disponibles, cada uno basado 
 |     Azure Resource Manager               |    Una versión de prueba de Azure Resource Manager es una plantilla de implementación que contiene todos los recursos de Azure que componen una solución que está compilando el anunciante. Los productos que pertenecen a este tipo de versión de prueba son aquellos que solo usan recursos de Azure.               |       [Versión de prueba de Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)            |
 |       Hospedada             |       Una versión de prueba hospedada elimina la complejidad de la configuración haciendo que Microsoft hospede y mantenga el servicio que realiza el aprovisionamiento y desaprovisionamiento de usuarios de la versión de prueba.             |         [Versión de prueba hospedada](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/hosted-test-drive)          |
 |      Aplicación lógica              |       Una versión de prueba de aplicación lógica es una plantilla de implementación que está diseñada para incluir todas las arquitecturas de soluciones complejas. Todas las aplicaciones o productos personalizados de Dynamics deberían usar este tipo de versión de prueba.            |      [Versión de prueba de aplicación lógica](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)             |
-|       Power BI             |         Una versión de prueba de Power BI consta de un vínculo insertado a un panel con una compilación personalizada. Aquellos productos que deseen realizar una demostración de un objeto visual interactivo de Power BI deben usar este tipo de versión de prueba. Todo lo que necesita para la carga es la dirección URL insertada de Power BI.          |        [Versión de prueba de Power BI](#Power-BI-test-drive)           |
+|       Power BI             |         Una versión de prueba de Power BI consta de un vínculo insertado a un panel con una compilación personalizada. Aquellos productos que deseen realizar una demostración de un objeto visual interactivo de Power BI deben usar este tipo de versión de prueba. Todo lo que necesita para la carga es la dirección URL insertada de Power BI.          |        [Versión de prueba de Power BI](#power-bi-test-drive)           |
 
 ### <a name="power-bi-test-drive"></a>Versión de prueba de Power BI
 

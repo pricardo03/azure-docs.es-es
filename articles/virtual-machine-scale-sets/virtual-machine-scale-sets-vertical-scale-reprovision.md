@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: manayar
-ms.openlocfilehash: c27d92a330d82cb8638a970602f2a8d0ce2e79c2
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d3821f6a2bad56b46bccbcca8830be09ad1e44c7
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579757"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648272"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Escalado automático vertical con conjuntos de escalado de máquinas virtuales
 
@@ -98,6 +98,7 @@ Lo primero que debe hacer es crear una cuenta de Azure Automation que hospedará
 * [Autenticación de Runbooks con una cuenta de ejecución de Azure](../automation/automation-sec-configure-azure-runas-account.md)
 
 ## <a name="import-azure-automation-vertical-scale-runbooks-into-your-subscription"></a>Importación de runbooks de escalado vertical de Azure Automation a la suscripción
+
 Los runbooks necesarios para el escalado vertical de los conjuntos de escalado de máquinas virtuales están publicados en la galería de runbooks de Azure Automation. Para importarlos a su suscripción, siga los pasos de este artículo:
 
 * [Galerías de runbooks y módulos para Azure Automation](../automation/automation-runbook-gallery.md)
@@ -111,6 +112,7 @@ Se muestran los Runbooks que es necesario importar. Seleccione el Runbook en fun
 ![Galería de Runbooks][gallery]
 
 ## <a name="add-a-webhook-to-your-runbook"></a>Agregar un webhook al runbook.
+
 Una vez que importe los runbooks, agregue un webhook al runbook para que, de este modo, una alerta de un conjunto de escalado de máquinas virtuales pueda desencadenarlo. En este artículo puede leer los detalles sobre cómo crear un webhook para el Runbook:
 
 * [Webhooks de Azure Automation](../automation/automation-webhooks.md)
@@ -121,9 +123,10 @@ Una vez que importe los runbooks, agregue un webhook al runbook para que, de est
 > 
 
 ## <a name="add-an-alert-to-your-virtual-machine-scale-set"></a>Adición de una alerta al conjunto de escalado de máquinas virtuales
+
 A continuación, se presenta un script de PowerShell que muestra cómo agregar una alerta a un conjunto de escalado de máquinas virtuales. Consulte el siguiente artículo para obtener el nombre de la métrica para desencadenar la alerta en: [Métricas comunes de escalado automático de Azure Monitor](../azure-monitor/platform/autoscale-common-metrics.md).
 
-```
+```powershell
 $actionEmail = New-AzAlertRuleEmail -CustomEmail user@contoso.com
 $actionWebhook = New-AzAlertRuleWebhook -ServiceUri <uri-of-the-webhook>
 $threshold = <value-of-the-threshold>
@@ -160,6 +163,7 @@ Para más información sobre cómo crear alertas, consulte los artículos siguie
 * [Ejemplos de inicio rápido de CLI multiplataforma de Azure Monitor](../azure-monitor/platform/cli-samples.md)
 
 ## <a name="summary"></a>Resumen
+
 En este artículo se mostraron ejemplos sencillos de escalado vertical. Con estos bloques de creación (cuenta de Automation, runbooks, webhooks, alertas) puede conectar una gran variedad de eventos con un conjunto personalizado de acciones.
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png

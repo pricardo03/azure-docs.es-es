@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2019
 ms.author: banders
-ms.openlocfilehash: b37f198052ee927ea986d2a6046bfd93b6ee5d5e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 0f6e0f3795e0e6d25f7443473c5911995597ca14
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399972"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648646"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Administración de reservas para los recursos de Azure
 
-Después de comprar una reserva de Azure, es posible que deba aplicar la reserva a otra suscripción, cambiar quién puede administrar la reserva, o cambiar el ámbito de la reserva. También puede dividir una reserva en dos para aplicar algunas de las instancias que compró a otra suscripción.
+Después de comprar una reserva para Azure, es posible que deba aplicar la reserva a otra suscripción, cambiar quién puede administrar la reserva, o cambiar el ámbito de la reserva. También puede dividir una reserva en dos para aplicar algunas de las instancias que compró a otra suscripción.
 
 Si ha adquirido Azure Reserved Virtual Machine Instances, puede cambiar la configuración de optimización de la reserva. Puede aplicar el descuento de reserva a las máquinas virtuales de la misma serie o puede reservar la capacidad del centro de datos para un tamaño específico de máquina virtual.
 
@@ -115,7 +115,7 @@ Para actualizar la configuración de optimización de la reserva:
 4. Seleccione **Configuración** > **Configuración**.
 5. Cambie la configuración de la **optimización**.
 
-## <a name="need-help-contact-us"></a>¿Ayuda? Póngase en contacto con nosotros.
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 
 Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 
@@ -123,12 +123,20 @@ Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técn
 
 Para obtener más información acerca de Azure Reservations, consulte los siguientes artículos:
 
-- [¿Qué es Azure Reservations?](billing-save-compute-costs-reservations.md)
+- [¿Cuáles son las reservas para Azure?](billing-save-compute-costs-reservations.md)
+
+Comprar un plan de servicio:
 - [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Pago por adelantado para recursos de Azure Cosmos DB con capacidad reservada de Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
+
+Comprar un plan de software:
+- [Pago por adelantado para los planes de software de Red Hat de las reservas de Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [Pago por adelantado para planes de software SUSE con Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
+
+Comprender el descuento y el uso:
 - [Información sobre cómo se aplica el descuento por la reserva de máquinas virtuales](billing-understand-vm-reservation-charges.md)
+- [Información sobre cómo se aplica el descuento del plan de software de Red Hat Enterprise Linux](../billing/billing-understand-rhel-reservation-charges.md)
 - [Descubra cómo se aplica el descuento del plan de software SUSE Linux Enterprise](../billing/billing-understand-suse-reservation-charges.md)
 - [Descubra cómo se aplican otros descuentos por reservas](billing-understand-reservation-charges.md)
 - [Información sobre el uso de reservas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)

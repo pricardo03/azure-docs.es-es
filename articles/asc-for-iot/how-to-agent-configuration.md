@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 3ce6744a3a7d71f358dccb3dc29c470f3a376240
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 8bb9f0bc57e03ae0897e77acaa30ec85a3541646
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580709"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649380"
 ---
 # <a name="tutorial-configure-security-agents"></a>Tutorial: Configuración de agentes de seguridad
 
@@ -42,7 +42,7 @@ ASC para el objeto de configuración de gemelo de IoT seguridad del agente es un
 
 Estas configuraciones le ayuda a personalizar al agente para cada escenario requerido. Por ejemplo, automáticamente excluyendo algunos eventos, o mantener el consumo de energía a un nivel mínimo son posibles mediante la configuración de estas propiedades.  
 
-Utilice la ASC para la configuración de agente de seguridad de IoT [esquema](https://github.com/azure/asc-for-iot-schemas/security/module/twin) para realizar cambios.  
+Utilice la ASC para la configuración de agente de seguridad de IoT [esquema](https://aka.ms/iot-security-github-module-schema) para realizar cambios.  
 
 ## <a name="configuration-objects"></a>Objetos de configuración 
 
@@ -64,7 +64,7 @@ El agente no se iniciará si el objeto de configuración no coincide con el esqu
 
 ## <a name="configuration-schema-and-validation"></a>Esquema de configuración y validación 
 
-Asegúrese de validar la configuración del agente contra esto [esquema](https://github.com/Azure/asc-for-iot/schema/security_module_twin). Un agente no se iniciará si el objeto de configuración no coincide con el esquema.
+Asegúrese de validar la configuración del agente contra esto [esquema](https://aka.ms/iot-security-github-module-schema). Un agente no se iniciará si el objeto de configuración no coincide con el esquema.
 
  
 Si, mientras se ejecuta el agente, el objeto de configuración se cambia a una configuración no válida (la configuración no coincide con el esquema), el agente pasará por alto la configuración no válida y continuará con la configuración actual. 

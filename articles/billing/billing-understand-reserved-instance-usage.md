@@ -1,5 +1,5 @@
 ---
-title: Información sobre el uso de Azure Reservations para suscripciones de pago por uso | Microsoft Docs
+title: Entender el uso de las reservas de Azure para la suscripción de pago por uso | Microsoft Docs
 description: Aprenda a interpretar los datos de uso para comprender como se aplican las suscripciones de pago por uso de reservas de Azure.
 services: billing
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 03/13/2019
 ms.author: banders
-ms.openlocfilehash: a3bacdb19dfe16a63cf1f89ef6fb162d08cb4d32
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 14bd7b61038bf938f7d370eaf6e16d71b5da43ca
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883787"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652542"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Información sobre el uso de reservas de Azure para suscripciones de pago por uso
 
@@ -64,7 +64,7 @@ Filtre por **Información adicional** y escriba su **Identificador de reserva**.
 
 ## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Uso de reservas de capacidad reservada para SQL Database y Cosmos DB
 
-En las siguientes secciones se usa Azure SQL Database como ejemplo para describir el informe de uso. Puede seguir los mismos pasos para obtener también el uso para Azure Cosmos DB. 
+En las siguientes secciones se usa Azure SQL Database como ejemplo para describir el informe de uso. Puede seguir los mismos pasos para obtener también el uso para Azure Cosmos DB.
 
 Imagine que ejecuta una instancia de SQL Database Gen 4 en la región Este de EE. UU. y que la información de la reserva tiene una apariencia similar a la de esta tabla:
 
@@ -93,6 +93,10 @@ Filtre por **Información adicional** y escriba su **Identificador de reserva**.
 2. **ConsumptionMeter** es el identificador del medidor del recurso de SQL Database.
 3. **Id. de medidor** es el medidor de la reserva. El costo del medidor es de 0 $. Los recursos de SQL Database que cumplen los requisitos para el descuento de reserva muestran este identificador de medidor en el archivo CSV.
 
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
+
+Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información acerca de Azure Reservations, consulte los siguientes artículos:
@@ -104,9 +108,3 @@ Para obtener más información acerca de Azure Reservations, consulte los siguie
 - [Información sobre cómo se aplica el descuento por la reserva](billing-understand-vm-reservation-charges.md)
 - [Información sobre el uso de reservas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
 - [Costos de software de Windows no incluidos con Reservations](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
-
-Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
-
-

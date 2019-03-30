@@ -1,5 +1,5 @@
 ---
-title: Información sobre el uso de Azure Reservations para Enterprise | Microsoft Docs
+title: Entender el uso de las reservas de Azure para Enterprise | Microsoft Docs
 description: Aprenda a interpretar los datos de uso para comprender cómo se aplican las reservas de Azure a las inscripciones Enterprise.
 services: billing
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/28/2018
+ms.date: 03/13/2019
 ms.author: banders
-ms.openlocfilehash: 66fd42e5aa110b4c9ef686b1d66429ff7dbaf550
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: daa7f6a116578fa8d1f2b5bf825a6f4cd48f7f64
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57857698"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648306"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Información sobre el uso de reservas de Azure para la inscripción Enterprise
 
@@ -53,7 +53,7 @@ Puede descargar el archivo CSV de uso del Contrato Enterprise desde el portal de
 
 ## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Uso de reservas de capacidad reservada para SQL Database y Cosmos DB
 
-En las siguientes secciones se usa Azure SQL Database como ejemplo para describir el informe de uso. Puede seguir los mismos pasos para obtener también el uso para Azure Cosmos DB. 
+En las siguientes secciones se usa Azure SQL Database como ejemplo para describir el informe de uso. Puede seguir los mismos pasos para obtener también el uso para Azure Cosmos DB.
 
 Imagine que ejecuta una instancia de SQL Database Gen 4 en la región Este de EE. UU. y que la información de la reserva tiene una apariencia similar a la de esta tabla:
 
@@ -64,7 +64,7 @@ Imagine que ejecuta una instancia de SQL Database Gen 4 en la región Este de EE
 |Producto| SQL Database Gen 4 (2 núcleos)|
 |Region | estado |
 
-### <a name="usage-in-csv-file"></a>Uso en el archivo CSV 
+### <a name="usage-in-csv-file"></a>Uso en el archivo CSV
 
 Filtre por **Información adicional**, escriba el **Id. de reserva** y elija el valor necesario en **Categoría de medición**: Azure SQL Database o Azure Cosmos DB. En la siguiente captura de pantalla se muestran los campos relacionados con la reserva.
 
@@ -81,19 +81,20 @@ El uso de reservas de Azure también aparece en la sección de resumen de uso de
 1. No se le cobra por el componente de hardware de la máquina virtual, ya que está cubierto por la reserva. Para una reserva de SQL Database, verá una línea con **Nombre de servicio** como el uso de la capacidad reservada de Azure SQL Database.
 2. En este ejemplo, no tiene la Ventaja híbrida de Azure, por lo que se le cobrará por el software de Windows utilizado con la máquina virtual.
 
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
+
+Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información acerca de Azure Reservations, consulte los siguientes artículos:
 
 - [¿Qué es Azure Reservations?](billing-save-compute-costs-reservations.md)
 - [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../sql-database/sql-database-reserved-capacity.md) 
+- [Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Administración de Azure Reservations](billing-manage-reserved-vm-instance.md)
 - [Información sobre cómo se aplica el descuento por la reserva](billing-understand-vm-reservation-charges.md)
 - [Información sobre el uso de reservas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)
 - [Costos de software de Windows no incluidos con Reservations](billing-reserved-instance-windows-software-costs.md)
-
-## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
-
-Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
 

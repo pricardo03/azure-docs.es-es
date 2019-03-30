@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: 1b2790a4673fd162deca445b4300850fc0e3a087
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 83ae58e4a86d3bc2ffb2197f48d2c641790e8524
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57851998"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648289"
 ---
 # <a name="deploy-azure-machine-learning-studio-workspace-using-azure-resource-manager"></a>Implementación del área de trabajo de Azure Machine Learning Studio mediante Azure Resource Manager
 
@@ -25,10 +25,11 @@ El uso de una plantilla de implementación de Azure Resource Manager le permite 
 Crearemos un grupo de recursos de Azure e implementaremos una nueva cuenta de Almacenamiento de Azure y una nueva área de trabajo de Azure Machine Learning Studio mediante una plantilla de Resource Manager. Una vez completada la implementación, se imprimirá información importante acerca de las áreas de trabajo que se crearon (la clave principal, el identificador y la dirección URL del área de trabajo).
 
 ### <a name="create-an-azure-resource-manager-template"></a>Creación de una plantilla de Azure Resource Manager
+
 Un área de trabajo de Machine Learning requiere una cuenta de almacenamiento de Azure para almacenar el conjunto de datos vinculado a ella.
 La siguiente plantilla usa el nombre del grupo de recursos para generar el nombre de la cuenta de almacenamiento y el nombre del área de trabajo.  También utiliza el nombre de la cuenta de almacenamiento como una propiedad al crear el área de trabajo.
 
-```
+```json
 {
     "contentVersion": "1.0.0.0",
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -76,10 +77,11 @@ La siguiente plantilla usa el nombre del grupo de recursos para generar el nombr
 Guarde esta plantilla como archivo mlworkspace.json en c:\temp.
 
 ### <a name="deploy-the-resource-group-based-on-the-template"></a>Implementación del grupo de recursos basado en la plantilla
+
 * Abra PowerShell
 * Instale los módulos de Azure Resource Manager y Azure Service Management
 
-```
+```powershell
 # Install the Azure Resource Manager modules from the PowerShell Gallery (press “A”)
 Install-Module AzureRM -Scope CurrentUser
 
@@ -91,7 +93,7 @@ Install-Module Azure -Scope CurrentUser
 
 * Autentíquese en Azure
 
-```
+```powershell
 # Authenticate (enter your credentials in the pop-up window)
 Connect-AzureRmAccount
 ```
@@ -103,7 +105,7 @@ Ahora que tenemos acceso a Azure, podemos crear el grupo de recursos.
 
 * Crear un grupo de recursos
 
-```
+```powershell
 $rg = New-AzureRmResourceGroup -Name "uniquenamerequired523" -Location "South Central US"
 $rg
 ```
@@ -115,27 +117,28 @@ La plantilla utiliza el nombre del grupo de recursos para generar el nombre de l
 
 * Mediante la implementación del grupo de recursos, implemente una nueva área de trabajo de Machine Learning.
 
-```
+```powershell
 # Create a Resource Group, TemplateFile is the location of the JSON template.
 $rgd = New-AzureRmResourceGroupDeployment -Name "demo" -TemplateFile "C:\temp\mlworkspace.json" -ResourceGroupName $rg.ResourceGroupName
 ```
 
 Una vez completada la implementación, resulta sencillo tener acceso a las propiedades del área de trabajo que implementó. Por ejemplo, puede tener acceso al token de clave principal.
 
-```
+```powershell
 # Access Azure Machine Learning studio Workspace Token after its deployment.
 $rgd.Outputs.mlWorkspaceToken.Value
 ```
 
 Otra manera de recuperar los tokens del área de trabajo existente es usar el comando Invoke-AzureRmResourceAction. Por ejemplo, puede enumerar los tokens principales y secundarios de todas las áreas de trabajo.
 
-```
+```powershell
 # List the primary and secondary tokens of all workspaces
-Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |% { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
+Get-AzureRmResource |? { $_.ResourceType -Like "*MachineLearning/workspaces*"} |ForEach-Object { Invoke-AzureRmResourceAction -ResourceId $_.ResourceId -Action listworkspacekeys -Force}
 ```
 Una vez aprovisionada el área de trabajo, también puede automatizar muchas tareas de Microsoft Azure Machine Learning Studio mediante el [módulo de PowerShell para Azure Machine Learning Studio](https://aka.ms/amlps).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Obtenga más información sobre la [creación de plantillas de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md).
 * Eche un vistazo al [repositorio de plantillas de inicio rápido de Azure](https://github.com/Azure/azure-quickstart-templates).
 * Vea este vídeo acerca de [Azure Resource Manager](https://channel9.msdn.com/Events/Ignite/2015/C9-39).

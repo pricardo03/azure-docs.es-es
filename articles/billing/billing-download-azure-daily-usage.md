@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 20404cea2aca984ef35472fa94d37c04eb8080e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 520d3f6a45b44ba2023dee34642f796689f48221
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57872661"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648853"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Ver y descargar los cargos y el uso de Azure
 
@@ -28,7 +28,7 @@ Si un cliente de EA o tienen un [contrato del cliente de Microsoft](#check-your-
 
 Solo determinados roles tienen permiso para obtener información de uso de Azure, como el Administrador de cuenta o administrador de empresa. Para obtener más información sobre cómo obtener acceso a la información de facturación, vea [Manage access to Azure billing using roles](billing-manage-access.md) (Administrar el acceso a la facturación de Azure mediante roles).
 
-Si tiene un [contrato del cliente de Microsoft](#Check-your-access-to-a-Microsoft-Customer-Agreement), debe ser un perfil de facturación propietario, Colaborador, lector, o el administrador para ver los cargos y el uso de Azure de factura. Para más información acerca de las funciones de facturación para los contratos de cliente de Microsoft, consulte [perfil roles y tareas de facturación](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Si tiene un [contrato del cliente de Microsoft](#check-your-access-to-a-microsoft-customer-agreement), debe ser un perfil de facturación propietario, Colaborador, lector, o el administrador para ver los cargos y el uso de Azure de factura. Para más información acerca de las funciones de facturación para los contratos de cliente de Microsoft, consulte [perfil roles y tareas de facturación](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="download-usage-from-the-account-center-csv"></a>Descarga del uso desde el centro de cuentas (.csv)
 

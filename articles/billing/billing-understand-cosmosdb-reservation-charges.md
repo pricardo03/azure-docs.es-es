@@ -6,15 +6,15 @@ author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 03/13/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: f6549710f90c8d59ed443ab9ae1a302a2d8278d5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8386d1c43761cfb27746b003d136419f72d7d4ae
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57899526"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648544"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Aplicación del descuento por reserva a Azure Cosmos DB
 
@@ -24,7 +24,7 @@ Después de comprar capacidad reservada en Azure Cosmos DB, el descuento por la 
 
 Se aplica un descuento por reserva al [rendimiento aprovisionado](../cosmos-db/request-units.md) en términos de unidades de solicitud por segundo (RU/s) por cada hora. Para aquellos recursos de Azure Cosmos DB que no se ejecutan durante una hora completa, el descuento por reserva se aplica automáticamente a otros recursos de Cosmos DB que coinciden con los atributos de la reserva. El descuento se puede aplicar a recursos de Azure Cosmos DB que se están ejecutando simultáneamente. Si no tiene recursos de Cosmos DB que se ejecuten durante toda una hora y que coincidan con los atributos de reserva, no obtendrá todas las ventajas del descuento por reserva para esa hora.
 
-Los descuentos están organizados en niveles. Las reservas con unidades de solicitud mayores proporcionan mayores descuentos. 
+Los descuentos están organizados en niveles. Las reservas con unidades de solicitud mayores proporcionan mayores descuentos.
 
 La compra de reserva aplicará descuentos a todas las regiones en la proporción equivalente a los precios regionales por demanda. Para más información sobre la proporción de descuento por reserva en cada región, consulte la sección [descuentos por reserva para cada región](#reservation-discount-per-region) que aparece en este artículo.
 
@@ -71,15 +71,15 @@ El descuento por reserva se aplica a los costos de rendimiento de Azure Cosmos D
 Tenga en cuenta los siguientes requisitos para una reserva:
 
 * Capacidad de proceso necesaria: 50 000 RU/s  
-* Regiones que usa: 2 
+* Regiones que usa: 2
 
-En este caso, sus gastos totales por demanda serían de 500 unidades de la métrica de 100 RU/s en estas dos regiones. El consumo total es de 100 000 RU/s por hora. 
+En este caso, sus gastos totales por demanda serían de 500 unidades de la métrica de 100 RU/s en estas dos regiones. El consumo total es de 100 000 RU/s por hora.
 
 **Escenario 1**
 
 Por ejemplo, suponga que necesita implementaciones de Azure Cosmos DB en las regiones "Centro y norte de EE. UU." y "Oeste de EE. UU.". Cada región tiene un consumo de rendimiento de 50 000 RU/s. Una compra de reserva de 100 000 RU/s. equilibrará por completo los gastos por demanda.
 
-El descuento que cubre una reserva se calcula como: consumo de rendimiento x proporción_descuento_por_reservas_para_región. Para las regiones "Centro y norte de EE. UU." y "Oeste de EE. UU.", la proporción de descuento por reserva es 1. Por lo tanto, se descuentan en total 100 000 RU/s. Este valor se calcula de la siguiente forma: 50 000 x 1 + 50 000 x 1 = 100 000 RU/s. No deberá pagar cargos adicionales en las tarifas de pago por uso normales. 
+El descuento que cubre una reserva se calcula como: consumo de rendimiento x proporción_descuento_por_reservas_para_región. Para las regiones "Centro y norte de EE. UU." y "Oeste de EE. UU.", la proporción de descuento por reserva es 1. Por lo tanto, se descuentan en total 100 000 RU/s. Este valor se calcula de la siguiente forma: 50 000 x 1 + 50 000 x 1 = 100 000 RU/s. No deberá pagar cargos adicionales en las tarifas de pago por uso normales.
 
 |Descripción de la métrica | Region |Consumo de rendimiento (RU/s) |Descuento por reserva aplicado a las RU/s |
 |---------|---------|---------|---------|
@@ -97,25 +97,24 @@ Por ejemplo, suponga que necesita implementaciones de Azure Cosmos DB en las reg
 
 Usar 50 000 unidades en la región "Centro de Australia 2" se corresponde a 75 000 RU/s de uso facturables (o uso normalizado). Dicho valor se calcula de la siguiente forma: consumo de rendimiento x proporción_descuento_por_reservas_para_región. El cálculo da como resultado 75 000 RU/s de uso facturable o normalizado. Este valor se calcula de la siguiente forma: 50 000 x 1,5 = 75 000 RU/s.
 
-Las 100 000 RU/s de la compra de reserva cubrirían las 75 000 RU/s en "Centro de Australia 2". Así, quedarían 25 000 RU/s para la región "Sur de Francia". De las restantes 25 000 RU/s, se aplica un descuento por reserva de 15 384 RU/s a la región "Sur de Francia". Este valor se calcula de la siguiente forma: 25 000/1,625 = 15 384 RU/s. Las restantes 34 616 RU/s de la región "Sur de Francia" se cobran según las tarifas de pago por uso normales. 
+Las 100 000 RU/s de la compra de reserva cubrirían las 75 000 RU/s en "Centro de Australia 2". Así, quedarían 25 000 RU/s para la región "Sur de Francia". De las restantes 25 000 RU/s, se aplica un descuento por reserva de 15 384 RU/s a la región "Sur de Francia". Este valor se calcula de la siguiente forma: 25 000/1,625 = 15 384 RU/s. Las restantes 34 616 RU/s de la región "Sur de Francia" se cobran según las tarifas de pago por uso normales.
 
 El sistema de facturación de Azure asignará el beneficio de la facturación por reserva a la primera instancia que se procese y coincida con la configuración de reserva. Por ejemplo, "Centro de Australia 2", en este caso.
 
 Para información sobre la aplicación de las reservas en informes de uso de facturación de Azure y ver cómo hacerla, consulte el artículo de [información sobre el uso de reservas de Azure](../billing/billing-understand-reserved-instance-usage-ea.md).
 
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
+
+Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información acerca de las reservas de Azure, consulte los siguientes artículos:
 
-* [¿Qué son las reservas de Azure?](../billing/billing-save-compute-costs-reservations.md)  
+* [Qué son las reservas de Azure](../billing/billing-save-compute-costs-reservations.md)  
 * [Pago por adelantado para recursos de Azure Cosmos DB con capacidad reservada de Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)  
 * [Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)  
-* [Administración de reservas de Azure](../billing/billing-manage-reserved-vm-instance.md)  
+* [Administrar reservas para Azure](../billing/billing-manage-reserved-vm-instance.md)  
 * [Información sobre el uso de reservas para suscripciones de pago por uso](../billing/billing-understand-reserved-instance-usage.md)  
-* [Información sobre el uso de reservas para la inscripción Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md)  
+* [Información sobre el uso de reservas para la inscripción Enterprise](../billing/billing-understand-reserved-instance-usage-ea.md)
 * [Información sobre el uso de reservas para suscripciones de CSP](https://docs.microsoft.com/partner-center/azure-reservations)
-
-## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
-
-Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).
-

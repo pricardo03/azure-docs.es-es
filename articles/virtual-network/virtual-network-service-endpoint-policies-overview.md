@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 619b9b68a5c4e897642e1f84c25c2822d8291400
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2d65d51ae8148e2e55d57d39e306ded0f75da687
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58104495"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652593"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Directivas de punto de conexión de servicio de redes virtuales (versión preliminar)
 
@@ -145,7 +145,7 @@ Las directivas de puntos de conexión de servicio de redes virtuales proporciona
 - **Redes virtuales emparejadas, conectadas o múltiples**: para filtrar el tráfico en redes virtuales emparejadas, las directivas de punto de conexión deben aplicarse individualmente a estas redes virtuales.
 - **Filtrado del tráfico de Internet con dispositivos de red o Azure Firewall**: filtre el tráfico del servicio de Azure con directivas, sobre puntos de conexión, y filtre el resto del tráfico de Internet o de Azure a través de dispositivos o de Azure Firewall. 
 - **Filtrado del tráfico en servicios de Azure implementados en redes virtuales**: durante la versión preliminar, las directivas de punto de conexión de servicio no son compatibles con ningún servicio administrado de Azure que se implemente en la red virtual. 
- Para ver servicios específicos, consulte [Limitaciones.](#Limitations)
+ Para ver servicios específicos, consulte [Limitaciones.](#limitations)
 - **Filtrado del tráfico a los servicios de Azure desde el entorno local**: las directivas de punto de conexión de servicio solo se aplican al tráfico de las subredes asociadas a las directivas. Para permitir el acceso a recursos de servicio específicos de Azure desde el entorno local, el tráfico debe filtrarse utilizando aplicaciones de redes virtuales o firewalls.
 
 ## <a name="logging-and-troubleshooting"></a>Registro y solución de problemas

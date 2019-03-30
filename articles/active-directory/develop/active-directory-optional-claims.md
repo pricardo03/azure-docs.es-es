@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2424dbf595743eacef16b7d11f208edc9cd09a41
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 592f2ef95935ce1d1f83db6c3327cab9c20015d3
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56185458"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652576"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app-public-preview"></a>Procedimientos para: Cómo proporcionar notificaciones opcionales a la aplicación de Azure AD (versión preliminar pública)
 
@@ -50,7 +50,7 @@ Uno de los objetivos del [punto de conexión de la versión 2.0 de Azure AD](act
 
 ## <a name="standard-optional-claims-set"></a>Conjunto de notificaciones opcionales estándar
 
-El conjunto de notificaciones opcionales disponibles de forma predeterminada para que las usen las aplicaciones se enumeran a continuación. Para agregar notificaciones opcionales personalizadas para la aplicación, consulte las [extensiones de directorio](active-directory-optional-claims.md#Configuring-custom-claims-via-directory-extensions) a continuación. Tenga en cuenta que al agregar notificaciones al **token de acceso**, esto se aplicará a los tokens de acceso solicitados *para* la aplicación (una API web), no *por* la aplicación. Esto garantiza que, independientemente del cliente que accede a la API, los datos correctos están presentes en el token de acceso que usan para autenticarse en la API.
+El conjunto de notificaciones opcionales disponibles de forma predeterminada para que las usen las aplicaciones se enumeran a continuación. Para agregar notificaciones opcionales personalizadas para la aplicación, consulte las [extensiones de directorio](active-directory-optional-claims.md#configuring-custom-claims-via-directory-extensions) a continuación. Tenga en cuenta que al agregar notificaciones al **token de acceso**, esto se aplicará a los tokens de acceso solicitados *para* la aplicación (una API web), no *por* la aplicación. Esto garantiza que, independientemente del cliente que accede a la API, los datos correctos están presentes en el token de acceso que usan para autenticarse en la API.
 
 > [!NOTE]
 > La mayoría de estas notificaciones puede incluirse en los JWT para los tokens v1.0 y v2.0, pero no en los tokens SAML, excepto donde se indique en la columna Tipo de token. Además, aunque actualmente solo se admiten las notificaciones opcionales para los usuarios de AAD, se va a agregar compatibilidad con MSA. Cuando MSA sea compatible con las notificaciones opcionales en la versión 2.0 del punto de conexión, la columna Tipo de usuario indicará si hay una notificación disponible para los usuarios de AAD o de MSA. 
