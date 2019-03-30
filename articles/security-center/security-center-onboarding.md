@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 19/02/2019
 ms.author: monhaber
-ms.openlocfilehash: d9c9a079198a8ff263c729b8e90c1fc8d0e64cd0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ef6b476e2c85715e86ef4c1cfe1194bb25cade28
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100077"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665498"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Incorporación a Azure Security Center Estándar para una seguridad mejorada
 Actualice a Security Center Estándar para sacar partido de la administración de seguridad mejorada y protección contra amenazas en las cargas de trabajo de la nube híbrida.  Puede probar la versión Estándar de forma gratuita. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
@@ -33,7 +33,7 @@ Security Center Estándar incluye lo siguiente:
 ## <a name="detecting-unprotected-resources"></a>Detectar recursos sin proteger     
 Security Center detecta automáticamente las áreas de trabajo o suscripciones a Azure que no están habilitadas para Security Center Estándar. Esto engloba las suscripciones a Azure que usan Security Center gratis y las áreas de trabajo que no tiene la solución de Security habilitada.
 
-Puede actualizar una suscripción a Azure entera al nivel Estándar, que heredarán todos los recursos dentro de la suscripción, o puede definir una directiva única para actualizar solo un grupo de recursos en particular. Si la configuración de directiva de grupo de recursos es única, Security Center no invalidará las directivas de precios cuando actualice la suscripción al nivel Estándar. Aplicar el estándar de capa a una suscripción se aplica a todos los recursos admitidos en la suscripción. Aplicar el estándar de capa a un área de trabajo se aplica a todos los recursos que el área de trabajo.
+Puede actualizar toda una suscripción de Azure al nivel estándar, que es heredado por todos los recursos compatibles dentro de la suscripción. Aplicar el estándar de capa a un área de trabajo se aplica a todos los recursos que el área de trabajo.
 
 > [!NOTE]
 > Quizá quiera administrar los costos y limitar la cantidad de datos recopilados para una solución mediante la limitación a un conjunto determinado de agentes. La [selección de destino de solución](../operations-management-suite/operations-management-suite-solution-targeting.md) permite aplicar un ámbito a la solución y tener como destino un subconjunto de equipos en el área de trabajo.  Si usa la selección de destino de solución, Security Center muestra el área de trabajo como si no tuviera una solución.

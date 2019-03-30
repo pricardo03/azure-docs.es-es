@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d62bf6c8aaf38de27594db0b51731a883a84fbe
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f5ceab083077231fd856bb0f267717afdb9556d3
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013506"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667062"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver
 
@@ -52,6 +52,9 @@ ms.locfileid: "58013506"
 [sap-suse-ascs-ha-setting-ha-anf]:high-availability-guide-suse-netapp-files.md#setting-up-the-azure-netapp-files-infrastructure
 [sap-suse-ascs-ha-sap-installation]:high-availability-guide-suse.md#prepare-for-sap-netweaver-installation
 [sap-suse-ascs-ha-sap-installation-anf]:high-availability-guide-suse-netapp-files.md#prepare-for-sap-netweaver-installation
+[sap-rhel-ascs-ha]:high-availability-guide-rhel.md
+[high-availability-guide-rhel-glusterfs]:high-availability-guide-rhel-glusterfs.md
+[high-availability-guide-rhel-pacemaker]:high-availability-guide-rhel-pacemaker.md
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 
@@ -223,6 +226,10 @@ En el artículo se habla tanto de ![Windows][Logo_Windows] **Windows** como de !
 
 * ![Linux][Logo_Linux] [infraestructura preparar Azure para alta disponibilidad de SAP mediante el uso de un marco de clúster SUSE Linux Enterprise Server para las instancias de SAP ASCS/SCS con los archivos de NetApp de Azure][sap-suse-ascs-ha-setting-ha-anf]
 
+* ![RHEL][Logo_Linux] [infraestructura preparar Azure para alta disponibilidad de SAP ASCS/SCS: configurar GlusterFS en RHEL][high-availability-guide-rhel-glusterfs]
+
+* ![RHEL][Logo_Linux] [infraestructura preparar Azure para alta disponibilidad de SAP ASCS/SCS: configuración de Pacemaker en RHEL ][high-availability-guide-rhel-pacemaker]
+
 ## <a name="installation-of-an-sap-netweaver-high-availability-system-in-azure"></a>Instalación de un sistema de alta disponibilidad para SAP NetWeaver en Azure
 
 **Resumen:** Estos artículos muestra ejemplo detallado de la instalación y configuración de un sistema SAP de alta disponibilidad en un clúster de clústeres de conmutación por error de Windows Server y el marco de clúster de Linux en Azure.
@@ -236,3 +243,5 @@ En el artículo se habla tanto de ![Windows][Logo_Windows] **Windows** como de !
 * ![Linux][Logo_Linux] [Instalación de la alta disponibilidad para SAP NetWeaver con el marco de clúster SUSE Linux Enterprise Server para la instancia de SAP ASCS/SCS][sap-suse-ascs-ha-sap-installation]
 
 * ![Linux][Logo_Linux] [instalar SAP NetWeaver de alta disponibilidad mediante el uso de un marco de clúster SUSE Linux Enterprise Server para las instancias ASCS/SCS de SAP con Azure Files de NetApp][sap-suse-ascs-ha-sap-installation-anf]
+
+* ![RHEL][Logo_Linux] [instalar SAP NetWeaver ASCS/SCS en la configuración de alta disponibilidad en RHEL][sap-rhel-ascs-ha]

@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8ec6ffaba8056eacf44d8e1bd911eb1f22daad84
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 522f1f2f24e8c8c3f68a42569d4057a7694754d1
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314847"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651080"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Actualización de SQL Data Warehouse para optimizar el rendimiento
 
@@ -34,8 +34,8 @@ Esta actualización se aplica a los almacenamientos de datos del nivel Gen1 opti
 ## <a name="before-you-begin"></a>Antes de empezar
 
 1. Compruebe si su [región](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) es compatible para la migración de GEN1 a GEN2. Tenga en cuenta las fechas de la migración automática. Para evitar conflictos con el proceso automatizado, planee la migración manual antes de la fecha de inicio del proceso automatizado.
-2. Si está en una región que aún no es compatible, continúe con la comprobación de la región que se va a agregar o [actualice mediante restauración](#Upgrade-from-an-Azure-geographical-region-using-restore-through-the-Azure-portal) a una región compatible.
-3. Si la región es compatible, [realice la actualización en Azure Portal](#Upgrade-in-a-supported-region-using-the-Azure-portal).
+2. Si está en una región que aún no es compatible, continúe con la comprobación de la región que se va a agregar o [actualice mediante restauración](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) a una región compatible.
+3. Si la región es compatible, [realice la actualización en Azure Portal](#upgrade-in-a-supported-region-using-the-azure-portal).
 4. **Seleccione el nivel de rendimiento sugerido** para el almacenamiento de datos en función del nivel de rendimiento actual en el nivel Gen1 optimizado para proceso mediante la asignación siguiente:
 
    | Nivel Gen1 optimizado para proceso | Nivel Gen2 optimizado para proceso |

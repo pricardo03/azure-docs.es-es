@@ -4,7 +4,7 @@ description: Prácticas recomendadas para la serialización de datos y cómo afe
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: a5f36366-a2ab-4ae3-bb08-bc2f9533bc5a
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 43d19e5c69733689be184f06b853fa4e488dd51e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 55cbd869e7434469ebddd7af493c91bfedafc594
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56871730"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665685"
 ---
 # <a name="how-data-serialization-affects-an-application-upgrade"></a>Información sobre cómo la serialización afecta a una actualización de aplicación
 En una [actualización de la aplicación gradual](service-fabric-application-upgrade.md), la actualización se aplica a un subconjunto de nodos, un dominio de actualización a la vez. Durante este proceso, algunos dominios de actualización se incluyen en la versión más reciente de su aplicación, mientras que otros están en la versión anterior. Durante el lanzamiento, la nueva versión de la aplicación debe poder leer la versión anterior de sus datos, mientras que la versión anterior debe poder leer la nueva versión. Si el formato de datos no es compatible con las versiones anteriores y nuevas, es posible que se produzca un error en la actualización, o lo que es peor, que se pierdan o dañen datos. En este artículo se analiza qué constituye su formato de datos y ofrece prácticas recomendadas para garantizar que sus datos sean compatibles con las versiones anteriores y nuevas.

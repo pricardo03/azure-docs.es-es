@@ -8,12 +8,12 @@ ms.service: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
 ms.author: rezas
-ms.openlocfilehash: 024bb29f9d7276021888e949073f6d45aed0a249
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 672b06dda41edb18cbf31352188b0fdd2a155782
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076282"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649658"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Flujos de dispositivos IoT Hub (versión preliminar)
 
@@ -101,7 +101,7 @@ El resultado es un objeto JSON de todos los puntos de conexión que el dispositi
 
 ## <a name="whitelist-device-streaming-endpoints"></a>Lista blanca de los puntos de conexión de streaming del dispositivo
 
-Como se mencionó [anteriormente](#Overview), el dispositivo crea una conexión de salida al punto de conexión de streaming de IoT Hub durante el proceso de iniciación de los flujos de dispositivos. Los firewalls del dispositivo o de la red deben permitir la conectividad de salida hacia la puerta de enlace de streaming en el puerto 443 (tenga en cuenta que la comunicación se produce mediante una conexión WebSocket cifrada con TLS).
+Como se mencionó [anteriormente](#overview), el dispositivo crea una conexión de salida al punto de conexión de streaming de IoT Hub durante el proceso de iniciación de los flujos de dispositivos. Los firewalls del dispositivo o de la red deben permitir la conectividad de salida hacia la puerta de enlace de streaming en el puerto 443 (tenga en cuenta que la comunicación se produce mediante una conexión WebSocket cifrada con TLS).
 
 El nombre de host del punto de conexión de streaming se puede encontrar en el portal de Azure IoT Hub, en la pestaña Información general. ![Texto alternativo](./media/iot-hub-device-streams-overview/device-stream-portal.PNG "Puntos de conexión del flujo de dispositivos")
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 59524a9a08b16100598b7713cb0507646245d90b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bc6cc7b07d3dce43a666b3e5b0a958b41cdd3131
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445830"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651515"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -38,7 +38,7 @@ El **ClaimsTransformation** elemento contiene los siguientes atributos:
 | Atributo |Obligatorio | DESCRIPCIÓN |
 | --------- |-------- | ----------- |
 | Id |Sí | Un identificador que se usa para identificar de forma única la transformación de la notificación. Se hace referencia al identificador desde otros elementos XML de la directiva. |
-| TransformationMethod | Sí | El método de transformación que se va a usar en la transformación de las reclamaciones. Cada transformación de notificación tiene sus propios valores. Consulte la [referencia de la transformación de notificaciones](#Claims-transformations-reference) para obtener una lista completa de los valores disponibles. |
+| TransformationMethod | Sí | El método de transformación que se va a usar en la transformación de las reclamaciones. Cada transformación de notificación tiene sus propios valores. Consulte la [referencia de la transformación de notificaciones](#claims-transformations-reference) para obtener una lista completa de los valores disponibles. |
 
 ## <a name="claimstransformation"></a>ClaimsTransformation
 
@@ -80,7 +80,7 @@ El elemento **InputClaim** contiene los atributos siguientes:
 | Atributo |Obligatorio | DESCRIPCIÓN |
 | --------- | ----------- | ----------- |
 | ClaimTypeReferenceId |Sí | Una referencia a un ClaimType ya definido en la sección ClaimsSchema de la directiva. |
-| TransformationClaimType |Sí | Un identificador para hacer referencia a un tipo de notificación de transformación. Cada transformación de notificación tiene sus propios valores. Consulte la [referencia de la transformación de notificaciones](#Claims-transformations-reference) para obtener una lista completa de los valores disponibles. |
+| TransformationClaimType |Sí | Un identificador para hacer referencia a un tipo de notificación de transformación. Cada transformación de notificación tiene sus propios valores. Consulte la [referencia de la transformación de notificaciones](#claims-transformations-reference) para obtener una lista completa de los valores disponibles. |
 
 ### <a name="inputparameters"></a>InputParameters
 
@@ -95,7 +95,7 @@ El elemento **InputParameters** contiene el siguiente elemento:
 | Atributo | Obligatorio |DESCRIPCIÓN |
 | --------- | ----------- |----------- |
 | Id | Sí | Un identificador que es una referencia a un parámetro del método de transformación de notificaciones. Cada método de transformación de notificaciones tiene sus propios valores. Consulte la tabla de la transformación de notificaciones para obtener una lista completa de los valores disponibles. |
-| DataType | Sí | El tipo de datos del parámetro, como String, Boolean, Int o DateTime, según la enumeración DataType en el esquema XML de la directiva personalizada. Este tipo se usa para realizar operaciones aritméticas correctamente. Cada transformación de notificación tiene sus propios valores. Consulte la [referencia de la transformación de notificaciones](#Claims-transformations-reference) para obtener una lista completa de los valores disponibles. |
+| DataType | Sí | El tipo de datos del parámetro, como String, Boolean, Int o DateTime, según la enumeración DataType en el esquema XML de la directiva personalizada. Este tipo se usa para realizar operaciones aritméticas correctamente. Cada transformación de notificación tiene sus propios valores. Consulte la [referencia de la transformación de notificaciones](#claims-transformations-reference) para obtener una lista completa de los valores disponibles. |
 | Valor | Sí | Un valor que se pasa de forma literal a la transformación. Algunos de los valores son arbitrarios, algunos de ellos se seleccionan desde el método de transformación de notificaciones. |
 
 ### <a name="outputclaims"></a>OutputClaims
@@ -113,7 +113,7 @@ El elemento **OutputClaim** contiene los atributos siguientes:
 | Atributo |Obligatorio | DESCRIPCIÓN |
 | --------- | ----------- |----------- |
 | ClaimTypeReferenceId | Sí | Una referencia a un ClaimType ya definido en la sección ClaimsSchema de la directiva.
-| TransformationClaimType | Sí | Un identificador para hacer referencia a un tipo de notificación de transformación. Cada transformación de notificación tiene sus propios valores. Consulte la [referencia de la transformación de notificaciones](#Claims-transformations-reference) para obtener una lista completa de los valores disponibles. |
+| TransformationClaimType | Sí | Un identificador para hacer referencia a un tipo de notificación de transformación. Cada transformación de notificación tiene sus propios valores. Consulte la [referencia de la transformación de notificaciones](#claims-transformations-reference) para obtener una lista completa de los valores disponibles. |
  
 Si la notificación de entrada y la notificación de salida son del mismo tipo (cadena o booleano), puede usar la misma notificación de entrada como de salida. En este caso, la transformación de notificaciones cambia la notificación de entrada por el valor de salida.
 

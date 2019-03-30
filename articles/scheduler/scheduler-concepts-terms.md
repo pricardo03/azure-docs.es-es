@@ -10,12 +10,12 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: 15770246f52e87b8fba4a9ec01e1583d194d002b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 67f51b078b8e92592e9593d7d254e6985265eee8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887058"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651276"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Conceptos, terminología y entidades de Azure Scheduler
 
@@ -143,7 +143,7 @@ En el objeto **startTime**, puede especificar la hora de inicio y un desplazamie
 
 ## <a name="action"></a>action
 
-El trabajo de Scheduler ejecuta una **acción** principal según la programación especificada. Scheduler admite acciones HTTP, de cola de Storage, de cola de Service Bus y de tema de Service Bus. Si se produce un error en el objeto **action** principal, Scheduler puede ejecutar un objeto [**errorAction**](#errorAction) secundario que se encargue del error. El objeto **action** describe estos elementos:
+El trabajo de Scheduler ejecuta una **acción** principal según la programación especificada. Scheduler admite acciones HTTP, de cola de Storage, de cola de Service Bus y de tema de Service Bus. Si se produce un error en el objeto **action** principal, Scheduler puede ejecutar un objeto [**errorAction**](#erroraction) secundario que se encargue del error. El objeto **action** describe estos elementos:
 
 * El tipo de servicio de la acción
 * Los detalles de la acción

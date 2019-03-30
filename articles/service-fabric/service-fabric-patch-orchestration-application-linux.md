@@ -4,7 +4,7 @@ description: Aplicación para automatizar la aplicación de revisiones de sistem
 services: service-fabric
 documentationcenter: .net
 author: novino
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: de7dacf5-4038-434a-a265-5d0de80a9b1d
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
-ms.openlocfilehash: 27650605601a24e11d63e56343535c35c8b72f5d
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
-ms.translationtype: HT
+ms.openlocfilehash: 5efcc92bc2054dfb66b5fe03ae083c49f924d2ce
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52285159"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668201"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Linux en el clúster de Service Fabric
 
@@ -47,7 +47,7 @@ La aplicación de orquestación de revisiones consta de los siguientes subcompon
 - **Node Agent Service**: es un servicio sin estado que se ejecuta en todos los nodos del clúster de Service Fabric. El servicio es responsable de:
     - Iniciar el demonio del agente de nodo en Linux.
     - Supervisar el servicio del demonio.
-- **Demonio del agente de nodo**: este servicio del demonio de Linux se ejecuta con un privilegio de nivel superior (raíz). En cambio, el servicio Node Agent Service y el servicio Coordinator Service se ejecutan con privilegios de nivel inferior. El servicio es responsable de realizar las siguientes tareas de actualización en todos los nodos de clúster:
+- **El demonio del agente de nodo**: Este servicio de demonio de Linux se ejecuta en un privilegio de nivel superior (raíz). En cambio, el servicio Node Agent Service y el servicio Coordinator Service se ejecutan con privilegios de nivel inferior. El servicio es responsable de realizar las siguientes tareas de actualización en todos los nodos de clúster:
     - Deshabilitar las actualizaciones automáticas del sistema operativo en el nodo.
     - Descargar e instalar la actualización del sistema operativo según la directiva que el usuario ha proporcionado.
     - Reiniciar el equipo después de la instalación de la actualización del sistema operativo en caso de ser necesario.
@@ -131,10 +131,10 @@ El comportamiento de la aplicación de orquestación de revisiones puede configu
 |:-|-|-|
 |MaxResultsToCache    |long                              | Número máximo de resultados de actualización que deben almacenarse en la memoria caché. <br>El valor predeterminado es 3000 suponiendo que: <br> - El número de nodos es 20. <br> - El número de actualizaciones en un nodo al mes es cinco. <br> - El número de resultados por cada operación es 10. <br> - Deben almacenarse los resultados de los últimos tres meses. |
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indica la directiva que usará Coordinator Service para instalar las actualizaciones en todos los nodos del clúster de Service Fabric.<br>                         Los valores permitidos son: <br>                                                           <b>NodeWise</b>. Las actualizaciones se instalan en un nodo cada vez. <br>                                                           <b>UpgradeDomainWise</b>. Las actualizaciones se instalan en un dominio de actualización cada vez. (Como máximo, todos los nodos que pertenecen a un dominio de actualización son aptos para la actualización).
-| UpdateOperationTimeOutInMinutes | int <br>(Predeterminado: 180)                   | Especifica el tiempo de espera para cualquier operación de actualización (descargar o instalar). Si la operación no se realiza en el tiempo de espera especificado, se anula.       |
-| RescheduleCount      | int <br> (Valor predeterminado: 5)                  | El número máximo de veces que el servicio vuelve a programar la actualización del sistema operativo en caso de error de la operación de forma persistente.          |
-| RescheduleTimeInMinutes  | int <br>(Valor predeterminado: 30) | El intervalo en el que el servicio vuelve a programar la actualización del sistema operativo en caso de que el error persista. |
-| UpdateFrequency           | Cadena separada por comas (Valor predeterminado: "Weekly, Wednesday, 7:00:00")     | La frecuencia para la instalación de actualizaciones del sistema operativo en el clúster. El formato y los valores posibles son: <br>- Monthly, DD,HH:MM:SS, por ejemplo, Monthly, 5, 12:22:32. <br> - Weekly, DÍA,HH:MM:SS, por ejemplo, Weekly, martes, 12:22:32.  <br> -   Daily, HH:MM:SS, por ejemplo, Daily, 12:22:32.  <br> - None indica que no debe realizarse la actualización.  <br><br> Todas las horas están en formato UTC.|
+| UpdateOperationTimeOutInMinutes | Int <br>(Valor predeterminado: 180)                   | Especifica el tiempo de espera para cualquier operación de actualización (descargar o instalar). Si la operación no se realiza en el tiempo de espera especificado, se anula.       |
+| RescheduleCount      | Int <br> (Valor predeterminado: 5)                  | El número máximo de veces que el servicio vuelve a programar la actualización del sistema operativo en caso de error de la operación de forma persistente.          |
+| RescheduleTimeInMinutes  | Int <br>(Valor predeterminado: 30) | El intervalo en el que el servicio vuelve a programar la actualización del sistema operativo en caso de que el error persista. |
+| UpdateFrequency           | Cadena separada por comas (valor predeterminado: "Weekly, Wednesday, 7:00:00")     | La frecuencia para la instalación de actualizaciones del sistema operativo en el clúster. El formato y los valores posibles son: <br>- Monthly, DD,HH:MM:SS, por ejemplo, Monthly, 5, 12:22:32. <br> - Weekly, DÍA,HH:MM:SS, por ejemplo, Weekly, martes, 12:22:32.  <br> -   Daily, HH:MM:SS, por ejemplo, Daily, 12:22:32.  <br> - None indica que no debe realizarse la actualización.  <br><br> Todas las horas están en formato UTC.|
 | UpdateClassification | Cadena separada por comas (Valor predeterminado: "securityupdates") | Tipo de actualizaciones que se deben instalar en los nodos del clúster. Los valores aceptados son securityupdates y all. <br> - securityupdates: se instalan solo las actualizaciones de seguridad <br> - all: se instalan todas las actualizaciones disponibles en apt.|
 | ApprovedPatches | Cadena separada por comas (valor predeterminado: "") | Se trata de la lista de actualizaciones aprobadas que debe instalarse en los nodos del clúster. La lista separada por comas contiene los paquetes aprobados y, de modo opcional, la versión de destino deseada.<br> Por ejemplo: "apt-utils = 1.2.10ubuntu1, python3-jwt, apt-transport-https < 1.2.194, libsystemd0 >= 229-4ubuntu16" <br> Los pasos anteriores instalan <br> - apt-utils con la versión 1.2.10ubuntu1 si está disponible en apt-cache. Si esa versión no está disponible, es una operación sin efecto. <br> - las actualizaciones de python3-jwt a la versión más reciente disponible. Si el paquete no está presente, es una operación sin efecto. <br> - las actualizaciones de apt-transport-https a la versión más reciente y que es menor que la 1.2.194. Si la versión no está presente, es una operación sin efecto. <br> - las actualizaciones de libsystemd0 a la versión más reciente que sea mayor o igual que la 229-4ubuntu16. Si no existe una versión de este tipo, es una operación sin efecto.|
 | RejectedPatches | Cadena separada por comas (valor predeterminado: "") | Se trata de la lista de actualizaciones que no se deben instalar en los nodos del clúster <br> Por ejemplo: "bash, sudo" <br> El valor anterior filtra bash y sudo para que no reciban actualizaciones. |
@@ -305,7 +305,7 @@ A. El tiempo que necesita la aplicación de orquestación de revisiones depende 
 
 P: **¿Cómo decide la aplicación de orquestación de revisiones qué actualizaciones son actualizaciones de seguridad?**
 
-A. La aplicación de orquestación de revisiones utiliza una lógica específica de cada distribución para determinar qué actualizaciones entre las actualizaciones disponibles son actualizaciones de seguridad. Por ejemplo: en ubuntu la aplicación busca actualizaciones de los archivos $RELEASE-security y $RELEASE-updates ($RELEASE = xenial o la versión de lanzamiento de base estándar de Linux). 
+A. La aplicación de orquestación de revisiones utiliza una lógica específica de cada distribución para determinar qué actualizaciones entre las actualizaciones disponibles son actualizaciones de seguridad. Por ejemplo:  En ubuntu la aplicación busca actualizaciones de los archivos $RELEASE-seguridad, $RELEASE-las actualizaciones ($RELEASE = xenial o la versión de lanzamiento de base estándar de linux). 
 
  
 P: **¿Cómo puedo bloquear en una versión específica del paquete?**

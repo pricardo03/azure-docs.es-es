@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3baa4a9b91e76b9072714229b6a46e9fca69bcdd
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: a33525e44b2e294b7ce85c7081864dbef0856588
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54331391"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650860"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Conexión a una máquina virtual de SQL Server en Azure
 
@@ -138,7 +138,7 @@ En la tabla siguiente se enumeran los requisitos para conectarse a SQL Server qu
 |---|---|
 | [Habilitación del modo de autenticación de SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | Para la conexión remota a la máquina virtual se necesita autenticación de SQL Server, a menos que se haya configurado Active Directory en una red virtual. |
 | [Creación de un inicio de sesión de SQL](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Si usa la autenticación de SQL, necesita un inicio de sesión de SQL con nombre de usuario y contraseña que también tenga permisos para la base de datos de destino. |
-| [Habilitación del protocolo TCP/IP](#manualTCP) | SQL Server debe permitir conexiones a través de TCP. |
+| [Habilitación del protocolo TCP/IP](#manualtcp) | SQL Server debe permitir conexiones a través de TCP. |
 | [Habilitación de la regla de firewall para el puerto de SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | El firewall de la máquina virtual debe permitir el tráfico entrante en el puerto de SQL Server (predeterminado: 1433). |
 | [Creación de una regla del grupo de seguridad de red para el puerto 1433 de TCP](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) | Se debe permitir que la máquina virtual reciba tráfico en el puerto de SQL Server (predeterminado: 1433) si desea conectarse a través de internet. Las conexiones locales y las exclusivas de la red virtual no lo necesitan. Este es el único paso necesario en Azure Portal. |
 

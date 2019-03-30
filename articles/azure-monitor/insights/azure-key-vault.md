@@ -1,32 +1,32 @@
 ---
-title: Solución Azure Key Vault en Log Analytics | Microsoft Docs
-description: Puede utilizar la solución Azure Key Vault en Log Analytics para revisar los registros de Azure Key Vault.
+title: Solución de Azure Key Vault en Azure Monitor | Microsoft Docs
+description: Puede usar la solución Azure Key Vault en Azure Monitor para revisar los registros de Azure Key Vault.
 services: log-analytics
 documentationcenter: ''
-author: richrundmsft
-manager: jochan
+author: bwren
+manager: carmonm
 editor: ''
 ms.assetid: 5e25e6d6-dd20-4528-9820-6e2958a40dae
 ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/09/2017
-ms.author: richrund
-ms.openlocfilehash: b2c43ff2ae45b4adccb8f19873070a4c3a9dbe99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/27/2019
+ms.author: bwren
+ms.openlocfilehash: 481b643f2f7201a2a1745c7aef9ddd81883da020
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078777"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629269"
 ---
-# <a name="azure-key-vault-analytics-solution-in-log-analytics"></a>Solución de Azure Key Vault Analytics en Log Analytics
+# <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Solución de Azure Key Vault Analytics en Azure Monitor
 
 ![Símbolo de Key Vault](media/azure-key-vault/key-vault-analytics-symbol.png)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Puede utilizar la solución Azure Key Vault en Log Analytics para revisar los registros AuditEvents de Azure Key Vault.
+Puede usar la solución Azure Key Vault en Azure Monitor para revisar los registros Auditevents de Azure Key Vault.
 
 Para usar la solución, debe habilitar el registro de diagnósticos de Azure Key Vault y dirigir los diagnósticos a un área de trabajo de Log Analytics. No se requiere escribir los registros en Azure Blob Storage.
 
@@ -38,23 +38,23 @@ Para usar la solución, debe habilitar el registro de diagnósticos de Azure Key
 ## <a name="install-and-configure-the-solution"></a>Instalación y configuración de la solución
 Para instalar y configurar la solución de Azure Key Vault, siga estas instrucciones:
 
-1. Habilite la solución Azure Key Vault desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview) o mediante el proceso descrito en el artículo sobre [incorporación de soluciones de Log Analytics desde la Galería de soluciones](../../azure-monitor/insights/solutions.md).
+1. Use el proceso descrito en [soluciones de agregar Azure Monitor desde la Galería de soluciones](../../azure-monitor/insights/solutions.md) para agregar la solución Azure Key Vault para el área de trabajo de Log Analytics.
 2. Habilite el registro de diagnósticos para que se supervisen los recursos de Key Vault usando el [Portal](#enable-key-vault-diagnostics-in-the-portal) o [PowerShell](#enable-key-vault-diagnostics-using-powershell)
 
 ### <a name="enable-key-vault-diagnostics-in-the-portal"></a>Habilitación de los diagnósticos de Key Vault en el portal
 
 1. En Azure Portal, navegue hasta el recurso de Key Vault que se va a supervisar.
-2. Seleccione *Registros de diagnósticos* para abrir la página siguiente.
+2. Seleccione *configuración de diagnóstico* para abrir la página siguiente
 
    ![imagen del icono de Azure Key Vault](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics01.png)
 3. Haga clic en *Activar diagnósticos* para abrir la página siguiente.
 
    ![imagen del icono de Azure Key Vault](media/azure-key-vault/log-analytics-keyvault-enable-diagnostics02.png)
-4. Para activar los diagnósticos, haga clic en *Activar* en *Estado*.
+4. Asigne un nombre para la configuración de diagnóstico.
 5. Haga clic en la casilla *Send to Log Analytics* (Enviar a Log Analytics).
 6. Seleccione un área de trabajo de Log Analytics existente o cree un área de trabajo.
 7. Para habilitar registros *AuditEvent*, haga clic en la casilla bajo Registro.
-8. Haga clic en *Guardar* para habilitar el registro de diagnósticos en Log Analytics.
+8. Haga clic en *guardar* para habilitar el registro de diagnóstico al área de trabajo de Log Analytics.
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>Habilitación de los diagnósticos de Key Vault mediante PowerShell
 El siguiente script de PowerShell proporciona un ejemplo de cómo utilizar `Set-AzDiagnosticSetting` para habilitar el registro de diagnósticos para Key Vault:
@@ -79,11 +79,11 @@ En la siguiente tabla se muestran los métodos de recopilación de datos y otros
 | Azure |  |  |&#8226; |  |  | a la llegada |
 
 ## <a name="use-azure-key-vault"></a>Uso de Azure Key Vault
-Después de [instalar la solución](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), vea los datos de Key Vault haciendo clic en icono de **Azure Key Vault** desde la página **Introducción** de Log Analytics.
+Después de [instalar la solución](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.KeyVaultAnalyticsOMS?tab=Overview), ver los datos de Key Vault haciendo clic en el **Key Vault Analytics** mosaico desde el Monitor de Azure **Introducción** página. Abra esta página desde el menú **Azure Monitor** haciendo clic en **Más** en la sección **Conocimiento**. 
 
 ![imagen del icono de Azure Key Vault](media/azure-key-vault/log-analytics-keyvault-tile.png)
 
-Tras hacer clic en el icono de **Overview** (Información general), puede ver resúmenes de los registros y desplazarse hasta los detalles de las categorías siguientes:
+Tras hacer clic en el **Key Vault Analytics** icono, puede ver resúmenes de los registros y, a continuación, desplazarse hasta los detalles de las siguientes categorías:
 
 * Volumen de todas las operaciones de almacén de claves a través del tiempo
 * Volúmenes de operaciones fallidas a través del tiempo
@@ -95,12 +95,12 @@ Tras hacer clic en el icono de **Overview** (Información general), puede ver re
 ![imagen del panel de Azure Key Vault](media/azure-key-vault/log-analytics-keyvault02.png)
 
 ### <a name="to-view-details-for-any-operation"></a>Visualización de detalles de cualquier operación
-1. En la página **Overview** (Información general), haga clic en el icono de **Azure Key Vault**.
+1. En el **Introducción** página, haga clic en el **Key Vault Analytics** icono.
 2. En el panel **Azure Key Vault**, revise la información de resumen en una de las hojas y haga clic en una para obtener información detallada acerca de esta en la página de búsqueda de registros.
 
     En cualquiera de las páginas de búsqueda de registros, puede ver los resultados por tiempo, resultados detallados y el historial de búsqueda de registros. También puede filtrar por las facetas para restringir los resultados.
 
-## <a name="log-analytics-records"></a>Registros de Log Analytics
+## <a name="azure-monitor-log-records"></a>Registros de Azure Monitor
 La solución de Azure Key Vault analiza los registros que tienen un tipo de **KeyVaults** que se recopilan desde los [registros AuditEvent](../../key-vault/key-vault-logging.md) de Diagnóstico de Azure.  Las propiedades de estos registros se muestran en la tabla siguiente:  
 
 | Propiedad | DESCRIPCIÓN |
@@ -128,15 +128,15 @@ La solución de Azure Key Vault analiza los registros que tienen un tipo de **Ke
 
 ## <a name="migrating-from-the-old-key-vault-solution"></a>Migración desde la solución Key Vault antigua
 En enero de 2017, cambia la forma de enviar registros de Key Vault a Log Analytics. Estos cambios proporcionan las siguientes ventajas:
-+ Los registros se escriben directamente en Log Analytics sin necesidad de usar una cuenta de almacenamiento
++ Los registros se escriben directamente en un área de trabajo de Log Analytics sin necesidad de usar una cuenta de almacenamiento
 + Menor latencia desde el momento en el que los registros se generan hasta que están disponibles en Log Analytics
 + Menos pasos de configuración
 + Un formato común para todos los tipos de diagnósticos de Azure
 
 Para usar la solución actualizada:
 
-1. [Configure los diagnósticos que se van a enviar directamente a Log Analytics desde Key Vault](#enable-key-vault-diagnostics-in-the-portal).  
-2. Habilite la solución Azure Key Vault mediante el proceso que se describe en [Incorporación de soluciones de administración de Log Analytics](../../azure-monitor/insights/solutions.md).
+1. [Configure los diagnósticos para enviarse directamente a un área de trabajo de Log Analytics desde Key Vault](#enable-key-vault-diagnostics-in-the-portal)  
+2. Habilitar la solución Azure Key Vault mediante el proceso descrito en [soluciones de agregar Azure Monitor desde la Galería de soluciones](../../azure-monitor/insights/solutions.md)
 3. Actualice cualquier consulta guardada, panel o alerta para usar el nuevo tipo de datos.
    + El tipo se cambia de KeyVaults a AzureDiagnostics. Puede usar ResourceType para filtrar registros de Key Vault.
    + En lugar de `KeyVaults`, use `AzureDiagnostics | where ResourceType'=="VAULTS"`.
@@ -153,4 +153,4 @@ Los datos recopilados antes del cambio no aparecen en la nueva solución. Puede 
 [!INCLUDE [log-analytics-troubleshoot-azure-diagnostics](../../../includes/log-analytics-troubleshoot-azure-diagnostics.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Use [Búsquedas de registros en Log Analytics](../../azure-monitor/log-query/log-query-overview.md) para ver datos detallados sobre los datos de Azure Key Vault.
+* Use [registro las consultas en Azure Monitor](../../azure-monitor/log-query/log-query-overview.md) para ver datos detallados de Azure Key Vault.

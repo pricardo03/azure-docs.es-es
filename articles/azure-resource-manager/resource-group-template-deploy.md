@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 03/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: 3b9a35cb5a37aa17a2f7803f3e996d51bede81e0
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 2ef5cc702bd5035c958a8feb9b6f5051781cd3cc
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518565"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649801"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell
 
@@ -103,7 +103,12 @@ Para pegar el código en el shell, haga clic dentro del shell y seleccione **Peg
 
 ## <a name="redeploy-when-deployment-fails"></a>Nueva implementación cuando se produce un error en la implementación
 
-Cuando se produce un error en una implementación, puede ejecutar automáticamente desde el historial de implementación una implementación anterior que sea correcta. Para especificar la nueva implementación, utilice el parámetro `-RollbackToLastDeployment` o `-RollBackDeploymentName` en el comando de implementación.
+Esta característica también es conocido como *reversión en caso de error*. Cuando se produce un error en una implementación, puede ejecutar automáticamente desde el historial de implementación una implementación anterior que sea correcta. Para especificar la nueva implementación, utilice el parámetro `-RollbackToLastDeployment` o `-RollBackDeploymentName` en el comando de implementación. Esta funcionalidad es útil si tiene un estado correcto conocido para la implementación de infraestructura y desea que se puede revertir a esto. Hay una serie de advertencias y restricciones:
+
+- La nueva implementación se ejecuta exactamente como se ha ejecutado anteriormente con los mismos parámetros. No se puede cambiar los parámetros.
+- La implementación anterior se ejecuta con la [modo completo](./deployment-modes.md#complete-mode). Se eliminan todos los recursos que no se incluyen en la implementación anterior y se establecen las configuraciones de recursos a su estado anterior. Asegúrese de que comprende perfectamente el [modos de implementación](./deployment-modes.md).
+- La reimplementación solo afecta a los recursos, los cambios de datos no se ven afectados.
+- Esta característica solo se admite en las implementaciones de grupo de recursos, no implementaciones de nivel de suscripción. Para obtener más información acerca de la implementación de nivel de suscripción, consulte [crear grupos de recursos y recursos en el nivel de suscripción](./deploy-to-subscription.md).
 
 Para usar esta opción, las implementaciones deben tener nombres únicos para que se puedan identificar en el historial. Si no tienen nombres únicos, la implementación con error en cuestión podría sobrescribir la implementación anteriormente correcta en el historial. Solo se puede usar esta opción con las implementaciones de nivel de raíz. Las implementaciones de una plantilla anidada no están disponibles para volver a implementarse.
 

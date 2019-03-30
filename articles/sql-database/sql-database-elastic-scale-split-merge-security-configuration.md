@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: 051aa6b6ca8571fe948fa30e1e4a4320bb564a52
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7ca7e653cc42323f4313ef955de40416154b4ecf
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56593325"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651675"
 ---
 # <a name="split-merge-security-configuration"></a>Configuración de seguridad de división y combinación
 
@@ -83,17 +83,17 @@ Se requieren certificados de cliente para autenticar solicitudes al servicio. El
 3. [Actualización de un certificado de Entidad de certificación en un archivo de configuración de servicio](#update-ca-certificate-in-service-configuration-file)
 4. [Emisión de certificados de cliente](#issue-client-certificates)
 5. [Creación de archivos PFX para certificados de cliente](#create-pfx-files-for-client-certificates)
-6. [Importación de certificados de cliente](#Import-Client-Certificate)
+6. [Importación de certificados de cliente](#import-client-certificate)
 7. [Copia de las huellas digitales de certificados de cliente](#copy-client-certificate-thumbprints)
 8. [Configuración de clientes autorizados en el archivo de configuración de servicio](#configure-allowed-clients-in-the-service-configuration-file)
 
 ### <a name="use-existing-client-certificates"></a>Uso de certificados de cliente existentes
 1. [Find CA Public Key](#find-ca-public-key)
-2. [Carga de un certificado de Entidad de certificación en el servicio en la nube](#Upload-CA-certificate-to-cloud-service)
-3. [Actualización de un certificado de Entidad de certificación en un archivo de configuración de servicio](#Update-CA-Certificate-in-Service-Configuration-File)
-4. [Copia de las huellas digitales de certificados de cliente](#Copy-Client-Certificate-Thumbprints)
+2. [Carga de un certificado de Entidad de certificación en el servicio en la nube](#upload-ca-certificate-to-cloud-service)
+3. [Actualización de un certificado de Entidad de certificación en un archivo de configuración de servicio](#update-ca-certificate-in-service-configuration-file)
+4. [Copia de las huellas digitales de certificados de cliente](#copy-client-certificate-thumbprints)
 5. [Configuración de clientes autorizados en el archivo de configuración de servicio](#configure-allowed-clients-in-the-service-configuration-file)
-6. [Configuración de la comprobación de revocación de certificado de cliente](#Configure-Client-Certificate-Revocation-Check)
+6. [Configuración de la comprobación de revocación de certificado de cliente](#configure-client-certificate-revocation-check)
 
 ## <a name="allowed-ip-addresses"></a>Direcciones IP permitidas
 El acceso a los extremos de servicio puede estar limitado a intervalos concretos de direcciones IP.

@@ -4,7 +4,7 @@ description: Aprenda a proteger los valores de secreto en una aplicación de Ser
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 94a67e45-7094-4fbd-9c88-51f4fc3c523a
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: 77aa6d48f499a94f8fe2f3ef4e2444a34d3b3176
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d151dbf20e68a2152e9d886a74e51786bb8fbfa6
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894740"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661010"
 ---
 # <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Administración de secretos cifrados en aplicaciones de Service Fabric
 Esta guía le lleva por los pasos para administrar secretos en una aplicación de Service Fabric. Los secretos pueden ser cualquier información confidencial, como cadenas de conexión de almacenamiento, contraseñas u otros valores que no se deben administrar en texto sin formato.

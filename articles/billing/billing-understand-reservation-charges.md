@@ -1,6 +1,6 @@
 ---
-title: Información sobre el descuento de Azure Reservations | Microsoft Docs
-description: Aprenda cómo se aplica un descuento en la reserva a las instancias de SQL Database en ejecución.
+title: Comprender el descuento de reservas de direcciones para las bases de datos SQL de Azure | Microsoft Docs
+description: Obtenga información sobre cómo se aplica un descuento de reserva a la ejecución de las bases de datos SQL de Azure.
 services: billing
 documentationcenter: ''
 author: yashesvi
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: banders
-ms.openlocfilehash: ff31b9be0e927cca7d272e5deaa5ecf48a52580d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: aa4fc43efab8c168fd5351ec60def7a3d0eefada
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57845473"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649448"
 ---
-# <a name="understand-how-an-azure-reservation-discount-is-applied-to-sql-databases"></a>Aprenda cómo se aplica un descuento en la reserva de Azure a las instancias de SQL Database
+# <a name="understand-how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Comprender cómo se aplica un descuento de reserva para las bases de datos SQL de Azure
 
 Después de comprar capacidad reservada en Azure SQL Database, el descuento en la reserva se aplica automáticamente a las instancias que coincidan con los atributos y la cantidad de la reserva. Una reserva cubre los costos de proceso de la instancia de SQL Database. Se le cobra por el software, el almacenamiento y la administración de redes según las tarifas normales. Puede cubrir los costos de licencia de las instancias de SQL Database con [Ventaja híbrida de Azure](https://azure.microsoft.com/pricing/hybrid-benefit/).
 
@@ -54,6 +54,6 @@ Para obtener más información acerca de Azure Reservations, consulte los siguie
 - [Información sobre el uso de reservas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
 - [Información sobre el uso de reservas para suscripciones de CSP](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
 
 Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).

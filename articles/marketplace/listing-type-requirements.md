@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 12/19/2018
 ms.author: ellacroi
-ms.openlocfilehash: f88c7b9350d104241524284950865e1f2ca6f559
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ebe344d9f596f862fe5ffbfef083725e6527d0d3
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729413"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650213"
 ---
 # <a name="requirements-by-listing-type"></a>Requisitos por tipo de publicación  
 Los requisitos de contenido de marketing y técnicos varían en función del escaparate, el tipo de oferta y el tipo de anuncio. Revise las siguientes especificaciones para verificar el cumplimiento.  
 1. Requisitos de escaparate:  
-    *   [AppSource](#storefront-requirements-appSource)  
+    *   [AppSource](#storefront-requirements-appsource)  
     *   [Azure Marketplace](#storefront-requirements-azure-marketplace)  
 2. Requisitos por tipo de publicación y tipo de oferta:  
     *   Para más información sobre los tipos de publicación y los tipos de oferta, visite la página Determinar el tipo de anuncio adecuado para su oferta en [docs.microsoft.com/azure/marketplace/determine-your-listing-type](./determine-your-listing-type.md).  

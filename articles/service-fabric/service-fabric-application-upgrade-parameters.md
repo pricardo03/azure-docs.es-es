@@ -4,7 +4,7 @@ description: Describe los parámetros relacionados con la actualización de una 
 services: service-fabric
 documentationcenter: .net
 author: mani-ramaswamy
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: a4170ac6-192e-44a8-b93d-7e39c92a347e
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2018
 ms.author: subramar
-ms.openlocfilehash: 73b48525566f9bf0107ba3b029c516ca294ca141
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 9a93c0993ee45e72b11b023982dfbbe8c6528272
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099199"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670624"
 ---
 # <a name="application-upgrade-parameters"></a>Parámetros de actualización de la aplicación
 En este artículo se describen los distintos parámetros que se aplican durante la actualización de una aplicación de Azure Service Fabric. Los parámetros de actualización de la aplicación controlan los tiempos de espera y las comprobaciones de estado que se aplican durante la actualización y especifican las directivas que deben aplicarse cuando se produce un error en una actualización. Los parámetros de la aplicación se aplican en las actualizaciones mediante:
@@ -94,11 +94,12 @@ Las actualizaciones de aplicaciones de Service Fabric mediante la CLI de Service
 
 | Parámetro | DESCRIPCIÓN |
 | --- | --- |
-| application-id  |Identificador de la aplicación que se actualiza. <br> Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric:" A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "~". Por ejemplo, si el nombre de la aplicación es "fabric:/myapp/app1", la identidad de la aplicación sería "myapp~app1" en 6.0+ y "myapp/app1" en las versiones anteriores.|
+| application-id  |Identificador de la aplicación que se actualiza. <br> Este suele ser el nombre completo de la aplicación sin el esquema de URI "fabric:" A partir de la versión 6.0, los nombres jerárquicos se delimitan con el carácter "\~". Por ejemplo, si el nombre de la aplicación es "fabric: / myapp/app1 ', la identidad de aplicación sería" myapp\~app1' en 6.0 + y "myapp/app1" en versiones anteriores.|
 application-version |La versión del tipo de aplicación al que se dirige la actualización.|
 parameters  |Una lista codificada en JSON de reemplazos de parámetros de aplicación que se aplicarán al actualizar la aplicación.|
 
 ### <a name="optional-parameters"></a>Parámetros opcionales
+
 | Parámetro | DESCRIPCIÓN |
 | --- | --- |
 default-service-health-policy | Especificación codificada en [JSON](https://docs.microsoft.com/rest/api/servicefabric/sfclient-model-servicetypehealthpolicy) de la directiva de mantenimiento que se usa de forma predeterminada para evaluar el estado de un tipo de servicio. La asignación está vacía de forma predeterminada. |

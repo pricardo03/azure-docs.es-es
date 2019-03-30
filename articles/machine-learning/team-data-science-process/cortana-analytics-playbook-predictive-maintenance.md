@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: tdsp
 ms.custom: seodec18, previous-author=fboylu, previous-ms.author=fboylu
-ms.openlocfilehash: 0785d0805027dd0bd621203ade7287e5a1840a9a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fdc7aec703fdb5b6bb9744fad226b51769e73385
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57870153"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650485"
 ---
 # <a name="azure-ai-guide-for-predictive-maintenance-solutions"></a>Guía de Azure AI para soluciones de mantenimiento predictivo
 
@@ -31,10 +31,10 @@ La primera mitad de esta guía describe los problemas empresariales habituales, 
 
 | Comience con... | Si es... |
 |:---------------|:---------------|
-| [Caso empresarial para mantenimiento predictivo](#Business-case-for-predictive-maintenance) |responsable de la toma de decisiones empresariales (BDM) que desea disminuir los costos operativos y el tiempo de inactividad, además de mejorar el uso de los equipos |
-| [Ciencia de datos para mantenimiento predictivo](#Data-Science-for-predictive-maintenance) |responsable de la toma de decisiones técnicas (TDM) que evalúa las tecnologías de PdM para entender los requisitos únicos de procesamiento de datos e inteligencia artificial para el mantenimiento predictivo |
-| [Plantillas de soluciones para mantenimiento predictivo](#Solution-templates-for-predictive-maintenance)|arquitecto de software o desarrollador de inteligencia artificial que busca crear rápidamente una demostración o prueba de concepto |
-| [Recursos de aprendizaje para mantenimiento predictivo](#Training-resources-for-predictive-maintenance) | cualquiera o todas las opciones anteriores y desea conocer los conceptos fundamentales detrás de la ciencia de datos, herramientas y técnicas
+| [Caso empresarial para mantenimiento predictivo](#business-case-for-predictive-maintenance) |responsable de la toma de decisiones empresariales (BDM) que desea disminuir los costos operativos y el tiempo de inactividad, además de mejorar el uso de los equipos |
+| [Ciencia de datos para mantenimiento predictivo](#data-science-for-predictive-maintenance) |responsable de la toma de decisiones técnicas (TDM) que evalúa las tecnologías de PdM para entender los requisitos únicos de procesamiento de datos e inteligencia artificial para el mantenimiento predictivo |
+| [Plantillas de soluciones para mantenimiento predictivo](#solution-templates-for-predictive-maintenance)|arquitecto de software o desarrollador de inteligencia artificial que busca crear rápidamente una demostración o prueba de concepto |
+| [Recursos de aprendizaje para mantenimiento predictivo](#training-resources-for-predictive-maintenance) | cualquiera o todas las opciones anteriores y desea conocer los conceptos fundamentales detrás de la ciencia de datos, herramientas y técnicas
 
 ### <a name="prerequisite-knowledge"></a>Conocimiento de los requisitos previos
 El contenido para BDM no espera que el lector tenga ningún conocimiento de ciencia de datos previo. En el caso del contenido para TDM, resulta útil contar con un conocimiento básico de estadística y ciencia de datos. Se recomienda tener conocimientos de los servicios de inteligencia artificial y datos de Azure, Python, R, XML y JSON. Las técnicas de inteligencia artificial se implementan en paquetes de Python y R. Las plantillas de soluciones se implementan mediante los servicios de Azure, las herramientas de desarrollo y los SDK.
@@ -78,7 +78,7 @@ Es importante destacar que el mantenimiento predictivo no puede resolver eficazm
 
 - La naturaleza del problema debe ser predictiva; es decir, debe haber un destino o un resultado para predecir. El problema también debe tener una ruta de acción clara para evitar errores cuando se detecten.
 - El problema debe tener un registro del historial de operaciones del equipo que contenga tanto _resultados buenos como malos_. El conjunto de acciones llevadas a cabo para mitigar los resultados incorrectos también debe estar disponible como parte de estos registros. También son importantes los informes de errores, registros de mantenimiento de la degradación del rendimiento, registros de reemplazos y reparación. Además, también son útiles las reparaciones que se realizan para mejorarlos y los registros de reemplazos.
-- El historial registrado debe reflejarse en los datos _relevantes_ que sean de una calidad _suficiente_ para respaldar el caso de uso. Para más información sobre de la suficiencia y la relevancia de los datos, consulte el artículo sobre los [requisitos de datos para el mantenimiento predictivo](#Data-requirements-for-predictive-maintenance).
+- El historial registrado debe reflejarse en los datos _relevantes_ que sean de una calidad _suficiente_ para respaldar el caso de uso. Para más información sobre de la suficiencia y la relevancia de los datos, consulte el artículo sobre los [requisitos de datos para el mantenimiento predictivo](#data-requirements-for-predictive-maintenance).
 - Por último, la empresa debe tener expertos del dominio que tengan una idea clara del problema. Deben ser conscientes de las prácticas y los procesos internos que puedan ayudar a los analistas a comprender e interpretar los datos. También deben poder realizar los cambios necesarios en los procesos de negocio existentes como ayuda para recopilar los datos correctos relacionados con los problemas, si es necesario.
 
 ## <a name="sample-pdm-use-cases"></a>Casos de uso de mantenimiento predictivo de ejemplo
@@ -103,10 +103,10 @@ La sección siguiente se adentra en los detalles de cómo materializar las venta
 
 ## <a name="data-science-for-predictive-maintenance"></a>Ciencia de datos para mantenimiento predictivo
 
-Esta sección proporciona directrices generales de los principios de ciencia de datos y la práctica del mantenimiento predictivo. Está diseñada para ayudar a un TDM, un arquitecto de soluciones o un desarrollador a entender los requisitos previos y el proceso para compilar aplicaciones integrales de inteligencia artificial para el mantenimiento predictivo. Puede leer esta sección junto con una revisión de las demostraciones y las plantillas de prueba de concepto que aparecen en [Plantillas de soluciones para mantenimiento predictivo](#Solution-templates-for-predictive-maintenance). Luego puede usar estos principios y procedimientos recomendados para implementar la solución de mantenimiento predictivo en Azure.
+Esta sección proporciona directrices generales de los principios de ciencia de datos y la práctica del mantenimiento predictivo. Está diseñada para ayudar a un TDM, un arquitecto de soluciones o un desarrollador a entender los requisitos previos y el proceso para compilar aplicaciones integrales de inteligencia artificial para el mantenimiento predictivo. Puede leer esta sección junto con una revisión de las demostraciones y las plantillas de prueba de concepto que aparecen en [Plantillas de soluciones para mantenimiento predictivo](#solution-templates-for-predictive-maintenance). Luego puede usar estos principios y procedimientos recomendados para implementar la solución de mantenimiento predictivo en Azure.
 
 > [!NOTE]
-> Esta guía no está diseñada para enseñar ciencia de datos al lector. Se proporcionan varios orígenes útiles para obtener más información en la sección [Recursos de aprendizaje para mantenimiento predictivo](#Training-resources-for-predictive-maintenance). Las [plantillas de soluciones](#Solution-templates-for-predictive-maintenance) que aparecen en la guía muestran algunas de estas técnicas de inteligencia artificial para problemas de mantenimiento predictivo específicos.
+> Esta guía no está diseñada para enseñar ciencia de datos al lector. Se proporcionan varios orígenes útiles para obtener más información en la sección [Recursos de aprendizaje para mantenimiento predictivo](#training-resources-for-predictive-maintenance). Las [plantillas de soluciones](#solution-templates-for-predictive-maintenance) que aparecen en la guía muestran algunas de estas técnicas de inteligencia artificial para problemas de mantenimiento predictivo específicos.
 
 ## <a name="data-requirements-for-predictive-maintenance"></a>Requisitos de datos para mantenimiento predictivo
 
@@ -114,10 +114,10 @@ El éxito de todo aprendizaje depende de (a) la calidad de lo que se enseña y (
 
 ### <a name="relevant-data"></a>Datos relevantes
 
-En primer lugar, los datos deben ser _relevantes para el problema_. Considere el caso de uso de los _errores de las ruedas_ que ya se analizó: los datos de aprendizaje deben contener características relacionadas con el funcionamiento de las ruedas. Si el problema era predecir el error del _sistema de tracción_, los datos de aprendizaje deben abarcar todos los distintos componentes del sistema de tracción. El primer caso apunta a un componente específico, mientras que el segundo caso apunta al error de un subsistema más grande. La recomendación general es diseñar sistemas de predicción sobre componentes específicos en lugar de subsistemas más grandes, ya que este último tendrá datos más dispersos. El experto del dominio (consulte [Calificación de los problemas para el mantenimiento predictivo](#Qualifying-problems-for-predictive-maintenance)) ayudará a seleccionar los subconjuntos de datos para análisis más relevantes. Los orígenes de datos relevantes se describen con más detalle en [Preparación de los datos para mantenimiento predictivo](#Data-preparation-for-predictive-maintenance).
+En primer lugar, los datos deben ser _relevantes para el problema_. Considere el caso de uso de los _errores de las ruedas_ que ya se analizó: los datos de aprendizaje deben contener características relacionadas con el funcionamiento de las ruedas. Si el problema era predecir el error del _sistema de tracción_, los datos de aprendizaje deben abarcar todos los distintos componentes del sistema de tracción. El primer caso apunta a un componente específico, mientras que el segundo caso apunta al error de un subsistema más grande. La recomendación general es diseñar sistemas de predicción sobre componentes específicos en lugar de subsistemas más grandes, ya que este último tendrá datos más dispersos. El experto del dominio (consulte [Calificación de los problemas para el mantenimiento predictivo](#qualifying-problems-for-predictive-maintenance)) ayudará a seleccionar los subconjuntos de datos para análisis más relevantes. Los orígenes de datos relevantes se describen con más detalle en [Preparación de los datos para mantenimiento predictivo](#data-preparation-for-predictive-maintenance).
 
 ### <a name="sufficient-data"></a>Datos suficientes
-Se suelen formular dos preguntas con respecto a los datos del historial de errores: (1) "¿Cuántos eventos de errores son necesarios para entrenar a un modelo?" (2) "¿Cuántos registros se consideran "suficientes"?" No hay ninguna respuesta definitiva, sino solo reglas generales. Para la pregunta (1), cuanto más eventos de error hay, mejor será el modelo. Para la pregunta (2), el número exacto de eventos de error depende de los datos y el contexto del problema que se está solucionando. Pero, por otro lado, si una máquina presenta errores con demasiada frecuencia, la empresa la reemplazará, lo que disminuirá las instancias de error. Una vez más, la orientación del experto del dominio es importante. Pero existen métodos para el problema de los _eventos inusuales_. Se describen en la sección [Control de datos desequilibrados](#Handling-imbalanced-data).
+Se suelen formular dos preguntas con respecto a los datos del historial de errores: (1) "¿Cuántos eventos de errores son necesarios para entrenar a un modelo?" (2) "¿Cuántos registros se consideran "suficientes"?" No hay ninguna respuesta definitiva, sino solo reglas generales. Para la pregunta (1), cuanto más eventos de error hay, mejor será el modelo. Para la pregunta (2), el número exacto de eventos de error depende de los datos y el contexto del problema que se está solucionando. Pero, por otro lado, si una máquina presenta errores con demasiada frecuencia, la empresa la reemplazará, lo que disminuirá las instancias de error. Una vez más, la orientación del experto del dominio es importante. Pero existen métodos para el problema de los _eventos inusuales_. Se describen en la sección [Control de datos desequilibrados](#handling-imbalanced-data).
 
 ### <a name="quality-data"></a>Datos de calidad
 La calidad de los datos es fundamental, por lo que cada valor de atributo de predicción debe ser _preciso_ junto con el valor de la variable de destino. La calidad de los datos es un área bastante estudiada en la administración de estadísticas datos y, por tanto, fuera queda fuera del ámbito de esta guía.
@@ -151,7 +151,7 @@ Los datos de streaming basados en sensor (u otro) del equipo en funcionamiento e
 #### <a name="static-feature-data"></a>Datos de características estáticas
 Las características estáticas son metadatos sobre el equipo. Algunos ejemplos son la marca del equipo, el modelo, la fecha de fabricación, la fecha de inicio del servicio, la ubicación del sistema y otras especificaciones técnicas.
 
-A continuación, se tabulan ejemplos de datos relevantes para los [casos de uso de mantenimiento predictivo de ejemplo](#Sample-PdM-use-cases):
+A continuación, se tabulan ejemplos de datos relevantes para los [casos de uso de mantenimiento predictivo de ejemplo](#sample-pdm-use-cases):
 
 | Caso de uso | Ejemplos de datos relevantes |
 |:---------|---------------------------|
@@ -186,7 +186,7 @@ Para los datos estáticos:
 
 Otros pasos del preprocesamiento de los datos incluyen el _control de los valores que faltan_ y la _normalización_ de los valores de atributo. Un debate detallado escapa del ámbito de esta guía: consulte la sección siguiente para ver algunas referencias útiles.
 
-Con los orígenes de datos preprocesados anteriores implementados, la transformación final antes de la ingeniería de características es combinar las tablas anteriores según el identificador del recurso y la marca de tiempo. La tabla resultante tendrá valores NULL para la columna de error cuando la máquina funciona correctamente. Un indicador puede imputar estos valores NULL para el funcionamiento normal. Use esta columna de error para crear _etiquetas para el modelo predictivo_. Para más información, consulte la sección sobre las [técnicas de modelado para el mantenimiento predictivo](#Modeling-techniques-for-predictive-maintenance).
+Con los orígenes de datos preprocesados anteriores implementados, la transformación final antes de la ingeniería de características es combinar las tablas anteriores según el identificador del recurso y la marca de tiempo. La tabla resultante tendrá valores NULL para la columna de error cuando la máquina funciona correctamente. Un indicador puede imputar estos valores NULL para el funcionamiento normal. Use esta columna de error para crear _etiquetas para el modelo predictivo_. Para más información, consulte la sección sobre las [técnicas de modelado para el mantenimiento predictivo](#modeling-techniques-for-predictive-maintenance).
 
 ## <a name="feature-engineering"></a>Ingeniería de características
 La ingeniería de características es el primer paso antes de modelar los datos. [Aquí se describe](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/create-features) su rol en el proceso de ciencia de datos. Una _característica_ es un atributo predictivo del modelo, como la temperatura, presión, vibración, etc. Para el mantenimiento predictivo, la ingeniería de características implica la abstracción del estado de una máquina respecto de los datos históricos recopilados durante un tiempo considerable. En ese sentido, es distinto de las características del mismo nivel, como la supervisión remota, la detección de anomalías y la detección de errores. 
@@ -205,7 +205,7 @@ En cada registro de un recurso, elegimos una ventana móvil de tamaño "W", que 
 
 ![Ilustración 1. Características de agregado en ventanas acumuladas](./media/cortana-analytics-playbook-predictive-maintenance/rolling-aggregate-features.png) Ilustración 1 Características de agregado en ventanas acumuladas
 
-Ejemplos de agregados acumulados en una ventana de tiempo son recuento, promedio, medidas CUMSUM (suma acumulativa), valores mínimos y máximos. Además, a menudo se usa la varianza, la desviación estándar y el recuento de valores atípicos más allá de N desviaciones estándar. A continuación, se muestran ejemplos de los agregados que se pueden aplicar a los [casos de uso](#Sample-PdM-use-cases) que aparecen en esta guía. 
+Ejemplos de agregados acumulados en una ventana de tiempo son recuento, promedio, medidas CUMSUM (suma acumulativa), valores mínimos y máximos. Además, a menudo se usa la varianza, la desviación estándar y el recuento de valores atípicos más allá de N desviaciones estándar. A continuación, se muestran ejemplos de los agregados que se pueden aplicar a los [casos de uso](#sample-pdm-use-cases) que aparecen en esta guía. 
 - _Retraso de vuelos_: recuento de los códigos de error durante el último día o semana.
 - _Errores en las piezas del motor de un avión_: medias acumuladas, desviación estándar y suma sobre el último día, semana, etc. Esta métrica se debe determinar junto con el experto del dominio empresarial.
 - _Errores de los cajeros automáticos_: medias acumuladas, mediana, intervalo, desviaciones estándar, recuento de valores atípicos más allá de tres desviaciones estándar, CUMSUM superior e inferior.
@@ -325,7 +325,7 @@ Cuando las series temporales son fijas y fáciles de predecir, ambos enfoques al
 ### <a name="time-dependent-split"></a>División dependiente del tiempo
 En esta sección se describen los procedimientos recomendados para implementar una división dependiente del tiempo. A continuación, se describe una división bidireccional dependiente del tiempo entre los conjuntos de aprendizaje y prueba.
 
-Supongamos que tenemos una secuencia de eventos con marca de fecha y hora, tales como medidas de diferentes sensores. Defina las características y las etiquetas de los ejemplos de aprendizaje y prueba en períodos de tiempo que contienen varios eventos. Por ejemplo, para la clasificación binaria, cree características en función de los eventos pasados y cree etiquetas en función de los eventos futuros con "X" unidades de tiempo en el futuro (consulte las secciones sobre [ingeniería de características](#Feature-engineering) y técnicas de modelado). Por lo tanto, el período de tiempo del etiquetado de un ejemplo es posterior al período de tiempo de sus características.
+Supongamos que tenemos una secuencia de eventos con marca de fecha y hora, tales como medidas de diferentes sensores. Defina las características y las etiquetas de los ejemplos de aprendizaje y prueba en períodos de tiempo que contienen varios eventos. Por ejemplo, para la clasificación binaria, cree características en función de los eventos pasados y cree etiquetas en función de los eventos futuros con "X" unidades de tiempo en el futuro (consulte las secciones sobre [ingeniería de características](#feature-engineering) y técnicas de modelado). Por lo tanto, el período de tiempo del etiquetado de un ejemplo es posterior al período de tiempo de sus características.
 
 Para la división dependiente del tiempo, seleccione un _tiempo límite de aprendizaje T<sub>c</sub>_ en el que se entrenará un modelo, con hiperparámetros optimizados mediante el uso de datos históricos hasta T<sub>c</sub>. Para evitar que etiquetas futuras que están mas allá de T<sub>c</sub> se fuguen a los datos de aprendizaje, elija el período de tiempo más reciente para etiquetar los ejemplos de aprendizaje en X unidades antes de T<sub>c</sub>. En el ejemplo que se muestra en la ilustración 7, cada cuadrado representa un registro del conjunto de datos donde las características y las etiquetas se calculan como se describió anteriormente. La ilustración muestra los registros que deben ir en los conjuntos de aprendizaje y de prueba para X=2 y W=3:
 
@@ -352,7 +352,7 @@ Con un desequilibrio de clases en los datos, el rendimiento de la mayoría de lo
 - Puntuaciones F1
 - ROC con ajuste del costo (características operativas del receptor)
 
-Para más información sobre estas métricas, consulte la [evaluación de modelos](#Model-evaluation).
+Para más información sobre estas métricas, consulte la [evaluación de modelos](#model-evaluation).
 
 Sin embargo, hay algunos métodos que ayudan a solucionar el problema de desequilibrio de clases. Las dos más importantes son las _técnicas de muestreo_ y el _aprendizaje sensible al costo_.
 

@@ -4,12 +4,12 @@ ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 03/22/2019
-ms.openlocfilehash: f7fbbb421a01b268b784a6d6c875cd959a5d1d42
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 32d5d0d25c843be1cba1916e7679faa930e8e645
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407870"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58671806"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances
 
@@ -107,6 +107,8 @@ Sin embargo, puede *exchange* una reserva si desea realizar cambios.
 Si necesita cancelar la reserva, podría aplicarse una tasa de terminación anticipada del 12 %. Los reembolsos se calculan conforme al precio de compra o el precio actual de la reserva, el que sea más bajo. Los reembolsos están limitados a 50 000 dólares al año. El reembolso que recibe es el saldo prorrateado restante menos la tarifa de terminación anticipada del 12 %. Para solicitar una cancelación, vaya a la hoja Reserva de Azure Portal y seleccione **Reembolso** para crear una solicitud de soporte técnico.
 
 Si necesita cambiar la reserva de las instancias de máquinas virtuales reservadas a otra región, otro grupo de tamaños de máquina virtual u otro plazo, puede cambiarla por otra reserva de igual o mayor valor. La fecha de inicio del período de la nueva reserva no se extiende desde la reserva intercambiada. Al crear la nueva reserva empieza el período de 1 o 3 años. Para solicitar un intercambio, vaya a la reserva en Azure Portal y seleccione **Cambio** para crear una solicitud de soporte técnico.
+
+Para obtener más información acerca de cómo las reservas de direcciones de exchange o un reembolso, consulte [intercambios de reserva y los reembolsos](../articles/billing/billing-azure-reservations-self-service-exchange-and-refund.md).
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
 

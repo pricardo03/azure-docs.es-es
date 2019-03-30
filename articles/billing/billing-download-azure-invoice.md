@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 6b82c0d2d4a5e22094bf0a408d6a42f17bb3bea4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 82755f01cc881703eeefb6415b2e8e87e50fba60
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839821"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652389"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Visualización y descarga de la factura de Microsoft Azure
 
@@ -28,7 +28,7 @@ En la mayoría de las suscripciones, puede descargar la factura desde [Azure Por
 
 Solo determinados roles tienen permiso para ver las facturas, como el Administrador de cuenta o administrador de empresa. Para obtener más información sobre cómo obtener acceso a la información de facturación, vea [Manage access to Azure billing using roles](billing-manage-access.md) (Administrar el acceso a la facturación de Azure mediante roles).
 
-Si tiene un [contrato del cliente de Microsoft](#Check-your-access-to-a-Microsoft-Customer-Agreement), debe ser un perfil de facturación propietario, Colaborador, lector, o el administrador para obtener las facturas de factura. Para más información acerca de las funciones de facturación para los contratos de cliente de Microsoft, consulte [perfil roles y tareas de facturación](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
+Si tiene un [contrato del cliente de Microsoft](#check-your-access-to-a-microsoft-customer-agreement), debe ser un perfil de facturación propietario, Colaborador, lector, o el administrador para obtener las facturas de factura. Para más información acerca de las funciones de facturación para los contratos de cliente de Microsoft, consulte [perfil roles y tareas de facturación](billing-understand-mca-roles.md#billing-profile-roles-and-tasks).
 
 ## <a name="download-your-azure-invoices-pdf"></a>Descargar las facturas de Azure (.pdf)
 

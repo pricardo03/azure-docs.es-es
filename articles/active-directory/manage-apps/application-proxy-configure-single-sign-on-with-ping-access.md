@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4df8f329a135683ea68896605a0a1c6f3ee45984
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 319791c2436395c00dafc744fb6fcb1ff18b0750
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58084088"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652338"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticación basada en el encabezado para el inicio de sesión único con el proxy de aplicación y PingAccess
 
@@ -43,7 +43,7 @@ Para obtener más información, consulte [Ediciones de Azure Active Directory](.
 
 ## <a name="publish-your-application-in-azure"></a>Publicación de una aplicación en Azure
 
-Este artículo va dirigido a quienes publican por primera vez una aplicación con este escenario. Es una guía a través de cómo empezar a trabajar con Application y PingAccess, además de explicar los pasos de la publicación. Si ya configuró ambos servicios, pero desea revisar los pasos de publicación, puede omitir la instalación del conector y pasar a [agregar la aplicación a Azure AD con el proxy de aplicación](#add-your-app-to-Azure-AD-with-Application-Proxy).
+Este artículo va dirigido a quienes publican por primera vez una aplicación con este escenario. Es una guía a través de cómo empezar a trabajar con Application y PingAccess, además de explicar los pasos de la publicación. Si ya configuró ambos servicios, pero desea revisar los pasos de publicación, puede omitir la instalación del conector y pasar a [agregar la aplicación a Azure AD con el proxy de aplicación](#add-your-app-to-azure-ad-with-application-proxy).
 
 >[!NOTE]
 >Dado que este escenario es una asociación entre Azure AD y PingAccess, algunas de las instrucciones se encuentran en el sitio de Ping Identity.

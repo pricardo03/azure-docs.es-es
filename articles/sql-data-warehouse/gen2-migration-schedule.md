@@ -10,19 +10,19 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 02/09/2019
-ms.openlocfilehash: 8f24bab531143cad1974663eb71b173a20b6f51a
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 575b6384d910abac1c0a1184aef4aa72f686538c
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287186"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648580"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Actualización del almacenamiento de datos a Gen2
 
 Microsoft ayuda a reducir el costo de nivel de entrada de la ejecución de un almacén de datos.  Cuanto menor sea proceso niveles capaces de manejar exigentes consultas ahora están disponibles para Azure SQL Data Warehouse. Leer el anuncio completo [para Gen2 soporte técnico de nivel de proceso inferior](https://azure.microsoft.com/blog/azure-sql-data-warehouse-gen2-now-supports-lower-compute-tiers/). La nueva oferta está disponible en las regiones que se indican en la tabla siguiente. Para las regiones admitidas, los almacenamientos de datos de Gen1 existentes se pueden actualizar a Gen2 a través de uno de los siguientes métodos:
 
 - **El proceso de actualización automática:** Las actualizaciones automáticas no se inician en cuanto el servicio está disponible en una región.  Cuando las actualizaciones automáticas se inician en una región específica, las actualizaciones individuales de almacenamiento de datos se llevarán a cabo durante la programación de mantenimiento seleccionada.
-- [**Actualizar automáticamente a Gen2:**](#Self-upgrade-to-Gen2) Puede controlar cuándo se debe actualizar haciendo una actualización automática a Gen2. Si aún no se admite su región, puede restaurar desde un punto de restauración directamente a una instancia de Gen2 en una región admitida.
+- [**Actualizar automáticamente a Gen2:**](#self-upgrade-to-gen2) Puede controlar cuándo se debe actualizar haciendo una actualización automática a Gen2. Si aún no se admite su región, puede restaurar desde un punto de restauración directamente a una instancia de Gen2 en una región admitida.
 
 ## <a name="automated-schedule-and-region-availability-table"></a>Programación automatizada y tabla de disponibilidad de regiones
 

@@ -4,7 +4,7 @@ description: Protección de los servicios contra errores correctos/incorrectos
 services: service-fabric
 documentationcenter: .net
 author: anmolah
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 44af01f0-ed73-4c31-8ac0-d9d65b4ad2d6
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: 3c075ac9642c7d050fc45ce6164071c9c733326e
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
-ms.translationtype: HT
+ms.openlocfilehash: ceb6ad1a6a1182d78c473b8b0387c365eb660065
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051921"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667215"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Simulación de errores durante las cargas de trabajo del servicio
 Los escenarios de capacidad de prueba en Service Fabric de Azure permiten a los desarrolladores dejar de preocuparse por tratar los errores individuales. Sin embargo, hay escenarios donde se necesita una intercalación explícita de la carga de trabajo de cliente y de los errores. La intercalación de la carga de trabajo de cliente y de los errores garantiza que el servicio realmente realiza alguna acción cuando se produce el error. Dado el nivel de control que ofrece la capacidad de prueba, podrían encontrarse en puntos precisos de la ejecución de la carga de trabajo. Esta inducción de errores en los distintos estados de la aplicación puede buscar errores y mejorar la calidad.
@@ -27,12 +27,12 @@ Los escenarios de capacidad de prueba en Service Fabric de Azure permiten a los 
 ## <a name="sample-custom-scenario"></a>Escenario de ejemplo personalizado
 Esta prueba muestra un escenario que intercala la carga de trabajo de negocios con [errores correctos e incorrectos](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). Los errores deben inducirse en el centro de operaciones de servicio o de proceso para obtener mejores resultados.
 
-Recorramos en iteración un ejemplo de un servicio que expone cuatro cargas de trabajo: A, B, C y D. Cada una de ellas se corresponde a un conjunto de flujos de trabajo y podrían ser de proceso, almacenamiento o una combinación de ambos. Por simplicidad, se aislarán las cargas de trabajo en nuestro ejemplo. Los diferentes errores ejecutados en este ejemplo son:
+Veamos un ejemplo de un servicio que expone cuatro cargas de trabajo: A, B, C y D. Cada uno de ellos corresponde a un conjunto de flujos de trabajo y podría ser el proceso, almacenamiento o una combinación. Por simplicidad, se aislarán las cargas de trabajo en nuestro ejemplo. Los diferentes errores ejecutados en este ejemplo son:
 
-* RestartNode: error al simular un reinicio de la máquina.
-* RestartDeployedCodePackage: error al simular el bloqueo de los procesos del host de servicio.
-* RemoveReplica: error al simular la eliminación de réplicas.
-* MovePrimary: error al simular los movimientos de réplica desencadenados por el equilibrador de carga de Service Fabric.
+* RestartNode: Error al simular un reinicio del equipo.
+* RestartDeployedCodePackage: Error al simular el proceso de host de servicio se bloquea.
+* RemoveReplica: Error al simular la eliminación de réplicas.
+* MovePrimary: Error al simular los movimientos de réplica desencadenados por el equilibrador de carga de Service Fabric.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.

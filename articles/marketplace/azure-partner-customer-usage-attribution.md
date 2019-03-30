@@ -9,31 +9,30 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: f1a1a77e173998e434cc75c0d23e061949993e70
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 9becc7bacf1b2263f41d4cfb7b9cf3957063b230
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317568"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649585"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribución de uso del cliente para asociados de Azure
 
-Como asociado de software de Azure, sus soluciones requieren componentes de Azure o necesitan implementarse directamente en la infraestructura de Azure. A los clientes que implementen una solución de asociado y aprovisionen sus propios recursos de Azure puede que les resulte difícil ver el estado de la implementación y lo que esta afecta al crecimiento de Azure. Al agregar un mayor nivel de visibilidad, se alinea con el equipo de ventas de Microsoft y obtiene crédito para los programas para partners de Microsoft. 
+Como asociado de software de Azure, sus soluciones requieren componentes de Azure o necesitan implementarse directamente en la infraestructura de Azure. A los clientes que implementen una solución de asociado y aprovisionen sus propios recursos de Azure puede que les resulte difícil ver el estado de la implementación y lo que esta afecta al crecimiento de Azure. Al agregar un mayor nivel de visibilidad, se alinea con el equipo de ventas de Microsoft y obtiene crédito para los programas para partners de Microsoft.
 
 Ahora, Microsoft ofrece un método que ayuda a los asociados a mejorar el seguimiento del uso de Azure de las implementaciones de clientes de su software en Azure. Este nuevo método usa Azure Resource Manager para organizar la implementación de los servicios de Azure.
 
 Como asociado de Microsoft, puede asociar el uso de Azure con todos los recursos de Azure que aprovisione en nombre de un cliente. La asociación puede formarla a través de Azure Marketplace, el repositorio del Inicio rápido, repositorios privados de GitHub y la involucración del cliente cara a cara. Atribución de uso del cliente admite tres opciones de implementación:
 
-- Plantillas de Azure Resource Manager: Los asociados pueden usar plantillas de Resource Manager para implementar los servicios de Azure para ejecutar el software del asociado. Los asociados pueden crear una plantilla de Resource Manager para definir la infraestructura y configuración de su solución de Azure. Una plantilla de Resource Manager les permite tanto a usted como a sus clientes implementar la solución a lo largo de su ciclo de vida. Puede estar seguro de que los recursos se implementan de forma consistente. 
-- API de Azure Resource Manager: los asociados pueden llamar a las API de Resource Manager directamente para implementar una plantilla de Azure Resource Manager o para generar las llamadas a API para aprovisionar directamente los servicios de Azure. 
-- Terraform: Los asociados pueden usar orchestrator en la nube, como Terraform para implementar una plantilla de Resource Manager o directamente implementar servicios de Azure. 
+- Plantillas de Azure Resource Manager: Los asociados pueden usar plantillas de Resource Manager para implementar los servicios de Azure para ejecutar el software del asociado. Los asociados pueden crear una plantilla de Resource Manager para definir la infraestructura y configuración de su solución de Azure. Una plantilla de Resource Manager les permite tanto a usted como a sus clientes implementar la solución a lo largo de su ciclo de vida. Puede estar seguro de que los recursos se implementan de forma consistente.
+- API de Azure Resource Manager: los asociados pueden llamar a las API de Resource Manager directamente para implementar una plantilla de Azure Resource Manager o para generar las llamadas a API para aprovisionar directamente los servicios de Azure.
+- Terraform: Los asociados pueden usar orchestrator en la nube, como Terraform para implementar una plantilla de Resource Manager o directamente implementar servicios de Azure.
 
 Atribución de uso del cliente es para la implementación nueva y no admite el etiquetado de recursos existentes que ya se han implementado.
 
 Se requiere la atribución de uso del cliente en [aplicación Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer): oferta de plantilla de solución se publica en Azure Marketplace.
 
 ## <a name="use-resource-manager-templates"></a>Uso de plantillas de Resource Manager
-
 Muchas soluciones de los asociados se implementan en una suscripción de cliente mediante plantillas de Resource Manager. Si tiene una plantilla de Resource Manager que está disponible en Azure Marketplace, en GitHub, o como una guía de inicio rápido, el proceso para modificar la plantilla para habilitar la atribución de uso del cliente debe ser sencillo.
 
 Para más información sobre la creación y publicación de plantillas de solución, consulte
@@ -65,6 +64,7 @@ Para agregar un identificador único global (GUID), se realizas una modificació
 
 Para habilitar el seguimiento de recursos de la plantilla, deberá agregar los siguientes recursos adicionales en la sección de recursos. Asegúrese de modificar el siguiente código de ejemplo con sus propias entradas cuando lo agregue al archivo de plantilla principal.
 El recurso solo se debe agregar al archivo **mainTemplate.json** o **azuredeploy.json**, y no a plantillas vinculadas o anidadas.
+
 ```
 // Make sure to modify this sample code with your own inputs where applicable
 
@@ -87,16 +87,16 @@ El recurso solo se debe agregar al archivo **mainTemplate.json** o **azuredeploy
 
 En algunos casos, es posible que prefiera realizar llamadas directamente a las API REST de Resource Manager para implementar los servicios de Azure. [Azure admite varios SDK](https://docs.microsoft.com/azure/#pivot=sdkstools) para habilitar estas llamadas. Puede usar uno de los SDK, o llamar a las API REST directamente para implementar los recursos.
 
-Si usa una plantilla de Resource Manager, para etiquetar la solución debe seguir las instrucciones que se han proporcionado anteriormente. Si no usa una plantilla de Resource Manager y realiza llamadas API directas, puede etiquetar la implementación para asociar el uso de los recursos de Azure. 
+Si usa una plantilla de Resource Manager, para etiquetar la solución debe seguir las instrucciones que se han proporcionado anteriormente. Si no usa una plantilla de Resource Manager y realiza llamadas API directas, puede etiquetar la implementación para asociar el uso de los recursos de Azure.
 
 ### <a name="tag-a-deployment-with-the-resource-manager-apis"></a>Etiquetado de una implementación con las API de Resource Manager
 
-Para habilitar la atribución de uso del cliente, al diseñar las llamadas de API, incluya un GUID en el encabezado de agente de usuario en la solicitud. Agregue el identificador único global a cada oferta o SKU. Dé formato a la cadena con el prefijo **pid -** e incluya el identificador único global generado por el asociado. Este es un ejemplo del formato del identificador único global para la inserción en el agente de usuario: 
+Para habilitar la atribución de uso del cliente, al diseñar las llamadas de API, incluya un GUID en el encabezado de agente de usuario en la solicitud. Agregue el identificador único global a cada oferta o SKU. Dé formato a la cadena con el prefijo **pid -** e incluya el identificador único global generado por el asociado. Este es un ejemplo del formato del identificador único global para la inserción en el agente de usuario:
 
 ![Formato de GUID de ejemplo](media/marketplace-publishers-guide/tracking-sample-guid-for-lu-2.PNG)
 
 > [!Note]
-> El formato de la cadena es importante. Si no se incluye el prefijo **pid-**, no es posible consultar los datos. El seguimiento de los distintos SDK se hace de forma diferente. Para implementar este método, revise la compatibilidad y el enfoque del seguimiento de su SDK de Azure preferido. 
+> El formato de la cadena es importante. Si no se incluye el prefijo **pid-**, no es posible consultar los datos. El seguimiento de los distintos SDK se hace de forma diferente. Para implementar este método, revise la compatibilidad y el enfoque del seguimiento de su SDK de Azure preferido.
 
 #### <a name="example-the-python-sdk"></a>Ejemplo: SDK de Python
 
@@ -111,7 +111,7 @@ Para Python, use el atributo **config**. El atributo solo se puede agregar a un 
 
 Si implementa recursos a través de Azure PowerShell, use el siguiente método para anexar el identificador único global:
 
-```
+```powershell
 [Microsoft.Azure.Common.Authentication.AzureSession]::ClientFactory.AddUserAgent("pid-eb7927c8-dd66-43e1-b0cf-c346a422063")
 ```
 
@@ -131,10 +131,10 @@ La compatibilidad con Terraform está disponible a través 1.21.0 del proveedor 
 El proveedor de Azure para Terraform agrega un nuevo campo opcional denominado [ *partner_id* ](https://www.terraform.io/docs/providers/azurerm/#partner_id) que es donde especifica el GUID que usa para la solución de seguimiento. El valor de este campo también puede proceder de la *ARM_PARTNER_ID* Variable de entorno.
 
 ```
-provider "azurerm" { 
-          subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
-          client_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" 
-          …… 
+provider "azurerm" {
+          subscription_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          client_id = "xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+          ……
           # new stuff for ISV attribution
           partner_id = “xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"}
 ```
@@ -145,19 +145,19 @@ Los asociados que deseen obtener su implementación a través de Terraform reali
 
 ## <a name="create-guids"></a>Creación de los identificadores únicos globales
 
-Un GUID es un número de referencia único que tiene 32 dígitos hexadecimales. Para crear identificadores únicos globales para el seguimiento, debe usar un generador de GUID. El equipo de Azure Storage ha creado un [formulario de generación de GUID](https://aka.ms/StoragePartners) que enviará por correo electrónico un GUID en el formato correcto. Este GUID se puede reutilizar en los distintos sistemas de seguimiento. 
+Un GUID es un número de referencia único que tiene 32 dígitos hexadecimales. Para crear identificadores únicos globales para el seguimiento, debe usar un generador de GUID. El equipo de Azure Storage ha creado un [formulario de generación de GUID](https://aka.ms/StoragePartners) que enviará por correo electrónico un GUID en el formato correcto. Este GUID se puede reutilizar en los distintos sistemas de seguimiento.
 
 > [!Note]
 > Se recomienda encarecidamente que utilice [formulario de generador GUID de Azure Storage](https://aka.ms/StoragePartners) para crear su GUID. Para más información, consulte las [P+F](#faq).
 
-Se recomienda crear un GUID único para todos los canales de distribución y oferta de cada producto. Puede optar por usar un solo GUID para los múltiples canales de distribución del producto si no quiere que los informes se dividan. 
+Se recomienda crear un GUID único para todos los canales de distribución y oferta de cada producto. Puede optar por usar un solo GUID para los múltiples canales de distribución del producto si no quiere que los informes se dividan.
 
 Si implementa un producto mediante una plantilla y está disponible tanto en Azure Marketplace como en GitHub, puede crear y registrar 2 GUID distintos:
 
-*   Producto A en Azure Marketplace 
+*   Producto A en Azure Marketplace
 *   Producto A en GitHub
 
-La creación de informes se realiza en función del valor de asociado comercial (id. de Partner de Microsoft) y de los GUID. 
+La creación de informes se realiza en función del valor de asociado comercial (id. de Partner de Microsoft) y de los GUID.
 
 Asimismo, si lo desea también puede realizar un seguimiento de los identificadores únicos globales a un nivel más detallado como el SKU donde las SKU son variantes de una oferta.
 
@@ -165,16 +165,16 @@ Asimismo, si lo desea también puede realizar un seguimiento de los identificado
 
 El GUID deben estar registrados para habilitar la atribución de uso del cliente.
 
-Todos los registros de identificadores únicos globales de plantillas se realizan a través de Cloud Partner Portal (CPP) de Azure Marketplace. 
+Todos los registros de identificadores únicos globales de plantillas se realizan a través de Cloud Partner Portal (CPP) de Azure Marketplace.
 
-Después de agregar el identificador único global a la plantilla o en el agente de usuario, y registrarlo en CPP, se realizará un seguimiento de todas las implementaciones. 
+Después de agregar el identificador único global a la plantilla o en el agente de usuario, y registrarlo en CPP, se realizará un seguimiento de todas las implementaciones.
 
 1. Regístrese en [Azure Marketplace](https://aka.ms/listonazuremarketplace) y consiga acceso a CPP.
 
    * Los asociados deben [tener un perfil en CPP](https://docs.microsoft.com/azure/marketplace/become-publisher). Le recomendamos que vea la oferta en Azure Marketplace o AppSource.
    * Los asociados pueden registrar varios identificadores únicos globales.
    * Los asociados puede registrar un identificador único global tanto para las plantillas de solución que no sean de Marketplace como para las ofertas.
- 
+
 1. Inicie sesión en [Cloud Partner Portal](https://cloudpartner.azure.com/).
 
 1. En la esquina superior derecha, seleccione el icono de su cuenta y, después, seleccione **Perfil de publicador**.
@@ -188,24 +188,24 @@ Después de agregar el identificador único global a la plantilla o en el agente
 1. En el cuadro **Tracking GUID** (GUID de seguimiento), escriba su identificador único global de seguimiento. Escriba solo el GUID, sin el prefijo **pid -**. En el cuadro **Custom Description** (Descripción personalizada), escriba el nombre o la descripción de la oferta.
 
    ![Página de perfil](media/marketplace-publishers-guide/guid-dev-center-login.png)
-   
+
    ![Escriba el identificador único global y la descripción de la oferta](media/marketplace-publishers-guide/guid-dev-center-example.png)
 
 1. Para registrar varios identificadores únicos globales, vuelva a seleccionar **Add Tracking GUID** (Agregar GUID de seguimiento). Aparecen más cuadros en la página.
 
    ![Volver a seleccionar Add Tracking GUID (Agregar GUID de seguimiento)](media/marketplace-publishers-guide/guid-dev-center-example-add.png)
-   
+
    ![Escribir otro identificador único global y la descripción de la oferta](media/marketplace-publishers-guide/guid-dev-center-example-description.png)
 
 1. Seleccione **Guardar**.
 
    ![Seleccionar Guardar](media/marketplace-publishers-guide/guid-dev-center-save.png)
 
-Después de agregar el identificador único global a la plantilla o en el agente de usuario, y registrarlo en CPP, se realizará un seguimiento de todas las implementaciones. 
+Después de agregar el identificador único global a la plantilla o en el agente de usuario, y registrarlo en CPP, se realizará un seguimiento de todas las implementaciones.
 
-## <a name="verify-the-guid-deployment"></a>Comprobación de la implementación de GUID 
+## <a name="verify-the-guid-deployment"></a>Comprobación de la implementación de GUID
 
-Tras modificar la plantilla y realizar una implementación de prueba, use el siguiente script de PowerShell para recuperar los recursos que implementó y etiquetó. 
+Tras modificar la plantilla y realizar una implementación de prueba, use el siguiente script de PowerShell para recuperar los recursos que implementó y etiquetó.
 
 Puede usar dicho script para comprobar que el GUID se ha agregado correctamente a la plantilla de Resource Manager. El script no se aplica a la implementación de la API de Resource Manager.
 
@@ -215,7 +215,7 @@ Tanto el **GUID** como el nombre **resourceGroup** son parámetros necesarios.
 
 [El script original](https://gist.github.com/bmoore-msft/ae6b8226311014d6e7177c5127c7eba1#file-verify-deploymentguid-ps1) se puede obtener en GitHub.
 
-```
+```powershell
 Param(
     [GUID][Parameter(Mandatory=$true)]$guid,
     [string][Parameter(Mandatory=$true)]$resourceGroupName
@@ -223,7 +223,7 @@ Param(
 
 # Get the correlationId of the pid deployment
 
-$correlationId = (Get-AzureRmResourceGroupDeployment -ResourceGroupName 
+$correlationId = (Get-AzureRmResourceGroupDeployment -ResourceGroupName
 $resourceGroupName -Name "pid-$guid").correlationId
 
 # Find all deployments with that correlationId
@@ -254,11 +254,11 @@ Elija la plantilla de seguimiento en la lista desplegable de tipo de asociación
 
 ## <a name="notify-your-customers"></a>Notificación a los clientes
 
-Los asociados deben informar a sus clientes acerca de las implementaciones que usan la atribución de uso del cliente. Microsoft notifica al asociado el uso de Azure que está asociado con estas implementaciones. Los ejemplos siguientes incluyen contenido que puede usar para notificar a los clientes estas implementaciones. En los ejemplos, reemplace \<PARTNER > por el nombre de su empresa. Los asociados deben asegurarse de que la notificación es compatible con sus directivas de privacidad y recopilación de datos, incluyendo las opciones que permiten excluir a los clientes del seguimiento. 
+Los asociados deben informar a sus clientes acerca de las implementaciones que usan la atribución de uso del cliente. Microsoft notifica al asociado el uso de Azure que está asociado con estas implementaciones. Los ejemplos siguientes incluyen contenido que puede usar para notificar a los clientes estas implementaciones. En los ejemplos, reemplace \<PARTNER > por el nombre de su empresa. Los asociados deben asegurarse de que la notificación es compatible con sus directivas de privacidad y recopilación de datos, incluyendo las opciones que permiten excluir a los clientes del seguimiento.
 
 ### <a name="notification-for-resource-manager-template-deployments"></a>Notificación de implementaciones de plantillas de Resource Manager
 
-Al implementar esta plantilla, Microsoft puede identificar la instalación del software de \<PARTNER> con los recursos de Azure que se implementan. Microsoft puede correlacionar los recursos de Azure que se usan para admitir el software. Microsoft recopila esta información para proporcionar las mejores experiencias con sus productos y conseguir que sus negocios funcionen. Los datos se recopilan en función de las directivas de privacidad de Microsoft, que se encuentran en https://www.microsoft.com/trustcenter, y se rigen por ellas. 
+Al implementar esta plantilla, Microsoft puede identificar la instalación del software de \<PARTNER> con los recursos de Azure que se implementan. Microsoft puede correlacionar los recursos de Azure que se usan para admitir el software. Microsoft recopila esta información para proporcionar las mejores experiencias con sus productos y conseguir que sus negocios funcionen. Los datos se recopilan en función de las directivas de privacidad de Microsoft, que se encuentran en https://www.microsoft.com/trustcenter, y se rigen por ellas.
 
 ### <a name="notification-for-sdk-or-api-deployments"></a>Notificación para las implementaciones de SDK o API
 
@@ -268,7 +268,7 @@ Al implementar el software \<PARTNER>, Microsoft puede identificar la instalaci�
 
 Si necesita ayuda para la incorporación de Marketplace o atribución de uso del cliente, siga estos pasos.
 
-1. Vaya a la [página de soporte técnico](https://go.microsoft.com/fwlink/?linkid=844975). 
+1. Vaya a la [página de soporte técnico](https://go.microsoft.com/fwlink/?linkid=844975).
 
 1. En **Problem type** (Tipo de problema), seleccione **Marketplace Onboarding** (Incorporación a Marketplace).
 
@@ -276,7 +276,7 @@ Si necesita ayuda para la incorporación de Marketplace o atribución de uso del
 
    - Para problemas de asociación de uso, seleccione **Other** (Otros).
    - Para problemas de acceso al CPP de Azure Marketplace, seleccione **Access Problem** (Problema de acceso).
-   
+
      ![Elegir la categoría de problema](media/marketplace-publishers-guide/lu-article-incident.png)
 
 1. Haga clic en **Start Request** (Iniciar solicitud).
@@ -285,9 +285,9 @@ Si necesita ayuda para la incorporación de Marketplace o atribución de uso del
 
 1. En la página siguiente, especifique los valores necesarios.
 
-   > [!Important] 
+   > [!Important]
    > En el cuadro **Incident title** (Título de la incidencia), escriba **Seguimiento del uso de ISV**. Describa el problema de forma detallada.
-   
+
    ![Escribir Seguimiento del uso de ISV como título de la incidencia](media/marketplace-publishers-guide/guid-dev-center-help-hd%201.png)
 
 1. Complete el formulario y seleccione **Submit** (Enviar).
@@ -299,7 +299,7 @@ También puede recibir orientación técnica de Microsoft Partner consultor téc
 1. Visite [ https://aka.ms/TechnicalJourney ](https://aka.ms/TechnicalJourney).
 1. Seleccione infraestructura de nube y administración y una nueva página se abrirán para que pueda ver el viaje técnico.
 1. En servicios de implementación, haga clic en el envío de un botón de solicitud
-1. Inicie sesión con su MSA (cuenta de MPN) o su AAD (cuenta de panel del asociado); en función de las credenciales de su inicio de sesión, se abrirá un formulario de solicitud en línea: 
+1. Inicie sesión con su MSA (cuenta de MPN) o su AAD (cuenta de panel del asociado); en función de sus credenciales de inicio de sesión, se abrirá un formulario de solicitud en línea:
     * Completar o revisar la información de contacto.
     * Los detalles de la consulta se pueden rellenar previamente o seleccione las listas desplegables.
     * Escriba un título y la descripción del problema (proporcione tantos detalles como sea posible).
@@ -315,23 +315,23 @@ Se contactarán por un consultor técnico de Microsoft Partner para configurar u
 
 **¿Cuál es la ventaja de agregar el identificador único global a la plantilla?**
 
-Microsoft proporciona los socios con una vista de las implementaciones de clientes de sus soluciones e información sobre su uso influido. Tanto Microsoft como el asociado pueden usar dicha información para impulsar una participación más estrecha entre los equipos de ventas. Tanto Microsoft como el asociado pueden usar los datos para obtener una vista más coherente del impacto que un asociado individual tiene en el crecimiento de Azure. 
+Microsoft proporciona los socios con una vista de las implementaciones de clientes de sus soluciones e información sobre su uso influido. Tanto Microsoft como el asociado pueden usar dicha información para impulsar una participación más estrecha entre los equipos de ventas. Tanto Microsoft como el asociado pueden usar los datos para obtener una vista más coherente del impacto que un asociado individual tiene en el crecimiento de Azure.
 
 **Una vez que se ha agregado un identificador único global, ¿se puede cambiar?**
- 
+
 Sí, cualquier cliente o asociado de implementación puede personalizar la plantilla y cambiar o quitar el identificador único global. Se recomienda que los asociados proactivamente describirán la función de los recursos y el GUID a sus clientes y asociados para evitar la eliminación o modificación en el GUID. El cambio del identificador único global solo afecta a las implementaciones y a los recursos nuevos, no a los existentes.
 
 **¿Puedo realizar un seguimiento de las plantillas implementadas desde un repositorio que no sea de Microsoft, como GitHub?**
 
-Sí, si el GUID está presente cuando se implemente la plantilla, se realiza el seguimiento. Los asociados deben tener un perfil en el CPP para registrar los identificadores GUID utilizados para la implementación fuera de Azure Marketplace. 
+Sí, si el GUID está presente cuando se implemente la plantilla, se realiza el seguimiento. Los asociados deben tener un perfil en el CPP para registrar los identificadores GUID utilizados para la implementación fuera de Azure Marketplace.
 
 **¿El cliente recibe también un informe?**
 
-Los clientes pueden realizar el seguimiento del uso tanto de recursos individuales como de grupos de recursos definidos por los usuarios en Azure Portal.   
+Los clientes pueden realizar el seguimiento del uso tanto de recursos individuales como de grupos de recursos definidos por los usuarios en Azure Portal.
 
 **¿Es esta metodología similar para el socio de registro Digital (DPOR)?**
 
-Este nuevo método de conexión de la implementación y el uso en la solución de un asociado proporciona un mecanismo que permite vincular una solución de asociado al uso de Azure. DPOR está pensado para asociar un asociado de consultoría (integrador de sistemas) o de administración (proveedor de servicios administrados) con la suscripción de Azure de un cliente.   
+Este nuevo método de conexión de la implementación y el uso en la solución de un asociado proporciona un mecanismo que permite vincular una solución de asociado al uso de Azure. DPOR está pensado para asociar un asociado de consultoría (integrador de sistemas) o de administración (proveedor de servicios administrados) con la suscripción de Azure de un cliente.
 
 **¿Cuál es la ventaja de usar el formulario del generador de GUID de Azure Storage?**
 
@@ -339,7 +339,7 @@ El formulario del generador de GUID de Azure Storage garantiza la generación de
 
 **¿Puedo usar un disco duro virtual privado, personalizado para una oferta de plantilla de solución en Azure Marketplace?**
 
-No, no puede. La imagen de máquina virtual debe proceder de Azure Marketplace, consulte: [ https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines ](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines). 
+No, no puede. La imagen de máquina virtual debe proceder de Azure Marketplace, consulte: [ https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines ](https://docs.microsoft.com/azure/marketplace/marketplace-virtual-machines).
 
 Puede crear una oferta de máquina virtual de marketplace mediante el disco duro virtual personalizado y marcarla como privada para que nadie pueda verla. A continuación, la referencia a esta máquina virtual en la plantilla de solución.
 

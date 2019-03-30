@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 03/28/2019
 ms.author: tomfitz
-ms.openlocfilehash: 3468f5b625911cd637b22e2c1d35a47fb7d7b0e4
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 15e4a7058dc1e74c726644e86c58381003eee937
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402837"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649769"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-resource-manager-rest-api"></a>Implementación de recursos con las plantillas de Resource Manager y la API de REST de Resource Manager
 
@@ -36,6 +36,7 @@ Para implementar en un **suscripción**, utilice [implementaciones - crear en el
 Los ejemplos en este artículo usan las implementaciones de grupo de recursos. Para obtener más información acerca de las implementaciones de suscripción, consulte [crear grupos de recursos y recursos en el nivel de suscripción](deploy-to-subscription.md).
 
 ## <a name="deploy-with-the-rest-api"></a>Implementación con la API de REST
+
 1. Establezca los [encabezados y parámetros comunes](/rest/api/azure/), incluidos los tokens de autenticación.
 
 1. Si no tiene un grupo de recursos existente, puede crear uno. Especifique el identificador de la suscripción, el nombre del nuevo grupo de recursos y la ubicación que necesita para la solución. Para obtener más información, consulte [Crear un grupo de recursos](/rest/api/resources/resourcegroups/createorupdate).
@@ -45,6 +46,7 @@ Los ejemplos en este artículo usan las implementaciones de grupo de recursos. P
    ```
 
    Con un cuerpo de la solicitud como:
+
    ```json
    {
     "location": "West US",
@@ -166,7 +168,7 @@ Los ejemplos en este artículo usan las implementaciones de grupo de recursos. P
    }
    ```
 
-5. Obtenga el estado de la implementación de la plantilla. Para obtener más información, consulte [Obtener información acerca de una implementación de plantilla](/rest/api/resources/deployments/get).
+1. Obtenga el estado de la implementación de la plantilla. Para obtener más información, consulte [Obtener información acerca de una implementación de plantilla](/rest/api/resources/deployments/get).
 
    ```HTTP
    GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2018-05-01
@@ -174,7 +176,12 @@ Los ejemplos en este artículo usan las implementaciones de grupo de recursos. P
 
 ## <a name="redeploy-when-deployment-fails"></a>Nueva implementación cuando se produce un error en la implementación
 
-Cuando se produce un error en una implementación, puede ejecutar automáticamente desde el historial de implementación una implementación anterior que sea correcta. Para especificar una nueva implementación, utilice la propiedad `onErrorDeployment` en el cuerpo de la solicitud.
+Esta característica también es conocido como *reversión en caso de error*. Cuando se produce un error en una implementación, puede ejecutar automáticamente desde el historial de implementación una implementación anterior que sea correcta. Para especificar una nueva implementación, utilice la propiedad `onErrorDeployment` en el cuerpo de la solicitud. Esta funcionalidad es útil si tiene un estado correcto conocido para la implementación de infraestructura y desea que se puede revertir a esto. Hay una serie de advertencias y restricciones:
+
+- La nueva implementación se ejecuta exactamente como se ha ejecutado anteriormente con los mismos parámetros. No se puede cambiar los parámetros.
+- La implementación anterior se ejecuta con la [modo completo](./deployment-modes.md#complete-mode). Se eliminan todos los recursos que no se incluyen en la implementación anterior y se establecen las configuraciones de recursos a su estado anterior. Asegúrese de que comprende perfectamente el [modos de implementación](./deployment-modes.md).
+- La reimplementación solo afecta a los recursos, los cambios de datos no se ven afectados.
+- Esta característica solo se admite en las implementaciones de grupo de recursos, no implementaciones de nivel de suscripción. Para obtener más información acerca de la implementación de nivel de suscripción, consulte [crear grupos de recursos y recursos en el nivel de suscripción](./deploy-to-subscription.md).
 
 Para usar esta opción, las implementaciones deben tener nombres únicos para que se puedan identificar en el historial. Si no tienen nombres únicos, la implementación con error en cuestión podría sobrescribir la implementación anteriormente correcta en el historial. Solo se puede usar esta opción con las implementaciones de nivel de raíz. Las implementaciones de una plantilla anidada no están disponibles para volver a implementarse.
 
@@ -245,9 +252,9 @@ Si utiliza un archivo de parámetros para pasar los valores de parámetro durant
             "reference": {
                "keyVault": {
                   "id": "/subscriptions/{guid}/resourceGroups/{group-name}/providers/Microsoft.KeyVault/vaults/{vault-name}"
-               }, 
-               "secretName": "sqlAdminPassword" 
-            }   
+               },
+               "secretName": "sqlAdminPassword"
+            }
         }
    }
 }
@@ -258,9 +265,9 @@ El tamaño del archivo de parámetros no puede ser superior a 64 KB.
 Si necesita proporcionar un valor confidencial para un parámetro (por ejemplo, una contraseña), agregue ese valor a un almacén de claves. Recupere el almacén de claves durante la implementación, como se muestra en el ejemplo anterior. Para más información, consulte [Paso de valores seguros durante la implementación](resource-manager-keyvault-parameter.md). 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para especificar cómo controlar los recursos que existen en el grupo de recursos, pero que no están definidos en la plantilla, consulte [Modos de implementación de Azure Resource Manager](deployment-modes.md).
-* Para obtener información sobre el control de operaciones asincrónicas de REST, vea [Seguimiento de las operaciones asincrónicas de Azure](resource-manager-async-operations.md).
-* Para ver un ejemplo de cómo implementar los recursos mediante la biblioteca cliente de .NET, consulte [Deploy Azure resources using .NET libraries and a template](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla).
-* Para definir parámetros de plantilla, consulte [Creación de plantillas](resource-group-authoring-templates.md#parameters).
-* Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](/azure/architecture/cloud-adoption-guide/subscription-governance).
 
+- Para especificar cómo controlar los recursos que existen en el grupo de recursos, pero que no están definidos en la plantilla, consulte [Modos de implementación de Azure Resource Manager](deployment-modes.md).
+- Para obtener información sobre el control de operaciones asincrónicas de REST, vea [Seguimiento de las operaciones asincrónicas de Azure](resource-manager-async-operations.md).
+- Para ver un ejemplo de cómo implementar los recursos mediante la biblioteca cliente de .NET, consulte [Deploy Azure resources using .NET libraries and a template](../virtual-machines/windows/csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)(Implementación de recursos de Azure mediante bibliotecas de .NET y una plantilla).
+- Para definir parámetros de plantilla, consulte [Creación de plantillas](resource-group-authoring-templates.md#parameters).
+- Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](/azure/architecture/cloud-adoption-guide/subscription-governance).

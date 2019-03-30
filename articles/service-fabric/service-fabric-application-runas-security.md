@@ -3,8 +3,8 @@ title: Ejecución de un servicio de Azure Service Fabric en cuentas de seguridad
 description: Aprenda cómo ejecutar una aplicación de Service Fabric en cuentas de seguridad del sistema y locales.  Cree entidades de seguridad y aplique la directiva RunAs para ejecutar los servicios de forma segura.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: aljo-microsoft
+manager: chackdan
 editor: ''
 ms.assetid: 4242a1eb-a237-459b-afbf-1e06cfa72732
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/29/2018
-ms.author: mfussell
-ms.openlocfilehash: f454ec7805db0a79f9346f252809c9d7f6869734
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: aljo
+ms.openlocfilehash: 28cd1162d7cae2b3a16062bdf18a2971e1f05aad
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871018"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664444"
 ---
 # <a name="run-a-service-as-a-local-user-account-or-local-system-account"></a>Ejecución de un servicio como cuenta de usuario local o cuenta de sistema local
 Azure Service Fabric le permite proteger aplicaciones que se ejecutan en distintas cuentas de usuario en el clúster. De forma predeterminada, las aplicaciones de Service Fabric se ejecutan en la misma cuenta en que se ejecuta el proceso Fabric.exe. Service Fabric también proporciona la funcionalidad de ejecutar aplicaciones con una cuenta de usuario o sistema local. Los tipos de cuenta de sistema local compatibles son **LocalUser**, **NetworkService**, **LocalService** y **LocalSystem**.  Si va a ejecutar Service Fabric en un clúster de Windows independiente, puede ejecutar un servicio en [cuentas de dominio de Active Directory](service-fabric-run-service-as-ad-user-or-group.md) o en [cuentas de servicio administradas de grupo](service-fabric-run-service-as-gmsa.md).

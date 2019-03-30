@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: a629a022e332eae5c8a58e9ffc0f760f96bc24dd
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: a8bc86c2d3511fa04e595b8b2988d9a98bf084b2
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577132"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650468"
 ---
 # <a name="add-suggesters-to-an-index-for-typeahead-in-azure-search"></a>Agregar proveedores de sugerencias para un índice de escritura anticipada en Azure Search
 
@@ -77,7 +77,7 @@ Después de crea un proveedor de sugerencias, agregue el [API de sugerencias](ht
 
 ### <a name="use-the-net-sdk"></a>Uso del SDK de .NET
 
-En C#, defina un [clase de proveedor de sugerencias](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). Un proveedor de sugerencias es una colección que puede tomar solamente un elemento. No olvide agregar `using System.Collections.Generic;` para que pueda crear una lista de objetos. 
+En C#, defina un [el objeto de proveedor de sugerencias](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggester?view=azure-dotnet). `Suggesters` es una colección, pero puede tomar solamente un elemento. 
 
 ```csharp
 private static void CreateHotelsIndex(SearchServiceClient serviceClient)

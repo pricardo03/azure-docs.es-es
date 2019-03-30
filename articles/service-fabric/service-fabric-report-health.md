@@ -4,7 +4,7 @@ description: Describe cómo enviar informes de estado personalizados a entidades
 services: service-fabric
 documentationcenter: .net
 author: oanapl
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 0a00a7d2-510e-47d0-8aa8-24c851ea847f
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 775c9b155f080c8996a7680514cb2fb004a4e3fb
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 06fedddffd51dc22b45e8ae6e415ad139346c5b6
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152264"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670394"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Incorporación de informes de mantenimiento de Service Fabric personalizados
 Azure Service Fabric presenta un [modelo de estado](service-fabric-health-introduction.md) diseñado para marcar las condiciones poco favorables del clúster o de la aplicación en entidades específicas. El modelo de mantenimiento utiliza **informadores de estado** (componentes del sistema y guardianes). El objetivo es obtener un diagnóstico y reparación sencillo y rápido. Los escritores de servicio deben pensar por adelantado sobre el estado. Cualquier condición que pueda afectar al estado debe notificarse, sobre todo si puede ayudar a marcar la causa raíz de los problemas. La información de estado puede ahorrar tiempo y esfuerzo en la depuración y la investigación. La utilidad resulta especialmente clara una vez que el servicio está en funcionamiento a escala en la nube (privada o Azure).

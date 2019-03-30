@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.openlocfilehash: de2d8bcbf4ca75ad7278ec9fe47a3f55160b7910
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bded6c76aa209a718929c891bd2443f8517ec44a
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082660"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649659"
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Asignación de varias direcciones IP a máquinas virtuales mediante PowerShell
 
@@ -196,7 +196,7 @@ En los pasos siguientes se explica cómo crear una VM de ejemplo con varias dire
 
 ## <a name="add"></a>Incorporación de direcciones IP a una VM
 
-Puede agregar direcciones IP públicas y privadas a una interfaz de red de Azure mediante los pasos que se indican a continuación. En los ejemplos de las secciones siguientes se da por sentado que ya tiene una máquina virtual con las tres configuraciones de IP descritas en el [escenario](#Scenario) de este artículo, pero no es necesario que lo haga.
+Puede agregar direcciones IP públicas y privadas a una interfaz de red de Azure mediante los pasos que se indican a continuación. En los ejemplos de las secciones siguientes se da por sentado que ya tiene una máquina virtual con las tres configuraciones de IP descritas en el [escenario](#scenario) de este artículo, pero no es necesario que lo haga.
 
 1. Abra un símbolo del sistema de PowerShell y complete los pasos restantes de esta sección en una única sesión de PowerShell. Si todavía no tiene PowerShell instalado y configurado, complete los pasos del artículo [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) .
 2. Cambie los "valores" de los elementos $Variables siguientes al nombre de la NIC a la que desee agregar una dirección IP y al grupo de recursos y la ubicación donde existe la NIC:

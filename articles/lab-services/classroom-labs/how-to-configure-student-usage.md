@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 03/28/2019
 ms.author: spelluru
-ms.openlocfilehash: eadbaacd4bb860cd09997775b8d77cbcf0ff17f2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 494c285f1c096a84925d9d9a4fb98409960e5230
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181629"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650104"
 ---
 # <a name="configure-usage-settings-and-policies"></a>Configuración de los valores y directivas de uso
 En este artículo se describe cómo agregar usuarios al laboratorio, registrarlos en el laboratorio, controlar el número de horas que pueden usar la máquina virtual y mucho más. 
@@ -44,14 +44,20 @@ Para enviar el vínculo de registro a los estudiantes, utilice uno de los métod
 Si el **acceso restringido** se habilita para el laboratorio, solo los usuarios de la lista de usuarios pueden usar el vínculo de registro a fin de registrarse en el laboratorio. Esta opción está habilitada de forma predeterminada. 
 
 ### <a name="send-email-to-users"></a>Enviar correo electrónico a los usuarios
-1. Cambie a la vista **Users** (Usuarios) si aún no está en la página. 
-2. Seleccionar determinada o todos los usuarios en la lista. Para seleccionar usuarios específicos, seleccione las casillas de verificación en la primera columna de la lista. Para seleccionar todos los usuarios, active la casilla situada delante el título de la primera columna (**nombre**) o seleccione todas las casillas para todos los usuarios en la lista.
-3. Seleccione **Enviar invitación** en la barra de herramientas. También puede mantener el mouse sobre un nombre del alumno en la lista y enviar el icono de correo electrónico. 
+Azure Lab Services permite a los profesores a enviar por correo electrónico a todas las invitaciones de laboratorio o estudiantes seleccionados sin tener que usar otro cliente de correo electrónico. Pueden mantener los profesores de estudiantes individuales en la lista para ver el icono de correo electrónico para cada alumno o seleccionados uno o varios alumnos y usar **Enviar invitación** en la barra de herramientas. Esta característica envía un correo electrónico con un vínculo de registro y agrega un mensaje (si existe) por el profesor. Después de que se envió la invitación, cambia el estado de la invitación a **invitación enviada** para que los profesores pueden realizar un seguimiento de los estudiantes ya ha recibido el vínculo de registro y la fecha en se envió.
 
-    ![Enviar vínculo de registro por correo electrónico](../media/tutorial-setup-classroom-lab/send-email.png)
-4. En el **vínculo de registro de envío por correo electrónico** página, siga estos pasos: 
-    1. Tipo de un **mensaje opcional** que desea enviar a los alumnos. El correo electrónico incluye automáticamente el vínculo de registro. 
-    2. En el **vínculo de registro de envío por correo electrónico** página, seleccione **enviar**. 
+1. Cambie a la vista **Users** (Usuarios) si aún no está en la página. 
+2. Seleccione usuarios específicos o todos ellos en la lista. Para seleccionar usuarios específicos, active las casillas de la primera columna de la lista. Para seleccionar todos los usuarios, seleccione la casilla situada delante del título de la primera columna (**Nombre**) o seleccione todas las casillas d todos los usuarios de la lista. Puede ver el estado de la **estado invitación** en esta lista.  En la siguiente imagen, se establece el estado de la invitación para todos los estudiantes en **invitación no enviada**. 
+
+    ![Seleccionar alumnos](../media/tutorial-setup-classroom-lab/select-students.png)
+1. Seleccione el **icono de correo electrónico (envelope)** en una de las filas (o) seleccione **Enviar invitación** en la barra de herramientas. También puede mantener el mouse sobre el nombre de un estudiante en la lista para ver el icono de correo electrónico. 
+
+    ![Envío del vínculo de registro por correo electrónico](../media/tutorial-setup-classroom-lab/send-email.png)
+4. En la página **Send registration link by email** (Enviar vínculo de registro por correo electrónico), siga estos pasos: 
+    1. Escriba un **mensaje opcional** que desee enviar a los alumnos. El correo electrónico incluye automáticamente el vínculo de registro. 
+    2. En la página **Send registration link by email** (Enviar vínculo de registro por correo electrónico), seleccione **Enviar**. Puede ver el estado de la invitación al cambiar a **enviando invitación** y, a continuación, en **invitación enviada**. 
+        
+        ![Invitaciones enviadas](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
 ## <a name="get-registration-link"></a>Obtiene el vínculo de registro
 1. Cambie a la vista **Usuarios** seleccionando **Usuarios** en el menú izquierdo. 

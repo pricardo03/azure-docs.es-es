@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2018
 ms.author: banders
-ms.openlocfilehash: a66547ed4bf089bb618dc8b98da7f260b6b5536a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bf18d845b7128c8d6f740555f1a0f791767240ae
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57904310"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650230"
 ---
-# <a name="view-reservations-for-azure-in-the-azure-portal"></a>Visualización de reservas de Azure en Azure Portal
+# <a name="view-azure-reservations-in-the-azure-portal"></a>Ver las reservas de Azure en Azure portal
 
-Dependiendo del tipo de suscripción y los permisos, hay un par de maneras de ver las reservas de los recursos de Azure.
+Dependiendo del tipo de suscripción y los permisos, hay un par de formas de ver las reservas de Azure.
 
 ## <a name="view-reservations-as-owner-or-reader"></a>Visualización de las reservas como propietario o lector
 
@@ -62,15 +62,26 @@ Para obtener los datos mediante una API, consulte [Get Reserved Instance transac
 
 Para más información acerca de las reservas de Azure, consulte los siguientes artículos:
 
-- [¿Qué son las reservas de Azure?](billing-save-compute-costs-reservations.md)
+- [¿Cuáles son las reservas para Azure?](billing-save-compute-costs-reservations.md)
+- [Administrar reservas para Azure](billing-manage-reserved-vm-instance.md)
+
+Comprar un plan de servicio:
+
 - [Pago por adelantado de la capacidad reservada de Azure Cosmos DB](../cosmos-db/cosmos-db-reserved-capacity.md)
 - [Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Administración de reservas de Azure](billing-manage-reserved-vm-instance.md)
+
+Comprar un plan de software:
+
+- [Pago por adelantado para los planes de software de Red Hat de las reservas de Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
+- [Pago por adelantado para planes de software SUSE con Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
+
+Entender el uso de:
+
 - [Información sobre el uso de reservas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)
 - [Información sobre el uso de reservas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
 - [Información sobre el uso de reservas para suscripciones de CSP](https://docs.microsoft.com/partner-center/azure-reservations)
 
-## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
 
 Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -3,8 +3,8 @@ title: Ejecución de un script cuando se inicia un servicio de Azure Service Fab
 description: Aprenda a configurar una directiva para un punto de entrada del programa de instalación del servicio de Service Fabric y a ejecutar un script durante el inicio del servicio.
 services: service-fabric
 documentationcenter: .net
-author: msfussell
-manager: timlt
+author: athinanthny
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/21/2018
-ms.author: mfussell
-ms.openlocfilehash: 3ae43f7427996f8be15b22fec4406bbdfe8aa4fe
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: atsenthi
+ms.openlocfilehash: 76be814e0dd4c054fc3a873716dbfe395eeeb2dc
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838449"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660398"
 ---
 # <a name="run-a-service-startup-script-as-a-local-user-or-system-account"></a>Ejecución de un script de inicio de servicio como cuenta de usuario local o del sistema
 Antes de que se inicie el ejecutable de un servicio de Service Fabric, puede ser necesario llevar a cabo algún trabajo de configuración o instalación.  Por ejemplo, configurar las variables de entorno. Antes de que se inicie el ejecutable del servicio, puede especificar que se ejecute un script en el manifiesto del servicio. Mediante la configuración de una directiva RunAs para el punto de entrada del programa de instalación del servicio, puede cambiar la cuenta con la que se ejecuta el ejecutable de instalación.  Un punto de entrada del programa de instalación independiente le permite ejecutar una configuración con privilegios elevados durante un corto período de tiempo, de forma que no hay necesidad de ejecutar el ejecutable del host de servicios con privilegios elevados durante períodos de tiempo prolongados.

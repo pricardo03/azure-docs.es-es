@@ -12,12 +12,12 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 801e3b20908c3e92693e5e800428773bf5c90539
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: c5fadf5c445310534ab3001371e1b73b1f502f15
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521472"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661793"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL
 
@@ -39,7 +39,7 @@ En este artículo se explica la arquitectura de conectividad de Azure SQL Databa
 >
 > Si no se pudieron establecer conexiones de punto de conexión de servicio al servidor de Azure SQL y sospecha que este cambio le afecta, compruebe que el tipo de conexión esté establecido explícitamente en `Redirect`. Si es el caso, debe abrir las reglas del firewall de la máquina virtual y los grupos de seguridad de red (NSG) para todas las direcciones IP de Azure en la región que pertenecen a la [etiqueta de servicio](../virtual-network/security-overview.md#service-tags) Sql para los puertos 11000-12000. Si esta no es una opción en su caso, cambie el servidor explícitamente a `Proxy`.
 > [!NOTE]
-> Este tema se aplica a los servidores de Azure SQL Database que hospedan bases de datos únicas y grupos elásticos, y bases de datos de SQL Data Warehouse. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse.
+> En este tema se aplica a los servidores de Azure SQL Database para hospedar bases de datos únicas y grupos elásticos, bases de datos de SQL Data Warehouse, -Azure Database for MySQL, -Azure Database for MariaDB y -Azure Database for PostgreSQL. Por motivos de simplicidad, SQL Database se usa cuando se hace referencia a SQL Database, SQL Data Warehouse, Azure Database for MySQL, -Azure Database for MariaDB y -Azure Database for PostgreSQL.
 
 ## <a name="connectivity-architecture"></a>Arquitectura de conectividad
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: a350576742a9bcb899405aae19c032cc9b966975
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 09a5a6d823240b724e6ec88de38df068a58982d9
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351337"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652066"
 ---
 # <a name="azure-storage-analytics-logging"></a>Registro de Azure Storage analytics
 
@@ -27,7 +27,6 @@ Storage Analytics registra información detallada sobre las solicitudes correcta
 >  Registro de Storage Analytics actualmente solo está disponible para los servicios Blob, Queue y Table. Sin embargo, no se admite la cuenta de almacenamiento premium.
 
 ## <a name="requests-logged-in-logging"></a>Solicitudes registradas en el registro
-
 ### <a name="logging-authenticated-requests"></a>Registrar solicitudes de autenticación
 
  Se registran los siguientes tipos de solicitudes autenticadas:
@@ -63,13 +62,13 @@ Si tiene un gran volumen de datos de registro con varios archivos para cada hora
 
 La mayoría de las herramientas de exploración almacenamiento le permiten ver los metadatos de blobs; También puede leer esta información mediante PowerShell o mediante programación. El siguiente fragmento de PowerShell es un ejemplo de filtrado de la lista de blobs de registro por nombre para especificar una hora y por metadatos para identificar solo los registros que contienen **escribir** operaciones.  
 
- ```  
+ ```powershell
  Get-AzureStorageBlob -Container '$logs' |  
- where {  
+ Where-Object {  
      $_.Name -match 'table/2014/05/21/05' -and   
      $_.ICloudBlob.Metadata.LogType -match 'write'  
  } |  
- foreach {  
+ ForEach-Object {  
      "{0}  {1}  {2}  {3}" –f $_.Name,   
      $_.ICloudBlob.Metadata.StartTime,   
      $_.ICloudBlob.Metadata.EndTime,   
@@ -143,24 +142,25 @@ Puede especificar los servicios de almacenamiento que desea iniciar sesión y el
 
  El siguiente comando activa el registro para leer, escribir y eliminar las solicitudes en el servicio de cola en su cuenta de almacenamiento predeterminada con la retención establecida en cinco días:  
 
-```  
+```powershell
 Set-AzureStorageServiceLoggingProperty -ServiceType Queue -LoggingOperations read,write,delete -RetentionDays 5  
 ```  
 
  El siguiente comando desactiva el registro para el servicio de tabla en la cuenta de almacenamiento predeterminada:  
 
-```  
+```powershell
 Set-AzureStorageServiceLoggingProperty -ServiceType Table -LoggingOperations none  
 ```  
 
  Para más información sobre cómo configurar los cmdlets de Azure PowerShell para que funcionen con su suscripción de Azure y cómo seleccionar la cuenta de almacenamiento predeterminada que quiere usar, vea: [Cómo instalar y configurar Azure PowerShell](https://azure.microsoft.com/documentation/articles/install-configure-powershell/).  
 
 ### <a name="enable-storage-logging-programmatically"></a>Habilitar el almacenamiento de registros mediante programación  
+
  Además de usar el portal de Azure o los cmdlets de PowerShell de Azure para controlar el registro de almacenamiento, también puede usar una de las API de almacenamiento de Azure. Por ejemplo, si está utilizando un lenguaje .NET puede usar la biblioteca de cliente de almacenamiento.  
 
  Las clases **CloudBlobClient**, **CloudQueueClient**, y **CloudTableClient** tienen métodos como **SetServiceProperties** y **SetServicePropertiesAsync** que toman un **ServiceProperties** objeto como parámetro. Puede usar el **ServiceProperties** objeto para configurar el registro de almacenamiento. Por ejemplo, la siguiente C# fragmento de código muestra cómo cambiar el período de retención para el registro de cola y lo que se registra:  
 
-```  
+```csharp
 var storageAccount = CloudStorageAccount.Parse(connStr);  
 var queueClient = storageAccount.CreateCloudQueueClient();  
 var serviceProperties = queueClient.GetServiceProperties();  
@@ -190,7 +190,7 @@ queueClient.SetServiceProperties(serviceProperties);
 
  El ejemplo siguiente muestra cómo puede descargar los datos de registro para el servicio de cola para las horas a partir de 09 AM, 10 AM y 11 AM de 20 de mayo de 2014. El **/S** parámetro hace que AzCopy para crear una estructura de carpetas local en función de las fechas y horas en los nombres de archivo de registro; el **/V** parámetro hace que AzCopy generar la salida detallada; el **/Y** parámetro hace que AzCopy sobrescriba los archivos locales. Reemplace **< yourstorageaccount\>**  con el nombre de la cuenta de almacenamiento y reemplace **< yourstoragekey\>**  con la clave de cuenta de almacenamiento.  
 
-```  
+```
 AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs\Storage' '2014/05/20/09' '2014/05/20/10' '2014/05/20/11' /sourceKey:<yourstoragekey> /S /V /Y  
 ```  
 
@@ -201,6 +201,7 @@ AzCopy 'http://<yourstorageaccount>.blob.core.windows.net/$logs/queue'  'C:\Logs
  Cuando haya descargado los datos de registro, puede ver las entradas del registro en los archivos. Estos archivos de registro usan un formato de texto delimitado registro que muchas herramientas de lectura pueden analizar, incluye Microsoft Message Analyzer (para obtener más información, consulte la guía [Monitoring, Diagnosing and Troubleshooting Microsoft Azure Storage](storage-monitoring-diagnosing-troubleshooting.md)). Diferentes herramientas tienen diferentes recursos para formatear, filtrar, ordenar y buscar el contenido de los archivos de registro. Para obtener más información sobre el formato de archivo de registro de registro de almacenamiento y el contenido, consulte [formato del registro de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format) y [Storage Analytics Logged Operations y mensajes de estado](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Formato del registro de Storage Analytics](/rest/api/storageservices/storage-analytics-log-format)
 * [Operaciones y mensajes de estado registrados por Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)
 * [Métricas del análisis de almacenamiento (clásico)](storage-analytics-metrics.md)

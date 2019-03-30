@@ -4,7 +4,7 @@ description: Información general del uso de la desfragmentación o el empaqueta
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: e5ebfae5-c8f7-4d6c-9173-3e22a9730552
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 6c15526169a984ffdaee826fec6ac21fc42647e9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6e041e41372c72c6792c1fb4a1fbdc3bbe475b21
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58086792"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661657"
 ---
 # <a name="defragmentation-of-metrics-and-load-in-service-fabric"></a>Desfragmentación de métricas y carga en Service Fabric
 La estrategia predeterminada de Cluster Resource Manager de Service Fabric para administrar métricas de carga en el clúster es distribuir la carga. Al tener la seguridad de que los nodos se utilizan por igual, se evitan zonas activas e inactivas que conducen a la contención y el desperdicio de recursos. La distribución de las cargas de trabajo en el clúster es también lo más seguro si se quiere sobrevivir a los errores dado que de esta forma se garantiza que un error no se llevará un gran porcentaje de una carga de trabajo dada. 

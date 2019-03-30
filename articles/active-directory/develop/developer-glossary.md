@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 245683ec6c3c2d25f362e035020e162af75e1627
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ec06b25954d25c27cd7606f2f47aa93ef6d54244
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169928"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650400"
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Guía del desarrollador de Azure Active Directory
 
@@ -204,7 +204,7 @@ Los inquilinos de Azure AD se crean/asocian con suscripciones de Azure y Office 
 
 ## <a name="token-endpoint"></a>punto de conexión de token
 
-Uno de los puntos de conexión implementados por el [servidor de autorización](#authorization-server) para admitir las [concesiones de autorización](#authorization-grant) de OAuth2. En función de la concesión, se puede utilizar para adquirir un [token de acceso](#access-token) (y el token de "actualización" relacionado) a un [cliente](#client-application), o un [token de identificador](#ID-token) cuando se usa con el protocolo [OpenID Connect][OpenIDConnect].
+Uno de los puntos de conexión implementados por el [servidor de autorización](#authorization-server) para admitir las [concesiones de autorización](#authorization-grant) de OAuth2. En función de la concesión, se puede utilizar para adquirir un [token de acceso](#access-token) (y el token de "actualización" relacionado) a un [cliente](#client-application), o un [token de identificador](#id-token) cuando se usa con el protocolo [OpenID Connect][OpenIDConnect].
 
 ## <a name="user-agent-based-client"></a>cliente basada en agente usuario
 

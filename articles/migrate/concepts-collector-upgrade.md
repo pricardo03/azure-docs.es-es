@@ -4,17 +4,21 @@ description: Proporciona información sobre las actualizaciones al dispositivo A
 author: musa-57
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 03/29/2019
 ms.author: hamusa
 services: azure-migrate
-ms.openlocfilehash: f9f2ef25a2054d92cdcc3ab33ea9234883e352d6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 7cd44318716200d665ece9ffecc45225bdfb85eb
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484515"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648680"
 ---
 # <a name="collector-appliance-updates"></a>Actualizaciones de dispositivo de recopilador
+
+En este artículo se resume la información de actualización para la aplicación Collector en [Azure Migrate](migrate-overview.md).
+
+Azure Migrate Collector es un dispositivo ligero que sirve para detectar un entorno de vCenter local a efectos de evaluación antes de realizar la migración a Azure. [Más información](concepts-collector.md).
 
 ## <a name="how-to-upgrade-the-appliance"></a>Cómo actualizar el dispositivo
 
@@ -33,11 +37,19 @@ Puede actualizar el Collector a la versión más reciente sin tener que descarga
 
 ## <a name="collector-update-release-history"></a>Historial de versiones de actualizaciones de Collector
 
-En este artículo se resume la información de actualización para la aplicación Collector en [Azure Migrate](migrate-overview.md).
-
-Azure Migrate Collector es un dispositivo ligero que sirve para detectar un entorno de vCenter local a efectos de evaluación antes de realizar la migración a Azure. [Más información](concepts-collector.md).
-
 ### <a name="continuous-discovery-upgrade-versions"></a>Detección continua: versiones de actualización
+
+#### <a name="version-101014-released-on-03292019"></a>Versión 1.0.10.14 (publicada en 29/03/2019)
+
+Contiene algunas mejoras de interfaz de usuario.
+
+Valores para la actualización hash [1.0.10.14 del paquete](https://aka.ms/migrate/col/upgrade_10_14)
+
+**Algoritmo** | **Valor del código hash**
+--- | ---
+MD5 | 846b1eb29ef2806bcf388d10519d78e6
+SHA1 | 6243239fa49c6b3f5305f77e9fd4426a392d33a0
+SHA256 | fb058205c945a83cc4a31842b9377428ff79b08247f3fb8bb4ff30c125aa47ad
 
 #### <a name="version-101012-released-on-03132019"></a>Versión 1.0.10.12 (publicado 13/03/2019)
 

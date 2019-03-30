@@ -9,14 +9,14 @@ ms.reviewer: mldocs
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 12/04/2018
+ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: fdc718429991a7bba30739d09882c51f8baf5dc9
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: fd518ad8c5ea13c4eeaa017417332744cecd328e
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336276"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58661231"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conocidos y solución de problemas del servicio Azure Machine Learning
 
@@ -47,6 +47,11 @@ Si observa `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with 
 ## <a name="fpgas"></a>FPGA
 
 No podrá implementar modelos en FPGA hasta que haya solicitado y se haya aprobado para la cuota FPGA. Para solicitar acceso, rellene el formulario de solicitud de cuota: https://aka.ms/aml-real-time-ai
+
+## <a name="automated-machine-learning"></a>Automated Machine Learning
+
+Aprendizaje automático de flujo automatizado de tensores no admite actualmente la versión del flujo de tensores 1.13. Instalar Esto hará que las dependencias del paquete deje de funcionar. Estamos trabajando para solucionar este problema en una versión futura. 
+
 
 ## <a name="databricks"></a>Databricks
 

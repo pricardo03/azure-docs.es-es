@@ -4,17 +4,17 @@ description: Obtenga más información sobre las opciones de bloqueo para proteg
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 03/28/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 799e496fd9dd8a405e5fc356e13cf6c05883e1ae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 16ec3428138361726d69eb9b45943b20129e32ed
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855419"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630721"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprensión del bloqueo de recursos en planos técnicos de Azure Blueprint
 
@@ -56,11 +56,56 @@ Una acción denegación [denegar asignaciones](../../../role-based-access-contro
 > [!IMPORTANT]
 > Azure Resource Manager almacena en caché los detalles de asignación de roles durante un máximo de 30 minutos. Como resultado, la acción de denegación denegar asignaciones puede que no funcione completamente en los recursos de plano técnico. Durante este período de tiempo es posible eliminar un recurso diseñado para estar protegido por bloqueos de plano técnico.
 
+## <a name="exclude-a-principal-from-a-deny-assignment"></a>Excluir una entidad de seguridad de una asignación de denegación
+
+En algunos escenarios de diseño y la seguridad, puede ser necesario excluir una entidad de seguridad de la [denegar asignación](../../../role-based-access-control/deny-assignments.md) crea la asignación del plano técnico. Esto se hace en la API de REST mediante la adición de hasta cinco valores para el **excludedPrincipals** de matriz en la **bloqueos** propiedad cuando [crea la asignación de](/rest/api/blueprints/assignments/createorupdate).
+Este es un ejemplo de un cuerpo de solicitud que incluye **excludedPrincipals**:
+
+```json
+{
+  "identity": {
+    "type": "SystemAssigned"
+  },
+  "location": "eastus",
+  "properties": {
+    "description": "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+    "blueprintId": "/providers/Microsoft.Management/managementGroups/{mgId}/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+    "locks": {
+        "mode": "AllResourcesDoNotDelete",
+        "excludedPrincipals": [
+            "7be2f100-3af5-4c15-bcb7-27ee43784a1f",
+            "38833b56-194d-420b-90ce-cff578296714"
+        ]
+    },
+    "parameters": {
+      "storageAccountType": {
+        "value": "Standard_LRS"
+      },
+      "costCenter": {
+        "value": "Contoso/Online/Shopping/Production"
+      },
+      "owners": {
+        "value": [
+          "johnDoe@contoso.com",
+          "johnsteam@contoso.com"
+        ]
+      }
+    },
+    "resourceGroups": {
+      "storageRG": {
+        "name": "defaultRG",
+        "location": "eastus"
+      }
+    }
+  }
+}
+```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Siga el [proteger nuevos recursos](../tutorials/protect-new-resources.md) tutorial.
-- Obtenga información sobre la [ciclo de vida del plano](lifecycle.md).
+- Más información sobre el [ciclo de vida del plano técnico](lifecycle.md)
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](parameters.md).
-- Aprenda a personalizar la [blueprint orden secuenciación](sequencing-order.md).
-- Obtenga información sobre cómo [actualizar las asignaciones existentes](../how-to/update-existing-assignments.md).
-- Solución de problemas durante la asignación de una instancia de blueprint con [solución de problemas generales](../troubleshoot/general.md).
+- Aprenda a personalizar el [orden de secuenciación de planos técnicos](sequencing-order.md).
+- Aprenda a [actualizar las asignaciones existentes](../how-to/update-existing-assignments.md).
+- Puede consultar la información de [solución de problemas generales](../troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico.

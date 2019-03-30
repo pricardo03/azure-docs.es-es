@@ -4,7 +4,7 @@ description: En este artículo se habla sobre las acciones de capacidad de prueb
 services: service-fabric
 documentationcenter: .net
 author: motanv
-manager: timlt
+manager: chackdan
 editor: heeldin
 ms.assetid: ed53ca5c-4d5e-4b48-93c9-e386f32d8b7a
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.openlocfilehash: 70ed1561af6dc06b4d1db89e6449540dd76b67be
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 37a794387f3a2f02124805705d380ad9f1fc1270
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55815889"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662863"
 ---
 # <a name="testability-actions"></a>Acciones de Testability
 Para simular una infraestructura no confiable, Azure Service Fabric proporciona a los desarrolladores distintas formas de simular varios errores y transiciones de estados que se producen en escenarios reales. Dichas formas se exponen como acciones de Testability. Las acciones son las API de bajo nivel que provocan una inserción de errores específicos, una transición de estado o una validación. Mediante la combinación de estas acciones, puede escribir escenarios de prueba completos para los servicios.

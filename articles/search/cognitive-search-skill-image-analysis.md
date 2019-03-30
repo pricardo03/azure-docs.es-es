@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/22/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 4fb14b49e573770aaef13d6b5d47c265337c408c
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 5e2c92c22f98913da0e3668ceb84b212cc48396a
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57568930"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650995"
 ---
 #   <a name="image-analysis-cognitive-skill"></a>Aptitud cognitiva de análisis de imágenes
 
@@ -37,8 +37,8 @@ Los parámetros distinguen mayúsculas de minúsculas.
 | Nombre de parámetro     | DESCRIPCIÓN |
 |--------------------|-------------|
 | defaultLanguageCode   |  Cadena que indica el idioma que se devolverá. Este servicio devuelve los resultados de reconocimiento en un idioma concreto. Si esta no se especifica este parámetro, se usa el valor predeterminado "en". <br/><br/>Estos son los idiomas admitidos: <br/>*en*: inglés (predeterminado) <br/> *zh*: chino simplificado|
-|visualFeatures |   Matriz de cadenas que indica los tipos de características visual que se devolverán. Los tipos de características visuales válidos incluyen:  <ul><li> *Categorías*: clasifica el contenido de la imagen según una taxonomía definida en la [documentación](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) de Cognitive Services.</li><li> *Etiquetas*: etiquetas de la imagen con una lista detallada de palabras relacionadas con el contenido de la imagen.</li><li>*Descripción*: describe el contenido de la imagen con una oración completa en inglés.</li><li>*Caras*: detecta si hay caras presentes. Si hay caras, indica las coordenadas, el sexo y la edad.</li><li> *ImageType* -detecta si la imagen es imágenes prediseñadas o dibujo lineal.</li><li>  *Color*: determina el color de énfasis, el color dominante y si la imagen está en blanco y negro.</li><li>*Adulto*: detecta si la imagen es de naturaleza pornográfica (representa desnudez o un acto sexual). También se detecta contenido provocativo.</li></ul> Los nombres de las características visuales distinguen entre mayúsculas y minúsculas.|
-| details   | Matriz de cadenas que indica qué detalles específicos del dominio que se devolverán. Los tipos de características visuales válidos incluyen: <ul><li>*Celebridades*: identifica celebridades si se detectan en la imagen.</li><li>*Puntos de referencia*: identifica puntos de referencia si se detectan en la imagen.</li></ul>
+|visualFeatures |   Matriz de cadenas que indica los tipos de características visual que se devolverán. Los tipos de características visuales válidos incluyen:  <ul><li> *Categorías*: clasifica el contenido de la imagen según una taxonomía definida en la [documentación](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy) de Cognitive Services.</li><li> *Etiquetas*: etiquetas de la imagen con una lista detallada de palabras relacionadas con el contenido de la imagen.</li><li>*Descripción* -describe la imagen de contenido con una frase completa de inglés.</li><li>*Caras* -detecta si están presentes las caras. Si hay caras, indica las coordenadas, el sexo y la edad.</li><li> *ImageType* -detecta si la imagen es imágenes prediseñadas o dibujo lineal.</li><li>  *Color* -determina el color de énfasis, el color dominante, y si una imagen es negra y blanco.</li><li>*Para adultos* -detecta si la imagen pornográfico por naturaleza (muestra desnudos o un acto de sexo). También se detecta contenido provocativo.</li></ul> Los nombres de las características visuales distinguen entre mayúsculas y minúsculas.|
+| details   | Matriz de cadenas que indica qué detalles específicos del dominio que se devolverán. Los tipos de características visuales válidos incluyen: <ul><li>*Celebridades* -identifica celebridades si detecta en la imagen.</li><li>*Puntos de referencia* -identifica los puntos de referencia si detecta en la imagen.</li></ul>
  |
 
 ## <a name="skill-inputs"></a>Entradas de la aptitud

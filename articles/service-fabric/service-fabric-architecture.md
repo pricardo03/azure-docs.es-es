@@ -4,7 +4,7 @@ description: Service Fabric es una plataforma de sistemas distribuidos que se us
 services: service-fabric
 documentationcenter: .net
 author: rishirsinha
-manager: timlt
+manager: chackdan
 editor: rishirsinha
 ms.assetid: 6b554243-70cb-4c22-9b28-1a8b4703f45e
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/12/2017
 ms.author: rsinha
-ms.openlocfilehash: 5e69d4b09261c90fd3c33e60645fe484b816e369
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: a1e68e2e39ea6f1c8cf8669e2e02d8dacaf0f284
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209977"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664597"
 ---
 # <a name="service-fabric-architecture"></a>Arquitectura de Service Fabric
 Service Fabric está construido con subsistemas en capas. Este subsistema permiten escribir aplicaciones con las siguientes características:
@@ -51,9 +51,9 @@ El subsistema de confiabilidad ofrece el mecanismo para hacer que el estado de u
 ## <a name="management-subsystem"></a>Subsistema de administración
 El subsistema de administración ofrece la administración del ciclo de vida de aplicaciones y servicios integral. Los cmdlets de PowerShell y las API administrativas permiten aprovisionar, implementar, aplicar revisiones, actualizar y desaprovisionar aplicaciones sin pérdida de disponibilidad. El subsistema de administración realiza esto a través de los siguientes servicios.
 
-* **Administrador de clústeres**: Se trata del servicio principal que interactúa con el Administrador de conmutación por error para colocar las aplicaciones en los nodos según las restricciones de posición del servicio. Resource Manager en el subsistema de conmutación por error garantiza que las restricciones no se interrumpen nunca. El Administrador de clústeres administra el ciclo de vida de las aplicaciones desde el aprovisionamiento hasta el desaprovisionamiento. Se integra con el Administrador de estado para garantizar que no se pierda la disponibilidad de las aplicaciones desde una perspectiva de estado semántica durante las actualizaciones.
-* **Administrador de estado**: este servicio habilita la supervisión del mantenimiento de aplicaciones, servicios y entidades de clúster. Las entidades de clúster (como nodos, particiones de servicio y réplicas) pueden notificar la información de estado, que se agrega luego al almacén de estado centralizado. Esta información de estado ofrece una instantánea del estado general a un momento dado de los servicios y nodos distribuidos en varios nodos del clúster, lo que le permite realizar las acciones correctivas necesarias. Las API de consulta de estado permiten consultar los eventos de estado registrados en el subsistema de estado. Las API de consulta de estado devuelven los datos de estado sin procesar guardados en el almacén de estado o los datos de estado interpretados y agregados para una entidad de clúster específica.
-* **Almacén de imágenes**: este servicio permite almacenar y distribuir los archivos binarios de la aplicación. Este servicio ofrece un almacén de archivos distribuido simple donde se cargan las aplicaciones y desde donde se descargan.
+* **El Administrador de clústeres**: Esto es el servicio principal que interactúa con el administrador conmutación por error de confiabilidad para colocar las aplicaciones en los nodos en función de las restricciones de colocación de servicio. Resource Manager en el subsistema de conmutación por error garantiza que las restricciones no se interrumpen nunca. El Administrador de clústeres administra el ciclo de vida de las aplicaciones desde el aprovisionamiento hasta el desaprovisionamiento. Se integra con el Administrador de estado para garantizar que no se pierda la disponibilidad de las aplicaciones desde una perspectiva de estado semántica durante las actualizaciones.
+* **Servicio de mantenimiento**: Este servicio permite la supervisión del estado de las aplicaciones, servicios y las entidades de clúster. Las entidades de clúster (como nodos, particiones de servicio y réplicas) pueden notificar la información de estado, que se agrega luego al almacén de estado centralizado. Esta información de estado ofrece una instantánea del estado general a un momento dado de los servicios y nodos distribuidos en varios nodos del clúster, lo que le permite realizar las acciones correctivas necesarias. Las API de consulta de estado permiten consultar los eventos de estado registrados en el subsistema de estado. Las API de consulta de estado devuelven los datos de estado sin procesar guardados en el almacén de estado o los datos de estado interpretados y agregados para una entidad de clúster específica.
+* **Imagen Store**: Este servicio proporciona almacenamiento y la distribución de los archivos binarios de aplicación. Este servicio ofrece un almacén de archivos distribuido simple donde se cargan las aplicaciones y desde donde se descargan.
 
 ## <a name="hosting-subsystem"></a>Subsistema de hospedaje
 El Administrador de clústeres informa al subsistema de hospedaje (que se ejecuta en cada nodo) de qué servicios necesita administrar para un nodo concreto. El subsistema de hospedaje administra después el ciclo de vida de la aplicación en ese nodo. Interactúa con los componentes de confiabilidad y mantenimiento para garantizar que las réplicas se colocan correctamente y que son correctas.

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/24/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 905ce1eca9996140da5f9d33aa7f9749a4ef7034
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cfcd154b2f44c9e8acf12a9666abc9ce95fb3c26
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894128"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648357"
 ---
 # <a name="configure-lead-management-using-an-https-endpoint"></a>Configuración de la administración de clientes potenciales mediante un punto de conexión HTTPS
 
@@ -48,8 +48,8 @@ Puede usar un punto de conexión HTTPS para administrar clientes potenciales de 
 
 7. Utilice uno de los pasos siguientes para configurar el **esquema JSON del cuerpo de la solicitud**:
 
-   - Copie el [esquema JSON](#JSON-schema) que está al final de este artículo en el cuadro de texto **Esquema JSON de cuerpo de solicitud**.
-   - Seleccione **Usar una carga de ejemplo para generar el esquema**. En el cuadro de texto **Enter or paste a sample JSON payload** (Escriba o pegue una carga JSON de ejemplo), pegue el [ejemplo JSON](#JSON-example). Seleccione **Listo** para crear el esquema.
+   - Copie el [esquema JSON](#json-schema) que está al final de este artículo en el cuadro de texto **Esquema JSON de cuerpo de solicitud**.
+   - Seleccione **Usar una carga de ejemplo para generar el esquema**. En el cuadro de texto **Enter or paste a sample JSON payload** (Escriba o pegue una carga JSON de ejemplo), pegue el [ejemplo JSON](#json-example). Seleccione **Listo** para crear el esquema.
 
    >[!Note]
    >En este punto del flujo puede conectarse a un sistema CRM o configurar una notificación de correo electrónico.

@@ -4,7 +4,7 @@ description: Una introducción a Service Fabric Cluster Resource Manager.
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: cfab735b-923d-4246-a2a8-220d4f4e0c64
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 75aa960ff060d74d0a579b475e4334402992b3c3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e9b1cc8b66be36a0a77118f4de672c9411433ba5
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903374"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660892"
 ---
 # <a name="introducing-the-service-fabric-cluster-resource-manager"></a>Presentación del Administrador de recursos de clúster de Service Fabric
 Tradicionalmente, administrar sistemas de TI o servicios en línea significaba dedicar máquinas físicas o virtuales específicas a esos servicios o sistemas específicos. Los servicios se diseñaban como capas. Podía haber una capa "web" y una capa "datos" o "almacenamiento". Las aplicaciones tenían un nivel de mensajería donde había solicitudes de flujo de entrada y salida, así como un conjunto de máquinas dedicado al almacenamiento en caché. Cada nivel o tipo de carga de trabajo tenía máquinas específicas dedicadas a ello: la base de datos contaba con un par de máquinas dedicadas, y los servidores web tenían algunas más. Si un tipo determinado de carga de trabajo provocaba que las máquinas en las que estaba se sobrecalentaran, se agregaban más máquinas con esa misma configuración a esa capa. Sin embargo, no todas las cargas de trabajo se podían escalar horizontalmente tan fácilmente, especialmente con la capa de datos tenía normalmente que reemplazar las máquinas con máquinas de mayor tamaño. Así de sencillo. Si se producía un error en una máquina, la parte afectada de la aplicación general se ejecutaba con una capacidad inferior hasta que pudiera restaurarse la máquina. Esto sigue siendo sencillo (aunque no necesariamente divertido).

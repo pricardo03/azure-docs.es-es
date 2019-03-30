@@ -4,7 +4,7 @@ description: Aprenda a acceder al estado de Reliable Actors de Service Fabric, y
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 37cf466a-5293-44c0-a4e0-037e5d292214
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: ac3afe144b9cf9e2fb307087edb175a603ffe4e9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 7c10d00916ef65767c98616c7337bfa444c339a9
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206754"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58664733"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Acceder al estado de Reliable Actors, guardarlo y quitarlo
 [Reliable Actors](service-fabric-reliable-actors-introduction.md) son objetos de subproceso único que encapsulan la lógica y el estado, y mantienen el estado de forma confiable. Cada instancia de actor tiene su propio [administrador de estado](service-fabric-reliable-actors-state-management.md): una estructura de datos similar a un diccionario que almacena de manera confiable los pares clave-valor. El administrador de estado es un contenedor alrededor de un proveedor de estado. Se puede utilizar para almacenar datos, con independencia de la [configuración de persistencia](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) que se utilice.

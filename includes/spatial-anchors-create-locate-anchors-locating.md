@@ -1,13 +1,13 @@
 ---
-ms.openlocfilehash: 430302d8b1b2a01febbbe2f11057bb331ec80c28
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 52dfbfca5f79a7f92848ea39eddc00aa10f05ff1
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57907813"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58632495"
 ---
 ## <a name="locate-a-cloud-spatial-anchor"></a>Busque un anclaje espacial en la nube
 
-Para buscar delimitadores espacial de la nube, necesitará saber sus identificadores. Los identificadores de delimitador pueden ser accesible para todos los dispositivos que pueden autenticar correctamente a ella y almacenados en el servicio de back-end de la aplicación. Para obtener un ejemplo de esta, consulte [Tutorial: Comparta delimitadores espaciales entre dispositivos](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices/).
+Ser capaz de encontrar un anclaje espacial previamente cargado en la nube es una de las razones principales para usar la biblioteca espacial delimitadores de Azure. Para buscar delimitadores espacial de la nube, necesitará saber sus identificadores. Los identificadores de delimitador se pueden almacenar en el servicio de back-end de la aplicación y puede tener acceso a todos los dispositivos que pueden autenticar correctamente a ella. Para obtener un ejemplo de esta, consulte [Tutorial: Comparta delimitadores espaciales entre dispositivos](/azure/spatial-anchors/tutorials/tutorial-share-anchors-across-devices/).
 
-Crear una instancia de un objeto AnchorLocateCriteria, establezca los identificadores que está buscando e invocar el método CreateWatcher en la sesión proporcionando su AnchorLocateCriteria.
+Crear una instancia de un `AnchorLocateCriteria` de objeto, establecer los identificadores que está buscando e invocar el `CreateWatcher` método en la sesión proporcionando su `AnchorLocateCriteria`.

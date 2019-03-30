@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 3/29/2019
 ms.author: sujayt
-ms.openlocfilehash: 0e28792e49d588bfec8d1f09dec68ead7e9dfa49
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 42db22d39a7c87363cf97f874c85955a09cbe653
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001086"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651550"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Acerca de las redes en Azure para la replicación de Azure
 
@@ -48,10 +48,10 @@ Si usa un proxy de firewall basado en la dirección URL para controlar la conect
 
 **URL** | **Detalles**  
 --- | ---
-* .blob.core.windows.net | Se requiere para que los datos se puedan escribir en la cuenta de almacenamiento de la caché en la región de origen de la máquina virtual.
+* .blob.core.windows.net | Se requiere para que los datos se puedan escribir en la cuenta de almacenamiento de la caché en la región de origen de la máquina virtual. Si conoce toda la caché de cuentas de almacenamiento para las máquinas virtuales, puede lista blanca las direcciones URL cuenta de almacenamiento específico (p. ej.: cache1.blob.core.windows.net y cache2.blob.core.windows.net) en lugar de *. blob.core.windows.net
 login.microsoftonline.com | Se requiere para la autorización y la autenticación de las direcciones URL del servicio Site Recovery.
-*.hypervrecoverymanager.windowsazure.com | Se requiere para la comunicación del servicio Site Recovery desde la máquina virtual.
-*.servicebus.windows.net | Se requiere para que se puedan escribir datos de supervisión y diagnóstico de Site Recovery desde la máquina virtual.
+*.hypervrecoverymanager.windowsazure.com | Se requiere para la comunicación del servicio Site Recovery desde la máquina virtual. Puede usar el "sitio de recuperación dirección IP correspondiente' Si el proxy de firewall es compatible con las direcciones IP.
+*.servicebus.windows.net | Se requiere para que se puedan escribir datos de supervisión y diagnóstico de Site Recovery desde la máquina virtual. Puede usar el correspondiente 'Site Recovery supervisión IP' Si el proxy de firewall es compatible con las direcciones IP.
 
 ## <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividad de salida para rangos de direcciones IP
 

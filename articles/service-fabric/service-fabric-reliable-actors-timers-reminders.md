@@ -4,7 +4,7 @@ description: Introducción a los temporizadores y avisos de Reliable Actors de S
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: amanbha
 ms.assetid: 00c48716-569e-4a64-bd6c-25234c85ff4f
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: e43aec6630a4a688ffd6c52a5e5bd711243fa662
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 323de842645cced3c6f490e98112fcbcd184aa64
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206798"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58667436"
 ---
 # <a name="actor-timers-and-reminders"></a>Recordatorios y temporizadores de los actores
 Los actores pueden programar el trabajo periódico mediante el registro de temporizadores o recordatorios. En este artículo se muestra cómo utilizar temporizadores y recordatorios. Además, se explican las diferencias entre ellos.
@@ -167,7 +167,7 @@ protected CompletableFuture onActivateAsync()
 }
 ```
 
-En este ejemplo, `"Pay cell phone bill"` es el nombre del recordatorio. Se trata de una cadena que el actor usa para identificar un recordatorio de forma única. `BitConverter.GetBytes(amountInDollars)`(C#) es el contexto que está asociado con el recordatorio. Se pasará al actor como un argumento en la devolución de llamada del recordatorio, es decir, `IRemindable.ReceiveReminderAsync`(C#) o `Remindable.receiveReminderAsync`(Java).
+En este ejemplo, `"Pay cell phone bill"` es el nombre del recordatorio. Se trata de una cadena que el actor usa para identificar un recordatorio de forma única. `BitConverter.GetBytes(amountInDollars)`(C#) es el contexto que está asociado con el recordatorio. Se pasará al actor como argumento a la devolución de llamada de recordatorio, es decir `IRemindable.ReceiveReminderAsync`(C#) o `Remindable.receiveReminderAsync`(Java).
 
 Los actores que usan recordatorios deben implementar la interfaz `IRemindable` , tal y como se muestra en el ejemplo siguiente.
 

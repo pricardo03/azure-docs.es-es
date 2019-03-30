@@ -1,10 +1,10 @@
 ---
-title: 'Capacidad de prueba: comunicación del servicio | Microsoft Docs'
+title: 'Capacidad de prueba: Comunicación del servicio | Microsoft Docs'
 description: La comunicación entre servicios es un punto crítico de integración de una aplicación de Service Fabric. En este artículo se describen las consideraciones de diseño y las técnicas de prueba.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 017557df-fb59-4e4a-a65d-2732f29255b8
 ms.service: service-fabric
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: e3ea537d310d49c934cf6789184f090791cf16a4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 529c8d74b6e0a63a7969f31d5b5e8073ecb79411
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211232"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665753"
 ---
-# <a name="service-fabric-testability-scenarios-service-communication"></a>Escenarios de capacidad de prueba de Service Fabric: comunicación del servicio
+# <a name="service-fabric-testability-scenarios-service-communication"></a>Escenarios de testability de Service Fabric: Comunicación de servicio
 Los microservicios y los estilos de arquitectura orientados a servicios emergen naturalmente en Service Fabric de Azure. En estos tipos de arquitecturas distribuidas, las aplicaciones de microservicio divididas en componentes suelen constar de varios servicios que necesitan comunicarse entre sí. Incluso en los casos más simples, por lo general dispone al menos de un servicio web sin estado y de un servicio de almacenamiento de datos con estado que necesitan comunicarse.
 
 La comunicación entre servicios es un punto crítico de integración de una aplicación, ya que cada servicio expone una API remota a otros servicios. El trabajo con un conjunto de límites de API que implican E/S requiere generalmente tomar algunas precauciones y realizar una buena cantidad de pruebas y validaciones.
@@ -48,7 +48,7 @@ El control correcto de estas situaciones es importante para lograr que un sistem
 * Puede haber un aumento temporal de latencia del servicio mientras la instancia de servicio inicia de nuevo su agente de escucha. Esto depende de la rapidez con que el servicio abra el agente de escucha después de mover la instancia de servicio.
 * Las conexiones existentes deben cerrarse y volverse a abrir después de que el servicio se haya abierto en un nuevo nodo. Un cierre o un reinicio estables del nodo permiten que se produzca un cierre estable de las conexiones existentes.
 
-### <a name="test-it-move-service-instances"></a>Pruébelo: mover instancias de servicio
+### <a name="test-it-move-service-instances"></a>Probarlo: Mover las instancias de servicio
 Mediante las herramientas de capacidad de prueba de Service Fabric, es posible crear un escenario de prueba para probar estas situaciones de maneras diferentes:
 
 1. Mover la réplica principal de un servicio con estado.
@@ -77,7 +77,7 @@ Como plataforma, Service Fabric está diseñado para ofrecer una alta disponibil
 
 Los servicios con estado utilizan un sistema basado en cuórum para la replicación de estado, lo que permite ofrecer una alta disponibilidad. Esto significa que debe haber un cuórum de réplicas disponible para realizar operaciones de escritura. En casos excepcionales, como en un error generalizado de hardware, puede que no esté disponible el cuórum de réplicas. En estos casos, no podrá realizar operaciones de escritura, pero sí podrá realizar operaciones de lectura.
 
-### <a name="test-it-write-operation-unavailability"></a>Pruébelo: falta de disponibilidad de la operación de escritura
+### <a name="test-it-write-operation-unavailability"></a>Probarlo: No disponibilidad de la operación de escritura
 Mediante las herramientas de capacidad de prueba de Service Fabric, puede insertar un error que provoca la pérdida de cuórum como prueba. Aunque una situación de este tipo es poco habitual, es importante que los clientes y los servicios que dependen de un servicio con estado estén preparados para controlar situaciones en las que no pueden realizar solicitudes de escritura al mismo. También es importante que el propio servicio con estado sea consciente de esta posibilidad y pueda comunicarla correctamente a los autores de llamadas.
 
 Puede provocar la pérdida de cuórum con el cmdlet **Invoke-ServiceFabricPartitionQuorumLoss** de PowerShell:

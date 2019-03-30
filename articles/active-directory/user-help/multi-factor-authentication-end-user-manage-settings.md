@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/23/2017
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a29da9e87c09ad157babf1e1a391fb967859d73
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 433c2d712ca4867a5ec59f86c333511070b6d507
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210516"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665056"
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Administración de la configuración de la comprobación en dos pasos
 Este artículo ofrece respuestas a preguntas acerca de cómo actualizar la configuración de la verificación en dos pasos o la autenticación multifactor. Si tiene problemas para iniciar sesión en su cuenta, consulte [Problemas con la comprobación en dos pasos](multi-factor-authentication-end-user-troubleshoot.md) para obtener ayuda para la solución de problemas.
@@ -50,7 +50,7 @@ Si hacer clic en ese vínculo no funciona, también puede seguir los pasos a con
     ![Página de proofup](./media/multi-factor-authentication-end-user-manage-settings/proofup.png)
 
 ## <a name="i-want-to-change-my-phone-number-or-add-a-secondary-number"></a>Deseo cambiar mi número de teléfono o agregar un número secundario
-Es importante configurar un número de teléfono de autenticación secundario.  Debido a que el número de teléfono principal y la aplicación móvil probablemente se encuentran en el mismo teléfono, el número de teléfono secundario es la única forma que tiene para volver a tener acceso a su cuenta si se le pierde el teléfono o si se lo robaron.
+Es importante configurar un número de teléfono de autenticación secundario.  Dado que el número de teléfono principal y la aplicación móvil probablemente están en el mismo teléfono, el número de teléfono secundario es la forma más rápida, podrá regresar a tu cuenta si se pierde o lo roban el teléfono.
 
 > [!NOTE]
 > Si no dispone de acceso a su número de teléfono principal y necesita ayuda para encontrar su cuenta, consulte el artículo [Problemas con la verificación en dos pasos](multi-factor-authentication-end-user-troubleshoot.md) para obtener más ayuda.  

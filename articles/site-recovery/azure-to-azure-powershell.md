@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 9c4576633f98d38da7086711c24def88591ab71f
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 64b14f66e05c42581fcce6eb9879fa72d7f0d6f8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56869418"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652083"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configuración de la recuperación ante desastres en máquinas virtuales de Azure mediante Azure PowerShell
 
@@ -163,7 +163,7 @@ Remove-Item -Path $Vaultsettingsfile.FilePath
 
 El objeto de tejido en el almacén representa una región de Azure. El objeto de tejido principal se crea para representar la región de Azure a la que pertenecen las máquinas virtuales que se van a proteger. En el ejemplo de este artículo, la máquina virtual que se protege se encuentra en la región Este de EE. UU.
 
-- Solamente se puede crear un objeto de tejido por región. 
+- Solamente se puede crear un objeto de tejido por región.
 - Si anteriormente ha habilitado la replicación de Site Recovery para una máquina virtual en Azure Portal, Site Recovery crea automáticamente un objeto de tejido. Si existe un objeto de tejido para una región, no puede crear uno nuevo.
 
 
@@ -588,7 +588,22 @@ Tasks            : {Prerequisite check, Commit}
 Errors           : {}
 ```
 
+## <a name="reprotect-and-failback-to-source-region"></a>Volver a proteger y conmutar por recuperación a la región de origen
+
 Después de una conmutación por error, cuando esté listo para volver a la región original, inicie la replicación inversa del elemento protegido de replicación mediante el cmdlet Update-AzureRmRecoveryServicesAsrProtectionDirection.
+
+```azurepowershell
+#Create Cache storage account for replication logs in the primary region
+$WestUSCacheStorageAccount = New-AzureRmStorageAccount -Name "a2acachestoragewestus" -ResourceGroupName "A2AdemoRG" -Location 'West US' -SkuName Standard_LRS -Kind Storage
+```
+
+```azurepowershell
+#Use the recovery protection container, new cache storage accountin West US and the source region VM resource group
+Update-AzureRmRecoveryServicesAsrProtectionDirection -ReplicationProtectedItem $ReplicationProtectedItem -AzureToAzure
+-ProtectionContainerMapping $RecoveryProtContainer -LogStorageAccountId $WestUSCacheStorageAccount.Id -RecoveryResourceGroupID $sourceVMResourcegroup.Id
+```
+
+Una vez completada la reprotección, puede iniciar la conmutación por error en dirección inversa (oeste de Estados Unidos para este de Estados Unidos) y la conmutación por recuperación a la región de origen.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Ver el [referencia de PowerShell de Azure Site Recovery](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery) para obtener información sobre cómo puede realizar otras tareas como la creación de planes de recuperación y las pruebas de conmutación por error de los planes de recuperación a través de PowerShell.

@@ -4,7 +4,7 @@ description: Aprenda a configurar registros de Azure Monitor para visualizar y a
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/20/2019
 ms.author: srrengar
-ms.openlocfilehash: ca5dd4a7c12a68a549f081ad62db1736c9c68837
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 3523a2df413740f644151c548e403c39c9be1f03
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483172"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670513"
 ---
 # <a name="set-up-azure-monitor-logs-for-a-cluster"></a>Configurar registros de Azure Monitor para un clúster
 
-Registros de Azure Monitor es nuestra recomendación para supervisar los eventos de nivel de clúster. Puede configurar un área de trabajo de Log Analytics mediante Azure Resource Manager, PowerShell o Azure Marketplace. Si mantiene una plantilla de Resource Manager actualizada de la implementación para un uso futuro, utilice la misma plantilla para configurar el entorno de los registros de Azure Monitor. La implementación a través de Marketplace es más fácil si ya tiene un clúster implementado con Diagnostics habilitado. Si no tiene acceso de nivel de suscripción en la cuenta en la que va a implementar, use PowerShell, realice la implementación mediante PowerShell o la plantilla de Resource Manager.
+Para supervisar los eventos de nivel de clúster, recomendamos los registros de Azure Monitor. Puede configurar un área de trabajo de Log Analytics mediante Azure Resource Manager, PowerShell o Azure Marketplace. Si mantiene una plantilla de Resource Manager actualizada de la implementación para un uso futuro, utilice la misma plantilla para configurar el entorno de los registros de Azure Monitor. La implementación a través de Marketplace es más fácil si ya tiene un clúster implementado con Diagnostics habilitado. Si no tiene acceso de nivel de suscripción en la cuenta en la que va a implementar, use PowerShell, realice la implementación mediante PowerShell o la plantilla de Resource Manager.
 
 > [!NOTE]
-> Para configurar los registros de Azure Monitor para supervisar el clúster, debe tener habilitado diagnostics para ver los eventos de clúster o nivel de plataforma. Consulte [cómo configurar diagnósticos en clústeres de Windows](service-fabric-diagnostics-event-aggregation-wad.md) y [cómo configurar diagnósticos en clústeres de Linux](service-fabric-diagnostics-event-aggregation-lad.md) para más información
+> Para configurar los registros de Azure Monitor para supervisar el clúster, debe tener habilitado diagnostics para ver los eventos de clúster o nivel de plataforma. Consulte [cómo configurar diagnósticos en clústeres de Windows](service-fabric-diagnostics-event-aggregation-wad.md) y [cómo configurar diagnósticos en clústeres de Linux](service-fabric-diagnostics-oms-syslog.md) para más información
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -49,7 +49,7 @@ Si quiere agregar un área de trabajo de Log Analytics después de haber impleme
 Si usa Windows, continúe con los pasos siguientes para conectar los registros de Azure Monitor con la cuenta de almacenamiento donde se almacenan los eventos de clúster. 
 
 >[!NOTE]
->La habilitación de esta experiencia para clústeres de Linux aún no está disponible. 
+>La solución Service Fabric Analytics solo se admite para los clústeres de Windows. Para clústeres de Linux, consulte nuestro artículo sobre [cómo configurar registros de Azure Monitor para los clústeres de Linux](service-fabric-diagnostics-oms-syslog.md).  
 
 ### <a name="connect-the-log-analytics-workspace-to-your-cluster"></a>Conexión del área de trabajo de Log Analytics al clúster 
 

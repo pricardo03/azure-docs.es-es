@@ -4,7 +4,7 @@ description: Obtenga información acerca de cómo actualizar la configuración q
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 66296cc6-9524-4c6a-b0a6-57c253bdf67e
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: 88846845f1f8ffc71fb193e134a18ec38f619141
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
-ms.translationtype: HT
+ms.openlocfilehash: f99c1ebb64bf881bcd42f15e13bb81b96ccfa064
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51857880"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665619"
 ---
 # <a name="upgrade-the-configuration-of-a-standalone-cluster"></a>Actualización de la configuración de un clúster independiente 
 
@@ -73,13 +73,13 @@ Se utiliza un certificado de clúster para la autenticación entre nodos de clú
 
 Se admiten cuatro opciones:  
 
-* Actualización de un solo certificado: la ruta de actualización es "Certificado A (principal) -> Certificado B (principal) -> Certificado C (principal) ->...".
+* Actualización del certificado único: La ruta de actualización es el certificado A (principal) -> certificado B (principal) -> certificado C (principal) ->...
 
-* Actualización de dos certificados: la ruta de actualización es "Certificado A (principal) -> Certificado A (principal) y B (secundario) -> Certificado B (principal) -> Certificado B (principal) y C (secundario) -> Certificado C (principal) ->....".
+* Actualización de dos certificados: La ruta de actualización es el certificado A (principal) -> certificado A (principal) y B (secundario) -> certificado B (principal) -> certificado B (principal) y C (secundario) -> certificado C (principal) ->...
 
-* Actualización del tipo de certificado: configuración de certificado basada en huella digital <-> Configuración de certificado basada en CommonName. Por ejemplo, Huella digital del certificado A (principal) y Huella digital B (secundaria) -> Certificado CommonName C.
+* Actualización del tipo de certificado: Configuración de certificados basada en CommonName de configuración <> – basados en huella digital de certificado. Por ejemplo, Huella digital del certificado A (principal) y Huella digital B (secundaria) -> Certificado CommonName C.
 
-* Actualización de la huella digital del emisor de certificado: la ruta de actualización de software es "Certificate CN=A,IssuerThumbprint=IT1 (Primary) -> Certificate CN=A,IssuerThumbprint=IT1,IT2 (Primary) -> Certificate CN=A,IssuerThumbprint=IT2 (Primary)".
+* Actualización de huella digital del emisor de certificado: La ruta de actualización es Certificate CN = A, IssuerThumbprint = IT1 (principal) -> Certificate CN = A, IssuerThumbprint = IT1, IT2 (principal) -> Certificate CN = A, IssuerThumbprint = IT2 (principal).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

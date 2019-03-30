@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0711743d46aaac08f8572917d91e452ee919134c
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 7b28129a3afe9f78d0ef749fa0c7759082c5f758
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816915"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652457"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure
 
@@ -134,7 +134,8 @@ El portal permite guardar una plantilla en su cuenta de Azure y volver a impleme
    ![Implementar una plantilla guardada](./media/resource-group-template-deploy-portal/deploy-saved-template.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Para ver los registros de auditoría, consulte [Operaciones de auditoría con Resource Manager](./resource-group-audit.md).
-* Para solucionar errores de implementación, vea [View deployment operations](./resource-manager-deployment-operations.md) (Ver operaciones de implementación).
-* Para exportar una plantilla de una implementación o el grupo de recursos, consulte [plantillas Azure Resource Manager exportar](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
-* Para el lanzamiento seguro del servicio en varias regiones, vea [Azure Deployment Manager](./deployment-manager-overview.md).
+
+- Para ver los registros de auditoría, consulte [Operaciones de auditoría con Resource Manager](./resource-group-audit.md).
+- Para solucionar errores de implementación, vea [View deployment operations](./resource-manager-deployment-operations.md) (Ver operaciones de implementación).
+- Para exportar una plantilla de una implementación o el grupo de recursos, consulte [plantillas Azure Resource Manager exportar](./manage-resource-groups-portal.md#export-resource-groups-to-templates).
+- Para el lanzamiento seguro del servicio en varias regiones, vea [Azure Deployment Manager](./deployment-manager-overview.md).

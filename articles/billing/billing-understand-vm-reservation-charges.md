@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: banders
-ms.openlocfilehash: e2ad086e767afc47fe72b52f934cb3bfc7cc146e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c8994041d525186dd55bb4f4475f7e68036454f6
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57849812"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649836"
 ---
 # <a name="understand-how-the-azure-reservation-discount-is-applied-to-virtual-machines"></a>Aprenda cómo se aplica un descuento en la reserva de Azure a las máquinas virtuales
 
@@ -61,15 +61,15 @@ Al comprar una instancia reservada de máquina virtual, si selecciona **Optimiza
 
 Para obtener más información acerca de Azure Reservations, consulte los siguientes artículos:
 
-- [¿Qué es Azure Reservations?](billing-save-compute-costs-reservations.md)
+- [¿Cuáles son las reservas para Azure?](billing-save-compute-costs-reservations.md)
 - [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
-- [Administración de Azure Reservations](billing-manage-reserved-vm-instance.md)
+- [Administrar reservas para Azure](billing-manage-reserved-vm-instance.md)
 - [Información sobre el uso de reservas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)
 - [Información sobre el uso de reservas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
 - [Información sobre el uso de reservas para suscripciones de CSP](https://docs.microsoft.com/partner-center/azure-reservations)
-- [Costos de software de Windows no incluidos con Reservations](billing-reserved-instance-windows-software-costs.md)
+- [Costos de software de Windows no incluidos con reservas](billing-reserved-instance-windows-software-costs.md)
 
-## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
 
 Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técnico](https://go.microsoft.com/fwlink/?linkid=2083458).

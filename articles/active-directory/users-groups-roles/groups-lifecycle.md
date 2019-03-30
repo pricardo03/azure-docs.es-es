@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e4585e8e1a809824e63f917fed1cc8a9cfa646a
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 5c19ee3bdd14ee6a2c5b59294f475f6c18b570fa
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202935"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58660263"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Configuración de la directiva de expiración de grupos de Office 365
 
@@ -81,7 +81,7 @@ Cuando un grupo expira, el grupo se elimina un día después de la fecha de expi
 
 ![Notificaciones de correo electrónico de eliminación de grupo](./media/groups-lifecycle/deletion-notification.png)
 
-El grupo se puede restaurar a los 30 días de su eliminación mediante la selección de **Restaurar grupo** o por medio de los cmdlets de PowerShell, tal y como se describe en [Restauración de un grupo eliminado de Office 365 en Azure Active Directory](groups-restore-deleted.md).
+El grupo se puede restaurar a los 30 días de su eliminación mediante la selección de **Restaurar grupo** o por medio de los cmdlets de PowerShell, tal y como se describe en [Restauración de un grupo eliminado de Office 365 en Azure Active Directory](groups-restore-deleted.md). Tenga en cuenta que el período de restauración del grupo de 30 días no es personalizable.
     
 Si el grupo que restaura contiene documentos, sitios de SharePoint u otros objetos persistentes, el proceso completo de restauración del grupo y su contenido podría demorar hasta 24 horas.
 

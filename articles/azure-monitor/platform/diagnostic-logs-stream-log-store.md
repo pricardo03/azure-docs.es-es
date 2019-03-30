@@ -1,6 +1,6 @@
 ---
-title: Transmisión de registros de Azure Diagnostics a Log Analytics
-description: Aprenda a transmitir registros de Azure Diagnostics a un área de trabajo de Log Analytics.
+title: Registros de diagnóstico de Azure Stream al área de trabajo de Log Analytics en Azure Monitor
+description: Aprenda a transmitir registros de diagnóstico de Azure a un área de trabajo de Log Analytics en Azure Monitor.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,27 +8,26 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: bd760fca20a602127e7d33913547dcb2c6bc95f6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 33d8f2e7c65a786d1ecb389574fe186efb6fb705
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351574"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630784"
 ---
-# <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Transmisión de registros de Azure Diagnostics a Log Analytics
+# <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Registros de diagnóstico de Azure Stream al área de trabajo de Log Analytics en Azure Monitor
 
-**[Los registros de Azure Diagnostics](diagnostic-logs-overview.md)** se pueden transmitir casi en tiempo real a Azure Log Analytics mediante el portal, cmdlets de PowerShell o CLI de Azure.
+**[Registros de diagnóstico de Azure](diagnostic-logs-overview.md)**  se pueden transmitir casi en tiempo real a un área de trabajo de Log Analytics en Azure Monitor mediante el portal, cmdlets de PowerShell o CLI de Azure.
 
-## <a name="what-you-can-do-with-diagnostics-logs-in-log-analytics"></a>Qué se puede hacer con registros de diagnóstico en Log Analytics
+## <a name="what-you-can-do-with-diagnostics-logs-in-a-log-analytics-workspace"></a>¿Qué puede hacer con los diagnósticos de registros en un área de trabajo de Log Analytics
 
-Azure Log Analytics es una herramienta flexible de búsqueda y análisis de registros que permite obtener una visión general de los datos de registro sin procesar generados a partir de recursos de Azure. Entre estas funcionalidades, cabe destacar:
+Azure Monitor proporciona una herramienta de consulta y análisis de registros flexible que le permite obtener información sobre los datos de registro sin procesar generados a partir de los recursos de Azure. Entre estas funcionalidades, cabe destacar:
 
-* **Búsqueda de registros**: escriba consultas avanzadas sobre los datos de registro, correlacione registros de varios orígenes e incluso genere gráficos que se pueden anclar al panel de Azure.
-* **Generación de alertas**: detecte cuando uno o varios eventos coinciden con una consulta determinada y reciba notificaciones por correo electrónico o llamada de webhook.
-* **Soluciones**: use vistas preintegradas y paneles que aportan información inmediata sobre los datos de registro.
+* **Consulta de registro** -escritura de consultas avanzadas sobre los datos de registro, correlacione registros desde varios orígenes y generan gráficos que se pueden anclar al panel de Azure.
+* **Alertas** -detectar cuando uno o varios eventos coinciden con una consulta determinada y reciba notificaciones por una llamada de correo electrónico o webhook mediante Azure Monitor genera una alerta.
 * **Análisis avanzados**: aplique el aprendizaje automático y algoritmos de coincidencia de patrones para identificar posibles problemas revelados por los registros.
 
-## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics"></a>Habilitación de la transmisión de registros de diagnóstico a Log Analytics
+## <a name="enable-streaming-of-diagnostic-logs-to-log-analytics-workspace"></a>Habilitar el streaming de registros de diagnóstico al área de trabajo de Log Analytics
 
 Puede habilitar el streaming de registros de diagnóstico mediante programación, a través del portal o mediante la [API de REST de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). En cualquier caso, puede crear una configuración de diagnóstico en la que se especifica un área de trabajo de Log Analytics y las categorías de registro y métricas que desea enviar a dicha área de trabajo. Una **categoría de registro** de diagnóstico es un tipo de registro que puede proporcionar un recurso.
 
@@ -42,9 +41,8 @@ El área de trabajo de Log Analytics no tiene que estar en la misma suscripción
 >
 
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Streaming de registros de diagnóstico mediante el portal
-1. En el portal, desplácese a Azure Monitor y haga clic en **Configuración de diagnóstico**.
+1. En el portal, vaya a Azure Monitor y haga clic en **configuración de diagnóstico** en el **configuración** menú.
 
-    ![Sección de supervisión de Azure Monitor](media/diagnostic-logs-stream-log-store/diagnostic-settings-blade.png)
 
 2. Si lo desea, filtre la lista por tipo de recurso o por grupo de recursos y, a continuación, haga clic en el recurso para el que desea establecer la configuración de diagnóstico.
 
@@ -97,9 +95,9 @@ Puede agregar categorías adicionales al registro de diagnóstico mediante la in
 
 El argumento `--resource-group` solo es obligatorio si `--workspace` no es un identificador de objeto.
 
-## <a name="how-do-i-query-the-data-in-log-analytics"></a>¿Cómo se consultan los datos en Log Analytics?
+## <a name="how-do-i-query-the-data-from-a-log-analytics-workspace"></a>¿Cómo se puede consultar los datos de un área de trabajo de Log Analytics?
 
-En la hoja Búsqueda de registros del portal o en la experiencia de análisis avanzado como parte de Log Analytics, puede consultar los registros de diagnóstico como parte de la solución Log Management en la tabla AzureDiagnostics. También hay [varias soluciones para recursos de Azure](../../azure-monitor/insights/solutions.md) que se pueden instalar para obtener información inmediata sobre los datos del registro que va a enviar a Log Analytics.
+En la hoja de registros en el portal de Azure Monitor, puede consultar los registros de diagnóstico como parte de la solución de administración de registros en la tabla AzureDiagnostics. También hay [varias soluciones de supervisión para recursos de Azure](../../azure-monitor/insights/solutions.md) puede instalar para obtener información inmediata sobre los datos de registro va a enviar a Azure Monitor.
 
 ### <a name="known-limitation-column-limit-in-azurediagnostics"></a>Limitación conocida: límite de la columna en AzureDiagnostics
 Dado que muchos recursos enviar todos los tipos de datos se envían a la misma tabla (_AzureDiagnostics_), el esquema de esta tabla es el conjunto de superusuarios de los esquemas de todos los tipos de datos diferentes que se recopilan. Por ejemplo, si ha creado la configuración de diagnóstico de la colección de los siguientes tipos de datos, todos envían a la misma área de trabajo:

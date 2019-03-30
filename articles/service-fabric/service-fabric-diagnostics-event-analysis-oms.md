@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo visualizar y analizar eventos con 
 services: service-fabric
 documentationcenter: .net
 author: srrengar
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/21/2019
 ms.author: srrengar
-ms.openlocfilehash: 2f3106b33ab0cbea95efe2ac42c05a8543719190
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: ba4923edbc59f0e6650fda1a71e1c4f79b884cf2
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246923"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662166"
 ---
 # <a name="event-analysis-and-visualization-with-azure-monitor-logs"></a>Análisis de eventos y la visualización con registros de Azure Monitor
- Registros de Azure Monitor recopila y analiza datos de telemetría de aplicaciones y servicios hospedados en la nube y proporciona las herramientas de análisis para ayudar a maximizar su disponibilidad y rendimiento. En este artículo se describe cómo ejecutar consultas en los registros de Azure Monitor para obtener información y solucionar problemas de lo que sucede en el clúster. Se tratan las siguientes preguntas habituales:
+ Los registros de Azure Monitor recopilan y analizan la telemetría de las aplicaciones y los servicios hospedados en la nube y proporcionan herramientas de análisis para ayudarle a maximizar su disponibilidad y rendimiento. En este artículo se describe cómo ejecutar consultas en los registros de Azure Monitor para obtener información y solucionar problemas de lo que sucede en el clúster. Se tratan las siguientes preguntas habituales:
 
 * ¿Cómo se solucionan los eventos de mantenimiento?
 * ¿Cómo se puede saber si un nodo deja de funcionar?
@@ -49,7 +49,7 @@ En `Summary`, verá iconos en forma de grafo para cada una de las soluciones hab
 
 ![Solución Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_summary.PNG)
 
-La siguiente imagen muestra la página principal de la solución Service Fabric Analytics. Esta página principal proporciona una vista de instantánea de lo que sucede en el clúster.
+En la siguiente imagen se muestra la página principal de la solución Service Fabric Analytics. Esta página principal proporciona una instantánea de lo que sucede en el clúster.
 
 ![Solución Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_solution.PNG)
 
@@ -62,13 +62,13 @@ La siguiente imagen muestra la página principal de la solución Service Fabric 
 >[!NOTE]
 >Además de los eventos de Service Fabric estándar, se pueden recopilar eventos del sistema más detallados mediante la [actualización de la configuración de la extensión de diagnósticos](service-fabric-diagnostics-event-aggregation-wad.md#log-collection-configurations).
 
-## <a name="view-service-fabric-events-including-actions-on-nodes"></a>Ver eventos de tejido de servicio, incluidas las acciones en nodos
+## <a name="view-service-fabric-events-including-actions-on-nodes"></a>Visualización de eventos de Service Fabric, como acciones en nodos
 
 En la página de Service Fabric Analytics, haga clic en el grafo de **eventos de Service Fabric**.
 
 ![Canal operativo de la solución Service Fabric](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events_selection.png)
 
-Haga clic en **Lista** para ver los eventos en una lista. Una vez aquí, verá todos los eventos del sistema que se han recopilado. Como referencia, proceden de la **WADServiceFabricSystemEventsTable** en el almacenamiento de Azure cuenta y lo mismo para los eventos de servicios y los actores confiables que ve a continuación provienen de esas tablas respectivas.
+Haga clic en **Lista** para ver los eventos en una lista. Una vez aquí, verá todos los eventos del sistema que se han recopilado. Como referencia, proceden de **WADServiceFabricSystemEventsTable** en la cuenta de Azure Storage y, de manera similar, los eventos de Reliable Services y Reliable Actors que ve a continuación provienen de esas tablas respectivas.
     
 ![Canal operativo de consulta](media/service-fabric-diagnostics-event-analysis-oms/oms_service_fabric_events.png)
 
@@ -114,5 +114,5 @@ El lenguaje de consulta Kusto es eficaz. Otra consulta valiosa que puede ejecuta
 * Para habilitar la supervisión de la infraestructura, es decir, los contadores de rendimiento, vea cómo [agregar el agente de Log Analytics](service-fabric-diagnostics-oms-agent.md). El agente recopila los contadores de rendimiento y los agrega al área de trabajo existente.
 * Para los clústeres locales, los registros de Azure Monitor ofrece una puerta de enlace (Proxy de reenvío HTTP) que puede utilizarse para enviar datos a los registros de Azure Monitor. Obtenga más información en [para conectar equipos sin acceso a Internet a los registros de Azure Monitor con la puerta de enlace de Log Analytics](../azure-monitor/platform/gateway.md).
 * Configure [alertas automáticas](../log-analytics/log-analytics-alerts.md) para facilitar la detección y el diagnóstico.
-* Familiarícese con la [búsqueda de registros y realizar consultas](../log-analytics/log-analytics-log-searches.md) características se ofrecen como parte de los registros de Azure Monitor.
+* Familiarícese con las característica de [búsqueda de registros y consulta](../log-analytics/log-analytics-log-searches.md) que se ofrecen como parte de los registros de Azure Monitor.
 * Obtenga una introducción más detallada de los registros de Azure Monitor y lo que ofrece, leer [What ' s registros de Azure Monitor?](../operations-management-suite/operations-management-suite-overview.md).

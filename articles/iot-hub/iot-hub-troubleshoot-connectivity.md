@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: jlian
-ms.openlocfilehash: 9057245c108e4a1b9af2549bc87f98258da50535
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 6cc5e45ab28a1c83125a37cefb289b1662096eb0
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57240174"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58648826"
 ---
 # <a name="detect-and-troubleshoot-disconnects-with-azure-iot-hub"></a>Detección y solución de problemas de desconexiones con Azure IoT Hub
 
@@ -32,7 +32,7 @@ Para registrar errores y eventos de conexión de dispositivos, active los diagn�
 1. Seleccione **Configuración de diagnóstico**.
 1. Seleccione **Activar diagnósticos**.
 1. Habilite los registros de **Conexiones** para que se recopilen.
-1. Para facilitar el análisis, debe activar **Enviar a Log Analytics** ([consulte los precios](https://azure.microsoft.com/pricing/details/log-analytics/)). Consulte el ejemplo en la sección dedicada a [resolver los errores de conectividad](#Resolve-connectivity-errors).
+1. Para facilitar el análisis, debe activar **Enviar a Log Analytics** ([consulte los precios](https://azure.microsoft.com/pricing/details/log-analytics/)). Consulte el ejemplo en la sección dedicada a [resolver los errores de conectividad](#resolve-connectivity-errors).
 
    ![Configuración recomendada][2]
 
@@ -40,15 +40,14 @@ Para obtener más información, consulte [Supervisión del mantenimiento de Azur
 
 ### <a name="set-up-alerts-for-the-connected-devices-count-metric"></a>Configuración de alertas de la métrica de recuento de _dispositivos conectados_
 
-Para recibir alertas cuando los dispositivos se desconecten, configure alertas en la métrica **Dispositivos conectados**.
+Para obtener alertas cuando los dispositivos se desconectan, configurar alertas en el **(versión preliminar) de los dispositivos conectados** métrica.
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 1. Vaya a su instancia de IoT Hub.
-1. Seleccione **Alertas (clásico)**.
-1. Seleccione **Agregar una alerta de métrica (clásica)**.
-1. Rellene el formulario y seleccione **Aceptar**.
-
-   ![Alerta de métrica recomendada][3]
+1. Seleccione **Alertas**.
+1. Seleccione **nueva regla de alerta**.
+1. Seleccione **Agregar condición**, a continuación, seleccione "Conectado los dispositivos (versión preliminar)".
+1. Fin de configurar los umbrales deseados y las opciones de alertas por indicaciones siguientes.
 
 Para obtener más información, consulte [¿Qué son las alertas clásicas en Microsoft Azure?](../azure-monitor/platform/alerts-overview.md)
 

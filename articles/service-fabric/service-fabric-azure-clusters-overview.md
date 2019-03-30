@@ -4,7 +4,7 @@ description: Los clústeres de Service Fabric se ejecutan en Windows Server y Li
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: ''
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/01/2019
 ms.author: dekapur
-ms.openlocfilehash: a968b173357bf8bcb83990b891f38306895b4ca8
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: d1681aee9dc11f0dbd3133bced0b919a8c1623b8
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55966833"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670479"
 ---
 # <a name="overview-of-service-fabric-clusters-on-azure"></a>Introducción a los clústeres de Service Fabric en Azure
 Un clúster de Service Fabric es un conjunto de máquinas físicas o virtuales conectadas a la red, en las que se implementan y administran los microservicios. Una máquina física o virtual que forma parte de un clúster se denomina nodo del clúster. Los clústeres pueden escalarse a miles de nodos. Si agrega nuevos nodos al clúster, Service Fabric reequilibra las réplicas e instancias de la partición del servicio en el número aumentado de nodos. El rendimiento general de la aplicación mejora y se reduce la contención para el acceso a la memoria. Si los nodos del clúster no se usan de forma eficaz, puede reducir su número de nodos. Service Fabric vuelve a reequilibrar las réplicas e instancias de la partición en el número reducido de nodos para aprovechar mejor el hardware de cada nodo.
@@ -71,7 +71,7 @@ La seguridad de nodo a nodo protege la comunicación entre las máquinas virtual
 Para obtener más información, lea sobre la [seguridad de nodo a nodo](service-fabric-cluster-security.md#node-to-node-security)
 
 ### <a name="client-to-node-security"></a>Seguridad de cliente a nodo
-La seguridad de cliente a nodo autentica los clientes y ayuda a proteger la comunicación entre un cliente y los nodos individuales del clúster. Este tipo de seguridad ayuda a garantizar que solo los usuarios autorizados accedan al clúster y a las aplicaciones implementadas en él. Los clientes se identifican exclusivamente mediante sus credenciales de seguridad del certificado X.509. Puede utilizarse cualquier número de certificados de cliente opcionales para autenticar a los clientes administradores o usuarios con el clúster.
+La seguridad de cliente a nodo autentica los clientes y ayuda a proteger la comunicación entre un cliente y los nodos individuales del clúster. Este tipo de seguridad ayuda a garantizar que solo los usuarios autorizados accedan al clúster y a las aplicaciones implementadas en él. Los clientes se identifican de forma exclusiva mediante sus credenciales de seguridad del certificado X.509. Puede utilizarse cualquier número de certificados de cliente opcionales para autenticar a los clientes administradores o usuarios con el clúster.
 
 Además de los certificados de cliente, Azure Active Directory también puede configurarse para autenticar a los clientes con el clúster.
 

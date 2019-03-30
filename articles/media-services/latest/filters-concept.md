@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 78d6ac0a4ecde8d60a0ef3aa22515c7ce1ea4e07
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 61b877c322fcd58472990c328beea2e309502bce
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309545"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652355"
 ---
 # <a name="define-account-filters-and-asset-filters"></a>Definición de filtros de cuenta y de recurso  
 
@@ -58,7 +58,7 @@ Utilice las siguientes propiedades para describir los filtros.
 |NOMBRE|DESCRIPCIÓN|
 |---|---|
 |firstQuality|La velocidad de bits de primera calidad del filtro.|
-|presentationTimeRange|El intervalo de tiempo de la presentación. Esta propiedad se utiliza para filtrar los puntos de inicio y de fin del manifiesto, la duración de la ventana de presentación y la posición de inicio activa. <br/>Para más información, consulte [PresentationTimeRange](#PresentationTimeRange).|
+|presentationTimeRange|El intervalo de tiempo de la presentación. Esta propiedad se utiliza para filtrar los puntos de inicio y de fin del manifiesto, la duración de la ventana de presentación y la posición de inicio activa. <br/>Para más información, consulte [PresentationTimeRange](#presentationtimerange).|
 |tracks|Las condiciones de selección de pistas. Para más información, consulte [Pistas](#tracks).|
 
 ### <a name="presentationtimerange"></a>presentationTimeRange

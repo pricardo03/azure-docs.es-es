@@ -4,7 +4,7 @@ description: 'Service Fabric ofrece dos marcos para la creación de servicios: e
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: vturecek
 ms.assetid: 974b2614-014e-4587-a947-28fcef28b382
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: d791148e6ee023239b0a6bf49c705c2da4eea9a2
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: d764cbe2df78cb9029a4109caa2998ddded5d6ff
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56881879"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58665719"
 ---
 # <a name="service-fabric-programming-model-overview"></a>Información general del modelo de programación de Service Fabric
 Service Fabric ofrece varias maneras de escribir y administrar los servicios. Los servicios pueden optar por usar las API de Service Fabric para sacar el máximo provecho de los marcos de aplicaciones y las características de la plataforma. Los servicios también pueden ser cualquier programa ejecutable compilado escrito en cualquier lenguaje o código que se ejecute en un contenedor hospedado en un clúster de Service Fabric.

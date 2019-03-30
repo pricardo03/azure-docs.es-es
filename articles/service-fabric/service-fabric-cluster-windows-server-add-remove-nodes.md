@@ -4,7 +4,7 @@ description: Obtenga información sobre cómo agregar o quitar nodos en un clús
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: bc6b8fc0-d2af-42f8-a164-58538be38d02
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: e9b87c19977fe35132d80729810c3a0547c486fe
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c9e771d97c037ddd07834025063233c3ede1f0c2
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446119"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58668499"
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Incorporación o eliminación de nodos de un clúster de Service Fabric independiente con Windows Server
 Una vez que [cree su clúster de Service Fabric independiente en máquinas con Windows Server](service-fabric-cluster-creation-for-windows-server.md), puede que las necesidades (empresariales) cambien y que deba agregar o eliminar nodos del clúster. En este artículo, se muestran los pasos detallados para llevarlo a cabo. Tenga en cuenta que no se permite agregar o eliminar nodos en los clústeres de desarrollo local.

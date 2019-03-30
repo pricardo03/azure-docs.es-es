@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: c5b70d40ed43cfc5d1c7a826c639d00d394733fb
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
-ms.translationtype: HT
+ms.openlocfilehash: 43ccc8e53c30219630ad10ee66a4db38656818e6
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038448"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651012"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-powershell"></a>Habilitación de la conexión a Escritorio remoto para un rol de Azure Cloud Services mediante PowerShell
 
@@ -33,12 +33,11 @@ Escritorio remoto le permite tener acceso al escritorio de un rol que se ejecuta
 En este artículo se describe cómo habilitar Escritorio remoto en los roles del servicio en la nube con PowerShell. Para conocer los requisitos previos necesarios para este artículo, consulte [Cómo instalar y configurar Azure PowerShell](/powershell/azure/overview) . PowerShell usa la extensión de Escritorio remoto, por lo que Escritorio remoto se puede habilitar después de la implementación de la aplicación.
 
 ## <a name="configure-remote-desktop-from-powershell"></a>Configuración de Escritorio remoto desde PowerShell
-
 El cmdlet [Set-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure/set-azureserviceremotedesktopextension?view=azuresmps-3.7.0) permite habilitar Escritorio remoto en los roles especificados o en todos los roles de la implementación del servicio en la nube. Este cmdlet permite especificar el nombre de usuario y la contraseña del usuario de Escritorio remoto a través del parámetro *Credential* , que acepta un objeto PSCredential.
 
 Si PowerShell se usa de forma interactiva, el objeto PSCredential se puede establecer fácilmente mediante una llamada al cmdlet [Get-Credentials](https://technet.microsoft.com/library/hh849815.aspx) .
 
-```
+```powershell
 $remoteusercredentials = Get-Credential
 ```
 
@@ -48,7 +47,7 @@ Dado que PowerShell sirve de ayuda en los escenarios de automatización, tambié
 
 También puede crear un archivo de contraseña segura para que no tenga que escribir la contraseña cada vez. Además, un archivo de contraseña segura es mejor que un archivo de texto sin formato. Use la siguiente instrucción de PowerShell para crear un archivo de contraseña seguro:
 
-```
+```powershell
 ConvertTo-SecureString -String "Password123" -AsPlainText -Force | ConvertFrom-SecureString | Set-Content "password.txt"
 ```
 
@@ -61,7 +60,7 @@ El cmdlet [Set-AzureServiceRemoteDesktopExtension](/powershell/module/serviceman
 
 En este ejemplo de PowerShell se muestra cómo establecer la extensión de Escritorio remoto en un servicio en la nube:
 
-```
+```powershell
 $servicename = "cloudservice"
 $username = "RemoteDesktopUser"
 $securepassword = Get-Content -Path "password.txt" | ConvertTo-SecureString
@@ -77,7 +76,7 @@ La extensión de Escritorio remoto se asocia con una implementación. Si crea un
 
 El cmdlet [Get-AzureRemoteDesktopFile](/powershell/module/servicemanagement/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) se usa para introducir Escritorio remoto en una instancia de rol específica del servicio en la nube. Puede usar el parámetro *LocalPath* para descargar el archivo RDP localmente. O bien puede usar el parámetro *Launch* para iniciar directamente el cuadro de diálogo Conexión a Escritorio remoto para tener acceso a la instancia de rol del servicio en la nube.
 
-```
+```powershell
 Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -Launch
 ```
 
@@ -85,7 +84,7 @@ Get-AzureRemoteDesktopFile -ServiceName $servicename -Name "WorkerRole1_IN_0" -L
 
 El cmdlet [Get-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure/get-azureremotedesktopfile?view=azuresmps-3.7.0) muestra si Escritorio remoto está habilitado o no en una implementación de servicio. El cmdlet devuelve el nombre de usuario del usuario de Escritorio remoto y los roles en la que está habilitada la extensión de Escritorio remoto. De forma predeterminada, esto se realiza en la ranura de implementación y se puede utilizar la ranura de ensayo en su lugar.
 
-```
+```powershell
 Get-AzureServiceRemoteDesktopExtension -ServiceName $servicename
 ```
 
@@ -95,7 +94,7 @@ Si ya habilitó la extensión de Escritorio remoto en una implementación y nece
 
 Para quitar la extensión de Escritorio remoto de la implementación, puede usar el cmdlet [Remove-AzureServiceRemoteDesktopExtension](/powershell/module/servicemanagement/azure/remove-azureserviceremotedesktopextension?view=azuresmps-3.7.0) . Opcionalmente, también puede especificar la ranura de implementación y los roles de los que desea habilitar la extensión de Escritorio remoto.
 
-```
+```powershell
 Remove-AzureServiceRemoteDesktopExtension -ServiceName $servicename -UninstallConfiguration
 ```
 

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 8066285e90903870937f28a62ef9fe8b2f6be55c
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 04a99be40f1a89d834c560bddf3f49c2a73f34b8
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56005495"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650264"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Pago por adelantado por recursos de proceso de SQL Database con capacidad reservada de Azure SQL Database
 
@@ -70,6 +70,8 @@ Si tiene que cancelar la reserva de capacidad de SQL Database, podría aplicarse
 
 Si necesita cambiar la reserva de capacidad de SQL Database por una región, un tipo de implementación, un nivel de rendimiento o un período diferentes, puede intercambiarla por otra reserva de valor igual o mayor. La fecha de inicio del período de la nueva reserva no se extiende desde la reserva intercambiada. Al crear la nueva reserva empieza el período de 1 o 3 años. Para solicitar un intercambio, vaya a la reserva en Azure Portal y seleccione **Cambio** para crear una solicitud de soporte técnico.
 
+Para obtener más información acerca de cómo las reservas de direcciones de exchange o un reembolso, consulte [intercambios de reserva y los reembolsos](../billing/billing-azure-reservations-self-service-exchange-and-refund.md).
+
 ## <a name="vcore-size-flexibility"></a>Flexibilidad de tamaño del núcleo virtual
 
 La flexibilidad de tamaño del núcleo virtual le ayuda a escalar o reducir verticalmente dentro de un nivel de rendimiento y una región, sin perder los beneficios de la capacidad reservada. La capacidad reservada de SQL Database también le proporciona la flexibilidad para mover temporalmente las bases de datos de acceso frecuente entre grupos y bases de datos únicas como parte de las operaciones normales (dentro de la misma región y el mismo nivel de rendimiento) sin perder las ventajas de la capacidad reservada. Si se mantiene un búfer no aplicado en la reserva, puede administrar de manera eficaz los picos de rendimiento sin sobrepasar el presupuesto.
@@ -92,4 +94,3 @@ Para obtener más información acerca de Azure Reservations, consulte los siguie
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
 
 Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
-

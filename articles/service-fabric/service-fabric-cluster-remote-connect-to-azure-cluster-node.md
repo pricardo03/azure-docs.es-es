@@ -4,7 +4,7 @@ description: Aprenda a conectarse de forma remota a una instancia del conjunto d
 services: service-fabric
 documentationcenter: .net
 author: aljo-microsoft
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 5441e7e0-d842-4398-b060-8c9d34b07c48
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
 ms.author: aljo
-ms.openlocfilehash: 28424f9a7a0f77882ee3360c5599549303075c18
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 4cc2d6355a0147c33048f1c2c27a3648b9223db4
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34642580"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58663781"
 ---
 # <a name="remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node"></a>Conexión remota a una instancia de conjunto de escalado de máquinas virtuales o a un nodo de clúster
 En un clúster de Service Fabric que se ejecuta Azure, cada tipo de nodo de clúster que defina [configura una escala independiente de la máquina virtual](service-fabric-cluster-nodetypes.md).  También puede conectarse de forma remota a instancias específicas del conjunto de escalado (nodos de clúster).  A diferencia de las máquinas virtuales de instancia única, las instancias de conjuntos de escalado no tienen direcciones IP virtuales. Esto puede resultar un poco complicado si desea obtener una dirección IP y un puerto que pueda usar para conectarse de manera remota a una instancia específica.
@@ -28,7 +28,7 @@ Para buscar una dirección IP y un puerto que pueda usar para conectarse remotam
 
 1. Obtenga las reglas de NAT de entrada para Protocolo de escritorio remoto (RDP).
 
-    Normalmente, cada tipo de nodo definido en el clúster tiene su propia dirección IP virtual y un equilibrador de carga dedicado. De forma predeterminada, el equilibrador de carga para un tipo de nodo se denomina con el formato siguiente: *LB-{nombre-clúster}-{tipo de nodo}*; por ejemplo, *LB-mycluster-front-end*. 
+    Normalmente, cada tipo de nodo definido en el clúster tiene su propia dirección IP virtual y un equilibrador de carga dedicado. De forma predeterminada, el equilibrador de carga para un tipo de nodo se denomina con el formato siguiente: *LB-{nombre-clúster}-{tipo de nodo}*; por ejemplo, *mycluster-LB-FrontEnd*. 
     
     En Azure Portal, en la página del equilibrador de carga, seleccione **Configuración** > **Reglas NAT de entrada**. 
 

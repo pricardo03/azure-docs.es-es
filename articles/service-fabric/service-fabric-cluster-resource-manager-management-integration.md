@@ -4,7 +4,7 @@ description: Una visión general de los puntos de integración entre el Administ
 services: service-fabric
 documentationcenter: .net
 author: masnider
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 956cd0b8-b6e3-4436-a224-8766320e8cd7
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: a51593753cab8a6b07d99df46560808de5400047
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: c201945e94474d54b8a19918f3b55a0b40995a97
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56737933"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670326"
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integración del Administrador de recursos de clúster con la administración de clústeres de Service Fabric
 Cluster Resource Manager de Service Fabric no impulsa las actualizaciones en Service Fabric, pero participa. Cluster Resource Manager contribuye a la administración, en primer lugar, realizando un seguimiento del estado deseado del clúster y los servicios que contiene. Además, envía informes de mantenimiento cuando no puede colocar el clúster en la configuración deseada. Por ejemplo, si no hay capacidad suficiente, Cluster Resource Manager envía advertencias y errores de estado que indican el problema. Otro aspecto de la integración tiene que ver con el funcionamiento de las actualizaciones. Durante ellas, Cluster Resource Manager modifica ligeramente su comportamiento.  

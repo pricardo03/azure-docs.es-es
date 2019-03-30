@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2019
 ms.author: spelluru
-ms.openlocfilehash: 4f6d94c7090c2bbb0335d46b60be320b2fc19375
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: c6ae28e076d14faa7c2173f3a23d92daad4bd59e
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55962832"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58651130"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Administración de laboratorios de clase en Azure Lab Services 
 En este artículo se describe cómo crear y eliminar un laboratorio de clase. También se muestra cómo ver todos los laboratorios de clase de una cuenta de laboratorio. 
@@ -37,9 +37,9 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
 
         ![Creación de un laboratorio educativo](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. En la página **Seleccionar especificaciones de máquina virtual**, realice los pasos siguientes:
-    1. Seleccione un **tamaño** para las máquinas virtuales (VM) creadas en el laboratorio. 
+    1. Seleccione un **tamaño** para las máquinas virtuales (VM) creadas en el laboratorio. Actualmente, **pequeño**, **medio**, **grandes**, y **GPU** se permiten tamaños.
     2. Seleccione la **región** en la que quiere que se creen las máquinas virtuales. 
-    3. Seleccione la **imagen de máquina virtual** que se usará para crear máquinas virtuales en el laboratorio. 
+    3. Seleccione la **imagen de máquina virtual** que se usará para crear máquinas virtuales en el laboratorio. Si selecciona una imagen de Linux, verá una opción para habilitar la conexión a Escritorio remoto para él. Para obtener más información, consulte [Habilitar conexión a Escritorio remoto para Linux](how-to-enable-remote-desktop-linux.md).
     4. Seleccione **Next** (Siguiente).
 
         ![Especificaciones de máquina virtual](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -60,7 +60,7 @@ Para configurar un laboratorio de clase en una cuenta de laboratorio, debe ser m
     ![Página Configurar plantilla una vez terminada](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. Los pasos siguientes son opcionales para este tutorial: 
     1. Seleccione **Iniciar** para iniciar la plantilla de máquina virtual.
-    2. Seleccione **Conectar** para conectarse a la plantilla de máquina virtual. 
+    2. Seleccione **Conectar** para conectarse a la plantilla de máquina virtual. Si es una máquina virtual de la plantilla de Linux, decide si desea conectarse mediante SSH o RDP (si está habilitado RDP).
     3. Instale y configure el software en la plantilla de máquina virtual. 
     4. **Pare** la máquina virtual.  
     5. Escriba una **descripción** para la plantilla.

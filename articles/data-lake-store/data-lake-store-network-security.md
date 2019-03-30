@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/09/2018
 ms.author: elsung
-ms.openlocfilehash: 557f331136726110db2a19e20b9d2f5f971ad384
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 362129b4ccd0e46b6ffc682e7232c62c196ef334
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57772915"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652136"
 ---
 # <a name="virtual-network-integration-for-azure-data-lake-storage-gen1"></a>Integración de la red virtual en Azure Data Lake Storage Gen1
 
@@ -75,7 +75,7 @@ Algunas de las opciones disponibles son las siguientes:
 
 - Los clústeres de HDInsight que se crearon antes de que estuviera disponible la compatibilidad con la integración de red virtual de Data Lake Storage Gen1 deben volver a crearse para admitir esta nueva característica.
  
-- Al crear un nuevo clúster de HDInsight y seleccionar una cuenta de Data Lake Storage Gen1 con la integración de red virtual habilitada, se produce un error en el proceso. En primer lugar, deshabilite la regla de red virtual. O bien, en la hoja **Firewall y redes virtuales** de la cuenta de Data Lake Storage, seleccione **Allow access from all networks and services** (Permitir el acceso desde todas las redes y servicios). A continuación, cree el clúster de HDInsight antes de volver a habilitar la regla de red virtual o anular la selección de **Allow access from all networks and services** (Permitir el acceso desde todas las redes y servicios). Para más información, consulte la sección [Excepciones](##Exceptions).
+- Al crear un nuevo clúster de HDInsight y seleccionar una cuenta de Data Lake Storage Gen1 con la integración de red virtual habilitada, se produce un error en el proceso. En primer lugar, deshabilite la regla de red virtual. O bien, en la hoja **Firewall y redes virtuales** de la cuenta de Data Lake Storage, seleccione **Allow access from all networks and services** (Permitir el acceso desde todas las redes y servicios). A continuación, cree el clúster de HDInsight antes de volver a habilitar la regla de red virtual o anular la selección de **Allow access from all networks and services** (Permitir el acceso desde todas las redes y servicios). Para más información, consulte la sección [Excepciones](#exceptions).
 
 - La integración de red virtual de Data Lake Storage Gen1 no funciona con [identidades administradas para recursos de Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
   
