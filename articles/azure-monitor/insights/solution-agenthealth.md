@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: cca234340526b732067adac3c6725f8aa5acc47c
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 294695cceaed39a66a57dcd3a165ca276b6801c6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983393"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757963"
 ---
-#  <a name="agent-health-solution-in-azure"></a>Solución Agent Health en Azure
-La solución Agent Health en Azure le ayuda a entender, para todos los agentes que informan directamente en el área de trabajo de Log Analytics o un grupo de administración de System Center Operations Manager conectado a Azure Monitor, que no responde bien y enviar operativa datos.  También puede realizar un seguimiento del número de agentes que se implementan, dónde están distribuidos geográficamente y llevar a cabo otras consultas para mantener el conocimiento de la distribución de los agentes implementados en Azure, en otros entornos de nube o en un entorno local.    
+#  <a name="agent-health-solution-in-azure-monitor"></a>Solución Agent Health en Azure Monitor
+La solución Agent Health en Azure le ayudará a comprender, para todos los agentes que informan directamente al área de trabajo de Log Analytics en Azure Monitor o un grupo de administración de System Center Operations Manager conectado a Azure Monitor, que son no responde y enviar datos operativos.  También puede realizar un seguimiento del número de agentes que se implementan, dónde están distribuidos geográficamente y llevar a cabo otras consultas para mantener el conocimiento de la distribución de los agentes implementados en Azure, en otros entornos de nube o en un entorno local.    
 
 ## <a name="prerequisites"></a>Requisitos previos
 Antes de implementar esta solución, confirme que tiene actualmente [agentes de Windows](../../log-analytics/log-analytics-windows-agent.md) compatibles que informan al área de trabajo de Log Analytics o a un [grupo de administración de Operations Manager](../../azure-monitor/platform/om-agents.md) integrado con el área de trabajo.
@@ -62,7 +62,7 @@ Haga clic en el icono **Agent Health** para abrir el panel **Agent Health**.  El
 | Distribution by OS Type (Distribución por tipo de sistema operativo) | Una división de cuántos agentes de Windows y Linux tiene en su entorno.|
 | Distribution by Agent Version (Distribución por versión del agente) | Una división de las diferentes versiones de agente instaladas en su entorno y el número de cada una de ellas.|
 | Distribution by Agent Category (Distribución por categoría del agente) | Una división de las diferentes categorías de agentes que envían eventos de latido: agentes directos, agentes de OpsMgr o el servidor de administración de OpsMgr.|
-| Distribution by Management Group (Distribución por grupo de administración) | Una división de los diferentes grupos de administración de SCOM en su entorno.|
+| Distribution by Management Group (Distribución por grupo de administración) | Una partición de los diferentes grupos de administración de Operations Manager en su entorno.|
 | Geo-location of Agents (Geolocalización de los agentes) | Una división de los diferentes países donde haya agentes y el número total de agentes instalados en cada país.|
 | Count of Gateways Installed (Número de puertas de enlace instaladas) | Número de servidores que tienen instalada la puerta de enlace de Log Analytics y una lista de estos servidores.|
 
@@ -117,4 +117,4 @@ En la tabla siguiente se proporcionan búsquedas de registros de ejemplo para lo
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Obtenga información sobre [alertas en Azure Monitor](../platform/alerts-overview.md) para obtener más información sobre la generación de alertas de Log Analytics. 
+* Obtenga información sobre [alertas en Azure Monitor](../platform/alerts-overview.md) para obtener más información sobre la generación de alertas de consultas de registros. 
