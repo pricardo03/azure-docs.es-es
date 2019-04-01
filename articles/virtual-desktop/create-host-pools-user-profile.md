@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: c9c2ca2cc27c5fa757b8ff6846e0a6a8f7087875
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: af4147de06f9fb7c856dfd93dc186f1a6e83ffff
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403721"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58628985"
 ---
-# <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configure un recurso compartido de perfil de usuario para un grupo host
+# <a name="set-up-a-user-profile-share-for-a-host-pool"></a>Configuración de un recurso compartido de archivos de perfil de usuario para un grupo host
 
 El servicio de Windows Vista previa del escritorio Virtual ofrece contenedores de perfil FSLogix como la solución de perfil de usuario recomendada. No se recomienda usar la solución de disco de perfil de usuario (UPD) y dejará de utilizarse en futuras versiones de Escritorio Virtual de Windows.
 
-En esta sección le indicará cómo configurar un recurso compartido de contenedor de FSLogix perfil para un grupo host.
+En esta sección le indicará cómo configurar un recurso compartido de contenedor de FSLogix perfil para un grupo host. Para obtener documentación general sobre FSLogix, consulte el [FSLogix sitio](https://docs.fslogix.com/).
 
 ## <a name="create-a-new-virtual-machine-that-will-act-as-a-file-share"></a>Crear una nueva máquina virtual que actúe como un recurso compartido de archivos
 
@@ -48,24 +48,24 @@ Los siguientes son instrucciones generales sobre cómo preparar una máquina vir
 6. Busque el grupo de seguridad al que agregó las máquinas virtuales de host de sesión y, después, asegúrese de que ese grupo tiene **Control total**.
 7. Después de agregar el grupo de seguridad, haga clic en la carpeta, seleccione **propiedades**, seleccione **compartir**, a continuación, copie el **ruta de acceso de red** para consultar más adelante.
 
-Para ver recomendaciones sobre los permisos, consulte lo siguiente [FSLogix documentación](https://support.fslogix.com/index.php/forum-main/faqs/84-best-practices#120).
+Para obtener más información acerca de los permisos, consulte el [FSLogix documentación](https://docs.fslogix.com/display/20170529/Requirements%2B-%2BProfile%2BContainers).
 
 ## <a name="configure-the-fslogix-profile-container"></a>Configurar el contenedor de perfil FSLogix
 
 Para configurar las máquinas virtuales con el software FSLogix, siga este procedimiento en cada máquina registrada en el grupo host:
 
 1. [Conectarse a la máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) con las credenciales que proporcionó al crear la máquina virtual.
-2. Inicie un explorador de internet y navegue al siguiente [vínculo](https://go.microsoft.com/fwlink/?linkid=2084562) para descargar el agente FSLogix. Como parte de la versión preliminar pública de Escritorio Virtual de Windows, obtendrá una clave de licencia para activar el software FSLogix. La clave es el archivo de LicenseKey.txt incluido en el archivo .zip de agente de FSLogix.
+2. Inicie un explorador de internet y vaya a [este vínculo](https://go.microsoft.com/fwlink/?linkid=2084562) para descargar el agente FSLogix. Como parte de la versión preliminar pública de Escritorio Virtual de Windows, obtendrá una clave de licencia para activar el software FSLogix. La clave es el archivo de LicenseKey.txt incluido en el archivo .zip de agente de FSLogix.
 3. Instale al agente FSLogix.
 4. Vaya a **archivos de programa** > **FSLogix** > **aplicaciones** para confirmar el agente instalado.
 5. En el menú Inicio, ejecutar **RegEdit** como administrador. Vaya a **equipo\\HKEY_LOCAL_MACHINE\\software\\FSLogix\\perfiles**
 6. Cree los siguientes valores:
 
-| name                | Tipo               | Datos y valor                        |
+| NOMBRE                | Type               | Datos y valor                        |
 |---------------------|--------------------|-----------------------------------|
-| Habilitada             | DWORD              | 1                                 |
+| habilitado             | DWORD              | 1                                 |
 | VHDLocations        | Valor de cadena múltiple | "Ruta de acceso de red para el recurso compartido de archivos" |
-| VolumeType          | String             |  VHDX                              |
+| VolumeType          | string             | VHDX                              |
 | SizeInMBs           | DWORD              | "entero para el tamaño del perfil"     |
 | IsDynamic           | DWORD              | 1                                 |
 | LockedRetryCount    | DWORD              | 1                                 |
