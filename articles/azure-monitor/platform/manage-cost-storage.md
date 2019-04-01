@@ -11,24 +11,24 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/20/2018
+ms.date: 03/29/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 5a8bd836322ae005b426707e0994bfdc19701fd8
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 599b1d3f522a0f287736808cce88163f1ef7f28f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295681"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755811"
 ---
-# <a name="manage-usage-and-costs-for-log-analytics"></a>Administración del uso y los costos para Log Analytics
+# <a name="manage-usage-and-costs-for-log-analytics-in-azure-monitor"></a>Administrar el uso y costos de Log Analytics en Azure Monitor
 
 > [!NOTE]
 > En este artículo se describe cómo controlar los costos en Log Analytics al establecer el período de retención de datos.  Consulte los artículos siguientes para obtener información relacionada.
 > - En [Análisis del uso de datos en Log Analytics](manage-cost-storage.md) se describe cómo analizar y alertar sobre el uso de datos.
 > - En [Supervisión del uso y costos estimados](usage-estimated-costs.md) se describe cómo ver el uso y los costos estimados a través de varias características de supervisión de Azure para los distintos modelos de precios. También describe cómo cambiar el modelo de precios.
 
-Log Analytics está diseñado para escalar y admitir la recopilación, indexación y almacenamiento de grandes cantidades de datos por día provenientes de cualquier origen dentro de su empresa o implementados en Azure.  Aunque esto puede ser un factor clave principal para su organización, la rentabilidad es en última instancia el factor clave subyacente. Con este fin, es importante comprender que el costo de un área de trabajo de Log Analytics no se basa simplemente en el volumen de datos recopilados, también depende del plan seleccionado y de cuánto tiempo se decida almacenar los datos generados a partir de los orígenes conectados.  
+Log Analytics en Azure Monitor está diseñado para escalar y admitir la recopilación, indexación y almacenar grandes cantidades de datos al día de cualquier origen de su empresa o implementados en Azure.  Aunque esto puede ser un factor clave principal para su organización, la rentabilidad es en última instancia el factor clave subyacente. Con este fin, es importante comprender que el costo de un área de trabajo de Log Analytics no se basa simplemente en el volumen de datos recopilados, también depende del plan seleccionado y de cuánto tiempo se decida almacenar los datos generados a partir de los orígenes conectados.  
 
 En este artículo revisamos cómo puede supervisar de forma proactiva el crecimiento del volumen y del almacenamiento de datos, y definir los límites para controlar esos costos asociados. 
 
@@ -114,8 +114,6 @@ Si el área de trabajo de Log Analytics tiene acceso a los planes de tarifa here
 
 Si desea mover el área de trabajo al plan de tarifa actual, deberá [cambiar el modelo de precios de su suscripción en Azure Monitor](usage-estimated-costs.md#moving-to-the-new-pricing-model). Esta acción cambiará el plan de tarifa de todas las áreas de trabajo en esa suscripción.
 
-> [!NOTE]
-> Si el área de trabajo está vinculada a una cuenta de Automation, antes de seleccionar el plan de tarifa *Independiente (por GB)* debe eliminar todas las soluciones de **Automation and Control** y desvincular la cuenta de Automation. En la hoja del área de trabajo, en **General**, haga clic en **Soluciones** para ver y eliminar soluciones. Para desvincular la cuenta de Automation, haga clic en el nombre de la cuenta de Automation en la hoja **Plan de tarifa**.
 
 > [!NOTE]
 > Puede obtener más información acerca de [establecer el plan de tarifa a través de ARM](template-workspace-configuration.md#create-a-log-analytics-workspace) y cómo asegurarse de que la implementación de ARM se realizará correctamente, independientemente de si la suscripción está en el heredado o el nuevo modelo de precios. 

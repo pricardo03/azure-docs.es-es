@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b56ad57255f07c93c1bf5f981db07ad4ba57806d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 5077f09cba3548b03045011a7b8f16844156de55
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665668"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757637"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
@@ -147,7 +147,7 @@ Para obtener más información sobre la nueva **registros de auditoría** págin
 **Categoría del servicio:** Acceso condicional  
 **Funcionalidad del producto:** Seguridad y protección de la identidad
 
-Para ayudar a impedir que los administradores accidentalmente bloqueen a sí mismos fuera de sus propios inquilinos a través de directivas de acceso condicional mal configuradas, hemos creado nuevas advertencias y guía actualizada en el portal de Azure. Para obtener más información acerca de la nueva guía, consulte [¿cuáles son las dependencias del servicio de acceso condicional de Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
+Para ayudar a impedir que los administradores accidentalmente bloqueen a sí mismos fuera de sus propios inquilinos a través de directivas de acceso condicional mal configuradas, hemos creado nuevas advertencias y guía actualizada en el portal de Azure. Para obtener más información acerca de la nueva guía, consulte [¿cuáles son las dependencias del servicio de acceso condicional de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/service-dependencies).
 
 ---
 

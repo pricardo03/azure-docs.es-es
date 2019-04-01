@@ -4,17 +4,17 @@ description: Obtenga información sobre cómo un manifiesto de implementación d
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 11/28/2018
+ms.date: 03/28/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 0b221274923a6270e980d027aadc58154c7054b9
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: f4a562cab445398986c1b8f379f6cb90ca843342
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53099977"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758083"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Obtenga información sobre cómo implementar módulos y establecer rutas en IoT Edge
 
@@ -58,14 +58,14 @@ Los manifiestos de implementación siguen esta estructura:
                 // includes the routing information between modules, and to IoT Hub
             }
         },
-        "{module1}": {  // optional
+        "module1": {  // optional
             "properties.desired": {
-                // desired properties of {module1}
+                // desired properties of module1
             }
         },
-        "{module2}": {  // optional
+        "module2": {  // optional
             "properties.desired": {
-                // desired properties of {module2}
+                // desired properties of module2
             }
         },
         ...
@@ -75,9 +75,9 @@ Los manifiestos de implementación siguen esta estructura:
 
 ## <a name="configure-modules"></a>Configuración de módulos
 
-Defina cómo instala el entorno de ejecución de Azure IoT Edge los módulos en la implementación. El agente de IoT Edge es el componente del entorno de ejecución que administra la instalación, las actualizaciones y los informes de estado de un dispositivo IoT Edge. Por tanto, el módulo gemelo $edgeAgent requiere la información de configuración y administración de todos los módulos. Esta información incluye los parámetros de configuración para el propio agente de Edge. 
+Defina cómo instala el entorno de ejecución de Azure IoT Edge los módulos en la implementación. El agente de IoT Edge es el componente del entorno de ejecución que administra la instalación, las actualizaciones y los informes de estado de un dispositivo IoT Edge. Por tanto, el módulo gemelo $edgeAgent requiere la información de configuración y administración de todos los módulos. Esta información incluye los parámetros de configuración para el propio agente de IoT Edge. 
 
-Para ver una lista completa de propiedades que pueden o deben incluirse, consulte [Properties of the Edge agent and Edge hub](module-edgeagent-edgehub.md) (Propiedades del agente de Edge y el centro de Edge).
+Para obtener una lista completa de propiedades que puede o debe incluirse, consulte [propiedades del agente de IoT Edge y centro de IoT Edge](module-edgeagent-edgehub.md).
 
 Las propiedades de $edgeAgent siguen esta estructura:
 
@@ -101,10 +101,10 @@ Las propiedades de $edgeAgent siguen esta estructura:
             }
         },
         "modules": {
-            "{module1}": { // optional
+            "module1": { // optional
                 // configuration and management details
             },
-            "{module2}": { // optional
+            "module2": { // optional
                 // configuration and management details
             }
         }
@@ -122,8 +122,8 @@ Las rutas se declaran en las propiedades deseadas de **$edgeHub** con la sintaxi
 "$edgeHub": {
     "properties.desired": {
         "routes": {
-            "{route1}": "FROM <source> WHERE <condition> INTO <sink>",
-            "{route2}": "FROM <source> WHERE <condition> INTO <sink>"
+            "route1": "FROM <source> WHERE <condition> INTO <sink>",
+            "route2": "FROM <source> WHERE <condition> INTO <sink>"
         },
     }
 }
@@ -144,9 +144,9 @@ La propiedad de origen puede ser cualquiera de los siguientes valores:
 | `/twinChangeNotifications` | Todos los cambios de gemelos (propiedades notificadas) procedentes de todos los módulos o dispositivos de hoja. |
 | `/messages/*` | Cualquier mensaje de dispositivo a nube que envíe un módulo o dispositivo de hoja con alguna salida o sin ninguna. |
 | `/messages/modules/*` | Cualquier mensaje de dispositivo a nube que envíe un módulo con alguna salida o sin ninguna. |
-| `/messages/modules/{moduleId}/*` | Cualquier mensaje de dispositivo a nube que envíe un módulo específico con alguna salida o sin ninguna. |
-| `/messages/modules/{moduleId}/outputs/*` | Cualquier mensaje de dispositivo a nube que envíe un módulo específico mediante alguna salida. |
-| `/messages/modules/{moduleId}/outputs/{output}` | Cualquier mensaje de dispositivo a nube que envíe un módulo específico mediante una salida específica. |
+| `/messages/modules/<moduleId>/*` | Cualquier mensaje de dispositivo a nube que envíe un módulo específico con alguna salida o sin ninguna. |
+| `/messages/modules/<moduleId>/outputs/*` | Cualquier mensaje de dispositivo a nube que envíe un módulo específico mediante alguna salida. |
+| `/messages/modules/<moduleId>/outputs/<output>` | Cualquier mensaje de dispositivo a nube que envíe un módulo específico mediante una salida específica. |
 
 ### <a name="condition"></a>Condición
 La condición es opcional en una declaración de ruta. Si desea pasar todos los mensajes desde el receptor al origen, simplemente omita la cláusula **WHERE** por completo. O bien, puede usar el [lenguaje de consulta de IoT Hub](../iot-hub/iot-hub-devguide-routing-query-syntax.md) para filtrar por determinados mensajes o tipos de mensajes que cumplen la condición. Las rutas de IoT Edge no admiten mensajes de filtrado basados en etiquetas o propiedades de gemelos. 
@@ -175,11 +175,11 @@ La propiedad del receptor puede ser cualquiera de los siguientes valores:
 | Receptor | DESCRIPCIÓN |
 | ---- | ----------- |
 | `$upstream` | Envía el mensaje a IoT Hub. |
-| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Envía el mensaje a una entrada específica de un módulo específico. |
+| `BrokeredEndpoint("/modules/<moduleId>/inputs/<input>")` | Envía el mensaje a una entrada específica de un módulo específico. |
 
-IoT Edge proporciona garantías de por lo menos una vez. El centro de Edge almacena mensajes localmente en caso de que una ruta no pueda entregar el mensaje a su receptor. Por ejemplo, si el centro de Edge no se puede conectar a IoT Hub, o el módulo de destino no está conectado.
+IoT Edge proporciona garantías de por lo menos una vez. El centro de IoT Edge almacena los mensajes localmente en caso de una ruta no puede entregar el mensaje a su receptor. Por ejemplo, si el centro de IoT Edge no se puede conectar a IoT Hub o el módulo de destino no está conectado.
 
-El centro de Edge almacena los mensajes durante el tiempo especificado en la propiedad `storeAndForwardConfiguration.timeToLiveSecs` de las [propiedades deseadas del centro de Edge](module-edgeagent-edgehub.md).
+Centro de IoT Edge almacena los mensajes durante el tiempo especificado en el `storeAndForwardConfiguration.timeToLiveSecs` propiedad de la [propiedades deseadas del centro de IoT Edge](module-edgeagent-edgehub.md).
 
 ## <a name="define-or-update-desired-properties"></a>Definición o actualización de las propiedades deseadas 
 
@@ -207,7 +207,7 @@ El ejemplo siguiente muestra el aspecto de un documento de manifiesto de impleme
             "registryCredentials": {
               "ContosoRegistry": {
                 "username": "myacr",
-                "password": "{password}",
+                "password": "<password>",
                 "address": "myacr.azurecr.io"
               }
             }
@@ -273,6 +273,6 @@ El ejemplo siguiente muestra el aspecto de un documento de manifiesto de impleme
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para ver una lista completa de propiedades que pueden o deben incluirse en $edgeAgent y $edgeHub, consulte [Properties of the Edge agent and Edge hub](module-edgeagent-edgehub.md) (Propiedades del agente de Edge y el centro de Edge).
+* Para obtener una lista completa de propiedades que pueden o deben incluirse en $edgeAgent y $edgeHub, consulte [propiedades del agente de IoT Edge y centro de IoT Edge](module-edgeagent-edgehub.md).
 
 * Ahora que sabe cómo se usan los módulos de IoT Hub, [descubra los requisitos y las herramientas para desarrollar módulos de IoT Edge](module-development.md).

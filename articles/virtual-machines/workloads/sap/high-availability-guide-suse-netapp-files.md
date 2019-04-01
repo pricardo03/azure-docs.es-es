@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/015/2019
 ms.author: radeltch
-ms.openlocfilehash: 0d2edee8f4df6a2328ec99cc4d570687c4342c8a
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 02a97852a8dc659071c3484126b921d6f7106562
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540999"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662377"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server con Azure Files de NetApp para las aplicaciones de SAP
 
@@ -58,7 +58,7 @@ ms.locfileid: "58540999"
 [sap-hana-ha]:sap-hana-high-availability.md
 [nfs-ha]:high-availability-guide-suse-nfs.md
 
-Este artículo describe cómo implementar las máquinas virtuales, configurar las máquinas virtuales, instalar la plataforma del clúster e instalar un sistema SAP NetWeaver 7.50 de alta disponibilidad, mediante [Azure Files de NetApp](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction/).
+Este artículo describe cómo implementar las máquinas virtuales, configurar las máquinas virtuales, instalar la plataforma del clúster e instalar un sistema SAP NetWeaver 7.50 de alta disponibilidad, mediante [Azure Files de NetApp (en versión preliminar pública)](https://docs.microsoft.com/en-us/azure/azure-netapp-files/azure-netapp-files-introduction/).
 En las configuraciones de ejemplo, etc. mediante comandos de instalación, la instancia de ASCS es 00, el número de instancia ERS 01, la instancia de aplicación principal (PAS) el número es 02 y la instancia de aplicación (AAS) es 03. Se usa el control de calidad de Id. de sistema SAP. 
 
 En este artículo se explica cómo lograr una alta disponibilidad para aplicaciones de SAP NetWeaver con Azure Files de NetApp. La capa de base de datos no se trata en detalle en este artículo.

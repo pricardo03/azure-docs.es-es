@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 9d3bc50e1578704de029d53c0b1eaa21e74182cf
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 43cbeea554f43e4db7d5440af83a9b414741d2f6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401926"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756617"
 ---
 # <a name="api-management-advanced-policies"></a>Directivas avanzadas de API Management
 
@@ -127,15 +127,15 @@ En este ejemplo se muestra cómo filtrar contenido quitando elementos de datos d
 
 ### <a name="elements"></a>Elementos
 
-| Elemento   | Descripción                                                                                                                                                                                                                                                               | Obligatorio |
+| Elemento   | DESCRIPCIÓN                                                                                                                                                                                                                                                               | Obligatorio |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- |
 | choose    | Elemento raíz.                                                                                                                                                                                                                                                             | Sí      |
 | when      | La condición que se va a usar para las partes `if` o `ifelse` de la directiva `choose`. Si la directiva `choose` tiene varias secciones `when`, se evalúan de forma secuencial. Una vez que la instancia de `condition` de un elemento when se evalúa en `true`, ya no se evalúan más condiciones `when`. | Sí      |
-| otherwise | Contiene el fragmento de código de directiva que se utilizará si ninguna de las condiciones `when` se evalúan como `true`.                                                                                                                                                                               | No       |
+| otherwise | Contiene el fragmento de código de directiva que se utilizará si ninguna de las condiciones `when` se evalúan como `true`.                                                                                                                                                                               | Sin        |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo                                              | Descripción                                                                                               | Obligatorio |
+| Atributo                                              | DESCRIPCIÓN                                                                                               | Obligatorio |
 | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------- | -------- |
 | condition="Constante booleana &#124; Constante booleana" | La expresión o constante booleana que se evalúa cuando se evalúa la declaración de la directiva `when` que la contiene. | Sí      |
 
@@ -245,19 +245,19 @@ Esta directiva de nivel de operación no reenvía solicitudes al servicio back-e
 
 ### <a name="elements"></a>Elementos
 
-| Elemento         | Descripción   | Obligatorio |
+| Elemento         | DESCRIPCIÓN   | Obligatorio |
 | --------------- | ------------- | -------- |
 | forward-request | Elemento raíz. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo                               | Descripción                                                                                                      | Obligatorio | Predeterminadas     |
+| Atributo                               | DESCRIPCIÓN                                                                                                      | Obligatorio | Valor predeterminado     |
 | --------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | -------- | ----------- |
-| timeout="entero"                       | Tiempo de espera en segundos antes de que se produzca un error de la llamada al servicio back-end. Valor mínimo es 0 segundos. Los valores máximos es de 240 segundos.| No       | 240 segundos |
-| follow-redirects="true &#124; false"    | Especifica si la puerta de enlace sigue los redireccionamientos desde el servicio back-end o si estos se devuelven al autor de la llamada.      | No       | false       |
-| búfer de cuerpo de solicitud = "true &#124; false" | Cuando establece en "true" solicitud se almacena en búfer y volverá a usar en [vuelva a intentar](api-management-advanced-policies.md#Retry). | No       | false       |
+| timeout="entero"                       | Se produce la cantidad de tiempo en segundos de espera para que los encabezados de respuesta HTTP que va a devolver el servicio de back-end antes de un error de tiempo de espera. Valor mínimo es 0 segundos. Los valores mayores que 240 segundos es posible que no se puede respetar como la infraestructura de red subyacente pueden quitar las conexiones inactivas después de este momento. | Sin        | None |
+| follow-redirects="true &#124; false"    | Especifica si la puerta de enlace sigue los redireccionamientos desde el servicio back-end o si estos se devuelven al autor de la llamada.      | Sin        | false       |
+| búfer de cuerpo de solicitud = "true &#124; false" | Cuando establece en "true" solicitud se almacena en búfer y volverá a usar en [vuelva a intentar](api-management-advanced-policies.md#Retry). | Sin        | false       |
 
-### <a name="usage"></a>Utilización
+### <a name="usage"></a>Uso
 
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
@@ -296,16 +296,16 @@ En el ejemplo siguiente se muestra cómo limitar el número de solicitudes que s
 
 ### <a name="elements"></a>Elementos
 
-| Elemento           | Descripción   | Obligatorio |
+| Elemento           | DESCRIPCIÓN   | Obligatorio |
 | ----------------- | ------------- | -------- |
 | límite de simultaneidad | Elemento raíz. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo | Descripción                                                                                        | Obligatorio | Predeterminadas |
+| Atributo | DESCRIPCIÓN                                                                                        | Obligatorio | Valor predeterminado |
 | --------- | -------------------------------------------------------------------------------------------------- | -------- | ------- |
-| secreta       | Una cadena. Expresión que se permite. Especifica el ámbito de la simultaneidad. Puede compartirse entre varias directivas. | Sí      | No aplicable     |
-| número máximo | Un entero. Especifica el número máximo de solicitudes que se pueden especificar en la directiva.           | Sí      | No aplicable     |
+| key       | Una cadena. Expresión que se permite. Especifica el ámbito de la simultaneidad. Puede compartirse entre varias directivas. | Sí      | N/D     |
+| número máximo | Un entero. Especifica el número máximo de solicitudes que se pueden especificar en la directiva.           | Sí      | N/D     |
 
 ### <a name="usage"></a>Uso
 
@@ -349,19 +349,19 @@ Puede utilizar cualquier cadena como valor que se registrará en Event Hubs. En 
 
 ### <a name="elements"></a>Elementos
 
-| Elemento         | Descripción                                                                     | Obligatorio |
+| Elemento         | DESCRIPCIÓN                                                                     | Obligatorio |
 | --------------- | ------------------------------------------------------------------------------- | -------- |
 | log-to-eventhub | Elemento raíz. El valor de este elemento es la cadena que sirve para iniciar sesión en su centro de eventos. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo     | Descripción                                                               | Obligatorio                                                             |
+| Atributo     | DESCRIPCIÓN                                                               | Obligatorio                                                             |
 | ------------- | ------------------------------------------------------------------------- | -------------------------------------------------------------------- |
 | logger-id     | El identificador del registrador registrado con el servicio API Management.         | Sí                                                                  |
 | partition-id  | Especifica el índice de la partición desde donde se envían los mensajes.             | Opcional. Este atributo no se puede utilizar cuando se usa `partition-key`. |
 | partition-key | Especifica el valor utilizado para la asignación de partición cuando se envían mensajes. | Opcional. Este atributo no se puede utilizar cuando se usa `partition-id`.  |
 
-### <a name="usage"></a>Utilización
+### <a name="usage"></a>Uso
 
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
@@ -394,18 +394,18 @@ status code and media type. If no example or schema found, the content is empty.
 
 ### <a name="elements"></a>Elementos
 
-| Elemento       | Descripción   | Obligatorio |
+| Elemento       | DESCRIPCIÓN   | Obligatorio |
 | ------------- | ------------- | -------- |
 | mock-response | Elemento raíz. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo    | Descripción                                                                                           | Obligatorio | Predeterminadas |
+| Atributo    | DESCRIPCIÓN                                                                                           | Obligatorio | Valor predeterminado |
 | ------------ | ----------------------------------------------------------------------------------------------------- | -------- | ------- |
-| status-code  | Especifica el código de estado de la respuesta y se utiliza para seleccionar el ejemplo o el esquema correspondientes.                 | No       | 200     |
-| content-type | Especifica el valor de encabezado de la respuesta `Content-Type` y se utiliza para seleccionar el ejemplo o el esquema correspondientes. | No       | None    |
+| status-code  | Especifica el código de estado de la respuesta y se utiliza para seleccionar el ejemplo o el esquema correspondientes.                 | Sin        | 200     |
+| content-type | Especifica el valor de encabezado de la respuesta `Content-Type` y se utiliza para seleccionar el ejemplo o el esquema correspondientes. | Sin        | None    |
 
-### <a name="usage"></a>Utilización
+### <a name="usage"></a>Uso
 
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
@@ -453,27 +453,27 @@ En el siguiente ejemplo de solicitud, el reenvío de solicitud se vuelve a inten
 
 ### <a name="elements"></a>Elementos
 
-| Elemento | Descripción                                                         | Obligatorio |
+| Elemento | DESCRIPCIÓN                                                         | Obligatorio |
 | ------- | ------------------------------------------------------------------- | -------- |
 | retry   | Elemento raíz. Puede contener cualquier otra directiva como elemento secundario. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo        | Descripción                                                                                                                                           | Obligatorio | Predeterminadas |
+| Atributo        | DESCRIPCIÓN                                                                                                                                           | Obligatorio | Valor predeterminado |
 | ---------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| condición        | [Expresión](api-management-policy-expressions.md) o literal booleanos que especifican si los reintentos se deben detener (`false`) o continuar (`true`).      | Sí      | No aplicable     |
-| número            | Número positivo que especifica el número máximo de reintentos que deben realizarse.                                                                                | Sí      | No aplicable     |
-| de tiempo         | Número positivo en segundos que especifica el intervalo de espera entre los reintentos.                                                                 | Sí      | No aplicable     |
-| max-interval     | Número positivo en segundos que especifica el intervalo máximo de espera entre los reintentos. Se utiliza para implementar un algoritmo exponencial de reintentos. | No       | No aplicable     |
-| delta            | Número positivo en segundos que especifica el incremento del intervalo de espera. Se usa para implementar los algoritmos lineales y exponenciales de reintentos.             | No       | No aplicable     |
-| first-fast-retry | Si establece en `true` , el primer reintento se realiza inmediatamente.                                                                                  | No       | `false` |
+| condition        | [Expresión](api-management-policy-expressions.md) o literal booleanos que especifican si los reintentos se deben detener (`false`) o continuar (`true`).      | Sí      | N/D     |
+| count            | Número positivo que especifica el número máximo de reintentos que deben realizarse.                                                                                | Sí      | N/D     |
+| interval         | Número positivo en segundos que especifica el intervalo de espera entre los reintentos.                                                                 | Sí      | N/D     |
+| max-interval     | Número positivo en segundos que especifica el intervalo máximo de espera entre los reintentos. Se utiliza para implementar un algoritmo exponencial de reintentos. | Sin        | N/D     |
+| delta            | Número positivo en segundos que especifica el incremento del intervalo de espera. Se usa para implementar los algoritmos lineales y exponenciales de reintentos.             | Sin        | N/D     |
+| first-fast-retry | Si establece en `true` , el primer reintento se realiza inmediatamente.                                                                                  | Sin        | `false` |
 
 > [!NOTE]
 > Cuando solamente se especifica `interval`, los reintentos se llevan a cabo a intervalos **fijos**.
 > Cuando solamente se especifican `interval` y `delta`, se utiliza el algoritmo de reintentos de intervalo **lineal**, en el que el tiempo de espera entre reintentos se calcula según la siguiente fórmula: `interval + (count - 1)*delta`.
 > Cuando se especifican `interval`, `max-interval` y `delta`, se aplica un algoritmo de reintentos de intervalo **exponencial**, en el que el tiempo de espera entre los reintentos aumenta exponencialmente desde el valor de `interval` al valor de `max-interval` según la siguiente fórmula: `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
 
-### <a name="usage"></a>Utilización
+### <a name="usage"></a>Uso
 
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva. Tenga en cuenta que esta directiva heredará las restricciones de uso de directivas secundarias.
 
@@ -510,20 +510,20 @@ La directiva `return-response` anula la ejecución de la canalización y devuelv
 
 ### <a name="elements"></a>Elementos
 
-| Elemento         | Descripción                                                                               | Obligatorio |
+| Elemento         | DESCRIPCIÓN                                                                               | Obligatorio |
 | --------------- | ----------------------------------------------------------------------------------------- | -------- |
 | return-response | Elemento raíz.                                                                             | Sí      |
-| set-header      | Una declaración de directiva [set-header](api-management-transformation-policies.md#SetHTTPheader). | No       |
-| set-body        | Una declaración de directiva [set-body](api-management-transformation-policies.md#SetBody).         | No       |
-| set-status      | Una declaración de directiva [set-status](api-management-advanced-policies.md#SetStatus).           | No       |
+| set-header      | Una declaración de directiva [set-header](api-management-transformation-policies.md#SetHTTPheader). | Sin        |
+| set-body        | Una declaración de directiva [set-body](api-management-transformation-policies.md#SetBody).         | Sin        |
+| set-status      | Una declaración de directiva [set-status](api-management-advanced-policies.md#SetStatus).           | Sin        |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo              | Descripción                                                                                                                                                                          | Obligatorio  |
+| Atributo              | DESCRIPCIÓN                                                                                                                                                                          | Obligatorio  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | --------- |
 | response-variable-name | Nombre de la variable de contexto a la que se hace referencia, por ejemplo, desde una directiva [send-request](api-management-advanced-policies.md#SendRequest) de canal de subida y que contiene un objeto `Response`. | Opcional. |
 
-### <a name="usage"></a>Utilización
+### <a name="usage"></a>Uso
 
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
@@ -580,24 +580,24 @@ Esto es un ejemplo de cómo usar la directiva `send-one-way-request` para enviar
 
 ### <a name="elements"></a>Elementos
 
-| Elemento                    | Descripción                                                                                                 | Obligatorio                        |
+| Elemento                    | DESCRIPCIÓN                                                                                                 | Obligatorio                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-one-way-request       | Elemento raíz.                                                                                               | Sí                             |
 | URL                        | Dirección URL de la solicitud.                                                                                     | No si mode=copy; de lo contrario, sí. |
-| método                     | Método HTTP usado en la solicitud.                                                                            | No si mode=copy; de lo contrario, sí. |
-| encabezado                     | Encabezado de la solicitud. Utilice varios elementos de encabezado si hay varios encabezados de solicitud.                                  | No                              |
-| cuerpo                       | Cuerpo de la solicitud.                                                                                           | No                              |
-| authentication-certificate | [Certificado usado para la autenticación de cliente](api-management-authentication-policies.md#ClientCertificate) | No                              |
+| estático                     | Método HTTP usado en la solicitud.                                                                            | No si mode=copy; de lo contrario, sí. |
+| encabezado                     | Encabezado de la solicitud. Utilice varios elementos de encabezado si hay varios encabezados de solicitud.                                  | Sin                               |
+| Cuerpo                       | Cuerpo de la solicitud.                                                                                           | Sin                               |
+| authentication-certificate | [Certificado usado para la autenticación de cliente](api-management-authentication-policies.md#ClientCertificate) | Sin                               |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo     | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obligatorio | Predeterminadas  |
+| Atributo     | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obligatorio | Valor predeterminado  |
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="cadena" | Determina si se trata de una solicitud nueva o de una copia de la solicitud actual. En el modo de salida, mode=copy no inicializa el cuerpo de la solicitud.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | Nuevo      |
-| name          | Especifica el nombre del encabezado que se va a establecer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sí      | No aplicable      |
-| exists-action | Especifica la acción que se debe realizar cuando ya se ha especificado un encabezado. Este atributo debe tener uno de los siguientes valores:<br /><br /> -override: reemplaza el valor del encabezado existente.<br />-skip: no reemplaza el valor del encabezado existente.<br />-append: anexa el valor al valor del encabezado existente.<br />-delete: quita el encabezado de la solicitud.<br /><br /> Cuando se establece en `override`, si se inscriben varias entradas con el mismo nombre, se establece el encabezado de acuerdo con todas ellas (que se inscribirán varias veces); solo los valores mostrados se establecerán en el resultado. | No       | override |
+| mode="cadena" | Determina si se trata de una solicitud nueva o de una copia de la solicitud actual. En el modo de salida, mode=copy no inicializa el cuerpo de la solicitud.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Sin        | Nuevo      |
+| Nombre          | Especifica el nombre del encabezado que se va a establecer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sí      | N/D      |
+| exists-action | Especifica la acción que se debe realizar cuando ya se ha especificado un encabezado. Este atributo debe tener uno de los siguientes valores:<br /><br /> -override: reemplaza el valor del encabezado existente.<br />-skip: no reemplaza el valor del encabezado existente.<br />-append: anexa el valor al valor del encabezado existente.<br />-delete: quita el encabezado de la solicitud.<br /><br /> Cuando se establece en `override`, si se inscriben varias entradas con el mismo nombre, se establece el encabezado de acuerdo con todas ellas (que se inscribirán varias veces); solo los valores mostrados se establecerán en el resultado. | Sin        | override |
 
-### <a name="usage"></a>Utilización
+### <a name="usage"></a>Uso
 
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
@@ -664,27 +664,27 @@ En este ejemplo se muestra una forma de comprobar un token de referencia con un 
 
 ### <a name="elements"></a>Elementos
 
-| Elemento                    | Descripción                                                                                                 | Obligatorio                        |
+| Elemento                    | DESCRIPCIÓN                                                                                                 | Obligatorio                        |
 | -------------------------- | ----------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | send-request               | Elemento raíz.                                                                                               | Sí                             |
 | URL                        | Dirección URL de la solicitud.                                                                                     | No si mode=copy; de lo contrario, sí. |
-| método                     | Método HTTP usado en la solicitud.                                                                            | No si mode=copy; de lo contrario, sí. |
-| encabezado                     | Encabezado de la solicitud. Utilice varios elementos de encabezado si hay varios encabezados de solicitud.                                  | No                              |
-| cuerpo                       | Cuerpo de la solicitud.                                                                                           | No                              |
-| authentication-certificate | [Certificado usado para la autenticación de cliente](api-management-authentication-policies.md#ClientCertificate) | No                              |
+| estático                     | Método HTTP usado en la solicitud.                                                                            | No si mode=copy; de lo contrario, sí. |
+| encabezado                     | Encabezado de la solicitud. Utilice varios elementos de encabezado si hay varios encabezados de solicitud.                                  | Sin                               |
+| Cuerpo                       | Cuerpo de la solicitud.                                                                                           | Sin                               |
+| authentication-certificate | [Certificado usado para la autenticación de cliente](api-management-authentication-policies.md#ClientCertificate) | Sin                               |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo                       | Descripción                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obligatorio | Predeterminadas  |
+| Atributo                       | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Obligatorio | Valor predeterminado  |
 | ------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | -------- |
-| mode="cadena"                   | Determina si se trata de una solicitud nueva o de una copia de la solicitud actual. En el modo de salida, mode=copy no inicializa el cuerpo de la solicitud.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | No       | Nuevo      |
-| response-variable-name="cadena" | El nombre de la variable de contexto que va a recibir un objeto de respuesta. Si la variable no existe, se creará tras la ejecución correcta de la directiva y se podrá acceder a ella a través de la colección [`context.Variable`](api-management-policy-expressions.md#ContextVariables).                                                                                                                                                                                                                                                                                                                          | Sí      | No aplicable      |
-| timeout="entero"               | Intervalo de tiempo de espera en segundos antes de que se produzca un error de la llamada a la dirección URL.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | No       | 60       |
-| ignore-error                    | Si es true y la solicitud tiene como resultado un error:<br /><br /> -Si se especificó response-variable-name contendrá un valor null.<br />-Si no se especificó response-variable-name, contexto. No se actualizará la solicitud.                                                                                                                                                                                                                                                                                                                                                                                   | No       | false    |
-| name                            | Especifica el nombre del encabezado que se va a establecer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sí      | No aplicable      |
-| exists-action                   | Especifica la acción que se debe realizar cuando ya se ha especificado un encabezado. Este atributo debe tener uno de los siguientes valores:<br /><br /> -override: reemplaza el valor del encabezado existente.<br />-skip: no reemplaza el valor del encabezado existente.<br />-append: anexa el valor al valor del encabezado existente.<br />-delete: quita el encabezado de la solicitud.<br /><br /> Cuando se establece en `override`, si se inscriben varias entradas con el mismo nombre, se establece el encabezado de acuerdo con todas ellas (que se inscribirán varias veces); solo los valores mostrados se establecerán en el resultado. | No       | override |
+| mode="cadena"                   | Determina si se trata de una solicitud nueva o de una copia de la solicitud actual. En el modo de salida, mode=copy no inicializa el cuerpo de la solicitud.                                                                                                                                                                                                                                                                                                                                                                                                                                                                | Sin        | Nuevo      |
+| response-variable-name="cadena" | El nombre de la variable de contexto que va a recibir un objeto de respuesta. Si la variable no existe, se creará tras la ejecución correcta de la directiva y se podrá acceder a ella a través de la colección [`context.Variable`](api-management-policy-expressions.md#ContextVariables).                                                                                                                                                                                                                                                                                                                          | Sí      | N/D      |
+| timeout="entero"               | Intervalo de tiempo de espera en segundos antes de que se produzca un error de la llamada a la dirección URL.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Sin        | 60       |
+| ignore-error                    | Si es true y la solicitud tiene como resultado un error:<br /><br /> -Si se especificó response-variable-name contendrá un valor null.<br />-Si no se especificó response-variable-name, contexto. No se actualizará la solicitud.                                                                                                                                                                                                                                                                                                                                                                                   | Sin        | false    |
+| Nombre                            | Especifica el nombre del encabezado que se va a establecer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Sí      | N/D      |
+| exists-action                   | Especifica la acción que se debe realizar cuando ya se ha especificado un encabezado. Este atributo debe tener uno de los siguientes valores:<br /><br /> -override: reemplaza el valor del encabezado existente.<br />-skip: no reemplaza el valor del encabezado existente.<br />-append: anexa el valor al valor del encabezado existente.<br />-delete: quita el encabezado de la solicitud.<br /><br /> Cuando se establece en `override`, si se inscriben varias entradas con el mismo nombre, se establece el encabezado de acuerdo con todas ellas (que se inscribirán varias veces); solo los valores mostrados se establecerán en el resultado. | Sin        | override |
 
-### <a name="usage"></a>Utilización
+### <a name="usage"></a>Uso
 
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
@@ -714,17 +714,17 @@ Observe el uso de [propiedades](api-management-howto-properties.md) como valores
 
 ### <a name="elements"></a>Elementos
 
-| Elemento | Descripción  | Obligatorio |
+| Elemento | DESCRIPCIÓN  | Obligatorio |
 | ------- | ------------ | -------- |
 | proxy   | Elemento raíz | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo         | Descripción                                            | Obligatorio | Predeterminadas |
+| Atributo         | DESCRIPCIÓN                                            | Obligatorio | Valor predeterminado |
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
-| url="string"      | Dirección URL del proxy en forma de http://host:port.             | Sí      | No aplicable     |
-| username="string" | Nombre de usuario que se usará para la autenticación con el servidor proxy. | No       | No aplicable     |
-| password="string" | Contraseña que se usará para la autenticación con el servidor proxy. | No       | No aplicable     |
+| url="string"      | Dirección URL del proxy en forma de http://host:port.             | Sí      | N/D     |
+| username="string" | Nombre de usuario que se usará para la autenticación con el servidor proxy. | Sin        | N/D     |
+| password="string" | Contraseña que se usará para la autenticación con el servidor proxy. | Sin        | N/D     |
 
 ### <a name="usage"></a>Uso
 
@@ -777,11 +777,11 @@ En este ejemplo, donde se usa la directiva `set-method`, se ilustra cómo enviar
 
 ### <a name="elements"></a>Elementos
 
-| Elemento    | Descripción                                                       | Obligatorio |
+| Elemento    | DESCRIPCIÓN                                                       | Obligatorio |
 | ---------- | ----------------------------------------------------------------- | -------- |
 | set-method | Elemento raíz. El valor del elemento especifica el método HTTP. | Sí      |
 
-### <a name="usage"></a>Utilización
+### <a name="usage"></a>Uso
 
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
@@ -820,16 +820,16 @@ En este ejemplo se muestra cómo devolver una respuesta 401 si el token de autor
 
 ### <a name="elements"></a>Elementos
 
-| Elemento    | Descripción   | Obligatorio |
+| Elemento    | DESCRIPCIÓN   | Obligatorio |
 | ---------- | ------------- | -------- |
 | set-status | Elemento raíz. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo       | Descripción                                                | Obligatorio | Predeterminadas |
+| Atributo       | DESCRIPCIÓN                                                | Obligatorio | Valor predeterminado |
 | --------------- | ---------------------------------------------------------- | -------- | ------- |
-| code="entero"  | Código de estado HTTP que se devuelve.                            | Sí      | No aplicable     |
-| reason="cadena" | Una descripción del motivo por el que se devuelve el código de estado. | Sí      | No aplicable     |
+| code="entero"  | Código de estado HTTP que se devuelve.                            | Sí      | N/D     |
+| reason="cadena" | Una descripción del motivo por el que se devuelve el código de estado. | Sí      | N/D     |
 
 ### <a name="usage"></a>Uso
 
@@ -858,18 +858,18 @@ En el ejemplo siguiente se muestra una directiva de establecimiento de variable 
 
 ### <a name="elements"></a>Elementos
 
-| Elemento      | Descripción   | Obligatorio |
+| Elemento      | DESCRIPCIÓN   | Obligatorio |
 | ------------ | ------------- | -------- |
 | set-variable | Elemento raíz. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo | Descripción                                                              | Obligatorio |
+| Atributo | DESCRIPCIÓN                                                              | Obligatorio |
 | --------- | ------------------------------------------------------------------------ | -------- |
-| name      | El nombre de la variable.                                                | Sí      |
+| Nombre      | El nombre de la variable.                                                | Sí      |
 | value     | El valor de la variable. Puede ser una expresión o un valor literal. | Sí      |
 
-### <a name="usage"></a>Utilización
+### <a name="usage"></a>Uso
 
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
@@ -928,17 +928,17 @@ El `trace` directiva agrega una cadena a la [API Inspector](https://azure.micros
 
 ### <a name="elements"></a>Elementos
 
-| Elemento | Descripción   | Obligatorio |
+| Elemento | DESCRIPCIÓN   | Obligatorio |
 | ------- | ------------- | -------- |
 | trace   | Elemento raíz. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo | Descripción                                                                             | Obligatorio | Predeterminadas |
+| Atributo | DESCRIPCIÓN                                                                             | Obligatorio | Valor predeterminado |
 | --------- | --------------------------------------------------------------------------------------- | -------- | ------- |
-| de origen    | Literal de cadena que resulta significativo para el visor de seguimiento y especifica el origen del mensaje. | Sí      | No aplicable     |
+| de origen    | Literal de cadena que resulta significativo para el visor de seguimiento y especifica el origen del mensaje. | Sí      | N/D     |
 
-### <a name="usage"></a>Utilización
+### <a name="usage"></a>Uso
 
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 
@@ -998,17 +998,17 @@ En el ejemplo siguiente hay dos directivas `choose` que son directivas secundari
 
 ### <a name="elements"></a>Elementos
 
-| Elemento | Descripción                                                                                                   | Obligatorio |
+| Elemento | DESCRIPCIÓN                                                                                                   | Obligatorio |
 | ------- | ------------------------------------------------------------------------------------------------------------- | -------- |
 | wait    | Elemento raíz. Solo puede contener como elementos secundarios a las directivas `send-request`, `cache-lookup-value` y `choose`. | Sí      |
 
 ### <a name="attributes"></a>Atributos
 
-| Atributo | Descripción                                                                                                                                                                                                                                                                                                                                                                                                            | Obligatorio | Predeterminadas |
+| Atributo | DESCRIPCIÓN                                                                                                                                                                                                                                                                                                                                                                                                            | Obligatorio | Valor predeterminado |
 | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------- | ------- |
-| for       | Determina si la directiva `wait` espera a que se hayan completado todas las directivas secundarias inmediatas o solo una. Los valores permitidos son:<br /><br /> - `all`: espera a que se hayan completado todas las directivas secundarias inmediatas.<br />-: espera para que cualquier directiva secundaria inmediata en completarse. En cuanto se completa la primera, la directiva `wait` también se completa y finaliza la ejecución de cualquier otra directiva secundaria inmediata. | No       | todas     |
+| for       | Determina si la directiva `wait` espera a que se hayan completado todas las directivas secundarias inmediatas o solo una. Los valores permitidos son:<br /><br /> - `all`: espera a que se hayan completado todas las directivas secundarias inmediatas.<br />-: espera para que cualquier directiva secundaria inmediata en completarse. En cuanto se completa la primera, la directiva `wait` también se completa y finaliza la ejecución de cualquier otra directiva secundaria inmediata. | Sin        | todas     |
 
-### <a name="usage"></a>Utilización
+### <a name="usage"></a>Uso
 
 Esta directiva puede usarse en las siguientes [secciones](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) y [ámbitos](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de directiva.
 

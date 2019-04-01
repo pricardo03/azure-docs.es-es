@@ -3,17 +3,17 @@ title: Escalado del clúster del Explorador de datos de Azure para ajustarse a l
 description: Este artículo describe los pasos para escalar verticalmente y reducir verticalmente un clúster de explorador de datos de Azure basado en la cambiante demanda.
 author: radennis
 ms.author: radennis
-ms.reviewer: v-orspod
+ms.reviewer: orspodek
 ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: a74c529fc3543d5cbdcf009a5b7736309e15569e
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 71f1d197b4a3fb437607f876ea524e582e62c0fd
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56961710"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756326"
 ---
 # <a name="manage-cluster-scale-up-to-accommodate-changing-demand"></a>Administración del escalado vertical de clúster para ajustarse a los cambios en la demanda
 

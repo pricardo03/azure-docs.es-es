@@ -7,21 +7,18 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: fd680b00feb8a75dfec952d7211554100fca00d8
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7cb02a0793a4c96c98b4932b6046839f004461bc
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58075073"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758117"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Inserción de widgets de Video Indexer en las aplicaciones
 
 En este vídeo se muestra cómo insertar widgets de Video Indexer en sus aplicaciones. Video Indexer admite la inserción de dos tipos de widgets en la aplicación: **Cognitive Insights** y **Player**. 
-
-> [!NOTE]
-> A partir del 1 de febrero de 2018, la versión 1 del widget **Cognitive Insights** estará en desuso. La versión predeterminada de la dirección URL para insertar será `version=2`.
 
 A partir de la versión 2, la dirección URL base del widget incluye la región de la cuenta. Por ejemplo, se genera una cuenta en la región Oeste de EE. UU.: `https://wus2.videoindexer.ai/embed/insights/...`.
 
@@ -34,7 +31,6 @@ El widget **Cognitive Insights** incluye toda la información detallada visual q
 |NOMBRE|Definición|DESCRIPCIÓN|
 |---|---|---|
 |widgets|Cadenas separadas por coma|Le permite controlar la información detallada que desea representar. <br/>Ejemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` representará solo la información detallada de la interfaz de usuario de personas y marcas<br/>Opciones disponibles: personas, palabras clave, anotaciones, marcas, opiniones, transcripción y búsqueda.<br/>No se admite a través de la dirección URL en la versión=2<br/><br/>**Nota:** El parámetro de dirección URL de **widgets** no se admite si se utiliza la **versión=2**. |
-|version|Versiones del widget **Cognitive Insights**|Para obtener las actualizaciones de widget de información más recientes, agregue el parámetro de consulta `?version=2` a la dirección URL insertada. Por ejemplo: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Para obtener la versión más antigua, simplemente quite `version=2` de la dirección URL.
 
 ### <a name="player-widget"></a>Widget Player
 

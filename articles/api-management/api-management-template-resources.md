@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: c52565403c7fbc80eacbf65428863db07d634030
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 673dcbeb630899eebc328cd4fae16f7fe8f47a55
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897289"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757612"
 ---
 # <a name="azure-api-management-template-resources"></a>Recursos de plantilla de Azure API Management
 Azure API Management proporciona los siguientes tipos de recursos para su uso en las plantillas del portal para desarrolladores.  
@@ -45,6 +45,29 @@ Azure API Management proporciona los siguientes tipos de recursos para su uso en
   
 ```  
   
+Se admiten las siguientes opciones de localización:
+
+| Configuración regional    | Idioma               |
+|-----------|------------------------|
+| "en"      | "Inglés"              |
+| "cs"      | "Čeština"              |
+| "de"      | "Deutsch"              |
+| "es"      | "Español"              |
+| "fr"      | "Français"             |
+| "hu"      | "Magyar"               |
+| "it"      | "En"Italiano             |
+| "ja-JP"   | "日本語"                |
+| "ko"      | "한국어"                |
+| "nl"      | "Nederlands"           |
+| "pl"      | "Polski"               |
+| "pt-br"   | "Português (Brasil)"   |
+| "pt-pt"   | "Português (Portugal)" |
+| "ru"      | "РУССКИЙ"              |
+| "sv"      | "Svenska"              |
+| "tr"      | "Türkçe"               |
+| "zh-hans" | "中文(简体)"           |
+| "zh-hant" | "中文(繁體)"           |
+
  Consulte las siguientes tablas a fin de obtener los recursos de cadena disponibles para su uso en sus plantillas del portal para desarrolladores. Use el nombre de la tabla como el prefijo para los recursos de cadena de esa tabla.  
   
 -   [ApisStrings](#ApisStrings)  

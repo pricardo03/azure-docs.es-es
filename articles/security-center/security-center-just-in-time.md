@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/18/2019
+ms.date: 3/28/2019
 ms.author: monhaber
-ms.openlocfilehash: c7cc5784caf8a83a50536a8edc69ea76ea8589d8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 66a7171aff7b9bab5f320df1d71e9cab4ce0477d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199841"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758295"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Administración del acceso a máquina virtual mediante Just-In-Time
 
@@ -162,9 +162,13 @@ En Azure Portal, al intentar conectarse a una máquina virtual, Azure comprueba 
 
   ![solicitud de jit](./media/security-center-just-in-time/jit-prompt.png)
 
-- Si tiene una directiva JIT configurada en la máquina virtual, puede hacer clic en **Solicitar acceso** para poder tener acceso de acuerdo con la directiva JIT establecida para la máquina virtual.
+- Si tiene una directiva JIT configurada en la máquina virtual, puede hacer clic en **Solicitar acceso** para poder tener acceso de acuerdo con la directiva JIT establecida para la máquina virtual. Se solicita el acceso con los parámetros predeterminados siguientes:
+    - **IP de origen**: 'Any' (*) (no se puede cambiar)
+    - **intervalo de tiempo**: 3 horas (no se puede cambiar)
+    - **número de puerto** RDP el puerto 3389 para Windows / puerto 22 para Linux (puede cambiar el número de puerto en el **conectar a máquina virtual** cuadro de diálogo.)
 
-  ![acceso a solicitud de jit](./media/security-center-just-in-time/jit-request-access.png)
+
+  >![acceso a solicitud de jit](./media/security-center-just-in-time/jit-request-access.png)
 
 ## <a name="auditing-jit-access-activity"></a>Auditoría de la actividad de acceso JIT
 

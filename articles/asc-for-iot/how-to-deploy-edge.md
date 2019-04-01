@@ -1,6 +1,6 @@
 ---
-title: Implementar un ASC para el módulo de IoT Edge | Microsoft Docs
-description: Obtenga información acerca de cómo implementar ASC para el agente de seguridad de IoT en IoT Edge.
+title: Implementar Azure Security Center para el módulo de IoT Edge | Microsoft Docs
+description: Obtenga información acerca de cómo implementar Azure Security Center para el agente de seguridad de IoT en IoT Edge.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 87094b265a0c30c0349d64e4b956224525c04f74
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 2a201fe649d52ad9604c7ac6675b26d60e7f2dd1
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580499"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754760"
 ---
 # <a name="deploy-security-module-on-your-iot-edge-device"></a>Implementar en módulo de seguridad en el dispositivo de IoT Edge
 
 > [!IMPORTANT]
-> ASC para IoT está actualmente en versión preliminar pública.
+> Azure Security Center para IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC para IoT **azureiotsecurity** módulo proporciona una solución de seguridad completa para el dispositivo IoT Edge.
+Azure Security Center (ASC) para IoT **azureiotsecurity** módulo proporciona una solución de seguridad completa para el dispositivo IoT Edge.
 Módulo de seguridad recopila, agrega y analiza los datos sin procesar de seguridad del sistema del sistema operativo y el contenedor en las alertas y recomendaciones de seguridad que requieren acción.
 Para obtener más información, consulte [módulo de seguridad de IoT Edge](security-edge-architecture.md).
 

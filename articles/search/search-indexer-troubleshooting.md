@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: magottei
 ms.custom: seodec2018
-ms.openlocfilehash: 5ce27f16268c7a640b15fb0e95aed019b186e389
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: b527b759eb9c76ab6289e909001c5f7820f34ef4
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307911"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58652423"
 ---
 # <a name="troubleshooting-common-indexer-issues-in-azure-search"></a>Solución de problemas comunes con el indizador en Azure Search
 
 Los indizadores pueden encontrar una serie de problemas al indexar datos en Azure Search. Las categorías principales de error son las siguientes:
 
-* [Conexión a un origen de datos](#Data-Source-Connection-Errors)
-* [Procesamiento de documentos](#Document-Processing-Errors)
-* [Ingesta de documentos en un índice](#Index-Errors)
+* [Conexión a un origen de datos](#data-source-connection-errors)
+* [Procesamiento de documentos](#document-processing-errors)
+* [Ingesta de documentos en un índice](#index-errors)
 
 ## <a name="data-source-connection-errors"></a>Errores de conexión del origen de datos
 

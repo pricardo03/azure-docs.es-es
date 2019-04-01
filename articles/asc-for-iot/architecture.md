@@ -1,6 +1,6 @@
 ---
-title: Descripción de ASC para vista previa de arquitectura de solución de IoT | Microsoft Docs
-description: Obtenga información sobre el flujo de información en los procesos de ASC para el servicio IoT.
+title: Descripción de Azure Security Center para la versión preliminar de arquitectura de solución de IoT | Microsoft Docs
+description: Obtenga información sobre el flujo de información en el centro de seguridad de Azure para el servicio IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,19 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: ee81d9543525ba1187fc6c078391559929b9bf96
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d70be919fa829401b4a415db626a3cee0713753b
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541908"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754994"
 ---
-# <a name="asc-for-iot-architecture"></a>ASC para arquitectura de IoT
+# <a name="azure-security-center-for-iot-architecture"></a>Azure Security Center para arquitectura de IoT
 
-En este artículo se explica la arquitectura de sistema funcional de Azure Security Center para solución de IoT. 
+En este artículo se explica la arquitectura del sistema funcional de Azure Security Center (ASC) para la solución de IoT. 
 
 > [!IMPORTANT]
-> ASC para IoT está actualmente en versión preliminar pública.
+> Azure Security Center para IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no se recomienda para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="asc-for-iot-components"></a>ASC para los componentes de IoT

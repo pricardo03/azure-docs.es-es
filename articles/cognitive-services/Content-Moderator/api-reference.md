@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: reference
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: a6bd92a675885cb343b07ef981c38571af0a931c
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 320638c958799bbf7fea73880fd3e27b6d598d23
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862469"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756054"
 ---
 # <a name="content-moderator-api-reference"></a>Referencia de API de Content Moderator
 
@@ -31,7 +31,7 @@ Puede usar las siguientes API de Content Moderator para configurar los flujos de
 | DESCRIPCIÓN | Referencia |
 | -------------------- |-------------|
 | **Image Moderation API**<br /><br />Examine imágenes y detecte posible contenido para adultos o explícito mediante etiquetas, puntuaciones de confianza y otra información extraída. <br /><br />Use esta información para publicar, rechazar o revisar el contenido del flujo de trabajo posterior a la moderación. <br /><br />| [Referencia de Image Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c "Image Moderation API reference")   |
-| **Text Moderation API**<br /><br />Examine contenido de texto. Se devuelven los términos obscenos y la información de identificación personal (PII). <br /><br />Use esta información para publicar, rechazar o revisar el contenido del flujo de trabajo posterior a la moderación.<br /><br /> | [Referencia de Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "Text Moderation API reference")   |
+| **Text Moderation API**<br /><br />Examine contenido de texto. Se devuelven los términos de blasfemias y datos personales. <br /><br />Use esta información para publicar, rechazar o revisar el contenido del flujo de trabajo posterior a la moderación.<br /><br /> | [Referencia de Text Moderation API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f "Text Moderation API reference")   |
 | **Video Moderation API**<br /><br />Examine vídeos y detecte posible contenido para adultos y explícito. <br /><br />Use esta información para publicar, rechazar o revisar el contenido del flujo de trabajo posterior a la moderación.<br /><br /> | [Introducción a Video Moderation API](video-moderation-api.md "Video Moderation API overview")   |
 | **List Management API**<br /><br />Cree y administre listas personalizadas de exclusión o inclusión de texto e imágenes. Si están habilitadas, las operaciones **Image - Match** (Imagen: coincidir) y **Text - Screen** (Texto: pantalla) buscan coincidencias parciales del contenido enviado en las listas personalizadas. <br /><br />Para mejorar la eficacia, puede omitir el paso de moderación basado en el aprendizaje automático.<br /><br /> | [Referencia de List Management API](https://westus.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f675 "List Management API reference")   |
 

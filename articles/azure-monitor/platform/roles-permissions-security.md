@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 591b30d0147e427e8a0dbc2d25276bdcd3b54be6
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: bac57b18ec5474cfe3c27ad1079c5af7e1d2c451
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445490"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756805"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introducción a roles, permisos y seguridad con Azure Monitor
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Muchos equipos necesitan regular estrictamente el acceso a los datos y la configuración de supervisión. Por ejemplo, si tiene miembros del equipo que trabajan exclusivamente en la supervisión (ingenieros de soporte técnico o ingenieros de operaciones de desarrollo) o si usa un proveedor de servicios administrados, puede concederles acceso solo a datos de supervisión, mientras restringe su capacidad para crear, modificar o eliminar recursos. En este artículo se explica cómo aplicar rápidamente un rol RBAC de supervisión integrado a un usuario en Azure o crear un rol personalizado propio para un usuario que necesita permisos de supervisión limitados. Después se describen las consideraciones de seguridad para los recursos relacionados con Azure Monitor y cómo puede limitar el acceso a los datos que contienen.
+Muchos equipos necesitan regular estrictamente el acceso a los datos y la configuración de supervisión. Por ejemplo, si tiene los miembros del equipo que trabajan exclusivamente en la supervisión (ingenieros de soporte técnico, los ingenieros de DevOps) o si usa un proveedor de servicios administrados, es posible que desee concederles acceso a datos de supervisión solo mientras restringe su capacidad para crear, modificar, o eliminar recursos. En este artículo se explica cómo aplicar rápidamente un rol RBAC de supervisión integrado a un usuario en Azure o crear un rol personalizado propio para un usuario que necesita permisos de supervisión limitados. Después se describen las consideraciones de seguridad para los recursos relacionados con Azure Monitor y cómo puede limitar el acceso a los datos que contienen.
 
 ## <a name="built-in-monitoring-roles"></a>Roles de supervisión integrados
 Los roles integrados en Azure Monitor están diseñados para ayudar a limitar el acceso a recursos de una suscripción, sin impedir que los responsables de la infraestructura de supervisión obtengan y configuren los datos que necesitan. Azure Monitor proporciona dos roles de fábrica: un lector de supervisión y un colaborador de supervisión.
@@ -38,10 +38,10 @@ Las personas asignadas al rol Lector de supervisión pueden ver todos los datos 
 * Acceder a datos de Application Insights y ver los datos en AI Analytics.
 * Buscar datos del área de trabajo de Log Analytics, incluidos los datos de uso del área de trabajo.
 * Ver grupos de administración de Log Analytics.
-* Recuperar el esquema de búsqueda de Log Analytics.
-* Enumerar los Intelligence Pack de Log Analytics.
-* Recuperar y ejecutar las búsquedas guardadas en Log Analytics.
-* Recuperar la configuración de almacenamiento de Log Analytics.
+* Recuperar el esquema de búsqueda en el área de trabajo de Log Analytics.
+* Lista de módulos de supervisión en el área de trabajo de Log Analytics.
+* Recuperar y ejecutar búsquedas guardadas en el área de trabajo de Log Analytics.
+* Recupere la configuración de almacenamiento del área de trabajo de Log Analytics.
 
 > [!NOTE]
 > Este rol no otorga acceso de lectura a los datos de registro que se han transmitido a un centro de eventos o que están almacenados en una cuenta de almacenamiento. [Vea la información a continuación](#security-considerations-for-monitoring-data) para saber cómo configurar el acceso a estos recursos.
@@ -57,9 +57,9 @@ Las personas asignadas al rol Colaborador de supervisión pueden ver todos los d
 * Establecer la configuración y la actividad de las reglas de alertas a través de [Alertas de Azure](../../azure-monitor/platform/alerts-overview.md).
 * Crear componentes y pruebas web de Application Insights.
 * Mostrar las claves compartidas del área de trabajo de Log Analytics.
-* Habilitar o deshabilitar Intelligence Pack de Log Analytics.
-* Crear y eliminar y ejecutar las búsquedas guardadas en Log Analytics.
-* Crear y eliminar la configuración de almacenamiento de Log Analytics.
+* Habilitar o deshabilitar los módulos de supervisión en el área de trabajo de Log Analytics.
+* Crear y eliminar y ejecutar búsquedas guardadas en el área de trabajo de Log Analytics.
+* Crear y eliminar la configuración de almacenamiento del área de trabajo de Log Analytics.
 
 \*usuario debe también por separado tener el permiso ListKeys en el recurso de destino (almacenamiento cuenta o event hub espacio de nombres) para establecer un perfil de registro o la configuración de diagnóstico.
 

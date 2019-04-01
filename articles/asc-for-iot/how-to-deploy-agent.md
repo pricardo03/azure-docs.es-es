@@ -1,6 +1,6 @@
 ---
-title: Seleccionar e implementar un ASC para vista previa del agente de IoT | Microsoft Docs
-description: Obtenga información acerca cómo seleccionar e implementar ASC para los agentes de seguridad de IoT en dispositivos IoT.
+title: Seleccione e implementar Azure Security Center para la versión preliminar del agente de IoT | Microsoft Docs
+description: Obtenga información acerca cómo seleccionar e implementar Azure Security Center para los agentes de seguridad de IoT en dispositivos IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 208f7cdbc9d610713d73c5af1e02de5faf11474c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d3a7c3b1b08ab4f0fecd854b969ac18bf9a73ccf
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580799"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755297"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Seleccionar e implementar a un agente de seguridad en el dispositivo de IoT
 
 > [!IMPORTANT]
-> ASC para IoT está actualmente en versión preliminar pública.
+> Azure Security Center para IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC para IoT proporciona arquitecturas de referencia para los agentes de seguridad que supervisan y recopilan datos desde dispositivos IoT.
+Azure Security Center (ASC) para IoT proporciona arquitecturas de referencia para los agentes de seguridad que supervisan y recopilan datos desde dispositivos IoT.
 Consulte [arquitectura de referencia de seguridad del agente](security-agent-architecture.md) para obtener más información.
 
 Los agentes se desarrollan como proyectos de código abierto y están disponibles en dos modos: <br> [C](https://aka.ms/iot-security-github-c), y [ C# ](https://aka.ms/iot-security-github-cs).

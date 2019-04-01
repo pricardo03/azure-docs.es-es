@@ -1,6 +1,6 @@
 ---
-title: Guía de seguridad de alertas de ASC para la versión preliminar de IoT | Microsoft Docs
-description: Obtenga información sobre las alertas de seguridad y la corrección recomendada mediante ASC para el servicio y las características de IoT.
+title: Guía de seguridad de alertas de Azure Security Center para la versión preliminar de IoT | Microsoft Docs
+description: Obtenga información sobre las alertas de seguridad y la corrección recomendada mediante Azure Security Center para el servicio y las características de IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: 23af0d9e2d7c4033a2457676b29b5e4b2f8c15ea
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 987bfa0da190bd2bd29634b46b5f06ff4dc1cc19
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579451"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755102"
 ---
-# <a name="asc-for-iot-security-alerts"></a>ASC para las alertas de seguridad de IoT
+# <a name="azure-security-center-for-iot-security-alerts"></a>Azure Security Center para las alertas de seguridad de IoT
 
 > [!IMPORTANT]
-> ASC para IoT está actualmente en versión preliminar pública.
+> Azure Security Center para IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no se recomienda para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC para IoT analiza continuamente su solución de IoT con inteligencia de amenazas y análisis avanzada para alertarle de actividades malintencionadas.
+Azure Security Center (ASC) para IoT analiza continuamente su solución de IoT con inteligencia de amenazas y análisis avanzada para alertarle de actividades malintencionadas.
 Además, puede crear alertas personalizadas según su conocimiento del comportamiento esperado del dispositivo.
 Una alerta actúa como un indicador de comprise y debe investigar y corregir.
 

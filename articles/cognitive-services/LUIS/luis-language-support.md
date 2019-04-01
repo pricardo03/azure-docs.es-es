@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: diberry
-ms.openlocfilehash: 735835d16eb14c3847f36ecb6f46c08c0a8928ef
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 10fe5d90e7a7a59a1b543209a37b998376fdda1e
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339523"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757659"
 ---
 # <a name="language-and-region-support-for-luis"></a>Compatibilidad de idiomas y regiones para LUIS
 
@@ -105,10 +105,10 @@ Las referencias culturales siguientes tienen versiones de tokenizer personalizad
 |Alemán<br>`de-de`|1.0.1|Acorta palabras dividiéndolos en espacios.<br> Si un usuario escribe `Ich fahre einen krankenwagen` como una declaración, sigue siendo un token único. Por lo tanto `krankenwagen` está marcada como una sola entidad. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migrar entre versiones de tokenizer
+<!--
+Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
 
-La primera opción consiste en cambiar la versión de tokenizer en el archivo de aplicación, a continuación, importe la versión. Esta acción cambia cómo se acortan las grabaciones de voz, pero le permite mantener el mismo identificador de aplicación. 
-
-Tokenizer JSON para 1.0.0. Tenga en cuenta el valor de propiedad `tokenizerVersion`. 
+Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`. 
 
 ```JSON
 {
@@ -157,7 +157,7 @@ Tokenizer JSON para 1.0.0. Tenga en cuenta el valor de propiedad `tokenizerVersi
 }
 ```
 
-Tokenizer JSON para la versión 1.0.1. Tenga en cuenta el valor de propiedad `tokenizerVersion`. 
+Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`. 
 
 ```JSON
 {
@@ -205,5 +205,8 @@ Tokenizer JSON para la versión 1.0.1. Tenga en cuenta el valor de propiedad `to
     "settings": []
 }
 ```
+-->
 
-La segunda opción es [importar el archivo como una nueva aplicación](luis-how-to-start-new-app.md#import-an-app-from-file), en lugar de una versión. Esta acción significa que la nueva aplicación tiene un identificador de aplicación diferentes, pero usa la versión de tokenizer especificada en el archivo. 
+Tokenización se produce en el nivel de aplicación. No hay ninguna compatibilidad para la tokenización de nivel de versión. 
+
+[Importe el archivo como una nueva aplicación](luis-how-to-start-new-app.md#import-an-app-from-file), en lugar de una versión. Esta acción significa que la nueva aplicación tiene un identificador de aplicación diferentes, pero usa la versión de tokenizer especificada en el archivo. 

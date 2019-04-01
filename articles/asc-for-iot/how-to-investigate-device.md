@@ -1,6 +1,6 @@
 ---
-title: ASC para guía de investigación de dispositivo IoT Preview | Microsoft Docs
-description: Esta guía explica cómo usar ASC para IoT para investigar un dispositivo de IoT sospechoso mediante Log Analytics.
+title: Azure Security Center para la Guía de investigación de dispositivo IoT Preview | Microsoft Docs
+description: Esta guía explica cómo usar Azure Security Center para IoT para investigar un dispositivo de IoT sospechoso mediante Log Analytics.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: 032315d1b618b9716e23c8433c6ec1bf64b7e77d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6097954e09d5fd62c45f59b009d974d277bafc57
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580544"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755238"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Investigar un dispositivo de IoT sospechoso
 
 > [!IMPORTANT]
-> ASC para IoT está actualmente en versión preliminar pública.
+> Azure Security Center para IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no se recomienda para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-ASC para alertas de servicio de IoT y evidencia proporcionan indicaciones claras cuando se sospecha de dispositivos IoT de participación en actividades sospechosas o cuando las indicaciones existan que un dispositivo está en peligro. 
+Azure Security Center (ASC) para la evidencia y las alertas del servicio IoT proporcionan indicaciones claras cuando se sospecha de dispositivos IoT de participación en actividades sospechosas o cuando las indicaciones existan que un dispositivo está en peligro. 
 
 En esta guía, use las sugerencias de investigación proporcionadas para ayudar a determinar los riesgos potenciales para su organización, decida cómo corregir y descubrir las mejores formas para evitar ataques similar en el futuro.  
 

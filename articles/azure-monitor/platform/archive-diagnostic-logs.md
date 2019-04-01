@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 0d23509d4efb0385770811e004bb2599c3866847
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 82aaa573c55748daf62b620cdd82561bae6af492
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313351"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629350"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archivo de registros de diagnóstico de Azure
 
@@ -33,7 +33,7 @@ Antes de comenzar, necesita [crear una cuenta de almacenamiento](../../storage/c
 
 ## <a name="diagnostic-settings"></a>Configuración de diagnóstico
 
-Para archivar los registros de diagnóstico mediante cualquiera de los métodos siguientes, establezca una **configuración de diagnóstico** para un recurso determinado. Una configuración de diagnóstico para un recurso define las categorías de datos de métricas y de registros que se envían a un destino (cuenta de almacenamiento, espacio de nombres de Event Hubs o Log Analytics). También define la directiva de retención (el número de días que deben conservarse) para los eventos de cada dato de métrica y categoría de registro almacenados en una cuenta de almacenamiento. Si se establece en cero una directiva de retención, los eventos para esa categoría de registro se almacenan indefinidamente. De lo contrario, una directiva de retención puede ser cualquier número de días comprendido entre 1 y 2147483647. [Puede leer más acerca de estas opciones de diagnóstico aquí](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). Las directivas de retención se aplican a diario, por lo que al final de un día (UTC) se eliminan los registros del día que quede fuera de la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy. El proceso de eliminación empieza a medianoche (UTC), pero tenga en cuenta que eliminar los registros de la cuenta de almacenamiento puede tardar hasta 24 horas. 
+Para archivar los registros de diagnóstico mediante cualquiera de los métodos siguientes, establezca una **configuración de diagnóstico** para un recurso determinado. Una configuración de diagnóstico para un recurso define las categorías de registros y datos de métricas enviados a un destino (cuenta de almacenamiento, espacio de nombres de Event Hubs o área de trabajo de Log Analytics). También define la directiva de retención (el número de días que deben conservarse) para los eventos de cada dato de métrica y categoría de registro almacenados en una cuenta de almacenamiento. Si se establece en cero una directiva de retención, los eventos para esa categoría de registro se almacenan indefinidamente. De lo contrario, una directiva de retención puede ser cualquier número de días comprendido entre 1 y 2147483647. [Puede leer más acerca de estas opciones de diagnóstico aquí](../../azure-monitor/platform/diagnostic-logs-overview.md#diagnostic-settings). Las directivas de retención se aplican a diario, por lo que al final de un día (UTC) se eliminan los registros del día que quede fuera de la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy. El proceso de eliminación empieza a medianoche (UTC), pero tenga en cuenta que eliminar los registros de la cuenta de almacenamiento puede tardar hasta 24 horas. 
 
 > [!NOTE]
 > Actualmente no se admite el envío de métricas de varias dimensiones a través de la configuración de diagnóstico. Las métricas con dimensiones se exportan como métricas unidimensionales planas agregadas a través de los valores de dimensión.

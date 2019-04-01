@@ -1,5 +1,5 @@
 ---
-title: Streaming en vivo con codificadores locales mediante Azure Portal | Microsoft Docs
+title: Streaming en vivo con codificadores locales mediante Azure portal | Microsoft Docs
 description: Este tutorial le guiará por los pasos para crear un canal que esté configurado para una entrega de paso a través.
 services: media-services
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d86151b436ec3cc5ea3d4b687f5c8692b2ca4efa
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 48906a12cd113ef613151bb802e757f218bce425
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258717"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758504"
 ---
-# <a name="how-to-perform-live-streaming-with-on-premises-encoders-using-the-azure-portal"></a>Realización de streaming en vivo con codificadores locales mediante Azure Portal
+# <a name="perform-live-streaming-with-on-premises-encoders-using-azure-portal"></a>Realice streaming en vivo con codificadores locales mediante Azure portal
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-live-passthrough-get-started.md)
 > * [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
@@ -45,29 +45,31 @@ Es importante que revise los artículos siguientes:
 * [Streaming en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md)
 
 ## <a id="scenario"></a>Escenario común de streaming en vivo
+
 Los pasos siguientes describen las tareas que conlleva la creación de aplicaciones comunes de streaming en vivo que usan canales configurados para entregas de paso a través. Este tutorial muestra cómo crear y administrar un canal de paso a través y eventos en directo.
 
->[!NOTE]
->Asegúrese de que el punto de conexión de streaming desde el que va a transmitir el contenido esté en estado **Running** (En ejecución). 
+> [!NOTE]
+> Asegúrese de que el punto de conexión de streaming desde el que va a transmitir el contenido esté en estado **Running** (En ejecución). 
     
-1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador en directo local que genere una transmisión de RTMP o MP4 fragmentado con velocidad de bits múltiple. Para obtener más información, consulte [Compatibilidad con RTMP de Azure Media Services y codificadores en directo](https://go.microsoft.com/fwlink/?LinkId=532824).
+1. Conecte una cámara de vídeo a un equipo. <br/>Para obtener ideas para la configuración, consulte [Simple and portable event video gear setup]( https://link.medium.com/KNTtiN6IeT) (Equipo de vídeo para eventos sencillo y portátil).
+1. Inicie y configure un codificador en directo local que genere una transmisión de RTMP o MP4 fragmentado con velocidad de bits múltiple. Para obtener más información, consulte [Compatibilidad con RTMP de Azure Media Services y codificadores en directo](https://go.microsoft.com/fwlink/?LinkId=532824).<br/>Vea también este blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT) (Producción de streaming en vivo con OBS).
    
     Este paso también puede realizarse después de crear el canal.
-2. Cree e inicie un canal de paso a través.
-3. Recupere la URL de ingesta de canales. 
+1. Cree e inicie un canal de paso a través.
+1. Recupere la URL de ingesta de canales. 
    
     El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
-4. Recupere la URL de vista previa de canal. 
+1. Recupere la URL de vista previa de canal. 
    
     Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en vivo.
-5. Cree un evento o programa en directo. 
+1. Cree un evento o programa en directo. 
    
     Con el Portal de Azure, al crear un evento en directo también se crea un recurso. 
 
-6. Inicie el evento o programa cuando esté listo para iniciar el streaming y el archivo.
-7. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
-8. Detenga el evento o programa cuando quiera detener el streaming y el archivo del evento.
-9. Elimine el evento o programa (y, opcionalmente, elimine el recurso).     
+1. Inicie el evento o programa cuando esté listo para iniciar el streaming y el archivo.
+1. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
+1. Detenga el evento o programa cuando quiera detener el streaming y el archivo del evento.
+1. Elimine el evento o programa (y, opcionalmente, elimine el recurso).     
 
 > [!IMPORTANT]
 > Consulte [Streaming en vivo con codificadores locales que crean transmisiones de velocidad de bits múltiple](media-services-live-streaming-with-onprem-encoders.md) para obtener información acerca de los conceptos y las consideraciones relacionadas con el streaming en vivo con codificadores locales y canales de paso a través.

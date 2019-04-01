@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 03/29/2019
 ms.author: babanisa
-ms.openlocfilehash: 23654dd41714314ab5c9f217d4f805d7b9d62413
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 2d56a7cda88f96a6728dc1c3e4af8e9ad0bf946f
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472813"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755510"
 ---
 # <a name="event-grid-security-and-authentication"></a>Seguridad y autenticación de Event Grid 
 
@@ -41,7 +41,9 @@ Si utiliza cualquier otro tipo de punto de conexión, como una función de Azure
 
    A partir de la versión 2018-05-01-preview, EventGrid admite un protocolo de enlace de validación manual. Si va a crear una suscripción de eventos mediante el SDK o la herramienta que usa la versión de API 2018-05-01-preview, EventGrid envía una propiedad `validationUrl` en los datos del evento de validación de suscripción. Para completar el protocolo de enlace, busque esa dirección URL en los datos del evento y envíele manualmente una solicitud GET. Puede usar un cliente de REST o el explorador web.
 
-   La dirección URL proporcionada es válida durante 5 minutos. Durante ese tiempo, el estado de aprovisionamiento de la suscripción al eventos es `AwaitingManualAction`. Si no ha completado la validación manual en 10 minutos, el estado de aprovisionamiento se establece en `Failed`. Tendrá que crear la suscripción de eventos de nuevo antes de intentar la validación manual.
+   La dirección URL proporcionada es válida durante 5 minutos. Durante ese tiempo, el estado de aprovisionamiento de la suscripción al eventos es `AwaitingManualAction`. Si no ha completado la validación manual de intervalos de 5 minutos, el estado de aprovisionamiento se establece en `Failed`. Tendrá que crear la suscripción de eventos de nuevo antes de intentar la validación manual.
+
+    Este mecanismo de autenticación también requiere el punto de conexión de webhook para devolver un código de estado HTTP 200 para que sepa que se aceptó la publicación para el evento de validación antes de se puede colocar en el modo de validación manual. En otras palabras, si el punto de conexión devuelve 200, pero no devolver una respuesta de validación mediante programación, el modo de la transición al modo de validación manual. Si hay una operación GET en la dirección URL de validación dentro de 5 minutos, se considera el protocolo de enlace de validación se realice correctamente.
 
 ### <a name="validation-details"></a>Detalles de la validación
 

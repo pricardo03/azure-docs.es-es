@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: e0c8d4883bb9183f866450477df972fc66c960c5
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 329782a436924355dbdfbb5db260e88795394697
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369758"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650128"
 ---
 # <a name="azure-storage-security-guide"></a>Guía de seguridad de Azure Storage
 
@@ -46,7 +46,7 @@ Estos son los temas que se tratarán en este artículo:
 * Uso de [Storage Analytics](#storage-analytics) para auditar el acceso de Azure Storage
 
   En esta sección se describe cómo buscar información en los registros de Storage Analytics para una solicitud. Echaremos un vistazo a datos de registro reales de Storage Analytics y aprenderemos a discernir si una solicitud se realiza con una clave de cuenta de Storage, una Firma de acceso compartido o de manera anónima, y si se pudo completar o no.
-* [Habilitación de clientes basados en explorador mediante el uso compartido de recursos entre orígenes](#Cross-Origin-Resource-Sharing-CORS)
+* [Habilitación de clientes basados en explorador mediante el uso compartido de recursos entre orígenes](#cross-origin-resource-sharing-cors)
 
   En esta sección se analiza cómo permitir el uso compartido de recursos entre orígenes. Abordaremos el acceso entre dominios y cómo administrarlo con las funcionalidades del uso compartido de recursos entre orígenes integradas en Azure Storage.
 

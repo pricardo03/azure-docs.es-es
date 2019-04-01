@@ -1,6 +1,6 @@
 ---
-title: Comprender ASC para seguridad módulos gemelos versión preliminar de IoT | Microsoft Docs
-description: Obtenga información sobre el concepto de los módulos gemelos de seguridad y cómo se usan en ASC para IoT.
+title: Comprender la versión preliminar de gemelos de Azure Security Center para el módulo de seguridad de IoT | Microsoft Docs
+description: Obtenga información sobre el concepto de los módulos gemelos de seguridad y cómo se usan en Azure Security Center para IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: d766b17c9d49792d2e8192a952e8e6e559a8acd3
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 56bc93973bd2c080b13b97f1344cc165f742e757
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579383"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758402"
 ---
 # <a name="security-module"></a>Módulo de seguridad
 
 > [!IMPORTANT]
-> ASC para IoT está actualmente en versión preliminar pública.
+> Azure Security Center para IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-En este artículo se explica cómo ASC para IoT usa módulos y los dispositivos gemelos. 
+En este artículo se explica cómo Azure Security Center (ASC) para IoT usa módulos y los dispositivos gemelos. 
 
 ## <a name="device-twins"></a>Dispositivos gemelos
 

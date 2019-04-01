@@ -1,6 +1,6 @@
 ---
-title: Descripción de ASC de vista previa de los costos de IoT | Microsoft Docs
-description: Obtenga información sobre los costos asociados con procesos de ASC para IoT y cómo se puede controlar.
+title: Comprender la versión preliminar de costos de Azure Security Center para IoT | Microsoft Docs
+description: Obtenga información sobre los costos asociados con Azure Security Center para IoT y cómo se puede controlar.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: e694bb1a121b172fe67fbde0bd956700a75dfe12
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: e2822b0f2f665220f215b85800081fa2fa7943f9
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580664"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758053"
 ---
-# <a name="pricing-and-associated-costs"></a>Costes asociados y precios
+# <a name="pricing-and-associated-costs"></a>Precios y costos asociados
 
 > [!IMPORTANT]
-> ASC para IoT está actualmente en versión preliminar pública.
+> Azure Security Center para IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-En este artículo explica ASC para el modelo de precios de IoT, se resume todos los costes asociados y se explica cómo administrarlas.
+En este artículo explica Azure Security Center (ASC) para el modelo de precios de IoT, se resume todos los costes asociados y se explica cómo administrarlas.
 
 ## <a name="pricing"></a>Precios
 

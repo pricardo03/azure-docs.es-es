@@ -1,6 +1,6 @@
 ---
-title: Preguntas para ASC para la versión preliminar de IoT más frecuentes | Microsoft Docs
-description: Encuentre respuestas a más preguntas más frecuentes sobre ASC para el servicio y las características de IoT.
+title: Preguntas de Azure Security Center para la versión preliminar de IoT más frecuentes | Microsoft Docs
+description: Encuentre respuestas a las preguntas más frecuentes sobre Azure Security Center para el servicio y las características de IoT.
 services: ASCforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 8940d629d2f4827ee724c813a40394378dde5a4c
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: dab30a03ff73664fde4e5377794d3ae00625af93
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575154"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755321"
 ---
-# <a name="asc-for-iot-frequently-asked-questions"></a>Preguntas más frecuentes de ASC para IoT  
+# <a name="azure-security-center-for-iot-frequently-asked-questions"></a>Preguntas más frecuentes sobre Azure Security Center para IoT  
 
 > [!IMPORTANT]
-> ASC para IoT está actualmente en versión preliminar pública.
+> Azure Security Center para IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no se recomienda para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-En este artículo se proporciona una lista de las preguntas más frecuentes y respuestas acerca de cómo ASC para IoT. 
+En este artículo se proporciona una lista de las preguntas más frecuentes y respuestas sobre Azure Security Center (ASC) para IoT. 
 
 ## <a name="does-azure-provide-support-for-iot-security"></a>¿Azure ofrece compatibilidad para seguridad de IoT?
 

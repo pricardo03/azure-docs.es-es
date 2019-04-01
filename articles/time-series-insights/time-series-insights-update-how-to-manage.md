@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/10/2018
 ms.custom: seodec18
-ms.openlocfilehash: 3c6b5094613ee482b0fd3f63e3d9d69dfe4d40f4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 85d5bb822bc9b89c68c70633a22a1bed74118f49
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094878"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758181"
 ---
 # <a name="provision-and-manage-azure-time-series-insights-preview"></a>Aprovisionamiento y administración de la versión preliminar de Azure Time Series Insights
 
@@ -33,7 +33,7 @@ Al aprovisionar un entorno de versión preliminar de Azure Time Series Insights,
 Aprenda [a planificar su entorno ](./time-series-insights-update-plan.md).
 
 >[!IMPORTANT]
-> Si usa cuentas v2, no habilite las propiedades de archivado o esporádicas de la cuenta de almacenamiento que usará.
+> Para la versión preliminar, asegúrese de que está usando un almacenamiento de Azure de uso general v1 (GPv1) cuenta.  Soporte técnico para uso general v2 y versiones posteriores se agregarán en un futuro próximo.  
 
 Opcionalmente, puede asociar cada entorno de la versión preliminar de Azure Time Series Insights con un origen de evento. Para más información, consulte [Agregar un origen de centro de eventos](./time-series-insights-how-to-add-an-event-source-eventhub.md) y [Agregar un origen de centro de IoT](./time-series-insights-how-to-add-an-event-source-iothub.md). Deberá proporcionar una propiedad de id. de marca de tiempo y un grupo de consumidores único durante este paso. Al hacerlo, garantiza que el entorno obtenga acceso a los eventos apropiados.
 

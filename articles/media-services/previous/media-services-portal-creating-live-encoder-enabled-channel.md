@@ -1,5 +1,5 @@
 ---
-title: Cómo realizar el streaming en vivo con Azure Media Services para crear transmisiones de velocidad de bits múltiple con Azure Portal | Microsoft Docs
+title: Realización de streaming en vivo con Azure Media Services para crear transmisiones de velocidad de bits múltiple con Azure portal | Microsoft Docs
 description: Este tutorial le guía por los pasos para crear un canal que reciba una transmisión en directo de una sola velocidad de bits y la codifique como transmisión de varias velocidades de bits mediante el portal de Azure.
 services: media-services
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: 1482569e415971fba98de8a586cc2868cc574198
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: c230787b739b964998202180efaba20ad8233611
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258095"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757790"
 ---
-# <a name="how-to-perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-the-azure-portal"></a>Realización de streaming en vivo con Media Services para crear transmisiones de velocidad de bits múltiple con Azure portal  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Realización de streaming en vivo con Media Services para crear transmisiones de velocidad de bits múltiple con Azure portal  
 > [!div class="op_single_selector"]
 > * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -42,34 +42,26 @@ A continuación se indican los pasos generales para crear aplicaciones comunes d
 > [!NOTE]
 > Actualmente, la duración máxima recomendada de un evento en directo es de 8 horas. Si necesita ejecutar un canal durante períodos más prolongados, póngase en contacto con amslived@microsoft.com.
 
-1. Conecte una cámara de vídeo a un equipo. Inicie y configure un codificador local en directo que pueda generar una secuencia de velocidad de bits única en uno de los siguientes protocolos: RTMP o Smooth Streaming. Para obtener más información, consulte [Compatibilidad con RTMP de Azure Media Services y codificadores en directo](https://go.microsoft.com/fwlink/?LinkId=532824).
+1. Conecte una cámara de vídeo a un equipo. <br/>Para obtener ideas para la configuración, consulte [Simple and portable event video gear setup]( https://link.medium.com/KNTtiN6IeT) (Equipo de vídeo para eventos sencillo y portátil).
+1. Inicie y configure un codificador local en directo que pueda generar una secuencia de velocidad de bits única en uno de los siguientes protocolos: RTMP o Smooth Streaming. Para obtener más información, consulte [Compatibilidad con RTMP de Azure Media Services y codificadores en directo](https://go.microsoft.com/fwlink/?LinkId=532824). <br/>Vea también este blog: [Live streaming production with OBS](https://link.medium.com/ttuwHpaJeT) (Producción de streaming en vivo con OBS).
 
     Este paso también puede realizarse después de crear el canal.
-2. Cree e inicie un canal. 
-3. Recupere la URL de ingesta de canales. 
+1. Cree e inicie un canal. 
+1. Recupere la URL de ingesta de canales. 
 
     El codificador en directo usa la URL de ingesta para enviar la secuencia al canal.
-4. Recupere la URL de vista previa de canal. 
+1. Recupere la URL de vista previa de canal. 
 
     Use esta dirección URL para comprobar que el canal recibe correctamente la secuencia en vivo.
-5. Cree un evento o programa (que también creará un recurso). 
-6. Publique el evento (que creará un localizador a petición para el recurso asociado).    
-7. Inicie el evento cuando esté listo para iniciar el streaming y el archivo.
-8. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
-9. Detenga el evento cuando quiera detener el streaming y el archivo del evento.
-10. Elimine el evento (y, opcionalmente, elimine el recurso).   
-
-## <a name="in-this-tutorial"></a>Apartados de este tutorial
-En este tutorial, se utiliza el portal de Azure para realizar las tareas siguientes: 
-
-1. Cree un canal que está habilitado para realizar la codificación en directo.
-2. Obtenga la URL de introducción para proporcionarla al codificador en directo. El codificador en directo utilizará esta dirección URL para introducir la transmisión en el canal.
-3. Cree un evento o programa (y un recurso).
-4. Publicar el recurso y obtener las direcciones URL de streaming.  
-5. Reproduzca el contenido.
-6. Realice la limpieza.
+1. Cree un evento o programa (que también creará un recurso). 
+1. Publique el evento (que creará un localizador a petición para el recurso asociado).    
+1. Inicie el evento cuando esté listo para iniciar el streaming y el archivo.
+1. Si lo desea, puede señalar el codificador en directo para iniciar un anuncio. El anuncio se inserta en el flujo de salida.
+1. Detenga el evento cuando quiera detener el streaming y el archivo del evento.
+1. Elimine el evento (y, opcionalmente, elimine el recurso).   
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Los siguientes requisitos son necesarios para completar el tutorial.
 
 * Para completar este tutorial, deberá tener una cuenta de Azure. En caso de no tener cuenta, puede crear una de evaluación gratuita en tan solo unos minutos. 
@@ -78,6 +70,7 @@ Los siguientes requisitos son necesarios para completar el tutorial.
 * Una cámara web y un codificador que pueda enviar una secuencia en vivo de una sola velocidad de bits.
 
 ## <a name="create-a-channel"></a>Crear un canal
+
 1. En [Azure Portal](https://portal.azure.com/), seleccione Media Services y, luego, haga clic en el nombre de la cuenta de Media Services.
 2. Seleccione **Streaming en vivo**.
 3. Seleccione **Creación personalizada**. Esta opción le permite crear un canal habilitado para la codificación en directo.
@@ -120,9 +113,10 @@ Para más información, consulte [Streaming en vivo mediante Azure Media Service
 ## <a name="get-ingest-urls"></a>Obtención de direcciones URL de introducción
 Una vez creado el canal, obtendrá direcciones URL de introducción que se proporcionarán al codificador en directo. El codificador usa estas direcciones URL para introducir una secuencia en vivo.
 
-![ingesturls](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
+![direcciones URL de ingesta](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-ingest-urls.png)
 
 ## <a name="create-and-manage-events"></a>Creación y administración de eventos
+
 ### <a name="overview"></a>Información general
 Un canal está asociado a eventos y programas que le permiten controlar la publicación y el almacenamiento de segmentos en una transmisión en vivo. Los canales administran los eventos y programas. La relación entre canales y programas es muy similar a los medios tradicionales, donde un canal tiene un flujo constante de contenido y un programa se enfoca algún evento programado en dicho canal.
 
@@ -154,7 +148,7 @@ Existen dos formas de iniciar un evento:
 
     Especifique lo siguiente: nombre de evento, nombre de recurso, ventana de archivo y opción de cifrado.
 
-    ![createprogram](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
+    ![Crear programa](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-program.png)
 
     Si ha dejado activado **Publish this live event now** (Publicar este evento en directo ahora), se crearán las direcciones URL de publicación del evento.
 

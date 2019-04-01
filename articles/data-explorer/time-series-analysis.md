@@ -3,17 +3,17 @@ title: Análisis de series temporales de Azure Data Explorer
 description: 'Aprenda sobre el análisis de series temporales en Azure Data Explorer. '
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: b7d498b34fa3e247d5d4688f8d87213e7707fd86
-ms.sourcegitcommit: 4bf542eeb2dcdf60dcdccb331e0a336a39ce7ab3
-ms.translationtype: HT
+ms.openlocfilehash: 6a77e399e4de6ec41e74d1e5b9f9f518126958c2
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56408789"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756782"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Análisis de series temporales en Azure Data Explorer
 
@@ -223,7 +223,7 @@ demo_many_series1
 
 |   |   |
 | --- | --- |
-|   | Recuento |
+|   | Número |
 |   | 18339 |
 
 Ahora, vamos a crear un conjunto de 18339 series temporales de la métrica de recuento de lecturas. Agregamos la cláusula `by` a la instrucción make-series, aplicamos la regresión lineal y seleccionamos las dos primeras series temporales que tuvieron la tendencia decreciente más significativa:

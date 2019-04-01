@@ -8,19 +8,21 @@ services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
-ms.date: 01/22/2019
-ms.openlocfilehash: 046aed64d3551d5c0b6ddae44b925452c01c297a
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.date: 03/29/2019
+ms.openlocfilehash: c5fabf37ecc97f8edea437f1628949e45aefde77
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337602"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755703"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autenticación y acceso a los recursos con identidades administradas en Azure Logic Apps
 
 Para obtener acceso a los recursos en otros inquilinos de Azure Active Directory (Azure AD) y autenticar su identidad sin iniciar sesión, su aplicación lógica puede usar una [identidad administrada](../active-directory/managed-identities-azure-resources/overview.md) (anteriormente conocida como Managed Service Identity o MSI), en lugar de credenciales o secretos. Azure administra esta identidad y le ayuda a proteger las credenciales porque, de esta forma, no tiene que proporcionar secretos o cambiarlos. En este artículo se muestra cómo configurar y usar una identidad administrada asignada por el sistema para la aplicación lógica. Para obtener más información sobre las identidades administradas, consulte [¿Qué es Managed Identities for Azure Resources?](../active-directory/managed-identities-azure-resources/overview.md)
 
 > [!NOTE]
+> La aplicación lógica puede usar las identidades administradas solo con los conectores que admiten identidades administradas. Actualmente, solo el conector HTTP admite las identidades administradas.
+>
 > Actualmente, puede tener hasta 10 flujos de trabajo de la aplicación lógica con las identidades administradas asignadas por el sistema en cada suscripción a Azure.
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -148,7 +150,7 @@ Para proporcionar acceso a otro recurso de Azure para la identidad administrada 
 
 Después de configurar la aplicación lógica con una identidad administrada asignada por el sistema y de asignar acceso al recurso que quiere para esa identidad, puede usar dicha identidad para la autenticación. Por ejemplo, puede usar una acción HTTP para que su aplicación lógica pueda enviar una solicitud HTTP o una llamada a ese recurso. 
 
-1. Agregue la acción **HTTP** a la aplicación lógica. 
+1. Agregue la acción **HTTP** a la aplicación lógica.
 
 1. Proporcione la información necesaria para dicha acción, por ejemplo, el **método** de la solicitud y la ubicación del **URI** para el recurso que desea llamar.
 
@@ -158,7 +160,7 @@ Después de configurar la aplicación lógica con una identidad administrada asi
 
    `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version-2016-06-01`
 
-1. En la acción HTTP, elija **Mostrar opciones avanzadas**. 
+1. En la acción HTTP, elija **Mostrar opciones avanzadas**.
 
 1. Desde la lista **Autenticación**, seleccione **Identidad administrada**. Después de seleccionar esta autenticación, la propiedad **Audiencia** aparece con el valor de Id. de recurso predeterminado:
 
@@ -176,7 +178,7 @@ Después de configurar la aplicación lógica con una identidad administrada asi
 
 ## <a name="remove-managed-identity"></a>Eliminación de una identidad administrada
 
-Para deshabilitar una identidad administrada asignada por el sistema en la aplicación lógica, puede seguir unos pasos similares a los que realizó al configurar la identidad mediante Azure Portal, las plantillas de implementación de Azure Resource Manager o Azure PowerShell. 
+Para deshabilitar una identidad administrada asignada por el sistema en la aplicación lógica, puede seguir unos pasos similares a los que realizó al configurar la identidad mediante Azure Portal, las plantillas de implementación de Azure Resource Manager o Azure PowerShell.
 
 Cuando se elimina la aplicación lógica, Azure quita automáticamente de Azure AD la identidad asignada por el sistema a la aplicación lógica.
 
@@ -194,7 +196,7 @@ Para quitar una identidad administrada asignada por el sistema para la aplicaci�
 
 ### <a name="deployment-template"></a>Plantilla de implementación
 
-Si ha creado la identidad administrada asignada por el sistema de la aplicación lógica con una plantilla de implementación de Azure Resource Manager, establezca la propiedad `"type"` del elemento `"identity"` en `"None"`. Esta acción también elimina el identificador de entidad de seguridad de Azure AD. 
+Si ha creado la identidad administrada asignada por el sistema de la aplicación lógica con una plantilla de implementación de Azure Resource Manager, establezca la propiedad `"type"` del elemento `"identity"` en `"None"`. Esta acción también elimina el identificador de entidad de seguridad de Azure AD.
 
 ```json
 "identity": {

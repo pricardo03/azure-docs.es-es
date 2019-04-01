@@ -1,6 +1,6 @@
 ---
-title: Enviar los mensajes de seguridad a ASC para la versión preliminar de IoT | Microsoft Docs
-description: Obtenga información sobre cómo enviar los mensajes de seguridad con ASC para IoT.
+title: Enviar los mensajes de seguridad a Azure Security Center para la versión preliminar de IoT | Microsoft Docs
+description: Obtenga información sobre cómo enviar los mensajes de seguridad con Azure Security Center para IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: d8eefff5a5ea03237eea60a63b63d70f605f10b3
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 2e8fc3e2cf85fb06d37347870e3b2b9c82f1aa96
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650162"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754785"
 ---
 # <a name="send-security-messages-sdk"></a>Enviar mensajes de seguridad SDK
 
 > [!IMPORTANT]
-> ASC para IoT está actualmente en versión preliminar pública.
+> Azure Security Center para IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no se recomienda para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Esta guía explica ASC para las funcionalidades del servicio IoT cuando opta por recopilar y enviar mensajes de seguridad de su dispositivo sin utilizar un ASC para el agente de IoT y explica cómo hacerlo.  
+Esta guía explica Azure Security Center (ASC) para las funcionalidades del servicio IoT cuando opta por recopilar y enviar mensajes de seguridad de su dispositivo sin utilizar un ASC para el agente de IoT y explica cómo hacerlo.  
 
 En esta guía, aprenderá a: 
 > [!div class="checklist"]

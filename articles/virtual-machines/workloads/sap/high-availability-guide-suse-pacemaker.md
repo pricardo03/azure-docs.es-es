@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: a2e03a548b403262dca7e7a76b84cc99661242c6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 51db372b288ce388f58ca0e7fdcb2e1b97e511de
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487371"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58755719"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -84,7 +84,7 @@ Ejecute los siguientes comandos en todas las **máquinas virtuales de destino iS
 
 Ejecute los siguientes comandos en todas las **máquinas virtuales de destino iSCSI** para crear los discos iSCSI para los clústeres utilizados por los sistemas SAP. En el ejemplo siguiente, se crean dispositivos SBD para varios clústeres. Se muestra cómo se podría usar un servidor de destino iSCSI para varios clústeres. Los dispositivos SBD se colocan en el disco del sistema operativo. Asegúrese de que dispone de suficiente espacio.
 
-**NFS** se usa para identificar el clúster NFS, **ascsnw1** se usa para identificar el clúster ASCS de **NW1**, **dbnw1** se usa para identificar el clúster de base de datos de **NW1**, **nfs-0** y **nfs-1** son los nombres de host de los nodos del clúster NFS, **nw1-xscs-0** y **Nw1-xscs-1** son los nombres de host de los nodos del clúster de ASCS **NW1**, y **nw1-db-0** y **nw1-db-1** son los nombres de host de los nodos del clúster de la base de datos. Sustitúyalos por los nombres de host de los nodos del clúster y el SID del sistema SAP.
+**` nfs`** se usa para identificar el clúster NFS, **ascsnw1** se usa para identificar el clúster ASCS de **NW1**, **dbnw1** se usa para identificar el clúster de base de datos de **NW1** , **nfs 0** y **nfs 1** son los nombres de host de los nodos del clúster NFS **nw1-xscs-0** y **nw1-xscs-1**son los nombres de host de la **NW1** , los nodos de clúster de ASCS y **nw1-db-0** y **nw1-db-1** son los nombres de host de la base de datos de nodos del clúster. Sustitúyalos por los nombres de host de los nodos del clúster y el SID del sistema SAP.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -302,7 +302,7 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   Cree el archivo de configuración softdog.
+   Crear el ` softdog` archivo de configuración
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>
@@ -321,7 +321,7 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    <pre><code>sudo zypper update
    </code></pre>
 
-1. **[A]** Configure el sistema operativo
+1. **[A]**  Configurar el sistema operativo
 
    En algunos casos, Pacemaker crea muchos procesos y, por tanto, agota al número de procesos permitidos. En tal caso, un latido entre los nodos del clúster podría producir un error y dar lugar a la conmutación por error de los recursos. Se recomienda aumentar los procesos máximos permitidos al establecer el parámetro siguiente.
 
@@ -346,6 +346,18 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    # Change/set the following settings
    vm.dirty_bytes = 629145600
    vm.dirty_background_bytes = 314572800
+   </code></pre>
+
+1. **[A]**  Configurar netconfig-en la nube de azure para el clúster de alta disponibilidad
+
+   Cambiar el archivo de configuración para la interfaz de red, como se muestra a continuación para evitar que el complemento de red en la nube de quitar la dirección IP virtual (Pacemaker debe controlar la asignación de VIP). Para obtener más información, consulte [SUSE KB 7023633](https://www.suse.com/support/kb/doc/?id=7023633). 
+
+   <pre><code># Edit the configuration file
+   sudo vi /etc/sysconfig/network/ifcfg-eth0 
+   
+   # Change CLOUD_NETCONFIG_MANAGE
+   # CLOUD_NETCONFIG_MANAGE="yes"
+   CLOUD_NETCONFIG_MANAGE="no"
    </code></pre>
 
 1. **[1]** Habilite el acceso de SSH

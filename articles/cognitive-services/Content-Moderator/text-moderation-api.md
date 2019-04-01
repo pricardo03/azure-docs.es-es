@@ -9,12 +9,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: sajagtap
-ms.openlocfilehash: 8ca6c73d6ccdab3acb4ebb18af9b4aa82683e026
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 5a1007f2408b48c96f5eeaf585b94c8caa7ceb45
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55864305"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757755"
 ---
 # <a name="learn-text-moderation-concepts"></a>Información sobre los conceptos de moderación de texto
 
@@ -26,7 +26,7 @@ La respuesta del servicio incluye la siguiente información:
 
 - Palabras soeces: coincidencias basadas en términos con la lista integrada de términos soeces en varios idiomas
 - Clasificación: clasificación asistida por máquina en tres categorías
-- Información de identificación personal
+- Datos personales
 - Texto corregido automáticamente
 - Texto original
 - Idioma
@@ -75,7 +75,7 @@ El siguiente extracto de JSON muestra una salida de ejemplo:
 - `Score` se encuentra entre 0 y 1. Cuanto más alta sea la puntuación, mayor será la predicción del modelo sobre la aplicabilidad de la categoría. Esta característica usa un modelo estadístico, en lugar de resultados codificados manualmente. Se recomienda realizar pruebas con contenido propio para determinar cómo se alinea cada categoría en función de sus propios requisitos.
 - `ReviewRecommended` es true o false según los umbrales de puntuación internos. Los clientes deben evaluar si quieren usar este valor o decidir si desean umbrales personalizados basados en sus directivas de contenido.
 
-## <a name="personally-identifiable-information-pii"></a>Información de identificación personal
+## <a name="personal-data"></a>Datos personales
 
 La característica de información de identificación personal detecta la posible presencia de esta información:
 
