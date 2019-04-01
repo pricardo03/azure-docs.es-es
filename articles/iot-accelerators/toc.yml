@@ -13,7 +13,7 @@ items:
   - name: Información general
     href: iot-accelerators-remote-monitoring-sample-walkthrough.md
     items:
-    - name: Opciones de arquitectura
+    - name: Opciones de la arquitectura
       href: iot-accelerators-remote-monitoring-architectural-choices.md
   - name: Guías de inicio rápido
     items:
@@ -128,29 +128,64 @@ items:
       href: https://github.com/Azure/azure-iot-pcs-remote-monitoring-java
     - name: Preguntas frecuentes acerca de la supervisión remota
       href: iot-accelerators-faq-rm-v2.md
-- name: Fábrica conectada
+- name: IoT industrial
   items:
   - name: Información general
-    href: iot-accelerators-connected-factory-features.md
     items:
-    - name: Arquitectura
-      href: iot-accelerators-connected-factory-sample-walkthrough.md
+    - name: ¿Qué es IoT industrial?
+      href: overview-iot-industrial.md
+    - name: OPC Twin
+      items:
+      - name: ¿Qué es OPC Twin?
+        href: overview-opc-twin.md
+      - name: OPC Twin Architecture
+        href: overview-opc-twin-architecture.md
+    - name: OPC Vault
+      items:
+      - name: ¿Qué es OPC Vault?
+        href: overview-opc-vault.md
+    - name: Fábrica conectada
+      items:
+      - name: Introducción a factoría conectada
+        href: iot-accelerators-connected-factory-features.md
+      - name: Arquitectura de factoría conectada
+        href: iot-accelerators-connected-factory-sample-walkthrough.md
   - name: Guías de inicio rápido
     items:
     - name: Prueba de una solución de factoría conectada
       href: quickstart-connected-factory-deploy.md
   - name: Guías de procedimientos
     items:
-    - name: Uso del panel
-      href: iot-accelerators-connected-factory-dashboard.md
-    - name: Implementación de una puerta de enlace
-      href: iot-accelerators-connected-factory-gateway-deployment.md
-    - name: Uso de OPC Publisher
-      href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
-    - name: Configuración del acelerador de la solución
-      href: iot-accelerators-connected-factory-configure.md
-    - name: Personalización del acelerador de la solución
-      href: iot-accelerators-connected-factory-customize.md
+    - name: Fábrica conectada
+      items:
+      - name: Uso del panel
+        href: iot-accelerators-connected-factory-dashboard.md
+      - name: Implementación de una puerta de enlace
+        href: iot-accelerators-connected-factory-gateway-deployment.md
+      - name: Uso de OPC Publisher
+        href: https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md
+      - name: Configuración del acelerador de la solución
+        href: iot-accelerators-connected-factory-configure.md
+      - name: Personalización del acelerador de la solución
+        href: iot-accelerators-connected-factory-customize.md
+    - name: OPC Twin
+      items:
+      - name: Implementación de servicios de OPC Twin
+        href: howto-opc-twin-deploy-existing.md
+      - name: Implementación del módulo de OPC Twin en IoT Edge
+        href: howto-opc-twin-deploy-modules.md
+      - name: Implementación solo de dependencias de OPC Twin
+        href: howto-opc-twin-deploy-dependencies.md
+    - name: OPC Vault
+      items:
+      - name: Implementación de OPC Vault en un proyecto ya existente
+        items:
+        - name: Protección de la comunicación entre OPC Client y OPC PLC
+          href: howto-opc-vault-deploy-existing-client-plc-communication.md
+        - name: Protección de OPC UA Client y de OPC UA Server Application
+          href: howto-opc-vault-deploy-existing-client-server-communication.md
+      - name: Implementación de OPC Vault desde cero
+        href: howto-opc-vault-deploy-scratch.md
   - name: Recursos
     items:
     - name: Repositorio de GitHub
@@ -257,9 +292,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: Supervisión remota V1
     href: https://docs.microsoft.com/previous-versions/azure/iot-suite/
-ms.openlocfilehash: 5b2067facd27e94735aba63bb1c54c15e1511c64
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 02c728f7acef1bcc1436d87dd0c0d9509db8ec97
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57342044"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757198"

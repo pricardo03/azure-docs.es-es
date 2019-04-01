@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 903c1153db57f7cb632fc752bb696598902f5aaa
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: abfcece2d71e456a39284ddb4cfa106bce31fb53
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519721"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58670224"
 documentType: LandingData
 title: Documentación de Azure Media Services
 metadata:
@@ -30,22 +30,27 @@ sections:
     columns: 2
     items:
     - href: /azure/media-services/latest/
-      html: <p>Aprenda a codificar, a hacer streaming a petición, a realizar difusión en directo y a analizar los vídeos con Media Services v3.</p>
+      html: <p>Codifique, empaquete, proteja el contenido, haga streaming de vídeos a petición, realice difusiones en directo y analice vídeos con Media Services v3.</p>
       image:
         src: media/index/AMSIcons-media_servicesV3.svg
       title: Azure Media Services v3
     - href: /azure/media-services/video-indexer/
-      html: <p>Aprenda a extraer la información de los archivos de audio y vídeo mediante Video Indexer.</p>
+      html: <p>Extraiga la información de los archivos de audio y vídeo mediante Video Indexer.</p>
       image:
         src: media/index/AMSIcons-media_analytics.svg
       title: Video Indexer
     - href: /azure/media-services/previous/
-      html: <p>No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. Finalice la compra de la versión más reciente de Media Services, la v3.</p>
+      html: <p>No hay características o funcionalidades nuevas para agregar a Media Services, versión 2. </p>
       image:
-        src: media/index/AMSIcons-media_servicesV2.svg
+        src: 
       title: Azure Media Services v2 (heredado)
     - href: /azure/cdn/
-      html: <p>Aprenda a usar CDN para almacenar en caché objetos estáticos y para acelerar contenido dinámico que no puede almacenarse en caché.</p>
+      html: <p>Use CDN para almacenar en caché objetos estáticos y para acelerar contenido dinámico que no puede almacenarse en caché.</p>
       image:
         src: /azure/cdn/media/index/cdn.svg
       title: CDN
+    - href: http://amp.azure.net/libs/amp/latest/docs/index.html
+      html: <p>Reproduzca contenido multimedia de Microsoft Azure Media Services en una gran variedad de exploradores y dispositivos.</p>
+      image:
+        src: 
+      title: Azure Media Player
