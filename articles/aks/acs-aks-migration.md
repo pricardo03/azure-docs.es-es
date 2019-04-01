@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/13/2018
 ms.author: nobun
 ms.custom: mvc
-ms.openlocfilehash: e42b0e7bd1bce40b7c58d75cb07f5a3f8afa5836
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.openlocfilehash: 910c96988ec0a8b8aa7b6ac8ce287c4fdc59e177
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385048"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649975"
 ---
 # <a name="migrating-from-azure-container-service-acs-to-azure-kubernetes-service-aks"></a>Migración de Azure Container Service (ACS) a Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ ACS y AKS difieren en algunas áreas claves que afectan la migración. Debe revi
 
 ### <a name="differences-between-kubernetes-versions"></a>Diferencias entre versiones de Kubernetes
 
-Si migra a una versión más reciente de Kubernetes (por ejemplo: de 1.7 a 1.9.x), hay algunos cambios a la API k8s que requieren su atención.
+Si está migrando a una versión más reciente de Kubernetes (p. ej.: 1.7 a 1.9. x), hay algunos cambios a la API k8s que requieren su atención.
 
 * [Migrate a ThirdPartyResource to CustomResourceDefinition](https://kubernetes.io/docs/tasks/access-kubernetes-api/migrate-third-party-resource/) (Migración de un ThirdPartyResource a CustomResourceDefinition)
 * [Workloads API changes in versions 1.8 and 1.9](https://kubernetes.io/docs/reference/workloads-18-19/) (Workloads API cambia en las versiones 1.8 y 1.9).
@@ -48,10 +48,10 @@ Aunque AKS administra el plano de control de Kubernetes, usted define el tamaño
 
 Ejemplo:
 
-| NOMBRE | Recuento | Tamaño de VM | Sistema operativo |
+| NOMBRE | Número | Tamaño de VM | Sistema operativo |
 | --- | --- | --- | --- |
 | agentpool0 | 3 | Standard_D8_v2 | Linux |
-| agentpool1 | 1 | Standard_D2_v2 | Windows |
+| agentpool1 | 1 | Standard_D2_v2 |  Windows |
 
 Dado que las máquinas virtuales adicionales se implementarán en su suscripción durante la migración, debe comprobar que los límites y cuotas son suficientes para estos recursos. Para aprender más consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](https://docs.microsoft.com/azure/azure-subscription-service-limits). Para comprobar las cuotas actuales, vaya a la [hoja suscripciones](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) en Azure Portal, seleccione su suscripción y elija `Usage + quotas`.
 
@@ -91,7 +91,7 @@ Hay varios factores que debe tener en cuenta si migra volúmenes persistentes ex
 7. Validación
 8. Desvío del tráfico al clúster de AKS
 
-> **Importante**: Si decide no poner en modo inactivo las operaciones de escritura, tendrá que replicar datos en la nueva implementación, ya que faltarán los datos escritos tras la última instantánea del disco
+> **Importante**: Si decide no escrituras en reposo, deberá replicar datos a la nueva implementación, como faltarán los datos que se ha escrito desde la instantánea de disco
 
 Existen herramientas de código abierto que pueden ayudarle a crear Managed Disks y a migrar volúmenes entre clústeres de Kubernetes.
 
@@ -144,7 +144,7 @@ Realice las modificaciones necesarias a las definiciones de YAML. Por ejemplo: r
 
 ### <a name="3-optional-migrate-volumes"></a>3. (Opcional) Migración de volúmenes
 
-Migre los volúmenes del clúster de ACS la clúster de AKS. Puede encontrar más detalles en la sección [Migración de volúmenes persistentes](#Migrating-Persistent-Volumes).
+Migre los volúmenes del clúster de ACS la clúster de AKS. Puede encontrar más detalles en la sección [Migración de volúmenes persistentes](#migrating-persistent-volumes).
 
 ### <a name="4-deploy-applications"></a>4. Implementación de aplicaciones
 

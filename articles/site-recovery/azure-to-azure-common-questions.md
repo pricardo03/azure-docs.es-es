@@ -4,15 +4,15 @@ description: En este artículo se resumen las preguntas comunes al configurar la
 author: asgang
 manager: rochakm
 ms.service: site-recovery
-ms.date: 03/18/2019
+ms.date: 03/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 2c1890570f153de68d187c37dc0a7bca156c2d47
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 66d57677b216130316c6a3ddd9a6cff993540808
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312060"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649890"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Preguntas frecuentes: Replicación de Azure a Azure
 
@@ -34,6 +34,9 @@ Sí, aunque Azure Site Recovery sea gratuito los primeros 31 días de una instan
 3. [Configuración de la recuperación ante desastres de máquinas virtuales de Azure](azure-to-azure-how-to-enable-replication.md)
 4. [Ejecución de una conmutación por error de prueba](azure-to-azure-tutorial-dr-drill.md)
 5. [Conmutación por error y conmutación por recuperación a la región principal](azure-to-azure-tutorial-failover-failback.md)
+
+### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>¿Cómo se garantiza que capacidad en la región de destino para máquinas virtuales de Azure?
+El equipo de Azure Site Recovery (ASR) funciona con el equipo de administración de capacidad de Azure para planear la capacidad de infraestructura suficiente, en un intento para asegurarse de que las máquinas virtuales protegidas por ASR para desastres recuperación correctamente se implementarán en la región de recuperación ante desastres, cada vez que se inician las operaciones de conmutación por error de ASR.
 
 ## <a name="replication"></a>Replicación
 
@@ -79,7 +82,7 @@ Define la configuración del historial de retención de los puntos de recuperaci
 [Más información](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#configure-replication-settings).
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>¿Qué es un punto de recuperación coherente con los bloqueos?
-Un punto de recuperación coherente con los bloqueos representa los datos en disco como si la máquina virtual se hubiera bloqueado o el cable de alimentación se hubiera desconectado del servidor en el momento en que se ha tomado la instantánea. No incluye nada de lo que estaba en la memoria cuando se tomó la instantánea. 
+Un punto de recuperación coherente con los bloqueos representa los datos en disco como si la máquina virtual se hubiera bloqueado o el cable de alimentación se hubiera desconectado del servidor en el momento en que se ha tomado la instantánea. No incluye nada de lo que estaba en la memoria cuando se tomó la instantánea.
 
 Hoy en día, la mayoría de las aplicaciones se pueden recuperar bien a partir de instantáneas coherentes con los bloqueos. Un punto de recuperación coherente con los bloqueos suele ser suficiente para aplicaciones y sistemas operativos que no tienen bases de datos, como los servidores de archivos, los servidores DHCP y los servidores de impresión.
 
@@ -87,9 +90,7 @@ Hoy en día, la mayoría de las aplicaciones se pueden recuperar bien a partir d
 Site Recovery crea un punto de recuperación coherente con los bloqueos cada 5 minutos.
 
 ### <a name="what-is-an-application-consistent-recovery-point"></a>¿Qué es un punto de recuperación coherente con la aplicación? 
-Los puntos de recuperación coherentes con la aplicación se crean a partir de instantáneas coherentes con la aplicación. Los puntos de recuperación coherentes con la aplicación capturan los mismos datos que las instantáneas coherentes con los bloqueos, con la adición de todos los datos en memoria y todas las transacciones en curso. 
-
-Debido a su contenido adicional, las instantáneas coherentes con la aplicación son las más complejas y las que más tardan en ejecutarse. Se recomiendan puntos de recuperación coherentes con la aplicación para sistemas operativos de bases de datos y aplicaciones como SQL Server.
+Los puntos de recuperación coherentes con la aplicación se crean a partir de instantáneas coherentes con la aplicación. Los puntos de recuperación coherentes con la aplicación capturan los mismos datos que las instantáneas coherentes con los bloqueos, con la adición de todos los datos en memoria y todas las transacciones en curso. Debido a su contenido adicional, las instantáneas coherentes con la aplicación son las más complejas y las que más tardan en ejecutarse. Se recomiendan puntos de recuperación coherentes con la aplicación para sistemas operativos de bases de datos y aplicaciones como SQL Server.
 
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>¿Cómo afectan los puntos de recuperación coherentes con la aplicación en el rendimiento de la aplicación?
 Teniendo en cuenta que los puntos de recuperación coherentes con la aplicación capturan todos los datos en memoria y en curso, se requiere un marco de trabajo como VSS en las ventanas para poner la aplicación en modo inactivo. Si esto se hace con mucha frecuencia, puede afectar al rendimiento si la carga de trabajo ya está muy ocupada. Normalmente, se recomienda no utilizar una frecuencia baja para los puntos de recuperación coherentes con la aplicación para las cargas de trabajo que no sean de la base de datos e, incluso para este tipo de carga de trabajo, una hora es suficiente. 
@@ -116,8 +117,8 @@ El punto de recuperación más antiguo que puede usar es de 72 horas.
 ### <a name="what-will-happen-if-i-have-a-replication-policy-of-24-hours-and-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>¿Qué ocurrirá si tengo una directiva de replicación de 24 horas y un problema impide que Site Recovery genere puntos de recuperación durante más de 24 horas? ¿Se perderán mis puntos de recuperación anteriores?
 No, Site Recovery mantendrá todos los puntos de recuperación anteriores. Dependiendo del periodo de retención de puntos de recuperación, 24 horas en este caso, Site Recovery reemplaza el punto más antiguo solo si hay una generación de nuevos puntos. En este caso, como no habrá ningún nuevo punto de recuperación generado como consecuencia de algún problema, todos los puntos antiguos permanecerán intactos una vez que finalice el periodo de retención.
 
-### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Después de habilitar la replicación en una máquina virtual, ¿cómo puedo cambiar la directiva de replicación? 
-Vaya a **Almacén de Site Recovery** > **Site Recovery Infrastructure (Infraestructura de Site Recovery)** > **Directivas de replicación**. Seleccione la directiva que quiera editar y guarde los cambios. Todos los cambios se aplicarán también en todas las replicaciones existentes. 
+### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Después de habilitar la replicación en una máquina virtual, ¿cómo puedo cambiar la directiva de replicación?
+Vaya a **Almacén de Site Recovery** > **Site Recovery Infrastructure (Infraestructura de Site Recovery)** > **Directivas de replicación**. Seleccione la directiva que quiera editar y guarde los cambios. Todos los cambios se aplicarán también en todas las replicaciones existentes.
 
 ### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>¿Todos los puntos de recuperación son una copia completa de la máquina virtual o diferencial?
 El primer punto de recuperación que se genera tiene la copia completa. Los puntos de recuperación sucesivos tienen los cambios diferenciales.
@@ -125,7 +126,7 @@ El primer punto de recuperación que se genera tiene la copia completa. Los punt
 ### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>¿Al aumentar el período de retención de los puntos de recuperación se aumenta el costo de almacenamiento?
 Sí. Si aumenta el período de retención de 24 a 72 horas, Site Recovery guardará los puntos de recuperación durante 48 horas adicionales. El tiempo adicional implicará cargos de almacenamiento. Por ejemplo, si un único punto de recuperación tiene cambios diferenciales de 10 GB y un costo de 0,16 $ al mes por GB, esto implicaría unos cargos adicionales de 1,6 $ * 48 al mes.
 
-## <a name="multi-vm-consistency"></a>Coherencia con múltiples máquinas virtuales 
+## <a name="multi-vm-consistency"></a>Coherencia con múltiples máquinas virtuales
 
 ### <a name="what-is-multi-vm-consistency"></a>¿Qué es la coherencia con múltiples máquinas virtuales?
 Significa asegurarse de que el punto de recuperación sea coherente en todas las máquinas virtuales replicadas.
@@ -134,7 +135,7 @@ Todas las máquinas virtuales tendrán puntos de recuperación compartidos coher
 Repase el tutorial para [habilitar la coherencia con múltiples máquinas virtuales](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication#enable-replication).
 
 ### <a name="can-i-failover-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>¿Puedo conmutar por error una sola máquina virtual de un grupo de replicación de coherencia con múltiples máquinas virtuales?
-Al seleccionar la opción "Coherencia con varias máquinas virtuales", indica que la aplicación depende de todas las máquinas virtuales de un grupo. Por lo tanto, no se permite la conmutación por error de una sola máquina virtual. 
+Al seleccionar la opción "Coherencia con varias máquinas virtuales", indica que la aplicación depende de todas las máquinas virtuales de un grupo. Por lo tanto, no se permite la conmutación por error de una sola máquina virtual.
 
 ### <a name="how-many-virtual-machines-can-i-replicate-as-a-part-of-a-multi-vm-consistency-replication-group"></a>¿Cuántas máquinas virtuales puedo replicar como parte de un grupo de replicación de coherencia con varias máquinas virtuales?
 Puede replicar 16 máquinas virtuales juntas en un grupo de replicación.
@@ -145,9 +146,12 @@ La habilitación de la coherencia entre con varias VM puede afectar al rendimien
 
 ## <a name="failover"></a>Conmutación por error
 
+### <a name="how-is-capacity-guaranteed-in-target-region-for-azure-vms"></a>¿Cómo se garantiza que capacidad en la región de destino para máquinas virtuales de Azure?
+El equipo de Azure Site Recovery (ASR) funciona con el equipo de administración de capacidad de Azure para planear la capacidad de infraestructura suficiente, en un intento para asegurarse de que las máquinas virtuales protegidas por ASR para desastres recuperación correctamente se implementarán en la región de recuperación ante desastres, cada vez que se inician las operaciones de conmutación por error de ASR.
+
 ### <a name="is-failover-automatic"></a>¿La conmutación por error es automática?
 
-La conmutación por error no es automática. Puede iniciar las conmutaciones por error con solo un clic en el portal o bien puede usar [PowerShell](azure-to-azure-powershell.md) para desencadenar una conmutación por error. 
+La conmutación por error no es automática. Puede iniciar las conmutaciones por error con solo un clic en el portal o bien puede usar [PowerShell](azure-to-azure-powershell.md) para desencadenar una conmutación por error.
 
 ### <a name="can-i-retain-a-public-ip-address-after-failover"></a>¿Se puede conservar una dirección IP pública después de la conmutación por error?
 
@@ -158,7 +162,8 @@ Sí, puede conservar una dirección IP privada. De forma predeterminada, cuando 
 
 ### <a name="after-failover-the-server-doesnt-have-the-same-ip-address-as-the-source-vm-why-is-it-assigned-a-new-ip-address"></a>Después de la conmutación por error, el servidor no tiene la misma dirección IP que la máquina virtual de origen. ¿Por qué se asigna una nueva dirección IP?
 
-Site Recovery trata de proporcionar la dirección IP en el momento de la conmutación por error. Si otra máquina virtual se lleva esa dirección, Site Recovery establece la siguiente dirección IP disponible como destino. Para obtener una explicación completa de cómo controla el direccionamiento Site Recovery, vea [Set up network mapping and IP addressing for virtual networks](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms) (Configuración de asignación de redes y direccionamiento IP para máquinas virtuales).
+Site Recovery trata de proporcionar la dirección IP en el momento de la conmutación por error. Si otra máquina virtual se lleva esa dirección, Site Recovery establece la siguiente dirección IP disponible como destino.
+Para obtener una explicación completa de cómo controla el direccionamiento Site Recovery, vea [Set up network mapping and IP addressing for virtual networks](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-network-mapping#set-up-ip-addressing-for-target-vms) (Configuración de asignación de redes y direccionamiento IP para máquinas virtuales).
 
 ### <a name="what-are-latest-lowest-rpo-recovery-points"></a>¿Qué son los puntos de recuperación **Más reciente (RPO más bajo)**?
 La opción **Más reciente (RPO más bajo)** procesa primero todos los datos que se han enviado al servicio Site Recovery para crear un punto de recuperación para cada máquina virtual antes de conmutarla por error a dicho punto de recuperación. Esta opción ofrece el objetivo de punto de recuperación mínimo, ya que la máquina virtual creada después de la conmutación por error tiene todos los datos replicados en Site Recovery al desencadenarse la conmutación por error.
@@ -173,7 +178,7 @@ La opción **Procesado más recientemente** realiza una conmutación por error d
 Puede desencadenar una conmutación por error después de la interrupción. Site Recovery no necesita conectividad desde la región primaria para realizar la conmutación por error.
 
 ### <a name="what-is-a-rto-of-a-virtual-machine-failover-"></a>¿Cuál es un objetivo de tiempo de recuperación de la conmutación por error de una máquina virtual?
-Site Recovery tiene un [objetivo de tiempo de recuperación de 2 horas según el contrato de nivel de servicio](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Sin embargo, la mayoría de las veces, Site Recovery conmuta por error las máquinas virtuales en cuestión de minutos. Para calcular el objetivo de tiempo de recuperación, vaya a los trabajos de conmutación por error, que muestran el tiempo que tardó en aparecer la VM. Para el objetivo de tiempo de recuperación del plan de recuperación, consulte la siguiente sección. 
+Site Recovery tiene un [objetivo de tiempo de recuperación de 2 horas según el contrato de nivel de servicio](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Sin embargo, la mayoría de las veces, Site Recovery conmuta por error las máquinas virtuales en cuestión de minutos. Para calcular el objetivo de tiempo de recuperación, vaya a los trabajos de conmutación por error, que muestran el tiempo que tardó en aparecer la VM. Para el objetivo de tiempo de recuperación del plan de recuperación, consulte la siguiente sección.
 
 ## <a name="recovery-plans"></a>Planes de recuperación
 
@@ -188,7 +193,7 @@ Un plan de recuperación en Site Recovery coordina la recuperación de conmutaci
 
 ### <a name="how-is-sequencing-achieved-in-a-recovery-plan"></a>¿Cómo se logra la secuenciación en un plan de recuperación?
 
-En un plan de recuperación, puede crear varios grupos para lograr la secuenciación. Todos los grupos conmutan por error a la vez. Las máquinas virtuales que forman parte del mismo grupo conmutan por error a la vez, y luego otro grupo. Para obtener información sobre cómo modelar una aplicación mediante el uso de un plan de recuperación, consulte [Acerca de los planes de recuperación](recovery-plan-overview.md#model-apps). 
+En un plan de recuperación, puede crear varios grupos para lograr la secuenciación. Todos los grupos conmutan por error a la vez. Las máquinas virtuales que forman parte del mismo grupo conmutan por error a la vez, y luego otro grupo. Para obtener información sobre cómo modelar una aplicación mediante el uso de un plan de recuperación, consulte [Acerca de los planes de recuperación](recovery-plan-overview.md#model-apps).
 
 ### <a name="how-can-i-find-the-rto-of-a-recovery-plan"></a>¿Cómo se puede encontrar el RTO de un plan de recuperación?
 Para comprobar el RTO de un plan de recuperación, haga una conmutación por error de prueba del plan de recuperación y vaya a **Trabajos de Site Recovery**.
@@ -199,7 +204,7 @@ En el ejemplo siguiente, el trabajo denominado SAPTestRecoveryPlan tardó 8 minu
 ### <a name="can-i-add-automation-runbooks-to-the-recovery-plan"></a>¿Se pueden agregar automáticamente runbooks al plan de recuperación?
 Sí, puede integrar runbooks de Azure Automation en el plan de recuperación. [Más información](site-recovery-runbook-automation.md).
 
-## <a name="reprotection-and-failback"></a>Reprotección y conmutación por recuperación 
+## <a name="reprotection-and-failback"></a>Reprotección y conmutación por recuperación
 
 ### <a name="after-a-failover-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>Después de realizar una conmutación por error de la región primaria en la región de recuperación ante desastres, ¿se protegen de forma automática las máquinas virtuales en una región de recuperación ante desastres?
  No. No, al [conmutar por error](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-failover-failback) las máquinas virtuales de Azure desde una región a otra, las máquinas virtuales se inician en la región de recuperación ante desastres con un estado desprotegido. Para conmutar por recuperación las máquinas virtuales en la región primaria, tiene que [volver a protegerlas](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect) en la región secundaria.
@@ -208,7 +213,7 @@ Sí, puede integrar runbooks de Azure Automation en el plan de recuperación. [M
 Depende de la situación. Por ejemplo, si la máquina virtual de la región de origen existe, solo se sincronizan los cambios entre el disco de origen y el disco de destino. Site Recovery calcula las copias de seguridad diferenciales mediante la comparación de los discos y, a continuación, transfiere los datos. Este proceso suele tardar unas horas. Para obtener más información sobre lo que ocurre durante la reprotección, consulte [Reprotección de máquinas virtuales de Azure conmutadas por error en la región principal]( https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-reprotect#what-happens-during-reprotection).
 
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>¿Cuánto se tarda en conmutar por recuperación?
-Después de la reprotección, la cantidad de tiempo para la conmutación por recuperación es normalmente similar al tiempo de la conmutación por error de la región primaria a una región secundaria. 
+Después de la reprotección, la cantidad de tiempo para la conmutación por recuperación es normalmente similar al tiempo de la conmutación por error de la región primaria a una región secundaria.
 
 ## <a name="capacity"></a>Capacity
 ### <a name="does-site-recovery-work-with-reserved-instance"></a>¿Site Recovery funciona con instancias reservadas?

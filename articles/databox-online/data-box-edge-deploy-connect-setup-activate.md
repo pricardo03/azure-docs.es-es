@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/08/2019
+ms.date: 03/28/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to connect and activate Data Box Edge so I can use it to transfer data to Azure.
-ms.openlocfilehash: 0aaee4b0582f8acb9302c75463c0bc52698acaeb
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ad288067fdd40dbfa84352916e84fa1e3ab9af8e
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403483"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629134"
 ---
 # <a name="tutorial-connect-set-up-and-activate-azure-data-box-edge"></a>Tutorial: Conectarse, configurar y activar el borde del cuadro de datos de Azure 
 
@@ -75,7 +75,7 @@ El panel muestra los distintos valores necesarios para configurar y registrar el
     ![Página de "Nombre del dispositivo" de la interfaz de usuario web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-2.png)
 
 2. (Opcional) En el panel izquierdo, seleccione **Configuración de red** y configure los distintos valores.  
-    En el dispositivo físico hay seis interfaces de red. PUERTO 1 y PUERTO 2 son interfaces de red de 1 Gbps. El puerto 3, 4 de puerto, puerto 5 y 6 de puerto son todas las interfaces de red 25 Gbps que pueden actuar también como interfaces de red de 10 Gbps. PUERTO 1 se configura automáticamente como puerto solo de administración y PUERTO 2 a PUERTO 6 son los puertos de datos. El **configuración de red** página es tal como se muestra a continuación.
+    En el dispositivo físico, hay seis interfaces de red. PUERTO 1 y PUERTO 2 son interfaces de red de 1 Gbps. El puerto 3, 4 de puerto, puerto 5 y 6 de puerto son todas las interfaces de red 25 Gbps que pueden actuar también como interfaces de red de 10 Gbps. PUERTO 1 se configura automáticamente como puerto solo de administración y PUERTO 2 a PUERTO 6 son los puertos de datos. El **configuración de red** página es tal como se muestra a continuación.
     
     ![Página de "Configuración de red" de la interfaz de usuario web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-3.png)
    
@@ -94,7 +94,7 @@ El panel muestra los distintos valores necesarios para configurar y registrar el
    
    En la página **Configuración de proxy web** haga lo siguiente:
    
-   a. En el cuadro **URL de proxy web** , escriba la dirección URL en este formato: `http://host-IP address or FQDN:Port number`. No se admiten direcciones URL HTTPS.
+    a. En el cuadro **URL de proxy web** , escriba la dirección URL en este formato: `http://host-IP address or FQDN:Port number`. No se admiten direcciones URL HTTPS.
 
    b. En **Autenticación**, seleccione **No** o **NTLM**.
 
@@ -119,7 +119,14 @@ El panel muestra los distintos valores necesarios para configurar y registrar el
 
         ![Página de "Configuración de tiempo" de la interfaz de usuario web local](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-5.png)
 
-5. En el panel izquierdo, seleccione **Configuración de la nube**  y active el dispositivo con el servicio Data Box Edge en Azure Portal.
+5. (Opcional) En el panel izquierdo, seleccione **configuración de almacenamiento** para configurar la resistencia de almacenamiento en el dispositivo. Esta funcionalidad actualmente está en su versión preliminar. De forma predeterminada, el almacenamiento en el dispositivo no es resistente y no hay pérdida de datos si se produce un error en un disco de datos en el dispositivo. Cuando se habilita la opción resistente, se reconfigura el almacenamiento en el dispositivo y el dispositivo puede resistir el error de un disco de datos sin pérdida de datos. Configuración del almacenamiento como resistente, se reducirá la capacidad utilizable del dispositivo.
+
+    > [!IMPORTANT] 
+    > Solo se puede configurar la resistencia antes de activar el dispositivo. 
+
+    ![Página de "Configuración de almacenamiento" de la interfaz de usuario web local](./media/data-box-edge-deploy-connect-setup-activate/storage-settings.png)
+
+6. En el panel izquierdo, seleccione **Configuración de la nube**  y active el dispositivo con el servicio Data Box Edge en Azure Portal.
     
     1. En el cuadro **Clave de activación**, escriba la que obtuvo en [Obtención de la clave de activación](data-box-edge-deploy-prep.md#get-the-activation-key) para Data Box Edge.
     2. Seleccione **Aplicar**.
@@ -132,7 +139,7 @@ El panel muestra los distintos valores necesarios para configurar y registrar el
 
         ![Página de "Configuración de la nube" de la interfaz de usuario web local actualizado](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-7.png)
 
-    4. Es posible que deba esperar varios minutos después de la actualización se ha completado correctamente. La página se actualiza para indicar que el dispositivo se ha activado correctamente.
+    4. Es posible que deba esperar unos minutos después de la actualización se ha completado correctamente. La página se actualiza para indicar que el dispositivo se ha activado correctamente.
 
         ![Página de "Configuración de la nube" de la interfaz de usuario web local actualizado](./media/data-box-edge-deploy-connect-setup-activate/set-up-activate-8.png)
 
@@ -140,7 +147,7 @@ La instalación del dispositivo está completa. Ahora puede agregar recursos com
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial ha aprendido a:
+En este tutorial aprendió lo siguiente:
 
 > [!div class="checklist"]
 > * A conectarse a un dispositivo físico

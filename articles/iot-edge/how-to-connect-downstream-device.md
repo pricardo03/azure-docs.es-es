@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 32b9a00aa943813bec3c518c3c9dbf0e37a9bc63
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5a05b8f0f9484ea49fbfb0bbe8818aa9cd0d66ee
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445932"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757129"
 ---
 # <a name="connect-a-downstream-device-to-an-azure-iot-edge-gateway"></a>Conexión de un dispositivo de bajada a una puerta de enlace Azure IoT Edge
 
@@ -43,7 +43,7 @@ Antes de seguir los pasos descritos en este artículo, debe tener dos dispositiv
     Actualmente, solo pueden conectarse mediante puertas de enlace IoT Edge los dispositivos de bajada con autenticación de clave simétrica. Las entidades de certificación X.509 y los certificados autofirmados X.509 no se admiten actualmente.
     
 > [!NOTE]
-> El "nombre de puerta de enlace" usado para crear los certificados de esta instrucción, debe ser el mismo nombre que se usa como nombre de host en el archivo config.yaml de IoT Edge y como GatewayHostName en la cadena de conexión del dispositivo de nivel inferior. El "nombre de la puerta de enlace" debe poderse resolver con una dirección IP, ya sea mediante DNS o una entrada de archivo host. La comunicación se basa en el protocolo usado (MQTTS:8883 / AMQPS:5671 / HTTPS:433) debe ser posible entre el dispositivo de nivel inferior y el sea transparente IoT Edge. Si existe un firewall entre ellos, es necesario abrir el puerto correspondiente.
+> El "nombre de puerta de enlace" utilizado en este artículo debe ser el mismo nombre cuando se usa como nombre de host en el archivo config.yaml de IoT Edge. El nombre de la puerta de enlace debe poderse resolver con una dirección IP, ya sea mediante DNS o una entrada de archivo host. La comunicación se basa en el protocolo usado (MQTTS:8883 / AMQPS:5671 / HTTPS:433) debe ser posible entre el dispositivo de nivel inferior y el sea transparente IoT Edge. Si existe un firewall entre ellos, es necesario abrir el puerto correspondiente.
 
 ## <a name="prepare-a-downstream-device"></a>Preparación de un dispositivo de bajada
 
@@ -197,6 +197,14 @@ Este es un comando de ejemplo que comprueba que todo se ha configurado correctam
 ```cmd/sh
 openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azure-iot-test-only.root.ca.cert.pem -showcerts
 ```
+
+## <a name="troubleshoot-the-gateway-connection"></a>Solución de problemas de la conexión de puerta de enlace
+
+Si el dispositivo de hoja tiene conexión intermitente con su dispositivo de puerta de enlace, intente los siguientes pasos para la resolución. 
+
+1. ¿Es el nombre de la puerta de enlace anexado a la conexión de cadena igual que el nombre de host en el archivo config.yaml de IoT Edge en el dispositivo de puerta de enlace?
+2. ¿Es el nombre de la puerta de enlace puede resolver en una dirección IP? Puede resolver intenmittent conexiones mediante el uso de DNS o mediante la adición de una entrada de archivo de host en el dispositivo de hoja.
+3. ¿Son los puertos de comunicación abierto en el firewall? La comunicación se basa en el protocolo usado (MQTTS:8883 / AMQPS:5671 / HTTPS:433) debe ser posible entre el dispositivo de nivel inferior y el sea transparente IoT Edge.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

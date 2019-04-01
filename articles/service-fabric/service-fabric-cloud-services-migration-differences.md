@@ -4,7 +4,7 @@ description: Introducción conceptual a la migración de aplicaciones desde Clou
 services: service-fabric
 documentationcenter: .net
 author: vturecek
-manager: timlt
+manager: chackdan
 editor: ''
 ms.assetid: 0b87b1d3-88ad-4658-a465-9f05a3376dee
 ms.service: service-fabric
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 35ab4a9bdd66bf3571e7f189191550f88e17cee2
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
-ms.translationtype: HT
+ms.openlocfilehash: 4682e47e664384a6869e1a74e3de6d9083db082b
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206489"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58669459"
 ---
 # <a name="learn-about-the-differences-between-cloud-services-and-service-fabric-before-migrating-applications"></a>Obtenga información acerca de las diferencias entre Cloud Services y Service Fabric antes de migrar las aplicaciones.
 Microsoft Azure Service Fabric es la plataforma de aplicaciones en la nube de última generación para aplicaciones distribuidas altamente escalables y altamente confiables. Presenta muchas características nuevas para empaquetar, implementar, actualizar y administrar aplicaciones distribuidas en la nube. 
@@ -29,11 +29,11 @@ Se trata de una guía de introducción a la migración de aplicaciones desde Clo
 ## <a name="applications-and-infrastructure"></a>Infraestructura y aplicaciones
 Una diferencia fundamental entre Cloud Services y Service Fabric es la relación entre las máquinas virtuales, las cargas de trabajo y aplicaciones. Aquí, una carga de trabajo se define como el código que escribe para realizar una tarea específica o proporcionar un servicio.
 
-* **Cloud Services tiene que ver con la implementación de aplicaciones como máquinas virtuales.** El código que escriba está estrechamente asociado a una instancia de máquina virtual, como un rol de trabajo o un rol web. Implementar una carga de trabajo en Cloud Services es implementar una o más instancias de máquina virtual que ejecutan la carga de trabajo. No hay ninguna separación de las aplicaciones y las máquinas virtuales, por lo que no hay ninguna definición formal de una aplicación. Una aplicación puede considerarse un conjunto de instancias de rol de trabajo o web dentro de una implementación de Cloud Services o como una implementación completa de Cloud Services. En este ejemplo, se muestra una aplicación como un conjunto de instancias de rol.
+* **Cloud Services tiene que ver con la implementación de aplicaciones como máquinas virtuales.**  El código que escriba está estrechamente asociado a una instancia de máquina virtual, como un rol de trabajo o un rol web. Implementar una carga de trabajo en Cloud Services es implementar una o más instancias de máquina virtual que ejecutan la carga de trabajo. No hay ninguna separación de las aplicaciones y las máquinas virtuales, por lo que no hay ninguna definición formal de una aplicación. Una aplicación puede considerarse un conjunto de instancias de rol de trabajo o web dentro de una implementación de Cloud Services o como una implementación completa de Cloud Services. En este ejemplo, se muestra una aplicación como un conjunto de instancias de rol.
 
 ![Aplicaciones y topología de Cloud Services][1]
 
-* **Service Fabric se usa para implementar aplicaciones en máquinas virtuales existentes o máquinas que ejecutan Service Fabric en Windows o Linux.** Los servicios que escriba estarán completamente desacoplados de la infraestructura subyacente, que se abstrae mediante la plataforma de aplicaciones de Service Fabric, por lo que una aplicación se puede implementar en varios entornos. Una carga de trabajo en Service Fabric se denomina un "servicio", y uno o más servicios se agrupan en una aplicación definida formalmente, que se ejecuta en la plataforma de aplicaciones de Service Fabric. Varias aplicaciones se pueden implementar en un único clúster de Service Fabric.
+* **Service Fabric se usa para implementar aplicaciones en máquinas virtuales existentes o máquinas que ejecutan Service Fabric en Windows o Linux.**  Los servicios que escriba estarán completamente desacoplados de la infraestructura subyacente, que se abstrae mediante la plataforma de aplicaciones de Service Fabric, por lo que una aplicación se puede implementar en varios entornos. Una carga de trabajo en Service Fabric se denomina un "servicio", y uno o más servicios se agrupan en una aplicación definida formalmente, que se ejecuta en la plataforma de aplicaciones de Service Fabric. Varias aplicaciones se pueden implementar en un único clúster de Service Fabric.
 
 ![Aplicaciones y topología de Service Fabric][2]
 
@@ -73,7 +73,7 @@ Con la comunicación directa, los niveles pueden comunicarse directamente a trav
 
  La comunicación directa es un modelo de comunicación común en Service Fabric. La principal diferencia entre Service Fabric y Cloud Services es que en Cloud Services se conecta a una máquina virtual, mientras que en Service Fabric se conecta a un servicio. Esta distinción es importante por dos motivos:
 
-* En Service Fabric, los servicios no están enlazados a las máquinas virtuales que los hospedan y pueden moverse por el clúster y; de hecho, se espera que lo hagan por varias razones: equilibrio de recursos, conmutación por error, actualizaciones de aplicaciones y de infraestructura, y restricciones de colocación o carga. Esto significa que la dirección de una instancia de servicio se puede cambiar en cualquier momento. 
+* Servicios de Service Fabric no están enlazados a las máquinas virtuales que hospedan; servicios pueden moverse por el clúster y, de hecho, se esperan que mover por diversos motivos: El equilibrio de recursos, conmutación por error, las actualizaciones de aplicaciones y la infraestructura y las restricciones de colocación o carga. Esto significa que la dirección de una instancia de servicio se puede cambiar en cualquier momento. 
 * En Service Fabric, una máquina virtual puede hospedar varios servicios, cada uno con puntos de conexión únicos.
 
 Service Fabric proporciona un mecanismo de detección de servicios, llamado Servicio de nombres, que puede usarse para resolver direcciones de puntos de conexión. 

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/30/2018
+ms.date: 03/28/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 233834bd040362e27ffadc3d0003a87827012352
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 61f65340c3b683674be195f1d30788494b6855a7
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407951"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58671677"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Preguntas más frecuentes sobre los discos de máquina virtual de IaaS de Azure y los discos premium administrados y no administrados
 
@@ -219,7 +219,7 @@ Sí, puede realizar la conmutación por error a una máquina virtual con Managed
 
 **¿Hay algún impacto en la migración de las máquinas virtuales de Azure protegidas por Azure Site Recovery mediante la replicación de Azure a Azure?**
 
-Sí. Actualmente, la protección de Azure a Azure de Azure Site Recovery para máquinas virtuales con Managed Disks solo está disponible como un servicio público en versión preliminar.
+Sí. Actualmente, Azure Site Recovery Azure para protección de Azure para máquinas virtuales con Managed Disks está disponible como un servicio de disponibilidad general.
 
 **¿Puedo migrar máquinas virtuales con discos no administrados que se encuentran en las cuentas de almacenamiento que se hayan cifrado previamente en discos administrados?**
 
@@ -339,7 +339,7 @@ Sí.
 
 **¿Cuáles son los tamaños de disco más grandes compatibles con el servicio de copia de seguridad de Azure y Azure Site Recovery?**
 
-El tamaño de disco más grande que admiten Azure Backup y el servicio Azure Site Recovery es de 4 TiB.
+El tamaño de disco más grande que admiten Azure Backup y el servicio Azure Site Recovery es de 4 TiB. Pronto se agregará compatibilidad con discos de mayor tamaño de hasta 32 TB.
 
 **¿Cuáles son la VM recomendada tamaños más grandes para tamaños de disco (> 4 TiB) para discos de Standard HDD y SSD estándar para lograr optimizado en disco IOPS y ancho de banda?**
 

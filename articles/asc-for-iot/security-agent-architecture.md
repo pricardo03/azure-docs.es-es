@@ -1,6 +1,6 @@
 ---
-title: Descripción de ASC para vista previa de arquitectura del agente de seguridad de IoT | Microsoft Docs
-description: Conozca la arquitectura de seguridad del agente para los agentes utilizados en los procesos de ASC para el servicio IoT.
+title: Descripción de Azure Security Center para la versión preliminar de arquitectura del agente de seguridad de IoT | Microsoft Docs
+description: Conozca la arquitectura de seguridad del agente para los agentes utilizados en Azure Security Center para el servicio IoT.
 services: ascforiot
 documentationcenter: na
 author: mlottner
@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 7de4307f7eef95a637dc828ac1738bd0ed39c7c7
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 83ac2fd1d322dc3fb3c04cdf44d560c392320f91
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578465"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58754173"
 ---
 # <a name="security-agent-reference-architecture"></a>Arquitectura de referencia de seguridad del agente
 
 > [!IMPORTANT]
-> ASC para IoT está actualmente en versión preliminar pública.
+> Azure Security Center para IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no se recomienda para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
-ASC para IoT proporciona la arquitectura de referencia para los agentes de seguridad que inicie sesión, procesarán, agregan y envían datos de seguridad a través de IoT hub.
+Azure Security Center (ASC) para IoT proporciona la arquitectura de referencia para los agentes de seguridad que inicie sesión, procesarán, agregan y envían datos de seguridad a través de IoT hub.
 
 Los agentes de seguridad están diseñados para funcionar en un entorno restringido de IoT y son muy personalizables en cuanto a los valores que se proporcionan en comparación con los recursos que consumen.
 
@@ -44,8 +44,8 @@ Los agentes de seguridad admiten las siguientes características:
 
 ASC para los agentes de seguridad de IoT se desarrollan como proyectos de código abierto y están disponible en GitHub: 
 
-- [IoT-ASC-Agent-C](https://github.com/Azure/IoT-ASC-Agent-C) 
-- [IoT-ASC-Agent-CS](https://github.com/Azure/IoT-ASC-Agent-CS)
+- [ASC para el agente de IoT C](https://github.com/Azure/Azure-IoT-Security-Agent-C) 
+- [ASC para IoT C#-agente basado en](https://github.com/Azure/Azure-IoT-Security-Agent-CS)
 
 ## <a name="agent-supported-platforms"></a>Plataformas compatibles del agente
 

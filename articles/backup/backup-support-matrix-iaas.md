@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: 4b4901b0323caa8eeda6b49228e65d1f28495164
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: f4034a3462d7221c16464e6a2cee9aad2105a6cd
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518497"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649818"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 Puede usar el [servicio Azure Backup](backup-overview.md) para realizar una copia de seguridad de máquinas locales y las cargas de trabajo y máquinas virtuales (VM). Este artículo resumen las opciones de soporte técnico y las limitaciones al realizar copias de seguridad de máquinas virtuales de Azure con Azure Backup.
@@ -129,7 +129,7 @@ Restaurar por suscripción, región o zona. | No compatible.
 Restaurar a una máquina virtual existente | Utilice la opción Reemplazar disco.
 Restaurar disco con cuenta de almacenamiento habilitada para Azure Storage Service Encryption (SSE) | No compatible.<br/><br/> Restaure en una cuenta que no tenga SSE habilitado.
 Restaurar en cuentas de almacenamiento mixtas | No compatible.<br/><br/> Según el tipo de cuenta de almacenamiento, todos los discos restaurados serán premium o estándar y no mixtos.
-Restaurar a la cuenta de almacenamiento mediante el uso de almacenamiento con redundancia de zona (ZRS) | No compatible.
+Restaurar a la cuenta de almacenamiento mediante el uso de almacenamiento con redundancia de zona (ZRS) | Compatible (para la máquina virtual que se copia de seguridad después de enero de 2019 y dónde [zona de disponibilidad](https://azure.microsoft.com/global-infrastructure/availability-zones/) están disponibles)
 Restaurar la máquina virtual directamente en un conjunto de disponibilidad | Para los discos administrados, puede restaurar el disco y usar la opción de conjunto de disponibilidad de la plantilla.<br/><br/> No se admite para discos no administrados. Para discos no administrados, restaure el disco y, después, cree una máquina virtual en el conjunto de disponibilidad.
 Restaurar la copia de seguridad de máquinas virtuales no administradas después de actualizar a administre la máquina virtual|  Se admite.<br/><br/> Puede restaurar discos y después crear una máquina virtual administrada.
 Restaurar máquina virtual a un punto de restauración antes de que la máquina virtual se migre a discos administrados |  Se admite.<br/><br/> Restaure a discos no administrados (opción predeterminada), convierta los discos restaurados en discos administrados y cree una máquina virtual con los discos administrados.
@@ -149,6 +149,7 @@ Copia de seguridad de máquinas virtuales que se implementan en un [conjunto de 
 Copia de seguridad de máquinas virtuales que se implementan desde la [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?filters=virtual-machine-images)<br/><br/> (Publicado por Microsoft, terceros) |   Se admite.<br/><br/> La máquina virtual debe ejecutar un sistema operativo compatible.<br/><br/> Al recuperar archivos en la máquina virtual, puede restaurar solo en un sistema operativo compatible (no en un sistema operativo anterior ni posterior).
 Realizar una copia de seguridad de máquinas virtuales que se implementan desde una imagen personalizada (terceros) |    Se admite.<br/><br/> La máquina virtual debe ejecutar un sistema operativo compatible.<br/><br/> Al recuperar archivos en la máquina virtual, puede restaurar solo en un sistema operativo compatible (no en un sistema operativo anterior ni posterior).
 Realizar una copia de seguridad de máquinas virtuales que se migran a Azure  |  Se admite.<br/><br/> Para realizar copias de seguridad de la máquina virtual, el agente de máquina virtual debe estar instalado en la máquina migrada.
+Realizar copias de seguridad de la coherencia de las máquinas virtuales | No se admite. <br/><br/>Azure Backup no es compatible con la coherencia entre varias VM.
 
 
 
@@ -165,6 +166,7 @@ Discos con el Acelerador de escritura habilitado | No compatible.<br/><br/> Si e
 Copia de seguridad de discos desduplicados | No compatible.
 Agregar disco a una máquina virtual protegida |  Se admite.
 Cambiar tamaño de disco de una máquina virtual protegida |  Se admite.
+Almacenamiento compartido| No se recomienda la copia de seguridad de máquinas virtuales con CSV o servidor de archivos de escalabilidad horizontal. Es probable que los escritores de CSV cometan errores.
 
 ## <a name="vm-network-support"></a>Compatibilidad con red de VM
 

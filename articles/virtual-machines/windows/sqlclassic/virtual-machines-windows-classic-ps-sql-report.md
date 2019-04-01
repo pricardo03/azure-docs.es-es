@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: c8b32e1d52768ea8450a2256d92d8cdb09f9fe8b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 6339b49d0bc9c635457f305dad7b1a075327a1dd
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445643"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58650281"
 ---
 # <a name="use-powershell-to-create-an-azure-vm-with-a-native-mode-report-server"></a>Usar PowerShell para crear una máquina virtual de Azure con un servidor de informes en modo nativo
 > [!IMPORTANT] 
@@ -130,7 +130,7 @@ Se creó un certificado autofirmado en la máquina virtual cuando se aprovision�
    4. Seleccione **Equipo local** para administrar y luego haga clic en **Finalizar**.
    5. Haga clic en **Aceptar** y expanda los nodos **Certificados - Personal**; luego haga clic en **Certificados**. El certificado toma el nombre DNS de la máquina virtual y agrega **cloudapp.net**al final. Haga clic con el botón derecho en el nombre del certificado y haga clic en **Copiar**.
    6. Expanda el nodo **Entidades de certificación raíz de confianza**, haga clic con el botón derecho en **Certificados** y luego haga clic en **Pegar**.
-   7. Para validar, haga doble clic en el nombre del certificado en **Entidades de certificación raíz de confianza** y compruebe que no haya ningún error; de este modo, verá el certificado. Si quiere usar el script de HTTPS incluido con este tema, para configurar el servidor de informes se requiere el valor de la **huella digital** de los certificados como parámetro del script. **Para obtener el valor de la huella digital**, complete los pasos siguientes. También hay un ejemplo de PowerShell para recuperar la huella digital en la sección [Usar el script para configurar el servidor de informes y HTTPS](#use-script-to-configure-the-report-server-and-HTTPS).
+   7. Para validar, haga doble clic en el nombre del certificado en **Entidades de certificación raíz de confianza** y compruebe que no haya ningún error; de este modo, verá el certificado. Si quiere usar el script de HTTPS incluido con este tema, para configurar el servidor de informes se requiere el valor de la **huella digital** de los certificados como parámetro del script. **Para obtener el valor de la huella digital**, complete los pasos siguientes. También hay un ejemplo de PowerShell para recuperar la huella digital en la sección [Usar el script para configurar el servidor de informes y HTTPS](#use-script-to-configure-the-report-server-and-https).
       
       1. Haga doble clic en el nombre del certificado, por ejemplo, ssrsnativecloud.cloudapp.net.
       2. Haga clic en la pestaña **Detalles** .

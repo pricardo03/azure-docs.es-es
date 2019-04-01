@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: eb7f368100269c4e47076bb6b78bafc23e7a6089
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8cd6a68f6593a5b746a19e42e4835deb05e112b6
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845610"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757180"
 ---
 # <a name="streaming-endpoints"></a>Extremos de streaming
 
@@ -33,14 +33,34 @@ Para los puntos de conexión adicionales: `{EndpointName}-{AccountName}-{Datacen
 
 ## <a name="types"></a>Tipos  
 
-Hay dos **Streamingendpoint** tipos: Estándar y **Premium**. El tipo se define por el número de unidades de escalado (`scaleUnits`) que se asignan para el punto de conexión de streaming. 
+Existen dos tipos de **puntos de conexión de streaming**: Estándar y **Premium**. El tipo se define por el número de unidades de escalado (`scaleUnits`) que se asignan para el punto de conexión de streaming. 
 
 En la tabla se describen los tipos:  
 
 |Type|Unidades de escalado|DESCRIPCIÓN|
 |--------|--------|--------|  
-|**Punto de conexión de streaming estándar** (recomendado)|0|El tipo **estándar** es la opción recomendada para prácticamente todos los escenarios de streaming y tamaños de audiencia. El tipo **estándar** escala el ancho de banda de salida automáticamente. <br/>Para los clientes con muy exigentes requisitos de Media Services ofrece **Premium** streaming extremos, que pueden utilizarse para escalar horizontalmente la capacidad para los destinatarios de internet más grandes. Si espera un público amplio y usuarios simultáneos, póngase en contacto con nosotros en amsstreaming\@microsoft.com para obtener instrucciones sobre si necesita mover a la **Premium** tipo. |
+|**Punto de conexión de streaming estándar** (recomendado)|0|El valor predeterminado es el punto de conexión de Streaming un **estándar** escriba, pero puede cambiarse al tipo Premium.<br/> El tipo estándar es la opción recomendada para prácticamente todos los escenarios de streaming y tamaños de audiencia. El tipo **estándar** escala el ancho de banda de salida automáticamente. El rendimiento de este tipo de extremo de Streaming es hasta 600 Mbps. Fragmentos de vídeo almacenados en caché en la red CDN, no utilice el ancho de banda de punto de conexión de Streaming.<br/>Para los clientes con requisitos muy exigentes, Media Services ofrece puntos de conexión de streaming **prémium**, que pueden utilizarse para escalar horizontalmente la capacidad para las audiencias de Internet más grandes. Si espera un público amplio y usuarios simultáneos, póngase en contacto con nosotros en amsstreaming\@microsoft.com para obtener instrucciones sobre si necesita mover a la **Premium** tipo. |
 |**Punto de conexión de streaming premium**|>0|Los puntos de conexión de streaming **Premium** son adecuados para cargas de trabajo avanzadas y proporcionan una capacidad de ancho de banda dedicada y escalable. Para pasar a un tipo **premium** se ajusta la propiedad `scaleUnits`. La propiedad `scaleUnits` proporciona capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps. Cuando se usa el tipo **premium**, cada unidad habilitada proporciona capacidad de ancho de banda adicional a la aplicación. |
+ 
+## <a name="comparing-streaming-types"></a>Comparación de tipos de streaming
+
+### <a name="features"></a>Características
+
+Característica|Estándar|Premium
+---|---|---
+Gratis los primeros 15 días| Sí |Sin 
+Throughput |Hasta 600 Mbps cuando no se utiliza Azure CDN. Se puede ampliar con la red CDN.|200 Mbps por unidad de streaming. Se puede ampliar con la red CDN.
+Contrato de nivel de servicio | 99,9|99,9 (200 Mbps por unidad de streaming).
+CDN|Azure CDN, red de entrega de contenido de terceros o ninguna red de entrega de contenido.|Azure CDN, red de entrega de contenido de terceros o ninguna red de entrega de contenido.
+La facturación se prorratea| Diario|Diario
+Cifrado dinámico|Sí|Sí
+Empaquetado dinámico|Sí|Sí
+Escala|Se amplía automáticamente hasta el rendimiento objetivo.|Unidades de streaming adicionales
+IP filtrado/G20/host personalizado <sup>1</sup>|Sí|Sí
+Descarga progresiva|Sí|Sí
+Uso recomendado |Se recomienda para la gran mayoría de escenarios de streaming.|Uso profesional.<br/>Si considera que puede tener necesidades más allá del nivel Estándar. Si espera un tamaño de audiencia simultánea superior a 50 000 espectadores, póngase en contacto con nosotros (amsstreaming@microsoft.com).
+
+<sup>1</sup> solo se usa directamente en el extremo de transmisión por secuencias cuando la red CDN no está habilitada en el punto de conexión.
 
 ## <a name="working-with-cdn"></a>Trabajo con la red CDN
 
@@ -70,7 +90,7 @@ En esta sección se proporciona detalles sobre algunas de las propiedades del ex
     Si recibe este error, el centro de datos no la admite. Debe probar otro centro de datos.
 - `cdnProfile` -Cuando `cdnEnabled` está establecido en true, también puede pasar `cdnProfile` valores. El valor `cdnProfile` es el nombre del perfil CDN donde se creará el punto de conexión CDN. Puede proporcionar un cdnProfile existente o usar uno nuevo. Si el valor es NULL y `cdnEnabled` es true, se utiliza el valor predeterminado "AzureMediaStreamingPlatformCdnProfile". Si el valor `cdnProfile` proporcionado ya existe, se crea un punto de conexión debajo de él. Si el perfil no existe, automáticamente se crea un nuevo perfil.
 - `cdnProvider` -Cuando CDN esté habilitado, también se puede pasar `cdnProvider` valores. El valor `cdnProvider` controla qué proveedor se utilizará. Actualmente, se admiten tres valores: "StandardVerizon", "PremiumVerizon" y "StandardAkamai". Si se proporciona ningún valor y `cdnEnabled` es true, se utiliza "StandardVerizon" (es decir, el valor predeterminado).
-- `crossSiteAccessPolicies` : Se usa para especificar las directivas de acceso entre sitios para varios clientes. Para obtener más información, consulte [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) (Especificación del archivo de directivas entre dominios) y [Making a Service Available Across Domain Boundaries](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx) (Hacer que un servicio esté disponible a través de los límites del dominio).
+- `crossSiteAccessPolicies` : Se usa para especificar las directivas de acceso entre sitios para varios clientes. Para obtener más información, consulte [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) (Especificación del archivo de directivas entre dominios) y [Making a Service Available Across Domain Boundaries](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx) (Hacer que un servicio esté disponible a través de los límites del dominio).<br/>La configuración se aplica solo a Smooth Streaming.
 - `customHostNames` : Se usa para configurar un extremo de Streaming para aceptar tráfico dirigido a un nombre de host personalizado.  Esta propiedad es válida para Standard y Premium de extremos de Streaming y se puede establecer cuando `cdnEnabled`: false.
     
     La propiedad del nombre de dominio debe ser confirmada por Media Services. Media Services comprueba la propiedad de nombre de dominio solicitando un `CName` registro que contiene el identificador de cuenta de Media Services como un componente para agregarlo al dominio en uso. Por ejemplo, para que "sports.contoso.com" se use como nombre de host personalizado para el punto de conexión de streaming, se debe configurar un registro para `<accountId>.contoso.com` que apunte a uno de los nombres de host de comprobación de Media Services. El nombre de host de comprobación está formado por verifydns.\<zona-dns-mediaservices>. 

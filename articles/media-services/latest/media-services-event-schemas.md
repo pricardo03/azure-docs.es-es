@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: juliako
-ms.openlocfilehash: 8ad0efffc89a3c11f412d94b922401c23e84a3e5
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: f9fe689e6911c5e9497ee82132e8b70bd9aada7e
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56268794"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630595"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Esquemas de Azure Event Grid para eventos de Media Services
 
@@ -84,7 +84,12 @@ Consulte los [Ejemplos de esquema](#event-schema-examples) siguientes.
 
 ### <a name="track-level-events"></a>Eventos de nivel de seguimiento
 
-Los eventos de nivel de seguimiento se generan por pista. Los tipos de evento de pista son:
+Los eventos de nivel de seguimiento se generan por pista. 
+
+> [!NOTE]
+> Todos los eventos de nivel de seguimiento se producen después de que está conectado a un codificador en directo.
+
+Los tipos de eventos de nivel de seguimiento son:
 
 | Tipo de evento | DESCRIPCIÓN |
 | ---------- | ----------- |
@@ -92,7 +97,7 @@ Los eventos de nivel de seguimiento se generan por pista. Los tipos de evento de
 | Microsoft.Media.LiveEventIncomingStreamReceived | El servidor multimedia recibe el primer fragmento de datos de cada pista en la transmisión o la conexión. |
 | Microsoft.Media.LiveEventIncomingStreamsOutOfSync | El servidor multimedia detecta que las transmisiones de audio y vídeo no están sincronizadas. Se usa como advertencia porque la experiencia del usuario no se verá afectada. |
 | Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | El servidor multimedia detecta que cualquiera de las dos transmisiones de vídeo provenientes del codificador externo no está sincronizada. Se usa como advertencia porque la experiencia del usuario no se verá afectada. |
-| Microsoft.Media.LiveEventIngestHeartbeat | Se publica cada 20 segundos para cada pista cuando se está ejecutando el evento en directo. Proporciona resumen de mantenimiento de la ingesta. |
+| Microsoft.Media.LiveEventIngestHeartbeat | Se publica cada 20 segundos para cada pista cuando se está ejecutando el evento en directo. Proporciona resumen de mantenimiento de la ingesta.<br/><br/>Después de que el codificador se conectará inicialmente, continúa el evento de latido emitir cada 20 s si el codificador aún está conectado o no. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | El servidor multimedia detecta una discontinuidad en la pista entrante. |
 
 Consulte los [Ejemplos de esquema](#event-schema-examples) siguientes.
@@ -677,7 +682,7 @@ Un evento tiene los siguientes datos de nivel superior:
 
 [Regístrese para los eventos de cambio de estado del trabajo](job-state-events-cli-how-to.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 - [EventGrid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/) (SDK de .NET en EventGrid que incluye eventos de Media Services)
 - [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json) (Definición de eventos de Media Services)
