@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 36b60b3784739a884b887a29f3dd53c61c44cd6f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: adf4d8d5cfcef2dde8193ce1b7f2805a44e2d93d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57851353"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793278"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Guardado y configuración del servicio Administración de API mediante Git
 
@@ -57,7 +57,7 @@ Para ver y configurar las opciones de configuración Git, puede hacer clic en el
 >
 >
 
-Para obtener información sobre la habilitación o la deshabilitación del acceso de Git mediante la API de REST, consulte [Enable or disable Git access using the REST API](https://msdn.microsoft.com/library/dn781420.aspx#EnableGit)(Habilitación o deshabilitación del acceso de Git mediante la API de REST).
+Para obtener información sobre la habilitación o la deshabilitación del acceso de Git mediante la API de REST, consulte [Enable or disable Git access using the REST API](/rest/api/apimanagement/tenantaccess?EnableGit)(Habilitación o deshabilitación del acceso de Git mediante la API de REST).
 
 ## <a name="to-save-the-service-configuration-to-the-git-repository"></a>Guardado de la configuración del servicio en el repositorio de Git
 
@@ -69,7 +69,7 @@ Transcurridos unos segundos, la configuración se guarda y se muestra el estado 
 
 Una vez que la configuración se guarda en el repositorio, se puede clonar.
 
-Para obtener información acerca de cómo realizar esta operación mediante la API de REST, consulte [Commit configuration snapshot using the REST API](https://msdn.microsoft.com/library/dn781420.aspx#CommitSnapshot)(Confirmación de la instantánea de configuración mediante la API de REST).
+Para obtener información acerca de cómo realizar esta operación mediante la API de REST, consulte [Commit configuration snapshot using the REST API](/rest/api/apimanagement/tenantaccess?CommitSnapshot)(Confirmación de la instantánea de configuración mediante la API de REST).
 
 ## <a name="to-clone-the-repository-to-your-local-machine"></a>Para clonar el repositorio en el equipo local
 
@@ -266,7 +266,7 @@ Para obtener información sobre otras formas de administrar la instancia de serv
   * [Azure API Management Deployment Management Cmdlets (Cmdlets de administración de la implementación de Administración de API de Azure)](https://docs.microsoft.com/powershell/module/wds)
   * [Azure API Management Service Management Cmdlets (Cmdlets de administración del servicio Administración de API de Azure)](https://docs.microsoft.com/powershell/azure/servicemanagement/overview)
 * Administrar la instancia de servicio mediante la API de REST
-  * [API Management REST API (API de REST de Administración de API)](https://msdn.microsoft.com/library/azure/dn776326.aspx)
+  * [API Management REST API (API de REST de Administración de API)](/rest/api/apimanagement/)
 
 
 [api-management-enable-git]: ./media/api-management-configuration-repository-git/api-management-enable-git.png

@@ -8,12 +8,12 @@ ms.date: 02/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: dba8d9413229a0fa236b082e2e11dbd1a9fe5a5f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1121bdb379265ef592a26a8a31a90d402e529cc8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314133"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802752"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinación de las causas de incumplimiento
 
@@ -46,7 +46,7 @@ Para ver los detalles de cumplimiento, siga estos pasos:
 
 1. El **detalles de cumplimiento** panel muestra información de la evaluación más reciente del recurso para la asignación de directiva actual. En este ejemplo, el campo **Microsoft.Sql/servers/version** se encuentre _12.0_ mientras se esperaba la definición de directiva _14.0_. Si el recurso no es compatible por varios motivos, cada una se muestra en este panel.
 
-   ![Panel de detalles de cumplimiento](../media/determine-non-compliance/compliance-details-pane.png)
+   ![Panel de detalles de cumplimiento y las razones de incumplimiento](../media/determine-non-compliance/compliance-details-pane.png)
 
    Para un **auditIfNotExists** o **deployIfNotExists** definición de directiva, los detalles incluyen el **details.type** propiedad y las propiedades opcionales. Para obtener una lista, consulte [auditIfNotExists propiedades](../concepts/effects.md#auditifnotexists-properties) y [deployIfNotExists propiedades](../concepts/effects.md#deployifnotexists-properties). **Última evaluación recursos** es un recurso relacionado desde la **detalles** sección de la definición.
 
@@ -118,11 +118,11 @@ Como parte de un nuevo **versión preliminar pública**, los últimos 14 días d
 
 1. Seleccione la pestaña **Historial de cambios (versión preliminar)** en la página **Compatibilidad de recursos**. Se muestra una lista de cambios detectados, si existe alguna.
 
-   ![Historial de cambios de directiva: pestaña](../media/determine-non-compliance/change-history-tab.png)
+   ![Ficha Historial de cambios de directiva en la página de compatibilidad de recursos](../media/determine-non-compliance/change-history-tab.png)
 
 1. Seleccione uno de los cambios detectados. El _diff visual_ para el recurso se presenta en el **historial de cambios** página.
 
-   ![Historial de cambios de directiva: diferencia visual](../media/determine-non-compliance/change-history-visual-diff.png)
+   ![Cambio de directiva historial Diff Visual en la página del historial de cambios](../media/determine-non-compliance/change-history-visual-diff.png)
 
 Las _diferencias visuales_ ayudan a identificar los cambios de un recurso. Los cambios detectados no pueden estar relacionadas con el estado de compatibilidad actual del recurso.
 

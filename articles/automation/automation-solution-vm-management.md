@@ -6,19 +6,22 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/26/2019
+ms.date: 03/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6b5ef0f165433e2dd0685aa0e4f64bd04bf5c823
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6d7b99da3e8e81973c51bbd68a15517828c9736d
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57902253"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762946"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Solución Start/Stop VMs during off-hours en Azure Automation
 
 El Start/Stop VMs during OFF-solución se inicia y detiene las máquinas virtuales de Azure según programaciones definidas por el usuario, proporciona información a través de los registros de Azure Monitor y envía mensajes de correo electrónico opcionales mediante [grupos de acciones](../azure-monitor/platform/action-groups.md). Admite tanto máquinas virtuales clásicas como Azure Resource Manager para la mayoría de los escenarios.
+
+> [!NOTE]
+> El Start/Stop VMs during OFF-solución se ha probado con los módulos de Azure que se importan a su cuenta de Automation al implementar la solución. La solución no funciona actualmente con las versiones más recientes del módulo de Azure. Esto solo afecta a la cuenta de Automation que use para ejecutar el Start/Stop VMs During OFF-hours. Todavía puede usar las versiones más recientes del módulo de Azure en sus cuentas de automatización, como se describe en [cómo actualizar módulos de Azure PowerShell en Azure Automation](automation-update-azure-modules.md)
 
 Esta solución proporciona una opción de automatización descentralizada de bajo costo para los usuarios que desean optimizar sus costos de máquinas virtuales. Con esta solución, es posible:
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 99b54a5fe5c28eb66a61fad61d23b94f0955f126
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 9c0c8adca9d99c00e32127e02a3d68ff668a235e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728575"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793312"
 ---
 # <a name="azure-api-management-faqs"></a>P+F de Azure API Management
 Obtenga respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure API Management.
@@ -72,13 +72,13 @@ Tiene varias opciones para proteger la conexión entre la puerta de enlace de AP
 Tiene varias opciones si desea copiar una instancia de API Management a una nueva instancia. Puede:
 
 * Usar la función de copia de seguridad y restauración de API Management. Para más información, consulte [Procedimiento para implementar la recuperación ante desastres mediante copias de seguridad y restauración del servicio en Azure API Management](api-management-howto-disaster-recovery-backup-restore.md).
-* Crear su propia característica de copia de seguridad y restauración mediante la [API de REST de API Management](https://msdn.microsoft.com/library/azure/dn776326.aspx). Usar la API de REST para guardar y restaurar las entidades de la instancia de servicio que desee.
+* Crear su propia característica de copia de seguridad y restauración mediante la [API de REST de API Management](/rest/api/apimanagement/). Usar la API de REST para guardar y restaurar las entidades de la instancia de servicio que desee.
 * Descargar la configuración del servicio mediante Git y cargarla en una nueva instancia. Para más información, consulte [Guardado y configuración del servicio API Management mediante Git](api-management-configuration-repository-git.md).
 
 ### <a name="can-i-manage-my-api-management-instance-programmatically"></a>¿Es posible administrar mi instancia de API Management mediante programación?
 Sí, puede administrar API Management mediante programación utilizando:
 
-* La [API de REST de API Management](https://msdn.microsoft.com/library/azure/dn776326.aspx).
+* La [API de REST de API Management](/rest/api/apimanagement/).
 * El [SDK de la biblioteca de administración del servicio Microsoft Azure ApiManagement](https://aka.ms/apimsdk).
 * Los cmdlets de [implementación del servicio](https://docs.microsoft.com/powershell/module/wds) y [administración del servicio](https://docs.microsoft.com/powershell/azure/servicemanagement/overview) de PowerShell.
 
@@ -97,7 +97,7 @@ Ahora el colaborador recién agregado puede usar los [cmdlets](https://docs.micr
 4. Utilice la dirección URL para acceder al portal de administración.
 
 ### <a name="why-is-the-policy-that-i-want-to-add-unavailable-in-the-policy-editor"></a>¿Por qué la directiva que deseo agregar no está habilitada en el editor de directivas?
-Si la directiva que desea agregar aparece atenuada o sombreada en el editor de directivas, asegúrese de que está en el ámbito correcto para la directiva. Cada instrucción de la directiva está diseñada para su uso en determinados ámbitos y secciones de la directiva. Para revisar las secciones y los ámbitos de una directiva, consulte en la sección sobre el uso de la directiva en [API Management policies](https://msdn.microsoft.com/library/azure/dn894080.aspx) (Directivas de API Management).
+Si la directiva que desea agregar aparece atenuada o sombreada en el editor de directivas, asegúrese de que está en el ámbito correcto para la directiva. Cada instrucción de la directiva está diseñada para su uso en determinados ámbitos y secciones de la directiva. Para revisar las secciones y los ámbitos de una directiva, consulte en la sección sobre el uso de la directiva en [API Management policies](/azure/api-management/api-management-policies) (Directivas de API Management).
 
 ### <a name="how-do-i-set-up-multiple-environments-in-a-single-api"></a>¿Cómo se configuran varios entornos en una sola API?
 Para configurar varios entornos; por ejemplo, un entorno de prueba y un entorno de producción, en una sola API, tiene dos opciones. Puede:
@@ -142,7 +142,7 @@ New-AzApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -
 ```
 
 #### <a name="direct-api-update-method"></a>Método de actualización directo con la API ####
-1. Cree una entidad de [back-end](https://msdn.microsoft.com/library/azure/dn935030.aspx) mediante API Management.       
+1. Cree una entidad de [back-end](/rest/api/apimanagement/) mediante API Management.     
 2. Establezca la propiedad **skipCertificateChainValidation** en **true**.     
 3. Si ya no desea permitir los certificados autofirmados, puede eliminar la entidad de back-end o establecer la propiedad **skipCertificateChainValidation** en **false**.
 

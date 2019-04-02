@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/24/2019
 ms.author: bwren
-ms.openlocfilehash: 6a13988af7a46ff6fafe352e850ee238cda79c08
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: da9e322f74433df7066ec574db7a49123f96d76b
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996718"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58794026"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solución de administración de Office 365 en Azure (versión preliminar)
 
@@ -34,6 +34,7 @@ La solución de administración de Office 365 permite supervisar el entorno de O
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 Se requiere lo siguiente antes de la instalación y configuración de esta solución.
 
 - Suscripción organizativa de Office 365.
@@ -42,12 +43,16 @@ Se requiere lo siguiente antes de la instalación y configuración de esta soluc
  
 
 ## <a name="management-packs"></a>Módulos de administración
+
 Esta solución no instala ningún módulo de administración en [grupos de administración conectados](../platform/om-agents.md).
   
+
 ## <a name="install-and-configure"></a>Instalación y configuración
+
 Empiece por agregar la [solución Office 365 a su suscripción](solutions.md#install-a-monitoring-solution). Una vez agregada, debe realizar los pasos de configuración de esta sección para proporcionar acceso a la suscripción a Office 365.
 
 ### <a name="required-information"></a>Información necesaria
+
 Antes de iniciar este procedimiento, recopile la siguiente información.
 
 Desde el área de trabajo de Log Analytics:
@@ -64,6 +69,7 @@ Desde la suscripción a Office 365:
 - Secreto de cliente: cadena cifrada necesaria para la autenticación.
 
 ### <a name="create-an-office-365-application-in-azure-active-directory"></a>Creación de una aplicación de Office 365 en Azure Active Directory
+
 El primer paso es crear una aplicación en Azure Active Directory que la solución de administración usará para acceder a su solución de Office 365.
 
 1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com/).
@@ -111,11 +117,12 @@ El primer paso es crear una aplicación en Azure Active Directory que la soluci�
     ![Claves](media/solution-office-365/keys.png)
 
 ### <a name="add-admin-consent"></a>Adición del consentimiento de administrador
+
 Para habilitar la cuenta administrativa por primera vez, debe proporcionar el consentimiento de administrador para la aplicación. Puede hacerlo con un script de PowerShell. 
 
 1. Guarde el script siguiente como *office365_consent.ps1*.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,     
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -161,9 +168,11 @@ Para habilitar la cuenta administrativa por primera vez, debe proporcionar el co
     ```
 
 2. Ejecute el siguiente comando para ejecutar el script. Se le pedirán las credenciales dos veces. Primero, proporcione las credenciales del área de trabajo de Log Analytics y, luego, las credenciales de administrador global de su inquilino de Office 365.
+
     ```
     .\office365_consent.ps1 -WorkspaceName <Workspace name> -ResourceGroupName <Resource group name> -SubscriptionId <Subscription ID>
     ```
+
     Ejemplo:
 
     ```
@@ -175,11 +184,12 @@ Para habilitar la cuenta administrativa por primera vez, debe proporcionar el co
     ![Consentimiento de administrador](media/solution-office-365/admin-consent.png)
 
 ### <a name="subscribe-to-log-analytics-workspace"></a>Suscripción al área de trabajo de Log Analytics
+
 El último paso es suscribirse la aplicación al área de trabajo de Log Analytics. También puede hacerlo con un script de PowerShell.
 
 1. Guarde el script siguiente como *office365_subscription.ps1*.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -342,12 +352,14 @@ El último paso es suscribirse la aplicación al área de trabajo de Log Analyti
     ```
 
 2. Ejecute el siguiente comando para ejecutar el script:
+
     ```
     .\office365_subscription.ps1 -WorkspaceName <Log Analytics workspace name> -ResourceGroupName <Resource Group name> -SubscriptionId <Subscription ID> -OfficeUsername <OfficeUsername> -OfficeTennantID <Tenant ID> -OfficeClientId <Client ID> -OfficeClientSecret <Client secret>
     ```
+
     Ejemplo:
 
-    ```
+    ```powershell
     .\office365_subscription.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeUsername 'admin@contoso.com' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx' -OfficeClientId 'f8f14c50-5438-4c51-8956-zzzzzzzzzzzz' -OfficeClientSecret 'y5Lrwthu6n5QgLOWlqhvKqtVUZXX0exrA2KRHmtHgQb='
     ```
 
@@ -355,7 +367,7 @@ El último paso es suscribirse la aplicación al área de trabajo de Log Analyti
 
 Puede que vea el siguiente error si la aplicación ya está suscrita a esta área de trabajo o si este inquilino está suscrito a otra área de trabajo.
 
-```
+```Output
 Invoke-WebRequest : {"Message":"An error has occurred."}
 At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 + $officeresponse = Invoke-WebRequest @Officeparams
@@ -366,7 +378,7 @@ At C:\Users\v-tanmah\Desktop\ps scripts\office365_subscription.ps1:161 char:19
 
 Es posible que se muestre el error siguiente si se proporcionan valores de parámetros no válidos.
 
-```
+```Output
 Select-AzSubscription : Please provide a valid tenant or a valid subscription.
 At line:12 char:18
 + ... cription = (Select-AzSubscription -SubscriptionId $($Subscriptio ...
@@ -377,11 +389,12 @@ At line:12 char:18
 ```
 
 ## <a name="uninstall"></a>Desinstalación
+
 Puede quitar la solución de administración de Office 365 mediante el proceso de [Quitar una solución de administración](solutions.md#remove-a-monitoring-solution). Esta acción no detendrá la recopilación de datos de Office 365 en Azure Monitor. Realice el procedimiento siguiente para cancelar la suscripción a Office 365 y detener la recopilación de datos.
 
 1. Guarde el script siguiente como *office365_unsubscribe.ps1*.
 
-    ```
+    ```powershell
     param (
         [Parameter(Mandatory=$True)][string]$WorkspaceName,
         [Parameter(Mandatory=$True)][string]$ResourceGroupName,
@@ -472,15 +485,18 @@ Puede quitar la solución de administración de Office 365 mediante el proceso d
 
     Ejemplo:
 
-    ```
+    ```powershell
     .\office365_unsubscribe.ps1 -WorkspaceName MyWorkspace -ResourceGroupName MyResourceGroup -SubscriptionId '60b79d74-f4e4-4867-b631-yyyyyyyyyyyy' -OfficeTennantID 'ce4464f8-a172-4dcf-b675-xxxxxxxxxxxx'
     ```
 
 ## <a name="data-collection"></a>Colección de datos
+
 ### <a name="supported-agents"></a>Agentes admitidos
+
 La solución de Office 365 no recupera los datos desde ninguno de los [agentes de Log Analytics](../platform/agent-data-sources.md).  Recupera los datos directamente desde Office 365.
 
 ### <a name="collection-frequency"></a>Frecuencia de recopilación
+
 Inicialmente, la recopilación de datos puede tardar unas horas. Cuando comienza la recopilación, Office 365 envía una [notificación de webhook](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) con datos detallados a Azure Monitor cada vez que se crea un registro. Este registro está disponible en Azure Monitor al cabo de unos minutos de su recepción.
 
 ## <a name="using-the-solution"></a>Uso de la solución
@@ -511,6 +527,7 @@ El panel incluye las columnas de la tabla siguiente. Cada columna muestra las di
 El valor de **Tipo** es **OfficeActivity** para todos los registros creados en el área de trabajo de Log Analytics en Azure Monitor por la solución de Office 365.  La propiedad **OfficeWorkload** determina a qué servicio de Office 365 hace referencia el registro: Exchange, AzureActiveDirectory, SharePoint o OneDrive.  La propiedad **RecordType** especifica el tipo de operación.  Las propiedades varían para cada tipo de operación y se muestran en las tablas siguientes.
 
 ### <a name="common-properties"></a>Propiedades comunes
+
 Las siguientes propiedades son comunes a todos los registros de Office 365.
 
 | Propiedad | DESCRIPCIÓN |
@@ -528,6 +545,7 @@ Las siguientes propiedades son comunes a todos los registros de Office 365.
 
 
 ### <a name="azure-active-directory-base"></a>Azure Active Directory
+
 Las siguientes propiedades son comunes a todos los registros de Azure Active Directory.
 
 | Propiedad | DESCRIPCIÓN |
@@ -539,6 +557,7 @@ Las siguientes propiedades son comunes a todos los registros de Azure Active Dir
 
 
 ### <a name="azure-active-directory-account-logon"></a>Inicio de sesión de cuenta de Azure Active Directory
+
 Estos registros se crean cuando un usuario de Active Directory intenta iniciar sesión.
 
 | Propiedad | DESCRIPCIÓN |
@@ -552,6 +571,7 @@ Estos registros se crean cuando un usuario de Active Directory intenta iniciar s
 
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
+
 Estos registros se crean cuando se realizan cambios o adiciones en objetos de Active Directory de Azure.
 
 | Propiedad | DESCRIPCIÓN |
@@ -569,6 +589,7 @@ Estos registros se crean cuando se realizan cambios o adiciones en objetos de Ac
 
 
 ### <a name="data-center-security"></a>Data Center Security
+
 Estos registros se crean a partir de los datos de auditoría de Data Center Security.  
 
 | Propiedad | DESCRIPCIÓN |
@@ -584,6 +605,7 @@ Estos registros se crean a partir de los datos de auditoría de Data Center Secu
 
 
 ### <a name="exchange-admin"></a>Administración de Exchange
+
 Estos registros se crean cuando se realizan cambios en la configuración de Exchange.
 
 | Propiedad | DESCRIPCIÓN |
@@ -598,6 +620,7 @@ Estos registros se crean cuando se realizan cambios en la configuración de Exch
 
 
 ### <a name="exchange-mailbox"></a>Buzón de Exchange
+
 Estos registros se crean cuando se realizan cambios o agregaciones en los buzones de Exchange.
 
 | Propiedad | DESCRIPCIÓN |
@@ -620,6 +643,7 @@ Estos registros se crean cuando se realizan cambios o agregaciones en los buzone
 
 
 ### <a name="exchange-mailbox-audit"></a>Auditoría de buzón de Exchange
+
 Estos registros se crean cuando se crea una entrada de auditoría de buzones de correo.
 
 | Propiedad | DESCRIPCIÓN |
@@ -634,6 +658,7 @@ Estos registros se crean cuando se crea una entrada de auditoría de buzones de 
 
 
 ### <a name="exchange-mailbox-audit-group"></a>Auditoría de grupos buzones de Exchange
+
 Estos registros se crean cuando se realizan cambios o agregaciones en los grupos de Exchange.
 
 | Propiedad | DESCRIPCIÓN |
@@ -652,6 +677,7 @@ Estos registros se crean cuando se realizan cambios o agregaciones en los grupos
 
 
 ### <a name="sharepoint-base"></a>SharePoint
+
 Estas propiedades son comunes a todos los registros de SharePoint.
 
 | Propiedad | DESCRIPCIÓN |
@@ -668,6 +694,7 @@ Estas propiedades son comunes a todos los registros de SharePoint.
 
 
 ### <a name="sharepoint-schema"></a>Esquema de SharePoint
+
 Estos registros se crean cuando se realizan cambios en la configuración de SharePoint.
 
 | Propiedad | DESCRIPCIÓN |
@@ -680,6 +707,7 @@ Estos registros se crean cuando se realizan cambios en la configuración de Shar
 
 
 ### <a name="sharepoint-file-operations"></a>Operaciones de archivos de SharePoint
+
 Estos registros se crean en respuesta a las operaciones de archivos en SharePoint.
 
 | Propiedad | DESCRIPCIÓN |
@@ -700,6 +728,7 @@ Estos registros se crean en respuesta a las operaciones de archivos en SharePoin
 
 
 ## <a name="sample-log-searches"></a>Búsquedas de registros de ejemplo
+
 En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para los registros de actualización recopilados por esta solución.
 
 | Consultar | DESCRIPCIÓN |
@@ -713,6 +742,7 @@ En la tabla siguiente se proporcionan ejemplos de búsquedas de registros para l
 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Use las [consultas de registros de Azure Monitor](../log-query/log-query-overview.md) para ver datos detallados sobre la actualización.
 * [Cree sus propios paneles](../learn/tutorial-logs-dashboards.md) para mostrar las consultas de búsqueda favoritas de Office 365.
 * [Cree alertas](../platform/alerts-overview.md) para recibir notificaciones proactivas de actividades importantes de Office 365.  

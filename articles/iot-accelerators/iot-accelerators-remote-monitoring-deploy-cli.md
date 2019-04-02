@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: a1e65466bb409007a2f112422f393eee786d7b3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ea96b2b996ea79efacdcda50c6370f25e26e0aa2
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182139"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793786"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementación del acelerador de la solución Supervisión remota mediante la CLI
 
@@ -62,6 +62,8 @@ En esta sección se resumen las diferencias claves entre una implementación bá
 
 ### <a name="basic"></a>Básica
 
+Puede hacer una implementación básica de [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) o mediante la CLI.
+
 La implementación básica está orientada a presentar la solución. Para reducir los costos, todos los microservicios se implementan en una sola máquina virtual. Esta implementación no usa una arquitectura lista para producción.
 
 Una implementación básica crea los siguientes servicios en la suscripción de Azure:
@@ -80,6 +82,8 @@ Una implementación básica crea los siguientes servicios en la suscripción de 
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1: 1 unidad              | Almacenamiento para datos de mensajes y permite el análisis detallado de telemetría |
 
 ### <a name="standard"></a>Estándar
+
+Puede hacer una implementación estándar solo mediante la CLI.
 
 Una implementación estándar es una implementación lista para producción que un desarrollador puede personalizar y ampliar. Use la opción de implementación estándar cuando esté listo para personalizar una arquitectura para entornos de producción, creada para fines de escalabilidad y extensibilidad. Los microservicios de aplicación se crean como contenedores de Docker y se implementan con Azure Kubernetes Service. El orquestador de Kubernetes implementa, escala y administra los microservicios.
 

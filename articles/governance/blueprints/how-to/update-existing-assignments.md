@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 572a962e98332fc70c276346f497ed2e67e3c329
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 78b2f98b61306c22eaba59b9be7259b3a24d7bbe
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999852"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805761"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Procedimiento para actualizar una asignación de plano técnico
 
@@ -32,17 +32,17 @@ Cuando se asigna un plano técnico, se puede actualizar la asignación. Hay vari
 
 1. En la lista de planos técnicos, haga clic con el botón izquierdo en la asignación del plano técnico. A continuación, haga clic en el **actualizar la asignación de** o haga clic en la asignación del plano técnico y seleccione **actualizar la asignación de**.
 
-   ![Actualización de la asignación](../media/update-existing-assignments/update-assignment.png)
+   ![Actualización de una asignación existente del plano técnico](../media/update-existing-assignments/update-assignment.png)
 
 1. El **asignar blueprint** página se cargará rellenará con todos los valores de la asignación original. Puede cambiar la **versión de la definición de plano técnico**, el estado de **Asignación de bloqueo** y cualquiera de los parámetros dinámicos que existan en la definición del plano técnico. Haga clic en **Asignar** cuando haya terminado de realizar los cambios.
 
 1. En la página de detalles de la asignación actualizada, consulte el nuevo estado. En este ejemplo, hemos agregado el **bloqueo** a la asignación.
 
-   ![Asignación actualizada: bloqueada](../media/update-existing-assignments/updated-assignment.png)
+   ![Actualiza una asignación del plano técnico existente - cambiar el modo de bloqueo](../media/update-existing-assignments/updated-assignment.png)
 
 1. Explorar los detalles acerca de otras **las operaciones de asignación** mediante la lista desplegable. La tabla de **los recursos administrados** actualizaciones mediante la operación de asignación seleccionada.
 
-   ![Operaciones de asignación](../media/update-existing-assignments/assignment-operations.png)
+   ![Operaciones de asignación de una asignación del plano técnico](../media/update-existing-assignments/assignment-operations.png)
 
 ## <a name="rules-for-updating-assignments"></a>Reglas de la actualización de asignaciones
 

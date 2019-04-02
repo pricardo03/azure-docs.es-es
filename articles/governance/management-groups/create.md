@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 11/20/2018
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 8e887409c35619261544b92395301ce06a033e8b
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.openlocfilehash: a89df98224634c08c84cb059eb58e64e3c7febf7
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56992743"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801273"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Creación de grupos de administración para la organización y la administración de recursos
 
@@ -37,14 +37,14 @@ Puede crear el grupo de administración mediante el portal, PowerShell o la CLI 
 
 1. En la página principal, seleccione **Nuevo grupo de administración**.
 
-   ![Grupo principal](./media/main.png)
+   ![Página para trabajar con grupos de administración](./media/main.png)
 
 1. Rellene el campo de identificador de grupo de administración.
 
    - El **identificador de grupo de administración** es el identificador único de directorio que se usa para enviar comandos en este grupo de administración. Este identificador no es editable una vez creado el grupo, dado que se usa en todo el sistema de Azure para identificar ese grupo.
    - El campo de nombre para mostrar es el nombre que se muestra en Azure Portal. Un nombre para mostrar independiente es un campo opcional al crear el grupo de administración y se puede cambiar en cualquier momento.  
 
-   ![Crear](./media/create_context_menu.png)  
+   ![Panel de opciones para crear un nuevo grupo de administración](./media/create_context_menu.png)  
 
 1. Seleccione **Guardar**.
 

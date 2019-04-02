@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/25/2019
 ms.author: jaredro
 ms.custom: include file
-ms.openlocfilehash: eb807082443da495cd89e1dd624058c89d3ee65b
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 6a0d84a2aaf4b52c7fb0163231574eaea63c18c3
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56825655"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58807907"
 ---
 ### <a name="what-is-expressroute-direct"></a>¿Qué es ExpressRoute Direct?
 
@@ -52,6 +52,6 @@ ExpressRoute Direct proporciona a los clientes pares de puertos directos de 100 
 
 ExpressRoute Direct se facturará por el par de puertos a una cantidad fija. Los circuitos estándar se incluirán sin horas adicionales y los premium tendrán un ligero cargo adicional. La salida se facturará por circuito en función de la zona de la ubicación del emparejamiento.
 
-### <a name="when-does-billing-state-for-the-expressroute-direct-port-pairs"></a>¿Cuándo cambia el estado de facturación para los pares de puertos directos de ExpressRoute?
+### <a name="when-does-billing-start-for-the-expressroute-direct-port-pairs"></a>¿Cuándo inicio facturación para los pares de puerto directo de ExpressRoute?
 
 Los pares de puertos directos de ExpressRoute se facturan 45 días después de la creación del recurso directo de ExpressRoute o cuando se activan uno o ambos vínculos, lo que suceda primero. Este período de gracia de 45 días se concede para permitir a los clientes completar el proceso de conexión cruzada con el proveedor de colocaciones.

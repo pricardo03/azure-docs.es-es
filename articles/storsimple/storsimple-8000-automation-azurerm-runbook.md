@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 10/23/2017
 ms.author: alkohli
-ms.openlocfilehash: 93c77b5f678c4e6b3170d2c7612bef3f104f0b6b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 30d70bb7e1f868060e3b287a0cdfb117c585b9ba
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58002601"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793516"
 ---
 # <a name="use-azure-automation-runbooks-to-manage-storsimple-devices"></a>Uso de runbooks de Azure Automation para administrar dispositivos de StorSimple
 
@@ -36,9 +36,7 @@ Antes de comenzar, asegúrese de que dispone de:
 
 * una suscripción activa de Azure asociada con el servicio StorSimple Device Manager registrado con un dispositivo de la serie StorSimple 8000.
 
-
 * Windows PowerShell 5.0 instalado en el equipo (o bien, el host de Windows Server para una instancia de StorSimple, si usa una).
-
 
 ### <a name="create-automation-runbook-module-in-windows-powershell"></a>Crear un módulo de runbook de automatización en Windows PowerShell
 
@@ -46,137 +44,137 @@ Para crear un módulo de automatización para la administración de dispositivos
 
 1. Inicie Windows PowerShell. Cree una carpeta nueva y cambie de directorio a la carpeta nueva.
 
-    ```
+    ```powershell
         mkdir C:\scripts\StorSimpleSDKTools
         cd C:\scripts\StorSimpleSDKTools
-    ```    
+    ```
+
 2. [Descargue la CLI de NuGet](https://www.nuget.org/downloads) en la carpeta que se creó en el paso anterior. Existen varias versiones de _nuget.exe_. Elija la versión que corresponde a su SDK. Cada vínculo de descarga apunta directamente a un archivo _.exe_. Asegúrese de hacer clic con el botón derecho y de guardar el archivo en el equipo en lugar de ejecutarlo desde el explorador.
 
     También puede ejecutar el comando siguiente para descargar y almacenar el script en la misma carpeta que creó anteriormente.
-    
+
     ```
         wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -Out C:\scripts\StorSimpleSDKTools\nuget.exe
     ```
+
 3. Descargue el SDK dependiente.
 
     ```
         C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Azure.Management.Storsimple8000series
         C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.3
         C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.2.9-preview
-    ```    
+    ```
+
 4. Descargue el script desde el proyecto GitHub de ejemplo.
 
     ```
         wget https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1 -Out Monitor-Backups.ps1
-
     ```
+
 5. Cree un módulo de Runbook de Azure Automation para la administración de dispositivos de StorSimple serie 8000. Escriba los comandos siguientes en la ventana de Windows PowerShell:
 
-    ```
-            # set path variables
-            $downloadDir = "C:\scripts\StorSimpleSDKTools"
-            $moduleDir = "$downloadDir\AutomationModule\Microsoft.Azure.Management.StorSimple8000Series"
+    ```powershell
+        # set path variables
+        $downloadDir = "C:\scripts\StorSimpleSDKTools"
+        $moduleDir = "$downloadDir\AutomationModule\Microsoft.Azure.Management.StorSimple8000Series"
 
-            #don't change the folder name "Microsoft.Azure.Management.StorSimple8000Series"
-            mkdir "$moduleDir"
-            copy "$downloadDir\Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory*.dll" $moduleDir
-            copy "$downloadDir\Microsoft.Rest.ClientRuntime.Azure.3.3.7\lib\net452\Microsoft.Rest.ClientRuntime.Azure*.dll" $moduleDir
-            copy "$downloadDir\Microsoft.Rest.ClientRuntime.2.3.8\lib\net452\Microsoft.Rest.ClientRuntime*.dll" $moduleDir
-            copy "$downloadDir\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json*.dll" $moduleDir
-            copy "$downloadDir\Microsoft.Rest.ClientRuntime.Azure.Authentication.2.2.9-preview\lib\net45\Microsoft.Rest.ClientRuntime.Azure.Authentication*.dll" $moduleDir
-            copy "$downloadDir\Microsoft.Azure.Management.Storsimple8000series.1.0.0\lib\net452\Microsoft.Azure.Management.Storsimple8000series*.dll" $moduleDir
+        #don't change the folder name "Microsoft.Azure.Management.StorSimple8000Series"
+        mkdir "$moduleDir"
+        Copy-Item "$downloadDir\Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory*.dll" $moduleDir
+        Copy-Item "$downloadDir\Microsoft.Rest.ClientRuntime.Azure.3.3.7\lib\net452\Microsoft.Rest.ClientRuntime.Azure*.dll" $moduleDir
+        Copy-Item "$downloadDir\Microsoft.Rest.ClientRuntime.2.3.8\lib\net452\Microsoft.Rest.ClientRuntime*.dll" $moduleDir
+        Copy-Item "$downloadDir\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json*.dll" $moduleDir
+        Copy-Item "$downloadDir\Microsoft.Rest.ClientRuntime.Azure.Authentication.2.2.9-preview\lib\net45\Microsoft.Rest.ClientRuntime.Azure.Authentication*.dll" $moduleDir
+        Copy-Item "$downloadDir\Microsoft.Azure.Management.Storsimple8000series.1.0.0\lib\net452\Microsoft.Azure.Management.Storsimple8000series*.dll" $moduleDir
 
-            #Don't change the name of the Archive
-            compress-Archive -Path "$moduleDir" -DestinationPath Microsoft.Azure.Management.StorSimple8000Series.zip
-
+        #Don't change the name of the Archive
+        compress-Archive -Path "$moduleDir" -DestinationPath Microsoft.Azure.Management.StorSimple8000Series.zip
     ```
 
 6. Compruebe que se crea un archivo ZIP del módulo de automatización en `C:\scripts\StorSimpleSDKTools`.
 
     ![verify-automation-module](./media/storsimple-8000-automation-azurerm-runbook/verify-automation-module.png)
 
-7. El siguiente resultado se presenta cuando se crea el módulo de automatización mediante Windows PowerShell. 
+7. El siguiente resultado se presenta cuando se crea el módulo de automatización mediante Windows PowerShell.
 
+    ```powershell
+    mkdir C:\scripts\StorSimpleSDKTools
     ```
-    -----------------------------------------
-    Windows PowerShell
-    Copyright (C) 2016 Microsoft Corporation. All rights reserved.
 
-    PS C:\WINDOWS\system32> mkdir C:\scripts\StorSimpleSDKTools
-
+    ```Output
         Directory: C:\scripts
 
     Mode                LastWriteTime         Length Name
     ----                -------------         ------ ----
     d-----       10/18/2017   8:43 AM                StorSimpleSDKTools
+    ```
 
+    ```powershell
+    wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -Out C:\scripts\StorSimpleSDKTools\nuget.exe
+    ```
 
-    PS C:\WINDOWS\system32> cd c:\scripts\StorSimpleSDKTools
-    PS C:\scripts\StorSimpleSDKTools> wget https://dist.nuget.org/win-x86-commandline/latest/nuget.exe -Out C:\scripts\StorS
-    impleSDKTools\nuget.exe
-    PS C:\scripts\StorSimpleSDKTools> C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Azure.Management.Storsimple8
-    000series
+    ```powershell
+    C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Azure.Management.Storsimple8000series
+    ```
 
+    ```Output
     -------------------------------------------
-    CUT              CUT  
+    CUT              CUT
     -------------------------------------------
     Successfully installed 'Microsoft.Azure.Management.Storsimple8000series 1.0.0' to C:\scripts\StorSimpleSDKTools
     Executing nuget actions took 1.77 sec
-    PS C:\scripts\StorSimpleSDKTools> C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.IdentityModel.Clients.Active
-    Directory -Version 2.28.3
+    ```
 
+    ```powershell
+    C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.28.3
+    ```
+
+    ```Output
     -------------------------------------------
-    CUT              CUT  
+    CUT              CUT
     -------------------------------------------
     Successfully installed 'Microsoft.IdentityModel.Clients.ActiveDirectory 2.28.3' to C:\scripts\StorSimpleSDKTools
     Executing nuget actions took 927.64 ms
-    PS C:\scripts\StorSimpleSDKTools> C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Rest.ClientRuntime.Azure.Aut
-    hentication -Version 2.2.9-preview
+    ```
 
+    ```powershell
+    C:\scripts\StorSimpleSDKTools\nuget.exe install Microsoft.Rest.ClientRuntime.Azure.Authentication -Version 2.2.9-preview
+    ```
+
+    ```Output
     -------------------------------------------
-    CUT              CUT  
+    CUT              CUT
     -------------------------------------------
-    Successfully installed 'Microsoft.Rest.ClientRuntime.Azure.Authentication 2.2.9-preview' to C:\scripts\StorSimpleSDKTool
-    s
+    Successfully installed 'Microsoft.Rest.ClientRuntime.Azure.Authentication 2.2.9-preview' to C:\scripts\StorSimpleSDKTools
     Executing nuget actions took 717.48 ms
-    PS C:\scripts\StorSimpleSDKTools> wget https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Mo
-    nitor-Backups.ps1 -Out Monitor-Backups.ps1
-    PS C:\scripts\StorSimpleSDKTools> # set path variables
-    PS C:\scripts\StorSimpleSDKTools>             $downloadDir = "C:\scripts\StorSimpleSDKTools"
-    PS C:\scripts\StorSimpleSDKTools>             $moduleDir = "$downloadDir\AutomationModule\Microsoft.Azure.Management.Sto
-    rSimple8000Series"
-    PS C:\scripts\StorSimpleSDKTools>
-    PS C:\scripts\StorSimpleSDKTools>             #don't change the folder name "Microsoft.Azure.Management.StorSimple8000Se
-    ries"
-    PS C:\scripts\StorSimpleSDKTools>             mkdir "$moduleDir"
+    ```
 
+    ```powershell
+    wget https://raw.githubusercontent.com/anoobbacker/storsimpledevicemgmttools/master/Monitor-Backups.ps1 -Out Monitor-Backups.ps1
+    # set path variables
+    $downloadDir = "C:\scripts\StorSimpleSDKTools"
+    $moduleDir = "$downloadDir\AutomationModule\Microsoft.Azure.Management.StorSimple8000Series"
+    #don't change the folder name "Microsoft.Azure.Management.StorSimple8000Series"
+    mkdir "$moduleDir"
+    ```
+
+    ```Output
         Directory: C:\scripts\StorSimpleSDKTools\AutomationModule
-
 
     Mode                LastWriteTime         Length Name
     ----                -------------         ------ ----
     d-----       10/18/2017   8:48 AM                Microsoft.Azure.Management.StorSimple8000Series
+    ```
 
-    PS C:\scripts\StorSimpleSDKTools>             copy "$downloadDir\Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3\
-    lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory*.dll" $moduleDir
-    PS C:\scripts\StorSimpleSDKTools>             copy "$downloadDir\Microsoft.Rest.ClientRuntime.Azure.3.3.7\lib\net452\Mic
-    rosoft.Rest.ClientRuntime.Azure*.dll" $moduleDir
-    PS C:\scripts\StorSimpleSDKTools>             copy "$downloadDir\Microsoft.Rest.ClientRuntime.2.3.8\lib\net452\Microsoft
-    .Rest.ClientRuntime*.dll" $moduleDir
-    PS C:\scripts\StorSimpleSDKTools>             copy "$downloadDir\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json*.dll" $
-    moduleDir
-    PS C:\scripts\StorSimpleSDKTools>             copy "$downloadDir\Microsoft.Rest.ClientRuntime.Azure.Authentication.2.2.9
-    -preview\lib\net45\Microsoft.Rest.ClientRuntime.Azure.Authentication*.dll" $moduleDir
-    PS C:\scripts\StorSimpleSDKTools>             copy "$downloadDir\Microsoft.Azure.Management.Storsimple8000series.1.0.0\l
-    ib\net452\Microsoft.Azure.Management.Storsimple8000series*.dll" $moduleDir
-    PS C:\scripts\StorSimpleSDKTools>
-    PS C:\scripts\StorSimpleSDKTools>             #Don't change the name of the Archive
-    PS C:\scripts\StorSimpleSDKTools>             compress-Archive -Path "$moduleDir" -DestinationPath Microsoft.Azure.Manag
-    ement.StorSimple8000Series.zip
-    PS C:\scripts\StorSimpleSDKTools>
-
-    -------------------------------------------
-
+    ```powershell
+    Copy-Item "$downloadDir\Microsoft.IdentityModel.Clients.ActiveDirectory.2.28.3\lib\net45\Microsoft.IdentityModel.Clients.ActiveDirectory*.dll" $moduleDir
+    Copy-Item "$downloadDir\Microsoft.Rest.ClientRuntime.Azure.3.3.7\lib\net452\Microsoft.Rest.ClientRuntime.Azure*.dll" $moduleDir
+    Copy-Item "$downloadDir\Microsoft.Rest.ClientRuntime.2.3.8\lib\net452\Microsoft.Rest.ClientRuntime*.dll" $moduleDir
+    Copy-Item "$downloadDir\Newtonsoft.Json.6.0.8\lib\net45\Newtonsoft.Json*.dll" $moduleDir
+    Copy-Item "$downloadDir\Microsoft.Rest.ClientRuntime.Azure.Authentication.2.2.9-preview\lib\net45\Microsoft.Rest.ClientRuntime.Azure.Authentication*.dll" $moduleDir
+    Copy-Item "$downloadDir\Microsoft.Azure.Management.Storsimple8000series.1.0.0\lib\net452\Microsoft.Azure.Management.Storsimple8000series*.dll" $moduleDir
+    #Don't change the name of the Archive
+    compress-Archive -Path "$moduleDir" -DestinationPath Microsoft.Azure.Management.StorSimple8000Series.zip
     ```
 
 ### <a name="import-publish-and-run-automation-runbook"></a>Importar, publicar y ejecutar el runbook de Automation
@@ -192,7 +190,7 @@ Para crear un módulo de automatización para la administración de dispositivos
    3. Cree un nuevo grupo de recursos o seleccione uno del grupo de recursos existente.
    4. Seleccione una **ubicación** (si es posible la misma en donde se está ejecutando el servicio).
    5. Deje la opción predeterminada **Crear cuenta de ejecución** seleccionada.
-   5. Si quiere, seleccione **Anclar al panel**. Haga clic en **Create**(Crear).
+   6. Si quiere, seleccione **Anclar al panel**. Haga clic en **Create**(Crear).
 
        ![create-automation-account](./media/storsimple-8000-automation-azurerm-runbook/create-automation-account.png)
 
@@ -223,7 +221,6 @@ Para crear un módulo de automatización para la administración de dispositivos
 9. Revise el resultado del runbook en el panel de prueba. Si le parece correcto, cierre el panel. Haga clic en **Publicar** y, cuando se le solicite una confirmación, confirme y publique el runbook.
 
     ![publish-runbook](./media/storsimple-8000-automation-azurerm-runbook/publish-runbook.png)
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

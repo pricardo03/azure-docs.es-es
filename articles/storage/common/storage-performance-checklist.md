@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: d39c2414aa8299282b3896a9ceb57897fdb25ff1
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: b8451a1195ab64d3cd7afda074d786a3209ce785
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445994"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793975"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Lista de comprobación de rendimiento y escalabilidad de Microsoft Azure Storage
 ## <a name="overview"></a>Información general
@@ -269,7 +269,7 @@ Para cargar un solo blob grande rápidamente, la aplicación cliente debe cargar
 * C++: Use el método blob_request_options::set_parallelism_factor.
 
 #### <a name="subheading22"></a>Carga de muchos blobs rápidamente
-Para cargar muchos blobs rápidamente, cárguelos en paralelo. Este método es más rápido que cargar blobs de uno en uno con cargas de bloque paralelas porque distribuye la carga entre varias particiones del servicio Storage. Un solo blob únicamente admite un rendimiento de 60 MB/segundo (aproximadamente 480 Mbps). En el momento de escribir estas líneas, una cuenta LRS con sede en Estados Unidos admite entradas de hasta 20 Gbps, que es mucho más que la capacidad de proceso admitida por un blob individual.  [AzCopy](#subheading18) realiza cargas en paralelo de forma predeterminada y se recomienda para este escenario.  
+Para cargar muchos blobs rápidamente, cárguelos en paralelo. Este método es más rápido que cargar blobs de uno en uno con cargas de bloque paralelas porque distribuye la carga entre varias particiones del servicio Storage. Un solo blob únicamente admite un rendimiento de 60 MB/segundo (aproximadamente 480 Mbps). En el momento de escribir este artículo, una cuenta LRS basado en Estados Unidos admite hasta 20 Gbps de entrada, que es mucho más que el rendimiento admitido por un blob individual.  [AzCopy](#subheading18) realiza cargas en paralelo de forma predeterminada y se recomienda para este escenario.  
 
 ### <a name="subheading23"></a>Elección del tipo correcto de blob
 Azure Storage admite dos tipos de blobs: *de página* y *de bloque*. Para un escenario de uso dado, el tipo de blob que elija afectará al rendimiento y escalabilidad de la solución. Los blobs en bloques son apropiados si desea cargar eficazmente grandes cantidades de datos: por ejemplo, una aplicación cliente puede necesitar cargar fotos o vídeos a Blob Storage. Los blobs de página son apropiados si la aplicación necesita realizar operaciones de escritura aleatorias en los datos: por ejemplo, los discos duros virtuales de Azure se almacenan como blobs de página.  
@@ -297,9 +297,7 @@ A partir de la versión del 15 de agosto de 2013 del servicio Storage, Table ser
 Para más información, consulte la publicación [Microsoft Azure Tables: Introducing JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) (Tablas de Microsoft Azure: Introducción a JSON) y [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx) (Formato de carga para las operaciones del servicio de tablas).
 
 #### <a name="subheading26"></a>Desactivación de Nagle
-El algoritmo de Nagle está ampliamente implementado en redes TCP/IP como medio de mejorar el rendimiento de la red. Sin embargo, no es óptimo en todas las situaciones (como por ejemplo en entornos altamente interactivos). En el caso de Azure Storage, el algoritmo de Nagle tiene un impacto negativo en el rendimiento de solicitudes que se realizan a los servicios Table y Queue; si es posible, debe deshabilitarlo.  
-
-Para más información, consulte la entrada del blog para ver la entrada del blog [Nagle's Algorithm is Not Friendly towards Small Requests](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) (El algoritmo de Nagle no es idóneo para pequeñas solicitudes), donde se explican los motivos por los que el algoritmo de Nagle no interactúa bien con solicitudes de tabla y cola, y cómo deshabilitarlo en una aplicación cliente.  
+El algoritmo de Nagle está ampliamente implementado en redes TCP/IP como medio de mejorar el rendimiento de la red. Sin embargo, no es óptimo en todas las situaciones (como por ejemplo en entornos altamente interactivos). En el caso de Azure Storage, el algoritmo de Nagle tiene un impacto negativo en el rendimiento de solicitudes que se realizan a los servicios Table y Queue; si es posible, debe deshabilitarlo.
 
 ### <a name="schema"></a>Esquema
 La forma de representar los datos y realizar consultas en los mismos es el factor más importante por sí mismo que afecta al rendimiento de Table service. Aunque cada aplicación es diferente, en esta sección se describen algunas prácticas probadas generales relacionadas con:  
@@ -373,7 +371,7 @@ Use operaciones **Upsert** de tabla siempre que sea posible. Hay dos tipos de op
 ##### <a name="subheading37"></a>Almacenamiento de series de datos en una sola entidad
 A veces, una aplicación almacena una serie de datos que necesita recuperar de una sola vez con frecuencia: por ejemplo, un aplicación podría hacer un seguimiento del uso de CPU a lo largo del tiempo para representar un gráfico dinámico de los datos de las últimas 24 horas. Un enfoque es tener una entidad de tabla por hora, de forma que cada entidad represente una hora específica y almacene el uso de CPU para esa hora. Para representar estos datos, la aplicación necesita recuperar las entidades que contienen los datos de las 24 horas más recientes.  
 
-Como alternativa, la aplicación podría almacenar el uso de CPU por cada hora como propiedad independiente de una sola entidad: para actualizar cada hora, la aplicación puede usar una sola llamada **InsertOrMerge Upsert** para actualizar el valor de la hora más reciente. Para representar los datos, la aplicación solamente necesita recuperar una sola entidad en lugar de 24, creando una consulta eficiente (consulte el análisis anterior acerca del [ámbito de las consultas](#subheading30)).
+Como alternativa, la aplicación podría almacenar el uso de CPU por cada hora como propiedad independiente de una sola entidad: para actualizar cada hora, la aplicación puede usar una sola llamada **InsertOrMerge Upsert** para actualizar el valor de la hora más reciente. Para trazar los datos, la aplicación solo necesita recuperar una sola entidad en lugar de 24, creando una consulta eficaz (consulte el análisis anterior [ámbito de consulta](#subheading30)).
 
 ##### <a name="subheading38"></a>Almacenamiento de datos estructurados en blobs
 Algunas veces, da la sensación de que los datos estructurados deben ir en tablas, pero los intervalos de entidades siempre se recuperan conjuntamente y se pueden insertar por lotes.  Un buen ejemplo de esto es un archivo de registro.  En este caso, puede procesar por lotes varios minutos de registros, insertarlos y, después, siempre estará recuperando varios minutos de registros simultáneamente.  En este caso, para mejorar el rendimiento, conviene usar blobs, en lugar de tablas, ya que puede reducir considerablemente el número de objetos escritos y devueltos, así como, por lo general, el número de solicitudes que necesita realizar.  
@@ -390,7 +388,7 @@ Vea los objetivos de escalabilidad actuales en [Objetivos de escalabilidad y ren
 Consulte la sección sobre la configuración de tablas que analiza el algoritmo de Nagle (el algoritmo de Nagle suele ser malo para el rendimiento de solicitudes de cola y debe deshabilitarlo).  
 
 ### <a name="subheading41"></a>Tamaño de los mensajes
-El rendimiento y la escalabilidad de la cola se reducen a medida que aumenta el tamaño de los mensajes. Debe colocar únicamente la información que necesita el receptor de un mensaje.  
+Escalabilidad y rendimiento de la cola disminuyen a medida que aumenta el tamaño de mensaje. Debe colocar únicamente la información que necesita el receptor de un mensaje.  
 
 ### <a name="subheading42"></a>Recuperación por lotes
 Puede recuperar hasta 32 mensajes de una cola en una sola operación. Esto puede reducir el número de recorridos de ida y vuelta de la aplicación cliente, lo cual es especialmente útil para entornos, como por ejemplo dispositivos móviles, con alta latencia.  
@@ -401,7 +399,7 @@ La mayoría de aplicaciones sondean los mensajes de una cola, que puede ser uno 
 Para obtener información de costo actualizada, consulte [Precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  
 
 ### <a name="subheading44"></a>UpdateMessage
-Puede usar **UpdateMessage para** aumentar el tiempo de espera de invisibilidad o para actualizar la información de estado de un mensaje. Aunque esto es muy eficiente, recuerde que cada operación **UpdateMessage** cuenta para el objetivo de escalabilidad. Sin embargo, esto puede ser un enfoque mucho más eficiente que tener un flujo de trabajo que pasa un trabajo de una cola a la siguiente, cuando cada paso del trabajo se completa. El uso de la operación **UpdateMessage** permite que la aplicación guarde el estado del trabajo en el mensaje y, a continuación, continúe trabajando, en lugar de volver a poner en cola el mensaje para el próximo paso del trabajo cada vez que se completa un paso.  
+Puede usar **UpdateMessage para** aumentar el tiempo de espera de invisibilidad o para actualizar la información de estado de un mensaje. Aunque esto es muy eficiente, recuerde que cada operación **UpdateMessage** cuenta para el objetivo de escalabilidad. Sin embargo, esto puede ser un enfoque mucho más eficiente que tener un flujo de trabajo que pasa un trabajo de una cola a la siguiente, cuando cada paso del trabajo se completa. Mediante el **UpdateMessage** operación permite que la aplicación guardar el estado del trabajo en el mensaje y, a continuación, seguir trabajando, en lugar de requeuing el mensaje para el siguiente paso del trabajo cada vez que se completa un paso.  
 
 Para más información, consulte el artículo [Control de contenido de un mensaje en cola](../queues/storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 

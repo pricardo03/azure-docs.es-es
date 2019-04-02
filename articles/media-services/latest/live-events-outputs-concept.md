@@ -11,26 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 03/01/2019
+ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: c446a71a363a9a81eeb7d0dddcdbd90ccee08b7d
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 1d28701dd35b9d80fd52a1f102c53f2d59d63b09
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189366"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762361"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos en directo y salidas en vivo
 
-Azure Media Services permite entregar eventos en directo a sus clientes en la nube de Azure. Para configurar los eventos de streaming en vivo en Media Services v3, debe familiarizarse con los conceptos que se analizan en este artículo:
-
-* Objetos [LiveEvents](#live-events)
-* Tipos de objetos LiveEvent
-* Comparación de tipos de objetos LiveEvent
-* [Opciones de creación de objetos LiveEvent](#live-event-creation-options)
-* [Direcciones URL de ingesta de objetos LiveEvent](#live-event-ingest-urls)
-* [Dirección URL de vista previa de objetos LiveEvent](#live-event-preview-url)
-* [Objetos LiveOutput](#live-outputs).
+Azure Media Services permite entregar eventos en directo a sus clientes en la nube de Azure. Para configurar los eventos de streaming en vivo en Media Services v3, deberá comprender los conceptos tratados en este artículo. <br/>Se enumera la lista de secciones de la derecha de la página.
 
 ## <a name="live-events"></a>Eventos en vivo
 
@@ -62,10 +54,10 @@ Si utiliza la codificación en directo con Media Services, deberá configurar el
 
 Puede enviar la fuente de contribución a una resolución de hasta 1080p a una velocidad de fotogramas de 30 fotogramas/segundo, con códec de vídeo H.264/AVC y códec de audio AAC (AAC-LC, HE-AACv1 o HE-AACv2). Consulte el artículo [Comparación de tipos de objetos LiveEvent](live-event-types-comparison.md) para obtener más detalles.
 
-Cuando se usa la codificación en directo (evento en directo se establece en **estándar**), el valor preestablecido de codificación define cómo se codifica la secuencia entrante en varias velocidades de bits o capas. Para obtener información, consulte [valores preestablecidos del sistema](live-event-types-comparison.md#system-presets).
+Cuando se usa la codificación en directo (el evento LiveEvent se establece en **Standard**), la codificación preestablecida define cómo se codifica la transmisión entrante en varias velocidades de bits o capas. Para más información, consulte [Valores preestablecidos del sistema](live-event-types-comparison.md#system-presets).
 
 > [!NOTE]
-> Actualmente, el único valor preestablecido valor permitido para el tipo de evento en directo estándar es *Default720p*. Si necesita usar un valor preestablecido personalizado de codificación en directo, póngase en contacto con amshelp@microsoft.com. Debe especificar la tabla deseada de resolución y velocidades de bits. Compruebe que hay solo una capa a 720p y a lo sumo, 6 capas.
+> Actualmente, el único valor preestablecido permitido para el tipo de evento en directo estándar es *Default720p*. Si necesita usar un valor preestablecido personalizado para la codificación en directo, póngase en contacto con amshelp@microsoft.com. Debe especificar la tabla de resoluciones y velocidades de bits deseadas. Compruebe que hay solo una capa a 720p y, como máximo, 6 capas.
 
 ## <a name="live-event-creation-options"></a>Opciones de creación de objetos LiveEvent
 
@@ -132,6 +124,10 @@ Cuando el **objeto LiveEvent** comienza a recibir la fuente de contribución, pu
 
 > [!IMPORTANT]
 > Asegúrese de que el vídeo fluye a la dirección URL de vista previa antes de continuar.
+
+## <a name="live-event-long-running-operations"></a>Operaciones de larga ejecución eventos en directo
+
+Para obtener más información, consulte [operaciones de larga ejecución](entities-overview.md#long-running-operations)
 
 ## <a name="live-outputs"></a>Salidas en vivo
 

@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b34a1716d077aeead572c60d0c6b9bcad60a5b1e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 84db71f8dabfb7557b5efbc06e024c43e654b56d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005419"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805081"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solución de problemas relativos a errores con runbooks
 
@@ -26,7 +26,7 @@ ms.locfileid: "58005419"
 Recibirá el siguiente error al trabajar con los cmdlets `Add-AzureAccount` o `Connect-AzureRmAccount`.
 :
 
-```
+```error
 Unknown_user_type: Unknown User Type
 ```
 
@@ -81,7 +81,7 @@ Para determinar cuál es el problema, siga estos pasos:
 
 Recibirá el siguiente error al trabajar con los cmdlets `Select-AzureSubscription` o `Select-AzureRmSubscription`:
 
-```
+```error
 The subscription named <subscription name> cannot be found.
 ```
 
@@ -119,7 +119,7 @@ Para determinar si se ha autenticado correctamente en Azure y tiene acceso a la 
 
 Recibirá el siguiente error al autenticarse en Azure con el nombre de usuario y la contraseña de Azure:
 
-```
+```error
 Add-AzureAccount: AADSTS50079: Strong authentication enrollment (proof-up) is required
 ```
 
@@ -139,7 +139,7 @@ Para usar un certificado con los cmdlets del modelo de implementación clásica 
 
 Recibe el siguiente error al invocar un runbook secundario con el modificador `-Wait` y el flujo de salida contiene el objeto:
 
-```
+```error
 Object reference not set to an instance of an object
 ```
 
@@ -179,7 +179,7 @@ $jobResults | Get-AzureRmAutomationJobOutput | Get-AzureRmAutomationJobOutputRec
 
 Vea el error en sus flujos de trabajo para un runbook con el siguiente mensaje:
 
-```
+```error
 Connect-AzureRMAccount : Method 'get_SerializationSettings' in type 
 'Microsoft.Azure.Management.Internal.Resources.ResourceManagementClient' from assembly 
 'Microsoft.Azure.Commands.ResourceManager.Common, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35' 
@@ -205,7 +205,7 @@ Los cmdlets de AZ y AzureRM no se pueden importar y usar en el mismo runbook, pa
 
 El runbook genera un error similar al ejemplo siguiente:
 
-```
+```error
 Exception: A task was canceled.
 ```
 
@@ -264,7 +264,7 @@ Start-AzureRmAutomationRunbook `
 
 El runbook genera un error similar al ejemplo siguiente:
 
-```
+```error
 The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, function, script file, or operable program.  Check the spelling of the name, or if the path was included verify that the path is correct and try again.
 ```
 
@@ -289,7 +289,7 @@ Si es un módulo independiente, asegúrese de que el módulo se importa en su cu
 
 Se produce un error en el runbook con el error:
 
-```
+```error
 The job was tried three times but it failed
 ```
 
@@ -323,7 +323,7 @@ Cualquiera de las siguientes soluciones resolverá el problema:
 
 Se produce un error en el runbook con el error:
 
-```
+```error
 Cannot bind parameter <ParameterName>.
 
 Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to type <ParameterType>.
@@ -375,7 +375,7 @@ Si ninguna de estas soluciones resuelve su problema, revise los [registros de tr
 
 Se produce un error en el trabajo de runbook con el error:
 
-```
+```error
 The quota for the monthly total job run time has been reached for this subscription
 ```
 
@@ -398,7 +398,7 @@ Si desea usar más de 500 minutos de procesamiento por mes tiene que cambiar la 
 
 Se produce un error en el trabajo de runbook con el error:
 
-```
+```error
 <cmdlet name>: The term <cmdlet name> is not recognized as the name of a cmdlet, function, script file, or operable program.
 ```
 
@@ -421,7 +421,7 @@ Cualquiera de las siguientes soluciones resolverá el problema:
 
 El runbook muestra un estado **Detenido** después de ejecutarse durante tres horas. También puede recibir el error:
 
-```
+```error
 The job was evicted and subsequently reached a Stopped state. The job cannot continue running
 ```
 
@@ -469,7 +469,7 @@ Si el webhook está deshabilitado, puede volver a habilitarlo a través de Azure
 
 Recibe el siguiente mensaje de error al ejecutar el cmdlet `Get-AzureRmAutomationJobOutput`:
 
-```
+```error
 429: The request rate is currently too large. Please try again
 ```
 

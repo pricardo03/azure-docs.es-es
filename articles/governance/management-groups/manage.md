@@ -1,17 +1,17 @@
 ---
-title: 'Cambio, eliminación y administración de los grupos de administración de Azure: Gobierno de Azure'
+title: Cómo cambiar, eliminar o administrar los grupos de administración - gobierno de Azure
 description: Aprenda a visualizar, mantener, actualizar y eliminar la jerarquía de grupos de administración.
 author: rthorn17
 ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 801a37496b36be1f98408c46807f5b10db2b0282
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: f9e9bf51d50863f2e37a2f579c2db0edcfeca634
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622066"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801781"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración
 
@@ -37,11 +37,11 @@ Puede cambiar el nombre del grupo de administración mediante el portal, PowerSh
 
 1. Seleccione la opción **Cambiar nombre de grupo** en la parte superior de la página.
 
-   ![Opción Cambiar nombre de grupo](./media/detail_action_small.png)
+   ![Opción de cambiar nombre de grupo en la página del grupo de administración](./media/detail_action_small.png)
 
 1. Cuando se abra el menú, escriba el nuevo nombre que desea mostrar.
 
-   ![Panel Cambiar nombre de grupo](./media/rename_context.png)
+   ![Panel Cambiar nombre de grupo para cambiar el nombre del grupo de administración](./media/rename_context.png)
 
 1. Seleccione **Guardar**.
 
@@ -223,7 +223,7 @@ Para ver qué permisos tiene en Azure portal, seleccione la administración de g
 
 1. Seleccione la suscripción de la lista con el identificador correcto.
 
-   ![Secundario](./media/add_context_sub.png)
+   ![Suscripciones disponibles para agregar a un grupo de administración](./media/add_context_sub.png)
 
 1. Seleccione "Guardar".
 
@@ -237,13 +237,13 @@ Para ver qué permisos tiene en Azure portal, seleccione la administración de g
 
 1. Seleccione los puntos suspensivos al final de la fila correspondiente a la suscripción de la lista que quiere mover.
 
-   ![Opción Mover](./media/move_small.png)
+   ![Opción Move en un grupo de administración](./media/move_small.png)
 
 1. Seleccione **Mover**.
 
 1. En el menú que se abre, seleccione el **grupo de administración primario**.
 
-   ![Panel Mover](./media/move_small_context.png)
+   ![Panel de movimiento para cambiar el grupo primario](./media/move_small_context.png)
 
 1. Seleccione **Guardar**.
 
@@ -294,7 +294,7 @@ Al mover un grupo de administración principal, la jerarquía de ese grupo se mu
    - Al seleccionar Nuevo se crea un grupo de administración.
    - Al seleccionar un grupo existente se mostrará una lista desplegable de todos los grupos de administración que se pueden mover a este grupo de administración.  
 
-   ![mover](./media/add_context_MG.png)
+   ![Mover un grupo de administración al grupo nuevo o existente](./media/add_context_MG.png)
 
 1. Seleccione **Guardar**.
 
@@ -318,7 +318,7 @@ az account management-group update --name 'Contoso' --parent-id '/providers/Micr
 
 Se admiten grupos de administración en el [registro de actividad de Azure](../../azure-monitor/platform/activity-logs-overview.md). Puede consultar todos los eventos que se producen en un grupo de administración en la misma ubicación central como otros recursos de Azure.  Por ejemplo, puede ver todos los cambios de asignaciones de roles o de asignación de directiva efectuados en un grupo de administración concreto.
 
-![Registros de actividades con Grupos de administración](media/al-mg.png)
+![Registros de actividad con grupos de administración](media/al-mg.png)
 
 Si observa las consultas en los grupos de administración fuera de Azure Portal, el ámbito de destino de los grupos de administración se parece a **"/providers/Microsoft.Management/managementGroups/{yourMgID}"**.
 

@@ -1,19 +1,19 @@
 ---
 title: Uso de cuentas de Azure Cosmos DB
 description: Este artículo describe cómo crear y usar cuentas de Azure Cosmos DB
-author: dharmas-cosmos
+author: rimman
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 11/08/2018
-ms.author: dharmas
+ms.date: 03/31/2019
+ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: e40b763aa2a36e3afd85a82b66e393ac78d3afaa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: da55807d4ca803adf63a1dd2dfe3ce3794cdd509
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839583"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762606"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Uso de la cuenta de Azure Cosmos
 
@@ -21,7 +21,7 @@ Azure Cosmos DB es una plataforma como servicio (PaaS) totalmente administrada. 
 
 La cuenta de Azure Cosmos es la unidad fundamental de distribución global y alta disponibilidad. Para distribuir globalmente los datos y el rendimiento entre varias regiones de Azure, puede agregar y quitar regiones de Azure en su cuenta de Azure Cosmos en cualquier momento. Puede configurar la cuenta de Azure Cosmos para que tenga una única región de escritura o varias. Para más información, consulte [como agregar y quitar regiones de Azure en la cuenta de Azure Cosmos](how-to-manage-database-account.md). Puede configurar el [nivel de coherencia predeterminado](consistency-levels.md) de la cuenta de Azure Cosmos. Azure Cosmos DB proporciona Acuerdos de Nivel de Servicio completos que abarcan rendimiento, latencia en el percentil 99, coherencia y alta disponibilidad. Para más información, consulte [Contrato de nivel de servicio para Azure Cosmos DB](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/).
 
-Para administrar de forma segura el acceso a todos los datos de la cuenta de Azure Cosmos, puede usar las claves maestras asociadas con su cuenta. Para proteger aún más el acceso a sus datos, puede configurar un punto de conexión de servicio de red virtual y un firewall para direcciones IP en la cuenta de Azure Cosmos. 
+Para administrar de forma segura el acceso a todos los datos dentro de la cuenta de Azure Cosmos, puede usar el [claves maestras](secure-access-to-data.md) asociada con su cuenta. Para proteger aún más el acceso a los datos, puede configurar un [punto de conexión de servicio de red virtual](vnet-service-endpoint.md) y [firewall de IP](firewall-support.md) en su cuenta de Azure Cosmos. 
 
 ## <a name="elements-in-an-azure-cosmos-account"></a>Elementos de una cuenta de Azure Cosmos
 
@@ -33,7 +33,7 @@ Actualmente, puede crear un máximo de 100 cuentas de Azure Cosmos en una suscri
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora puede continuar y aprender a administrar su cuenta de Azure Cosmos o consultar otros conceptos asociados con Azure Cosmos DB:
+Obtenga información sobre cómo administrar su cuenta de Azure Cosmos y otros conceptos:
 
 * [Administración de la cuenta de Azure Cosmos](how-to-manage-database-account.md)
 * [Distribución global](distribute-data-globally.md)

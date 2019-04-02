@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: bfb08cb3bb81917414e4d34afe47964b738980e7
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
-ms.translationtype: HT
+ms.openlocfilehash: adb7329249570750002f04fb72465698f869afdc
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52970185"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792491"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso de servicios externos del servicio de administración de API de Azure
 Las directivas disponibles en el servicio Azure API Management pueden llevar a cabo una gran variedad de trabajo útil basado exclusivamente en la solicitud entrante, la respuesta saliente y la información de configuración básica. Pero la interacción con servicios externos de las directivas de API Management brinda muchas más oportunidades.
@@ -27,7 +27,7 @@ Las directivas disponibles en el servicio Azure API Management pueden llevar a c
 Anteriormente ha visto cómo interactuar con el [servicio del Centro de eventos de Azure con fines de registro, supervisión y análisis](api-management-log-to-eventhub-sample.md). En este artículo encontrará las directivas que permiten interactuar con cualquier servicio externo basado en HTTP. Dichas directivas se pueden usar para desencadenar eventos remotos o recuperar información que se utiliza para manipular en cierto modo la solicitud y la respuesta originales.
 
 ## <a name="send-one-way-request"></a>Send-One-Way-Request
-Es posible que la interacción externa más sencilla sea el estilo de fire and forget de solicitud que permite que se notifique a un servicio externo de algún tipo de evento importante. La directiva de flujo de control `choose` puede utilizarse para detectar cualquier tipo de condición que le interese.  Si se cumple la condición, puede hacer una solicitud HTTP externa usando la directiva [Envío de solicitud unidireccional](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendOneWayRequest). Podría tratarse de una solicitud para un sistema de mensajería como Hipchat o Slack o una API de Correo como SendGrid o MailChimp, o bien para incidentes de soporte técnico críticos como PagerDuty. Todos estos sistemas de mensajería tienen API HTTP sencillas que se pueden invocar.
+Es posible que la interacción externa más sencilla sea el estilo de fire and forget de solicitud que permite que se notifique a un servicio externo de algún tipo de evento importante. La directiva de flujo de control `choose` puede utilizarse para detectar cualquier tipo de condición que le interese.  Si se cumple la condición, puede hacer una solicitud HTTP externa usando la directiva [Envío de solicitud unidireccional](/azure/api-management/api-management-advanced-policies#SendOneWayRequest). Podría tratarse de una solicitud para un sistema de mensajería como Hipchat o Slack o una API de Correo como SendGrid o MailChimp, o bien para incidentes de soporte técnico críticos como PagerDuty. Todos estos sistemas de mensajería tienen API HTTP sencillas que se pueden invocar.
 
 ### <a name="alerting-with-slack"></a>Alerta con Slack
 En el siguiente ejemplo puede ver cómo enviar un mensaje a un salón de chat de Slack si el código de estado de respuesta HTTP es mayor o igual que 500. Un error de intervalo 500 indica un problema con la API de back-end cuyo cliente no puede resolver por sí mismo. Normalmente requiere algún tipo de intervención por parte de API Management.  
@@ -62,7 +62,7 @@ Slack tiene la noción de enlaces web entrantes. Al configurar un webhook entran
 ![Enlace web de Slack](./media/api-management-sample-send-request/api-management-slack-webhook.png)
 
 ### <a name="is-fire-and-forget-good-enough"></a>¿Es fire and forget lo suficientemente bueno?
-Existen ciertos compromisos cuando se usa un estilo de fire and forget de solicitud. Si por algún motivo se produce un error en la solicitud, este no se notificará. En esta situación concreta, no se garantizan la complejidad de tener un sistema de informe de errores secundario ni el costo de rendimiento adicional de esperar la respuesta. En aquellos escenarios donde sea esencial comprobar la respuesta, la directiva [send-request](https://msdn.microsoft.com/library/azure/dn894085.aspx#SendRequest) constituye una mejor opción.
+Existen ciertos compromisos cuando se usa un estilo de fire and forget de solicitud. Si por algún motivo se produce un error en la solicitud, este no se notificará. En esta situación concreta, no se garantizan la complejidad de tener un sistema de informe de errores secundario ni el costo de rendimiento adicional de esperar la respuesta. En aquellos escenarios donde sea esencial comprobar la respuesta, la directiva [send-request](/azure/api-management/api-management-advanced-policies#SendRequest) constituye una mejor opción.
 
 ## <a name="send-request"></a>send-request
 La directiva `send-request` permite usar un servicio externo para realizar funciones complejas de procesamiento y devolver datos al servicio de Administración de API que pueden usarse para un posterior procesamiento de directivas.
@@ -209,7 +209,7 @@ Una vez que tiene esta información, puede realizar solicitudes a todos los sist
 Estas solicitudes se ejecutan en secuencia, que no es lo ideal. 
 
 ### <a name="responding"></a>Respuesta
-Para construir la respuesta compuesta, puede usar la directiva [return-response](https://msdn.microsoft.com/library/azure/dn894085.aspx#ReturnResponse). El elemento `set-body` puede usar una expresión para construir un nuevo elemento `JObject` con todas las representaciones de componentes insertadas como propiedades.
+Para construir la respuesta compuesta, puede usar la directiva [return-response](/azure/api-management/api-management-advanced-policies#ReturnResponse). El elemento `set-body` puede usar una expresión para construir un nuevo elemento `JObject` con todas las representaciones de componentes insertadas como propiedades.
 
 ```xml
 <return-response response-variable-name="existing response variable">

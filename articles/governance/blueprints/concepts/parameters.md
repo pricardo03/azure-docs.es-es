@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 42a70f7ea21a58f40f7786d6c6f1a51093923f83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 538015f3cd26d451285f1fd66853366f814f3b0a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838024"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805579"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creación de planos técnicos mediante parámetros
 
@@ -67,11 +67,11 @@ Un valor de parámetro definido en la definición de un plano técnico se denomi
 
 1. En los artefactos que se agregaron al plano técnico que tienen opciones de parámetro aparece **X of Y parameters populated** (X de Y parámetros rellenos) en la columna **Parámetros**. Haga clic en la fila del artefacto para editar los parámetros de este.
 
-   ![Parámetros de plano técnico](../media/parameters/parameter-column.png)
+   ![Parámetros de plano técnico en una definición de plano técnico](../media/parameters/parameter-column.png)
 
 1. En la página **Editar artefacto** aparecen las opciones de valor adecuadas para el artefacto en el que se hace clic. Cada parámetro del artefacto tiene un título, un cuadro de valor y una casilla. Desactive la casilla para hacer que sea un **parámetro estático**. En el ejemplo siguiente, solo la _ubicación_ es un **parámetro estático** ya que está desactivada y la opción _Nombre del grupo de recursos_ está activada.
 
-   ![Parámetros estáticos de Blueprint](../media/parameters/static-parameter.png)
+   ![Instancia de blueprint parámetros estáticos en un artefacto de plano técnico](../media/parameters/static-parameter.png)
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Establecimiento de parámetros estáticos desde la API REST
 
@@ -182,7 +182,7 @@ Lo contrario de un parámetro estático es un **parámetro dinámico**. Este par
 
 1. En el **asignar blueprint** página, busque el **parámetros de artefacto** sección. Cada artefacto que tiene al menos un **parámetro dinámico** muestra el artefacto y las opciones de configuración. Proporcione los valores necesarios para los parámetros antes de asignar el plano técnico. En el ejemplo siguiente, _Name_ es un **parámetro dinámico** que se debe definir para completar la asignación del plano técnico.
 
-   ![Parámetro dinámico del plano técnico](../media/parameters/dynamic-parameter.png)
+   ![Parámetro dinámico del plano técnico durante la asignación del plano técnico](../media/parameters/dynamic-parameter.png)
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Establecimiento de parámetros dinámicos desde la API REST
 
@@ -241,8 +241,8 @@ Los artefactos para un grupo de recursos se definen con un "nombre de plantilla"
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Obtenga información sobre la [ciclo de vida del plano](lifecycle.md).
-- Aprenda a personalizar la [blueprint orden secuenciación](sequencing-order.md).
-- Obtenga información sobre cómo hacer uso de [bloqueo de recursos del plano](resource-locking.md).
-- Obtenga información sobre cómo [actualizar las asignaciones existentes](../how-to/update-existing-assignments.md).
-- Solución de problemas durante la asignación de una instancia de blueprint con [solución de problemas generales](../troubleshoot/general.md).
+- Más información sobre el [ciclo de vida del plano técnico](lifecycle.md)
+- Aprenda a personalizar el [orden de secuenciación de planos técnicos](sequencing-order.md).
+- Averigüe cómo usar el [bloqueo de recursos de planos técnicos](resource-locking.md).
+- Aprenda a [actualizar las asignaciones existentes](../how-to/update-existing-assignments.md).
+- Puede consultar la información de [solución de problemas generales](../troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico.

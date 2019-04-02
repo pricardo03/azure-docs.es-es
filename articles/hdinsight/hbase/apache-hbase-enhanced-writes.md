@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 3/27/2019
-ms.openlocfilehash: 37e6f316a5202429396ddd2a31cb14fe61341e89
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: b0c71d0f101ea262b6ce56c845ef9f375a7de85e
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759607"
+ms.locfileid: "58804214"
 ---
 # <a name="azure-hdinsight-enhanced-writes-for-apache-hbase-preview"></a>Azure HDInsight mejorado escribe para Apache HBase (versión preliminar)
 
@@ -56,4 +56,5 @@ disable 'mytable'
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Documentación de Apache HBase oficial sobre el [característica escribir registros con antelación](https://hbase.apache.org/book.html#wal).
+* Documentación de Apache HBase oficial sobre el [característica escribir directamente el registro](https://hbase.apache.org/book.html#wal)
+* Para actualizar el clúster de Apache HBase de HDInsight para usar mejorado escribe, vea [migrar un clúster de Apache HBase a una nueva versión](apache-hbase-migrate-new-version.md).

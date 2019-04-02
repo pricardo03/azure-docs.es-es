@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: f0c05ddbc53d08334aded48ccb3a3ece547b4143
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: e86553e789fc9879ea4a6326b08d893fe24c8ac8
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56816575"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802565"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Corregir los recursos no conformes con Azure Policy
 
@@ -139,11 +139,11 @@ Para crear un **tarea de corrección**, siga estos pasos:
 
 1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
 
-   ![Búsqueda de directivas](../media/remediate-resources/search-policy.png)
+   ![Búsqueda de directivas en todos los servicios](../media/remediate-resources/search-policy.png)
 
 1. Seleccione **Corrección** en el lado izquierdo de la página Azure Policy.
 
-   ![Seleccione la corrección](../media/remediate-resources/select-remediation.png)
+   ![Seleccione la corrección en la página de directiva](../media/remediate-resources/select-remediation.png)
 
 1. Todas las asignaciones de directivas **deployIfNotExists** con recursos no conformes se incluyen en la tabla de datos y la pestaña **Directivas para resolver**. Haga clic en una directiva con recursos que no son conformes. Se abre la página **Nueva tarea de corrección**.
 
@@ -152,11 +152,11 @@ Para crear un **tarea de corrección**, siga estos pasos:
 
 1. En la página **Nueva tarea de corrección**, filtre los recursos para corregir mediante la elipse **Ámbito** para seleccionar los recursos secundarios a partir de los cuales se asignó la directiva (incluidos los objetos de recursos individuales). Además, utilice la lista desplegable **Ubicaciones** para filtrar más los recursos. Solo los recursos enumerados en la tabla se corregirán.
 
-   ![Corrección: selección de recursos](../media/remediate-resources/select-resources.png)
+   ![Corrección: seleccione los recursos que corregir](../media/remediate-resources/select-resources.png)
 
 1. Inicie la tarea de corrección cuando se hayan filtrado los recursos, para ello, haga clic en **Corregir**. Se abrirá la página de cumplimiento de directivas en la pestaña **Tareas de corrección** para mostrar el estado del progreso de las tareas.
 
-   ![Corrección: progreso de tareas](../media/remediate-resources/task-progress.png)
+   ![Corrección: progreso de las tareas de corrección](../media/remediate-resources/task-progress.png)
 
 1. Haga clic en el **tarea de corrección** en la página de cumplimiento de directiva para obtener detalles sobre el progreso. El filtro usado en la tarea se muestra junto con una lista de los recursos que se van a corregir.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: apimpm
-ms.openlocfilehash: f7c52b7ab8aaad917eb03455800df6d8ba4cbc88
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 478b80b021b4df36e2eccc37ac9c74f75e43a5bb
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58082711"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791633"
 ---
 # <a name="how-to-use-named-values-in-azure-api-management-policies"></a>Cómo usar valores con nombre en las directivas de Azure API Management
 En API Management, las directivas constituyen una funcionalidad eficaz del sistema que permite a Azure Portal cambiar el comportamiento de la API mediante la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Las instrucciones de las directivas se pueden crear con valores de texto literal, expresiones de directiva y valores con nombre. 
@@ -34,7 +34,7 @@ Cada instancia del servicio de API Management tiene una colección de propiedade
 
 ![Valores con nombre](./media/api-management-howto-properties/named-values.png)
 
-Los valores de propiedad pueden contener cadenas literales y [expresiones de directiva](https://msdn.microsoft.com/library/azure/dn910913.aspx). Por ejemplo, el valor de `ExpressionProperty` es una expresión de directiva que devuelve una cadena que contiene la fecha y la hora actuales. La propiedad `ContosoHeaderValue` está marcada como secreta, por lo que no se muestra su valor.
+Los valores de propiedad pueden contener cadenas literales y [expresiones de directiva](/azure/api-management/api-management-policy-expressions). Por ejemplo, el valor de `ExpressionProperty` es una expresión de directiva que devuelve una cadena que contiene la fecha y la hora actuales. La propiedad `ContosoHeaderValue` está marcada como secreta, por lo que no se muestra su valor.
 
 | NOMBRE | Valor | Secret | Etiquetas |
 | --- | --- | --- | --- |
@@ -55,7 +55,7 @@ Los valores de propiedad pueden contener cadenas literales y [expresiones de dir
 
 Una vez creada la propiedad, es posible editarla haciendo clic en ella. Si cambia el nombre de propiedad, las directivas que hagan referencia a esa propiedad se actualizarán automáticamente para utilizar el nuevo nombre.
 
-Para obtener información sobre cómo editar una propiedad mediante la API de REST, consulte [Edit a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Patch)(Edición de una propiedad mediante la API de REST).
+Para obtener información sobre cómo editar una propiedad mediante la API de REST, consulte [Edit a property using the REST API](/rest/api/apimanagement/property?Patch)(Edición de una propiedad mediante la API de REST).
 
 ## <a name="to-delete-a-property"></a>Eliminación de una propiedad
 
@@ -66,7 +66,7 @@ Para eliminar una propiedad, haga clic en **Delete (Eliminar)** junto a la propi
 > 
 > 
 
-Para obtener información sobre cómo eliminar una propiedad mediante la API de REST, consulte [Delete a property using the REST API](https://msdn.microsoft.com/library/azure/mt651775.aspx#Delete)(Eliminación de una propiedad mediante la API de REST).
+Para obtener información sobre cómo eliminar una propiedad mediante la API de REST, consulte [Delete a property using the REST API](/rest/api/apimanagement/property?Delete)(Eliminación de una propiedad mediante la API de REST).
 
 ## <a name="to-search-and-filter-named-values"></a>Búsqueda y filtrado de valores con nombre
 
@@ -111,8 +111,8 @@ Aunque los valores de propiedad pueden contener expresiones de directiva, no pue
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga más información sobre cómo trabajar con directivas
   * [Directivas de Azure API Management](api-management-howto-policies.md)
-  * [Referencia de directiva](https://msdn.microsoft.com/library/azure/dn894081.aspx)
-  * [Expresiones de directiva](https://msdn.microsoft.com/library/azure/dn910913.aspx)
+  * [Referencia de directiva](/azure/api-management/api-management-policies)
+  * [Expresiones de directiva](/azure/api-management/api-management-policy-expressions)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
 [api-management-properties-filter]: ./media/api-management-howto-properties/api-management-properties-filter.png

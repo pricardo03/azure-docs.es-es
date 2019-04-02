@@ -7,12 +7,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: hrasheed
-ms.openlocfilehash: 13ea4acb5a3b5b3e7ac6d53013193fddbfcbf9b7
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6d92273298c0448d7377acab6f3b8ea1cc1ed908
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759599"
+ms.locfileid: "58762929"
 ---
 # <a name="azure-hdinsight-virtual-network-architecture"></a>Arquitectura de red virtual de Azure HDInsight
 
@@ -31,8 +31,6 @@ Clústeres de HDInsight de Azure tienen distintos tipos de máquinas virtuales o
 | Nodo de región | Para el tipo de clúster de HBase, el nodo de la región (también denominado un nodo de datos) ejecuta en el servidor de regiones. Los servidores de regiones atender y administración una parte de los datos administrados por HBase. Pueden agregar o quitar del clúster para escalar la funcionalidad de computación y administrar los costos de los nodos de la región.|
 | Nodo Nimbus | Para el tipo de clúster Storm, el nodo de Nimbus proporciona una funcionalidad similar para el nodo principal. El nodo de Nimbus asigna tareas a otros nodos en un clúster mediante Zookeeper, que coordina la ejecución de topologías de Storm. |
 | Nodo de supervisor | Para el tipo de clúster Storm, el nodo de supervisor ejecuta las instrucciones proporcionadas por el nodo de Nimbus para realizar el procesamiento deseado. |
-
-* = Apache Hadoop, Apache Hive, Apache Kafka, Apache Spark, Apache HBase y tipos de clúster R Server
 
 ## <a name="basic-virtual-network-resources"></a>Recursos de red virtual básica
 

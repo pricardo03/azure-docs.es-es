@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 12/20/2018
 ms.author: absha
-ms.openlocfilehash: 67603e326583400e8fc250ea6120297e7a94d101
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e89fe10768331f5b4099ce9a9e2204dd72aa0bff
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520928"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793471"
 ---
 # <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Reescribir encabezados HTTP a Application Gateway (versión preliminar pública)
 
@@ -96,7 +96,7 @@ Esta función admite la reescritura de encabezados en las siguientes variables d
 | -------------------------- | :----------------------------------------------------------- |
 | ciphers_supported          | devuelve la lista de cifrados admitidos por el cliente.          |
 | ciphers_used               | devuelve la cadena de cifrados usada para una conexión SSL establecida. |
-| client_ip                  | Dirección IP del cliente desde el que la puerta de enlace de la aplicación recibió la solicitud. Si hay un proxy inverso antes de la puerta de enlace de aplicaciones y el cliente de origen, a continuación, *client_ip* devolverá la dirección IP del proxy inverso. variable tjsi es especialmente útil en escenarios donde los clientes se va a volver a escribir el encabezado X-Forwarded-For establecido por la puerta de enlace de aplicaciones, para que el encabezado contiene solo la dirección IP sin la información de puerto. |
+| client_ip                  | Dirección IP del cliente desde el que la puerta de enlace de la aplicación recibió la solicitud. Si hay un proxy inverso antes de la puerta de enlace de aplicaciones y el cliente de origen, a continuación, *client_ip* devolverá la dirección IP del proxy inverso. Esta variable es especialmente útil en escenarios donde los clientes se va a volver a escribir el encabezado X-Forwarded-For establecido por la puerta de enlace de aplicaciones, para que el encabezado contiene solo la dirección IP sin la información de puerto. |
 | client_port                | puerto del cliente.                                                  |
 | client_tcp_rtt             | información sobre la conexión TCP del cliente; disponible en sistemas que admiten la opción de socket TCP_INFO. |
 | client_user                | al usar la autenticación HTTP, el nombre de usuario proporcionado para la autenticación. |

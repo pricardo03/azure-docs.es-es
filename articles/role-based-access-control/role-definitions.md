@@ -15,12 +15,12 @@ ms.date: 02/09/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: b7f4ce9508928ccc6ab766e7164c674511bcaa37
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: 7855c2bd45ba35ecb0ede5c60268e6446f37ed5a
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342786"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804537"
 ---
 # <a name="understand-role-definitions-for-azure-resources"></a>Descripción de definiciones de roles para los recursos de Azure
 
@@ -97,11 +97,11 @@ Para admitir las operaciones de datos, se agregaron nuevas propiedades de datos 
 - Escribir un blob de almacenamiento en un contenedor
 - Eliminar un mensaje de una cola
 
-Esta es la definición de roles del [Lector de datos de blobs de almacenamiento (versión preliminar)](built-in-roles.md#storage-blob-data-reader-preview), que incluye operaciones en las propiedades `Actions` y `DataActions`. Esta función permite leer el contenedor de blobs y también los datos de blob subyacentes.
+Este es el [lector de datos de Blob de almacenamiento](built-in-roles.md#storage-blob-data-reader) definición de roles, que incluye las operaciones en ambos el `Actions` y `DataActions` propiedades. Esta función permite leer el contenedor de blobs y también los datos de blob subyacentes.
 
 ```json
 {
-  "Name": "Storage Blob Data Reader (Preview)",
+  "Name": "Storage Blob Data Reader",
   "Id": "2a2b9908-6ea1-4ae2-8e65-a410df84e7d1",
   "IsCustom": false,
   "Description": "Allows for read access to Azure Storage blob containers and data",
@@ -125,18 +125,18 @@ Azure Resource Manager controla la autorización de todas las llamadas API de op
 
 ### <a name="data-operations-example"></a>Ejemplo de operaciones de datos
 
-Para comprender mejor cómo funcionan las operaciones de datos y de administración, veamos un ejemplo concreto. A Alice se le ha asignado el rol [Propietario](built-in-roles.md#owner) en el ámbito de la suscripción. A Bob se le ha asignado el rol [Colaborador de datos de blobs de almacenamiento (versión preliminar)](built-in-roles.md#storage-blob-data-contributor-preview) en un ámbito de la cuenta de almacenamiento. En el siguiente diagrama se muestra este ejemplo.
+Para comprender mejor cómo funcionan las operaciones de datos y de administración, veamos un ejemplo concreto. A Alice se le ha asignado el rol [Propietario](built-in-roles.md#owner) en el ámbito de la suscripción. Bob se ha asignado la [colaborador de datos de almacenamiento Blob](built-in-roles.md#storage-blob-data-contributor) rol en un ámbito de la cuenta de almacenamiento. En el siguiente diagrama se muestra este ejemplo.
 
 ![El control de acceso basado en rol se ha ampliado para admitir operaciones de datos y de administración](./media/role-definitions/rbac-management-data.png)
 
-El rol [Propietario](built-in-roles.md#owner) para Alice y el rol [Colaborador de datos de blobs de almacenamiento (versión preliminar)](built-in-roles.md#storage-blob-data-contributor-preview) para Bob tienen las siguientes acciones:
+El [propietario](built-in-roles.md#owner) rol para Alice y [colaborador de datos de almacenamiento Blob](built-in-roles.md#storage-blob-data-contributor) rol para Bob tiene las siguientes acciones:
 
 Propietario
 
 &nbsp;&nbsp;&nbsp;&nbsp;Acciones<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`*`
 
-Colaborador de datos de blobs de almacenamiento (versión preliminar)
+Colaborador de datos de Storage Blob
 
 &nbsp;&nbsp;&nbsp;&nbsp;Acciones<br>
 &nbsp;&nbsp;&nbsp;&nbsp;`Microsoft.Storage/storageAccounts/blobServices/containers/delete`<br>
@@ -149,7 +149,7 @@ Colaborador de datos de blobs de almacenamiento (versión preliminar)
 
 Puesto que Alicia tiene una acción de carácter comodín (`*`) en un ámbito de suscripción, sus permisos se heredan para poder realizar todas las acciones de administración. Alice puede leer, escribir y eliminar contenedores. Sin embargo, Alice no puede realizar operaciones de datos sin pasos adicionales. Por ejemplo, de forma predeterminada, Alice no puede leer los blobs de un contenedor. Para leer los blobs, Alice tendría que recuperar las claves de acceso de almacenamiento y usarlas para acceder a los blobs.
 
-Los permisos de Bob se restringen a solo los `Actions` y `DataActions` especificados en el rol [Colaborador de datos de blobs de almacenamiento (versión preliminar)](built-in-roles.md#storage-blob-data-contributor-preview). Según el rol, Bob puede realizar operaciones de datos y de administración. Por ejemplo, Bob puede leer, escribir y eliminar los contenedores de la cuenta de almacenamiento especificada y también puede leer, escribir y eliminar los blobs.
+Permisos de Bob están restringidos a solamente el `Actions` y `DataActions` especificado en el [colaborador de datos de almacenamiento Blob](built-in-roles.md#storage-blob-data-contributor) rol. Según el rol, Bob puede realizar operaciones de datos y de administración. Por ejemplo, Bob puede leer, escribir y eliminar los contenedores de la cuenta de almacenamiento especificada y también puede leer, escribir y eliminar los blobs.
 
 Para más información acerca de la administración y la seguridad en el plano de datos, consulte la [guía de seguridad de Azure Storage](../storage/common/storage-security-guide.md).
 

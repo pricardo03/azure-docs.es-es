@@ -1,42 +1,42 @@
 ---
-title: 'Detección de amenazas: Azure SQL Database| Microsoft Docs'
-description: La detección de amenazas detecta actividades anómalas en la base de datos que indican posibles amenazas de seguridad en Azure SQL Database.
+title: 'Protección avanzada contra amenazas: Azure SQL Database | Microsoft Docs'
+description: Protección contra amenazas avanzada detecta actividades anómalas de la base de datos que indican posibles amenazas de seguridad en Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: rmatchoro
+author: monhaber
 ms.author: ronmat
 ms.reviewer: vanto, carlrab
 manager: craigg
-ms.date: 02/08/2019
-ms.openlocfilehash: 5f20fc6ac19e2c9d304f4ab429e485fedaa29f64
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.date: 03/31/2019
+ms.openlocfilehash: 710a94c919f4262c3f572f28d03c79b77e658287
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001892"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793919"
 ---
-# <a name="azure-sql-database-threat-detection"></a>Detección de amenazas de Azure SQL Database
+# <a name="advanced-threat-protection-for-azure-sql-database"></a>Protección avanzada contra amenazas en Azure SQL Database
 
-La detección de amenazas para [Azure SQL Database](sql-database-technical-overview.md) y [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de acceder a las bases de datos o de vulnerar su seguridad.
+Protección contra amenazas para avanzada [Azure SQL Database](sql-database-technical-overview.md) y [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) detecta actividades anómalas que indican intentos inusuales y potencialmente dañinos de acceso o ataque a las bases de datos.
 
-La detección de amenazas forma parte de la oferta de [Advanced Data Security](sql-database-advanced-data-security.md) (ADS), que es un paquete unificado para funcionalidades avanzadas de seguridad de SQL. Puede acceder a la detección de amenazas y administrarla a través del portal central de SQL ADS.
+Protección contra amenazas avanzada forma parte de la [avanzadas de seguridad de los datos](sql-database-advanced-data-security.md) (ADS) oferta, que es un paquete unificado para funcionalidades avanzadas de seguridad SQL. Protección contra amenazas avanzada se puede acceder y administrar a través del portal central de anuncios de SQL.
 
 > [!NOTE]
 > Este tema se aplica al servidor de Azure SQL y tanto a las bases de datos de SQL Database como a SQL Data Warehouse que se crean en el servidor de Azure SQL. Para simplificar, SQL Database se utiliza cuando se hace referencia tanto a SQL Database como a SQL Data Warehouse.
 
-## <a name="what-is-threat-detection"></a>¿Qué es la detección de amenazas?
+## <a name="what-is-advanced-threat-protection"></a>¿Qué es la protección contra amenazas avanzada
 
-La detección de amenazas ofrece un nuevo nivel de seguridad, que permite a los clientes detectar amenazas potenciales y responder a ellas a medida que se producen, gracias a las alertas de seguridad sobre actividades anómalas que se proporcionan. Los usuarios reciben una alerta sobre actividades sospechosas en las bases de datos, posibles vulnerabilidades y ataques por inyección de código SQL, así como sobre los patrones de acceso y consultas a las bases de datos anómalos. La detección de amenazas integra las alertas con [Azure Security Center](https://azure.microsoft.com/services/security-center/), que incluye detalles de actividades sospechosas y acciones recomendadas sobre cómo investigar y mitigar la amenaza. La detección de amenazas facilita la solución de las posibles amenazas a la base de datos sin necesidad de ser un experto en seguridad ni administrar sistemas de supervisión de seguridad avanzada.
+ Protección contra amenazas avanzada ofrece un nuevo nivel de seguridad, que permite a los clientes a detectar y responder a amenazas potenciales, cuando se producen proporcionando alertas de seguridad sobre actividades anómalas. Los usuarios reciben una alerta sobre actividades sospechosas en las bases de datos, posibles vulnerabilidades y ataques por inyección de código SQL, así como sobre los patrones de acceso y consultas a las bases de datos anómalos. Protección contra amenazas avanzada integra alertas con [Azure Security Center](https://azure.microsoft.com/services/security-center/), que incluyen los detalles de actividad sospechosa y recomiendan acciones sobre cómo investigar y mitigar la amenaza. Protección contra amenazas avanzada simplifica la dirección de las posibles amenazas a la base de datos sin necesidad de ser un experto en seguridad ni administrar sistemas de supervisión de seguridad avanzada.
 
 Para obtener una experiencia de investigación, se recomienda habilitar la [auditoría de SQL Database](sql-database-auditing.md), que escribe los eventos de las bases de datos en un registro de auditoría en su cuenta de Azure Storage.  
 
-## <a name="threat-detection-alerts"></a>Alertas de detección de amenazas
+## <a name="advanced-threat-protection-alerts"></a>Alertas de Advanced Threat Protection
 
-La detección de amenazas para Azure SQL Database detecta actividades anómalas que indican intentos inusuales y potencialmente peligrosos de acceder a bases de datos, o de vulnerar su seguridad, y puede desencadenar las siguientes alertas:
+Protección contra amenazas avanzada de Azure SQL Database detecta actividades anómalas que indican intentos inusuales y potencialmente dañinos de acceso o ataque a las bases de datos y puede desencadenar las siguientes alertas:
 
 - **Vulnerabilidad a la inyección de código SQL**: esta alerta se desencadena cuando una aplicación genera una instrucción SQL errónea en la base de datos. Esta alerta puede indicar una posible vulnerabilidad a los ataques de inyección de código SQL. Hay dos posibles razones para la generación de una instrucción errónea:
 
@@ -65,21 +65,21 @@ Cuando se detecten actividades anómalas en las bases de datos, recibirá una no
 
    ![Alerta específica](./media/sql-database-threat-detection/specific_alert.png)
 
-## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Exploración de alertas de detección de amenazas para la base de datos en Azure Portal
+## <a name="explore-advanced-threat-protection-alerts-for-your-database-in-the-azure-portal"></a>Explore las alertas de protección contra amenazas avanzada de la base de datos en Azure portal
 
-La detección de amenazas integra sus alertas con [Azure Security Center](https://azure.microsoft.com/services/security-center/). Los mosaicos de detección de amenazas de SQL dinámico dentro de las hojas de SQL ADS y de la base de datos en Azure Portal realizan un seguimiento del estado de las amenazas activas.
+Protección contra amenazas avanzada integra las alertas con [de Azure security center](https://azure.microsoft.com/services/security-center/). Los iconos dinámicos de protección contra amenazas avanzada de SQL dentro de la base de datos y hojas de anuncios de SQL en el portal de Azure un seguimiento del estado de las amenazas activas.
 
-Haga clic en la **alerta de detección de amenazas** para iniciar la página de alertas de Azure Security Center y obtener información general de las amenazas de SQL activas detectadas en la base de datos o el almacén de datos.
+Haga clic en **alerta de protección contra amenazas avanzada** para iniciar el centro de seguridad de Azure página alertas y obtenga una introducción a las amenazas SQL activas detectadas en el almacén de datos o base de datos.
 
-   ![Alerta de detección de amenazas](./media/sql-database-threat-detection/threat_detection_alert.png)
+   ![Alerta de protección contra amenazas avanzada](./media/sql-database-threat-detection/threat_detection_alert.png)
 
-   ![Alerta 2 de detección de amenazas](./media/sql-database-threat-detection/threat_detection_alert_atp.png)
+   ![Advanced Threat Protection real2](./media/sql-database-threat-detection/threat_detection_alert_atp.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre la [detección de amenazas en bases de datos únicas y agrupadas](sql-database-threat-detection.md).
-- Más información sobre la [detección de amenazas en instancias administradas](sql-database-managed-instance-threat-detection.md).
-- Más información sobre [Advanced Data Security](sql-database-advanced-data-security.md).
+- Obtenga más información sobre [avanzada de protección contra amenazas en bases de datos únicas y agrupados](sql-database-threat-detection.md).
+- Obtenga más información sobre [protección de amenazas avanzada en instancia administrada](sql-database-managed-instance-threat-detection.md).
+- Obtenga más información sobre [avanzadas de seguridad de los datos](sql-database-advanced-data-security.md).
 - Más información sobre las [auditorías de Azure SQL Database](sql-database-auditing.md)
 - Más información sobre [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - Para más información sobre los precios, consulte la [página Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/)  

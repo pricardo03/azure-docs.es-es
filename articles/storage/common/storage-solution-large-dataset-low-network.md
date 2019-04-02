@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/10/2018
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: a6505232066d7a2e63c3e9508cb16cb9a31f8e35
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 6922d49affdde86728b41ef1d3d0c6a2da5c323e
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776672"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805098"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Transferencia de datos para grandes conjuntos de datos con poco o ningún ancho de banda de red
  
@@ -43,9 +43,9 @@ Las opciones disponibles en este escenario son dispositivos para la transferenci
 
 ## <a name="comparison-of-key-capabilities"></a>Comparación de funcionalidades clave
 
-En la tabla siguiente se resumen las diferencias en las funcionalidades clave.
+En la siguiente tabla se resumen las diferencias de las funcionalidades clave.
 
-|                                     |    Data Box Disk (versión preliminar)    |    Data Box                                      |    Data Box Heavy (versión preliminar)              |    Import/Export                       |
+|                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy              |    Import/Export                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    Tamaño de los datos                        |    Hasta 35 TB                 |    Hasta 80 TB por dispositivo                       |    Hasta 800 TB por dispositivo               |    Variable                            |
 |    Tipo de datos                        |    Azure Blobs                  |    Azure Blobs<br>Archivos de Azure                    |    Azure Blobs<br>Archivos de Azure            |    Azure Blobs<br>Archivos de Azure          |

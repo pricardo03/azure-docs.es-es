@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/23/2018
 ms.author: apimpm
-ms.openlocfilehash: cdaaf5323543377d9c2b603ad7377d088710cde8
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: c52a1942bda9881f8f782a227c81feaa4813722d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447759"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793650"
 ---
 # <a name="monitor-your-apis-with-azure-api-management-event-hubs-and-moesif"></a>Supervisión de las API con Azure API Management, Event Hubs y Moesif
 El [servicio Administración de API](api-management-key-concepts.md) proporciona muchas capacidades para mejorar el procesamiento de solicitudes de HTTP enviadas a la API HTTP. Sin embargo, la existencia de las solicitudes y respuestas es transitoria. Se realiza la solicitud y fluye a través del servicio Administración de API a la API de back-end. La API procesa la solicitud y se pasa una respuesta al consumidor de API. El servicio API Management mantiene algunas estadísticas importantes acerca de las API que se muestran en el panel de Azure Portal, pero aparte de eso, los detalles desaparecen.
@@ -47,7 +47,7 @@ Un Centro de eventos acepta datos de eventos como una cadena simple. El contenid
 
 Una opción alternativa era usar el tipo de soporte físico `application/http` , como se describe en la especificación HTTP [RFC 7230](https://tools.ietf.org/html/rfc7230). Este tipo de soporte físico usa el mismo formato que se usa para enviar realmente mensajes de HTTP a través del cable, pero el mensaje completo se puede colocar en el cuerpo de otra solicitud de HTTP. En nuestro caso, el cuerpo se usará como mensaje para enviarlo a Event Hubs. Convenientemente, hay un analizador en las bibliotecas de [Microsoft ASP.NET Web API 2.2 Cliente](https://www.nuget.org/packages/Microsoft.AspNet.WebApi.Client/) que puede analizar este formato y convertirlo a `HttpRequestMessage` nativo y objetos `HttpResponseMessage`.
 
-Para poder crear este mensaje, se deben aprovechar las [expresiones de directiva](https://msdn.microsoft.com/library/azure/dn910913.aspx) basadas en C# en Azure API Management. A continuación se proporciona la directiva que envía un mensaje de solicitud HTTP a Azure Event Hubs.
+Para poder crear este mensaje, se deben aprovechar las [expresiones de directiva](/azure/api-management/api-management-policy-expressions) basadas en C# en Azure API Management. A continuación se proporciona la directiva que envía un mensaje de solicitud HTTP a Azure Event Hubs.
 
 ```xml
 <log-to-eventhub logger-id="conferencelogger" partition-id="0">
@@ -315,4 +315,4 @@ El servicio Azure API Management proporciona un lugar ideal para capturar el tr�
 * Obtener más información acerca de la integración de API Management y Event Hubs
   * [Cómo registrar eventos en Azure Event Hubs en Azure API Management](api-management-howto-log-event-hubs.md)
   * [Referencia de entidad del registrador](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-logger-entity)
-  * [referencia de la directiva log-to-eventhub](https://msdn.microsoft.com/library/azure/dn894085.aspx#log-to-eventhub)
+  * [referencia de la directiva log-to-eventhub](/azure/api-management/api-management-advanced-policies#log-to-eventhub)

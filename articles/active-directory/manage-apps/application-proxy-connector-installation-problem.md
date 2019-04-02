@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 645ba6e8306b063892babe25fde41d8dd3144fee
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 87d828e596c42b786d1c54a7158e1151f374c560
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444297"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793046"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problema al instalar el conector de agente del proxy de aplicación
 
@@ -64,13 +64,13 @@ Cuando se produce un error en la instalación de un conector, la causa principal
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Comprobación de que se use el administrador para instalar el conector
 
-**Objetivo:** compruebe que el usuario que intenta instalar el conector sea un administrador con las credenciales correctas. Actualmente, el usuario debe ser un administrador de la aplicación o un administrador global para la instalación se realice correctamente.
+**Objetivo:** compruebe que el usuario que intenta instalar el conector sea un administrador con las credenciales correctas. Actualmente, el usuario debe ser al menos un administrador de aplicaciones para la instalación se realice correctamente.
 
 **Para comprobar que las credenciales sean correctas:**
 
 Conéctese a <https://login.microsoftonline.com> y use las mismas credenciales. Asegúrese de que el inicio de sesión se haya realizado correctamente. Para comprobar el rol de usuario, vaya a **Azure Active Directory** -&gt; **Usuarios y grupos** -&gt; **Todos los usuarios**. 
 
-Seleccione su cuenta de usuario y "Rol del directorio" en el menú resultante. Compruebe que el rol seleccionado sea "Administrador global" o "Administrador de aplicaciones". Si no puede acceder a alguna de las páginas en estos pasos, significa que no tiene el rol necesario.
+Seleccione su cuenta de usuario y "Rol del directorio" en el menú resultante. Compruebe que el rol seleccionado es "Administrador de la aplicación". Si no puede acceder a alguna de las páginas en estos pasos, significa que no tiene el rol necesario.
 
 ## <a name="next-steps"></a>Pasos siguientes
 [Descripción de los conectores del Proxy de aplicación de Azure AD](application-proxy-connectors.md)

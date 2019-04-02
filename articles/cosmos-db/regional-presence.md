@@ -4,19 +4,19 @@ description: En este artículo se explica la presencia regional de Azure Cosmos 
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 12/07/2018
+ms.date: 03/31/2019
 ms.author: rimman
 ms.custom: seodec18
-ms.openlocfilehash: 32e69be95226d06f55d79ff5e245c76c3087efd9
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 851da72a308b164b9a01b7ccfa3d541fc06810ba
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55461295"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762198"
 ---
 # <a name="regional-presence-with-azure-cosmos-db"></a>Presencia regional con Azure Cosmos DB
 
-Actualmente, Azure está disponible en [54 regiones](https://azure.microsoft.com/global-infrastructure/regions/) en todo el mundo. Azure Cosmos DB es un servicio fundamental en Azure y está disponible en todas las regiones en las que Azure está disponible.
+Azure Cosmos DB es un servicio fundamental en Azure y, de forma predeterminada, siempre está disponible en todas las regiones donde Azure está disponible. Actualmente, Azure está disponible en [54 regiones](https://azure.microsoft.com/global-infrastructure/regions/) en todo el mundo. 
 
 [![Regiones donde está disponible Azure Cosmos DB](./media/regional-presence/regional-presence.png)](./media/regional-presence/regional-presence.png#lightbox)
 
@@ -24,23 +24,23 @@ Cosmos DB está disponible en los cinco entornos en la nube de Azure disponibles
 
 * La nube **pública de Azure**, que está disponible globalmente.
 
-* **Azure China** está disponible gracias a una exclusiva asociación entre Microsoft y 21Vianet, uno de los proveedores de acceso a Internet más importantes del país.
+* **Azure China 21Vianet** está disponible a través de una exclusiva asociación entre Microsoft y 21Vianet, uno de los mayores proveedores de internet del país en China.
 
 * **Azure Alemania** proporciona servicios bajo un modelo de administrador de datos que garantiza que los datos de los clientes permanecen en Alemania bajo el control de T-Systems International GmbH, una subsidiaria de Deutsche Telekom, que actúa como administrador de datos para Alemania.
 
 * **Azure Government** está disponible en cuatro regiones en los Estados Unidos para agencias gubernamentales de EE. UU. y sus asociados. 
 
-* **Azure Government para el Departamento de Defensa (DoD)** está disponible en dos regiones de Estados Unidos para el Departamento de Defensa de EE. UU.
+* **Azure Government para el departamento de defensa (DoD)** está disponible en dos regiones de Estados Unidos para el departamento de defensa.
 
 ## <a name="regional-presence-with-global-distribution"></a>Presencia regional con distribución global
 
-En todas las regiones de Azure están disponibles distintas API expuestas por Azure Cosmos DB (incluidas SQL, MongoDB, Cassandra, Gremlin y Azure Table Storage). Por ejemplo, puede tener MongoDB y Cassandra API expuestas por Azure Cosmos DB no solo en todas las regiones de Azure globales, sino también en las regiones soberanas de Azure, como China, Alemania, Government y del Departamento de Defensa (DoD).
+Todas las API expuestas por Azure Cosmos DB (incluido SQL, MongoDB, Cassandra, Gremlin y tabla) están disponibles en todas las regiones de Azure de forma predeterminada. Por ejemplo, puede tener MongoDB y Cassandra API expuesta por Azure Cosmos DB no solo en todas las regiones de Azure globales, sino también en las nubes independientes, como el departamento de defensa, gobierno, Alemania y China regiones (DoD).
 
-Azure Cosmos DB es una base de datos [distribuida globalmente](distribute-data-globally.md). Puede asociar cualquier número de regiones de Azure con su cuenta de Azure Cosmos y los datos se replican de forma automática y transparente. Puede agregar o quitar una región a la cuenta de Azure Cosmos en cualquier momento. Con la funcionalidad de distribución global de llave en mano y el protocolo de replicación con arquitectura multimaestro, Azure Cosmos DB ofrece latencias de lectura y escritura de menos de 10 ms en el percentil 99, disponibilidad de lectura y escritura del 99,999 % y la capacidad de escalar de forma flexible el rendimiento aprovisionado para lectura y escritura en todas las regiones asociadas con su cuenta de Azure Cosmos. Azure Cosmos DB también ofrece cinco modelos de coherencia bien definidos y se puede aplicar un modelo específico a sus datos. Por último, Azure Cosmos DB es el único servicio de base de datos en el sector que proporciona un Acuerdo de Nivel de Servicio (SLA) completo que abarca rendimiento aprovisionado, latencia en el percentil 99, alta disponibilidad y coherencia.
+Azure Cosmos DB es un [distribuida globalmente](distribute-data-globally.md) servicio base de datos. Puede asociar cualquier número de regiones de Azure con su cuenta de Azure Cosmos y los datos se replican de forma automática y transparente. Puede agregar o quitar una región a la cuenta de Azure Cosmos en cualquier momento. Con la funcionalidad de distribución global de llave en mano y el protocolo de replicación con arquitectura multimaestro, Azure Cosmos DB ofrece latencias de lectura y escritura de menos de 10 ms en el percentil 99, disponibilidad de lectura y escritura del 99,999 % y la capacidad de escalar de forma flexible el rendimiento aprovisionado para lectura y escritura en todas las regiones asociadas con su cuenta de Azure Cosmos. Azure Cosmos DB también ofrece cinco modelos de coherencia bien definidos y se puede aplicar un modelo específico a sus datos. Por último, Azure Cosmos DB es el único servicio de base de datos en el sector que proporciona un completo [acuerdo de nivel de servicio (SLA)](https://azure.microsoft.com/support/legal/sla/cosmos-db/v1_2/) incluyente rendimiento aprovisionado, una latencia en el percentil 99, alta disponibilidad, y coherencia. Estas capacidades están disponibles en todas las nubes de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora puede obtener información acerca de los diferentes conceptos de Azure Cosmos DB con los siguientes artículos:
+Ahora puede obtener información sobre los conceptos básicos de Azure Cosmos DB con los siguientes artículos:
 
 * [Aplicaciones distribuidas globalmente](distribute-data-globally.md)
 * [Administración de cuentas de base de datos en Azure Cosmos DB](manage-account.md)

@@ -5,18 +5,20 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 1/14/2019
+ms.date: 4/1/2019
 ms.author: victorh
-ms.openlocfilehash: 079790952263ae2ef68abc8e426b0330fef1c53f
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: 7ee92a7508918635849caafab4632bbba81ee628
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54321779"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805251"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Integración de Azure Firewall con Azure Standard Load Balancer
 
-Puede integrar una instancia de Azure Firewall en una red virtual con una instancia de Azure Standard Load Balancer (pública o interna). Sin embargo, debe tener en cuenta un problema de ruta asimétrica que puede interrumpir la funcionalidad con el escenario del equilibrador de carga público.
+Puede integrar una instancia de Azure Firewall en una red virtual con una instancia de Azure Standard Load Balancer (pública o interna). 
+
+El diseño preferido consiste en integrarse equilibrador de carga interno con el firewall de Azure, tal como se trata de un diseño mucho más sencillo. Puede usar un equilibrador de carga público si ya tiene una implementada y desea mantenerla en su lugar. Sin embargo, debe tener en cuenta un problema de ruta asimétrica que puede interrumpir la funcionalidad con el escenario del equilibrador de carga público.
 
 Para más información sobre Azure Load Balancer, consulte [¿Qué e Azure Load Balancer?](../load-balancer/load-balancer-overview.md)
 
@@ -34,6 +36,8 @@ Al implementar una instancia de Azure Firewall en una subred, un paso es crear u
 
 Al introducir el firewall en el escenario del equilibrador de carga, quiere que su tráfico de Internet llegue a través de la dirección IP pública del firewall. Desde allí, el firewall aplica sus reglas de firewall y traduce las direcciones de red de los paquetes a la dirección IP pública del equilibrador de carga. Allí es donde se produce el problema. Los paquetes llegan a la dirección IP pública del firewall, pero vuelven al firewall a través de la dirección IP privada (mediante la ruta predeterminada).
 Para evitar este problema, cree una ruta de host adicional para la dirección IP pública del firewall. Los paquetes que van a la dirección IP pública del firewall se enrutan a través de Internet. Esto evita que tomen la ruta predeterminada a la dirección IP privada del firewall.
+
+![Ruta asimétrica](media/integrate-lb/Firewall-LB-asymmetric.png)
 
 Por ejemplo, las rutas siguientes son para un firewall en la dirección IP pública 13.86.122.41 y dirección IP privada 10.3.1.4.
 

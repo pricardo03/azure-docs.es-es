@@ -1,38 +1,38 @@
 ---
 title: Aprovisionamiento del rendimiento en contenedores y bases de datos de Azure Cosmos
 description: Aprenda cómo establecer el rendimiento aprovisionado para las bases de datos y los contenedores de Azure Cosmos.
-author: aliuy
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/19/2019
-ms.author: andrl
-ms.openlocfilehash: 8335a235de708227136400f3af8fa7b4d0a52e29
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.date: 03/31/2019
+ms.author: rimman
+ms.openlocfilehash: 1f8bec6fbf0bce9a3ac272231058a96a5d9e84cc
+ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520911"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58762504"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar rendimiento en contenedores y bases de datos
 
 Una base de datos de Azure Cosmos es una unidad de administración de un conjunto de contenedores. Una base de datos consta de un conjunto de contenedores independiente del esquema. Un contenedor de Azure Cosmos es la unidad de escalabilidad de rendimiento y almacenamiento. Un contenedor se divide horizontalmente en un conjunto de máquinas dentro de una región de Azure y se distribuye en todas las regiones de Azure asociadas a su cuenta de Azure Cosmos.
 
-Con Azure Cosmos DB, puede configurar el rendimiento en dos granularidades:
+Con Azure Cosmos DB, puede aprovisionar el rendimiento en dos granularidades:
  
 - Contenedores de Azure Cosmos
 - Bases de datos de Azure Cosmos
 
 ## <a name="set-throughput-on-a-container"></a>Establecimiento del rendimiento en un contenedor  
 
-El rendimiento aprovisionado en un contenedor de Azure Cosmos se reserva exclusivamente para el contenedor. El contenedor recibe el rendimiento aprovisionado todo el tiempo. El rendimiento aprovisionado en un contenedor está respaldado financieramente por los contratos de nivel de servicio. Para configurar el rendimiento en un contenedor, consulte [Aprovisionamiento del rendimiento en un contenedor de Azure Cosmos](how-to-provision-container-throughput.md).
+El rendimiento aprovisionado en un contenedor de Azure Cosmos se reserva exclusivamente para ese contenedor. El contenedor recibe el rendimiento aprovisionado todo el tiempo. El rendimiento aprovisionado en un contenedor está respaldado financieramente por los contratos de nivel de servicio. Para obtener información sobre cómo configurar el rendimiento en un contenedor, consulte [aprovisionamiento del rendimiento en un contenedor de Azure Cosmos](how-to-provision-container-throughput.md).
 
-La configuración del rendimiento aprovisionado en un contenedor es la opción más utilizada. Puede escalar elásticamente el rendimiento de un contenedor con el aprovisionamiento de cualquier cantidad de rendimiento mediante el uso de unidades de solicitud (RU). Pero no puede especificar de forma selectiva el rendimiento de las particiones lógicas. 
+Al establecer el rendimiento aprovisionado en un contenedor es la opción utilizada con frecuencia. Puede escalar elásticamente el rendimiento de un contenedor mediante el aprovisionamiento de cualquier cantidad de rendimiento mediante el uso de [unidades de solicitud (RU)](request-units.md). 
 
-Si la carga de trabajo que se ejecuta en una partición lógica consume más que el rendimiento que se asignó a la partición lógica específica, las operaciones tienen una velocidad limitada. Cuando se produce una limitación de velocidad, puede aumentar el rendimiento de todo el contenedor o volver a intentar las operaciones. Para más información sobre las particiones, consulte [Particiones lógicas](partition-data.md).
+El rendimiento aprovisionado en un contenedor de Azure Cosmos se distribuye uniformemente entre todas las particiones lógicas del contenedor. Forma selectiva no puede especificar el rendimiento de las particiones lógicas. Puesto que una o varias particiones lógicas de un contenedor se hospedan en una partición física, las particiones físicas pertenecen exclusivamente al contenedor y admiten el rendimiento aprovisionado en dicho contenedor. 
+
+Si la carga de trabajo que se ejecuta en una partición lógica consume más que el rendimiento que se ha asignado a esa partición lógica, las operaciones de obtención velocidad limitada. Cuando se produce la limitación de velocidad, puede aumentar el rendimiento aprovisionado para todo el contenedor o vuelva a intentar las operaciones. Para más información sobre las particiones, consulte [Particiones lógicas](partition-data.md).
 
 Se recomienda configurar el rendimiento en la granularidad del contenedor cuando se quiere un rendimiento garantizado para dicho contenedor.
-
-El rendimiento aprovisionado en un contenedor de Azure Cosmos se distribuye uniformemente entre todas las particiones lógicas del contenedor. Puesto que una o varias particiones lógicas de un contenedor se hospedan en una partición física, las particiones físicas pertenecen exclusivamente al contenedor y admiten el rendimiento aprovisionado en dicho contenedor. 
 
 En la imagen siguiente se muestra cómo una partición física hospeda una o varias particiones lógicas de un contenedor:
 
@@ -40,9 +40,9 @@ En la imagen siguiente se muestra cómo una partición física hospeda una o var
 
 ## <a name="set-throughput-on-a-database"></a>Establecimiento del rendimiento en una base de datos
 
-Al aprovisionar el rendimiento en una base de datos de Azure Cosmos, dicho rendimiento se comparte entre todos los contenedores de la base de datos. Una excepción es si ha especificado un rendimiento aprovisionado en determinados contenedores. Compartir el rendimiento de la base de datos entre sus contenedores equivale a hospedar una base de datos en un clúster de máquinas. Dado que todos los contenedores de una base de datos comparten los recursos disponibles en una máquina, no obtendrá un rendimiento predecible en ningún contenedor específico. Para configurar el rendimiento en una base de datos, consulte [Aprovisionamiento del rendimiento en una base de datos de Azure Cosmos](how-to-provision-database-throughput.md).
+Al aprovisionar el rendimiento en una base de datos de Azure Cosmos, dicho rendimiento se comparte entre todos los contenedores de la base de datos. Una excepción es si ha especificado un rendimiento aprovisionado en determinados contenedores en la base de datos. Compartir el rendimiento aprovisionado de nivel de base de datos entre sus contenedores es análogo a hospedar una base de datos en un clúster de máquinas. Dado que todos los contenedores de una base de datos comparten los recursos disponibles en una máquina, no obtendrá un rendimiento predecible en ningún contenedor específico. Para obtener información sobre cómo configurar el rendimiento aprovisionado en una base de datos, vea [configurar rendimiento aprovisionado en una base de datos de Azure Cosmos](how-to-provision-database-throughput.md).
 
-La configuración del rendimiento en una base de datos de Azure Cosmos garantiza la recepción del rendimiento aprovisionado todo el tiempo. Dado que todos los contenedores de la base de datos comparten el rendimiento aprovisionado, Azure Cosmos DB no proporciona ninguna garantía de rendimiento predecible para un contenedor determinado de dicha base de datos. La parte del rendimiento que puede recibir un contenedor específico depende de los siguientes factores:
+Al establecer el rendimiento en una base de datos de Cosmos Azure garantiza que recibirá el rendimiento aprovisionado para esa base de datos de todo el tiempo. Dado que todos los contenedores de la base de datos comparten el rendimiento aprovisionado, Azure Cosmos DB no proporciona ninguna garantía de rendimiento predecible para un contenedor determinado de dicha base de datos. La parte del rendimiento que puede recibir un contenedor específico depende de los siguientes factores:
 
 * El número de contenedores.
 * La elección de las claves de partición de varios contenedores.
@@ -56,11 +56,11 @@ En los siguientes ejemplos se muestra dónde es preferible aprovisionar el rendi
 
 * El uso compartido del rendimiento aprovisionado de una base de datos a través de un conjunto de contenedores es útil al migrar una base de datos de NoSQL, como MongoDB o Cassandra, hospedada en un clúster de máquinas virtuales o desde servidores físicos locales a Azure Cosmos DB. Puede considerar el rendimiento aprovisionado configurado en la base de datos de Azure Cosmos como un equivalente lógico, pero más rentable y flexible, de la capacidad de proceso del clúster de MongoDB o Cassandra.  
 
-Todos los contenedores creados dentro de una base de datos con rendimiento aprovisionado deben crearse con una clave de partición. En cualquier momento determinado, el rendimiento asignado a un contenedor dentro de una base de datos se distribuye entre todas las particiones lógicas de dicho contenedor. Cuando hay contenedores que comparten el rendimiento aprovisionado en una base de datos, el rendimiento no se puede aplicar de forma selectiva a un contenedor específico o a una partición lógica. 
+Se deben crear todos los contenedores creados dentro de una base de datos con rendimiento aprovisionado con un [clave de partición](partition-data.md). En cualquier momento determinado, el rendimiento asignado a un contenedor dentro de una base de datos se distribuye entre todas las particiones lógicas de dicho contenedor. Cuando haya contenedores que comparten el rendimiento aprovisionado configurado en una base de datos, no se puede aplicar selectivamente el rendimiento a un contenedor específico o una partición lógica. 
 
-Si la carga de trabajo en una partición lógica consume más que el rendimiento que se asignó a una partición lógica específica, las operaciones tendrán una velocidad limitada. Cuando se produce una limitación de velocidad, puede aumentar el rendimiento de todo el contenedor o volver a intentar las operaciones. Para más información sobre las particiones, consulte [Particiones lógicas](partition-data.md).
+Si la carga de trabajo en una partición lógica consume más que el rendimiento que se asignó a una partición lógica específica, las operaciones tendrán una velocidad limitada. Cuando se produce la limitación de velocidad, puede aumentar el rendimiento de la base de datos completa o vuelva a intentar las operaciones. Para más información sobre las particiones, consulte [Particiones lógicas](partition-data.md).
 
-Varias particiones lógicas que comparten el rendimiento aprovisionado en una base de datos se pueden hospedar en una partición física única. Mientras que una única partición lógica de un contenedor siempre se encuentra dentro del ámbito de una partición física, las particiones lógicas de "L" en los contenedores de "C" que comparten el rendimiento aprovisionado de una base de datos pueden asignarse a particiones físicas de "R" y hospedarse en ellas. 
+Varias particiones lógicas que pertenecen a distintos contenedores que comparten el rendimiento aprovisionado para una base de datos se pueden hospedar en una única partición física. Mientras que una única partición lógica de un contenedor siempre dentro del ámbito de una partición física, *"L"* particiones lógicas entre *"C"* pueden ser contenedores que comparten el rendimiento aprovisionado de una base de datos asigna y se hospeda en *"R"* particiones físicas. 
 
 En la siguiente imagen se muestra cómo una partición física puede hospedar una o varias particiones lógicas que pertenecen a distintos contenedores dentro de una base de datos:
 
@@ -70,11 +70,11 @@ En la siguiente imagen se muestra cómo una partición física puede hospedar un
 
 Puede combinar los dos modelos. Se permite el aprovisionamiento del rendimiento tanto en la base de datos como en el contenedor. En el ejemplo siguiente se muestra cómo aprovisionar el rendimiento en un contenedor y una base de datos de Azure Cosmos:
 
-* Puede crear una base de datos de Azure Cosmos denominada "Z" con rendimiento aprovisionado de RU de "K". 
-* A continuación, cree cinco contenedores denominados A, B, C, D y E dentro de la base de datos.
-* Puede configurar explícitamente RU de "P" de rendimiento aprovisionado en el contenedor denominado "B".
-* El rendimiento de RU de "K" se comparte entre los cuatro contenedores: A, C, D y E. La cantidad exacta de rendimiento disponible para A, C, D o E varía. No hay ningún Acuerdo de Nivel de Servicio para el rendimiento de cada contenedor individual.
-* Se garantiza que el contenedor denominado "B" obtendrá el rendimiento de RU de "P" todo el tiempo. Estará respaldado por los Acuerdos de Nivel de Servicio.
+* Puede crear una base de datos de Azure Cosmos denominada *Z* con rendimiento aprovisionado de *"K"* RU. 
+* A continuación, cree cinco contenedores llamados *A*, *B*, *C*, *d.*, y *E* dentro de la base de datos.
+* Puede configurar explícitamente *"P"* unidades de solicitud del rendimiento aprovisionado en el contenedor llamado *B*.
+* El *"K"* RUs rendimiento se comparte entre los cuatro contenedores *A*, *C*, *d.*, y *E*. La cantidad exacta de rendimiento disponible para *A*, *C*, *d.*, o *E* varía. No hay ningún Acuerdo de Nivel de Servicio para el rendimiento de cada contenedor individual.
+* El contenedor llamado *B* se garantiza que obtenga el *"P"* rendimiento RUs todo el tiempo. Estará respaldado por los Acuerdos de Nivel de Servicio.
 
 ## <a name="update-throughput-on-a-database-or-a-container"></a>Rendimiento de la actualización en una base de datos o un contenedor
 
@@ -92,7 +92,7 @@ Puede escalar el rendimiento aprovisionado de un contenedor o una base de datos 
 
 ## <a name="comparison-of-models"></a>Comparación de modelos
 
-|**Cuota**  |**Rendimiento aprovisionado en una base de datos**  |**Rendimiento aprovisionado en un contenedor**|
+|**Parámetro**  |**Rendimiento aprovisionado en una base de datos**  |**Rendimiento aprovisionado en un contenedor**|
 |---------|---------|---------|
 |Número mínimo de RU |400 (después de los cuatro primeros contenedores, cada contenedor adicional requiere un mínimo de 100 RU por segundo). |400|
 |Número mínimo de RU por contenedor|100|400|

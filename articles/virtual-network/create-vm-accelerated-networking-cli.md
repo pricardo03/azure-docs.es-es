@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/10/2019
 ms.author: gsilva
 ms.custom: ''
-ms.openlocfilehash: b06bc6b41081f05a7067f82f46affc37d21f50b1
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 8ea17e5615c0256c084b0745a392fb49f8873f99
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57213303"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805370"
 ---
 # <a name="create-a-linux-virtual-machine-with-accelerated-networking"></a>Creación de una máquina virtual Linux con Accelerated Networking
 
@@ -42,13 +42,16 @@ Las ventajas de Accelerated Networking solo se aplican a la máquina virtual don
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
 Se admiten las siguientes distribuciones de fábrica desde la galería de Azure: 
-* **Ubuntu 16.04+** 
-* **SLES 12 SP3** 
-* **RHEL 7.4**
-* **CentOS 7.4**
+* **Ubuntu 14.04 con el kernel de linux de azure**
+* **Ubuntu 16.04 o posterior** 
+* **SLES12 SP3 o posterior** 
+* **RHEL 7.4 o posterior**
+* **CentOS 7.4 o posteriores**
 * **CoreOS Linux**
 * **Debian "Stretch" con kernel backports**
-* **Oracle Linux 7.4**
+* **Oracle Linux 7.4 y posterior con Hat compatibles del Kernel (RHCK) de Red**
+* **Oracle Linux 7.5 y versiones posterior con UEK versión 5**
+* **FreeBSD 10.4, 11.1 & 12.0**
 
 ## <a name="limitations-and-constraints"></a>Limitaciones y restricciones
 

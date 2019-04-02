@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 5a4426b665c58dd2c0bf7f5b5b41ebfca158e782
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 3a0d10f373b045058c6df242c4d98f78d04c4490
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58444718"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801142"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Usar el portal de Azure para acceder a los datos blob o cola
 
@@ -47,11 +47,11 @@ El **lector** otra asignación de roles de Azure Resource Manager o de asignaci�
 
 Las funciones integradas que admiten el acceso a los datos blob o cola incluyen:
 
-- [Propietario del almacenamiento de datos Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview): Para POSIX control de acceso para Azure Data Lake Storage Gen2 (versión preliminar).
-- [Colaborador de datos de Blob de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview): Permisos de lectura, escritura y eliminación para blobs.
-- [Lector de datos de Blob de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview): Permisos de solo lectura para blobs.
-- [Colaborador de datos de almacenamiento cola](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor-preview): Permisos de lectura, escritura y eliminación de colas.
-- [Lector de datos de almacenamiento cola](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader-preview): Permisos de solo lectura para las colas.
+- [Propietario del almacenamiento de datos Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Para POSIX control de acceso para Azure Data Lake Storage Gen2 (versión preliminar).
+- [Colaborador de datos de Blob de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Permisos de lectura, escritura y eliminación para blobs.
+- [Lector de datos de Blob de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Permisos de solo lectura para blobs.
+- [Colaborador de datos de almacenamiento cola](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Permisos de lectura, escritura y eliminación de colas.
+- [Lector de datos de almacenamiento cola](../../role-based-access-control/built-in-roles.md#storage-queue-data-reader): Permisos de solo lectura para las colas.
     
 Roles personalizados pueden admitir diferentes combinaciones de los mismos permisos proporcionados por los roles integrados. Para obtener más información acerca de cómo crear roles personalizados de RBAC, consulte [roles personalizados para recursos de Azure](../../role-based-access-control/custom-roles.md) y [comprender las definiciones de roles para los recursos de Azure](../../role-based-access-control/role-definitions.md).
 

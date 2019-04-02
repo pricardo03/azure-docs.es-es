@@ -16,12 +16,12 @@ ms.date: 02/06/2019
 ms.author: celested
 ms.reviewer: paulgarn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a7a12cf677661c36a42df36a8fdc6b8f4a8ef75
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: 7de6705ad38133b8321caabb7b0f4093284af503
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56669897"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793074"
 ---
 # <a name="how-to-configure-azure-ad-saml-token-encryption-preview"></a>Procedimientos para: Configuración del cifrado de tokens SAML de Azure AD (versión preliminar)
 
@@ -136,11 +136,12 @@ Esta funcionalidad estará disponible próximamente.
 
 1. Read the token encryption settings using the following commands.
 
-    ```
+    ```powershell
     $app=Get-AzureADApplication -ObjectId <ApplicationObjectId>
     $app.KeyCredentials
     $app.TokenEncryptionKeyId
     ```
+
 -->
 
 ### <a name="to-configure-token-encryption-using-the-application-manifest"></a>Para configurar el cifrado de tokens mediante el manifiesto de aplicación
@@ -155,7 +156,7 @@ Esta funcionalidad estará disponible próximamente.
 
     En el ejemplo siguiente se muestra un manifiesto de aplicación configurado con dos certificados de cifrado, donde el segundo seleccionado es el activo que usa tokenEnryptionKeyId.
 
-    ```
+    ```json
     { 
       "id": "3cca40e2-367e-45a5-8440-ed94edd6cc35",
       "accessTokenAcceptedVersion": null,

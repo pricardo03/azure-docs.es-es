@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 3188b5acc00f7f0463ae1154346447bee463e09c
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 0a82c2ba8bdf3d01041aa06f55eaaecab29817b2
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225440"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803113"
 ---
 # <a name="language-and-region-support-for-the-speech-services"></a>Compatibilidad de idioma y región para los servicios de voz
 
@@ -55,7 +55,7 @@ Speech Recognition API de Microsoft admite los siguientes idiomas. Para cada idi
  ru-RU | Ruso (Rusia) | Sí | Sí | Sin 
  sv-SE | Sueco (Suecia) | Sin  | No | Sin 
  zh-CN | Chino (mandarín, simplificado) | Sí | Sí | Sin 
- zh-HK | Chino (mandarín, tradicional) | Sin  | Sí | Sin 
+ zh-HK | Chino (cantonés, tradicional) | Sin  | Sí | Sin 
  zh-TW | Chino (mandarín, Taiwán) | Sin  | Sí | Sin 
  th-TH | Tailandés (Tailandia) | Sin  | No | Sin 
 

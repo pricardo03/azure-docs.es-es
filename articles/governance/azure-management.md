@@ -7,14 +7,14 @@ ms.service: governance
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: dacoulte
-ms.openlocfilehash: c38d19b8528399ae09d92e48ed7dfc17c18938b7
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.openlocfilehash: f94cec7919edc6cf6ebb6618d38b8591feb1278b
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338077"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804146"
 ---
-# <a name="management-in-azure"></a>Administración en Azure
+# <a name="overview-of-management-services-in-azure"></a>Información general de servicios de administración de Azure
 
 El gobierno de Azure es uno de los aspectos de la administración de Azure. En este artículo se describen las distintas áreas de administración para implementar y mantener los recursos de Azure.
 
@@ -22,7 +22,7 @@ Administración hace referencia a las tareas y procesos necesarios para mantener
 
 El siguiente diagrama muestra las diferentes áreas de administración necesarias para mantener cualquier aplicación o recurso. Estas áreas distintas pueden considerarse como un ciclo de vida. Cada área es necesaria en una sucesión continua a lo largo de toda la duración de un recurso. El ciclo de vida de este recurso empieza con la implementación inicial, sigue con la operación continua y, finalmente, termina cuando se le retira.
 
-![Disciplinas de administración](../monitoring/media/management-overview/management-capabilities.png)
+![Disciplinas de administración en Azure](../monitoring/media/management-overview/management-capabilities.png)
 
 No hay ningún servicio único de Azure que cumpla íntegramente con los requisitos de un área de administración determinada. En vez de eso, son varios los servicios que los satisfacen, trabajando en conjunto. Algunos servicios, como Application Insights, proporcionan una funcionalidad de supervisión dirigida para las aplicaciones web. Otros, como los registros de Azure Monitor, almacenan datos de administración para otros servicios. Esta característica permite analizar datos de tipos diferentes recopilados por distintos servicios.
 

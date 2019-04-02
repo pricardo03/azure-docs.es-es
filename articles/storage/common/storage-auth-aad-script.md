@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/26/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: d1fdafaaecd448fd09fc40cf5f6173ce600ac4f9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: a0972beff48e07b6ce8afdcec10581300f59ed41
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483212"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803585"
 ---
 # <a name="use-an-azure-ad-identity-to-access-blob-and-queue-data-with-cli-or-powershell"></a>Usar una identidad de Azure AD para acceder a los datos de blob y cola con la CLI o PowerShell
 
@@ -61,7 +61,7 @@ El ejemplo siguiente muestra cómo crear un contenedor en una nueva cuenta de al
         --encryption-services blob
     ```
     
-1. Antes de crear el contenedor, asigne el [colaborador de datos de almacenamiento Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) rol a sí mismo. Aunque sea el propietario de la cuenta, necesita los permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para obtener más información sobre la asignación de roles de RBAC, consulte [conceder acceso a datos blob y cola de Azure con RBAC en Azure portal](storage-auth-aad-rbac.md).
+1. Antes de crear el contenedor, asigne el [colaborador de datos de almacenamiento Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) rol a sí mismo. Aunque sea el propietario de la cuenta, necesita los permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para obtener más información sobre la asignación de roles de RBAC, consulte [conceder acceso a datos blob y cola de Azure con RBAC en Azure portal](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > Las asignaciones de roles RBAC pueden tardar unos minutos en propagarse.
@@ -114,7 +114,7 @@ El ejemplo siguiente muestra cómo crear un contenedor en una nueva cuenta de al
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount
     ```
 
-1. Antes de crear el contenedor, asigne el [colaborador de datos de almacenamiento Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview) rol a sí mismo. Aunque sea el propietario de la cuenta, necesita los permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para obtener más información sobre la asignación de roles de RBAC, consulte [conceder acceso a datos blob y cola de Azure con RBAC en Azure portal](storage-auth-aad-rbac.md).
+1. Antes de crear el contenedor, asigne el [colaborador de datos de almacenamiento Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor) rol a sí mismo. Aunque sea el propietario de la cuenta, necesita los permisos explícitos para realizar operaciones de datos en la cuenta de almacenamiento. Para obtener más información sobre la asignación de roles de RBAC, consulte [conceder acceso a datos blob y cola de Azure con RBAC en Azure portal](storage-auth-aad-rbac.md).
 
     > [!IMPORTANT]
     > Las asignaciones de roles RBAC pueden tardar unos minutos en propagarse.

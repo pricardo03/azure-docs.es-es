@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 45b34d12fbcecbf5f6bf1225c5bb82c5385224ed
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 186a9bafe70ab9644666868f11d5ddd865a66b8d
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338401"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802548"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Uso de Azure Data Lake Storage Gen2 con clústeres de Azure HDInsight
 
@@ -44,7 +44,7 @@ Cree una cuenta de almacenamiento de Azure Data Lake Storage Gen2. Asegúrese de
 
 ### <a name="setup-permissions-for-the-managed-identity-on-the-data-lake-storage-gen2-account"></a>Configure los permisos para la identidad administrada en la cuenta de Data Lake Storage Gen2
 
-Asigne la identidad administrada al rol **Propietario de datos de blobs de almacenamiento (versión preliminar)** de la cuenta de almacenamiento. Para más información, consulte [Administración de los derechos de acceso a los datos de la cola y el blob de Azure con RBAC (versión preliminar)](../storage/common/storage-auth-aad-rbac.md).
+Asignar la identidad administrada para el **propietario del almacenamiento de datos Blob** rol en la cuenta de almacenamiento. Para más información, consulte [Administración de los derechos de acceso a los datos de la cola y el blob de Azure con RBAC (versión preliminar)](../storage/common/storage-auth-aad-rbac.md).
 
 1. En [Azure Portal](https://portal.azure.com), vaya a la cuenta de almacenamiento.
 1. Seleccione la cuenta de almacenamiento y luego seleccione **control de acceso (IAM)** para mostrar la configuración de control de acceso para la cuenta. Seleccione la pestaña **Asignaciones de roles** para ver la lista de asignaciones de roles.
@@ -52,7 +52,7 @@ Asigne la identidad administrada al rol **Propietario de datos de blobs de almac
     ![Captura de pantalla que muestra la configuración de control de acceso del almacenamiento](./media/hdinsight-hadoop-data-lake-storage-gen2/portal-access-control.png)
     
 1. Seleccione el **+ Agregar asignación de roles** para agregar un nuevo rol.
-1. En la ventana **Agregar asignación de roles**, seleccione el rol **Propietario de datos de blobs de almacenamiento (versión preliminar)**. Luego, seleccione la suscripción que tiene la identidad administrada y la cuenta de almacenamiento. A continuación, busque la identidad administrada asignada por el usuario que creó anteriormente. Por último, seleccione la identidad administrada y se mostrará en **miembros seleccionados**.
+1. En el **Agregar asignación de roles** ventana, seleccione el **propietario del almacenamiento de datos Blob** rol. Luego, seleccione la suscripción que tiene la identidad administrada y la cuenta de almacenamiento. A continuación, busque la identidad administrada asignada por el usuario que creó anteriormente. Por último, seleccione la identidad administrada y se mostrará en **miembros seleccionados**.
     
     ![Captura de pantalla que muestra cómo asignar un rol de RBAC](./media/hdinsight-hadoop-data-lake-storage-gen2/add-rbac-role3.png)
     
@@ -102,7 +102,7 @@ az storage account create --name hdinsightadlsgen2 \
     --kind StorageV2 --hierarchical-namespace true
 ```
 
-A continuación, inicie sesión en el portal. Agregar la nueva identidad administrada asignada por el usuario para el **colaborador de datos de Blob de almacenamiento (versión preliminar)** rol en la cuenta de almacenamiento, como se describe en el paso 3 en [mediante Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md).
+A continuación, inicie sesión en el portal. Agregar la nueva identidad administrada asignada por el usuario para el **colaborador de datos de Blob de almacenamiento** rol en la cuenta de almacenamiento, como se describe en el paso 3 en [mediante Azure portal](hdinsight-hadoop-use-data-lake-storage-gen2.md).
 
 Después de haber asignado el rol para la identidad administrada asignada por el usuario, implemente la plantilla mediante el siguiente fragmento de código.
 

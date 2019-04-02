@@ -6,14 +6,14 @@ author: alkohli
 ms.service: storage
 ms.subservice: blobs
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: d3326713b0fbae070d04fa0fe7ead712fbcacf84
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 8dd55032c933cdc31b848addfdac991550376dcf
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496900"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805592"
 ---
 # <a name="data-transfer-for-large-datasets-with-moderate-to-high-network-bandwidth"></a>Transferencia de datos para grandes conjuntos de datos con ancho de banda de red moderado a elevado
  
@@ -62,7 +62,7 @@ En las siguientes tablas se resumen las diferencias de las funcionalidades clave
 
 Si usa la transferencia de datos sin conexión, use la siguiente tabla para comprender las diferencias de las funcionalidades clave.
 
-|                                     |    Data Box Disk (versión preliminar)    |    Data Box                                      |    Data Box Heavy (versión preliminar)              |    Import/Export                       |
+|                                     |    Data Box Disk      |    Data Box                                      |    Data Box Heavy            |    Import/Export                       |
 |-------------------------------------|---------------------------------|--------------------------------------------------|------------------------------------------|----------------------------------------|
 |    Tamaño de los datos                        |    Hasta 35 TB                 |    Hasta 80 TB por dispositivo                       |    Hasta 800 TB por dispositivo               |    Variable                            |
 |    Tipo de datos                        |    Azure Blobs                  |    Azure Blobs<br>Archivos de Azure                    |    Azure Blobs<br>Archivos de Azure            |    Azure Blobs<br>Archivos de Azure          |
@@ -83,7 +83,7 @@ Si usa la transferencia de datos en línea, use la tabla en la sección siguient
 
 ### <a name="high-network-bandwidth"></a>Ancho de banda de red elevado
 
-|                                     |    Herramientas de AzCopy, <br>Azure PowerShell, <br>Azure CLI             |    API REST y SDK de Azure Storage                   |    Data Box Edge o Data Box Gateway (versión preliminar)           |    Azure Data Factory                                            |
+|                                     |    Herramientas de AzCopy, <br>Azure PowerShell, <br>Azure CLI             |    API REST y SDK de Azure Storage                   |    Puerta de enlace de datos cuadro o el borde del cuadro de datos          |    Azure Data Factory                                            |
 |-------------------------------------|------------------------------------|----------------------------------------------|----------------------------------|-----------------------------------------------------------------------|
 |    Tipo de datos                  |    Azure Blobs, Azure Files, Azure Tables    |    Azure Blobs, Azure Files, Azure Tables    |    Azure Blobs, Azure Files                           |   Admite más de 70 conectores de datos para almacenes y formatos de datos    |
 |    Factor de forma                |    Herramientas de línea de comandos                        |    Interfaz programática                    |    Microsoft proporciona un dispositivo <br>virtual o físico     |    Servicio en Azure Portal                                            |

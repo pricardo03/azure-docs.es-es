@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 9cad48eeadc06c84e326cbc5f19f1c97e151a795
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32445e3f6859a6161eb2fae20233c598234f18a0
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880456"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791650"
 ---
 # <a name="azure-data-box-disk-limits"></a>Límites de Azure Data Box Disk
 
@@ -50,11 +50,11 @@ Para conocer la información más reciente sobre los límites del servicio de al
 - Todos los archivos escritos en los recursos compartidos *BlockBlob* y *PageBlob* se cargan como blob en bloques y blob en páginas, respectivamente.
 - Todas las jerarquías de directorios vacías (sin archivos) que creó en las carpetas *BlockBlob* y *PageBlob* no se cargan.
 - Si se han producido errores al cargar datos en Azure, se crea un registro de errores en la cuenta de almacenamiento de destino. La ruta de acceso a este registro de errores está disponible en el portal cuando se completa la carga. Puede revisar el registro para realizar acciones correctivas. No elimine los datos del origen sin comprobar los datos cargados.
-- Si especifica los discos administrados en el orden, revise las siguientes consideraciones adicionales:
+- Si especificó en orden los discos administrados, revise las siguientes consideraciones adicionales:
 
-    - Solo puede tener un disco administrado con un nombre determinado en un grupo de recursos a través de todas las carpetas creados previamente y todos los discos de Data Box. Esto implica que el VHD cargados en las carpetas creados previamente deberían tener nombres únicos. Asegúrese de que el nombre especificado no coincide con un disco administrado ya existente en un grupo de recursos. Si los discos duros virtuales tienen los mismos nombres, solo un disco duro virtual se convierte en un disco administrado con ese nombre. Los otros discos duros virtuales se cargan como blobs en páginas en la cuenta de almacenamiento provisional.
-    - Copiar siempre los discos duros virtuales a una de las carpetas creados previamente. Si copia los discos duros virtuales fuera de estas carpetas o en una carpeta que ha creado, los discos duros virtuales se cargan en la cuenta de Azure Storage como blobs en páginas y discos no administran.
-    - Para crear discos administrados se pueden cargar solo los discos duros virtuales fijos. Los VHD dinámicos, VHD de diferenciación o VHDX no se admiten archivos.
+    - Solo puede tener un disco administrado con un nombre determinado en un grupo de recursos en las carpetas que se crearon previamente y en Data Box Disk. Esto implica que los VHD cargados en las carpetas creadas previamente deben tener nombres únicos. Asegúrese de que el nombre indicado no coincida con un disco administrado ya existente en un grupo de recursos. Si los discos duros virtuales tienen los mismos nombres, solo uno se convierte en un disco administrado con ese nombre. Los otros discos duros virtuales se cargan como blobs en páginas en la cuenta de almacenamiento provisional.
+    - Copie siempre los VHD en una de las carpetas creadas previamente. Si copia los VHD fuera de estas carpetas o en una carpeta que usted mismo haya creado, se cargarán en la cuenta de Azure Storage como blobs en páginas y no como discos administrados.
+    - Solo se pueden cargar VHD fijos para crear discos administrados. No se admiten los discos duros virtuales dinámicos, los de diferenciación ni los archivos VHDX.
 
 ## <a name="azure-storage-account-size-limits"></a>Límites de tamaño de cuenta de almacenamiento de Azure
 
@@ -93,4 +93,4 @@ Estos son los tamaños de los objetos de Azure que se pueden escribir. Asegúres
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Revise los [Requisitos del sistema Data Box](data-box-system-requirements.md).
+- Revisión [requisitos del sistema de discos de Data Box](data-box-disk-system-requirements.md)
