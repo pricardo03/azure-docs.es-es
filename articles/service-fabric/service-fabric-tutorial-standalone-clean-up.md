@@ -3,7 +3,7 @@ title: 'Tutorial de limpieza del clúster de Service Fabric independiente: Azure
 description: En este tutorial aprenderá a limpiar el clúster independiente
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: d92712200920f135e362e15e1d9536dc2342ebaa
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: e3e618bfd141e5cf7159d8df5b2b59f0d17d000f
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211096"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58372206"
 ---
-# <a name="tutorial-clean-up-your-standalone-cluster"></a>Tutorial: limpieza del clúster independiente
+# <a name="tutorial-clean-up-your-standalone-cluster"></a>Tutorial: Limpieza del clúster independiente
 
 Los clústeres de Service Fabric independientes ofrecen la opción de elegir un entorno propio y crear un clúster como parte del enfoque "Cualquier sistema operativo, cualquier nube" que toma Service Fabric. En esta serie de tutoriales se crea un clúster independiente hospedado en AWS y se instala en él una aplicación.
 

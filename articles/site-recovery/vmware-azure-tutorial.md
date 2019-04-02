@@ -6,22 +6,28 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 3/3/2019
+ms.date: 3/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ccd62c0b0832622bbc74542674c1d09f59ea301b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 06d18ccd6f14f0a2b31f579b0ed7250b2c4f0c92
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57848837"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58310598"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar la recuperación ante desastres para máquinas virtuales de VMware locales en Azure
 
 [Azure Site Recovery](site-recovery-overview.md) contribuye a la estrategia de recuperación ante desastres y continuidad empresarial (BCDR) al mantener sus aplicaciones empresariales al día y disponibles durante interrupciones planeadas y no planeadas. Azure Site Recovery administra y coordina la recuperación ante desastres de máquinas locales y máquinas virtuales de Azure, lo que incluye la replicación, la conmutación por error y la recuperación.
 
 
-En este tutorial, le mostramos cómo configurar y habilitar la replicación de una máquina virtual de VMware en Azure, mediante Azure Site Recovery. Los tutoriales están diseñados para mostrarle cómo implementar Site Recovery con la configuración básica. Utilizan la ruta de acceso más simple y no muestran todas las opciones. En este tutorial, aprenderá a:
+Este tutorial muestra cómo implementar Site Recovery con la configuración básica, sin personalización. Para opciones más complejas, revise los artículos de Guías de procedimientos.
+
+    - Configurar el [origen de la replicación](vmware-azure-set-up-source.md) y el [servidor de configuración](vmware-azure-deploy-configuration-server.md).
+    - Configurar el [destino de la replicación](vmware-azure-set-up-target.md).
+    - Configuración de una [directiva de replicación](vmware-azure-set-up-replication.md) y [habilitación de la replicación](vmware-azure-enable-replication.md)
+
+En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Especificar el origen y destino de la replicación.
@@ -37,10 +43,6 @@ Antes de empezar, es útil:
 - Si desea obtener más información sobre cómo configurar la recuperación ante desastres para las máquinas virtuales de VMware con más detalle, revise y utilice los recursos siguientes:
     - [Lea las preguntas frecuentes](vmware-azure-common-questions.md) acerca de la recuperación ante desastres para VMware.
     - [Aprenda](vmware-physical-azure-support-matrix.md) qué se admite y se necesita para VMware.
--  Lea nuestras **guías de procedimiento** para obtener instrucciones detalladas que cubren todas las opciones de implementación de VMware:
-    - Configurar el [origen de la replicación](vmware-azure-set-up-source.md) y el [servidor de configuración](vmware-azure-deploy-configuration-server.md).
-    - Configurar el [destino de la replicación](vmware-azure-set-up-target.md).
-    - Configuración de una [directiva de replicación](vmware-azure-set-up-replication.md) y [habilitación de la replicación](vmware-azure-enable-replication.md)
 - En este tutorial se muestra cómo replicar una sola máquina virtual. Si va a implementar varias máquinas virtuales, debe utilizar la [herramienta Deployment Planner](https://aka.ms/asr-deployment-planner) para ayudar a planear la implementación. [Más información](site-recovery-deployment-planner.md) sobre esta herramienta.
 
 Y revise estas sugerencias:

@@ -1,28 +1,25 @@
 ---
-title: Usuarios de administración de Azure Data Box Gateway | Microsoft Docs
+title: Administración de programaciones del ancho de banda en Azure Data Box Gateway | Microsoft Docs
 description: Describe cómo usar Azure Portal para administrar las programaciones del ancho de banda en Azure Data Box Gateway.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: overview
-ms.date: 10/09/2018
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: aefbe4265cb97a003b908c5631e1f9ed4e0192cc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 15d560698ca47c0be39e0533f264bfef211a33d0
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102134"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58500413"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Uso de Azure Portal para administrar las programaciones del ancho de banda en Azure Data Box Gateway  
 
 En este artículo se describe cómo administrar usuarios en Azure Data Box Gateway. Las programaciones del ancho de banda le permiten configurar el uso del ancho de banda de red en programaciones en varias horas del día. Dichas programaciones se pueden aplicar a las operaciones de carga y descarga desde el dispositivo a la nube. 
 
 Puede agregar, modificar o eliminar las programaciones del ancho de banda de Data Box Gateway a través de Azure Portal.
-
-> [!IMPORTANT]
-> - Data Box Gateway está en versión preliminar. Antes de solicitar e implementar esta solución revise los [términos del servicio de Azure para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 En este artículo, aprenderá a:
 

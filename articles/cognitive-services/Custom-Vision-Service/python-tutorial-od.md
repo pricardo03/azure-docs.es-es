@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 11/5/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 48bd10a19254540d970a1cb5ebd19b63a1975df0
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 15c7df52dcc2b9ab6977ee9d67d7997ff8b14287
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57727032"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58485975"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-python-sdk"></a>Inicio rápido: Creación de un proyecto de detección de objetos con el SDK de Custom Vision para Python
 
-En este artículo se proporciona información y código de ejemplo para ayudarle a empezar a utilizar el SDK de Custom Vision con Python para crear un modelo de detección de objetos. Después de crearlo, puede agregar regiones etiquetadas, cargar imágenes, entrenar el proyecto, obtener la dirección URL predeterminada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Utilice este ejemplo como plantilla para crear su propia aplicación de Python.
+En este artículo se proporciona información y código de ejemplo para ayudarle a empezar a utilizar el SDK de Custom Vision con Python para crear un modelo de detección de objetos. Después de crearlo, puede agregar regiones etiquetadas, cargar imágenes, entrenar el proyecto, obtener la dirección URL publicada del punto de conexión de predicción del proyecto y utilizar el punto de conexión para probar una imagen mediante programación. Utilice este ejemplo como plantilla para crear su propia aplicación de Python.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -30,7 +30,7 @@ En este artículo se proporciona información y código de ejemplo para ayudarle
 
 Para instalar el SDK de Custom Vision Service para Python, ejecute el comando siguiente en PowerShell:
 
-```PowerShell
+```powershell
 pip install azure-cognitiveservices-vision-customvision
 ```
 
@@ -57,11 +57,14 @@ ENDPOINT = "https://southcentralus.api.cognitive.microsoft.com"
 # Replace with a valid key
 training_key = "<your training key>"
 prediction_key = "<your prediction key>"
+prediction_resource_id = "<your prediction resource id>"
+
+publish_iteration_name = "detectModel"
 
 trainer = CustomVisionTrainingClient(training_key, endpoint=ENDPOINT)
 
 # Find the object detection domain
-obj_detection_domain = next(domain for domain in trainer.get_domains() if domain.type == "ObjectDetection")
+obj_detection_domain = next(domain for domain in trainer.get_domains() if domain.type == "ObjectDetection" and domain.name == "General")
 
 # Create a new project
 print ("Creating project...")
@@ -131,9 +134,13 @@ scissors_image_regions = {
     "scissors_20": [ 0.158088237, 0.04047389, 0.6691176, 0.843137264 ]
 }
 ```
+
 Luego, use esta asignación de asociaciones para cargar cada imagen de ejemplo con sus coordenadas de región. Agregue el siguiente código.
 
 ```Python
+# Update this with the path to where you downloaded the images.
+base_image_url = "<path to the images>"
+
 # Go through the data table above and create the images
 print ("Adding images...")
 tagged_images_with_regions = []
@@ -142,23 +149,27 @@ for file_name in fork_image_regions.keys():
     x,y,w,h = fork_image_regions[file_name]
     regions = [ Region(tag_id=fork_tag.id, left=x,top=y,width=w,height=h) ]
 
-    with open("images/fork/" + file_name + ".jpg", mode="rb") as image_contents:
+    with open(base_image_url + "images/fork/" + file_name + ".jpg", mode="rb") as image_contents:
         tagged_images_with_regions.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), regions=regions))
 
 for file_name in scissors_image_regions.keys():
     x,y,w,h = scissors_image_regions[file_name]
     regions = [ Region(tag_id=scissors_tag.id, left=x,top=y,width=w,height=h) ]
 
-    with open("images/scissors/" + file_name + ".jpg", mode="rb") as image_contents:
+    with open(base_image_url + "images/scissors/" + file_name + ".jpg", mode="rb") as image_contents:
         tagged_images_with_regions.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), regions=regions))
 
-
-trainer.create_images_from_files(project.id, images=tagged_images_with_regions)
+upload_result = trainer.create_images_from_files(project.id, images=tagged_images_with_regions)
+if not upload_result.is_batch_successful:
+    print("Image batch upload failed.")
+    for image in upload_result.images:
+        print("Image status: ", image.status)
+    exit(-1)
 ```
 
-### <a name="train-the-project"></a>Entrenamiento del proyecto
+### <a name="train-the-project-and-publish"></a>Entrenar el proyecto y publicarlo
 
-Este código crea la primera iteración del proyecto y la marca como la predeterminada. La iteración predeterminada refleja la versión del modelo que responderá a las solicitudes de predicción. La debe actualizar cada vez que vuelva a entrenar el modelo.
+Este código crea la primera iteración del proyecto y, después, publica dicha iteración en el punto de conexión de la predicción. El nombre que se da a la iteración publicada se puede utilizar para enviar solicitudes de predicción. Una iteración no está disponible en el punto de conexión de la predicción hasta que se publica.
 
 ```Python
 import time
@@ -170,12 +181,12 @@ while (iteration.status != "Completed"):
     print ("Training status: " + iteration.status)
     time.sleep(1)
 
-# The iteration is now trained. Make it the default project endpoint
-trainer.update_iteration(project.id, iteration.id, is_default=True)
+# The iteration is now trained. Publish it to the project endpoint
+trainer.publish_iteration(project.id, iteration.id, publish_iteration_name, prediction_resource_id)
 print ("Done!")
 ```
 
-### <a name="get-and-use-the-default-prediction-endpoint"></a>Obtención y uso del punto de conexión de predicción predeterminado
+### <a name="get-and-use-the-published-iteration-on-the-prediction-endpoint"></a>Obtener y usar la iteración publicada en el punto de conexión de predicción
 
 Para enviar una imagen al punto de conexión de la predicción y recuperar la predicción, agregue el código siguiente al final del archivo:
 
@@ -187,19 +198,19 @@ from azure.cognitiveservices.vision.customvision.prediction import CustomVisionP
 predictor = CustomVisionPredictionClient(prediction_key, endpoint=ENDPOINT)
 
 # Open the sample image and get back the prediction results.
-with open("images/Test/test_od_image.jpg", mode="rb") as test_data:
-    results = predictor.predict_image(project.id, test_data, iteration.id)
+with open(base_image_url + "images/Test/test_od_image.jpg", mode="rb") as test_data:
+    results = predictor.detect_image(project.id, publish_iteration_name, test_data)
 
-# Display the results.
+# Display the results.    
 for prediction in results.predictions:
-    print ("\t" + prediction.tag_name + ": {0:.2f}%".format(prediction.probability * 100), prediction.bounding_box.left, prediction.bounding_box.top, prediction.bounding_box.width, prediction.bounding_box.height)
+    print("\t" + prediction.tag_name + ": {0:.2f}% bbox.left = {1:.2f}, bbox.top = {2:.2f}, bbox.width = {3:.2f}, bbox.height = {4:.2f}".format(prediction.probability * 100, prediction.bounding_box.left, prediction.bounding_box.top, prediction.bounding_box.width, prediction.bounding_box.height))
 ```
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
 Ejecute *sample.py*.
 
-```PowerShell
+```powershell
 python sample.py
 ```
 

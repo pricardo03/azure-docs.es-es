@@ -17,12 +17,12 @@ ms.date: 11/14/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: e483df4e3392d64619cc074d21ee560ef3c5df5d
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: da70b77edeb483cae0e74400e739f018f78d0993
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55459210"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370812"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Tutorial: Administración de discos de Azure con la CLI de Azure
 
@@ -65,19 +65,13 @@ Standard Storage está respaldado por unidades de disco duro y ofrece un almacen
 Los discos Premium están respaldados por un disco de latencia reducida y alto rendimiento basado en SSD. Es perfecto para máquinas virtuales que ejecutan cargas de trabajo de producción. Premium Storage es compatible con las máquinas virtuales de las series DS, DSv2, GS y FS. Al seleccionar el tamaño de un disco, el valor se redondea al alza al siguiente tipo. Por ejemplo, si el tamaño del disco es inferior a 128 GB, el tipo de disco es P10. Si el tamaño de disco está entre 129 y 512 GB, el tamaño es un P20. Cualquier tamaño por encima de 512 GB equivale a un tipo P30.
 
 ### <a name="premium-disk-performance"></a>Rendimiento del disco Premium
-
-|Tipo de disco de Premium Storage | P4 | P6 | P10 | P20 | P30 | P40 | P50 | P60 |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| Tamaño del disco (redondeo hacia arriba) | 32 GiB | 64 GiB | 128 GB | 512 GB | 1024 GiB (1 TiB) | 2048 GiB (2 TiB) | 4095 GiB (4 TiB) | 8192 GiB (8 TiB)
-| Máximo de IOPS por disco | 120 | 240 | 500 | 2,300 | 5.000 | 7500 | 7500 | 12 500 |
-Rendimiento de disco. | 25 MB/s | 50 MB/s | 100 MB/s | 150 MB/s | 200 MB/s | 250 MB/s | 250 MB/s | 480 MB/s |
+[!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
 Aunque la tabla anterior identifica las IOPS máximas por disco, se puede obtener un mayor nivel de rendimiento dividiendo varios discos de datos. Por ejemplo, una máquina virtual Standard_GS5 puede conseguir 80 000 IOPS como máximo. Para más información sobre el número máximo de IOPS por máquina virtual, consulte los [tamaños de máquinas virtuales Linux](sizes.md).
 
-
 ## <a name="launch-azure-cloud-shell"></a>Inicio de Azure Cloud Shell
 
-Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta. 
+Azure Cloud Shell es un shell interactivo gratuito que puede usar para ejecutar los pasos de este artículo. Tiene las herramientas comunes de Azure preinstaladas y configuradas para usarlas en la cuenta.
 
 Para abrir Cloud Shell, seleccione **Pruébelo** en la esquina superior derecha de un bloque de código. También puede ir a [https://shell.azure.com/powershell](https://shell.azure.com/bash) para iniciar Cloud Shell en una pestaña independiente del explorador. Seleccione **Copiar** para copiar los bloques de código, péguelos en Cloud Shell y, luego, presione Entrar para ejecutarlos.
 
@@ -187,8 +181,7 @@ Ahora que se ha configurado el disco, cierre la sesión de SSH.
 exit
 ```
 
-
-## <a name="snapshot-a-disk"></a>Instantánea de un disco
+## <a name="take-a-disk-snapshot"></a>Tomar una instantánea de disco
 
 Cuando se toma una instantánea de un disco, Azure crea una copia de solo lectura y de un momento dado del disco. Las instantáneas de máquina virtual de Azure resultan útiles para guardar rápidamente el estado de una máquina virtual antes de realizar cambios en la configuración. Si se produce un error, se puede restaurar la máquina virtual mediante una instantánea. Cuando una máquina virtual tiene más de un disco, se toma una instantánea de cada uno con independencia de los demás. Para realizar copias de seguridad coherentes con la aplicación, considere la posibilidad de detener la máquina virtual antes de tomar instantáneas de disco. Como alternativa, use el [servicio Azure Backup](/azure/backup/), que permite realizar copias de seguridad automatizadas mientras se ejecuta la máquina virtual.
 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 12/06/2018
-ms.openlocfilehash: b6717bc76caffb9c4b6f7743cc5356a80a8f742b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dca789a850e5df58024d13b8f592765e55c39485
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58111861"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316956"
 ---
 # <a name="tutorial-use-apache-storm-with-apache-kafka-on-hdinsight"></a>Tutorial: Uso de Apache Storm con Apache Kafka en HDInsight
 
@@ -129,7 +129,7 @@ Se proporcionan dos topologías con este tutorial:
     >
     > Si no utiliza la plantilla de este documento para crear el clúster de Storm, debe aplicar manualmente la acción del script en el clúster.
     >
-    > La acción del script se encuentra en `https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh` y se aplica a los nodos Nimbus y de supervisor del clúster de Storm. Para más información sobre el uso de las acciones de script, consulte el documento [Personalización de clústeres de HDInsight basados en Linux mediante acciones de script](hdinsight-hadoop-customize-cluster-linux.md).
+    > La acción del script se encuentra en [https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh](https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh) y se aplica a los nodos Nimbus y de supervisor del clúster de Storm. Para más información sobre el uso de las acciones de script, consulte el documento [Personalización de clústeres de HDInsight basados en Linux mediante acciones de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 Las topologías se definen mediante [Flux](https://storm.apache.org/releases/1.1.2/flux.html). Flux se incorporó por primera vez a Storm 0.10.x y permite separar la configuración de la topología del código. Para las topologías que usan el entorno Flux, la topología se define en un archivo YAML. El archivo YAML se puede incluir como parte de la topología. También puede ser un archivo independiente que se usa al enviar la topología. Flux también admite la sustitución de variables en tiempo de ejecución, que se usa en este ejemplo.
 

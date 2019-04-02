@@ -15,18 +15,21 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: msfussell
 ms.custom: mvc
-ms.openlocfilehash: 8f2a3536b7d1b02f124b3116c96ce442383a6b3b
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 4e686d314c1b6550c2c782e9a1e1dc681ff154e1
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294440"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539690"
 ---
 # <a name="overview-of-azure-service-fabric"></a>Información general de Azure Service Fabric
 Azure Service Fabric es una plataforma de sistemas distribuidos que facilita el empaquetado, la implementación y la administración de microservicios y contenedores escalables y confiables. Service Fabric también aborda los desafíos importantes en el desarrollo y la administración de aplicaciones nativas en la nube. Los desarrolladores y administradores pueden evitar problemas complejos de infraestructura y centrarse en su lugar en las cargas de trabajo más exigentes y críticas que son escalables, confiables y fáciles de administrar. Service Fabric representa la plataforma de próxima generación para crear y administrar estas aplicaciones de clase empresarial, escala de nube y nivel 1 que se ejecutan en contenedores.
 
 En este breve vídeo se presentan Service Fabric y los microservicios:
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Service-Fabric/player]
+
+## <a name="compliance"></a>Cumplimiento normativo
+El proveedor de recursos de Azure Service Fabric está disponible en todas las regiones de Azure y cumple todos los certificados que tiene Azure, entre los que se incluyen: SOC, ISO, PCI DSS, HIPPA y GDRP. A continuación encontrará una lista completa de certificados de cumplimiento: [Ofertas de cumplimiento](https://www.microsoft.com/trustcenter/compliance/complianceofferings)
 
 ## <a name="applications-composed-of-microservices"></a>Aplicaciones compuestas por microservicios 
 Service Fabric le permite compilar y administrar aplicaciones escalables y confiables compuestas por microservicios que se ejecutan con una densidad alta en un grupo compartido de máquinas, denominado clúster. Ofrece un sofisticado y ligero sistema en tiempo de ejecución para crear microservicios con y sin estado, distribuidos y escalables que se ejecutan en contenedores. También ofrece una completa funcionalidad de administración de aplicaciones para aprovisionar, implementar, supervisar, actualizar/aplicar revisiones y eliminar aplicaciones implementadas, incluidos los servicios en contenedor.

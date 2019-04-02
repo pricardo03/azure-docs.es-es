@@ -3,7 +3,7 @@ title: 'Ejemplo de script de Azure PowerShell: creación de un clúster de Servi
 description: 'Ejemplo de script de Azure PowerShell: creación de un clúster de Service Fabric.'
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,20 +13,22 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 01/19/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: ad3c51f0f43d63fd784156eca680218850897e8f
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: de807a52e0e97c7cc0886cee5d5586afdf5077a5
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31596558"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58496078"
 ---
 # <a name="create-a-service-fabric-cluster"></a>Creación de un clúster de Service Fabric
 
 En este script de ejemplo se crea un clúster de Service Fabric de cinco nodos protegido con un certificado X.509.  El comando crea un certificado autofirmado y lo carga en un nuevo almacén de claves. El certificado también se copia en un directorio local.  Establezca el parámetro *-OS* para elegir la versión de Windows o Linux que se ejecuta en los nodos del clúster.  Personalice los parámetros según sea necesario.
 
-Si es necesario, instale Azure PowerShell con la instrucción que se encuentra en la [guía de Azure PowerShell](/powershell/azure/overview) y luego ejecute `Connect-AzureRmAccount` para crear una conexión con Azure. 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
+Si es necesario, instale Azure PowerShell con la instrucción que se encuentra en la [guía de Azure PowerShell](/powershell/azure/overview) y luego ejecute `Connect-AzAccount` para crear una conexión con Azure. 
 
 ## <a name="sample-script"></a>Script de ejemplo
 
@@ -38,7 +40,7 @@ Después de ejecutar el script de ejemplo, se puede usar el comando siguiente pa
 
 ```powershell
 $groupname="mysfclustergroup"
-Remove-AzureRmResourceGroup -Name $groupname -Force
+Remove-AzResourceGroup -Name $groupname -Force
 ```
 
 ## <a name="script-explanation"></a>Explicación del script
@@ -47,7 +49,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Notas |
 |---|---|
-| [New-AzureRmServiceFabricCluster](/powershell/module/azurerm.servicefabric/New-AzureRmServiceFabricCluster) | Crea un clúster de Azure Service Fabric. |
+| [New-AzServiceFabricCluster](/powershell/module/az.servicefabric/New-azServiceFabricCluster) | Crea un clúster de Azure Service Fabric. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

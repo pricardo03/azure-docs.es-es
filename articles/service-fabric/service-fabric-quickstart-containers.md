@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 05f8c1898e565e145aedbfdc13e0a88ad09486dc
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: 0d4689e35cd308478ae0c0154761534dd834f146
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804663"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482341"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Inicio rápido: Implementación de contenedores de Windows en Service Fabric
 
@@ -105,7 +105,7 @@ Cuando haya proporcionado los valores para las variables, presione **F5** para e
 
 Después de ejecutar el script y crear el clúster, busque `ClusterEndpoint` en la salida. Por ejemplo: 
 
-```PowerShell
+```powershell
 ...
 ClusterEndpoint : https://southcentralus.servicefabric.azure.com/runtime/clusters/b76e757d-0b97-4037-a184-9046a7c818c0
 ```
@@ -149,7 +149,7 @@ Haga clic en **Publicar**.
 
 Todas las aplicaciones del clúster deben tener un nombre único. Si se produce un conflicto de nombres, cambie el nombre del proyecto de Visual Studio y vuelva a realizar la implementación.
 
-Abra un explorador y vaya a la dirección que especificó en el campo **Connection Endpoint** (Punto de conexión) en el paso anterior. Si lo desea, puede anteponer el identificador de esquema `http://` y agregar el puerto `:80` a la dirección URL. Por ejemplo, http://mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
+Abra un explorador y vaya a la dirección que especificó en el campo **Connection Endpoint** (Punto de conexión) en el paso anterior. Si lo desea, puede anteponer el identificador de esquema `http://` y agregar el puerto `:80` a la dirección URL. Por ejemplo, http:\//mysfcluster.SouthCentralUS.cloudapp.azure.com:80.
 
  Verá la página web predeterminada de IIS: ![Página web predeterminada de IIS][iis-default]
 

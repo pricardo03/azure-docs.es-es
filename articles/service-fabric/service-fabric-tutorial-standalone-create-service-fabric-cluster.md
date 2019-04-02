@@ -3,7 +3,7 @@ title: 'Tutorial de instalación del cliente de Service Fabric independiente: Az
 description: En este tutorial aprenderá a instalar el cliente independiente de Service Fabric en el clúster que creó en el tutorial del artículo anterior.
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: b740aa205982bc0c1104b59e3ea89e2d5980d461
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9563faf5e72bdef2e43afe26d5e8ae0f3d1c67ad
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51240348"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370421"
 ---
-# <a name="tutorial-install-and-create-service-fabric-cluster"></a>Tutorial: instalación y creación del clúster de Service Fabric
+# <a name="tutorial-install-and-create-service-fabric-cluster"></a>Tutorial: Instalación y creación del clúster de Service Fabric
 
 Los clústeres de Service Fabric independientes ofrecen la opción de elegir un entorno propio y crear un clúster como parte del enfoque "Cualquier sistema operativo, cualquier nube" que toma Service Fabric. En esta serie de tutoriales se crea un clúster independiente hospedado en AWS y se instala en él una aplicación.
 
@@ -129,7 +129,7 @@ Your cluster is successfully created! You can connect and manage your cluster us
 
 ### <a name="bring-up-service-fabric-explorer"></a>Incorporación de Service Fabric Explorer
 
-Ahora puede conectarse al clúster con Service Fabric Explorer directamente desde una de las máquinas con http://localhost:19080/Explorer/index.html o de forma remota con http://<*IPAddressofaMachine*>:19080/Explorer/index.html.
+Ahora puede conectarse al clúster con Service Fabric Explorer directamente desde una de las máquinas con http:\//localhost:19080/Explorer/index.html o de forma remota con http:\//<*IPAddressofaMachine*>:19080/Explorer/index.html.
 
 ## <a name="add-and-remove-nodes"></a>Agregar y quitar nodos
 

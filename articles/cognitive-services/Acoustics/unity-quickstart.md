@@ -8,21 +8,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: quickstart
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: b4eedabbc47738eb2f5797ffd67a3e3ebc9529ca
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 468c5584d21c226d6ffce55ff3981e629d872c56
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136214"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58317194"
 ---
 # <a name="project-acoustics-unity-quickstart"></a>Inicio rápido de Project Acoustics con Unity
 Use el contenido de ejemplo de Project Acoustics para Unity para experimentar con los controles de diseño basado en la simulación.
 
 Requisitos de software:
 * [Unity 2018.2+](http://unity3d.com) para Windows
-* [Paquete de contenido de ejemplo de Project Acoustics](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+* [Paquete de contenido de ejemplo de Project Acoustics](https://www.microsoft.com/download/details.aspx?id=57346)
 
 ¿Qué se incluye en el paquete de ejemplo?
 * Escena de Unity con geometría, orígenes de sonido y controles de juego
@@ -33,7 +33,7 @@ Requisitos de software:
 Importe el paquete de ejemplo a un nuevo proyecto de Unity. 
 * En Unity, vaya a **Assets > Import Package > Custom Package...** (Recursos > Importar paquete > Paquete personalizado)
 
-    ![Importación de paquete](media/import-package.png)  
+    ![Captura de pantalla de opciones de importación de paquete de Unity](media/import-package.png)  
 
 * Elija **ProjectAcoustics.unitypackage**
 
@@ -44,23 +44,23 @@ La parte de elaboración del kit de herramientas de Elementos acústicos requier
 
 Puede comprobar si este valor se ha hecho efectivo abriendo la **configuración del jugador**:
 
-![Configuración del Reproductor](media/player-settings.png)
+![Captura de pantalla del panel de configuración del jugador de Unity](media/player-settings.png)
 
-![.NET 4.5](media/net45.png)
+![Captura de pantalla del panel de configuración del jugador de Unity con .NET 4.5 seleccionado](media/net45.png)
 
 ## <a name="experiment-with-design-controls"></a>Experimentación con los controles de diseño
 Abra la escena de ejemplo en la carpeta **ProjectAcousticsSample** y haga clic en el botón de reproducción en el editor de Unity. Use W, A, S, D y el mouse para desplazarse. Para comparar cómo suena la escena con y sin acústica, presione el botón **R** hasta que el texto superpuesto cambie a color rojo en indique "Acoustics: Disabled" (Acústica: deshabilitada). Para ver los métodos abreviados de teclado de otros controles, presione **F1**. Todos los controles también se pueden usar si se hace clic con el botón derecho para seleccionar la acción que se va a realizar y luego se hace clic con el izquierdo para realizarla.
 
 El script **AcousticsAdjust** se adjunta a los orígenes de sonido en la escena de ejemplo, lo que habilita los parámetros de diseño por origen. 
 
-![AcousticsAdjust](media/acoustics-adjust.png)
+![Captura de pantalla del script AcousticsAdjust de Unity](media/acoustics-adjust.png)
 
 A continuación se exploran algunos de los efectos que se pueden producir con los controles proporcionados. Para información detallada acerca de cada control, consulte el [Tutorial de diseño de Project Acoustics en Unity](unreal-workflow.md).
 
 ### <a name="modify-distance-based-attenuation"></a>Modificación de la atenuación basada en la distancia
 El DSP de audio que proporciona el complemento espacializador de **Project Acoustics** para Unity respeta la atenuación basada en la distancia de cada origen, integrada en el editor de Unity. Los controles de la atenuación basada en la distancia están en el componente **Audio Source** (Origen de datos) que se encuentra en el panel **Inspector** de orígenes de sonido, en **3D Sound Settings** (Ajustes de sonido 3D):
 
-![Atenuación por distancia](media/distance-attenuation.png)
+![Captura de pantalla del panel de opciones de atenuación de distancia de Unity](media/distance-attenuation.png)
 
 Project Acoustics realiza el cálculo en un cuadro de "región de simulación" centrado alrededor de la ubicación del jugador. Puesto que los recursos acústicos en el paquete de ejemplo se obtuvieron de una simulación mediante "bake" en la que el tamaño de la región de simulación era de 45 m alrededor del jugador, la atenuación del sonido debe diseñarse para caiga a 0 en aproximadamente 45 m.
 

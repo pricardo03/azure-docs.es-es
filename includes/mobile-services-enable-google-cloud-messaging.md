@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 04/06/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: ae84b5fd5647ef6c54006c0411e334b14173392e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: a7d0a899b4a2ef86153e82a4e3f04e7ec430a1bc
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33836585"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58488049"
 ---
 1. Navegue a la [consola de Google Cloud](https://console.developers.google.com/cloud-resource-manager)e inicie sesión con las credenciales de su cuenta de Google+. 
 2. Seleccione **Create Project** (Crear proyecto) en la barra de herramientas. 
    
     ![Creación de un proyecto](./media/mobile-services-enable-google-cloud-messaging/mobile-services-google-new-project.png)   
 3. En **Project name** (Nombre del proyecto), escriba un nombre para su proyecto y haga clic en **Create** (Crear).
-4. Seleccione el botón **Alerts** (Alertas) de la barra de herramientas y seleccione su proyecto de la lista. Verá el panel de su proyecto. También puede ir directamente al panel mediante la dirección URL: https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>
+4. Seleccione el botón **Alerts** (Alertas) de la barra de herramientas y seleccione su proyecto de la lista. Verá el panel de su proyecto. También puede ir directamente al panel mediante la dirección URL: `https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>`
 
     ![Selección del proyecto en las alertas](./media/mobile-services-enable-google-cloud-messaging/alert-new-project.png)
 5. Anote el **número de proyecto** que se muestra en el icono **Project info** (Información del proyecto) del panel. 
@@ -51,5 +51,5 @@ ms.locfileid: "33836585"
 
     ![Copia de la clave de API](./media/mobile-services-enable-google-cloud-messaging/copy-api-key.png)
    
-    Usará este valor de clave de API para permitir que Azure lleve a cabo la autenticación con GCM y envíe notificaciones de inserción en nombre de su aplicación. Para volver al panel del proyecto, use la dirección URL: https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>
+    Usará este valor de clave de API para permitir que Azure lleve a cabo la autenticación con GCM y envíe notificaciones de inserción en nombre de su aplicación. Para volver al panel del proyecto, use la dirección URL: `https://console.developers.google.com/home/dashboard?project=<YOUR PROJECT NAME>`
 

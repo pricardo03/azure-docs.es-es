@@ -6,23 +6,23 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 02/21/2019
+ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: f36e13ccf91c983c54897dcff7e1c02689fb055c
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: d930b1db48e3a5c4bda96f0b7d80a9c9f24d53d9
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592662"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58400654"
 ---
-# <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Tutorial: Transferencia de datos con Azure Data Box Gateway (versión preliminar)
+# <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Tutorial: Transferencia de datos con Azure Data Box Gateway
 
 
 ## <a name="introduction"></a>Introducción
 
-En este artículo se describe cómo agregar recursos compartidos a Data Box Gateway y cómo conectarse a ellos. Una vez agregados los recursos compartidos, el dispositivo Data Box Gateway puede transferir datos a Azure.
+En este artículo se describe cómo agregar recursos compartidos a Data Box Gateway y cómo conectarse a ellos. Después de agregar los recursos compartidos, el dispositivo de Data Box Edge puede transferir datos a Azure.
 
-Este procedimiento tarda aproximadamente 10 minutos en completarse. 
+Este procedimiento tarda aproximadamente 10 minutos en completarse.
 
 En este tutorial, aprenderá a:
 
@@ -30,62 +30,63 @@ En este tutorial, aprenderá a:
 > * Agregar un recurso compartido
 > * Conexión a un recurso compartido
 
-> [!IMPORTANT]
-> - Data Box Gateway está en versión preliminar. Antes de solicitar e implementar esta solución revise los [términos del servicio de Azure para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
- 
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de agregar recursos compartidos a Data Box Gateway, asegúrese de que:
 
-* Ha aprovisionado un dispositivo virtual y se ha conectado al mismo según se detalla en [Aprovisionamiento de Data Box Gateway en Hyper-V](data-box-gateway-deploy-provision-hyperv.md) o en [Aprovisionamiento de Data Box Gateway en VMware](data-box-gateway-deploy-provision-vmware.md). 
+- Ha aprovisionado un dispositivo virtual y se ha conectado a él según se detalla en [Aprovisionamiento de Data Box Gateway en Hyper-V](data-box-gateway-deploy-provision-hyperv.md) o en [Aprovisionamiento de Data Box Gateway en VMware](data-box-gateway-deploy-provision-vmware.md).
 
-    El dispositivo virtual se activa como se detalla en [Conexión y activación de Azure Data Box Gateway](data-box-gateway-deploy-connect-setup-activate.md) y ya está listo para crear recursos compartidos y transferir datos.
+- Ha activado el dispositivo virtual que se describe en [Conexión y activación de Azure Data Box Gateway](data-box-gateway-deploy-connect-setup-activate.md).
 
+- El dispositivo está listo para crear recursos compartidos y transferir datos.
 
 ## <a name="add-a-share"></a>Agregar un recurso compartido
 
-Siga estos pasos en [Azure Portal](https://portal.azure.com/) para crear un recurso compartido.
+Para crear un recurso compartido, realice el procedimiento siguiente:
 
-1. Vuelva a Azure Portal. Vaya a **Todos los recursos** y busque el recurso de Data Box Gateway.
-    
-2. En la lista filtrada de recursos, seleccione el recurso Data Box Gateway y vaya a **Información general**. Haga clic en **+ Agregar recurso compartido** en la barra de comandos del dispositivo.
+1. En [Azure Portal](https://portal.azure.com/), seleccione el recurso de Data Box Gateway y, después, vaya a **Información general**. El dispositivo debe estar en línea. Haga clic en **+ Agregar recurso compartido** en la barra de comandos del dispositivo.
    
    ![Agregar un recurso compartido](./media/data-box-gateway-deploy-add-shares/click-add-share.png)
 
-4. En **Agregar recurso compartido**, especifique la configuración del recurso compartido. Proporcione un nombre exclusivo para el recurso compartido. 
+4. En **Agregar recurso compartido**, realice el siguiente procedimiento:
 
-   Los nombres de recursos compartidos solo pueden contener letras minúsculas, números y guiones. El nombre del recurso compartido debe tener entre 3 y 63 caracteres y empezar por una letra o un número. Antes y después de cada guion debe ir un carácter que no sea otro guión.
+    1. Proporcione un nombre exclusivo para el recurso compartido. Los nombres de recursos compartidos solo pueden contener letras minúsculas, números y guiones. El nombre del recurso compartido debe tener entre 3 y 63 caracteres y empezar por una letra o un número. Antes y después de cada guion debe ir un carácter que no sea otro guión.
     
-5. Seleccione un **tipo** de recurso compartido. El tipo puede ser SMB o NFS, siendo SMB el valor predeterminado. SMB es el estándar para los clientes de Windows y se usa NFS para los clientes de Linux. Dependiendo de si elige recursos compartidos SMB o NFS, las opciones que se presentan son ligeramente diferentes. 
+    2. Seleccione un **tipo** de recurso compartido. El tipo puede ser SMB o NFS, siendo SMB el valor predeterminado. SMB es el estándar para los clientes de Windows y se usa NFS para los clientes de Linux. Dependiendo de si elige recursos compartidos SMB o NFS, las opciones que se presentan son ligeramente diferentes.
 
-6. Debe proporcionar una cuenta de almacenamiento donde residirá el recurso compartido. Se crea un contenedor en la cuenta de almacenamiento con el nombre del recurso compartido si el contenedor no existía previamente. Si el contenedor ya existe, se usará este. 
+    3. Proporcione una cuenta de almacenamiento donde residirá el recurso compartido. Si todavía no existe un contenedor, se crea en la cuenta de almacenamiento con el nombre del recurso compartido recién creado. Si el contenedor ya existe, se utilizará.
     
-7. Elija el **servicio de almacenamiento** entre blob en bloques, blobs en páginas o archivos. El tipo de servicio elegido depende de en qué formato desea que los datos residan en Azure. Por ejemplo, en este caso, queremos que los datos residan como blobs en bloque en Azure y, por tanto, seleccionamos esa opción. Si elige blob en páginas, debe asegurarse de que los datos tienen 512 bytes alineados. Tenga en cuenta que VHDX siempre tiene 512 bytes alineados.
+    4. Elija el **servicio de almacenamiento** entre blob en bloques, blobs en páginas o archivos. El tipo de servicio elegido depende de en qué formato desea que los datos residan en Azure. Por ejemplo, en este caso, queremos que los datos residan como blobs en bloque en Azure y, por tanto, seleccionamos esa opción. Si elige blob en páginas, debe asegurarse de que los datos tienen 512 bytes alineados. Por ejemplo, un VHDX siempre tiene una alineación de 512 bytes.
    
-8. Este paso depende de si está creando un recurso compartido SMB o NFS. 
+    5. Este paso depende de si está creando un recurso compartido SMB o NFS.
      
-    - **Si crea un recurso compartido SMB**: en el campo Todos los privilegios del usuario local, elija entre **Crear nuevo** o **Usar existente**. Si crea un nuevo usuario local, proporcione el **nombre de usuario**, la **contraseña** y, a continuación, **confirme la contraseña**. Esto asigna los permisos al usuario local. Después de haber asignado los permisos aquí, puede utilizar el Explorador de archivos para modificarlos.
+    - **Recurso compartido SMB**: en **Usuario local con todos los privilegios**, seleccione **Crear nuevo** o **Usar existente**. Si crea un usuario local, escriba un **nombre de usuario** y una **contraseña** y, luego, **confirme la contraseña**. Con esta acción se asignan los permisos al usuario local. Después de asignar aquí los permisos, puede usar el Explorador de archivos para modificarlos.
     
         ![Incorporación de recurso compartido de SMB](./media/data-box-gateway-deploy-add-shares/add-share-smb-1.png)
         
-        Si selecciona **Permitir operaciones de solo lectura** para este recurso compartido de datos, tendrá la opción de especificar usuarios de solo lectura.
+        Si activa la casilla **Permitir operaciones de solo lectura** para los datos de este recurso compartido, puede especificar usuarios de solo lectura.
         
-    - **Si crea un recurso compartido NFS**, debe proporcionar las direcciones IP de los clientes autorizados que pueden acceder al recurso compartido.
+    - **Recurso compartido NFS**: proporcione las direcciones IP de los clientes que pueden acceder al recurso compartido.
 
         ![Incorporación de un recurso compartido NFS](./media/data-box-gateway-deploy-add-shares/add-share-nfs-1.png)
    
-9. Haga clic en **Crear** para crear el recurso compartido. 
+9. Seleccione **Crear** para crear el recurso compartido.
     
-    Se le notifica que la creación del recurso compartido está en curso. Una vez creado el recurso compartido con la configuración especificada, la hoja **Recursos compartidos** se actualiza para reflejar el nuevo recurso compartido. 
+    Recibe una notificación de que la creación del recurso compartido está en curso. Una vez creado el recurso compartido con la configuración especificada, el icono **Recursos compartidos** se actualiza para reflejar el nuevo recurso compartido.
     
-    ![Lista de recursos compartidos actualizada](./media/data-box-gateway-deploy-add-shares/updated-list-of-shares.png) 
+    ![Icono de recursos compartidos actualizados](./media/data-box-gateway-deploy-add-shares/updated-list-of-shares.png) 
 
 ## <a name="connect-to-the-share"></a>Conexión al recurso compartido
 
-Realice estos pasos en el cliente de Windows Server conectado a Data Box Gateway para conectarse a los recursos compartidos.
+Ahora, puede conectarse a uno o varios de los recursos compartidos que creó en el último paso. Dependiendo de si tiene un recurso compartido SMB o NFS, los pasos pueden variar.
+
+### <a name="connect-to-an-smb-share"></a>Conexión a un recurso compartido SMB
+
+En el cliente de Windows Server conectado a Data Box Gateway, escriba los siguientes comandos para conectarse a un recurso compartido SMB:
 
 
-1. Abra el símbolo del sistema. En el símbolo del sistema, escriba:
+1. En una ventana de comandos, escriba:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 
@@ -93,17 +94,18 @@ Realice estos pasos en el cliente de Windows Server conectado a Data Box Gateway
 
     ```powershell
     Microsoft Windows [Version 18.8.16299.192) 
-    (c) 2817 microsoft Corporation. All rights reserved . 
+    (c) 2017 microsoft Corporation. All rights reserved . 
     
     C: \Users\GatewayUser>net use \\10.10.10.60\newtestuser /u:Tota11yNewUser 
-    Enter the password for 'TotallyNewUser' to connect to '10.10.10.60' • 
+    Enter the password for 'TotallyNewUser' to connect to '10.10.10.60'  
     The command completed successfully. 
     
     C: \Users\GatewayUser>
     ```   
 
 
-2. Presione Windows + R. En la ventana **Ejecutar**, escriba `\\<device IP address>`. Haga clic en **OK**. Se abre el Explorador de archivos. Ahora podrá ver los recursos compartidos que creó como carpetas. Seleccione y haga doble clic en un recurso compartido (carpeta) para ver el contenido.
+2. En el teclado, seleccione Windows + R. 
+3. En la ventana **Ejecutar**, especifique `\\<device IP address>` y seleccione **Aceptar**. Se abre el Explorador de archivos. Ahora podrá ver los recursos compartidos que creó como carpetas. En el Explorador de archivos, haga doble clic en un recurso compartido (carpeta) para ver el contenido.
  
     ![Conexión a un recurso compartido SMB](./media/data-box-gateway-deploy-add-shares/connect-to-share2.png)-->
 
@@ -111,7 +113,7 @@ Realice estos pasos en el cliente de Windows Server conectado a Data Box Gateway
 
 ### <a name="connect-to-an-nfs-share"></a>Conexión a un recurso compartido NFS
 
-Realice estos pasos en el cliente de Linux conectado a Data Box Edge.
+En el cliente Linux conectado al dispositivo de Data Box Edge, haga el procedimiento siguiente:
 
 1. Asegúrese de que el cliente tiene instalado el cliente NFSv4. Para instalarlo, use el comando siguiente:
 
@@ -130,8 +132,8 @@ Realice estos pasos en el cliente de Linux conectado a Data Box Edge.
     `sudo mount -t nfs -o sec=sys,resvport 10.10.10.60:/mylinuxshare2 /home/databoxubuntuhost/gateway`
 
 > [!NOTE] 
-> Las siguientes advertencias son aplicables a la versión preliminar:
-> - Una vez creado un archivo en los recursos compartidos, no se puede cambiar el nombre del archivo. 
+> Las siguientes advertencias son aplicables a esta versión:
+> - Una vez creado un archivo en los recursos compartidos, no se puede cambiar el nombre del archivo.
 > - La eliminación de un archivo de un recurso compartido no elimina la entrada en la cuenta de almacenamiento.
 > - Si usa `rsync` para copiar los datos, no se admite la opción `rsync -a`.
 

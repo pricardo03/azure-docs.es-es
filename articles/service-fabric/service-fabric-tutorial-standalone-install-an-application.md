@@ -3,7 +3,7 @@ title: 'Tutorial de instalación de una aplicación en el clúster de Service Fa
 description: En este tutorial aprenderá a instalar una aplicación en el clúster de Service Fabric independiente.
 services: service-fabric
 documentationcenter: .net
-author: david-stanford
+author: dkkapur
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/11/2018
-ms.author: dastanfo
+ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 65c0ca98393fbb4f54eee2f4864218f231765904
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 392fcdd9b9df3eb37c8e105c846a6bddfddeb4d1
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208580"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370439"
 ---
-# <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Tutorial: implementación de una aplicación en el clúster de Service Fabric independiente
+# <a name="tutorial-deploy-an-application-on-your-service-fabric-standalone-cluster"></a>Tutorial: Implementación de una aplicación en el clúster de Service Fabric independiente
 
 Los clústeres de Service Fabric independientes ofrecen la opción de elegir un entorno propio y crear un clúster como parte del enfoque "Cualquier sistema operativo, cualquier nube" que toma Service Fabric. En esta serie de tutoriales se crea un clúster independiente hospedado en AWS y se implementa en él una aplicación.
 
@@ -34,7 +34,7 @@ En la tercera parte de la serie, se aprende a:
 > * Descargar la aplicación de ejemplo
 > * Implementar en el clúster
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar este tutorial:
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/13/2019
+ms.date: 03/26/2019
 ms.author: alkohli
-ms.openlocfilehash: 8128afa7078c396156d2cbffb47effeb7de68a0b
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: f2416bd3393ae05a74665fe7e11bd1c8c04c91d7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58002089"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499037"
 ---
 # <a name="manage-compute-on-your-azure-data-box-edge"></a>Administración de proceso en una instancia de Azure Data Box Edge
 
@@ -32,7 +32,7 @@ En este artículo, aprenderá a:
 
 ## <a name="manage-triggers"></a>Administración de desencadenadores
 
-Los eventos son cosas que ocurren dentro del entorno de nube o en el dispositivo sobre las cuales quizás quiera tomar medidas. Por ejemplo, cuando se crea un archivo en un recurso compartido, hablamos de un evento. La respuesta a esos eventos son los desencadenadores. Los desencadenadores pueden ayudar a ejecutar una función cada vez que se activa el evento. En Data Box Edge, los desencadenadores pueden surgir en respuesta a eventos de archivo o según una programación.
+Los eventos son cosas que ocurren dentro del entorno de nube o en el dispositivo sobre las cuales quizás quiera tomar medidas. Por ejemplo, cuando se crea un archivo en un recurso compartido, hablamos de un evento. Los desencadenadores provocan los eventos. En Data Box Edge, los desencadenadores pueden surgir en respuesta a eventos de archivo o según una programación.
 
 - **Archivo**: estos desencadenadores surgen en respuesta a eventos de archivo como la creación de un archivo o su modificación.
 - **Scheduled**: estos desencadenadores surgen en respuesta a una programación que puede definir con una fecha de inicio, una hora de inicio y el intervalo de repetición.
@@ -132,6 +132,23 @@ Para sincronizar las claves de acceso del dispositivo, siga estos pasos en Azure
      ![Seleccionar Sí cuando se pida confirmación](media/data-box-edge-manage-compute/refresh-configuration-2.png)
 
 3. Salga del cuadro de diálogo cuando haya finalizado la sincronización.
+
+## <a name="enable-a-network-interface-for-compute"></a>Habilitación de una interfaz de red para proceso
+
+Es posible que en algún momento necesite acceder a cualquiera de los módulos que se ejecuta en el dispositivo de Data Box Edge. Para acceder al módulo externamente, deberá asignar una dirección IP a una interfaz de red en el dispositivo. Esta configuración del proceso se puede administrar desde la interfaz de usuario web local.
+
+Realice los pasos siguientes en la interfaz de usuario web local para configurar el proceso.
+
+1. En la interfaz de usuario web local, vaya a **Configuración > Configuración del proceso**.  
+
+2. **Habilite** la interfaz de red que desea usar para conectarse a los módulos del proceso en el dispositivo. 
+
+    - Si usa direcciones IP estáticas, escriba una dirección IP para la interfaz de red.
+    - Si usa DHCP, las direcciones IP se asignarán automáticamente.
+
+3. Seleccione **Aplicar** para aplicar la configuración.
+
+    ![Habilitación de la configuración del proceso](media/data-box-edge-manage-compute/compute-settings-1.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes

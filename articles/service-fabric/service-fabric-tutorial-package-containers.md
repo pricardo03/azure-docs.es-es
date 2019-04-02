@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 01/31/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: bab7cdd478ba33eb797df0e68206b0aaa54be6a5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b6353b2c720a188571a0f6a4e27a89a49c857173
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892615"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311584"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutorial: Empaquetamiento e implementación de contenedores como una aplicación de Service Fabric mediante Yeoman
 
@@ -282,11 +282,11 @@ Use el script de instalación proporcionado en el directorio **TestContainer** p
 ./install.sh
 ```
 
-Abra un explorador y vaya a Service Fabric Explorer en http://containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expanda el nodo Applications y observe que hay una entrada para su tipo de aplicación y otra para la instancia.
+Abra un explorador y vaya a Service Fabric Explorer en http:\//containertestcluster.eastus.cloudapp.azure.com:19080/Explorer. Expanda el nodo Applications y observe que hay una entrada para su tipo de aplicación y otra para la instancia.
 
 ![Service Fabric Explorer][sfx]
 
-Para conectarse a la aplicación en ejecución, abra un explorador web y vaya a la dirección URL del clúster, por ejemplo, http://containertestcluster.eastus.cloudapp.azure.com:80. Debería ver la aplicación de votación en la interfaz de usuario web.
+Para conectarse a la aplicación en ejecución, abra un explorador web y vaya a la dirección URL del clúster, por ejemplo, http:\//containertestcluster.eastus.cloudapp.azure.com:80. Debería ver la aplicación de votación en la interfaz de usuario web.
 
 ![votingapp][votingapp]
 

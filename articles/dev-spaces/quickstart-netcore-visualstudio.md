@@ -1,116 +1,131 @@
 ---
-title: Creación de un espacio de desarrollo de Kubernetes en la nube
+title: Desarrollo con .NET Core en AKS con Azure Dev Spaces y Visual Studio 2017
 titleSuffix: Azure Dev Spaces
 author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
-ms.custom: vs-azure
-ms.workload: azure-vs
+ms.subservice: azds-kubernetes
 ms.author: zarhoads
-ms.date: 07/09/2018
+ms.date: 03/22/2019
 ms.topic: quickstart
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s '
-ms.openlocfilehash: 972a3f86e08d60db5a16ea505cb3fe446516c87e
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, malla de servicio, enrutamiento de malla de servicio, kubectl, k8s
+manager: jeconnoc
+ms.custom: vs-azure
+ms.workload: azure-vs
+ms.openlocfilehash: 0ae2b264e689270743bc8e4aa5024a4b99eb6626
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770125"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58418846"
 ---
-# <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-net-core-and-visual-studio"></a>Inicio rápido: Creación de un espacio de desarrollo de Kubernetes con Azure Dev Spaces (.NET Core y Visual Studio)
+# <a name="quickstart-develop-with-net-core-on-kubernetes-with-azure-dev-spaces-visual-studio-2017"></a>Inicio rápido: Desarrollo con .NET Core en Kubernetes con Azure Dev Spaces (Visual Studio 2017)
 
 En esta guía, aprenderá a:
 
 - Configurar Azure Dev Spaces con un clúster de Kubernetes administrado en Azure.
-- Desarrollar código de forma iterativa en contenedores con Visual Studio
-- Depurar el código que se ejecuta en un clúster.
-
-> [!Note]
-> **Si se queda bloqueado** en cualquier momento, consulte la sección [Solución de problemas](troubleshooting.md) o publique un comentario en esta página. También puede probar con este [tutorial](get-started-netcore-visualstudio.md), que es más detallado.
+- Desarrollar código de forma iterativa en contenedores con Visual Studio 2017.
+- Depurar el código que se ejecuta en un clúster con Visual Studio 2017.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Un clúster de Kubernetes que ejecute Kubernetes 1.9.6 o posterior, en las regiones EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral o CanadaEast.
+- Una suscripción de Azure. En caso de no tener ninguna, puede crear una [cuenta gratuita](https://azure.microsoft.com/free).
+- Visual Studio 2017 en Windows con la carga de trabajo Desarrollo web instalada. Si no está instalada, descárguela [aquí](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+- [Visual Studio Tools para Kubernetes](https://aka.ms/get-vsk8stools) instalada.
 
-- Visual Studio 2017 con la carga de trabajo Desarrollo de Web instalada. Si no está instalada, descárguela [aquí](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
+## <a name="create-an-azure-kubernetes-service-cluster"></a>Creación de un clúster de Azure Kubernetes Service
 
-## <a name="set-up-azure-dev-spaces"></a>Configuración de Azure Dev Spaces
+Debe crear un clúster de AKS en una [región admitida](https://docs.microsoft.com/azure/dev-spaces/#a-rapid,-iterative-kubernetes-development-experience-for-teams). Para crear un clúster:
 
-Instale [Visual Studio Tools para Kubernetes](https://aka.ms/get-vsk8stools).
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
+1. Seleccione *+ Crear un recurso > Kubernetes Service*. 
+1. Escriba la _suscripción_, el _grupo de recursos_, el _nombre del clúster de Kubernetes_, la _región_, la _versión de Kubernetes_ y el _prefijo del nombre DNS_.
 
-## <a name="connect-to-a-cluster"></a>Conectarse a un clúster
+    ![Creación de instancia de AKS en Azure Portal](media/get-started-netcore-visualstudio/create-aks-portal.png)
 
-A continuación, creará y configurará un proyecto para Azure Dev Spaces.
+1. Haga clic en *Revisar + crear*.
+1. Haga clic en *Create*(Crear).
 
-### <a name="create-an-aspnet-web-app"></a>Creación de una aplicación web de ASP.NET
+## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Habilitar Azure Dev Spaces en el clúster de AKS
 
-En Visual Studio 2017, cree un nuevo proyecto. Actualmente, el proyecto debe ser una **aplicación web de ASP.NET Core**. Asigne el nombre **webfrontend** al proyecto.
+Vaya a su clúster de AKS en Azure Portal y haga clic en *Dev Spaces*. Cambie *Enable Dev Spaces* (Habilitar Dev Spaces) a *Sí* y haga clic en *Guardar*.
 
-Seleccione la plantilla **Aplicación web (controlador de vista de modelos)** y asegúrese de que apunta a **.NET Core** y **ASP.NET Core 2.0**.
+![Habilitar Dev Spaces en Azure Portal](media/get-started-netcore-visualstudio/enable-dev-spaces-portal.png)
 
-### <a name="enable-dev-spaces-for-an-aks-cluster"></a>Habilitación de Dev Spaces para un clúster de AKS
+## <a name="create-a-new-aspnet-web-app"></a>Crear una aplicación web ASP.NET
 
-Con el proyecto que acaba de crear, seleccione **Azure Dev Spaces**  en el menú desplegable de configuración de inicio, como se muestra a continuación.
+1. Abra Visual Studio 2017.
+1. Crear un nuevo proyecto.
+1. Elija *Aplicación web ASP.NET Core* y asigne al proyecto el nombre *webfrontend*.
+1. Haga clic en *OK*.
+1. Cuando se le solicite, elija *Aplicación web (Modelo-Vista-Controlador)* para la plantilla.
+1. Seleccione *.NET Core* y *ASP.NET Core 2.0* en la parte superior.
+1. Haga clic en *OK*.
+
+## <a name="connect-your-project-to-your-dev-space"></a>Conexión del proyecto al espacio de desarrollo
+
+En el proyecto, seleccione **Azure Dev Spaces**  en el menú desplegable de configuración de inicio, como se muestra a continuación.
 
 ![](media/get-started-netcore-visualstudio/LaunchSettings.png)
 
-En el cuadro de diálogo que se muestra a continuación, asegúrese de que ha iniciado sesión con la cuenta adecuada y, a continuación, seleccione un clúster existente.
+En el cuadro de diálogo de Azure Dev Spaces, seleccione su *suscripción* y *un clúster de Azure Kubernetes*. Deje *Espacio* establecido en *predeterminado* y active la casilla *Accesible públicamente*. Haga clic en *OK*.
 
 ![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog.png)
 
-Por ahora, deje en el menú desplegable **Espacio** la opción `default`. Active la casilla **Publicly Accessible** (Acceso público) para que la aplicación web esté accesible mediante un punto de conexión público.
-
-![](media/get-started-netcore-visualstudio/Azure-Dev-Spaces-Dialog2.png)
-
-Haga clic en **Aceptar** para seleccionar o crear el clúster.
-
-Si elige un clúster que no ha sido configurado para trabajar con Azure Dev Spaces, verá un mensaje preguntando si desea configurarlo.
+Este proceso implementa el servicio en el espacio de desarrollo *predeterminado* con una dirección URL accesible públicamente. Si elige un clúster que no ha sido configurado para trabajar con Azure Dev Spaces, verá un mensaje preguntando si desea configurarlo. Haga clic en *OK*.
 
 ![](media/get-started-netcore-visualstudio/Add-Azure-Dev-Spaces-Resource.png)
 
-Elija **Aceptar**. 
+La dirección URL pública para el servicio que se ejecuta en el espacio de desarrollo *predeterminado* aparece en la ventana *Salida*:
 
-### <a name="look-at-the-files-added-to-project"></a>Examen de los archivos agregados al proyecto
-Mientras espera a que se cree el espacio de desarrollo, mire los archivos que se han agregado al proyecto cuando eligió usar Azure Dev Spaces.
+```cmd
+Starting warmup for project 'webfrontend'.
+Waiting for namespace to be provisioned.
+Using dev space 'default' with target 'MyAKS'
+...
+Successfully built 1234567890ab
+Successfully tagged webfrontend:devspaces-11122233344455566
+Built container image in 39s
+Waiting for container...
+36s
 
-- Se ha agregado una carpeta llamada `charts` y, dentro de ella, un [gráfico de Helm](https://docs.helm.sh) para la aplicación a la que se ha aplicado la técnica scaffolding. Estos archivos se usan para implementar la aplicación en el espacio de desarrollo.
-- `Dockerfile` contiene la información necesaria para empaquetar la aplicación en el formato estándar de Docker.
-- `azds.yaml` contiene la configuración de tiempo de desarrollo necesaria para el espacio de desarrollo.
+Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Service 'webfrontend' port 80 (http) is available at http://localhost:62266
+Completed warmup for project 'webfrontend' in 125 seconds.
+```
 
-![](media/get-started-netcore-visualstudio/ProjectFiles.png)
+En el ejemplo anterior, la dirección URL pública es http://webfrontend.1234567890abcdef1234.eus.azds.io/. Vaya a la dirección URL pública del servicio e interactúe con él mientras se ejecuta en el espacio de desarrollo.
 
-## <a name="debug-a-container-in-kubernetes"></a>Depuración de un contenedor en Kubernetes
-Cuando el espacio de desarrollo se haya creado correctamente, puede depurar la aplicación. Establezca un punto de interrupción en el código, por ejemplo, en la línea 20 del archivo `HomeController.cs`, donde se establece la variable `Message`. Pulse **F5** para iniciar la depuración. 
+## <a name="update-code"></a>Actualización del código
 
-Visual Studio se comunicará con el espacio de desarrollo para compilar e implementar la aplicación y, después, abrirá un explorador con la aplicación web en ejecución. Puede parecer que el contenedor se ejecuta localmente, pero en realidad lo hace en el espacio de desarrollo de Azure. La razón de la dirección de localhost es porque Azure Dev Spaces crea un túnel SSH temporal al contenedor que se ejecuta en AKS.
+Si Visual Studio 2017 está conectado todavía a su espacio de desarrollo, haga clic en el botón Detener. Cambie la línea 20 en `Controllers/HomeController.cs` a:
+    
+```csharp
+ViewData["Message"] = "Your application description page in Azure.";
+```
 
-Haga clic en el vínculo **Acerca de** en la parte superior de la página para desencadenar el punto de interrupción. Tiene acceso completo a la información de depuración, tal como lo haría si el código se ejecutara localmente, como la pila de llamadas, las variables locales o la información de excepción, por ejemplo.
+Guarde los cambios e inicie el servicio mediante **Azure Dev Spaces** en la lista desplegable de configuración de inicio. Abra la dirección URL pública del servicio en un explorador y haga clic en *Acerca de*. Observe que aparece el mensaje actualizado.
 
+En lugar de volver a crear e implementar una nueva imagen de contenedor cada vez que se realizan modificaciones en el código, Azure Dev Spaces vuelve a compilar el código de manera incremental dentro del contenedor existente para proporcionar un bucle de modificación y depuración más rápido.
 
-## <a name="iteratively-develop-code"></a>Desarrollo de código de forma iterativa
+## <a name="setting-and-using-breakpoints-for-debugging"></a>Establecimiento y uso de puntos de interrupción para la depuración
 
-Con Azure Dev Spaces no se trata solo de conseguir que el código se ejecute en Kubernetes, sino de permitirle ver rápida e iterativamente que los cambios de código surtan efecto en un entorno de Kubernetes en la nube.
+Si Visual Studio 2017 está conectado todavía a su espacio de desarrollo, haga clic en el botón Detener. Abra `Controllers/HomeController.cs` y haga clic en algún lugar de la línea 20 para colocar el cursor allí. Para establecer un punto de interrupción, pulse *F9* o haga clic en *Depurar* y en *Alternar punto de interrupción*. Para iniciar el servicio en modo de depuración en el espacio de desarrollo, pulse *F5* o haga clic en *Depurar* y en *Iniciar depuración*.
 
-### <a name="update-a-content-file"></a>Actualización de un archivo de contenido
-1. Busque el archivo `./Views/Home/Index.cshtml` y realice una edición en el código HTML. Por ejemplo, cambie la línea 70 que dice `<h2>Application uses</h2>` a algo como: `<h2>Hello k8s in Azure!</h2>`
-1. Guarde el archivo.
-1. Regrese al explorador y actualice la página. Debería ver la página web que muestra el código HTML actualizado.
+Abra el servicio en un explorador y observe que no se muestra ningún mensaje. Vuelva a Visual Studio 2017 y observe que la línea 20 está resaltada. El punto de interrupción que estableció ha detenido el servicio en la línea 20. Para reanudar el servicio, pulse *F5* o haga clic en *Depurar* y en *Continuar*. Regrese al explorador y observe que ahora se muestra el mensaje.
 
-¿Qué ha ocurrido? Las ediciones de archivos de contenido, como HTML y CSS, no requieren compilarlos de nuevo en una aplicación web de .NET Core, por lo que un sesión de F5 activa sincroniza automáticamente cualquier archivo de contenido modificado en el contenedor que se está ejecutando en AKS, para que pueda ver sus ediciones de contenido de inmediato.
+Mientras se ejecuta el servicio en Kubernetes con un depurador asociado, tiene acceso completo a la información de depuración como, por ejemplo, la de la pila de llamadas, las variables locales y la información de excepciones.
 
-### <a name="update-a-code-file"></a>Actualización de un archivo de código
-Actualizar archivos de código requiere un poco más de trabajo, porque una aplicación .NET Core necesita volver a crear y producir archivos binarios de aplicaciones actualizados.
+Quite el punto de interrupción colocando el cursor en la línea 20 en `Controllers/HomeController.cs` y pulsando *F9*.
 
-1. Detenga el depurador en Visual Studio.
-1. Abra el archivo de código denominado `Controllers/HomeController.cs` y edite el mensaje que se mostrará en la página Acerca de: `ViewData["Message"] = "Your application description page.";`
-1. Guarde el archivo.
-1. Pulse **F5** para iniciar la depuración de nuevo. 
+## <a name="clean-up-your-azure-resources"></a>Limpieza de los recursos de Azure
 
-En lugar de volver a crear e implementar una nueva imagen de contenedor cada vez que se realizan modificaciones en el código, lo que a menudo lleva un tiempo considerable, Azure Dev Spaces volverá a compilar el código de manera incremental dentro del contenedor existente para proporcionar un bucle de modificación/depuración más rápido.
+Vaya al grupo de recursos en Azure Portal y haga clic en *Eliminar grupo de recursos*. Como alternativa, puede usar el comando [az aks delete](/cli/azure/aks#az-aks-delete):
 
-Actualice la aplicación web en el explorador y vaya a la página Acerca de. Verá que aparece el mensaje personalizado en la interfaz de usuario.
-
+```cmd
+az group delete --name MyResourceGroup --yes --no-wait
+```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

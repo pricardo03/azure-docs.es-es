@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b71c48a86be13df51222069f6948642455bc77fc
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2543ffb20c4e7da840201cfd3be04505515458a6
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121271"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58539367"
 ---
 # <a name="tutorial---how-to-use-cloud-init-to-customize-a-linux-virtual-machine-in-azure-on-first-boot"></a>Tutorial: Uso de cloud-init para personalizar una máquina virtual Linux en Azure durante el primer arranque
 
@@ -131,7 +131,7 @@ az vm open-port --port 80 --resource-group myResourceGroupAutomate --name myVM
 ```
 
 ## <a name="test-web-app"></a>Prueba de la aplicación web
-Ahora puede abrir un explorador web y escribir *http://<publicIpAddress>* en la barra de direcciones. Proporcione su propia dirección IP pública obtenida del proceso de creación de la máquina virtual. Su aplicación Node.js se muestra como en el ejemplo siguiente:
+Ahora puede abrir un explorador web y escribir *http:\/\/\<Dirección_IP_Pública>* en la barra de direcciones. Proporcione su propia dirección IP pública obtenida del proceso de creación de la máquina virtual. Su aplicación Node.js se muestra como en el ejemplo siguiente:
 
 ![Ver sitio de NGINX en funcionamiento](./media/tutorial-automate-vm-deployment/nginx.png)
 
@@ -262,7 +262,7 @@ az vm open-port \
 ```
 
 ### <a name="test-secure-web-app"></a>Prueba de la aplicación web segura
-Ahora puede abrir un explorador web y escribir *https://<publicIpAddress>* en la barra de direcciones. Proporcione su propia dirección IP pública, como se muestra en la salida del proceso anterior de creación de máquinas virtuales. Acepte la advertencia de seguridad si usó un certificado autofirmado:
+Ahora puede abrir un explorador web y escribir *http:\/\/\<Dirección_IP_Pública>* en la barra de direcciones. Proporcione su propia dirección IP pública, como se muestra en la salida del proceso anterior de creación de máquinas virtuales. Acepte la advertencia de seguridad si usó un certificado autofirmado:
 
 ![Aceptar la advertencia de seguridad del explorador web](./media/tutorial-automate-vm-deployment/browser-warning.png)
 

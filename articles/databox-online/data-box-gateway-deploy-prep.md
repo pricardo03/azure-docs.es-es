@@ -6,16 +6,16 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: tutorial
-ms.date: 01/28/2019
+ms.date: 03/21/2019
 ms.author: alkohli
-ms.openlocfilehash: 6f47606e91ec55bae624527bace81d947c5ea4f9
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 78008357e3ea8fbfe707a7dbead19e3fce83b578
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55091553"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403704"
 ---
-# <a name="tutorial-prepare-to-deploy-azure-data-box-gateway-preview"></a>Tutorial: Preparación de la implementación de Azure Data Box Gateway (versión preliminar)
+# <a name="tutorial-prepare-to-deploy-azure-data-box-gateway"></a>Tutorial: Preparación de la implementación de Azure Data Box Gateway
 
 
 Este es el primer tutorial de la serie de tutoriales de implementación necesarios para implementar completamente Azure Data Box Gateway. En este tutorial se describe cómo preparar Azure Portal para implementar recursos de Data Box Gateway. 
@@ -29,13 +29,7 @@ En este tutorial, aprenderá a:
 > * Descarga de la imagen del dispositivo virtual
 > * Obtención de la clave de activación
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
-
-
-> [!IMPORTANT]
-> - Data Box Gateway está en versión preliminar. Antes de solicitar e implementar esta solución revise los [términos del servicio de Azure para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
-
-### <a name="get-started"></a>Introducción
+## <a name="get-started"></a>Introducción
 
 Para implementar Data Box Gateway, consulte los siguientes tutoriales en el orden indicado.
 
@@ -56,97 +50,109 @@ Aquí encontrará los requisitos previos para configurar su recurso de Data Box 
 
 Antes de comenzar, asegúrese de que:
 
-* Su suscripción de Microsoft Azure debe estar habilitada para el recurso de Data Box Gateway.
-* Tiene una cuenta de almacenamiento de Microsoft Azure con credenciales de acceso.
+- El recurso de Data Box Gateway debe admitir su suscripción de Microsoft Azure. No se admiten suscripciones de pago por uso.
+- Tiene una cuenta de almacenamiento de Microsoft Azure con credenciales de acceso.
 
 ### <a name="for-the-data-box-gateway-device"></a>Para el dispositivo de Data Box Gateway
 
 Antes de implementar un dispositivo virtual, asegúrese de que:
 
-* Tiene acceso a un sistema host que ejecuta Hyper-V en Windows Server 2012 R2 o versiones posteriores o VMware (ESXi 6.0, 6.5 o 6.7) que puede usarse para aprovisionar un dispositivo.
-* El sistema host puede dedicar los recursos siguientes para aprovisionar el dispositivo virtual Data Box:
+- Tiene acceso a un sistema host que ejecuta Hyper-V en Windows Server 2012 R2 o versiones posteriores o VMware (ESXi 6.0, 6.5 o 6.7) que puede usarse para aprovisionar un dispositivo.
+- El sistema host puede dedicar los recursos siguientes para aprovisionar el dispositivo virtual Data Box:
   
-  * Un mínimo de 4 núcleos.
-  * Al menos 8 GB de RAM. 
-  * Una interfaz de red.
-  * Un disco de sistema operativo de 250 GB.
-  * Un disco virtual de 2 TB para datos del sistema.
+  - Un mínimo de 4 procesadores virtuales.
+  - Al menos 8 GB de RAM.
+  - Una interfaz de red.
+  - Un disco de sistema operativo de 250 GB.
+  - Un disco virtual de 2 TB para datos del sistema.
 
 ### <a name="for-the-datacenter-network"></a>Para la red del centro de datos
 
 Antes de comenzar, asegúrese de que:
 
-* La red del centro de datos está configurada según los requisitos de red para el dispositivo de Data Box Gateway. Para más información, consulte [Requisitos del sistema de Data Box Gateway](data-box-gateway-system-requirements.md).
+- La red del centro de datos está configurada según los requisitos de red para el dispositivo de Data Box Gateway. Para más información, consulte [Requisitos del sistema de Data Box Gateway](data-box-gateway-system-requirements.md).
 
-* El recurso de Data Box Gateway tiene un ancho de banda de Internet de 20 Mbps (o más) disponible en todo momento. Este ancho de banda no debe compartirse con otras aplicaciones. Si usa la limitación de red para limitar el trabajo, se recomienda usar un ancho de banda de Internet de 32 Mbps o más.
+- Para que Data Box Edge funcione normalmente, debe disponer de:
+
+    - Un ancho de banda mínimo de 10 Mbps para garantizar que el dispositivo se mantiene actualizado.
+    - Un ancho de banda mínimo de 20 Mbps dedicado a carga y descarga para transferir archivos.
 
 ## <a name="create-a-new-resource"></a>Crear un nuevo recurso
 
-Realice los siguientes pasos para crear un nuevo recurso de Data Box Gateway. 
-
 Si ya tiene un recurso de Data Box Gateway para administrar los dispositivos virtuales, omita este paso y vaya a [Obtención de la clave de activación](#get-the-activation-key).
 
-Siga estos pasos en Azure Portal para crear un recurso de Data Box.
-1. Use sus credenciales de Microsoft Azure para iniciar sesión en el Portal de vista previa de Azure, en esta dirección URL: [https://aka.ms/databox-edge](https://aka.ms/databox-edge). 
+Siga estos pasos en Azure Portal para crear un recurso de Data Box Gateway.
 
-2. Seleccione la suscripción que desea usar para la versión preliminar de Data Box Edge. Seleccione la región donde desea implementar el recurso Data Box Edge. En la opción **Data Box Gateway**, haga clic en **Crear**.
+1. Use sus credenciales de Microsoft Azure para iniciar sesión en:
+
+    - Azure Portal en esta dirección URL: [https://portal.azure.com](http://portal.azure.com).
+    - O bien, el portal de Azure Government en esta dirección URL: [https://portal.azure.us](https://portal.azure.us). Para más información, vaya a [Connect to Azure Government using the portal](https://docs.microsoft.com/azure/azure-government/documentation-government-get-started-connect-with-portal) (Conexión a Azure Government mediante el portal).
+
+2. En el menú izquierdo, seleccione **+ Crear un recurso**. Busque **Data Box Edge/Data Box Gateway**. Seleccione Data Box Edge/Data Box Gateway. Seleccione **Crear**.
+3. Seleccione la suscripción que desea usar para el dispositivo Data Box Gateway. Seleccione la región donde quiere implementar el recurso Data Box Gateway. En esta versión, están disponibles las regiones de Este de EE. UU., Sudeste Asiático y Europa Occidental. Elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo. En la opción **Data Box Gateway**, seleccione **Crear**.
 
     ![Busque el servicio Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-edge-sku.png)
 
-3. Escriba o seleccione la siguiente información para el nuevo recurso.
+4. En la pestaña **Datos básicos**, escriba o seleccione los siguientes **detalles del proyecto**.
     
     |Configuración  |Valor  |
     |---------|---------|
-    |Nombre del recurso   | Nombre descriptivo que identifique el recurso.<br>El nombre tiene entre 2 y 50 caracteres que contiene letras, números y guiones.<br> El nombre comienza y termina con una letra o un número.        |
-    |Subscription    |La suscripción está vinculada a la cuenta de facturación. |
+    |Subscription    |Este valor se rellena automáticamente según la selección anterior. La suscripción está vinculada a la cuenta de facturación. |
     |Grupos de recursos  |Cree un nuevo grupo o seleccione uno existente.<br>Más información sobre los [grupos de recursos de Azure](../azure-resource-manager/resource-group-overview.md).     |
-    |Ubicación     |En esta versión están disponibles Europa Occidental, Este de EE. UU., Oeste de EE.UU. 2, Sudeste Asiático y Europa Occidental. <br> Elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo.|
+
+5. Escriba o seleccione los siguientes **detalles de la instancia**.
+   |Nombre| Nombre descriptivo que identifique el recurso.<br>El nombre tiene entre 2 y 50 caracteres que contiene letras, números y guiones.<br> El nombre comienza y termina con una letra o un número.        |   
+    |Región |En esta versión, están disponibles las regiones de Este de EE. UU., Sudeste Asiático y Europa Occidental para implementar el recurso. En cuanto a Azure Government, todas las regiones que aparecen en la lista de [regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/) están disponibles. <br> Elija la ubicación más cercana a la región geográfica donde quiera implementar el dispositivo.
     
     ![Creación de un recurso de Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource.png)
     
-4. Haga clic en **OK**.
+6. Seleccione **Revisar + crear**.
  
-Se tarda unos minutos en crear el recurso. Recibirá una apropiada cuando el servicio se cree correctamente.
+7. En la pestaña **Revisar y crear**, revise la información de **Detalles de precios**, **Términos de uso** y los detalles de su recurso. Seleccione **Crear**.
 
+    ![Revisión de los detalles del recurso de Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource1.png)
+
+Se tarda unos minutos en crear el recurso. Cuando el recurso se haya creado e implementado correctamente, recibirá una notificación. Haga clic en **Go to resource** (Ir al recurso).
+
+![Revisión de los detalles del recurso de Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource2.png)
 
 ## <a name="download-the-virtual-device-image"></a>Descarga de la imagen del dispositivo virtual
 
-Una vez creado el recurso de Data Box Gateway, descargue la imagen correspondiente al dispositivo virtual para aprovisionar un dispositivo virtual en el sistema host. Las imágenes de dispositivos virtuales son específicas del sistema operativo y pueden descargarse de la hoja **Inicio rápido** en Azure Portal.
+Una vez creado el recurso de Data Box Gateway, descargue la imagen correspondiente al dispositivo virtual para aprovisionar un dispositivo virtual en el sistema host. Las imágenes de dispositivo virtual son específicas de un sistema operativo.
 
 > [!IMPORTANT]
 > El software que se ejecuta en Data Box Gateway solo puede usarse con el recurso Data Box Gateway.
 
+Siga estos pasos en [Azure Portal](https://portal.azure.com/) para descargar una imagen de dispositivo virtual.
 
-Siga estos pasos en [Azure Portal](https://portal.azure.com/).
-
-1. Haga clic en el recurso que ha creado y, a continuación, haga clic en **Información general**. Si ya tiene un recurso de Azure Data Box Gateway, haga clic en él y vaya a **Información general**.
+1. En el recurso que ha creado, seleccione **Información general**. Si ya tiene un recurso de Azure Data Box Gateway, selecciónelo y vaya a **Información general**. Seleccione **Instalación del dispositivo**.
 
     ![Nuevo recurso de Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource-created.png)
 
-4. En el inicio rápido del panel derecho, haga clic en el vínculo correspondiente a la imagen que quiere descargar. Los archivos de imagen tienen un tamaño aproximado de 4,8 GB.
+2. En el icono **Descargar imagen**, seleccione la imagen de dispositivo virtual correspondiente al sistema operativo del servidor host que se usa para aprovisionar la máquina virtual. Los archivos de imagen tienen un tamaño aproximado de 5,6 GB.
    
    * [VHD para Hyper-V en Windows Server 2012 R2 y versiones posteriores](https://aka.ms/dbe-vhdx-2012).
    * [VMDK para VMWare ESXi 6.0, 6.5 o 6.7](https://aka.ms/dbe-vmdk).
+
+    ![Descarga de la imagen de dispositivo virtual de Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-download-image.png)
 
 5. Descargue y descomprima el archivo en una unidad local y tome nota de dónde se encuentra el archivo sin comprimir.
 
 
 ## <a name="get-the-activation-key"></a>Obtención de la clave de activación
 
-Cuando el recurso de Data Box Gateway esté en funcionamiento, deberá obtener la clave de activación. Esta clave se utiliza para activar y conectar el dispositivo de Data Box Gateway con el recurso.
+Cuando el recurso de Data Box Gateway esté en funcionamiento, deberá obtener la clave de activación. Esta clave se utiliza para activar y conectar el dispositivo de Data Box Gateway con el recurso. Puede obtener esta clave ahora mientras está en Azure Portal.
 
-La clave de activación se usa para registrar todos los dispositivos de Data Box Gateway que se deben activar con el recurso de Data Box Gateway. Puede obtener esta clave ahora mientras está en Azure Portal.
+1. Seleccione el recurso que ha creado y, a continuación, seleccione **Información general**. En **Instalación del dispositivo**, vaya al icono **Configurar y activar**.
 
-1. Haga clic en el recurso que ha creado y, a continuación, haga clic en **Información general**.
+    ![Icono Configurar y activar](media/data-box-gateway-deploy-prep/data-box-gateway-configure-activate.png)
 
-    ![Nuevo recurso de Data Box Gateway](media/data-box-gateway-deploy-prep/data-box-gateway-resource-created.png)
-
-2. Haga clic en **Generar clave** para crear una nueva clave de activación. Haga clic en el icono de copia para copiar la clave y guárdela para su uso posterior.
+2. Haga clic en **Generar clave** para crear una nueva clave de activación. Seleccione el icono de copia para copiar la clave y guárdela para su uso posterior.
 
     ![Obtención de la clave de activación](media/data-box-gateway-deploy-prep/get-activation-key.png)
 
 > [!IMPORTANT]
-> - La clave de activación expira tres días después de generarla. 
+> - La clave de activación expira tres días después de generarla.
 > - Si la clave ha expirado, genere una nueva. La clave antigua no es válida.
 
 ## <a name="next-steps"></a>Pasos siguientes

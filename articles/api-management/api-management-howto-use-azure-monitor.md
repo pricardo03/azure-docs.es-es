@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 3501284be2430941863bbae90f044df8ba5e7a2a
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 7f2fe6fc3ba3ae515d372fb5a794e46897bad115
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56454811"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58517953"
 ---
 # <a name="monitor-published-apis"></a>Supervisión de las API publicadas
 
@@ -184,7 +184,7 @@ Actualmente, API Management proporciona registros de diagnóstico (de los que se
 | correlationId | string | Identificador único de la solicitud HTTP asignado por API Management |
 | location | string | Nombre de la región de Azure donde se encontraba la puerta de enlace que procesó la solicitud |
 | httpStatusCodeCategory | string | Categoría del código de estado de respuesta HTTP: Correcto (301 o menos, 304 o 307), No autorizado (401, 403, 429), Erróneo (400, entre 500 y 600), Otro |
-| ResourceId | string | "Identificador del recurso de API Management/SUBSCRIPTIONS/<subscription>/RESOURCEGROUPS/<grupoDeRecursos>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/<name> |
+| ResourceId | string | Identificador del recurso de API Management /SUBSCRIPTIONS/\<subscription>/RESOURCEGROUPS/\<resource-group>/PROVIDERS/MICROSOFT.APIMANAGEMENT/SERVICE/\<name> |
 | propiedades | objeto | Propiedades de la solicitud actual |
 | estático | string | Método HTTP de la solicitud entrante |
 | URL | string | Dirección URL de la solicitud entrante |

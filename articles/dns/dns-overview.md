@@ -2,17 +2,16 @@
 title: ¿Qué es Azure DNS?
 description: Información general del servicio de hospedaje de DNS en Microsoft Azure. Hospede el dominio en Microsoft Azure.
 author: vhorne
-manager: jeconnoc
 ms.service: dns
 ms.topic: overview
-ms.date: 9/24/2018
+ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 62043128b6415a064e35adca6be4d60ccfcae308
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: cea19ad2ba03d3e71df32912a1d7ee9e6171689a
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294321"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58339471"
 ---
 # <a name="what-is-azure-dns"></a>¿Qué es Azure DNS?
 
@@ -39,6 +38,7 @@ Los dominios DNS de DNS de Azure se hospedan en la red global de servidores de n
 Para más información, consulte [Protección de registros y zonas DNS](dns-protect-zones-recordsets.md). 
 
 ## <a name="dnssec"></a>DNSSEC
+
 DNS de Azure no es compatible actualmente con DNSSEC. En la mayoría de los casos, la necesidad de DNSSEC se puede reducir sistemáticamente mediante el uso de HTTPS/TLS en sus aplicaciones. Si DNSSEC es un requisito fundamental para sus zonas DNS, puede hospedar dichas zonas en proveedores de hospedaje de DNS de terceros.
 
 ## <a name="ease-of-use"></a>Facilidad de uso
@@ -57,12 +57,11 @@ Para más información, consulte [Uso de Azure DNS para dominios privados](priva
 
 ## <a name="alias-records"></a>Registros de alias
 
-Azure DNS admite conjuntos de registros de alias. Puede usar un conjunto de registros de alias que haga referencia a un recurso de Azure, como una dirección IP pública de Azure o un perfil de Azure Traffic Manager. Si cambia la dirección IP del recurso subyacente, el conjunto de registros de alias se actualiza sin problemas durante la resolución DNS. El conjunto de registros de alias apunta a la instancia de servicio, y la instancia de servicio está asociada con una dirección IP. 
+Azure DNS admite conjuntos de registros de alias. Puede usar un conjunto de registros de alias que haga referencia a un recurso de Azure, como una dirección IP pública de Azure, un perfil de Azure Traffic Manager o un punto de conexión de Azure Content Delivery Network (CDN). Si cambia la dirección IP del recurso subyacente, el conjunto de registros de alias se actualiza sin problemas durante la resolución DNS. El conjunto de registros de alias apunta a la instancia de servicio, y la instancia de servicio está asociada con una dirección IP.
 
-Además, ahora puede apuntar el vértice o dominio simple a un perfil de Traffic Manager mediante un registro de alias. Un ejemplo es contoso.com.
+Además, ahora puede apuntar el vértice o dominio simple a un perfil de Traffic Manager o punto de conexión de CDN mediante un registro de alias. Un ejemplo es contoso.com.
 
 Para obtener más información, consulte [Overview of Azure DNS alias records](dns-alias.md) (Introducción a los registros de alias de Azure DNS).
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 

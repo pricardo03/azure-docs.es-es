@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/13/2019
+ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: afe4421bea27ff029bd4a1a7808241a54027a6ac
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 544de5a3ac48c12d75f05a1c9adb56f48bb540f4
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136570"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58311577"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Tutorial de simulación mediante "bake" de Project Acoustics con Unreal
 En este documento se describe el proceso de enviar una simulación acústica mediante "bake" con la extensión del editor Unreal.
@@ -32,7 +32,7 @@ Los pasos necesarios para realizar la elaboración son cinco:
 
 Importe el paquete del complemento de Project Acoustics al proyecto. Para obtener ayuda al respecto, consulte el tema [Integración con Unreal](unreal-integration.md). Cuando se integra el complemento, abra la interfaz de usuario de Acoustics; para ello, haga clic en el nuevo icono del modo Acoustics.
 
-![Apertura del modo Acoustics](media/acoustics-mode.png)
+![Captura de pantalla de la opción de modo Acoustics del editor de Unreal](media/acoustics-mode.png)
 
 ## <a name="tag-actors-for-acoustics"></a>Etiquetado de actores para Acoustics
 
@@ -42,7 +42,7 @@ Seleccione uno o más objetos en World Outliner, o utilice la sección **Bulk Se
 
 ### <a name="for-reference-the-objects-tab-parts"></a>Como referencia: Partes de la pestaña Objects (Objetos)
 
-![Detalles de la pestaña Objects (Objetos) de Unreal](media/unreal-objects-tab-details.png)
+![Captura de pantalla de la pestaña Objects (Objetos) de Acoustics en Unreal](media/unreal-objects-tab-details.png)
 
 1. Los botones de selección de la pestaña [pestaña **Objects** (Objetos) seleccionada]. Use estos botones para desplazarse por los distintos pasos de la simulación acústica mediante "bake", de arriba a abajo.
 2. Una breve descripción de lo que debe hacer al usar esta página.
@@ -57,7 +57,7 @@ Seleccione uno o más objetos en World Outliner, o utilice la sección **Bulk Se
 
 ### <a name="tag-acoustics-occlusion-and-reflection-geometry"></a>Etiquetado de oclusión acústica y geometría de reflexión
 
-Abra la pestaña Objects (Objetos) de la ventana de Acoustics. Marque los objetos como Acoustics Geometry (Geometría acústica) si deben bloquear, reflejar o absorber el sonido. La geometría acústica puede incluir elementos como suelo, paredes, techos, ventanas y cristales de ventana, alfombras y muebles grandes. Puede usar cualquier nivel de complejidad arbitrario para estos objetos. Dado que la escena se voxelizará antes de la simulación, las mallas muy detalladas, como árboles con muchas hojas pequeños, no son más costosas para simular mediante "bake" que los objetos simplificados.
+Abra la pestaña Objects (Objetos) de la ventana de Acoustics. Marque los objetos como Acoustics Geometry (Geometría acústica) si deben bloquear, reflejar o absorber el sonido. La geometría acústica puede incluir elementos como suelo, paredes, techos, ventanas y cristales de ventana, alfombras y muebles grandes. Puede usar cualquier nivel de complejidad arbitrario para estos objetos. Dado que la escena se voxelizará antes de la simulación, las mallas muy detalladas, como árboles con muchas hojas pequeñas, no son más costosas para simular mediante "bake" que los objetos simplificados.
 
 No incluya elementos que no afecten a la acústica, como las mallas de colisión.
 
@@ -75,11 +75,11 @@ Los materiales acústicos controlan la cantidad de energía sonora que se reflej
 
 El tiempo de reverberación de un material determinado en una habitación está inversamente relacionado con su coeficiente de absorción y la mayoría de los materiales tiene valores de absorción en un rango que va desde 0,01 a 0,20. Los materiales con coeficientes de absorción que quedan sobre este rango son muy absorbentes. Por ejemplo, si en una sala se produce demasiada reverberación, cambie el material acústico de las paredes, suelo o techo por otro con mayor absorción. La asignación de material acústico se aplica a todos los objetos actores que usan ese material de la escena.
 
-![Gráfico de tiempo de la reverberación](media/reverb-time-graph.png)
+![Gráfico que muestra una correlación negativa de tiempo de reverberación con el coeficiente de absorción](media/reverb-time-graph.png)
 
 ### <a name="for-reference-parts-of-the-materials-tab"></a>Como referencia: Partes de la pestaña Materials (Materiales)
 
-![Detalles de la pestaña Objects (Objetos) de Unreal](media/unreal-materials-tab-details.png)
+![Captura de pantalla de la pestaña Objects (Objetos) de Acoustics en Unreal](media/unreal-materials-tab-details.png)
 
 1. El botón de la pestaña **Materials** (Materiales), se usa para abrir esta página.
 2. Una breve descripción de lo que debe hacer al usar esta página.
@@ -94,7 +94,7 @@ Después de asignar los materiales, cambie a la pestaña **Probes** (Sondeos).
 
 ### <a name="for-reference-parts-of-the-probes-tab"></a>Como referencia: Partes de la pestaña Probes (Sondeos)
 
-![Detalle de la pestaña Probes (Sondeos)](media/unreal-probes-tab-details.png)
+![Captura de pantalla de la pestaña Objects (Objetos) de Acoustics en Unreal](media/unreal-probes-tab-details.png)
 
 1. El botón de la pestaña **Probes** (Sondeos), se usa para abrir esta página.
 2. Una breve descripción de lo que debe hacer al usar esta página.
@@ -124,11 +124,11 @@ Una vez completados estos cálculos, puede obtener una vista previa de los datos
 
 Después de completar el cálculo del sondeo, aparecerá un nuevo actor en World Outliner llamado **AcousticsDebugRenderer**. Si se seleccionan las casillas **Render Probes** (Representar sondeos) y **Render Voxels** (Representar vóxeles), se habilitará la visualización de depuración dentro de la ventanilla del editor.
 
-![Representador de depuración de Acoustics](media/acoustics-debug-renderer.png)
+![Captura de pantalla que muestra el actor Representador de depuración de Acoustics en el Editor de Unreal](media/acoustics-debug-renderer.png)
 
 Si no se ve ningún vóxel o sondeo superpuestos al nivel, hay que asegurarse de que la representación en tiempo real esté habilitada en la ventanilla.
 
-![Habilitación de la representación en tiempo real](media/unreal-real-time-rendering.png)
+![Captura de pantalla de la opción de representación en tiempo real en Unreal](media/unreal-real-time-rendering.png)
 
 ### <a name="voxels"></a>Vóxeles
 
@@ -137,7 +137,7 @@ Muévase por la escena y compruebe que la geometría de oclusión acústica tien
 
 Si se comparan los vóxeles creados con resolución gruesa con los creados con resolución fina, verá que los vóxeles gruesos son el doble de grandes.
 
-![Vista previa de vóxel](media/unreal-voxel-preview.png)
+![Captura de pantalla de vista previa de vóxeles de Acoustics en el editor de Unreal](media/unreal-voxel-preview.png)
 
 ### <a name="probe-points"></a>Puntos de sondeo
 
@@ -145,7 +145,7 @@ Los puntos de sondeo son sinónimos de ubicaciones posibles del jugador (escucha
 
 Es importante comprobar que existen puntos de sondeo en cualquier lugar del escenario en el que se espera que el jugador se desplace. Los puntos de sondeo los coloca en la malla de navegación el motor de Project Acoustics y no se pueden mover ni modificar, así que asegúrese de que la malla de navegación cubra todas las posibles ubicaciones de los jugadores inspeccionando los puntos de sondeo.
 
-![Vista previa de sondeos](media/unreal-probes-preview.png)
+![Captura de pantalla de vista previa de sondeos de Acoustics en el editor de Unreal](media/unreal-probes-preview.png)
 
 ### <a name="Coarse-vs-Fine-Resolution"></a>Resolución gruesa frente a fina
 
@@ -153,15 +153,15 @@ La única diferencia entre la configuración de resolución gruesa y la fina es 
 Aunque puede parecer simple, tiene varias implicaciones en la simulación acústica:
 
 * La longitud de onda de la gruesa es el doble de larga que la fina y, por lo tanto, los vóxeles son el doble de grandes.
-* El tiempo de simulación está directamente relacionado con el tamaño de vóxel, lo que hace que la simular mediante "bake" gruesa sea 16 veces más rápida que la simulación mediante "bake" fina.
+* El tiempo de simulación está directamente relacionado con el tamaño de vóxel, lo que hace que la simulación mediante "bake" gruesa sea 16 veces más rápida que la simulación mediante "bake" fina.
 * Los portales (por ejemplo, puertas o ventanas) más pequeños que el tamaño de vóxel no se pueden simular. La configuración gruesa puede hacer que algunos de estos portales más pequeños no se simulen; por lo tanto, no pasarán sonidos en tiempo de ejecución. Para ver si sucede esto, puede visualizar los vóxeles.
 * La frecuencia de simulación inferior da como resultado menos difracción en torno a los bordes y esquinas.
 * Los orígenes del sonido no se pueden ubicar dentro de vóxeles "rellenos", que son vóxeles que contienen la geometría, ya que el resultado sería ningún sonido. Es más difícil situar los orígenes de sonido si no están dentro de vóxeles más grandes de la configuración gruesa que cuando se usa la configuración fina.
 * Los vóxeles más grandes se meten más en los portales, como se muestra a continuación. La primera imagen se creó con la configuración gruesa, mientras que la segunda es la misma entrada con resolución fina. Como indican las marcas de color rojo, hay mucha menos intrusión en la entrada cuando se usa la configuración fina. La línea azul es la entrada, como se define en la geometría, mientras que la línea roja es el portal acústico efectivo definido por el tamaño de vóxel. La evolución esta intrusión en una situación determinada dependerá completamente de cómo los vóxeles se alineen con la geometría del portal, que viene determinado por el tamaño y las ubicaciones de los objetos en la escena.
 
-![Entrada gruesa](media/unreal-coarse-bake.png)
+![Captura de pantalla de vóxeles gruesos rellenando una entrada en Unreal](media/unreal-coarse-bake.png)
 
-![Entrada fina](media/unreal-fine-bake.png)
+![Captura de pantalla de vóxeles finos en una entrada en Unreal](media/unreal-fine-bake.png)
 
 ## <a name="bake-your-level-using-azure-batch"></a>Simular mediante "bake" el nivel con Azure Batch
 
@@ -169,7 +169,7 @@ Podemos simular mediante "bake" la escena con un clúster de proceso en la nube 
 
 ### <a name="for-reference-parts-of-the-bake-tab"></a>Como referencia: Partes de la pestaña Bake (Elaborar)
 
-![Detalle de la pestaña Bake (Elaborar)](media/unreal-bake-tab-details.png)
+![Captura de pantalla de la pestaña Bake (Elaborar) de Acoustics en Unreal](media/unreal-bake-tab-details.png)
 
 1. El botón de la pestaña Bake (Elaborar) se usa para abrir esta página.
 2. Una breve descripción de qué hacer en esta página.

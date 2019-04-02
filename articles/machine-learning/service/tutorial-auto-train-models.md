@@ -11,12 +11,12 @@ ms.author: nilesha
 ms.reviewer: trbye
 ms.date: 02/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: e30e65ba2efaf60a0e2d0a6df409c96db4d6285e
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 8fa77409f1f5c32bc1e8f8644111c38f6115a92d
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295817"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58362057"
 ---
 # <a name="tutorial-use-automated-machine-learning-to-build-your-regression-model"></a>Tutorial: Uso del aprendizaje automático para crear un modelo de regresión
 
@@ -67,22 +67,11 @@ Después de completar los pasos siguientes, ejecute el cuaderno **tutorials/regr
 
 ### <a name="server"></a>Uso del propio servidor de Jupyter Notebook
 
-Siga estos pasos para crear un servidor de Jupyter Notebook local en su equipo.  Después de completar los pasos siguientes, ejecute el cuaderno **tutorials/regression-part2-automated-ml.ipynb**.
+Siga estos pasos para crear un servidor de Jupyter Notebook local en su equipo.  Asegúrese de que instalar `matplotlib` y `automl` y `notebooks` adicionales en su entorno.
 
-1. Complete el [inicio rápido de Azure Machine Learning en Python](quickstart-create-workspace-with-python.md) para crear un entorno de Miniconda y crear un área de trabajo.
-1. Instale los extras `automl` y `notebooks` en su entorno mediante `pip install azureml-sdk[automl,notebooks]`.
-1. Instale `maplotlib` mediante `pip install maplotlib`.
-1. Clone [el repositorio de GitHub](https://aka.ms/aml-notebooks).
+[!INCLUDE [aml-your-server](../../../includes/aml-your-server.md)]
 
-    ```
-    git clone https://github.com/Azure/MachineLearningNotebooks.git
-    ```
-
-1. Inicie el servidor del cuaderno desde el directorio clonado.
-
-    ```shell
-    jupyter notebook
-    ```
+Después de completar los pasos siguientes, ejecute el cuaderno **tutorials/regression-part2-automated-ml.ipynb**.
 
 ## <a name="start"></a>Configuración de su entorno de desarrollo
 

@@ -7,13 +7,13 @@ ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
-ms.openlocfilehash: d861eba6ce905ccaf0d08a08cdd9998a199889da
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/25/2019
+ms.openlocfilehash: c2a11422398b3cdb99c9f71accddfcd78237c64c
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287376"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417911"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Creación de un clúster y una base de datos de Azure Data Explorer mediante C#
 
@@ -25,20 +25,19 @@ ms.locfileid: "58287376"
 > * [Python](create-cluster-database-python.md)
 >  
 
-
-En este inicio rápido se describe cómo crear un clúster y una base de datos de Azure Data Explorer mediante C#.
+Azure Data Explorer es un servicio de análisis de datos rápido y totalmente administrado para analizar en tiempo real grandes volúmenes de datos de que se transmiten desde aplicaciones, sitios web, dispositivos IoT, etc. Para usar Azure Data Explorer, cree primero un clúster y una o varias bases de datos en ese clúster. A continuación, ingerirá (cargará) los datos en una base de datos para que pueda ejecutar consultas en ella. En este inicio rápido, se crean un clúster y una base de datos mediante C#.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Si todavía no tiene instalado Visual Studio 2017, puede descargar y usar la versión **gratis** de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
+* Si no tiene Visual Studio 2017 instalado, puede descargar y usar la versión **gratis** de [Visual Studio 2017 Community Edition](https://www.visualstudio.com/downloads/). Asegúrese de que habilita **Desarrollo de Azure** durante la instalación de Visual Studio.
 
-- Para completar esta guía de inicio rápido, necesita una suscripción de Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+* Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="install-c-nuget"></a>Instalación de NuGet C#
 
-- Necesitará el paquete NuGet para Azure Data Explorer (Kusto), puede encontrarlo aquí: https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/
-- También necesitará el paquete NuGet Microsoft.IdentityModel.Clients.ActiveDirectory para la autenticación https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/
+1. Instale el [paquete NuGet de Azure Data Explorer (Kusto)](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
 
+1. Instale el [paquete NuGet Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) para la autenticación.
 
 ## <a name="create-the-azure-data-explorer-cluster"></a>Creación del clúster de Azure Data Explorer
 
@@ -72,10 +71,10 @@ En este inicio rápido se describe cómo crear un clúster y una base de datos d
    | resourceGroupName | *testrg* | Nombre del grupo de recursos en el que se creará el clúster. |
 
     Hay varios parámetros opcionales que puede usar, como la capacidad del clúster, etcétera.
-    
-    En "credentials", establezca sus credenciales (para más información, consulte https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
 
-2. Ejecute el siguiente comando para comprobar si el clúster se creó correctamente:
+1. Establecimiento de [las credenciales](https://docs.microsoft.com/dotnet/azure/dotnet-sdk-azure-authenticate?view=azure-dotnet)
+
+1. Ejecute el siguiente comando para comprobar si el clúster se creó correctamente:
 
     ```C#-interactive
     KustoManagementClient.Clusters.Get(resourceGroupName, clusterName);

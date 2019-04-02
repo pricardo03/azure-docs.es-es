@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: quickstart
 ms.subservice: manage
-ms.date: 04/18/2018
+ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1aebe3086704c3823bcde470640f547de2beaaee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ce1fd1af404f5fc44bc202be08cd2c2f1b4ef909
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884210"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58443842"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-powershell"></a>Inicio rápido: Pausar y reanudar un proceso en Azure SQL Data Warehouse con PowerShell
 
@@ -61,8 +61,7 @@ Siga estos pasos para buscar información de ubicación para el almacenamiento d
 
     ![Nombre del servidor y grupo de recursos](media/pause-and-resume-compute-powershell/locate-data-warehouse-information.png)
 
-4. Anote el nombre del almacenamiento de datos, que es el nombre de la base de datos. Además, anote el nombre del servidor y el grupo de recursos. Los
-5.  usará en los comandos para pausar y reanudar.
+4. Anote el nombre del almacenamiento de datos, que es el nombre de la base de datos. Además, anote el nombre del servidor y el grupo de recursos.
 6. Si su servidor es foo.database.windows.net, use solo la primera parte como nombre de servidor en los cmdlets de PowerShell. En la imagen anterior, el nombre completo del servidor es newserver-20171113.database.windows.net. Elimine el sufijo y use **newserver-20171113** como nombre del servidor en el cmdlet de PowerShell.
 
 ## <a name="pause-compute"></a>Pausa del proceso
@@ -103,6 +102,14 @@ $database = Get-AzSqlDatabase –ResourceGroupName "ResourceGroup1" `
 –ServerName "Server01" –DatabaseName "Database02"
 $resultDatabase = $database | Resume-AzSqlDatabase
 $resultDatabase
+```
+
+## <a name="check-status-of-your-data-warehouse-operation"></a>Compruebe el estado de la operación de almacenamiento de datos
+
+Para comprobar el estado del almacenamiento de datos, use el cmdlet [Get-AzureRmSqlDatabaseActivity](https://docs.microsoft.com/powershell/module/azurerm.sql/Get-AzureRmSqlDatabaseActivity#description).
+
+```
+Get-AzureRmSqlDatabaseActivity -ResourceGroupName "ResourceGroup01" -ServerName "Server01" -DatabaseName "Database02"
 ```
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

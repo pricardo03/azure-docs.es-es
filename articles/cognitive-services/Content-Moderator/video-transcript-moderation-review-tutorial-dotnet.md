@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: pafarley
-ms.openlocfilehash: 504f79186eb69fb6e6c23c1a0cd9dfd7584bb128
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fc49081c765834a0ed0e5199923606ced7daa081
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57904344"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58522084"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutorial: Moderación de vídeos y transcripciones
 
@@ -234,7 +234,7 @@ El proceso de moderación devuelve una lista de fotogramas clave del vídeo, jun
 `CreateVideoReviewInContentModerator()` llama a otros métodos para llevar a cabo las siguientes tareas:
 
 > [!NOTE]
-> La aplicación de consola utiliza la biblioteca [FFmpeg](https://ffmpeg.org/) para generar miniaturas. Estas miniaturas (imágenes) se corresponden con las marcas de tiempo de los fotogramas en la [salida de moderación de vídeo](#sample-video-moderation-response).
+> La aplicación de consola utiliza la biblioteca [FFmpeg](https://ffmpeg.org/) para generar miniaturas. Estas miniaturas (imágenes) se corresponden con las marcas de tiempo de los fotogramas en la salida de moderación de vídeo.
 
 |Tarea|Métodos|Archivo|
 |-|-|-|

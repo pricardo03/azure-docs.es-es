@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/4/2019
+ms.date: 3/20/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1d54ac521fb8b81ed5fa135f68af420bda261661
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: a80c4db1b81dd2bc0b223a2781e28ccb1f5ba68e
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57246957"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402888"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel-preview"></a>Inicio rápido: Introducción a Azure Sentinel (versión preliminar)
 
@@ -118,7 +118,22 @@ Puede que quiera crear una consulta que incorpore datos de varios orígenes. Pue
 
 Puede crear distintos paneles según el rol de la persona que examina los datos y lo que busca. Por ejemplo, puede crear un panel para el administrador de red que incluya los datos del firewall. También puede crear paneles según la frecuencia con la que quiera verlos, si hay cosas que quiera revisar diariamente, y otros elementos que quiera comprobar una vez cada hora; por ejemplo, podría querer examinar sus inicios de sesión de Azure AD cada hora para detectar anomalías. 
 
+## <a name="create-new-detections"></a>Creación de nuevas detecciones
 
+Genere detecciones en los [orígenes de datos que ha conectado a Azure Sentinel](connect-data-sources.md) para investigar las amenazas de su organización.
+
+Cuando cree una nueva detección, aproveche las detecciones integradas diseñadas por los investigadores de seguridad de Microsoft que se adapten a los orígenes de datos que ha conectado.
+
+1. [En la Comunidad de GitHub](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) vaya a la carpeta de **detecciones** y seleccione las carpetas pertinentes.
+   ![carpetas pertinentes](./media/qs-get-visibility/detection-folders.png)
+ 
+3.  Vaya a la pestaña **Analytics** y seleccione **Agregar**.
+   ![crear regla en Log Analytics](./media/qs-get-visibility/query-params.png)
+
+3.  Copie todos los parámetros en la regla y haga clic en **Crear**.
+   ![crear regla de alertas](./media/qs-get-visibility/create-alert-rule.png)
+
+ 
 ## <a name="next-steps"></a>Pasos siguientes
 En este inicio rápido, ha aprendido cómo empezar a usar Azure Sentinel. Siga con el tutorial sobre [cómo detectar amenazas](tutorial-detect-threats.md).
 > [!div class="nextstepaction"]

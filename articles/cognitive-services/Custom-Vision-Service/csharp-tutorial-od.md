@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
-ms.date: 10/31/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 9d8340d505308753855fa0fcd286949e80d3ecaa
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: cc66630f57af32e18916e0662a400b38f27000a9
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879282"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472606"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-net-sdk"></a>Inicio rápido: Creación de un proyecto de detección de objetos con el SDK de Custom Vision para .NET
 
@@ -26,10 +26,11 @@ En este artículo se proporciona información y código de ejemplo para ayudarle
 - Cualquier edición de [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
 
 ## <a name="get-the-custom-vision-sdk-and-sample-code"></a>Obtención del SDK de Custom Vision y código de ejemplo
+
 Para escribir una aplicación de .NET que utiliza Custom Vision, necesitará los paquetes NuGet de Custom Vision, que están incluidos en el proyecto de ejemplo que descargará, pero puede acceder a ellos individualmente aquí.
 
-* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
-* [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
+- [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Training/)
+- [Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.CustomVision.Prediction/)
 
 Clone o descargue el proyecto [Ejemplos de .NET de Cognitive Services](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples). Vaya a la carpeta **CustomVision/ObjectDetection** y abra _ObjectDetection.csproj_ en Visual Studio.
 
@@ -75,21 +76,48 @@ Este código crea la primera iteración de aprendizaje del proyecto.
 
 [!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=106-117)]
 
-### <a name="set-the-current-iteration-as-default"></a>Establecimiento de la iteración actual como la predeterminada
+### <a name="publish-the-current-iteration"></a>Publicación de la iteración actual
 
-Este código marca la iteración actual como la predeterminada. La iteración predeterminada refleja la versión del modelo que responderá a las solicitudes de predicción. La debe actualizar cada vez que vuelva a entrenar el modelo.
+El nombre que se da a la iteración publicada se puede utilizar para enviar solicitudes de predicción. Una iteración no está disponible en el punto de conexión de la predicción hasta que se publica.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=119-124)]
+```csharp
+// The iteration is now trained. Publish it to the prediction end point.
+var publishedModelName = "treeClassModel";
+var predictionResourceId = "<target prediction resource ID>";
+trainingApi.PublishIteration(project.Id, iteration.Id, publishedModelName, predictionResourceId);
+Console.WriteLine("Done!\n");
+```
 
 ### <a name="create-a-prediction-endpoint"></a>Creación de un punto de conexión de la predicción
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=126-131)]
+```csharp
+// Create a prediction endpoint, passing in the obtained prediction key
+CustomVisionPredictionClient endpoint = new CustomVisionPredictionClient()
+{
+        ApiKey = predictionKey,
+        Endpoint = SouthCentralUsEndpoint
+};
+```
 
 ### <a name="use-the-prediction-endpoint"></a>Uso del punto de conexión de la predicción
 
 Esta parte del script carga la imagen de prueba, consulta el punto de conexión del modelo y envía los datos de la predicción a la consola.
 
-[!code-csharp[](~/cognitive-services-dotnet-sdk-samples/CustomVision/ObjectDetection/Program.cs?range=133-145)]
+```csharp
+// Make a prediction against the new project
+Console.WriteLine("Making a prediction:");
+var imageFile = Path.Combine("Images", "test", "test_image.jpg");
+using (var stream = File.OpenRead(imageFile))
+{
+        var result = endpoint.DetectImage(project.Id, publishedModelName, File.OpenRead(imageFile));
+
+        // Loop over each prediction and write out the results
+        foreach (var c in result.Predictions)
+        {
+                Console.WriteLine($"\t{c.TagName}: {c.Probability:P1} [ {c.BoundingBox.Left}, {c.BoundingBox.Top}, {c.BoundingBox.Width}, {c.BoundingBox.Height} ]");
+        }
+}
+```
 
 ## <a name="run-the-application"></a>Ejecución de la aplicación
 
@@ -104,6 +132,7 @@ Making a prediction:
         fork: 98.2% [ 0.111609578, 0.184719115, 0.6607002, 0.6637112 ]
         scissors: 1.2% [ 0.112389535, 0.119195729, 0.658031344, 0.7023591 ]
 ```
+
 Luego puede comprobar que la imagen de prueba (que se encuentra en **Images/Test/**) se ha etiquetado correctamente y que la región de detección es correcta. En este momento puede presionar cualquier tecla para salir de la aplicación.
 
 [!INCLUDE [clean-od-project](includes/clean-od-project.md)]

@@ -10,17 +10,17 @@ ms.topic: tutorial
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s '
 manager: mmontwil
-ms.openlocfilehash: ab9db26f7de67308f3156988bcb498f1e35613eb
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3f7a7b5c9a22ba9cb8746cecde56c0a047521ad0
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57758964"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58437656"
 ---
 [!INCLUDE [](../../includes/devspaces-team-development-1.md)]
 
 ### <a name="make-a-code-change"></a>Cambio de código
-Vaya a la ventana de VS Code para `mywebapi` y realice una edición de código para el método `String index()`, por ejemplo:
+Vaya a la ventana de VS Code para `mywebapi` y realice una edición de código para el método `String index()` de `src/main/java/com/ms/sample/mywebapi/Application.java`, por ejemplo:
 
 ```java
 @RequestMapping(value = "/", produces = "text/plain")

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eabc30b28ec6c32295c5eeff0f19b31fba622056
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 58e3254d499e013dc686bf6b7d53f919a457c901
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095626"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58371291"
 ---
 # <a name="quickstart-self-service-password-reset"></a>Guía de inicio rápido: Restablecimiento de la contraseña de autoservicio
 
@@ -46,7 +46,7 @@ En esta guía de inicio rápido aprenderá a configurar el autoservicio de resta
       * **Código de la aplicación para dispositivos móviles (vista previa)**
    * Haga clic en **Save**(Guardar).
 
-     ![Autenticación][Authentication]
+     ![Elección de métodos de autenticación para SSPR][Authentication]
 
 4. En la página **Registro**, elija lo siguiente:
    * Exigir a los usuarios que se registren al iniciar sesión: **Sí**

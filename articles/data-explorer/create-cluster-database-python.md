@@ -7,13 +7,13 @@ ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 03/17/2019
-ms.openlocfilehash: 4f87c5996ea323c26c32c1680ba6f627bf8f95c2
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/25/2019
+ms.openlocfilehash: 24e482d223fec2c1f95d7cc964f62eac81c5de05
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287387"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472589"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-python"></a>Creación de un clúster y una base de datos de Azure Data Explorer mediante Python
 
@@ -25,15 +25,15 @@ ms.locfileid: "58287387"
 > * [Python](create-cluster-database-python.md)
 >  
 
-En este inicio rápido se describe cómo crear un clúster y una base de datos de Azure Data Explorer mediante Python.
+Azure Data Explorer es un servicio de análisis de datos rápido y totalmente administrado para analizar en tiempo real grandes volúmenes de datos de que se transmiten desde aplicaciones, sitios web, dispositivos IoT, etc. Para usar Azure Data Explorer, cree primero un clúster y una o varias bases de datos en ese clúster. A continuación, ingerirá (cargará) los datos en una base de datos para que pueda ejecutar consultas en ella. En este inicio rápido, se crean un clúster y una base de datos mediante Python.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar esta guía de inicio rápido, necesita una suscripción de Azure. Si no tiene una, [cree una cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="install-python-package"></a>Instalación del paquete de Python
 
-Para instalar el paquete de Python correspondiente a Azure Data Explorer (Kusto), abra un símbolo del sistema que tenga Python en su ruta de acceso y ejecute el siguiente comando:
+Para instalar el paquete de Python correspondiente a Azure Data Explorer (Kusto), abra un símbolo del sistema que tenga Python en su ruta de acceso. Ejecute este comando:
 
 ```
 pip install azure-mgmt-kusto
@@ -43,7 +43,26 @@ pip install azure-mgmt-kusto
 
 1. Cree el clúster mediante el siguiente comando:
 
+    ```Python
+    from azure.mgmt.kusto.kusto_management_client import KustoManagementClient
+    from azure.mgmt.kusto.models import Cluster, AzureSku
+
+    credentials = xxxxxxxxxxxxxxx
     
+    subscription_id = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx'
+    location = 'Central US'
+    sku = 'D13_v2'
+    capacity = 5
+    resource_group_name = 'testrg'
+    cluster_name = 'mykustocluster'
+    cluster = Cluster(location=location, sku=AzureSku(name=sku, capacity=capacity))
+    
+    kustoManagementClient = KustoManagementClient(credentials, subscription_id)
+    
+    cluster_operations = kustoManagementClient.clusters
+    
+    cluster_operations.create_or_update(resource_group_name, cluster_name, cluster)
+    ```
 
    |**Configuración** | **Valor sugerido** | **Descripción del campo**|
    |---|---|---|
@@ -53,9 +72,9 @@ pip install azure-mgmt-kusto
 
     Hay varios parámetros opcionales que puede usar, como la capacidad del clúster, etcétera.
     
-    En "credentials", establezca sus credenciales (para más información, consulte https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
+1. Establecimiento de [*las credenciales*](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python)
 
-2. Ejecute el siguiente comando para comprobar si el clúster se creó correctamente:
+1. Ejecute el siguiente comando para comprobar si el clúster se creó correctamente:
 
     ```Python
     cluster_operations.get(resource_group_name = resource_group_name, cluster_name= clusterName, custom_headers=None, raw=False)
@@ -91,7 +110,7 @@ Si el resultado contiene `provisioningState` con el valor `Succeeded`, significa
    | soft_delete_period | *3650 days, 0:00:00* | Cantidad de tiempo que los datos estarán disponibles para consulta. |
    | hot_cache_period | *3650 days, 0:00:00* | Cantidad de tiempo que los datos se conservarán en la caché. |
 
-2. Ejecute el siguiente comando para ver la base de datos que ha creado:
+1. Ejecute el siguiente comando para ver la base de datos que ha creado:
 
     ```Python
     database_operations.get(resource_group_name = resource_group_name, cluster_name = clusterName, database_name = databaseName)

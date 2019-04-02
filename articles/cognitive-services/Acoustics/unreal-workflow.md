@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: tutorial
-ms.date: 03/14/2019
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: c65ae71350383896c81fd7057d425822069fc5aa
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 57bde67ac2259b3847f59f95eaefba9c6fddf13e
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58136932"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58316209"
 ---
 # <a name="project-acoustics-unrealwwise-design-tutorial"></a>Tutorial de diseño de Project Acoustics en Unreal y Wwise
 En este tutorial se describe la configuración de diseño y el flujo de trabajo de Project Acoustics en Unreal y Wwise.
@@ -35,44 +35,44 @@ Cuando Project Acoustics está activo, responde a las curvas de volumen de oclus
 
 Con esta configuración, si la simulación de Project Acoustics calcula una oclusión de-18 db, se incluirá en la siguiente curva en X = 18 y el valor de Y correspondiente será la atenuación aplicada. Para realizar la mitad de la oclusión, establezca el punto de conexión en -50 db en lugar de -100 dB, o en -200 dB para exagerar la oclusión. Puede adaptar y ajustar la curva que funcione mejor en su juego.
  
-![Curva de oclusión del proyecto](media/wwise-occlusion-curve.png)
+![Captura de pantalla del editor de curva de oclusión de Wwise](media/wwise-occlusion-curve.png)
 
 ### <a name="disable-wwise-obstruction-curves"></a>Deshabilitación de las curvas de obstrucción de Wwise
 Las curvas de obstrucción de Wwise afectan al nivel de sonido sin efectos en aislamiento, pero Project Acoustics usa controles de diseño y simulación para aplicar las proporciones de efectos/sin efectos. Se recomienda deshabilitar la curva de volumen de obstrucción. Para diseñar el sonido con efectos, use el control de ajuste de sonido con efectos descrito más adelante.
  
 Si va a usar curvas de obstrucción LPF/HPF para otros fines, asegúrese de que las haya establecido en Y= 0 cuando X=0 (es decir, no hay LPF o HPF cuando no hay obstrucción).
 
-![Curva de obstrucción del proyecto](media/wwise-obstruction-curve.png)
+![Captura de pantalla del editor de curva de obstrucción de Wwise](media/wwise-obstruction-curve.png)
 
 ### <a name="design-project-acoustics-mixer-parameters"></a>Diseño de los parámetros del mezclador de Project Acoustics
 Puede controlar las propiedades globales de reverberación en la pestaña del complemento mezclador del bus de Project Acoustics. Haga doble clic en "Project Acoustics Mixer (Custom)" (Mezclador de Project Acoustics [personalizado]) para abrir el panel de configuración del complemento mezclador.
 
 También puede ver que el complemento mezclador tiene una opción de espacialización. Si prefiere usar la espacialización integrada de Project Acoustics, active la casilla "Perform Spatialization" (Realizar espacialización) y elija HRTF o panorámica. Asegúrese de deshabilitar los buses auxiliares de sonido sin efectos que haya configurado, de lo contrario escuchará la vía directa dos veces. Use las opciones "Wetness Adjust" (Ajuste de sonido con efectos) y "Reverb Time Scale Factor" (Factor de escala de tiempo de reverberación) para ejercer un control global sobre la mezcla de reverberación. Tenga en cuenta que debe reiniciar Unreal y luego volver a generar bancos de sonido antes de pulsar el botón de reproducción para seleccionar los cambios de configuración del complemento mezclador, como la casilla "Perform Spatialization" (Realizar espacialización).
 
-![Opciones del complemento mezclador de Project Acoustics](media/mixer-plugin-global-settings.png)
+![Captura de pantalla de las opciones del complemento mezclador Wwise de Project Acoustics](media/mixer-plugin-global-settings.png)
 
 ## <a name="set-project-acoustics-design-controls-in-the-wwise-actor-mixer-hierarchy"></a>Establecimiento de los controles de diseño de Project Acoustics en la jerarquía actor-mezclador de Wwise
 Para controlar los parámetros de un actor-mezclador, haga doble clic en el actor-mezclador y, luego, haga clic en su pestaña del complemento mezclador. Aquí podrá cambiar los parámetros de forma independiente para cada sonido. Estos valores se combinan con los establecidos en Unreal (que se describen a continuación). Por ejemplo, si el complemento Unreal de Project Acoustics establece el ajuste en exteriores de un objeto en 0,5 y Wwise lo establece en -0,25, el ajuste en exteriores resultante aplicado a ese sonido será de 0,25.
 
-![Configuración por mezclador de sonido](media/per-sound-mixer-settings.png)
+![Captura de pantalla de la configuración por mezclador de sonido en la jerarquía actor-mezclador de Wwise](media/per-sound-mixer-settings.png)
 
 ### <a name="ensure-the-aux-bus-has-dry-send-and-output-bus-has-wet-send"></a>Asegúrese de que el bus auxiliar tenga envío sin efectos y que el bus de salida tenga envío con efectos.
 Recuerde que la configuración del actor-mezclador requerido intercambia la ruta habitual de sonido sin efectos y con efectos en Wwise. Se produce la señal de reverberación en el bus de salida del actor-mezclador (establecido en el bus de Project Acoustics) y la señal sin efectos a lo largo del bus auxiliar definido por el usuario. Esta ruta es necesaria debido a las características de la API del complemento mezclador de Wwise que usa el complemento Wwise para Project Acoustics.
 
-![Directrices sobre el diseño de voz](media/voice-design-guidelines.png)
+![Captura de pantalla del editor de Wwise que muestra las directrices de diseño de Project Acoustics](media/voice-design-guidelines.png)
  
 ### <a name="set-up-distance-attenuation-curves"></a>Configuración de las curvas de atenuación de distancia
 Asegúrese de que las curvas de atenuación empleadas por los actores-mezcladores con Project Acoustics tengan el envío auxiliar definido por el usuario establecido en "volumen del bus de salida". Wwise realiza esta acción de forma predeterminada con las curvas de atenuación recién creadas. Si va a migrar un proyecto existente, compruebe la configuración de las curvas. 
 
 De forma predeterminada, la simulación de Project Acoustics tiene un radio de 45 metros en torno a la ubicación del jugador. Por lo general, se recomienda configurar la curva de atenuación en -200 dB en torno a esa distancia. Esta distancia no es una restricción severa. En el caso de algunos sonidos, como el de las armas, puede que prefiera un radio mayor. En tales casos, la salvedad es que solo participará la geometría situada a 45 m de la ubicación del jugador. Si el jugador está en una sala y hay un segundo origen fuera y 100 m de distancia, se ocluirá correctamente. Si la fuente está en una sala y el jugador está fuera y hay 100 m de distancia, no se ocluirá correctamente.
 
-![Curvas de atenuación](media/atten-curve.png)
+![Captura de pantalla de curvas de atenuación de Wwise](media/atten-curve.png)
 
 ## <a name="set-up-scene-wide-project-acoustics-properties"></a>Configuración de las propiedades de Project Acoustics en una escena
 
 El actor del espacio acústico expone muchos controles que modifican el comportamiento del sistema y son útiles para la depuración.
 
-![Controles del espacio acústico](media/acoustics-space-controls.png)
+![Captura de pantalla de los controles del espacio acústico de Unreal](media/acoustics-space-controls.png)
 
 * **Acoustics Data** (Datos acústicos): a este campo se le debe asignar un recurso acústico con simulación acústica mediante "bake" del directorio Content/Acoustics. El complemento de Project Acoustics agregará automáticamente el directorio Content/Acoustics al paquete de directorios del proyecto.
 * **Tile size** (Tamaño de icono): las extensiones de la región que rodea al oyente que quiere que los datos acústicos se carguen en la memoria RAM. Mientras se carguen los sondeos del oyente inmediatamente en torno al jugador, los resultados son los mismos que cargar los datos acústicos de todos los sondeos. Los mosaicos más grandes usan más memoria RAM, pero reducen la E/S de disco.
@@ -88,7 +88,7 @@ El actor del espacio acústico expone muchos controles que modifican el comporta
 ## <a name="actor-specific-acoustics-design-controls"></a>Controles de diseño acústico específicos del actor
 Estos controles de diseño están destinados a un componente de audio de Unreal.
 
-![Controles de componentes de audio](media/audio-component-controls.png)
+![Captura de pantalla de los controles de componentes de audio de Unreal](media/audio-component-controls.png)
 
 * **Occlusion Multiplier** (Multiplicador de oclusión): controla el efecto de oclusión. Los valores < 1 amplifican la oclusión. Los valores < 1 la reducen.
 * **Wetness Adjustment** (Ajuste de sonido con efectos): dB de reverberación adicional.
@@ -104,7 +104,7 @@ Se puede acceder al actor del espacio acústico mediante plano técnico, que pro
 ### <a name="add-finer-grained-control-over-streaming-load"></a>Agregar un control preciso sobre el streaming de la carga
 Para administrar el streaming de datos acústicos por su cuenta en lugar de realizar el streaming automáticamente según la posición del jugador, puede usar la función de plano técnico Force Load Tile (Forzar mosaico de carga):
 
-![Streaming B P](media/blueprint-streaming.png)
+![Captura de pantalla de las opciones de streaming de plano técnico de Unreal](media/blueprint-streaming.png)
 
 * **Target** (Destino): el actor de AcousticsSpace.
 * **Center Position** (Posición central): el centro de la región que necesita los datos cargados.
@@ -113,12 +113,12 @@ Para administrar el streaming de datos acústicos por su cuenta en lugar de real
 
 Antes de llamar a la función para forzar el icono de carga, se debe establecer el tamaño del icono. Por ejemplo, podría hacer algo parecido para cargar un archivo ACE, establecer su tamaño de icono y transmitirlo en una región:
 
-![Configuración de streaming](media/streaming-setup.png)
+![Captura de pantalla de las opciones de streaming de configuración de Unreal](media/streaming-setup.png)
 
 ### <a name="optionally-query-for-surface-proximity"></a>Consultar opcionalmente la proximidad de superficie
 Si quiere ver cómo de cerca están las superficies en una dirección determinada en torno al oyente, puede usar la función de distancia de consulta. Esta función puede ser útil para controlar reflexiones retardadas direccionales o para otra lógica de juego basada en la proximidad de superficies. La consulta es menos costosa que una emisión de rayos porque los resultados se extraen de la tabla de búsqueda acústica.
 
-![Consulta de distancia](media/distance-query.png)
+![Captura de pantalla de ejemplo de consulta de distancia de plano técnico](media/distance-query.png)
 
 * **Target** (Destino): el actor de AcousticsSpace.
 * **Look Direction** (Dirección de aspecto): la dirección en la que se realiza la consulta, centrada en el oyente.

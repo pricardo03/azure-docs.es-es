@@ -3,7 +3,7 @@ title: 'Script de ejemplo de Azure PowerShell: apertura del puerto de la aplicac
 description: 'Script de ejemplo de Azure PowerShell: apertura de un puerto en el equilibrador de carga de Azure para una aplicación de Service Fabric.'
 services: service-fabric
 documentationcenter: ''
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 tags: azure-service-management
@@ -13,18 +13,20 @@ ms.workload: multiple
 ms.devlang: na
 ms.topic: sample
 ms.date: 05/18/2018
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 0549f5f2b5b0f8fdfc18b8c091c1065d6137b8c6
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 72badb5ca2e8973fd64f5339eaff55ceb79a5ce3
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34366178"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498271"
 ---
 # <a name="open-an-application-port-in-the-azure-load-balancer"></a>Apertura de un puerto de aplicación en el equilibrador de carga de Azure
 
 Las aplicaciones de Service Fabric que se ejecutan en Azure se ubican detrás del equilibrador de carga de Azure. Este script de ejemplo abre un puerto en un equilibrador de carga de Azure para que una aplicación de Service Fabric se comunique con los clientes externos. Personalice los parámetros según sea necesario. Si el clúster está en un grupo de seguridad de red, también [agregue una regla de grupo de seguridad de red de entrada](service-fabric-powershell-add-nsg-rule.md) para permitir el tráfico entrante.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Si es necesario, instale el módulo Service Fabric PowerShell con el [SDK de Service Fabric](../service-fabric-get-started.md). 
 
@@ -38,12 +40,12 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Notas |
 |---|---|
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Obtiene un recurso de Azure.  |
-| [Get-AzureRmLoadBalancer](/powershell/module/azurerm.network/get-azurermloadbalancer) | Obtiene el equilibrador de carga de Azure. |
-| [Add-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/add-azurermloadbalancerprobeconfig) | Agrega una configuración de sondeo a un equilibrador de carga.|
-| [Get-AzureRmLoadBalancerProbeConfig](/powershell/module/azurerm.network/get-azurermloadbalancerprobeconfig) | Obtiene una configuración de sondeo para un equilibrador de carga. |
-| [Add-AzureRmLoadBalancerRuleConfig](/powershell/module/azurerm.network/add-azurermloadbalancerruleconfig) | Agrega una configuración de regla a un equilibrador de carga. |
-| [Set-AzureRmLoadBalancer](/powershell/module/azurerm.network/set-azurermloadbalancer) | Establece el estado del objetivo para un equilibrador de carga. |
+| [Get-AzResource](/powershell/module/az.resources/get-azresource) | Obtiene un recurso de Azure.  |
+| [Get-AzLoadBalancer](/powershell/module/az.network/get-azloadbalancer) | Obtiene el equilibrador de carga de Azure. |
+| [Add-AzLoadBalancerProbeConfig](/powershell/module/az.network/add-azloadbalancerprobeconfig) | Agrega una configuración de sondeo a un equilibrador de carga.|
+| [Get-AzLoadBalancerProbeConfig](/powershell/module/az.network/get-azloadbalancerprobeconfig) | Obtiene una configuración de sondeo para un equilibrador de carga. |
+| [Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig) | Agrega una configuración de regla a un equilibrador de carga. |
+| [Set-AzLoadBalancer](/powershell/module/az.network/set-azloadbalancer) | Establece el estado del objetivo para un equilibrador de carga. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

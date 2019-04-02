@@ -10,12 +10,12 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 27db3327e296dafea3af2180eeaadd0ff4680b8d
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: da6c9bb6cbd94ab5078641f25e42ad2203ff7a53
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56341963"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58402361"
 ---
 # <a name="azure-managed-applications-overview"></a>Introducción a las aplicaciones administradas de Azure
 
@@ -32,6 +32,8 @@ Las aplicaciones administradas le permiten establecer una relación continuada c
 A pesar de que los clientes implementan estas aplicaciones administradas en sus suscripciones, no es necesario que las mantengan, actualicen ni atiendan. Puede estar seguro de que todos los clientes usan versiones aprobadas. No es necesario que los clientes desarrollen un conocimiento ni dominio específico para administrar estas aplicaciones. Los clientes adquieren de inmediato las actualizaciones de las aplicaciones sin tener que preocuparse de solucionar ni diagnosticar problemas de estas. 
 
 En el caso de los equipos de TI, las aplicaciones administradas le permiten ofrecer soluciones aprobadas previamente a los usuarios de la organización. Estas soluciones se sabe que son compatibles con los estándares de la organización.
+
+Las aplicaciones administradas no admiten actualmente [identidades administradas para recursos de Azure](../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="types-of-managed-applications"></a>Tipos de aplicaciones administradas
 

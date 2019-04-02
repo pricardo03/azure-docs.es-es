@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: tutorial
-ms.date: 05/17/2018
+ms.date: 03/21/2019
 ms.author: areddish
-ms.openlocfilehash: 55704ed6236872c4f225775559e54370757a26a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1e4c08c1e1f9c32c7c397cf187ad2ef91a25c59d
+ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007139"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58350463"
 ---
 # <a name="tutorial-run-tensorflow-model-in-python"></a>Tutorial: Ejecución del modelo de TensorFlow en Python
 
@@ -24,16 +24,14 @@ Tras la [exportación del modelo de TensorFlow](https://docs.microsoft.com/azure
 > [!NOTE]
 > Este tutorial se aplica solo a los modelos exportados desde proyectos de clasificación de imágenes.
 
-## <a name="install-required-components"></a>Instalación de los componentes necesarios
-
-### <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
 Para usar el tutorial, debe realizar los siguientes pasos:
 
 - Instale Python 2.7 o posterior o Python 3.5 o posterior.
 - Instale PIP.
 
-También deberá instalar los siguientes paquetes:
+A continuación deberá instalar los siguientes paquetes:
 
 ```
 pip install tensorflow
@@ -113,7 +111,6 @@ max_square_image = crop_center(image, min_dim, min_dim)
 # Resize that square down to 256x256
 augmented_image = resize_to_256_square(max_square_image)
 ```
-
 
 ### <a name="crop-the-center-for-the-specific-input-size-for-the-model"></a>Recorte del centro para el tamaño de entrada específico del modelo
 
@@ -209,10 +206,10 @@ Los resultados de la ejecución del tensor de la imagen a través del modelo ten
         print (labels[label_index], truncated_probablity)
         label_index += 1
 ```
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-También puede ajustar el modelo en una aplicación móvil:
+A continuación, obtenga información sobre cómo encapsular el modelo en una aplicación móvil:
 * [Use your exported Tensorflow model in an Android application](https://github.com/Azure-Samples/cognitive-services-android-customvision-sample) (Uso del modelo Tensorflow exportado en una aplicación de Android)
 * [Use your exported CoreML model in a Swift iOS application](https://go.microsoft.com/fwlink/?linkid=857726) (Uso del modelo CoreML exportado en una aplicación de iOS con Swift)
 * [Use your exported CoreML model in an iOS application with Xamarin](https://github.com/xamarin/ios-samples/tree/master/ios11/CoreMLAzureModel) (Uso del modelo CoreML exportado en una aplicación de iOS con Xamarin)
-

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: f9d21cb1b047fcc1043ca2d92f718bb5821879a3
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: a721cc2252619923496ee5a3a8ae590a5cda3b04
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226069"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487556"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Inicio rápido: Creación de una aplicación ASP.NET Core con Azure App Configuration
 
@@ -75,7 +75,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 
 1. Para agregar una referencia al paquete NuGet `Microsoft.Extensions.Configuration.AzureAppConfiguration`, ejecute el comando siguiente:
 
-        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration
+        dotnet add package Microsoft.Extensions.Configuration.AzureAppConfiguration --version 1.0.0-preview-007830001
 
 2. Ejecute el siguiente comando para restaurar los paquetes para el proyecto:
 
@@ -96,12 +96,19 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 4. Abra Program.cs y actualice el método `CreateWebHostBuilder` para usar App Configuration mediante una llamada al método `config.AddAzureAppConfiguration()`.
 
     ```csharp
+    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+
+    ...
+
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((hostingContext, config) =>
             {
                 var settings = config.Build();
-                config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+                config.AddAzureAppConfiguration(options => {
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                           .SetOfflineCache(new OfflineFileCache());
+                });
             })
             .UseStartup<Startup>();
     ```
@@ -179,7 +186,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este inicio rápido, ha creado un nuevo almacén de configuración de aplicaciones y lo ha usado con una aplicación web de ASP.NET Core. Para más información acerca del uso de App Configuration, continúe con el siguiente tutorial, ya que en él se muestra cómo realizar la autenticación.
+En este inicio rápido, ha creado un almacén de configuración de aplicaciones y lo ha usado con una aplicación web de ASP.NET Core a través del [proveedor de App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664). Para más información acerca del uso de App Configuration, continúe con el siguiente tutorial, ya que en él se muestra cómo realizar la autenticación.
 
 > [!div class="nextstepaction"]
-> [Managed Identities for Azure Resources](./integrate-azure-managed-service-identity.md)
+> [Integración de Managed Identities for Azure Resources](./integrate-azure-managed-service-identity.md)

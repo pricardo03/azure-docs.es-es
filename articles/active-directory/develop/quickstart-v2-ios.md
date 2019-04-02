@@ -17,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9134f939e771f92453b184aad643d41089623e19
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 57aabb25b960c1135704c62c30b5724026078b08
+ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58201473"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58439269"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-native-app"></a>Inicio rápido: Hacer que los usuarios inicien sesión y llamar a Microsoft Graph API desde una aplicación nativa de iOS
 
@@ -44,7 +44,7 @@ En esta guía de inicio rápido se incluye un código de ejemplo que muestra có
 
 > [!div renderon="portal" class="sxs-lookup"]
 > #### <a name="step-1-configure-your-application"></a>Paso 1: Configuración de la aplicación
-> Para que el código de ejemplo de esta guía de inicio rápido funcione, debe agregar una dirección URL de respuesta como `msal<AppId>://auth` (donde msal<AppId> es el identificador de esta aplicación).
+> Para que el código de ejemplo de este inicio rápido funcione, debe agregar una dirección URL de respuesta como `msal<AppId>://auth` (donde msal\<AppId es el identificador de esta aplicación).
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Hacer este cambio por mí]()
 >
@@ -168,7 +168,7 @@ applicationContext.acquireToken(forScopes: self.kScopes) { (result, error) in /*
 
 > |Donde:||
 > |---------|---------|
-> | `forScopes` | Contiene los ámbitos que se solicitan (es decir, [ "user.read" ]` for Microsoft Graph or `[ "<Application ID URL>/scope" ]` for custom Web APIs (i.e. `api://<Application ID>/access_as_user`)) |
+> | `forScopes` | Contiene los ámbitos que se solicitan (es decir, `[ "user.read" ]` para Microsoft Graph o `[ "<Application ID URL>/scope" ]` para las API web personalizadas; por ejemplo, `api://<Application ID>/access_as_user`). |
 
 #### <a name="getting-an-access-token-silently"></a>Obtención de un token de acceso de forma automática
 

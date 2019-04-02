@@ -3,7 +3,7 @@ title: Creación de un clúster de Service Fabric que ejecuta Windows en Azure |
 description: En este tutorial, aprenderá a implementar un clúster de Azure Service Fabric con Windows en una instancia de Azure Virtual Network mediante PowerShell.
 services: service-fabric
 documentationcenter: .net
-author: rwike77
+author: aljo-microsoft
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/13/2019
-ms.author: ryanwi
+ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: ade7f86bc5a00c079a7ccbe719ae46043d692047
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 28f115e356c8852174b923f4891f93ad435ce7d7
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225151"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58498186"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: Implementación de un clúster de Service Fabric con Windows una red virtual de Azure
 
@@ -58,6 +58,7 @@ Antes de empezar este tutorial:
 * Instalación de [Service Fabric SDK y del módulo de PowerShell](service-fabric-get-started.md).
 * Instale la [versión 4.1 o posterior del módulo de Azure Powershell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps).
 * Repase los conceptos clave sobre [clústeres de Azure](service-fabric-azure-clusters-overview.md).
+* [Planeación y preparación](service-fabric-cluster-azure-deployment-preparation.md) para la implementación de un clúster de producción.
 
 Los siguientes procedimientos crean un clúster de Service Fabric de siete nodos. Use la [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/) para calcular el costo producido por la ejecución de un clúster de Service Fabric en Azure.
 
@@ -157,7 +158,7 @@ El archivo de parámetros [azuredeploy.parameters.json][parameters] permite decl
 |clusterName|mysfcluster123| Nombre del clúster. Solo puede contener letras y números. Puede tener entre 3 y 23 caracteres.|
 |location|southcentralus| Ubicación del clúster. |
 |certificateThumbprint|| <p>El valor debe estar vacío si se va a crear un certificado autofirmado o a proporcionar un archivo de certificados.</p><p>Para usar un certificado existente cargado previamente en un almacén de claves, rellene el valor de huella digital SHA1 del certificado. Por ejemplo, "6190390162C988701DB5676EB81083EA608DCCF3".</p> |
-|certificateUrlValue|| <p>El valor debe estar vacío si se va a crear un certificado autofirmado o a proporcionar un archivo de certificados. </p><p>Para usar un certificado existente cargado previamente en un almacén de claves, especifique la dirección URL del certificado. Por ejemplo, "https://mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
+|certificateUrlValue|| <p>El valor debe estar vacío si se va a crear un certificado autofirmado o a proporcionar un archivo de certificados. </p><p>Para usar un certificado existente cargado previamente en un almacén de claves, especifique la dirección URL del certificado. Por ejemplo, "https:\//mykeyvault.vault.azure.net:443/secrets/mycertificate/02bea722c9ef4009a76c5052bcbf8346".</p>|
 |sourceVaultValue||<p>El valor debe estar vacío si se va a crear un certificado autofirmado o a proporcionar un archivo de certificados.</p><p>Para usar un certificado existente cargado previamente en un almacén de claves, especifique el valor del almacén de claves de origen. Por ejemplo, "/subscriptions/333cc2c84-12fa-5778-bd71-c71c07bf873f/resourceGroups/MyTestRG/providers/Microsoft.KeyVault/vaults/MYKEYVAULT".</p>|
 
 ## <a name="set-up-azure-active-directory-client-authentication"></a>Configuración de la autenticación de cliente de Azure Active Directory
@@ -181,7 +182,7 @@ Cree dos aplicaciones de Azure AD para controlar el acceso al clúster: una apli
 
 Ejecute `SetupApplications.ps1` y proporcione el identificador de inquilino, el nombre del clúster y la dirección URL de respuesta de la aplicación web como parámetros. Especifique los nombres de usuario y las contraseñas para los usuarios. Por ejemplo: 
 
-```PowerShell
+```powershell
 $Configobj = .\SetupApplications.ps1 -TenantId '<MyTenantID>' -ClusterName 'mysfcluster123' -WebApplicationReplyUrl 'https://mysfcluster123.eastus.cloudapp.azure.com:19080/Explorer/index.html' -AddResourceAccess
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestUser' -Password 'P@ssword!123'
 .\SetupUser.ps1 -ConfigObj $Configobj -UserName 'TestAdmin' -Password 'P@ssword!123' -IsAdmin

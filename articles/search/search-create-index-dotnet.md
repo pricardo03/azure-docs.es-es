@@ -1,6 +1,6 @@
 ---
-title: 'Creación de un índice en código mediante la API de .NET: Azure Search'
-description: Obtenga información sobre cómo crear un índice de búsqueda de texto completo en Azure Search mediante el SDK de .NET y el código de ejemplo de C#.
+title: Creación de un índice de Azure Search en C#
+description: Obtenga información sobre cómo crear un índice de búsqueda de texto completo en C# con el SDK de Azure Search para .NET.
 author: heidisteen
 manager: cgronlun
 ms.author: heidist
@@ -9,13 +9,13 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/20/2019
-ms.openlocfilehash: dbaac1478fdbf1b42fc6b597c3a5c541e007e413
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.date: 03/22/2019
+ms.openlocfilehash: a5861faaf26962d34d1c356e29dce1be40f8716b
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287152"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58370591"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Inicio rápido: 1 - Creación de un índice de Azure Search en C#
 
@@ -32,7 +32,7 @@ Este artículo le guía por el proceso de creación de un [índice de Azure Sear
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), cualquier edición. Se han probado código de ejemplo e instrucciones en la edición Community Edition gratuita.
 
-Un punto de conexión de dirección URL y la clave de API de administrador del servicio de búsqueda. Con ambos se crea un servicio de búsqueda, por lo que si ha agregado Azure Search a su suscripción, siga estos pasos para obtener la información necesaria:
+Obtenga un punto de conexión de dirección URL y la clave de API de administrador del servicio de búsqueda. Con ambos se crea un servicio de búsqueda, por lo que si ha agregado Azure Search a su suscripción, siga estos pasos para obtener la información necesaria:
 
   1. En Azure Portal, en la página **Introducción** del servicio de búsqueda, obtenga la dirección URL. Un punto de conexión de ejemplo podría ser similar a `https://mydemo.search.windows.net`.
 
@@ -200,7 +200,9 @@ serviceClient.Indexes.Delete("hotels");
 > 
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este inicio rápido, ha creado un índice de Azure Search vacío basado en un esquema que define los comportamientos y tipos de datos de un campo. En el siguiente tutorial de inicio rápido de esta serie se trata cómo cargar el índice con contenido en el que se puedan realizar búsquedas.
+En este inicio rápido, ha creado un índice de Azure Search vacío basado en un esquema que define los comportamientos y tipos de datos de un campo. El índice es un índice básico que consta de un nombre y una colección de campos con atributos. Un índice más realista incluiría otros elementos, tales como [perfiles de puntuación](index-add-scoring-profiles.md), [proveedores de sugerencias](index-add-suggesters.md) para admitir la escritura anticipada, [sinónimos](search-synonyms.md) y, posiblemente, [ analizadores personalizados](index-add-custom-analyzers.md). Es recomendable repasar estas funcionalidades una vez que comprenda el flujo de trabajo básico.
+
+En el siguiente tutorial de inicio rápido de esta serie se trata cómo cargar el índice con contenido en el que se puedan realizar búsquedas.
 
 > [!div class="nextstepaction"]
 > [Carga de datos en un índice de Azure Search mediante C#](search-import-data-dotnet.md)

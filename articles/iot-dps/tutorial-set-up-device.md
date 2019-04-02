@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f0b62f73650294349e1879b306beebabdaf974a7
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: eae674693b647eed5bce0a38236d44d457c1c2ae
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633408"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486927"
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configuración del dispositivo para el aprovisionamiento mediante el servicio Azure IoT Hub Device Provisioning
 
@@ -45,20 +45,22 @@ Si no está familiarizado con el proceso de aprovisionamiento automático, no ol
 
 El SDK de cliente del servicio Device Provisioning le ayuda a implementar el software de registro del dispositivo. Pero para poder usarlo, es preciso compilar una versión del SDK específico de su plataforma de cliente de desarrollo y mecanismo de plataforma. En este tutorial, se compila un SDK que usa Visual Studio 2017 en una plataforma de desarrollo de Windows para un tipo de atestación compatible:
 
-1. Descargue la versión 3.11.4 del [sistema de compilación CMake](https://cmake.org/download/). Compruebe el archivo binario descargado mediante el valor de hash criptográfico correspondiente. En el ejemplo siguiente se usa Windows PowerShell para comprobar el hash criptográfico de la versión 3.11.4 de la distribución de MSI x64:
+1. Descargue el [sistema de compilación CMake](https://cmake.org/download/). Compruebe el archivo binario descargado mediante el valor de hash criptográfico que corresponda a la versión que descargue. Los valores de hash criptográficos también se encuentran en el vínculo de descarga de CMake proporcionado.
 
-    ```PowerShell
-    PS C:\Downloads> $hash = get-filehash .\cmake-3.11.4-win64-x64.msi
-    PS C:\Downloads> $hash.Hash -eq "56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869"
+    En el ejemplo siguiente se usa Windows PowerShell para comprobar el hash criptográfico de la versión 3.13.4 de la distribución de MSI x64:
+
+    ```powershell
+    PS C:\Downloads> $hash = get-filehash .\cmake-3.13.4-win64-x64.msi
+    PS C:\Downloads> $hash.Hash -eq "64AC7DD5411B48C2717E15738B83EA0D4347CD51B940487DFF7F99A870656C09"
     True
     ```
-    
-    Los siguientes valores de hash para la versión 3.11.4 estaban incluidos en el sitio de CMake en el momento en que se redactó este artículo:
+
+    Los siguientes valores de hash para la versión 3.13.4 estaban incluidos en el sitio de CMake en el momento en que se redactó este artículo:
 
     ```
-    6dab016a6b82082b8bcd0f4d1e53418d6372015dd983d29367b9153f1a376435  cmake-3.11.4-Linux-x86_64.tar.gz
-    72b3b82b6d2c2f3a375c0d2799c01819df8669dc55694c8b8daaf6232e873725  cmake-3.11.4-win32-x86.msi
-    56e3605b8e49cd446f3487da88fcc38cb9c3e9e99a20f5d4bd63e54b7a35f869  cmake-3.11.4-win64-x64.msi
+    563a39e0a7c7368f81bfa1c3aff8b590a0617cdfe51177ddc808f66cc0866c76  cmake-3.13.4-Linux-x86_64.tar.gz
+    7c37235ece6ce85aab2ce169106e0e729504ad64707d56e4dbfc982cb4263847  cmake-3.13.4-win32-x86.msi
+    64ac7dd5411b48c2717e15738b83ea0d4347cd51b940487dff7f99a870656c09  cmake-3.13.4-win64-x64.msi
     ```
 
     **Antes** de comenzar la instalación de `CMake`, es importante que los requisitos previos de Visual Studio (Visual Studio y la carga de trabajo de desarrollo de escritorio con C++) estén instalados en la máquina. Una vez que los requisitos previos están en su lugar, y se ha comprobado la descarga, instale el sistema de compilación de CMake.
@@ -110,7 +112,7 @@ Dependiendo de si ha compilado el SDK para usar la atestación para un dispositi
 
 - Para un dispositivo X.509, deberá obtener los certificados emitidos para los dispositivos. El servicio de aprovisionamiento expone dos tipos de entradas de inscripción que controlan el acceso de los dispositivos mediante el mecanismo de atestación de X.509. Los certificados necesarios dependen de los tipos de inscripción que vaya a usar.
 
-    1. Inscripciones individuales: inscripción de un único dispositivo específico. Este tipo de entrada de inscripción requiere [certificados de entidad final o de "hoja"](concepts-security.md#end-entity-leaf-certificate).
+    1. Inscripciones individuales: inscripción de un dispositivo individual concreto. Este tipo de entrada de inscripción requiere [certificados de entidad final o de "hoja"](concepts-security.md#end-entity-leaf-certificate).
     1. Grupos de inscripción: este tipo de entrada de inscripción requiere certificados intermedios o de raíz. Para más información, consulte [Control del acceso de dispositivo al servicio de aprovisionamiento con certificados X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ### <a name="simulated-devices"></a>Dispositivos simulados

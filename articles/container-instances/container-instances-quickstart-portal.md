@@ -5,15 +5,15 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: quickstart
-ms.date: 10/02/2018
+ms.date: 03/21/2019
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 41313a8b140886247b830db7ca9b34a22257de96
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: f4d232d4d6043ede3979db67e5cd35130d931bef
+ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57729143"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58369452"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-portal"></a>Inicio rápido: Implementación de una instancia de contenedor en Azure mediante Azure Portal
 
@@ -38,12 +38,12 @@ Seleccione **Crear un recurso** > **Contenedores** > **Container Instances**.
 Escriba los valores siguientes en los cuadros de texto **Nombre de contenedor**, **Imagen de contenedor** y **Grupo de recursos**. Deje los otros valores predeterminados y haga clic en **Aceptar**.
 
 * Nombre de contenedor: `mycontainer`
-* Imagen de contenedor: `microsoft/aci-helloworld`
+* Imagen de contenedor: `mcr.microsoft.com/azuredocs/aci-helloworld`
 * Grupo de recursos: **Crear nuevo** > `myResourceGroup`
 
 ![Configuración básica de una instancia de contenedor nueva en Azure Portal][aci-portal-03]
 
-En este artículo de inicio rápido, deje el valor predeterminado **Público** para implementar la imagen `microsoft/aci-helloworld` pública. Esta imagen empaqueta una pequeña aplicación web escrita en Node.js que sirve una página HTML estática.
+En este artículo de inicio rápido, deje el valor predeterminado **Público** para implementar la imagen pública de Microsoft `aci-helloworld`. Esta imagen empaqueta una pequeña aplicación web escrita en Node.js que sirve una página HTML estática.
 
 En **Configuración**, especifique una **etiqueta de nombre DNS** para el contenedor. El nombre debe ser único dentro de la región de Azure en la que crea la instancia de contenedor. El contenedor estará públicamente accesible en `<dns-name-label>.<region>.azurecontainer.io`. Si recibe un mensaje de error "DNS name label not available" (La etiqueta de nombre DNS no está disponible), pruebe otra etiqueta de nombre DNS diferente.
 
@@ -89,7 +89,7 @@ Seleccione **Sí** cuando aparezca el cuadro de diálogo de confirmación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía de inicio rápido, ha creado una instancia de contenedor de Azure a partir de una imagen en un repositorio público de Docker Hub. Si quiere compilar una imagen de contenedor e implementarla desde un registro de contenedor privado de Azure, vaya al tutorial de Azure Container Instances.
+En este inicio rápido, ha creado una instancia de contenedor de Azure a partir de una imagen de Microsoft pública. Si quiere compilar una imagen de contenedor e implementarla desde un registro de contenedor privado de Azure, vaya al tutorial de Azure Container Instances.
 
 > [!div class="nextstepaction"]
 > [Tutorial de Azure Container Instances](./container-instances-tutorial-prepare-app.md)
