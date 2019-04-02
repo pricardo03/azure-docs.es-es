@@ -13,19 +13,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/11/2019
 ms.author: magoedte
-ms.openlocfilehash: a152d9242c4d272800e2e159603c2554f1d89092
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: ef5ab3d4fe71f688a0b4f3879248ea1715874a0b
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622049"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793737"
 ---
 # <a name="configure-service-map-in-azure"></a>Configuración de Service Map en Azure
+
 Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Puede usarlo para ver los servidores tal como los considera: sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos y puertos en cualquier arquitectura conectada TCP sin una configuración necesaria que sea distinta a la instalación de un agente.
 
 En este artículo se describen los detalles sobre cómo configurar agentes de incorporación y de Mapa de servicio. Para información acerca de cómo usar Service Map, consulte [Uso de la solución Service Map en Azure]( service-map.md).
 
 ## <a name="supported-azure-regions"></a>Regiones de Azure compatibles
+
 Service Map actualmente está disponible en las siguientes regiones de Azure:
 - Este de EE. UU
 - Centro occidental de EE.UU.
@@ -35,6 +37,7 @@ Service Map actualmente está disponible en las siguientes regiones de Azure:
 - Sudeste asiático
 
 ## <a name="supported-windows-operating-systems"></a>Sistemas operativos Windows compatibles
+
 En las secciones siguientes se enumeran los sistemas operativos compatibles para Dependency Agent en Windows. 
 
 >[!NOTE]
@@ -42,6 +45,7 @@ En las secciones siguientes se enumeran los sistemas operativos compatibles para
 >
 
 ### <a name="windows-server"></a>Windows Server
+
 - Windows Server 2019
 - Windows Server 2016 1803
 - Windows Server 2016
@@ -50,6 +54,7 @@ En las secciones siguientes se enumeran los sistemas operativos compatibles para
 - Windows Server 2008 R2 SP1
 
 ### <a name="windows-desktop"></a>Escritorio de Windows
+
 - Windows 10 1803
 - Windows 10
 - Windows 8.1
@@ -57,6 +62,7 @@ En las secciones siguientes se enumeran los sistemas operativos compatibles para
 - Windows 7
 
 ## <a name="supported-linux-operating-systems"></a>Sistemas operativos Linux compatibles
+
 La siguiente sección se enumeran los sistemas operativos compatibles para el agente de dependencia en Linux.  
 
 - Se admiten solo versiones de kernel SMP Linux y predeterminados.
@@ -79,6 +85,7 @@ La siguiente sección se enumeran los sistemas operativos compatibles para el ag
 | 6.10 | 2.6.32-754 |
 
 ### <a name="centosplus"></a>CentOSPlus
+
 | Versión del SO | Versión del kernel |
 |:--|:--|
 | 6.9 | 2.6.32-696.18.7<br>2.6.32-696.30.1 |
@@ -114,6 +121,7 @@ La siguiente sección se enumeran los sistemas operativos compatibles para el ag
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
 
 ## <a name="connected-sources"></a>Orígenes conectados
+
 Service Map obtiene sus datos de Microsoft Dependency Agent. Dependency Agent se basa en el agente de Log Analytics en lo que respecta a sus conexiones a Log Analytics. Es decir, un servidor debe tener instalado y configurado el agente de Log Analytics con Dependency Agent.  En la tabla siguiente se describen los orígenes conectados que son compatibles con la solución Service Map.
 
 | Origen conectado | Compatible | DESCRIPCIÓN |
@@ -141,16 +149,19 @@ Si es un cliente de System Center Operations Manager con un grupo de administrac
 Si los equipos Windows o Linux no pueden conectarse directamente al servicio, deberá configurar el agente de Log Analytics para que se conecte al área de trabajo de Log Analytics mediante la puerta de enlace. Para obtener más información sobre cómo implementar y configurar la puerta de enlace de Log Analytics, vea [Conectar equipos sin acceso a Internet mediante la puerta de enlace de Log Analytics](../../azure-monitor/platform/gateway.md).  
 
 ### <a name="management-packs"></a>Módulos de administración
+
 Cuando se activa Service Map en un área de trabajo de Log Analytics, se reenvía un módulo de administración de 300 KB a todos los servidores Windows en esa área de trabajo. Si usa agentes de System Center Operations Manager en un [grupo de administración conectado](../../azure-monitor/platform/om-agents.md), el módulo de administración de Service Map se implementa desde System Center Operations Manager. 
 
 El módulo de administración se denomina Microsoft.IntelligencePacks.ApplicationDependencyMonitor. Se escribe en %Programfiles%\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs\. El origen de datos que el módulo de administración usa es %Program files%\Microsoft Monitoring Agent\Agent\Health Service State\Resources\<AutoGeneratedID>\Microsoft.EnterpriseManagement.Advisor.ApplicationDependencyMonitorDataSource.dll.
 
 ## <a name="data-collection"></a>Colección de datos
+
 Puede esperar que cada agente transmita aproximadamente 25 MB por día, dependiendo de la complejidad de las dependencias del sistema. Cada agente envía datos de dependencia de Service Map cada 15 segundos.  
 
 Habitualmente, Dependency Agent consume un 0,1 por ciento de memoria del sistema y un 0,1 por ciento de CPU del sistema.
 
 ## <a name="diagnostic-and-usage-data"></a>Datos de diagnóstico y uso
+
 Microsoft recopila automáticamente datos de uso y rendimiento a través del servicio Mapa de servicio. Microsoft usa estos datos para proporcionar calidad, seguridad e integridad en el servicio Service Map y para mejorarlas. Los datos incluyen información sobre la configuración del software, como el sistema operativo y la versión. También incluye dirección IP, nombre DNS y nombre de estación de trabajo para proporcionar funcionalidades precisas y eficaces de solución de problemas. No recopilamos los nombres, las direcciones ni otra información de contacto.
 
 Para más información sobre la recopilación de datos y su utilización, consulte [Declaración de privacidad de Microsoft Online Services](https://go.microsoft.com/fwlink/?LinkId=512132).
@@ -160,6 +171,7 @@ Para más información sobre la recopilación de datos y su utilización, consul
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ### <a name="azure-vm-extension"></a>Extensión de máquina virtual de Azure
+
 Hay una extensión disponible tanto para Windows (DependencyAgentWindows) como para Linux (DependencyAgentLinux), y puede implementar fácilmente Dependency Agent en las máquinas virtuales de Azure mediante una [extensión de máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  Con la extensión de máquina virtual de Azure, puede implementar Dependency Agent en las máquinas virtuales Windows y Linux mediante un script de PowerShell o directamente en la máquina virtual usando una plantilla de Azure Resource Manager.  Si implementa el agente mediante la extensión de máquina virtual de Azure, los agentes se actualizan automáticamente a la versión más reciente.
 
 Para implementar la extensión de máquina virtual de Azure mediante PowerShell, puede usar el siguiente ejemplo:
@@ -210,6 +222,7 @@ Una manera incluso más fácil de garantizar que Dependency Agent está instalad
 ```
 
 ### <a name="install-the-dependency-agent-on-microsoft-windows"></a>Instalación de Dependency Agent en Microsoft Windows
+
 Dependency Agent puede instalarse manualmente en equipos Windows ejecutando `InstallDependencyAgent-Windows.exe`. Si ejecuta este archivo ejecutable sin opciones, se inicia un asistente para instalación que puede seguir para realizar la instalación de forma interactiva.  
 
 >[!NOTE]
@@ -226,6 +239,7 @@ Utilice los pasos siguientes para instalar Dependency Agent en cada equipo Windo
 4.  Si Dependency Agent no se inicia, compruebe los registros para obtener información detallada del error. En los agentes de Windows, el directorio de registro es %Programfiles%\Microsoft Dependency Agent\logs. 
 
 #### <a name="windows-command-line"></a>Línea de comandos de Windows
+
 Use las opciones de la tabla siguiente para realizar la instalación desde una línea de comandos. Para ver una lista de marcas de instalación, ejecute el programa de instalación con la marca /? de la manera siguiente.
 
     InstallDependencyAgent-Windows.exe /?
@@ -238,6 +252,7 @@ Use las opciones de la tabla siguiente para realizar la instalación desde una l
 Los archivos para Windows Dependency Agent se ubican en C:\Archivos de programa\Microsoft Dependency Agent de manera predeterminada.
 
 ### <a name="install-the-dependency-agent-on-linux"></a>Instalación de Dependency Agent en Linux
+
 Dependency Agent se instala en equipos Linux desde `InstallDependencyAgent-Linux64.bin`, un script de shell con un archivo binario autoextraíble. Puede ejecutar el archivo mediante `sh` o agregar permisos de ejecución al propio archivo.
 
 >[!NOTE]
@@ -273,9 +288,11 @@ Los archivos de Dependency Agent se colocan en los directorios siguientes:
 | Archivos binarios de almacenamiento | /var/opt/microsoft/dependency-agent/storage |
 
 ## <a name="installation-script-examples"></a>Ejemplos de script de instalación
+
 Para implementar fácilmente Dependency Agent en muchos servidores a la vez, se proporciona el siguiente script de ejemplo para descargar e instalar Dependency Agent en Windows o Linux.
 
 ### <a name="powershell-script-for-windows"></a>Script de PowerShell para Windows
+
 ```powershell
 Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDependencyAgent-Windows.exe
 
@@ -283,14 +300,17 @@ Invoke-WebRequest "https://aka.ms/dependencyagentwindows" -OutFile InstallDepend
 ```
 
 ### <a name="shell-script-for-linux"></a>Script de shell para Linux
+
 ```
 wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDependencyAgent-Linux64.bin
 sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
+
 ## <a name="desired-state-configuration"></a>Configuración de estado deseada
+
 Para implementar Dependency Agent mediante Desired State Configuration (DSC), puede usar el módulo xPSDesiredStateConfiguration con el siguiente código de ejemplo:
 
-```
+```powershell
 configuration ServiceMap {
 
     Import-DscResource -ModuleName xPSDesiredStateConfiguration
@@ -323,12 +343,15 @@ configuration ServiceMap {
 ```
 
 ## <a name="remove-the-dependency-agent"></a>Eliminación de Dependency Agent
+
 ### <a name="uninstall-agent-on-windows"></a>Desinstalación del agente en Windows
+
 Un administrador puede desinstalar Dependency Agent de Windows a través del Panel de control.
 
 Un administrador también puede ejecutar %Programfiles%\Microsoft Dependency Agent\Uninstall.exe para desinstalar Dependency Agent.
 
 ### <a name="uninstall-agent-on-linux"></a>Desinstalación del agente en Linux
+
 Puede desinstalar Dependency Agent de Linux con el siguiente comando.
 
 RHEL, CentOS y Oracle:
@@ -344,10 +367,13 @@ sudo apt -y purge dependency-agent
 ```
 
 ## <a name="troubleshooting"></a>solución de problemas
+
 Esta sección puede ayudarle si tiene problemas para instalar o ejecutar Service Map. Si sigue sin poder resolver el problema, póngase en contacto con Soporte técnico de Microsoft.
 
 ### <a name="dependency-agent-installation-problems"></a>Problemas de instalación de Dependency Agent
+
 #### <a name="installer-prompts-for-a-reboot"></a>El instalador solicita un reinicio
+
 Dependency Agent, *por lo general*, no requiere un reinicio durante su instalación o desinstalación. Sin embargo, en algunos casos poco frecuentes, un servidor de Windows Server requiere un reinicio para continuar con una instalación. Esto ocurre cuando una dependencia, normalmente los redistribuibles de Visual C++ de Microsoft, requiere un reinicio debido a un archivo bloqueado.
 
 #### <a name="message-unable-to-install-dependency-agent-visual-studio-runtime-libraries-failed-to-install-code--codenumber-appears"></a>Aparece el mensaje "Unable to install Dependency agent: Visual Studio Runtime libraries failed to install (code = [code_number])" (No se puede instalar Dependency Agent: error al instalar las bibliotecas en tiempo de ejecución de Visual Studio (código = [número_código]))
@@ -365,7 +391,9 @@ En la tabla siguiente se muestran números de código y resoluciones sugeridas.
 | 0 x 17 | El instalador de la biblioteca requiere una actualización de Windows que no se ha instalado. | Mire el registro del instalador de la biblioteca más reciente.<br><br>Si una referencia a "Windows8.1-KB2999226-x64.msu" va seguida de una línea "Error 0x80240017: Failed to execute MSU package" (Error 0x80240017: No se puede ejecutar el paquete MSU), no tiene los requisitos previos para instalar KB2999226. Siga las instrucciones que aparecen en la sección de requisitos previos en [Universal C Runtime en Windows](https://support.microsoft.com/kb/2999226). Es posible que tenga que ejecutar Windows Update y reiniciar varias veces para instalar los requisitos previos.<br><br>Ejecute de nuevo el instalador Microsoft Dependency Agent. |
 
 ### <a name="post-installation-issues"></a>Problemas posteriores a la instalación
+
 #### <a name="server-doesnt-appear-in-service-map"></a>El servidor no aparece en Service Map
+
 Si la instalación de Dependency Agent se ha realizado correctamente, pero no ve el servidor en la solución de Service Map:
 * ¿Se ha instalado Dependency Agent correctamente? Para validarlo, compruebe si el servicio está instalado y se ejecuta.<br><br>
 **Windows**: Busque el servicio llamado "Microsoft Dependency Agent".<br>
@@ -380,9 +408,11 @@ Si la instalación de Dependency Agent se ha realizado correctamente, pero no ve
 ¿obtuvo una amplia variedad de eventos en los resultados? ¿Son los datos recientes? Si es así, el agente de Log Analytics funciona correctamente y se comunica con el servicio de Log Analytics. Si no es así, compruebe el agente en el servidor: [Log Analytics agent for Windows troubleshooting](https://support.microsoft.com/help/3126513/how-to-troubleshoot-monitoring-onboarding-issues) (Cómo solucionar problemas relacionados con el agente de Windows de Log Analytics) o [Cómo solucionar problemas relacionados con el agente de Linux de Log Analytics](../../azure-monitor/platform/agent-linux-troubleshoot.md).
 
 #### <a name="server-appears-in-service-map-but-has-no-processes"></a>El servidor aparece en Service Map, pero no tiene procesos
+
 Si ve el servidor en Service Map (Mapa de servicios), pero no tiene datos de proceso ni de conexión, quiere decir que Dependency Agent está instalado y se ejecuta. Sin embargo, el controlador kernel no se ha cargado. 
 
 Revise el archivo C:\Program Files\Microsoft Dependency Agent\logs\wrapper.log (Windows) o el archivo /var/opt/microsoft/dependency-agent/log/service.log (Linux). Las últimas líneas del archivo deben indicar por qué no se cargó el kernel. Por ejemplo, es posible que el kernel no sea compatible con Linux si actualizó el kernel.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 - Obtenga información sobre cómo [usar Service Map]( service-map.md) una vez implementado y configurado.

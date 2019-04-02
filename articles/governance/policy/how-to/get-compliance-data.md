@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: df5b6268a2ecd7062969aac9d663ee751eeab130
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: da027e492633ba3e4da912c2c45b2432fd217576
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535219"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802968"
 ---
-# <a name="getting-compliance-data"></a>Obtención de datos de cumplimiento
+# <a name="get-compliance-data-of-azure-resources"></a>Obtener datos de cumplimiento de los recursos de Azure
 
 Una de las ventajas más grandes de Azure Policy es la información y los controles que proporciona sobre los recursos de una suscripción o [grupo de administración](../../management-groups/overview.md) de suscripciones. Este control puede ejercerse de muchas maneras diferentes, por ejemplo: evitar que los recursos se creen en una ubicación incorrecta, forzar un uso común y coherente de las etiquetas, o auditar los recursos existentes para las opciones y configuraciones apropiadas. En todos los casos, Policy genera los datos para que pueda conocer el estado de cumplimiento de su entorno.
 
@@ -120,27 +120,27 @@ La directiva utiliza los campos **Tipo** y **Nombre** en la definición para det
 El porcentaje de cumplimiento se determina al dividir los recursos **Conforme** por el _total de recursos_.
 El _total de recursos_ se define como la suma de los recursos **Conforme**, **No compatible** y **En conflicto**. La cifra de cumplimiento general es la suma de los distintos recursos que son **Conforme** dividida por la suma de todos los recursos distintos. En la imagen siguiente, hay 20 recursos diferentes que son aplicables y solo uno es **No compatible**. Por tanto, el cumplimiento general de los recursos es del 95 % (19 de 20).
 
-![Ejemplo de cumplimiento simple](../media/getting-compliance-data/simple-compliance.png)
+![Ejemplo de cumplimiento de directivas de página de cumplimiento](../media/getting-compliance-data/simple-compliance.png)
 
 ## <a name="portal"></a>Portal
 
 Azure Portal presenta de forma gráfica la visualización y el reconocimiento del estado de cumplimiento de normas en su entorno. En la página **Directiva**, la opción **Información general** proporciona detalles sobre el cumplimiento de directivas e iniciativas por parte de los ámbitos disponibles. Junto con el recuento y el estado de cumplimiento por asignación, contiene un gráfico que muestra el cumplimiento durante los últimos siete días.
 La página **Cumplimiento** contiene gran parte de esta misma información (excepto el gráfico), pero ofrece más opciones de filtrado y ordenación.
 
-![Página cumplimiento de directiva](../media/getting-compliance-data/compliance-page.png)
+![Ejemplo de página de cumplimiento de directivas](../media/getting-compliance-data/compliance-page.png)
 
 Dado que una directiva o iniciativa se puede asignar a distintos ámbitos, la tabla incluye el ámbito de cada asignación y el tipo de definición que se asignó. También se proporciona el número de directivas y recursos no compatibles para cada asignación. Al hacer clic en una directiva o iniciativa de la tabla, se proporciona más información sobre el cumplimiento de esa asignación en particular.
 
-![Detalles de cumplimiento de directiva](../media/getting-compliance-data/compliance-details.png)
+![Ejemplo de página de detalles de cumplimiento de directiva](../media/getting-compliance-data/compliance-details.png)
 
 La lista de recursos de la pestaña **Compatibilidad de recursos** muestra el estado de evaluación de los recursos existentes para la asignación actual. El valor predeterminado de la pestaña es **No compatible**, pero se puede filtrar.
 Los eventos (anexar, auditar, denegar, implementar) que desencadena la solicitud para crear un recurso se muestran en la pestaña **Eventos**.
 
-![Eventos de cumplimiento de directiva](../media/getting-compliance-data/compliance-events.png)
+![Ejemplo de eventos de cumplimiento de directivas](../media/getting-compliance-data/compliance-events.png)
 
 Haga clic con el botón derecho en la fila del evento sobre el que quiere recopilar información más detallada y seleccione **Mostrar los registros de actividad**. Se abre la página de registro de actividad y se filtra previamente para mostrar detalles de la asignación y los eventos. El registro de actividad proporciona contexto e información adicionales sobre esos eventos.
 
-![Registro de actividades de cumplimiento de directiva](../media/getting-compliance-data/compliance-activitylog.png)
+![Ejemplo de registro de actividad de directiva de cumplimiento](../media/getting-compliance-data/compliance-activitylog.png)
 
 ### <a name="understand-non-compliance"></a>Comprender el no cumplimiento
 

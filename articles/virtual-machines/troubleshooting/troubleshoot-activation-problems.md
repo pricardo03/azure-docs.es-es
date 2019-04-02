@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/15/2018
 ms.author: genli
-ms.openlocfilehash: 0f700b9e24399768977a1fa221322fa4c1c6708d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 18cd5a86cc2f52567c5f320719d1a9f21b377ed4
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095150"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58791718"
 ---
 # <a name="troubleshoot-azure-windows-virtual-machine-activation-problems"></a>Solución de problemas de activación de máquinas virtuales Windows de Azure
 
 Si tiene algún problema al activar una máquina virtual (VM) Windows de Azure que se crea a partir de una imagen personalizada, puede usar la información proporcionada en este documento para solucionar el problema. 
 
 ## <a name="understanding-azure-kms-endpoints-for-windows-product-activation-of-azure-virtual-machines"></a>Descripción de los puntos de conexión de KMS de Azure para la activación de productos Windows de Azure Virtual Machines
+
 Azure usa puntos de conexión diferentes para la activación de KMS en función de la región en la nube donde resida la máquina virtual. Al usar esta guía de solución de problemas, utilice el punto de conexión de KMS adecuado que se aplica a su región.
 
 * Regiones de la nube pública de Azure: kms.core.windows.net:1688
@@ -40,6 +41,7 @@ Al intentar activar una VM Windows de Azure, recibe un mensaje de error similar 
 **Error: 0xC004F074 The Software LicensingService reported that the computer could not be activated. No Key ManagementService (KMS) could be contacted. Please see the Application Event Log for additional information.** (Error: 0xC004F074 El Servicio de licencias de software ha notificado que el servicio no se ha podido activar. No se ha podido establecer contacto con ningún Servicio de administración de claves (KMS). Vea el registro de eventos de la aplicación para obtener información adicional).
 
 ## <a name="cause"></a>Causa
+
 Por lo general, los problemas de activación de máquinas virtuales de Azure se producen si la VM de Windows no está configurada con la clave de instalación de cliente KMS apropiada o la tiene un problema de conectividad con el servicio de KMS de Azure (kms.core.windows.net, puerto 1688). 
 
 ## <a name="solution"></a>Solución
@@ -57,6 +59,7 @@ Este paso no se aplica a Windows 2012 o Windows 2008 R2. Usa la característica 
 
 1. Ejecute **slmgr.vbs /dlv** en un símbolo del sistema con privilegios elevados. Compruebe el valor de Descripción en la salida y determine si se ha creado desde el canal comercial (RETAIL) o desde soportes de licencia por volumen (VOLUME_KMSCLIENT):
   
+
     ```
     cscript c:\windows\system32\slmgr.vbs /dlv
     ```
@@ -83,16 +86,20 @@ Este paso no se aplica a Windows 2012 o Windows 2008 R2. Usa la característica 
 
 3. Asegúrese de que la VM está configurada para usar el servidor de KMS de Azure correcto. Para ello, ejecute el siguiente comando:
   
+
+    ```powershell
+    Invoke-Expression "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
     ```
-    iex "$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /skms kms.core.windows.net:1688"
-    ```
+
     El comando debe devolver: Key Management Service machine name set to kms.core.windows.net:1688 successfully (El nombre de máquina del servicio de administración de claves se estableció correctamente en kms.core.windows.net:1688).
 
 4. Compruebe con Psping que dispone de conectividad con el servidor de KMS. Vaya a la carpeta en la que extrajo la descarga de Pstools.zip y ejecute lo siguiente:
   
+
     ```
     \psping.exe kms.core.windows.net:1688
     ```
+
   
    En la penúltima línea, asegúrese de que aparece: Sent = 4, Received = 4, Lost = 0 (0% loss) [Enviados = 4, Recibidos = 4, Perdidos = 0 (0 % perdidos)]
 
@@ -104,8 +111,8 @@ Compruebe también que firewall de invitado no está configurado de manera que b
 
 1. Después de comprobar la conectividad correcta con kms.core.windows.net, ejecute el siguiente comando en un símbolo del sistema de Windows PowerShell con privilegios elevados. Este comando intenta la activación varias veces.
 
-    ```
-    1..12 | % { iex “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
+    ```powershell
+    1..12 | ForEach-Object { Invoke-Expression “$env:windir\system32\cscript.exe $env:windir\system32\slmgr.vbs /ato” ; start-sleep 5 }
     ```
 
 Una activación correcta devuelve información similar a la siguiente:
@@ -115,16 +122,21 @@ Una activación correcta devuelve información similar a la siguiente:
 ## <a name="faq"></a>Preguntas más frecuentes 
 
 ### <a name="i-created-the-windows-server-2016-from-azure-marketplace-do-i-need-to-configure-kms-key-for-activating-the-windows-server-2016"></a>He creado Windows Server 2016 desde Azure Marketplace. ¿Tengo que configurar la clave KMS para activar Windows Server 2016? 
+
  
  No. La imagen de Azure Marketplace ya tiene configurada la clave de instalación de cliente KMS apropiada. 
 
 ### <a name="does-windows-activation-work-the-same-way-regardless-if-the-vm-is-using-azure-hybrid-use-benefit-hub-or-not"></a>¿La activación de Windows funciona siempre igual sin importar que la VM use la Ventaja de uso híbrido (HUB) de Azure? 
+
  
 Sí. 
  
+
 ### <a name="what-happens-if-windows-activation-period-expires"></a>¿Qué sucede si el período de activación de Windows expira? 
+
  
 Cuando el período de gracia ha expirado y Windows no está activado todavía, Windows Server 2008 R2 y las versiones posteriores de Windows mostrarán notificaciones adicionales sobre la activación. El fondo de pantalla del escritorio permanece negro y Windows Update solo instalará las actualizaciones críticas y de seguridad, pero no las actualizaciones opcionales. Vea la sección de notificaciones en la parte inferior de la página [Licensing Conditions](https://technet.microsoft.com/library/ff793403.aspx) (Condiciones de licencias).   
 
 ## <a name="need-help-contact-support"></a>¿Necesita ayuda? Póngase en contacto con el servicio de soporte técnico.
+
 Si sigue necesitando ayuda, [póngase en contacto con el servicio de soporte técnico](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver el problema rápidamente.

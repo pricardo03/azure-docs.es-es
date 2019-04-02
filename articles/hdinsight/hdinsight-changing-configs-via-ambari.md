@@ -1,19 +1,19 @@
 ---
 title: Optimización de las configuraciones de clúster con Apache Ambari en Azure HDInsight
 description: Use la interfaz de usuario web de Apache Ambari para configurar y optimizar clústeres de HDInsight.
-author: ashishthaps
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/09/2018
-ms.author: ashish
-ms.openlocfilehash: 14b634e610fb0da71c5f0d742a250b18cea70dc7
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
-ms.translationtype: HT
+ms.date: 03/26/2019
+ms.author: hrasheed
+ms.openlocfilehash: f0db36fa380d0d1bb7f2b581c4bf8fa1abfaadaf
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53722930"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58805387"
 ---
 # <a name="use-apache-ambari-to-optimize-hdinsight-cluster-configurations"></a>Uso de Apache Ambari para optimizar configuraciones de clúster de HDInsight
 
@@ -51,7 +51,7 @@ Para modificar el tamaño del montón de Java NameNode:
 
     ![Editar el tamaño del montón de Java NameNode](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edit.png)
 
-1. El tamaño del montón de Java NameNode ha cambiado de 2 GB a 1 GB.
+1. El tamaño del montón de NameNode Java se cambia a 1 GB de 2 GB.
 
     ![Tamaño del montón de Java NameNode editado](./media/hdinsight-changing-configs-via-ambari/java-heap-size-edited.png)
 
@@ -125,7 +125,7 @@ Una consulta de Hive se ejecuta en una o varias fases. Si las fases independient
 
 1.  Para habilitar la ejecución de consultas en paralelo, navegue hasta la pestaña **Configs** (Configuraciones) de Hive y busque la propiedad `hive.exec.parallel`. El valor predeterminado es false. Cambie el valor a true y, a continuación, presione **ENTRAR** para guardar el valor.
  
-1.  Para limitar el número de trabajos que se van a ejecutar en paralelo, modifique la propiedad `hive.exec.parallel.thread.number`. El valor predeterminado es 8.
+1.  Para limitar el número de trabajos para su ejecución en paralelo, modifique el `hive.exec.parallel.thread.number` propiedad. El valor predeterminado es 8.
 
     ![Ejecución de Hive en paralelo](./media/hdinsight-changing-configs-via-ambari/hive-exec-parallel.png)
 
@@ -179,7 +179,7 @@ Los tipos de compresión disponibles son:
 | Formato | Herramienta | Algoritmo | Extensión de archivo | ¿Divisible? |
 | -- | -- | -- | -- | -- |
 | Gzip | Gzip | DEFLATE | .gz | Sin  |
-| Bzip2 | Bzip2 | Bzip2 |.bz2 | SÍ |
+| Bzip2 | Bzip2 | Bzip2 |.bz2 | Sí |
 | LZO | Lzop | LZO | .lzo | Sí, si está indexado |
 | Snappy | N/D | Snappy | Snappy | Sin  |
 
@@ -295,7 +295,7 @@ Las propiedades de [Apache Pig](https://pig.apache.org/) se pueden modificar des
 
 1. Busque, quite la marca de comentario y cambie el valor de la propiedad que quiera modificar.
 
-1. Seleccione **Guardar** en la parte superior derecha de la ventana para guardar el nuevo valor. Algunas propiedades pueden requerir un reinicio del servicio.
+1. Seleccione **guardar** en la parte superior derecha de la ventana para guardar el nuevo valor. Algunas propiedades pueden requerir un reinicio del servicio.
 
     ![Propiedades de Pig avanzadas](./media/hdinsight-changing-configs-via-ambari/advanced-pig-properties.png)
  

@@ -1,6 +1,6 @@
 ---
-title: 'Ejemplo: ISO 27001 blueprint: asignación de controles'
-description: Asignación de control de la muestra de la instancia de blueprint ISO 27001.
+title: 'Asignación de Control de ejemplo - plano de carga de trabajo de la ISO 27001 ASE/SQL:'
+description: Asignación de control de la muestra de plano técnico carga de trabajo ISO 27001 App Service entorno/SQL Database a Azure Policy y RBAC.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
@@ -8,14 +8,14 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: c062759938652518ac3cafff64973050554ca19d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: fb251d71ca9aa20ed06d0a917394097b36322b3c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579706"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802718"
 ---
-# <a name="control-mapping-of-the-azure-blueprints-iso-27001-blueprint-sample"></a>Asignación de control de la muestra de plano técnico de Azure planos ISO 27001
+# <a name="control-mapping-of-the-iso-27001-asesql-workload-blueprint-sample"></a>Asignación de control de la muestra de plano técnico de carga de trabajo ISO 27001 ASE/SQL
 
 El siguiente artículo detalla cómo el ejemplo de carga de trabajo de Azure planos ISO 27001 ASE/SQL blueprint asigna a los controles ISO 27001. Para obtener más información acerca de los controles, vea [ISO 27001](https://www.iso.org/isoiec-27001-information-security.html).
 

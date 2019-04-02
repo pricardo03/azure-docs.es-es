@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: d2ecebf47c77baa81193939b64c27348541f7686
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 2768a23c217052a342538b67ec59868e25fd4914
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403415"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793822"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Conectar Operations Manager a Azure Monitor
 
@@ -41,6 +41,7 @@ El siguiente diagrama muestra la conexión entre los agentes y servidores de adm
 Si las directivas de seguridad de TI no permiten que los equipos de la red se conecten a Internet, se pueden configurar los servidores de administración de forma que se conecten a la puerta de enlace de Log Analytics para recibir información de configuración y enviar los datos recopilados según las soluciones que haya habilitado. Para obtener más información e instrucciones sobre cómo configurar el grupo de administración de Operations Manager se comunique a través de una puerta de enlace de Log Analytics a Azure Monitor, consulte [conectar equipos a Azure Monitor con la puerta de enlace de Log Analytics](../../azure-monitor/platform/gateway.md).  
 
 ## <a name="prerequisites"></a>Requisitos previos 
+
 Antes de comenzar, revise los siguientes requisitos.
 
 * Azure Monitor admite solo System Center Operations Manager 2016 o posterior, Operations Manager 2012 SP1 UR6 o versiones posteriores y Operations Manager 2012 R2 UR2 o una versión posterior. Se agregó compatibilidad con proxy en Operations Manager 2012 SP1 UR7 y Operations Manager 2012 R2 UR3.
@@ -60,6 +61,7 @@ Antes de comenzar, revise los siguientes requisitos.
 >Esta actualización del módulo de administración no es aplicable a System Center Operations Manager 1807, que es una versión de actualización de la versión 1801 y no una compilación completa del producto.   
 
 ### <a name="network"></a>Red
+
 La información siguiente muestra la información de configuración de proxy y firewall requerida para que el agente de Operations Manager, los servidores de administración y consola del operador para comunicarse con Azure Monitor. El tráfico de cada componente es saliente desde la red a Azure Monitor.   
 
 |Recurso | Número de puerto| Omitir inspección de HTTP|  
@@ -87,9 +89,11 @@ La información siguiente muestra la información de configuración de proxy y f
 |docs.loganalytics.io| 80 y 443||  
 
 ### <a name="tls-12-protocol"></a>Protocolo TLS 1.2
+
 Para garantizar la seguridad de datos en tránsito a Azure Monitor, se recomienda encarecidamente configurar el grupo de administración y el agente debe usar al menos seguridad de capa de transporte (TLS) 1.2. Las versiones anteriores de TLS/Capa de sockets seguros (SSL) han demostrado ser vulnerables y, si bien todavía funcionan para permitir la compatibilidad con versiones anteriores, **no se recomiendan**. Para información adicional, revise [Sending data securely using TLS 1.2](../../azure-monitor/platform/data-security.md#sending-data-securely-using-tls-12) (Envío de datos de forma segura mediante TLS 1.2). 
 
 ## <a name="connecting-operations-manager-to-azure-monitor"></a>Conectar Operations Manager con Azure Monitor
+
 Ejecute la siguiente serie de pasos para configurar el grupo de administración de Operations Manager para conectarse a una de las áreas de trabajo de Log Analytics.
 
 Durante el registro inicial del grupo de administración de Operations Manager con un área de trabajo de Log Analytics, la opción para especificar la configuración de proxy para el grupo de administración no está disponible en la consola del operador.  El grupo de administración tiene que estar registrado correctamente con el servicio para que esta opción esté disponible.  Para solucionar esto, tiene que actualizar la configuración de proxy del sistema con Netsh en el sistema desde el que se esté ejecutando la consola del operador para configurar la integración y todos los servidores de administración del grupo de administración.  
@@ -121,6 +125,7 @@ Después de completar los pasos siguientes para integrar con Azure Monitor, pued
 1. En la página **Asistente para incorporación a Operations Management Suite: Finalizar**, haga clic en **Cerrar**.
 
 ### <a name="add-agent-managed-computers"></a>Adición de equipos administrados por agente
+
 Después de configurar la integración con el área de trabajo de Log Analytics, esto solo establece una conexión con el servicio, y no se recopilan datos de los agentes que informan al grupo de administración. Esto no será posible hasta después de configurar los equipos administrados con agente específicos recopilan datos de registro de Azure Monitor. Puede seleccionar los objetos de equipo individualmente o un grupo que contenga objetos de equipos Windows. No puede seleccionar un grupo que contenga instancias de otra clase, como discos lógicos o bases de datos SQL.
 
 1. Abra la consola de Operations Manager y seleccione el área de trabajo **Administración** .
@@ -131,6 +136,7 @@ Después de configurar la integración con el área de trabajo de Log Analytics,
 Puede ver los equipos y grupos configurados para recopilar datos desde el nodo Equipos administrados de Operations Management Suite en el área de trabajo **Administración** de la consola de Operations. Desde aquí puede agregar o quitar equipos y grupos según sea necesario.
 
 ### <a name="configure-proxy-settings-in-the-operations-console"></a>Configurar el proxy en la Consola del operador
+
 Realice los pasos siguientes si es un servidor proxy interno entre el grupo de administración y supervisión de Azure. Esta configuración se administran desde el grupo de administración centralmente y se distribuye en sistemas administrados con agente que se incluyen en el ámbito para recopilar datos de registro de Azure Monitor.  Esto es beneficioso cuando determinadas soluciones omiten el servidor de administración y envían datos directamente al servicio.
 
 1. Abra la consola de Operations Manager y seleccione el área de trabajo **Administración** .
@@ -156,6 +162,7 @@ Después de crea la conexión y configurar qué agentes van a recopilar y notifi
 * Se agregan los agentes y los grupos que haya seleccionado para recopilar datos del grupo de administración al **grupo de servidores de supervisión de Microsoft System Center Advisor**.
 
 ## <a name="management-pack-updates"></a>Actualizaciones del módulo de administración
+
 Una vez completada la configuración, el grupo de administración de Operations Manager establece una conexión con Azure Monitor. El servidor de administración se sincroniza con el servicio web y recibe información de configuración actualizada en forma de módulos de administración para las soluciones que ha habilitado que se integran con Operations Manager. Operations Manager busca actualizaciones de estos módulos de administración y los descargará e importa automáticamente cuando estén disponibles. Hay dos reglas en particular que controlan este comportamiento:
 
 * **Microsoft.SystemCenter.Advisor.MPUpdate** -actualiza los módulos de administración de Azure Monitor base. Se ejecuta cada 12 horas de forma predeterminada.
@@ -166,6 +173,7 @@ Puede invalidar estas dos reglas para evitar la descarga automática mediante la
 Para seguir el proceso de control de cambios existente para controlar las versiones del módulo de administración en el grupo de administración de producción, puede deshabilitar las reglas y habilitarlas durante determinadas horas cuando se permiten las actualizaciones. Si tiene un grupo de desarrollo o de administración de control de calidad en el entorno y tiene conectividad a Internet, puede configurar ese grupo de administración con un área de trabajo de Log Analytics para admitir este escenario. Esto le permite revisar y evaluar las versiones iterativas de los módulos de administración de Azure Monitor antes de publicarlas en el grupo de administración de producción.
 
 ## <a name="switch-an-operations-manager-group-to-a-new-log-analytics-workspace"></a>Cambiar un grupo de Operations Manager a una nueva área de trabajo de Log Analytics
+
 1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 1. En Azure Portal, haga clic en **Más servicios**, en la esquina inferior izquierda. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada. Seleccione **Log Analytics** y, a continuación, cree un área de trabajo.  
 1. Abra la consola de Operations Manager con una cuenta que sea miembro del rol Administradores de Operations Manager y seleccione el área de trabajo **Administración** .
@@ -179,9 +187,11 @@ Para seguir el proceso de control de cambios existente para controlar las versio
    > 
 
 ## <a name="validate-operations-manager-integration-with-azure-monitor"></a>Validar la integración de Operations Manager con Azure Monitor
+
 Hay varias maneras diferentes, puede comprobar que Azure Monitor para la integración de Operations Manager es correcta.
 
 ### <a name="to-confirm-integration-from-the-azure-portal"></a>Para confirmar la integración desde Azure Portal
+
 1. En Azure Portal, haga clic en **Más servicios**, en la esquina inferior izquierda. En la lista de recursos, escriba **Log Analytics**. Cuando comience a escribir, la lista se filtrará en función de la entrada.
 1. En la lista de áreas de trabajo de Log Analytics, seleccione el área de trabajo aplicable.  
 1. Seleccione **Configuración avanzada**, **Orígenes conectados** y, a continuación, seleccione **System Center**. 
@@ -190,6 +200,7 @@ Hay varias maneras diferentes, puede comprobar que Azure Monitor para la integra
    ![oms-settings-connectedsources](./media/om-agents/oms-settings-connectedsources.png)
 
 ### <a name="to-confirm-integration-from-the-operations-console"></a>Para confirmar la integración desde la consola de Operations
+
 1. Abra la consola de Operations Manager y seleccione el área de trabajo **Administración** .
 1. Seleccione **Módulos de administración** y, en el cuadro de texto **Buscar:**, escriba **Advisor** o **Intelligence**.
 1. En función de las soluciones habilitadas, verá el módulo de administración correspondiente en los resultados de búsqueda.  Por ejemplo, si ha habilitado la solución Alert Management, el módulo de administración Alert Management de Microsoft System Center Advisor estará en la lista.
@@ -198,6 +209,7 @@ Hay varias maneras diferentes, puede comprobar que Azure Monitor para la integra
    ![oms-opsmgr-mg-authsvcuri-property-ms](./media/om-agents/oms-opsmgr-mg-authsvcuri-property-ms.png)
 
 ## <a name="remove-integration-with-azure-monitor"></a>Quitar la integración con Azure Monitor
+
 Cuando ya no necesite la integración entre el grupo de administración de Operations Manager y el área de trabajo de Log Analytics, es necesario realizar varios pasos para quitar correctamente la conexión y la configuración del grupo de administración. El procedimiento siguiente tiene actualizar el área de trabajo de Log Analytics mediante la eliminación de la referencia del grupo de administración, elimina los conectores de Azure Monitor y, a continuación, elimine los módulos de administración compatible con la integración con el servicio.  
 
 Módulos de administración para las soluciones ha habilitado que se integran con Operations Manager y los módulos de administración necesarios para admitir la integración con Azure Monitor no se puede eliminar fácilmente del grupo de administración. Esto es porque algunos de los módulos de administración de Azure Monitor tienen dependencias en otros módulos de administración relacionados. Para eliminar los módulos de administración con una dependencia en otros módulos de administración, descargue el script para [quitar un módulo de administración con dependencias](https://gallery.technet.microsoft.com/scriptcenter/Script-to-remove-a-84f6873e) desde el centro de scripts de TechNet.  
@@ -244,7 +256,7 @@ Para eliminar los dos conectores (Microsoft.SystemCenter.Advisor.DataConnector y
 > 
 > 
 
-```
+```powershell
     param(
     [String] $connectorName,
     [String] $msName="localhost"
@@ -336,6 +348,5 @@ En el futuro, si planea volver a conectar su grupo de administración a un área
 * Desde el paquete acumulativo de actualizaciones más reciente que se aplica al grupo de administración. En Operations Manager 2012, la carpeta de origen es ` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` y, para la versión 2012 R2, se encuentra en `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para agregar funcionalidad y recopilar datos, vea [soluciones de agregar Azure Monitor desde la Galería de soluciones](../../azure-monitor/insights/solutions.md).
-
-

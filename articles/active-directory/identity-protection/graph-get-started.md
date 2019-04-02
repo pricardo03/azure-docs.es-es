@@ -18,12 +18,12 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f748e10ffa8b1c8a7f4ee3dc3d151f7413179ab
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 3357cfd5e845346534f263c768b5cf6b6a38ea4e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517460"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793992"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Introducción a Azure Active Directory Identity Protection y Microsoft Graph
 
@@ -153,6 +153,7 @@ Antes de comenzar, necesitará lo siguiente:
    > 
 
 ## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-events-api"></a>Autenticación en Microsoft Graph y consulta a Identity Risk Events API
+
 En este momento, debe tener:
 
 - El nombre de dominio del inquilino
@@ -239,6 +240,7 @@ GET https://graph.microsoft.com/beta/riskyUsers?$filter=riskDetail eq 'userPasse
 ### <a name="get-all-the-risky-sign-ins-for-a-specific-user-signin-api"></a>Obtención de todos los inicios de sesión de riesgo de un usuario concreto (signIn API)
 
 Si cree que un usuario puede haber estado en peligro, puede conocer mejor el estado de su riesgo mediante la recuperación de todos sus inicios de sesión de riesgo. 
+
 ```
 https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>' and riskState eq 'atRisk'
 ```

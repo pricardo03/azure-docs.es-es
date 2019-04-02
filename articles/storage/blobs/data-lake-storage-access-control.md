@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
-ms.openlocfilehash: a102216a6a2a7dec471678e14f7050cb4ef41d77
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 4ba8977180e33256bfdc6652811495a02a9ef19c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370115"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802969"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Control de acceso en Azure Data Lake Storage Gen2
 
@@ -27,9 +27,9 @@ Aunque el uso de las asignaciones de roles RBAC es un mecanismo eficaz para cont
 
 Azure Storage proporciona tres roles RBAC integrados para Blob Storage: 
 
-- [Propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner-preview)
-- [Colaborador de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor-preview)
-- [Lector de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader-preview)
+- [Propietario de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner)
+- [Colaborador de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor)
+- [Lector de datos de blobs de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader)
 
 Cuando a un usuario o a una entidad de servicio se le conceden permisos de datos RBAC mediante alguno de estos roles integrados o con un rol personalizado, primero se evalúan estos permisos tras la autorización de una solicitud. Si la operación solicitada está autorizada por las asignaciones de RBAC del autor de la llamada, la autorización se resuelve de inmediato y no se realizan más comprobaciones de ACL. Como alternativa, si el autor de la llamada no tiene una asignación de RBAC o la operación de la solicitud no coincide con el permiso asignado, se realizan comprobaciones de ACL para determinar si el autor de la llamada está autorizado para realizar la operación solicitada.
 
@@ -285,7 +285,7 @@ Un GUID se muestra si la entrada representa un usuario y este ya no existe en Az
 
 Al definir las ACL para las entidades de servicio, es importante usar el Id. de objeto (OID) de la *serviceprincipal* para el registro de aplicación que ha creado. Es importante tener en cuenta que las aplicaciones registradas tienen una entidad de servicio independiente en específico del inquilino de Azure AD. Las aplicaciones registradas tienen un OID que está visible en el portal de Azure, pero la *entidad de servicio* tiene otro OID (diferente).
 
-Para obtener el OID de la entidad de servicio que corresponde al registro de la aplicación, puede usar el `az ad sp show` comando. Especifique el identificador de aplicación como parámetro. Este es un ejemplo sobre cómo obtener el OID de la entidad de servicio que corresponde a un registro de aplicación con el Id. de aplicación = 18218b12 1895 43e9 ad80 6e8fc1ea88ce. Ejecute el siguiente comando en la CLI de Azure:
+Para obtener el OID de la entidad de servicio que corresponde a un registro de aplicación, puede usar el `az ad sp show` comando. Especifique el identificador de aplicación como parámetro. Este es un ejemplo sobre cómo obtener el OID de la entidad de servicio que corresponde a un registro de aplicación con el Id. de aplicación = 18218b12 1895 43e9 ad80 6e8fc1ea88ce. Ejecute el siguiente comando en la CLI de Azure:
 
 `az ad sp show --id 18218b12-1895-43e9-ad80-6e8fc1ea88ce --query objectId
 <<OID will be displayed>>`
