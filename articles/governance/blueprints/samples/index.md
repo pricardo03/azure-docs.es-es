@@ -1,6 +1,6 @@
 ---
 title: Índice de ejemplos de planos técnicos
-description: Índice de ejemplos para Azure Blueprints
+description: Índice de cumplimiento y ejemplos de entornos estándar para la implementación con Azure Blueprints.
 services: blueprints
 author: DCtheGeek
 manager: carmonm

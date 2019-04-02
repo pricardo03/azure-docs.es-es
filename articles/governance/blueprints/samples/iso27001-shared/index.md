@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ---
-# <a name="overview-of-the-azure-blueprints-iso-27001-shared-services-blueprint-sample"></a>Introducción del ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos de Azure Blueprints
+# <a name="overview-of-the-iso-27001-shared-services-blueprint-sample"></a>Introducción al ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos
 
 El ejemplo de plano técnico de la norma ISO 27001 sobre servicios compartidos proporciona un conjunto de patrones de infraestructura compatibles y una directiva de protección que ayuda a la obtención de la certificación ISO 27001. Este plano técnico ayuda a los clientes a implementar arquitecturas basadas en la nube que ofrecen soluciones para escenarios que tienen requisitos de acreditación o de cumplimiento.
 

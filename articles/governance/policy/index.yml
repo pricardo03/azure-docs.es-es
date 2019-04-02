@@ -1,12 +1,12 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e389eb01faff93c0e45c66cded41e94ac3730715
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: cf5eeff9aa56a2c3366c57ddef47f4020e73c161
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226035"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804656"
 documentType: LandingData
-title: Documentación de Azure Policy
+title: Documentación del servicio Azure Policy
 metadata:
   title: 'Documentación sobre Azure Policy: tutoriales y referencia de API'
   description: Azure Policy le ayuda a administrar y evitar problemas de TI con definiciones de directivas que aplican reglas y efectos a los recursos. Cuando se usa Azure Policy, los recursos se mantienen compatibles con los estándares corporativos y los acuerdos de nivel de servicio.

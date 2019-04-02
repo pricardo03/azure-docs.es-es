@@ -1,12 +1,12 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: b79f900c9d1fa78c131b132975f9352c4696b201
-ms.sourcegitcommit: 235cd1c4f003a7f8459b9761a623f000dd9e50ef
+ms.openlocfilehash: 4e2515e8976976184b720ad1a612f96bff3eeaba
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57726913"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803428"
 documentType: LandingData
-title: Documentación de Azure Resource Graph
+title: Documentación del servicio Azure Resource Graph
 metadata:
   title: 'Documentación de Azure Resource Graph: tutoriales y referencia de la API'
   description: Azure Resource Graph es un servicio de Azure que permite realizar consultas complejas de recursos a escala.

@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001: Introducción'
+title: 'Ejemplo: Introducción al plano técnico para cargas de trabajo de ASE o SQL compatibles con ISO 27001'
 description: Introducción y arquitectura del ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001.
 services: blueprints
 author: DCtheGeek
@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ---
-# <a name="overview-of-the-azure-blueprints-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Introducción al ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001 para Azure Blueprints
+# <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Introducción a un ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001
 
 El ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001 proporciona una infraestructura adicional a la del ejemplo de plano técnico de los [servicios compartidos de la norma ISO 27001](../iso27001-shared/index.md).
 Este plano técnico ayuda a los clientes a implementar arquitecturas basadas en la nube que ofrecen soluciones para escenarios que tienen requisitos de acreditación o de cumplimiento.
@@ -23,7 +23,7 @@ Hay dos ejemplos de planos técnicos para la norma ISO 27001: este y el ejemplo 
 
 El ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001 implementa un entorno web basado en una plataforma como servicio. El entorno se puede emplear para hospedar varias aplicaciones web, API web e instancias de SQL Database conforme a los estándares de la norma ISO 27001. Este ejemplo de plano técnico se basa en el de los [servicios compartidos de la norma ISO 27001](../iso27001-shared/index.md).
 
-![Ejemplo de diseño de plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con ISO 27001](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
+![Diseño de ejemplo del plano técnico para cargas de trabajo de ASE y SQL compatibles con ISO 27001](../../media/sample-iso27001-ase-sql-workload/iso27001-ase-sql-workload-blueprint-sample-design.png)
 
 Este entorno se compone de varios servicios de Azure que se usan para proporcionar una infraestructura de cargas de trabajo segura, totalmente supervisada y preparada para la empresa, que se basa en los estándares de la norma ISO 27001. Este entorno se compone de:
 

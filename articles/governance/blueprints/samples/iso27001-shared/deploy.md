@@ -8,21 +8,21 @@ ms.date: 03/14/2019
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 7fea9b0d00d92c63bb4c8bbdadada9e8eb6a05fe
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: f49951d0a2ec738df9946edc7f44820c2cde975f
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58202510"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804339"
 ---
-# <a name="deploy-the-azure-blueprints-iso-27001-shared-services-blueprint-sample"></a>Implementar el ejemplo de plano técnico de servicios compartidos de Azure planos ISO 27001
+# <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implementar el ejemplo de plano técnico de servicios compartidos de ISO 27001
 
 Para implementar el ejemplo de plano técnico de servicios compartidos de Azure planos ISO 27001, deben seguir los pasos siguientes:
 
 > [!div class="checklist"]
 > - Crear una nueva instancia de blueprint del ejemplo
-> - Marcar la copia de la muestra como **publicada**
-> - Asignar su copia de la instancia de blueprint a una suscripción existente
+> - Marcar la copia del ejemplo como **publicada**
+> - Asignar la copia del plano técnico a una suscripción existente
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
 
@@ -32,48 +32,48 @@ En primer lugar, puede implementar el ejemplo de la instancia de blueprint media
 
 1. Seleccione **todos los servicios** y busque y seleccione **directiva** en el panel izquierdo. En el **directiva** página, seleccione **planos**.
 
-1. Desde el **Introducción** página a la izquierda, seleccione el **crear** situado bajo _crear una instancia de blueprint_.
+1. En la página **Introducción** de la izquierda, seleccione el botón **Crear** en _Creación de un plano técnico_.
 
 1. Buscar el **ISO 27001: Servicios compartidos** ejemplo blueprint en _otros ejemplos_ y seleccione **usar este ejemplo**.
 
-1. Escriba el _Fundamentos_ del ejemplo de plano técnico:
+1. Escriba los _conceptos básicos_ del ejemplo de plano técnico:
 
-   - **Nombre de instancia de blueprint**: Proporcione un nombre para la copia de la muestra de plano técnico de servicios compartidos de ISO 27001.
-   - **Ubicación de la definición**: Use los puntos suspensivos y seleccione el grupo de administración para guardar la copia de la muestra.
+   - **Nombre del plano técnico**: Proporcione un nombre para la copia de la muestra de plano técnico de servicios compartidos de ISO 27001.
+   - **Ubicación de definición**: Use los puntos suspensivos y seleccione el grupo de administración para guardar la copia de la muestra.
 
-1. Seleccione el _artefactos_ ficha en la parte superior de la página o **siguiente: Artefactos** en la parte inferior de la página.
+1. Seleccione la pestaña _Artefactos_ en la parte superior de la página **Siguiente: Artefactos** en la parte inferior de la página.
 
-1. Revise la lista de artefactos que componen el ejemplo de la instancia de blueprint. Muchos de los artefactos tienen parámetros que definirá más tarde. Seleccione **Guardar borrador** cuando haya terminado de revisar el ejemplo de la instancia de blueprint.
+1. Revise la lista de artefactos que componen el ejemplo de plano técnico. Muchos de los artefactos tienen parámetros que definirá más tarde. Seleccione **Guardar borrador** cuando haya terminado de revisar el ejemplo de plano técnico.
 
-## <a name="publish-the-sample-copy"></a>Publicar la copia de ejemplo
+## <a name="publish-the-sample-copy"></a>Publicación de la copia de ejemplo
 
-Ahora se creó la copia de la muestra de plano técnico en su entorno. Se crea en **borrador** modo y debe ser **publicada** antes de se puede asignar e implementado. La copia de la muestra de plano técnico se puede personalizar para su entorno y necesidades, pero esa modificación puede mover fuera de la norma ISO 27001.
-
-1. Seleccione **todos los servicios** y busque y seleccione **directiva** en el panel izquierdo. En el **directiva** página, seleccione **planos**.
-
-1. Seleccione el **definiciones del plano** página a la izquierda. Use los filtros para buscar su copia de la muestra de plano técnico y, a continuación, selecciónelo.
-
-1. Seleccione **publicar plano** en la parte superior de la página. En la nueva página a la derecha, proporcione un **versión** para la copia de la muestra de la instancia de blueprint. Esta propiedad es útil si realiza una modificación posterior. Proporcionar **cambiar notas** como "primera versión publicada del ejemplo ISO 27001 de plano técnico". A continuación, seleccione **publicar** en la parte inferior de la página.
-
-## <a name="assign-the-sample-copy"></a>Asignar la copia de ejemplo
-
-Una vez que la copia de la muestra de plano técnico ha sido correctamente **publicada**, se puede asignar a una suscripción dentro del grupo de administración se ha guardado. Este paso es donde se proporcionan parámetros para que cada implementación de la copia de la muestra de la instancia de blueprint único.
+La copia del ejemplo de plano técnico ahora se ha creado en el entorno. Se crea en el modo **Borrador** y debe **publicarse** antes de que se pueda asignar e implementar. La copia de la muestra de plano técnico se puede personalizar para su entorno y necesidades, pero esa modificación puede mover fuera de la norma ISO 27001.
 
 1. Seleccione **todos los servicios** y busque y seleccione **directiva** en el panel izquierdo. En el **directiva** página, seleccione **planos**.
 
-1. Seleccione el **definiciones del plano** página a la izquierda. Use los filtros para buscar su copia de la muestra de plano técnico y, a continuación, selecciónelo.
+1. Seleccione la página **Definiciones del plano técnico** de la izquierda. Use los filtros para buscar su copia de la muestra de plano técnico y, a continuación, selecciónelo.
 
-1. Seleccione **asignar blueprint** en la parte superior de la página de definición de plano técnico.
+1. Seleccione **Publicar plano técnico** en la parte superior de la página. En la nueva página a la derecha, proporcione un **versión** para la copia de la muestra de la instancia de blueprint. Esta propiedad es útil si realiza una modificación posteriormente. Proporcionar **cambiar notas** como "primera versión publicada del ejemplo ISO 27001 de plano técnico". A continuación, seleccione **Publicar** en la parte inferior de la página.
 
-1. Proporcione los valores de parámetro para la asignación del plano técnico:
+## <a name="assign-the-sample-copy"></a>Asignación de la copia de ejemplo
+
+Una vez que la copia del ejemplo de plano técnico se haya **publicado** correctamente, se podrá asignar a una suscripción dentro del grupo de administración donde se guardó. En este paso se proporcionan los parámetros para hacer que cada implementación de la copia del ejemplo de plano técnico sea única.
+
+1. Seleccione **todos los servicios** y busque y seleccione **directiva** en el panel izquierdo. En el **directiva** página, seleccione **planos**.
+
+1. Seleccione la página **Definiciones del plano técnico** de la izquierda. Use los filtros para buscar su copia de la muestra de plano técnico y, a continuación, selecciónelo.
+
+1. Seleccione **Asignar plano técnico** en la parte superior de la página de definición del plano técnico.
+
+1. Proporcione los valores de parámetro para la asignación de plano técnico:
 
    - Aspectos básicos
 
-     - **Suscripciones**: Seleccione una o varias suscripciones que están en el grupo de administración que guardan la copia de la muestra de plano técnico. Si selecciona más de una suscripción, se creará una asignación para cada mediante los parámetros especificados.
-     - **Nombre de la asignación**: El nombre se rellena automáticamente según el nombre de la instancia de blueprint.
+     - **Suscripciones**: seleccione una o varias de las suscripciones que están en el grupo de administración donde guardó la copia del ejemplo de plano técnico. Si selecciona más de una suscripción, se creará una asignación para cada una mediante los parámetros especificados.
+     - **Nombre de asignación**: El nombre se rellena automáticamente según el nombre de la instancia de blueprint.
        Cambiar según sea necesario o déjelo tal cual.
-     - **Ubicación**: Seleccione una región para la identidad administrada que se creará en. Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado. Para más información, consulte [Identidades administradas para recursos de Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Versión de la definición de plano técnico**: Elegir un **publicada** versión de la copia de la muestra de la instancia de blueprint.
+     - **Ubicación**: seleccione una región para la identidad administrada en la que se va a crear. Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado. Para más información, consulte [Identidades administradas para recursos de Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Versión de definición del plano técnico**: Elegir un **publicada** versión de la copia de la muestra de la instancia de blueprint.
 
    - Asignación de bloqueo
 
@@ -95,9 +95,9 @@ Una vez que la copia de la muestra de plano técnico ha sido correctamente **pub
 
    - Parámetros de artefacto
 
-     Los parámetros definidos en esta sección se aplican al artefacto en la que está definido. Estos parámetros son [parámetros dinámicos](../../concepts/parameters.md#dynamic-parameters) desde que se definen durante la asignación de la instancia de blueprint. Para obtener una lista completa o los parámetros de artefactos y sus descripciones, consulte [tabla de parámetros de artefacto](#artifact-parameters-table).
+     Los parámetros definidos en esta sección se aplican al artefacto en el que se define. Estos parámetros son [parámetros dinámicos](../../concepts/parameters.md#dynamic-parameters), ya que se definen durante la asignación del plano técnico. Para obtener una lista completa o los parámetros de artefactos y sus descripciones, consulte [tabla de parámetros de artefacto](#artifact-parameters-table).
 
-1. Una vez escritos todos los parámetros, seleccione **asignar** en la parte inferior de la página. Se crea la asignación del plano técnico y comience la implementación del artefacto. La implementación tarda aproximadamente una hora. Para comprobar el estado de implementación, abra la asignación del plano técnico.
+1. Una vez que se hayan especificado todos los parámetros, seleccione **Asignar** en la parte inferior de la página. Se crea la asignación del plano técnico y comience la implementación del artefacto. La implementación tarda aproximadamente una hora. Para comprobar el estado de implementación, abra la asignación del plano técnico.
 
 > [!WARNING]
 > El servicio de plano técnico de Azure y los ejemplos de plano técnico integrados son **libre de costo**. Recursos de Azure son [el precio por producto](https://azure.microsoft.com/en-us/pricing/). Use la [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/) para estimar el costo de la ejecución de los recursos implementados por este ejemplo de la instancia de blueprint.

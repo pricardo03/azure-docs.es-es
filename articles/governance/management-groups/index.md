@@ -18,7 +18,7 @@ A modo de ejemplo, puede aplicar directivas a un grupo de administración que li
 
 Puede compilar una estructura flexible de grupos de administración y suscripciones para organizar los recursos en una jerarquía para una administración unificada de las directivas y el acceso. El siguiente diagrama muestra un ejemplo de creación de una jerarquía para el gobierno mediante grupos de administración.
 
-![árbol](./media/tree.png)
+![Ejemplo de árbol de jerarquía de un grupo de administración](./media/tree.png)
 
 Cree una jerarquía para poder aplicar una directiva, por ejemplo, limite las ubicaciones de las máquinas virtuales a la región Oeste de EE. UU. en el grupo "Producción". Esta directiva se heredará en ambas suscripciones de EA en ese grupo de administración y se aplicará a todas las máquinas virtuales de esas suscripciones. El propietario de recursos o suscripciones no puede modificar esta directiva de seguridad, lo que permite una gobernabilidad mejorada.
 
