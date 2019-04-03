@@ -8,26 +8,26 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: acoustics
 ms.topic: overview
-ms.date: 08/17/2018
+ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 3d99ea5767c7b2e62f7228440201b4a9b6593b02
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1fc125322b83a0eb51095fac21dee05c7ffb39c1
+ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58136607"
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58313624"
 ---
 # <a name="what-is-project-acoustics"></a>¿Qué son los elementos acústicos de un proyecto?
 Project Acoustics es un motor de acústica de ondas para experiencias interactivas en 3D. Modela los efectos de onda como los de difracción, portaling y reverberación en escenas complejas sin necesidad de marcado manual de la zona. También incluye la integración de middleware de audio y motor de juego. La idea detrás de Project Acoustics es similar a la iluminación estática: simular mediante "bake" y sin conexión, características físicas en detalle para proporcionar una base de referencia física y usar un tiempo de ejecución ligero con controles de diseño expresivo para lograr objetivos artísticos.
 
-![Vista de diseño](media/gears-with-voxels.jpg)
+![Captura de pantalla de Gears of War 4 con vóxeles acústicos](media/gears-with-voxels.jpg)
 
 ## <a name="using-wave-physics-for-interactive-acoustics"></a>Uso de física de ondas para acústica interactiva
 Los métodos acústicos basados en rayos pueden comprobar si hay oclusión mediante el lanzamiento de un único rayo desde el origen al oyente, o manejar la reverberación mediante la estimación del volumen de la escena local con unos pocos rayos. Pero estas técnicas pueden ser poco confiables, porque un guijarro causa la misma oclusión que un peñasco. Los rayos no cuenta con la forma en la que el sonido se desvía al encontrarse con diferentes objetos, un fenómeno conocido como difracción. La simulación de Project Acoustics captura estos efectos utilizando una simulación basada en las ondas. El resultado es más predecible y confiable.
 
 La innovación clave de Project Acoustics es que une la simulación acústica con conceptos de diseño de sonido tradicionales. Traduce los resultados de la simulación en parámetros DSP de audio tradicionales para los efectos de oclusión, portaling y reverberación. El diseñador utiliza controles sobre este proceso de traducción. Para más detalles sobre las tecnologías principales que hay detrás de Project Acoustics, visite la [página del proyecto de investigación](https://www.microsoft.com/en-us/research/project/project-triton/).
 
-![Vista de diseño](media/wave-simulation.gif)
+![Animación que muestra un sector horizontal 2D de propagación de onda a través de una escena](media/wave-simulation.gif)
 
 ## <a name="setup"></a>Configuración
 [Integración de Project Acoustics con Unitiy](unity-integration.md) es un recurso de arrastrar y colocar, e incluye un complemento de motor de audio de Unity. Aumente los controles de origen de audio de Unity adjuntando un componente de controles C# de Project Acoustics a cada objeto de audio.
@@ -46,8 +46,11 @@ Los complementos de tiempo de ejecución de Project Acoustics se pueden implemen
 * Xbox One
 
 ## <a name="download"></a>Descargar
-* [Complementos y muestras de Project Acoustics](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+* [Complementos y muestras de Project Acoustics para Unity](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
+* [Complementos y muestras de Project Acoustics para Unreal y Wwise](https://www.microsoft.com/download/details.aspx?id=58090)
   * Para los archivos binarios de Xbox y soporte técnico, póngase en contacto con nosotros mediante el formulario de registro a continuación
+
+## <a name="contact-us"></a>Ponerse en contacto con nosotros
 * [Foros de Project Acoustics](https://social.msdn.microsoft.com/Forums/en-US/home?forum=projectacoustics)
 * [Regístrese para recibir las actualizaciones sobre Project Acoustics](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 

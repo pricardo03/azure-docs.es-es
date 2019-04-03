@@ -4,23 +4,23 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 7cb91628-e758-480d-a233-7a3caaaff50d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/7/2018
+ms.date: 03/07/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed1c7cd88bb5abf27066658f175d2447d334ce6b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e76e2b9b4778229fc70e90f1ff3af5f19251d424
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57872227"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360919"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-targetprocess"></a>Tutorial: Integración de Azure Active Directory con TargetProcess
 
@@ -78,10 +78,11 @@ Para que el inicio de sesión único funcione, es preciso establecer una relaci�
 Para configurar y probar el inicio de sesión único de Azure AD con TargetProcess, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-3. **[Creación de un usuario de prueba de TargetProcess](#create-targetprocess-test-user)**: para tener un homólogo de Britta Simon en TargetProcess que esté vinculado a su representación de usuario en Azure AD.
+2. **[Configuración del inicio de sesión único de TargetProcess](#configure-targetprocess-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+5. **[Creación de un usuario de prueba de TargetProcess](#create-targetprocess-test-user)**: para tener un homólogo de Britta Simon en TargetProcess que esté vinculado a su representación de usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
@@ -105,12 +106,12 @@ Para configurar el inicio de sesión único de Azure AD con TargetProcess, reali
 
     ![Información de dominio y direcciones URL de inicio de sesión único de TargetProcess](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.tpondemand.com/`.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.tpondemand.com/`
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.tpondemand.com/`
+    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.tpondemand.com/`
 
     > [!NOTE]
-    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión.  Póngase en contacto con el [equipo de atención al cliente de TargetProcess](mailto:support@targetprocess.com) para obtener estos valores.
+    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de atención al cliente de TargetProcess](mailto:support@targetprocess.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
@@ -126,44 +127,43 @@ Para configurar el inicio de sesión único de Azure AD con TargetProcess, reali
 
     c. URL de cierre de sesión
 
-7. Para automatizar la configuración en **TargetProcess**, debe instalar la **extensión de explorador de inicio de sesión seguro de Mis aplicaciones**. Para ello, haga clic en **Install the extension** (Instalar la extensión).
+### <a name="configure-targetprocess-single-sign-on"></a>Configuración del inicio de sesión único de TargetProcess
+
+1. Para automatizar la configuración en **TargetProcess**, debe instalar la **extensión de explorador de inicio de sesión seguro de Mis aplicaciones**. Para ello, haga clic en **Install the extension** (Instalar la extensión).
 
     ![imagen](./media/target-process-tutorial/install_extension.png)
 
-8. Después de agregar la extensión al explorador, haga clic en **Configurar TargetProcess** para ir a la aplicación TargetProcess. Desde allí, proporcione las credenciales de administrador para iniciar sesión en TargetProcess. La extensión de explorador configurará automáticamente la aplicación y automatizará el paso 9-13.
+2. Después de agregar la extensión al explorador, haga clic en **Configurar TargetProcess** para ir a la aplicación TargetProcess. Desde allí, proporcione las credenciales de administrador para iniciar sesión en TargetProcess. La extensión de explorador configurará automáticamente la aplicación y automatizará los pasos 3 a 7.
 
     **Si desea configurar la aplicación manualmente, realice los siguientes pasos:**
 
-9. Inicie sesión en su aplicación TargetProcess como administrador.
+3. Inicie sesión en su aplicación TargetProcess como administrador.
 
-10. En el menú de la parte superior, haga clic en **Configuración**.
+4. En el menú de la parte superior, haga clic en **Configuración**.
 
     ![Configuración](./media/target-process-tutorial/tutorial_target_process_05.png)
 
-11. Haga clic en **Configuración**.
+5. Haga clic en la pestaña **Configuración**.
 
     ![Configuración](./media/target-process-tutorial/tutorial_target_process_06.png)
 
-12. Haga clic en **Inicio de sesión único**.
+6. Haga clic en **Inicio de sesión único**.
 
     ![clic en Inicio de sesión único](./media/target-process-tutorial/tutorial_target_process_07.png)
 
-13. En el cuadro de diálogo Configuración de inicio de sesión único, siga estos pasos:
+7. En el cuadro de diálogo Configuración de inicio de sesión único, siga estos pasos:
 
     ![Configurar inicio de sesión único](./media/target-process-tutorial/tutorial_target_process_08.png)
 
      a. Haga lic en **Habilitar inicio de sesión único**.
 
-    b. En el cuadro de texto **Sign-on URL** (Dirección URL de inicio de sesión), pegue el valor de la **dirección URL del servicio de inicio de sesión único de SAML** que ha copiado de Azure Portal.
+    b. En el cuadro de texto **Sign-on URL** (Dirección URL de inicio de sesión), pegue el valor de la **dirección URL de inicio de sesión**, que ha copiado de Azure Portal.
 
     c. Abra el certificado descargado en el Bloc de notas, copie el contenido y luego péguelo en el cuadro de texto **Certificado** .
 
     d. Haga clic en **Habilitar aprovisionamiento de JIT**.
 
     e. Haga clic en **Save**(Guardar).
-
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -183,7 +183,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -198,7 +198,7 @@ En esta sección, concederá acceso a Britta Simon a TargetProcess para que use 
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, escriba y seleccione **TargetProcess**.
+2. En la lista de aplicaciones, seleccione **TargetProcess**.
 
     ![Vínculo de TargetProcess en la lista de aplicaciones](common/all-applications.png)
 
@@ -218,7 +218,7 @@ En esta sección, concederá acceso a Britta Simon a TargetProcess para que use 
 
 ### <a name="create-targetprocess-test-user"></a>Creación de un usuario de prueba de TargetProcess
 
-El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en TargetProcess. TargetProcess admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Al intentar acceder a TargetProcess, se crea un usuario, en caso de que no exista.
+En esta sección, se crea un usuario llamado Britta Simon en TargetProcess. TargetProcess admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario deja de existir en TargetProcess, se crea uno nuevo después de la autenticación.
 
 > [!Note]
 > Si necesita crear manualmente un usuario, póngase en contacto con el  [equipo de soporte técnico de TargetProcess](mailto:support@targetprocess.com).
@@ -231,8 +231,8 @@ Al hacer clic en el icono de TargetProcess en el panel de acceso, debería inici
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

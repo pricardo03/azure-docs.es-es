@@ -1,34 +1,34 @@
 ---
-title: 'Tutorial: Integración de Azure Active Directory con QPrism | Microsoft Docs'
-description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory y QPrism.
+title: 'Tutorial: Integración de Azure Active Directory con Iris Intranet | Microsoft Docs'
+description: Aprenda a configurar el inicio de sesión único entre Azure Active Directory e Iris Intranet.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
 ms.reviewer: barbkess
-ms.assetid: 72ab75ba-132b-4f83-a34b-d28b81b6d7bc
+ms.assetid: a97cb2c6-a2a1-48f9-bf0f-d8434c0e0e0e
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 03/27/2019
+ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 164b0a92e8b4bb291f3576ba8ebcc0915838f834
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 41337859feeff9cf9de507629eea4bc27b302a40
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620783"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58449819"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-qprism"></a>Tutorial: Integración de Azure Active Directory con QPrism
+# <a name="tutorial-azure-active-directory-integration-with-iris-intranet"></a>Tutorial: Integración de Azure Active Directory con Iris Intranet
 
-En este tutorial, aprenderá a integrar QPrism con Azure Active Directory (Azure AD).
-La integración de QPrism con Azure AD le proporciona las siguientes ventajas:
+En este tutorial, aprenderá a integrar Iris Intranet con Azure Active Directory (Azure AD).
+La integración de Iris Intranet con Azure AD le proporciona las siguientes ventajas:
 
-* Puede controlar en Azure AD quién tiene acceso a QPrism.
-* Puede permitir que los usuarios inicien sesión automáticamente en QPrism (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede controlar en Azure AD quién tiene acceso a Iris Intranet.
+* Puede permitir que los usuarios inicien sesión automáticamente en Iris Intranet (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -36,22 +36,24 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para configurar la integración de Azure AD con QPrism, necesita los siguientes elementos:
+Para configurar la integración de Azure AD con Iris Intranet, se necesitan los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Una suscripción habilitada para el inicio de sesión único en QPrism
+* Una suscripción habilitada para el inicio de sesión único en Iris Intranet
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* QPrism admite el inicio de sesión único iniciado por **SP**.
+* Iris Intranet admite el inicio de sesión único iniciado por **SP**
 
-## <a name="adding-qprism-from-the-gallery"></a>Incorporación de QPrism desde la galería
+* Iris Intranet admite el aprovisionamiento de usuarios **Just-In-Time**
 
-Para configurar la integración de QPrism en Azure AD, deberá agregarlo desde la galería a la lista de aplicaciones SaaS administradas.
+## <a name="adding-iris-intranet-from-the-gallery"></a>Adición de Iris Intranet desde la galería
 
-**Para agregar QPrism desde la galería, realice los pasos siguientes:**
+Para configurar la integración de Iris Intranet en Azure AD, será preciso que agregue Iris Intranet desde la galería a la lista de aplicaciones SaaS administradas.
+
+**Para agregar Iris Intranet desde la galería, siga estos pasos:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -65,31 +67,31 @@ Para configurar la integración de QPrism en Azure AD, deberá agregarlo desde l
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **QPrism**, seleccione **QPrism** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Iris Intranet**, seleccione **Iris Intranet** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-     ![QPrism en la lista de resultados](common/search-new-app.png)
+     ![Iris Intranet en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, puede configurar y probar el inicio de sesión único de Azure AD con QPrism con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de QPrism.
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con Iris Intranet con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Iris Intranet.
 
-Para configurar y probar el inicio de sesión único de Azure AD con QPrism, es preciso completar los siguientes bloques de creación:
+Para configurar y probar el inicio de sesión único de Azure AD con Iris Intranet, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configuración del inicio de sesión único de QPrism](#configure-qprism-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
+2. **[Configuración del inicio de sesión único de Iris Intranet](#configure-iris-intranet-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Creación de un usuario de prueba de QPrism](#create-qprism-test-user)**: para tener un homólogo de Britta Simon en QPrism vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba de Iris Intranet](#create-iris-intranet-test-user)**: para tener un homólogo de Britta Simon en Iris Intranet que esté vinculado a su representación en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único de Azure AD con QPrism, realice los pasos siguientes:
+Para configurar el inicio de sesión único de Azure AD con Iris Intranet, siga estos pasos:
 
-1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **QPrism**, seleccione **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Iris Intranet**, seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
@@ -103,22 +105,22 @@ Para configurar el inicio de sesión único de Azure AD con QPrism, realice los 
 
 4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    ![Información de dominio y direcciones URL de inicio de sesión único de QPrism](common/sp-identifier.png)
+    ![Información de dominio y direcciones URL de inicio de sesión único de Iris Intranet](common/sp-identifier.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<customer domain>.qmyzone.com/login`
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.irisintranet.com`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://<customer domain>.qmyzone.com/metadata.php`
+    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://<SUBDOMAIN>.irisintranet.com`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de atención al cliente de QPrism](mailto:qsupport-ce@quatrro.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de cliente de Iris Intranet](mailto:support@triptic.nl) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
 
     ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
 
-### <a name="configure-qprism-single-sign-on"></a>Configuración del inicio de sesión único de QPrism
+### <a name="configure-iris-intranet-single-sign-on"></a>Configuración del inicio de sesión único en Iris Intranet
 
-Para configurar el inicio de sesión único en **QPrism**, debe enviar la **dirección URL de metadatos de federación de la aplicación** al [equipo de soporte técnico de QPrism](mailto:qsupport-ce@quatrro.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Iris Intranet**, hay que enviar la **dirección URL de metadatos de federación de la aplicación** al [equipo de soporte técnico de Iris Intranet](mailto:support@triptic.nl). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -146,15 +148,15 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
-En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a QPrism.
+En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Iris Intranet.
 
-1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **QPrism**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **Iris Intranet**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-2. En la lista de aplicaciones, seleccione **QPrism**.
+2. En la lista de aplicaciones, seleccione **Iris Intranet**.
 
-    ![Vínculo a QPrism en la lista de aplicaciones](common/all-applications.png)
+    ![Vínculo a Iris Intranet en la lista de aplicaciones](common/all-applications.png)
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
@@ -170,15 +172,15 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-qprism-test-user"></a>Creación de un usuario de prueba de QPrism
+### <a name="create-iris-intranet-test-user"></a>Creación de un usuario de prueba en Iris Intranet
 
-En esta sección, creará un usuario llamado Britta Simon en QPrism. Trabaje con el  [equipo de soporte técnico de QPrism](mailto:qsupport-ce@quatrro.com) para agregar los usuarios a la plataforma de QPrism. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
+En esta sección, se crea un usuario llamado a Britta Simon en Iris Intranet. Iris Intranet admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario no existe en Iris Intranet, se crea después de la autenticación.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de QPrism en el panel de acceso y debería iniciar sesión automáticamente en la versión de QPrism para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de Iris Intranet en el Panel de acceso, debería iniciar sesión automáticamente en la versión de Iris Intranet para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 

@@ -10,12 +10,12 @@ ms.workload: mobile
 ms.topic: quickstart
 ms.date: 02/14/2019
 ms.author: jowargo
-ms.openlocfilehash: 8d2b54e65c1409c01a4c38ca8fcdfeca5f031277
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 04108c4b5a8ce04b971a0529393ea442cb1cf226
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58113340"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58480130"
 ---
 # <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>Configuración de notificaciones push en un centro de notificaciones en Azure Portal
 
@@ -29,7 +29,7 @@ Si aún no ha creado un centro de notificaciones, cree uno ahora. Para más info
 
 Para configurar Apple Push Notification Service (APNS):
 
-1. En Azure Portal en el **centro de notificaciones** seleccione **Apple (APNS)**.
+1. En Azure Portal, en la página **Centro de notificaciones**, seleccione **Apple (APNS)** en el menú izquierdo.
 
 1. Para **Modo de autenticación**, seleccione **Certificado** o **Token**.
 
@@ -53,7 +53,7 @@ Para más información, consulte [Envío de notificaciones push a aplicaciones i
 
 Para configurar las notificaciones push para Google Firebase Cloud Messaging (FCM):
 
-1. En Azure Portal, en el **centro de notificaciones**, seleccione **Google (GCM o FCM)**. 
+1. En Azure Portal, en la página **Centro de notificaciones**, seleccione **Google (GCM/FCM)** en el menú izquierdo. 
 2. Pegue la **clave de API** para el proyecto FCM que ha guardado anteriormente. 
 3. Seleccione **Guardar**. 
 
@@ -67,7 +67,7 @@ Para más información consulte [Envío de notificaciones push a dispositivos An
 
 Para configurar Servicios de notificaciones de inserción de Windows (WNS):
 
-1. En Azure Portal en el **centro de notificaciones** seleccione **Windows (WNS)**.
+1. En Azure Portal, en la página **Centro de notificaciones**, seleccione **Windows (WNS)** en el menú izquierdo.
 2. Especifique los valores de **SID de paquete** y **Clave de seguridad**.
 3. Seleccione **Guardar**.
 
@@ -79,7 +79,7 @@ Para más información, consulte [Envío de notificaciones a aplicaciones de Pla
 
 Para configurar el Servicio de notificaciones push de Microsoft (MPNS) para Windows Phone: 
 
-1. En Azure Portal en el **centro de notificaciones** seleccione **Windows Phone (MPNS)**.
+1. En Azure Portal, en la página **Centro de notificaciones**, seleccione **Windows Phone (MPNS)** en el menú izquierdo.
 1. Habilite las notificaciones push sin autenticar o autenticadas:
 
     a. Para habilitar las notificaciones push no autenticadas, seleccione **Habilitar notificaciones de inserción sin autenticar** > **Guardar**.
@@ -99,7 +99,7 @@ Para más información, consulte [Notificaciones push a aplicaciones de Windows 
 
 Para configurar las notificaciones push para Amazon Device Messaging (ADM):
 
-1. En Azure Portal en el **centro de notificaciones** seleccione **Amazon (ADM)**.
+1. En Azure Portal, en la página **Centro de notificaciones**, seleccione **Amazon (ADM)** en el menú izquierdo.
 2. Especifique los valores de **Id. de cliente** y **Secreto de cliente**.
 3. Seleccione **Guardar**.
     
@@ -111,7 +111,7 @@ Para más información, consulte [Introducción a Notification Hubs para aplicac
 
 Para configurar las notificaciones push para Baidu:
 
-1. En Azure Portal en el **centro de notificaciones** seleccione **Baidu (Android China)**. 
+1. En Azure Portal, en la página **Centro de notificaciones**, seleccione **Baidu (Android China)** en el menú izquierdo. 
 2. Escriba la **clave de API** que ha obtenido en la consola de Baidu, en el proyecto Baidu Cloud Push. 
 3. Escriba la **clave secreta** que ha obtenido en la consola de Baidu, en el proyecto Baidu Cloud Push. 
 4. Seleccione **Guardar**. 

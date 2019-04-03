@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 94686d62e8019bfc5dba1ccd4a00142512930c0e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0d8fd6a0422ee26610f58f872cba4487d4e01e6b
+ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57862223"
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58403636"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Tutorial: Integración de Azure Active Directory con Periscope Data
 
@@ -138,7 +138,7 @@ Para configurar el inicio de sesión único de Azure AD con Periscope Data, real
 
     e. Copie el valor de **Identifier** (Identificador) de su instancia y péguela en el cuadro de texto  **Identificador (id. de entidad)** de la sección **Configuración de SAML básica** de Azure Portal.
 
-    f. En la primera etiqueta del archivo XML, copie el valor de **entityID** y péguelo en el cuadro de texto **Issuer** (Emisor).
+    f. Busque la primera etiqueta del archivo XML, copie el valor de **entityID** y péguelo en el cuadro de texto **Issuer** (Emisor).
 
     g. Busque la etiqueta **IDPSSODescriptor** con el protocolo SAML. Dentro de esa sección, busque la etiqueta **KeyDescriptor** con **use=signing**. Copie el valor de **X509Certificate** y péguelo en el cuadro de texto **Certificado**.
 
@@ -166,7 +166,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
