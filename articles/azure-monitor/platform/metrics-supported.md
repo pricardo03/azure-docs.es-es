@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 89f5294d6ac01a6fa377e8d0763e77f8034ab44a
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 55258dc0c99a918a6314be8317f19c03576a95f5
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449559"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851168"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -1608,7 +1608,6 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |MemoryPercentage|Porcentaje de memoria|Percent|Media|Porcentaje de memoria|Instance|
 
 ## <a name="next-steps"></a>Pasos siguientes
-
-* [Lea información sobre las métricas en Azure Monitor](../../azure-monitor/platform/data-collection.md)
-* [Creación de alertas basadas en métricas](../../azure-monitor/platform/alerts-overview.md)
-* [Exportación de métricas a cuentas de almacenamiento, Event Hubs o Log Analytics](../../azure-monitor/platform/diagnostic-logs-overview.md)
+* [Lea información sobre las métricas en Azure Monitor](data-platform.md)
+* [Creación de alertas basadas en métricas](alerts-overview.md)
+* [Exportación de métricas a cuentas de almacenamiento, Event Hubs o Log Analytics](diagnostic-logs-overview.md)

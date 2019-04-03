@@ -8,26 +8,26 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: sogup
-ms.openlocfilehash: ef46c37fec3e5438aeb4f9309201d45365a96fdc
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 9f233af316bd6022b93a7208bf3fae37e913e6af
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402072"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885271"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Preguntas más frecuentes-Back de máquinas virtuales de Azure
 
 En este artículo se responde preguntas comunes sobre la copia de seguridad de máquinas virtuales de Azure con el [Azure Backup](backup-introduction-to-azure-backup.md) service.
 
 
-## <a name="backup"></a>Realizar copia de seguridad
+## <a name="backup"></a>Copia de seguridad
 
 ### <a name="which-vm-images-can-be-enabled-for-backup-when-i-create-them"></a>¿Cuando crean, qué imágenes de máquina virtual pueden habilitarse para copia de seguridad?
 Cuando se crea una máquina virtual, puede habilitar la copia de seguridad para máquinas virtuales que ejecutan [sistemas operativos compatibles](backup-support-matrix-iaas.md#supported-backup-actions)
  
 ### <a name="is-the-backup-cost-included-in-the-vm-cost"></a>¿Es el costo de copia de seguridad incluido en el costo de máquina virtual? 
 
-No. Los costos de copia de seguridad son independientes de los costos de la máquina virtual. Obtenga más información sobre [precios de Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
+ No. Los costos de copia de seguridad son independientes de los costos de la máquina virtual. Obtenga más información sobre [precios de Azure Backup](https://azure.microsoft.com/pricing/details/backup/).
  
 ### <a name="which-permissions-are-required-to-enable-backup-for-a-vm"></a>¿Qué permisos son necesarios para habilitar la copia de seguridad para una máquina virtual? 
 
@@ -51,7 +51,7 @@ Si el almacén de Recovery Services y la máquina virtual tienen distintos grupo
 Revise el [matriz de compatibilidad](backup-support-matrix-iaas.md) para detalles sobre la compatibilidad y las limitaciones.
 
 ### <a name="does-an-on-demand-backup-job-use-the-same-retention-schedule-as-scheduled-backups"></a>¿Usa un trabajo de copia de seguridad a petición la misma programación de retención que las copias de seguridad programadas?
-No. Especifique la duración de retención para un trabajo de copia de seguridad y a petición. De forma predeterminada, se conservará durante 30 días si se desencadena desde el portal.
+ No. Especifique la duración de retención para un trabajo de copia de seguridad y a petición. De forma predeterminada, se conservará durante 30 días si se desencadena desde el portal.
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Recientemente habilité Azure Disk Encryption en algunas máquinas virtuales. ¿Seguirán funcionando mis copias de seguridad?
 Proporcionar permisos para Azure Backup para acceder a Key Vault. Especifique los permisos en PowerShell como se indica en la sección **Habilitar copia de seguridad** de la documentación sobre [PowerShell de Azure Backup](backup-azure-vms-automation.md).
@@ -68,13 +68,13 @@ Sí. Las copias de seguridad se ejecutan cuando una máquina está apagada. El p
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>¿Puedo cancelar un trabajo de copia de seguridad en curso?
 Sí. Puede cancelar el trabajo de copia de seguridad si se encuentra en el estado **Tomando instantánea**. No puede cancelar un trabajo si la transferencia de datos desde la instantánea está en curso.
 
-### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie--azurebackuprggeonumber-will-my-backups-continue-to-work"></a>He habilitado un bloqueo en el grupo de recursos creado por el servicio de copia de seguridad de Azure (como) ` AzureBackupRG_<geo>_<number>`¿), se seguirán funcionando Mis copias de seguridad?
+### <a name="i-enabled-lock-on-resource-group-created-by-azure-backup-service-ie-azurebackuprggeonumber-will-my-backups-continue-to-work"></a>He habilitado un bloqueo en el grupo de recursos creado por el servicio de copia de seguridad de Azure (como) `AzureBackupRG_<geo>_<number>`¿), se seguirán funcionando Mis copias de seguridad?
 Si bloquea el grupo de recursos creado por el servicio de copia de seguridad de Azure, las copias de seguridad se iniciará un error porque no hay un límite máximo de 18 puntos de restauración.
 
 Usuario debe quitar el bloqueo y borrar la colección de puntos de restauración de ese grupo de recursos para hacer que las futuras copias de seguridad correcta, [siga estos pasos](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) para quitar la colección de puntos de restauración.
 
 ### <a name="does-the-backup-policy-consider-daylight-saving-time-dst"></a>¿Tiene la directiva de copia de seguridad en cuenta el horario de verano (DST)?
-No. La fecha y hora del equipo local tiene el valor local actualizado con el horario de verano actual aplicado. Puede que el establecimiento de la hora de las copias de seguridad programadas difiera de la hora local debido al horario de verano.
+ No. La fecha y hora del equipo local tiene el valor local actualizado con el horario de verano actual aplicado. Puede que el establecimiento de la hora de las copias de seguridad programadas difiera de la hora local debido al horario de verano.
 
 ### <a name="how-many-data-disks-can-i-attach-to-a-vm-backed-up-by-azure-backup"></a>¿Cuántos discos de datos se pueden conectar a una máquina virtual de la cual Azure Backup ha realizado una copia de seguridad?
 Azure Backup puede realizar una copia de seguridad de máquinas virtuales con hasta 16 discos. Se proporciona compatibilidad con 16 discos en la [restauración instantánea](backup-instant-restore-capability.md).
@@ -88,10 +88,10 @@ No se pueden tomar instantáneas en un disco habilitado para el Acelerador de es
 ### <a name="i-have-a-vm-with-write-accelerator-wa-disks-and-sap-hana-installed-how-do-i-back-up"></a>Tengo una máquina virtual con discos habilitados para el Acelerador de escritura (WA) y SAP HANA instalada. ¿Cómo puedo realizar la copia de seguridad?
 Azure Backup no puede realizar la copia de seguridad de un disco habilitado para el Acelerador de escritura pero puede excluirlo de la copia. Sin embargo, la copia de seguridad no proporcionará coherencia de base de datos ya que no se ha realizado la copia de seguridad de la información contenida en este disco. Puede realizar copias de seguridad de discos con esta configuración si desea realizar la copia de seguridad de un disco de sistema operativo y la copia de seguridad de aquellos discos que no estén habilitados para el Acelerador de escritura.
 
-Estamos ejecutando versión preliminar privada para una copia de seguridad de SAP HANA con un RPO de 15 minutos. Se ha creado de modo similar a la copia de seguridad de bases de datos SQL y usa la interfaz backInt para soluciones de terceros certificadas por SAP HANA. Si le interesa, envíenos un correo electrónico en ` AskAzureBackupTeam@microsoft.com ` con el asunto **suscribirse a una versión preliminar privada para la copia de seguridad de SAP HANA en Azure Virtual Machines**.
+Estamos ejecutando versión preliminar privada para una copia de seguridad de SAP HANA con un RPO de 15 minutos. Se ha creado de modo similar a la copia de seguridad de bases de datos SQL y usa la interfaz backInt para soluciones de terceros certificadas por SAP HANA. Si le interesa, envíenos un correo electrónico en `AskAzureBackupTeam@microsoft.com` con el asunto **suscribirse a una versión preliminar privada para la copia de seguridad de SAP HANA en Azure Virtual Machines**.
 
 
-## <a name="restore"></a>Restaurar
+## <a name="restore"></a>Restauración
 
 ### <a name="how-do-i-decide-whether-to-restore-disks-only-or-a-full-vm"></a>¿Cómo decidir si es necesario restaurar solo los discos o una máquina virtual completa?
 Considere la restauración de máquinas virtuales como una opción de creación rápida para una máquina virtual de Azure. Esta opción cambia los nombres de disco, contenedores usados por los discos, las direcciones IP públicas y los nombres de interfaz de red. El cambio conserva recursos exclusivos cuando se crea una máquina virtual. La máquina virtual no se agrega a un conjunto de disponibilidad.

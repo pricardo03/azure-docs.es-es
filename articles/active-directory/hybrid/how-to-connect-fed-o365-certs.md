@@ -16,12 +16,12 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fae036a0860ddb5ee2776f7ed4734492741907f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d98a1aabef2de505e66b2127226b9e89cd791e20
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58177728"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883452"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renovación de certificados de federación para Office 365 y Azure Active Directory
 ## <a name="overview"></a>Información general
@@ -114,11 +114,11 @@ Compruebe lo siguiente para confirmar que se puede actualizar el certificado aut
 
 **1. La propiedad AutoCertificateRollover de AD FS debe establecerse en True.** Esto indica que AD FS generará automáticamente nuevos certificados de descifrado de tokens y de firma de tokens antes de que expiren los antiguos.
 
-**2. Los metadatos de federación de AD FS están disponibles públicamente.**  Compruebe que se puede obtener acceso públicamente a los metadatos de federación, desplácese hasta la siguiente dirección URL desde un equipo de la red de Internet pública (fuera de la red corporativa):
+**2. Los metadatos de federación de AD FS están accesible públicamente.**  Compruebe que se puede obtener acceso públicamente a los metadatos de federación, desplácese hasta la siguiente dirección URL desde un equipo de la red de Internet pública (fuera de la red corporativa):
 
 https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
-donde `(your_FS_name) `se reemplaza por el nombre de host de servicio de federación que usa su organización, por ejemplo, fs.contoso.com.  Si es capaz de comprobar ambos de estos valores correctamente, no tiene que hacer nada más.  
+donde `(your_FS_name)` se reemplaza con el nombre de host de servicio de federación usa su organización, como fs.contoso.com.  Si es capaz de comprobar ambos de estos valores correctamente, no tiene que hacer nada más.  
 
 Ejemplo: https://fs.contoso.com/federationmetadata/2007-06/federationmetadata.xml
 ## Renovación manual de certificados de firma de tokens <a name="manualrenew"></a>
@@ -134,7 +134,7 @@ En estos escenarios, cada vez que actualice los certificados de firma de tokens,
 
 Si está en una configuración no predeterminada de AD FS donde la propiedad **AutoCertificateRollover** está establecida en **False**, probablemente esté utilizando certificados personalizados (no autofirmados). Para más información sobre cómo renovar los certificados de firma de tokens de AD FS, consulte la [guía para clientes que no usan certificados autofirmados AD FS](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
 
-**Los metadatos de federación no están disponibles públicamente**
+**Los metadatos de federación no están disponible públicamente**
 
 Por otro lado si la propiedad **AutoCertificateRollover** está establecida en **True** pero los metadatos de federación no están disponibles públicamente, asegúrese primero de que los certificados de firma de tokens nuevos los ha generado AD FS. Siga los pasos siguientes para confirmar que dispone de nuevos certificados de firma de tokens.
 

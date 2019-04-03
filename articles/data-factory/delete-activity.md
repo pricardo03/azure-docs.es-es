@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/25/2019
-ms.openlocfilehash: 64829cad24d7f436b8539659dc1f0c6ef6ed4da4
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 00658b650cdc0b1752bb9f2f205420018c1d6edd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404780"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881790"
 ---
 # <a name="delete-activity-in-azure-data-factory"></a>Actividad de eliminación en Azure Data Factory
 
-Puede usar la actividad de eliminación en Azure Data Factory para eliminar archivos o carpetas desde almacenes locales o almacenes en la nube. Utilice esta actividad para limpiar o archivar los archivos cuando ya no se necesiten.
+Puede usar la actividad eliminar en Azure Data Factory para eliminar archivos o carpetas de almacenamiento local almacena o almacenes de almacenamiento en la nube. Utilice esta actividad para limpiar o archivar los archivos cuando ya no se necesiten.
 
 > [!WARNING]
 > No se pueden restaurar las carpetas ni los archivos eliminados. Tenga cuidado al usar la actividad de eliminación para eliminar archivos o carpetas.
@@ -41,7 +41,7 @@ Estas son algunas recomendaciones para usar la actividad de eliminación:
 
 ## <a name="supported-data-stores"></a>Almacenes de datos compatibles
 
--   [Almacenamiento de blobs de Azure](connector-azure-blob-storage.md)
+-   [Azure Blob Storage](connector-azure-blob-storage.md)
 -   [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md)
 -   [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md)
 
@@ -573,4 +573,4 @@ Conjunto de datos de destino de datos utilizado por la actividad de copia.
 
 Más información acerca de cómo mover los archivos de Azure Data Factory.
 
--   [Herramienta Copiar datos en Azure Data Factory](copy-data-tool.md)
+-   [Herramienta Copy Data en Azure Data Factory](copy-data-tool.md)

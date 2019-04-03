@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
-ms.openlocfilehash: becf48320b346feea82944ed2f7e752125795d40
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a6bea2b5447435930cb0e1f80073a11007e80415
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57999508"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876843"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos del sistema de la matriz virtual de StorSimple
 ## <a name="overview"></a>Información general
@@ -39,7 +39,7 @@ La información acerca de los requisitos de sistema de StorSimple publicada en e
 Los requisitos de software incluyen información sobre los exploradores web compatibles, las versiones SMB, las plataformas de virtualización y los requisitos mínimos de los dispositivos virtuales.
 
 ### <a name="supported-virtualization-platforms"></a>Plataformas de virtualización admitidas
-| **Hipervisor** | **Versión** |
+| **hipervisor** | **Versión** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 y posterior |
 | VMware ESXi |5.0, 5.5, 6.0 y 6.5. |
@@ -130,7 +130,7 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 | `https://*.windowsupdate.microsoft.com`<br>`https://*.windowsupdate.microsoft.com`<br>`https://*.update.microsoft.com`<br> `https://*.update.microsoft.com`<br>`http://*.windowsupdate.com`<br>`https://download.microsoft.com`<br>`http://wustat.windows.com`<br>`https://ntservicepack.microsoft.com` |Servidores de Microsoft Update<br> |
 | `http://*.deploy.akamaitechnologies.com` |CDN de Akamai |
 | `https://*.partners.extranet.microsoft.com/*` |Paquete de soporte |
-| `https://*.data.microsoft.com ` |Para información sobre el servicio de telemetría en Windows, consulte la [actualización para la experiencia del usuario y la telemetría de diagnóstico](https://support.microsoft.com/en-us/kb/3068708). |
+| `https://*.data.microsoft.com` |Para información sobre el servicio de telemetría en Windows, consulte la [actualización para la experiencia del usuario y la telemetría de diagnóstico](https://support.microsoft.com/en-us/kb/3068708). |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Prepare el portal para implementar la matriz virtual de StorSimple](storsimple-virtual-array-deploy1-portal-prep.md)
+* [Preparar el portal para implementar StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)

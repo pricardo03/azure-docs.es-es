@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 95811459ff51b71153fb5ceef804a64c8b6a9be6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: a4cf3a9c19497057d7799be3bec78ad0de97e71a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55816635"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851061"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Conexión a Azure Cosmos DB mediante herramientas de análisis de BI con el controlador ODBC
 
@@ -97,7 +97,7 @@ Hay dos tipos de métodos de muestreo que puede usar: **asignación de colecció
 
 1. Cuando haya terminado de definir el esquema, haga clic en **Archivo** | **Guardar**, navegue hasta el directorio para guardar el esquema y, luego, haga clic en **Guardar**.
 
-    Si en el futuro desea utilizar este esquema con un DSN, abra la ventana Azure Cosmos DB ODBC Driver DSN Setup (Configuración de DSN del controlador ODBC de Azure Cosmos DB) a través del Administrador de orígenes de datos ODBC, haga clic en Opciones avanzadas y, luego, en el cuadro Archivo de esquema, desplácese al esquema guardado. Al guardar un archivo de esquema en un DSN existente se modifica la conexión de DSN para tener como ámbito los datos y la estructura definidos por el esquema.
+1. Para utilizar este esquema con un DSN, abra el **ventana Azure Cosmos DB ODBC Driver DSN Setup** (a través de los datos de administrador de orígenes ODBC), haga clic en **opciones avanzadas**y, a continuación, en el **delarchivodeesquema** , navegue al esquema guardado. Al guardar un archivo de esquema en un DSN existente se modifica la conexión de DSN para tener como ámbito los datos y la estructura definidos por el esquema.
 
 ## <a id="table-mapping"></a>Paso 4: Creación de una definición de esquema mediante el método de asignación de delimitadores de tabla
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 81213d1f7cfeb7ea10cdadfb124047ecb76aa7d4
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 6d18adfaec965d858bdcb1f74ebcea89f57eea39
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58352092"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878033"
 ---
 # <a name="saas-fulfillment-api"></a>Realización de SaaS API
 
@@ -648,7 +648,7 @@ Permite al usuario un seguimiento del estado de una operación desencadenada asy
 
 |                    |                   |
 |  ---------------   |  ---------------  |
-|  Content-Type      |  ` application/json`   |
+|  Content-Type      |  `application/json`   |
 |  x-ms-requestid    |   Valor de cadena único para el seguimiento de la solicitud del cliente, preferiblemente un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.  |
 |  x-ms-correlationid |  Valor de cadena único para la operación en el cliente. Este parámetro se establece una correlación entre todos los eventos de la operación de cliente con los eventos en el servidor. Si no se proporciona este valor, uno genera y se proporcionan en los encabezados de respuesta.  |
 |  authorization     | Token de portador JSON Web Token (JWT).  |

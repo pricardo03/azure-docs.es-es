@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fc326c1ba529bc394a5ce5a059e3fe91baa7a9a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c2a2c1c415d0862b2631fa749241a9ae07df3b98
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124090"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880158"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conocidos y soluciones con el cumplimiento de protocolo SCIM 2.0 del servicio de aprovisionamiento de usuarios de Azure AD
 
@@ -35,7 +35,7 @@ En este artículo se describen los problemas actuales y pasados con el cumplimie
 
 ## <a name="scim-20-compliance-issues-and-status"></a>Problemas de cumplimiento y estado de SCIM 2.0
 
-| **Problema de compatibilidad de SCIM 2.0** |  **¿Corregido?** | **Fecha de corrección**  |  
+| **Problema de cumplimiento de SCIM 2.0** |  **¿Se ha corregido?** | **Corrija la fecha**  |  
 |---|---|---|
 | Azure AD requiere "/scim" en la raíz de la dirección URL del punto de conexión SCIM de la aplicación.  | Sí  |  18 de diciembre de 2018 | 
 | Los atributos de extensión utilizan la notación de punto "." antes de los nombres de atributo en lugar de la notación de dos puntos ":". |  Sí  | 18 de diciembre de 2018  | 
@@ -82,13 +82,13 @@ Sí. Si ya usa esta instancia de aplicación para el inicio de sesión único y 
 
 10. Ejecute el comando siguiente para crear un nuevo trabajo de aprovisionamiento que tenga las correcciones del servicio más recientes.
 
-    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs `
-    `{   templateId: "scim"   } `
+ `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs`
+ `{   templateId: "scim"   }`
    
 11. En los resultados del último paso, copie la cadena "ID" completa que comienza con "scim". Si lo desea, vuelva a aplicar las asignaciones de atributos anteriores ejecutando el comando siguiente, reemplazando [new-job-id] con el nuevo id. de trabajo que acaba de copiar y escribiendo la salida de JSON desde el paso n.° 7 como el cuerpo de la solicitud.
 
-    `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema `
-    `{   <your-schema-json-here>   }`
+ `POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronization/jobs/[new-job-id]/schema`
+ `{   <your-schema-json-here>   }`
 
 12. Vuelva a la primera ventana de explorador web y seleccione la pestaña **Aprovisionamiento** de la aplicación.
 13. Compruebe la configuración y, a continuación, inicie el trabajo de aprovisionamiento. 
@@ -112,5 +112,5 @@ Sí. Si programó una aplicación con el comportamiento anterior que existía an
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Más información sobre aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS](user-provisioning.md)
+[Más información sobre el aprovisionamiento y Desaprovisionamiento de usuarios para aplicaciones SaaS](user-provisioning.md)
 

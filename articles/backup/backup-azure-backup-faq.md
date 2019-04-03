@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: raynew
-ms.openlocfilehash: 420c81f6206c777efc303924d81763f5984aba4c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0981f4d5d9d5fcb243fc7ead6f4b529c096935d0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993416"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885883"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Preguntas más frecuentes de Azure Backup
 En este artículo se responde a preguntas habituales sobre el servicio Azure Backup.
@@ -40,7 +40,7 @@ Sí. Para mover un almacén de Recovery Services, consulte este [artículo](back
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>¿Puedo hacer una restauración a nivel de elemento (ILR) de las máquinas virtuales de las que se realiza una copia de seguridad en un almacén de Recovery Services?
 - ILR se admite para máquinas virtuales de Azure copiadas mediante la copia de seguridad de máquina virtual de Azure. Para más información, consulte este [artículo](backup-azure-restore-files-from-vm.md).
-- ILR no se admite para puntos de recuperación en línea de máquinas virtuales locales copiadas mediante el servidor de copia de seguridad de Azure o DPM de System Center.
+- ILR no se admite para puntos de recuperación en línea de las máquinas virtuales locales respaldada por Azure backup Server o System Center DPM.
 
 
 ## <a name="azure-backup-agent"></a>Agente de Azure Backup
@@ -93,7 +93,7 @@ Sí.
 ### <a name="what-operating-systems-are-supported-for-backup"></a>¿Qué sistemas operativos se admiten para la copia de seguridad?
 Azure Backup admite estos sistemas operativos para realizar copias de seguridad de archivos y carpetas y de aplicaciones protegidas con Azure Backup Server y DPM.
 
-**SISTEMA OPERATIVO** | **SKU** | **Detalles**
+**SO** | **SKU** | **Detalles**
 --- | --- | ---
 Estación de trabajo | |
 Windows 10 64 bits | Enterprise, Pro, Home | Las máquinas deben ejecutar las actualizaciones y los Service Pack más recientes.

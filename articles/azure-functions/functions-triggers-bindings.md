@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
 ms.openlocfilehash: 3865f748a9ca2fe09660d6454542d64f73a8e3c1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
+ms.lasthandoff: 04/03/2019
 ms.locfileid: "56736964"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceptos básicos sobre los enlaces y desencadenadores de Azure Functions
@@ -72,8 +72,8 @@ Otras opciones para `dataType` son `stream` y `string`.
 
 Todos los desencadenadores y enlaces tienen una propiedad `direction` en el archivo [function.json](./functions-reference.md):
 
-- En el caso de los desencadenadores, esta propiedad siempre aparece como `in`
-- Los enlaces de entrada y de salida usan `in` y `out`
+- Para los desencadenadores, la dirección siempre es `in`
+- Usan enlaces de entrada y salidos `in` y `out`
 - Algunos enlaces admiten la dirección especial `inout`. Si usas `inout`, solo el **editor avanzado** está disponible a través de la **integrar** ficha en el portal.
 
 Cuando se usan [atributos en una biblioteca de clases](functions-dotnet-class-library.md) para configurar los desencadenadores y los enlaces, la dirección se proporciona en un constructor de atributos o se deduce del tipo de parámetro.
