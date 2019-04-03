@@ -1,5 +1,5 @@
 ---
-title: Implementación de modelos como servicios web
+title: Cómo y dónde implementar los modelos
 titleSuffix: Azure Machine Learning service
 description: 'Obtenga información sobre cómo y dónde implementar los modelos de Azure Machine Learning Service, incluidos: Azure Container Instances, Azure Kubernetes Service, Azure IoT Edge y matrices de puertas programables.'
 services: machine-learning
@@ -9,20 +9,22 @@ ms.topic: conceptual
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 12/07/2018
-ms.custom: seodec18
-ms.openlocfilehash: ea2986ea2b2f561288773a7d187101f90f3e9fa9
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 1528b5e92e1952bf85799afd71bd5dac16aedcf4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58622134"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878305"
 ---
 # <a name="deploy-models-with-the-azure-machine-learning-service"></a>Implementación de modelos con el servicio Azure Machine Learning
 
-El SDK de Azure Machine Learning proporciona varias maneras que puede implementar el modelo entrenado. En este documento, aprenderá a implementar el modelo como un servicio web en la nube de Azure o en dispositivos IoT Edge.
+En este documento, aprenderá a implementar el modelo como un servicio web en la nube de Azure o en dispositivos IoT Edge. 
 
-Puede implementar modelos en los destinos de proceso siguientes:
+## <a name="compute-targets-for-deployment"></a>Destinos de proceso para la implementación
+
+Use el SDK de Azure Machine Learning para implementar el modelo entrenado en las siguientes ubicaciones:
 
 | Destino de proceso | Tipo de implementación | DESCRIPCIÓN |
 | ----- | ----- | ----- |
@@ -30,7 +32,9 @@ Puede implementar modelos en los destinos de proceso siguientes:
 | [Azure Machine Learning Compute (amlcompute)](#azuremlcompute) | Inferencia de lote | Predicción por lotes se ejecutan en el proceso sin servidor. Es compatible con máquinas virtuales normales y de baja prioridad. |
 | [Azure Container Instances (ACI)](#aci) | Prueba | Se recomienda para desarrollo o pruebas. **No es adecuado para cargas de trabajo de producción.** |
 | [Azure IoT Edge](#iotedge) | (Versión preliminar) Módulo de IoT | Implementa modelos en dispositivos IoT. Se produce inferencia en el dispositivo. |
-| [Matriz de puertas programables (FPGA)](#fpga) | (Versión preliminar) Servicio Web | Latencia ultrabaja para inferencia en tiempo real. |
+| [Matriz de puertas programables por campo (FPGA)](#fpga) | (Versión preliminar) Servicio Web | Latencia ultrabaja para inferencia en tiempo real. |
+
+## <a name="deployment-workflow"></a>Flujo de trabajo de implementación
 
 El proceso de implementación de un modelo es similar para todos los destinos de proceso:
 
@@ -46,7 +50,7 @@ El siguiente vídeo muestra cómo implementar en Azure Container Instances:
 
 Para obtener más información sobre los conceptos implicados en el flujo de trabajo de implementación, consulte [Administración, implementación y supervisión de modelos con Azure Machine Learning Service](concept-model-management-and-deployment.md).
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites-for-deployment"></a>Requisitos previos de implementación
 
 [!INCLUDE [aml-prereq](../../../includes/aml-prereq.md)]
 
@@ -216,7 +220,7 @@ Al llegar a la implementación, el proceso es ligeramente diferente dependiendo 
 | [Proceso de aprendizaje automático de Azure](#azuremlcompute) | Servicio Web (inferencia de lote)| Predicción por lotes se ejecutan en el proceso sin servidor. Es compatible con máquinas virtuales normales y de baja prioridad. |
 | [Azure Container Instances (ACI)](#aci) | Servicio Web (desarrollo y pruebas)| Se recomienda para desarrollo o pruebas. **No es adecuado para cargas de trabajo de producción.** |
 | [Azure IoT Edge](#iotedge) | (Versión preliminar) Módulo de IoT | Implementa modelos en dispositivos IoT. Se produce inferencia en el dispositivo. |
-| [Matriz de puertas programables (FPGA)](#fpga) | (Versión preliminar) Servicio Web | Latencia ultrabaja para inferencia en tiempo real. |
+| [Matriz de puertas programables por campo (FPGA)](#fpga) | (Versión preliminar) Servicio Web | Latencia ultrabaja para inferencia en tiempo real. |
 
 > [!IMPORTANT]
 > El uso compartido de recursos entre orígenes (CORS) no se admite actualmente al implementar un modelo como servicio web.
@@ -349,7 +353,7 @@ aks_target.wait_for_completion(True)
 
 Para obtener más información sobre cómo crear un clúster de AKS fuera el SDK de Azure Machine Learning, consulte los artículos siguientes:
 
-* [Crear un clúster de AKS](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
+* [Creación de un clúster de AKS](https://docs.microsoft.com/cli/azure/aks?toc=%2Fen-us%2Fazure%2Faks%2FTOC.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
 * [Crear un clúster de AKS (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
 #### <a name="deploy-the-image"></a>Implementación de la imagen
@@ -586,7 +590,7 @@ Registrar el dispositivo con Azure IoT Hub y, a continuación, instalar el runti
 Otros métodos para registrar un dispositivo son:
 
 * [Azure Portal](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-portal)
-* [CLI de Azure](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
+* [Azure CLI](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-cli)
 * [Visual Studio Code](https://docs.microsoft.com/azure/iot-edge/how-to-register-device-vscode)
 
 ### <a name="deploy-the-model-to-the-device"></a>Implementación del modelo en el dispositivo
@@ -609,11 +613,11 @@ Para obtener más información, consulte la documentación de referencia de los 
 
 * [Solución de problemas de implementación](how-to-troubleshoot-deployment.md)
 * [Protección de los servicios web de Azure Machine Learning con SSL](how-to-secure-web-service.md)
-* [Consumir un modelo de ML que está implementado como un servicio web](how-to-consume-web-service.md)
+* [Consumir un modelo de aprendizaje automático que se implementa como un servicio web](how-to-consume-web-service.md)
 * [Cómo ejecutar predicciones por lotes](how-to-run-batch-predictions.md)
 * [Supervisión de los modelos de Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)
 * [Recopilar datos de modelos en producción](how-to-enable-data-collection.md)
-* [SDK de Azure Machine Learning Service](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [Uso de Azure Machine Learning Service con Azure Virtual Network](how-to-enable-virtual-network.md)
-* [Procedimientos recomendados para compilar sistemas de recomendaciones](https://github.com/Microsoft/Recommenders)
+* [SDK de servicios de Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+* [Usar el servicio de Azure Machine Learning con Azure Virtual Network](how-to-enable-virtual-network.md)
+* [Prácticas recomendadas para crear sistemas de recomendación](https://github.com/Microsoft/Recommenders)
 * [Compilación de una API de recomendaciones en tiempo real en Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/ai/real-time-recommendation)

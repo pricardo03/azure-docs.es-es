@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 84f74392b93212558851f89dab924ae3db5620ed
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a13d3b24cd7845de144183d9f2ea825e0e24219f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995123"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883724"
 ---
 # <a name="get-started-using-azure-stream-analytics-real-time-fraud-detection"></a>Introducción al uso de Azure Stream Analytics: Detección de fraudes en tiempo real
 
@@ -184,7 +184,7 @@ Ahora que tiene un flujo de eventos de llamada, puede configurar un trabajo de S
  
 3. Haga clic en **Add stream input** (Agregar entrada de flujo) y seleccione **Event Hub** (Centro de eventos). Luego, especifique la siguiente información en la página New input (Entrada nueva):
 
-   |**Configuración**  |**Valor sugerido**  |**Descripción**  |
+   |**Configuración**  |**Valor sugerido**  |**DESCRIPCIÓN**  |
    |---------|---------|---------|
    |Alias de entrada  |  CallStream   |  Escriba un nombre para identificar la entrada del trabajo.   |
    |Subscription   |  \<Su suscripción\> |  Seleccione la suscripción de Azure que tenga el centro de eventos que ha creado.   |
@@ -292,7 +292,7 @@ Para esta transformación, se busca una secuencia de ventanas temporales que no 
 
     La proyección incluye `System.Timestamp`, que devuelve una marca de tiempo para el final de cada ventana. 
 
-    Para especificar que desea usar una ventana de saltos de tamaño constante, use la función [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) en la cláusula `GROUP BY `. En la función, especifique una unidad de tiempo (entre un microsegundo y un día) y un tamaño de ventana (el número de unidades). En este ejemplo, la ventana de saltos de tamaño constante se compone de intervalos de cinco segundos, por lo que se obtendrá un recuento por país de las llamadas correspondientes a cada cinco segundos.
+    Para especificar que desea usar una ventana de saltos de tamaño constante, utilice el [TUMBLINGWINDOW](https://msdn.microsoft.com/library/dn835055.aspx) funcionando en el `GROUP BY` cláusula. En la función, especifique una unidad de tiempo (entre un microsegundo y un día) y un tamaño de ventana (el número de unidades). En este ejemplo, la ventana de saltos de tamaño constante se compone de intervalos de cinco segundos, por lo que se obtendrá un recuento por país de las llamadas correspondientes a cada cinco segundos.
 
 2. Haga clic de nuevo en **Probar**. En los resultados, observe que las marcas de tiempo que aparecen en **WindowEnd** reflejan incrementos de cinco segundos.
 
@@ -354,7 +354,7 @@ Si ya tiene una cuenta de Blob Storage, puede utilizarla. En este tutorial, apre
 
 4. En el panel **Salidas**, haga clic en **Agregar** y, después, seleccione **Almacenamiento de blobs**. Luego, especifique la siguiente información en la página New output (Salida nueva):
 
-   |**Configuración**  |**Valor sugerido**  |**Descripción**  |
+   |**Configuración**  |**Valor sugerido**  |**DESCRIPCIÓN**  |
    |---------|---------|---------|
    |Alias de salida  |  CallStream-FraudulentCalls   |  Escriba un nombre para identificar la salida del trabajo.   |
    |Subscription   |  \<Su suscripción\> |  Seleccione la suscripción de Azure que tiene la cuenta de almacenamiento que creó. La cuenta de almacenamiento puede estar en la misma suscripción, o en otra diferente. En este ejemplo se da por supuesto que ha creado la cuenta de almacenamiento en la misma suscripción. |
@@ -416,6 +416,6 @@ Puede seguir este tutorial con el artículo siguiente:
 Para más información sobre Stream Analytics en general, examine estos artículos:
 
 * [Introducción a Azure Stream Analytics](stream-analytics-introduction.md)
-* [Escalación de trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
+* [Escalar los trabajos de Azure Stream Analytics](stream-analytics-scale-jobs.md)
 * [Referencia del lenguaje de consulta de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referencia de API de REST de administración de Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)

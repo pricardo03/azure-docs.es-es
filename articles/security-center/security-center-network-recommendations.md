@@ -3,7 +3,7 @@ title: Protección de los recursos de red en Azure Security Center | Microsoft D
 description: En este documento se explica cómo las recomendaciones de Azure Security Center ayudan a proteger los recursos de red y a cumplir las directivas de seguridad.
 services: security-center
 documentationcenter: na
-author: rkarlin
+author: monhaber
 manager: barbkess
 editor: ''
 ms.assetid: 96c55a02-afd6-478b-9c1f-039528f3dea0
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/28/2018
-ms.author: rkarlin
-ms.openlocfilehash: 55318f40918833688e0c516924642c781141438c
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.date: 04/02/2019
+ms.author: monhaber
+ms.openlocfilehash: cca1962e5146300cc376fab4bcb1bf0876acec6c
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56118010"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863158"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Protección de los recursos de red en Azure Security Center
 Azure Security Center analiza continuamente el estado de seguridad de los recursos de Azure para los procedimientos recomendados de seguridad de red. Cuando Security Center identifica posibles vulnerabilidades de seguridad, crea recomendaciones que lo guiarán por el proceso de configuración de los controles necesarios para reforzar y proteger sus recursos.
@@ -30,10 +30,9 @@ En este artículo se abordan las recomendaciones que se aplican a los recursos d
 > La página **Redes** permite profundizar en el estado de los recursos de Azure desde una perspectiva de red. El mapa de red y los controles de red adaptables están disponibles solo para el nivel estándar de Azure Security Center. [Si usa el nivel gratis, haga clic en el botón para **Ver redes heredadas** y recibir recomendaciones de recursos de red](#legacy-networking).
 >
 
-La página **Redes** proporciona información general de las secciones en las que puede profundizar para obtener más información sobre el estado de los recursos de red:
+El **redes** hoja proporciona una visión general de las secciones que puede profundizar para obtener más información sobre el estado de los recursos de red:
 
 - Mapa de red (solo en el nivel estándar de Azure Security Center)
-- Protección de NSG (disponible próximamente. Regístrese para obtener la versión preliminar)
 - Recomendaciones de seguridad de red.
 - Hoja **Redes** heredadas (anteriormente hoja de redes) 
  
@@ -49,7 +48,8 @@ Para abrir el mapa de red:
  
 La vista predeterminada del mapa topológico muestra:
 - Suscripciones seleccionadas en Azure. El mapa admite varias suscripciones.
-- Máquinas virtuales, subredes y redes virtuales del tipo de recurso Resource Manager (no se admiten los recursos de Azure clásico)
+- Las máquinas virtuales, subredes y redes virtuales del tipo de recurso de Resource Manager (no se admiten los recursos de Azure clásico)
+- Redes virtuales emparejadas
 - Solo los recursos que tienen [recomendaciones de red](security-center-recommendations.md) con una gravedad media o alta  
 - Recursos accesibles desde Internet
 - El mapa está optimizado para las suscripciones que seleccionó en Azure. Si modifica la selección, el mapa se vuelve a calcular y a reoptimizar en función de la nueva configuración.  
@@ -98,9 +98,9 @@ Por ejemplo, podría detectar dos máquinas que no sabía que se podían comunic
 
 Para explorar en profundidad un recurso:
 1. Al seleccionar un recurso específico en el mapa, el panel derecho se abre y le ofrece información general sobre el recurso, soluciones de seguridad conectadas (de existir) y recomendaciones relevantes para el recurso. Es el mismo tipo de comportamiento para cada tipo de recurso que seleccione. 
-2. Haga clic en **Tráfico** para ver la lista de posible tráfico entrante y saliente en el recurso. Se trata de una lista completa de quién puede comunicarse con el recurso y viceversa, así como a través de qué protocolos y puertos.
+2. Haga clic en **Tráfico** para ver la lista de posible tráfico entrante y saliente en el recurso. Se trata de una lista completa de quién puede comunicarse con el recurso y viceversa, así como a través de qué protocolos y puertos. Por ejemplo, cuando se selecciona una máquina virtual, todas las máquinas virtuales que puede comunicarse con se muestran y cuando se selecciona una subred, se muestran todas las subredes que se pueden comunicar con.
 
-**Estos datos se basan en el análisis de los Grupos de seguridad de red, así como en algoritmos con aprendizaje automático que analizan varias reglas para comprender las interacciones y cruces.** 
+**Estos datos se basan en el análisis de los grupos de seguridad de red, así como los algoritmos que analizan varias reglas para comprender sus crossovers e interacciones de aprendizaje automático avanzado.** 
 
 ![Mapa del tráfico de red](./media/security-center-network-recommendations/network-map-traffic.png)
 
@@ -140,12 +140,12 @@ El tercer nivel muestra máquinas virtuales, que es similar a lo que se ha descr
 |Máquina|10|Agregar un firewall de próxima generación|Agregue una solución de firewall de próxima generación (NGFW) para proteger mejor las máquinas virtuales accesibles desde Internet.|
 |Máquina|5|Enrutar el tráfico solo a través del firewall de puerta de enlace de red|Para completar la implementación de la solución de firewall de próxima generación, el tráfico hacia las máquinas virtuales accesibles desde Internet protegidas se debe enrutar solo a través de la solución de firewall de próxima generación.|
 Vnet|5|Habilitar la protección contra DDoS estándar|Las aplicaciones con direcciones IP públicas en estas redes virtuales no están protegidas con el servicio de protección contra DDOS estándar. Es recomendable habilitarlo para permitir la mitigación de los ataques volumétricos de red y protocolo.|
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 Para obtener más información sobre las recomendaciones que se aplican a otros tipos de recursos de Azure, consulte los siguientes artículos:
 
 * [Protección de las máquinas virtuales en Azure Security Center](security-center-virtual-machine-recommendations.md)
 * [Protección de las aplicaciones en Azure Security Center](security-center-application-recommendations.md)
-* [Protección del servicio SQL de Azure en Azure Security Center](security-center-sql-service-recommendations.md)
+* [Proteger el servicio de SQL Azure en Azure Security Center](security-center-sql-service-recommendations.md)
 
 Para más información sobre el Centro de seguridad, consulte los siguientes recursos:
 

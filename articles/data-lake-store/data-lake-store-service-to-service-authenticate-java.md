@@ -3,26 +3,26 @@ title: 'Autenticación de servicio a servicio: Java con Azure Data Lake Storage 
 description: Aprenda a realizar la autenticación de servicio a servicio con Azure Data Lake Storage Gen1 mediante Azure Active Directory con Java.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 257db3ab0a155dd79ef74365f956293886e2f658
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: c32eada2acca73e089c2296ce8e59c529d7af665
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529743"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879172"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Autenticación de servicio a servicio con Azure Data Lake Storage Gen1 mediante Java
 > [!div class="op_single_selector"]
-> * [Uso de Java](data-lake-store-service-to-service-authenticate-java.md)
-> * [Uso de SDK de .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
-> * [Uso de Python](data-lake-store-service-to-service-authenticate-python.md)
+> * [Usar Java](data-lake-store-service-to-service-authenticate-java.md)
+> * [Uso del SDK de .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
+> * [Usar Python](data-lake-store-service-to-service-authenticate-python.md)
 > * [Uso de la API de REST](data-lake-store-service-to-service-authenticate-rest-api.md)
 > 
 >  

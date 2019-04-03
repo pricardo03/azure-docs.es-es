@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 09/12/2018
 ms.author: glenga
 ms.openlocfilehash: 55b4cf6e621bc1e5bd3d8ba4718e5714ea652c27
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
+ms.lasthandoff: 04/03/2019
 ms.locfileid: "58111487"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Referencia para desarrolladores de C# de Azure Functions
@@ -344,7 +344,7 @@ Defina un enlace imperativo como se indica a continuación:
   }
   ```
 
-  `BindingTypeAttribute` es el atributo de .NET que define el enlace y `T` es un tipo de entrada o de salida compatible con ese tipo de enlace. `T` no puede ser un tipo de parámetro `out` (como `out JObject`). Por ejemplo, el enlace de salida de la tabla de Mobile Apps admite [seis tipos de salida](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), pero solo se puede utilizar [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) con el enlace imperativo.
+  `BindingTypeAttribute` es el atributo de .NET que define el enlace, y `T` es un tipo de entrada o salido que es compatible con ese tipo de enlace. `T` no puede ser un `out` tipo de parámetro (como `out JObject`). Por ejemplo, el enlace de salida de la tabla de Mobile Apps admite [seis tipos de salida](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), pero solo se puede utilizar [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) con el enlace imperativo.
 
 ### <a name="single-attribute-example"></a>Ejemplo de un único atributo
 
@@ -405,7 +405,7 @@ public static class IBinderExampleMultipleAttributes
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Más información sobre los desencadenadores y los enlaces](functions-triggers-bindings.md)
+> [Más información sobre los desencadenadores y enlaces](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Más información sobre procedimientos recomendados para Azure Functions](functions-best-practices.md)
+> [Más información sobre los procedimientos recomendados para Azure Functions](functions-best-practices.md)

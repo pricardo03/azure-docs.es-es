@@ -12,17 +12,14 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: eb8499ef6c0f872a0761f7be606e058387947b2b
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: da93c60b52edf509900adf89fb688a0596d9763b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319887"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877813"
 ---
-# <a name="create-your-first-azure-function-with-java-and-intellij-preview"></a>Creación de la primera función de Azure con Java e IntelliJ (versión preliminar)
-
-> [!NOTE]
-> Java para Azure Functions actualmente se encuentra disponible en versión preliminar.
+# <a name="create-your-first-azure-function-with-java-and-intellij"></a>Cree su primera función de Azure con Java y IntelliJ
 
 Este artículo le muestra:
 - Cómo crear un proyecto de función [sin servidor](https://azure.microsoft.com/overview/serverless-computing/) con IntelliJ IDEA y Apache Maven
@@ -33,14 +30,14 @@ Este artículo le muestra:
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="set-up-your-development-environment"></a>Configuración de su entorno de desarrollo
+## <a name="set-up-your-development-environment"></a>Configurado su entorno de desarrollo
 
 Para desarrollar una función con Java e IntelliJ, instale el software siguiente:
 
 - [Kit de desarrolladores de Java](https://www.azul.com/downloads/zulu/) (JDK), versión 8
 - [Apache Maven](https://maven.apache.org), versión 3.0 o posterior
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), versión Community o Ultimate con Maven
-- [CLI de Azure](https://docs.microsoft.com/cli/azure)
+- [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT]
 > La variable de entorno JAVA_HOME se debe establecer en la ubicación de instalación del JDK para completar los pasos de este artículo.
@@ -55,8 +52,8 @@ Para desarrollar una función con Java e IntelliJ, instale el software siguiente
 1. En la ventana **Add Archetype** (Agregar arquetipo), complete los campos como se indica a continuación:
     - _GroupId_: com.microsoft.azure
     - _ArtifactId_: azure-functions-archetype
-    - _Version_: use la versión más reciente del [repositorio central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![Creación de un proyecto de Maven a partir de arquetipo en IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
+    - _Versión_: Use la versión más reciente de [el repositorio central](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
+    ![crear un proyecto de Maven desde Arquetipo en IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. Seleccione **Aceptar** y después **Siguiente**.
 1. Especifique los detalles del proyecto actual y seleccione **Finish** (Finalizar).
 
@@ -71,7 +68,7 @@ Maven crea los archivos del proyecto en una carpeta nueva con el mismo nombre qu
 1. Abra la barra de herramientas **Maven Projects** (Proyectos de Maven).
 1. Expanda **Lifecycle** (Ciclo de vida) y, a continuación, abra **package** (paquete). La solución se compila y empaqueta en un directorio de destino recién creado.
 1. Expanda **Plugins** > **azure-functions** (Complementos > azure-functions) y abra **azure-functions:run** para iniciar el entorno de ejecución local de Azure Functions.  
-  ![Barra de herramientas de Maven para Azure Functions](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
+  ![Barra de herramientas de maven para Azure Functions](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
 
 1. Cierre el cuadro de diálogo de ejecución cuando termine de probar la función. Solo puede haber un host de función activo y en ejecución en el entorno local a la vez.
 

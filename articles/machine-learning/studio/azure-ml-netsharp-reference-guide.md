@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 891b2988d04a3cf2f7c6676a837bc1ee199f4d16
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: c352100392a5bf7b590b27b9448f7f37fb105fbe
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651498"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886104"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio"></a>Guía sobre el lenguaje de especificación de redes neuronales de Net# para Azure Machine Learning Studio
 
@@ -149,7 +149,7 @@ Inmediatamente después de definir la capa entrenable, debe declarar conexiones 
 
 Actualmente se admiten cinco tipos de conjuntos de conexiones:
 
-+ Conjuntos **completos**, indicados mediante la palabra clave `all`
++ **Completa** agrupaciones, indicados por la palabra clave `all`
 + Conjuntos **filtrados**, indicados por la palabra clave `where`, seguida por una expresión de predicado
 + Conjuntos **convolucionales**, indicados por la palabra clave `convolve`, seguida de los atributos de convolución
 + Conjuntos de **agrupación**, indicados por las palabras clave **max pool** o **mean pool**
@@ -450,14 +450,15 @@ output Digit [10] from Hid3 all;
 + La palabra clave `convolve` indica que las capas llamadas `Conv1` y `Conv2` son capas convolucionales. Cada una de estas declaraciones de capa está seguida por una lista de los atributos de convolución.
 + La red tiene una tercera capa oculta, `Hid3`, que está totalmente conectada a la segunda capa oculta, `Conv2`.
 + La capa de salida, `Digit`, está conectada solo a la tercera capa oculta, `Hid3`. La palabra clave `all` indica que la capa de salida está conectada por completo a `Hid3`.
-+ La aridad de la convolución es tres: la longitud de las tuplas `InputShape`, `KernelShape`, `Stride, and `Sharing.
++ La aridad de la convolución es tres: la longitud de las tuplas `InputShape`, `KernelShape`, `Stride`, y `Sharing`.
 + El número de ponderaciones por kernel es `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`. O `26 * 50 = 1300`.
 + Puede calcular los nodos en cada capa oculta del modo siguiente:
 
-    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5``NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
+    `NodeCount\[0] = (5 - 1) / 1 + 1 = 5`
+    `NodeCount\[1] = (13 - 5) / 2 + 1 = 5`
     `NodeCount\[2] = (13 - 5) / 2 + 1 = 5`
 
-+ El número total de nodos puede calcularse usando la dimensionalidad declarada de la capa, [50, 5, 5], de este modo: `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`
++ El número total de nodos puede calcularse usando la dimensionalidad declarada de la capa, [50, 5, 5], como se indica a continuación: `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`
 + Dado que `Sharing[d]` es False solo para `d == 0`, el número de kernels es `MapCount * NodeCount\[0] = 10 * 5 = 50`.
 
 ## <a name="acknowledgements"></a>Agradecimientos

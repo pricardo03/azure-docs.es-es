@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8cd6a68f6593a5b746a19e42e4835deb05e112b6
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 2e715e5280794172451a333624a954340a1a60fe
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757180"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881025"
 ---
 # <a name="streaming-endpoints"></a>Extremos de streaming
 
@@ -24,10 +24,12 @@ En Microsoft Azure Media Services (AMS), la entidad [Puntos de conexión de stre
 
 > [!NOTE]
 > Para iniciar la transmisión de vídeos, es preciso que inicie el **punto de conexión de streaming** desde el que desee transmitir en secuencias el vídeo. 
+>  
+> Solo se le cobrará cuando StreamingEndpoint esté en estado en ejecución.
 
 ## <a name="naming-convention"></a>Convención de nomenclatura
 
-Para el punto de conexión predeterminado: `{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+Para el extremo predeterminado: `{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
 
 Para los puntos de conexión adicionales: `{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
 
@@ -40,7 +42,7 @@ En la tabla se describen los tipos:
 |Type|Unidades de escalado|DESCRIPCIÓN|
 |--------|--------|--------|  
 |**Punto de conexión de streaming estándar** (recomendado)|0|El valor predeterminado es el punto de conexión de Streaming un **estándar** escriba, pero puede cambiarse al tipo Premium.<br/> El tipo estándar es la opción recomendada para prácticamente todos los escenarios de streaming y tamaños de audiencia. El tipo **estándar** escala el ancho de banda de salida automáticamente. El rendimiento de este tipo de extremo de Streaming es hasta 600 Mbps. Fragmentos de vídeo almacenados en caché en la red CDN, no utilice el ancho de banda de punto de conexión de Streaming.<br/>Para los clientes con requisitos muy exigentes, Media Services ofrece puntos de conexión de streaming **prémium**, que pueden utilizarse para escalar horizontalmente la capacidad para las audiencias de Internet más grandes. Si espera un público amplio y usuarios simultáneos, póngase en contacto con nosotros en amsstreaming\@microsoft.com para obtener instrucciones sobre si necesita mover a la **Premium** tipo. |
-|**Punto de conexión de streaming premium**|>0|Los puntos de conexión de streaming **Premium** son adecuados para cargas de trabajo avanzadas y proporcionan una capacidad de ancho de banda dedicada y escalable. Para pasar a un tipo **premium** se ajusta la propiedad `scaleUnits`. La propiedad `scaleUnits` proporciona capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps. Cuando se usa el tipo **premium**, cada unidad habilitada proporciona capacidad de ancho de banda adicional a la aplicación. |
+|**Extremo de Streaming Premium**|>0|Los puntos de conexión de streaming **Premium** son adecuados para cargas de trabajo avanzadas y proporcionan una capacidad de ancho de banda dedicada y escalable. Para pasar a un tipo **premium** se ajusta la propiedad `scaleUnits`. `scaleUnits` proporcionan la capacidad de salida dedicada puede adquirirse en incrementos de 200 Mbps. Cuando se usa el tipo **premium**, cada unidad habilitada proporciona capacidad de ancho de banda adicional a la aplicación. |
  
 ## <a name="comparing-streaming-types"></a>Comparación de tipos de streaming
 
@@ -62,24 +64,11 @@ Uso recomendado |Se recomienda para la gran mayoría de escenarios de streaming.
 
 <sup>1</sup> solo se usa directamente en el extremo de transmisión por secuencias cuando la red CDN no está habilitada en el punto de conexión.
 
-## <a name="working-with-cdn"></a>Trabajo con la red CDN
-
-En la mayoría de los casos, tendrá la red CDN habilitada. Sin embargo, si prevé una simultaneidad máxima inferior a 500 visores, se recomienda deshabilitar la red CDN, ya que esta escala mejor con simultaneidad.
-
-> [!NOTE]
-> El punto de conexión de streaming `hostname` y la dirección URL de streaming permanecen igual habilite o no la red CDN.
-
-### <a name="detailed-explanation-of-how-caching-works"></a>Explicación detallada de cómo funciona el almacenamiento en caché
-
-No hay ningún valor de ancho de banda específico al agregar la red CDN porque la cantidad de ancho de banda necesaria para un punto de conexión de streaming con red CDN habilitada varía. Un lote depende del tipo de contenido, su popularidad, la velocidad de bits y los protocolos. La red CDN solo almacena en caché lo que se solicita. Esto significa que se servirá contenido popular directamente desde la red CDN: siempre que el fragmento de vídeo esté almacenado en caché. Es probable que el contenido en vivo se almacene en caché porque suele haber muchas personas mirando exactamente lo mismo. El contenido a petición puede ser un poco más complejo porque podría haber parte del contenido que fuera popular y otra que no. Si hay millones de recursos de vídeo que no son populares (solo 1 o 2 visores a la semana), pero hay miles de personas que miran vídeos diferentes, la red CDN pasa a ser mucho menos efectiva. Con estos errores de caché, se aumenta la carga en el punto de conexión de streaming.
- 
-También debe tener en cuenta cómo funciona el streaming adaptable. Cada fragmento de vídeo individual se almacena en caché como entidad propia. Por ejemplo, si la primera vez que una persona mira un determinado vídeo, omite parte y mira solo unos segundos aquí y allá, solo los fragmentos de vídeo asociados con lo que miró esa persona se almacenan en caché de la red CDN. Con el streaming adaptable, se suelen tener de 5 a 7 velocidades de bits de vídeo distintas. Si una persona está mirando a una velocidad de bits y otra persona a una velocidad de bits diferente, se almacenan en caché cada uno por separado en la red CDN. Incluso si dos personas están mirando a la misma velocidad de bits podrían transmitir en streaming a través de protocolos diferentes. Cada protocolo (HLS, MPEG-DASH, Smooth Streaming) se almacena en caché por separado. Por lo tanto, cada velocidad de bits y protocolo se almacenan en caché por separado y solo se almacenan en caché los fragmentos de vídeo que se han solicitado.
- 
 ## <a name="properties"></a>Properties (Propiedades) 
 
 En esta sección se proporciona detalles sobre algunas de las propiedades del extremo de Streaming. Para obtener ejemplos de cómo crear un nuevo punto de conexión de streaming y las descripciones de todas las propiedades, vea [Streaming Endpoint](https://docs.microsoft.com/rest/api/media/streamingendpoints/create) (Punto de conexión de streaming). 
 
-- `accessControl` -Se usa para configurar las siguientes opciones de seguridad para este extremo de streaming: Claves de autenticación de encabezado de firma de Akamai y direcciones IP que puedan conectarse a este punto de conexión.<br />Se puede establecer esta propiedad cuando `cdnEnabled` está establecida en false.
+- `accessControl` -Se usa para configurar las siguientes opciones de seguridad para este extremo de streaming: Claves de autenticación de encabezado de firma de Akamai y direcciones IP que puedan conectarse a este punto de conexión.<br />Esta propiedad solo puede establecerse cuando `cdnEnabled` está establecida en false.
 - `cdnEnabled` : Indica si la integración de Azure CDN para este extremo de streaming está habilitada (deshabilitado de forma predeterminada). Si establece la propiedad `cdnEnabled` en true, se deshabilitarán las siguientes configuraciones: `customHostNames` y `accessControl`.
   
     No todos los centros de datos admiten la integración de Azure CDN. Para comprobar si su centro de datos tiene la integración de CDN de Azure disponible, haga lo siguiente:
@@ -88,8 +77,8 @@ En esta sección se proporciona detalles sobre algunas de las propiedades del ex
   - Compruebe el resultado devuelto para un `HTTP Error Code 412` (PreconditionFailed) con el mensaje "Propiedad CdnEnabled de extremo de Streaming no se puede establecer como verdadero, como la capacidad de red CDN no está disponible en la región actual." 
 
     Si recibe este error, el centro de datos no la admite. Debe probar otro centro de datos.
-- `cdnProfile` -Cuando `cdnEnabled` está establecido en true, también puede pasar `cdnProfile` valores. El valor `cdnProfile` es el nombre del perfil CDN donde se creará el punto de conexión CDN. Puede proporcionar un cdnProfile existente o usar uno nuevo. Si el valor es NULL y `cdnEnabled` es true, se utiliza el valor predeterminado "AzureMediaStreamingPlatformCdnProfile". Si el valor `cdnProfile` proporcionado ya existe, se crea un punto de conexión debajo de él. Si el perfil no existe, automáticamente se crea un nuevo perfil.
-- `cdnProvider` -Cuando CDN esté habilitado, también se puede pasar `cdnProvider` valores. El valor `cdnProvider` controla qué proveedor se utilizará. Actualmente, se admiten tres valores: "StandardVerizon", "PremiumVerizon" y "StandardAkamai". Si se proporciona ningún valor y `cdnEnabled` es true, se utiliza "StandardVerizon" (es decir, el valor predeterminado).
+- `cdnProfile` -Cuando `cdnEnabled` está establecido en true, también puede pasar `cdnProfile` valores. `cdnProfile` es el nombre del perfil CDN donde se creará el punto de punto de conexión CDN. Puede proporcionar un cdnProfile existente o usar uno nuevo. Si el valor es NULL y `cdnEnabled` es true, se utiliza el valor predeterminado "AzureMediaStreamingPlatformCdnProfile". Si el valor `cdnProfile` proporcionado ya existe, se crea un punto de conexión debajo de él. Si el perfil no existe, automáticamente se crea un nuevo perfil.
+- `cdnProvider` -Cuando CDN esté habilitado, también se puede pasar `cdnProvider` valores. `cdnProvider` controla qué proveedor se utilizará. Actualmente, se admiten tres valores: "StandardVerizon", "PremiumVerizon" y "StandardAkamai". Si se proporciona ningún valor y `cdnEnabled` es true, se utiliza "StandardVerizon" (es decir, el valor predeterminado).
 - `crossSiteAccessPolicies` : Se usa para especificar las directivas de acceso entre sitios para varios clientes. Para obtener más información, consulte [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) (Especificación del archivo de directivas entre dominios) y [Making a Service Available Across Domain Boundaries](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx) (Hacer que un servicio esté disponible a través de los límites del dominio).<br/>La configuración se aplica solo a Smooth Streaming.
 - `customHostNames` : Se usa para configurar un extremo de Streaming para aceptar tráfico dirigido a un nombre de host personalizado.  Esta propiedad es válida para Standard y Premium de extremos de Streaming y se puede establecer cuando `cdnEnabled`: false.
     
@@ -128,7 +117,39 @@ En esta sección se proporciona detalles sobre algunas de las propiedades del ex
     - Deteniendo - está realizando la transición al estado detenido
     - Eliminando – se va a eliminar
     
-- `scaleUnits ` -Proporcionan capacidad de salida dedicada puede adquirirse en incrementos de 200 Mbps. Si tiene que pasar a un tipo **premium**, ajuste la propiedad `scaleUnits`.
+- `scaleUnits` -Proporcionan capacidad de salida dedicada puede adquirirse en incrementos de 200 Mbps. Si tiene que pasar a un tipo **premium**, ajuste la propiedad `scaleUnits`.
+
+## <a name="working-with-cdn"></a>Trabajo con la red CDN
+
+En la mayoría de los casos, tendrá la red CDN habilitada. Sin embargo, si prevé una simultaneidad máxima inferior a 500 visores, se recomienda deshabilitar la red CDN, ya que esta escala mejor con simultaneidad.
+
+### <a name="considerations"></a>Consideraciones
+
+* El punto de conexión de streaming `hostname` y la dirección URL de streaming permanecen igual habilite o no la red CDN.
+* Si necesita la capacidad de probar el contenido con o sin red CDN, puede crear otro extremo de Streaming que no está habilitado de CDN.
+
+### <a name="detailed-explanation-of-how-caching-works"></a>Explicación detallada de cómo funciona el almacenamiento en caché
+
+No hay ningún valor de ancho de banda específico al agregar la red CDN porque la cantidad de ancho de banda necesaria para un punto de conexión de streaming con red CDN habilitada varía. Un lote depende del tipo de contenido, su popularidad, la velocidad de bits y los protocolos. La red CDN solo almacena en caché lo que se solicita. Esto significa que se servirá contenido popular directamente desde la red CDN: siempre que el fragmento de vídeo esté almacenado en caché. Es probable que el contenido en vivo se almacene en caché porque suele haber muchas personas mirando exactamente lo mismo. El contenido a petición puede ser un poco más complejo porque podría haber parte del contenido que fuera popular y otra que no. Si hay millones de recursos de vídeo que no son populares (solo 1 o 2 visores a la semana), pero hay miles de personas que miran vídeos diferentes, la red CDN pasa a ser mucho menos efectiva. Con estos errores de caché, se aumenta la carga en el punto de conexión de streaming.
+ 
+También debe tener en cuenta cómo funciona el streaming adaptable. Cada fragmento de vídeo individual se almacena en caché como entidad propia. Por ejemplo, si la primera vez que una persona mira un determinado vídeo, omite parte y mira solo unos segundos aquí y allá, solo los fragmentos de vídeo asociados con lo que miró esa persona se almacenan en caché de la red CDN. Con el streaming adaptable, se suelen tener de 5 a 7 velocidades de bits de vídeo distintas. Si una persona está mirando a una velocidad de bits y otra persona a una velocidad de bits diferente, se almacenan en caché cada uno por separado en la red CDN. Incluso si dos personas están mirando a la misma velocidad de bits podrían transmitir en streaming a través de protocolos diferentes. Cada protocolo (HLS, MPEG-DASH, Smooth Streaming) se almacena en caché por separado. Por lo tanto, cada velocidad de bits y protocolo se almacenan en caché por separado y solo se almacenan en caché los fragmentos de vídeo que se han solicitado.
+
+### <a name="enable-azure-cdn-integration"></a>Habilitar la integración de la red CDN de Azure
+
+Después de un extremo de Streaming se aprovisiona con CDN haya habilitado es un tiempo de espera definido en Media Services antes de realiza la actualización de DNS para asignar el punto de conexión de Streaming al punto de conexión CDN.
+
+Si más adelante desea volver a habilitar o deshabilitar la red CDN, punto de conexión de streaming debe estar en estado **stopped** (detenido). Es posible que transcurran hasta dos horas hasta que la integración de Azure CDN se habilite y los cambios se activen en todos los POP de la red CDN. Sin embargo, puede iniciar el punto de conexión de streaming y transmitir sin interrupciones desde ahí y, una vez que la integración esté completa, la transmisión se efectúa desde la red CDN. Durante el período de aprovisionamiento, el punto de conexión de streaming estará en estado **starting** (iniciando) y es posible que note una reducción en el rendimiento.
+
+Cuando se crea el extremo de streaming estándar, se configura de forma predeterminada con Verizon estándar. Puede configurar proveedores de Verizon Premium o estándar de Akamai mediante las API de REST. 
+
+La integración de la red CDN está habilitada en todos los centros de datos de Azure excepto las regiones de China y el Gobierno Federal.
+
+> [!IMPORTANT]
+> La integración de Azure Media Services con Azure CDN se implementa en **Azure CDN de Verizon** para puntos de conexión de streaming estándar. Los puntos de conexión de streaming premium pueden configurarse con todos los **proveedores y planes de tarifa de Azure CDN**. Para obtener más información sobre las características de Azure CDN, consulte la [información general de la red CDN](../../cdn/cdn-overview.md).
+
+### <a name="determine-if-dns-change-has-been-made"></a>Determinar si se ha realizado el cambio DNS
+
+Puede determinar si se ha realizado el cambio DNS en un extremo de Streaming (el tráfico se dirige a la red CDN de Azure) mediante https://www.digwebinterface.com. Si los resultados tiene nombres de dominio azureedge.net en los resultados, el tráfico que apuntan ahora a la red CDN.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

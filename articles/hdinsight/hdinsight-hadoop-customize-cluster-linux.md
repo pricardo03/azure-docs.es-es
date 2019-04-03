@@ -1,33 +1,24 @@
 ---
-title: Personalización de clústeres de HDInsight mediante acciones de script en Azure
+title: Personalización de clústeres de HDInsight de Azure mediante el uso de las acciones de script
 description: Agregue componentes personalizados a clústeres de HDInsight basados en Linux mediante acciones de script. Las acciones de script son scripts de Bash que se pueden usar para personalizar la configuración del clúster o para agregar servicios adicionales y utilidades como Hue, Solr o R.
-services: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: hrasheed
-ms.openlocfilehash: 80c2d25fa24acff92a462f0289259792f217fbfd
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.date: 04/02/2019
+ms.openlocfilehash: fe0fec082ace997a3bd66ca7c7575ce8dce3be1a
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361700"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885577"
 ---
-# <a name="customize-linux-based-hdinsight-clusters-by-using-script-actions"></a>Personalización de clústeres de HDInsight basados en Linux mediante acciones de script
+# <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalización de clústeres de HDInsight de Azure mediante el uso de las acciones de script
 
 Azure HDInsight proporciona un método de configuración llamado **acciones de script**, que invoca scripts personalizados para personalizar el clúster. Estos scripts se usan para instalar componentes adicionales y para cambiar los valores de configuración. Las acciones de script pueden usarse durante la creación del clúster o después.
 
-> [!IMPORTANT]  
-> La posibilidad de usar acciones de script en un clúster ya en ejecución solo está disponible para clústeres de HDInsight basados en Linux.
->
-> Linux es el único sistema operativo que se usa en la versión 3.4 de HDInsight, o en las versiones posteriores. Para más información, consulte [Retirada de Windows de HDInsight](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
 Las acciones de script también pueden publicarse en Azure Marketplace como una aplicación de HDInsight. Para más información sobre aplicaciones de HDInsight, consulte [Publicación de una aplicación de HDInsight en Azure Marketplace](hdinsight-apps-publish-applications.md).
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="permissions"></a>Permisos
 
@@ -46,7 +37,7 @@ Si crea un clúster de HDInsight, un usuario con al menos acceso de Colaborador 
 
 Obtenga más información sobre cómo trabajar con la administración de acceso:
 
-* [Introducción a la administración de acceso en Azure Portal](../role-based-access-control/overview.md)
+* [Introducción a la administración de acceso en el Portal de Azure](../role-based-access-control/overview.md)
 * [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="understand-script-actions"></a>Descripción de las acciones de script
@@ -225,7 +216,9 @@ Obtenga más información sobre cómo implementar una plantilla:
 
 ### <a name="use-a-script-action-during-cluster-creation-from-azure-powershell"></a>Uso de una acción de script durante la creación de un clúster desde Azure PowerShell
 
-En esta sección, usará el [agregar AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet para invocar scripts para personalizar un clúster. Antes de empezar, asegúrese de instalar y configurar Azure PowerShell. Para obtener información sobre cómo configurar una estación de trabajo para que ejecute cmdlets de HDInsight PowerShell, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+En esta sección, usará el [agregar AzHDInsightScriptAction](https://docs.microsoft.com/powershell/module/az.hdinsight/add-azhdinsightscriptaction) cmdlet para invocar scripts para personalizar un clúster. Antes de empezar, asegúrese de instalar y configurar Azure PowerShell. Para usar estos comandos de PowerShell, necesitará el [módulo AZ](https://docs.microsoft.com/powershell/azure/overview).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 El script siguiente muestra cómo aplicar una acción de script al crear un clúster con PowerShell:
 
@@ -277,7 +270,7 @@ Vaya a [Azure Portal](https://portal.azure.com):
 
 ### <a name="apply-a-script-action-to-a-running-cluster-from-azure-powershell"></a>Aplicación de una acción de script a un clúster en ejecución desde Azure PowerShell
 
-Antes de empezar, asegúrese de instalar y configurar Azure PowerShell. Para obtener información sobre cómo configurar una estación de trabajo para que ejecute cmdlets de HDInsight PowerShell, consulte [Introducción a Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0#run-or-install).
+Para usar estos comandos de PowerShell, necesitará el [módulo AZ](https://docs.microsoft.com/powershell/azure/overview).
 
 El ejemplo siguiente muestra cómo aplicar una acción de script a un clúster en ejecución:
 
@@ -376,7 +369,7 @@ Si desea ver un ejemplo de uso del SDK de .NET para aplicar scripts a un clúste
 | `Remove-AzHDInsightPersistedScriptAction` |Disminuir de nivel una acción de script persistente a una acción ad hoc. |
 
 > [!IMPORTANT]  
-> `Remove-AzHDInsightPersistedScriptAction` no deshace las acciones realizadas por un script. Este cmdlet solo quita la marca persistente.
+> `Remove-AzHDInsightPersistedScriptAction` no deshace las acciones realizadas por una secuencia de comandos. Este cmdlet solo quita la marca persistente.
 
 El siguiente script de ejemplo muestra cómo utilizar los cmdlets para promover y luego disminuir de nivel un script.
 
@@ -394,7 +387,7 @@ El siguiente script de ejemplo muestra cómo utilizar los cmdlets para promover 
 | `azure hdinsight script-action persisted delete <clustername> <scriptname>` |Disminuir de nivel una acción de script persistente a una acción ad hoc. |
 
 > [!IMPORTANT]  
-> `azure hdinsight script-action persisted delete` no deshace las acciones realizadas por un script. Este cmdlet solo quita la marca persistente.
+> `azure hdinsight script-action persisted delete` no deshace las acciones realizadas por una secuencia de comandos. Este cmdlet solo quita la marca persistente.
 
 ### <a name="the-hdinsight-net-sdk"></a>El SDK de .NET para HDInsight
 
@@ -468,7 +461,7 @@ Si se produce un error al crear el clúster debido a un error de script, los reg
 
     * **Nodo de trabajo**: `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
 
-    * **Nodo de Zookeeper**: `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+    * **Nodo zookeeper**: `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
 * Todos los **stdout** y **stderr** del host correspondiente se cargan en la cuenta de almacenamiento. Hay un archivo **output-\*.txt** y **errors-\*.txt** para cada acción de script. El archivo **output-*.txt** contiene información sobre el identificador URI del script que se ejecutó en el host. El siguiente texto es un ejemplo de esta información:
 
@@ -524,8 +517,8 @@ Hay dos excepciones:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Desarrollo de la acción de script con HDInsight](hdinsight-hadoop-script-actions-linux.md)
-* [Instalación y uso de Apache Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md)
-* [Adición de almacenamiento adicional a un clúster HDInsight](hdinsight-hadoop-add-storage.md)
+* [Desarrollar scripts de acción de script para HDInsight](hdinsight-hadoop-script-actions-linux.md)
+* [Instalar y usar Apache Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md)
+* [Agregar almacenamiento adicional a un clúster de HDInsight](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fases durante la creación del clúster"

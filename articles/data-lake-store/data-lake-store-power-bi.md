@@ -3,21 +3,21 @@ title: Análisis de datos en Azure Data Lake Storage Gen1 con Power BI | Microso
 description: Uso de Power BI para analizar datos almacenados en Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: 57d19d27-e135-49d9-a7ea-46c48ef4e3bd
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 5db9d18a31af4d6b407fcd9172ac80fc6f93f085
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: b873d90dbc33aff27cd2fc3b5099b08eacf929b6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297186"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880073"
 ---
 # <a name="analyze-data-in-azure-data-lake-storage-gen1-by-using-power-bi"></a>Análisis de datos en Azure Data Lake Storage Gen1 con Power BI
 En este artículo aprenderá a usar Power BI Desktop para analizar y visualizar los datos almacenados en Azure Data Lake Storage Gen1.
@@ -96,6 +96,6 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
 ## <a name="publish-report-to-power-bi-service"></a>Publicación del informe en el servicio Power BI
 Después de crear las visualizaciones en Power BI Desktop, puede compartirlas con otros usuarios publicándolas en el servicio Power BI. Para obtener instrucciones sobre cómo hacerlo, consulte [Publicar desde Power BI Desktop](https://powerbi.microsoft.com/documentation/powerbi-desktop-upload-desktop-files/).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Análisis de datos en Data Lake Storage Gen1 con Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 

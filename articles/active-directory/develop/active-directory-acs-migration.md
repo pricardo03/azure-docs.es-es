@@ -17,12 +17,12 @@ ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed2164fc122621a4ba2aeb4bb0797db02b10a4bf
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 5f9fd062d445fb738842667cab0c24332c0e4cc8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57449145"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879263"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedimientos para: Migración desde Azure Access Control Service
 
@@ -101,7 +101,7 @@ Siga los pasos descritos en esta sección para averiguar qué aplicaciones se ve
 
 ### <a name="check-which-applications-will-be-impacted"></a>Compruebe qué aplicaciones que se verán afectadas
 
-1. Use el espacio de nombres del paso anterior y vaya a `https://<namespace>.accesscontrol.windows.net`
+1. Utilice el espacio de nombres en el paso anterior y vaya a `https://<namespace>.accesscontrol.windows.net`
 
     Por ejemplo, si uno de los espacios de nombres es contoso-test, vaya a `https://contoso-test.accesscontrol.windows.net`
 
@@ -133,10 +133,10 @@ Cada uno de los Servicios en la nube de Microsoft que aceptan tokens que haya em
 | ------- | -------- |
 | Azure Service Bus | [Migración a firmas de acceso compartido](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Azure Service Bus Relay | [Migración a firmas de acceso compartido](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Azure Managed Cache | [Migración a Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
-| Azure DataMarket | [Migración a Cognitive Services APIs](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
-| BizTalk Services | [Migración a la característica Logic Apps de Azure App Service](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
-| Azure Media Services | [Migración a la autenticación de Azure AD](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
+| Azure Managed Cache | [Migrar a caché de Azure para Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
+| Azure DataMarket | [Migrar a las API de Cognitive Services](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| BizTalk Services | [Migrar a la característica Logic Apps de Azure App Service](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| Azure Media Services | [Migrar a la autenticación de Azure AD](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
 | Azure Backup | [Actualización del agente de Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
@@ -152,7 +152,7 @@ SharePoint 2013 y 2016 y SharePoint Online a los clientes cuánto tiempo han usa
 
 | Característica | Guía |
 | ------- | -------- |
-| Autenticación de usuarios desde Azure AD | Anteriormente, Azure AD no admitía los tokens de SAML 1.1 que necesitaba SharePoint para la autenticación, y ACS se usaba como intermediario que permitía la compatibilidad de SharePoint con formatos de token de Azure AD. Ahora, puede [conectar SharePoint directamente a Azure AD con la aplicación SharePoint local de la galería de aplicaciones de Azure AD](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
+| Autenticación de usuarios desde Azure AD | Anteriormente, Azure AD no admitía los tokens de SAML 1.1 que necesitaba SharePoint para la autenticación, y ACS se usaba como intermediario que permitía la compatibilidad de SharePoint con formatos de token de Azure AD. Ahora, puede [conectar SharePoint directamente a Azure AD con SharePoint de galería de aplicaciones de Azure AD en la aplicación localmente](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial). |
 | [Autenticación de aplicaciones y la autenticación de servidor a servidor de SharePoint local](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | No resulta afectado por la retirada de ACS; no se requieren cambios. | 
 | [Autorización de confianza baja para complementos de SharePoint (proveedor hospedado y SharePoint hospedado)](https://docs.microsoft.com/sharepoint/dev/sp-add-ins/three-authorization-systems-for-sharepoint-add-ins) | No resulta afectado por la retirada de ACS; no se requieren cambios. |
 | [Búsqueda de SharePoint en la nube híbrida](https://blogs.msdn.microsoft.com/spses/2015/09/15/cloud-hybrid-search-service-application/) | No resulta afectado por la retirada de ACS; no se requieren cambios. |
@@ -197,7 +197,7 @@ En líneas generales, *Azure Active Directory probablemente no sea la opción ad
 | Cuentas desde otros sistemas de administración de identidades empresariales |- Es posible a través de la federación con un inquilino de Azure AD. <br />- Compatible a través de la federación directa. | Es posible a través de la federación con un inquilino de Azure AD |
 | Cuentas de Microsoft para uso personal | Compatible | Compatible a través del protocolo v2.0 OAuth de Azure AD, pero no a través de ningún otro protocolo. | 
 | Cuentas de Facebook, Google, Yahoo | Compatible | No se admite ningún tipo. |
-| **Compatibilidad con el SDK y protocolos** | | |
+| **Compatibilidad SDK y protocolos** | | |
 | WIF | Compatible | Compatible, pero con instrucciones limitadas disponibles. |
 | El certificado del proveedor de identidades de WS-Federation | Compatible | Compatible |
 | OAuth 2.0 | Soporte para Draft 13 | Compatibilidad con RFC 6749, la especificación más moderna. |
@@ -248,7 +248,7 @@ En la siguiente tabla se comparan las características de Access Control pertine
 | Cuentas desde otros sistemas de administración de identidades empresariales | Compatible a través de la federación directa mediante WS-Federation | Compatible a través de federación de SAML mediante directivas personalizadas |
 | Cuentas de Microsoft para uso personal | Compatible | Compatible | 
 | Cuentas de Facebook, Google, Yahoo | Compatible | Facebook y Google se admiten de forma nativa, Yahoo se admite a través de la federación de OpenID Connect mediante directivas personalizadas. |
-| **Compatibilidad con el SDK y protocolos** | | |
+| **Compatibilidad SDK y protocolos** | | |
 | Windows Identity Foundation (WIF) | Compatible | No compatible |
 | El certificado del proveedor de identidades de WS-Federation | Compatible | No compatible |
 | OAuth 2.0 | Soporte para Draft 13 | Compatibilidad con RFC 6749, la especificación más moderna. |
@@ -332,8 +332,8 @@ Asimismo, también puede utilizar Azure AD para realizar la autenticación de un
 Para obtener información sobre escenarios de implementación entre servidores, consulte los siguientes recursos:
 
 - Sección Servicio a servicio de la [Guía del desarrollador de Azure AD](https://aka.ms/aaddev)
-- [Daemon code sample by using simple password client credentials](https://github.com/Azure-Samples/active-directory-dotnet-daemon) (Ejemplo de código Daemon que usa credenciales de cliente con contraseñas simples)
-- [Daemon code sample by using certificate client credentials](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) (Ejemplo de código Daemon que usa credenciales de cliente con certificados)
+- [Ejemplo de código de demonio mediante el uso de credenciales de cliente de contraseña simple](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
+- [Ejemplo de código de demonio mediante el uso de credenciales de cliente de certificado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
 
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Migrar a la identidad de Ping o Auth0
 

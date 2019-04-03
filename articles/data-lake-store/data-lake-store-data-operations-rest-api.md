@@ -3,24 +3,24 @@ title: 'API REST: operaciones del sistema de archivos en Azure Data Lake Storage
 description: Uso de la API de REST WebHDFS para realizar operaciones del sistema de archivos en Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 4c61d68a948cbc5638dab30713871d1aaf822f03
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: 351c92f1e1a698893f61004d523ba79ebca253e8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57529263"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877647"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operaciones del sistema de archivos en Azure Data Lake Storage Gen1 mediante el uso de la API de REST
 > [!div class="op_single_selector"]
-> * [SDK de .NET](data-lake-store-data-operations-net-sdk.md)
+> * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [SDK de Java](data-lake-store-get-started-java-sdk.md)
 > * [API DE REST](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
@@ -114,7 +114,7 @@ La lectura de datos desde una cuenta de Data Lake Storage Gen1 es un proceso de 
 * Primero, envíe una solicitud GET en el punto de conexión `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN`. Esta llamada devolverá una ubicación a la que se debe enviar la siguiente solicitud GET.
 * Después, envíe la solicitud GET en el punto de conexión `https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN&read=true`. Esta llamada muestra el contenido del archivo.
 
-Sin embargo, como no existe ninguna diferencia en los parámetros de entrada entre el primer y el segundo paso, puede usar el parámetro `-L` para enviar la primera solicitud. La opción `-L` combina dos solicitudes en una y hace que cURL vuelva a realizar la solicitud en la nueva ubicación. Por último, se muestra la salida de todas las llamadas de solicitud, como se muestra en el fragmento de código siguiente. Reemplace **\<yourstorename>** por el nombre de cuenta de Data Lake Storage Gen1.
+Sin embargo, como no existe ninguna diferencia en los parámetros de entrada entre el primer y el segundo paso, puede usar el parámetro `-L` para enviar la primera solicitud. `-L` Básicamente, la opción combina dos solicitudes en uno y hace que cURL vuelva a realizar la solicitud en la nueva ubicación. Por último, se muestra la salida de todas las llamadas de solicitud, como se muestra en el fragmento de código siguiente. Reemplace **\<yourstorename>** por el nombre de cuenta de Data Lake Storage Gen1.
 
     curl -i -L GET -H "Authorization: Bearer <REDACTED>" 'https://<yourstorename>.azuredatalakestore.net/webhdfs/v1/mytempdir/myinputfile.txt?op=OPEN'
 
@@ -162,6 +162,6 @@ Debe ver algo parecido a lo siguiente:
 * [Account management operations on Data Lake Storage Gen1 using REST API](data-lake-store-get-started-rest-api.md) (Operaciones de administración de cuentas en Data Lake Storage Gen1 mediante la API de REST).
 
 ## <a name="see-also"></a>Vea también
-* [Azure Data Lake Storage Gen1 REST API Reference](https://docs.microsoft.com/rest/api/datalakestore/) (Referencia sobre la API de REST de Azure Data Lake Storage Gen1)
-* [Open Source Big Data applications compatible with Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md) (Abrir aplicaciones Big Data de origen que funcionan con Azure Data Lake Storage Gen1)
+* [Referencia de API de REST de Azure Data Lake Storage Gen1](https://docs.microsoft.com/rest/api/datalakestore/)
+* [Abrir aplicaciones Big Data de origen compatibles con Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
 

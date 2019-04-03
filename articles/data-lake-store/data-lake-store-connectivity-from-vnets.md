@@ -4,7 +4,7 @@ description: Conexión a Azure Data Lake Storage Gen1 desde redes virtuales de A
 services: data-lake-store,data-catalog
 documentationcenter: ''
 author: esung22
-manager: jhubbard
+manager: mtillman
 editor: cgronlun
 ms.assetid: 683fcfdc-cf93-46c3-b2d2-5cb79f5e9ea5
 ms.service: data-lake-store
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: elsung
-ms.openlocfilehash: a2367eff3095df82662f7b56571ecdbd966609fd
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
-ms.translationtype: HT
+ms.openlocfilehash: c8d028a981d7811ed2c864db5750afc83ab93b2b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284019"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878067"
 ---
 # <a name="access-azure-data-lake-storage-gen1-from-vms-within-an-azure-vnet"></a>Acceso a Azure Data Lake Storage Gen1 desde máquinas virtuales de una red virtual de Azure
 Azure Data Lake Storage Gen1 es un servicio de PaaS que se ejecuta en direcciones IP de Internet pública. Normalmente, cualquier servidor que puede conectarse a la Internet pública también puede conectarse a los puntos de conexión de Azure Data Lake Storage Gen1. De forma predeterminada, todas las máquinas virtuales que se encuentran en redes virtuales de Azure pueden obtener acceso a Internet y, por tanto, a Azure Data Lake Storage Gen1. Sin embargo, se puede configurar que las máquinas virtuales de una red virtual no tengan acceso a Internet. Estas máquinas virtuales tampoco pueden tener acceso a Azure Data Lake Storage Gen1. Puede bloquear el acceso a la Internet pública a las máquinas virtuales de las redes virtuales de Azure con cualquiera de los siguientes enfoques:
@@ -50,7 +50,7 @@ Cuando se utilizan rutas, UDR o rutas intercambiables a través de BGP, para blo
 ### <a name="enabling-connectivity-from-vms-restricted-by-using-expressroute"></a>Habilitación de la conectividad en las máquinas virtuales restringidas mediante ExpressRoute
 Cuando se configura un circuito ExpressRoute, los servidores locales pueden tener acceso a Data Lake Storage Gen1 a través de pares públicos. Para obtener más información sobre cómo configurar ExpressRoute para pares públicos, consulte las [preguntas más frecuentes de ExpressRoute](../expressroute/expressroute-faqs.md).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Introducción a Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Protección de los datos almacenados en Azure Data Lake Storage Gen1](data-lake-store-security-overview.md)
 

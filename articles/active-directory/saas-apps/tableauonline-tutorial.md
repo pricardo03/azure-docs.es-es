@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/09/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eee7adb7c4c0efc8a455d8dc74bc723644d006f3
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: bd5e3087c21908600be9cd369a15f3036e5acb2f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56169028"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884710"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Tutorial: Integración de Azure Active Directory con Tableau Online
 
@@ -99,7 +99,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Tableau Onl
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación Tableau Online.
 
-**Para configurar el inicio de sesión único de Azure AD con Tableau Online, realice los pasos siguientes:**
+**Para configurar el inicio de sesión único en Azure AD con Tableau Online, realice los pasos siguientes:**
 
 1. En Azure Portal, en la página de integración de la aplicación **Tableau Online**, haga clic en **Inicio de sesión único**.
 
@@ -115,7 +115,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
      a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://sso.online.tableau.com`
 
-    b. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid> `
+    b. En el cuadro de texto **Identificador**, escriba la dirección URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
 
 1. En la sección **Certificado de firma de SAML**, haga clic en **XML de metadatos** y luego guarde el archivo de metadatos en el equipo.
 
@@ -169,7 +169,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ![Creación de un usuario de Azure AD][100]
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+**Para crear un usuario de prueba en Azure AD, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
 
@@ -213,7 +213,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ![Asignar usuario][200] 
 
-**Para asignar Britta Simon a Tableau Online, realice los pasos siguientes:**
+**Para asignar a Britta Simon a Tableau Online, realice los pasos siguientes:**
 
 1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 

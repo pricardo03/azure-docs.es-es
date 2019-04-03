@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Aprenda la forma en que Azure enruta el tráfico de las redes virtuales y cómo se puede personalizar el enrutamiento de Azure.
 services: virtual-network
 documentationcenter: na
-author: jimdial
+author: malopMSFT
 ms.service: virtual-network
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/26/2017
-ms.author: jdial
-ms.openlocfilehash: 90ca35ec899d71578a7da4061ca7842d13769072
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: malop;kumud
+ms.openlocfilehash: ad35d440904c7b65e27b4ead75cec00daa20f8ff
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123579"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878509"
 ---
 # <a name="virtual-network-traffic-routing"></a>Enrutamiento del tráfico de redes virtuales
 
@@ -47,7 +47,7 @@ Los tipos de próximo salto enumerados en la tabla anterior representan la forma
 
 - **Internet**: enruta a Internet el tráfico que especifica el prefijo de dirección. La ruta predeterminada del sistema especifica el prefijo de dirección 0.0.0.0/0. Si no se invalidan las rutas predeterminadas de Azure, Azure enruta a Internet el tráfico de todas las direcciones que no se haya especificada un intervalo de direcciones en una red virtual, con una excepción. Si la dirección de destino es para uno de los servicios de Azure, este enruta el tráfico directamente al servicio a través de la red troncal de Azure, en lugar de enrutarlo a Internet. El tráfico entre los servicios de Azure no atraviesa Internet, independientemente de la región de Azure en que exista la red virtual o de la región de Azure en que se implementa una instancia del servicio de Azure. Puede reemplazar la ruta del sistema predeterminada de Azure predeterminado para el prefijo de dirección 0.0.0.0/0 por un [ruta personalizada](#custom-routes).
 
-- **Ninguno**: el tráfico que se enruta al tipo de próximo salto **Ninguno** se elimina, en lugar de enrutarlo fuera de la subred. Azure crea automáticamente las rutas predeterminadas para los siguientes prefijos de dirección:
+- **Ninguna**: el tráfico que se enruta al tipo de próximo salto **Ninguno** se elimina, en lugar de enrutarlo fuera de la subred. Azure crea automáticamente las rutas predeterminadas para los siguientes prefijos de dirección:
   - **10.0.0.0/8, 172.16.0.0/12 y 192.168.0.0/16**: reservadas para el uso privado en el RFC 1918.
   - **100.64.0.0/10**: reservada en RFC 6598.
 
@@ -92,13 +92,13 @@ Puede especificar los siguientes tipos de próximo salto al crear una ruta defin
     Puede definir una ruta con 0.0.0.0/0 como prefijo de dirección y un tipo de próximo salto de la aplicación virtual, lo que permite a la aplicación inspeccionar el tráfico y determinar si el tráfico se debe reenviar o eliminar. Si tiene intención de crear una definida por el usuario que contenga el prefijo de dirección 0.0.0.0/0, consulte antes el apartado [0.0.0.0/0 address prefix](#default-route) (Prefijo de dirección 0.0.0.0/0).
 
 - **Puerta de enlace de red virtual**: se especifica cuando se desea que el tráfico destinado a prefijos de dirección específicos se enrute a una puerta de enlace de red virtual. La puerta de enlace de red virtual debe crearse con el tipo **VPN**. No se puede especificar una puerta de enlace de red virtual creada como el tipo **ExpressRoute** en una ruta definida por el usuario, ya que con ExpressRoute es preciso usar BGP para las rutas personalizadas. Puede definir una ruta que dirige el tráfico destinado al prefijo de dirección 0.0.0.0/0 a una puerta de enlace de red virtual [basada en ruta](../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md?toc=%2fazure%2fvirtual-network%2ftoc.json#vpntype). En un entorno local, puede tener un dispositivo que compruebe el tráfico y determine si se reenvía o se elimina. Si tiene intención de crear una definida por el usuario para el prefijo de dirección 0.0.0.0/0, consulte antes el apartado [0.0.0.0/0 address prefix](#default-route) (Prefijo de dirección 0.0.0.0/0). En lugar de configurar una ruta definida por el usuario para el prefijo de dirección 0.0.0.0/0, es posible anunciar una ruta con el prefijo 0.0.0.0/0 a través de BGP, si ha [habilitado BGP para una puerta de enlace de red virtual de VPN](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- **Ninguno**: se especifica cuando se desea colocar tráfico en un prefijo de dirección, en lugar de reenviar el tráfico a un destino. Si no ha configurado completamente una funcionalidad, Azure puede enumerar *No* para algunas de las rutas de opcional del sistema. Por ejemplo, si ve *No* en **Dirección IP del próximo salto** con un **Tipo de próximo salto** de *Puerta de enlace de red virtual* o *Aplicación virtual*, puede deberse a que el dispositivo no funciona o no está completamente configurado. Azure crea [rutas predeterminadas](#default) del sistema para los prefijos de direcciones reservados con **No** como tipo de próximo salto.
+- **Ninguna**: se especifica cuando se desea colocar tráfico en un prefijo de dirección, en lugar de reenviar el tráfico a un destino. Si no ha configurado completamente una funcionalidad, Azure puede enumerar *No* para algunas de las rutas de opcional del sistema. Por ejemplo, si ve *No* en **Dirección IP del próximo salto** con un **Tipo de próximo salto** de *Puerta de enlace de red virtual* o *Aplicación virtual*, puede deberse a que el dispositivo no funciona o no está completamente configurado. Azure crea [rutas predeterminadas](#default) del sistema para los prefijos de direcciones reservados con **No** como tipo de próximo salto.
 - **Red virtual**: se especifica cuando se desea reemplazar el enrutamiento predeterminado en una red virtual. Consulte [Ejemplo de enrutamiento](#routing-example), para ver un ejemplo de por qué puede crear una ruta con el tipo de salto **Red virtual**.
 - **Internet**: se especifica cuando se desea enrutar explícitamente a Internet el tráfico destinado a un prefijo de dirección, o si se desea que el tráfico destinado a los servicios de Azure con direcciones IP públicas se conserve dentro de la red troncal de Azure.
 
 En las rutas definidas por el usuario, no se pueden especificar **Emparejamiento de VNet** o **VirtualNetworkServiceEndpoint** como tipo de próximo salto. Las rutas con los tipos de próximo salto **Emparejamiento de VNet** o **VirtualNetworkServiceEndpoint** solo las crea Azure, al configurar un emparejamiento de red virtual o un punto de conexión de servicio.
 
-**Tipos de próximo salto en las herramientas de Azure**
+**Tipos de próximo salto a través de las herramientas de Azure**
 
 El nombre que se muestra y al que hace referencia en los tipos de próximo salto es diferente entre Azure Portal y las herramientas de línea de comandos y los modelos de implementación clásico y mediante Azure Resource Manager. En la siguiente tabla se enumeran los nombres que se usan para hacer referencia a cada tipo de próximo salto con las diferentes herramientas y los [modelos de implementación](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json):
 
@@ -181,7 +181,7 @@ Para ilustrar los conceptos de este artículo, en las siguientes secciones se de
 ### <a name="requirements"></a>Requisitos
 
 1. Implementar dos redes virtuales en la misma región de Azure y habilitar los recursos necesarios para la comunicación entre las redes virtuales.
-2. Habilitar una red local para comunicarse de forma segura con ambas redes virtuales mediante un túnel VPN a través de Internet. *Como alternativa, puede utilizarse una conexión ExpressRoute, pero en este ejemplo se usa una conexión VPN.*
+2. Habilitar una red local para comunicarse de forma segura con ambas redes virtuales mediante un túnel VPN a través de Internet. *Como alternativa, se podría usar una conexión ExpressRoute, pero en este ejemplo, se usa una conexión VPN.*
 3. Para una subred de una red virtual:
  
     - Forzar que todo el tráfico saliente de la subred, excepto el que va a Azure Storage y el de dentro de la subred, fluya a través de una aplicación virtual de red, para su inspección y registro.
@@ -255,8 +255,8 @@ La tabla de rutas de *Subnet2* contiene todas las rutas predeterminadas creadas 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación de una ruta definida por el usuario - Azure Portal](tutorial-create-route-table-portal.md)
-- [Configuración de BGP para Azure VPN Gateway con PowerShell](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Crear una tabla de rutas definidas por el usuario con las rutas y aplicación virtual de red](tutorial-create-route-table-portal.md)
+- [Configuración de BGP para Azure VPN Gateway](../vpn-gateway/vpn-gateway-bgp-resource-manager-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Uso de BGP con ExpressRoute](../expressroute/expressroute-routing.md?toc=%2fazure%2fvirtual-network%2ftoc.json#route-aggregation-and-prefix-limits)
 - [Solución de problemas de rutas mediante Azure Portal](diagnose-network-routing-problem.md). Las tablas de rutas definidas por el usuario solo muestran las rutas definidas por el usuario, no las rutas predeterminada y de BGP de una subred. La visualización de todas las rutas muestra las rutas predeterminada, de BGP y definidas por el usuario de la subred en que se encuentra una interfaz de red.
 - [Determine el tipo de próximo salto](../network-watcher/diagnose-vm-network-routing-problem.md?toc=%2fazure%2fvirtual-network%2ftoc.json) entre una máquina virtual y una dirección IP de destino. La característica de próximo salto de Azure Network Watcher permite determinar si el tráfico sale de una subred y se enruta al lugar en que cree que debería estar.

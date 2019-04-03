@@ -10,12 +10,12 @@ ms.subservice: implement
 ms.date: 03/19/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 031abcb9133663f39375560a06b0770c89eafb27
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: acea42f7f4ab986e9828000ab7cfc9e302ed92a3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259574"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885464"
 ---
 # <a name="design-guidance-for-using-replicated-tables-in-azure-sql-data-warehouse"></a>Instrucciones de diseño para el uso de tablas replicadas en Azure SQL Data Warehouse
 En este artículo se proporcionan recomendaciones para el diseño de tablas replicadas en el esquema de SQL Data Warehouse. Siga estas recomendaciones para mejorar el rendimiento de las consultas al reducir el movimiento de datos y la complejidad de las consultas.
@@ -95,8 +95,8 @@ DROP TABLE [dbo].[DimSalesTerritory_old];
 
 Una tabla replicada no requiere ningún movimiento de datos para las combinaciones porque la tabla completa ya está presente en todos los nodo de proceso. Si las tablas de dimensiones se distribuyen con el método Round Robin, una combinación copia la tabla de dimensiones completa en todos los nodos de proceso. Para mover los datos, el plan de consulta contiene una operación llamada BroadcastMoveOperation. Este tipo de operación de movimiento de datos reduce el rendimiento de las consultas y se elimina mediante el uso de tablas replicadas. Para ver los pasos del plan de consulta, use la vista de catálogo del sistema [sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql). 
 
-Por ejemplo, en la siguiente consulta en el esquema de AdventureWorks, la tabla ` FactInternetSales` se distribuye por hash. Las tablas `DimDate` y `DimSalesTerritory` son tablas de dimensiones más pequeñas. Esta consulta devuelve el total de ventas en América del Norte para el año fiscal 2004:
- 
+Por ejemplo, en la siguiente consulta en el esquema de AdventureWorks, la tabla `FactInternetSales` se distribuye por hash. Las tablas `DimDate` y `DimSalesTerritory` son tablas de dimensiones más pequeñas. Esta consulta devuelve el total de ventas en América del Norte para el año fiscal 2004:
+
 ```sql
 SELECT [TotalSalesAmount] = SUM(SalesAmount)
 FROM dbo.FactInternetSales s
@@ -181,8 +181,8 @@ SELECT TOP 1 * FROM [ReplicatedTable]
 ## <a name="next-steps"></a>Pasos siguientes 
 Para crear una tabla replicada, use una de estas instrucciones:
 
-- [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE AS SELECT (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [Crear tabla (almacenamiento de datos SQL Azure)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [Instrucción CREATE TABLE AS SELECT (almacenamiento de datos SQL Azure)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 Para obtener información general de las tablas distribuidas, vea [tablas distribuidas](sql-data-warehouse-tables-distribute.md).
 

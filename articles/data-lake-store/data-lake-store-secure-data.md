@@ -3,21 +3,21 @@ title: Protección de los datos almacenados en Azure Data Lake Storage Gen1 | Mi
 description: Aprenda a proteger los datos de Azure Data Lake Storage Gen1 mediante grupos y listas de control de acceso.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: ca35e65f-3986-4f1b-bf93-9af6066bb716
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
-ms.openlocfilehash: 15ef1e1b96a0da24714b4ddbda6b24f1f6f33ae0
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296743"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885679"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Protección de los datos almacenados en Azure Data Lake Storage Gen1
 Para proteger los datos en Azure Data Lake Storage Gen1, se adopta un enfoque de tres pasos.  Es necesario que esté configurado tanto el control de acceso basado en rol como las listas de control de acceso para permitir un acceso total a los datos para los usuarios y los grupos de seguridad.
@@ -33,7 +33,7 @@ En este artículo se proporcionan instrucciones sobre cómo usar el Portal de Az
 Antes de empezar este tutorial, debe contar con lo siguiente:
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
-* **Cuenta de Data Lake Storage Gen1**. Para obtener instrucciones sobre cómo crear una, consulte el artículo [Introducción a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* **Cuenta de Data Lake Storage Gen1**. Para instrucciones sobre cómo crear una, consulte la [introducción a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 
 ## <a name="create-security-groups-in-azure-active-directory"></a>Creación de grupos de seguridad en Azure Active Directory
 Para obtener instrucciones sobre cómo crear grupos de seguridad de AAD y cómo agregar usuarios al grupo, consulte [Administración de grupos de seguridad en Azure Active Directory](../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
@@ -147,12 +147,12 @@ Cuando quita las ACL de grupos de seguridad de un sistema de archivos de Data La
    
     ![Asignación de permisos a un grupo](./media/data-lake-store-secure-data/adl.remove.acl.png "Asignación de permisos a un grupo")
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Introducción a Azure Data Lake Storage Gen1](data-lake-store-overview.md)
-* [Copy data from Azure Storage Blobs to Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md) (Copia de datos de los blobs de Azure Storage en Data Lake Storage Gen1)
-* [Use Azure Data Lake Analytics with Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md) (Uso de Azure Data Lake Analytics con Data Lake Storage Gen1)
-* [Use Azure HDInsight with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md) (Uso de Azure HDInsight con Data Lake Storage Gen1)
+* [Copiar datos desde Azure Storage BLOB a Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
+* [Usar Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Uso de Azure HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 * [Introducción a Data Lake Storage Gen1 con PowerShell](data-lake-store-get-started-powershell.md)
-* [InGet Started with Data Lake Storage Gen1 using .NET SDK](data-lake-store-get-started-net-sdk.md) (Introducción a Data Lake Storage Gen1 con el SDK de .NET)
-* [Access diagnostic logs for Data Lake Storage Gen1](data-lake-store-diagnostic-logs.md) (Acceso a los registros de diagnóstico de Data Lake Storage Gen1)
+* [Introducción a Data Lake Storage Gen1 con SDK de .NET](data-lake-store-get-started-net-sdk.md)
+* [Registros de diagnóstico de acceso de Data Lake Storage Gen1](data-lake-store-diagnostic-logs.md)
 

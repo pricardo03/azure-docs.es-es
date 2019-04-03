@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 698dc61d42adb398376161480cf4d32180846c48
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 0350db37e13101d315937840fdcf3d9900e214d5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58577601"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880272"
 ---
 # <a name="v20-protocols---oauth-20-authorization-code-flow"></a>Protocolos de la versión 2.0: Flujo de código de autorización de OAuth 2.0
 
@@ -71,7 +71,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `response_type` | requerido    | Debe incluir `code` para el flujo de código de autorización.       |
 | `redirect_uri`  | recomendado | El redirect_uri de su aplicación, a donde su aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los redirect_uris que registró en el portal, con la excepción de que debe estar codificado como URL. En el caso de las aplicaciones nativas y móviles, es preciso usar el valor predeterminado, `https://login.microsoftonline.com/common/oauth2/nativeclient`.   |
 | `scope`  | requerido    | Una lista separada por espacios de [ámbitos](v2-permissions-and-consent.md) que desea que el usuario consienta. |
-| `response_mode`   | recomendado | Especifica el método que debe usarse para enviar el token resultante de nuevo a la aplicación. Puede ser uno de los siguientes:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` proporciona el código como un parámetro de cadena de consulta en el URI de redirección. Si solicita un token de identificador con el flujo implícito, no puede usar `query` según lo indicado en la [especificación de OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Si solicita solo el código, puede usar `query`, `fragment` o `form_post`. `form_post` ejecuta una prueba POST que contiene el código para el URI de redirección. Para más información, consulte [Protocolo OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
+| `response_mode`   | recomendado | Especifica el método que debe usarse para enviar el token resultante de nuevo a la aplicación. Puede ser uno de los siguientes:<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query` proporciona el código como un parámetro de cadena de consulta en el URI de redirección. Si solicita un token de identificador con el flujo implícito, no puede usar `query` según lo indicado en la [especificación de OpenID](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations). Si solicita solo el código, puede usar `query`, `fragment` o `form_post`. `form_post` ejecuta una publicación que contiene el código para el URI de redirección. Para más información, consulte [Protocolo OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).  |
 | `state`                 | recomendado | Un valor incluido en la solicitud que se devolverá también en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Normalmente se usa un valor único generado de forma aleatoria para [evitar los ataques de falsificación de solicitudes entre sitios](https://tools.ietf.org/html/rfc6749#section-10.12). El valor también puede codificar información sobre el estado del usuario en la aplicación antes de que se produzca la solicitud de autenticación, por ejemplo, la página o vista en la que estaba. |
 | `prompt`  | opcional    | Indica el tipo de interacción necesaria con el usuario. Los únicos valores válidos en este momento son `login`, `none` y `consent`.<br/><br/>- `prompt=login` obligará al usuario a escribir sus credenciales en esa solicitud, negando el inicio de sesión único.<br/>- `prompt=none` se asegurará de que al usuario no se le presenta ninguna solicitud interactiva del tipo que sea. Si no se puede completar la solicitud sin notificaciones mediante el inicio de sesión único, el punto de conexión v2.0 devolverá un error `interaction_required`.<br/>- `prompt=consent` desencadenará el cuadro de diálogo de consentimiento de OAuth después de que el usuario inicie sesión y solicitará a este que conceda permisos a la aplicación. |
 | `login_hint`  | opcional    | Puede usarse para rellenar previamente el campo de nombre de usuario y dirección de correo electrónico de la página de inicio de sesión del usuario, si sabe su nombre de usuario con antelación. A menudo las aplicaciones usarán este parámetro durante la reautenticación, dado que ya han extraído el nombre de usuario de un inicio de sesión anterior mediante la notificación `preferred_username`.   |
@@ -181,7 +181,7 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 |---------------|------------------------------|
 | `access_token`  | El token de acceso solicitado. La aplicación puede utilizar este token para autenticarse en el recursos protegido, como una API web.  |
 | `token_type`    | Indica el valor de tipo de token. El único tipo que admite Azure AD es el portador |
-|` expires_in`    | Durante cuánto tiempo es válido el token de acceso (en segundos). |
+| `expires_in`    | Durante cuánto tiempo es válido el token de acceso (en segundos). |
 | `scope`         | Los ámbitos para los que el access_token es válido. |
 | `refresh_token` | Un token de actualización de OAuth 2.0. La aplicación puede utilizar este token para adquirir tokens de acceso adicionales una vez que expire el token de acceso actual. Los refresh_tokens son de larga duración y pueden usarse para conservar el acceso a los recursos durante largos períodos de tiempo. Para más información acerca de la actualización de un token de acceso, consulte la [siguiente sección](#refresh-the-access-token). <br> **Nota:** Solo se proporciona si se solicitó el ámbito `offline_access`. |
 | `id_token`      | Un JSON Web Token (JWT). La aplicación puede decodificar los segmentos de este token para solicitar información acerca del usuario que ha iniciado sesión. La aplicación puede almacenar en caché los valores y mostrarlos, pero no debe confiar en ellos para cualquier autorización o límite de seguridad. Para más información sobre los parámetros id_tokens, consulte [`id_token reference`](id-tokens.md). <br> **Nota:** Solo se proporciona si se solicitó el ámbito `openid`. |

@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2019
+ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 42a7ae0e6ca5239aa83d20655817973e8f185d02
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 1af2117b1d12c98182434705181462fd7c9bebf4
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805404"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862954"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -52,9 +52,9 @@ La solución informa del grado de actualización del equipo en función del orig
 > [!NOTE]
 > Para informar correctamente al servicio, Update Management requiere la habilitación de ciertas direcciones URL y puertos. Para más información sobre estos requisitos, consulte [Planeamiento de red para Hybrid Worker](automation-hybrid-runbook-worker.md#network-planning).
 
-Puede implementar e instalar las actualizaciones de software en equipos que requieren las actualizaciones mediante la creación de una implementación programada. Las actualizaciones clasificadas como *Opcional* no se incluyen en el ámbito de implementación en equipos Windows. Solo se incluyen las actualizaciones necesarias. 
+Puede implementar e instalar las actualizaciones de software en equipos que requieren las actualizaciones mediante la creación de una implementación programada. Las actualizaciones clasificadas como *Opcional* no se incluyen en el ámbito de implementación en equipos Windows. Solo se incluyen las actualizaciones necesarias.
 
-La implementación programada define qué equipos de destino reciben las actualizaciones aplicables, ya sea mediante la especificación explícita de los equipos o por medio de la selección de un [grupo de equipos](../azure-monitor/platform/computer-groups.md) que se basa en las búsquedas en registros de un conjunto determinado de equipos. También se especifica una programación para aprobar y establecer un período de tiempo durante el que se pueden instalar actualizaciones.
+La implementación programada define qué equipos de destino reciben las actualizaciones aplicables, ya sea mediante la especificación explícita de los equipos o por medio de la selección de un [grupo de equipos](../azure-monitor/platform/computer-groups.md) que se basa en las búsquedas en registros de un conjunto determinado de equipos. También se especifica una programación para aprobar y establecer un período de tiempo durante el que se pueden instalar actualizaciones. Este período de tiempo se llama a la ventana de mantenimiento. Diez minutos de la ventana de mantenimiento está reservado para reinicios si es necesario reiniciar el equipo y ha seleccionado la opción de reiniciar el equipo adecuado. Si la aplicación de revisiones tarda más de lo esperado y hay menos de diez minutos en la ventana de mantenimiento, no se producirá un reinicio.
 
 Los Runbooks instalan las actualizaciones en Azure Automation. No puede ver estos runbooks, y los runbooks no requieren ninguna configuración. Cuando se crea una implementación de actualizaciones, esta crea una programación que inicia un runbook de actualización maestro a la hora especificada para los equipos incluidos. El runbook maestro inicia un runbook secundario en cada agente para instalar las actualizaciones necesarias.
 
@@ -135,8 +135,8 @@ Para obtener más información acerca de cómo se actualizan los paquetes de sol
 Para empezar a aplicar revisiones a sistemas, debe habilitar la solución Update Management. Hay muchas maneras de incorporar máquinas a Update Management. Las siguientes son las recomendadas y admiten maneras de incorporar la solución:
 
 * [Desde una máquina virtual](automation-onboard-solutions-from-vm.md)
-* [Navegando desde diferentes máquinas](automation-onboard-solutions-from-browse.md)
-* [Desde la cuenta de Automation](automation-onboard-solutions-from-automation-account.md)
+* [Navegue por varias máquinas](automation-onboard-solutions-from-browse.md)
+* [Desde su cuenta de Automation](automation-onboard-solutions-from-automation-account.md)
 * [Con un runbook de Azure Automation](automation-onboard-solutions.md)
   
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Confirmación de que las máquinas que no son de Azure están incorporadas

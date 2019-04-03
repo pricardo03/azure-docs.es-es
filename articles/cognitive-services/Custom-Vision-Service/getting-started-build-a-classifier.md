@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: f2cd8f5074f815e84caaedb01335406657f29088
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: cf8a36145ebf5d5dabf8c539d4f245e1d4b209f0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088016"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886444"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Cómo crear un clasificador con Custom Vision
 
@@ -27,12 +27,12 @@ Para usar Custom Vision Service para la clasificación de imágenes, primero deb
 - Un conjunto de imágenes con el que entrenar el clasificador. Consulte las siguientes sugerencias sobre cómo elegir imágenes.
 
 
-## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Creación de recursos de Custom Vision en Azure Portal
+## <a name="create-custom-vision-resources-in-the-azure-portal"></a>Crear recursos de visión personalizada en el portal de Azure
 Para usar Custom Vision Service, deberá crear recursos de entrenamiento y predicción de Custom Vision en [Azure Portal](https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision). De esta manera se crea un recurso de entrenamiento y predicción. 
 
 ## <a name="create-a-new-project"></a>Creación de un nuevo proyecto
 
-En el explorador web, vaya a la [página web de Custom Vision](https://customvision.ai) y seleccione __Sign in__ (Iniciar sesión). Inicie sesión con la misma cuenta que usó para iniciar sesión en Azure Portal.
+En el explorador web, vaya a la [página web de Custom Vision](https://customvision.ai) y seleccione __Sign in__ (Iniciar sesión). Inicie sesión con la misma cuenta que usó para iniciar sesión en el portal de Azure.
 
 ![Imagen de la página de inicio de sesión](./media/browser-home.png)
 
@@ -43,8 +43,8 @@ En el explorador web, vaya a la [página web de Custom Vision](https://customvis
 
 1. Escriba un nombre y una descripción para el proyecto. Después, seleccione un grupo de recursos. Si la cuenta con la que ha iniciado sesión está asociada a una cuenta de Azure, aparecerá el menú desplegable Resource Group (Grupo de recursos) que incluye un recurso de Custom Vision Service. 
 
-> [!NOTE]
-> Si no hay ningún grupo de recursos disponible, confirme que ha iniciado sesión en [customvision.ai](https://customvision.ai) con la misma cuenta que usó para iniciar sesión en [Azure Portal](https://portal.azure.com/). Además, confirme que el directorio seleccionado en el portal de Custom Vision es el mismo que el de Azure Portal donde se encuentran los recursos de Custom Vision. En ambos sitios, puede seleccionar el directorio en el menú de cuentas desplegable de la esquina superior derecha de la pantalla. 
+   > [!NOTE]
+   > Si no hay ningún grupo de recursos está disponible, confirme que ha iniciado sesión en [customvision.ai](https://customvision.ai) con la misma cuenta que se usa para iniciar sesión en el [portal Azure](https://portal.azure.com/). Además, confirme que el directorio seleccionado en el portal de Custom Vision es el mismo que el de Azure Portal donde se encuentran los recursos de Custom Vision. En ambos sitios, puede seleccionar el directorio en el menú de cuentas desplegable de la esquina superior derecha de la pantalla. 
 
 1. Seleccione __Classification__ (Clasificación) en __Project Types__ (Tipos de proyecto). Después, en __Classification Types__ (Tipos de clasificación), elija **Multilabel** (Multietiqueta) o **Multiclass** (Multiclase) según su caso de uso. La clasificación multietiqueta aplica un número cualquiera de etiquetas a una imagen (cero o más), mientras que la clasificación multiclase ordena las imágenes en categorías únicas (cada imagen que envíe se clasificará en la etiqueta más probable). Puede cambiar el tipo de clasificación más adelante si lo desea.
 
@@ -54,10 +54,10 @@ En el explorador web, vaya a la [página web de Custom Vision](https://customvis
     |---|---|
     |__Genérico__| Optimizado para una amplia gama de tareas de clasificación de imágenes. Si ninguno de los otros dominios es adecuado, o no está seguro de qué dominio elegir, seleccione el dominio genérico. |
     |__Alimentos__|Optimizado para fotos de platos tal y como los vería en el menú de un restaurante. Si quiere clasificar fotos de frutas o verduras individuales, use el dominio de alimentos.|
-    |__Puntos de referencia__|Optimizado para puntos de referencia reconocibles, tanto naturales como artificiales. Este dominio funciona mejor cuando el punto de referencia es claramente visible en la foto. Este dominio funciona incluso si hay gente delante del punto de referencia que obstruye parcialmente su visión.|
+    |__Puntos de referencia__|Optimizado para lugares de interés reconocibles, tanto naturales como artificiales. Este dominio funciona mejor cuando el punto de referencia es claramente visible en la foto. Este dominio funciona incluso si hay gente delante del punto de referencia que obstruye parcialmente su visión.|
     |__Minoristas__|Optimizado para imágenes que se encuentran en un catálogo de compra o un sitio web de compras. Si quiere una clasificación de alta precisión entre vestidos, pantalones y camisas, use este dominio.|
     |__Adultos__|Optimizado para definir mejor el contenido para adultos y el contenido que no es para adultos. Por ejemplo, si quiere bloquear imágenes de personas en traje de baño, este dominio le permite crear un clasificador personalizado para hacerlo.|
-    |__Dominios compactos__| Optimizados para las restricciones de clasificación en tiempo real en dispositivos móviles. Los modelos generados por los dominios compactos se pueden exportar para ejecutarse localmente.|
+    |__Dominios de compactas__| Optimizados para las restricciones de clasificación en tiempo real en dispositivos móviles. Los modelos generados por los dominios compactos se pueden exportar para ejecutarse localmente.|
     
 1. Por último, seleccione __Create project__ (Crear proyecto).
 
@@ -96,12 +96,7 @@ En esta sección cargará y etiquetará manualmente las imágenes para ayudar a 
 
     ![La barra de progreso muestra todas las tareas completadas.](./media/getting-started-build-a-classifier/add-images04.png)
 
-Para cargar otro conjunto de imágenes, vuelva a la parte superior de esta sección y repita los pasos. En algún punto del proyecto, puede que tenga que agregar _ejemplos negativos_ para ayudar a que el clasificador sea más preciso. Ejemplos negativos son aquellos que no coinciden con ninguna de las otras etiquetas. Cuando cargue estas imágenes, aplíqueles la etiqueta especial **Negative** (Negativo).
-
-> [!NOTE]
-> El servicio Custom Vision Service admite cierto control negativo automático de la imagen. Por ejemplo, si va a crear un clasificador que distingue uvas de plátanos y envía una imagen de un zapato para la predicción, el clasificador puntuaría esa imagen con un valor cercano al 0 % para uva y plátano.
-> 
-> Por otro lado, en los casos en que las imágenes negativas son solo una variación de las imágenes utilizadas en el entrenamiento, es probable que el modelo clasifique las imágenes negativas como una clase etiquetada debido a las grandes similitudes que existen. Por ejemplo, si tiene un clasificador que distingue naranjas de pomelos y envía una imagen de una mandarina, puede que se clasifique la mandarina como una naranja porque muchas características de las mandarinas recuerdan a las de las naranjas. Si las imágenes negativas son de esta naturaleza, se recomienda crear una o varias etiquetas adicionales (como **Otros**) y etiquetar las imágenes negativas con esta etiqueta durante el entrenamiento para permitir que el modelo diferencie mejor entre estas clases.
+Para cargar otro conjunto de imágenes, vuelva a la parte superior de esta sección y repita los pasos.
 
 ## <a name="train-the-classifier"></a>Entrenamiento del clasificador
 
@@ -138,5 +133,5 @@ En el panel izquierdo encontrará también el botón **Delete** (Eliminar), que 
 
 En esta guía, ha aprendido a crear y entrenar un modelo de clasificación de imágenes mediante el sitio web de Custom Vision. A continuación, obtenga más información sobre el proceso iterativo de mejora del modelo.
 
-[Prueba y reentrenamiento del modelo](test-your-model.md)
+[Probar y volver a entrenar un modelo](test-your-model.md)
 

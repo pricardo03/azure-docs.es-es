@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: c344e8c2d0ad62b394792201ab52bb37413012f8
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 40e2baaeaae933e8ff6a88eff2e2d86f645ad37b
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259914"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881048"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Preguntas más frecuentes sobre diferentes API en Azure Cosmos DB
 
@@ -201,7 +201,7 @@ Sí. El [Emulador de Azure Cosmos DB](local-emulator.md) proporciona una emulaci
 
 ### <a name="why-are-long-floating-point-values-in-a-document-rounded-when-viewed-from-data-explorer-in-the-portal"></a>¿Por qué se redondean los valores de punto flotante largos cuando se ven desde el explorador de datos en el portal?
 
-Se trata de una limitación de JavaScript. JavaScript usa números de formato de punto flotante de doble precisión como se especifica en IEEE 754 y puede retener de forma segura solamente números entre -(253 - 1) y 253-1 (es decir, 9007199254740991).
+Se trata de una limitación de JavaScript. JavaScript usa números de formato de punto flotante de precisión doble que se especifica en IEEE 754 y con seguridad que puede contener números entre-(2<sup>53</sup> -1) y 2<sup>53</sup>-1 (es decir, 9007199254740991) solamente.
 
 ### <a name="where-are-permissions-allowed-in-the-object-hierarchy"></a>¿Donde se permiten los permisos en la jerarquía de objetos?
 
@@ -266,7 +266,7 @@ En cuanto a la API REST, hay una serie de opciones de puntos de conexión o cons
 | ------------| ------------- | ---------- | ----------- |
 | GET, PUT | /?restype=service@comp=properties| [Establecer propiedades de Table service](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) y [Obtener propiedades de Table service](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Este punto de conexión se usa para establecer reglas de CORS, de configuración del análisis de almacenamiento y de configuración del registro. CORS no se admite actualmente y el análisis y el registro se tratan de forma diferente en Azure Cosmos DB y en Azure Storage Tables |
 | OPCIONES | /<nombre-recurso-tabla> | [Solicitud de tabla preparatoria CORS](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Esto forma parte de CORS, el cual Azure Cosmos DB no admite actualmente. |
-| GET | /?restype=service@comp=stats | [Obtener estadísticas de Table service](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Proporciona información sobre la rapidez con que los datos se están replicando datos entre los elementos principales y los secundarios. Esto no es necesario en Cosmos DB ya que la replicación es parte de las escrituras. |
+| GET | /?restype=service@comp=stats | [Obtener estadísticas del servicio tabla](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Proporciona información sobre la rapidez con que los datos se están replicando datos entre los elementos principales y los secundarios. Esto no es necesario en Cosmos DB ya que la replicación es parte de las escrituras. |
 | GET, PUT | /mytable?comp=acl | [Obtener tabla ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) y [Definir ACL de tabla](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Así se obtienen y establecen las directivas de acceso almacenadas que se usan para administrar las firmas de acceso compartido (SAS). Aunque SAS se admite, las firmas se establecen y administran de manera diferente. |
 
 Además, Table API de Azure Cosmos DB solo es compatible con el formato JSON, no con ATOM.
@@ -292,7 +292,7 @@ Si alguna de estas diferencias supone un problema para el proyecto, póngase en 
 
 Puede proporcionar comentarios de alguna de las siguientes formas:
 
-* [Voz del usuario](https://feedback.azure.com/forums/263030-azure-cosmos-db)
+* [Voz de los usuarios](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow es la mejor opción para preguntas de programación. Asegúrese de que su pregunta es [relevante](https://stackoverflow.com/help/on-topic) y [proporcione tantos detalles como sea posible, formulando la pregunta de forma clara y responsable](https://stackoverflow.com/help/how-to-ask).
 
@@ -576,7 +576,7 @@ Se puede usar el paso de vista previa **executionProfile()** para realizar un an
 g.V('mary').out('knows').executionProfile()
 ```
 
-**Salida del ejemplo**
+**Salida de ejemplo**
 
 ```json
 [

@@ -1,26 +1,25 @@
 ---
-title: 'Administración de aplicaciones lógicas con Visual Studio: Azure Logic Apps | Microsoft Docs'
+title: Administración de aplicaciones lógicas con Visual Studio - Azure Logic Apps
 description: Administración de aplicaciones lógicas y otros recursos de Azure con Visual Studio Cloud Explorer
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.custom: mvc
-ms.date: 03/15/2018
-ms.openlocfilehash: f3a9a1cb7a5829c7c824f9aa61d5f4976a533f4a
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.date: 04/02/2019
+ms.openlocfilehash: 9654caca5fd4b1f79544ea7303a5d3fff72d22f8
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519738"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862750"
 ---
 # <a name="manage-logic-apps-with-visual-studio"></a>Administración de aplicaciones lógicas con Visual Studio
 
-Si bien puede crear, editar, administrar e implementación aplicaciones lógicas en <a href="https://portal.azure.com" target="_blank">Azure Portal</a>, también puede usar Visual Studio cuando desea agregar aplicaciones lógicas para el control de código fuente, publicar versiones diferentes y crear plantillas de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) para distintos entornos de implementación. Con Visual Studio Cloud Explorer, puede encontrar y administrar las aplicaciones lógicas junto con otros recursos de Azure. Por ejemplo, puede abrir, descargar, editar, ejecutar, ver el historial de ejecución, deshabilitar y habilitar las aplicaciones lógicas que ya están implementadas en Azure Portal. Si es la primera vez que usa Azure Logic Apps en Visual Studio, obtenga información sobre [cómo crear aplicaciones lógicas con Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
+Aunque puede crear, editar, administrar e implementar aplicaciones lógicas en el <a href="https://portal.azure.com" target="_blank">portal Azure</a>, también puede usar Visual Studio cuando desea agregar las aplicaciones lógicas para el control de código fuente, publicar versiones diferentes y crear [Azure El Administrador de recursos](../azure-resource-manager/resource-group-overview.md) plantillas para distintos entornos de implementación. Con Visual Studio Cloud Explorer, puede encontrar y administrar las aplicaciones lógicas junto con otros recursos de Azure. Por ejemplo, puede abrir, descargar, editar, ejecutar, ver el historial de ejecución, deshabilitar y habilitar las aplicaciones lógicas que ya están implementadas en Azure Portal. Si es la primera vez que usa Azure Logic Apps en Visual Studio, obtenga información sobre [cómo crear aplicaciones lógicas con Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md).
 
 > [!IMPORTANT]
 > Al implementar o publicar una aplicación lógica desde Visual Studio se sobrescribe la versión de esa aplicación en Azure Portal. Por tanto, si hace cambios en Azure Portal que desea mantener, asegúrese de [actualizar la aplicación lógica en Visual Studio](#refresh) desde Azure Portal antes de volver a implementar o publicar desde Visual Studio.
@@ -33,22 +32,32 @@ Si bien puede crear, editar, administrar e implementación aplicaciones lógicas
 
 * Descargue e instale estas herramientas si no las tiene aún: 
 
-  * <a href="https://www.visualstudio.com/downloads" target="_blank">Visual Studio 2017 o Visual Studio 2015 - Community Edition o superior</a>. 
+  * <a href="https://aka.ms/download-visual-studio" target="_blank">Visual Studio 2019, 2017 o 2015 - Community edition o superior</a>. 
   Este inicio rápido usa Visual Studio Community 2017, que es gratuito.
 
-  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 o una versión posterior)</a> y <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+    > [!IMPORTANT]
+    > Al instalar Visual Studio de 2019 o 2017, asegúrese de que selecciona el **desarrollo de Azure** carga de trabajo.
+    > Para obtener más información, consulte [administrar los recursos asociados con las cuentas de Azure en Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view).
+    >
+    > En Visual Studio 2019, Cloud Explorer puede abrir el Diseñador de aplicación lógica en Azure portal, pero aún no se puede abrir el Diseñador de aplicaciones lógicas incrustado.
 
-  * <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio-18551" target="_blank">Herramientas de Azure Logic Apps para Visual Studio de 2017</a> o la <a href="https://marketplace.visualstudio.com/items?itemName=VinaySinghMSFT.AzureLogicAppsToolsforVisualStudio" target="_blank">versión de Visual Studio 2015</a> 
-  
+    Para instalar Cloud Explorer para Visual Studio 2015, [Descargue el Explorador de nube desde Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
+    Para obtener más información, consulte [administrar los recursos asociados con sus cuentas de Azure en Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
+
+  * <a href="https://azure.microsoft.com/downloads/" target="_blank">Azure SDK (2.9.1 o versiones posteriores)</a> 
+
+  * <a href="https://github.com/Azure/azure-powershell#installation" target="_blank">Azure PowerShell</a>
+
+  * Herramientas de Azure Logic Apps para la versión de Visual Studio que desee:
+
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2019" target="_blank">Visual Studio 2019</a>
+    
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2017" target="_blank">Visual Studio 2017</a>
+    
+    * <a href="https://aka.ms/download-azure-logic-apps-tools-visual-studio-2015" target="_blank">Visual Studio 2015</a>
+
     Puede descargar e instalar Herramientas de Azure Logic Apps directamente desde Visual Studio Marketplace o aprender <a href="https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions" target="_blank">a instalar esta extensión desde Visual Studio</a>. 
     Asegúrese de reiniciar Visual Studio después de finalizar la instalación.
-
-* Cloud Explorer para Visual Studio 2017 o Visual Studio 2015
-
-  * Para Visual Studio 2017, ejecute el instalador de Visual Studio e instale el **carga de trabajo Azure**. Para obtener más información, consulte [administrar los recursos asociados con su accuonts Azure en Visual Studio Cloud Explorer](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2017).
-
-  * Para Visual Studio 2015, [Descargue el Explorador de nube desde Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=MicrosoftCloudExplorer.CloudExplorerforVisualStudio2015). 
-  Para obtener más información, consulte [administrar los recursos asociados con sus cuentas de Azure en Visual Studio Cloud Explorer (2015)](https://docs.microsoft.com/visualstudio/azure/vs-azure-tools-resources-managing-with-cloud-explorer?view=vs-2015).
 
 * Acceso a la Web mediante el diseñador integrado de Logic Apps
 
@@ -184,12 +193,13 @@ Para eliminar la aplicación lógica desde Azure Portal, en Cloud Explorer, abra
 
 Cuando se abre el proyecto de aplicación lógica en el Diseñador de aplicaciones lógicas, es posible que no tenga la opción de seleccionar la suscripción a Azure. En cambio, la aplicación lógica se abre con una suscripción a Azure que no es la que quiere usar. Este comportamiento ocurre porque después de abrir el archivo .json de una aplicación lógica, Visual Studio almacena en caché la primera suscripción seleccionada para su uso futuro. Para solucionar este problema, pruebe uno de estos pasos:
 
-* Cambie el nombre del archivo .json de la aplicación lógica. La caché de suscripción depende del nombre del archivo. 
-* Para eliminar las suscripciones previamente seleccionadas para *todas* las aplicaciones lógicas de la solución, elimine la carpeta *oculta* .vs en el directorio de la solución. Esta ubicación almacena la información de suscripción. 
+* Cambie el nombre del archivo .json de la aplicación lógica. La caché de suscripción depende del nombre del archivo.
+
+* Para quitar las suscripciones seleccionadas previamente para *todas* logic apps en la solución, elimine la carpeta de configuración Visual Studio (.vs) oculta en el directorio de su solución. Esta ubicación almacena la información de suscripción.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este artículo, aprendió a administrar las aplicaciones lógicas implementadas con Visual Studio. A continuación, obtenga información sobre cómo personalizar las definiciones de aplicaciones lógicas para la implementación:
 
 > [!div class="nextstepaction"]
-> [Creación de definiciones de aplicaciones lógicas en JSON](../logic-apps/logic-apps-author-definitions.md)
+> [Creación de definiciones de aplicación lógica en JSON](../logic-apps/logic-apps-author-definitions.md)

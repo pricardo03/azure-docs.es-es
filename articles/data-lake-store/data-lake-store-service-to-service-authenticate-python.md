@@ -3,26 +3,26 @@ title: 'Autenticación de servicio a servicio: Python con Azure Data Lake Storag
 description: Aprenda a realizar la autenticación de servicio a servicio con Azure Data Lake Storage Gen1 mediante Azure Active Directory usando Python.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 4cad09877a3fc4f586db2d92ce97a64b6efe295e
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: 84b7fac10374c1c8f23d17ad775d522b4cb261e8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57537157"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877761"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Autenticación de servicio a servicio con Azure Data Lake Storage Gen1 mediante Python
 > [!div class="op_single_selector"]
-> * [Uso de Java](data-lake-store-service-to-service-authenticate-java.md)
-> * [Uso de SDK de .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
-> * [Uso de Python](data-lake-store-service-to-service-authenticate-python.md)
+> * [Usar Java](data-lake-store-service-to-service-authenticate-java.md)
+> * [Uso del SDK de .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
+> * [Usar Python](data-lake-store-service-to-service-authenticate-python.md)
 > * [Uso de la API de REST](data-lake-store-service-to-service-authenticate-rest-api.md)
 > 
 >  
@@ -32,7 +32,7 @@ En este artículo, obtendrá información sobre cómo usar el SDK de Python para
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Python**. Python se puede descargar desde [aquí](https://www.python.org/downloads/). En este artículo se usa Python 3.6.2.
+* **Python** Python se puede descargar desde [aquí](https://www.python.org/downloads/). En este artículo se usa Python 3.6.2.
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -130,7 +130,7 @@ Use this snippet to authenticate with Azure AD for account management operations
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, ha aprendido a usar la autenticación de servicio a servicio para autenticarse en Data Lake Storage Gen1 con Python. Ahora puede consultar los siguientes artículos, que tratan sobre cómo usar Python para trabajar con Data Lake Storage Gen1.
 
-* [Account management operations on Data Lake Storage Gen1 using Python](data-lake-store-get-started-python.md) (Operaciones de administración de cuentas en Data Lake Storage Gen1 con Python)
-* [Operaciones de datos en Data Lake Storage Gen1 mediante Python](data-lake-store-data-operations-python.md)
+* [Operaciones de administración de cuentas en Data Lake Storage Gen1 mediante Python](data-lake-store-get-started-python.md)
+* [Operaciones de datos en Data Lake Storage Gen1 con Python](data-lake-store-data-operations-python.md)
 
 

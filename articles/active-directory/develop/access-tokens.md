@@ -15,14 +15,14 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: celested
 ms.reviewer: hirsin
-ms.custom: aaddev
+ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e960e06cc51cc4540a8360cefe90ce68fc7e1f17
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 17c9ef471ca1536f928ca5ae2fe4f55e8e2b3424
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58009908"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878424"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Tokens de acceso de Azure Active Directory
 
@@ -80,7 +80,7 @@ Las notificaciones están presentes solo si existe un valor que las rellene. Por
 | `nonce` | string | Un identificador único utilizado para proteger contra ataques de repetición de token. El recurso puede registrar este valor para protegerse contra las repeticiones. |
 | `alg` | string | Indica el algoritmo que se usó para firmar el token, por ejemplo, "RS256". |
 | `kid` | string | Especifica la huella digital de la clave pública que se utiliza para firmar este token. Se emite en ambos tokens de acceso de las versiones 1.0 y 2.0. |
-| `x5t` | string | Funciona igual (en uso y valor) que `kid`. `x5t` es una notificación heredada emitida solo en los tokens de acceso de la versión 1.0 para fines de compatibilidad. |
+| `x5t` | string | Funciona igual (en uso y valor) que `kid`. `x5t` se genera una notificación heredada solo en los tokens de acceso de v1.0 para fines de compatibilidad. |
 
 ### <a name="payload-claims"></a>Notificaciones de carga
 
@@ -107,7 +107,7 @@ Las notificaciones están presentes solo si existe un valor que las rellene. Por
 | `oid` | Cadena, un identificador GUID | El identificador inmutable de un objeto en la plataforma de identidades Microsoft, en este caso, una cuenta de usuario. También se puede usar para realizar comprobaciones de autorización de forma segura y como clave en tablas de base de datos. Este identificador identifica de forma única el usuario entre aplicaciones: dos aplicaciones diferentes que inician sesión con el mismo usuario recibirán el mismo valor en la notificación `oid`. Por tanto, `oid` puede usarse al realizar consultas en Microsoft Online Services, como Microsoft Graph. Microsoft Graph devuelve este identificador como la propiedad `id` para una cuenta de usuario determinada. Dado que la notificación `oid` permite que varias aplicaciones pongan en correlación a los usuarios, se requiere el ámbito `profile` para recibir esta notificación. Tenga en cuenta que si un usuario existe en varios inquilinos, el usuario contendrá un identificador de objeto distinto en cada inquilino, se consideran cuentas diferentes, incluso si el usuario inicia sesión en todas las cuentas con las mismas credenciales. |
 | `rh` | Cadena opaca | Una notificación interna que Azure usa para volver a validar los tokens. Los recursos no deben usar esta notificación. |
 | `scp` | Cadena, una lista de ámbitos separada por espacios. | El conjunto de ámbitos expuestos por la aplicación para los cuales la aplicación cliente ha solicitado (y recibido) consentimiento. Su aplicación debe comprobar que estos ámbitos son válidos y están expuestos por la aplicación, y tomar decisiones de autorización basadas en el valor de estos ámbitos. Solo se incluye para los [tokens de usuario](#user-and-application-tokens). |
-| `roles` | Cadena, lista de permisos separada por espacios | El conjunto de permisos expuestos por la aplicación que la aplicación solicitante ha recibido permiso para llamar. Esto se usa durante el flujo [de credenciales de cliente](v1-oauth2-client-creds-grant-flow.md) en lugar de los ámbitos de usuario y solo está presente en los [tokens de aplicaciones](#user-and-application-tokens). |
+| `roles` | Matriz de cadenas, una lista de permisos | El conjunto de permisos expuestos por la aplicación que la aplicación solicitante ha recibido permiso para llamar. Para [tokens de aplicación](#user-and-application-tokens), se utiliza durante la [credenciales de cliente](v1-oauth2-client-creds-grant-flow.md) flujo en lugar de ámbitos de usuario.  Para [los tokens de usuario](#user-and-application-tokens) se rellena con los roles que se ha asignado el usuario en la aplicación de destino. |
 | `sub` | Cadena, un identificador GUID | La entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar ni volver a usar. Se puede usar para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando el token se usa para acceder a un recurso, y se puede usar como clave en tablas de base de datos. Dado que el firmante siempre está presente en los tokens que emite Azure AD, se recomienda usar este valor en un sistema de autorización de propósito general. El asunto es, sin embargo, un identificador en pares (es único para un id. de aplicación determinado). Por lo tanto, si un usuario inicia sesión en dos aplicaciones diferentes con dos identificadores de cliente diferente, esas aplicaciones recibirán dos valores diferentes para la notificación de asunto. Esto puede ser o no deseable dependiendo de los requisitos de arquitectura y privacidad. |
 | `tid` | Cadena, un identificador GUID | Representa el inquilino de Azure AD de donde proviene el usuario. En el caso de las cuentas profesionales y educativas, el GUID es el identificador del inquilino inmutable de la organización a la que pertenece el usuario. En el caso de las cuentas personales, el valor es `9188040d-6c67-4c5b-b112-36a304b66dad`. El ámbito `profile` es necesario para recibir esta notificación. |
 | `unique_name` | string | Solo está presente en los tokens de la versión 1.0. Proporciona un valor en lenguaje natural que identifica al firmante del token. No se asegura que este valor sea único en un inquilino y se debe usar solo con fines de visualización. |

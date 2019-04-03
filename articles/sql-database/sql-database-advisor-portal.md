@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 12/19/2018
-ms.openlocfilehash: 023395126a587992c1b5648bd9b8a993d9fa9ced
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: d80581aae56fc9d65d6f24d21f2c582cb74b3f2d
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564245"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863209"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Búsqueda y aplicación de recomendaciones de rendimiento
 
@@ -78,6 +78,7 @@ Puede revisar y aceptar recomendaciones una a una.
 Se aplica la recomendación seleccionada en la base de datos.
 
 ### <a name="removing-recommendations-from-the-list"></a>Eliminación de recomendaciones de la lista
+
 Si la lista de recomendaciones contiene elementos que quiere quitar de la lista, puede descartar la recomendación:
 
 1. Seleccione una recomendación en la lista **Recomendaciones** para abrir los detalles.
@@ -110,18 +111,21 @@ Puede establecer que Azure SQL Database implemente las recomendaciones de forma 
 
 Cuando haya seleccionado la configuración que desee, haga clic en Aplicar.
 
-### <a name="manually-run-the-recommended-t-sql-script"></a>Ejecutar manualmente el script T-SQL recomendado
+### <a name="manually-apply-recommendations-through-t-sql"></a>Aplicar las recomendaciones a través de Transact-SQL manualmente
+
 Seleccione cualquier recomendación y haga clic en **Ver script**. Ejecute este script en la base de datos para aplicar la recomendación manualmente.
 
-*El servicio no supervisa ni valida los índices que se ejecutan de manera manual para conocer el impacto en el rendimiento* , por lo que se recomienda supervisar estos índices después de su creación para comprobar que proporcionen mejoras en el rendimiento y, en caso necesario, ajustarlos o eliminarlos. Si desea conocer detalles sobre la creación de índices, consulte [CREAR ÍNDICE (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
+*El servicio no supervisa ni valida los índices que se ejecutan de manera manual para conocer el impacto en el rendimiento* , por lo que se recomienda supervisar estos índices después de su creación para comprobar que proporcionen mejoras en el rendimiento y, en caso necesario, ajustarlos o eliminarlos. Si desea conocer detalles sobre la creación de índices, consulte [CREAR ÍNDICE (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx). Además, recomendaciones manualmente aplicadas permanecerá activo y se muestra en la lista de recomendaciones de 24 a 48 horas. antes de que el sistema retira automáticamente ellos. Si desea quitar una recomendación antes, puede descartar manualmente.
 
 ### <a name="canceling-recommendations"></a>Cancelación de recomendaciones
+
 Las recomendaciones que se encuentran en estado **Pendiente**, **Validando** o **Correcto** pueden cancelarse. Las recomendaciones con estado **Executing** no se pueden cancelar.
 
 1. Seleccione una recomendación en el área **Historial de ajuste** para abrir la página de **detalles de recomendaciones**.
 2. Haga clic en **Cancelar** para anular el proceso de aplicación de la recomendación.
 
 ## <a name="monitoring-operations"></a>Supervisión de operaciones
+
 Puede que una recomendación no se aplique de manera inmediata. El portal proporciona detalles sobre el estado de la recomendación. A continuación se indican los posibles estados en los que un índice puede encontrarse:
 
 | Status | DESCRIPCIÓN |

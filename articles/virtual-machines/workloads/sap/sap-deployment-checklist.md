@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ba866ddf79a9970ef3f5c4ff3b7085242a1cdcd
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: fef2d42282291bb0ea6afeea03e60234d3d47a4d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802803"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878730"
 ---
 # <a name="sap-workload-on-azure-planning-and-deployment-checklist"></a>Lista de comprobación de planeamiento e implementación de cargas de trabajo de SAP en Azure 
 
@@ -39,7 +39,7 @@ En esta fase se planea una migración de cargas de trabajo de SAP a la nube púb
     2. Cree y trabaje con una matriz de asignación de responsabilidades (RACI) que defina las responsabilidades y asignaciones de los elementos implicados. Empiece en el nivel superior y trabaje cada vez en niveles más detallados durante la planeación y las primeras implementaciones
     2. Arquitectura de una solución de alto nivel
     3. La decisión sobre las regiones de Azure en las que se va a implementar. Para obtener la lista de las regiones de Azure, consulte [Regiones de Azure](https://azure.microsoft.com/global-infrastructure/regions/). Para conocer los servicios disponibles en cada una de las regiones de Azure, consulte el artículo [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/).
-    4. La arquitectura de red para conectarse desde el entorno local con Azure. Empiece a familiarizarse con el [plano técnico del centro de datos virtual de Azure](https://docs.microsoft.com/azure/architecture/vdc/).
+    4. Arquitectura para conectarse desde un entorno local a Azure de la red. Empiece a familiarizarse con el [plano técnico del centro de datos virtual de Azure](https://docs.microsoft.com/azure/architecture/vdc/).
     5. Los principios de seguridad para la ejecución de datos empresariales de gran impacto en Azure. Como material de lectura, comience por [Documentación de Azure Security Center](https://docs.microsoft.com/azure/security/).
 2.  El documento de diseño técnico, que contiene:
     1.  Un diagrama de bloques de la solución. 
@@ -50,7 +50,7 @@ En esta fase se planea una migración de cargas de trabajo de SAP a la nube púb
         2.  Nota de soporte técnico de SAP [2039619 #](https://launchpad.support.sap.com/#/notes/2039619). En esta nota se define la matriz de compatibilidad de Oracle en Azure. Tenga en cuenta que Oracle solo admite Windows y Oracle Linux como sistema operativo invitado en Azure para cargas de trabajo de SAP. Esta declaración de soporte se aplica también al nivel de aplicación de SAP que ejecuta instancias de SAP. No obstante, Oracle no permite utilizar una alta disponibilidad para SAP Central Services en Oracle Linux mediante Pacemaker. Si necesita tener una alta disponibilidad para ASCS en Oracle Linux, debe utilizar SIOS Protection Suite para Linux. Para obtener información detallada sobre la certificación de SAP, consulte la nota de soporte técnico de SAP [#1662610 - Support details for SIOS Protection Suite for Linux](https://launchpad.support.sap.com/#/notes/1662610) (1662610: información de soporte técnico sobre SIOS Protection Suite para Linux). Para Windows, la solución de clúster de conmutación por error de Windows que admite SAP para SAP Central Services se admite en unión con Oracle como capa de DBMS. 
         3.  La nota de soporte técnico de SAP [#2235581](https://launchpad.support.sap.com/#/notes/2235581) para obtener la matriz de compatibilidad con las versiones de SAP HANA en el otro sistema operativo.
         4.  Las máquinas virtuales de Azure compatibles con SAP HANA y las [instancias grandes de HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) aparecen [aquí](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure).
-        5.  [Matriz de disponibilidad de productos SAP](https://support.sap.com/en/).
+        5.  [Matriz de disponibilidad de productos SAP](https://support.sap.com/en/)
         6.  Otras notas de SAP para otros productos específicos de SAP.  
     5.  Se recomienda utilizar diseños de 3 niveles estrictos para los sistemas de producción de SAP. No se recomienda combinar ASCS con servidores de aplicación en la misma máquina virtual.  Se admite el uso de configuraciones de clúster de varios SID de SAP Central Services con Windows como sistema operativo invitado en Azure. Mientras que las configuraciones de clúster de varios SID de SAP Central Services no se admiten con sistemas operativos Linux en Azure. Encontrará documentación sobre el caso del sistema operativo invitado de Windows en:
         1.  [Alta disponibilidad con varios identificadores de seguridad de instancia de ASCS/SCS de SAP para los clústeres de conmutación por error de Windows Server y el disco compartido en Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk)
@@ -60,8 +60,8 @@ En esta fase se planea una migración de cargas de trabajo de SAP a la nube púb
         2.  Para lograr alta disponibilidad en la misma zona, compruebe lo que el DBMS deseado le ofrece en Azure. La mayoría de los DBMS ofrecen métodos sincrónicos de una espera activa sincrónica, lo que se recomienda para los sistemas de producción. Compruebe también la documentación relacionada con SAP para las diferentes bases de datos empezando por [Consideraciones para la implementación de DBMS de Azure Virtual Machines para la carga de trabajo de SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
             1.  El uso del servicio de clúster de conmutación por error de Windows con configuración de disco compartido para la capa de DBMS como, por ejemplo, se ha descrito [aquí](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server?view=sql-server-2017) para SQL Server **NO** se admite. En su lugar, use soluciones como:
                 1.  [SQL Server AlwaysOn](https://docs.microsoft.com/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-ps-sql-alwayson-availability-groups) 
-                2.  [Oracle Data Guard](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
-                3.  [HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
+                2.  [Protección de datos de Oracle](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/configure-oracle-dataguard)
+                3.  [Replicación del sistema de HANA](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/b74e16a9e09541749a745f41246a065e.html)
         3.  En cuanto a la recuperación ante desastres entre regiones de Azure, compruebe qué posibilidades ofrecen los distintos proveedores de DBMS. La mayoría de ellos admiten replicación asincrónica o trasvase de registros.
         4.  Para el nivel de aplicación de SAP, defina si quiere ejecutar sistemas de prueba de regresión empresarial que, en condiciones ideales, son réplicas de las implementaciones de producción en la misma región de Azure o la región de recuperación ante desastres. En el último caso, puede utilizar ese sistema de regresión empresarial como destino de recuperación ante desastres del entorno de producción.
         5.  Si decide no situar sistemas de no producción en el sitio de recuperación ante desastres, considere la posibilidad de usar Azure Site Recovery como método viable para replicar el nivel de aplicación de SAP en la región de recuperación ante desastres de Azure. Consulte también [Configuración de la recuperación ante desastres para la implementación de una aplicación de SAP NetWeaver de niveles múltiples](https://docs.microsoft.com/azure/site-recovery/site-recovery-sap). 
@@ -72,13 +72,13 @@ En esta fase se planea una migración de cargas de trabajo de SAP a la nube púb
     2.  La topología de red dentro de Azure y la asignación de distintos sistemas SAP
     3.  La estructura del [acceso basado en rol](https://docs.microsoft.com/azure/role-based-access-control/overview) para los diferentes equipos que administran la infraestructura y las aplicaciones de SAP en Azure.
     3.  La topología del grupo de recursos. 
-    4.  La [estrategia de etiquetas](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#tags-and-billing).
+    4.  [Estrategia de etiquetado](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags#tags-and-billing)
     5.  La convención de nomenclatura para las máquinas virtuales y otros componentes de la infraestructura y/o los nombres lógicos.
 5.  Contrato de soporte técnico Premier de Microsoft Azure: identifique al responsable técnico de cuenta (TAM) de MS. Para conocer a los requisitos de soporte técnico de SAP, lea la nota de soporte técnico de SAP [#2015553](https://launchpad.support.sap.com/#/notes/2015553). 
 6.  Defina el número de suscripciones de Azure y la cuota de núcleos para las distintas suscripciones. [Abra solicitudes de soporte técnico para aumentar las cuotas de suscripciones de Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) según sea necesario. 
 7.  Reducción de datos y plan de migración de datos para migrar datos SAP a Azure. Para los sistemas SAP NetWeaver, SAP tiene instrucciones detalladas sobre cómo mantener limitado el volumen de una gran cantidad de datos. SAP ha publicado [esta guía exhaustiva](https://help.sap.com/http.svc/rc/2eb2fba8f8b1421c9a37a8d7233da545/7.0/en-US/Data_Management_Guide_Version_70E.PDF) sobre la administración de datos en los sistemas SAP ERP. Aunque parte del contenido se aplica a los sistemas de NetWeaver y S/4HANA en general.
 8.  Defina y decida el enfoque de implementación automatizada. El objetivo de la automatización detrás de las implementaciones de infraestructura en Azure es implementar de manera determinista y obtener resultados deterministas. Muchos clientes usan scripts de Power Shell o de basados en la CLI. Pero hay diversas tecnologías de código abierto que pueden usarse para implementar la infraestructura de Azure para SAP e incluso instalar software de SAP. Encontrará ejemplos en GitHub:
-    1.  [Automated SAP Deployments in Azure Cloud](https://github.com/Azure/sap-hana) (Implementaciones automatizadas de SAP en la nube de Azure)
+    1.  [Implementaciones de SAP automatizada en la nube de Azure](https://github.com/Azure/sap-hana)
     2.  [Instalación de SAP HANA](https://github.com/AzureCAT-GSI/SAP-HANA-ARM)
 9.  Defina una cadencia periódica de revisión del diseño y la implementación entre usted como cliente, el integrador de sistemas, Microsoft y otras partes implicadas.
 
@@ -87,7 +87,7 @@ En esta fase se planea una migración de cargas de trabajo de SAP a la nube púb
  
 La fase piloto puede ejecutarse antes o en paralelo con la planeamiento y preparación del proyecto. Esta fase también puede utilizarse para probar los enfoques y el diseño realizados en la fase de planeamiento y preparación. La fase piloto puede extenderse hasta convertirse en una verdadera prueba de conceptos. Se recomienda configurar y validar una solución completa de alta disponibilidad y recuperación ante desastres, así como el diseño de la seguridad durante una implementación piloto. En el caso de algunos clientes, también se pueden realizar pruebas de escalabilidad en esta fase. Otros clientes usan la implementación de sistemas de espacio aislado de SAP como fase piloto. Por lo que es de suponer que ha identificado un sistema que quiere a migrar a Azure con el fin de ejecutar a una prueba piloto.
 
-1. Optimice la transferencia de datos a Azure. Al depender en gran medida de los casos de cliente, la transferencia a través de [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) desde el entorno local era más rápida si el circuito de Express tenía suficiente ancho de banda. Con otros clientes, resultó ser más rápido hacerlo por Internet.
+1. Optimice la transferencia de datos a Azure. Depende en gran medida de la transferencia de los casos de cliente a través de [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) localmente era más rápido si el circuito de Express tenía suficiente ancho de banda. Con otros clientes, resultó ser más rápido hacerlo por Internet.
 2. En el caso de una migración de plataforma heterogénea de SAP, que implica una exportación e importación de los datos de la base de datos, se deben probar y optimizar las fases de exportación e importación. Para migraciones de gran tamaño que implican SQL Server como plataforma de destino, encontrará recomendaciones [aquí](https://techcommunity.microsoft.com/t5/Running-SAP-Applications-on-the/SAP-OS-DB-Migration-to-SQL-Server-8211-FAQ-v6-2-April-2017/ba-p/368070). Puede adoptar el enfoque de Migration Monitor/SWPM en caso de que no necesite una actualización de la versión combinada o el proceso [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) cuando combine la migración con una actualización de la versión de SAP y cumpla determinadas combinaciones de la plataforma DBMS de origen y destino, tal y como se documentó, por ejemplo, en [Database Migration Option (DMO) de SUM 2.0 SP03](https://launchpad.support.sap.com/#/notes/2631152). 
    1.  Rendimiento de la exportación al origen, la carga de archivos de exportación en Azure e y la importación.  Maximice la superposición entre la exportación e importación.
    2.  Evalúe el volumen de la base de datos entre el destino y la plataforma de destino para que se refleje en el tamaño de la infraestructura.    
@@ -159,7 +159,7 @@ La fase piloto puede ejecutarse antes o en paralelo con la planeamiento y prepar
 6. Pruebas de rendimiento
    1.  En SAP basado en medidas y seguimiento de SAP, compare los 10 informes en línea más importantes con la implementación actual, cuando proceda. 
    2.  En SAP basado en medidas y seguimiento de SAP, compare los 10 trabajos por lotes más importantes con la implementación actual, cuando proceda. 
-   3.  En SAP basado en medidas y seguimiento de SAP, compare las transferencias de datos a través de interfaces al sistema SAP. Céntrese en las interfaces en las que sepa que la transferencia se realiza entre distintas ubicaciones, como, por ejemplo, las que pasan del entorno local a Azure. 
+   3.  En SAP basado en medidas y seguimiento de SAP, compare las transferencias de datos a través de interfaces al sistema SAP. Centrarse en las interfaces que sepa que la transferencia va entre distintas ubicaciones, como pasar de local a Azure 
 
 
 ## <a name="non-production-phase"></a>Fase de no producción 

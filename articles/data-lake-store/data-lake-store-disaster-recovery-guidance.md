@@ -3,20 +3,20 @@ title: Guía de recuperación ante desastres para Azure Data Lake Storage Gen1 |
 description: Guía de recuperación ante desastres para Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.author: nitinme
-ms.openlocfilehash: 44c1dc3e3f6c2c9af52a6e9c9320d4a8ba63b4d0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: b3f1888a73baf2b7f9efa9f5e7cdb3305aa9f90d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127115"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878118"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-azure-data-lake-storage-gen1"></a>Guía de recuperación ante desastres para datos de Azure Data Lake Storage Gen1
 
@@ -25,7 +25,7 @@ Azure Data Lake Storage Gen1 proporciona almacenamiento con redundancia local (L
 ## <a name="disaster-recovery-guidance"></a>Guía de recuperación ante desastres
 Es fundamental que todos los clientes preparen su propio plan de recuperación ante desastres. Lea la información de este artículo para generar el plan de recuperación ante desastres. Aquí tiene algunos recursos que pueden ayudarle a crear su propio plan.
 
-* [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
+* [Recuperación ante desastres y alta disponibilidad para las aplicaciones de Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 * [Guía técnica sobre resistencia en Azure](../resiliency/resiliency-technical-guidance.md)
 
 ### <a name="best-practices"></a>Procedimientos recomendados
@@ -42,6 +42,6 @@ Para evitar la eliminación por error, se recomienda establecer primero las dire
 Las organizaciones también pueden habilitar un [registro de diagnóstico](data-lake-store-diagnostic-logs.md) para su cuenta de Data Lake Storage Gen1 y recopilar seguimientos de auditoría de acceso a datos que proporcionen información sobre quién puede eliminar o actualizar un archivo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Introducción Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
-* [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Introducción a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* [Proteger los datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
 

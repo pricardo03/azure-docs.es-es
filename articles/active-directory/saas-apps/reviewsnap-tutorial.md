@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09fd6c94fe32d683e61aacba5300b130fa6f416a
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 24f4983f2ba1567241a6dfc6231a4925805947cd
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187413"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878441"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-reviewsnap"></a>Tutorial: Integración de Azure Active Directory con Reviewsnap
 
@@ -95,7 +95,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Reviewsnap,
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación Reviewsnap.
 
-**Para configurar el inicio de sesión único de Azure AD con Reviewsnap, realice los siguientes pasos:**
+**Para configurar el inicio de sesión único en Azure AD con Reviewsnap, realice los pasos siguientes:**
 
 1. En Azure Portal, en la página de integración de la aplicación **Reviewsnap**, haga clic en **Inicio de sesión único**.
 
@@ -109,10 +109,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Reviewsnap](./media/reviewsnap-tutorial/tutorial_reviewsnap_url.png)
 
-     a. En el cuadro de texto **Identificador**, escriba una dirección URL como: `https://app.reviewsnap.com`
+     a. En el cuadro de texto **Identificador**, escriba una dirección URL: `https://app.reviewsnap.com`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>
-`.
+    b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://app.reviewsnap.com/auth/saml/callback?namespace=<CUSTOMER_NAMESPACE>`
 
 1. Active **Mostrar configuración avanzada de URL** y siga estos pasos si desea configurar la aplicación en el modo iniciado por **SP**:
 
@@ -143,7 +142,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
    ![Creación de un usuario de prueba de Azure AD][100]
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+**Para crear un usuario de prueba en Azure AD, realice los pasos siguientes:**
 
 1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
 

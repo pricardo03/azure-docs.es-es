@@ -16,17 +16,18 @@ ms.date: 10/05/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
+ms:custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 687b25ea5d792edf2f582c9929a0ae5f0c2426db
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: b00dd8de47422cf849d97e66698be3300b96ff83
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57442080"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884557"
 ---
 # <a name="id-tokens"></a>Tokens de identificador
 
-Los `id_tokens` se envían a la aplicación cliente como parte de un flujo de [OpenID Connect](v1-protocols-openid-connect-code.md). Se pueden enviar con o en lugar de un token de acceso y el cliente los utiliza para autenticar al usuario.
+`id_tokens` se envían a la aplicación cliente como parte de un [OpenID Connect](v1-protocols-openid-connect-code.md) flujo. Se pueden enviar con o en lugar de un token de acceso y el cliente los utiliza para autenticar al usuario.
 
 ## <a name="using-the-idtoken"></a>Uso del id_token
 
@@ -34,7 +35,7 @@ Los tokens de identificador se deben usar para validar que un usuario es quien d
 
 ## <a name="claims-in-an-idtoken"></a>Notificaciones de un id_token
 
-Los `id_tokens` de una identidad de Microsoft son elementos [JWT](https://tools.ietf.org/html/rfc7519), lo que significa que están formados por una parte de encabezado, carga y firma. Puede usar el encabezado y la firma para comprobar la autenticidad del token, mientras que la carga contiene la información sobre el usuario que solicitó el cliente. Excepto donde se indique, todas las notificaciones que se muestran aquí aparecen en los tokens de las versiones 1.0 y 2.0.
+`id_tokens` Microsoft identity son [Jwt](https://tools.ietf.org/html/rfc7519), lo que significa que están formados por una parte de encabezado, carga y la firma. Puede usar el encabezado y la firma para comprobar la autenticidad del token, mientras que la carga contiene la información sobre el usuario que solicitó el cliente. Excepto donde se indique, todas las notificaciones que se muestran aquí aparecen en los tokens de las versiones 1.0 y 2.0.
 
 ### <a name="v10"></a>v1.0
 
@@ -79,6 +80,7 @@ Puede ver este token de ejemplo de la versión v2.0 en [jwt.ms](https://jwt.ms/#
 |`name` | string | La notificación `name` proporciona un valor en lenguaje natural que identifica al firmante del token. No se asegura que el valor sea único, es mutable y está diseñado para usarse solo con fines de visualización. El ámbito `profile` es necesario para recibir esta notificación. |
 |`nonce`| string | El valor nonce coincide con el parámetro incluido en la solicitud /authorize original al IDP. Si no coincide, la aplicación debe rechazar el token. |
 |`oid` | Cadena, un identificador GUID | El identificador inmutable de un objeto en el sistema de identidades Microsoft, en este caso, una cuenta de usuario. Este identificador identifica de forma única el usuario entre aplicaciones: dos aplicaciones diferentes que inician sesión con el mismo usuario recibirán el mismo valor en la notificación `oid`. Microsoft Graph devuelve este identificador como la propiedad `id` para una cuenta de usuario determinada. Dado que la notificación `oid` permite que varias aplicaciones pongan en correlación a los usuarios, se requiere el ámbito `profile` para recibir esta notificación. Tenga en cuenta que si un usuario existe en varios inquilinos, el usuario contendrá un identificador de objeto distinto en cada inquilino, se consideran cuentas diferentes, incluso si el usuario inicia sesión en todas las cuentas con las mismas credenciales. |
+|`roles`| Matriz de cadenas | El conjunto de roles que se asignaron al usuario que ha iniciado sesión. |
 |`rh` | Cadena opaca |Una notificación interna que Azure usa para volver a validar los tokens. Se debe omitir. |
 |`sub` | Cadena, un identificador GUID | La entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar ni volver a usar. El firmante es un identificador en pares: es único para un identificador de aplicación determinado. Por lo tanto, si un usuario inicia sesión en dos aplicaciones diferentes con dos identificadores de cliente diferente, esas aplicaciones recibirán dos valores diferentes para la notificación de asunto. Esto puede ser o no deseable dependiendo de los requisitos de arquitectura y privacidad. |
 |`tid` | Cadena, un identificador GUID | Un GUID que representa el inquilino de Azure AD de donde proviene el usuario. En el caso de las cuentas profesionales y educativas, el GUID es el identificador del inquilino inmutable de la organización a la que pertenece el usuario. En el caso de las cuentas personales, el valor es `9188040d-6c67-4c5b-b112-36a304b66dad`. El ámbito `profile` es necesario para recibir esta notificación. |

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad9a0d832bed2f4e67f4a87d72b773eaa587e700
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 2e8b334998983684d50c4faddceb03a0f30fd257
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208388"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878169"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-workpath"></a>Tutorial: Integración de Azure Active Directory con Workpath
 
@@ -99,7 +99,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Workpath, e
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación Workpath.
 
-**Para configurar el inicio de sesión único de Azure AD con Workpath, siga estos pasos:**
+**Para configurar el inicio de sesión único en Azure AD con Workpath, siga los pasos siguientes:**
 
 1. En Azure Portal, en la página de integración de la aplicación **Workpath**, haga clic en **Inicio de sesión único**.
 
@@ -115,13 +115,13 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
      a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://api.workpath.com/v1/saml/metadata/<instancename>`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://api.workpath.com/v1/saml/assert/<instancename>`.
+    b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://api.workpath.com/v1/saml/assert/<instancename>`
 
 1. Active **Mostrar configuración avanzada de URL**. Si desea configurar la aplicación en modo iniciado por **SP**, realice los siguientes pasos:
 
     ![Configurar inicio de sesión único](./media/workpath-tutorial/tutorial_workpath_url1.png)
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.workpath.com/ `.
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<subdomain>.workpath.com/`
 
     > [!NOTE] 
     > Estos valores no son reales. Actualícelos con la dirección URL de inicio de sesión, el identificador y la dirección URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de Workpath](https://help.workpath.com) para obtener estos valores.
@@ -175,7 +175,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ![Creación de un usuario de Azure AD][100]
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+**Para crear un usuario de prueba en Azure AD, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
 
@@ -212,7 +212,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ![Asignar usuario][200] 
 
-**Para asignar Britta Simon a Workpath, siga estos pasos:**
+**Para asignar a Britta Simon a Workpath, siga los pasos siguientes:**
 
 1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 

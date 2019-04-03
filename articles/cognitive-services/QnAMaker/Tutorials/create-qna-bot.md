@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 01/24/2019
+ms.date: 04/02/2019
 ms.author: tulasim
-ms.openlocfilehash: b948835b1a15eee391c6902d18229ec4926b66ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 218103f2c75ec1016a997c259767ccd011191fab
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58095218"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879618"
 ---
 # <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Tutorial: Creación de un bot de preguntas y respuestas con Azure Bot Service v3
 
@@ -105,6 +105,12 @@ En Azure Portal, haga clic en **Test in Web Chat** (Probar en Chat en web) para 
 
 El bot de QnA responde desde la base de conocimiento.
 
+## <a name="related-to-qna-maker-bots"></a>Relacionados con los bots de QnA Maker
+
+* El bot de Ayuda de QnA Maker, utilizado en el portal de QnA Maker, está disponible como un [ejemplo bot](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-support-bot).
+    ![Icono de bot de Ayuda de QnA Maker es rojo robot](../media/qnamaker-tutorials-create-bot/answer-bot-icon.PNG)
+* [Asistencia sanitaria bots](https://docs.microsoft.com/HealthBot/qna_model_howto) usar QnA Maker como uno de sus [modelos de lenguaje](https://docs.microsoft.com/HealthBot/qna_model_howto).
+
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
 Cuando haya terminado con el bot de este tutorial, quítelo en Azure Portal. Los servicios de bot incluyen:
@@ -122,5 +128,5 @@ Cuando haya terminado con el bot de este tutorial, quítelo en Azure Portal. Los
 
 ## <a name="see-also"></a>Vea también
 
-- [Administración de la base de conocimiento](https://qnamaker.ai)
-- [Habilitación del bot en otros canales](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)
+- [Administrar la base de conocimiento](https://qnamaker.ai)
+- [Habilitar el bot en distintos canales](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels)

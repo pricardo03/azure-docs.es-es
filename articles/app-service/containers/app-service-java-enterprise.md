@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 98e00eb382962d2364adda93b1a5b24fdef832eb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 8db65fd9a1f271aea4ceb345f4d9dfbb6b9ff8a6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101778"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877387"
 ---
 # <a name="java-enterprise-guide-for-app-service-on-linux"></a>Guía de Java Enterprise para App Service en Linux
 
@@ -119,4 +119,5 @@ App Service proporciona herramientas para ayudarle a solucionar problemas relaci
 
 -   Para activar el registro, haga clic en **Registros de diagnóstico** en el panel de navegación izquierdo. Haga clic en **Sistema de archivos** para establecer el período de retención y la cuota de almacenamiento y guarde los cambios. Puede encontrar estos registros en `/home/LogFiles/`.
 -   [Use SSH para conectarse a la instancia de aplicación](app-service-linux-ssh-support.md) para ver los registros para las aplicaciones en ejecución.
--   Consulte los registros de diagnóstico en el panel **Registros de diagnóstico** del portal o mediante el comando de la CLI de Azure: ` az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group> `
+-   Los registros de diagnóstico de comprobación de la **los registros de diagnóstico** panel del Portal o mediante el comando de CLI de Azure:
+`az webapp log tail --name <your-app-name> --resource-group <your-apps-resource-group>`

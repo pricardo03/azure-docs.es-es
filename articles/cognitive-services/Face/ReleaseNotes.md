@@ -3,27 +3,31 @@ title: 'Notas de la versión: servicio Face API'
 titleSuffix: Azure Cognitive Services
 description: Las notas de la versión del servicio Face API incluyen un historial de cambios de versión para varias versiones.
 services: cognitive-services
-author: SteveMSFT
+author: yluiu
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 03/01/2018
-ms.author: sbowles
-ms.openlocfilehash: 1af699a4b28309e7b004ed1eedf339e142065e50
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.date: 03/29/2019
+ms.author: yluiu
+ms.openlocfilehash: 02e4e73bbbc7f843a3483bab4791484b89f97dd7
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55878466"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862036"
 ---
 # <a name="face-api-release-notes"></a>Notas de versión de Face API
 
 Este artículo pertenece a la versión 1.0 del servicio Face API.
 
+### <a name="release-changes-in-march-2019"></a>Cambios de la versión de marzo de 2019
+
+* Agrega un nuevo modelo de reconocimiento de caras con una mayor precisión. Usar a través [enfrentan: detectar](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList - crear](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039524b), [LargeFaceList - crear](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc), [grupo de personas - crear](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) y [ LargePersonGroup - crear](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d) especificando el nuevo nombre de modelo de reconocimiento de caras `recognition_02` en `recognitionModel` parámetro. Para obtener más detalles en [cómo especificar un modelo de reconocimiento](Face-API-How-to-Topics/specify-recognition-model.md).
+
 ### <a name="release-changes-in-january-2019"></a>Cambios de la versión de enero de 2019
 
-* Se ha agregado la característica de instantánea para admitir la migración de datos entre suscripciones: [Instantánea](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot).
+* Se ha agregado la característica de instantánea para admitir la migración de datos entre suscripciones: [Instantánea](https://docs.microsoft.com/rest/api/cognitiveservices/face/snapshot). Para obtener más detalles en [cómo migrar los datos de cara a una suscripción diferente de la cara](Face-API-How-to-Topics/how-to-migrate-face-data.md).
 
 ### <a name="release-changes-in-october-2018"></a>Cambios de la versión de octubre de 2018
 

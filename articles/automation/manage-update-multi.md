@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 01/10/2019
+ms.date: 04/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 65ea01047743c5894ac2ae8b38a197b57cb6971c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 16fe2d23fdd07f8f150cc010b0a1d232c761c77f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531326"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884931"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Administración de actualizaciones para varias máquinas
 
@@ -29,7 +29,6 @@ Puede usar la solución Update Management para administrar las actualizaciones y
 
 Para usar Update Management, necesita lo siguiente:
 
-- Una cuenta de ejecución de Azure Automation Para saber cómo crear una, consulte [Introducción a Azure Automation](automation-offering-get-started.md).
 - Una máquina virtual o un equipo con uno de los sistemas operativos admitidos instalado.
 
 ## <a name="supported-operating-systems"></a>Sistemas operativos compatibles

@@ -7,15 +7,15 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 04/01/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6c340d6b410a289f8beca156f85472cb729b786a
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: de58f960842e0a4f8e9b964774ce62b3e2772113
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56427826"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863189"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Configuración de la suscripción y del inicio de sesión con una cuenta de LinkedIn mediante Azure Active Directory B2C
 
@@ -36,8 +36,11 @@ Para usar una cuenta de LinkedIn como [proveedor de identidades](active-director
 2. Asegúrese de que usa el directorio que contiene el inquilino de Azure AD B2C. Para ello, haga clic en el **filtro de directorio y suscripción** en el menú superior y elija el directorio que contiene el inquilino.
 3. Elija **Todos los servicios** en la esquina superior izquierda de Azure Portal, busque y seleccione **Azure AD B2C**.
 4. Seleccione **Proveedores de identidades** y, después, **Agregar**.
-5. Proporcione un **nombre**. Por ejemplo, escriba *LinkedIn*.
+5. Especifique un **nombre**. Por ejemplo, escriba *LinkedIn*.
 6. Seleccione **Identity provider type** (Tipo de proveedor de identidades), seleccione **LinkedIn** y haga clic en **Aceptar**.
 7. Seleccione **Set up this identity provider** (Configurar este proveedor de identidades) y escriba el identificador de cliente que anotó anteriormente como el valor de **Client ID**, y el secreto de cliente que registró como **Client Secret** de la aplicación de LinkedIn que creó anteriormente.
 8. Haga clic en **OK** (Aceptar) y en **Create** (Crear) para guardar la configuración de la cuenta de LinkedIn.
 
+## <a name="migration-from-v10-to-v20"></a>Migración desde v1.0, v2.0
+
+LinkedIn recientemente [actualizan sus API desde v1.0 v2.0](https://engineering.linkedin.com/blog/2018/12/developer-program-updates). Como parte de la migración, solo es capaz de obtener el nombre completo del usuario de LinkedIn durante la suscripción a Azure AD B2C. Si una dirección de correo electrónico es uno de los atributos que se recopilan durante el proceso de suscripción, el usuario debe manualmente escriba la dirección de correo electrónico y validarlo.

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aac7ca7aa67143f89d9247da879a6fad2cfbb7b5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0c12c75bd5c357613d55e04aed67c0cc901135e6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992489"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881093"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implementación de DBMS de Azure Virtual Machines de SQL Server para la carga de trabajo de SAP NetWeaver
 
@@ -235,7 +235,6 @@ ms.locfileid: "57992489"
 [planning-guide-microsoft-azure-networking]:planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
 [planning-guide-storage-microsoft-azure-storage-and-data-disks]:planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[powershell-install-configure]:https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps
 [resource-group-authoring-templates]:../../../resource-group-authoring-templates.md
 [resource-group-overview]:../../../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../../../networking/networking-overview.md
@@ -409,7 +408,7 @@ Tiene varias posibilidades para hacer copias de seguridad "manuales":
 2.  SQL Server 2012 CU4 y posterior puede realizar copias de seguridad de las bases de datos en una dirección URL de almacenamiento de Azure.
 3.  Copias de seguridad de instantáneas de archivo para archivos de base de datos en Azure Blob Storage. Este método solo funciona si los archivos de registro y los datos de SQL Server se encuentran en Azure Blob Storage.
 
-El primer método es muy conocido y también se aplica en muchos casos de ubicaciones locales. No obstante, le deja la tarea de resolver la ubicación de copia de seguridad a más largo plazo. Como no quiere conservar las copias de seguridad durante 30 o más días en el almacenamiento de Azure Storage conectado localmente, deberá usar los servicios de Azure Backup u otra herramienta de copia de seguridad o recuperación de terceros que incluya la administración de acceso y de retención de las copias de seguridad. La alternativa es crear en Azure un servidor de archivos de gran tamaño usando espacios de almacenamiento de Windows.
+El primer método es muy conocida y aplicadas en muchos casos, también del mundo en el entorno local. No obstante, le deja la tarea de resolver la ubicación de copia de seguridad a más largo plazo. Como no quiere conservar las copias de seguridad durante 30 o más días en el almacenamiento de Azure Storage conectado localmente, deberá usar los servicios de Azure Backup u otra herramienta de copia de seguridad o recuperación de terceros que incluya la administración de acceso y de retención de las copias de seguridad. La alternativa es crear en Azure un servidor de archivos de gran tamaño usando espacios de almacenamiento de Windows.
 
 El segundo método se describe con más detalle en el artículo [Copia de seguridad en URL de SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-2017). Hay distintas versiones de SQL Server que presentan algunas variaciones respecto a esta funcionalidad. Por lo tanto, debe consultar la documentación de la comprobación de su versión de SQL Server concreta. Es importante tener en cuenta que en este artículo se detallan numerosas restricciones. Tiene la posibilidad de hacer la copia de seguridad en:
 
@@ -451,7 +450,7 @@ Puesto que las imágenes de SQL Server en Azure Marketplace no están configurad
 * Abra una ventana de comandos de Windows como administrador.
 * Cambie el directorio a C:\Archivos de programa\Microsoft SQL Server\110\Setup Bootstrap\SQLServer2012.
 * Ejecute el comando: Setup.exe /QUIET /ACTION=REBUILDDATABASE /INSTANCENAME=MSSQLSERVER /SQLSYSADMINACCOUNTS=`<local_admin_account_name`> /SQLCOLLATION=SQL_Latin1_General_Cp850_BIN2.   
-  * `<local_admin_account_name`&gt; es la cuenta que se definió como cuenta de administrador al implementar la máquina virtual por primera vez por medio de la galería.
+  * `<local_admin_account_name`> es la cuenta, que se definió como cuenta de administrador al implementar la máquina virtual por primera vez a través de la galería.
 
 Este proceso solo debe llevar unos minutos. Para asegurarse de que obtiene el resultado correcto, realice los pasos siguientes:
 
@@ -477,8 +476,8 @@ Uno de los métodos de alta disponibilidad (HA) consiste en trasvasar los regist
 La funcionalidad de trasvase de registros de SQL Server apenas se usó en Azure para lograr una alta disponibilidad dentro de una región de Azure. En cambio, en los siguientes escenarios, los clientes de SAP usaban el trasvase de registros adecuadamente junto con Azure:
 
 - Escenarios de recuperación ante desastres de una región de Azure a otra
-- Configuración de la recuperación ante desastres de una ubicación local a una región de Azure
-- Escenarios de migración de una ubicación local a Azure. En esos casos, el trasvase de registros se usa para sincronizar la nueva implementación de DBMS en Azure con el sistema de producción local actual. En el momento de la migración, el sistema de producción se apaga y se garantiza que las copias de seguridad del registro de transacciones más recientes se hayan transferido a la implementación de DBMS de Azure. Después, la implementación de DBMS de Azure se abre para producción.  
+- Configuración de recuperación ante desastres locales en una región de Azure
+- Cortar sobre escenarios locales a Azure. En esos casos, el trasvase de registros se usa para sincronizar la nueva implementación de DBMS en Azure con el sistema de producción local actual. En el momento de la migración, el sistema de producción se apaga y se garantiza que las copias de seguridad del registro de transacciones más recientes se hayan transferido a la implementación de DBMS de Azure. Después, la implementación de DBMS de Azure se abre para producción.  
 
 
 
@@ -487,16 +486,16 @@ La funcionalidad de creación de reflejo de la base de datos, que es compatible 
 
 Al igual que con las implementaciones exclusivas en la nube, el método más fácil es tener otra configuración de dominio en Azure con el fin de albergar esas máquinas virtuales de DBMS (e, idealmente, las máquinas virtuales de SAP específicas) dentro de un dominio.
 
-Si un dominio no es posible, también se pueden usar certificados para los puntos de conexión de reflejo de la base de datos, como se describe aquí: <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
+Si un dominio no es posible, uno puede utilizar certificados para la base de datos a la creación de reflejo de los puntos de conexión como se describe aquí: <https://docs.microsoft.com/sql/database-engine/database-mirroring/use-certificates-for-a-database-mirroring-endpoint-transact-sql>
 
-Aquí encontrará un tutorial para configurar la creación de reflejo de la base de datos en Azure: <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
+Aquí encontrará un tutorial para configurar la creación de reflejo de base de datos en Azure: <https://docs.microsoft.com/sql/database-engine/database-mirroring/database-mirroring-sql-server> 
 
 ### <a name="sql-server-always-on"></a>SQL Server AlwaysOn
 Como AlwaysOn es compatible con un entorno de SAP local (consulte la nota de SAP [1772688]), se puede usar en combinación con SAP en Azure. Hay algunas consideraciones especiales respecto a implementar el agente de escucha de grupo de disponibilidad de SQL Server (no debe confundirse con el conjunto de disponibilidad de Azure), ya que Azure en este momento no permite crear un objeto AD o DNS como en las implementaciones locales. Por lo tanto, hay que realizar otros pasos de instalación para solucionar el comportamiento específico de Azure.
 
 Estas son algunas de las consideraciones que hay que tener en cuenta al usar un agente de escucha de grupo de disponibilidad:
 
-* Solo se puede usar un agente de escucha de grupo de disponibilidad con Windows Server 2012 o posterior como SO invitado de la máquina virtual. Para Windows Server 2012, debe asegurarse de que se aplica esta revisión: <https://support.microsoft.com/kb/2854082> 
+* Solo se puede usar un agente de escucha de grupo de disponibilidad con Windows Server 2012 o posterior como SO invitado de la máquina virtual. Para Windows Server 2012 debe asegurarse de que se aplica esta revisión: <https://support.microsoft.com/kb/2854082> 
 * Esta revisión no está disponible para Windows Server 2008 R2 y AlwaysOn tendría que usarse de la misma manera que la funcionalidad de creación de reflejo de base de datos mediante la especificación de un asociado de conmutación por error en la cadena de conexiones (se realiza mediante el parámetro de SAP default.pfl dbs/mss/server; consulte la nota de SAP [965908]).
 * Cuando se utiliza un agente de escucha de grupo de disponibilidad, las máquinas virtuales de la base de datos tienen que estar conectadas a un equilibrador de carga específico. Para evitar que Azure asigne nuevas direcciones IP en casos donde ambas máquinas virtuales se apaguen accidentalmente, se deben asignar direcciones IP estáticas a las interfaces de red de esas máquinas virtuales en la configuración de AlwaysOn (la definición de una dirección IP estática se describe en [este][virtual-networks-reserved-private-ip] artículo)
 * Hay que realizar algunos pasos especiales al crear la configuración del clúster WSFC: el clúster necesita una dirección IP especial, ya la funcionalidad actual de Azure asignaría el nombre del clúster a la misma dirección IP que el nodo donde se ha creado dicho clúster. Es decir, se debe realizar un paso manual para asignar una dirección IP diferente a la del clúster.
@@ -525,13 +524,13 @@ Hay una serie de clientes que usan el [Cifrado de datos transparente (TDE)](http
 ### <a name="applying-sql-server-tde"></a>Aplicar el TDE de SQL Server
 En casos en los que se efectúa una migración heterogénea desde otro DBMS, que se ejecuta de forma local, a Windows o SQL Server ejecutado en Azure, se debería crear con anticipación la base de datos de destino vacía en SQL Server. El siguiente paso sería aplicaría la funcionalidad de TDE de SQL Server mientras se sigue ejecutando el sistema de producción de forma local. El motivo de seguir esta secuencia es que el proceso de cifrado de la base de datos vacía puede tardar bastante. Luego, los procesos de importación SAP importarían los datos a la base de datos cifrada durante la fase de tiempo de inactividad. La sobrecarga de la importación a una base de datos cifrada tiene un impacto temporal mucho menor de manera que el cifrado de la base de datos después de la fase de exportación en la fase de tiempo de inactividad. Se han dado experiencias negativas al intentar aplicar TDE con la carga de trabajo de SAP ejecutada en la base de datos. Por lo tanto, se recomienda tratar la implementación de TDE como una actividad que debe llevarse a cabo sin ninguna carga de trabajo de SAP en la base de datos concreta.
 
-En casos en los que se mueven bases de datos de SQL Server de SAP desde una ubicación local a Azure, se recomienda probar en qué infraestructura se puede aplicar con mayor rapidez el cifrado. Respecto a esto, debe tener en cuenta estos factores:
+En casos donde mover las bases de datos de SQL Server de SAP desde local a Azure, se recomienda probar sobre qué infraestructura puede obtener el cifrado aplicado más rápido. Respecto a esto, debe tener en cuenta estos factores:
 
 - No puede definir la cantidad de subprocesos que se usan para aplicar el cifrado de datos a la base de datos. El número de subprocesos depende principalmente del número de volúmenes de disco por los que se distribuyen los datos y los archivos de registro de SQL Server. Significa que, cuantos más diferentes sean los volúmenes (letras de unidad), más subprocesos se ocuparán en paralelo para realizar el cifrado. Esta configuración se contradice un poco con una sugerencia anterior sobre la configuración de disco según la cual se crea uno o unos pocos espacios de almacenamiento para los archivos de base de datos de SQL Server en las máquinas virtuales de Azure. Una configuración con pocos volúmenes daría lugar a pocos subprocesos que ejecutan el cifrado. Un cifrado de un único subproceso lee extensiones de 64 KB, las cifra y, después, escribe un registro en el archivo de registro de transacciones indicando que se ha cifrado la extensión. Como resultado, la carga en el registro de transacciones es moderada.
-- En versiones anteriores de SQL Server, la compresión de copia de seguridad ya no implicaba eficacia alguna al cifrar la base de datos de SQL Server. Este comportamiento podría convertirse en un problema si su idea era cifrar la base de datos de SQL Server de forma local y, después, copiar una copia de seguridad en Azure para restaurar la base de datos en Azure. La compresión de copia de seguridad de SQL Server suele generar una razón de compresión de factor 4.
+- En versiones anteriores de SQL Server, la compresión de copia de seguridad ya no implicaba eficacia alguna al cifrar la base de datos de SQL Server. Este comportamiento puede desarrollar un problema cuando era el plan cifrar la base de datos SQL Server en local y, a continuación, copie una copia de seguridad en Azure para restaurar la base de datos en Azure. La compresión de copia de seguridad de SQL Server suele generar una razón de compresión de factor 4.
 - Con SQL Server 2016, SQL Server introdujo una nueva funcionalidad que también permite comprimir bases de datos cifradas de una forma eficiente. Consulte [este blog](https://blogs.msdn.microsoft.com/sqlcat/2016/06/20/sqlsweet16-episode-1-backup-compression-for-tde-enabled-databases/) para obtener información detallada.
  
-Si solo trata la aplicación del cifrado de TDE con ninguna o con una carga de trabajo de SAP ínfima, debería efectuar pruebas en su configuración específica sobre si es mejor aplicar el TDE a la base de datos de SAP local o aplicarlo a Azure. En Azure sin duda tiene más flexibilidad en términos de exceso de aprovisionamiento de infraestructura y de reducir la infraestructura una vez aplicado el TDE.
+Tratamiento de la aplicación del cifrado TDE no para poca carga de trabajo SAP solo, debe probar en su configuración específica de si es mejor para TDE se aplican a la base de datos SAP en local o hacerlo en Azure. En Azure sin duda tiene más flexibilidad en términos de exceso de aprovisionamiento de infraestructura y de reducir la infraestructura una vez aplicado el TDE.
 
 ### <a name="using-azure-key-vault"></a>Usar Azure Key Vault
 Azure ofrece el servicio de un [almacén de claves](https://azure.microsoft.com/services/key-vault/) para almacenar claves de cifrado. Por otro lado, SQL Server ofrece un conector para aprovechar Azure Key Vault como almacén para los certificados de TDE.

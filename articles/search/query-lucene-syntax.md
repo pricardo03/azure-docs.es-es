@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f1eba2da1404f5b47d137b3c4f7b4cb9ceab43ea
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 64a688df3b6ed8602bb440d72e7f061c5f5893d1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438060"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885611"
 ---
 # <a name="lucene-query-syntax-in-azure-search"></a>Sintaxis de consulta de Lucene en Azure Search
 Puede escribir consultas en Azure Search basadas en la sintaxis enriquecida del [analizador de consultas de Lucene](https://lucene.apache.org/core/4_10_2/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) para formularios de consulta especializados, por ejemplo, carácter comodín, búsqueda aproximada, búsqueda por proximidad o expresiones regulares. Gran parte de la sintaxis del analizador de consultas de Lucene [se implementa tal cual en Azure Search](search-lucene-query-architecture.md), a excepción de las *búsquedas de intervalo* que se construyen en Azure Search mediante expresiones `$filter`. 
@@ -85,7 +85,7 @@ El ejemplo anterior es la tilde (~), pero el mismo principio se aplica a todos l
 
  Asegúrese de que todos los caracteres reservados y no seguros están codificados en una dirección URL. Por ejemplo, "#" es un carácter no seguro porque es un identificador de delimitador o fragmento en una dirección URL. El carácter debe codificarse con `%23` si se usa en una dirección URL. "&" y "=" son ejemplos de caracteres reservados, ya que delimitan parámetros y especifican valores en Azure Search. Consulte [RFC1738: Localizadores uniformes de recursos (URL)](https://www.ietf.org/rfc/rfc1738.txt) para más información.
 
- Los caracteres no seguros son ``" ` < > # % { } | \ ^ ~ [ ] ``. Los caracteres reservados son `; / ? : @ = + &`.
+ Los caracteres no seguros son ``" ` < > # % { } | \ ^ ~ [ ]``. Los caracteres reservados son `; / ? : @ = + &`.
 
 ### <a name="precedence-operators-grouping-and-field-grouping"></a>Operadores de precedencia: agrupación y agrupación de campos  
  Puede usar paréntesis para crear subconsultas, incluidos los operadores dentro de la instrucción entre paréntesis. Por ejemplo, `motel+(wifi||luxury)` buscará los documentos que contengan el término "motel" y "wifi" o "luxury" (o ambos).
@@ -168,5 +168,5 @@ En el siguiente ejemplo se muestran las diferencias. Suponga que hay un perfil d
 ## <a name="see-also"></a>Vea también  
 
 + [Buscar en documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
-+ [OData expression syntax for filters and sorting](query-odata-filter-orderby-syntax.md) (Sintaxis de expresiones de OData para filtros y ordenación)   
-+ [Simple query syntax in Azure Search](query-simple-syntax.md) (Sintaxis de consulta simple en Azure Search)   
++ [Sintaxis de expresiones de OData para filtros y la ordenación](query-odata-filter-orderby-syntax.md)   
++ [Sintaxis de consulta simple en Azure Search](query-simple-syntax.md)   

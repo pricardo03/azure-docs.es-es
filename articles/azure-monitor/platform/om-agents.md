@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 2768a23c217052a342538b67ec59868e25fd4914
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 19ae3322d26447cf7c7dd94d06f073ccf013738e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793822"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878364"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Conectar Operations Manager a Azure Monitor
 
@@ -66,7 +66,7 @@ La información siguiente muestra la información de configuración de proxy y f
 
 |Recurso | Número de puerto| Omitir inspección de HTTP|  
 |---------|------|-----------------------|  
-|**Agent**|||  
+|**Agente**|||  
 |\*.ods.opinsights.azure.com| 443 |Sí|  
 |\*.oms.opinsights.azure.com| 443|Sí|  
 |\*blob.core.windows.net| 443|Sí|  
@@ -220,7 +220,7 @@ Módulos de administración para las soluciones ha habilitado que se integran co
     > Compruebe que no tiene ningún módulo de administración personalizado con la palabra Advisor o IntelligencePack en el nombre antes de continuar. De lo contrario, los siguientes pasos los eliminarán del grupo de administración.
     > 
 
-1. Desde el símbolo del shell de comandos, escriba `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
+1. En el símbolo del shell de comandos, escriba `Get-SCOMManagementPack -name "*Advisor*" | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 1. Después, escriba `Get-SCOMManagementPack -name “*IntelligencePack*” | Remove-SCOMManagementPack -ErrorAction SilentlyContinue`
 1. Para quitar los módulos de administración restantes que tienen una dependencia en otros módulos de administración de System Center Advisor, use el script *RecursiveRemove.ps1* que descargó antes desde el centro de scripts de TechNet.  
  
@@ -345,7 +345,7 @@ Para eliminar los dos conectores (Microsoft.SystemCenter.Advisor.DataConnector y
 En el futuro, si planea volver a conectar su grupo de administración a un área de trabajo de Log Analytics, necesitará volver a importar el archivo del módulo de administración `Microsoft.SystemCenter.Advisor.Resources.\<Language>\.mpb`. Según la versión de System Center Operations Manager implementada en el entorno, puede encontrar este archivo en la siguiente ubicación:
 
 * En los medios de origen de la carpeta `\ManagementPacks` para System Center 2016 - Operations Manager y versiones posteriores.
-* Desde el paquete acumulativo de actualizaciones más reciente que se aplica al grupo de administración. En Operations Manager 2012, la carpeta de origen es ` %ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` y, para la versión 2012 R2, se encuentra en `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
+* Desde el paquete acumulativo de actualizaciones más reciente que se aplica al grupo de administración. Operations Manager 2012, la carpeta de origen es `%ProgramFiles%\Microsoft System Center 2012\Operations Manager\Server\Management Packs for Update Rollups` y 2012 R2, se encuentra en `System Center 2012 R2\Operations Manager\Server\Management Packs for Update Rollups`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

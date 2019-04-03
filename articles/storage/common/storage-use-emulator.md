@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: fa5dfabeae829d52475d2e3cd6ccb123d8308c7c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bc78dade345c9f9c72cf936136d9969b79bc1398
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013563"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878594"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Uso del emulador de Azure Storage para desarrollo y pruebas
 
@@ -139,9 +139,9 @@ Por ejemplo, la siguiente dirección se puede usar para obtener acceso a un blob
 
 Los extremos de servicio para el emulador de almacenamiento son:
 
-* Blob service: `http://127.0.0.1:10000/<account-name>/<resource-path>`
-* Queue service: `http://127.0.0.1:10001/<account-name>/<resource-path>`
-* Table service: `http://127.0.0.1:10002/<account-name>/<resource-path>`
+* Servicio BLOB: `http://127.0.0.1:10000/<account-name>/<resource-path>`
+* Servicio cola: `http://127.0.0.1:10001/<account-name>/<resource-path>`
+* Servicio de tabla: `http://127.0.0.1:10002/<account-name>/<resource-path>`
 
 ### <a name="addressing-the-account-secondary-with-ra-grs"></a>Direccionar la cuenta secundaria con RA-GRS
 A partir de la versión 3.1, el emulador de almacenamiento admite la replicación con redundancia geográfica con acceso de lectura (RA-GRS). Para los recursos de almacenamiento en la nube y en el emulador local, puedes obtener acceso a la ubicación de la cuenta secundaria si anexa -secondary al nombre de la cuenta. Por ejemplo, la siguiente dirección se puede usar para obtener acceso a un blob usando la cuenta secundaria de solo lectura en el emulador de almacenamiento:
@@ -170,9 +170,9 @@ Para ver la lista de opciones, escriba `/help` en el símbolo del sistema.
 | Opción | DESCRIPCIÓN | Get-Help | Argumentos |
 | --- | --- | --- | --- |
 | **Iniciar** |Inicia el emulador de almacenamiento. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: inicia el emulador en el proceso actual en lugar de crear un nuevo proceso. |
-| **Detención** |Detiene el emulador de almacenamiento. |`AzureStorageEmulator.exe stop` | |
-| **Estado** |Imprime el estado del emulador de almacenamiento. |`AzureStorageEmulator.exe status` | |
-| **Borrar** |Borra los datos de todos los servicios especificados en la línea de comandos. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]                                                    ` |*blob*: borra datos del blob. <br/>*queue*: borra datos de la cola. <br/>*table*: borra datos de la tabla. <br/>*all*: borra todos los datos de todos los servicios. |
+| **Stop** |Detiene el emulador de almacenamiento. |`AzureStorageEmulator.exe stop` | |
+| **Status** |Imprime el estado del emulador de almacenamiento. |`AzureStorageEmulator.exe status` | |
+| **Clear** |Borra los datos de todos los servicios especificados en la línea de comandos. |`AzureStorageEmulator.exe clear [blob] [table] [queue] [all]` |*blob*: borra datos del blob. <br/>*queue*: borra datos de la cola. <br/>*table*: borra datos de la tabla. <br/>*all*: borra todos los datos de todos los servicios. |
 | **Init** |Realiza una inicialización única para configurar el emulador. |<code>AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate&#124;-skipcreate] [-reserveports&#124;-unreserveports] [-inprocess]</code> |*-server serverName\instanceName*: especifica el servidor que hospeda la instancia de SQL. <br/>*-sqlinstance instanceName*: especifica el nombre de la instancia de SQL que se usará en la instancia de servidor predeterminada. <br/>*-forcecreate*: fuerza la creación de la instancia de SQL Database, aunque ya exista. <br/>*-skipcreate*: mite la creación de la instancia de SQL Database. Esto tiene prioridad sobre -forcecreate.<br/>*-reserveports*: intenta reservar los puertos HTTP asociados con los servicios.<br/>*-unreserveports*: intenta quitar las reservas de los puertos HTTP asociados con los servicios. Esto tiene prioridad sobre -reserveports.<br/>*-inprocess*: realiza la inicialización en el proceso actual, en lugar de generar un proceso nuevo. Tiene que iniciar el proceso actual con permisos elevados si se cambian las reservas de puerto. |
 
 ## <a name="differences-between-the-storage-emulator-and-azure-storage"></a>Diferencias entre el emulador de almacenamiento y Azure Storage

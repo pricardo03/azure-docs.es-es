@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0facd15d8bc0701448707f48b5a1e93fe3ac592c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 936ad2e49aaf449144296dd941a3fbc42719fe4f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56200739"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879036"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Tutorial: Integración de Azure Active Directory con Skillport
 
@@ -99,7 +99,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Skillport, 
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación Skillport.
 
-**Para configurar el inicio de sesión único de Azure AD con Skillport, siga los pasos siguientes:**
+**Para configurar el inicio de sesión único en Azure AD con Skillport, realice los pasos siguientes:**
 
 1. En la página de integración de la aplicación **Skillport** de Azure Portal, haga clic en **Inicio de sesión único**.
 
@@ -115,19 +115,19 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
      a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL:
       
-      Centro de datos de UE: `https://adfs.skillport.eu`
+      Centro de datos de la UE: `https://adfs.skillport.eu`
    
       Centro de datos de EE. UU.: `https://sso.skillport.com`
 
     b. En el cuadro de texto **Identificador**, escriba la dirección URL:
       
-      Centro de datos de UE: `http://adfs.skillport.eu/adfs/services/trust`
+      Centro de datos de la UE: `http://adfs.skillport.eu/adfs/services/trust`
    
       Centro de datos de EE. UU.: `https://sso.skillport.com`
    
     c. En el cuadro de texto **URL de respuesta**, escriba la siguiente dirección URL:
     
-      Centro de datos de UE: ` https://adfs.skillport.eu/adfs/ls/`
+      Centro de datos de la UE: `https://adfs.skillport.eu/adfs/ls/`
     
       Centro de datos de EE. UU.: `https://sso.skillport.com/sp/ACS.saml2`
  
@@ -146,7 +146,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 ![Creación de un usuario de Azure AD][100]
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+**Para crear un usuario de prueba en Azure AD, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **Azure Portal**, haga clic en el icono de **Azure Active Directory**.
 

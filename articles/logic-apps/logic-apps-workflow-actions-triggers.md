@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/22/2018
-ms.openlocfilehash: 066c8bc3edfc2bf36b4d96f787d6db6f16daec9b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: c817f017c7394943864e7f20a130c90d3f8485d9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856831"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885985"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referencia sobre los tipos de desencadenador y de acción del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 
@@ -78,8 +78,8 @@ Cada tipo de desencadenador tiene una interfaz distinta y entradas que definen e
 |--------------|-------------| 
 | [**HTTP**](#http-trigger) | Comprueba o *sondea* cualquier punto de conexión. El punto de conexión debe ajustarse a un contrato de desencadenamiento específico, ya sea mediante un patrón asincrónico "202" o devolviendo una matriz. | 
 | [**HTTPWebhook**](#http-webhook-trigger) | Crea un punto de conexión invocable para la aplicación lógica pero llama a la dirección URL especificada para registrar o anular el registro. |
-| [**Recurrence**](#recurrence-trigger) | Se desencadena en función de una programación definida. Puede establecer una fecha y hora futuras para activar este desencadenador. Según la frecuencia, también puede especificar las horas y días para ejecutar el flujo de trabajo. | 
-| [**Request**](#request-trigger)  | Crea un punto de conexión invocable para la aplicación lógica, también conocido como desencadenador "manual". Por ejemplo, consulte [Llamada, desencadenamiento o anidamiento de flujos de trabajo con puntos de conexión HTTP en aplicaciones lógicas](../logic-apps/logic-apps-http-endpoint.md). | 
+| [**Periodicidad**](#recurrence-trigger) | Se desencadena en función de una programación definida. Puede establecer una fecha y hora futuras para activar este desencadenador. Según la frecuencia, también puede especificar las horas y días para ejecutar el flujo de trabajo. | 
+| [**Solicitud**](#request-trigger)  | Crea un punto de conexión invocable para la aplicación lógica, también conocido como desencadenador "manual". Por ejemplo, consulte [Llamada, desencadenamiento o anidamiento de flujos de trabajo con puntos de conexión HTTP en aplicaciones lógicas](../logic-apps/logic-apps-http-endpoint.md). | 
 ||| 
 
 ### <a name="managed-api-triggers"></a>Desencadenadores de API administrados
@@ -147,11 +147,11 @@ Este desencadenador comprueba o *sondea* un punto de conexión mediante [API adm
 | <*query-parameters*> | Objeto JSON | Cualquier parámetro de consulta que desee incluir con la llamada API. Por ejemplo, el objeto `"queries": { "api-version": "2018-01-01" }` agrega `?api-version=2018-01-01` a la llamada. | 
 | <*max-runs*> | Entero | De forma predeterminada, las instancias del flujo de trabajo de la aplicación lógica se ejecutan al mismo tiempo o en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Entero | Cuando la aplicación lógica está ejecutando el número máximo de instancias, número que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, cualquier nueva ejecución se pondrá en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
-| <*splitOn-expression*> | string | Para los desencadenadores que devuelven matrices, esta expresión hace referencia a la matriz que se usará para que pueda crear y ejecutar una instancia de flujo de trabajo para cada elemento de la matriz, en lugar de usar un bucle "foreach". <p>Por ejemplo, esta expresión representa un elemento de la matriz devuelto en el contenido del cuerpo del desencadenador: `@triggerbody()?['value']` |
+| <*splitOn-expression*> | string | Para los desencadenadores que devuelven matrices, esta expresión hace referencia a la matriz que se usará para que pueda crear y ejecutar una instancia de flujo de trabajo para cada elemento de la matriz, en lugar de usar un bucle "foreach". <p>Por ejemplo, esta expresión representa un elemento de la matriz devuelta en el contenido del cuerpo del desencadenador: `@triggerbody()?['value']` |
 | <*operation-option*> | string | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). |
 ||||
 
-*Outputs*
+*Salidas*
  
 | Elemento | Type | DESCRIPCIÓN |
 |---------|------|-------------|
@@ -237,7 +237,7 @@ Este desencadenador envía una solicitud de suscripción a un punto de conexión
 | <*query-parameters*> | Objeto JSON | Cualquier parámetro de consulta que desee incluir con la llamada API <p>Por ejemplo, el objeto `"queries": { "api-version": "2018-01-01" }` agrega `?api-version=2018-01-01` a la llamada. | 
 | <*max-runs*> | Entero | De forma predeterminada, las instancias del flujo de trabajo de la aplicación lógica se ejecutan al mismo tiempo o en paralelo hasta el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar este límite con un nuevo valor <*count*>, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency). | 
 | <*max-runs-queue*> | Entero | Cuando la aplicación lógica está ejecutando el número máximo de instancias, número que puede cambiar en función de la propiedad `runtimeConfiguration.concurrency.runs`, cualquier nueva ejecución se pondrá en esta cola hasta alcanzar el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | 
-| <*splitOn-expression*> | string | Para los desencadenadores que devuelven matrices, esta expresión hace referencia a la matriz que se usará para que pueda crear y ejecutar una instancia de flujo de trabajo para cada elemento de la matriz, en lugar de usar un bucle "foreach". <p>Por ejemplo, esta expresión representa un elemento de la matriz devuelto en el contenido del cuerpo del desencadenador: `@triggerbody()?['value']` |
+| <*splitOn-expression*> | string | Para los desencadenadores que devuelven matrices, esta expresión hace referencia a la matriz que se usará para que pueda crear y ejecutar una instancia de flujo de trabajo para cada elemento de la matriz, en lugar de usar un bucle "foreach". <p>Por ejemplo, esta expresión representa un elemento de la matriz devuelta en el contenido del cuerpo del desencadenador: `@triggerbody()?['value']` |
 | <*operation-option*> | string | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
 |||| 
 
@@ -324,7 +324,7 @@ Este desencadenador comprueba o sondea el punto de conexión especificado según
 | <*operation-option*> | string | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
 |||| 
 
-*Outputs*
+*Salidas*
 
 | Elemento | Type | DESCRIPCIÓN |
 |---------|------|-------------| 
@@ -333,7 +333,7 @@ Este desencadenador comprueba o sondea el punto de conexión especificado según
 | Código de estado | Entero | El código de estado de la respuesta | 
 |||| 
 
-*Requisitos de las solicitudes entrantes*
+*Requisitos para las solicitudes entrantes*
 
 Para que funcione bien con la aplicación lógica, el punto de conexión debe cumplir con un patrón de desencadenador específico o un contrato y reconocer estas propiedades:  
   
@@ -344,7 +344,7 @@ Para que funcione bien con la aplicación lógica, el punto de conexión debe cu
 | Encabezado Location | Sin  | La dirección URL para llamar en el siguiente intervalo de sondeo. Si no se especifica, se usa la dirección URL original. | 
 |||| 
 
-*Comportamientos de ejemplo para solicitudes distintas*
+*Comportamientos de ejemplo para diferentes solicitudes*
 
 | Código de estado | Reintentar después | Comportamiento | 
 |-------------|-------------|----------|
@@ -419,7 +419,7 @@ Algunos de los valores, como <*method-type*>, están disponibles para objetos `"
 | <*operation-option*> | string | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
 |||| 
 
-*Outputs* 
+*Salidas* 
 
 | Elemento | Type | DESCRIPCIÓN |
 |---------|------|-------------| 
@@ -513,7 +513,7 @@ Este desencadenador se ejecuta según la programación de periodicidad especific
 | <*operation-option*> | string | Puede cambiar el comportamiento predeterminado estableciendo la propiedad `operationOptions`. Para más información, consulte [Opciones de operación](#operation-options). | 
 |||| 
 
-*Ejemplo 1*
+*Ejemplo 1*
 
 La periodicidad básica con que se ejecuta diariamente el desencadenador:
 
@@ -527,7 +527,7 @@ La periodicidad básica con que se ejecuta diariamente el desencadenador:
 }
 ```
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Puede especificar una fecha y hora de inicio para activar el desencadenador. Este desencadenador de periodicidad se inicia en la fecha especificada y luego se activa a diario:
 
@@ -542,7 +542,7 @@ Puede especificar una fecha y hora de inicio para activar el desencadenador. Est
 }
 ```
 
-*Ejemplo 3*
+*Ejemplo 3*
 
 Este desencadenador de periodicidad se inicia el 9 de septiembre de 2017 a las 2:00 p.m. y se activa semanalmente cada lunes a las 10:30 a.m., 12:30 p.m. y 2:30 p.m., Hora estándar del Pacífico:
 
@@ -819,18 +819,18 @@ Estos son algunos tipos de acción de uso frecuente:
 
 | Tipo de acción | DESCRIPCIÓN | 
 |-------------|-------------| 
-| [**Redactar**](#compose-action) | Crea una única salida a partir de las entradas y puede tener varios tipos. | 
-| [**Function**](#function-action) | Llama a una función de Azure. | 
+| [**Compose**](#compose-action) | Crea una única salida a partir de las entradas y puede tener varios tipos. | 
+| [**Función**](#function-action) | Llama a una función de Azure. | 
 | [**HTTP**](#http-action) | Llama a un punto de conexión HTTP. | 
-| [**Combinar**](#join-action) | Crea una cadena con todos los elementos de una matriz y los separa con el carácter delimitador especificado. | 
-| [**Análisis del archivo JSON**](#parse-json-action) | Crea tokens fáciles de usar a partir de propiedades del contenido JSON. Posteriormente, puede hacer referencia a esas propiedades mediante la inclusión de los tokens en la aplicación lógica. | 
-| [**Consulta**](#query-action) | Crea una matriz a partir de elementos de otra matriz basándose en una condición o un filtro. | 
-| [**Respuesta**](#response-action) | Crea una respuesta a una solicitud o una llamada entrante. | 
+| [**Unión**](#join-action) | Crea una cadena con todos los elementos de una matriz y los separa con el carácter delimitador especificado. | 
+| [**Parse JSON**](#parse-json-action) | Crea tokens fáciles de usar a partir de propiedades del contenido JSON. Posteriormente, puede hacer referencia a esas propiedades mediante la inclusión de los tokens en la aplicación lógica. | 
+| [**Consultar**](#query-action) | Crea una matriz a partir de elementos de otra matriz basándose en una condición o un filtro. | 
+| [**Response**](#response-action) | Crea una respuesta a una solicitud o una llamada entrante. | 
 | [**Seleccionar**](#select-action) | Crea una matriz con objetos JSON mediante la transformación de los elementos de otra matriz según la asignación especificada. | 
 | [**Tabla**](#table-action) | Crea una tabla CSV o HTML a partir de una matriz. | 
-| [**Terminate**](#terminate-action) | Detiene un flujo de trabajo que se está ejecutando activamente. | 
+| [**Finalizar**](#terminate-action) | Detiene un flujo de trabajo que se está ejecutando activamente. | 
 | [**Esperar**](#wait-action) | Pone en pausa el flujo de trabajo durante un tiempo especificado o hasta la fecha y hora especificadas. | 
-| [**Workflow**](#workflow-action) | Anida un flujo de trabajo dentro de otro flujo de trabajo. | 
+| [**Flujo de trabajo**](#workflow-action) | Anida un flujo de trabajo dentro de otro flujo de trabajo. | 
 ||| 
 
 <a name="managed-api-actions"></a>
@@ -852,10 +852,10 @@ Estas acciones le ayudan a controlar la ejecución del flujo de trabajo e incluy
 | Tipo de acción | DESCRIPCIÓN | 
 |-------------|-------------| 
 | [**ForEach**](#foreach-action) | Ejecuta las mismas acciones en un bucle para todos los elementos de una matriz. | 
-| [**If**](#if-action) | Ejecuta acciones en función de si la condición especificada es true o false. | 
-| [**Scope**](#scope-action) | Ejecuta acciones según el estado del grupo a partir de un conjunto de acciones. | 
+| [**Si**](#if-action) | Ejecuta acciones en función de si la condición especificada es true o false. | 
+| [**Ámbito**](#scope-action) | Ejecuta acciones según el estado del grupo a partir de un conjunto de acciones. | 
 | [**Switch**](#switch-action) | Ejecuta acciones que se organizan en casos cuando los valores de las expresiones, objetos o tokens coinciden con los valores especificados por cada caso. | 
-| [**Until**](#until-action) | Ejecuta acciones en un bucle hasta que la condición especificada es true. | 
+| [**Hasta**](#until-action) | Ejecuta acciones en un bucle hasta que la condición especificada es true. | 
 |||  
 
 ## <a name="actions---detailed-reference"></a>Acciones: referencia detallada
@@ -1013,9 +1013,11 @@ Posteriormente, puede usar la salida de la acción en otras acciones.
 | <*inputs-to-compose*> | Cualquiera | Las entradas para la creación de una única salida | 
 |||| 
 
-*Ejemplo 1*
+*Ejemplo 1*
 
+<!-- markdownlint-disable MD038 -->
 Esta definición de acción combina `abcdefg ` con un espacio final y con el valor `1234`:
+<!-- markdownlint-enable MD038 -->
 
 ```json
 "Compose": {
@@ -1029,7 +1031,7 @@ Esta es la salida que esta acción crea:
 
 `abcdefg 1234`
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Esta definición de la acción combina una variable de cadena que contiene `abcdefg` y una variable de entero que contiene `1234`:
 
@@ -1203,7 +1205,7 @@ Supongamos que ha creado anteriormente la variable "myIntegerArray" que contiene
 
 `[1,2,3,4]` 
 
-Esta definición de acción obtiene los valores de la variable mediante la función `variables()` en una expresión y crea esta cadena con esos valores separados por una coma: `"1,2,3,4"`
+Esta definición de la acción obtiene los valores de la variable mediante el `variables()` en una expresión de función y crea esta cadena con esos valores, que están separados por punto y coma: `"1,2,3,4"`
 
 ```json
 "Join": {
@@ -1245,7 +1247,7 @@ Esta acción crea campos o *tokens* fáciles de usar a partir de las propiedades
 
 Esta definición de acción crea estos tokens que puede usar en el flujo de trabajo de la aplicación lógica pero solo en acciones que ejecuten la siguiente acción **Análisis del archivo JSON**: 
 
-`FirstName`, `LastName` y `Email`
+`FirstName`, `LastName`, y `Email`
 
 ```json
 "Parse_JSON": {
@@ -1567,7 +1569,7 @@ Para especificar o personalizar los encabezados y los valores de columna, use la
 | <*column-value*> | Cualquiera | El valor de esa columna | 
 |||| 
 
-*Ejemplo 1*
+*Ejemplo 1*
 
 Supongamos que ha creado anteriormente la variable "myItemArray" que contiene actualmente esta matriz: 
 
@@ -1594,7 +1596,7 @@ ID,Product_Name
 1,Oranges 
 ```
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Esta definición de acción crea una tabla HTML a partir de la variable "myItemArray". La expresión utilizada por la propiedad `from` obtiene la matriz a partir de "myItemArray" mediante la función `variables()`: 
 
@@ -1613,7 +1615,7 @@ Esta es la tabla HTML que esta acción crea:
 
 <table><thead><tr><th>ID</th><th>Product_Name</th></tr></thead><tbody><tr><td>0</td><td>Apples (Manzanas)</td></tr><tr><td>1</td><td>Oranges</td></tr></tbody></table>
 
-*Ejemplo 3*
+*Ejemplo 3*
 
 Esta definición de acción crea una tabla HTML a partir de la variable "myItemArray". Sin embargo, este ejemplo reemplaza los nombres de los encabezados de columna predeterminados por "Stock_ID" y "Description", y agrega la palabra "Organic" a los valores de la columna "Description".
 
@@ -1718,7 +1720,7 @@ Esta acción detiene la ejecución del flujo de trabajo durante el intervalo esp
 },
 ```
 
-*Hora especificada*
+*Tiempo especificado*
 
 ```json
 "Delay_until": {
@@ -1741,7 +1743,7 @@ Esta acción detiene la ejecución del flujo de trabajo durante el intervalo esp
 | <*date-time-stamp*> | string | Para la acción **Delay Until**, la fecha y hora en la que se reanudará la ejecución. Este valor debe usar el [formato UTC de fecha y hora](https://en.wikipedia.org/wiki/Coordinated_Universal_Time). | 
 |||| 
 
-*Ejemplo 1*
+*Ejemplo 1*
 
 Esta definición de acción detiene el flujo de trabajo durante 15 minutos:
 
@@ -1758,7 +1760,7 @@ Esta definición de acción detiene el flujo de trabajo durante 15 minutos:
 },
 ```
 
-*Ejemplo 2*
+*Ejemplo 2*
 
 Esta definición de acción detiene el flujo de trabajo hasta la hora especificada:
 
@@ -1824,7 +1826,7 @@ El motor de Logic Apps comprueba el acceso al desencadenador que desea llamar, a
 | <*body-content*> | Objeto JSON | Cualquier contenido de mensaje que se vaya a enviar con la llamada | 
 ||||
 
-*Outputs*
+*Salidas*
 
 Las salidas de esta acción varían en función de la acción Respuesta de la aplicación lógica anidada. Si la aplicación lógica anidada no incluye una acción Respuesta, las salidas estarán vacías.
 
@@ -2297,7 +2299,7 @@ Puede cambiar el comportamiento predeterminado del runtime para los desencadenad
 |----------|------|-------------|-------------------| 
 | `runtimeConfiguration.concurrency.runs` | Entero | Cambie el [*límite predeterminado*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) en el número de instancias de aplicaciones lógicas que se pueden ejecutar al mismo tiempo o en paralelo. Este valor puede ayudar a limitar el número de solicitudes que reciben los sistemas de back-end. <p>Establecer la propiedad `runs` en `1` funciona del mismo modo que establecer la propiedad `operationOptions` en `SingleInstance`. Puede establecer una propiedad u otra, pero no ambas. <p>Para cambiar el límite predeterminado, consulte [Cambio en la simultaneidad de desencadenadores](#change-trigger-concurrency) o [Desencadenamiento secuencial de instancias](#sequential-trigger). | Todos los desencadenadores | 
 | `runtimeConfiguration.concurrency.maximumWaitingRuns` | Entero | Establezca el [*límite predeterminado*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) en el número de instancias de aplicaciones lógicas que se pueden poner en espera de ejecución en caso de que la aplicación lógica ya esté ejecutando el número máximo de instancias simultáneas. Puede cambiar el límite de simultaneidad en la propiedad `concurrency.runs`. <p>Para cambiar el límite predeterminado, consulte [Cambio del límite de ejecuciones en espera](#change-waiting-runs). | Todos los desencadenadores | 
-| `runtimeConfiguration.concurrency.repetitions` | Entero | Cambie el [*límite predeterminado*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) en el número de iteraciones de bucles "for each" que se pueden ejecutar al mismo tiempo o en paralelo. <p>Establecer la propiedad `repetitions` en `1` funciona del mismo modo que establecer la propiedad `operationOptions` en `SingleInstance`. Puede establecer una propiedad u otra, pero no ambas. <p>Para cambiar el límite predeterminado, consulte [Cambio de la simultaneidad de los bucles "for each"](#change-for-each-concurrency) o [Ejecución secuencial de bucles "for each"](#sequential-for-each). | Acción: <p>[Foreach](#foreach-action) | 
+| `runtimeConfiguration.concurrency.repetitions` | Entero | Cambie el [*límite predeterminado*](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits) en el número de iteraciones de bucles "for each" que se pueden ejecutar al mismo tiempo o en paralelo. <p>Establecer la propiedad `repetitions` en `1` funciona del mismo modo que establecer la propiedad `operationOptions` en `SingleInstance`. Puede establecer una propiedad u otra, pero no ambas. <p>Para cambiar el límite predeterminado, consulte [Cambio de la simultaneidad de los bucles "for each"](#change-for-each-concurrency) o [Ejecución secuencial de bucles "for each"](#sequential-for-each). | Acción: <p>[foreach](#foreach-action) | 
 ||||| 
 
 <a name="operation-options"></a>
@@ -2308,9 +2310,9 @@ Puede cambiar el comportamiento predeterminado de los desencadenadores y accione
 
 | Opción de operación | Type | DESCRIPCIÓN | Desencadenador o acción | 
 |------------------|------|-------------|-------------------| 
-| `DisableAsyncPattern` | string | Ejecuta acciones basadas en HTTP sincrónicamente en lugar de hacerlo de forma asincrónica. <p><p>Para establecer esta opción, consulte [Ejecutar acciones sincrónicamente](#asynchronous-patterns). | Acciones: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Respuesta](#response-action) | 
+| `DisableAsyncPattern` | string | Ejecuta acciones basadas en HTTP sincrónicamente en lugar de hacerlo de forma asincrónica. <p><p>Para establecer esta opción, consulte [Ejecutar acciones sincrónicamente](#asynchronous-patterns). | Acciones: <p>[ApiConnection](#apiconnection-action), <br>[HTTP](#http-action), <br>[Response](#response-action) | 
 | `OptimizedForHighThroughput` | string | Cambia el [límite predeterminado](../logic-apps/logic-apps-limits-and-config.md#throughput-limits) del número de ejecuciones de acciones por cada 5 minutos al [límite máximo](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). <p><p>Para establecer esta opción, consulte [Ejecutar en modo de alto rendimiento](#run-high-throughput-mode). | Todas las acciones | 
-| `Sequential` | string | Ejecuta iteraciones de bucles "for each" una a una, en lugar de todas al mismo tiempo en paralelo. <p>Esta opción funciona de la misma manera que establecer la propiedad `runtimeConfiguration.concurrency.repetitions` en `1`. Puede establecer una propiedad u otra, pero no ambas. <p><p>Para más información, consulte [Ejecución secuencial de bucles "for each"](#sequential-for-each).| Acción: <p>[Foreach](#foreach-action) | 
+| `Sequential` | string | Ejecuta iteraciones de bucles "for each" una a una, en lugar de todas al mismo tiempo en paralelo. <p>Esta opción funciona de la misma manera que establecer la propiedad `runtimeConfiguration.concurrency.repetitions` en `1`. Puede establecer una propiedad u otra, pero no ambas. <p><p>Para más información, consulte [Ejecución secuencial de bucles "for each"](#sequential-for-each).| Acción: <p>[foreach](#foreach-action) | 
 | `SingleInstance` | string | Ejecuta secuencialmente el desencadenador de cada instancia de aplicación lógica y espera a que termine la ejecución anteriormente activa antes de desencadenar la siguiente instancia de aplicación lógica. <p><p>Esta opción funciona de la misma manera que establecer la propiedad `runtimeConfiguration.concurrency.runs` en `1`. Puede establecer una propiedad u otra, pero no ambas. <p>Para establecer esta opción, consulte [Desencadenamiento secuencial de instancias](#sequential-trigger). | Todos los desencadenadores | 
 ||||
 
@@ -2446,7 +2448,7 @@ Establezca la propiedad `runtimeConfiguration.concurrency.runs` en `1`:
 }
 ```
 
-*o*
+*O bien*
 
 Establezca la propiedad `operationOptions` en `SingleInstance`:
 
@@ -2498,7 +2500,7 @@ Establezca la propiedad `runtimeConfiguration.concurrency.repetitions` en `1`:
 }
 ```
 
-*o*
+*O bien*
 
 Establezca la propiedad `operationOptions` en `Sequential`:
 
@@ -2569,7 +2571,7 @@ Estos son los tipos de autenticación que se pueden configurar:
 
 * [Autenticación básica](#basic-authentication)
 * [Autenticación de certificados de clientes](#client-certificate-authentication)
-* [Autenticación de OAuth de Azure Active Directory (Azure AD)](#azure-active-directory-oauth-authentication)
+* [Autenticación de OAuth de Active Directory (Azure AD) de Azure](#azure-active-directory-oauth-authentication)
 
 > [!IMPORTANT]
 > Asegúrese de proteger la información confidencial que gestiona su definición de flujo de trabajo de aplicación lógica. Use parámetros protegidos y codifique los datos según sea necesario. Para obtener más información acerca de cómo usar y proteger los parámetros, consulte [Protección de las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
@@ -2582,9 +2584,9 @@ Para utilizar la [autenticación básica](../active-directory-b2c/active-directo
 
 | Propiedad | Obligatorio | Value | DESCRIPCIÓN | 
 |----------|----------|-------|-------------| 
-| **type** | Sí | "Básica" | Tipo de autenticación que se debe usar, que en este caso es "Básica" | 
-| **username** | Sí | "@parameters('userNameParam')" | Nombre de usuario para autenticar el acceso al extremo del servicio de destino. |
-| **password** | Sí | "@parameters('passwordParam')" | Contraseña para autenticar el acceso al extremo del servicio de destino. |
+| **Tipo** | Sí | "Básica" | Tipo de autenticación que se debe usar, que en este caso es "Básica" | 
+| **nombre de usuario** | Sí | "@parameters('userNameParam')" | Nombre de usuario para autenticar el acceso al extremo del servicio de destino. |
+| **contraseña** | Sí | "@parameters('passwordParam')" | Contraseña para autenticar el acceso al extremo del servicio de destino. |
 ||||| 
 
 En este ejemplo de definición de la acción HTTP, se usa la sección `authentication` para especificar la autenticación `Basic`. Para obtener más información acerca de cómo usar y proteger los parámetros, consulte [Protección de las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
@@ -2616,9 +2618,9 @@ Para utilizar la [autenticación basada en certificados](../active-directory/aut
 
 | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
 |----------|----------|-------|-------------|
-| **type** | Sí | "ClientCertificate" | Tipo de autenticación que se usará para los certificados de cliente de Capa de sockets seguros (SSL). Aunque se admiten los certificados autofirmados, no se admiten los certificados autofirmados para SSL. |
+| **Tipo** | Sí | "ClientCertificate" | Tipo de autenticación que se usará para los certificados de cliente de Capa de sockets seguros (SSL). Aunque se admiten los certificados autofirmados, no se admiten los certificados autofirmados para SSL. |
 | **pfx** | Sí | "@parameters('pfxParam') | El contenido codificado en base 64 del archivo de intercambio de información personal (PFX) |
-| **password** | Sí | "@parameters('passwordParam')" | La contraseña para acceder al archivo PFX |
+| **contraseña** | Sí | "@parameters('passwordParam')" | La contraseña para acceder al archivo PFX |
 ||||| 
 
 En este ejemplo de definición de la acción HTTP, se usa la sección `authentication` para especificar la autenticación `ClientCertificate`. Para obtener más información acerca de cómo usar y proteger los parámetros, consulte [Protección de las aplicaciones lógicas](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters).
@@ -2650,14 +2652,14 @@ Para utilizar la [autenticación de OAuth de Azure AD](../active-directory/devel
 
 | Propiedad | Obligatorio | Value | DESCRIPCIÓN |
 |----------|----------|-------|-------------|
-| **type** | Sí | `ActiveDirectoryOAuth` | El tipo de autenticación para usar, que es "ActiveDirectoryOAuth" para OAuth de Azure AD |
-| **authority** | Sin  | <*URL-for-authority-token-issuer*> | La dirección URL de la autoridad que proporciona el token de autenticación |
+| **Tipo** | Sí | `ActiveDirectoryOAuth` | El tipo de autenticación para usar, que es "ActiveDirectoryOAuth" para OAuth de Azure AD |
+| **Autoridad** | Sin  | <*URL-for-authority-token-issuer*> | La dirección URL de la autoridad que proporciona el token de autenticación |
 | **tenant** | Sí | <*tenant-ID*> | El identificador del inquilino de Azure AD |
-| **audience** | Sí | <*resource-to-authorize*> | Recurso que quiere usar para la autorización; por ejemplo, `https://management.core.windows.net/` |
+| **audience** | Sí | <*resource-to-authorize*> | El recurso que desea usar para la autorización, por ejemplo, `https://management.core.windows.net/` |
 | **clientId** | Sí | <*client-ID*> | El identificador de cliente para la aplicación que solicita autorización |
 | **credentialType** | Sí | "Certificado" o "secreto" | El tipo de credencial que el cliente usa para solicitar autorización. Esta propiedad y el valor no aparecen en la definición subyacente, pero determina los parámetros necesarios para el tipo de credencial. |
 | **pfx** | Sí, solo para el tipo de credencial de "Certificado" | "@parameters('pfxParam') | El contenido codificado en base 64 del archivo de intercambio de información personal (PFX) |
-| **password** | Sí, solo para el tipo de credencial de "Certificado" | "@parameters('passwordParam')" | La contraseña para acceder al archivo PFX |
+| **contraseña** | Sí, solo para el tipo de credencial de "Certificado" | "@parameters('passwordParam')" | La contraseña para acceder al archivo PFX |
 | **secret** | Sí, solo para el tipo de credencial de "Secreto" | "@parameters('secretParam')" | Secreto de cliente para solicitar la autorización |
 |||||
 

@@ -3,20 +3,20 @@ title: Capturar datos de Event Hubs en Azure Data Lake Storage Gen1 | Microsoft 
 description: Usar Azure Data Lake Storage Gen1 para capturar datos de Event Hubs
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: a921a717445df93c83518c89970050e63a51ddf3
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: bb67c1769510710b368bef4dc0b501f939b3427e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51345211"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884520"
 ---
 # <a name="use-azure-data-lake-storage-gen1-to-capture-data-from-event-hubs"></a>Usar Azure Data Lake Storage Gen1 para capturar datos de Event Hubs
 
@@ -122,6 +122,6 @@ Ahora puede enviar datos a Azure Event Hubs para probar la solución. Siga las i
 Una vez que los datos están en Data Lake Storage Gen1, puede ejecutar trabajos analíticos para procesar y estudiar los datos. Vea [USQL Avro Example](https://github.com/Azure/usql/tree/master/Examples/AvroExamples) (Ejemplo de Avro de USQL) sobre cómo hacer esto con Azure Data Lake Analytics.
   
 
-## <a name="see-also"></a>Otras referencias
-* [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
-* [Copia de datos de los blobs de Azure Storage en Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
+## <a name="see-also"></a>Vea también
+* [Proteger los datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Copiar datos desde Azure Storage BLOB a Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/02/2017
 ms.author: mbullwin
-ms.openlocfilehash: ea4bc61dec59308b2c2311e8300e44aae78fc041
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 1c360d60a429f137c4b74ad4afe8ae9bba895b7d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57313521"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883418"
 ---
 #  <a name="create-application-insights-resources-using-powershell"></a>Creación de recursos de Application Insights mediante PowerShell
 
@@ -170,7 +170,7 @@ Cree un nuevo archivo .json. Vamos a llamarlo `template1.json` en este ejemplo. 
    
    * `-ResourceGroupName` es el grupo donde desea crear los nuevos recursos.
    * `-TemplateFile` debe aparecer antes que los parámetros personalizados.
-   * `-appName` es el nombre del recurso que se va a crear.
+   * `-appName` El nombre del recurso que quiere crear.
 
 Puede agregar otros parámetros, cuyas descripciones se encuentran en la sección de parámetros de la plantilla.
 
@@ -422,14 +422,14 @@ No se puede parametrizar solo una parte de una cadena, así que use `concat()` p
 
 | find | reemplazar por |
 | --- | --- |
-| `"hidden-link:/subscriptions/.../../components/MyAppName"` |`"[concat('hidden-link:',`<br/>` resourceId('microsoft.insights/components',` <br/> ` parameters('appName')))]"` |
+| `"hidden-link:/subscriptions/.../../components/MyAppName"` |`"[concat('hidden-link:',`<br/>`resourceId('microsoft.insights/components',` <br/> `parameters('appName')))]"` |
 | `"/subscriptions/.../../alertrules/myAlertName-myAppName-subsId",` |`"[resourceId('Microsoft.Insights/alertrules', variables('alertRuleName'))]",` |
 | `"/subscriptions/.../../webtests/myTestName-myAppName",` |`"[resourceId('Microsoft.Insights/webtests', parameters('webTestName'))]",` |
 | `"myWebTest-myAppName"` |`"[variables(testName)]"'` |
 | `"myTestName-myAppName-subsId"` |`"[variables('alertRuleName')]"` |
 | `"myAppName"` |`"[parameters('appName')]"` |
-| `"myappname"` (minúscula) |`"[toLower(parameters('appName'))]"` |
-| `"<WebTest Name=\"myWebTest\" ...`<br/>` Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`<br/>Elimine el Guid y el identificador. |
+| `"myappname"` (en minúsculas) |`"[toLower(parameters('appName'))]"` |
+| `"<WebTest Name=\"myWebTest\" ...`<br/>`Url=\"http://fabrikam.com/home\" ...>"` |`[concat('<WebTest Name=\"',` <br/> `parameters('webTestName'),` <br/> `'\" ... Url=\"', parameters('Url'),` <br/> `'\"...>')]"`<br/>Elimine el Guid y el identificador. |
 
 ### <a name="set-dependencies-between-the-resources"></a>Establecimiento de dependencias entre los recursos
 Azure debe instalar los recursos en un orden estricto. Para tener la seguridad de que una instalación finaliza antes de que comience la siguiente, agregue líneas de dependencia:
@@ -447,9 +447,9 @@ Azure debe instalar los recursos en un orden estricto. Para tener la seguridad d
 Otros artículos de automatización:
 
 * [Script de PowerShell para crear un recurso de Application Insights](powershell-script-create-resource.md) : método rápido sin necesidad de plantilla.
-* [Uso de PowerShell para configurar alertas en Application Insights](powershell-alerts.md)
-* [Creación de pruebas web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
-* [Envío de Azure Diagnostics a Application Insights](powershell-azure-diagnostics.md)
-* [Implementación en Azure desde GitHub](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
-* [Creación de anotaciones de versión](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
+* [Configuración de alertas](powershell-alerts.md)
+* [Cree pruebas web](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
+* [Enviar diagnósticos de Azure a Application Insights](powershell-azure-diagnostics.md)
+* [Implementar en Azure desde GitHub](https://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
+* [Crear anotaciones de versión](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 

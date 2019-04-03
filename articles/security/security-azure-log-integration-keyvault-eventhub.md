@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
-ms.openlocfilehash: c199adb9ee1d9e5fbc879441da7395efa16f0d40
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e70920e806b3d9838d693ff1fc74a3e9371319d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094667"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883928"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de Azure Log Integration: Procesamiento de eventos de Azure Key Vault mediante Event Hubs
 
@@ -45,7 +45,7 @@ Para más información sobre los servicios que se mencionan en este tutorial, ve
 
 - [Azure Key Vault](../key-vault/key-vault-whatis.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)
-- [Integración de registros de Azure](security-azure-log-integration-overview.md)
+- [Azure Log Integration](security-azure-log-integration-overview.md)
 
 
 ## <a name="initial-setup"></a>Configuración inicial
@@ -89,13 +89,13 @@ Necesita lo siguiente para completar los pasos de este artículo:
 1. Después de autenticarse correctamente, ha iniciado sesión. Tome nota del identificador y el nombre de la suscripción, ya que los necesitará para completar los pasos posteriores.
 
 1. Cree variables para almacenar valores que se usarán más adelante. Escriba cada una de las siguientes líneas de PowerShell. Es posible que necesite ajustar los valores para que se adapten a su entorno.
-    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (El nombre de la suscripción puede ser diferente. Puede verlo como parte de la salida del comando anterior).
-    - ```$location = 'West US'``` (Se utilizará esta variable para pasar la ubicación donde se deben crear los recursos. Puede cambiar esta variable para que sea cualquier otra ubicación que elija).
+    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (El nombre de la suscripción puede variar. Puede verlo como parte de la salida del comando anterior).
+    - ```$location = 'West US'``` (Esta variable se usará para pasar la ubicación donde se deben crear los recursos. Puede cambiar esta variable para que sea cualquier otra ubicación que elija).
     - ```$random = Get-Random```
-    - ``` $name = 'azlogtest' + $random``` (El nombre puede ser de cualquier tipo, pero solo debe incluir números y letras en minúsculas).
-    - ``` $storageName = $name``` (Esta variable se usará para el nombre de la cuenta de almacenamiento).
-    - ```$rgname = $name ``` (Esta variable se usará para el nombre del grupo de recursos).
-    - ``` $eventHubNameSpaceName = $name``` (El nombre del espacio de nombres del centro de eventos).
+    - ```$name = 'azlogtest' + $random``` (El nombre puede ser cualquier cosa, pero debe incluir solo letras minúsculas y números).
+    - ```$storageName = $name``` (Esta variable se usará para el nombre de cuenta de almacenamiento).
+    - ```$rgname = $name``` (Esta variable se usará para el nombre del grupo de recursos).
+    - ```$eventHubNameSpaceName = $name``` (Esto es el nombre del espacio de nombres del centro de eventos).
 1. Especifique la suscripción con la que va a trabajar:
     
     ```Select-AzSubscription -SubscriptionName $subscriptionName```
@@ -114,7 +114,7 @@ Necesita lo siguiente para completar los pasos de este artículo:
     ```$eventHubNameSpace = New-AzEventHubNamespace -ResourceGroupName $rgname -NamespaceName $eventHubnamespaceName -Location $location```
 1. Obtenga el identificador de regla que se usará con el proveedor de Insights:
     
-    ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey' ```
+    ```$sbruleid = $eventHubNameSpace.Id +'/authorizationrules/RootManageSharedAccessKey'```
 1. Obtenga todas las ubicaciones posibles de Azure y agregue los nombres a una variable que se puede usar en un paso posterior:
     
      a. ```$locationObjects = Get-AzLocation```    
@@ -128,7 +128,7 @@ Necesita lo siguiente para completar los pasos de este artículo:
     Para más información sobre el perfil de registro de Azure, vea [Información general sobre el registro de actividad de Azure](../azure-monitor/platform/activity-logs-overview.md).
 
 > [!NOTE]
-> Es posible que reciba un mensaje de error al intentar crear un perfil de registro. A continuación, puede revisar la documentación de Get-AzLogProfile y Remove-AzLogProfile. Si ejecuta Get-AzLogProfile, verá información sobre el perfil de registro. Puede eliminar el perfil de registro actual escribiendo el comando ```Remove-AzLogProfile -name 'Log Profile Name' ```.
+> Es posible que reciba un mensaje de error al intentar crear un perfil de registro. A continuación, puede revisar la documentación de Get-AzLogProfile y Remove-AzLogProfile. Si ejecuta Get-AzLogProfile, verá información sobre el perfil de registro. Puede eliminar el perfil de registro actual escribiendo el comando ```Remove-AzLogProfile -name 'Log Profile Name'```.
 >
 >![Error de perfil de Resource Manager](./media/security-azure-log-integration-keyvault-eventhub/rm-profile-error.png)
 
@@ -136,11 +136,11 @@ Necesita lo siguiente para completar los pasos de este artículo:
 
 1. Cree el almacén de claves:
 
-   ```$kv = New-AzKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location ```
+   ```$kv = New-AzKeyVault -VaultName $name -ResourceGroupName $rgname -Location $location```
 
 1. Configure el registro del almacén de claves:
 
-   ```Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true ```
+   ```Set-AzDiagnosticSetting -ResourceId $kv.ResourceId -ServiceBusRuleId $sbruleid -Enabled $true```
 
 ## <a name="generate-log-activity"></a>Generar actividad de registro
 
@@ -157,7 +157,8 @@ Las solicitudes se deben enviar a Key Vault para generar actividades de registro
    ```Get-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. Establezca y lea un secreto para generar entradas de registro adicionales:
     
-    a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
+    a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)```
+   b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
    ![Secreto devuelto](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
 
@@ -169,7 +170,7 @@ Ahora que ya ha configurado todos los elementos necesarios para guardar el regis
 1. ```$storage = Get-AzStorageAccount -ResourceGroupName $rgname -Name $storagename```
 1. ```$eventHubKey = Get-AzEventHubNamespaceKey -ResourceGroupName $rgname -NamespaceName $eventHubNamespace.name -AuthorizationRuleName RootManageSharedAccessKey```
 1. ```$storagekeys = Get-AzStorageAccountKey -ResourceGroupName $rgname -Name $storagename```
-1. ``` $storagekey = $storagekeys[0].Value```
+1. ```$storagekey = $storagekeys[0].Value```
 
 Ejecute el comando AzLog para cada centro de eventos:
 
@@ -180,6 +181,6 @@ Aproximadamente un minuto después de la ejecución de los dos últimos comandos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Preguntas más frecuentes sobre la integración de registro de Azure](security-azure-log-integration-faq.md)
-- [Introducción a la integración de registros de Azure](security-azure-log-integration-get-started.md)
-- [Integrar registros de recursos de Azure en sistemas SIEM](security-azure-log-integration-overview.md)
+- [Preguntas más frecuentes sobre Azure Log Integration](security-azure-log-integration-faq.md)
+- [Introducción a Azure Log Integration](security-azure-log-integration-get-started.md)
+- [Integrar los registros de recursos de Azure en sistemas SIEM](security-azure-log-integration-overview.md)

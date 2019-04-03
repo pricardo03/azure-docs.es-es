@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/24/2018
 ms.author: victorh
-ms.openlocfilehash: e2c3dbef6204c1b6b75c362ead066b3465a8a5a9
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: c6b8e61f3b5dc8ce3623c9ee6654a1befdc1e924
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307061"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877217"
 ---
 # <a name="create-an-application-gateway-with-external-redirection-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento externo mediante Azure PowerShell
 
@@ -34,11 +34,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Si decide instalar y usar PowerShell localmente, este tutorial requiere la versión 1.0.0 del módulo de Azure PowerShell o una versión posterior. Para encontrar la versión, ejecute ` Get-Module -ListAvailable Az`. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
+Si decide instalar y usar PowerShell de forma local, en este tutorial necesitará la versión 1.0.0 del módulo de Azure PowerShell o cualquier versión posterior. Para encontrar la versión, ejecute `Get-Module -ListAvailable Az`. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Crear un grupo de recursos de Azure mediante [New AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
+Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos de Azure mediante [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupAG -Location eastus
@@ -46,7 +46,7 @@ New-AzResourceGroup -Name myResourceGroupAG -Location eastus
 
 ## <a name="create-network-resources"></a>Crear recursos de red
 
-Crear la configuración de subred *myAGSubnet* mediante [New AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Cree la red virtual denominada *myVNet* mediante [New AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) con la configuración de subred. Y por último, cree la dirección IP pública mediante [New AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Estos recursos se usan para proporcionar conectividad de red a la puerta de enlace de aplicaciones y sus recursos asociados.
+Crear la configuración de subred *myAGSubnet* mediante [New AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig). Cree la red virtual denominada *myVNet* mediante [New AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) con la configuración de subred. Y, por último, cree la dirección IP pública mediante [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress). Estos recursos se usan para proporcionar conectividad de red a la puerta de enlace de aplicaciones y sus recursos asociados.
 
 ```azurepowershell-interactive
 $agSubnetConfig = New-AzVirtualNetworkSubnetConfig `
@@ -69,7 +69,7 @@ $pip = New-AzPublicIpAddress `
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Creación de las configuraciones IP y el puerto de front-end
 
-Asociar *myAGSubnet* que creó anteriormente a la puerta de enlace de aplicaciones con [New AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Asignar la dirección IP pública a la puerta de enlace de aplicaciones con [New AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig). Y, a continuación, puede crear el puerto HTTP mediante [New AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport).
+Asocie el elemento *myAGSubnet* que creó anteriormente a la puerta de enlace de aplicaciones mediante [New-AzApplicationGatewayIPConfiguration](/powershell/module/az.network/new-azapplicationgatewayipconfiguration). Asigne la dirección IP pública a la puerta de enlace de aplicaciones mediante [New-AzApplicationGatewayFrontendIPConfig](/powershell/module/az.network/new-azapplicationgatewayfrontendipconfig). Y, después, puede crear el puerto HTTP mediante [New-AzApplicationGatewayFrontendPort](/powershell/module/az.network/new-azapplicationgatewayfrontendport).
 
 ```azurepowershell-interactive
 $vnet = Get-AzVirtualNetwork `
@@ -89,7 +89,7 @@ $frontendport = New-AzApplicationGatewayFrontendPort `
 
 ### <a name="create-the-backend-pool-and-settings"></a>Creación de la configuración y el grupo de servidores back-end
 
-Cree el grupo de back-end llamado *defaultPool* para la puerta de enlace de aplicaciones mediante [New AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configure las opciones del grupo mediante [New AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsettings).
+Cree el grupo de back-end llamado *defaultPool* para la puerta de enlace de aplicaciones mediante [New AzApplicationGatewayBackendAddressPool](/powershell/module/az.network/new-azapplicationgatewaybackendaddresspool). Configure los valores del grupo mediante [New-AzApplicationGatewayBackendHttpSettings](/powershell/module/az.network/new-azapplicationgatewaybackendhttpsettings).
 
 ```azurepowershell-interactive
 $defaultPool = New-AzApplicationGatewayBackendAddressPool `
@@ -127,7 +127,7 @@ $redirectRule = New-AzApplicationGatewayRequestRoutingRule `
 
 ### <a name="create-the-application-gateway"></a>Creación de la puerta de enlace de aplicaciones
 
-Ahora que ha creado los recursos auxiliares necesarios, especifique los parámetros para la puerta de enlace de aplicación denominado *myAppGateway* mediante [New AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku)y, a continuación, crear mediante [Nuevo AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
+Ahora que ha creado los recursos auxiliares necesarios, especifique los parámetros para la puerta de enlace de aplicaciones llamada *myAppGateway* con [New-AzApplicationGatewaySku](/powershell/module/az.network/new-azapplicationgatewaysku) y cree la puerta de enlace mediante [New-AzApplicationGateway](/powershell/module/az.network/new-azapplicationgateway).
 
 ```azurepowershell-interactive
 $sku = New-AzApplicationGatewaySku `
@@ -151,7 +151,7 @@ $appgw = New-AzApplicationGateway `
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-Puede usar [Get AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) para obtener la dirección IP pública de la puerta de enlace de la aplicación. Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
+Puede usar [Get-AzPublicIPAddress](/powershell/module/az.network/get-azpublicipaddress) para obtener la dirección IP pública de la puerta de enlace de aplicaciones. Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
 
 ```azurepowershell-interactive
 Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAddress
@@ -169,4 +169,4 @@ En este artículo, ha aprendido cómo:
 > * Creación de una puerta de enlace de aplicaciones
 
 > [!div class="nextstepaction"]
-> [Obtenga más información sobre lo que puede hacer con la puerta de enlace de aplicaciones](./application-gateway-introduction.md).
+> [Más información sobre lo que puede hacer con application gateway](./application-gateway-introduction.md)

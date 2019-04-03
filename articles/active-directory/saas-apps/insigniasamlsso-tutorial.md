@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/28/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ee74c5caed04d2626fea27d3419d0b0d685d675
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dc492142200c7fd028360d01c2602904531550dc
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57840348"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884489"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insignia-saml-sso"></a>Tutorial: Integración de Azure Active Directory con Insignia SAML SSO
 
@@ -59,7 +59,7 @@ En este tutorial, puede probar el inicio de sesión único de Azure AD en un ent
 ## <a name="adding-insignia-saml-sso-from-the-gallery"></a>Adición de Insignia SAML SSO desde la galería
 Para configurar la integración de Insignia SAML SSO en Azure AD, tiene que agregar Insignia SAML SSO desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Insignia SAML SSO desde la galería, siga estos pasos:**
+**Para agregar Insignia SAML SSO desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
@@ -97,7 +97,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Insignia SA
 
 En esta sección habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación Insignia SAML SSO.
 
-**Para configurar el inicio de sesión único de Azure AD con Insignia SAML SSO, realice los pasos siguientes:**
+**Para configurar el inicio de sesión único en Azure AD con Insignia SAML SSO, realice los pasos siguientes:**
 
 1. En la página de integración de la aplicación **Insignia SAML SSO** de Azure Portal, haga clic en **Inicio de sesión único**.
 
@@ -117,7 +117,7 @@ En esta sección habilitará el inicio de sesión único de Azure AD en Azure Po
     |--|
     | `https://<customername>.insigniails.com/ils` |
     | `https://<customername>.insigniails.com/` |
-    | `https://<customername>.insigniailsusa.com/ ` |
+    | `https://<customername>.insigniailsusa.com/` |
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<customername>.insigniailsusa.com/<uniqueid>`
 
@@ -149,7 +149,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
    ![Creación de un usuario de prueba de Azure AD][100]
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+**Para crear un usuario de prueba en Azure AD, realice los pasos siguientes:**
 
 1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
 

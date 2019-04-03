@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f622be53297a9d091a62a1239f022bbd4fb71347
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 3f1dbd4b6635d615cc7bed4cf5cc38234ec0c3f1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311771"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886002"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configuración de Azure Multi-Factor Authentication
 
@@ -34,10 +34,10 @@ Algunas de estas opciones se aplican al Servidor MFA, Azure MFA o ambos.
 | ------- | ----------- |
 | Bloqueo de cuenta | Bloquea temporalmente las cuentas del servicio de autenticación multifactor si hay demasiados intentos de autenticación denegados en una fila. Esta característica solo se aplica a los usuarios que escriben un PIN para autenticarse. (Servidor MFA) |
 | [Bloqueo y desbloqueo de usuarios](#block-and-unblock-users) | Se usa para impedir que usuarios específicos en el Servidor MFA (local) puedan recibir solicitudes de Multi-Factor Authentication. Todos los intentos de autenticación para los usuarios bloqueados se denegarán automáticamente. Los usuarios permanecen bloqueados durante 90 días a partir del momento en que se bloqueen. |
-| [Alerta de fraude](#fraud-alert) | Configure valores relacionados con la capacidad de los usuarios para notificar solicitudes de comprobación fraudulentas procedentes del Servidor MFA. |
+| [Alerta de fraude](#fraud-alert) | Configurar valores relacionados con la capacidad de los usuarios para notificar las solicitudes de comprobación fraudulento |
 | Notificaciones | Permite notificaciones de eventos desde el Servidor MFA. |
 | [Tokens OATH](concept-authentication-methods.md#oath-hardware-tokens-public-preview) | Se usa en entornos de Azure MFA basados en la nube para administrar tokens de OATH para los usuarios. |
-| [Configuración de las llamadas telefónicas](#phone-call-settings) | Configure valores relacionados con llamadas de teléfono y saludos para entornos locales y en la nube. |
+| [Configuración de la llamada telefónica](#phone-call-settings) | Configure valores relacionados con llamadas de teléfono y saludos para entornos locales y en la nube. |
 | Proveedores | Se mostrarán los proveedores de autenticación existentes que pueden haberse asociado con su cuenta. A partir del 1 de septiembre de 2018 no se pueden crear nuevos proveedores de autenticación. |
 
 ## <a name="manage-mfa-server"></a>Administración del Servidor MFA
@@ -57,7 +57,7 @@ Los informes aquí disponibles son específicos del Servidor MFA (local). Para i
 
 ## <a name="block-and-unblock-users"></a>Bloqueo y desbloqueo de usuarios
 
-Utilice la característica de _bloqueo y desbloqueo de usuarios_ para impedirles recibir solicitudes de autenticación. Todos los intentos de autenticación para los usuarios bloqueados se denegarán automáticamente. Los usuarios permanecen bloqueados durante 90 días a partir del momento en que se bloqueen. Esta característica es específica del Servidor MFA (local).
+Utilice la característica de _bloqueo y desbloqueo de usuarios_ para impedirles recibir solicitudes de autenticación. Todos los intentos de autenticación para los usuarios bloqueados se denegarán automáticamente. Los usuarios permanecen bloqueados durante 90 días a partir del momento en que se bloqueen.
 
 ### <a name="block-a-user"></a>Bloquear a un usuario
 
@@ -77,7 +77,7 @@ Utilice la característica de _bloqueo y desbloqueo de usuarios_ para impedirles
 
 ## <a name="fraud-alert"></a>Alerta de fraude
 
-Configure la característica de _alerta de fraude_ para que los usuarios puedan informar sobre intentos fraudulentos de acceso a sus recursos. Los usuarios pueden informar de los intentos de fraude con la aplicación móvil o mediante su teléfono. Esta característica es específica del Servidor MFA (local).
+Configure la característica de _alerta de fraude_ para que los usuarios puedan informar sobre intentos fraudulentos de acceso a sus recursos. Los usuarios pueden informar de los intentos de fraude con la aplicación móvil o mediante su teléfono.
 
 ### <a name="turn-on-fraud-alerts"></a>Activación de alertas de fraude
 
@@ -391,4 +391,4 @@ Después de habilitar la característica Recordar Multi-Factor Authentication, a
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Modificación de la personalización de marca de la página de inicio de sesión de Azure AD](../fundamentals/customize-branding.md)
+[Modificar la personalización de marca de página de inicio de sesión de Azure AD](../fundamentals/customize-branding.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/15/2018
 ms.author: magoedte
-ms.openlocfilehash: d69ddcd44fd947f3d1dc61ac960e7b55258c163e
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: b0d12021be5a5dca348ea3ffa3f0b853725812da
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872019"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882249"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Consulta de registros entre recursos en Azure Monitor  
 
@@ -50,7 +50,7 @@ La identificación de un área de trabajo se puede lograr de varias maneras:
 
 * Nombre completo: es el nombre completo del área de trabajo, compuesto por el nombre de la suscripción, el grupo de recursos y el nombre del componente con este formato: *nombreSuscripción/grupoDeRecursos/nombreDeComponente*. 
 
-    `workspace('contoso/contosoretail/contosoretail-it').Update | count `
+    `workspace('contoso/contosoretail/contosoretail-it').Update | count`
 
     >[!NOTE]
     >Dado que los nombres de suscripción de Azure no son únicos, este identificador podría ser ambiguo. 

@@ -9,16 +9,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 03/28/2019
 ms.author: celested
-ms.reviewer: paulgarn, hirsin, jeedes
+ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af00c311b406a0bae285a00f0d537ce9bae3aa7e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e492586f0c70d4cd3013ef8f466afd6bb2bb65ac
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102131"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884084"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedimientos para: Personalizar las notificaciones emitidas en tokens para una determinada aplicación de un inquilino (versión preliminar)
 
@@ -52,142 +52,142 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 
 ### <a name="table-1-json-web-token-jwt-restricted-claim-set"></a>Tabla 1: Conjunto de notificaciones restringidas de JSON Web Token (JWT)
 
-|Tipo de notificación (nombre)|
+| Tipo de notificación (nombre) |
 | ----- |
-|_claim_names|
-|_claim_sources|
-|access_token|
-|account_type|
-|acr|
-|actor|
-|actortoken|
-|aio|
-|altsecid|
-|amr|
-|app_chain|
-|app_displayname|
-|app_res|
-|appctx|
-|appctxsender|
-|appid|
-|appidacr|
-|Aserción|
-|at_hash|
-|aud|
-|auth_data|
-|auth_time|
-|authorization_code|
-|azp|
-|azpacr|
-|c_hash|
-|ca_enf|
-|cc|
-|cert_token_use|
-|client_id|
-|cloud_graph_host_name|
-|cloud_instance_name|
-|cnf|
-|código|
-|controls|
-|credential_keys|
-|csr|
-|csr_type|
-|deviceid|
-|dns_names|
-|domain_dns_name|
-|domain_netbios_name|
-|e_exp|
-|email|
-|endpoint|
-|enfpolids|
-|exp|
-|expires_on|
-|grant_type|
-|graph|
-|group_sids|
-|groups|
-|hasgroups|
-|hash_alg|
-|home_oid|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
-|`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier`|
-|iat|
-|identityprovider|
-|idp|
-|in_corp|
-|instance|
-|ipaddr|
-|isbrowserhostedapp|
-|iss|
-|jwk|
-|key_id|
-|key_type|
-|mam_compliance_url|
-|mam_enrollment_url|
-|mam_terms_of_use_url|
-|mdm_compliance_url|
-|mdm_enrollment_url|
-|mdm_terms_of_use_url|
-|nameid|
-|nbf|
-|netbios_name|
-|valor de seguridad|
-|oid|
-|on_prem_id|
-|onprem_sam_account_name|
-|onprem_sid|
-|openid2_id|
-|contraseña|
-|platf|
-|polids|
-|pop_jwk|
-|preferred_username|
-|previous_refresh_token|
-|primary_sid|
-|puid|
-|pwd_exp|
-|pwd_url|
-|redirect_uri|
-|refresh_token|
-|refreshtoken|
-|request_nonce|
-|resource|
-|role|
-|roles|
-|ámbito|
-|scp|
-|sid|
-|signature|
-|signin_state|
-|src1|
-|src2|
-|sub|
-|tbid|
-|tenant_display_name|
-|tenant_region_scope|
-|thumbnail_photo|
-|tid|
-|tokenAutologonEnabled|
-|trustedfordelegation|
-|unique_name|
-|upn|
-|user_setting_sync_url|
-|nombre de usuario|
-|uti|
-|ver|
-|verified_primary_email|
-|verified_secondary_email|
-|wids|
-|win_ver|
+| _claim_names |
+| _claim_sources |
+| access_token |
+| account_type |
+| acr |
+| actor |
+| actortoken |
+| aio |
+| altsecid |
+| amr |
+| app_chain |
+| app_displayname |
+| app_res |
+| appctx |
+| appctxsender |
+| appid |
+| appidacr |
+| Aserción |
+| at_hash |
+| aud |
+| auth_data |
+| auth_time |
+| authorization_code |
+| azp |
+| azpacr |
+| c_hash |
+| ca_enf |
+| cc |
+| cert_token_use |
+| client_id |
+| cloud_graph_host_name |
+| cloud_instance_name |
+| cnf |
+| código |
+| controls |
+| credential_keys |
+| csr |
+| csr_type |
+| deviceid |
+| dns_names |
+| domain_dns_name |
+| domain_netbios_name |
+| e_exp |
+| email |
+| endpoint |
+| enfpolids |
+| exp |
+| expires_on |
+| grant_type |
+| graph |
+| group_sids |
+| groups |
+| hasgroups |
+| hash_alg |
+| home_oid |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration` |
+| `http://schemas.microsoft.com/ws/2008/06/identity/claims/expired` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name` |
+| `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier` |
+| iat |
+| identityprovider |
+| idp |
+| in_corp |
+| instance |
+| ipaddr |
+| isbrowserhostedapp |
+| iss |
+| jwk |
+| key_id |
+| key_type |
+| mam_compliance_url |
+| mam_enrollment_url |
+| mam_terms_of_use_url |
+| mdm_compliance_url |
+| mdm_enrollment_url |
+| mdm_terms_of_use_url |
+| nameid |
+| nbf |
+| netbios_name |
+| valor de seguridad |
+| oid |
+| on_prem_id |
+| onprem_sam_account_name |
+| onprem_sid |
+| openid2_id |
+| contraseña |
+| platf |
+| polids |
+| pop_jwk |
+| preferred_username |
+| previous_refresh_token |
+| primary_sid |
+| puid |
+| pwd_exp |
+| pwd_url |
+| redirect_uri |
+| refresh_token |
+| refreshtoken |
+| request_nonce |
+| resource |
+| role |
+| roles |
+| ámbito |
+| scp |
+| sid |
+| signature |
+| signin_state |
+| src1 |
+| src2 |
+| sub |
+| tbid |
+| tenant_display_name |
+| tenant_region_scope |
+| thumbnail_photo |
+| tid |
+| tokenAutologonEnabled |
+| trustedfordelegation |
+| unique_name |
+| upn |
+| user_setting_sync_url |
+| nombre de usuario |
+| uti |
+| ver |
+| verified_primary_email |
+| verified_secondary_email |
+| wids |
+| win_ver |
 
 ### <a name="table-2-saml-restricted-claim-set"></a>Tabla 2: Conjunto de notificaciones restringidas de SAML
 
-|Tipo de notificación (URI)|
+| Tipo de notificación (URI) |
 | ----- |
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/expiration`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/expired`|
@@ -196,7 +196,7 @@ Hay ciertos conjuntos de notificaciones que definen cómo y cuándo se usan en l
 |`http://schemas.microsoft.com/identity/claims/identityprovider`|
 |`http://schemas.microsoft.com/identity/claims/objectidentifier`|
 |`http://schemas.microsoft.com/identity/claims/puid`|
-|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1] `|
+|`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier [MR1]`|
 |`http://schemas.microsoft.com/identity/claims/tenantid`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationinstant`|
 |`http://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod`|
@@ -246,7 +246,7 @@ Para controlar qué reclamaciones se emiten y de dónde provienen los datos, uti
 
 **Tipo de datos:** Booleanos (true o false)
 
-**Resumen:** Esta propiedad determina si el conjunto de notificaciones principales se incluye en los tokens afectados por esta directiva. 
+**Resumen:** Esta propiedad determina si el conjunto de notificaciones principales se incluye en los tokens afectados por esta directiva.
 
 - Si se establece en True, todas las notificaciones del conjunto de notificaciones básicas se emiten en los tokens afectados por esta directiva. 
 - Si se establece en False, las notificaciones del conjunto de notificaciones básicas no se incluyen en los tokens a menos que se agreguen individualmente a la propiedad de esquema de notificaciones de la misma directiva.
@@ -284,51 +284,51 @@ El elemento ID identifica la propiedad en el origen que proporciona el valor de 
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabla 3: Valores de Id. válidos por origen
 
-|Origen|ID|DESCRIPCIÓN|
+| Origen | ID | DESCRIPCIÓN |
 |-----|-----|-----|
-|Usuario|surname|Nombre de familia|
-|Usuario|givenname|Nombre propio|
-|Usuario|displayname|Display Name (Nombre para mostrar)|
-|Usuario|objectid|ObjectID|
-|Usuario|mail|Dirección de correo electrónico|
-|Usuario|userprincipalname|Nombre principal de usuario|
-|Usuario|department|department|
-|Usuario|onpremisessamaccountname|Nombre de cuenta SAM local|
-|Usuario|netbiosname|Nombre de NetBios|
-|Usuario|dnsdomainname|Nombre de dominio DNS|
-|Usuario|onpremisesecurityidentifier|Identificador de seguridad local|
-|Usuario|companyname|Nombre de la organización|
-|Usuario|streetaddress|Dirección|
-|Usuario|postalcode|Código postal|
-|Usuario|preferredlanguange|Idioma preferido|
-|Usuario|onpremisesuserprincipalname|UPN local|
-|Usuario|mailNickname|Alias de correo|
-|Usuario|extensionattribute1|Atributo de extensión 1|
-|Usuario|extensionattribute2|Atributo de extensión 2|
-|Usuario|extensionattribute3|Atributo de extensión 3|
-|Usuario|extensionattribute4|Atributo de extensión 4|
-|Usuario|extensionattribute5|Atributo de extensión 5|
-|Usuario|extensionattribute6|Atributo de extensión 6|
-|Usuario|extensionattribute7|Atributo de extensión 7|
-|Usuario|extensionattribute8|Atributo de extensión 8|
-|Usuario|extensionattribute9|Atributo de extensión 9|
-|Usuario|extensionattribute10|Atributo de extensión 10|
-|Usuario|extensionattribute11|Atributo de extensión 11|
-|Usuario|extensionattribute12|Atributo de extensión 12|
-|Usuario|extensionattribute13|Atributo de extensión 13|
-|Usuario|extensionattribute14|Atributo de extensión 14|
-|Usuario|extensionattribute15|Atributo de extensión 15|
-|Usuario|othermail|Otro correo|
-|Usuario|country|País|
-|Usuario|city|City|
-|Usuario|state|Estado|
-|Usuario|jobtitle|Puesto|
-|Usuario|employeeid|Id. de empleado|
-|Usuario|facsimiletelephonenumber|Número de teléfono de fax|
-|application, resource, audience|displayname|Display Name (Nombre para mostrar)|
-|application, resource, audience|objected|ObjectID|
-|application, resource, audience|etiquetas|Etiqueta de entidad de servicio|
-|Compañía|tenantcountry|País del inquilino|
+| Usuario | surname | Nombre de familia |
+| Usuario | givenname | Nombre propio |
+| Usuario | displayname | Display Name (Nombre para mostrar) |
+| Usuario | objectid | ObjectID |
+| Usuario | mail | Dirección de correo electrónico |
+| Usuario | userprincipalname | Nombre principal de usuario |
+| Usuario | department|department|
+| Usuario | onpremisessamaccountname | Nombre de cuenta SAM local |
+| Usuario | netbiosname| Nombre de NetBios |
+| Usuario | dnsdomainname | Nombre de dominio DNS |
+| Usuario | onpremisesecurityidentifier | Identificador de seguridad local |
+| Usuario | companyname| Nombre de la organización |
+| Usuario | streetaddress | Dirección |
+| Usuario | postalcode | Código postal |
+| Usuario | preferredlanguange | Idioma preferido |
+| Usuario | onpremisesuserprincipalname | UPN local |
+| Usuario | mailNickname | Alias de correo |
+| Usuario | extensionattribute1 | Atributo de extensión 1 |
+| Usuario | extensionattribute2 | Atributo de extensión 2 |
+| Usuario | extensionattribute3 | Atributo de extensión 3 |
+| Usuario | extensionattribute4 | Atributo de extensión 4 |
+| Usuario | extensionattribute5 | Atributo de extensión 5 |
+| Usuario | extensionattribute6 | Atributo de extensión 6 |
+| Usuario | extensionattribute7 | Atributo de extensión 7 |
+| Usuario | extensionattribute8 | Atributo de extensión 8 |
+| Usuario | extensionattribute9 | Atributo de extensión 9 |
+| Usuario | extensionattribute10 | Atributo de extensión 10 |
+| Usuario | extensionattribute11 | Atributo de extensión 11 |
+| Usuario | extensionattribute12 | Atributo de extensión 12 |
+| Usuario | extensionattribute13 | Atributo de extensión 13 |
+| Usuario | extensionattribute14 | Atributo de extensión 14 |
+| Usuario | extensionattribute15 | Atributo de extensión 15 |
+| Usuario | othermail | Otro correo |
+| Usuario | country | País |
+| Usuario | city | City |
+| Usuario | state | Estado |
+| Usuario | jobtitle | Puesto |
+| Usuario | employeeid | Id. de empleado |
+| Usuario | facsimiletelephonenumber | Número de teléfono de fax |
+| application, resource, audience | displayname | Display Name (Nombre para mostrar) |
+| application, resource, audience | objected | ObjectID |
+| application, resource, audience | etiquetas | Etiqueta de entidad de servicio |
+| Compañía | tenantcountry | País del inquilino |
 
 **TransformationID:** el elemento TransformationID solo debe indicarse si el elemento Source está establecido en “transformation”.
 
@@ -386,32 +386,32 @@ En función del método elegido, se espera un conjunto de entradas y salidas. De
 
 |Origen|ID|DESCRIPCIÓN|
 |-----|-----|-----|
-|Usuario|mail|Dirección de correo electrónico|
-|Usuario|userprincipalname|Nombre principal de usuario|
-|Usuario|onpremisessamaccountname|Nombre de cuenta SAM local|
-|Usuario|employeeid|Id. de empleado|
-|Usuario|extensionattribute1|Atributo de extensión 1|
-|Usuario|extensionattribute2|Atributo de extensión 2|
-|Usuario|extensionattribute3|Atributo de extensión 3|
-|Usuario|extensionattribute4|Atributo de extensión 4|
-|Usuario|extensionattribute5|Atributo de extensión 5|
-|Usuario|extensionattribute6|Atributo de extensión 6|
-|Usuario|extensionattribute7|Atributo de extensión 7|
-|Usuario|extensionattribute8|Atributo de extensión 8|
-|Usuario|extensionattribute9|Atributo de extensión 9|
-|Usuario|extensionattribute10|Atributo de extensión 10|
-|Usuario|extensionattribute11|Atributo de extensión 11|
-|Usuario|extensionattribute12|Atributo de extensión 12|
-|Usuario|extensionattribute13|Atributo de extensión 13|
-|Usuario|extensionattribute14|Atributo de extensión 14|
-|Usuario|extensionattribute15|Atributo de extensión 15|
+| Usuario | mail|Dirección de correo electrónico|
+| Usuario | userprincipalname|Nombre principal de usuario|
+| Usuario | onpremisessamaccountname|Nombre de cuenta SAM local|
+| Usuario | employeeid|Id. de empleado|
+| Usuario | extensionattribute1 | Atributo de extensión 1 |
+| Usuario | extensionattribute2 | Atributo de extensión 2 |
+| Usuario | extensionattribute3 | Atributo de extensión 3 |
+| Usuario | extensionattribute4 | Atributo de extensión 4 |
+| Usuario | extensionattribute5 | Atributo de extensión 5 |
+| Usuario | extensionattribute6 | Atributo de extensión 6 |
+| Usuario | extensionattribute7 | Atributo de extensión 7 |
+| Usuario | extensionattribute8 | Atributo de extensión 8 |
+| Usuario | extensionattribute9 | Atributo de extensión 9 |
+| Usuario | extensionattribute10 | Atributo de extensión 10 |
+| Usuario | extensionattribute11 | Atributo de extensión 11 |
+| Usuario | extensionattribute12 | Atributo de extensión 12 |
+| Usuario | extensionattribute13 | Atributo de extensión 13 |
+| Usuario | extensionattribute14 | Atributo de extensión 14 |
+| Usuario | extensionattribute15 | Atributo de extensión 15 |
 
 #### <a name="table-6-transformation-methods-allowed-for-saml-nameid"></a>Tabla 6: Métodos de transformación permitidos en NameID de SAML
 
-|TransformationMethod|Restricciones|
+| TransformationMethod | Restricciones |
 | ----- | ----- |
-|ExtractMailPrefix|None|
-|Unión|El sufijo que se combine debe ser un dominio comprobado del inquilino del recurso.|
+| ExtractMailPrefix | None |
+| Unión | El sufijo que se combine debe ser un dominio comprobado del inquilino del recurso. |
 
 ### <a name="custom-signing-key"></a>Clave de firma de personalizada
 
@@ -437,19 +437,19 @@ Para comenzar, realice uno de los pasos siguientes:
 
 1. Descargue la [versión preliminar pública más reciente del módulo de PowerShell de Azure AD](https://www.powershellgallery.com/packages/AzureADPreview).
 1. Ejecute el comando Connect para iniciar sesión en la cuenta de administrador de Azure AD. Ejecute este comando cada vez que inicie una nueva sesión.
-    
-     ``` powershell
-    Connect-AzureAD -Confirm
-    
-    ```
+
+   ``` powershell
+   Connect-AzureAD -Confirm
+   ```
 1. Ejecute el siguiente comando para ver todas las directivas que se han creado en la organización. Se recomienda ejecutar este comando después de la mayoría de las operaciones en los escenarios siguientes, para comprobar que las directivas se van a crear según lo previsto.
-   
-    ``` powershell
-        Get-AzureADPolicy
-    
-    ```
-   #### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Ejemplo: creación y asignación de una directiva que omita las notificaciones básicas de tokens emitidos para una entidad de servicio.
-   En este ejemplo se crea una directiva que quita el conjunto de notificaciones básicas de los tokens emitidos para entidades de servicio vinculadas.
+
+   ``` powershell
+   Get-AzureADPolicy
+   ```
+
+#### <a name="example-create-and-assign-a-policy-to-omit-the-basic-claims-from-tokens-issued-to-a-service-principal"></a>Ejemplo: Crear y asignar una directiva que omita las notificaciones básicas de los tokens emitidos para una entidad de servicio
+
+En este ejemplo se crea una directiva que quita el conjunto de notificaciones básicas de los tokens emitidos para entidades de servicio vinculadas.
 
 1. Cree una directiva de asignación de notificaciones. Esta directiva, que se vincula a entidades de servicio concretas, quita el conjunto de notificaciones básicas de los tokens.
    1. Ejecute este comando para crear la directiva: 
@@ -462,7 +462,7 @@ Para comenzar, realice uno de los pasos siguientes:
       ``` powershell
       Get-AzureADPolicy
       ```
-1. Asigne la directiva a su entidad de servicio. También necesita obtener el valor de ObjectId de su entidad de servicio. 
+1. Asigne la directiva a su entidad de servicio. También necesita obtener el valor de ObjectId de su entidad de servicio.
    1. Para ver todas las entidades de servicio de su organización, puede consultar Microsoft Graph. O bien, en Azure AD Graph Explorer, inicie sesión en su cuenta de Azure AD.
    2. Cuando tenga el valor de ObjectId de la entidad de servicio, ejecute el siguiente comando:  
      
@@ -475,7 +475,7 @@ Para comenzar, realice uno de los pasos siguientes:
 En este ejemplo se crea una directiva que agrega EmployeeID y TenantCountry a los tokens emitidos para entidades de servicio vinculadas. EmployeeID se emite como tipo de notificación de nombre en los tokens SAML y JWT. TenantCountry se emite como tipo de notificación de país en los tokens SAML y JWT. En este ejemplo se sigue incluyendo el conjunto de notificaciones básicas en los tokens.
 
 1. Cree una directiva de asignación de notificaciones. Esta directiva, que se vincula a entidades de servicio concretas, agrega las notificaciones EmployeeID y TenantCountry a los tokens.
-   1. Ejecute este comando para crear la directiva:  
+   1. Ejecute el siguiente comando para crear la directiva:  
      
       ``` powershell
       New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name","JwtClaimType":"name"},{"Source":"company","ID":"tenantcountry","SamlClaimType":"http://schemas.xmlsoap.org/ws/2005/05/identity/claims/country","JwtClaimType":"country"}]}}') -DisplayName "ExtraClaimsExample" -Type "ClaimsMappingPolicy"
@@ -499,10 +499,10 @@ En este ejemplo se crea una directiva que agrega EmployeeID y TenantCountry a lo
 En este ejemplo se crea una directiva que emite una notificación "JoinedData" personalizada para los tokens JWT emitidos para entidades de servicio vinculadas. Esta notificación contiene un valor creado mediante la combinación de los datos almacenados en el atributo extensionattribute1 en el objeto de usuario que incluye ".sandbox". En este ejemplo se excluye el conjunto de notificaciones básicas en los tokens.
 
 1. Cree una directiva de asignación de notificaciones. Esta directiva, que se vincula a entidades de servicio concretas, agrega las notificaciones EmployeeID y TenantCountry a los tokens.
-   1. Ejecute este comando para crear la directiva: 
+   1. Ejecute el siguiente comando para crear la directiva:
      
       ``` powershell
-      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
+      New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy"
       ```
     
    2. Para ver la nueva directiva y obtener su ObjectID, ejecute el siguiente comando: 
@@ -517,3 +517,7 @@ En este ejemplo se crea una directiva que emite una notificación "JoinedData" p
       ``` powershell
       Add-AzureADServicePrincipalPolicy -Id <ObjectId of the ServicePrincipal> -RefObjectId <ObjectId of the Policy>
       ```
+
+## <a name="see-also"></a>Vea también
+
+Para obtener información sobre cómo personalizar las notificaciones emitidas en el token SAML mediante el portal de Azure, consulte [Cómo: Personalizar las notificaciones emitidas en el token SAML para aplicaciones empresariales](active-directory-saml-claims-customization.md)

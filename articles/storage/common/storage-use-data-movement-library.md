@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
 ms.subservice: common
-ms.openlocfilehash: 966518f17392e6158089cb5b6df96f41674fed41
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0641a097761530285c2dd9aa176ddd8c2c159001
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996149"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878747"
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Transferencia de datos con la Biblioteca de movimiento de datos de Microsoft Azure Storage
 
@@ -49,12 +49,12 @@ En este documento se muestra cómo crear una aplicación de consola de .NET Core
 3. Abra este directorio en Visual Studio Code. Este paso puede realizarse rápidamente a través de la línea de comandos; para ello, escriba `code .` en Windows.
 4. Instale la [extensión de C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp) desde Visual Studio Code Marketplace. Reinicie Visual Studio Code.
 5. Llegados a este punto, debe ver dos mensajes. Uno es para agregar "recursos necesarios para compilar y depurar". Haga clic "sí". El otro mensaje es para restaurar dependencias no resueltas. Haga clic en "restaurar".
-6. Modifique `launch.json` de `.vscode` para usar un terminal externo como consola. Esta configuración debe leerse como ` "console": "externalTerminal"`
+6. Modifique `launch.json` de `.vscode` para usar un terminal externo como consola. Esta configuración debe leerse como `"console": "externalTerminal"`
 7. Visual Studio Code permite depurar aplicaciones de .NET Core. Presione `F5` para ejecutar la aplicación y compruebe que la configuración funciona. Debe ver "Hello World!" impreso en la consola.
 
 ## <a name="add-data-movement-library-to-your-project"></a>Incorporación de la Biblioteca de movimiento de datos al proyecto
 
-1. Agregue la versión más reciente de la Biblioteca de movimiento de datos a la sección `dependencies` de su archivo `<project-name>.csproj`. En el momento de la escritura, esta versión sería `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`.
+1. Agregue la versión más reciente de la Biblioteca de movimiento de datos a la sección `dependencies` de su archivo `<project-name>.csproj`. En el momento de escribir este artículo, esta versión sería `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`
 2. Debe aparecer un mensaje para restaurar el proyecto. Haga clic en el botón "restaurar". También puede restaurar el proyecto desde la línea de comandos escribiendo el comando `dotnet restore` en la raíz del directorio del proyecto.
 
 Modifique `<project-name>.csproj`:

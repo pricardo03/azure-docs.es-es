@@ -3,25 +3,25 @@ title: 'SDK de Java: operaciones del sistema de archivos en Azure Data Lake Stor
 description: Use el SDK de Java de Azure Data Lake Storage Gen1 para realizar operaciones de sistema de archivos en Data Lake Storage Gen1, como, por ejemplo, crear carpetas.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: d10e09db-5232-4e84-bb50-52efc2c21887
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: e84e84aac3aca0458dea4f30f6b0e222aafd9d44
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.author: twooley
+ms.openlocfilehash: bc6e0718cdc4ccb18480dc760279da9c177db4cb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530303"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883554"
 ---
 # <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Operaciones de sistema de archivos en Azure Data Lake Storage Gen1 mediante el uso del SDK de Java
 > [!div class="op_single_selector"]
-> * [SDK de .NET](data-lake-store-data-operations-net-sdk.md)
+> * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [SDK de Java](data-lake-store-get-started-java-sdk.md)
 > * [API DE REST](data-lake-store-data-operations-rest-api.md)
 > * [Python](data-lake-store-data-operations-python.md)
@@ -209,7 +209,7 @@ El fragmento de código siguiente elimina los archivos y las carpetas especifica
 2. Para generar un archivo jar independiente que puede ejecutar desde la línea de comandos, genere el archivo jar con todas las dependencias incluidas mediante el [complemento de ensamblado de Maven](https://maven.apache.org/plugins/maven-assembly-plugin/usage.html). El archivo pom.xml del [código fuente de ejemplo de GitHub](https://github.com/Azure-Samples/data-lake-store-java-upload-download-get-started/blob/master/pom.xml) contiene un ejemplo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Explorar JavaDoc para el SDK de Java](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-* [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Explorar JavaDoc para Java SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
+* [Proteger los datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
 
 

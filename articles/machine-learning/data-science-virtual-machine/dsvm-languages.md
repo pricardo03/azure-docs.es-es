@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 883e1c11e3485c0bf3441a67a3a191563ea3aed4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 586f37ff972a6102da351794365f719a185857fc
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57990798"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877421"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Lenguajes admitidos en Data Science Virtual Machine 
 
@@ -145,7 +145,7 @@ Los entornos predeterminados de Python en DSVM son entornos globales que pueden 
 | ------------- | ------------- |
 | Versiones de lenguajes admitidas | Microsoft R Open 3.x (100 % compatible con CRAN-R)<br /> Microsoft R Server 9.x Developer (una plataforma de R escalable y preparada para empresas)|
 | Ediciones compatibles de DSVM      | Linux y Windows     |
-| ¿Cómo se configura/instala en DSVM?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: ` /usr/lib64/microsoft-r/3.3/lib64/R`    |
+| ¿Cómo se configura/instala en DSVM?  | Windows: `C:\Program Files\Microsoft\ML Server\R_SERVER` <br />Linux: `/usr/lib64/microsoft-r/3.3/lib64/R`    |
 | Vínculos a ejemplos      | Se incluyen blocs de notas de Jupyter de ejemplo para R     |
 | Herramientas relacionadas en DSVM      | SparkR, Python y Julia      |
 ### <a name="how-to-use--run-it"></a>¿Cómo se usa o ejecuta?    
@@ -193,7 +193,7 @@ R se instala en DSVM en un entorno global que todos los usuarios pueden leer, pe
 | ------------- | ------------- |
 | Versiones de lenguajes admitidas | 0.6 |
 | Ediciones compatibles de DSVM      | Linux y Windows     |
-| ¿Cómo se configura/instala en DSVM?  | Windows: se instaló en `C:\JuliaPro-VERSION`<br /> Linux: se instaló en `/opt/JuliaPro-VERSION`    |
+| ¿Cómo se configura/instala en DSVM?  | Windows: Instalado en `C:\JuliaPro-VERSION`<br /> Linux: Instalado en `/opt/JuliaPro-VERSION`    |
 | Vínculos a ejemplos      | Se incluyen blocs de notas de Jupyter de ejemplo para Julia     |
 | Herramientas relacionadas en DSVM      | Python y R      |
 ### <a name="how-to-use--run-it"></a>¿Cómo se usa o ejecuta?    
@@ -209,7 +209,7 @@ Use `Juno`, el IDE de Julia instalado en DSVM y disponible como acceso directo d
 
 * Uso en Jupyter
 
-Abra Jupyter y haga clic en el botón `New` para crear un bloc de notas. En este momento puede elegir el tipo de kernel como `Julia VERSION` 
+Abra Jupyter y haga clic en el botón `New` para crear un bloc de notas. En este momento, puede elegir el tipo de kernel como `Julia VERSION` 
 
 * Instalación de paquetes de Julia
 
@@ -226,7 +226,7 @@ Use `Juno` el IDE de Julia instalado en DSVM y disponible como un acceso directo
 
 * Uso en Jupyter
 
-Abra Jupyter y haga clic en el botón `New` para crear un bloc de notas. En este momento puede elegir el tipo de kernel como `Julia VERSION` 
+Abra Jupyter y haga clic en el botón `New` para crear un bloc de notas. En este momento, puede elegir el tipo de kernel como `Julia VERSION` 
 
 * Instalación de paquetes de Julia
 

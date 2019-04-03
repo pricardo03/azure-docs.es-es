@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 2b1d75b4b32ebfffbddfaddf45b0c08fb1132995
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d4e9e26f2c6764cc179826266891d861514e23f6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168560"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882215"
 ---
 # <a name="microsoft-azure-documentation"></a>Documentación de Microsoft Azure
 
@@ -12,7 +12,7 @@ Bienvenido a la [documentación](https://docs.microsoft.com/azure) de código ab
 
 ## <a name="getting-started"></a>Introducción
 
-La colaboración con el código abierto es algo más que proporcionar actualizaciones. También es avisarnos cuando se produce un problema. Lea la [Guía de colaboración](.github/CONTRIBUTING.md) para más información.
+La colaboración con el código abierto es algo más que proporcionar actualizaciones. También es avisarnos cuando se produce un problema. Lea la [Guía de colaboración](CONTRIBUTING.md) para más información.
 
 ### <a name="prerequisites"></a>Requisitos previos
 

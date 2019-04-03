@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/22/2019
 ms.author: erhopf
-ms.openlocfilehash: 16c8444bdf91caf9da6f9625485090d09058ba52
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 66bda68b1313a7c172e273671bc3a03503d08e0d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522832"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876587"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>Inicio rápido: Obtiene la lista de texto a voz voces mediante Python
 
@@ -82,7 +82,7 @@ def get_token(self):
 
 Aquí va a generar la solicitud y guardar la lista de voces devueltas. En primer lugar, deberá establecer `base_url` y `path`. En este ejemplo se da por hecho que está utilizando el punto de conexión de Oeste de EE. UU. Si el recurso está registrado en una región diferente, asegúrese de actualizar `base_url`. Para obtener más información, consulte [regiones de servicios de voz](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#text-to-speech).
 
-A continuación, agregue los encabezados necesarios para la solicitud. Por último, deberá realizar una solicitud al servicio. Si la solicitud es correcta y se devuelve un código de estado 200, la respuesta de voz se escribe en un archivo con marca de tiempo.
+A continuación, agregue los encabezados necesarios para la solicitud. Por último, deberá realizar una solicitud al servicio. Si la solicitud es correcta y se devuelve un código de 200 estado, la respuesta se escribe en el archivo.
 
 Copie este código en la clase `GetVoices`:
 
@@ -131,7 +131,7 @@ Asegúrese de quitar cualquier información confidencial del código fuente de l
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Exploración de los ejemplos de Python en GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
+> [Explorar ejemplos de Python en GitHub](https://github.com/Azure-Samples/Cognitive-Speech-TTS/tree/master/Samples-Http/Python)
 
 ## <a name="see-also"></a>Vea también
 

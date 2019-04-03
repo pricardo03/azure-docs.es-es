@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d7e912d01b6f8b7119e0fa0e88341b7cb56a93d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 025a9d7df16b2be5e22104010be057403ce53c25
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860676"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880634"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Tutorial: Integración de Azure Active Directory con Infor CloudSuite
 
@@ -61,7 +61,7 @@ En este tutorial, puede probar el inicio de sesión único de Azure AD en un ent
 
 Para configurar la integración de Infor CloudSuite en Azure AD, deberá agregarlo desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Infor CloudSuite desde la galería, siga estos pasos:**
+**Para agregar Infor CloudSuite desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
@@ -97,7 +97,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Infor Cloud
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación Infor CloudSuite.
 
-**Para configurar el inicio de sesión único de Azure AD con Infor CloudSuite, realice los pasos siguientes:**
+**Para configurar el inicio de sesión único en Azure AD con Infor CloudSuite, realice los pasos siguientes:**
 
 1. En Azure Portal, en la página de integración de aplicaciones **Infor CloudSuite**, haga clic en **Inicio de sesión único**.
 
@@ -119,7 +119,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     
     | | |
     |-|-|
-    | ` http://mingle-sso.inforcloudsuite.com`|
+    | `http://mingle-sso.inforcloudsuite.com`|
     | `http://mingle-sso.se1.inforcloudsuite.com`|
     | `http://mingle-sso.eu1.inforcloudsuite.com`|
     | `http://mingle-sso.se2.inforcloudsuite.com`|
@@ -129,9 +129,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     | | |
     |-|-|
-    | ` https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2 `|
-    | `https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2 `|
-    | `https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2 `|
+    | `https://mingle-sso.inforcloudsuite.com:443/sp/ACS.saml2`|
+    | `https://mingle-sso.se1.inforcloudsuite.com:443/sp/ACS.saml2`|
+    | `https://mingle-sso.se2.inforcloudsuite.com:443/sp/ACS.saml2`|
     | `https://mingle-sso.eu1.inforcloudsuite.com:443/sp/ACS.saml2`|
     | |
 
@@ -145,7 +145,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
     |-|-|
     | `https://mingle-portal.inforcloudsuite.com/Tenant-Name/`|
     | `https://mingle-portal.eu1.inforcloudsuite.com/Tenant-Name/`|
-    | `https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/ `|
+    | `https://mingle-portal.se1.inforcloudsuite.com/Tenant-Name/`|
     | `https://mingle-portal.se2.inforcloudsuite.com/Tenant-Name/`| 
 
     > [!NOTE]
@@ -175,7 +175,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
      a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el **nombre de usuario** , escriba **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Seleccione **Propiedades**, active la casilla **Mostrar contraseña** y escriba el valor que se muestra en el cuadro de contraseña.

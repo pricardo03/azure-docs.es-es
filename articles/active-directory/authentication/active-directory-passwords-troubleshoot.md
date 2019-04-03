@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81519a9452bf578c2640b547b2102b8e162e2878
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 8f4f13a8b03f3ddba91fb4c4b69f550e1e88a491
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369792"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885084"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solución de problemas del autoservicio de restablecimiento de contraseñas
 
@@ -75,7 +75,7 @@ ms.locfileid: "58369792"
 | El usuario experimenta un error al validar su número de teléfono. | Este error se produce cuando el número de teléfono especificado no coincide con el número de teléfono archivado. Asegúrese de que el usuario escribe el número de teléfono completo, incluidos el código de área y el país, al intentar utilizar un método basado en teléfono para restablecer la contraseña. |
 | Se produjo un error al procesar la solicitud. | Aunque las causas pueden ser varias, en general este error se debe a una interrupción del servicio o a un problema de configuración. Si experimenta este error y afecta a su negocio, póngase en contacto con el servicio de soporte técnico de Microsoft para recibir ayuda adicional. |
 | Infracción de la directiva local | La contraseña no cumple la directiva de contraseñas de Active Directory local. |
-| La contraseña no cumple la directiva aproximada | La contraseña que se ha usado aparece en la lista de contraseñas no permitidas y no puede usarse. |
+| La contraseña no cumple la directiva aproximada | Aparece la contraseña que se usó en el [prohibida la lista de contraseñas](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad#how-are-passwords-evaluated) y no se pueden usar. |
 
 ## <a name="troubleshoot-password-writeback"></a>Solución de problemas de escritura diferida de contraseñas
 
@@ -155,9 +155,9 @@ Si se producen interrupciones del servicio con el componente de escritura diferi
 
 * [Confirmación de la conectividad de la red](#confirm-network-connectivity)
 * [Reinicio del servicio Azure AD Connect Sync](#restart-the-azure-ad-connect-sync-service)
-* [Deshabilitar y volver a habilitar la característica de escritura diferida de contraseña](#disable-and-re-enable-the-password-writeback-feature)
+* [Deshabilitar y volver a habilitar la característica de escritura diferida de contraseñas](#disable-and-re-enable-the-password-writeback-feature)
 * [Instalación de la última versión de Azure AD Connect](#install-the-latest-azure-ad-connect-release)
-* [Solución de problemas con la escritura diferida de contraseñas](#troubleshoot-password-writeback)
+* [Solución de problemas de escritura diferida de contraseñas](#troubleshoot-password-writeback)
 
 En general, con el fin de recuperar el servicio de la manera más rápida, se recomienda que ejecute estos pasos en el orden anterior.
 
@@ -266,7 +266,7 @@ Para que reciba la ayuda apropiada, le pedimos que proporcione la mayor cantidad
 * **Código de soporte técnico**: ¿qué código de soporte técnico se generó cuando el usuario vio el error?
    * Para encontrarlo, reproduzca el error, seleccione el vínculo **Código de soporte técnico** en la parte inferior de la pantalla y envíe al ingeniero de soporte técnico el GUID resultante.
 
-   ![Busque el código de soporte técnico en la parte inferior de la pantalla][Support code]
+   ![Encontrar el código de soporte técnico en la parte inferior de la pantalla][Support code]
 
   * Si se encuentra en una página sin código de soporte en la parte inferior, seleccione F12, busque el SID y el CID, y envíe estos dos resultados al ingeniero de soporte.
 * **Fecha, hora y zona horaria**: incluya la fecha y la hora precisas (incluida la *zona horaria*) en que se produjo el error.
@@ -285,14 +285,14 @@ Para que reciba la ayuda apropiada, le pedimos que proporcione la mayor cantidad
 
 En los siguientes artículos se proporciona información adicional sobre el restablecimiento de contraseña con Azure AD:
 
-* [¿Cómo se realiza un lanzamiento correcto de SSPR?](howto-sspr-deployment.md)
-* [Restablecimiento o modificación de la contraseña](../user-help/active-directory-passwords-update-your-own-password.md)
+* [¿Cómo se puede completar una implementación correcta de SSPR?](howto-sspr-deployment.md)
+* [Restablecer o cambiar la contraseña](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Registro para el autoservicio de restablecimiento de contraseñas](../user-help/active-directory-passwords-reset-register.md)
-* [¿Tiene alguna pregunta acerca de las licencias?](concept-sspr-licensing.md)
-* [¿Qué datos usa SSPR y cuáles se deben rellenar en lugar de los usuarios?](howto-sspr-authenticationdata.md)
-* [¿Qué métodos de autenticación están disponibles para los usuarios?](concept-sspr-howitworks.md#authentication-methods)
+* [¿Tiene alguna pregunta licencias?](concept-sspr-licensing.md)
+* [¿Qué datos usa SSPR y qué datos se deben rellenar para los usuarios?](howto-sspr-authenticationdata.md)
+* [¿Métodos de autenticación que están disponibles para los usuarios?](concept-sspr-howitworks.md#authentication-methods)
 * [¿Cuáles son las opciones de directiva con SSPR?](concept-sspr-policy.md)
-* [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](howto-sspr-writeback.md)
+* [¿Qué es la escritura diferida de contraseñas y por qué me importa sobre ella?](howto-sspr-writeback.md)
 * [¿Cómo se informa sobre la actividad de SSPR?](howto-sspr-reporting.md)
-* [¿Cuáles son todas las opciones en SSPR y qué significan?](concept-sspr-howitworks.md)
-* [Tengo una pregunta que no se ha comentado en ningún otro sitio](active-directory-passwords-faq.md)
+* [¿Qué son todas las opciones en SSPR y qué significan?](concept-sspr-howitworks.md)
+* [Tengo una pregunta que no se ha comentado else](active-directory-passwords-faq.md)
