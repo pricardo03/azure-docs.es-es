@@ -9,16 +9,16 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74a7316ea00f5c38d6a2b1a98d81affeeffcd5e9
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 0506cc086cbc0c9ea30e199fd0bf18da3b8af545
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518004"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863090"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect
 En este artículo se ofrece información que se necesita para sincronizar las contraseñas de usuario desde una instancia de Active Directory local con otra de Azure Active Directory (Azure AD) basado en la nube.
@@ -46,7 +46,7 @@ Un usuario debe escribir sus credenciales corporativas una segunda vez para aute
 ### <a name="detailed-description-of-how-password-hash-synchronization-works"></a>Descripción detallada de cómo funciona la sincronización de hash de contraseñas
 En la sección siguiente se describe con detalle cómo funciona la sincronización de hash de contraseñas entre Active Directory y Azure AD.
 
-![Flujo detallado de contraseñas](./media/how-to-connect-password-hash-synchronization/arch3a.png)
+![Flujo detallado de contraseñas](./media/how-to-connect-password-hash-synchronization/arch3b.png)
 
 
 1. Cada dos minutos, el agente de sincronización de hash de contraseñas en el servidor de AD Connect solicita hashes de contraseña almacenados (el atributo unicodePwd) desde un controlador de dominio.  Esta solicitud es a través del protocolo de replicación [MS-DRSR](https://msdn.microsoft.com/library/cc228086.aspx) estándar que se utiliza para sincronizar datos entre controladores de dominio. La cuenta de servicio debe tener los permisos para replicar cambios de directorio y para replicar cambios de directorio en todos los AD (se conceden de manera predeterminada en la instalación) para obtener los hashes de contraseña.
@@ -117,7 +117,7 @@ Si usa una configuración personalizada al instalar Azure AD Connect, la sincron
 ### <a name="password-hash-synchronization-and-fips"></a>Sincronización de hash de contraseñas y FIPS
 Si el servidor se bloquea según el Estándar Federal de Procesamiento de la Información (FIPS), se deshabilita el hash MD5.
 
-**Para habilitar el MD5 para la sincronización de hash de contraseñas, realice los pasos siguientes:**
+**Para habilitar el MD5 para la sincronización de hash de contraseña, realice los pasos siguientes:**
 
 1. Vaya a %programfiles%\Azure AD Sync\Bin.
 2. Abra miiserver.exe.config.
@@ -141,6 +141,6 @@ Para obtener información sobre la seguridad y FIPS, vea [Azure AD password hash
 Si tiene problemas con la sincronización de hash de contraseñas, vea [Solución de problemas de sincronización de hash de contraseñas](tshoot-connect-password-hash-synchronization.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](how-to-connect-sync-whatis.md)
+* [Sincronización de Azure AD Connect: Personalizar las opciones de sincronización](how-to-connect-sync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md)
-* [Obtención de un plan de implementación paso a paso para migrar desde AD FS para la sincronización de hash de contraseña](https://aka.ms/authenticationDeploymentPlan)
+* [Obtenga un plan de implementación paso a paso para migrar desde AD FS para la sincronización de Hash de contraseña](https://aka.ms/authenticationDeploymentPlan)

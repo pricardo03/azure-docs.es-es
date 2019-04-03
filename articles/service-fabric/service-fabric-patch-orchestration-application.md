@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: brkhande
-ms.openlocfilehash: bce4946b62e3678f7fa8d5f7f6431441cc00b252
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 6c0aa42cc22d22431d7d0270aca52e089046cb01
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762844"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847744"
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Windows en el clúster de Service Fabric
 
@@ -325,7 +325,7 @@ Si el clúster puede tolerar la ejecución en un número N-1 de dominios de actu
 
 P: **¿Cuánto se tarda en aplicar revisiones a un nodo?**
 
-A. La aplicación de revisiones a un nodo puede tardar minutos (por ejemplo: [Actualizaciones de definiciones de Windows Defender](https://www.microsoft.com/wdsi/definitions)) a horas (por ejemplo: [Actualizaciones acumulativas de Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). El tiempo necesario para aplicar revisiones en un nodo depende, principalmente, de 
+A. La aplicación de revisiones a un nodo puede tardar minutos (por ejemplo: [Actualizaciones de definiciones de Windows Defender](https://www.microsoft.com/en-us/wdsi/definitions)) a horas (por ejemplo: [Actualizaciones acumulativas de Windows](https://www.catalog.update.microsoft.com/Search.aspx?q=windows%20server%20cumulative%20update)). El tiempo necesario para aplicar revisiones en un nodo depende, principalmente, de 
  - El tamaño de las actualizaciones
  - El número de actualizaciones, que deben aplicarse en un periodo de revisión
  - El tiempo necesario para instalar las actualizaciones, reiniciar el nodo (si es necesario) y completar los pasos de instalación posteriores al reinicio

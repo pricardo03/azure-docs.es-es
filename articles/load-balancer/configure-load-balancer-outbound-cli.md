@@ -11,20 +11,20 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 04/01/2019
 ms.author: kumud
-ms.openlocfilehash: bd40278015bf4580759c1b7b9522400b3dae31d6
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 0b46cbdec6d0ffe2a614a976f70b833726fb0e8a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54475669"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849948"
 ---
 # <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-using-azure-cli"></a>Configurar el equilibrio de carga y las reglas de salida en Standard Load Balancer mediante la CLI de Azure
 
 En este inicio rápido se muestra cómo configurar las reglas de salida en Standard Load Balancer con la CLI de Azure.  
 
-Al terminar, el recurso de Load Balancer contiene dos servidores front-end y las reglas asociadas a estos: una de entrada y otra de salida.  Cada front-end tiene una referencia a una dirección IP pública, y este escenario usa una dirección IP pública diferente para la entrada y la salida.   La regla de equilibrio de carga proporciona solo equilibrio de carga de entrada y la regla de salida controla el proceso NAT de salida proporcionada para la máquina virtual.
+Al terminar, el recurso de Load Balancer contiene dos servidores front-end y las reglas asociadas a estos: una de entrada y otra de salida.  Cada front-end tiene una referencia a una dirección IP pública, y este escenario usa una dirección IP pública diferente para la entrada y la salida.   La regla de equilibrio de carga proporciona solo equilibrio de carga de entrada y la regla de salida controla el proceso NAT de salida proporcionada para la máquina virtual.  Esta guía de inicio rápido usa dos independiente grupos back-end, una para entrada y otra para salida, para ilustrar la funcionalidad y flexibilidad para este escenario.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -69,30 +69,41 @@ Cree una dirección IP estándar para el comando [az network public-ip create](h
   az network public-ip create --resource-group myresourcegroupoutbound --name mypublicipoutbound --sku standard
 ```
 
-
 ## <a name="create-azure-load-balancer"></a>Creación de una instancia de Azure Load Balancer
 
 En esta sección se detalla cómo se pueden crear y configurar los componentes siguientes del equilibrador de carga:
   - Una dirección IP de front-end que recibe el tráfico de red entrante en el equilibrador de carga.
-  - Un grupo de back-end al que la dirección IP de front-end envía el tráfico de red de carga equilibrada.
+  - Un grupo de back-end donde la dirección IP de front-end envía la carga equilibrada de tráfico de red.
+  - Un grupo de back-end para la conectividad saliente. 
   - Un sondeo de estado que determina el estado de las instancias de máquina virtual de back-end.
   - Una regla de entrada de equilibrador de carga que define cómo se distribuye el tráfico a las máquinas virtuales.
   - Una regla de salida de equilibrador de carga que define cómo se distribuye el tráfico de las máquinas virtuales.
 
 ### <a name="create-load-balancer"></a>Cree un equilibrador de carga
 
-Cree con [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) una instancia de Load Balancer denominada *lb* que incluya una configuración de IP de front-end de entrada y un grupo de servidores back-end que esté asociado a la dirección IP pública *mypublicipinbound* que creó en el paso anterior.
+Crear un equilibrador de carga con la dirección IP entrante mediante [crear az network lb](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) denominado *lb* que incluye una configuración de IP de entrada de front-end y un grupo de back-end *bepoolinbound*que está asociado con la dirección IP pública *mypublicipinbound* que creó en el paso anterior.
 
 ```azurecli-interactive
   az network lb create \
     --resource-group myresourcegroupoutbound \
     --name lb \
     --sku standard \
-    --backend-pool-name bepool \
+    --backend-pool-name bepoolinbound \
     --frontend-ip-name myfrontendinbound \
     --location eastus2 \
     --public-ip-address mypublicipinbound   
   ```
+
+### <a name="create-outbound-pool"></a>Creación de grupo saliente
+
+Crear un grupo de direcciones de back-end adicionales para definir la conectividad saliente para un grupo de máquinas virtuales con [crear az network lb-grupo de direcciones](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) con el nombre *bepooloutbound*.  Creación de un grupo de salida independiente proporciona la máxima flexibilidad, pero puede omitir este paso y usar solo entrante *bepoolinbound* también.
+
+```azurecli-interactive
+  az network lb address-pool \
+    --resource-group myresourcegroupoutbound \
+    --lb-name lb \
+    --name bepooloutbound
+```
 
 ### <a name="create-outbound-frontend-ip"></a>Creación de una dirección IP de front-end de salida
 Cree la configuración de IP de front-end de salida de Load Balancer con [az network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) que incluya una configuración de IP de front-end de salida denominada *myfrontendoutbound*, es decir que esté asociada a la dirección IP pública *mypublicipoutbound*
@@ -136,7 +147,7 @@ az network lb rule create \
 --backend-port 80 \
 --probe http \
 --frontend-ip-name myfrontendinbound \
---backend-pool-name bepool \
+--backend-pool-name bepoolinbound \
 --disable-outbound-snat
 ```
 
@@ -153,10 +164,12 @@ az network lb outbound-rule create \
  --protocol All \
  --idle-timeout 15 \
  --outbound-ports 10000 \
- --address-pool bepool
+ --address-pool bepooloutbound
 ```
 
-En este momento, puede continuar agregando la máquina virtual al grupo de back-end *bepool* mediante la actualización de la configuración de IP de los recursos de la NIC correspondientes.
+Si no desea usar un grupo de salida independiente, puede cambiar el argumento del grupo de direcciones en el comando anterior para especificar *bepoolinbound* en su lugar.  Se recomienda para usar grupos separados de flexibilidad y la legibilidad de la configuración resultante.
+
+En este momento, puede continuar con la máquina virtual se agrega al grupo back-end *bepoolinbound* __y__ *bepooloutbound* actualizando la configuración de IP de la NIC correspondiente los recursos mediante [agregar az network nic ip-config-grupo de direcciones](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
@@ -171,4 +184,3 @@ En este artículo, creó su Standard Load Balancer, configuró ambas reglas de t
 
 > [!div class="nextstepaction"]
 > [Tutoriales de Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
-

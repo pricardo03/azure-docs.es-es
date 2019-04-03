@@ -3,21 +3,21 @@ title: Comparación de Azure Data Lake Storage Gen1 con Azure Storage Blob | Mic
 description: Comparación de Azure Data Lake Storage Gen1 con Azure Storage Blob
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.assetid: b199525b-84de-4f79-9eb6-69a613b8b217
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
-ms.author: nitinme
-ms.openlocfilehash: 3f37b996caa60a54c18388cb1f65873bf0aa4ed9
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: 478c261bb909cbc931a7dbbaa9cb6c61152970e4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55877701"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885543"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Comparación de Azure Data Lake Storage Gen1 y Azure Blob Storage
 
@@ -32,7 +32,7 @@ La tabla de este artículo resume las diferencias entre Azure Data Lake Storage 
 | Conceptos clave |La cuenta de Data Lake Storage Gen1 contiene carpetas, que a su vez contienen datos almacenados como archivos |La cuenta de almacenamiento tiene contenedores, que a su vez tienen datos en forma de blobs |
 | sección Estructura |Sistema de archivos jerárquico |Almacén de objetos con el espacio de nombres plano |
 | API |API de REST a través de HTTPS |API de REST a través de HTTP/HTTPS |
-| API de servidor |[WebHDFS-compatible REST API (API de REST compatible con WebHDFS)](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob Storage REST API (API de REST de Almacenamiento de blobs de Azure)](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
+| API de servidor |[API de REST compatible con WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[API de REST de Azure Blob Storage](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
 | Cliente de sistema de archivos de Hadoop |Sí |Sí |
 | Operaciones de datos: autenticación |Basado en las [identidades de Azure Active Directory](../active-directory/develop/authentication-scenarios.md) |Basado en secretos compartidos: [teclas de acceso de cuenta](../storage/common/storage-account-manage.md#access-keys) y [claves de firma de acceso compartido](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Operaciones de datos: protocolo de autenticación |OAuth 2.0. Las llamadas deben contener un JWT válido (JSON Web Token) emitido por Azure Active Directory |Código de autenticación de mensajes basado en hash (HMAC). Las llamadas deben contener un hash SHA-256 codificado en Base64 en una parte de la solicitud HTTP. |

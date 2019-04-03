@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: e4d4d15ebb8200f16be8953e955b2e793be03c3a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 63adb354d51caa8f01df8bf05c85257c75b5fe41
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452197"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877833"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimización del costo de rendimiento aprovisionado en Azure Cosmos DB
 
@@ -33,13 +33,13 @@ Las siguientes son algunas directrices para decidir una estrategia de rendimient
 
 1. Tiene algunas decenas de contenedores de Azure Cosmos y quiere compartir el rendimiento entre algunos o todos ellos. 
 
-2. Va a migrar desde una base de datos de inquilino único diseñada para ejecutarse en VM hospedadas por IaaS o en entornos locales, por ejemplo, NoSQL o bases de datos relacionales, a Azure Cosmos DB. Y si tiene muchas colecciones, tablas o grafos y no quiere hacer cambios en el modelo de datos. Tenga en cuenta que quizás deba renunciar a algunas de las ventajas que ofrece Azure Cosmos DB si no va a actualizar el modelo de datos al migrar desde una base de datos local. Se recomienda volver a acceder siempre al modelo de datos para sacar el máximo provecho en cuanto a rendimiento y también para optimizar los costos. 
+2. Va a migrar desde una base de datos de inquilino único diseñada para ejecutarse en VM hospedadas por IaaS o en entornos locales, por ejemplo, NoSQL o bases de datos relacionales, a Azure Cosmos DB. Y si tiene muchas colecciones, tablas o grafos y no quiere hacer cambios en el modelo de datos. Tenga en cuenta, es posible que deba poner en peligro algunas de las ventajas que ofrece Azure Cosmos DB si no va a actualizar el modelo de datos al migrar desde una base de datos local. Se recomienda volver a acceder siempre al modelo de datos para sacar el máximo provecho en cuanto a rendimiento y también para optimizar los costos. 
 
 3. Quiere absorber los picos no planeados en cargas de trabajo en virtud de rendimiento agrupado en el nivel de base de datos sometido a un pico inesperado en la carga de trabajo. 
 
 4. En lugar de establecer el rendimiento específico de un contenedor individual, le interesa obtener el rendimiento agregado en un conjunto de contenedores dentro de la base de datos.
 
-**Considere la posibilidad de aprovisionar el rendimiento en un contenedor individual si:**
+**Considere la posibilidad de aprovisionamiento de rendimiento en un contenedor individual si:**
 
 1. Tiene unos pocos contenedores de Azure Cosmos. Dado que Azure Cosmos DB es independiente del esquema, un contenedor puede contener elementos que tengan esquemas heterogéneos y no requieran que los clientes creen varios tipos de contenedor, uno para cada entidad. Siempre es una opción a tener en cuenta si tiene sentido agrupar, digamos, 10 o 20 contenedores independientes en un único contenedor. Con un mínimo de 400 RU para los contenedores, podría ser más rentable agrupar los 10 o 20 contenedores en uno. 
 

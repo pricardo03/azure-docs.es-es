@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
-ms.openlocfilehash: 17893a37bbaf67014c9b34dd446af204b907ff24
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 01c1768f60da98206f0dfd041745428256f545fc
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004972"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861886"
 ---
 # <a name="create-a-custom-probe-for-azure-application-gateway-classic-by-using-powershell"></a>Creación de un sondeo personalizado para la Puerta de enlace de aplicaciones de Azure (clásica) mediante PowerShell
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-gateway-create-probe-portal.md)
-> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-probe-ps.md)
-> * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
+> * [Azure PowerShell de Resource Manager](application-gateway-create-probe-ps.md)
+> * [Azure PowerShell clásico](application-gateway-create-probe-classic-ps.md)
 
 En este artículo, agregará un sondeo personalizado a una puerta de enlace de aplicaciones existente con PowerShell. Los sondeos personalizados son útiles para aplicaciones que tienen una página de comprobación del estado o para aplicaciones que no proporcionan una respuesta correcta en la aplicación web predeterminada.
 
@@ -150,9 +150,9 @@ Los parámetros de configuración son:
 
 |Parámetro|DESCRIPCIÓN|
 |---|---|
-|**Nombre** |Nombre de referencia del sondeo personalizado. |
+|**NOMBRE** |Nombre de referencia del sondeo personalizado. |
 | **Protocolo** | Protocolo usado (los valores posibles son HTTP o HTTPS).|
-| **Host** y **Path** | Dirección URL completa que invoca la puerta de enlace de aplicaciones para determinar el mantenimiento de la instancia. Por ejemplo, si tiene el sitio web http://contoso.com/, el sondeo personalizado se puede configurar para "http://contoso.com/path/custompath.htm", con el fin de que las comprobaciones del sondeo tengan una respuesta HTTP satisfactoria.|
+| **Host** y **Path** | Dirección URL completa que invoca la puerta de enlace de aplicaciones para determinar el mantenimiento de la instancia. Por ejemplo, si tiene un sitio Web http:\//contoso.com/, a continuación, el sondeo personalizado se puede configurar para "http:\//contoso.com/path/custompath.htm" comprobaciones del sondeo tengan una respuesta HTTP correcta.|
 | **Intervalo** | Configura las comprobaciones de intervalo de sondeo en segundos.|
 | **Tiempo de espera** | Define el tiempo de espera de sondeo para una comprobación de respuesta HTTP.|
 | **UnhealthyThreshold** | El número de respuestas HTTP con error que es necesario para marcar la instancia del back-end como *incorrecta*.|

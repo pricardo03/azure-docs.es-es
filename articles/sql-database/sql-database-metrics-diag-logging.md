@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: bb45062697b113b676f85381f0653c14ac8c0c67
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 785948c78b2b8205c4bebe2d68b62f6de7254d94
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621237"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863141"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database
 
@@ -69,10 +69,15 @@ Puede configurar las bases de datos SQL de Azure y bases de datos de instancia p
 | [DatabaseWaitStatistics](#database-wait-statistics-dataset): contiene la información sobre cuánto tiempo ha dedicado la base de datos a esperar distintos tipos de espera. | Sí | Sin  |
 | [Tiempos de expiración](#time-outs-dataset): contiene información sobre los tiempos de expiración en la base de datos. | Sí | Sin  |
 | [Bloqueos](#blockings-dataset): contiene información sobre los eventos de bloqueo en la base de datos. | Sí | Sin  |
+| [Los interbloqueos](#deadlocks-dataset): Contiene información sobre los eventos de interbloqueo en la base de datos. | Sí | Sin  |
+| [AutomaticTuning](#automatic-tuning-dataset): Contiene información sobre recomendaciones de ajuste automático en la base de datos. | Sí | Sin  |
 | [SQLInsights](#intelligent-insights-dataset): contiene Intelligent Insights sobre el rendimiento. Para obtener más información, consulte [Intelligent Insights](sql-database-intelligent-insights.md). | Sí | Sí |
 
 > [!IMPORTANT]
 > Los grupos elásticos y las instancias administradas tienen su propia telemetría de diagnósticos independientes de las bases de datos que contienen. Esto es importante tener en cuenta como telemetría de diagnósticos se configura por separado para cada uno de estos recursos, tal como se describe a continuación.
+
+> [!NOTE]
+> No se puede habilitar los registros de auditoría de seguridad y SQLSecurityAuditEvents desde la configuración de diagnóstico de la base de datos. Para habilitar el streaming de registros de auditoría, consulte [configurar la auditoría de la base de datos](sql-database-auditing.md#subheading-2), y [los registros en los registros de Azure Monitor y Azure Event Hubs de auditoría](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -107,7 +112,7 @@ Para habilitar el streaming de telemetría de diagnóstico del recurso de grupos
 1. Seleccione un recurso de destino para los datos de diagnóstico de streaming: **Archivar en una cuenta de almacenamiento**, **Transmitir en secuencias a un centro de eventos** o **Enviar a Log Analytics**.
 1. Para log analytics, seleccione **configurar** y crear una nueva área de trabajo seleccionando **+ crear nueva área de trabajo**, o seleccione un área de trabajo.
 1. Active la casilla para la telemetría de diagnóstico de grupos elásticos: **AllMetrics**.
-   ![Configurar los diagnósticos para grupos elásticos](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
+   ![Configuración de diagnósticos en grupos elásticos](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 1. Seleccione **Guardar**.
 1. Además, configurar la transmisión de telemetría de diagnósticos para cada base de datos del grupo elástico que desea supervisar siguiendo los pasos descritos en la sección siguiente.
 
@@ -131,12 +136,12 @@ Para habilitar el streaming de datos de telemetría de diagnósticos para las ba
 1. Seleccione un recurso de destino para los datos de diagnóstico de streaming: **Archivar en una cuenta de almacenamiento**, **Transmitir en secuencias a un centro de eventos** o **Enviar a Log Analytics**.
 1. Para la experiencia de supervisión basada en eventos estándar, active las siguientes casillas para la telemetría de registro de diagnóstico de base de datos: **SQLInsights**, **AutomaticTuning**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics**, **Errores**, **DatabaseWaitStatistics**, **Tiempos de expiración**, **Bloqueos** e **Interbloqueos**.
 1. Para una experiencia de supervisión basada en un minuto avanzada, active la casilla para **AllMetrics**.
-   ![Configurar los diagnósticos para single, agrupadas o bases de datos de instancia](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
+   ![Configuración de diagnósticos para bases de datos únicas, agrupadas y de instancia](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
 1. Seleccione **Guardar**.
 1. Repita estos pasos para cada base de datos que desea supervisar.
 
 > [!NOTE]
-> Los registros de auditoría de seguridad no se pueden habilitar en la configuración de diagnóstico de la base de datos. Para habilitar el streaming de registros de auditoría, consulte [configurar la auditoría de la base de datos](sql-database-auditing.md#subheading-2), y [los registros en los registros de Azure Monitor y Azure Event Hubs de auditoría](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
+> No se puede habilitar los registros de auditoría de seguridad y SQLSecurityAuditEvents desde la configuración de diagnóstico de la base de datos. Para habilitar el streaming de registros de auditoría, consulte [configurar la auditoría de la base de datos](sql-database-auditing.md#subheading-2), y [los registros en los registros de Azure Monitor y Azure Event Hubs de auditoría](https://blogs.msdn.microsoft.com/sqlsecurity/2018/09/13/sql-audit-logs-in-azure-log-analytics-and-azure-event-hubs/).
 > [!TIP]
 > Repita estos pasos para cada instancia de Azure SQL Database que quiera supervisar.
 
@@ -169,7 +174,7 @@ Para habilitar el streaming de datos de telemetría de diagnóstico de un recurs
 1. Seleccione un recurso de destino para los datos de diagnóstico de streaming: **Archivar en una cuenta de almacenamiento**, **Transmitir en secuencias a un centro de eventos** o **Enviar a Log Analytics**.
 1. Para log analytics, seleccione **configurar** y crear una nueva área de trabajo seleccionando **+ crear nueva área de trabajo**, o usar un área de trabajo.
 1. Active la casilla para la telemetría de diagnóstico de instancias: **ResourceUsageStats**.
-   ![Configurar los diagnósticos para la instancia administrada](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
+   ![Configuración de diagnósticos para una instancia administrada](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 1. Seleccione **Guardar**.
 1. Además, configurar la transmisión de telemetría de diagnósticos para cada instancia de base de datos dentro de la instancia administrada que desea supervisar siguiendo los pasos descritos en la sección siguiente.
 
@@ -193,7 +198,7 @@ Para habilitar el streaming de telemetría de diagnósticos por ejemplo, las bas
 1. Escriba un nombre de configuración para su propia referencia.
 1. Seleccione un recurso de destino para los datos de diagnóstico de streaming: **Archivar en una cuenta de almacenamiento**, **Transmitir en secuencias a un centro de eventos** o **Enviar a Log Analytics**.
 1. Active las casillas para la telemetría de diagnóstico de base de datos: **SQLInsights**, **QueryStoreRuntimeStatistics**, **QueryStoreWaitStatistics** y **Errores**.
-   ![Configurar los diagnósticos, por ejemplo las bases de datos](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
+   ![Configuración de diagnósticos para bases de datos de instancia](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
 1. Seleccione **Guardar**.
 1. Repita estos pasos para cada base de datos de instancia que desea supervisar.
 
@@ -349,7 +354,7 @@ Puede transmitir las métricas y los registros de diagnóstico de SQL Database a
 
 Una vez que los datos seleccionados se transmiten a los Event Hubs, está un paso más cerca de habilitar escenarios de supervisión avanzados. Los centros de Event Hubs actúan como la puerta de entrada de una canalización de eventos. Una vez que los datos se recopilan en un centro de eventos, se pueden transformar y almacenar con un proveedor de análisis en tiempo real o un adaptador de almacenamiento. Los centros de Event Hubs desacoplan la producción de un flujo de eventos del consumo de esos eventos. De esta manera, los consumidores de eventos pueden tener acceso a los eventos en su propia programación. Para obtener más información sobre Event Hubs, consulte:
 
-- [¿Qué es Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
+- [¿Qué son Azure Event Hubs?](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Introducción a Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
 Puede usar las métricas transmitidas en Event Hubs para:

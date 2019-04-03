@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 823eebeddb64c15ef20d103f2f9290c800753f1a
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0f8aafce4c4feeed742504db84664e4dfd472ca6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404769"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884149"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Guía de las limitaciones de Azure Key Vault
 
@@ -34,7 +34,7 @@ Si tiene un caso empresarial válido para limitaciones superiores, póngase en c
 
 ## <a name="how-to-throttle-your-app-in-response-to-service-limits"></a>Limitación de la aplicación en respuesta a los límites de servicio
 
-A continuación se muestran los **procedimientos recomendados** para la limitación de la aplicación:
+Los siguientes son **procedimientos recomendados** deben implementar cuando está limitado a su servicio:
 - Reduzca el número de operaciones por solicitud.
 - Reduzca la frecuencia de las solicitudes.
 - Evite los reintentos inmediatos. 
@@ -115,7 +115,7 @@ A continuación, se muestra el código que implementa el retroceso exponencial.
 ```
 
 
-El uso de este código en una aplicación cliente C\# (otro microservicio de cliente de API web, una aplicación ASP.NET MVC o incluso una aplicación C\# Xamarin) es muy sencillo. En el ejemplo siguiente se muestra cómo hacerlo, mediante la clase HttpClient.
+Utilice este código en un cliente C\# aplicación es sencilla. En el ejemplo siguiente se muestra cómo hacerlo, mediante la clase HttpClient.
 
 ```csharp
 public async Task<Cart> GetCartItems(int page)

@@ -10,12 +10,12 @@ ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
-ms.openlocfilehash: dceabc799e187f3af56588d5a9008e5cdca517c0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 019945c48342238a1caa7611bdff6d06fd1e2bd9
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864463"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883401"
 ---
 # <a name="how-to-index-cosmos-db-using-an-azure-search-indexer"></a>Cómo indexar Cosmos DB mediante un indexador de Azure Search
 
@@ -25,7 +25,7 @@ Porque terminología puede resultar confusa, merece la pena mencionar que [index
 
 Puede usar el [portal](#cosmos-indexer-portal), las API de REST o SDK de .NET para indizar el contenido de Cosmos. El indexador de Cosmos DB en Azure Search puede rastrear [elementos de Azure Cosmos](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) tiene acceso a través de estos protocolos:
 
-* [SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
+* [API DE SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference) 
 * [API de MongoDB](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) (soporte técnico de Azure Search para esta API está en versión preliminar pública)  
 
 > [!Note]
@@ -61,7 +61,7 @@ En el **origen de datos** página, el origen debe ser **Cosmos DB**, con las esp
 
 + **Nombre** es el nombre del objeto de origen de datos. Una vez creado, puede elegir para otras cargas de trabajo.
 
-+ **Cuenta de COSMOS DB** debe ser la cadena de conexión principal o secundaria de Cosmos DB, con un `AccountEdpointPoint` y un `AccountKey`. La cuenta determina si los datos se convierten como SQL API o Mongo DB API
++ **Cuenta de COSMOS DB** debe ser la cadena de conexión principal o secundaria de Cosmos DB, con un `AccountEndpoint` y un `AccountKey`. La cuenta determina si los datos se convierten como SQL API o Mongo DB API
 
 + **Base de datos** es una base de datos de la cuenta. 
 
@@ -171,8 +171,8 @@ El cuerpo de la solicitud contiene la definición del origen de datos, que debe 
 
 | Campo   | DESCRIPCIÓN |
 |---------|-------------|
-| **name** | Necesario. Elija un nombre para representar el objeto de origen de datos. |
-|**type**| Necesario. Debe ser `documentdb`. |
+| **Nombre** | Necesario. Elija un nombre para representar el objeto de origen de datos. |
+|**Tipo**| Necesario. Debe ser `documentdb`. |
 |**credentials** | Necesario. Debe ser una cadena de conexión de Cosmos DB.<br/>Para las colecciones de SQL, las cadenas de conexión están en este formato: `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>`<br/>Para las colecciones de MongoDB, agregue **determinada = MongoDb** a la cadena de conexión:<br/>`AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`<br/>Evite los números de puerto en la dirección URL del punto de conexión. Si incluye el número de puerto, Azure Search no podrá indexar la base de datos de Azure Cosmos DB.|
 | **container** | contiene los siguientes elementos: <br/>**name**: Necesario. Especifique el identificador de la colección de base de datos que se puede indizar.<br/>**query**: Opcional. Puede especificar una consulta para acoplar un documento JSON arbitrario en un esquema plano que Azure Search pueda indizar.<br/>Para las colecciones de MongoDB, no se admiten las consultas. |
 | **dataChangeDetectionPolicy** | Se recomienda su uso. Consulte la sección [Indexación de documentos modificados](#DataChangeDetectionPolicy).|
@@ -282,10 +282,10 @@ Para más información sobre la API Create Indexer, consulte [Crear indexador](h
 
 El SDK de .NET totalmente tiene paridad completa con la API REST. Se recomienda que revise la sección anterior de la API REST para obtener información sobre los conceptos, el flujo de trabajo y los requisitos. A continuación, puede consultar la siguiente documentación de referencia de la API de .NET para implementar un indizador JSON en código administrado.
 
-+ [Microsoft.Azure.Search.Models.DataSource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
-+ [Microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
-+ [Microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
-+ [Microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
++ [microsoft.azure.search.models.datasource](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet)
++ [microsoft.azure.search.models.datasourcetype](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasourcetype?view=azure-dotnet) 
++ [microsoft.azure.search.models.index](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.index?view=azure-dotnet) 
++ [microsoft.azure.search.models.indexer](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
 
 <a name="DataChangeDetectionPolicy"></a>
 

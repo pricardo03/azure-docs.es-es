@@ -1,25 +1,25 @@
 ---
 title: Seleccione e implementar Azure Security Center para la versión preliminar del agente de IoT | Microsoft Docs
 description: Obtenga información acerca cómo seleccionar e implementar Azure Security Center para los agentes de seguridad de IoT en dispositivos IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 32a9564d-16fd-4b0d-9618-7d78d614ce76
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
-ms.openlocfilehash: d3a7c3b1b08ab4f0fecd854b969ac18bf9a73ccf
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 8f5a6187b0a651da9dd8de1cb5670a8faffded1a
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755297"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862427"
 ---
 # <a name="select-and-deploy-a-security-agent-on-your-iot-device"></a>Seleccionar e implementar a un agente de seguridad en el dispositivo de IoT
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: e5dc8ac0716e194dd0949e2e270346ee338a792a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ee6317f61f95b19effd64308b88f53c027582b63
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839736"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883016"
 ---
 # <a name="understand-terms-on-your-microsoft-customer-agreement-invoice"></a>Descripción de los términos en la factura del contrato de cliente de Microsoft
 
@@ -49,7 +49,7 @@ El **resumen de factura** en la parte superior de la primera página y muestra i
 | P.O. número |Un número de pedido de compra opcional asignado por usted para el seguimiento |
 | Número de factura |Un número de factura único, generado por Microsoft utilizado con fines de seguimiento |
 | Fecha de la factura |Fecha en que se genera la factura, normalmente cinco a 12 días después del final del ciclo de facturación. Puede comprobar la fecha de factura de facturación de las propiedades de perfil.|
-| Términos de pago |Forma de pago para su factura de Microsoft. *30 días de NET* significa que paga por verificación o transferencia electrónica dentro de 30 días de la fecha de factura. |
+| Términos de pago |Forma de pago para su factura de Microsoft. *30 días de NET* significa que paga dentro de 30 días de la fecha de factura. |
 
 ### <a name="billing-summary"></a>Resumen de facturación
 

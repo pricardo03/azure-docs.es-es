@@ -8,15 +8,14 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/14/2018
 ms.author: raynew
-ms.openlocfilehash: 500986478e554a3a114d11ee4b25ea40b5decd97
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ea5495867d5f453db014e000e01d533d049dc628
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004137"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849598"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>Administración y supervisión de bases de datos SQL Server con copia de seguridad
-
 
 En este artículo se describe tareas comunes para administrar y supervisar las bases de datos de SQL Server que se ejecutan en una máquina virtual (VM) de Azure y que se copian en una copia de seguridad de Azure Recovery Services del almacén por el [Azure Backup](backup-overview.md) service. Obtendrá información sobre cómo supervisar los trabajos y alertas, detener y reanudar la protección de la base de datos, ejecutar trabajos de copia de seguridad y anular el registro de una máquina virtual desde las copias de seguridad.
 
@@ -113,6 +112,7 @@ Puede ejecutar diferentes tipos de copias de seguridad a petición:
 * Copia de seguridad diferencial
 * Copia de seguridad de registro
 
+Aunque puede que necesite especificar la duración de retención de copia de seguridad completa de solo copia, la duración de retención para otros tipos de copia de seguridad se establece automáticamente en 30 días desde el momento actual. <br/>
 Para obtener más información, consulte [tipos de copia de seguridad de SQL Server](backup-architecture.md#sql-server-backup-types).
 
 ## <a name="unregister-a-sql-server-instance"></a>Anulación del registro de una instancia de SQL Server

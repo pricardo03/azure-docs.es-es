@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9a1bb630c14ef504cb60a6847643a60f1cc90a1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 60ce66b079942944176540826c7f3e7a91b070d2
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58368654"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861869"
 ---
 # <a name="azure-ad-password-protection-agent-version-history"></a>Historial de versiones del agente de protección con contraseña de Azure AD
 
@@ -26,6 +26,9 @@ Fecha de lanzamiento: 3/22/2019
 
 * Corregir errores tipográficos menores en los mensajes de registro de eventos
 * Actualizar contrato de licencia para la versión final de la disponibilidad General
+
+> [!NOTE]
+> 1.2.125.0 es la compilación de la disponibilidad General. Agradecimiento otra vez para todo el mundo ha proporcionado comentarios sobre el producto.
 
 ## <a name="121160"></a>1.2.116.0
 
@@ -133,4 +136,4 @@ Versión preliminar pública inicial
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Implementación de la protección de contraseñas de Azure AD](howto-password-ban-bad-on-premises-deploy.md)
+[Implementación de la protección con contraseña de Azure AD](howto-password-ban-bad-on-premises-deploy.md)

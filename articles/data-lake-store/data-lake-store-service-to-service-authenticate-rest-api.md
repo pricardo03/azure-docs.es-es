@@ -1,28 +1,28 @@
 ---
-title: 'Autenticación de servicio a servicio: API REST con Azure Data Lake Storage Gen1 mediante Azure Active Directory | Microsoft Docs'
+title: 'Autenticación de servicio a servicio: API de REST con Azure Data Lake Storage Gen1 con Azure Active Directory | Microsoft Docs'
 description: Aprenda a realizar la autenticación de servicio a servicio con Azure Data Lake Storage Gen1 mediante Azure Active Directory usando API REST.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: dd282091d41538b7e3dc08eb0b3d82539fa0bb4f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: c48f7d7608b2b70f4ae41e2af5792cff72bb0dd2
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295604"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885730"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticación de servicio a servicio con Azure Data Lake Storage Gen1 mediante la API REST
 > [!div class="op_single_selector"]
-> * [Uso de Java](data-lake-store-service-to-service-authenticate-java.md)
+> * [Usar Java](data-lake-store-service-to-service-authenticate-java.md)
 > * [Uso del SDK de .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
-> * [Uso de Python](data-lake-store-service-to-service-authenticate-python.md)
+> * [Usar Python](data-lake-store-service-to-service-authenticate-python.md)
 > * [Uso de la API de REST](data-lake-store-service-to-service-authenticate-rest-api.md)
 > 
 > 
@@ -52,6 +52,6 @@ En este artículo se usa el enfoque **no interactivo** . Para más información 
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo, aprendió a usar la autenticación de servicio a servicio con Data Lake Storage Gen1 mediante la API REST. Ahora puede consultar los siguientes artículos, que tratan acerca de cómo usar la API REST con Data Lake Storage Gen1.
 
-* [Account management operations on Data Lake Storage Gen1 using REST API](data-lake-store-get-started-rest-api.md) (Operaciones de administración de cuentas en Data Lake Storage Gen1 mediante API REST)
-* [Data operations on Data Lake Storage Gen1 using REST API](data-lake-store-data-operations-rest-api.md) (Operaciones de datos en Data Lake Storage Gen1 mediante API REST)
+* [Operaciones de administración de cuentas en Data Lake Storage Gen1 mediante API de REST](data-lake-store-get-started-rest-api.md)
+* [Operaciones de datos en Data Lake Storage Gen1 con API de REST](data-lake-store-data-operations-rest-api.md)
 

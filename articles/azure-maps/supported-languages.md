@@ -3,27 +3,27 @@ title: Idiomas admitidos en Azure Maps | Microsoft Docs
 description: Conozca los idiomas admitidos en los servicios de Azure Maps
 author: juliekohler
 ms.author: julieko
-ms.date: 03/30/2018
+ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 380bf5cb89a165534d0084758d532613eeff480a
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
-ms.translationtype: HT
+ms.openlocfilehash: d22ecfbea524ffb2ab48ac9a95e03d7595c4cbfb
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320499"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849639"
 ---
 # <a name="azure-maps-supported-languages"></a>Idiomas admitidos en Azure Maps
-Los servicios de Azure Maps se han localizado en diversos idiomas.  En la tabla siguiente se proporcionan los códigos de idioma admitidos para cada servicio.  
+Los servicios de Azure Maps se han localizado en diversos idiomas.  En la tabla siguiente se proporcionan los códigos de idioma admitidos para cada servicio.  
   
 
 | ID         | NOMBRE                   |  Mapas | Search | Enrutamiento | Incidentes de tráfico | Control de mapa JS | Zona horaria |
 |------------|------------------------|:-----:|:------:|:-------:|:-----------------:|:--------------:|:---------:|
 | af-ZA      | Afrikáans              |       |    ✓   |    ✓    |                   |                |     ✓     |
 | ar-SA      | Árabe                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| eu-ES      | Vasco                 |       |        |         |                   |                |     ✓     |
+| eu-ES      | Vasco                 |       |    ✓   |         |                   |                |     ✓     |
 | bg-BG      | Búlgaro              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | ca-ES      | Catalán                |       |    ✓   |         |                   |                |     ✓     |
 | zh-HanS    | Chino (simplificado)   |       |  zh-CN |         |                   |                |     ✓     |
@@ -38,16 +38,16 @@ Los servicios de Azure Maps se han localizado en diversos idiomas.  En la tabla 
 | fi-FI      | Finés                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-FR      | Francés                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-CA      | Francés (canadiense)      |       |    ✓   |         |                   |                |     ✓     |
-| gl-ES      | Gallego               |       |        |         |                   |                |     ✓     |
+| gl-ES      | Gallego               |       |    ✓   |         |                   |                |     ✓     |
 | de-DE      | Alemán                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | el-GR      | Griego                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| he-IL      | Hebreo                 |       |        |         |         ✓         |                |     ✓     |
+| he-IL      | Hebreo                 |       |    ✓   |         |         ✓         |                |     ✓     |
 | hi-IN      | Hindi                  |       |        |         |                   |                |     ✓     |
 | hu-HU      | Húngaro              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| id-ID      | Indonesio             |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
+| id-ID      | Indonesio             |   ✓   |    ✓    |    ✓    |         ✓         |        ✓       |     ✓     |
 | it-IT      | Italiano                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | ja-JP      | Japonés               |       |        |         |                   |                |     ✓     |
-| kk-KZ      | Kazajo                 |       |        |         |                   |                |     ✓     |
+| kk-KZ      | Kazajo                 |       |    ✓   |         |                   |                |     ✓     |
 | ko-KR      | Coreano                 |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
 | es-419     | Español (América latina) |       |    ✓   |         |                   |                |     ✓     |
 | lv-LV      | Letón                |       |    ✓   |         |         ✓         |                |     ✓     |
@@ -59,16 +59,16 @@ Los servicios de Azure Maps se han localizado en diversos idiomas.  En la tabla 
 | pl-PL      | Polaco                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | pt-BR      | Portugués (Brasil)    |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | pt-PT      | Portugués (Portugal)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| ro-RO      | Rumano               |       |        |         |         ✓         |                |     ✓     |
+| ro-RO      | Rumano               |       |    ✓    |         |         ✓         |                |     ✓     |
 | ru-RU      | Ruso                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| sr-Cyrl-RS | Serbio (cirílico)     |       |        |         |                   |                |     ✓     |
+| sr-Cyrl-RS | Serbio (cirílico)     |       |    Serbio (cirílico) (sr-RS)   |         |                   |                |     ✓     |
 | sr-Latn-RS | Serbio (latino)        |       |        |         |                   |                |     ✓     |
 | sk-SK      | Eslovaco              |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | sl-SL      | Esloveno              |   ✓   |    ✓   |    ✓    |                   |        ✓       |     ✓     |
 | es-ES      | Español                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | es-MX      | Español (México)       |   ✓   |        |    ✓    |                   |        ✓       |     ✓     |
 | sv -SE     | Sueco                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| th-TH      | Tailandés                   |   ✓   |        |    ✓    |         ✓         |        ✓       |     ✓     |
+| th-TH      | Tailandés                   |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | tr-TR      | Turco                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
-| uk-UA      | Ucraniano               |       |        |         |                   |                |     ✓     |
-| vi-VN      | Vietnamita             |       |        |         |                   |                |     ✓     |
+| uk-UA      | Ucraniano               |       |    ✓   |         |                   |                |     ✓     |
+| vi-VN      | Vietnamita             |       |    ✓   |         |                   |                |     ✓     |

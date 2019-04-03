@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: c7923282396481dcfd6aa19b75d110fa03e50931
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: e51c56f54a4e30b5e9094388ed92aa0a62ba0840
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440029"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879155"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Crear un generador de imágenes personalizadas en Azure DevTest Labs
 Este artículo muestra cómo configurar una fábrica de imagen personalizada mediante el uso de scripts de ejemplo disponibles en el [repositorio de Git](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory).
@@ -27,7 +27,7 @@ Un generador de imágenes es una solución de configuración como código que cr
 
 El Acelerador importante para obtener un escritorio de desarrollador a un estado listo en DevTest Labs usa imágenes personalizadas. La desventaja de imágenes personalizadas es que hay algo adicional para mantener en el laboratorio. Por ejemplo, expiran las versiones de prueba de productos con el tiempo (o) no se aplican las actualizaciones de seguridad más recientes, que forzar que actualice periódicamente la imagen personalizada. Con un generador de imágenes, tiene una definición de la imagen que se protege en el control de código fuente y tiene un proceso automatizado para generar imágenes personalizadas basadas en la definición.
 
-La solución permite que la velocidad de creación de máquinas virtuales desde imágenes personalizadas al tiempo que elimina los costos adicionales de mantenimiento en curso. Con esta solución, automáticamente puede crear imágenes personalizadas, distribuirlos a otros laboratorios de DevTest y retirar las imágenes anteriores. En el siguiente vídeo, obtendrá información sobre el generador de imágenes y cómo se implementa con DevTest Labs.  Todos los scripts de Powershell de Azure están disponibles libremente y se encuentra aquí: [ http://aka.ms/dtlimagefactory ](http://aka.ms/dtlimagefactory).
+La solución permite que la velocidad de creación de máquinas virtuales desde imágenes personalizadas al tiempo que elimina los costos adicionales de mantenimiento en curso. Con esta solución, automáticamente puede crear imágenes personalizadas, distribuirlos a otros laboratorios de DevTest y retirar las imágenes anteriores. En el siguiente vídeo, obtendrá información sobre el generador de imágenes y cómo se implementa con DevTest Labs.  Todos los scripts de Powershell de Azure están disponibles libremente y se encuentra aquí: [ https://aka.ms/dtlimagefactory ](https://aka.ms/dtlimagefactory).
 
 <br/>
 

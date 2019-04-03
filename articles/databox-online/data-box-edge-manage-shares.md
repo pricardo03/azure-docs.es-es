@@ -6,22 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/11/2019
+ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 79648e30e832a056016b8842fdc39e27e206c9ee
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: e85e006a54fcb4bb677932b3e1ff9fa79352dba9
+ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57897818"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58519840"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-edge"></a>Uso de Azure Portal para administrar recursos compartidos en Azure Data Box Edge
 
 En este artículo se describe cómo administrar recursos compartidos en Azure Data Box Edge. Azure Data Box Edge se puede administrar a través de Azure Portal o de la interfaz de usuario web local. Use Azure Portal para agregar, eliminar y actualizar recursos compartidos o sincronizar la clave de almacenamiento para la cuenta de almacenamiento asociada con los recursos compartidos.
-
-> [!IMPORTANT]
-> Data Box Edge se encuentra en versión preliminar. Antes de solicitar e implementar esta solución revise los [términos del servicio de Azure para la versión preliminar](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
 
 ## <a name="about-shares"></a>Acerca de los recursos compartidos
 
@@ -55,7 +51,7 @@ Siga estos pasos en Azure Portal para crear un recurso compartido.
 
 4. Especifique la **cuenta de almacenamiento** en que se encuentra el recurso compartido. Se crea un contenedor en la cuenta de almacenamiento con el nombre del recurso compartido si el contenedor no existía previamente. Si el contenedor ya existe, se usará este.
 
-5. En la lista desplegable, elija el **servicio de almacenamiento** entre blob en bloques, blob en páginas o archivos. El tipo de servicio elegido depende de en qué formato desea que los datos residan en Azure. Por ejemplo, en este caso, queremos que los datos residan como blobs en bloques en Azure y, por tanto, seleccionamos esa opción. Si elige **Blob en páginas**, debe asegurarse de que los datos tienen 512 bytes alineados. Use **Blob en páginas** para VHD o VHDX que siempre tienen 512 bytes alineados.
+5. En la lista desplegable, elija el **servicio de almacenamiento** entre blob en bloques, blob en páginas o archivos. El tipo de servicio elegido depende de en qué formato desea que los datos residan en Azure. Por ejemplo, en este caso, queremos que los datos residan como **blobs en bloques** en Azure y, por tanto, seleccionamos esa opción. Si elige **Blob en páginas**, debe asegurarse de que los datos tienen 512 bytes alineados. Use **Blob en páginas** para VHD o VHDX que siempre tienen 512 bytes alineados.
 
 6. Este paso depende de si está creando un recurso compartido SMB o NFS.
     - **Si crea un recurso compartido SMB**: en el campo **Usuario local con todos los privilegios**, elija entre **Crear nuevo** o **Usar existente**. Si va a crear un nuevo usuario local, indique el **nombre de usuario** y la **contraseña** y, después, confirme la contraseña. Esto asigna los permisos al usuario local. Después de haber asignado los permisos aquí, puede utilizar el Explorador de archivos para modificarlos.
@@ -67,8 +63,10 @@ Siga estos pasos en Azure Portal para crear un recurso compartido.
 
         ![Incorporación de un recurso compartido NFS](media/data-box-edge-manage-shares/add-nfs-share.png)
 
-7. Haga clic en **Crear** para crear el recurso compartido. Se le notifica que la creación del recurso compartido está en curso. Una vez creado el recurso compartido con la configuración especificada, la hoja **Recursos compartidos** se actualiza para reflejar el nuevo recurso compartido.
- 
+7. Para acceder fácilmente a los recursos compartidos de los módulos de proceso perimetral, use el punto de montaje local. Seleccione **Usar el recurso compartido con el proceso perimetral** para que el recurso compartido se monte automáticamente después de que se cree. Cuando se selecciona esta opción, el módulo Edge también puede usar el proceso con el punto de montaje local.
+
+8. Haga clic en **Crear** para crear el recurso compartido. Se le notifica que la creación del recurso compartido está en curso. Una vez creado el recurso compartido con la configuración especificada, la hoja **Recursos compartidos** se actualiza para reflejar el nuevo recurso compartido.
+
 ## <a name="add-a-local-share"></a>Incorporación de un recurso compartido local
 
 1. En Azure Portal, vaya al recurso de Data Box Edge y luego a **Gateway > Recursos compartidos**. Seleccione **+ Agregar recurso compartido** en la barra de comandos.
@@ -93,11 +91,56 @@ Siga estos pasos en Azure Portal para crear un recurso compartido.
 
     Verá una notificación de que la creación del recurso compartido está en curso. Una vez creado el recurso compartido con la configuración especificada, la hoja **Recursos compartidos** se actualiza para reflejar el nuevo recurso compartido.
 
-    ![Vista de las actualizaciones de la hoja Recursos compartidos](media/data-box-edge-manage-shares/add-local-share-4.png)
+    ![Vista de las actualizaciones de la hoja Recursos compartidos](media/data-box-edge-manage-shares/add-local-share-3.png)
     
     Seleccione el recurso compartido para ver el punto de montaje local para los módulos de proceso perimetral de este recurso compartido.
 
     ![Vista de los detalles del recurso compartido](media/data-box-edge-manage-shares/add-local-share-4.png)
+
+## <a name="mount-a-share"></a>Montaje de un recurso compartido
+
+Si creó un recurso compartido antes de configurar el proceso en un dispositivo con Data Box Edge, deberá montar el recurso compartido. Realice los siguientes pasos para montar un recurso compartido.
+
+
+1. En Azure Portal, vaya al recurso de Data Box Edge y luego a **Gateway > Recursos compartidos**. En la lista de recursos compartidos, seleccione el que desee montar. En la columna **Usado para el proceso**, el estado del recurso compartido seleccionado aparecerá como **Deshabilitado**.
+
+    ![Seleccionar recurso compartido](media/data-box-edge-manage-shares/select-share-mount.png)
+
+2. Seleccione **Montar**.
+
+    ![Seleccionar el montaje](media/data-box-edge-manage-shares/select-mount.png)
+
+3. Cuando se le pida confirmación, seleccione **Sí**. Se montará el recurso compartido.
+
+    ![Confirmar el montaje](media/data-box-edge-manage-shares/confirm-mount.png)
+
+4. Después de que se monte el recurso compartido, vaya a la lista de recursos compartidos. Verá que la columna **Usado para el proceso** muestra el estado del recurso compartido como **Habilitado**.
+
+    ![Recurso compartido montado](media/data-box-edge-manage-shares/share-mounted.png)
+
+5. Vuelva a seleccionar el recurso compartido para ver el punto de montaje local del recurso compartido. El módulo del proceso perimetral usa este punto de montaje local para el recurso compartido.
+
+    ![Punto de montaje local del recurso compartido](media/data-box-edge-manage-shares/share-mountpoint.png)
+
+## <a name="unmount-a-share"></a>Desmontaje de un recurso compartido
+
+Siga estos pasos en Azure Portal para desmontar un recurso compartido.
+
+1. En Azure Portal, vaya al recurso de Data Box Edge y luego a **Gateway > Recursos compartidos**.
+
+    ![Seleccionar recurso compartido](media/data-box-edge-manage-shares/select-share-unmount.png)
+
+2. En la lista de recursos compartidos, seleccione el que desee desmontar. Desea asegurarse de que ningún módulo usa el recurso compartido que desmonta. Si un módulo usa el recurso compartido, verá que aparecen problemas con este módulo. Seleccione **Desmontar**.
+
+    ![Seleccionar el desmontaje](media/data-box-edge-manage-shares/select-unmount.png)
+
+3. Cuando se le pida confirmación, seleccione **Sí**. Se desmontará el recurso compartido.
+
+    ![Confirmar el desmontaje](media/data-box-edge-manage-shares/confirm-unmount.png)
+
+4. Después de que se desmonte el recurso compartido, vaya a la lista de recursos compartidos. Verá que la columna **Usado para el proceso** muestra el estado del recurso compartido como **Deshabilitado**.
+
+    ![Recurso compartido desmontado](media/data-box-edge-manage-shares/share-unmounted.png)
 
 ## <a name="delete-a-share"></a>Eliminación de un recurso compartido
 
@@ -123,7 +166,8 @@ La lista de recursos compartidos se actualiza para reflejar la eliminación.
 La característica de actualización permite actualizar el contenido de un recurso compartido. Al actualizar un recurso compartido, se inicia una búsqueda para encontrar todos los objetos de Azure, lo que incluye los blobs y archivos que se agregaron a la nube desde la última actualización. Luego, estos archivos adicionales se descargan para actualizar el contenido del recurso compartido en el dispositivo.
 
 > [!IMPORTANT]
-> Los recursos compartidos locales no se pueden actualizar.
+> - Los recursos compartidos locales no se pueden actualizar.
+> - En una operación de actualización, no se conservan los permisos y las listas de control de acceso (ACL). 
 
 Siga estos pasos en Azure Portal para actualizar un recurso compartido.
 

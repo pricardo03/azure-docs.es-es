@@ -4,19 +4,19 @@ description: Sugerencias para mejorar el rendimiento al usar Azure PowerShell co
 services: data-lake-store
 documentationcenter: ''
 author: stewu
-manager: jhubbard
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2018
 ms.author: stewu
-ms.openlocfilehash: 318f2b550e19f4b7f56a7b8cc592d34644dca644
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 1c554b0eee844a632e6412b6f8a285c7a2573326
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56235609"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885322"
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-storage-gen1"></a>Guía de ajuste del rendimiento para usar PowerShell con Azure Data Lake Storage Gen1
 
@@ -95,8 +95,8 @@ Puede continuar ajustando esta configuración aumentando o reduciendo **PerFileT
 * **Errores de limitación**: es posible que vea errores de limitación si la simultaneidad es demasiado alta. Si ve errores de limitación, reduzca la simultaneidad o póngase en contacto con nosotros.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Uso de Azure Data Lake Storage Gen1 para requisitos de macrodatos](data-lake-store-data-scenarios.md) 
-* [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
-* [Use Azure Data Lake Analytics with Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md) (Uso de Azure Data Lake Analytics con Data Lake Storage Gen1)
+* [Usar Azure Data Lake Storage Gen1 para conocer los requisitos de macrodatos](data-lake-store-data-scenarios.md) 
+* [Proteger los datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Usar Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Uso de Azure HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

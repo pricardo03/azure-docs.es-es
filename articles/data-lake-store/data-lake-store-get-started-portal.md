@@ -3,26 +3,26 @@ title: Uso de Azure Portal como introducción a Azure Data Lake Storage Gen1 | M
 description: Use Azure Portal para crear una cuenta de Azure Data Lake Storage Gen1 y realizar operaciones básicas en la cuenta de Data Lake Storage Gen1.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: a99d8a265cdc72b6bd1dd45ab670f514d828f808
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: twooley
+ms.openlocfilehash: e021d8c056028c03ac71d2a27c9128272f374da6
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58005706"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883588"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Introducción a Azure Data Lake Storage Gen1 con Azure Portal
 
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [CLI de Azure](data-lake-store-get-started-cli-2.0.md)
+> * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 >
 > 
 
@@ -123,8 +123,8 @@ Para eliminar una cuenta de Data Lake Storage Gen1, en la hoja de Data Lake Stor
 ![Eliminación de una cuenta de Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Eliminación de una cuenta de Data Lake")
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Uso de Azure Data Lake Storage Gen1 para requisitos de macrodatos](data-lake-store-data-scenarios.md) 
-* [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
-* [Use Azure Data Lake Analytics with Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md) (Uso de Azure Data Lake Analytics con Data Lake Storage Gen1)
+* [Usar Azure Data Lake Storage Gen1 para conocer los requisitos de macrodatos](data-lake-store-data-scenarios.md) 
+* [Proteger los datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Usar Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Uso de Azure HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

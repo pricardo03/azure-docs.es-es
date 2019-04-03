@@ -8,12 +8,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 3/20/2019
 ms.author: victorh
-ms.openlocfilehash: f549f9c612797c1c956d6921fe4898a5f8bee9e6
-ms.sourcegitcommit: 5e4ca656baf3c7d370ab3c0fbad0278aa2c9f1e6
+ms.openlocfilehash: c40f372d3574f940e475a6626f998adae37a6d61
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58319421"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851155"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Preguntas más frecuentes sobre Application Gateway
 
@@ -149,7 +149,7 @@ No, pero se pueden implementar otras puertas de enlace de aplicación en la subr
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>¿Se admiten grupos de seguridad de red en la subred de la puerta de enlace de aplicaciones?
 
-Consulte [restricciones de los grupos de seguridad de red en la subred de Application Gateway](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-supported-on-the-application-gateway-subnet) Obtenga información sobre los grupos de seguridad de red compatible con la subred de puerta de enlace de aplicaciones.
+Consulte [restricciones de los grupos de seguridad de red en la subred de Application Gateway](https://docs.microsoft.com/azure/application-gateway/configuration-overview#network-security-groups-on-the-application-gateway-subnet) Obtenga información sobre los grupos de seguridad de red compatible con la subred de puerta de enlace de aplicaciones.
 
 ### <a name="are-user-defined-routes-supported-on-the-application-gateway-subnet"></a>¿Se admiten las rutas definidas por el usuario en la subred de la puerta de enlace de aplicaciones?
 

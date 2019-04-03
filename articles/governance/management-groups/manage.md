@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.date: 02/20/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: f9e9bf51d50863f2e37a2f579c2db0edcfeca634
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f75686d19a468983a6b0ce68eb4a456e00c90eeb
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801781"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881059"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Administración de los recursos con grupos de administración
 
@@ -330,7 +330,7 @@ Al hacer referencia a grupos de administración de las acciones del otro proveed
 
 Un ejemplo del uso de esta ruta de acceso es al asignar una nueva asignación de roles a un grupo de administración en PowerShell
 
-```powershell-interactive
+```azurepowershell-interactive
 New-AzRoleAssignment -Scope "/providers/Microsoft.Management/managementGroups/Contoso"
 ```
 
@@ -345,7 +345,7 @@ GET https://management.azure.com/providers/Microsoft.Management/managementgroups
 Para más información sobre los grupos de administración, consulte:
 
 - [Creación de grupos de administración para organizar los recursos de Azure](create.md)
-- [Cambio, eliminación y administración de los grupos de administración](manage.md)
-- [Revisión de grupos de administración en el módulo de recursos de Azure PowerShell](/powershell/module/az.resources#resources)
-- [Revisión de grupos de administración en la API REST](/rest/api/resources/managementgroups)
-- [Revisión de grupos de administración en la CLI de Azure](/cli/azure/account/management-group)
+- [Cómo cambiar, eliminar o administrar los grupos de administración](manage.md)
+- [Revise los grupos de administración en el módulo de recursos de Azure PowerShell](/powershell/module/az.resources#resources)
+- [Revise los grupos de administración en la API de REST](/rest/api/resources/managementgroups)
+- [Revise los grupos de administración en la CLI de Azure](/cli/azure/account/management-group)

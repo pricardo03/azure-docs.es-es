@@ -7,12 +7,12 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/29/2018
 ms.author: robb
-ms.openlocfilehash: 3b6ddd99d7b198cdc5274b2944a723e68864bd4f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d91e12de075ee6efebe39fd5ab582d4998046f9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57993035"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847868"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>¿Qué son las alertas clásicas en Microsoft Azure?
 
@@ -88,14 +88,14 @@ Los webhooks permiten la automatización y corrección, por ejemplo, mediante:
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga información sobre las reglas de alertas y su configuración mediante:
 
-* Más información sobre las [métricas](../../azure-monitor/platform/data-collection.md)
+* Más información sobre las [métricas](data-platform.md)
 * Configuración de [alertas de métricas clásicas a través de Azure Portal](alerts-classic-portal.md)
 * Configuración de [alertas de métricas clásicas a través de PowerShell](alerts-classic-portal.md)
 * Configuración de [alertas de métricas clásicas con la interfaz de línea de comandos (CLI)](alerts-classic-portal.md)
 * Configuración de [alertas de métricas clásicas con la API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931945.aspx)
-* Más información sobre el [registro de actividad](../../azure-monitor/platform/activity-logs-overview.md)
-* Configuración de [alertas del registro de actividad a través de Azure Portal](../../azure-monitor/platform/activity-log-alerts.md)
+* Más información sobre el [registro de actividad](activity-logs-overview.md)
+* Configuración de [alertas del registro de actividad a través de Azure Portal](activity-log-alerts.md)
 * Configuración de [alertas del registro de actividad a través de Resource Manager](alerts-activity-log.md)
-* Revisión del [esquema de webhook de alertas del registro de actividad](../../azure-monitor/platform/activity-log-alerts-webhook.md)
-* Obtenga más información sobre los [grupos de acciones](../../azure-monitor/platform/action-groups.md)
-* Configuración de [alertas más recientes](../../azure-monitor/platform/alerts-metric.md)
+* Revisión del [esquema de webhook de alertas del registro de actividad](activity-log-alerts-webhook.md)
+* Obtenga más información sobre los [grupos de acciones](action-groups.md)
+* Configuración de [alertas más recientes](alerts-metric.md)

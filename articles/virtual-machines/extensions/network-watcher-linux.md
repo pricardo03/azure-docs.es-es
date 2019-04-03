@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/14/2017
 ms.author: dennisg
-ms.openlocfilehash: 35cd773c2a30549dde10a73b2fbe6db1a0c8b34a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 5ed5e791cd6e611218769650115c78afd1869f67
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989386"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879019"
 ---
 # <a name="network-watcher-agent-virtual-machine-extension-for-linux"></a>Extensión de máquina virtual del agente de Network Watcher para Linux
 
@@ -118,9 +118,9 @@ azure vm extension get myVM1
 ```
 El resultado de la ejecución de las extensiones se registra en los archivos que se encuentran en el siguiente directorio:
 
-`
+```
 /var/log/azure/Microsoft.Azure.NetworkWatcher.NetworkWatcherAgentLinux/
-`
+```
 
 En el ejemplo siguiente, se muestra el estado de implementación de la extensión NetworkWatcherAgentLinux en una máquina virtual implementada mediante Resource Manager, mediante la CLI de Azure:
 

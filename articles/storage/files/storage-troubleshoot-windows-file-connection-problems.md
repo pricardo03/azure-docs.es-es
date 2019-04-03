@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 41eed6bc878bff4c9d847f9a449ca693274bf234
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 1cadf61d7ce6ed48ea2d42b299dede860a505f0d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195513"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877438"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Solucione problemas de Azure Files en Windows
 
@@ -112,7 +112,7 @@ También se producen los errores del sistema 53 u 87 si se ha habilitado la comu
 
 Para determinar si esta es la causa del error, averigüe si la siguiente subclave del Registro está establecida en el valor 3:
 
-**HKLM\SYSTEM\CurrentControlSet\Control\Lsa &gt; LmCompatibilityLevel**
+**HKLM\SYSTEM\CurrentControlSet\Control\Lsa > LmCompatibilityLevel**
 
 Para obtener más información, consulte el tema [LmCompatibilityLevel](https://technet.microsoft.com/library/cc960646.aspx) en TechNet.
 
@@ -205,7 +205,7 @@ Puede utilizar cualquiera de los siguientes pasos para solucionar el problema:
 
 - Ejecute el siguiente comando de PowerShell:
 
-  `New-SmbMapping -LocalPath y: -RemotePath \\server\share -UserName accountName -Password "password can contain / and \ etc" `
+  `New-SmbMapping -LocalPath y: -RemotePath \\server\share -UserName accountName -Password "password can contain / and \ etc"`
 
   Desde un archivo por lotes, puede ejecutar el comando de este modo:
 

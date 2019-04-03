@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 549ec74514ff03e06ff25893d3fa865f179470e9
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: ab439eb77113c53ab046256dd8d448a18b63f887
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56870693"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850075"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Flujo de datos de supervisión de Azure a un centro de eventos para que lo consuma una herramienta externa
 
@@ -70,10 +70,10 @@ Para enviar datos del registro de actividad de Azure a un espacio de nombres de 
 ## <a name="azure-resource-metrics-and-diagnostics-logs"></a>Métricas y registros de diagnóstico de los recursos de Azure
 
 Los recursos de Azure emiten dos tipos de datos de supervisión:
-1. [Registros de diagnóstico de recursos](./../../azure-monitor/platform/diagnostic-logs-overview.md)
-2. [Métricas](../../azure-monitor/platform/data-collection.md)
+1. [Registros de diagnóstico de recursos](diagnostic-logs-overview.md)
+2. [Métricas](data-platform.md)
 
-Ambos tipos de datos se envían a un centro de eventos mediante la configuración de diagnóstico de recursos. [Siga esta guía](./../../azure-monitor/platform/diagnostic-logs-stream-event-hubs.md) para definir una configuración de diagnóstico en un recurso concreto. Establezca una configuración de diagnóstico en cada recurso del que quiera recopilar registros.
+Ambos tipos de datos se envían a un centro de eventos mediante la configuración de diagnóstico de recursos. [Siga esta guía](diagnostic-logs-stream-event-hubs.md) para definir una configuración de diagnóstico en un recurso concreto. Establezca una configuración de diagnóstico en cada recurso del que quiera recopilar registros.
 
 > [!TIP]
 > Puede usar Azure Policy para asegurarse de que todos los recursos de un ámbito determinado siempre se definen con una configuración de diagnóstico [con el efecto de DeployIfNotExists en la regla de directiva](../../governance/policy/concepts/definition-structure.md#policy-rule).

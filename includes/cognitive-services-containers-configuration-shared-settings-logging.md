@@ -3,13 +3,13 @@ author: diberry
 ms.author: diberry
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 01/02/2019
-ms.openlocfilehash: dc527a4e1bdf9648ddfc9f582b0c146197214f26
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.date: 04/02/2019
+ms.openlocfilehash: d1c880ddc90ae3ce18dfde7e1983b45ac239de85
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741418"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886844"
 ---
 La opción de configuración `Logging` administra la compatibilidad con el registro de ASP.NET Core del contenedor. Puede usar los mismos valores y opciones de configuración para el contenedor que los que usa para una aplicación ASP.NET Core. 
 
@@ -17,9 +17,34 @@ Los siguientes proveedores de registro son compatibles con el contenedor:
 
 |Proveedor|Propósito|
 |--|--|
-|[Console](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)|Proveedor de registro de `Console` de ASP.NET Core. Se admiten todos los valores predeterminados y las opciones de configuración de ASP.NET Core para este proveedor de registro.|
-|[Depuración](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)|Proveedor de registro de `Debug` de ASP.NET Core. Se admiten todos los valores predeterminados y las opciones de configuración de ASP.NET Core para este proveedor de registro.|
+|[Consola](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#console-provider)|Proveedor de registro de `Console` de ASP.NET Core. Se admiten todos los valores predeterminados y las opciones de configuración de ASP.NET Core para este proveedor de registro.|
+|[Depurar](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#debug-provider)|Proveedor de registro de `Debug` de ASP.NET Core. Se admiten todos los valores predeterminados y las opciones de configuración de ASP.NET Core para este proveedor de registro.|
 |[Disco](#disk-logging)|Proveedor de registro JSON. Este proveedor de registro escribe datos de registro para el montaje de salida.|
+
+Este comando de contenedor almacena información de registro en el formato JSON para el montaje de salida:
+
+```bash
+docker run --rm -it -p 5000:5000 \
+--memory 2g --cpus 1 \
+--mount type=bind,src=/home/azureuser/output,target=/output \
+<registry-location>/<image-name> \
+Eula=accept \
+Billing=<billing-endpoint> \
+ApiKey=<api-key> \
+Logging:Disk:Format=json
+```
+
+Este comando de contenedor muestra información de depuración, el prefijo `dbug`, mientras que el contenedor se ejecuta:
+
+```bash
+docker run --rm -it -p 5000:5000 \
+--memory 2g --cpus 1 \
+<registry-location>/<image-name> \
+Eula=accept \
+Billing=<billing-endpoint> \
+ApiKey=<api-key> \
+Logging:Console:LogLevel:Default=Debug
+```
 
 ### <a name="disk-logging"></a>Registro del disco
 
@@ -31,3 +56,4 @@ El proveedor de registro `Disk` admite la configuración siguiente:
 | `MaxFileSize` | Entero | Tamaño máximo en megabytes (MB) de un archivo de registro. Cuando el tamaño del archivo de registro actual cumple este valor o lo supera, el proveedor de registro inicia un nuevo archivo de registro. Si se especifica -1, el tamaño del archivo de registro solo está limitado por el tamaño máximo de archivo, si existe, para el montaje de salida. El valor predeterminado es 1. |
 
 Para obtener más información acerca de cómo configurar la compatibilidad con el registro de ASP.NET Core, consulte [Configuración del archivo de configuración](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1).
+

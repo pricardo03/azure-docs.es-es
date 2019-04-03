@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: mbullwin
-ms.openlocfilehash: d8344177fc5895451cf876f5aa581baa1fed52e6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 614f9a44f7c699be38906ac00e12f523490ce112
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001857"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884302"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Exploración de los registros de seguimiento de Java en Application Insights
 Si está usando Logback o Log4J (v1.2 o v2.0) para el seguimiento, los registros de seguimiento se pueden enviar automáticamente a Application Insights, donde puede explorarlos y buscar en ellos.
@@ -102,9 +102,9 @@ Siga las instrucciones para instalar manualmente el SDK de Java de Application I
 
 | Registrador | Descargar | Biblioteca |
 | --- | --- | --- |
-| Logback |[JAR del appender de Logback](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
-| Log4J v2.0 |[JAR del appender de Log4J v2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
-| Log4J v1.2 |[JAR del appender de Log4J v1.2](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
+| Logback |[Jar del appender de Logback](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
+| Log4J v2.0 |[Appender de Log4J v2 Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
+| Log4J v1.2 |[Appender de Log4J v1.2 Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
 
 
 ## <a name="add-the-appender-to-your-logging-framework"></a>Incorporación del appender el marco de registro
@@ -116,6 +116,7 @@ Para empezar a recibir los seguimientos, combine el fragmento de código relevan
 
     <appender name="aiAppender" 
       class="com.microsoft.applicationinsights.logback.ApplicationInsightsAppender">
+        <instrumentationKey>[APPLICATION_INSIGHTS_KEY]</instrumentationKey>
     </appender>
     <root level="trace">
       <appender-ref ref="aiAppender" />
@@ -128,7 +129,7 @@ Para empezar a recibir los seguimientos, combine el fragmento de código relevan
 
     <Configuration packages="com.microsoft.applicationinsights.log4j.v2">
       <Appenders>
-        <ApplicationInsightsAppender name="aiAppender" />
+        <ApplicationInsightsAppender name="aiAppender" instrumentationKey="[APPLICATION_INSIGHTS_KEY]" />
       </Appenders>
       <Loggers>
         <Root level="trace">
@@ -144,6 +145,7 @@ Para empezar a recibir los seguimientos, combine el fragmento de código relevan
 
     <appender name="aiAppender" 
          class="com.microsoft.applicationinsights.log4j.v1_2.ApplicationInsightsAppender">
+        <param name="instrumentationKey" value="[APPLICATION_INSIGHTS_KEY]" />
     </appender>
     <root>
       <priority value ="trace" />

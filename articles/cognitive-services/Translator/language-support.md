@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 4f5c7696e711db7c128317f7ed17dc051e8fd18a
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: d98922937781fd169d34881fa67a6b5746d06df7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803126"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882471"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Compatibilidad de idiomas y regiones para Translator Text API
 
@@ -23,7 +23,7 @@ Translator Text API admite los siguientes idiomas para la conversión de texto a
 
 [Más información sobre cómo funciona la traducción automática](https://www.microsoft.com/translator/mt.aspx)
 
-**Translator API V2**
+**V2 Translator API**
 
 > [!NOTE]
 > V2 quedó en desuso el 30 de abril de 2018 y se suspenderá el 30 de abril de 2019.
@@ -108,26 +108,26 @@ El método Transliterate admite los siguientes idiomas. En "Hacia/Desde", "<-->"
 
 | Idioma    | Código de idioma | Script | Hacia/Desde | Script|
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
-| Árabe | `ar` | Árabe `Arab` | <--> | Latino `Latn` |
-|Bangla  | `bn` | Bengalí `Beng` | <--> | Latino `Latn` |
-| Chino (simplificado) | `zh-Hans` | Chino simplificado `Hans`| <--> | Latino `Latn` |
+| Árabe | `ar` | Árabe `Arab` | <--> | Latín `Latn` |
+|Bangla  | `bn` | Bengalí `Beng` | <--> | Latín `Latn` |
+| Chino (simplificado) | `zh-Hans` | Chino simplificado `Hans`| <--> | Latín `Latn` |
 | Chino (simplificado) | `zh-Hans` | Chino simplificado `Hans`| <--> | Chino tradicional `Hant`|
-| Chino (tradicional) | `zh-Hant` | Chino tradicional `Hant`| <--> | Latino `Latn` |
+| Chino (tradicional) | `zh-Hant` | Chino tradicional `Hant`| <--> | Latín `Latn` |
 | Chino (tradicional) | `zh-Hant` | Chino tradicional `Hant`| <--> | Chino simplificado `Hans` |
-| Gujarati | `gu`  | Guyaratí `Gujr` | --> | Latino `Latn` |
-| Hebreo | `he` | Hebreo `Hebr` | <--> | Latino `Latn` |
-| Hindi | `hi` | Devanagari `Deva` | <--> | Latino `Latn` |
-| Japonés | `ja` | Japonés `Jpan` | <--> | Latino `Latn` |
-| Canarés | `kn` | Canarés `Knda` | --> | Latino `Latn` |
-| Malayalam | `ml` | Malayalam `Mlym` | --> | Latino `Latn` |
-| Maratí | `mr` | Devanagari `Deva` | --> | Latino `Latn` |
-| Odia | `or` | Odia `Orya` | <--> | Latino `Latn` |
-| Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latino `Latn`  |
-| Serbio (cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latino `Latn` |
-| Serbio (latino) | `sr-Latn` | Latino `Latn` | --> | Cirílico `Cyrl`|
-| Tamil | `ta` | Tamil `Taml` | --> | Latino `Latn` |
-| Telugu | `te` | Telugu `Telu` | --> | Latino `Latn` |
-| Tailandés | `th` | Tailandés `Thai` | <--> | Latino `Latn` |
+| Gujarati | `gu`  | Gujarati `Gujr` | --> | Latín `Latn` |
+| Hebreo | `he` | Hebreo `Hebr` | <--> | Latín `Latn` |
+| Hindi | `hi` | Devanagari `Deva` | <--> | Latín `Latn` |
+| Japonés | `ja` | Japonés `Jpan` | <--> | Latín `Latn` |
+| Canarés | `kn` | Canarés `Knda` | --> | Latín `Latn` |
+| Malayalam | `ml` | Malayalam `Mlym` | --> | Latín `Latn` |
+| Maratí | `mr` | Devanagari `Deva` | --> | Latín `Latn` |
+| Odia | `or` | Odia `Orya` | <--> | Latín `Latn` |
+| Punjabi | `pa` | Gurmukhi `Guru`  | <--> | Latín `Latn`  |
+| Serbio (cirílico) | `sr-Cyrl` | Cirílico `Cyrl`  | --> | Latín `Latn` |
+| Serbio (latino) | `sr-Latn` | Latín `Latn` | --> | Cirílico `Cyrl`|
+| Tamil | `ta` | Tamil `Taml` | --> | Latín `Latn` |
+| Telugu | `te` | Telugu `Telu` | --> | Latín `Latn` |
+| Tailandés | `th` | Tailandés `Thai` | <--> | Latín `Latn` |
 
 ## <a name="dictionary"></a>Diccionario
 
@@ -264,11 +264,11 @@ Los siguientes idiomas son compatibles con el método Detect. Detect puede detec
 
 Puede recuperar una lista de los idiomas admitidos por Translator Text API v3.0 mediante el método Languages. Puede ver la lista por característica, código de idioma o por nombre del idioma en inglés o en cualquier otro idioma admitido. El servicio Microsoft Translator actualiza esta lista automáticamente cuando hay nuevos idiomas disponibles.
 
-[Ver la documentación de referencia de la operación Languages](reference/v3-0-languages.md)
+[Ver la documentación de referencia de lenguajes operación](reference/v3-0-languages.md)
 
 ## <a name="customization"></a>Personalización
 
-Los siguientes idiomas están disponibles para la personalización a o desde inglés mediante [personalizado traductor](http://aka.ms/CustomTranslator).
+Los siguientes idiomas están disponibles para la personalización a o desde inglés mediante [personalizado traductor](https://aka.ms/CustomTranslator).
 
 | Idioma    | Código de idioma |
 |:----------- |:-------------:|
@@ -316,4 +316,4 @@ Los siguientes idiomas están disponibles para la personalización a o desde ing
 
 Para echar un vistazo rápido a los idiomas, el sitio web de Microsoft Translator muestra todos los idiomas admitidos por Translator Text API y Speech API. Esta lista no incluye información específica para desarrolladores, por ejemplo, los códigos de idioma.
 
-[Ver la lista de idiomas](https://www.microsoft.com/translator/languages.aspx)
+[Consulte la lista de idiomas](https://www.microsoft.com/translator/languages.aspx)

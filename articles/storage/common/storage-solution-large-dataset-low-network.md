@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: alkohli
-ms.openlocfilehash: 6922d49affdde86728b41ef1d3d0c6a2da5c323e
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 4c4ac9489b9613b2eeaf26a3df9f4cbc664a1026
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805098"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849611"
 ---
 # <a name="data-transfer-for-large-datasets-with-low-or-no-network-bandwidth"></a>Transferencia de datos para grandes conjuntos de datos con poco o ningún ancho de banda de red
  
@@ -59,7 +59,7 @@ En la siguiente tabla se resumen las diferencias de las funcionalidades clave.
 |    Integración de asociados              |    Algunos                         |    [Elevado](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                          |    [Elevado](https://azuremarketplace.microsoft.com/campaigns/databox/azure-data-box)                                  |    Algunos                                |
 |    Envío                         |    Administrado por Microsoft            |    Administrado por Microsoft                             |    Administrado por Microsoft                     |    Administrado por el cliente                    |
 | Uso cuando se mueven los datos         |Dentro de un límite de comercio|Dentro de un límite de comercio|Dentro de un límite de comercio|Traspasando fronteras geográficas; por ejemplo, de EE. UU. a la UE|
-|    Precios                          |    [Precios](https://azure.microsoft.com/pricing/details/storage/databox/disk/)                    |   [Precios](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Precios](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Precios](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
+|    Precios                          |    [Precios](https://azure.microsoft.com/pricing/details/databox/disk/)                    |   [Precios](https://azure.microsoft.com/pricing/details/storage/databox/)                                      |  [Precios](https://azure.microsoft.com/pricing/details/storage/databox/heavy/)                               |   [Precios](https://azure.microsoft.com/pricing/details/storage-import-export/)                            |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

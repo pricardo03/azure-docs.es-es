@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 1b6419feef96b57bafd0831531bd8cfa56142cc4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b8f96de7214a46c9e38182c141343a46c0e28139
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089155"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882096"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guía de inicio rápido para Bash en Azure Cloud Shell
 
@@ -49,9 +49,9 @@ Compruebe que en el menú desplegable de entornos que se encuentra al lado izqui
    ```
 
 2. Establezca su suscripción preferida: <br>
-   ```azurecli-interactive
-   az account set --subscription my-subscription-name`
-   ```
+```azurecli-interactive
+az account set --subscription 'my-subscription-name'
+```
 
 > [!TIP]
 > La suscripción se recordará para sesiones futuras mediante `/home/<user>/.azure/azureProfile.json`.
@@ -99,6 +99,6 @@ Al establecer la conexión SSH, debería ver el aviso de bienvenida de Ubuntu. <
    ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Información sobre la persistencia de los archivos para Bash en Cloud Shell](persisting-shell-storage.md) <br>
-[Más información acerca de la CLI de Azure](https://docs.microsoft.com/cli/azure/) <br>
-[Más información sobre el almacenamiento en Azure Files](../storage/files/storage-files-introduction.md) <br>
+[Obtenga información sobre la persistencia de archivos para Bash en Cloud Shell](persisting-shell-storage.md) <br>
+[Obtenga información acerca de la CLI de Azure](https://docs.microsoft.com/cli/azure/) <br>
+[Obtenga información sobre el almacenamiento de Azure Files](../storage/files/storage-files-introduction.md) <br>

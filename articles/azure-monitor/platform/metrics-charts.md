@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 576a7948d4df7957d934fb4c8888712fa94cb202
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: b52e7c0de2d834c793bb30fa35bd53b45aaebe5d
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337083"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848867"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Explorador de métricas de Azure Monitor
 
@@ -21,7 +21,7 @@ El explorador de métricas de Azure Monitor es un componente de Microsoft Azure 
 
 ## <a name="metrics-in-azure"></a>Métricas en Azure
 
-Las [métricas en Azure Monitor](data-collection.md#metrics) son la serie de valores medidos y recuentos que se recopilan y se almacenan con el tiempo. Hay métricas estándar (o de la “plataforma”) y métricas personalizadas. La misma plataforma de Azure le proporciona las métricas estándares. Las métricas estándares reflejan las estadísticas de uso y mantenimiento de los recursos de Azure. Mientras que las métricas personalizadas se envían a Azure desde las aplicaciones mediante el [API de Application Insights para eventos y métricas personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [extensión de Windows Azure Diagnostics (WAD)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), o por [Azure Supervisar la API de REST](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
+Las [métricas en Azure Monitor](data-platform-metrics.md) son la serie de valores medidos y recuentos que se recopilan y se almacenan con el tiempo. Hay métricas estándar (o de la “plataforma”) y métricas personalizadas. La misma plataforma de Azure le proporciona las métricas estándares. Las métricas estándares reflejan las estadísticas de uso y mantenimiento de los recursos de Azure. Mientras que las métricas personalizadas se envían a Azure desde las aplicaciones mediante el [API de Application Insights para eventos y métricas personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [extensión de Windows Azure Diagnostics (WAD)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), o por [Azure Supervisar la API de REST](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
 
 ## <a name="create-a-new-chart"></a>Creación de un canal
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2019
+ms.date: 04/02/2019
 ms.author: pareshmu
-ms.openlocfilehash: 8a137919bfd3cf330586c3a4d5c9df18916e41e6
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: e4ddd4bb435b472e6837862e49856c7b98011467
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629785"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878540"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -42,7 +42,7 @@ La siguiente tabla proporciona un mapa de las regiones de Azure para las ubicaci
 
 | **Región geopolítica** | **Zona** | **Regiones de Azure** | **Ubicaciones de ExpressRoute** |
 | --- | --- | --- | --- |
-| **Australia Government** | 1 | Centro de Australia, Centro de Australia 2 |Canberra, Canberra 2 |
+| **Gobierno de Australia** | 1 | Centro de Australia, Centro de Australia 2 |Canberra, Canberra 2 |
 | **Europa** | 1 |Centro de Francia, Sur de Francia, Europa del Norte, Europa Occidental, Oeste de Reino Unido, Sur de Reino Unido |Ámsterdam, Amsterdam2, Dublín, Londres, London2, Marsella, Newport (Wales), París, Zurich |
 | **Norteamérica** | 1 |Este de EE. UU., oeste de EE. UU., este de EE. UU. 2, oeste de EE.UU. 2, centro de EE. UU., centro-sur de EE. UU., centro-norte de EE. UU., centro-oeste de EE. UU., centro de Canadá y este de Canadá |Atlanta, Chicago, Dallas, Denver, Las Vegas, Los Ángeles, Miami, Nueva York, San Antonio, Seattle, Silicon Valley, Washington DC, Washington DC2, Montreal, Ciudad de Quebec, Toronto |
 | **Asia** | 2 |Este de Asia y Sudeste de Asia |Hong Kong, Kuala Lumpur, Singapur, Singapur2, Taipéi |
@@ -74,12 +74,12 @@ La siguiente tabla muestra las ubicaciones de conectividad y los proveedores de 
 | **Ubicación** | **Propietario de la ubicación de emparejamiento** | **Proveedores de servicios** |
 | --- | --- | --- |
 | **Ámsterdam** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Colt, Equinix, euNetworks, GÉANT, InterCloud, Interxion, KPN, IX Reach, Level 3 Communications, Megaport, NTT Communications, Orange, Tata Communications, TeleCity Group, Telefonica, Telenor, Telia Carrier, Verizon y Zayo |
-| **Ámsterdam2** | Interxion | DE-CIX, Interxion |
+| **Amsterdam2** | Interxion | DE-CIX, Interxion |
 | **Atlanta** | Equinix | Equinix, Megaport |
 | **Busán** |LG CNS | LG CNS |
 | **Canberra** | CDC | CDC |
-| **Canberra 2** | CDC | CDC |
-| **Ciudad del cabo** | Teraco | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
+| **Canberra2** | CDC | CDC |
+| **Ciudad del Cabo** | Teraco | Internet Solutions - Cloud Connect, Liquid Telecom, Teraco |
 | **Chennai** | Tata Communications | Global CloudXchange (GCX), SIFY, Tata Communications |
 | **Chennai2** | Airtel | Airtel |
 | **Chicago** | Equinix | Aryaka Networks, AT & T NetBond, Cologix, Comcast, Coresite, Equinix, InterCloud, Internet2, nivel 3 PacketFabric Communications, Megaport, PCCW Global Limited, Sprint, Telia transportista, Verizon y Zayo |
@@ -91,20 +91,20 @@ La siguiente tabla muestra las ubicaciones de conectividad y los proveedores de 
 | **Kuala Lumpur** | TIME dotCom | TIME dotCom |
 | **Las Vegas** | Switch | CenturyLink Cloud Connect, Megaport |
 | **Londres** | Equinix | AT&T NetBond, British Telecom, Colt, Equinix, InterCloud, Internet Solutions - Cloud Connect, Interxion, Jisc, Level 3 Communications, Megaport, MTN, NTT Communications, Orange, PCCW Global Limited, Tata Communications, Telehouse - KDDI, Telenor, Telia Carrier, Verizon, Vodafone, Zayo |
-| **Londres2** | Telehouse | Equinix
+| **LONDON2** | Telehouse | IX alcance, Equinix |
 | **Los Ángeles** | CoreSite | CoreSite, Equinix, Megaport, Neutrona Networks, NTT, Zayo |
 | **Marsella** |Interxion | Interxion |
 | **Melbourne** | NextDC | AARNet, Equinix, Megaport, NEXTDC, Optus y Telstra Corporation |
 | **Miami** | Equinix | C3ntro+, Equinix, Megaport, Neutrona Networks |
 | **Montreal** | Cologix | Bell Canada, Cologix, Telus, Zayo |
 | **Mumbai (Bombay)** | Tata Communications | Global CloudXchange (GCX), Sify, Tata Communications, Vodafone Idea |
-| **Mumbai2** | Airtel | Airtel, Sify y Vodafone Idea |
+| **Bombay2** | Airtel | Airtel, Sify y Vodafone Idea |
 | **Nueva York** | Equinix | CenturyLink Cloud Connect, Coresite, Equinix, InterCloud, Megaport y Zayo |
 | **Newport (Gales)** | Datos de última generación | British Telecom, Level 3 Communications, Next Generation Data |
 | **Osaka** | Equinix | Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, NTT SmartConnect, Softbank |
 | **París** | Interxion | Colt, Equinix, Intercloud, Interxion, naranja, y Zayo |
 | **Perth** | NextDC | Megaport, NextDC |
-| **Quebec ciudad** | 4Degrees | Bell Canada, Megaport |
+| **Ciudad de Quebec** | 4Degrees | Bell Canada, Megaport |
 | **San Antonio** | CyrusOne | CenturyLink Cloud Connect, Megaport |
 | **Sao Paulo** | Equinix | Aryaka Networks, Ascenty Data Centers, British Telecom, Equinix, Level 3 Communications, Neutrona Networks, Orange, Tata Communications, Telefonica y UOLDIVEO |
 | **Seattle** | Equinix | Aryaka Networks, Equinix, Level 3 Communications, Megaport y Zayo |
@@ -118,7 +118,7 @@ La siguiente tabla muestra las ubicaciones de conectividad y los proveedores de 
 | **Toronto** | Cologix | AT&T NetBond, Bell Canada, CenturyLink Cloud Connect, Cologix, Equinix, Megaport, Telus, Zayo |
 | **Washington DC** | Equinix | Aryaka Networks, AT&T NetBond, British Telecom, Cologix, Comcast, Coresite, Equinix, Internet2, InterCloud, Level 3 Communications, Megaport, NTT Communications, Orange, PacketFabric, Sprint, Tata Communications, Telia Carrier, Verizon y Zayo |
 | **Washington DC2** | Coresite | Coresite | 
-| **Zurich** | Interxion | Interxion |
+| **Zúrich** | Interxion | Interxion |
 
  **+** indica próximamente
 
@@ -173,11 +173,11 @@ Si su proveedor de conectividad no aparece en la lista de las secciones anterior
 | **Ubicación** | **Exchange** | **Proveedores de conectividad** |
 | --- | --- | --- |
 | **Ámsterdam** | Equinix y Telecity | BICS, CloudXpress, Eurofiber, Fastweb S.p.A, Gulf Bridge International, MainOne, Nianet, Post, Proximus, TDC Erhverv, Telecom Italia Sparkle, Telia |
-| **Ciudad del cabo** | Teraco | MTN |
+| **Ciudad del Cabo** | Teraco | MTN |
 | **Chicago** | Equinix | Lightower, Windstream |
 | **Dallas** | Equinix, Megaport | Axtel, C3ntro Telecom, Cox Business, Data Foundry, Transtelco |
 | **Fráncfort** | Telecity | BICS, Cinia, Nianet y QSC AG |
-| **Hamburgo** | Equinix | Cinia |
+| **Hamburg** | Equinix | Cinia |
 | **RAE de Hong Kong** | Equinix | Chief y Macroview Telecom |
 | **Johannesburgo** | Teraco | MTN |
 | **Londres** | BICS, Equinix, euNetworks, Telecity | Bezeq International Ltd., CoreAzure, Epsilon Telecommunications Limited, exponencial E, HSO, NexGen Networks, Proximus Tamares Telecom, Zain |
@@ -186,8 +186,8 @@ Si su proveedor de conectividad no aparece en la lista de las secciones anterior
 | **Montreal** | Cologix y Equinix | Airgate Technologies, Inc. Cogeco Peer 1, Rogers y Zirro |
 | **Nueva York** |Equinix, Megaport | Altice Business, Lightower, Webair |
 | **París** | Equinix | Proximus |
-| **Quebec ciudad** | Megaport | Fibrenoire |
-| **Sao Paulo** | Equinix | Venha Pra Nuvem |
+| **Ciudad de Quebec** | Megaport | Fibrenoire |
+| **Sao Paula** | Equinix | Venha Pra Nuvem |
 | **Seattle** |Equinix | Alaska Communications |
 | **Silicon Valley** |Equinix | Cox Business, Windstream |
 | **Singapur** |Equinix |1CLOUDSTAR, BICS, Epsilon Telecommunications Limited, LGA Telecom y United Information Highway (UIH) |
@@ -200,7 +200,7 @@ Si su proveedor de conectividad no aparece en la lista de las secciones anterior
 ## <a name="expressroute-system-integrators"></a>Integradores de sistemas de ExpressRoute
 Habilitar la conectividad privada para la adaptación a sus necesidades puede ser complicado según la escala de la red. Puede trabajar con cualquiera de los integradores de sistemas que aparecen en la tabla siguiente para ayudarle con la incorporación a ExpressRoute.
 
-| **Continente** | **Integradores de sistemas** |
+| **Continent** | **Integradores de sistemas** |
 | --- | --- |
 | **Asia** |Avanade Inc. y OneAs1a |
 | **Australia** | Ensyst, IT Consultancy, MOQdigital, Vigilant.IT |

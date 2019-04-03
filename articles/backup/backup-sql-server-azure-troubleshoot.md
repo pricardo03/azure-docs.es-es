@@ -8,18 +8,18 @@ ms.service: backup
 ms.topic: article
 ms.date: 03/13/2019
 ms.author: anuragm
-ms.openlocfilehash: e5565e257e511203043c84e499712cc6a0a78c3f
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d8cbae679552cce8df29410ad8a477801abd4ff1
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286023"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847451"
 ---
 # <a name="troubleshoot-back-up-sql-server-on-azure"></a>Solución de problemas de copia de seguridad de SQL Server en Azure
 
 En este artículo se proporciona información para la solución de problemas para proteger las máquinas virtuales con SQL Server en Azure (versión preliminar).
 
-## <a name="feature-consideration-and-limitations"></a>Limitaciones y consideraciones de característica
+## <a name="feature-consideration-and-limitations"></a>Consideraciones y limitaciones de las características
 
 Para ver la consideración de característica, consulte el artículo de [copia de seguridad acerca de SQL Server en máquinas virtuales de Azure](backup-azure-sql-database.md#feature-consideration-and-limitations).
 
@@ -98,12 +98,18 @@ Los siguientes códigos de error se muestran cuando se produce un error al resta
 |---|---|---|
 | Se produjo un error en la restauración, ya que no se pudo desconectar. | Al realizar una restauración, la base de datos de destino debe desconectarse. Azure Backup no puede ofrecer estos datos sin conexión. | Utilice los detalles adicionales del menú del error de Azure Portal para reducir las causas raíz. Para más información, consulte la [documentación de SQL](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-database-backup-using-ssms). |
 
-
 ###  <a name="usererrorcannotfindservercertificatewiththumbprint"></a>UserErrorCannotFindServerCertificateWithThumbprint
 
 | Mensaje de error | Causas posibles | Acción recomendada |
 |---|---|---|
 | No se puede encontrar el certificado de servidor con la huella digital en el destino. | La base de datos maestra de la instancia de destino no tiene una huella digital de cifrado válida. | Importe en la instancia de destino la huella digital del certificado válida utilizada en la instancia de origen. |
+
+### <a name="usererrorrestorenotpossiblebecauselogbackupcontainsbulkloggedchanges"></a>UserErrorRestoreNotPossibleBecauseLogBackupContainsBulkLoggedChanges
+
+| Mensaje de error | Causas posibles | Acción recomendada |
+|---|---|---|
+| La copia de seguridad de registro usado para la recuperación contiene cambios registrados de forma masiva. No se puede usar para detenerse en un punto arbitrario en el tiempo según las instrucciones SQL. | Cuando una base de datos está en modo de recuperación masiva, no se puede recuperar los datos entre una transacción de operaciones masivas y registro siguiente. | Elija un punto diferente en tiempo de recuperación. [Más información](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms186229(v=sql.105))
+
 
 ## <a name="registration-failures"></a>Errores de registro
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: 77cbc73c6c6aef40c482b0cfe456dcbd4b7e85d0
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c9254c8dd629230a549dd95aba9afbd932746007
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58435319"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886461"
 ---
 # <a name="dynamic-packaging"></a>Empaquetado dinámico
 
@@ -60,7 +60,7 @@ Para obtener una lista de códecs y formatos de Media Encoder Standard, consulte
 Estos son los pasos para un flujo de trabajo de streaming en vivo:
 
 1. Cree un [evento en directo](live-events-outputs-concept.md).
-1. Obtenga las direcciones URL de ingesta y configure el codificador local para usar la dirección URL para enviar la fuente de contribución.
+1. Obtenga las direcciones URL de ingesta y configure el codificador en el entorno local para usar la dirección URL para enviar la fuente de contribución.
 1. Obtenga la dirección URL de versión preliminar y úsela para verificar que la entrada del codificador se está recibiendo realmente.
 1. Cree un nuevo **activos**.
 1. Cree un objeto de **salida en directo** y use el nombre del recurso que ha creado.<br/>El objeto **LiveOutput** archivará la secuencia en el objeto **Asset**.
@@ -196,9 +196,9 @@ Este es un ejemplo de un manifiesto de Smooth Streaming:
 El filtro dinámico se utiliza para controlar el número de pistas, formatos, velocidades de bits y ventanas de tiempo de presentación que se envían a los jugadores. Para obtener más información, consulte [filtros y manifiestos dinámicos](filters-dynamic-manifest-overview.md).
 
 > [!NOTE]
-> Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API de REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), o una de las [SDK](developers-guide.md).
+> Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref) o uno de los [SDK](developers-guide.md) admitidos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Carga, codificación, streaming de vídeos](stream-files-tutorial-with-api.md)
+[Cargar, codificar, vídeos de stream](stream-files-tutorial-with-api.md)
 

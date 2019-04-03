@@ -1,22 +1,22 @@
 ---
-title: 'Autenticación entre servicios: Azure Data Lake Storage Gen1 con Azure Active Directory | Microsoft Docs'
+title: 'Autenticación de servicio a servicio: Azure Data Lake Storage Gen1 con Azure Active Directory | Microsoft Docs'
 description: Aprenda a realizar la autenticación entre servicios con Azure Data Lake Storage Gen1 mediante Azure Active Directory.
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 2ec5d469ba0708288881be3d905b492aa8aa4da6
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: a7fdcf396f586a65efa17e489d002f1c8847a193
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956629"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884999"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Aprenda a realizar la autenticación entre servicios con Azure Data Lake Storage Gen1 mediante Azure Active Directory
 > [!div class="op_single_selector"]
@@ -35,7 +35,7 @@ Con ambas opciones, la aplicación recibe un token de OAuth 2.0, que se adjunta 
 En este artículo se explica cómo crear una **aplicación web de Azure AD para la autenticación entre servicios**. Para obtener instrucciones sobre la configuración de la aplicación de Azure AD para la autenticación de usuario final, consulte [End-user authentication with Data Lake Storage Gen1 using Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md) (Autenticación de usuario final con Data Lake Storage Gen1 mediante Azure Active Directory).
 
 ## <a name="prerequisites"></a>Requisitos previos
-* Una suscripción de Azure. Vea [Obtener evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="step-1-create-an-active-directory-web-application"></a>Paso 1: Crear una aplicación web de Active Directory
 
@@ -45,14 +45,14 @@ Al seguir las instrucciones que aparecen en el vínculo anterior, asegúrese de 
 
 ![Crear aplicación web](./media/data-lake-store-authenticate-using-active-directory/azure-active-directory-create-web-app.png "Crear aplicación web")
 
-## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Paso 2: Obtener el identificador de aplicación, la clave de autenticación y el identificador de inquilino
+## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Paso 2: Obtener Id. de aplicación, la clave de autenticación y el Id. de inquilino
 Al iniciar sesión mediante programación, necesita el identificador de la aplicación. Si esta se ejecuta con sus propias credenciales, también necesitará una clave de autenticación.
 
 * Para obtener instrucciones sobre cómo recuperar el identificador y la clave de autenticación de la aplicación, consulte [Obtención del id. y la clave de autenticación de la aplicación](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
 * Para obtener instrucciones sobre cómo recuperar el identificador de inquilino, consulte [Obtención del identificador de inquilino](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
 
-## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>Paso 3: Asignar la aplicación de Azure AD al archivo o la carpeta de la cuenta de Azure Data Lake Storage Gen1.
+## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>Paso 3: Asignar la aplicación de Azure AD a la carpeta o archivo de la cuenta de Azure Data Lake Storage Gen1
 
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com). Abra la cuenta de Data Lake Storage Gen1 que quiere asociar a la aplicación de Azure Active Directory que creó anteriormente.
@@ -85,7 +85,7 @@ Al iniciar sesión mediante programación, necesita el identificador de la aplic
 > 
 >
 
-## <a name="step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications"></a>Paso 4: Obtener el punto de conexión del token de OAuth 2.0 (solo para aplicaciones basadas en Java)
+## <a name="step-4-get-the-oauth-20-token-endpoint-only-for-java-based-applications"></a>Paso 4: Obtener el extremo de token de OAuth 2.0 (solo para aplicaciones basadas en Java)
 
 1. Inicie sesión en [Azure Portal](https://portal.azure.com) y haga clic en Active Directory en el panel izquierdo.
 
@@ -102,9 +102,9 @@ Al iniciar sesión mediante programación, necesita el identificador de la aplic
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo ha creado creó una aplicación web de Azure AD y ha recopilado la información que necesita en las aplicaciones cliente que cree mediante SDK de .NET, Java, Python, API de REST, etc. Ahora puede leer los artículos siguientes, que hablan de cómo usar la aplicación nativa de Azure AD para autenticarse primero en Data Lake Storage Gen1 y luego realizar otras operaciones en el almacén.
 
-* [Service-to-service authentication with Data Lake Storage Gen1 using Java](data-lake-store-service-to-service-authenticate-java.md) (Autenticación entre servicios con Data Lake Storage Gen1 mediante Java)
-* [Service-to-service authentication with Data Lake Storage Gen1 using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md) (Autenticación entre servicios con Data Lake Storage Gen1 mediante el SDK de .NET)
-* [Service-to-service authentication with Data Lake Storage Gen1 using Python](data-lake-store-service-to-service-authenticate-python.md) (Autenticación entre servicios con Data Lake Storage Gen1 mediante Python)
-* [Service-to-service authentication with Data Lake Storage Gen1 using REST API](data-lake-store-service-to-service-authenticate-rest-api.md) (Autenticación entre servicios con Data Lake Storage Gen1 mediante la API REST)
+* [Autenticación de servicio a servicio con Data Lake Storage Gen1 con Java](data-lake-store-service-to-service-authenticate-java.md)
+* [Servicio-autenticación entre servicios con Data Lake Storage Gen1 con SDK de .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
+* [Servicios para la autenticación con Data Lake Storage Gen1 con Python](data-lake-store-service-to-service-authenticate-python.md)
+* [Servicio-autenticación entre servicios con Data Lake Storage Gen1 mediante API de REST](data-lake-store-service-to-service-authenticate-rest-api.md)
 
 

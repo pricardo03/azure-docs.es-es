@@ -1,5 +1,5 @@
 ---
-title: Uso de una plantilla para crear un área de trabajo
+title: Usar una plantilla de Azure Resource Manager para crear un área de trabajo
 titleSuffix: Azure Machine Learning service
 description: Aprenda a usar una plantilla de Azure Resource Manager para crear una nueva área de trabajo de Azure Machine Learning Service.
 services: machine-learning
@@ -8,17 +8,18 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 02/11/2019
-ms.openlocfilehash: 2b5ee1b5079f22985b03aaafac30c11a10a3c8f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 7349998325e56d5ebb78de5ca30c0127f09102aa
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850084"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883197"
 ---
-# <a name="create-an-azure-machine-learning-service-workspace-by-using-a-template"></a>Creación de un área de trabajo de Azure Machine Learning Service mediante una plantilla
+# <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning-service"></a>Usar una plantilla de Azure Resource Manager para crear un área de trabajo para el servicio Azure Machine Learning
 
-En este artículo aprenderá varias formas de crear un área de trabajo de Azure Machine Learning Service mediante plantillas de Azure Resource Manager. 
+En este artículo aprenderá varias formas de crear un área de trabajo de Azure Machine Learning Service mediante plantillas de Azure Resource Manager. Una plantilla de Resource Manager facilita la creación de recursos en una única operación coordinada. Una plantilla es un documento JSON que define los recursos que son necesarios para una implementación. También puede especificar los parámetros de implementación. Los parámetros se emplean para proporcionar valores de entrada cuando se usa la plantilla.
 
 Para obtener más información, consulte [Implementación de una aplicación con la plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md).
 
@@ -30,9 +31,7 @@ Para obtener más información, consulte [Implementación de una aplicación con
 
 ## <a name="resource-manager-template"></a>Plantilla de Resource Manager
 
-Una plantilla de Resource Manager facilita la creación de recursos en una única operación coordinada. Una plantilla es un documento JSON que define los recursos que son necesarios para una implementación. También puede especificar los parámetros de implementación. Los parámetros se emplean para proporcionar valores de entrada cuando se usa la plantilla.
-
-La siguiente plantilla se puede usar para crear un área de trabajo de Azure Machine Learning Service y los recursos de Azure asociados:
+La siguiente plantilla de Resource Manager puede usarse para crear un área de trabajo del servicio de Azure Machine Learning y recursos de Azure asociados:
 
 ```json
 {
@@ -183,9 +182,9 @@ La plantilla de ejemplo tiene dos parámetros:
 
 Para más información sobre las plantillas, consulte los siguientes artículos:
 
-* [Creación de plantillas del Administrador de recursos de Azure](../../azure-resource-manager/resource-group-authoring-templates.md)
-* [Implementación de una aplicación con las plantillas de Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md)
-* [Tipos de recurso de Microsoft.MachineLearningServices](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+* [Creación de plantillas de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md)
+* [Implementar una aplicación con plantillas de Azure Resource Manager](../../azure-resource-manager/resource-group-template-deploy.md)
+* [Tipos de recursos Microsoft.MachineLearningServices](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
 
 ## <a name="use-the-azure-portal"></a>Uso de Azure Portal
 

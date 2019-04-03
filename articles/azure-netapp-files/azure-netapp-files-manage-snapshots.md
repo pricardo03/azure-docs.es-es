@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/15/2019
 ms.author: b-juche
-ms.openlocfilehash: 9154add96084142ca1f93ad61c6418e3b487fb83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 01387d0c219c86f33762b9c3fbf9f81cf04b4455
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090923"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880821"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Administración de instantáneas mediante Azure NetApp Files
 
@@ -53,7 +53,7 @@ Actualmente, puede restaurar una instantánea solo a un nuevo volumen.
     ![Restauración de la instantánea al nuevo volumen](../media/azure-netapp-files/azure-netapp-files-snapshot-restore-to-new-volume.png)
 
 4. En la ventana Nuevo volumen, proporcione información para el nuevo volumen:  
-    * **Nombre**   
+    * **NOMBRE**   
         Especifique el nombre para el volumen que va a crear.  
         
         El nombre debe ser único dentro de un grupo de recursos. Debe tener tres caracteres de longitud, como mínimo.  Puede usar cualquier carácter alfanumérico.
@@ -65,14 +65,14 @@ Actualmente, puede restaurar una instantánea solo a un nuevo volumen.
         
         El nombre de la ruta de acceso de archivo solo puede contener letras, números y guiones ("-"). El nombre debe tener entre 16 y 40 caracteres. 
 
-    * **Cuota**  
+    * **Quota**  
         Especifique la cantidad de almacenamiento lógico que se asigna al volumen.  
 
         El campo **Cuota disponible** muestra la cantidad de espacio no utilizado en el grupo de capacidad elegido que puede usar para crear un nuevo volumen. El tamaño del volumen nuevo no debe superar la cuota disponible.
 
-    *   **Red virtual**  
+    *   **Virtual network**  
         Especifique la red virtual de Azure (Vnet) desde la que desea tener acceso al volumen.  
-        La red virtual que especifique debe tener una subred delegada en Azure NetApp Files. Solo puede acceder a Azure NetApp Files desde la misma red virtual o desde una red virtual que se encuentre en la misma ubicación que el volumen mediante el emparejamiento de VNET. También puede acceder al volumen desde la red local mediante ExpressRoute. 
+        La red virtual que especifique debe tener una subred delegada en Azure NetApp Files. Solo puede acceder a Azure NetApp Files desde la misma red virtual o desde una red virtual que se encuentre en la misma ubicación que el volumen mediante el emparejamiento de VNET. Puede tener acceso al volumen de la red local a través de Express Route. 
 
     * **Subred**  
         Especifique la subred que desea usar para el volumen.  

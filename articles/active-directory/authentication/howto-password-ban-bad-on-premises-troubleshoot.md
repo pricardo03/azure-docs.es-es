@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12cbd9bebf001eb902147175c89b5d7ce49e8449
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 108ead982529d2ac6549cceffd9d2177ab6456bf
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487242"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58863190"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Solución de problemas de la Protección con contraseña de Azure AD
 
@@ -44,7 +44,13 @@ El principal síntoma de este problema es 30018 eventos en el registro de evento
 
 ## <a name="the-proxy-service-can-receive-calls-from-dc-agents-in-the-domain-but-is-unable-to-communicate-with-azure"></a>El servicio de Proxy puede recibir llamadas desde los agentes de DC en el dominio, pero no puede comunicarse con Azure
 
-Asegúrese de que la máquina de proxy tiene conectividad a los puntos de conexión aparece en el [los requisitos de implementación](howto-password-ban-bad-on-premises-deploy.md).
+1. Asegúrese de que la máquina de proxy tiene conectividad a los puntos de conexión aparece en el [los requisitos de implementación](howto-password-ban-bad-on-premises-deploy.md).
+
+1. Asegúrese de que el bosque y el proxy de todos los servidores están registrados en el mismo inquilino de Azure.
+
+   Puede comprobarlo ejecutando el `Get-AzureADPasswordProtectionProxy` y `Get-AzureADPasswordProtectionDCAgent` cmdlets de PowerShell, a continuación, compare el `AzureTenant` propiedad de cada elemento devuelto. Para funcionar correctamente estos deben ser el mismo dentro de un bosque, en todos los agentes de DC y servidores proxy.
+
+   Si existe una condición de error de coincidencia del registro de inquilino de Azure, esto puede repararse ejecutando la `Register-AzureADPasswordProtectionProxy` o `Register-AzureADPasswordProtectionForest` según sea necesario, asegurándose de usar credenciales desde el mismo inquilino de Azure para todos los registros de los cmdlets de PowerShell.
 
 ## <a name="the-dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files-and-other-state"></a>El agente de controlador de dominio no puede cifrar o descifrar los archivos de directivas de contraseña y otro estado
 
@@ -146,6 +152,6 @@ Si se decide desinstalar el software de protección de contraseña de Azure AD y
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Preguntas más frecuentes de la protección con contraseña de Azure AD](howto-password-ban-bad-on-premises-faq.md)
+[Protección de contraseña de Azure AD preguntas más frecuentes](howto-password-ban-bad-on-premises-faq.md)
 
 Para más información sobre las listas de contraseñas prohibidas globales y personalizadas, consulte el artículo [Ban bad passwords](concept-password-ban-bad.md) (Prohibición de contraseñas incorrectas).

@@ -1,31 +1,31 @@
 ---
 title: Acceso a datos con Azure Security Center para la versión preliminar de IoT | Microsoft Docs
 description: Obtenga información sobre cómo obtener acceso a los datos de alerta y la recomendación de seguridad al usar Azure Security Center para IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: fbd96ddd-cd9f-48ae-836a-42aa86ca222d
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/25/2019
 ms.author: mlottner
-ms.openlocfilehash: 510ee9bdefe87c1fab40e58bb715f2a8cce936b7
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 0788a62de701cb85a65c7053006e28cf4fffe5cb
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758518"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862597"
 ---
 # <a name="access-your-security-data"></a>Obtener acceso a los datos de seguridad 
 
 > [!IMPORTANT]
 > Azure Security Center para IoT está actualmente en versión preliminar pública.
-> Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no se recomienda para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Azure Security Center (ASC) para IoT almacena los datos sin procesar de seguridad, recomendaciones y alertas de seguridad (si decide guardarlo) en el área de trabajo de Log Analytics.
 

@@ -5,18 +5,18 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/02/2019
 ms.openlocfilehash: 03ec8740a4cf36bf3d09dade8a24b155c09d1299
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56741358"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58887267"
 ---
 La configuración del contenedor es jerárquica y todos los contenedores del equipo host usan una jerarquía compartida.
 
 Puede usar cualquiera de las siguientes opciones para especificar la configuración:
 
 * [Variables de entorno](#environment-variable-settings)
-* [Argumentos de la línea de comandos](#command-line-argument-settings)
+* [Argumentos de línea de comandos](#command-line-argument-settings)
 
 Los valores de variable de entorno invalidan los valores de argumento de la línea de comandos, que a su vez invalidan los valores predeterminados para la imagen de contenedor. Si especifica valores diferentes en una variable de entorno y un argumento de la línea de comandos para la misma opción de configuración, el contenedor del que se crea la instancia usa el valor de la variable de entorno.
 

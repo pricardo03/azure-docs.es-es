@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: juliako
-ms.openlocfilehash: b8725dfcb2a337750c6e2a78ba7571114b8e3cd3
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: ab8d4fb9b46573d58fd93fc5121a4fc1918cc69d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407190"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879393"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en vivo con Azure Media Services v3
 
@@ -31,7 +31,7 @@ Azure Media Services permite entregar eventos en directo a sus clientes en la nu
 En este artículo ofrece información general y Guía de streaming en vivo con Media Services y vínculos a artículos relevantes.
 
 > [!NOTE]
-> Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API de REST](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref), o una de las [SDK](developers-guide.md).
+> Actualmente, no puede usar Azure Portal para administrar recursos de v3. Use la [API REST](https://aka.ms/ams-v3-rest-ref), la [CLI](https://aka.ms/ams-v3-cli-ref) o uno de los [SDK](developers-guide.md) admitidos.
 
 ## <a name="dynamic-packaging"></a>Empaquetado dinámico
 
@@ -65,15 +65,15 @@ Si utiliza la codificación en directo con Media Services, deberá configurar el
 
 Para entender el flujo de trabajo de streaming en vivo en Media Services v3, tiene que primero revise y entender los conceptos siguientes: 
 
-- [Puntos de conexión de streaming](streaming-endpoint-concept.md)
-- [Objetos LiveEvent y LiveOutput](live-events-outputs-concept.md)
+- [Extremos de streaming](streaming-endpoint-concept.md)
+- [Eventos en directo y salidas en vivo](live-events-outputs-concept.md)
 - [Localizadores de streaming](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Pasos generales
 
 1. En la cuenta de Media Services, asegúrese de que el **Punto de conexión de streaming** esté en ejecución. 
 2. Cree un [evento en directo](live-events-outputs-concept.md). <br/>Al crear el evento, puede especificar que se inicie automáticamente. De lo contrario, puede iniciar el evento cuando esté listo para iniciar el streaming.<br/> Cuando el inicio automático está establecido en true, el evento en directo se iniciará después de la creación. La facturación comienza en cuanto el objeto LiveEvent empieza a ejecutarse. Debe llamar explícitamente a Stop en el recurso del objeto LiveEvent para evitar que continúe la facturación. Para más información, consulte [Estados y facturación de LiveEvent](live-event-states-billing.md).
-3. Obtenga las direcciones URL de ingesta y configure el codificador local para usar la dirección URL para enviar la fuente de contribución.<br/>Consulte [Codificadores de streaming en vivo recomendados](recommended-on-premises-live-encoders.md).
+3. Obtenga las direcciones URL de ingesta y configure el codificador en el entorno local para usar la dirección URL para enviar la fuente de contribución.<br/>Consulte [Codificadores de streaming en vivo recomendados](recommended-on-premises-live-encoders.md).
 4. Obtenga la dirección URL de versión preliminar y úsela para verificar que la entrada del codificador se está recibiendo realmente.
 5. Cree un nuevo objeto de **recurso**.
 6. Cree un objeto de **salida en directo** y use el nombre del recurso que ha creado.<br/>El objeto **LiveOutput** archivará la secuencia en el objeto **Asset**.
@@ -85,13 +85,13 @@ Para entender el flujo de trabajo de streaming en vivo en Media Services v3, tie
 
 ## <a name="other-important-articles"></a>Otros artículos importantes
 
-- [Recommended live encoders](recommended-on-premises-live-encoders.md) (Codificadores en directo recomendados)
-- [Uso de un DVR en la nube](live-event-cloud-dvr.md)
-- [Comparación de tipos de objetos LiveEvent](live-event-types-comparison.md)
+- [Codificadores en directo recomendados](recommended-on-premises-live-encoders.md)
+- [Uso de una DVR en la nube](live-event-cloud-dvr.md)
+- [Comparación de características de los tipos de evento en directo](live-event-types-comparison.md)
 - [Estados y facturación](live-event-states-billing.md)
-- [Latency](live-event-latency.md)
+- [Latencia](live-event-latency.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Tutorial de Live Streaming](stream-live-tutorial-with-api.md)
+* [Tutorial de transmisión por secuencias en directo](stream-live-tutorial-with-api.md)
 * [Guía de migración para mover de Media Services v2 a v3](migrate-from-v2-to-v3.md)

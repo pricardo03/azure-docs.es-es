@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 13c0346324ae8e3cf3485985a9014f9999230630
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 35f83832b0ceb7507b39095e9cc974d82a480c69
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351446"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883080"
 ---
 # <a name="how-to-improve-your-classifier"></a>Mejora del clasificador
 
@@ -72,6 +72,15 @@ Para corregir este problema, incluya una variedad de imágenes para asegurarse d
 * __Estilo:__ Proporcione imágenes de diferentes estilos de la misma clase (por ejemplo, diferentes variedades de la fruta misma). Sin embargo, si tiene objetos de estilos radicalmente distintos (por ejemplo, Mickey Mouse frente a una ratón real), se recomienda etiquetarlas como clases independientes para representar mejor sus características distintivas.
 
     ![Ejemplos de imágenes de estilos](./media/getting-started-improving-your-classifier/style.png)
+
+## <a name="negative-images"></a>Imágenes negativo
+
+En algún punto del proyecto, puede que tenga que agregar _ejemplos negativos_ para ayudar a que el clasificador sea más preciso. Ejemplos negativos son aquellos que no coinciden con ninguna de las otras etiquetas. Cuando cargue estas imágenes, aplíqueles la etiqueta especial **Negative** (Negativo).
+
+> [!NOTE]
+> El servicio Custom Vision Service admite cierto control negativo automático de la imagen. Por ejemplo, si va a crear un clasificador que distingue uvas de plátanos y envía una imagen de un zapato para la predicción, el clasificador puntuaría esa imagen con un valor cercano al 0 % para uva y plátano.
+> 
+> Por otro lado, en los casos en que las imágenes negativas son solo una variación de las imágenes utilizadas en el entrenamiento, es probable que el modelo clasifique las imágenes negativas como una clase etiquetada debido a las grandes similitudes que existen. Por ejemplo, si tiene un clasificador que distingue naranjas de pomelos y envía una imagen de una mandarina, puede que se clasifique la mandarina como una naranja porque muchas características de las mandarinas recuerdan a las de las naranjas. Si las imágenes negativas son de esta naturaleza, se recomienda crear una o varias etiquetas adicionales (como **Otros**) y etiquetar las imágenes negativas con esta etiqueta durante el entrenamiento para permitir que el modelo diferencie mejor entre estas clases.
 
 ## <a name="use-prediction-images-for-further-training"></a>Uso de imágenes de predicción para entrenamiento adicional
 

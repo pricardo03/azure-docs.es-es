@@ -1,25 +1,25 @@
 ---
 title: Comprender la versión preliminar de gemelos de Azure Security Center para el módulo de seguridad de IoT | Microsoft Docs
 description: Obtenga información sobre el concepto de los módulos gemelos de seguridad y cómo se usan en Azure Security Center para IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: a5c25cba-59a4-488b-abbe-c37ff9b151f9
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 56bc93973bd2c080b13b97f1344cc165f742e757
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: c5814b188c73ea03094d7dae565e40ca09e705c2
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758402"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862444"
 ---
 # <a name="security-module"></a>Módulo de seguridad
 
@@ -31,9 +31,9 @@ En este artículo se explica cómo Azure Security Center (ASC) para IoT usa mód
 
 ## <a name="device-twins"></a>Dispositivos gemelos
 
-Para las soluciones de IoT compiladas en Azure, los dispositivos gemelos desempeñan un papel clave en la administración de dispositivos y automatización de procesos.  
+En el caso de las soluciones de IoT integradas en Azure, los dispositivos gemelos desempeñan un rol clave tanto en la administración de dispositivos como en la automatización de procesos.  
 
-ASC para IoT ofrece integración completa con la plataforma de administración de dispositivos de IoT existente, lo que permite administrar el estado de seguridad del dispositivo, así como hacer uso de las capacidades de control de dispositivos existentes. La integración se consigue haciendo uso de IoT Hub gemelas mecanismo.  
+ASC for IoT ofrece integración completa con la plataforma de administración de dispositivos de IoT existente, lo que permite no solo administrar el estado de seguridad de los dispositivos, sino también hacer uso de las funcionalidades de control de dispositivos existentes. La integración se consigue haciendo uso de IoT Hub gemelas mecanismo.  
 
 Más información sobre el concepto de [dispositivos gemelos](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins) en Azure IoT Hub. 
 
@@ -48,5 +48,5 @@ Consulte [gemelo de módulo de seguridad crear](quickstart-create-security-twin.
 
 ## <a name="see-also"></a>Vea también
 - [ASC para la versión preliminar de IoT](overview.md)
-- [Implementar a agentes de seguridad](how-to-deploy-agent.md)
+- [Implementación de agentes de seguridad](how-to-deploy-agent.md)
 - [Métodos de autenticación de seguridad del agente](concept-security-agent-authentication-methods.md)

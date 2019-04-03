@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: trbye
 ms.date: 02/20/2019
-ms.openlocfilehash: ce510168e2aa92758a3468fa55ff7b2a8d39b547
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 0d75b983ad6d3b6256852335dc523b481bbe046f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360274"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885900"
 ---
 # <a name="enable-logging-in-azure-machine-learning-service"></a>Habilitación del registro en Azure Machine Learning Service
 
@@ -115,7 +115,7 @@ También puede registrar seguimientos de la pila personalizados para el servicio
 service.update(enable_app_insights=True)
 ```
 
-Consulte los [procedimientos](how-to-enable-app-insights.md#enable-and-disable-in-the-portal) para más información sobre cómo trabajar con Application Insights en Azure Portal.
+Consulte los [procedimientos](how-to-enable-app-insights.md) para más información sobre cómo trabajar con Application Insights en Azure Portal.
 
 ## <a name="python-native-logging-settings"></a>Configuración del registro nativo de Python
 

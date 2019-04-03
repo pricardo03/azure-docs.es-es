@@ -1,6 +1,6 @@
 ---
 title: Estado del escenario de migración de bases de datos | Microsoft Docs
-description: Obtenga información sobre el estado de los escenarios de migración que admite Azure Database Migration Service.
+description: Obtenga información sobre el estado de los escenarios de migración admitidos por Azure Database Migration Service.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -10,67 +10,70 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: b07f36055f9c0690450e8d4ab5abacb8c84d9bf2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/03/2019
+ms.openlocfilehash: 7017566092530dce2359d45314ac00dca63b8ad0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58182547"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886240"
 ---
-# <a name="status-of-migration-scenarios-supported-by-the-azure-database-migration-service"></a>Estado de los escenarios de migración que admite Azure Database Migration Service
-Azure Database Migration Service está diseñado para admitir una serie de escenarios de migración (pares de origen/destino) para las migraciones sin conexión (de un solo uso) y en línea (sincronización continua). Azure Database Migration Service proporciona una cobertura de escenarios que amplían constantemente. Nos encargamos de agregar nuevos escenarios de forma regular. En este artículo se identifican los escenarios de migración que actualmente son compatibles con Azure Database Migration Service y el estado (versión preliminar privada [o limitada], versión preliminar pública o disponibilidad general) de cada escenario.
+# <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Estado de los escenarios de migración admitidos por Azure Database Migration Service
+Azure Database Migration Service está diseñado para admitir escenarios de migración diferentes (pares de origen o destino) para ambos sin conexión (un solo uso) y las migraciones en línea (sincronización continua). Azure Database Migration Service proporciona una cobertura de escenarios que amplían constantemente. Nos encargamos de agregar nuevos escenarios de forma regular. Este artículo identifican los escenarios de migración compatibles actualmente con Azure Database Migration Service y el estado (versión preliminar privada, versión preliminar pública o disponible con carácter general) para cada escenario.
 
 ## <a name="offline-versus-online-migrations"></a>Migraciones sin conexión o en línea
-Cuando migra bases de datos a Azure mediante Azure Database Migration Service, puede realizar una migración sin conexión o en línea. Si usa las migraciones *sin conexión*, el tiempo de inactividad de la aplicación comienza al mismo tiempo que la migración. En cuanto a las *migraciones en línea*, el tiempo de inactividad se limita al tiempo requerido para pasar al nuevo entorno cuando finaliza la migración. Es recomendable probar una migración sin conexión para determinar si el tiempo de inactividad es aceptable; si no fuera así, realice una migración en línea.
+Con Azure Database Migration Service, puede realizar una migración en línea o sin conexión. Si usa las migraciones *sin conexión*, el tiempo de inactividad de la aplicación comienza al mismo tiempo que la migración. Para limitar el tiempo de inactividad en el tiempo necesario para pasar al nuevo entorno cuando se complete la migración, use un *online* migración. Se recomienda para probar una migración sin conexión para determinar si el tiempo de inactividad es aceptable; Si no es así, realizar una migración en línea.
 
 ## <a name="migration-scenario-status"></a>Estado del escenario de migración
-El estado de cada escenario de migración que admite Azure Database Migration Service varía con el tiempo. En general, los escenarios se publican por primera vez en la **versión preliminar privada** y, para poder aprovechar sus funcionalidades, es necesario que un cliente envíe una solicitud a través del [sitio de versión preliminar de DMS](https://aka.ms/dms-preview). Cuando se completa la versión preliminar privada, el estado del escenario cambia a **versión preliminar pública**. Todos los usuarios de Azure Database Migration Service pueden aprovechar las ventajas de los escenarios de migración que están disponibles en versión preliminar pública. Sin embargo, el escenario de migración puede que no esté disponible en todas las regiones y la funcionalidad puede sufrir cambios adicionales antes del lanzamiento de la versión final. Cuando un escenario de migración tiene el estado **Disponible en general**, que es el estado final publicado, quiere decir que la funcionalidad está completada y es accesible para todos los usuarios de Azure Database Migration Service. 
+El estado de los escenarios de migración admitidos por Azure Database Migration Service varía con el tiempo. Por lo general, los escenarios se publican primero en **versión preliminar privada**. Participar en versión preliminar privada requiere que los clientes para que envíe una solicitud a través de la [sitio de vista previa de DMS](https://aka.ms/dms-preview). Después de la versión preliminar privada, el estado de la situación cambia a **Public Preview**. Los usuarios de Azure Database Migration Service pueden probar escenarios de migración en versión preliminar pública directamente desde la interfaz de usuario. Registro no es necesario.  Sin embargo, los escenarios de migración en versión preliminar pública pueden no estar disponibles en todas las regiones y pueden sufrir cambios adicionales antes de la versión final. Después de la versión preliminar pública, el estado de la situación cambia a **disponible con carácter general**. Generalmente disponibles (GA) es el estado de la versión final, y la funcionalidad completa y accesible a todos los usuarios. 
 
 ## <a name="migration-scenario-support"></a>Compatibilidad del escenario de migración
-
-En las siguientes tablas se muestran qué escenarios de migración se admiten cuando se usa Azure Database Migration Service.
+Las siguientes tablas muestran los escenarios de migración son compatibles con Azure Database Migration Service.
 
 > [!NOTE]
 > Si un escenario que se indica como admitido no aparece en la interfaz de usuario, póngase en contacto con el [Equipo de migración de datos](mailto:datamigrationteam@microsoft.com) para obtener información adicional.
 
-### <a name="offline-one-time-migration-support"></a>Compatibilidad de la migración sin conexión (de un solo uso)
-En la siguiente tabla se muestra la compatibilidad de Azure Database Migration Service con las migraciones sin conexión.
+> [!IMPORTANT]
+> Para ver escenarios compatibles actualmente con Azure Database Migration Service en versión preliminar privada, consulte el [sitio de vista previa de DMS](https://aka.ms/dms-preview).
 
-| Destino  | Origen | Soporte técnico |
-| ------------- | ------------- | :-------------: |
-| **Azure SQL DB**  | SQL Server | ✔ |
-|   | SQL de RDS  |  ✔ |
-|   | Oracle  |   |
-| **Azure SQL DB MI**  | SQL Server  | ✔ |
-|   | SQL de RDS  | ✔ |
-|   | Oracle  | ✔  |
-| **Máquina virtual de Azure SQL**  | SQL Server | ✔ |
-|   | Oracle  |   |
-| **Azure Cosmos DB**  | MongoDB | ✔ |
-| **Azure DB para MySQL**  | MySQL |  |
-|   | MySQL de RDS  |  |
-| **Azure DB para PostgreSQL**  | PostgreSQL |  |
-|  | PostgreSQL de RDS  |  |
+### <a name="offline-one-time-migration-support"></a>Compatibilidad de la migración sin conexión (de un solo uso)
+En la tabla siguiente se muestra la compatibilidad de Azure Database Migration Service, para las migraciones sin conexión.
+
+| Destino  | Origen | Soporte técnico | Status |
+| ------------- | ------------- | :-------------: | :-------------: |
+| **Azure SQL DB** | SQL Server | ✔ | GA |
+|   | SQL de RDS |  |  |
+|   | Oracle |  |  |
+| **Azure SQL DB MI** | SQL Server | ✔ | GA |
+|   | SQL de RDS |  |  |
+|   | Oracle |  |   |
+| **Máquina virtual de Azure SQL** | SQL Server | ✔ | GA |
+|   | Oracle |   |   |
+| **Azure Cosmos DB** | MongoDB | ✔ | Vista previa pública |
+| **Base de datos MySQL en Azure** | MySQL |   |   |
+|   | MySQL de RDS |   |   |
+| **Base de datos de Azure para PostgreSQL** | PostgreSQL |  |
+|  | PostgreSQL de RDS |   |   |
 
 ### <a name="online-continuous-sync-migration-support"></a>Compatibilidad con la migración en línea (sincronización continua)
-En la siguiente tabla se muestra la compatibilidad de Azure Database Migration Service con las migraciones en línea.
+En la tabla siguiente se muestra la compatibilidad de Azure Database Migration Service, versión preliminar pública o en disponibilidad general, para las migraciones en línea.
 
-| Destino  | Origen | Soporte técnico |
-| ------------- | ------------- | :-------------: |
-| **Azure SQL DB**  | SQL Server | ✔ |
-|   | SQL de RDS  |   |
-|   | Oracle  |  ✔ |
-| **Azure SQL DB MI**  | SQL Server  | ✔ |
-|   | SQL de RDS  |  |
-|   | Oracle  | ✔  |
-| **Máquina virtual de Azure SQL**  | SQL Server  |   |
-|   | Oracle  | ✔  |
-| **Azure Cosmos DB**  | MongoDB  | ✔ |
-| **Azure DB para MySQL**  | MySQL | ✔ |
-|   | MySQL de RDS  | ✔ |
-| **Azure DB para PostgreSQL**  | PostgreSQL | ✔ |
-|  | PostgreSQL de RDS  | ✔ |
+| Destino  | Origen | Soporte técnico | Status |
+| ------------- | ------------- | :-------------: | :-------------: |
+| **Azure SQL DB** | SQL Server | ✔ | GA |
+|   | SQL de RDS | ✔ | GA |
+|   | Oracle |  |  |
+| **Azure SQL DB MI** | SQL Server | ✔ | GA |
+|   | SQL de RDS | ✔ | GA |
+|   | Oracle | ✔ | Vista previa privada |
+| **Máquina virtual de Azure SQL** | SQL Server |   |   |
+|   | Oracle  |  |  |
+| **Azure Cosmos DB** | MongoDB | ✔ | Vista previa pública |
+| **Base de datos MySQL en Azure** | MySQL | ✔ | GA |
+|   | MySQL de RDS | ✔ | GA |
+| **Base de datos de Azure para PostgreSQL** | PostgreSQL | ✔ | GA |
+|   | PostgreSQL de RDS | ✔ | GA |
+|   | Oracle | ✔ | Vista previa privada |
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para información general sobre Azure Database Migration Service y la disponibilidad regional, consulte el artículo [¿Qué es la versión preliminar de Azure Database Migration Service?](dms-overview.md) 
+Para obtener información general de Azure Database Migration Service y la disponibilidad regional, consulte el artículo [¿qué es Azure Database Migration Service](dms-overview.md).

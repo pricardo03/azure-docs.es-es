@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: a8566e41934b5d78d8be60b385ea4148e1cb60c3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 78efcefa7df99dfa3386dcdf19aafa47d7b9fab1
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087047"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884521"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
 Azure Virtual Network (VNET) le permiten colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet y a la que controla el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre Azure Virtual Network, vea: [Información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -112,9 +112,9 @@ Cuando la instancia del servicio de API Management se hospeda en una red virtual
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / 80, 443                  | Entrada            | TCP                | INTERNET/VIRTUAL_NETWORK            | Comunicación de cliente con Administración de API                      | Externo             |
 | * / 3443                     | Entrada            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Punto de conexión de administración para Azure Portal y Powershell         | Externa e interna  |
-| * / 80, 443                  | Salida           | TCP                | VIRTUAL_NETWORK/Storage             | **Dependencia de Azure Storage**                             | Externa e interna  |
+| * / 80, 443                  | Salida           | TCP                | VIRTUAL_NETWORK/Storage             | **Dependencia de almacenamiento de Azure**                             | Externa e interna  |
 | * / 80, 443                  | Salida           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | Azure Active Directory (si procede)                   | Externa e interna  |
-| * / 1433                     | Salida           | TCP                | VIRTUAL_NETWORK / SQL                 | **Acceso a los puntos de conexión de Azure SQL**                           | Externa e interna  |
+| * / 1433                     | Salida           | TCP                | VIRTUAL_NETWORK / SQL                 | **Acceso a los puntos de conexión de SQL Azure**                           | Externa e interna  |
 | * / 5672                     | Salida           | TCP                | VIRTUAL_NETWORK/EventHub            | Dependencia de la directiva de registro en el centro de eventos y el agente de supervisión | Externa e interna  |
 | * / 445                      | Salida           | TCP                | VIRTUAL_NETWORK/Storage             | Dependencia del recurso compartido de archivos de Azure para Git                      | Externa e interna  |
 | * / 1886                     | Salida           | TCP                | VIRTUAL_NETWORK/INTERNET            | Se necesita para publicar el estado de mantenimiento en Resource Health          | Externa e interna  |
@@ -136,7 +136,7 @@ Cuando la instancia del servicio de API Management se hospeda en una red virtual
 
     | Entorno de Azure | Puntos de conexión                                                                                                                                                                                                                                                                                                                                                              |
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure Public      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com donde `East US 2` es eastus2.warm.ingestion.msftcloudes.com</li></ul> |
+    | Azure Public      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`. warm.ingestion.msftcloudes.com donde `East US 2` es eastus2.warm.ingestion.msftcloudes.com</li></ul> |
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
     | Azure China       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
@@ -146,7 +146,7 @@ Cuando la instancia del servicio de API Management se hospeda en una red virtual
 
 + **Diagnósticos de Azure Portal**: para permitir el flujo de registros de diagnóstico desde Azure Portal al usar la extensión API Management desde dentro de una red Virtual, se requiere el acceso saliente a `dc.services.visualstudio.com` en el puerto 443. Esto ayuda a solucionar los problemas que pueden surgir al usar la extensión.
 
-+ **Forzar tunelización de tráfico al Firewall a nivel local mediante la aplicación Virtual de Express Route o red**: Una configuración de cliente común es definir su propia ruta predeterminada (0.0.0.0/0), que obliga a todo el tráfico desde la API de administración delegada subred al flujo a través de un firewall a nivel local o a un dispositivo de red virtual. El flujo de tráfico interrumpe invariablemente la conectividad con Azure API Management porque el tráfico saliente está bloqueado de forma local o porque se usa NAT para convertirlo en un conjunto de direcciones irreconocibles que no funcionan con varios puntos de conexión de Azure. La solución requiere que se va a hacer un par de cosas:
++ **Forzar tunelización de tráfico al Firewall a nivel local mediante la aplicación Virtual de Express Route o red**: Una configuración de cliente común es definir su propia ruta predeterminada (0.0.0.0/0), que obliga a todo el tráfico desde la API de administración delegada subred al flujo a través de un firewall en el entorno local o a un dispositivo de red virtual. El flujo de tráfico interrumpe invariablemente la conectividad con Azure API Management porque el tráfico saliente está bloqueado de forma local o porque se usa NAT para convertirlo en un conjunto de direcciones irreconocibles que no funcionan con varios puntos de conexión de Azure. La solución requiere que se va a hacer un par de cosas:
 
   * Habilitar puntos de conexión de servicio en la subred en la que se implementa el servicio API Management. [Los puntos de conexión de servicio] [ ServiceEndpoints] debe habilitarse para Sql Azure, Azure Storage, Azure Event hubs y Azure ServiceBus. Habilitando puntos de conexión directamente desde la subred delegado a estos servicios permite que usen la red troncal de Microsoft Azure que proporciona un enrutamiento óptimo para el tráfico del servicio de API Management. Si usa puntos de conexión de servicio con una administración de Api de túnel forzado, los servicios de Azure anteriores no se fuerza el tráfico de túnel. Las otras API Management se fuerza el tráfico del servicio de dependencia de túnel y no se pueden perder o el servicio API Management no funcionaría correctamente.
     
@@ -194,10 +194,10 @@ Dado el cálculo anterior, el tamaño mínimo de la subred, en el que se puede i
 
 
 ## <a name="related-content"></a>Contenido relacionado
-* [Conexión de una red virtual a back-end mediante VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
-* [Conexión a una red virtual a partir de diferentes modelos de implementación](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
-* [Uso de API Inspector para hacer un seguimiento de las llamadas en Azure API Management](api-management-howto-api-inspector.md)
-* [Preguntas más frecuentes acerca de Virtual Network](../virtual-network/virtual-networks-faq.md)
+* [Conectar una red Virtual a back-end mediante Vpn Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
+* [Conectar una red Virtual de diferentes modelos de implementación](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
+* [Uso del API Inspector para hacer un seguimiento de las llamadas en Azure API Management](api-management-howto-api-inspector.md)
+* [P+f de Virtual Network](../virtual-network/virtual-networks-faq.md)
 * [Etiquetas de servicio](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png

@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 6ffe051c019184d5ce1a32af50dbf3e7faa06675
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.openlocfilehash: 42627649145b568b2b25411d182e5a36cdb025b0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55490318"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881195"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Mejora de la disponibilidad de la aplicación con Azure Advisor
 
@@ -64,7 +64,7 @@ Habilite la [eliminación temporal](https://docs.microsoft.com/azure/storage/blo
 
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Configuración de la puerta de enlace VPN como activo-activo para lograr la resistencia de conexión
 
-En la configuración activo-activo, ambas instancias de una puerta de enlace VPN establecerán túneles VPN S2S al dispositivo VPN local. Cuando se produce un evento de mantenimiento planeado o no planeado para una instancia de la puerta de enlace, el tráfico cambiará automáticamente al otro el túnel IPsec activo. Azure Advisor identificará las puertas de enlace VPN que no están configuradas como activo-activo y sugerirá que las configure para alta disponibilidad.
+En configuración activo / activo, ambas instancias de una puerta de enlace VPN establecerán túneles VPN S2S al dispositivo VPN local. Cuando se produce un evento de mantenimiento planeado o no planeado para una instancia de la puerta de enlace, el tráfico cambiará automáticamente al otro el túnel IPsec activo. Azure Advisor identificará las puertas de enlace VPN que no están configuradas como activo-activo y sugerirá que las configure para alta disponibilidad.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Obtención de acceso a las recomendaciones sobre alta disponibilidad en Advisor
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: 922e01c26a2cfe24c8b8a32bb8037d9b3b3384c6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 246c5256f56fd0b891d4e7d642c421b1e340fc6d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109127"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879342"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>Agregación de esquema y los datos de análisis de tráfico
 
@@ -120,7 +120,7 @@ A continuación aparecen los campos en el esquema y lo significan
 1. ExternalPublic - una de las direcciones IP pertenece a la red Virtual de Azure mientras la otra dirección IP es una dirección IP pública que no está en Azure, no se notifica como malintencionado en las fuentes ASC que consume el análisis de tráfico para el intervalo de procesamiento entre " FlowIntervalStartTime_t"y"FlowIntervalEndTime_t". 
 1. MaliciousFlow - una de las direcciones IP pertenecen a la red virtual de azure mientras la otra dirección IP es una dirección IP pública que no está en Azure y se notifica como malintencionado en las fuentes ASC que consume el análisis de tráfico para el intervalo de procesamiento entre" FlowIntervalStartTime_t"y"FlowIntervalEndTime_t". 
 1. UnknownPrivate - una de las direcciones IP pertenecen a la red Virtual de Azure mientras la otra dirección IP pertenece al intervalo IP privadas, como se define en RFC 1918 y no se puede asignar mediante el análisis de tráfico a un cliente a la propiedad de sitio o Azure Virtual Network.
-1. Desconocido: no se puede asignar cualquiera de las direcciones IP en los flujos con la topología de cliente en Azure, así como a nivel local (sitio).
+1. Desconocido: no se puede asignar cualquiera de la dirección IP direcciones en los flujos con la topología de cliente en Azure así como de forma local (sitio).
 
 ### <a name="next-steps"></a>Pasos siguientes
 Para obtener respuestas a las preguntas más frecuentes, consulte [preguntas más frecuentes sobre análisis de tráfico](traffic-analytics-faq.md) para ver detalles acerca de la funcionalidad, consulte [documentación de análisis de tráfico](traffic-analytics.md)

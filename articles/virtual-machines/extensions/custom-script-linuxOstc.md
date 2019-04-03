@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: danis
-ms.openlocfilehash: 8638b788762a56813c622c0abffe2a8eae3c70c2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fe3803b7dc75ab13831a5e42d4b1a96f5aa894e5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437112"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882436"
 ---
 # <a name="use-the-azure-custom-script-extension-version-1-with-linux-virtual-machines"></a>Uso de la extensión de script personalizado de Azure versión 1 con máquinas virtuales Linux
 
@@ -73,7 +73,7 @@ Si el script se encuentra en un servidor local, puede que aún necesite que haya
 * Si tiene un script que provocará un reinicio, instale las aplicaciones y ejecute los scripts, etc. Debe programar el reinicio de un trabajo de Cron o usar herramientas como DSC, o extensiones de Chef o Puppet.
 * La extensión solo ejecutará un script una vez, si desea ejecutar un script en cada inicio, puede usar [cloud-init image](../linux/using-cloud-init.md) y usar un módulo [Scripts Per Boot](https://cloudinit.readthedocs.io/en/latest/topics/modules.html#scripts-per-boot). Como alternativa, puede usar el script para crear una unidad de servicio de Systemd.
 * Si desea programar cuándo se ejecutará un script, debe utilizar la extensión para crear un trabajo de Cron.
-* Cuando el script se esté ejecutando, solo verá un estado de extensión 'en transición' desde Azure Portal o la CLI. Si desea actualizaciones de estado más frecuentes de un script en ejecución, debe crear su propia solución.
+* Cuando el script se esté ejecutando, solo verá un estado de extensión "en transición" desde Azure Portal o la CLI. Si desea actualizaciones de estado más frecuentes de un script en ejecución, debe crear su propia solución.
 * La extensión de script personalizada no admite de forma nativa servidores proxy, pero puede usar una herramienta de transferencia de archivos que admita servidores proxy en el script, como *Curl*.
 * Tenga en cuenta las ubicaciones de directorio no predeterminadas en las que se puedan basar los scripts o comandos y aplique lógica para controlarlas.
 
@@ -133,11 +133,11 @@ Estos elementos se deben tratar como datos confidenciales y se deben especificar
 
 ### <a name="property-value-details"></a>Detalles del valor de propiedad
 
-* `fileUris`: (opcional, matriz de cadenas) la lista de URI de los scripts
-* `enableInternalDNSCheck`: (opcional, bool) el valor predeterminado es True; se establece en False para deshabilitar la comprobación de DNS.
-* `commandToExecute`: (opcional, cadena) script de punto de entrada que se va a ejecutar
-* `storageAccountName`: (opcional, cadena) nombre de la cuenta de almacenamiento
-* `storageAccountKey`: (opcional, cadena) clave de acceso de la cuenta de almacenamiento
+* `fileUris`: (opcional, matriz de cadenas) la lista de uri de las secuencias de comandos
+* `enableInternalDNSCheck`: (opcional, booleano) el valor predeterminado es True, se establece en False para deshabilitar la comprobación de DNS.
+* `commandToExecute`: (opcional, cadena) para ejecutar el script de entrypoint
+* `storageAccountName`: (opcional, cadena) el nombre de cuenta de almacenamiento
+* `storageAccountKey`: (opcional, cadena) la clave de acceso de cuenta de almacenamiento
 
 Los valores siguientes se pueden establecer en la configuración pública o protegida; no establezca estos valores en la configuración tanto pública como protegida.
 
@@ -296,8 +296,7 @@ Algunos puntos a tener en cuenta:
 
 1. Enable es cuando el comando empieza a ejecutarse.
 1. Download se relaciona con la descarga del paquete de extensiones de CustomScript de Azure, no los archivos de script especificados en fileUris.
-1. También puede ver el archivo de registro donde se escribe: `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log
-`
+1. También puede ver se escribe en el archivo de registro `/var/log/azure/Microsoft.OSTCExtensions.CustomScriptForLinux/1.5.2.2/extension.log`
 
 El paso siguiente consiste en comprobar el archivo de registro. Este es el formato:
 

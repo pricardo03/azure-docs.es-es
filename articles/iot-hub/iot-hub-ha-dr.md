@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: rkmanda
-ms.openlocfilehash: ac47ad10f394eaf31a9f7c12d7a2a03ea23283f6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 192966eef20ac59ac3a6eb14d7d450357989b851
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092657"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879699"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Alta disponibilidad y recuperación ante desastres de IoT Hub
 
@@ -32,7 +32,7 @@ Según los objetivos de tiempo de actividad que defina para las soluciones de Io
 
 ## <a name="intra-region-ha"></a>Alta disponibilidad dentro de una región
 
-El servicio IoT Hub proporciona alta disponibilidad dentro de una región mediante la implementación de redundancias en casi todos los niveles del servicio. El [Acuerdo de Nivel de Servicio publicado por el servicio IoT Hub](https://azure.microsoft.com/support/legal/sla/iot-hub) se consigue con el uso de estas redundancias. Los desarrolladores de una solución de IoT no deben realizar ningún trabajo adicional para poder beneficiarse de estas características de alta disponibilidad. Aunque IoT Hub ofrece una garantía de tiempo de actividad razonablemente elevada, los errores transitorios todavía se pueden esperar al igual que con cualquier plataforma de informática distribuida. Si acaba de empezar con la migración de sus soluciones a la nube desde una solución local, su enfoque debe cambiar de la optimización de "tiempo medio entre errores" a "tiempo medio para recuperación". En otras palabras, los errores transitorios se deben considerar normales al trabajar con la nube en la combinación. Se deben integrar [directivas de reintento](iot-hub-reliability-features-in-sdks.md) apropiadas en los componentes que interactúan con una aplicación en la nube para solucionar errores transitorios.
+El servicio IoT Hub proporciona alta disponibilidad dentro de una región mediante la implementación de redundancias en casi todos los niveles del servicio. El [Acuerdo de Nivel de Servicio publicado por el servicio IoT Hub](https://azure.microsoft.com/support/legal/sla/iot-hub) se consigue con el uso de estas redundancias. Los desarrolladores de una solución de IoT no deben realizar ningún trabajo adicional para poder beneficiarse de estas características de alta disponibilidad. Aunque IoT Hub ofrece una garantía de tiempo de actividad razonablemente elevada, los errores transitorios todavía se pueden esperar al igual que con cualquier plataforma de informática distribuida. Si está empezando con la migración de sus soluciones en la nube desde una solución local, el foco debe desplazar de optimización del "tiempo medio entre errores" a "tiempo medio para recuperación". En otras palabras, los errores transitorios se deben considerar normales al trabajar con la nube en la combinación. Se deben integrar [directivas de reintento](iot-hub-reliability-features-in-sdks.md) apropiadas en los componentes que interactúan con una aplicación en la nube para solucionar errores transitorios.
 
 > [!NOTE]
 > Algunos servicios de Azure también proporcionan niveles adicionales de disponibilidad dentro de una región mediante la integración con [zonas de disponibilidad](../availability-zones/az-overview.md). El servicio IoT Hub no admite actualmente las zonas de disponibilidad.
@@ -64,7 +64,7 @@ Una vez completada la operación de conmutación por error para la instancia de 
 >
 > - Después de la conmutación por error, los eventos emitidos mediante Event Grid pueden consumirse con las mismas suscripciones configuradas anteriormente, siempre y cuando esas suscripciones de Event Grid sigan estando disponibles.
 >
-> - Cuando el enrutamiento para el almacenamiento de blobs, se recomienda dar de alta los blobs y, a continuación, efectuar una iteración sobre ellos, para asegurarse de que se leen todos los contenedores sin realizar ninguna suposición de partición. El intervalo de partición podría potencialmente cambiar durante una conmutación por error iniciadas por Microsoft o una conmutación por error manual. Para obtener información sobre cómo enumerar la lista de blobs, vea [enrutamiento a blob storage](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
+> - Al enrutar a Blob Storage, se recomienda dar de alta los blobs e iterar sobre ellos para garantizar que se leen todos los contenedores sin pasar por alto ninguna partición. El intervalo de partición podría potencialmente cambiar durante una conmutación por error iniciadas por Microsoft o una conmutación por error manual. Para obtener información sobre cómo enumerar la lista de blobs, vea [enrutamiento a blob storage](iot-hub-devguide-messages-d2c.md#azure-blob-storage).
 
 ### <a name="microsoft-initiated-failover"></a>Conmutación por error iniciada por Microsoft
 
@@ -137,5 +137,5 @@ A continuación le mostramos un resumen de las opciones de alta disponibilidad y
 
 Siga estos vínculos para obtener más información sobre Azure IoT Hub:
 
-* [Introducción a los centros de IoT (inicio rápido)](quickstart-send-telemetry-dotnet.md)
+* [Introducción a centros de IoT (tutorial rápido)](quickstart-send-telemetry-dotnet.md)
 * [¿Qué es Azure IoT Hub?](about-iot-hub.md)

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 03/29/2018
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: 599b1d3f522a0f287736808cce88163f1ef7f28f
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a2f90c52823664df5fdc71c55220cc660c2f68e3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755811"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878152"
 ---
 # <a name="manage-usage-and-costs-for-log-analytics-in-azure-monitor"></a>Administrar el uso y costos de Log Analytics en Azure Monitor
 
@@ -66,7 +66,7 @@ Los pasos siguientes describen cómo configurar un límite para administrar el v
 
 1. En el área de trabajo seleccione **Usage and estimated costs** (Uso y costos estimados) en el panel izquierdo.
 2. En la página **Usage and estimated costs** (Uso y costos estimados) del área de trabajo seleccionada, haga clic en **Administración del volumen de datos** en la parte superior de la página. 
-3. El límite diario está en **OFF** (Desactivado) de manera predeterminada, haga clic en **ON** (Activado) para habilitarlo y luego establezca el límite de volumen de datos en GB/día.<br><br> ![Configuración del límite de datos con Log Analytics](media/manage-cost-storage/set-daily-volume-cap-01.png)
+3. El límite diario está en **OFF** (Desactivado) de manera predeterminada, haga clic en **ON** (Activado) para habilitarlo y luego establezca el límite de volumen de datos en GB/día.<br><br> ![Límite de datos de configuración de log Analytics](media/manage-cost-storage/set-daily-volume-cap-01.png)
 
 ### <a name="alert-when-daily-cap-reached"></a>Envía una alerta cuando se alcanza el límite diario
 Aunque Azure Portal presenta una indicación visual cuando se alcanza el umbral de límite de datos, este comportamiento no tiene que alinearse necesariamente con la forma en la que el usuario administra los problemas de funcionamiento que requieren atención inmediata.  Para recibir una notificación de alerta, puede crear una nueva regla de alerta en Azure Monitor.  Para más información, consulte [cómo crear, ver y administrar alertas](alerts-metric.md).      
@@ -92,7 +92,7 @@ Los pasos siguientes describen cómo configurar cuánto tiempo se conservan los 
  
 1. En el área de trabajo seleccione **Usage and estimated costs** (Uso y costos estimados) en el panel izquierdo.
 2. En la página **Usage and estimated costs** (Uso y costos estimados), haga clic en **Administración del volumen de datos** en la parte superior de la página.
-5. En el panel, mueva el control deslizante para aumentar o disminuir el número de días y, luego, haga clic en **Aceptar**.  Si el nivel es *gratuito*, no podrá modificar el período de retención de datos y tendrá que actualizar al nivel de pago para controlar esta configuración.<br><br> ![Cambio de la configuración de retención de datos del área de trabajo](media/manage-cost-storage/manage-cost-change-retention-01.png)
+5. En el panel, mueva el control deslizante para aumentar o disminuir el número de días y, luego, haga clic en **Aceptar**.  Si el nivel es *gratuito*, no podrá modificar el período de retención de datos y tendrá que actualizar al nivel de pago para controlar esta configuración.<br><br> ![Cambiar la configuración de retención de datos de área de trabajo](media/manage-cost-storage/manage-cost-change-retention-01.png)
 
 ## <a name="legacy-pricing-tiers"></a>Planes de tarifa heredados
 
@@ -110,7 +110,7 @@ Si el área de trabajo de Log Analytics tiene acceso a los planes de tarifa here
 2. En el panel de área de trabajo, en **General**, seleccione **Plan de tarifa**.  
 
 3. En **Plan de tarifa**, seleccione un plan y haga clic en **Seleccionar**.  
-    ![Plan de precios seleccionado](media/manage-cost-storage/workspace-pricing-tier-info.png)
+    ![Selecciona el plan de precios](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
 Si desea mover el área de trabajo al plan de tarifa actual, deberá [cambiar el modelo de precios de su suscripción en Azure Monitor](usage-estimated-costs.md#moving-to-the-new-pricing-model). Esta acción cambiará el plan de tarifa de todas las áreas de trabajo en esa suscripción.
 
@@ -122,7 +122,7 @@ Si desea mover el área de trabajo al plan de tarifa actual, deberá [cambiar el
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Solucionar que Log Analytics ya no recopile datos
 Si tiene el plan de tarifa gratuito heredado y ha enviado más de 500 MB de datos en un día, la recopilación de datos se detiene durante el resto del día. Alcanzar el límite diario es un motivo frecuente de que Log Analytics deje de recopilar datos o de que parezca que faltan datos.  Log Analytics crea un evento de tipo Operación cuando la recopilación de datos se inicia y se detiene. Ejecute la siguiente consulta en la búsqueda para comprobar si ha alcanzado el límite diario y faltan datos: 
 
-`Operation | where OperationCategory == 'Data Collection Status' `
+`Operation | where OperationCategory == 'Data Collection Status'`
 
 Cuando se detiene la recopilación de datos, OperationStatus es Advertencia. Cuando se inicia la recopilación de datos, OperationStatus es Correcto. La tabla siguiente describe los motivos por los que se detiene la recopilación de datos y una acción recomendada para reanudarla:  
 
@@ -186,9 +186,11 @@ Puede profundizar más para ver las tendencias de datos para tipos de datos espe
 
 Para ver el **tamaño** de eventos facturables ingeridos por equipo, use el `_BilledSize` propiedad ([propiedades de registro estándar #_billedsize.md](learn more)) que proporciona el tamaño en bytes:
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by  Computer | sort by Bytes nulls last
+```
 
 El `_IsBillable` propiedad especifica si los datos ingeridos incurrirá en gastos ([log-estándar-properties.md #_isbillable](Learn more).)
 
@@ -205,26 +207,32 @@ Para ver el recuento de eventos facturables ingeridos por equipo, use:
 
 Si quiere ver recuentos de tipos de datos facturables que envían datos a un equipo específico, use:
 
-`union withsource = tt *
+```
+union withsource = tt *
 | where Computer == "computer name"
 | where _IsBillable == true 
-| summarize count() by tt | sort by count_ nulls last `
+| summarize count() by tt | sort by count_ nulls last
+```
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Volumen de datos por suscripción, grupo de recursos o recursos de Azure
 
 Para los datos de nodos que se hospedan en Azure puede obtener el **tamaño** de ingesta de eventos facturables __por equipo__, utilice el `_ResourceId` propiedad que proporciona la ruta de acceso completa al recurso ([ registro-estándar-properties.md #_resourceid](learn more)):
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
+```
 
 Para los datos de nodos que se hospedan en Azure puede obtener el **tamaño** de ingesta de eventos facturables __por suscripción de Azure__, analizar el `_ResourceId` propiedad como:
 
-`union withsource = tt * 
+```
+union withsource = tt * 
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last `
+| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
+```
 
 Cambiar `subscriptionId` a `resourceGroup` mostrará el volumen de datos ingeridos facturables por grupo de Azure resouurce. 
 
@@ -295,7 +303,8 @@ Para ver el número de nodos de seguridad distintos, puede utilizar la consulta:
 
 Para ver el número de nodos de Automation distintos, utilice la consulta:
 
-` ConfigurationData 
+```
+ ConfigurationData 
  | where (ConfigDataType == "WindowsServices" or ConfigDataType == "Software" or ConfigDataType =="Daemons") 
  | extend lowComputer = tolower(Computer) | summarize by lowComputer 
  | join (
@@ -303,7 +312,8 @@ Para ver el número de nodos de Automation distintos, utilice la consulta:
        | where SCAgentChannel == "Direct"
        | extend lowComputer = tolower(Computer) | summarize by lowComputer, ComputerEnvironment
  ) on lowComputer
- | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc`
+ | summarize count() by ComputerEnvironment | sort by ComputerEnvironment asc
+```
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Creación de una alerta cuando la colección de datos es mayor de lo esperado
 
@@ -330,7 +340,7 @@ Al crear la alerta en la primera consulta; cuando hay más de 100 GB de datos e
 - **Definición de la condición de alerta**: especifique el área de trabajo de Log Analytics como el destino del recurso.
 - **Criterios de alerta** especifique lo siguiente:
    - **Nombre de señal**: seleccione **Custom log search** (Búsqueda de registros personalizada)
-   - **Consulta de búsqueda** en `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
+   - **Consulta de búsqueda** a `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize DataGB = sum((Quantity / 1024)) by Type | where DataGB > 100`
    - **Lógica de alerta** está **basada en** *número de resultados* y **Condición** es *Mayor que* un **umbral**  de *0*
    - **Período de tiempo** de *1440* minutos y **Frecuencia de la alerta** cada *60* minutos ya que los datos de uso solo se actualizan una vez por hora.
 - **Definición de los detalles de la alerta**: especifique lo siguiente:
@@ -344,7 +354,7 @@ Al crear la alerta para la segunda consulta; cuando se prevé que va a haber má
 - **Definición de la condición de alerta**: especifique el área de trabajo de Log Analytics como el destino del recurso.
 - **Criterios de alerta** especifique lo siguiente:
    - **Nombre de señal**: seleccione **Custom log search** (Búsqueda de registros personalizada)
-   - **Consulta de búsqueda** en `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
+   - **Consulta de búsqueda** a `union withsource = $table Usage | where QuantityUnit == "MBytes" and iff(isnotnull(toint(IsBillable)), IsBillable == true, IsBillable == "true") == true | extend Type = $table | summarize EstimatedGB = sum(((Quantity * 8) / 1024)) by Type | where EstimatedGB > 100`
    - **Lógica de alerta** está **basada en** *número de resultados* y **Condición** es *Mayor que* un **umbral**  de *0*
    - **Período de tiempo** de *180* minutos y **Frecuencia de la alerta** cada *60* minutos ya que los datos de uso solo se actualizan una vez por hora.
 - **Definición de los detalles de la alerta**: especifique lo siguiente:

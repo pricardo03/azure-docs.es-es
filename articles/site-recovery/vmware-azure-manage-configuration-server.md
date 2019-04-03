@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: ramamill
-ms.openlocfilehash: d8b0d78d33c0780b05ac6f4bd8a21c6423d801f4
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 93e05390d28b9e9998d84935417121696d2963cc
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445060"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877234"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vm-disaster-recovery"></a>Administración del servidor de configuración para la recuperación ante desastres de la VM de VMware
 
@@ -65,7 +65,7 @@ Si no agregó las credenciales durante la implementación de OVF del servidor de
 
 1. Después de [iniciar sesión](#access-configuration-server), seleccione **Manage virtual machine credentials** (Administrar las credenciales de la máquina virtual)
 2. Haga clic en **Add virtual machine credentials** (Agregar credenciales de máquina virtual).
-    ![adición de credenciales de Mobility Service](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+    ![add-mobility-credentials](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
 3. Escriba las nuevas credenciales y haga clic en **Add** (Agregar).
 
 También puede agregar las credenciales con CSPSConfigtool.exe.
@@ -252,7 +252,7 @@ También puede eliminar el servidor de configuración con PowerShell.
     `$fabric = Get-AzureRmSiteRecoveryFabric -FriendlyName <name of your configuration server>`
 6. Elimine el servidor de configuración.
 
-    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force] `
+    `Remove-AzureRmSiteRecoveryFabric -Fabric $fabric [-Force]`
 
 > [!NOTE]
 > Puede usar la opción **-Force** de Remove-AzureRmSiteRecoveryFabric para forzar la eliminación del servidor de configuración.

@@ -1,25 +1,25 @@
 ---
 title: Descripción de Azure Security Center para la versión preliminar de arquitectura de solución de IoT | Microsoft Docs
 description: Obtenga información sobre el flujo de información en el centro de seguridad de Azure para el servicio IoT.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 2cf6a49b-5d35-491f-abc3-63ec24eb4bc2
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
-ms.openlocfilehash: d70be919fa829401b4a415db626a3cee0713753b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a0eb459391da65f8d0e2ae251809805924d07ad1
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754994"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58862372"
 ---
 # <a name="azure-security-center-for-iot-architecture"></a>Azure Security Center para arquitectura de IoT
 
@@ -27,7 +27,7 @@ En este artículo se explica la arquitectura del sistema funcional de Azure Secu
 
 > [!IMPORTANT]
 > Azure Security Center para IoT está actualmente en versión preliminar pública.
-> Esta versión preliminar se proporciona sin un contrato de nivel de servicio y no se recomienda para las cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="asc-for-iot-components"></a>ASC para los componentes de IoT
 
@@ -55,9 +55,9 @@ ASC para IoT recomendaciones y alertas (salida de canalización de análisis) se
 
 En este artículo, ha aprendido sobre la arquitectura básica y el flujo de trabajo de procesos de ASC para solución de IoT. Para obtener más información sobre los requisitos previos, cómo empezar a trabajar y habilitar la solución de seguridad en IoT Hub, consulte los artículos siguientes:
 
-- [Requisitos previos del servicio](service-prerequisites.md)
+- [Requisitos previos de servicios](service-prerequisites.md)
 - [Introducción](getting-started.md)
-- [Configurar la solución](quickstart-configure-your-solution.md)
+- [Configuración de la solución](quickstart-configure-your-solution.md)
 - [Habilitar la seguridad en IoT Hub](quickstart-onboard-iot-hub.md)
 - [ASC para IoT preguntas más frecuentes](resources-frequently-asked-questions.md)
 - [ASC para las alertas de seguridad de IoT](concept-security-alerts.md)

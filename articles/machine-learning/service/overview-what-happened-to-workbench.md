@@ -11,12 +11,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 01/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5ff065816e287e0d4e37cdea9a7770c9ff806520
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 22615d07e69d707c90e3ff9bda83bfa6f0852996
+ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890753"
+ms.lasthandoff: 03/22/2019
+ms.locfileid: "58360291"
 ---
 # <a name="what-happened-to-azure-machine-learning-workbench"></a>¿Qué ha ocurrido con Azure Machine Learning Workbench?
 
@@ -40,7 +40,7 @@ La versión más reciente de Azure Machine Learning Service incluye las caracter
 + Un <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a> nuevo y más completo de Python.
 + La nueva [extensión de la CLI de Azure](reference-azure-machine-learning-cli.md) expandida para el aprendizaje automático.
 
-La [arquitectura](concept-azure-machine-learning-architecture.md) se rediseñó para facilitar el uso. En lugar de varias cuentas y recursos de Azure, solo necesita un [área de trabajo del servicio Azure Machine Learning](concept-azure-machine-learning-architecture.md#workspace). Puede crear áreas de trabajo rápidamente en [Azure Portal](quickstart-get-started.md). Al usar un área de trabajo, varios usuarios pueden almacenar destinos de proceso de entrenamiento e implementación, experimentos de modelos, imágenes de Docker, modelos implementados, etc.
+La [arquitectura](concept-azure-machine-learning-architecture.md) se rediseñó para facilitar el uso. En lugar de varias cuentas y recursos de Azure, solo necesita un [área de trabajo del servicio Azure Machine Learning](concept-azure-machine-learning-architecture.md#workspace). Puede crear áreas de trabajo rápidamente en [Azure Portal]((setup-create-workspace.md#portal). Al usar un área de trabajo, varios usuarios pueden almacenar destinos de proceso de entrenamiento e implementación, experimentos de modelos, imágenes de Docker, modelos implementados, etc.
 
 Aunque hay nuevos clientes mejorados de CLI y SDK en la versión actual, se ha retirado la propia aplicación de escritorio Workbench. Se pueden administrar experimentos en el [panel del área de trabajo de Azure Portal](how-to-track-experiments.md#view-the-experiment-in-the-azure-portal). Use el panel para obtener el historial de experimentos, administrar los destinos de proceso asociados al área de trabajo, administrar los modelos e imágenes de Docker e incluso implementar servicios web.
 
@@ -50,7 +50,7 @@ Aunque hay nuevos clientes mejorados de CLI y SDK en la versión actual, se ha r
 
 El 9 de enero de 2019 ha finalizado la compatibilidad con las cuentas de Machine Learning Workbench, Experimentación de Azure Machine Learning y Administración de modelos, y con sus SDK y CLI asociados. 
 
-Todas las funcionalidades más recientes están disponibles si se usa el <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, la [CLI](reference-azure-machine-learning-cli.md) y el [portal](quickstart-get-started.md).
+Todas las funcionalidades más recientes están disponibles si se usa el <a href="https://aka.ms/aml-sdk" target="_blank">SDK</a>, la [CLI](reference-azure-machine-learning-cli.md) y el [portal](setup-create-workspace.md#portal).
 
 ## <a name="what-about-run-histories"></a>¿Qué sucede con los historiales de ejecución?
 
@@ -81,7 +81,7 @@ Gran parte del contenido del proyecto ya estaba en la máquina local, por lo tan
 run = exp.submit(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 ```
 
-Obtenga información sobre cómo empezar a trabajar [en Python con el SDK principal](quickstart-create-workspace-with-python.md) o con [Azure Portal](quickstart-get-started.md).
+[Cree un área de trabajo](setup-create-workspace.md#portal) para empezar a trabajar.
 
 ## <a name="what-about-my-registered-models-and-images"></a>¿Qué sucede con mis imágenes y modelos registrados?
 
@@ -121,6 +121,6 @@ Obtenga información sobre la [arquitectura más reciente para Azure Machine Lea
 
 Para obtener información general sobre el servicio, lea [¿Qué es el servicio Azure Machine Learning?](overview-what-is-azure-ml.md)
 
-Para ver una guía de inicio rápido que muestre cómo crear un área de trabajo y un proyecto, ejecutar un script y explorar el historial de ejecución del script con la versión más reciente del servicio Azure Machine Learning, consulte [Introducción al servicio Azure Machine Learning](quickstart-get-started.md).
+Para ver un inicio rápido que muestre cómo ejecutar un historial del script con la versión más reciente del servicio Azure Machine Learning, consulte [Introducción al servicio Azure Machine Learning](quickstart-run-cloud-notebook.md).
 
 Para obtener una experiencia pormenorizada de este flujo de trabajo, siga el [tutorial completo](tutorial-train-models-with-aml.md) que contiene los pasos detallados para el entrenamiento y la implementación de modelos con el servicio Azure Machine Learning. 

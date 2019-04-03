@@ -1,25 +1,25 @@
 ---
 title: Guía para instalar e implementar el agente de Linux C de Azure Security Center para la versión preliminar del agente de IoT | Microsoft Docs
 description: Obtenga información sobre cómo instalar el agente de IoT de Azure Security Center en Linux de 32 bits y 64 bits.
-services: ascforiot
+services: asc-for-iot
+ms.service: ascforiot
 documentationcenter: na
 author: mlottner
 manager: barbkess
 editor: ''
 ms.assetid: 3ccf2aec-106a-4d2c-8079-5f3e8f2afdcb
-ms.service: ascforiot
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: mlottner
-ms.openlocfilehash: 147813ae096114b4dfc1a20d2e0a70639aa82445
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 0089fd1af6576f9bcdebe4b7f270a573205dea82
+ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754452"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58861945"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Implementar Azure Security Center para basados en c. IoT security agent para Linux
 
@@ -33,7 +33,7 @@ En esta guía, aprenderá a:
 > [!div class="checklist"]
 > * Instalación
 > * Comprobación de la implementación
-> * Desinstalar el agente
+> * Desinstalación del agente
 > * Solución de problemas 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -46,34 +46,34 @@ Para otras plataformas y versiones de agente, consulte [elegir el agente de segu
 
 ## <a name="installation"></a>Instalación 
 
-Para instalar e implementar al agente de seguridad, haga lo siguiente:
+Para instalar e implementar al agente de seguridad, realice las siguientes operaciones:
 
 
-1. Descargue la versión más reciente en el equipo de [Github](https://aka.ms/iot-security-github-c).
+1. Descargue en el equipo la versión más reciente desde [GitHub](https://aka.ms/iot-security-github-c).
 
-1. Extraiga el contenido del paquete y navegue hasta la _/instalar_ carpeta.
+1. Extraiga el contenido del paquete y vaya a la carpeta _/Install_.
 
-1. Agregue permisos de ejecución a la **InstallSecurityAgent script** ejecutando lo siguiente:
+1. Agregue permisos de ejecución al **script de InstallSecurityAgent**, para lo que debe ejecutar lo siguiente:
     
    ```
    chmod +x InstallSecurityAgent.sh
    ```
 
-1. A continuación, ejecute: 
+1. Después, ejecute: 
 
    ```
    ./InstallSecurityAgent.sh -aui <authentication identity> -aum <authentication method> -f <file path> -hn <host name> -di <device id> -i
    ```
    
-   Consulte [cómo configurar la autenticación](concept-security-agent-authentication-methods.md) para obtener más información acerca de los parámetros de autenticación.
+   Para más información acerca de los parámetros de autenticación, consulte [Procedimiento para configurar la autenticación](concept-security-agent-authentication-methods.md).
 
 El script hace lo siguiente:
 
 1. Instala los requisitos previos.
 
-2. Agrega un usuario de servicio (con deshabilitado el inicio de sesión interactivo).
+2. Agrega un usuario de servicio (con el inicio de sesión interactivo deshabilitado).
 
-3. Instala el agente como un **Daemon** -supone que el dispositivo usa **systemd** para administración de servicios.
+3. Instala el agente como **daemon** (se da por hecho que el dispositivo usa **systemd** para la administración del servicio).
 
 4. Configura al agente con los parámetros de autenticación proporcionados. 
 
@@ -81,21 +81,21 @@ Para obtener ayuda adicional, ejecute el script con el parámetro – help:
     
     ./InstallSecurityAgent.sh --help
 
-### <a name="uninstall-the-agent"></a>Desinstalar el agente
+### <a name="uninstall-the-agent"></a>Desinstalación del agente
 
 Para desinstalar el agente, ejecute la secuencia de comandos –-desinstalar parámetro:
 
     ./InstallSecurityAgent.sh -–uninstall
 
 ## <a name="troubleshooting"></a>solución de problemas
-Compruebe el estado de implementación mediante la ejecución:
+Compruebe el estado de implementación, para lo que debe ejecutar:
 
     systemctl status ASCIoTAgent.service
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-- Leer los procesos de ASC para el servicio IoT [información general](overview.md)
-- Más información sobre los procesos de ASC para IoT [arquitectura](architecture.md)
-- Habilitar la [servicio](quickstart-onboard-iot-hub.md)
-- Leer el [preguntas más frecuentes](resources-frequently-asked-questions.md)
-- Comprender [las alertas de seguridad](concept-security-alerts.md)
+- Lea la [información general](overview.md) del servicio ASC for IoT
+- Obtenga más información acerca de la [arquitectura](architecture.md) de ASC for IoT
+- Habilite el [servicio](quickstart-onboard-iot-hub.md)
+- Lea las [preguntas más frecuentes](resources-frequently-asked-questions.md)
+- Obtenga información acerca de las [alertas de seguridad](concept-security-alerts.md)

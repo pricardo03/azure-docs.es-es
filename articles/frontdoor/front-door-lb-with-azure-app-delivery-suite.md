@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: a89043f814bc97aeb081789e92d9e4488712a465
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3d5c0ac068a6644f3499da6c3b642a4a04408370
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57439033"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879666"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Equilibrio de carga con el conjunto de entrega de aplicaciones de Azure
 
@@ -26,10 +26,10 @@ Microsoft Azure proporciona varios servicios globales y regionales para administ
 ![Conjunto de entrega de aplicaciones ][1]
  
 Estos servicios se dividen en dos categorías:
-1. **Servicios de equilibrio de carga globales**, por ejemplo, Traffic Manager y Front Door distribuyen el tráfico de los usuarios finales entre los servidores back-end regionales, las nubes o incluso los servicios locales híbridos. El equilibrio de carga global enruta el tráfico al back-end de servicio más cercano y responde a los cambios en la confiabilidad o el rendimiento del servicio para mantener el rendimiento máximo siempre activo para los usuarios. 
+1. **Servicios de equilibrio de carga global** , como Traffic Manager y la puerta delantera distribuyen el tráfico de los usuarios finales en los back-end regionales, en las nubes o incluso su híbrida servicios locales. El equilibrio de carga global enruta el tráfico al back-end de servicio más cercano y responde a los cambios en la confiabilidad o el rendimiento del servicio para mantener el rendimiento máximo siempre activo para los usuarios. 
 2. **Servicios de equilibrio de carga regionales**, por ejemplo, Standard Load Balancer o Application Gateway ofrecen la posibilidad de distribuir el tráfico de las redes virtuales (VNET) entre las máquinas virtuales (VM) o los puntos de conexión de servicio zonales de una región.
 
-La combinación de servicios globales y regionales en la aplicación proporciona una forma confiable, segura y efectiva de enrutar el tráfico hacia y desde los usuarios a los servicios IaaS, PaaS o locales. En la siguiente sección se describe cada uno de estos servicios.
+Combinación de servicios globales y regionales en su aplicación proporciona un rendimiento confiable,-to-end y forma segura para enrutar el tráfico hacia y desde los usuarios la IaaS, PaaS o servicios locales. En la siguiente sección se describe cada uno de estos servicios.
 
 ## <a name="global-load-balancing"></a>Equilibrio de carga global
 **Traffic Manager** proporciona equilibrio de carga de DNS global. Examina las solicitudes de DNS entrantes y responde con un back-end en buen estado, de acuerdo con la directiva de enrutamiento que el cliente ha seleccionado. Las opciones de los métodos de enrutamiento son:

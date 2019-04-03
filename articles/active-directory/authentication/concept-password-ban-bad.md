@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 795abcadb1cee7599665f7bc3b8e0d3e08a3da05
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369078"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884353"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Elimine las contraseñas incorrectas de su organización
 
@@ -100,14 +100,17 @@ Después de la normalización, esta contraseña se convierte en "contosoblankf9!
 [contoso] + [blank] + [f] + [9] + [!] = 5 puntos. Como esta contraseña tiene al menos 5 puntos, se acepta.
 
    > [!IMPORTANT]
-   > Tenga en cuenta que el algoritmo de contraseñas prohibidas, junto con la lista global, puede cambiar (y de hecho cambia) en cualquier momento en Azure en función de la investigación y el análisis de seguridad en curso. En el caso del servicio de agente del controlador de dominio local, los algoritmos actualizados solo surtirán efecto después de volver a instalar el software del agente del controlador de dominio.
+   > Tenga en cuenta que el algoritmo de contraseñas prohibidas, junto con la lista global, puede cambiar (y de hecho cambia) en cualquier momento en Azure en función de la investigación y el análisis de seguridad en curso. Para el servicio de agente del controlador de dominio local, algoritmos actualizados solo tendrá efecto después de volver a instalar el software del agente de controlador de dominio.
 
 ## <a name="license-requirements"></a>Requisitos de licencia
 
 |   | Protección con contraseña de Azure AD con la lista global de contraseñas prohibidas | Protección con contraseña de Azure AD con la lista personalizada de contraseñas prohibidas|
 | --- | --- | --- |
-| Usuarios solo en la nube | Azure AD Free | Azure AD Basic |
+| Usuarios solo en la nube | Azure AD Free | Azure AD Premium (P1 o P2) |
 | Usuarios sincronizados desde un entorno local de Windows Server Active Directory | Azure AD Premium (P1 o P2) | Azure AD Premium (P1 o P2) |
+
+> [!NOTE]
+> Los usuarios de Windows Server Active Directory local que no se sincronizan con Azure Active Directory también aprovechar las ventajas de protección de contraseña de Azure AD basados en licencia existente para los usuarios sincronizados.
 
 Puede encontrar información adicional sobre licencias, incluidos los costos, en la [página de precios de Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -120,4 +123,4 @@ Lamentablemente, la contraseña contiene una palabra, frase o patrón que permit
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Configuración de la lista personalizada de contraseñas prohibidas](howto-password-ban-bad.md)
-* [Habilitar agentes de Protección con contraseña de Azure AD locales](howto-password-ban-bad-on-premises-deploy.md)
+* [Habilitar Azure AD contraseña protección agentes locales](howto-password-ban-bad-on-premises-deploy.md)

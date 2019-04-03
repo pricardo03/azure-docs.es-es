@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26a3594b00f19c2790e9dfd5f09fbdc7d73d478f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: db68ad2a29dcaa53d219b679b9e0f24a50a6f576
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434898"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877064"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Procedimientos para: Solución de errores de inicio de sesión mediante informes de Azure Active Directory
 
@@ -55,7 +55,7 @@ Necesita:
 
     ![Solución de problemas y soporte técnico](./media/howto-troubleshoot-sign-in-errors/troubleshooting-and-support.png)
 
-6. El motivo del error es una descripción del error. Por ejemplo, en el escenario anterior, el motivo del error es que **el nombre de usuario o la contraseña no son válidos o que el nombre de usuario o la contraseña locales no son válidos**. La solución consiste sencillamente en iniciar sesión de nuevo con la contraseña y el usuario correctos.
+6. El motivo del error es una descripción del error. Por ejemplo, en el escenario anterior, el motivo del error es **no válido nombre de usuario o contraseña o nombre de usuario no válido en el entorno local o**. La solución consiste sencillamente en iniciar sesión de nuevo con la contraseña y el usuario correctos.
 
 7. Puede obtener información adicional, incluidas algunas ideas sobre posibles soluciones, buscando el código de error (**50126** en este ejemplo) en la [referencia de códigos de error de inicios de sesión](reference-sign-ins-error-codes.md). 
 
@@ -63,5 +63,5 @@ Necesita:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Referencia de códigos de error de inicio de sesión](reference-sign-ins-error-codes.md)
-* [Información general sobre los informes de inicios de sesión](concept-sign-ins.md)
+* [Hacer referencia a los códigos de error de inicios de sesión](reference-sign-ins-error-codes.md)
+* [Información general sobre el informe de inicios de sesión](concept-sign-ins.md)

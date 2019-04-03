@@ -13,15 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2019
 ms.author: magoedte
-ms.openlocfilehash: 7032fabd022b55bc8946a48568bbd799d4a0a5e9
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 4fa2553622d5ef2d08ec148b6a70aab6de257407
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731385"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848350"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>Cómo representar el rendimiento en gráficos con Azure Monitor para VM (versión preliminar)
-Azure Monitor para VM incluye un conjunto de gráficos de rendimiento que tienen como destino varios indicadores clave de rendimiento (KPI) para ayudarle a determinar el rendimiento de una máquina virtual. Los gráficos muestran el uso de los recursos durante un período de tiempo para que pueda identificar cuellos de botella, anomalías, o cambiar a una perspectiva en la que se muestre cada máquina a fin de ver el uso de los recursos en función de la métrica seleccionada. Aunque hay varios elementos a tener en cuenta cuando se trabaja con el rendimiento, Azure Monitor para los indicadores de rendimiento clave del sistema operativo de las máquinas virtuales monitores relacionados con procesador, memoria, adaptador de red y el uso de disco. El rendimiento complementa la característica de supervisión de mantenimiento y ayuda a exponer los problemas que indican un posible error en el componente del sistema. Además, es compatible con la optimización y los ajustes para lograr la eficiencia, así como con el planeamiento de capacidad.  
+Azure Monitor para VM incluye un conjunto de gráficos de rendimiento que tienen como destino varios indicadores clave de rendimiento (KPI) para ayudarle a determinar el rendimiento de una máquina virtual. Los gráficos muestran el uso de los recursos durante un período de tiempo para que pueda identificar cuellos de botella, anomalías, o cambiar a una perspectiva en la que se muestre cada máquina a fin de ver el uso de los recursos en función de la métrica seleccionada. Aunque hay varios elementos a tener en cuenta cuando se trata del rendimiento, Azure Monitor para VM supervisa los indicadores de rendimiento clave del sistema operativo relacionados con la utilización del procesador, la memoria, el adaptador de red y los discos. El rendimiento complementa la característica de supervisión de mantenimiento y ayuda a exponer los problemas que indican un posible error en el componente del sistema. Además, es compatible con la optimización y los ajustes para lograr la eficiencia, así como con el planeamiento de capacidad.  
 
 ## <a name="multi-vm-perspective-from-azure-monitor"></a>Perspectiva de varias VM de Azure Monitor
 Azure monitor, la característica de rendimiento proporciona una vista de todas las máquinas virtuales supervisadas implementado a través de grupos de trabajo en las suscripciones o en su entorno. Para obtener acceso desde Azure Monitor, siga estos pasos. 
@@ -111,7 +111,7 @@ Las métricas de rendimiento habilitadas como parte de Azure Monitor para las m�
 
 Pero solo podemos recopilar y almacenar un subconjunto de las métricas de rendimiento que se requieren en el área de trabajo de Log Analytics. Si su estrategia de supervisión requiere análisis o alertas que incluyen otras métricas de rendimiento con el fin de evaluar eficazmente la capacidad o el mantenimiento de la máquina virtual, o si necesita flexibilidad para especificar sus propios criterios o la lógica de las alertas, puede configurar la [colección de esos contadores de rendimiento](../platform/data-sources-performance-counters.md) en Log Analytics y definir [alertas de registro](../platform/alerts-log.md). Mientras que Log Analytics le permite realizar análisis complejos con otros tipos de datos y ofrece un mayor tiempo de retención para dar cabida al análisis de tendencias, las métricas, en cambio, son ligeras y capaces de soportar escenarios en tiempo casi real. El [agente de Azure Diagnostics](../../virtual-machines/windows/monitor.md) las recopila y las almacena en el almacén de métricas de Azure Monitor, lo que permite crear alertas con una latencia y un costo menores.
 
-Revise la información general de la [colección de métricas y registros con Azure Monitor](../platform/data-collection.md) para comprender mejor las diferencias fundamentales y otras consideraciones antes de configurar la colección de estas otras métricas y reglas de alerta.  
+Revise la información general de la [colección de métricas y registros con Azure Monitor](../platform/data-platform.md) para comprender mejor las diferencias fundamentales y otras consideraciones antes de configurar la colección de estas otras métricas y reglas de alerta.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener información sobre cómo usar la característica de mantenimiento, consulte el artículo sobre cómo [ver el mantenimiento de Azure Monitor para VM](vminsights-health.md), o bien, para ver las dependencias de aplicaciones detectadas, consulte el artículo para [ver la asignación de Azure Monitor para VM](vminsights-maps.md). 

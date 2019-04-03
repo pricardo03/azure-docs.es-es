@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: 7cb02a0793a4c96c98b4932b6046839f004461bc
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d775fff16380ebe08159123aa9e6084055a5be8d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758117"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877574"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Inserci처n de widgets de Video Indexer en las aplicaciones
 
@@ -92,7 +92,7 @@ Si decide implementar su propio c처digo del reproductor y realizar la integraci�
 
 En esta secci처n se muestra c처mo lograr la interacci처n entre dos widgets de Video Indexer para que cuando un usuario haga clic en el control de la informaci처n detallada de la aplicaci처n, el reproductor salte al momento pertinente.
 
-`<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script> `
+`<script src="https://breakdown.blob.core.windows.net/public/vb.widgets.mediator.js"></script>`
 
 1. Copie el c처digo para insertar del widget **Player**.
 2. Copie el c처digo para insertar de **Cognitive Insights**.

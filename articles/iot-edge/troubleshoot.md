@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 92294700ac9a491bfdbfa3b3d3f781eb18d5339e
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 83595bf045de412954c176028babc4f94fcb21e1
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437108"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847538"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problemas habituales y soluciones para Azure IoT Edge
 
@@ -346,7 +346,10 @@ El dispositivo tiene problemas para iniciar los módulos definidos en la impleme
 De forma predeterminada, IoT Edge inicia módulos en su propia red de contenedor aislado. El dispositivo pueda tener problemas con la resolución de nombres DNS dentro de esta red privada.
 
 ### <a name="resolution"></a>Resolución
-Especifique el servidor DNS para su entorno en la configuración del motor de contenedor. Cree un archivo denominado `daemon.json` especificando el servidor DNS para usar. Por ejemplo: 
+
+**Opción 1: Establecer el servidor DNS en el contenedor de configuración del motor**
+
+Especifique el servidor DNS para su entorno en la configuración del motor de contenedor que se aplicará a todos los módulos de contenedor iniciados por el motor. Cree un archivo denominado `daemon.json` especificando el servidor DNS para usar. Por ejemplo: 
 
 ```
 {
@@ -371,6 +374,22 @@ Si la ubicación ya contiene `daemon.json` , agregue el **dns** clave a él y gu
 | --------- | -------- |
 | Linux | `sudo systemctl restart docker` |
 | Windows (Administrador de Powershell) | `Restart-Service iotedge-moby -Force` |
+
+**Opción 2: Establecer el servidor DNS en la implementación de IoT Edge por cada módulo.**
+
+Puede establecer el servidor DNS para cada módulo *createOptions* en la implementación de IoT Edge. Por ejemplo: 
+
+```
+"createOptions": {
+  "HostConfig": {
+    "Dns": [
+      "x.x.x.x"
+    ]
+  }
+}
+```
+
+No olvide establecer esto para el *edgeAgent* y *edgeHub* módulos también. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 ¿Cree que encontró un error en la plataforma de IoT Edge? [Envíe un problema](https://github.com/Azure/iotedge/issues) para que podamos seguir mejorando. 

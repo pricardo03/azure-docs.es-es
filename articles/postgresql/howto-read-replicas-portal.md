@@ -5,46 +5,46 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 02/19/2019
-ms.openlocfilehash: 24a37775298d6c6b40ec49f34158fcb77f26a379
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/01/2019
+ms.openlocfilehash: bf1fb1c1343173949ecb6348284cb537282b277b
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58113221"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846959"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-portal"></a>Creación y administración de réplicas de lectura en Azure Portal
 
 En este artículo, obtendrá información sobre cómo crear y administrar las réplicas de lectura en el servicio Azure Database for PostgreSQL mediante Azure Portal. Para más información acerca de las réplicas de lectura, consulte la [introducción](concepts-read-replicas.md).
 
-> [!IMPORTANT]
-> La característica de réplica de lectura está en versión preliminar pública.
 
 ## <a name="prerequisites"></a>Requisitos previos
 Un [servidor de Azure Database for PostgreSQL](quickstart-create-server-database-portal.md) que se usará como servidor maestro.
 
 ## <a name="prepare-the-master-server"></a>Preparación del servidor maestro
-Estos pasos se deben utilizar para preparar un servidor maestro en los niveles de uso general u optimizado para memoria.
-
-El parámetro `azure.replication_support` debe establecerse en **REPLICA** en el servidor maestro. Cuando se cambia este parámetro, es necesario reiniciar el servidor para que el cambio surta efecto.
+Estos pasos se deben utilizar para preparar un servidor maestro en los niveles de uso general u optimizado para memoria. El servidor maestro está preparado para la replicación, establezca el parámetro azure.replication_support. Cuando se cambia el parámetro de replicación, un reinicio del servidor es necesario para que el cambio surta efecto. En el portal de Azure, estos dos pasos están encapsulados en un solo botón, **habilitar la compatibilidad con replicación**.
 
 1. En Azure Portal, seleccione el servidor de Azure Database for PostgreSQL existente para utilizar como servidor maestro.
 
-2. En el menú izquierdo, seleccione **Parámetros del servidor**.
+2. En la barra lateral del servidor, bajo **configuración**, seleccione **replicación**.
 
-3. Busque el parámetro `azure.replication_support`.
+3. Seleccione **habilitar la compatibilidad con replicación**. 
 
-   ![Búsqueda del parámetro azure.replication_support](./media/howto-read-replicas-portal/azure-replication-parameter.png)
+   ![Habilitar la compatibilidad con la replicación](./media/howto-read-replicas-portal/enable-replication-support.png)
 
-4. Establezca el valor del parámetro `azure.replication_support` en **REPLICA**. Haga clic en **Guardar** para guardar los cambios.
+4. Confirme que desea habilitar la compatibilidad con la replicación. Esta operación reiniciará el servidor maestro. 
 
-   ![Establezca el parámetro en REPLICA y guarde los cambios](./media/howto-read-replicas-portal/save-parameter-replica.png)
+   ![Confirmar la compatibilidad de habilitar la replicación](./media/howto-read-replicas-portal/confirm-enable-replication.png)
+   
+5. Recibirá dos notificaciones de Azure portal una vez completada la operación. Hay una notificación para actualizar el parámetro de servidor. Hay otra notificación para el reinicio del servidor que sigue inmediatamente.
 
-5. Después de guardar los cambios, recibirá una notificación:
+   ![Habilitar notificaciones de éxito:](./media/howto-read-replicas-portal/success-notifications-enable.png)
 
-   ![Guardado de la notificación](./media/howto-read-replicas-portal/parameter-save-notification.png)
+6. Actualice la página de portal de Azure para actualizar la barra de herramientas de replicación. Ahora puede crear las réplicas de lectura para este servidor.
 
-6. Reinicie el servidor para aplicar los cambios. Para aprender a reiniciar un servidor, consulte [Reinicio de un servidor de Azure Database for PostgreSQL mediante Azure Portal](howto-restart-server-portal.md).
+   ![Barra de herramientas actualizada](./media/howto-read-replicas-portal/updated-toolbar.png)
+   
+Habilitar la compatibilidad de replicación es una operación única por el servidor maestro. Un **deshabilitar la compatibilidad con la replicación** botón se proporciona para su comodidad. No se recomienda deshabilitar la compatibilidad con la replicación, a menos que esté seguro de que nunca creará una réplica en este servidor principal. No se puede deshabilitar la compatibilidad con la replicación mientras el servidor maestro tiene réplicas existentes.
 
 
 ## <a name="create-a-read-replica"></a>Creación de una réplica de lectura
@@ -52,9 +52,7 @@ Para crear una réplica de lectura, siga estos pasos:
 
 1. Seleccione el servidor de Azure Database for PostgreSQL existente para utilizar como servidor maestro. 
 
-2. En el menú del servidor, en **CONFIGURACIÓN**, seleccione **Replicación**.
-
-   Si no ha establecido el parámetro `azure.replication_support` en **REPLICA** en un servidor maestro de uso general u optimizado para memoria y no ha reiniciado el servidor, recibirá una notificación. Complete estos pasos antes de crear la réplica.
+2. En la barra lateral del servidor, bajo **configuración**, seleccione **replicación**.
 
 3. Seleccione **Agregar réplica**.
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6bc578d931235623f6cfed45724ad408d3201c61
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: c1ba96c76c51abcfe5bb5ef9bd66eb8a50afdfda
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58367939"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846615"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Creación de una máquina virtual Windows con una plantilla de Resource Manager
 
@@ -59,13 +59,13 @@ New-AzResourceGroupDeployment `
 
 ```
 
-Si decide instalar y usar PowerShell localmente, en lugar de hacerlo desde Azure Cloud shell, este tutorial requiere la versión 5.3 o posterior del módulo de PowerShell de Azure. Ejecute `Get-Module -ListAvailable AzureRM` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
+Si decide instalar y usar PowerShell localmente, en lugar de hacerlo desde Azure Cloud shell, este tutorial requiere el módulo Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
 En el ejemplo anterior, especificó una plantilla almacenada en GitHub. También puede descargar o crear una plantilla y especificar la ruta de acceso local con el parámetro `--template-file`.
 
 Estos son algunos recursos adicionales:
 
-- Para obtener información sobre cómo desarrollar plantillas de Resource Manager, consulte [documentación de Azure Resource Manager](/azure/azure-resource-manager/).
+- Para aprender a desarrollar plantillas de Resource Manager, consulte la [documentación de Azure Resource Manager](/azure/azure-resource-manager/).
 - Para ver los esquemas de la máquina virtual de Azure, consulte [referencia de plantilla de Azure](/azure/templates/microsoft.compute/allversions).
 - Para ver más ejemplos de plantillas de máquina virtual, consulte [plantillas de inicio rápido de Azure](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Compute&pageNumber=1&sort=Popular).
 

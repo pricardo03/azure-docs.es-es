@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 203d81f3d4872b249103429dde3fcac365fa5753
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: cf163b2b01b4205a4a3d2123263988998130c42a
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58483393"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848382"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 
@@ -343,11 +343,11 @@ Como se ha mencionado antes, los grupos de conmutación automática por error y 
 
 | API | DESCRIPCIÓN |
 | --- | --- |
-| New-AzSqlDatabaseInstanceFailoverGroup |Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
-| Set-AzSqlDatabaseInstanceFailoverGroup |Modifica la configuración del grupo de conmutación por error|
-| Get-AzSqlDatabaseInstanceFailoverGroup |Recupera la configuración del grupo de conmutación por error|
-| Switch-AzSqlDatabaseInstanceFailoverGroup |Desencadena la conmutación por error del grupo de conmutación por error al servidor secundario|
-| Remove-AzSqlDatabaseInstanceFailoverGroup | Quita un grupo de conmutación por error.|
+| New-AzureRmSqlDatabaseInstanceFailoverGroup |Este comando crea un grupo de conmutación por error y lo registra en el servidor principal y el servidor secundario|
+| Set-AzureRmSqlDatabaseInstanceFailoverGroup |Modifica la configuración del grupo de conmutación por error|
+| Get-AzureRmSqlDatabaseInstanceFailoverGroup |Recupera la configuración del grupo de conmutación por error|
+| Switch-AzureRmSqlDatabaseInstanceFailoverGroup |Desencadena la conmutación por error del grupo de conmutación por error al servidor secundario|
+| Remove-AzureRmSqlDatabaseInstanceFailoverGroup | Quita un grupo de conmutación por error.|
 
 ### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>API REST: Administración de grupos de conmutación por error de base de datos SQL con bases de datos únicas y agrupadas
 

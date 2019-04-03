@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 125ad28f049662ae6d91c61bb5ee79c1c1428af5
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 720f4433c1e7b0d271e5729236f439c92a84687e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401756"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884659"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Requisitos del sistema de borde del cuadro de datos Azure
 
@@ -58,9 +58,9 @@ Azure IoT Edge permite la comunicación saliente desde un dispositivo Edge local
 
 Utilice la siguiente tabla para la configuración de los puertos de los servidores que hospedan Azure IoT Edge en tiempo de ejecución:
 
-| N.º de puerto | Dentro o fuera | Ámbito de puerto | Obligatorio | Instrucciones |
+| N.º de puerto | Dentro o fuera | Ámbito de puerto | Obligatorio | Guía |
 |----------|-----------|------------|----------|----------|
-| TCP 443 (HTTPS)| Salida       | WAN        | Sí      | Abierto para comunicación de salida en el aprovisionamiento de IoT Edge. Esta configuración es necesaria cuando se usen scripts manuales o Azure IoT Device Provisioning Service (DPS).|
+| TCP 443 (HTTPS)| Fuera       | WAN        | Sí      | Abierto para comunicación de salida en el aprovisionamiento de IoT Edge. Esta configuración es necesaria cuando se usen scripts manuales o Azure IoT Device Provisioning Service (DPS).|
 
 Para obtener información completa, vaya a [Reglas de configuración de puertos y firewall para la implementación de IoT Edge](https://docs.microsoft.com/azure/iot-edge/troubleshoot).
 
@@ -86,10 +86,14 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 | https://\*.azurecr.io                     | Registros de contenedores personales y de terceros (opcional) |   |
 | https://\*.azure-devices.net              | Acceso de IoT Hub (obligatorio)                             |   |
 
+### <a name="url-patterns-for-azure-government"></a>Patrones de URL para Azure Government
+
+[!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
+
 ## <a name="internet-bandwidth"></a>Ancho de banda de Internet
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
 
 ## <a name="next-step"></a>Paso siguiente
 
-- [Implementación de Azure Data Box Edge](data-box-Edge-deploy-prep.md)
+- [Implementar el borde del cuadro de datos de Azure](data-box-edge-deploy-prep.md)

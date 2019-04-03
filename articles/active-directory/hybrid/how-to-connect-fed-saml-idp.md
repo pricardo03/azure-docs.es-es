@@ -14,12 +14,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5eb46b845bebbb81dce6aadb9d97af08955df3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a1870137505b3d00ee6ed31595050908c970c444
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58096952"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878101"
 ---
 #  <a name="use-a-saml-20-identity-provider-idp-for-single-sign-on"></a>Uso de un proveedor de identidades (IdP) de SAML 2.0 para el inicio de sesión único
 
@@ -209,15 +209,18 @@ Este procedimiento muestra cómo agregar un único usuario a Azure AD.
 
 
 1. Conéctese a su instancia de Azure AD Directory como administrador de inquilinos: Connect-MsolService.
-2.  Cree una nueva entidad de seguridad de usuario: ` New-MsolUser
-        -UserPrincipalName elwoodf1@contoso.com
-        -ImmutableId ABCDEFG1234567890
-        -DisplayName "Elwood Folk"
-        -FirstName Elwood 
-        -LastName Folk 
-        -AlternateEmailAddresses "Elwood.Folk@contoso.com" 
-        -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
-        -UsageLocation "US" `. 
+2.  Cree a una nueva entidad de usuario:
+    ```powershell
+    New-MsolUser
+      -UserPrincipalName elwoodf1@contoso.com
+      -ImmutableId ABCDEFG1234567890
+      -DisplayName "Elwood Folk"
+      -FirstName Elwood 
+      -LastName Folk 
+      -AlternateEmailAddresses "Elwood.Folk@contoso.com" 
+      -LicenseAssignment "samlp2test:ENTERPRISEPACK" 
+      -UsageLocation "US" 
+    ```
 
 Para obtener más información sobre "New-MsolUser", consulte [https://technet.microsoft.com/library/dn194096.aspx](https://technet.microsoft.com/library/dn194096.aspx).
 
@@ -276,5 +279,5 @@ Para comprobar que ese inicio de sesión único se ha configurado correctamente,
 
 
 - [Servicios de federación de Active Directory y personalización con Azure AD Connect](how-to-connect-fed-management.md)
-- [Lista de compatibilidad de federación de AD Azure](how-to-connect-fed-compatibility.md)
+- [Lista de compatibilidad de federación de Azure AD](how-to-connect-fed-compatibility.md)
 - [Instalación personalizada de Azure AD Connect](how-to-connect-install-custom.md)

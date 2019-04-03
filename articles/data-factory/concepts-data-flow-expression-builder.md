@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 9267360394568f0f9259a3c818b21f4e585fd958
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7e80455a2b83c034bea2fbdf774e5a175aed51a4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57543736"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885747"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Generador de expresiones de Mapping Data Flow
 
@@ -51,7 +51,7 @@ Agregue comentarios a sus expresiones mediante la sintaxis de comentarios de una
 
 ## <a name="regular-expressions"></a>Expresiones regulares
 
-El lenguaje de expresiones de Azure Data Factory Mapping Data Flow ([aquí se encuentra toda la documentación](https://aka.ms/dataflowexpressions)) habilita funciones que incluyen la sintaxis de expresiones regulares. Al utilizar las funciones de expresión regular, el Generador de expresiones intentará interpretar la barra diagonal inversa (\) como una secuencia de caracteres de escape. Al usar barras diagonales inversas en una expresión regular, encierre toda la expresión regular entre marcas ` ` o utilice una doble barra diagonal inversa.
+El lenguaje de expresiones de Azure Data Factory Mapping Data Flow ([aquí se encuentra toda la documentación](https://aka.ms/dataflowexpressions)) habilita funciones que incluyen la sintaxis de expresiones regulares. Al utilizar las funciones de expresión regular, el generador de expresiones intentará interpretar la barra diagonal inversa (\\) como una secuencia de caracteres de escape. Al usar barras diagonales inversas en la expresión regular, ya sea encierre la expresión regular completa en tics (\`) o utilice una doble barra diagonal inversa.
 
 Ejemplo de uso de marcas
 

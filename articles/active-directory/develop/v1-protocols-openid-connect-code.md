@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 281e1109964ac64853b8b82525579b7ff4de0d2f
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 1e39f271eaf0eccd0b3f3439492205e0d3398358
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57406412"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58851188"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorización del acceso a aplicaciones web con OpenID Connect y Azure Active Directory
 
@@ -95,7 +95,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | response_type |requerido |Debe incluir `id_token` para el inicio de sesión en OpenID Connect. También puede incluir otros elementos response_type como `code` o `token`. |
 | ámbito | recomendado | La especificación de OpenID Connect requiere el ámbito `openid`, que se convierte en el permiso "Iniciar sesión" en la IU de consentimiento. Este y otros ámbitos OIDC se omiten en el punto de conexión v1.0, pero sigue siendo una práctica recomendada para los clientes compatibles con los estándares. |
 | valor de seguridad |requerido |Un valor incluido en la solicitud que ha generado la aplicación y que se incluye en el elemento `id_token` resultante como una notificación. La aplicación puede comprobar este valor para mitigar los ataques de reproducción de token. Normalmente, el valor es un GUID o una cadena única aleatorios que puede utilizarse para identificar el origen de la solicitud. |
-| redirect_uri | recomendado |El redirect_uri de su aplicación, a donde su aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los redirect_uris que registró en el portal, con la excepción de que debe estar codificado como URL. Si faltan, se enviará al agente de usuario a uno de lo URI de redirección registrados para la aplicación, de forma aleatoria. |
+| redirect_uri | recomendado |El redirect_uri de su aplicación, a donde su aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los redirect_uris que registró en el portal, con la excepción de que debe estar codificado como URL. Si faltan, se enviará al agente de usuario a uno de lo URI de redirección registrados para la aplicación, de forma aleatoria. La longitud máxima es 255 bytes |
 | response_mode |opcional |Especifica el método que debe usarse para enviar el authorization_code resultante de nuevo a tu aplicación. Los valores admitidos son `form_post` para *envíos de formulario HTTP* y `fragment` para *fragmentos de dirección URL*. Para las aplicaciones web, se recomienda usar `response_mode=form_post` para asegurar la transferencia más segura de tokens a la aplicación. El valor predeterminado para cualquier flujo que incluye un elemento id_token es `fragment`.|
 | state |recomendado |Un valor incluido en la solicitud que se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Normalmente se usa un valor único generado de forma aleatoria para [evitar los ataques de falsificación de solicitudes entre sitios](https://tools.ietf.org/html/rfc6749#section-10.12). El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
 | símbolo del sistema |opcional |Indica el tipo de interacción necesaria con el usuario. Actualmente, los únicos valores válidos son 'login', 'none' y 'consent'. `prompt=login` obliga al usuario a escribir sus credenciales en esa solicitud, negando el inicio de sesión único. `prompt=none` se asegura de que al usuario no se le presenta ninguna solicitud interactiva del tipo que sea. Si la solicitud no se puede completar sin notificaciones mediante el inicio de sesión único, el punto de conexión devuelve un error. `prompt=consent` desencadena el cuadro de diálogo de consentimiento de OAuth después de que el usuario inicia sesión y solicita a este que conceda permisos a la aplicación. |

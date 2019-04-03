@@ -3,25 +3,25 @@ title: Uso de PowerShell como introducción a Azure Data Lake Storage Gen1 | Mic
 description: Uso de Azure PowerShell para crear una cuenta de Azure Data Lake Storage Gen1 y realizar operaciones básicas
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.author: nitinme
-ms.openlocfilehash: 54d6dec6b61e4042b12cba833f4adf5d1321d1f1
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: 6635b572d11339307083b8aa2aaaba69dc731101
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56237790"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885866"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Introducción a Azure Data Lake Storage Gen1 mediante Azure PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [CLI de Azure](data-lake-store-get-started-cli-2.0.md)
+> * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
 >
 >
 
@@ -122,7 +122,7 @@ Cuando se le solicite, escriba **Y** para eliminar la cuenta.
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Guía de ajuste del rendimiento para usar PowerShell con Azure Data Lake Storage Gen1](data-lake-store-performance-tuning-powershell.md)
-* [Uso de Azure Data Lake Storage Gen1 para requisitos de macrodatos](data-lake-store-data-scenarios.md) 
-* [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
-* [Use Azure Data Lake Analytics with Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md) (Uso de Azure Data Lake Analytics con Data Lake Storage Gen1)
+* [Usar Azure Data Lake Storage Gen1 para conocer los requisitos de macrodatos](data-lake-store-data-scenarios.md) 
+* [Proteger los datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Usar Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Uso de Azure HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

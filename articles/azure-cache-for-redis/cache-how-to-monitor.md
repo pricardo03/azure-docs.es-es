@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: yegu
-ms.openlocfilehash: f41c14f664df8db809ad4c29c57d37c1124a0ff3
-ms.sourcegitcommit: 1516779f1baffaedcd24c674ccddd3e95de844de
+ms.openlocfilehash: 32d0fb2ba17d322c0a273ebaf0a21d2b3ca0668f
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56818551"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849574"
 ---
 # <a name="how-to-monitor-azure-cache-for-redis"></a>Supervisión de Azure Cache for Redis
 Azure Cache for Redis usa [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) para proporcionar varias opciones para la supervisión de instancias de caché. Puede ver las métricas, anclar los gráficos de métricas al panel de inicio, personalizar el intervalo de fecha y hora de los gráficos de supervisión, agregar y quitar métricas de los gráficos y establecer alertas cuando se cumplen determinadas condiciones. Estas herramientas permiten supervisar el estado de las instancias de Azure Cache for Redis y le ayudan a administrar sus aplicaciones de almacenamiento en caché.
@@ -61,7 +61,7 @@ Para más información acerca de cómo trabajar con métricas mediante Azure Mon
 <a name="how-to-view-metrics-and-customize-chart"></a>
 <a name="enable-cache-diagnostics"></a>
 ## <a name="export-cache-metrics"></a>Exportación de métricas de caché
-De manera predeterminada, en Azure Monitor las métricas de caché se [almacenan 30 días](../azure-monitor/platform/data-collection.md#metrics) y, después, se eliminan. Para conservar las métricas de memoria caché durante más de 30 días, puede [designar una cuenta de almacenamiento](../azure-monitor/platform/archive-diagnostic-logs.md) y especifique un **retención (días)** directiva para las métricas de memoria caché. 
+De manera predeterminada, en Azure Monitor las métricas de caché se [almacenan 30 días](../azure-monitor/platform/data-platform-metrics.md) y, después, se eliminan. Para conservar las métricas de memoria caché durante más de 30 días, puede [designar una cuenta de almacenamiento](../azure-monitor/platform/archive-diagnostic-logs.md) y especifique un **retención (días)** directiva para las métricas de memoria caché. 
 
 Para configurar una cuenta de almacenamiento para las métricas de caché:
 

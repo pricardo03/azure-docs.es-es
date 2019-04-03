@@ -13,12 +13,12 @@ ms.topic: troubleshooting
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: vashan, rajraj, changov
-ms.openlocfilehash: 401bd3badc555ee001fbc355c7bdb77786c2d053
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: fa65b108f3aea79d4417e65d706d42f0bd819f54
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55977824"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880719"
 ---
 # <a name="troubleshooting-api-throttling-errors"></a>Solución de errores de limitación de API 
 
@@ -35,7 +35,7 @@ Cuando se produce un error de limitación en un cliente de API de Azure, el esta
 | Encabezado                            | Formato del valor                           | Ejemplo                               | DESCRIPCIÓN                                                                                                                                                                                               |
 |-----------------------------------|----------------------------------------|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | x-ms-ratelimit-remaining-resource |```<source RP>/<policy or bucket>;<count>```| Microsoft.Compute/HighCostGet3Min;159 | Número restantes de llamadas API de la directiva de limitación que se aplica al cubo de recursos o al grupo de operaciones que contiene el destino de esta solicitud.                                                                   |
-| x-ms-request-charge               | ```<count>   ```                             | 1                                     | Número de recuentos de llamadas "cargados" en esta solicitud HTTP en relación con el límite de la directiva aplicable. Suele ser 1. Las solicitudes por lotes, como las solicitudes para escalar un conjunto de escalado de máquinas virtuales, pueden "cargar" varios recuentos. |
+| x-ms-request-charge               | ```<count>```                             | 1                                     | Número de recuentos de llamadas "cargados" en esta solicitud HTTP en relación con el límite de la directiva aplicable. Suele ser 1. Las solicitudes por lotes, como las solicitudes para escalar un conjunto de escalado de máquinas virtuales, pueden "cargar" varios recuentos. |
 
 
 Tenga en cuenta que las solicitudes de API pueden estar sujetas a varias directivas de limitación. Cada directiva tendrá un encabezado `x-ms-ratelimit-remaining-resource` diferente. 

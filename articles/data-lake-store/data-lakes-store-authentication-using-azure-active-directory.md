@@ -3,20 +3,20 @@ title: Autenticación en Azure Data Lake Storage Gen1 con Azure Active Directory
 description: Obtenga información sobre la autenticación con Azure Data Lake Storage Gen1 mediante Azure Active Directory
 services: data-lake-store
 documentationcenter: ''
-author: nitinme
-manager: jhubbard
+author: twooley
+manager: mtillman
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: b74696be433b00a5afb3416295b6317975aa6873
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.author: twooley
+ms.openlocfilehash: f83cf183bee930dd07c707b0eb49125cecd70b84
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967666"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884642"
 ---
 # <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticación en Azure Data Lake Storage Gen1 con Azure Active Directory
 
@@ -42,8 +42,8 @@ En la tabla siguiente se indica cómo se admiten los mecanismos de autenticació
 |Entre servicios (con clave de cliente)         |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-client-secret)** |    **[✔*](data-lake-store-service-to-service-authenticate-java.md)**    |    ✔      |       ✔      |    **[✔*](data-lake-store-service-to-service-authenticate-python.md#service-to-service-authentication-with-client-secret-for-account-management)**     |    **[✔*](data-lake-store-service-to-service-authenticate-rest-api.md)**    |
 |Entre servicios (con certificado de cliente) |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-certificate)**        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |
 
-<i>* Haga clic en el símbolo <b>✔\*</b>. Es un vínculo.</i><br>
-<i>** MFA hace referencia a la autenticación multifactor</i>.
+<i>* Haga clic en el <b>✔\* </b> símbolos. Es un vínculo.</i><br>
+<i>** MFA hace referencia a la autenticación multifactor</i>
 
 Vea [Escenarios de autenticación para Azure AD](../active-directory/develop/authentication-scenarios.md) para obtener más información sobre cómo usar Azure Active Directory para la autenticación.
 

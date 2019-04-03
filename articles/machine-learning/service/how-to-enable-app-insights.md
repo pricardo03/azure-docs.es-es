@@ -1,7 +1,7 @@
 ---
-title: Supervisión de modelos con Application Insights
+title: Configuración de Azure Application Insights para los modelos de aprendizaje automático de monitor
 titleSuffix: Azure Machine Learning service
-description: Use Application Insights para supervisar los servicios web implementados mediante Azure Machine Learning Service
+description: Supervisar los servicios web implementados con el servicio de Azure Machine Learning con Azure Application Insights
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 ms.author: marthalc
 author: marthalc
-ms.date: 1/07/2019
-ms.custom: seodec18
-ms.openlocfilehash: 32dc55927f614a91c390a417595b7a00c16e9386
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/02/2019
+ms.custom: seoapril2019
+ms.openlocfilehash: 2e481a388d8cbd6baf66b95c74449396b2e70f7d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57847956"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885509"
 ---
 # <a name="monitor-your-azure-machine-learning-models-with-application-insights"></a>Supervisión de los modelos de Azure Machine Learning con Application Insights
 
@@ -36,7 +36,7 @@ En este artículo, puede obtener información sobre cómo configurar Azure Appli
 * Un modelo de Machine Learning entrenado para implementarse en Azure Kubernetes Service (AKS) o Azure Container Instance (ACI). Si no tiene uno, consulte el tutorial [Entrenamiento de un modelo de clasificación de imágenes](tutorial-train-models-with-aml.md).
 
 
-## <a name="enable-and-disable-from-the-sdk"></a>Habilitación y deshabilitación desde el SDK
+## <a name="use-sdk-to-configure"></a>Use el SDK para configurar 
 
 ### <a name="update-a-deployed-service"></a>Actualización de un servicio implementado
 1. Identifique el servicio en el área de trabajo. El valor de `ws` es el nombre del área de trabajo.
@@ -77,7 +77,7 @@ Para deshabilitar Application Insights, use el siguiente código:
 <service_name>.update(enable_app_insights=False)
 ```
     
-## <a name="enable-and-disable-in-the-portal"></a>Habilitación y deshabilitación en el portal
+## <a name="use-portal-to-configure"></a>Uso del portal para configurar
 
 Puede habilitar y deshabilitar Application Insights en Azure Portal.
 
@@ -85,15 +85,15 @@ Puede habilitar y deshabilitar Application Insights en Azure Portal.
 
 1. En la pestaña **Implementaciones**, seleccione el servicio en el que desea habilitar Application Insights.
 
-   [![Lista de servicios de la pestaña Implementaciones](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
+   [![LTSI de servicios en la pestaña implementaciones](media/how-to-enable-app-insights/Deployments.PNG)](./media/how-to-enable-app-insights/Deployments.PNG#lightbox)
 
 3. Seleccione **Editar**.
 
-   [![Botón Editar](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Ebotón de DIT](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 4. En **Configuración avanzada**, seleccione la casilla de verificación **Habilitar diagnósticos de Application Insights**.
 
-   [![Casilla seleccionada para habilitar diagnósticos](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
+   [![Scasilla de verificación seleccionada para habilitar los diagnósticos](media/how-to-enable-app-insights/AdvancedSettings.png)](./media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
 
 1. Seleccione **Actualizar** en la parte inferior de la pantalla para aplicar los cambios. 
 
@@ -101,11 +101,11 @@ Puede habilitar y deshabilitar Application Insights en Azure Portal.
 1. Abra el área de trabajo en [Azure Portal](https://portal.azure.com).
 1. Seleccione **Implementaciones**, seleccione el servicio y seleccione **Editar**.
 
-   [![Uso del botón Editar](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
+   [![Uel botón Editar se](media/how-to-enable-app-insights/Edit.PNG)](./media/how-to-enable-app-insights/Edit.PNG#lightbox)
 
 1. En **Configuración avanzada**, anule la selección de la opción **Habilitar diagnósticos de Application Insights**. 
 
-   [![Casilla no seleccionada para habilitar diagnósticos](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
+   [![Cutilizó la casilla de verificación para habilitar los diagnósticos](media/how-to-enable-app-insights/uncheck.png)](./media/how-to-enable-app-insights/uncheck.png#lightbox)
 
 1. Seleccione **Actualizar** en la parte inferior de la pantalla para aplicar los cambios. 
  
@@ -119,12 +119,12 @@ Para verlo:
 
 1. Seleccione la pestaña **Información general** para ver un conjunto básico de métricas del servicio.
 
-   [![Información general](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
+   [![OFo.](media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
 3. Para buscar en los seguimientos personalizados, seleccione **Analytics**.
 4. En la sección de esquema, seleccione **Seguimientos**. A continuación, seleccione **Ejecutar** para ejecutar la consulta. Los datos deben aparecer en un formato de tabla y mostrar la asignación a las llamadas personalizadas en el archivo de puntuación. 
 
-   [![Seguimientos personalizados](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
+   [![Cseguimientos zada](media/how-to-enable-app-insights/logs.png)](./media/how-to-enable-app-insights/logs.png#lightbox)
 
 Para más información sobre el uso de Application Insights, consulte [¿Qué es Application Insights?](../../azure-monitor/app/app-insights-overview.md).
     
@@ -138,6 +138,4 @@ El cuaderno [how-to-use-azureml/deployment/enable-app-insights-in-production-ser
 ## <a name="next-steps"></a>Pasos siguientes
 También puede recopilar datos de los modelos en producción. Consulte el artículo [Recopilación de datos de modelos en producción](how-to-enable-data-collection.md). 
 
-
-## <a name="other-references"></a>Otras referencias
-* [Azure Monitor para contenedores](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json)
+Lea también [Azure Monitor para contenedores](https://docs.microsoft.com/azure/monitoring/monitoring-container-insights-overview?toc=%2fazure%2fmonitoring%2ftoc.json).

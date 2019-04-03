@@ -1,21 +1,21 @@
 ---
-title: Protección contra amenazas avanzada para el almacenamiento de Azure
+title: Advanced Threat Protection para Azure Storage
 description: Configure Protección contra amenazas avanzada de Azure Storage para detectar anomalías en la actividad de la cuenta y enviarle notificaciones si hay intentos potencialmente dañinos de acceso a su cuenta.
 services: storage
 author: rmatchoro
 ms.service: storage
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/02/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: b2e51b11e2d79d7f35d6b24df4ba5492ecf9a5c4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 48fdf277f47b1e4abc8e3d7f7222d5b99a248b55
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58133236"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850719"
 ---
-# <a name="advanced-threat-protection-for-azure-storage"></a>Protección contra amenazas avanzada para el almacenamiento de Azure
+# <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection para Azure Storage
 
 Protección contra amenazas avanzada de Azure Storage proporciona una capa adicional de inteligencia de seguridad que detecta intentos inusuales y potencialmente dañinos de acceso o ataque a las cuentas de almacenamiento. Esta capa de protección le permite afrontar las amenazas sin necesidad de ser un experto en seguridad ni administrar sistemas de supervisión de la seguridad. 
 
@@ -51,6 +51,24 @@ Cuando se suscribe al nivel estándar en Azure Security Center, se configura pro
 
 Use una plantilla de Azure Resource Manager para implementar una cuenta de almacenamiento de Azure con la protección contra amenazas avanzada habilitada.
 Para obtener más información, consulte [cuenta de almacenamiento con protección contra amenazas avanzada](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/).
+
+### <a name="using-azure-policy"></a>Mediante la directiva de Azure
+
+Usar una directiva de Azure para habilitar la protección contra amenazas avanzada a través de las cuentas de almacenamiento en un grupo específico de recursos o suscripción.
+
+1. Comer Azure **Policy - definiciones** página.
+
+1. Busque el **implementar protección contra amenazas avanzada en las cuentas de almacenamiento** directiva.
+
+     ![Directiva de búsqueda](./media/storage-advanced-threat-protection/storage-atp-policy-definitions.png)
+  
+1. Seleccione un grupo de recursos o suscripción de Azure.
+
+    ![Seleccione la suscripción o grupo](./media/storage-advanced-threat-protection/storage-atp-policy2.png)
+
+1. Asigne la directiva.
+
+    ![Página de definiciones de directiva](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
 ### <a name="using-rest-api"></a>Uso de la API de REST
 Usar comandos de la API de Rest para crear, actualizar u obtener la configuración de protección contra amenazas avanzada para una cuenta de almacenamiento específica.
