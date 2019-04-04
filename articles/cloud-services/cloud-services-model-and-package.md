@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 7e43a32a415e58925bda5195b3943afca315f9be
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 9c9f7dfd9ecbf085da19fc010e497caef8c18629
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51238189"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917318"
 ---
 # <a name="what-is-the-cloud-service-model-and-how-do-i-package-it"></a>¿Qué es el modelo de servicio en la nube y cómo se empaqueta?
 Un servicio en la nube se crea a partir de tres componentes: la definición de servicio *(.csdef)*, la configuración de servicio *(.cscfg)* y un paquete de servicio *(.cspkg)*. Los archivos **ServiceDefinition.csdef** y **ServiceConfig.cscfg** se basan ambos en XML y describen la estructura del servicio en la nube y cómo se configura; lo que se conoce en conjunto como modelo. **ServicePackage.cspkg** es un archivo ZIP que se genera a partir de **ServiceDefinition.csdef** y, entre otros, contiene todas las dependencias necesarias basadas en archivos binarios. Azure crea un servicio en la nube a partir de **ServicePackage.cspkg** y **ServiceConfig.cscfg**.
@@ -39,7 +39,7 @@ Una vez que se ejecuta el servicio en la nube en Azure, puede volver a configura
 <a name="csdef"></a>
 
 ## <a name="servicedefinitioncsdef"></a>ServiceDefinition.csdef
-El archivo **ServiceDefinition.csdef** especifica los valores que usa Azure para configurar un servicio en la nube. El [esquema de definición de servicio de Azure (archivo .csdef)](https://msdn.microsoft.com/library/azure/ee758711.aspx) proporciona el formato permitido para un archivo de definición de servicio. En el ejemplo siguiente se muestra la configuración que se puede definir para los roles web y de trabajo:
+El archivo **ServiceDefinition.csdef** especifica los valores que usa Azure para configurar un servicio en la nube. El [esquema de definición de servicio de Azure (archivo .csdef)](/previous-versions/azure/reference/ee758711(v=azure.100)) proporciona el formato permitido para un archivo de definición de servicio. En el ejemplo siguiente se muestra la configuración que se puede definir para los roles web y de trabajo:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -90,36 +90,36 @@ El archivo **ServiceDefinition.csdef** especifica los valores que usa Azure para
 </ServiceDefinition>
 ```
 
-Puede hacer referencia al [esquema de definición de servicio](https://msdn.microsoft.com/library/azure/ee758711.aspx) para entender mejor el esquema XML que se usa aquí; sin embargo, a continuación se da una explicación rápida de algunos de los elementos:
+Puede hacer referencia al [esquema de definición de servicio](/previous-versions/azure/reference/ee758711(v=azure.100)) para entender mejor el esquema XML que se usa aquí; sin embargo, a continuación se da una explicación rápida de algunos de los elementos:
 
-**Sites**  
-contiene las definiciones de sitios web o aplicaciones web que se hospedan en IIS7.
+**Sitios**  
+ contiene las definiciones de sitios web o aplicaciones web que se hospedan en IIS7.
 
 **InputEndpoints**  
-contiene las definiciones de los extremos que se usan para ponerse en contacto con el servicio en la nube.
+ contiene las definiciones de los extremos que se usan para ponerse en contacto con el servicio en la nube.
 
 **InternalEndpoints**  
-contiene las definiciones de los extremos que se usan en las instancias de rol para comunicarse entre sí.
+ contiene las definiciones de los extremos que se usan en las instancias de rol para comunicarse entre sí.
 
 **ConfigurationSettings**  
-contiene las definiciones de configuración de las características de un rol concreto.
+ contiene las definiciones de configuración de las características de un rol concreto.
 
-**Certificates**  
-contiene las definiciones de los certificados que son necesarios para un rol. En el ejemplo de código anterior se muestra un certificado que se usa para la configuración de Azure Connect.
+**Certificados**  
+ contiene las definiciones de los certificados que son necesarios para un rol. En el ejemplo de código anterior se muestra un certificado que se usa para la configuración de Azure Connect.
 
 **LocalResources**  
-contiene las definiciones de los recursos de almacenamiento local. Un recurso de almacenamiento local es un directorio reservado en el sistema de archivos de la máquina virtual en la que se ejecuta una instancia de un rol.
+ contiene las definiciones de los recursos de almacenamiento local. Un recurso de almacenamiento local es un directorio reservado en el sistema de archivos de la máquina virtual en la que se ejecuta una instancia de un rol.
 
-**Imports**  
-contiene las definiciones de los módulos importados. El ejemplo de código anterior muestra los módulos de Conexión a Escritorio remoto y Azure Connect.
+**Importaciones**  
+ contiene las definiciones de los módulos importados. El ejemplo de código anterior muestra los módulos de Conexión a Escritorio remoto y Azure Connect.
 
-**Startup**  
-contiene las tareas que se ejecutan cuando se inicia el rol. Las tareas se definen en un archivo ejecutable o .cmd.
+**Inicio**  
+ contiene las tareas que se ejecutan cuando se inicia el rol. Las tareas se definen en un archivo ejecutable o .cmd.
 
 <a name="cscfg"></a>
 
 ## <a name="serviceconfigurationcscfg"></a>ServiceConfiguration.cscfg
-La configuración de los valores del servicio en la nube viene determinada por los valores del archivo **ServiceConfiguration.cscfg** . Especifique el número de instancias que desea implementar para cada rol en este archivo. Los valores de configuración que ha definido en el archivo de definición de servicio se agregan al archivo de configuración de servicio. Las huellas digitales de los certificados de administración que están asociados con el servicio en la nube también se agregan al archivo. El [esquema de configuración de servicio de Azure (archivo .cscfg)](https://msdn.microsoft.com/library/azure/ee758710.aspx) proporciona el formato permitido para un archivo de configuración de servicio.
+La configuración de los valores del servicio en la nube viene determinada por los valores del archivo **ServiceConfiguration.cscfg** . Especifique el número de instancias que desea implementar para cada rol en este archivo. Los valores de configuración que ha definido en el archivo de definición de servicio se agregan al archivo de configuración de servicio. Las huellas digitales de los certificados de administración que están asociados con el servicio en la nube también se agregan al archivo. El [esquema de configuración de servicio de Azure (archivo .cscfg)](/previous-versions/azure/reference/ee758710(v=azure.100)) proporciona el formato permitido para un archivo de configuración de servicio.
 
 El archivo de configuración de servicio no se empaqueta con la aplicación, sino que se carga en Azure como un archivo independiente y se usa para configurar el servicio en la nube. Puede cargar un nuevo archivo de configuración de servicio sin volver a implementar el servicio en la nube. Los valores de configuración del servicio en la nube pueden cambiarse mientras el servicio en la nube se está ejecutando. En el ejemplo siguiente se muestran los valores de configuración que se pueden definir para los roles web y de trabajo:
 
@@ -141,16 +141,16 @@ El archivo de configuración de servicio no se empaqueta con la aplicación, sin
 </ServiceConfiguration>
 ```
 
-Puede hacer referencia al [esquema de configuración de servicio](https://msdn.microsoft.com/library/azure/ee758710.aspx) para comprender mejor el esquema XML que se usa aquí; sin embargo, a continuación se da una explicación rápida de los elementos:
+Puede hacer referencia al [esquema de configuración de servicio](/previous-versions/azure/reference/ee758710(v=azure.100)) para comprender mejor el esquema XML que se usa aquí; sin embargo, a continuación se da una explicación rápida de los elementos:
 
-**Instances**  
-configura el número de instancias en ejecución para el rol. Para evitar la posibilidad de que el servicio en la nube deje de estar disponible durante las actualizaciones, es recomendable que implemente más de una instancia de los roles accesibles a través de web. Al hacerlo, estará siguiendo las instrucciones del [Acuerdo de Nivel de Servicio de Azure Compute](https://azure.microsoft.com/support/legal/sla/), que garantiza la conectividad externa del 99,95 % para los roles accesibles a través de Internet cuando se implementan dos o más instancias de rol para un servicio.
+**Instancias**  
+ configura el número de instancias en ejecución para el rol. Para evitar la posibilidad de que el servicio en la nube deje de estar disponible durante las actualizaciones, es recomendable que implemente más de una instancia de los roles accesibles a través de web. Al hacerlo, estará siguiendo las instrucciones del [Acuerdo de Nivel de Servicio de Azure Compute](https://azure.microsoft.com/support/legal/sla/), que garantiza la conectividad externa del 99,95 % para los roles accesibles a través de Internet cuando se implementan dos o más instancias de rol para un servicio.
 
 **ConfigurationSettings**  
-configura los valores de las instancias en ejecución de un rol. El nombre de los elementos `<Setting>` debe coincidir con las definiciones de configuración del archivo de definición de servicio.
+ configura los valores de las instancias en ejecución de un rol. El nombre de los elementos `<Setting>` debe coincidir con las definiciones de configuración del archivo de definición de servicio.
 
-**Certificates**  
-configura los certificados usados por el servicio. En el ejemplo de código anterior se muestra cómo definir el certificado para el módulo RemoteAccess. El valor del atributo *thumbprint* debe establecerse en la huella digital del certificado que se va a usar.
+**Certificados**  
+ configura los certificados usados por el servicio. En el ejemplo de código anterior se muestra cómo definir el certificado para el módulo RemoteAccess. El valor del atributo *thumbprint* debe establecerse en la huella digital del certificado que se va a usar.
 
 <p/>
 
@@ -202,17 +202,17 @@ Puede actualizar la configuración de su servicio en la nube mientras se ejecuta
 
 * **Cambiar los valores de configuración**  
   : cuando los valores de una configuración cambian, una instancia de rol puede elegir aplicar el cambio mientras la instancia está en línea, o bien reciclar la instancia correctamente y aplicar el cambio mientras la instancia está sin conexión.
-* **Cambiar la topología de servicio de las instancias de rol**  
+* **Cambiar la topología del servicio de instancias de rol**  
   : los cambios en la topología no afectan a las instancias en ejecución, excepto donde se vaya a eliminar una instancia. Por lo general, el resto de instancias no es necesario reciclarlas; sin embargo, puede decidir hacerlo en respuesta a un cambio en la topología.
 * **Cambiar la huella digital del certificado**  
   : solo puede actualizar un certificado cuando una instancia de rol está sin conexión. Si un certificado se agrega, elimina o cambia mientras la instancia de rol está en línea, Azure dejará la instancia sin conexión para actualizar el certificado y la volverá a poner en línea una vez completado el cambio.
 
 ### <a name="handling-configuration-changes-with-service-runtime-events"></a>Control de los cambios de configuración con eventos de tiempo de ejecución de servicio
-La [biblioteca en tiempo de ejecución de Azure](https://msdn.microsoft.com/library/azure/mt419365.aspx) incluye el espacio de nombres [Microsoft.WindowsAzure.ServiceRuntime](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.aspx), que proporciona clases para interactuar con el entorno de Azure desde un rol. La clase [RoleEnvironment](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx) define los siguientes eventos que se producen antes y después de un cambio de configuración:
+La [biblioteca en tiempo de ejecución de Azure](/previous-versions/azure/reference/mt419365(v=azure.100)) incluye el espacio de nombres [Microsoft.WindowsAzure.ServiceRuntime](/previous-versions/azure/reference/ee741722(v=azure.100)), que proporciona clases para interactuar con el entorno de Azure desde un rol. La clase [RoleEnvironment](/previous-versions/azure/reference/ee773173(v=azure.100)) define los siguientes eventos que se producen antes y después de un cambio de configuración:
 
-* **[Cambiar](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changing.aspx) evento**  
+* **[Cambiar](/previous-versions/azure/reference/ee758134(v=azure.100)) eventos**  
   Esto se produce antes de que el cambio de configuración se aplique a una instancia especificada de un rol, lo que le ofrece la oportunidad de dar de baja las instancias de rol, en caso necesario.
-* **[Evento](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.changed.aspx) cambiado**  
+* **[Puede cambiar](/previous-versions/azure/reference/ee758129(v=azure.100)) eventos**  
   : se produce después de que el cambio de configuración se aplica a una instancia especificada de un rol.
 
 > [!NOTE]

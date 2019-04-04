@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 37e3dbb5f69d7319e0b56a5d209e0487e0562e00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6ab5ee923cc439901149a26d7af4b57f9933ee19
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838806"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905892"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 El entorno de ejecución de integración (IR) es la infraestructura de proceso que Azure Data Factory usa para proporcionar funcionalidades de integración de datos en distintos entornos de red. Para más información acerca del entorno de ejecución de integración, consulte [Introducción al entorno de ejecución de integración](concepts-integration-runtime.md).
@@ -53,7 +53,7 @@ A continuación se muestra un flujo de datos de alto nivel y el resumen de los p
 ![Información general de alto nivel](media/create-self-hosted-integration-runtime/high-level-overview.png)
 
 1. El desarrollador de datos crea un entorno de ejecución de integración autohospedado en una instancia de Azure Data Factory mediante un cmdlet de PowerShell. Actualmente, Azure Portal no admite esta característica.
-2. El desarrollador de datos crea un servicio vinculado para un almacén de datos local mediante la especificación de la instancia del entorno de ejecución de integración autohospedado que debe usar para conectarse a los almacenes de datos. Como parte de la configuración del servicio vinculado, el desarrollador de datos usa la aplicación Credential Manager (que actualmente no es compatible) para establecer las credenciales y los tipos de autenticación. La aplicación Credential Manager se comunica con el almacén de datos para probar la conexión y con el entorno de ejecución de integración autohospedado para guardar las credenciales.
+2. El desarrollador de datos crea un servicio vinculado para un almacén de datos local mediante la especificación de la instancia del entorno de ejecución de integración autohospedado que debe usar para conectarse a los almacenes de datos.
 3. El nodo del entorno de ejecución de integración autohospedado cifra las credenciales mediante la interfaz de programación de aplicaciones de protección de datos de Windows (DPAPI) y las guarda localmente. Si se establecen varios nodos para la alta disponibilidad, las credenciales se sincronizan de nuevo en otros nodos. Cada nodo cifra las credenciales mediante DPAPI y las almacena localmente. La sincronización de credenciales es transparente para el desarrollador de datos y la controla el IR autohospedado.    
 4. El servicio Data Factory se comunica con el entorno de ejecución de integración autohospedado para la programación y administración de trabajos a través de un *canal de control* que usa una cola de Azure Service Bus compartida. Cuando es necesario ejecutar un trabajo de actividad, Data Factory pone en cola la solicitud junto con cualquier información de credenciales (en caso de que las credenciales no estén ya almacenadas en el entorno Integration Runtime autohospedado). El entorno de ejecución de integración autohospedado inicia el trabajo después de sondear la cola.
 5. El entorno de ejecución de integración autohospedado copia datos de un almacén local a un almacenamiento en la nube, o viceversa, en función de cómo esté configurada la actividad de copia en la canalización de datos. En este paso, el entorno de ejecución de integración autohospedado se comunica directamente con servicios de almacenamiento basados en la nube, como Azure Blob Storage, a través de un canal seguro (HTTPS).
@@ -329,7 +329,7 @@ Si se producen errores como los siguientes, es probable que se deban a una confi
     ```
 
 ### <a name="enabling-remote-access-from-an-intranet"></a>Habilitación del acceso remoto desde una intranet  
-Si utiliza PowerShell o la aplicación Administrador de credenciales para cifrar credenciales desde una máquina (de la red) que no sea la que tiene instalado el entorno de ejecución de integración autohospedado, puede habilitar la opción **Acceso remoto desde la intranet**. Si utiliza PowerShell o la aplicación Administrador de credenciales para cifrar credenciales en la misma máquina (de la red) en la que esté instalado el entorno de ejecución de integración autohospedado, no podrá habilitar **Acceso remoto desde la intranet**.
+Si usa PowerShell para cifrar credenciales desde otro equipo (en la red) que no sea donde está instalado el entorno integration runtime autohospedado, puede habilitar la **acceso remoto desde la Intranet** opción. Si ejecuta PowerShell para cifrar las credenciales en el mismo equipo donde está instalado el entorno integration runtime autohospedado, no se puede habilitar **acceso remoto desde la Intranet**.
 
 Debe habilitar **Acceso remoto desde la intranet** para agregar otro nodo para que tanto la disponibilidad como la escalabilidad sean altas.  
 
@@ -339,9 +339,7 @@ Si usa un firewall de terceros, puede abrir manualmente el puerto 8060 (o el pue
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
-```
-> [!NOTE]
-> La aplicación Administrador de credenciales aún no está disponible para cifrar credenciales en Azure Data Factory V2.  
+``` 
 
 Si elige no abrir el puerto 8060 en la máquina del entorno de ejecución de integración autohospedado, use mecanismos que no sean la aplicación de Establecer credenciales para configurar las credenciales del almacén de datos. Por ejemplo, puede usar el **New AzDataFactoryV2LinkedServiceEncryptCredential** cmdlet de PowerShell.
 

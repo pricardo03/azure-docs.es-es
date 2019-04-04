@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 6be2a2d6febfe927cadbdeb12dc91b0e103d6ac4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 41c3db1c9a7295d939aa34a36f86c0dfa9fecd91
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094633"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891453"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: uso de los atributos personalizados en una directiva de edición de perfil personalizada
 
@@ -296,7 +296,7 @@ El token del identificador que se devuelve a la aplicación incluirá la nueva p
 
 ## <a name="reference"></a>Referencia
 
-Para más información sobre las propiedades de extensión, consulte el artículo [Extensiones de esquema de directorio | Conceptos de Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions).
+Para más información sobre las propiedades de extensión, consulte el artículo [Extensiones de esquema de directorio | Conceptos de Graph API](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions).
 
 > [!NOTE]
 > * **TechnicalProfile** es un tipo de elemento (o función) que define el nombre, los metadatos y el protocolo de un punto de conexión. **TechnicalProfile** detalla el intercambio de notificaciones que realiza el Marco de experiencia de identidad. Cuando se llama a esta función en un paso de la orquestación o desde otra instancia de **TechnicalProfile**, quien realiza la llamada especifica **InputClaims** y **OutputClaims** como parámetros.  

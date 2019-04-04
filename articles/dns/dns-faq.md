@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 3/21/2019
 ms.author: victorh
-ms.openlocfilehash: 1d0506179f9f0044f9f05edd3395d2677310c2d0
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 4f0800dfd264059e1dc8aac32a54f216f777647f
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337124"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905722"
 ---
 # <a name="azure-dns-faq"></a>Preguntas más frecuentes sobre DNS de Azure
 
@@ -80,7 +80,7 @@ Se hace seguimiento de la característica DNSSEC en el trabajo pendiente de Azur
 
 ### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>¿DNS de Azure admite las transferencias de zona (AXFR/IXFR)?
 
- No. Azure DNS no admite actualmente las transferencias de zona. Las zonas DNS se pueden [importar a Azure DNS mediante la CLI de Azure](dns-import-export.md). Los registros DNS se administran a través del [Portal de administración de Azure DNS](dns-operations-recordsets-portal.md), la [API REST](https://docs.microsoft.com/powershell/module/azurerm.dns), el [SDK](dns-sdk.md), los [cmdlets de PowerShell](dns-operations-recordsets.md) o la [herramienta CLI](dns-operations-recordsets-cli.md).
+ No. Azure DNS no admite actualmente las transferencias de zona. Las zonas DNS se pueden [importar a Azure DNS mediante la CLI de Azure](dns-import-export.md). Los registros DNS se administran a través del [Portal de administración de Azure DNS](dns-operations-recordsets-portal.md), la [API REST](https://docs.microsoft.com/powershell/module/az.dns), el [SDK](dns-sdk.md), los [cmdlets de PowerShell](dns-operations-recordsets.md) o la [herramienta CLI](dns-operations-recordsets-cli.md).
 
 Se hace seguimiento de la característica de transferencia de zona en el trabajo pendiente de Azure DNS. Use el sitio de comentarios para [registrar su compatibilidad con esta característica](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c).
 
@@ -116,10 +116,10 @@ Los conjuntos de registros de alias se admiten para los siguientes tipos de regi
 
 ### <a name="what-resources-are-supported-as-targets-for-alias-record-sets"></a>¿Qué recursos se admiten como destinos para los conjuntos de registros de alias?
 
-- **Apuntar a un recurso de dirección IP pública desde un conjunto de registros A/AAAA de DNS**. Puede crear un conjunto de registros D/AAAA y hacer que sea un conjunto de registros de alias que apunte a un recurso de dirección IP pública.
-- **Apuntar a un perfil de Traffic Manager desde un conjunto de registros D/AAAA/CNAME de DNS.** Puede apuntar al CNAME de un perfil de Traffic Manager desde un conjunto de registros CNAME de DNS. Un ejemplo es contoso.trafficmanager.net. Ahora, también puede apuntar a un perfil de Traffic Manager que tenga puntos de conexión externos desde un registro D o AAAA establecido en su zona DNS.
+- **Apuntar a un recurso de IP pública desde un conjunto de registros A/AAAA de DNS.** Puede crear un conjunto de registros D/AAAA y hacer que sea un conjunto de registros de alias que apunte a un recurso de dirección IP pública.
+- **Apuntar a un perfil de Traffic Manager desde un conjunto de registros DNS A/AAAA o CNAME.** Puede apuntar al CNAME de un perfil de Traffic Manager desde un conjunto de registros CNAME de DNS. Un ejemplo es contoso.trafficmanager.net. Ahora, también puede apuntar a un perfil de Traffic Manager que tenga puntos de conexión externos desde un registro D o AAAA establecido en su zona DNS.
 - **Seleccione un punto de conexión de Azure Content Delivery Network (CDN)**. Esto es útil al crear los sitios Web estáticos con Azure storage y red CDN de Azure.
-- **Apuntar a otro conjunto de registros de DNS dentro de la misma zona**. Los registros de alias pueden hacer referencia a otros conjuntos de registros del mismo tipo. Por ejemplo, puede hacer que un conjunto de registros CNAME de DNS sea un alias de otro conjunto de registros CNAME del mismo tipo. Esta organización resulta útil si desea que algunos conjuntos de registros sean alias y otros no alias.
+- **Elija otro conjunto de registros DNS dentro de la misma zona.** Los registros de alias pueden hacer referencia a otros conjuntos de registros del mismo tipo. Por ejemplo, puede hacer que un conjunto de registros CNAME de DNS sea un alias de otro conjunto de registros CNAME del mismo tipo. Esta organización resulta útil si desea que algunos conjuntos de registros sean alias y otros no alias.
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>¿Puedo crear y actualizar registros de alias desde Azure Portal?
 
@@ -149,7 +149,7 @@ Sí. DNS de Azure es compatible con dominios de hospedaje conjunto con otros ser
 
 Para configurar el co-alojamiento, modificar los registros NS para el dominio para que apunte a los servidores de nombres de ambos proveedores. Los registros de servidor de nombres (NS) controlan qué proveedores reciben consultas de DNS para el dominio. Puede modificar estos registros de NS en Azure DNS, en el otro proveedor y en la zona primaria. Habitualmente, la zona primera se configura mediante el registrador de nombres de dominio. Para más información sobre la delegación DNS, vea [Delegación de dominios DNS](dns-domain-delegation.md).
 
-Además, asegúrese de que los registros de DNS del dominio estén sincronizados entre ambos proveedores de DNS. Azure DNS actualmente no admite las transferencias de zona DNS. Los registros DNS se deben sincronizar mediante el [Portal de administración de Azure DNS](dns-operations-recordsets-portal.md), [la API REST](https://docs.microsoft.com/powershell/module/azurerm.dns), el [SDK](dns-sdk.md), los [cmdlets de PowerShell](dns-operations-recordsets.md) o la [herramienta CLI](dns-operations-recordsets-cli.md).
+Además, asegúrese de que los registros de DNS del dominio estén sincronizados entre ambos proveedores de DNS. Azure DNS actualmente no admite las transferencias de zona DNS. Los registros DNS se deben sincronizar mediante el [Portal de administración de Azure DNS](dns-operations-recordsets-portal.md), [la API REST](https://docs.microsoft.com/powershell/module/az.dns), el [SDK](dns-sdk.md), los [cmdlets de PowerShell](dns-operations-recordsets.md) o la [herramienta CLI](dns-operations-recordsets-cli.md).
 
 ### <a name="do-i-have-to-delegate-my-domain-to-all-four-azure-dns-name-servers"></a>¿Tengo que delegar mi dominio en los cuatro servidores de nombres de Azure DNS?
 

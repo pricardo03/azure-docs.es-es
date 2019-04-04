@@ -8,21 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/08/2019
+ms.date: 04/01/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 5adb2a3c2a443e6c77c315935e0729cf8728e8cd
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
-ms.translationtype: HT
+ms.openlocfilehash: db33ce748928b954f5447a82550c6ecde2188abf
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308798"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877132"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Configuración de contenedores de Docker de Reconocer texto
 
 El entorno en tiempo de ejecución del contenedor de **Reconocer texto** se configura mediante los argumentos del comando `docker run`. Este contenedor tiene varias opciones de configuración necesarias, así como otras opcionales. Hay disponibles varios [ejemplos](#example-docker-run-commands) del comando. La configuración específica del contenedor es la configuración de facturación. 
-
-La configuración del contenedor es [jerárquica](#hierarchical-settings) y se puede establecer con [variables de entorno](#environment-variable-settings) o [argumentos de la línea de comandos](#command-line-argument-settings) de Docker.
 
 ## <a name="configuration-settings"></a>Valores de configuración
 
@@ -49,7 +47,7 @@ La opción de configuración `Billing` especifica el URI del punto de conexión 
 
 Este valor se puede encontrar en el siguiente lugar:
 
-* Azure Portal: Información general de **Computer Vision** con la etiqueta `Endpoint`
+* Azure Portal: **Visión de equipo** información general, con la etiqueta `Endpoint`
 
 |Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |--|------|-----------|-------------|
@@ -84,10 +82,6 @@ La sintaxis exacta de la ubicación de montaje del host varía según el sistema
 |No permitida| `Input` | string | Los contenedores de Computer Vision no usan esto.|
 |Opcional| `Output` | string | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
 
-## <a name="hierarchical-settings"></a>Configuración jerárquica
-
-[!INCLUDE [Container shared configuration hierarchical settings](../../../includes/cognitive-services-containers-configuration-shared-hierarchical-settings.md)]
-
 ## <a name="example-docker-run-commands"></a>Comandos de ejemplo de docker run 
 
 Los ejemplos siguientes usan las opciones de configuración para ilustrar cómo escribir y usar comandos `docker run`.  Una vez que se está ejecutando, el contenedor continúa ejecutándose hasta que lo [detenga](computer-vision-how-to-install-containers.md#stop-the-container).
@@ -120,7 +114,7 @@ En los siguientes ejemplos de Docker encontrará el contenedor de Reconocer text
   ApiKey={BILLING_KEY} 
   ```
 
-### <a name="logging-example-with-command-line-arguments"></a>Ejemplo de registro con argumentos de la línea de comandos
+### <a name="logging-example"></a>Ejemplo de registro 
 
   ```
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
@@ -128,18 +122,7 @@ En los siguientes ejemplos de Docker encontrará el contenedor de Reconocer text
   Eula=accept \
   Billing={BILLING_ENDPOINT_URI} \
   ApiKey={BILLING_KEY} \
-  Logging:Console:LogLevel=Information
-  ```
-
-### <a name="logging-example-with-environment-variable"></a>Ejemplo de registro con variable de entorno
-
-  ```
-  SET Logging:Console:LogLevel=Information
-  docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  containerpreview.azurecr.io/microsoft/cognitive-services-recognize-text \
-  Eula=accept \
-  Billing={BILLING_ENDPOINT_URI} \
-  ApiKey={BILLING_KEY}
+  Logging:Console:LogLevel:Default=Information
   ```
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e8473ece2ed08798836dc66067e1ce042924f469
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: df12639aaafaf3df7ae2b755d635d4fba83d846e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431262"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905101"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Cómo ejecutar Durable Functions como WebJobs
 
@@ -33,7 +33,7 @@ En este artículo se supone que está familiarizado con los conceptos básicos d
 
 * [Introducción al SDK de WebJobs](../../app-service/webjobs-sdk-get-started.md)
 * [Creación de la primera función mediante Visual Studio](../functions-create-your-first-function-visual-studio.md)
-* [Durable Functions](durable-functions-sequence.md)
+* [Funciones duraderas](durable-functions-sequence.md)
 
 Para completar los pasos de este artículo:
 
@@ -132,8 +132,8 @@ Durable Functions en el contexto de WebJobs difiere ligeramente de Durable Funct
 El SDK de WebJobs no es compatible con las siguientes características de Azure Functions:
 
 * [Atributo FunctionName](#functionname-attribute)
-* [desencadenador HTTP](#http-trigger)
-* [API de administración HTTP de Durable Functions](#http-management-api)
+* [Desencadenador HTTP](#http-trigger)
+* [API de administración de funciones HTTP duradera](#http-management-api)
 
 ### <a name="functionname-attribute"></a>Atributo FunctionName
 
@@ -218,50 +218,60 @@ Esta sección proporciona información general sobre cómo ejecutar el [proyecto
 
 ## <a name="webjobs-sdk-3x"></a>SDK de WebJobs 3.x
 
-En este artículo se explica cómo desarrollar un proyecto de SDK de WebJobs 2.x. Si está desarrollando un proyecto de SDK de WebJobs 3.x, esta sección le ayudará a comprender las diferencias.
+En este artículo se explica cómo desarrollar un proyecto de SDK de WebJobs 2.x. Si está desarrollando un [SDK de WebJobs 3.x](../../app-service/webjobs-sdk-get-started.md) proyecto, esta sección le ayudará a comprender las diferencias.
 
 El cambio principal que presenta es el uso de .NET Core en lugar de .NET Framework. Para crear un proyecto de SDK de WebJobs 3.x, las instrucciones son los mismos, con las siguientes excepciones:
 
-1. Cree una aplicación de consola de .NET Core. En Visual Studio **nuevo proyecto** cuadro de diálogo, seleccione **.NET Core** > **aplicación de consola (.NET Core)**. El archivo de proyecto especifica que `TargetFramework` es `netcoreapp2.0`.
+1. Cree una aplicación de consola de .NET Core. En Visual Studio **nuevo proyecto** cuadro de diálogo, seleccione **.NET Core** > **aplicación de consola (.NET Core)**. El archivo de proyecto especifica que `TargetFramework` es `netcoreapp2.x`.
 
-1. Elija la versión preliminar de SDK de WebJobs 3.x de los siguientes paquetes:
+1. Elija la versión de SDK de WebJobs 3.x de los siguientes paquetes:
 
     * `Microsoft.Azure.WebJobs.Extensions`
+    * `Microsoft.Azure.WebJobs.Extensions.Storage`
     * `Microsoft.Azure.WebJobs.Logging.ApplicationInsights`
 
-1. Obtener la cadena de conexión de almacenamiento y la clave de instrumentación de Application Insights desde una *appsettings.json* archivo utilizando el marco de trabajo de configuración de .NET Core. Cambiar el `Main` código del método para hacerlo. Este es un ejemplo:
+1. Establecer la cadena de conexión de almacenamiento y la clave de instrumentación de Application Insights en un *appsettings.json* archivo utilizando el marco de trabajo de configuración de .NET Core. Este es un ejemplo:
+
+    ```json
+        {
+            "AzureWebJobsStorage": "<replace with storage connection string>",
+            "APPINSIGHTS_INSTRUMENTATIONKEY": "<replace with Application Insights instrumentation key>"
+        }
+    ```
+
+1. Cambiar el `Main` código del método para hacerlo. Este es un ejemplo:
 
    ```cs
    static void Main(string[] args)
    {
-       var builder = new ConfigurationBuilder()
-           .SetBasePath(Directory.GetCurrentDirectory())
-           .AddJsonFile("appsettings.json");
+        var hostBuilder = new HostBuilder()
+            .ConfigureWebJobs(config =>
+            {
+                config.AddAzureStorageCoreServices();
+                config.AddAzureStorage();
+                config.AddTimers();
+                config.AddDurableTask(options =>
+                {
+                    options.HubName = "MyTaskHub";
+                    options.AzureStorageConnectionStringName = "AzureWebJobsStorage";
+                });
+            })
+            .ConfigureLogging((context, logging) =>
+            {
+                logging.AddConsole();
+                logging.AddApplicationInsights(config =>
+                {
+                    config.InstrumentationKey = context.Configuration["APPINSIGHTS_INSTRUMENTATIONKEY"];
+                });
+            })
+            .UseConsoleLifetime();
 
-       var appSettingsConfig = builder.Build();
+        var host = hostBuilder.Build();
 
-       using (var loggerFactory = new LoggerFactory())
-       {
-           var config = new JobHostConfiguration();
-
-           config.DashboardConnectionString = "";
-           config.StorageConnectionString =
-               appSettingsConfig.GetConnectionString("AzureWebJobsStorage");
-           var instrumentationKey =
-               appSettingsConfig["APPINSIGHTS_INSTRUMENTATIONKEY"];
-
-           config.LoggerFactory = loggerFactory
-               .AddApplicationInsights(instrumentationKey, null)
-               .AddConsole();
-
-           config.UseTimers();
-           config.UseDurableTask(new DurableTaskExtension
-           {
-               HubName = "MyTaskHub",
-           });
-           var host = new JobHost(config);
-           host.RunAndBlock();
-       }
+        using (host)
+        {
+            host.Run();
+        }
    }
    ```
 

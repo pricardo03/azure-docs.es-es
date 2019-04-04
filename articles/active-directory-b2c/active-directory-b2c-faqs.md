@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 89ad91316da027e399891a7e1b348e66c1d3a4f5
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 7a30aecc3cc2259072ea33ae018c371a1f05741a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499903"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893403"
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Preguntas más frecuentes 
 Esta página responde a las preguntas más frecuentes sobre Azure Active Directory (Azure AD) B2C. Siga comprobando si hay actualizaciones.
@@ -80,7 +80,7 @@ En estos momentos no se puede cambiar el valor del campo De del correo electrón
 Puede usar Graph API de Azure AD para escribir la herramienta de migración. Consulte la [guía de migración para el usuario](active-directory-b2c-user-migration.md) para detalles.
 
 ### <a name="what-password-user-flow-is-used-for-local-accounts-in-azure-ad-b2c"></a>¿Qué flujo de usuario de contraseñas se usa para las cuentas locales en Azure AD B2C?
-El flujo de usuario de Azure AD B2C para cuentas locales se basa en la directiva para Azure AD. Los flujos de usuario de restablecimiento de la contraseña, inicio de sesión, registro e inicio de sesión de Azure AD B2C usan la seguridad de la contraseña "segura" y las contraseñas no caducan. Lea [Directiva de contraseñas en Azure AD](https://msdn.microsoft.com/library/azure/jj943764.aspx) para obtener más información. Para información sobre los bloqueos de cuentas y las contraseñas, consulte [Administración de amenazas para recursos y datos de Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
+El flujo de usuario de Azure AD B2C para cuentas locales se basa en la directiva para Azure AD. Los flujos de usuario de restablecimiento de la contraseña, inicio de sesión, registro e inicio de sesión de Azure AD B2C usan la seguridad de la contraseña "segura" y las contraseñas no caducan. Lea [Directiva de contraseñas en Azure AD](/previous-versions/azure/jj943764(v=azure.100)) para obtener más información. Para información sobre los bloqueos de cuentas y las contraseñas, consulte [Administración de amenazas para recursos y datos de Azure Active Directory B2C](active-directory-b2c-reference-threat-management.md).
 
 ### <a name="can-i-use-azure-ad-connect-to-migrate-consumer-identities-that-are-stored-on-my-on-premises-active-directory-to-azure-ad-b2c"></a>¿Puedo usar Azure AD Connect para migrar identidades de consumidores almacenadas en mi entorno Active Directory local a Azure AD B2C?
 No, Azure AD Connect no está diseñado para funcionar con Azure AD B2C. Considere la posibilidad de usar [Graph API de Azure AD](active-directory-b2c-devquickstarts-graph-dotnet.md) para la migración de usuarios.  Consulte la [guía de migración para el usuario](active-directory-b2c-user-migration.md) para detalles.

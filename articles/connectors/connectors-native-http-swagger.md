@@ -11,12 +11,12 @@ ms.assetid: eccfd87c-c5fe-4cf7-b564-9752775fd667
 tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
-ms.openlocfilehash: de61443da41f1015b2890e9052f38e25d3bed86a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551983"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893408"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Llamada a puntos de conexión REST con el conector HTTP + Swagger para Azure Logic Apps
 
@@ -28,7 +28,7 @@ Para aprender a crear aplicaciones lógicas con conectores, consulte [Creación 
 
 El desencadenador y la acción HTTP + Swagger funcionan igual que la [acción HTTP](connectors-native-http.md), pero ofrecen una experiencia en el Diseñador de aplicación lógica mejor al exponer la estructura de la API y los resultados desde los [metadatos de Swagger](https://swagger.io). También puede usar el conector HTTP + Swagger como desencadenador. Si desea implementar un desencadenador de sondeo, siga el modelo de sondeo que se describe en [Creación de API personalizadas para llamar a otras API, servicio y sistemas de aplicaciones lógicas](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
-Más información sobre [las acciones y los desencadenadores de aplicaciones lógicas](connectors-overview.md).
+Más información sobre [las acciones y los desencadenadores de aplicaciones lógicas](../connectors/apis-list.md).
 
 A continuación se muestra un ejemplo de cómo utilizar la operación HTTP + Swagger como una acción en un flujo de trabajo de una aplicación lógica.
 
@@ -72,14 +72,14 @@ Estos son los pasos necesarios para crear, configurar y almacenar documentos Swa
 A continuación se muestran los detalles de los desencadenadores y las acciones que admite el conector HTTP + Swagger.
 
 ## <a name="http--swagger-triggers"></a>Desencadenadores HTTP + Swagger
-Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica. [Más información sobre los desencadenadores.](connectors-overview.md)  El conector HTTP + Swagger tiene un desencadenador.
+Un desencadenador es un evento que se puede utilizar para iniciar el flujo de trabajo definido en una aplicación lógica.  El conector HTTP + Swagger tiene un desencadenador. [Más información sobre los desencadenadores](../connectors/apis-list.md).
 
 | Desencadenador | DESCRIPCIÓN |
 | --- | --- |
 | HTTP + Swagger |Realizar una llamada HTTP y devolver el contenido de la respuesta. |
 
 ## <a name="http--swagger-actions"></a>Acciones HTTP + Swagger
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones.](connectors-overview.md)  El conector HTTP + Swagger tiene una acción posible.
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica.  El conector HTTP + Swagger tiene una acción posible. [Más información acerca de las acciones](../connectors/apis-list.md).
 
 | . | DESCRIPCIÓN |
 | --- | --- |
@@ -123,8 +123,7 @@ Al realizar llamadas a diversas acciones, es posible que obtenga determinadas re
 | 404 |No encontrado |
 | 500 |Error interno del servidor Error desconocido. |
 
-- - -
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Buscar otros conectores](apis-list.md)
+* [Encuentre otros conectores](apis-list.md)

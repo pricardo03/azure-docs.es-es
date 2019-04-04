@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: raynew
-ms.openlocfilehash: 4ce4cdbaf49fb743a14c7a5285ed29b9ad49faf5
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f0540ff1fc1844c133e238267770b971992f61e6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652661"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905008"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de compatibilidad para replicar máquinas virtuales de Azure desde una región a otra
 
@@ -35,10 +35,10 @@ En este artículo se resumen las configuraciones y los componentes admitidos cua
 **Acción de recursos** | **Detalles**
 --- | --- | ---
 **Migrar los almacenes entre grupos de recursos** | No compatible
-**Mover recursos de proceso, almacenamiento y red entre grupos de recursos** | No compatible.<br/><br/> Si mueve una máquina virtual o los componentes asociados, como el almacenamiento o la red, después de la replicación de esta, tendrá que deshabilitar la replicación y volver a habilitarla para la máquina virtual.
-**Replicar máquinas virtuales de Azure de una suscripción a otra para la recuperación ante desastres** | Se admite en el mismo inquilino de Azure Active Directory.
+**Mover los recursos de proceso, almacenamiento o la red a través de grupos de recursos** | No compatible.<br/><br/> Si mueve una máquina virtual o los componentes asociados, como el almacenamiento o la red, después de la replicación de esta, tendrá que deshabilitar la replicación y volver a habilitarla para la máquina virtual.
+**Replicar máquinas virtuales de una suscripción a otro para la recuperación ante desastres** | Se admite en el mismo inquilino de Azure Active Directory.
 **Migración de máquinas virtuales entre regiones dentro de los clústeres geográficos admitidos (dentro y entre suscripciones)** | Se admite en el mismo inquilino de Azure Active Directory.
-**Migrar máquinas virtuales dentro de la misma región** | No compatible.
+**Migración de máquinas virtuales dentro de la misma región** | No compatible.
 
 ## <a name="region-support"></a>Regiones admitidas
 
@@ -99,7 +99,7 @@ Servidor Ubuntu 14.04 LTS | [Versiones de kernel admitidas](#supported-ubuntu-ke
 Servidor Ubuntu 16.04 LTS | [Versión de kernel admitida](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> Los servidores Ubuntu que utilizan inicio de sesión y autenticación mediante contraseña y que utilizan el paquete cloud-init para configurar máquinas virtuales en la nube, pueden tener el inicio de sesión mediante contraseña deshabilitado tras una conmutación por error (en función de la configuración de cloudinit). Para volver a habilitar el inicio de sesión mediante contraseña en la máquina virtual, restablezca la contraseña desde el menú Soporte > Solución de problemas > Configuración (de la máquina virtual conmutada por error en Azure Portal).
 Debian 7 | [Versiones de kernel admitidas](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | [Versiones de kernel admitidas](#supported-debian-kernel-versions-for-azure-virtual-machines)
-SUSE Linux Enterprise Server 12 | SP1, SP2, SP3. [(Versiones de kernel admitidas)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
+SUSE Linux Enterprise Server 12 | SP1, SP2, SP3. [(Las versiones de kernel admitidas)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> No se admite la actualización de máquinas de replicación de SP3 a SP4. Si se ha actualizado una máquina replicada, deberá deshabilitar la replicación y volverla a habilitar después de la actualización.
 SUSE Linux Enterprise Server 11 | SP4
 Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 <br/><br/> Ejecutan el kernel compatible de Red Hat o Unbreakable Enterprise Kernel Release 3 (UEK3).
@@ -107,18 +107,21 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5 
 
 #### <a name="supported-ubuntu-kernel-versions-for-azure-virtual-machines"></a>Versiones de kernel de Ubuntu admitidas para máquinas virtuales de Azure
 
-**Versión** | **Versión de Mobility service** | **Versión de kernel** |
+**Release** | **Versión de Mobility service** | **Versión del kernel** |
 --- | --- | --- |
 14.04 LTS | 9.23 | 3.13.0-24-Generic a 3.13.0-165-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-a 4.4.0-142-generic,<br/>4.15.0-1023-Azure a 4.15.0-1037-azure |
 14.04 LTS | 9.22 | 3.13.0-24-generic a 3.13.0-164-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-140-generic,<br/>4.15.0-1023-azure a 4.15.0-1036-azure |
 14.04 LTS | 9.21 | 3.13.0-24-generic a 3.13.0-163-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-140-generic,<br/>4.15.0-1023-azure a 4.15.0-1035-azure |
 14.04 LTS | 9.20 | 3.13.0-24-generic a 3.13.0-161-generic,<br/>3.16.0-25-generic a 3.16.0-77-generic,<br/>3.19.0-18-generic a 3.19.0-80-generic,<br/>4.2.0-18-generic a 4.2.0-42-generic,<br/>4.4.0-21-generic a 4.4.0-138-generic,<br/>4.15.0-1023-azure a 4.15.0-1030-azure |
-
-||| 16.04 LTS | 9.23 | 4.4.0-21-a 4.4.0-142-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-Generic a 4.15.0-45-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-Azure a 4.15.0-1037-azure| 16.04 LTS | 9.22 | 4.4.0-21-a 4.4.0-140-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-generic a 4.15.0-43-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-Azure a 4.15.0-1036-azure| 16.04 LTS | 9.21 | 4.4.0-21-a 4.4.0-140-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-generic a 4.15.0-42-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-Azure a 4.15.0-1035-azure| 16.04 LTS | 9,20 | 4.4.0-21-a 4.4.0-138-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-generic a 4.15.0-38-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-Azure a 4.15.0-1030-azure|
+|||
+16.04 LTS | 9.23 | 4.4.0-21-a 4.4.0-142-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-Generic a 4.15.0-45-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-Azure a 4.15.0-1037-azure|
+16.04 LTS | 9.22 | 4.4.0-21-generic a 4.4.0-140-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-generic a 4.15.0-43-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-azure a 4.15.0-1036-azure|
+16.04 LTS | 9.21 | 4.4.0-21-generic a 4.4.0-140-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-generic a 4.15.0-42-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-azure a 4.15.0-1035-azure|
+16.04 LTS | 9.20 | 4.4.0-21-generic a 4.4.0-138-generic,<br/>4.8.0-34-generic a 4.8.0-58-generic,<br/>4.10.0-14-generic a 4.10.0-42-generic,<br/>4.11.0-13-generic to 4.11.0-14-generic,<br/>4.13.0-16-generic a 4.13.0-45-generic,<br/>4.15.0-13-generic a 4.15.0-38-generic<br/>4.11.0-1009-azure to 4.11.0-1016-azure,<br/>4.13.0-1005-azure a 4.13.0-1018-azure <br/>4.15.0-1012-azure a 4.15.0-1030-azure|
 
 #### <a name="supported-debian-kernel-versions-for-azure-virtual-machines"></a>Versiones de kernel de Debian admitidas para máquinas virtuales de Azure
 
-**Versión** | **Versión de Mobility service** | **Versión de kernel** |
+**Release** | **Versión de Mobility service** | **Versión del kernel** |
 --- | --- | --- |
 Debian 7 | 9.19,9.20,9.21,9.22,9.23 | 3.2.0-4-amd64 a 3.2.0-6-amd64, 3.16.0-0.bpo.4-amd64 |
 |||
@@ -127,7 +130,7 @@ Debian 8 | 9.19 | 3.16.0-4-amd64 a 3.16.0-6-amd64, 4.9.0-0.bpo.4-amd64 a 4.9.0-0
 
 #### <a name="supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines"></a>Versiones de kernel admitidas de SUSE Linux Enterprise Server 12 para máquinas virtuales de Azure
 
-**Versión** | **Versión de Mobility service** | **Versión de kernel** |
+**Release** | **Versión de Mobility service** | **Versión del kernel** |
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.23 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.101-default</br></br>SP3 4.4.73-5-default a 4.4.162-94.79-default |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3) | 9.22 | SP1 3.12.49-11-default a 3.12.74-60.64.40-default</br></br> SP1(LTSS) 3.12.74-60.64.45-default a 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69-default a 4.4.120-92.70-default</br></br>SP2(LTSS) 4.4.121-92.73-default a 4.4.121-92.98-default</br></br>SP3 4.4.73-5-default a 4.4.162-94.72-default |
@@ -155,10 +158,11 @@ Imágenes de la galería de Azure (publicadas por Microsoft) | Compatible | Se a
 Imágenes de la Galería de Azure (publicadas por terceros) | Compatible | Se admiten si la máquina virtual se ejecuta en un sistema operativo compatible.
 Imágenes personalizadas (publicadas de terceros) | Compatible | Se admiten si la máquina virtual se ejecuta en un sistema operativo compatible.
 Máquinas virtuales migradas con Site Recovery | Compatible | Si se migró una máquina virtual de VMware o una física a Azure mediante Site Recovery, deberá desinstalar la versión antigua de Mobility Service que se ejecuta en la máquina y reiniciarla antes de replicarla en otra región de Azure.
+Directivas de RBAC | No compatible | Directivas de control (RBAC) en máquinas virtuales no se replican en la máquina virtual en la región de destino de conmutación por error de acceso basado en roles.
 
 ## <a name="replicated-machines---disk-actions"></a>Máquinas replicadas: acciones de disco
 
-**Acción** | **Detalles**
+**.** | **Detalles**
 -- | ---
 Cambiar el tamaño de disco en una máquina virtual replicada | Compatible
 Agregar un disco a una máquina virtual replicada | No compatible.<br/><br/> Tiene que deshabilitar la replicación para la máquina virtual, agregar el disco y volver a habilitar la replicación.
@@ -213,7 +217,7 @@ En la tabla siguiente se resume los límites de Site Recovery.
 - Hay dos límites a tener en cuenta por disco de datos de actividad y datos de la máquina virtual por renovación.
 - Por ejemplo, si usamos un disco Premium P20 como se describe en la tabla siguiente, Site Recovery puede controlar los 5 MB de la actividad por disco, con como máximo de cinco estos discos por máquina virtual, debido al límite de la actividad total de 25 MB/s por máquina virtual.
 
-**Destino de almacenamiento** | **E/S de disco promedio de origen** |**Actividad de datos media de disco de origen** | **Actividad de datos de disco de origen total por día**
+**Destino de almacenamiento** | **E/S de disco promedio de origen** |**Actividad de datos del disco de origen promedio** | **Actividad de datos del disco de origen total por día**
 ---|---|---|---
 Standard Storage | 8 KB | 2 MB/s | 168 GB por disco
 Disco Premium P10 o P15 | 8 KB  | 2 MB/s | 168 GB por disco

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/22/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 017461d5b73bb48ce61678fbbd795026cef60bc1
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ba69a5aaffb39c26731ffd209587a8c8223b032a
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536857"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915364"
 ---
 # <a name="enabling-azure-diagnostics-in-azure-cloud-services"></a>Habilitación de diagnósticos de Azure en Azure Cloud Services
 Consulte [Introducción a Diagnósticos de Azure](../azure-diagnostics.md) para obtener información sobre Diagnósticos de Azure.
@@ -191,7 +191,7 @@ En el **Explorador de servidores** de Visual Studio, navegue hasta la cuenta de 
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## <a name="configuration-file-schema"></a>Esquema del archivo de configuración
-El archivo de configuración de Diagnósticos define valores que se usan para inicializar la configuración de diagnóstico al iniciar el agente de diagnósticos. Consulte en la [referencia de esquema más reciente](https://msdn.microsoft.com/library/azure/mt634524.aspx) los valores válidos y ejemplos.
+El archivo de configuración de Diagnósticos define valores que se usan para inicializar la configuración de diagnóstico al iniciar el agente de diagnósticos. Consulte en la [referencia de esquema más reciente](/azure/azure-monitor/platform/diagnostics-extension-schema) los valores válidos y ejemplos.
 
 ## <a name="troubleshooting"></a>solución de problemas
 Si tiene problemas, consulte [Solución de problemas de Diagnósticos de Azure](../azure-diagnostics-troubleshooting.md) para obtener ayuda relacionada con problemas comunes.

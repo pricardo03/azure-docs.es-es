@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: d0d725a57c27fe30215d77a596f6fb3b8c8720d6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8041e7e02b117b8938f0f7c18da2d57c31dddb34
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58098015"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482271"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Implementación de un clúster de Service Fabric en Azure Stack
 
@@ -61,7 +61,7 @@ Use el siguiente script para crear el identificador de KeyVault y agregar el *ce
 > [!TIP]  
 > Antes de ejecutar correctamente el script, debe haber una oferta pública que incluya los servicios para Compute, Network, Storage y KeyVault. 
 
-  ```PowerShell
+  ```powershell
     function Get-ThumbprintFromPfx($PfxFilePath, $Password) 
         {
             return New-Object System.Security.Cryptography.X509Certificates.X509Certificate2($PfxFilePath, $Password)
@@ -211,7 +211,7 @@ Puede acceder al clúster de Service Fabric mediante el uso de Service Fabric Ex
 
 1. Después de cambiar el orden de las variables de entorno, reinicie PowerShell y, a continuación, ejecute el siguiente script de PowerShell para acceder al clúster de Service Fabric:
 
-   ```PowerShell  
+   ```powershell  
     Connect-ServiceFabricCluster -ConnectionEndpoint "\[Service Fabric
     CLUSTER FQDN\]:19000" \`
 

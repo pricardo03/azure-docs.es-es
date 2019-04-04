@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2016
 ms.author: jehollan
-ms.openlocfilehash: 6cde5b8ba8d770a07199816286b666e952394de1
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: HT
+ms.openlocfilehash: 15e581454b60319ab734f2fa5faf0d90e0a7c8bf
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27963679"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893731"
 ---
 # <a name="get-started-with-the-delay-and-delay-until-actions"></a>Introducción a las acciones de retraso y retraso hasta
 Con las acciones de retraso y retraso hasta, puede completar escenarios de flujo de trabajo como los siguientes.
@@ -33,7 +33,9 @@ Por ejemplo, puede:
 Para empezar a usar la acción de retraso en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-delay-actions"></a>Uso de las acciones de retraso
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](connectors-overview.md).
+
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. 
+[Más información acerca de las acciones](../connectors/apis-list.md).
 
 Esta es una secuencia de ejemplo de cómo usar un paso de retraso en una aplicación lógica:
 
@@ -56,7 +58,7 @@ Un * significa que es un campo obligatorio.
 | Nombre para mostrar | Nombre de propiedad | DESCRIPCIÓN |
 | --- | --- | --- |
 | Recuento* |count |El número de unidades de tiempo de retraso |
-| Unidad* |unit |La unidad de tiempo: `Second`, `Minute`, `Hour` o `Day`. |
+| Unidad* |unit |La unidad de tiempo: `Second`, `Minute`, `Hour`, o `Day` |
 
 <br>
 
@@ -66,12 +68,12 @@ Un * significa que es un campo obligatorio.
 
 | Nombre para mostrar | Nombre de propiedad | DESCRIPCIÓN |
 | --- | --- | --- |
-| Año* |timestamp |El año hasta el que retrasar (GMT) |
-| Mes* |timestamp |El mes hasta el que retrasar (GMT) |
-| Día* |timestamp |El día hasta el que retrasar (GMT) |
+| Año* | timestamp |El año hasta el que retrasar (GMT) |
+| Mes* | timestamp |El mes hasta el que retrasar (GMT) |
+| Día* | timestamp |El día hasta el que retrasar (GMT) |
 
 <br>
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
 

@@ -15,12 +15,12 @@ ms.date: 01/14/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 3df5bd177dfd88e74a8dbc72dd1966a18a61d0f8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2c2b0d022c81dffe5e98932c22b9707eb10b7e63
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57860591"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481729"
 ---
 # <a name="tutorial-create-a-geo-distributed-app-solution-with-azure-and-azure-stack"></a>Tutorial: Creación de una solución de aplicación distribuida geográficamente con Azure y Azure Stack
 
@@ -123,7 +123,7 @@ Configure la canalización de CI/CD híbrida para implementar la aplicación web
 
 ### <a name="create-web-app-deployment-in-both-clouds"></a>Creación de una implementación de aplicaciones web en ambas nubes
 
-1.  Edite el archivo **WebApplication.csproj**: Seleccione **Runtimeidentifier** y agregue **win10-x64**. (Consulte la documentación de [Implementaciones autocontenidas](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)).
+1.  Edite el archivo **WebApplication.csproj**: Seleccione Runtimeidentifier y agregue **win10-x64**. (Consulte la documentación de [Implementaciones autocontenidas](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd)).
 
     ![Texto alternativo](media/azure-stack-solution-geo-distributed/image3.png)
 
@@ -472,7 +472,7 @@ Exporte el certificado SSL combinado con la clave privada generada por el certif
 
 Se crea un archivo de clave privada a través de OpenSSL. Para exportar el certificado a PFX, ejecute el comando siguiente, reemplazando los marcadores de posición *<private-key-file>* y *<merged-certificate-file>* con las rutas de acceso de la clave privada y el archivo de certificado combinado.
 
-```PowerShell
+```powershell
 openssl pkcs12 -export -out myserver.pfx -inkey <private-key-file> -in <merged-certificate-file>
 ```
 

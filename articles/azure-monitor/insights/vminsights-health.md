@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2019
+ms.date: 04/02/2019
 ms.author: magoedte
-ms.openlocfilehash: 38236cba6af46df2701bb0128fe9d78e95aa6ec7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 987d28470b8a848755cdd7d1264ba7f7f66544df
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58076826"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918950"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Descripción del estado de las máquinas virtuales de Azure con Azure Monitor para VM (versión preliminar)
 Azure incluye varios servicios que realizan individualmente una tarea o un rol específico en el espacio de supervisión, pero hasta ahora no era posible proporcionar una perspectiva detallada del estado del sistema operativo hospedado en máquinas virtuales de Azure.  Aunque podría supervisar para condiciones diferentes mediante Azure Monitor, se no se ha diseñado para modelar y representan el estado general de la máquina virtual o de mantenimiento de los componentes principales.  Con la característica de estado de Azure Monitor para máquinas virtuales, la disponibilidad y el rendimiento del sistema operativo invitado Windows o Linux se supervisan de forma proactiva con un modelo que representa los principales componentes y sus relaciones, así como los criterios que especifican cómo se debe medir el estado de dichos componentes y, además, le avisa cuando se detecta una condición de estado incorrecto.  
@@ -28,23 +28,6 @@ El estado de mantenimiento general de la máquina virtual de Azure y el sistema 
 En este artículo le ayudamos a comprender cómo puede evaluar, investigar y resolver rápidamente los problemas detectados.
 
 Para obtener más información sobre cómo configurar Azure Monitor para máquinas virtuales, consulte el artículo [Enable Azure Monitor for VMs](vminsights-onboard.md) (Habilitar Azure Monitor para máquinas virtuales).
-
-> [!NOTE]
-> A partir del 11 de febrero de 2019, empezaremos a migrar el contenido del modelo de mantenimiento que se encuentra en la característica de mantenimiento de Azure Monitor para VM (que estará visible cuando use la experiencia de diagnóstico de mantenimiento) a una nueva versión del modelo de mantenimiento. Esta actualización mejorará el rendimiento del procesamiento de acumulación de mantenimiento e incluirá un modelo de mantenimiento refinado que se muestra en la vista de diagnóstico de mantenimiento. 
-> 
-> Gracias al nuevo modelo de mantenimiento, la acumulación de los criterios de mantenimiento secundarios en los criterios de mantenimiento principales o de nivel de entidad será más rápida y, como resultado, el estado de mantenimiento de las actualizaciones principales en el estado deseado o de destino tendrá menos latencia. Igualmente, aún puede filtrar los criterios de mantenimiento en las categorías **Rendimiento** y **Disponibilidad**, a diferencia del método anterior basado en pestañas y que se usa para seleccionar cualquiera de las categorías de la vista.
-> 
-> Para obtener más detalles sobre la nueva experiencia de diagnósticos de mantenimiento, consulte la [sección](#health-diagnostics) de diagnósticos de mantenimiento de este artículo. 
-> 
-> Esta actualización mejorará lo siguiente: 
-> 
-> - El procesamiento de acumulación de mantenimiento con una latencia reducida.  
-> - Ofrecerá alertas más rápidas cuando haya cambios en el estado de mantenimiento. 
-> - Actualizará aún más rápido el estado de mantenimiento en la vista de la máquina virtual agregada para todas las máquinas virtuales. 
-> 
-> No existe hay ninguna regresión de las funcionalidades que se ofrecen hoy en día con la característica de mantenimiento de Azure Monitor para máquinas virtuales.
-> 
-> Como consecuencia de este cambio, se verán afectadas las dos experiencias de diagnóstico de mantenimiento: se restablecerá el historial de cambios de estado y los cambios de estado anteriores de los criterios de mantenimiento no estarán disponibles para su revisión en la columna de cambio de estado de la página de diagnósticos de mantenimiento. Si está interesado en obtener los datos históricos de cualquier máquina virtual crítica de misión, puede hacer una captura de pantalla de los datos de los criterios de mantenimiento y los cambios de estado correspondientes para tenerlos como referencia. 
 
 ## <a name="monitoring-configuration-details"></a>Detalles de configuración de supervisión
 En esta sección se describen los criterios de estado predeterminados definidos para supervisar las máquinas virtuales Linux y Windows de Azure. Todos los criterios de mantenimiento están preconfigurados para enviar una alerta cuando se dé una condición de mal estado. 
@@ -70,7 +53,7 @@ En esta sección se describen los criterios de estado predeterminados definidos 
 - Porcentaje total del ancho de banda usado
 - Porcentaje de ancho de banda para la escritura
 - Porcentaje de memoria asignada en uso
-- Porcentaje de tiempo de inactividad del disco físico
+- Porcentaje de tiempo de inactividad del disco
 - Service Health del cliente DHCP
 - Service Health del cliente DNS
 - Service Health de RPC
@@ -89,10 +72,7 @@ En esta sección se describen los criterios de estado predeterminados definidos 
 - % de espacio disponible en el disco lógico
 - % de inode disponibles en el disco lógico
 - Estado del adaptador de red
-- Porcentaje de tiempo de DPC del procesador
-- Porcentaje de tiempo del procesador
 - Porcentaje de tiempo del procesador total
-- Porcentaje de tiempo de DPC total
 - Megabytes disponibles de memoria del sistema operativo
 
 ## <a name="sign-in-to-the-azure-portal"></a>Inicio de sesión en Azure Portal

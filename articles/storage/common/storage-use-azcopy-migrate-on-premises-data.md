@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/14/2017
 ms.author: rogarana
 ms.subservice: common
-ms.openlocfilehash: b7dbea4736eae3371d288883ba40d8edfe310869
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 40138a69baf9cd621b2f287b2fe035225bfd9bec
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727951"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877506"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-by-using-azcopy"></a>Tutorial: Migración de datos locales al almacenamiento en la nube mediante AzCopy
 
@@ -59,7 +59,7 @@ El nombre de contenedor debe empezar por una letra o un número. Solo puede cont
 
 Puede usar AzCopy para cargar todos los archivos en una carpeta en Blob Storage en [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy#upload-blobs-to-blob-storage) o [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux#blob-download). Para cargar todos los blobs en una carpeta, escriba el siguiente comando de AzCopy:
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# [<a name="linux"></a>Linux](#tab/linux)
 
     azcopy \
         --source /mnt/myfolder \
@@ -67,7 +67,7 @@ Puede usar AzCopy para cargar todos los archivos en una carpeta en Blob Storage 
         --dest-key <key> \
         --recursive
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# [<a name="windows"></a> Windows](#tab/windows)
 
     AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S
 ---
@@ -82,7 +82,7 @@ Puede utilizar AzCopy para [cargar archivos](https://docs.microsoft.com/azure/st
 
 Si solo desea copiar los recursos de origen que no existen en el destino, especifique ambos parámetros `--exclude-older` y `--exclude-newer` (Linux) o `/XO` y `/XN` (Windows) en el comando de AzCopy. AzCopy carga solo los datos actualizados, en función de su marca de tiempo.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# [<a name="linux"></a>Linux](#tab/linux)
 
     azcopy \
     --source /mnt/myfolder \
@@ -91,7 +91,7 @@ Si solo desea copiar los recursos de origen que no existen en el destino, especi
     --recursive \
     --exclude-older
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# [<a name="windows"></a> Windows](#tab/windows)
 
     AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /S /XO
 ---
@@ -102,11 +102,11 @@ Puede crear una tarea programada o un trabajo cron que ejecute un script de AzCo
 
 Copie el comando de AzCopy en un editor de texto. Actualice los valores de parámetro del comando de AzCopy con los valores adecuados. Guarde el archivo como `script.sh` (Linux) o `script.bat` (Windows) para AzCopy.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# [<a name="linux"></a>Linux](#tab/linux)
 
     azcopy --source /mnt/myfiles --destination https://myaccount.blob.core.windows.net/mycontainer --dest-key <key> --recursive --exclude-older --exclude-newer --verbose >> Path/to/logfolder/`date +\%Y\%m\%d\%H\%M\%S`-cron.log
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# [<a name="windows"></a> Windows](#tab/windows)
 
     cd C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy
     AzCopy /Source: C:\myfolder  /Dest:https://myaccount.blob.core.windows.net/mycontainer /DestKey:<key> /V /XO /XN >C:\Path\to\logfolder\azcopy%date:~-4,4%%date:~-7,2%%date:~-10,2%%time:~-11,2%%time:~-8,2%%time:~-5,2%.log
@@ -117,7 +117,7 @@ AzCopy se ejecuta con la opción detallada `--verbose` (Linux) o `/V` (Windows).
 En este tutorial, se utiliza [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) para crear una tarea programada en Windows. El comando [Crontab](http://crontab.org/) se utiliza para crear un trabajo cron en Linux.
  **Schtasks** permite a un administrador crear, eliminar, consultar, cambiar, ejecutar y finalizar tareas programadas en un equipo local o remoto. **Cron** permite a los usuarios de Unix y Linux ejecutar comandos o scripts en una fecha y hora especificadas mediante [expresiones cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
-# <a name="linuxtablinux"></a>[Linux](#tab/linux)
+# [<a name="linux"></a>Linux](#tab/linux)
 
 Para crear un trabajo cron en Linux, escriba el siguiente comando en un terminal:
 
@@ -126,9 +126,9 @@ crontab -e
 */5 * * * * sh /path/to/script.sh
 ```
 
-Especificar la expresión cron `*/5 * * * * ` en el comando indica que el script de shell `script.sh` debe ejecutarse cada cinco minutos. Puede programar que el script se ejecute en un momento determinado todos los días, meses o años. Para más información sobre cómo establecer la fecha y la hora de ejecución de un trabajo, consulte las [expresiones cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
+Especificar la expresión cron `*/5 * * * *` en el comando indica que el script de shell `script.sh` debe ejecutarse cada cinco minutos. Puede programar que el script se ejecute en un momento determinado todos los días, meses o años. Para más información sobre cómo establecer la fecha y la hora de ejecución de un trabajo, consulte las [expresiones cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
-# <a name="windowstabwindows"></a>[Windows](#tab/windows)
+# [<a name="windows"></a> Windows](#tab/windows)
 
 Para crear una tarea programada en Windows, escriba el siguiente comando en un símbolo del sistema o en PowerShell:
 

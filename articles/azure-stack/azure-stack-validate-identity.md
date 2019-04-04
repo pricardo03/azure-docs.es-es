@@ -16,12 +16,12 @@ ms.date: 03/23/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 03/23/2019
-ms.openlocfilehash: 3dfb87e5f6c231831cd9c007b19ad001e1fce326
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: b6a859f1104be8650b95ac789f3da606fb1b70f6
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403194"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486689"
 ---
 # <a name="validate-azure-identity"></a>Validación de la identidad de Azure
 
@@ -85,7 +85,7 @@ Se necesitan los siguientes requisitos previos:
 
 4. Después de ejecutar la herramienta, revise el resultado. Confirme que el estado es correcto para los requisitos de instalación. Una validación correcta tiene un aspecto similar al de la siguiente imagen:
 
-   ```shell
+   ```powershell
    Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
    Starting Azure Identity Validation
 
@@ -119,7 +119,7 @@ Los ejemplos siguientes ofrecen instrucciones sobre errores de validación comun
 
 ### <a name="expired-or-temporary-password"></a>Contraseña temporal o expirada
 
-```shell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -145,9 +145,9 @@ Login-AzureRMAccount
 
 O bien, inicie sesión en [Azure Portal](https://portal.azure.com) con el propietario de la cuenta y el usuario se verá obligado a cambiar la contraseña.
 
-### <a name="unknown-user-type"></a>Tipo de usuario desconocido
-
-```shell
+### <a name="unknown-user-type"></a>Tipo de usuario desconocido 
+ 
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 
@@ -173,7 +173,7 @@ Login-AzureRmAccount –EnvironmentName AzureChinaCloud
 
 ### <a name="account-is-not-an-administrator"></a>La cuenta no es de administrador
 
-```shell
+```powershell
 Invoke-AzsAzureIdentityValidation v1.1809.1005.1 started.
 Starting Azure Identity Validation
 

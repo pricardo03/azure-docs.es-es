@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
-ms.openlocfilehash: aa62db0948ffa036b37736477b872d694d14836b
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762620"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917483"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introducción a Azure Cloud Services y ASP.NET
 
 ## <a name="overview"></a>Información general
-En este tutorial se muestra cómo crear una aplicación .NET de múltiples niveles con un front-end ASP.NET MVC e implementarla en un [servicio en la nube de Azure](cloud-services-choose-me.md). La aplicación usa [Azure SQL Database](https://msdn.microsoft.com/library/azure/ee336279), el [servicio Azure Blob service](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) y el [servicio Azure Queue service](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Puede [descargar el proyecto de Visual Studio](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) desde la Galería de código de MSDN.
+En este tutorial se muestra cómo crear una aplicación .NET de múltiples niveles con un front-end ASP.NET MVC e implementarla en un [servicio en la nube de Azure](cloud-services-choose-me.md). La aplicación usa [Azure SQL Database](/previous-versions/azure/ee336279(v=azure.100)), el [servicio Azure Blob service](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/unstructured-blob-storage) y el [servicio Azure Queue service](https://www.asp.net/aspnet/overview/developing-apps-with-windows-azure/building-real-world-cloud-apps-with-windows-azure/queue-centric-work-pattern). Puede [descargar el proyecto de Visual Studio](https://code.msdn.microsoft.com/Simple-Azure-Cloud-Service-e01df2e4) desde la Galería de código de MSDN.
 
 En el tutorial se muestra cómo crear y ejecutar la aplicación localmente, cómo implementarla en Azure y ejecutarla en la nube y, por último, cómo crearla desde cero. Puede comenzar por crearla desde cero y después llevar a cabo los pasos de prueba e implementación si lo prefiere.
 
@@ -81,7 +81,7 @@ Cuando un usuario carga una imagen, el front-end que se ejecuta en un rol web al
 6. Si va a usar Visual Studio 2015 o una versión superior, cambie la cadena de conexión del servidor SQL Server en el archivo *Web.config* del proyecto ContosoAdsWeb y en el archivo *ServiceConfiguration.Local.cscfg* del proyecto ContosoAdsCloudService. En cada caso, cambie "(localdb) \v11.0" por "(localdb) \MSSQLLocalDB".
 7. Presione CTRL+F5 para ejecutar la aplicación.
 
-    Cuando ejecuta un proyecto de servicio en la nube localmente, Visual Studio invoca automáticamente al *emulador de proceso* y al *emulador de almacenamiento*, ambos de Azure. El emulador de proceso usa los recursos del equipo para simular los entornos de los roles web y de trabajo. El emulador de almacenamiento usa una [base de datos LocalDB de SQL Server Express](https://msdn.microsoft.com/library/hh510202.aspx) para simular el almacenamiento en la nube de Azure.
+    Cuando ejecuta un proyecto de servicio en la nube localmente, Visual Studio invoca automáticamente al *emulador de proceso* y al *emulador de almacenamiento*, ambos de Azure. El emulador de proceso usa los recursos del equipo para simular los entornos de los roles web y de trabajo. El emulador de almacenamiento usa una [base de datos LocalDB de SQL Server Express](/sql/database-engine/configure-windows/sql-server-2016-express-localdb) para simular el almacenamiento en la nube de Azure.
 
     La primera vez que ejecuta un proyecto de servicio en la nube, los emuladores tardan alrededor de un minuto en iniciarse. Cuando el inicio del emulador finaliza, se abre el explorador predeterminado en la página de inicio de la aplicación.
 
@@ -178,7 +178,7 @@ En una aplicación real, normalmente crearía cuentas independientes para los da
 
     Cuando la cuenta de almacenamiento y el servicio en la nube se encuentren en centros de datos diferentes (distintas regiones), la latencia aumentará y se le cobrará el ancho de banda no perteneciente al centro de datos. El ancho de banda del centro de datos es gratuito.
 
-    Los grupos de afinidad de Azure proporcionan un mecanismo para minimizar la distancia entre los recursos de un centro de datos, lo que puede reducir la latencia. Este tutorial no usa grupos de afinidad. Para obtener información, consulte [Creación de un grupo de afinidad en Azure](https://msdn.microsoft.com/library/azure/gg715317.aspx).
+    Los grupos de afinidad de Azure proporcionan un mecanismo para minimizar la distancia entre los recursos de un centro de datos, lo que puede reducir la latencia. Este tutorial no usa grupos de afinidad. Para obtener información, consulte [Creación de un grupo de afinidad en Azure](/previous-versions/azure/reference/gg715317(v=azure.100)).
 7. Haga clic en **Create**(Crear).
 
     ![New storage account](./media/cloud-services-dotnet-get-started/newstorage.png)
@@ -549,7 +549,7 @@ queueClient.DefaultRequestOptions.RetryPolicy = new LinearRetry(TimeSpan.FromSec
 imagesQueue = queueClient.GetQueueReference("images");
 ```
 
-La mayoría del código del controlador es típico para trabajar con un modelo de datos de usando Entity Framework usando una clase DbContext. Una excepción es el método HttpPost `Create` , que carga un archivo y lo guarda en el almacenamiento de blobs. El enlazador de modelos proporciona un objeto [HttpPostedFileBase](https://msdn.microsoft.com/library/system.web.httppostedfilebase.aspx) al método.
+La mayoría del código del controlador es típico para trabajar con un modelo de datos de usando Entity Framework usando una clase DbContext. Una excepción es el método HttpPost `Create` , que carga un archivo y lo guarda en el almacenamiento de blobs. El enlazador de modelos proporciona un objeto [HttpPostedFileBase](/dotnet/api/system.web.httppostedfilebase) al método.
 
 ```csharp
 [HttpPost]
@@ -703,7 +703,7 @@ Después de cada iteración del bucle, si no se encuentra ningún mensaje de col
 
 Algunas veces, el contenido de un mensaje de cola causa un error de procesamiento. Esto se llama *mensaje dudoso*y si simplemente registró un error y reinició el bucle, podría intentar procesar ese mensaje incesantemente.  Por tanto, el bloque de captura incluye una declaración if que comprueba el número de veces que la aplicación ha intentado procesar el mensaje actual y, si dicho número es superior a 5, el mensaje se elimina de la cola.
 
-`ProcessQueueMessage` se llama cuando se encuentra un mensaje de cola.
+`ProcessQueueMessage` se llama cuando se encuentra un mensaje en cola.
 
 ```csharp
 private void ProcessQueueMessage(CloudQueueMessage msg)
@@ -775,7 +775,7 @@ Para ver un vídeo introductorio de los procedimientos y modelos recomendados de
 
 Para obtener más información, consulte los siguientes recursos:
 
-* [Azure Cloud Services Part 1 (Azure Cloud Services, parte 1): Introducción](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [Administración de Cloud Services](cloud-services-how-to-manage-portal.md)
+* [Servicios de nube de Azure, parte 1: Introducción](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Cómo administrar servicios en la nube](cloud-services-how-to-manage-portal.md)
 * [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [Cómo se elige un proveedor de servicios en la nube](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
