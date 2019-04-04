@@ -3,17 +3,17 @@ title: 'Inicio rápido: Ingesta de datos del centro de eventos a Azure Data Expl
 description: En esta guía de inicio rápido obtendrá información sobre cómo ingerir (cargar) datos en el Explorador de datos de Azure desde el centro de eventos.
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 02/2/2018
-ms.openlocfilehash: 7b724219750154c5ec1410af64175bc70f5cbd6c
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: fcc4a50cb57e15021a3be1266d660c33501dbe82
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805822"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758674"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Inicio rápido: Ingesta de datos del centro de eventos a Azure Data Explorer
 

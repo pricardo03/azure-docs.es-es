@@ -12,12 +12,12 @@ ms.author: jovanpop-msft
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 33a0e90f1a0b63138168c44b87385c05aac39c69
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d157d3f4dbc7a88a356cdd754326cbff1080ac1
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57869768"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58846462"
 ---
 # <a name="use-powershell-with-azure-resource-manager-template-to-create-a-managed-instance-in-azure-sql-database"></a>Uso de PowerShell junto con una plantilla de Azure Resource Manager para crear una instancia administrada en Azure SQL Database
 
@@ -44,8 +44,8 @@ El nombre de la instancia, el nombre de usuario del administrador SQL, la red vi
 En este ejemplo se supone que ha [creado un entorno de red válido](../sql-database-managed-instance-create-vnet-subnet.md) o que ha [modificado la red virtual existente](../sql-database-managed-instance-configure-vnet-subnet.md) para la Instancia administrada. El ejemplo usa los commandlets [New-AzResourceGroupDeployment](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroupdeployment) y [Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork), así que asegúrese de que ha instalado los módulos de PowerShell siguientes:
 
 ```
-Install-Module AzureRM.Network
-Install-Module AzureRM.Resources
+Install-Module Az.Network
+Install-Module Az.Resources
 ```
 
 ## <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure

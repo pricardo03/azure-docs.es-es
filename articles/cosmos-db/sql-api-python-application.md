@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 02/23/2017
 ms.author: sngun
-ms.openlocfilehash: 2830772dd69ac94c2b8373936665b9445f9f5f10
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 24426a4249934af1d85f43552617cda7c1d7e172
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57431213"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883894"
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Compilación de una aplicación web Node.js de Python Flask mediante Azure cosmos DB
 
@@ -417,7 +417,7 @@ Ahora que ya tiene la aplicación completa funcionando correctamente en Azure Co
     ![Resultados de la publicación de las aplicaciones Bottle, Flask y Django en App Service](./media/sql-api-python-application/python-published-app-services.png)
 
     > [!Tip] 
-    > Si no aparece la página web o si continúa apareciendo el mensaje "No se puede mostrar la página. Error interno en el servidor", abra el archivo web.config en Kudo y agregue ` <httpErrors errorMode="Detailed"></httpErrors>` a la sección system.webServer y actualice la página. Esto proporcionará una salida de errores detallada al explorador. 
+    > Si no aparece la página web o si continúa apareciendo el mensaje "No se puede mostrar la página. Error interno en el servidor", abra el archivo web.config en Kudo y agregue `<httpErrors errorMode="Detailed"></httpErrors>` a la sección system.webServer y actualice la página. Esto proporcionará una salida de errores detallada al explorador. 
 
 ## <a name="troubleshooting"></a>solución de problemas
 Si esta es la primera aplicación de Python que se ejecuta en el equipo, asegúrese de que las carpetas siguientes (o las ubicaciones de instalación equivalentes) se incluyen en la variable PATH:
