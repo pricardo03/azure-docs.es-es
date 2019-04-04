@@ -1,16 +1,22 @@
 ---
 title: 'Documentación de Azure Data Lake Storage Gen1: tutoriales y referencia de API | Microsoft Docs'
-description: 'Aprenda cómo configurar, administrar y acceder a un repositorio de Data Lake de gran escala, compatible con Hadoop, para analizar datos de cualquier tamaño, tipo y velocidad de ingesta.'
+description: Aprenda cómo configurar, administrar y acceder a un repositorio de Data Lake de gran escala, compatible con Hadoop, para analizar datos de cualquier tamaño, tipo y velocidad de ingesta.
 services: data-lake-store
 author: twooley
 manager: twooley
 layout: LandingPage
-ms.assetid: null
+ms.assetid: ''
 ms.service: data-lake-store
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
+ms.openlocfilehash: 24d6f41e2415d9a8a6113135bf11c98b1e19f1f7
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904668"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Documentación de Azure Data Lake Storage Gen1
 
@@ -175,8 +181,8 @@ Aprenda cómo usar Azure Data Lake Storage Gen1 (anteriormente conocido como Azu
                 <div class="card">
                     <div class="cardText">
                         <h3>Línea de comandos</h3>
-                        <p><a href="/powershell/module/azurerm.datalakestore/">PowerShell</a></p>
-                        <p><a href="/cli/azure/dls">CLI de Azure</a></p>
+                        <p><a href="/powershell/module/az.datalakestore/">PowerShell</a></p>
+                        <p><a href="/cli/azure/dls">Azure CLI</a></p>
                     </div>
                 </div>
             </div>

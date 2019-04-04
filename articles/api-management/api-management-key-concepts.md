@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 11/15/2017
 ms.author: apimpm
 ms.custom: mvc
-ms.openlocfilehash: 0ede6c0c55e2f953e0d109d2d371313759ed4d06
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: 2ed29f50278afe5bf7cd3daabe088cee55caae06
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52965162"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793958"
 ---
 # <a name="what-is-api-management"></a>¿Qué es API Management?
 
@@ -101,7 +101,7 @@ Para más información, consulte [Creación o invitación de desarrolladores][Ho
 ## <a name="policies"> </a> Directivas
 Las directivas son una eficaz funcionalidad de API Management que permite a Azure Portal cambiar el comportamiento de la API a través de la configuración. Las directivas son una colección de declaraciones que se ejecutan secuencialmente en la solicitud o respuesta de una API. Entre las declaraciones más usadas se encuentran la conversión de formato de XML a JSON y la limitación de tasa de llamadas para restringir el número de llamadas entrantes de un desarrollador, pero también hay muchas otras directivas disponibles.
 
-Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de API Management, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control](https://msdn.microsoft.com/library/azure/dn894085.aspx#choose) y [Establecer variable](https://msdn.microsoft.com/library/azure/dn894085.aspx#set-variable) se basan en expresiones de directiva. Para más información, consulte [Directivas avanzadas](https://msdn.microsoft.com/library/azure/dn894085.aspx#AdvancedPolicies) y [Expresiones de directiva](https://msdn.microsoft.com/library/azure/dn910913.aspx).
+Las expresiones de directiva pueden utilizarse como valores de atributos o valores de texto en cualquiera de las directivas de API Management, a menos que la directiva especifique lo contrario. Algunas directivas como [Flujo de control](/azure/api-management/api-management-advanced-policies#choose) y [Establecer variable](/azure/api-management/api-management-advanced-policies#set-variable) se basan en expresiones de directiva. Para más información, consulte [Directivas avanzadas](/azure/api-management/api-management-advanced-policies#AdvancedPolicies) y [Expresiones de directiva](/azure/api-management/api-management-policy-expressions).
 
 
 Para obtener una lista completa de las directivas de API Management, consulte [Referencia de la directiva][Policy reference]. Para más información acerca del uso y la configuración de directivas, consulte [Directivas de API Management][API Management policies]. Para ver un tutorial sobre la creación de un producto con directivas de cuota y límite de tasas, consulte [Creación y definición de configuraciones de productos avanzadas][How create and configure advanced product settings].

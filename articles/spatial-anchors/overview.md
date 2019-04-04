@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 24a35b387a8b47d44f742303ddde0a0e8fb47fe6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2451922f0eb49a5ccee036db72eb046760287dca
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57833805"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58628873"
 ---
 # <a name="azure-spatial-anchors-overview"></a>Introducción a Azure Spatial Anchors
 
@@ -30,7 +30,7 @@ Algunos ejemplos de uso de los delimitadores espaciales son:
 
 - [Búsqueda de caminos](concepts/anchor-relationships-way-finding.md). Los desarrolladores también pueden conectar delimitadores espaciales entre sí para crear relaciones entre ellos. Por ejemplo, una aplicación puede incluir una experiencia que tenga dos o más puntos de interés con los que un usuario debe interactuar para completar una tarea. Los puntos de interés se pueden crear en un modo conectado. Más adelante, cuando el usuario esté completando la tarea en varios pasos, la aplicación puede pedir a los delimitadores que están cerca del actual que dirijan al usuario hacia el siguiente paso de la tarea.
 
-- [Conservación del contenido virtual en el mundo real](concepts/create-locate-anchors-unity.md#create-a-cloud-spatial-anchor). Una aplicación puede permitir que un usuario coloque un calendario virtual en la pared de una sala de conferencias, que los asistentes pueden ver con una aplicación de teléfono o un dispositivo HoloLens. En un entorno industrial, un usuario podría recibir información contextual sobre una máquina señalándola con la cámara de un dispositivo compatible.
+- [Conservación del contenido virtual en el mundo real](how-tos/create-locate-anchors-unity.md#create-a-cloud-spatial-anchor). Una aplicación puede permitir que un usuario coloque un calendario virtual en la pared de una sala de conferencias, que los asistentes pueden ver con una aplicación de teléfono o un dispositivo HoloLens. En un entorno industrial, un usuario podría recibir información contextual sobre una máquina señalándola con la cámara de un dispositivo compatible.
 
 Azure Spatial Anchors está compuesto por un servicio administrado y el SDK de cliente para las plataformas de dispositivos compatibles. En las secciones siguientes se proporciona información acerca de cómo empezar a crear aplicaciones con Azure Spatial Anchors.
 

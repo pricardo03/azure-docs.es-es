@@ -6,16 +6,18 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 10/17/2018
 ms.author: chrande
-ms.openlocfilehash: 33c97f95bebbc05362547164628d3615f1c920f5
-ms.sourcegitcommit: 8330a262abaddaafd4acb04016b68486fba5835b
+ms.openlocfilehash: 7dfc299c32b25ddf939aa3efcb927697307887a2
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54038133"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904328"
 ---
 # <a name="manage-consistency-levels-in-azure-cosmos-db"></a>Administración de los niveles de coherencia en Azure Cosmos DB
 
 Este artículo explica cómo administrar los niveles de coherencia en Azure Cosmos DB. Aprenderá a configurar el nivel de coherencia predeterminado, invalidar la coherencia predeterminada, administrar manualmente tokens de sesión y comprender la métrica de obsolescencia limitada por probabilidades (PBS).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configure-the-default-consistency-level"></a>Configuración del nivel de coherencia predeterminado
 
@@ -49,7 +51,7 @@ $CosmosDBProperties = @{"databaseAccountOfferType"="Standard";
                         "ipRangeFilter"=$iprangefilter;
                         "enableMultipleWriteLocations"="true"}
 
-New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
   -ApiVersion "2015-04-08" `
   -ResourceGroupName "myResourceGroup" `
   -Location "East US" `
@@ -218,4 +220,4 @@ Use el menú de métricas de Azure Cosmos DB para ver esta métrica. No se muest
 Aprenda cómo administrar los conflictos de datos o pase al siguiente concepto principal de Azure Cosmos DB. Consulte los artículos siguientes:
 
 * [Administración de conflictos entre regiones](how-to-manage-conflicts.md)
-* [Creación de particiones y distribución de datos](partition-data.md)
+* [Partición y distribución de datos](partition-data.md)

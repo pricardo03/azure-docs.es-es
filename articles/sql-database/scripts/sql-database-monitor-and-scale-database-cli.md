@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 18d4127e8babfcb541312d14b80d2d5477feb331
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
+ms.openlocfilehash: 3493a248f557e93b770cf6c48ace84754791f3cd
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55766443"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621964"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>Uso de la CLI para supervisar y escalar una instancia de SQL Database
 
@@ -52,7 +52,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [az sql server create](https://docs.microsoft.com/cli/azure/sql/server#az-sql-server-create) | Crea un servidor de SQL Database que hospeda bases de datos únicas y grupos elásticos. |
-| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql/db) | Muestra la información de uso del tamaño de una base de datos única o agrupada. |
+| [az sql db show-usage](https://docs.microsoft.com/cli/azure/sql#az-sql-show-usage) | Muestra la información de uso del tamaño de una base de datos única o agrupada. |
 | [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update) | Actualiza las propiedades de la base de datos (por ejemplo, el nivel de servicio o el tamaño de proceso), o traslada una base de datos a un grupo elástico, fuera de este o entre grupos elásticos. |
 | [az group delete](https://docs.microsoft.com/cli/azure/vm/extension#az-vm-extension-set) | Elimina un grupo de recursos, incluidos todos los recursos anidados. |
 |||

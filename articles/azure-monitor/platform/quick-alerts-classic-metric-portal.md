@@ -9,18 +9,18 @@ ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ms.subservice: alerts
-ms.openlocfilehash: dcce5e424a5f14cb8f36582635383b0a8ba86caa
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: f8b9db47684a6dd78302f094d8e670da4a61ab2c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54472269"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849812"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Recibir una notificación cuando el valor de una métrica cumple una condición
 
 Azure Monitor pone las métricas a disposición de muchos recursos de Azure. Estas métricas transmiten el rendimiento y el estado de esos recursos. En muchos casos, los valores de las métricas pueden apuntar a algo erróneo de un recurso. Puede crear alertas de métricas para supervisar el comportamiento anómalo y recibir notificaciones si se produce alguno. Este inicio rápido aborda la creación de una aplicación lógica, la creación de un trabajo y la visualización de las métricas para la aplicación lógica. Luego, trata sobre la creación de una alerta y la recepción de una notificación para una métrica para el recurso de la aplicación lógica.
 
-Para obtener más información sobre las métricas y las alertas de métricas, consulte [Azure Monitor metrics overview](../../azure-monitor/platform/data-collection.md) (Información general sobre las métricas de Azure Monitor) e [Azure Monitor alerts overview](./alerts-overview.md) (Información general sobre las alertas en Azure Monitor). 
+Para obtener más información sobre las métricas y las alertas de métricas, consulte [Azure Monitor metrics overview](data-platform.md) (Información general sobre las métricas de Azure Monitor) e [Azure Monitor alerts overview](alerts-overview.md) (Información general sobre las alertas en Azure Monitor). 
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

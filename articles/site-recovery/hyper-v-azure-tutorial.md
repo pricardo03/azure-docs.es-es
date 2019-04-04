@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 5a7161d05b153a556cce20ec4f4d0cbbfdf1d2d1
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 2201a8017f82517f287cc0b73346a90eaa2408a4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315511"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877727"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar la recuperación ante desastres de máquinas virtuales de Hyper-V locales en Azure
 
@@ -87,17 +87,17 @@ En caso de que use un servidor central de Hyper-V, siga los pasos siguientes una
 
 1. Para extraer los archivos de AzureSiteRecoveryProvider.exe, ejecute
 
-    ``AzureSiteRecoveryProvider.exe /x:. /q``
+    `AzureSiteRecoveryProvider.exe /x:. /q`
  
     De este modo, los archivos se extraerán al directorio local.
  
-2.  Ejecute ``.\setupdr.exe /i ``
+2.  Ejecute `.\setupdr.exe /i`
 
     Los resultados se registrarán en %Programdata%\ASRLogs\DRASetupWizard.log
 
 3.  Registre el servidor mediante el comando:
 
-``cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved" ``
+`cd  C:\Program Files\Microsoft Azure Site Recovery Provider\DRConfigurator.exe" /r /Friendlyname "FriendlyName of the Server" /Credentials "path to where the credential file is saved"`
  
 
 ## <a name="set-up-the-target-environment"></a>Configuración del entorno de destino
@@ -140,4 +140,4 @@ Site Recovery comprueba que tiene una o más redes y cuentas de Azure Storage co
    Puede hacer un seguimiento del progreso de la acción **Habilitar protección** en **Trabajos** > **Trabajos de Site Recovery**. Una vez concluido el trabajo **Finalizar protección**, la replicación inicial finaliza y la máquina virtual está preparada para la conmutación por error.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Exploración de la recuperación ante desastres](tutorial-dr-drill-azure.md)
+[Ejecución de un simulacro de recuperación ante desastres](tutorial-dr-drill-azure.md)

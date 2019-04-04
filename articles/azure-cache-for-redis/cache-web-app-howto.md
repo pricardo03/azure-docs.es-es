@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: f0972e840fab3c624616ba8aa70bae74be5b1dc2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0c267b2fbe639d08396d8773e077483b41b9747e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090481"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886376"
 ---
 # <a name="quickstart-create-an-aspnet-web-app"></a>Inicio rápido: Creación de una aplicación web de ASP.NET 
 
@@ -97,7 +97,7 @@ A continuación, creará la caché de la aplicación.
 
 En esta sección, actualizará la aplicación para admitir una nueva vista que muestra una prueba sencilla realizada para una instancia de Azure Redis Cache.
 
-* [Actualización del archivo web.config con una configuración de aplicación para la caché](#Update-the-webconfig-file-with-an-app-setting-for-the-cache)
+* [Actualización del archivo web.config con una configuración de aplicación para la caché](#update-the-webconfig-file-with-an-app-setting-for-the-cache)
 * Configuración de la aplicación para usar el cliente de StackExchange.Redis
 * Actualización de HomeController y Layout
 * Adición de una nueva vista de RedisCache
@@ -116,7 +116,7 @@ Como el archivo *CacheSecrets.config* no se ha implementado en Azure con la apli
 2. En el archivo *web.config*, busque el elemento `<appSetting>`. Después, agregue el atributo `file` siguiente. Si utiliza un nombre de archivo o una ubicación diferente, sustituya los valores por los que se muestran en el ejemplo.
 
 * Antes: `<appSettings>`
-* Después: ` <appSettings file="C:\AppSecrets\CacheSecrets.config">`
+* Después:  `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 El sistema en tiempo de ejecución de ASP.NET combina el contenido del archivo externo con las marcas del elemento `<appSettings>` . El entorno de ejecución omite el atributo de archivo si no se encuentra el archivo especificado. Los secretos (cadena de conexión a la caché) no se incluyen como parte del código fuente de la aplicación. Al implementar la aplicación web en Azure, el archivo *CacheSecrets.config* no se implementará.
 
@@ -277,9 +277,9 @@ Cuando haya probado con éxito la aplicación localmente, puede implementarla en
     | Configuración | Valor recomendado | DESCRIPCIÓN |
     | ------- | :---------------: | ----------- |
     | **Nombre de la aplicación** | Use el valor predeterminado. | El nombre de la aplicación es el nombre de host de la aplicación cuando se implementa en Azure. El nombre puede tener un sufijo de marca de tiempo que se le agrega, si es necesario, para que sea único. |
-    | **Suscripción** | Elija la suscripción de Azure. | En esta suscripción se cargan los costos de hospedaje relacionados. Si tiene varias suscripciones de Azure, compruebe que se selecciona la suscripción deseada.|
+    | **Subscription** | Elija la suscripción de Azure. | En esta suscripción se cargan los costos de hospedaje relacionados. Si tiene varias suscripciones de Azure, compruebe que se selecciona la suscripción deseada.|
     | **Grupos de recursos** | Use el mismo grupo de recursos donde creó la caché (por ejemplo, *TestResourceGroup*). | El grupo de recursos le ayuda a administrar todos los recursos como un grupo. Más adelante, si desea eliminar la aplicación, puede eliminar simplemente el grupo. |
-    | **plan de App Service** | Seleccione **Nuevo** y después cree un nuevo plan de App Service llamado *TestingPlan*. <br />Use la misma **ubicación** que utilizó al crear la caché. <br />Elija **Libre** para el tamaño. | Un plan de App Service define un conjunto de recursos de proceso con los que se ejecuta una aplicación web. |
+    | **Plan de App Service** | Seleccione **Nuevo** y después cree un nuevo plan de App Service llamado *TestingPlan*. <br />Use la misma **ubicación** que utilizó al crear la caché. <br />Elija **Libre** para el tamaño. | Un plan de App Service define un conjunto de recursos de proceso con los que se ejecuta una aplicación web. |
 
     ![Cuadro de diálogo App Service](./media/cache-web-app-howto/cache-create-app-service-dialog.png)
 

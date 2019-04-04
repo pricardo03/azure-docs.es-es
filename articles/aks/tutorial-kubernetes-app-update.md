@@ -2,18 +2,18 @@
 title: 'Tutorial de Kubernetes en Azure: Actualización de una aplicación'
 description: En este tutorial de Azure Kubernetes Service (AKS), aprenderá a actualizar la implementación de una aplicación existente a AKS con una nueva versión del código de la aplicación.
 services: container-service
-author: iainfoulds
+author: zr-msft
 ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: iainfou
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: cefbd4f16902b3a6816ebb4e818a81b18ba00d54
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5415778713261fbb3e57695573c8486cb32da781
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57995556"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756134"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>Tutorial: Actualización de una aplicación en Azure Kubernetes Service (AKS)
 

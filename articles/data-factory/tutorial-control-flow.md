@@ -12,14 +12,15 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: shlo
-ms.openlocfilehash: d2f892941f9d37dd3d74afe17d7952b404dc709f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9a03094683a973db16aa949f0610bc7f9914be45
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551643"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649227"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Actividades de bifurcación y encadenamiento en una canalización de Data Factory
+
 En este tutorial, creará una canalización de Data Factory que muestra algunas de las características del flujo de control. Esta canalización realiza una copia simple de un contenedor en Azure Blob Storage a otro contenedor de la misma cuenta de almacenamiento. Si la actividad de copia se realiza correctamente, será necesario que envíe los detalles de la operación de copia correcta (por ejemplo, la cantidad de datos escritos) en un correo electrónico de operación correcta. Si se produce un error en la actividad de copia, deberá enviar los detalles del error de la copia (por ejemplo, el mensaje de error) en un correo electrónico de operación incorrecta. A lo largo del tutorial, verá cómo pasar parámetros.
 
 Información general del escenario: ![Información general](media/tutorial-control-flow/overview.png)
@@ -56,6 +57,7 @@ Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.m
     John|Doe
     Jane|Doe
     ```
+
 2. Use herramientas como [Explorador de Azure Storage](https://storageexplorer.com/) para crear el contenedor **adfv2branch** y cargar el archivo **input.txt** en el contenedor.
 
 ## <a name="create-visual-studio-project"></a>Creación de un proyecto de Visual Studio
@@ -73,7 +75,7 @@ Con Visual Studio 2015 o 2017, cree una aplicación de consola .NET de C#.
 1. Haga clic en **Herramientas** -> **Administrador de paquetes NuGet** -> **Consola del administrador de paquetes**.
 2. En la **Consola del Administrador de paquetes**, ejecute los comandos siguientes para instalar los paquetes. Consulte el [paquete NuGet Microsoft.Azure.Management.DataFactory](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) para ver los detalles.
 
-    ```
+    ```powershell
     Install-Package Microsoft.Azure.Management.DataFactory
     Install-Package Microsoft.Azure.Management.ResourceManager
     Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory
@@ -139,6 +141,7 @@ Con Visual Studio 2015 o 2017, cree una aplicación de consola .NET de C#.
     ```
 
 ## <a name="create-a-data-factory"></a>Crear una factoría de datos
+
 Cree la función "CreateOrUpdateDataFactory" en el archivo Program.cs:
 
 ```csharp
@@ -173,6 +176,7 @@ Factory df = CreateOrUpdateDataFactory(client);
 ```
 
 ## <a name="create-an-azure-storage-linked-service"></a>Creación de un servicio vinculado de Azure Storage
+
 Cree la función de "StorageLinkedServiceDefinition" en el archivo Program.cs:
 
 ```csharp
@@ -188,6 +192,7 @@ static LinkedServiceResource StorageLinkedServiceDefinition(DataFactoryManagemen
     return linkedService;
 }
 ```
+
 Agregue el código siguiente al método **main** que crea un **servicio vinculado de Azure Storage**. Obtenga más información en la sección [Azure Blob linked service properties](connector-azure-blob-storage.md#linked-service-properties) (Propiedades del servicio vinculado del blob de Azure) sobre los detalles y las propiedades que se admiten.
 
 ```csharp
@@ -199,6 +204,7 @@ client.LinkedServices.CreateOrUpdate(resourceGroup, dataFactoryName, storageLink
 En esta sección, se crean dos conjuntos de datos: uno para el origen y otro para el receptor. 
 
 ### <a name="create-a-dataset-for-source-azure-blob"></a>Creación de un conjunto de datos para el blob de Azure de origen
+
 Agregue el código siguiente al método **Main** que crea un **conjunto de datos de blob de Azure**. Obtenga más información en la sección [Azure Blob dataset properties](connector-azure-blob-storage.md#dataset-properties) (Propiedades del conjunto de datos del blob de Azure) sobre los detalles y las propiedades que se admiten.
 
 Se define un conjunto de datos que representa los datos de origen del blob de Azure. Este conjunto de datos de blob hace referencia al servicio vinculado de Azure Storage que creó en el paso anterior y describe:
@@ -258,6 +264,7 @@ client.Datasets.CreateOrUpdate(resourceGroup, dataFactoryName, blobSinkDatasetNa
 ```
 
 ## <a name="create-a-c-class-emailrequest"></a>Cree una clase de C#: EmailRequest
+
 En el proyecto de C#, cree una clase denominada **EmailRequest**. Esto define qué propiedades envía la canalización en la solicitud del cuerpo al enviar un correo electrónico. En este tutorial, la canalización envía cuatro propiedades desde la canalización al correo electrónico:
 
 - **Message**: cuerpo del correo electrónico. En el caso de que una copia se realice correctamente, esta propiedad contiene los detalles de la ejecución (número de datos escritos). En el caso de que una copia se realice de forma incorrecta, esta propiedad contiene los detalles del error.
@@ -289,10 +296,13 @@ En el proyecto de C#, cree una clase denominada **EmailRequest**. Esto define qu
         }
     }
 ```
+
 ## <a name="create-email-workflow-endpoints"></a>Creación de puntos de conexión de flujo de trabajo del correo electrónico
+
 Para desencadenar el envío de un correo electrónico, use [Logic Apps](../logic-apps/logic-apps-overview.md) a fin de definir el flujo de trabajo. Para obtener más información acerca de cómo crear un flujo de trabajo de una aplicación lógica, consulte [Cómo crear una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). 
 
 ### <a name="success-email-workflow"></a>Flujo de trabajo del correo electrónico de operación correcta 
+
 Cree un flujo de trabajo de aplicación lógica denominado `CopySuccessEmail`. Defina el desencadenador del flujo de trabajo como `When an HTTP request is received` y agregue una acción de `Office 365 Outlook – Send an email`.
 
 ![Flujo de trabajo del correo electrónico de operación correcta](media/tutorial-control-flow/success-email-workflow.png)
@@ -318,6 +328,7 @@ Para el desencadenador de la solicitud, rellene `Request Body JSON Schema` con e
     "type": "object"
 }
 ```
+
 Esto se alinea con la clase **EmailRequest** creada en la sección anterior. 
 
 Su solicitud debería tener un aspecto siguiente a la del Diseñador de aplicación lógica:
@@ -336,6 +347,7 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 ```
 
 ## <a name="fail-email-workflow"></a>Flujo de trabajo del correo electrónico de operación incorrecta 
+
 Clone su **CopySuccessEmail** y crear otro flujo de trabajo de Logic Apps de **CopyFailEmail**. En el desencadenador de solicitudes, `Request Body JSON schema` es el mismo. Simplemente, cambie el formato del correo electrónico, por ejemplo, la parte `Subject`, para adaptarlo para que sea un correo electrónico de operación incorrecta. Este es un ejemplo:
 
 ![Diseñador de aplicación lógica: flujo de trabajo del correo electrónico de operación incorrecta](media/tutorial-control-flow/fail-email-workflow.png)
@@ -356,7 +368,9 @@ https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/path
 //Fail Request Url
 https://prodxxx.eastus.logic.azure.com:443/workflows/000000/triggers/manual/paths/invoke?api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=000000
 ```
+
 ## <a name="create-a-pipeline"></a>Crear una canalización
+
 Agregue el código siguiente al método Main que crea una canalización con una actividad de copia y la propiedad dependsOn. En este tutorial, la canalización contiene una actividad: la actividad de copia, que toma el conjunto de datos del blob como origen y otro conjunto de datos del blob como receptor. Durante la actividad de copia que se realiza de forma correcta e incorrecta, llama a distintas tareas de correo electrónico.
 
 En esta canalización, use las siguientes características:
@@ -440,12 +454,15 @@ static PipelineResource PipelineDefinition(DataFactoryManagementClient client)
             return resource;
         }
 ```
+
 Agregue el código siguiente al método **Main** que crea la canalización:
 
 ```
 client.Pipelines.CreateOrUpdate(resourceGroup, dataFactoryName, pipelineName, PipelineDefinition(client));
 ```
+
 ### <a name="parameters"></a>Parámetros
+
 La primera sección de nuestra canalización define parámetros. 
 
 - sourceBlobContainer: parámetro de la canalización usado por el conjunto de datos del blob de origen.
@@ -461,7 +478,9 @@ Parameters = new Dictionary<string, ParameterSpecification>
         { "receiver", new ParameterSpecification { Type = ParameterType.String } }
     },
 ```
+
 ### <a name="web-activity"></a>Actividad web
+
 La actividad web permite una llamada a cualquier punto de conexión de REST. Para más información sobre la actividad, consulte el artículo [Web Activity](control-flow-web-activity.md) (Actividad web). Esta canalización usa una actividad web para llamar al flujo de trabajo de correo electrónico de Logic Apps. Debe crear dos actividades web: una que llame al flujo de trabajo **CopySuccessEmail** y otra que llame a **CopyFailWorkFlow**.
 
 ```csharp
@@ -481,6 +500,7 @@ La actividad web permite una llamada a cualquier punto de conexión de REST. Par
             }
         }
 ```
+
 En la propiedad "Url", pegue los puntos de conexión de la URL de solicitud del flujo de trabajo de Logic Apps según corresponda. En la propiedad "body", pase una instancia de la clase "EmailRequest". La solicitud de correo electrónico contiene las siguientes propiedades:
 
 - Message, que pasa el valor `@{activity('CopyBlobtoBlob').output.dataWritten`. Tiene acceso a una propiedad de la actividad de copia anterior y pasa el valor de dataWritten. En caso de error, pasa la salida de error en lugar de `@{activity('CopyBlobtoBlob').error.message`.
@@ -491,6 +511,7 @@ En la propiedad "Url", pegue los puntos de conexión de la URL de solicitud del 
 Este código crea una nueva dependencia de actividad, en función de la actividad de copia anterior que ejecuta correctamente.
 
 ## <a name="create-a-pipeline-run"></a>Creación de una ejecución de canalización
+
 Agregue el código siguiente al método **Main** que **desencadena una ejecución de canalización**.
 
 ```csharp
@@ -508,6 +529,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
 ## <a name="main-class"></a>Clase Main 
+
 El método Main final debe tener el aspecto siguiente. Compile y ejecute su programa para desencadenar una ejecución de canalización.
 
 ```csharp
@@ -539,6 +561,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
 ```
 
 ## <a name="monitor-a-pipeline-run"></a>Supervisar una ejecución de canalización
+
 1. Agregue el código siguiente al método **Main** para comprobar continuamente el estado de la ejecución de canalización hasta que termine de copiar los datos.
 
     ```csharp
@@ -578,6 +601,7 @@ Console.WriteLine("Pipeline run ID: " + runResponse.RunId);
     ```
 
 ## <a name="run-the-code"></a>Ejecución del código
+
 Compile e inicie la aplicación y, a continuación, compruebe la ejecución de la canalización.
 La consola imprime el progreso de la creación de la factoría de datos, el servicio vinculado, los conjuntos de datos, la canalización y la ejecución de canalización. A continuación, comprueba el estado de la ejecución de canalización. Espere hasta que vea los detalles de ejecución de actividad de copia con el tamaño de los datos leídos/escritos. A continuación, use herramientas como Explorador de Azure Storage para comprobar que los blobs se copian a "outputBlobPath" desde "inputBlobPath", como se especificó en las variables.
 
@@ -734,6 +758,7 @@ Press any key to exit...
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 En este tutorial, realizó los pasos siguientes: 
 
 > [!div class="checklist"]
