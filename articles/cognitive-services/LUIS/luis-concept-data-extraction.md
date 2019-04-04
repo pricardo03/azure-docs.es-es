@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 3d9c2a694562977c2a012d9faa9c282c6b8fff9d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 76f8fed8d185598d62eef5a412fda2c3fd1317bd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099838"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893986"
 ---
 # <a name="data-extraction-from-intents-and-entities"></a>Extracción de datos de intenciones y entidades
 LUIS ofrece la capacidad de obtener información de expresiones de lenguaje natural de un usuario. La información se extrae de manera que pueda ser usada por un programa, una aplicación o un bot de chat para tomar medidas. En las secciones siguientes, obtendrá información sobre qué datos se devuelven de las intenciones y entidades con ejemplos de JSON.
@@ -432,13 +432,13 @@ Obtener nombres de una expresión es difícil porque un nombre puede ser casi cu
 Las entidades [PersonName](luis-reference-prebuilt-person.md) y [GeographyV2](luis-reference-prebuilt-geographyV2.md) están disponibles en algunas [referencias culturales del idioma](luis-reference-prebuilt-entities.md). 
 
 ### <a name="names-of-people"></a>Nombres de personas
-Los nombres de personas pueden tener un pequeño formato en función del idioma y la referencia cultural. Use una entidad jerárquica con nombres y apellidos como elementos secundarios o una entidad simple con roles de nombres y apellidos. No olvide proporcionar ejemplos que usen el nombre y el apellido en diferentes partes de la expresión, en expresiones de distintas longitudes y expresiones en todas las intenciones, incluida la intención None. [Revise](luis-how-to-review-endoint-utt.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
+Los nombres de personas pueden tener un pequeño formato en función del idioma y la referencia cultural. Use una entidad jerárquica con nombres y apellidos como elementos secundarios o una entidad simple con roles de nombres y apellidos. No olvide proporcionar ejemplos que usen el nombre y el apellido en diferentes partes de la expresión, en expresiones de distintas longitudes y expresiones en todas las intenciones, incluida la intención None. [Revise](luis-how-to-review-endpoint-utterances.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
 
 ### <a name="names-of-places"></a>Nombres de lugares
-Los nombres de ubicaciones se establecen y conocen, por ejemplo, ciudades, condados, estados, provincias y países. Si en la aplicación se usa un conjunto conocido de ubicaciones, considere la posibilidad de usar una entidad de lista. Si necesita buscar todos los nombres de lugares, cree una entidad simple y proporcione una variedad de ejemplos. Agregue una lista de frases de nombres de lugares para reforzar el aspecto de los nombres de lugares en la aplicación. [Revise](luis-how-to-review-endoint-utt.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
+Los nombres de ubicaciones se establecen y conocen, por ejemplo, ciudades, condados, estados, provincias y países. Si en la aplicación se usa un conjunto conocido de ubicaciones, considere la posibilidad de usar una entidad de lista. Si necesita buscar todos los nombres de lugares, cree una entidad simple y proporcione una variedad de ejemplos. Agregue una lista de frases de nombres de lugares para reforzar el aspecto de los nombres de lugares en la aplicación. [Revise](luis-how-to-review-endpoint-utterances.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
 
 ### <a name="new-and-emerging-names"></a>Nombres nuevos y emergentes
-Algunas aplicaciones necesitan poder encontrar nombres nuevos y emergentes, como productos o empresas. Estos tipos de nombres son el tipo de extracción de datos más difícil. Empiece con una entidad simple y agregue una lista de frases. [Revise](luis-how-to-review-endoint-utt.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
+Algunas aplicaciones necesitan poder encontrar nombres nuevos y emergentes, como productos o empresas. Estos tipos de nombres son el tipo de extracción de datos más difícil. Empiece con una entidad simple y agregue una lista de frases. [Revise](luis-how-to-review-endpoint-utterances.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
 
 ## <a name="pattern-roles-data"></a>Datos de roles de patrón
 Los roles son diferencias contextuales de entidades.

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2019
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 345c97a19f789bb3d850df000824d4c23989a81f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4b56aeb4fb0c902d3c824c58d2ac589c5f1fb01b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086826"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894772"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Inicio rápido
 
@@ -93,7 +93,10 @@ Siga estas instrucciones para verificar que ha habilitado SSO de conexión direc
 ![Azure Portal: Panel de Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> SSO de conexión directa crea una cuenta de equipo llamada `AZUREADSSOACC` (que representa Azure AD) en la instancia local de Active Directory (AD) de cada bosque de AD. Esta cuenta de equipo es necesaria para que funcione la característica. Si utiliza las arquitecturas Pass-the-Hash y Credential Theft Mitigation en su entorno local, asegúrese de que la cuenta de equipo `AZUREADSSOACC` no termine en el contenedor de cuarentena. Realice los cambios adecuados para crear la cuenta de equipo en el contenedor de equipos. Una vez que el SSO de conexión directa esté habilitado correctamente en el asistente de Azure AD Connect, mueva la cuenta de equipo `AZUREADSSOACC` a una unidad organizativa (UO) donde se administren otras cuentas de equipo para asegurarse de que no se elimine accidentalmente.
+> SSO de conexión directa crea una cuenta de equipo denominada `AZUREADSSOACC` en local Active Directory (AD) en cada bosque de AD. El `AZUREADSSOACC` cuenta de equipo debe protegerse fuertemente por motivos de seguridad. Solo los administradores de dominio debe ser capaces de administrar la cuenta de equipo. Asegúrese de que la delegación Kerberos en la cuenta de equipo está deshabilitada. Store a la cuenta de equipo en una unidad organizativa (OU) donde estén protegidos frente a eliminaciones accidentales.
+
+>[!NOTE]
+> Si utilizas arquitecturas de Pass-the-Hash y mitigación del robo de credenciales en su entorno local, realice los cambios apropiados para asegurarse de que el `AZUREADSSOACC` cuenta de equipo no termine en el contenedor de cuarentena. 
 
 ## <a name="step-3-roll-out-the-feature"></a>Paso 3: Implementación de la característica
 
@@ -129,7 +132,7 @@ Hay dos formas de modificar la configuración de zona de intranet de los usuario
 
      El resultado se parecerá al siguiente:
 
-     Nombre de valor: `https://autologon.microsoftazuread-sso.com`
+     Nombre del valor: `https://autologon.microsoftazuread-sso.com`
   
      Valor (datos): 1
 

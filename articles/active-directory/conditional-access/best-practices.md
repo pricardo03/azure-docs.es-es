@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d0e20e9c8e248b446b7b938ae4180ffb546d823
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: d30fe326ef677ca4543534d57dd306ed2a660300
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517612"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895569"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedimientos recomendados para el acceso condicional en Azure Active Directory
 
@@ -46,11 +46,11 @@ Cuando crea una directiva nueva, no hay usuarios, grupos, aplicaciones ni contro
 Para realizar un trabajo de directiva, debe configurar:
 
 
-|Qué           | Cómo                                  | Porqué|
-|:--            | :--                                  | :-- |
-|**Aplicaciones en la nube** |Seleccione una o varias aplicaciones.  | El objetivo de la directiva de acceso condicional es permitirle que controle cómo los usuarios autorizados pueden acceder a las aplicaciones en la nube.|
+| Qué           | Cómo                                  | Porqué |
+| :--            | :--                                  | :-- |
+| **Aplicaciones de nube** |Seleccione una o varias aplicaciones.  | El objetivo de la directiva de acceso condicional es permitirle que controle cómo los usuarios autorizados pueden acceder a las aplicaciones en la nube.|
 | **Usuarios y grupos** | Seleccione al menos un usuario o grupo que esté autorizado para acceder a las aplicaciones en la nube que haya seleccionado. | Una directiva de acceso condicional que no tiene usuarios ni grupos asignados nunca se desencadena. |
-| **Controles de acceso** | Seleccione al menos un control de acceso. | Si se cumplen las condiciones, el procesador de directivas debe saber qué hacer.|
+| **Controles de acceso** | Seleccione al menos un control de acceso. | Si se cumplen las condiciones, el procesador de directivas debe saber qué hacer. |
 
 
 
@@ -111,6 +111,13 @@ En cada inicio de sesión, Azure Active Directory evalúa todas las directivas y
 
 Sí, se puede usar Exchange ActiveSync en una directiva de acceso condicional.
 
+### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>¿Cómo se debe configurar el acceso condicional con aplicaciones de Office 365?
+
+Dado que las aplicaciones de Office 365 están conectados entre sí, se recomienda asignar normalmente usa aplicaciones juntos al crear directivas.
+
+Aplicaciones conectadas entre sí comunes incluyen Microsoft Flow, Microsoft Planner, Microsoft Teams, Office 365 Exchange Online, Office 365 SharePoint Online y Office 365 Yammer.
+
+Es importante para las directivas que requieren las interacciones del usuario, como la autenticación multifactor, cuando el acceso se controla al principio de una sesión o tarea. Si no lo hace, los usuarios no podrán completar algunas tareas dentro de una aplicación. Por ejemplo, si necesita la autenticación multifactor en dispositivos no administrados para tener acceso a SharePoint, pero no al correo electrónico, los usuarios que trabajan en su correo electrónico no podrán adjuntar archivos de SharePoint a un mensaje. Se puede encontrar más información en el artículo, [¿cuáles son las dependencias del servicio de acceso condicional de Azure Active Directory?](service-dependencies.md).
 
 
 
@@ -132,7 +139,7 @@ En su entorno, debería evitar las siguientes configuraciones:
 - **Requerir unión a un dominio** : este acceso al bloqueo de directivas también ofrece la posibilidad de bloquear el acceso a todos los usuarios de su organización si aún no tiene un dispositivo unido al dominio.
 
 
-**Para todos los usuarios, todas las aplicaciones en la nube, todas las plataformas de dispositivos:**
+**Para todos los usuarios, todas las aplicaciones de nube, todas las plataformas de dispositivo:**
 
 - **Bloquear acceso**: esta configuración bloquea toda la organización, lo cual no es en absoluto una buena idea.
 

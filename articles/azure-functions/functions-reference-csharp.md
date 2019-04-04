@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: eda6f7b8ec61f2c3472b00c76467c1379bc2ff1b
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 232a235cdbf9dc3934bdac14f9612d6865718823
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58082116"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892422"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Referencia para desarrolladores de scripts de C# de Azure Functions (.csx)
 
@@ -216,9 +216,9 @@ public class Order
 
 Puede usar una ruta de acceso relativa con la directiva `#load` :
 
-* `#load "mylogger.csx"` carga un archivo que se encuentra en la carpeta de la función.
-* `#load "loadedfiles\mylogger.csx"` carga un archivo ubicado en una carpeta dentro de la carpeta de la función.
-* `#load "..\shared\mylogger.csx"` carga un archivo ubicado en una carpeta del mismo nivel que la carpeta de la función, es decir, directamente en *wwwroot*.
+* `#load "mylogger.csx"` carga un archivo ubicado en la carpeta de función.
+* `#load "loadedfiles\mylogger.csx"` carga un archivo ubicado en una carpeta en la carpeta de función.
+* `#load "..\shared\mylogger.csx"` carga un archivo ubicado en una carpeta en el mismo nivel que la carpeta de función, es decir, directamente debajo de *wwwroot*.
 
 La directiva `#load` solo funciona con archivos *.csx*, no con archivos *.cs*.
 
@@ -274,7 +274,7 @@ No puede usar parámetros `out` en funciones asincrónicas. Para los enlaces de 
 
 ## <a name="cancellation-tokens"></a>Tokens de cancelación
 
-Una función puede aceptar un parámetro [CancellationToken](https://msdn.microsoft.com/library/system.threading.cancellationtoken.aspx) que permite que el sistema operativo notifique al código cuando la función esté a punto de finalizar. Puede utilizar esta notificación para asegurarse de que la función no se termina inesperadamente en una forma que deje los datos en un estado incoherente.
+Una función puede aceptar un parámetro [CancellationToken](/dotnet/api/system.threading.cancellationtoken) que permite que el sistema operativo notifique al código cuando la función esté a punto de finalizar. Puede utilizar esta notificación para asegurarse de que la función no se termina inesperadamente en una forma que deje los datos en un estado incoherente.
 
 En el ejemplo siguiente se muestra cómo comprobar la finalización inminente de la función.
 
@@ -465,7 +465,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-`BindingTypeAttribute` es el atributo de .NET que define el enlace y `T` es un tipo de entrada o de salida compatible con ese tipo de enlace. `T` no puede ser un tipo de parámetro `out` (como `out JObject`). Por ejemplo, el enlace de salida de la tabla de Mobile Apps admite [seis tipos de salida](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), pero solo se puede utilizar [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) para `T`.
+`BindingTypeAttribute` es el atributo de .NET que define el enlace y `T` es un tipo de entrada o salido que es compatible con ese tipo de enlace. `T` no puede ser un `out` tipo de parámetro (como `out JObject`). Por ejemplo, el enlace de salida de la tabla de Mobile Apps admite [seis tipos de salida](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), pero solo se puede utilizar [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) o [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) para `T`.
 
 ### <a name="single-attribute-example"></a>Ejemplo de un único atributo
 
@@ -484,7 +484,7 @@ public static async Task Run(string input, Binder binder)
 }
 ```
 
-[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) define el enlace de entrada o salida del [blob de almacenamiento](functions-bindings-storage-blob.md), y [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) es un tipo de enlace de salida admitido.
+[BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) define el enlace de entrada o salida del [blob de almacenamiento](functions-bindings-storage-blob.md), y [TextWriter](/dotnet/api/system.io.textwriter) es un tipo de enlace de salida admitido.
 
 ### <a name="multiple-attribute-example"></a>Ejemplo de varios atributos
 
@@ -527,7 +527,7 @@ En la tabla siguiente, aparecen los atributos de .NET para cada tipo de enlace, 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Más información sobre los desencadenadores y los enlaces](functions-triggers-bindings.md)
+> [Más información sobre los desencadenadores y enlaces](functions-triggers-bindings.md)
 
 > [!div class="nextstepaction"]
-> [Más información sobre procedimientos recomendados para Azure Functions](functions-best-practices.md)
+> [Más información sobre los procedimientos recomendados para Azure Functions](functions-best-practices.md)

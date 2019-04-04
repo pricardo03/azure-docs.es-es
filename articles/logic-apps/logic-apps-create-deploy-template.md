@@ -10,193 +10,185 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 3d32b180f7d841c36f8ae03aa94956c6da00c6fe
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 624539557b0bf57e9d919a3a46337f1cf93a4f07
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57883447"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894241"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Creación de plantillas de Azure Resource Manager para implementar aplicaciones lógicas
 
-Una vez creada una aplicación lógica, quizá desee crearla como una plantilla de Azure Resource Manager.
-De este modo, podrá implementar fácilmente la aplicación lógica en cualquier entorno o grupo de recursos en los que pueda necesitarla.
-Para obtener más información sobre las plantillas de Resource Manager, consulte [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) e [Implementación de recursos con plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
+Cuando se crea una aplicación lógica, puede expandir la definición de la aplicación lógica en un [plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). A continuación, puede usar esta plantilla para automatizar las implementaciones mediante la definición de los recursos y los parámetros que desea utilizar para la implementación y proporcionar los valores de parámetro a través de un [archivo de parámetros](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
+De este modo, puede implementar aplicaciones lógicas con más facilidad y a cualquier entorno o el grupo de recursos de Azure que desea. 
 
-## <a name="logic-app-deployment-template"></a>Plantilla de implementación de aplicación lógica
+Azure Logic Apps proporciona un [plantilla de Azure Resource Manager de aplicaciones lógicas precompiladas](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) que puede reutilizar, no solo para la creación de aplicaciones lógicas, sino también para definir los recursos y los parámetros que se usarán para la implementación. Puede usar esta plantilla para sus propios escenarios empresariales o personalizar para satisfacer sus requisitos. Obtenga más información sobre [estructura de plantilla de Resource Manager y la sintaxis](../azure-resource-manager/resource-group-authoring-templates.md). Para conocer la sintaxis y las propiedades JSON, consulte [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions) (Tipos de recursos de Microsoft.Logic).
 
-Una aplicación lógica consta de tres componentes básicos:
+Para obtener más información acerca de las plantillas de Azure Resource Manager, consulte estos artículos:
 
-* **Recurso de aplicación lógica**: contiene información acerca de cuestiones como el plan de precios, la ubicación y la definición del flujo de trabajo.
-* **Definición del flujo de trabajo**: describe los pasos del flujo de trabajo de la aplicación lógica y el modo en que el motor de Logic Apps debe ejecutar el flujo de trabajo.
-Puede ver esta definición en la ventana **Vista código** de su aplicación lógica.
-En el recurso de la aplicación lógica, puede encontrar esta definición en la propiedad `definition`.
-* **Conexiones**: hace referencia a recursos independientes que almacenan los metadatos de manera segura acerca de las conexiones del conector, como una cadena de conexión y un token de acceso.
-En el recurso de la aplicación lógica, su aplicación lógica consulta estos recursos en la sección `parameters`.
+* [Creación de plantillas de Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube](../azure-resource-manager/templates-cloud-consistency.md)
 
-Puede ver todas estas piezas de las aplicaciones lógicas existentes mediante herramientas como el [Explorador de recursos de Azure](http://resources.azure.com). Para la sintaxis y propiedades JSON, vea [Tipos de recursos de Microsoft.Logic](/azure/templates/microsoft.logic/allversions).
+## <a name="logic-app-structure"></a>Estructura de la aplicación lógica
 
-Para crear una plantilla para una aplicación lógica que pueda utilizar con implementaciones de grupos de recursos, es preciso definir los recursos y parametrizarlos según sea necesario.
-Por ejemplo, si va a implementar en un entorno de desarrollo, prueba y producción, probablemente deseará usar cadenas de conexión diferentes para una base de datos SQL en cada entorno.
-O bien, puede que desee realizar la implementación en diferentes suscripciones o grupos de recursos.  
+La definición de aplicación lógica tiene estas secciones básicas, que se pueden ver mediante el cambio de "vista de diseñador" a "vista de código" o mediante una herramienta como [Azure Resource Explorer](http://resources.azure.com). Definiciones de aplicación lógica Javascript Object Notation (JSON), así que para obtener más información sobre la sintaxis de JSON y propiedades, consulte [tipos de recursos de Microsoft.Logic](/azure/templates/microsoft.logic/allversions).
 
-## <a name="create-a-logic-app-deployment-template"></a>Creación de una plantilla de implementación de aplicación lógica
+* **Recurso de aplicación lógica**: Describe la información como la ubicación o región, de la aplicación lógica, plan de precios y definición de flujo de trabajo.
 
-La manera más fácil tener una plantilla de implementación de aplicación lógica válida es usar el [Visual Studio Tools para Logic Apps](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md#prerequisites).
-Las herramientas de Visual Studio generan una plantilla de implementación válida que puede utilizarse en cualquier suscripción o ubicación.
+* **Definición del flujo de trabajo**: Describe los desencadenadores y acciones y cómo el servicio de Azure Logic Apps ejecuta el flujo de trabajo de la aplicación lógica. En la vista de código, puede encontrar la definición de flujo de trabajo en el `definition` sección.
 
-Algunas herramientas pueden ayudarle a crear una plantilla de implementación de aplicación lógica.
-Puede crearla manualmente; es decir, mediante el uso de los recursos ya mencionados aquí para crear parámetros según sea necesario.
-Otra opción es usar un módulo de PowerShell [Logic App Template Creator](https://github.com/jeffhollan/LogicAppTemplateCreator) . Este módulo de código abierto evalúa primero la aplicación lógica y las conexiones que utiliza y luego genera los recursos de la plantilla con los parámetros necesarios para la implementación.
-Por ejemplo, si tiene una aplicación lógica que recibe un mensaje de una cola de Azure Service Bus y agrega datos a una base de datos SQL de Azure, la herramienta conservará toda la lógica de orquestación y parametrizará las cadenas de conexión de SQL y Service Bus con el fin de que se puedan establecer en la implementación.
+* **Conexiones**: Si usa conectores administrados en la aplicación lógica, el `$connections` sección hace referencia a otros recursos que almacenan metadatos acerca de estas conexiones entre la aplicación lógica y otros sistemas o servicios, como las cadenas de conexión y los tokens de acceso de manera segura. Dentro de la definición de aplicación lógica, las referencias a estas conexiones aparecen dentro de la definición de aplicación lógica `parameters` sección.
 
-> [!NOTE]
-> Las conexiones deben estar dentro del mismo grupo de recursos que la aplicación lógica.
->
->
+Para crear una plantilla de aplicación lógica que puede usar con las implementaciones de grupo de recursos de Azure, debe definir los recursos y parametrizar según sea necesario. Por ejemplo, si va a implementar en un entorno de desarrollo, prueba y producción, probablemente deseará usar cadenas de conexión diferentes para una base de datos SQL en cada entorno.
+O bien, puede que desee realizar la implementación en diferentes suscripciones o grupos de recursos.
 
-### <a name="install-the-logic-app-template-powershell-module"></a>Instalación del módulo de PowerShell de plantilla de aplicación lógica
-La forma más fácil de instalar el módulo es a través de la [Galería de PowerShell](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1) con el comando `Install-Module -Name LogicAppTemplate`.  
+## <a name="create-logic-app-deployment-templates"></a>Crear plantillas de implementación de aplicación de lógica
 
-También puede instalar el módulo de PowerShell manualmente:
+Para que la manera más fácil de crear una plantilla de implementación de aplicación lógica válida, use Visual Studio y las herramientas de Azure Logic Apps para la extensión de Visual Studio. Al descargar la aplicación lógica desde el portal de Azure en Visual Studio, obtenga una plantilla de implementación válido que puede usar con cualquier suscripción de Azure y la ubicación. Además, parametriza la definición de aplicación lógica que está incrustada en la plantilla de descargar automáticamente la aplicación lógica.
+Para obtener más información sobre cómo crear y administrar aplicaciones lógicas en Visual Studio, consulte [crear aplicaciones lógicas con Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md) y [administrar aplicaciones lógicas con Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md).
 
-1. Descargue la versión más reciente de [Logic App Template Creator](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).  
-2. Extraiga la carpeta en su carpeta del módulo de PowerShell (normalmente `%UserProfile%\Documents\WindowsPowerShell\Modules`).
+Aparte de Visual Studio o crear manualmente la plantilla y los parámetros necesarios, siga las instrucciones de este tema, también puede usar el [módulo de PowerShell para crear plantillas de aplicaciones de lógica](https://github.com/jeffhollan/LogicAppTemplateCreator). Este módulo de código abierto evalúa primero la aplicación lógica y las conexiones que usa la aplicación lógica. El módulo, a continuación, genera los recursos de plantilla con los parámetros necesarios para la implementación. Por ejemplo, suponga que tiene una aplicación lógica que recibe un mensaje de una cola de Azure Service Bus y agrega datos a una base de datos SQL de Azure. La herramienta de módulo conserva toda la lógica de orquestación y parametriza las cadenas de conexión SQL y Service Bus para que pueda establecer esos valores en la implementación.
 
-Para que el módulo funcione con cualquier token de acceso de inquilino y suscripción, se recomienda utilizarlo con la herramienta de línea de comandos [ARMClient](https://github.com/projectkudu/ARMClient).  Esta [entrada de blog ](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) describe ARMClient con más detalle.
+> [!IMPORTANT]
+> Las conexiones deben existir en el mismo grupo de recursos de Azure que la aplicación lógica.
+> Para el módulo de PowerShell trabajar con cualquier inquilino y suscripción access token, uso de Azure, el módulo con el [herramienta de cliente de Azure Resource Manager](https://github.com/projectkudu/ARMClient). Para obtener más información, consulte este [artículo acerca de la herramienta de cliente de Azure Resource Manager](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) describe ARMClient con más detalle.
 
-### <a name="generate-a-logic-app-template-by-using-powershell"></a>Generación de una plantilla de aplicación lógica mediante PowerShell
+### <a name="install-powershell-module-for-logic-app-templates"></a>Instalar el módulo de PowerShell para plantillas de aplicaciones lógicas
+
+Para instalar el módulo de la manera más fácil la [Galería de PowerShell](https://www.powershellgallery.com/packages/LogicAppTemplate/0.1), use este comando:
+
+`Install-Module -Name LogicAppTemplate`
+
+Puede instalar manualmente el módulo de PowerShell:
+
+1. Descargue la última versión [Logic App Template Creator](https://github.com/jeffhollan/LogicAppTemplateCreator/releases).
+
+1. Extraiga la carpeta en la carpeta de módulo de PowerShell, que suele ser `%UserProfile%\Documents\WindowsPowerShell\Modules`.
+
+### <a name="generate-logic-app-template---powershell"></a>Generar plantilla de aplicación lógica - PowerShell
+
 Después de instalar PowerShell, puede generar una plantilla mediante el comando siguiente:
 
 `armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp MyApp -ResourceGroup MyRG -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json`
 
-`$SubscriptionId` es el identificador de la suscripción de Azure. Esta línea primero obtiene acceso al token mediante ARMClient, luego lo canaliza hacia el script de PowerShell y finalmente crea la plantilla en un archivo JSON.
+`$SubscriptionId` es el identificador de suscripción de Azure. Esta línea primero obtiene acceso al token mediante ARMClient, luego lo canaliza hacia el script de PowerShell y finalmente crea la plantilla en un archivo JSON.
 
-## <a name="add-parameters-to-a-logic-app-template"></a>Adición de parámetros a una plantilla de aplicación lógica
-Después de crear la plantilla de aplicación lógica, podrá seguir agregando o modificando los parámetros que necesite. Por ejemplo, si la definición incluye un identificador de recurso a una función o un flujo de trabajo anidado de Azure en el que planea implementar una sola implementación, puede agregar más recursos a la plantilla y parametrizar los identificadores según sea necesario. Lo mismo sucede con las referencias a las API personalizadas o a los puntos de conexión de Swagger que espera implementar con cada grupo de recursos.
+## <a name="parameters-in-logic-app-templates"></a>Parámetros de plantillas de aplicaciones lógicas
 
-### <a name="add-references-for-dependent-resources-to-visual-studio-deployment-templates"></a>Incorporación de referencias a los recursos dependientes a las plantillas de implementación de Visual Studio
+Después de crear la plantilla de aplicación lógica, puede agregar y editar todos los parámetros necesarios. La plantilla tiene más de un `parameters` sección, por ejemplo: 
 
-Si desea que la aplicación lógica haga referencia a los recursos dependientes, puede usar las [funciones de plantilla de Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-functions), como los parámetros, de la plantilla de implementación de aplicación lógica. Por ejemplo, si quiere que la aplicación lógica haga referencia a una función de Azure o cuenta de integración que desee implementar junto con la aplicación lógica. Siga estas instrucciones sobre cómo usar parámetros en la plantilla de implementación para que el Diseñador de aplicaciones lógicas represente correctamente. 
+* Definición de flujo de trabajo de la aplicación lógica tiene su propio [ `parameters` sección](../logic-apps/logic-apps-workflow-definition-language.md#parameters) donde puede definir todos los parámetros que utiliza la aplicación lógica para aceptar entradas en la implementación.
 
-Puede usar parámetros de aplicación lógica en estos tipos de desencadenadores y acciones:
+* La plantilla de Resource Manager tiene su propio [ `parameters` sección](../azure-resource-manager/resource-group-authoring-templates.md#parameters), independiente de la aplicación lógica `parameters` sección. Por ejemplo: 
 
-*   Flujo de trabajo secundario
-*   Aplicación de función
-*   Llamada APIM
-*   Dirección URL en tiempo de ejecución de conexión de API
-*   Ruta de conexión de API
+  [!INCLUDE [logic-deploy-parameters](../../includes/app-service-logic-deploy-parameters.md)]
 
-Y puede utilizar funciones de plantilla como, por ejemplo, parámetros, variables, resourceId, concat, etc. Por ejemplo, aquí verá cómo se puede reemplazar el identificador de recurso de función de Azure:
+Por ejemplo, suponga que la definición de aplicación lógica haga referencia a un identificador de recurso que representa una función de Azure o un flujo de trabajo de la aplicación lógica anidada, y desea implementar ese identificador de recurso, junto con la aplicación lógica como una sola implementación. Puede agregar ese identificador como un recurso en la plantilla y parametrizar ese identificador. Puede usar este mismo enfoque para las referencias a los puntos de conexión de OpenAPI o la API personalizados (anteriormente "Swagger") que desea implementar con cada grupo de recursos de Azure.
 
-```
-"parameters":{
-    "functionName": {
+Al usar parámetros en la plantilla de implementación, siga estas instrucciones para que el Diseñador de Logic Apps puede mostrar correctamente esos parámetros:
+
+* Usar parámetros solo en estos desencadenadores y acciones:
+
+  * Aplicación de Azure Functions
+  * Anidados o flujo de trabajo de aplicación de lógica de secundarios
+  * Llamada de API Management
+  * Dirección URL en tiempo de ejecución de conexión de API
+  * Ruta de conexión de API
+
+* Al definir parámetros, asegúrese de que proporcione los valores predeterminados mediante la `defaultValue` valor de propiedad, por ejemplo:
+
+  ```json
+  "parameters": {
+     "IntegrationAccount": {
         "type":"string",
-        "minLength":1,
-        "defaultValue":"<FunctionName>"
-    }
+        "minLength": 1,
+        "defaultValue": "/subscriptions/<Azure-subscription-ID>/resourceGroups/<Azure-resource=group-name>/providers/Microsoft.Logic/integrationAccounts/<integration-account-name>"
+     }
+  },
+  ```
+
+* Para proteger u ocultar información confidencial en las plantillas, proteja sus parámetros. Obtenga más información sobre [cómo usar parámetros protegidos](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-workflow).
+
+Este es un ejemplo que muestra cómo se puede parametrizar la acción "Enviar mensaje" de Azure Service Bus:
+
+```json
+"Send_message": {
+   "type": "ApiConnection",
+   "inputs": {
+      "host": {
+         "connection": {
+            "name": "@parameters('$connections')['servicebus']['connectionId']"
+         },
+         // If the `host.runtimeUrl` property appears in your template, 
+         // you can remove this property, which is optional, for example:
+         "runtimeUrl": {}
+      },
+      "method": "POST",
+      "path": "[concat('/@{encodeURIComponent(''', parameters('<Azure-Service-Bus-queue-name>'), ''')}/messages')]",
+      "body": {
+         "ContentData": "@{base64(triggerBody())}"
+      },
+      "queries": {
+         "systemProperties": "None"
+      }
+   },
+   "runAfter": {}
 },
 ```
 
-Y dónde usaría parámetros:
+### <a name="reference-dependent-resources"></a>Recursos dependientes de referencia
 
+Si la aplicación lógica requiere referencias a los recursos dependientes, puede usar [funciones de plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md) en la plantilla de implementación de la aplicación lógica. Por ejemplo, suponga que desea que la aplicación lógica para hacer referencia a una función de Azure o una cuenta de integración con las definiciones para socios, acuerdos y otros artefactos que desee implementadas junto con la aplicación lógica.
+Puede usar las funciones de plantilla de Resource Manager, como `parameters`, `variables`, `resourceId`, `concat`, y así sucesivamente.
+
+Este es un ejemplo que muestra cómo se puede reemplazar el identificador de recurso para una función de Azure mediante la definición de estos parámetros:
+
+``` json
+"parameters": {
+   "<Azure-function-name>": {
+      "type": "string",
+      "minLength": 1,
+      "defaultValue": "<Azure-function-name>"
+   }
+},
 ```
+
+Le mostramos cómo usar estos parámetros cuando se hace referencia a la función de Azure:
+
+```json
 "MyFunction": {
-    "type": "Function",
-    "inputs": {
-        "body":{},
-        "function":{
-            "id":"[resourceid('Microsoft.Web/sites/functions','functionApp',parameters('functionName'))]"
-        }
-    },
-    "runAfter":{}
-}
+   "type": "Function",
+   "inputs": {
+      "body": {},
+      "function": {
+         "id":"[resourceid('Microsoft.Web/sites/functions','<Azure-Functions-app-name>', parameters('<Azure-function-name>'))]"
+      }
+   },
+   "runAfter": {}
+},
 ```
-En otro ejemplo puede parametrizar la operación send message de Service Bus:
 
-```
-"Send_message": {
-    "type": "ApiConnection",
-        "inputs": {
-            "host": {
-                "connection": {
-                    "name": "@parameters('$connections')['servicebus']['connectionId']"
-                }
-            },
-            "method": "post",
-            "path": "[concat('/@{encodeURIComponent(''', parameters('queueuname'), ''')}/messages')]",
-            "body": {
-                "ContentData": "@{base64(triggerBody())}"
-            },
-            "queries": {
-                "systemProperties": "None"
-            }
-        },
-        "runAfter": {}
-    }
-```
-> [!NOTE] 
-> host.runtimeUrl es opcional y se puede quitar de la plantilla si está presente.
-> 
+## <a name="add-logic-app-to-resource-group-project"></a>Agregar la aplicación lógica al proyecto del grupo de recursos
 
+Si tiene un proyecto de grupo de recursos de Azure existente, puede agregar la aplicación lógica en el proyecto mediante el uso de la ventana Esquema JSON. También puede agregar otra aplicación lógica junto con la que creara anteriormente.
 
-> [!NOTE] 
-> Para que el Diseñador de aplicaciones lógicas funcione con parámetros, debe proporcionar valores predeterminados, por ejemplo:
-> 
-> ```
-> "parameters": {
->     "IntegrationAccount": {
->     "type":"string",
->     "minLength":1,
->     "defaultValue":"/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Logic/integrationAccounts/<integrationAccountName>"
->     }
-> },
-> ```
+1. En el Explorador de soluciones, abra el archivo `<template>.json`.
 
-## <a name="add-your-logic-app-to-an-existing-resource-group-project"></a>Incorporación de la aplicación lógica a un proyecto de grupo de recursos existente
+2. Desde el **vista** menú, seleccione **Other Windows** > **esquema JSON**.
 
-Si tiene un proyecto de grupo de recursos existente, puede agregar la aplicación lógica desde la ventana Esquema JSON. También puede agregar otra aplicación lógica junto con la que creara anteriormente.
+3. Para agregar un recurso al archivo de plantilla, elija **Agregar recurso** en la parte superior de la ventana Esquema JSON. O, en la ventana Esquema de JSON, haga clic en **recursos** y seleccione **Agregar nuevo recurso**.
 
-1. Abra el archivo `<template>.json` .
+   ![Ventana Esquema JSON](./media/logic-apps-create-deploy-template/jsonoutline.png)
 
-2. La ventana Esquema JSON, vaya a en **Ver** > **Otras ventanas** > **Esquema JSON**.
-
-3. Para agregar un recurso al archivo de plantilla, haga clic en **Agregar recurso** en la parte superior de la ventana Esquema de JSON. O, en la ventana Esquema de JSON, haga clic en **recursos** y seleccione **Agregar nuevo recurso**.
-
-    ![Ventana Esquema JSON](./media/logic-apps-create-deploy-template/jsonoutline.png)
-    
 4. En el cuadro de diálogo **Agregar recurso**, busque y seleccione **Aplicación lógica**. Asigne un nombre a la aplicación lógica y elija **Agregar**.
 
-    ![Agregar recurso](./media/logic-apps-create-deploy-template/addresource.png)
+   ![Agregar recurso](./media/logic-apps-create-deploy-template/addresource.png)
 
+## <a name="get-support"></a>Obtención de soporte técnico
 
-## <a name="deploy-a-logic-app-template"></a>Implementación de una plantilla de aplicación lógica
+Si tiene alguna duda, visite el [foro de Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-Puede implementar su plantilla mediante cualquier herramienta, entre las que se incluyen PowerShell, API REST, [Azure Pipelines para Azure DevOps](#team-services) o la implementación de plantillas mediante Azure Portal.
-Además, para almacenar los valores de parámetros, se recomienda crear un [archivo de parámetros](../azure-resource-manager/resource-group-template-deploy.md#parameter-files).
-Aprenda cómo [implementar recursos con las plantillas de Azure Resource Manager y PowerShell](../azure-resource-manager/resource-group-template-deploy.md) o cómo [implementar recursos con las plantillas de Azure Resource Manager y Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md).
+## <a name="next-steps"></a>Pasos siguientes
 
-### <a name="authorize-oauth-connections"></a>Autorización de conexiones de OAuth
-
-Después de la implementación, la aplicación lógica funciona de un extremo a otro con parámetros válidos.
-Sin embargo, sigue siendo necesario autorizar las conexiones de OAuth para generar un token de acceso válido.
-Para autorizar las conexiones de OAuth, abra la aplicación lógica en Diseñador de aplicaciones lógicas y autorice estas conexiones. Para automatizar las implementaciones, puede usar un script para dar el consentimiento a cada conexión de OAuth.
-Hay un script de ejemplo en GitHub, en el proyecto [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) .
-
-<a name="team-services"></a>
-## <a name="azure-devops-azure-pipelines"></a>Azure Pipelines para Azure DevOps
-
-Un escenario común para implementar y administrar un entorno es usar una herramienta como Azure Pipelines en Azure DevOps con una plantilla de implementación de aplicación lógica. Azure DevOps incluye la tarea [Implementación de un grupo de recursos de Azure](https://github.com/Microsoft/azure-pipelines-tasks/tree/master/Tasks/AzureResourceGroupDeploymentV2), que se puede agregar a cualquier canalización de la compilación o versión. Es preciso tener una [entidad de servicio](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) para implementar la autorización y, a continuación, generar la canalización de la versión.
-
-1. En Azure Pipelines, seleccione **Empty** (Vacía) para que pueda crear una canalización vacía.
-
-    ![Creación de una canalización vacía][1]
-
-2. Elija los recursos que necesite para esto, que probablemente incluirán la plantilla de aplicación lógica que se genera manualmente o como parte del proceso de compilación.
-3. Agregue una tarea de **Implementación de un grupo de recursos de Azure** .
-4. Configure una [entidad de servicio](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)y haga referencia a los archivos de plantilla y de parámetros de la plantilla.
-5. Siga compilando los pasos del proceso de lanzamiento de otros entornos, pruebas automatizadas o aprobadores según sea necesario.
-
-<!-- Image References -->
-[1]: ./media/logic-apps-create-deploy-template/emptyreleasedefinition.png
+> [!div class="nextstepaction"]
+> [Implementación de plantillas de aplicación lógica](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md)

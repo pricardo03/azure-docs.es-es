@@ -7,12 +7,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: danlep
-ms.openlocfilehash: 3e7e292f36296ce09af89f03e8b154b57e18b55c
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2ea85b2b04600708381423e16408ba34b1e27566
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370005"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904906"
 ---
 # <a name="set-environment-variables"></a>Establecimiento de variables de entorno
 
@@ -25,6 +25,8 @@ Por ejemplo, si ejecuta Microsoft [aci-wordcount] [ aci-wordcount] imagen de con
 *MinLength*: El número mínimo de caracteres en una palabra para que se tenga en cuenta. Un número mayor omite palabras comunes como "de" y "la".
 
 Si tiene que pasar secretos como variables de entorno, Azure Container Instances admite [valores seguros](#secure-values) tanto en contenedores Windows como Linux.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="azure-cli-example"></a>Ejemplo de la CLI de Azure
 
@@ -141,7 +143,7 @@ Azure:\
 
 Para establecer las variables de entorno cuando inicia un contenedor en Azure Portal, especifíquelas en la página **Configuración** cuando crea el contenedor.
 
-Cuando se implementa con el portal, actualmente está limitado a tres variables y debe especificarla con este formato: `"variableName":"value"`.
+Cuando se implementa con el portal, está actualmente limitado a tres variables y debe escribir en este formato: `"variableName":"value"`
 
 Para ver un ejemplo, iniciar la [aci-wordcount] [ aci-wordcount] contenedor con el *NumWords* y *MinLength* variables.
 
@@ -255,6 +257,6 @@ Los escenarios basados en tareas, como el procesamiento por lotes de un gran con
 [az-container-show]: /cli/azure/container#az-container-show
 [azure-cli-install]: /cli/azure/
 [azure-instance-log]: /powershell/module/az.containerinstance/get-azcontainerinstancelog
-[azure-powershell-install]: /powershell/azure/azurerm/install-Az-ps
+[azure-powershell-install]: /powershell/azure/install-Az-ps
 [new-Azcontainergroup]: /powershell/module/az.containerinstance/new-azcontainergroup
 [portal]: https://portal.azure.com

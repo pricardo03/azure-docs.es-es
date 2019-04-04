@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/30/2019
+ms.date: 04/02/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 6bf0efd6994315d56e7b1b2447ffed9154cf5ee5
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: a5ab0b25a2a2db764854982b1a6801ce4f857dda
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804877"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891963"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desarrollo con Media Services API v3
 
@@ -47,7 +47,7 @@ Consulte el ejemplo de [Get content key policy: .NET](get-content-key-policy-dot
 
 Las operaciones marcan con `x-ms-long-running-operation` de Azure Media Services [swagger archivos](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) son largos las operaciones de ejecución. 
 
-Para obtener más información acerca de cómo realizar un seguimiento de las operaciones asincrónicas de Azure, consulte [operaciones asincrónicas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation)
+Para obtener más información acerca de cómo realizar un seguimiento de las operaciones asincrónicas de Azure, consulte [operaciones asincrónicas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
 
 Media Services tiene las siguientes operaciones de larga ejecución:
 
@@ -65,7 +65,6 @@ Media Services tiene las siguientes operaciones de larga ejecución:
 * Iniciar StreamingEndpoint
 * Detener StreamingEndpoint
 * Escala StreamingEndpoint
-
 
 ## <a name="filtering-ordering-paging-of-media-services-entities"></a>Filtrado, ordenación y paginación de entidades de Media Services
 
@@ -356,4 +355,4 @@ En la tabla siguiente se muestra cómo pueden aplicarse estas opciones a las pro
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Streaming de un archivo](stream-files-dotnet-quickstart.md)
+[Un archivo de Stream](stream-files-dotnet-quickstart.md)

@@ -12,12 +12,12 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 785948c78b2b8205c4bebe2d68b62f6de7254d94
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: 3004f073100b45de25655fc6dee6a96c90612c46
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58863141"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905210"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database
 
@@ -64,14 +64,14 @@ Puede configurar las bases de datos SQL de Azure y bases de datos de instancia p
 | :------------------- | ----- | ----- |
 | [Todas las métricas](#all-metrics): contiene el porcentaje de DTU/CPU, el límite de DTU/CPU, el porcentaje de lectura de datos físicos, el porcentaje de escritura en registro, las conexiones correctas, erróneas o bloqueadas por el firewall, el porcentaje de sesiones, el porcentaje de trabajo, el almacenamiento, el porcentaje de almacenamiento y el porcentaje de almacenamiento de XTP. | Sí | Sin  |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): contiene la información sobre las estadísticas de tiempo de ejecución de consulta, como el uso de CPU y la duración de la consulta. | Sí | Sí |
-| [QueryStoreWaitStatistics](#query-store-wait-statistics): contiene la información sobre las estadísticas de espera de las consultas (el motivo de la espera de sus consultas), como la CPU, el registro y el bloqueo. | Sí | Sí |
-| [Errores](#errors-dataset): contiene información sobre los errores de SQL en la base de datos. | Sí | Sí |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): contiene la información sobre cuánto tiempo ha dedicado la base de datos a esperar distintos tipos de espera. | Sí | Sin  |
-| [Tiempos de expiración](#time-outs-dataset): contiene información sobre los tiempos de expiración en la base de datos. | Sí | Sin  |
-| [Bloqueos](#blockings-dataset): contiene información sobre los eventos de bloqueo en la base de datos. | Sí | Sin  |
-| [Los interbloqueos](#deadlocks-dataset): Contiene información sobre los eventos de interbloqueo en la base de datos. | Sí | Sin  |
-| [AutomaticTuning](#automatic-tuning-dataset): Contiene información sobre recomendaciones de ajuste automático en la base de datos. | Sí | Sin  |
-| [SQLInsights](#intelligent-insights-dataset): contiene Intelligent Insights sobre el rendimiento. Para obtener más información, consulte [Intelligent Insights](sql-database-intelligent-insights.md). | Sí | Sí |
+| [QueryStoreWaitStatistics](#query-store-wait-statistics): Contiene información sobre las estadísticas de espera de consulta (lo que las consultas se esperaron) son CPU, registro y el bloqueo. | Sí | Sí |
+| [Errores](#errors-dataset): Contiene información sobre los errores SQL en una base de datos. | Sí | Sí |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): Contiene información sobre cuánto tiempo empleado en la espera en distintos tipos de espera de una base de datos. | Sí | Sin  |
+| [Tiempos de expiración](#time-outs-dataset): Contiene información sobre los tiempos de espera en una base de datos. | Sí | Sin  |
+| [Bloqueos](#blockings-dataset): Contiene información sobre los eventos en una base de datos de bloqueo. | Sí | Sin  |
+| [Los interbloqueos](#deadlocks-dataset): Contiene información sobre los eventos de interbloqueo en una base de datos. | Sí | Sin  |
+| [AutomaticTuning](#automatic-tuning-dataset): Contiene información sobre las recomendaciones de ajuste automático para una base de datos. | Sí | Sin  |
+| [SQLInsights](#intelligent-insights-dataset): Contiene información inteligente sobre el rendimiento de una base de datos. Para obtener más información, consulte [Intelligent Insights](sql-database-intelligent-insights.md). | Sí | Sí |
 
 > [!IMPORTANT]
 > Los grupos elásticos y las instancias administradas tienen su propia telemetría de diagnósticos independientes de las bases de datos que contienen. Esto es importante tener en cuenta como telemetría de diagnósticos se configura por separado para cada uno de estos recursos, tal como se describe a continuación.

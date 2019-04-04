@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 574227e010a37340ce7248d2e4657f6a3f231d0a
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 4ef0c09d2d2ea2ed06708342ab45abcaf149c23e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984535"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903121"
 ---
 # <a name="download-the-template-for-a-vm"></a>Descargar la plantilla para una máquina virtual
 Cuando se crea una máquina virtual en Azure mediante el portal o PowerShell, se crea automáticamente una plantilla de Resource Manager. Puede usar esta plantilla para duplicar rápidamente una implementación. La plantilla contiene información acerca de todos los recursos de un grupo de recursos. En el caso de una máquina virtual, significa que la plantilla contiene todo lo que se crea para ayudar a la máquina virtual de ese grupo de recursos, incluidos los recursos de red.
@@ -29,7 +29,7 @@ Cuando se crea una máquina virtual en Azure mediante el portal o PowerShell, se
 1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
 2. En el menú de la izquierda, seleccione **Máquinas virtuales**.
 3. Seleccione la máquina virtual en la lista.
-4. Seleccione **Script de Automation**.
+4. Seleccione **Exportar plantilla**.
 5. Seleccione **Descargar** en el menú de la parte superior y guarde el archivo .zip en el equipo local.
 6. Abra el archivo .zip y extraiga los archivos en una carpeta. El archivo .zip contiene:
    

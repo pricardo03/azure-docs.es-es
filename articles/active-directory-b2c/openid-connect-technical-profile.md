@@ -1,6 +1,6 @@
 ---
-title: Definir un perfil técnico de OpenID Connect en una directiva personalizada de Azure Active Directory B2C | Microsoft Docs
-description: Define un perfil técnico de OpenID Connect en una directiva personalizada de Azure Active Directory B2C.
+title: Definir un perfil técnico de OpenId Connect en una directiva personalizada en Azure Active Directory B2C | Microsoft Docs
+description: Definir un perfil técnico de OpenId Connect en una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 730d32fd5b9451c2b4edfe0fb1e50c06c2156815
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: a13ca362bf08b86297641061992f0820f0b624c5
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55159478"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916774"
 ---
-# <a name="define-a-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir un perfil técnico de OpenID Connect en una directiva personalizada de Azure Active Directory B2C
+# <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir un perfil técnico de OpenId Connect en una directiva personalizada de Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -75,9 +75,9 @@ El perfil técnico también muestra la notificaciones no proporcionadas por el p
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| client_id | SÍ | El identificador de la aplicación del proveedor de identidades. |
+| client_id | Sí | El identificador de la aplicación del proveedor de identidades. |
 | IdTokenAudience | Sin  | El público de id_token. Si se especifica, Azure AD B2C comprueba si el token se encuentra en una notificación proporcionada por el proveedor de identidades y si es igual al especificado. |
-| METADATOS | SÍ | URL que apunta a un documento de configuración JSON con un formato que se corresponde con la especificación Detección de OpenID Connect, que también se conoce como punto de conexión de configuración de OpenID conocido. |
+| METADATOS | Sí | URL que apunta a un documento de configuración JSON con un formato que se corresponde con la especificación Detección de OpenID Connect, que también se conoce como punto de conexión de configuración de OpenID conocido. |
 | ProviderName | Sin  | Nombre del proveedor de identidades. |
 | response_types | Sin  | Tipo de respuesta según la especificación OpenID Connect Core 1.0. Valores posibles: `id_token`, `code` o `token`. |
 | response_mode | Sin  | Método que usará el proveedor de identidades para enviar de vuelta el resultado Azure AD B2C. Valores posibles: `query`, `form_post` (predeterminado) o `fragment`. |
@@ -94,7 +94,7 @@ El elemento **CryptographicKeys** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| client_secret | SÍ | Secreto de cliente de la aplicación del proveedor de identidades. La clave de cifrado es necesaria solo si los metadatos de **response_type** se establecen en `code`. En este caso, Azure AD B2C realiza otra llamada para cambiar el código de autorización por un token de acceso. Si los metadatos se establecen en `id_token`, puede omitir la clave criptográfica.  |  
+| client_secret | Sí | Secreto de cliente de la aplicación del proveedor de identidades. La clave de cifrado es necesaria solo si los metadatos de **response_type** se establecen en `code`. En este caso, Azure AD B2C realiza otra llamada para cambiar el código de autorización por un token de acceso. Si los metadatos se establecen en `id_token`, puede omitir la clave criptográfica.  |  
 
 ## <a name="redirect-uri"></a>URI de redireccionamiento
  
@@ -104,9 +104,9 @@ Si usa el dominio **b2clogin.com** en lugar de **login.microsoftonline.com**, as
 
 Ejemplos:
 
-- [Agregar una cuenta Microsoft (MSA) como un proveedor de identidades mediante directivas personalizadas](active-directory-b2c-custom-setup-msa-idp.md)
-- [Iniciar sesión con cuentas de Azure AD](active-directory-b2c-setup-aad-custom.md)
-- [Permitir que los usuarios inicien sesión en un proveedor de identidades de Azure AD multiinquilino mediante directivas personalizadas](active-directory-b2c-setup-commonaad-custom.md)
+- [Agregar cuenta de Microsoft (MSA) como proveedor de identidades mediante directivas personalizadas](active-directory-b2c-custom-setup-msa-idp.md)
+- [Inicie sesión con cuentas de Azure AD](active-directory-b2c-setup-aad-custom.md)
+- [Permitir que los usuarios inicien sesión un proveedor de identidades multiinquilino de Azure AD mediante directivas personalizadas](active-directory-b2c-setup-commonaad-custom.md)
 
  
 

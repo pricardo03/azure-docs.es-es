@@ -1,5 +1,5 @@
 ---
-title: 'Ejemplo: Uso del punto de conexión de predicción para probar imágenes mediante programación con un clasificador (Custom Vision)'
+title: Uso del punto de conexión de predicción para probar imágenes mediante programación con un clasificador (Custom Vision)
 titlesuffix: Azure Cognitive Services
 description: Obtenga información sobre cómo usar la API para probar las imágenes mediante programación con el clasificador de Custom Vision Service.
 services: cognitive-services
@@ -8,62 +8,52 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 715fa526c83608c9922315e3a0d89b67b31e0d16
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: 78ca1d7ceb9086e0d589f904b24b967d36b079a0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472734"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895620"
 ---
-#  <a name="use-your-model-with-the-prediction-api"></a>Utilice el modelo con la API de predicción
+# <a name="use-your-model-with-the-prediction-api"></a>Utilice el modelo con la API de predicción
 
-Después de entrenar el modelo, puede probar imágenes mediante programación enviándolas a Prediction API.
+Una vez haya entrenar el modelo, puede probar mediante programación las imágenes enviando el punto de conexión de API de predicción.
 
 > [!NOTE]
-> En este documento se explica cómo usar C# para enviar una imagen a Prediction API. Para más información y ejemplos de uso de la API, consulte la [referencia de Prediction API](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
+> En este documento se explica cómo usar C# para enviar una imagen a Prediction API. Para obtener más información y ejemplos, vea el [referencia de API de predicción](https://southcentralus.dev.cognitive.microsoft.com/docs/services/Custom_Vision_Prediction_3.0/operations/5c82db60bf6a2b11a8247c15).
 
 ## <a name="publish-your-trained-iteration"></a>Publicar la iteración entrenada
 
 En la [página web de Custom Vision](https://customvision.ai), seleccione el proyecto y luego seleccione la pestaña __Rendimiento__.
 
-Para enviar las imágenes a la API de predicción, primero debe publicar la iteración para la predicción, que se puede realizar seleccionando __publicar__ y especificar un nombre para la iteración publicada. Esto permitirá que se puede tener acceso a la API de predicción de los recursos de Azure de Custom Vision el modelo. 
+Para enviar las imágenes a la API de predicción, primero debe publicar la iteración para la predicción, que se puede realizar seleccionando __publicar__ y especificar un nombre para la iteración publicada. Esto hará que el modelo puede tener acceso a la API de predicción de los recursos de Azure de visión personalizada.
 
 ![Se muestra la ficha rendimiento, con un rectángulo rojo que rodea el botón Publicar.](./media/use-prediction-api/unpublished-iteration.png)
 
-Una vez que el modelo se ha publicado correctamente, aparecerá una etiqueta "Publicado" junto a la iteración en la barra lateral izquierda, así como el nombre de la iteración publicado en la descripción de la iteración.
+Una vez que el modelo se ha publicado correctamente, verá una etiqueta "Publicado" aparecen junto a la iteración en la barra lateral izquierda, y su nombre aparecerá en la descripción de la iteración.
 
 ![Se muestra la ficha rendimiento, con un rectángulo rojo que rodean a la etiqueta publicada y el nombre de la iteración publicada.](./media/use-prediction-api/published-iteration.png)
 
 ## <a name="get-the-url-and-prediction-key"></a>Obtención de una clave de predicción y dirección URL
 
-Una vez que se ha publicado el modelo, puede recuperar información sobre el uso de la API de predicción seleccionando __predicción URL__. Se abrirá un cuadro de diálogo como el que se muestra a continuación con información sobre el uso de la API de predicción, incluidos el __dirección URL de la predicción__ y __predicción clave__.
+Una vez que se ha publicado el modelo, puede recuperar la información necesaria mediante la selección __predicción URL__. Se abrirá un cuadro de diálogo con información sobre el uso de la API de predicción, incluidos el __dirección URL de la predicción__ y __predicción clave__.
 
 ![La ficha rendimiento se muestra con un rectángulo rojo alrededor del botón de la dirección URL de la predicción.](./media/use-prediction-api/published-iteration-prediction-url.png)
 
 ![La ficha rendimiento se muestra con un rectángulo rojo que rodea el valor de dirección URL de predicción para el uso de un archivo de imagen y el valor de clave de la predicción.](./media/use-prediction-api/prediction-api-info.png)
 
 > [!TIP]
-> Su __predicción clave__ también puede encontrarse en el [Portal de Azure](https://portal.azure.com) para el recurso de Azure Custom Vision asociado a su proyecto, en la página __claves__. 
+> Su __predicción clave__ también puede encontrarse en el [Portal de Azure](https://portal.azure.com) página para el recurso de Azure Custom Vision asociado con el proyecto, en el __claves__ hoja.
 
-En el cuadro de diálogo, copie la siguiente información para su uso en la aplicación:
-
-* __Dirección URL de la predicción__ para usar un __archivo de imagen__.
-* __Clave de la predicción__ valor.
+En esta guía, se utilizará una imagen local, por lo que se copie la dirección URL en **si tiene un archivo de imagen** en una ubicación temporal. Copie el correspondiente __predicción clave__ también el valor.
 
 ## <a name="create-the-application"></a>Creación de la aplicación
 
-1. En Visual Studio, cree una aplicación de consola en C#.
+1. En Visual Studio, cree un nuevo C# aplicación de consola.
 
 1. Use el siguiente código como cuerpo del archivo __Program.cs__.
-
-    > [!IMPORTANT]
-    > Cambie la siguiente información:
-    >
-    > * Establezca el __espacio de nombres__ con el nombre del proyecto.
-    > * Establecer el __predicción clave__ que recuperó anteriormente en la línea que comienza con el valor `client.DefaultRequestHeaders.Add("Prediction-Key",`.
-    > * Establecer el __dirección URL de la predicción__ que recuperó anteriormente en la línea que comienza con el valor `string url =`.
 
     ```csharp
     using System;
@@ -92,10 +82,10 @@ En el cuadro de diálogo, copie la siguiente información para su uso en la apli
                 var client = new HttpClient();
 
                 // Request headers - replace this example key with your valid Prediction-Key.
-                client.DefaultRequestHeaders.Add("Prediction-Key", "3b9dde6d1ae1453a86bfeb1d945300f2");
+                client.DefaultRequestHeaders.Add("Prediction-Key", "<Your prediction key>");
 
                 // Prediction URL - replace this example URL with your valid Prediction URL.
-                string url = "https://southcentralus.api.cognitive.microsoft.com/customvision/v3.0/Prediction/8622c779-471c-4b6e-842c-67a11deffd7b/classify/iterations/Cats%20vs.%20Dogs%20-%20Published%20Iteration%203/image";
+                string url = "<Your prediction URL>";
 
                 HttpResponseMessage response;
 
@@ -120,9 +110,14 @@ En el cuadro de diálogo, copie la siguiente información para su uso en la apli
     }
     ```
 
-## <a name="use-the-application"></a>Uso de la aplicación
+1. Cambie la siguiente información:
+   * Establecer el `namespace` campo para el nombre del proyecto.
+   * Reemplace el marcador de posición `<Your prediction key>` con el valor de clave que recuperó anteriormente.
+   * Reemplace el marcador de posición `<Your prediction URL>` con la dirección URL que recuperó anteriormente.
 
-Al ejecutar la aplicación, debe proporcionar la ruta de acceso a un archivo de imagen en la consola. La imagen se envía a la API de predicción y se devuelven los resultados de predicción como un documento JSON. El siguiente JSON es un ejemplo de la respuesta.
+## <a name="run-the-application"></a>Ejecución de la aplicación
+
+Al ejecutar la aplicación, deberá especificar una ruta de acceso a un archivo de imagen en la consola. La imagen, a continuación, se envía a la API de predicción y se devuelven los resultados de predicción como una cadena con formato JSON. El siguiente es un ejemplo de respuesta.
 
 ```json
 {
@@ -139,14 +134,10 @@ Al ejecutar la aplicación, debe proporcionar la ruta de acceso a un archivo de 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Exportación del modelo para su uso con dispositivos móviles](export-your-model.md)
+En esta guía, ha aprendido a enviar las imágenes en su custom/detector de clasificador de imágenes y recibirán una respuesta mediante programación con el C# SDK. A continuación, obtenga información sobre cómo completar escenarios de extremo a otro con C#, o empezar a usar un idioma diferente de SDK.
 
-[Empezar a trabajar con el SDK de .NET](csharp-tutorial.md)
-
-[Empezar a trabajar con los SDK de Python](python-tutorial.md)
-
-[Empezar a trabajar con el SDK de Java](java-tutorial.md)
-
-[Empezar a trabajar con los SDK de nodo](node-tutorial.md)
-
-[Empezar a trabajar con los SDK de Go](go-tutorial.md)
+* [Inicio rápido: .NET SDK](csharp-tutorial.md)
+* [Inicio rápido: SDK de Python](python-tutorial.md)
+* [Inicio rápido: SDK de Java](java-tutorial.md)
+* [Inicio rápido: SDK de Node](node-tutorial.md)
+* [Inicio rápido: Go SDK](go-tutorial.md)

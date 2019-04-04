@@ -8,18 +8,21 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 01/10/2019
 ms.author: alkohli
-ms.openlocfilehash: bb1d6c5bd51fcfe35127c2f6d8dd6a80b727c45f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 44fa81ddf6b0892c6d900fd065589b3d6ac5a0bd
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517154"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905569"
 ---
 # <a name="use-azure-data-box-to-send-data-to-appropriate-azure-storage-blob-tier"></a>Uso de Azure Data Box para enviar datos al nivel de blob de Azure Storage adecuado
 
 Azure Data Box mueve grandes cantidades de datos a Azure mediante el envío de un dispositivo de almacenamiento propio. Debe llenar el dispositivo de datos y devolverlo. Los datos de Data Box se cargan en un nivel predeterminado asociado con la cuenta de almacenamiento. A continuación, puede mover los datos a otro nivel de almacenamiento.
 
 En este artículo se describe cómo se pueden mover los datos que haya cargado Data Box a un nivel de blob de acceso frecuente, poco frecuente o de archivo.  
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="choose-the-correct-storage-tier-for-your-data"></a>Selección del nivel de almacenamiento correcto para sus datos
 
@@ -58,7 +61,7 @@ Los pasos siguientes describen cómo establecer el nivel de blob de archivo medi
 
 2. Inicie sesión en Azure PowerShell. 
 
-   `Login-AzureRmAccount`  
+   `Login-AzAccount`  
 
 3. Defina las variables para la cuenta de almacenamiento, la clave de acceso, el contenedor y el contexto de almacenamiento.
 
@@ -66,12 +69,12 @@ Los pasos siguientes describen cómo establecer el nivel de blob de archivo medi
     $StorageAccountName = "<enter account name>"
     $StorageAccountKey = "<enter account key>"
     $ContainerName = "<enter container name>"
-    $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
     ```
 
 4. Obtenga todos los blobs del contenedor.
 
-    `$blobs = Get-AzureStorageBlob -Container "<enter container name>" -Context $ctx`
+    `$blobs = Get-AzStorageBlob -Container "<enter container name>" -Context $ctx`
  
 5. Establezca el nivel de todos los blobs del contenedor en el nivel de archivo.
 
@@ -91,7 +94,7 @@ Los pasos siguientes describen cómo establecer el nivel de blob de archivo medi
     Major  Minor  Build  Revision
     -----  -----  -----  --------
     5      1      17763  134
-    PS C:\WINDOWS\system32> Login-AzureRmAccount
+    PS C:\WINDOWS\system32> Login-AzAccount
 
     Account          : gus@contoso.com
     SubscriptionName : MySubscription
@@ -102,8 +105,8 @@ Los pasos siguientes describen cómo establecer el nivel de blob de archivo medi
     PS C:\WINDOWS\system32> $StorageAccountName = "mygpv2storacct"
     PS C:\WINDOWS\system32> $StorageAccountKey = "mystorageacctkey"
     PS C:\WINDOWS\system32> $ContainerName = "test"
-    PS C:\WINDOWS\system32> $ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
-    PS C:\WINDOWS\system32> $blobs = Get-AzureStorageBlob -Container "test" -Context $ctx
+    PS C:\WINDOWS\system32> $ctx = New-AzStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
+    PS C:\WINDOWS\system32> $blobs = Get-AzStorageBlob -Container "test" -Context $ctx
     PS C:\WINDOWS\system32> Foreach ($blob in $blobs) {
     >> $blob.ICloudBlob.SetStandardBlobTier("Archive")
     >> }

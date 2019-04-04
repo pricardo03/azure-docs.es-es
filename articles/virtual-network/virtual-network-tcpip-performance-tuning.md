@@ -28,12 +28,12 @@ ms.author:
 - minale
 - btalb
 - prachank
-ms.openlocfilehash: c5d4f67e9c1e4e983133675c440b8c5b64183227
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 664c8b659152a370d7fb31907b6cdbcd414dce31
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58852016"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905110"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP optimizar el rendimiento de las máquinas virtuales de Azure
 
@@ -128,7 +128,7 @@ La recomendación actual de Azure es establecer el bloqueo MSS de TCP a 1350 byt
 
 #### <a name="latency-and-round-trip-time"></a>Tiempo de ida y vuelta y latencia
 
-Latencia de red se rige por la velocidad de la luz en una red de fibra óptica. La realidad es, rendimiento de la red de TCP también está regidos eficazmente (prácticos máximos) debido del tiempo de ida y vuelta (RTT) entre dos dispositivos de red.
+Latencia de red se rige por la velocidad de la luz en una red de fibra óptica. La realidad es, rendimiento de la red de TCP también está regidos eficazmente (prácticos máximos) debido a la hora de ida y vuelta (RTT) entre dos dispositivos de red.
 
 | | | | |
 |-|-|-|-|

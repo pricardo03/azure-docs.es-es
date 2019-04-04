@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: d8456595e244237a0fd92fae82a43a878ad41080
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55857675"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893632"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Prueba de la aplicación de LUIS en el portal de LUIS
 La <a name="train-your-app"></a>
@@ -108,7 +108,7 @@ Use el procedimiento siguiente para incluir el servicio [Bing Spell Check v7](ht
 3. Cuando se abra el panel **Publicado**, seleccione **[Configuración adicional](#additional-settings-in-test-panel)**.
 
 4. En el cuadro de diálogo emergente, escriba su clave de servicio de **Bing Spell Check**. 
-    ![Escribir la clave de servicio de Bing Spell Check](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+    ![Escriba la clave del servicio Bing Spell Check](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
 5. Escriba una consulta con una ortografía incorrecta, como `book flite to seattle` y presione Entrar. La ortografía incorrecta de la palabra `flite` se sustituye en la consulta enviada a LUIS y el JSON resultante muestra la consulta original, como `query`, y la ortografía corregida en la consulta, como `alteredQuery`.
 
@@ -132,5 +132,5 @@ Vea los [conceptos](luis-concept-batch-test.md) de las pruebas por lotes y obten
 
 Si las pruebas indican que la aplicación de LUIS no reconoce las entidades y las intenciones correctas, puede trabajar para mejorar la precisión de la aplicación de LUIS etiquetando más expresiones o agregando características. 
 
-* [Label suggested utterances with LUIS](luis-how-to-review-endoint-utt.md) (Etiquetado de expresiones sugeridas con LUIS) 
-* [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) (Uso de características para mejorar el rendimiento de la aplicación de LUIS) 
+* [Etiqueta sugeridos grabaciones de voz con LUIS](luis-how-to-review-endpoint-utterances.md) 
+* [Uso de características para mejorar el rendimiento de la aplicación de LUIS](luis-how-to-add-features.md) 

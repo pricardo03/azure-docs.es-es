@@ -3,19 +3,19 @@ title: Filtrado de blasfemias de Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Use el filtrado de blasfemias de Translator Text API.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: ab54f34dbdbda5af94c6ebc2bc8c1818ebf3d601
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: bd7a05f2f597d1882293387e5aac8e4d7367d051
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729889"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916638"
 ---
 # <a name="add-profanity-filtering-with-the-translator-text-api"></a>Agregar el filtrado de blasfemias con Translator Text API
 
@@ -34,4 +34,4 @@ El método Translate() toma el parámetro "options", que contiene el nuevo eleme
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
-> [Aplicar filtrado de blasfemias con la llamada a Translator API](reference/v3-0-translate.md)
+> [Aplicar palabras soeces filtrado con la llamada de API del traductor](reference/v3-0-translate.md)

@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: f2fc187518070bf199a3959889afd1ede4ef5b77
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
-ms.translationtype: HT
+ms.openlocfilehash: 89b48175d7707458cd92916f6b26e298163a7416
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660729"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915936"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatización de la aplicación de revisiones de sistema operativo y plataforma con ACR Tasks
 
@@ -27,7 +27,7 @@ Compile y pruebe imágenes de contenedor con ACR Tasks de cuatro maneras:
 * [Tarea rápida](#quick-task): Compile e inserte imágenes de contenedor a petición en Azure, sin necesidad de una instalación local del motor de Docker. Considere que `docker build`, es `docker push` en la nube. Compile desde el código fuente local o un repositorio de Git.
 * [Compilación al confirmar el código fuente](#automatic-build-on-source-code-commit): Desencadene una compilación de imágenes de contenedor automáticamente cuando el código se confirme en un repositorio de Git.
 * [Compilación al actualizar la imagen base](#automate-os-and-framework-patching): Desencadene una compilación de imágenes de contenedor cuando se ha actualizado la imagen base de la imagen.
-* [Tareas de varios pasos](#multi-step-tasks-preview) (versión preliminar): Defina tareas de varios pasos que compilan imágenes, ejecutan contenedores como comandos e insertan imágenes en un registro. Esta característica en versión preliminar de ACR Tasks admite la ejecución de tareas a petición y operaciones en paralelo de compilación, prueba e inserción de imágenes.
+* [Tareas de varios pasos](#multi-step-tasks): Defina tareas de varios pasos que compilan imágenes, ejecutan contenedores como comandos e insertan imágenes en un registro. Esta característica de ACR tareas admite la ejecución de tareas y a petición y compilación de imágenes paralelas, prueba y las operaciones de inserción.
 
 ## <a name="quick-task"></a>Tarea rápida
 
@@ -36,6 +36,8 @@ El ciclo de desarrollo de bucle interno, el proceso iterativo de escribir códig
 Antes de confirmar la primera línea de código, la característica de [tareas rápidas](container-registry-tutorial-quick-task.md) de ACR Tasks puede proporcionar una experiencia de desarrollo integrado mediante la descarga de compilaciones de imágenes de contenedor en Azure. Con tareas rápidas, puede comprobar sus definiciones de compilación automatizadas y detectar posibles problemas antes de confirmar el código.
 
 Mediante el conocido formato `docker build`, el comando [az acr build][az-acr-build] de la CLI de Azure toma un *contexto* (el conjunto de archivos que se van a compilar), lo envía a ACR Tasks y, de forma predeterminada, inserta la imagen compilada en su registro tras completarse.
+
+Para obtener una introducción, consulte la Guía de inicio rápido para [compilar y ejecutar una imagen de contenedor](container-registry-quickstart-task-cli.md) en Azure Container Registry.  
 
 En la tabla siguiente se muestran algunos ejemplos de ubicaciones de contexto admitidas en ACR Tasks:
 
@@ -76,9 +78,9 @@ Aprenda sobre la aplicación de revisiones de sistema operativo y plataforma en 
 > [!NOTE]
 > La imagen base actualiza las compilaciones del desencadenador solo cuando las imágenes base y de aplicación residen en el mismo registro de contenedor de Azure o en repositorios de Docker Hub públicos.
 
-## <a name="multi-step-tasks-preview"></a>Tareas de varios pasos (versión preliminar)
+## <a name="multi-step-tasks"></a>Tareas de varios pasos
 
-Tareas de varios pasos, una funcionalidad en versión preliminar de ACR Tasks, proporciona definición y ejecución de tareas basadas en pasos para compilar y probar imágenes de contenedor en la nube y aplicarles revisiones. Los pasos de las tareas definen las operaciones de creación e inserción de imágenes de contenedor individuales. También pueden definir la ejecución de uno o más contenedores, donde cada paso utiliza el contenedor como su entorno de ejecución.
+Tareas de varios pasos proporcionan la definición de tarea basada en el paso y la ejecución para compilar, probar y aplicación de revisiones de imágenes de contenedor en la nube. Los pasos de las tareas definen las operaciones de creación e inserción de imágenes de contenedor individuales. También pueden definir la ejecución de uno o más contenedores, donde cada paso utiliza el contenedor como su entorno de ejecución.
 
 Por ejemplo, puede crear una tarea de varios pasos que automatice lo siguiente:
 
@@ -93,15 +95,12 @@ Las tareas de varios pasos permiten dividir la compilación, la ejecución y la 
 
 Aprenda más sobre las tareas de varios pasos en [Ejecución de tareas de varios pasos de compilación, prueba y aplicación de revisiones en ACR Tasks](container-registry-tasks-multi-step.md).
 
-> [!IMPORTANT]
-> La funcionalidad de tareas de varios pasos de ACR Tasks está actualmente en versión preliminar. Las versiones preliminares están a su disposición a condición de que acepte los [términos de uso adicionales][terms-of-use]. Es posible que algunos de los aspectos de esta funcionalidad cambien antes de ofrecer disponibilidad general.
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 Cuando esté listo para automatizar la aplicación de revisiones de sistema operativo y plataforma mediante la compilación de imágenes de contenedor en la nube, consulte la serie de tutoriales de tres partes de ACR Tasks.
 
 > [!div class="nextstepaction"]
-> [Compilación de imágenes de contenedor en la nube con Azure Container Registry Tasks](container-registry-tutorial-quick-task.md)
+> [Crear imágenes de contenedor en la nube con las tareas del registro de contenedor de Azure](container-registry-tutorial-quick-task.md)
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

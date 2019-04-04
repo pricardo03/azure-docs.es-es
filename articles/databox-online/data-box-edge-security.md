@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/02/2019
 ms.author: alkohli
-ms.openlocfilehash: 43de22f7e56178559df4fc45980d064962580d2b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: de737f20147e8208dd18388eedcac11583c8cb97
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403398"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891810"
 ---
 # <a name="data-box-edge-security-and-data-protection"></a>Seguridad del borde del cuadro de datos y protección de datos
 
@@ -35,6 +35,7 @@ El servicio de puerta de enlace de datos cuadro Edge/datos de cuadro es un servi
 
 - Acceso al servicio de puerta de enlace de datos cuadro Edge/Data cuadro requiere su organización tenga un contrato Enterprise (EA) o una suscripción de proveedor de soluciones en la nube (CSP). Para obtener más información, vaya a [registrarse para obtener una suscripción de Azure](https://azure.microsoft.com/resources/videos/sign-up-for-microsoft-azure/)!
 - Dado que se hospeda el servicio de administración de Azure, se está protegido por las características de seguridad de Azure. Para obtener más información acerca de las características de seguridad que proporciona Microsoft Azure, visite el [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/security/).
+- Para las operaciones de administración de SDK, está disponible para el borde del cuadro de datos clave de cifrado o recurso de puerta de enlace de datos cuadro en **las propiedades del dispositivo**. Puede ver la clave de cifrado solo si tiene permisos para el recurso de Graph API.
 
 ## <a name="data-box-edge-device-protection"></a>Protección de dispositivos de borde del cuadro de datos
 
@@ -44,7 +45,8 @@ El dispositivo de borde del cuadro de datos es un dispositivo local que ayuda a 
 - Se protege en todo momento mediante una contraseña de dispositivo.
 - Es un dispositivo bloqueado. El dispositivo de BMC y BIOS están protegidas con contraseña con acceso de usuario limitado para que el BIOS.
 - Ha habilitado el arranque seguro.
-- Se ejecuta Device Guard de Windows Defender. Device Guard le permite ejecutar solo las aplicaciones de confianza que se definen en las directivas de integridad de código. 
+- Se ejecuta Device Guard de Windows Defender. Device Guard le permite ejecutar solo las aplicaciones de confianza que se definen en las directivas de integridad de código.
+- Tiene una clave dentro de la portada que puede utilizarse para bloquear el dispositivo. Se recomienda que después de configurar el dispositivo, abra la cubierta. Busque la clave y, a continuación, bloquear la cubierta para evitar cualquier acceso no autorizado a los discos de datos situados delante del dispositivo.
 
 ### <a name="protect-the-device-via-activation-key"></a>Proteger el dispositivo a través de la clave de activación
 
@@ -121,11 +123,11 @@ El borde del cuadro de datos / servicio de puerta de enlace de datos cuadro reco
 - **Detalles de pedidos**: una vez creado el pedido, la dirección de envío, el correo electrónico y la información de contacto de los usuarios se almacenan en Azure Portal. Entre la información guardada se incluyen los siguientes datos:
   - Nombre de contacto
   - Número de teléfono
-  - Correo
+  - Email
   - Dirección
-  - Ciudad
+  - City
   - Código postal
-  - Estado o provincia
+  - Estado
   - País/región/provincia
   - Número de seguimiento del envío
 

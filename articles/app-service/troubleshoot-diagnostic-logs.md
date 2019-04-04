@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 023d12764e3dcfcf2f5471cb431528a14fbc1fed
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339642"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894925"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
 ## <a name="overview"></a>Información general
@@ -36,10 +36,10 @@ Puede habilitar o deshabilitar los siguientes tipos de registros:
 
 * **Registro de errores detallado** -información detallada acerca de cualquier solicitud que da como resultado código de estado HTTP 400 o superior. Puede contener información que puede ayudar a determinar por qué el servidor devolvió el código de error. Archivo HTML se genera para cada error en el sistema de archivos de la aplicación y hasta 50 errores (archivos) se conservan. Cuando el número de archivos HTML supera 50, los 26 archivos más antiguos se eliminan automáticamente.
 * **Seguimiento de solicitudes con error** : registra información detallada acerca de solicitudes con error, incluido un seguimiento de los componentes de IIS usados para procesar la solicitud y el tiempo dedicado a cada componente. Resulta útil si desea mejorar el rendimiento del sitio o aislar un error HTTP específico. Se genera una carpeta para cada error en el sistema de archivos de la aplicación. Las directivas de retención de archivo son los mismos que el registro por encima de errores detallado.
-* **Registro del servidor web** : registra todas las transacciones HTTP con el [formato de archivo de registro extendido de W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Resulta útil al determinar las métricas totales del sitio, como el número de solicitudes tramitadas o que proceden de una dirección IP específica.
+* **Registro del servidor web** : registra todas las transacciones HTTP con el [formato de archivo de registro extendido de W3C](/windows/desktop/Http/w3c-logging). Resulta útil al determinar las métricas totales del sitio, como el número de solicitudes tramitadas o que proceden de una dirección IP específica.
 
 ### <a name="application-diagnostics"></a>Diagnósticos de aplicaciones
-El diagnóstico de aplicaciones le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) para registrar información en el registro de diagnóstico de la aplicación. Por ejemplo: 
+El diagnóstico de aplicaciones le permite capturar información generada por una aplicación web. Las aplicaciones de ASP.NET pueden usar la clase [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) para registrar información en el registro de diagnóstico de la aplicación. Por ejemplo: 
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -57,9 +57,9 @@ Cuando habilite **Diagnóstico de aplicaciones**, elija también **Nivel**. En l
 
 | Nivel| Categorías de registro incluidas |
 |-|-|
-|**Deshabilitada** | None |
+|**Disabled** | None |
 |**Error** | Error, Crítico |
-|**Warning (ADVERTENCIA)** | Advertencia, Error, Crítico|
+|**Advertencia** | Advertencia, Error, Crítico|
 |**Información** | Información, Advertencia, Error, Crítico|
 |**Detallado** | Seguimiento, Depurar, Información, Advertencia, Error, Crítico (todas las categorías) |
 |-|-|
@@ -101,7 +101,7 @@ La estructura de directorios en que se almacenan los registros es la siguiente:
 * **Registros de aplicaciones** : /LogFiles/Application/. Esta carpeta contiene uno o varios archivos de texto con información generada por el registro de aplicaciones.
 * **Seguimientos de solicitudes con error** : /LogFiles/W3SVC#########/. Esta carpeta contiene un archivo XSL y uno o varios archivos XML. Asegúrese de descargar el archivo XSL en el mismo directorio de los archivos XML, porque el archivo XSL proporciona funcionalidad para dar formato y filtrar los contenidos de los archivos XML cuando se visualizan en Internet Explorer.
 * **Registros detallados de errores** : /LogFiles/DetailedErrors/. Esta carpeta contiene uno o varios archivos .htm con información amplia de todos los errores HTTP que se han producido.
-* **Registros de servidor web** : /LogFiles/http/RawLogs. Esta carpeta contiene uno o varios archivos de texto a los que se le aplica el [formato de archivo de registro extendido W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+* **Registros de servidor web** : /LogFiles/http/RawLogs. Esta carpeta contiene uno o varios archivos de texto a los que se le aplica el [formato de archivo de registro extendido W3C](/windows/desktop/Http/w3c-logging).
 * **Registros de implementaciones** : /LogFiles/Git. Esta carpeta contiene registros generados por los procesos de implementación internos usados por Azure App Service, además de los registros de las implementaciones Git. También puede encontrar registros de implementación en D:\home\site\deployments.
 
 ### <a name="ftp"></a>FTP
@@ -132,7 +132,7 @@ Visual Studio Application Insights proporciona herramientas para filtrar y busca
 3. Cargue el proyecto y ejecútelo para generar datos de registro.
 4. En [Azure Portal](https://portal.azure.com/), busque el nuevo recurso de Application Insights y abra **Buscar**. Verá los datos de registro, junto con la solicitud, el uso y otros datos de telemetría. Es posible que algunos datos de telemetría demoren unos minutos en aparecer: haga clic en Actualizar. [Más información](../azure-monitor/app/diagnostic-search.md)
 
-[Obtenga más información acerca del seguimiento del rendimiento con Application Insights](../azure-monitor/app/azure-web-apps.md)
+[Más información sobre el seguimiento del rendimiento con Application Insights](../azure-monitor/app/azure-web-apps.md)
 
 ## <a name="streamlogs"></a> Instrucciones: Transmisión de registros
 Al implementar una aplicación, suele resultar útil ver la información de registro casi en tiempo real. Puede transmitir información de registro al entorno de desarrollo mediante la CLI de Azure.
@@ -183,7 +183,7 @@ Por ejemplo, un evento de error presentaría un formato similar al siguiente:
 
 El registro en el sistema de archivos ofrece la información más básica de los tres métodos disponibles, ya que ofrece solo la hora, el identificador del proceso, el nivel de evento y el mensaje.
 
-**Blob Storage**
+**Almacenamiento de blobs**
 
 Al realizar registros en el almacenamiento de blobs, los datos se almacenan con un formato de valores separados por comas (CSV). Se registran campos adicionales para ofrecer información más pormenorizada acerca del evento. Las siguientes propiedades se usan para cada fila con el formato CSV:
 
@@ -222,7 +222,7 @@ El seguimiento de solicitudes con error se almacena en archivos XML con nombre *
 Los registros de error detallados son documentos HTML que ofrecen información más detallada sobre los errores HTTP que se han producido. Habida cuenta de que se trata sencillamente de documentos HTML, se pueden ver en un explorador web.
 
 ### <a name="web-server-logs"></a>Registros de servidor web
-A los registros del servidor web se les aplica el [formato de archivo de registro extendido W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Esta información se puede leer con un editor de texto o analizarse con utilidades como el [analizador del registro](https://go.microsoft.com/fwlink/?LinkId=246619).
+A los registros del servidor web se les aplica el [formato de archivo de registro extendido W3C](/windows/desktop/Http/w3c-logging). Esta información se puede leer con un editor de texto o analizarse con utilidades como el [analizador del registro](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
 > Los registros generados por Azure App Service no admiten los campos **s-computername**, **s-ip** o **cs-version**.
@@ -230,6 +230,6 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 >
 
 ## <a name="nextsteps"></a> Pasos siguientes
-* [Control de Supervisión de aplicaciones en Azure App Service](web-sites-monitor.md)
-* [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md) (Solución de problemas de Azure App Service en Visual Studio)
-* [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413) (Análisis de registros de aplicación en HDInsight)
+* [Supervisión de Azure App Service](web-sites-monitor.md)
+* [Solución de problemas de Azure App Service en Visual Studio](troubleshoot-dotnet-visual-studio.md)
+* [Analizar los registros de aplicación en HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)

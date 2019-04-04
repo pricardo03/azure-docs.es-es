@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 7bf7e341a83727e21e9225c384829c05b7230579
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5d6ec0197699f603c79f414e015cdebcde6b9f60
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096000"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905620"
 ---
 # <a name="azure-application-skus-tab"></a>Pestaña SKU de aplicación de Azure
 
@@ -57,7 +57,7 @@ Azure público: Esta máquina virtual se implementará a los clientes de todas l
   >[!NOTE] 
   >Microsoft Azure Government es una nube de la comunidad gubernamental con acceso controlado para los clientes de asociados tribales, locales, estatales y federales de Estados Unidos y asociados aptos para abastecer a tales entidades.
 
-- **Is this a Private SKU?** (¿Es una SKU privada?) - Seleccione Sí si esta SKU solo está disponible para un grupo selecto de clientes.
+- **¿Esto es una unidad de almacenamiento privada?** - Seleccione Sí si esta SKU solo está disponible para un grupo selecto de clientes.
 
     ![Formulario Detalles de la SKU de una plantilla de solución](./media/azureapp-sku-details-solutiontemplate.png)
 
@@ -80,7 +80,7 @@ Configure las siguientes opciones de la SKU:
   >[!NOTE] 
   >Microsoft Azure Government es una nube de la comunidad gubernamental con acceso controlado para los clientes de asociados tribales, locales, estatales y federales de Estados Unidos y asociados aptos para abastecer a tales entidades.
 
-- **Is this a Private SKU?** (¿Es una SKU privada?) - Seleccione Sí si esta SKU solo está disponible para un grupo selecto de clientes.
+- **¿Esto es una unidad de almacenamiento privada?** - Seleccione Sí si esta SKU solo está disponible para un grupo selecto de clientes.
 - **Disponibilidad de país/región**: Use **Seleccionar regiones** para ver la lista de países o regiones que están disponibles. Compruebe cada país o región y, luego, seleccione **Aceptar** para guardar sus selecciones. 
 
    ![Lista de disponibilidad por región y región](./media/azure-app-select-country-region.png)
@@ -124,7 +124,7 @@ Tenga en cuenta las siguientes propiedades de clave de este recurso:
   >Este paquete debe contener los demás scripts o plantillas anidadas que sean necesarios para aprovisionar esta aplicación. Estos archivos deben estar en la carpeta raíz:  MainTemplate.json, applianceMainTemplate.json y applianceCreateUIDefinition.json.
 
 - **Id. de inquilino**: Id. de inquilino de Azure Active Directory de su organización.
-- **Enable JIT Access?** (¿Habilitar acceso JIT?): Seleccione **Sí** para habilitar el acceso de administración Just-In-Time para implementaciones de cliente con esta oferta.
+- **¿Habilitar acceso JIT?** Seleccione **Sí** para habilitar el acceso de administración Just-In-Time para implementaciones de cliente con esta oferta.
 
   >[!NOTE] 
   >Si habilita JIT, debe actualizar el archivo CreateUiDefinition.json para admitir el acceso JIT.
@@ -135,7 +135,7 @@ Para una aplicación administrada, debe configurar Autorización y Configuració
 
 #### <a name="authorization"></a>Autorización
 
-Agregue el identificador de Azure Active Directory (AD) del usuario, grupo o aplicación a los que quiere conceder permisos al grupo de recursos administrados. El id. de definición de roles indica el permiso que se concede. Puede ser un rol de Propietario, Colaborador o cualquier rol personalizado.
+Agregue el identificador de Azure Active Directory (AD) del usuario, grupo o aplicación a los que quiere conceder permisos al grupo de recursos administrados. El id. de definición de roles indica el permiso que se concede. Podría ser un propietario, Colaborador o cualquier rol personalizado.
 
 #### <a name="policy-settings"></a>Configuración de directivas
 

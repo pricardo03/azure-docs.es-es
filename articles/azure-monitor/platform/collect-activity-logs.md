@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
-ms.openlocfilehash: 2fd74262d9c1b4a751df5d836f98bf89d31dbdc2
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 48fb09b73a6169da392443f5fbf4f005e9640c3e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540438"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905994"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recopilar y analizar los registros de actividad de Azure en el área de trabajo de Log Analytics en Azure Monitor
 
@@ -31,7 +31,7 @@ Con el registro de actividad se pueden determinar los interrogantes *qué*, *qui
 Cuando los registros de actividad de Azure se conexión a un área de trabajo de Log Analytics, puede:
 
 - Analizar los registros de actividad con vistas predefinidas
-- Analizar y buscar en los registros de actividad de varias suscripciones de Azure
+- Analizar y buscar registros de actividad de varias suscripciones de Azure
 - Conservar registros de actividad durante más de 90 días<sup>1</sup>
 - Correlacionar registros de actividad con otros datos de plataforma y aplicación de Azure
 - Ver las actividades operativas agregadas por estado
@@ -55,7 +55,7 @@ A diferencia de la mayoría de soluciones de Azure Monitor, datos agentes no rec
 | [Agentes de Windows](../../azure-monitor/platform/agent-windows.md) | Sin  | La solución no recopila información de los agentes de Windows. |
 | [Agentes de Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Sin  | La solución no recopila información de los agentes de Linux. |
 | [Grupo de administración de SCOM](../../azure-monitor/platform/om-agents.md) | Sin  | La solución no recopila información de los agentes de un grupo de administración SCOM conectado. |
-| [Cuenta de Almacenamiento de Azure](collect-azure-metrics-logs.md) | Sin  | La solución no recopila información de Azure Storage. |
+| [Cuenta de almacenamiento de Azure](collect-azure-metrics-logs.md) | Sin  | La solución no recopila información de Azure Storage. |
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -71,7 +71,7 @@ Realice los pasos siguientes para configurar la solución Log Analytics para las
     2. Haga clic en el nombre de cada suscripción.  
         ![agregar suscripción](./media/collect-activity-logs/add-subscription.png)
     3. En la hoja *SubscriptionName*, haga clic en **Conectar**.  
-        ![conectar suscripción](./media/collect-activity-logs/subscription-connect.png)
+        ![Conectar suscripción](./media/collect-activity-logs/subscription-connect.png)
 
 Inicie sesión en Azure Portal para conectar una suscripción de Azure al área de trabajo.  
 

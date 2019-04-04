@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
-ms.openlocfilehash: 371d15f59c091f7ac38d36bfe3de5f4b31e4482c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 40c5444a54f4e483a9dcacb958c18f66da45019a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58629633"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906130"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
 
@@ -21,6 +21,9 @@ Azure Application Gateway consta de varios componentes que se pueden configurar 
 ![Diagrama de flujo de los componentes de puerta de enlace de aplicaciones](./media/configuration-overview/configuration-overview1.png)
 
 Esta imagen muestra una aplicación que tiene tres agentes de escucha. Los dos primeros son agentes de escucha multisitio para `http://acme.com/*` y `http://fabrikam.com/*`, respectivamente. Ambos escuchan en el puerto 80. El tercero es un agente de escucha básico que tiene la terminación de la capa de Sockets seguros (SSL) de extremo a otro.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -136,11 +139,11 @@ Consulte [certificados compatibles para la terminación SSL](https://docs.micros
 Compatibilidad con el protocolo HTTP/2 está disponible para los clientes que se conectan a sólo escuchas de puerta de enlace de aplicaciones. La comunicación entre grupos de servidores back-end es a través de HTTP/1.1. De forma predeterminada, HTTP/2 está deshabilitado. El siguiente fragmento de código de PowerShell de Azure muestra cómo habilitar esto:
 
 ```azurepowershell
-$gw = Get-AzureRmApplicationGateway -Name test -ResourceGroupName hm
+$gw = Get-AzApplicationGateway -Name test -ResourceGroupName hm
 
 $gw.EnableHttp2 = $true
 
-Set-AzureRmApplicationGateway -ApplicationGateway $gw
+Set-AzApplicationGateway -ApplicationGateway $gw
 ```
 
 #### <a name="websocket-support"></a>Compatibilidad con WebSocket
@@ -343,4 +346,4 @@ Ahora que sabe acerca de los componentes de Application Gateway, puede:
 
 - [Crear una puerta de enlace de la aplicación en Azure portal](quick-create-portal.md)
 - [Crear una instancia de application gateway mediante PowerShell](quick-create-powershell.md)
-- [Crear una puerta de enlace de aplicaciones mediante la CLI de Azure](quick-create-cli.md)
+- [Creación de una puerta de enlace de aplicaciones mediante la CLI de Azure](quick-create-cli.md)

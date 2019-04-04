@@ -1,6 +1,6 @@
 ---
-title: Definición de un perfil técnico de OAuth1 en una directiva personalizada en Azure Active Directory B2C | Microsoft Docs
-description: Defina un perfil técnico de OAuth1 en una directiva personalizada en Azure Active Directory B2C.
+title: Definir un perfil técnico OAuth1 en una directiva personalizada en Azure Active Directory B2C | Microsoft Docs
+description: Definir un perfil técnico OAuth1 en una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
@@ -10,14 +10,14 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 08fb0baf85b09b4804c83617dbae9ae9c69f0224
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 86de73394d96d1122abce44504d2b0fd99a01841
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55162742"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915789"
 ---
-# <a name="define-a-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de OAuth1 en una directiva personalizada en Azure Active Directory B2C
+# <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir un perfil técnico OAuth1 en una directiva personalizada de Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -69,11 +69,11 @@ El perfil técnico también devuelve notificaciones, que no son devueltas por el
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| client_id | SÍ | El identificador de la aplicación del proveedor de identidades. |
+| client_id | Sí | El identificador de la aplicación del proveedor de identidades. |
 | ProviderName | Sin  | Nombre del proveedor de identidades. |
-| request_token_endpoint | SÍ | La dirección URL del punto de conexión del token de solicitud de acuerdo con RFC 5849. |
-| authorization_endpoint | SÍ | La dirección URL del punto de conexión de autorización de acuerdo con RFC 5849. |
-| access_token_endpoint | SÍ | La dirección URL del punto de conexión del token de acuerdo con RFC 5849. |
+| request_token_endpoint | Sí | La dirección URL del punto de conexión del token de solicitud de acuerdo con RFC 5849. |
+| authorization_endpoint | Sí | La dirección URL del punto de conexión de autorización de acuerdo con RFC 5849. |
+| access_token_endpoint | Sí | La dirección URL del punto de conexión del token de acuerdo con RFC 5849. |
 | ClaimsEndpoint | Sin  | La dirección URL del punto de conexión de la información de usuario. | 
 | ClaimsResponseFormat | Sin  | El formato de respuesta de las notificaciones.|
 
@@ -83,7 +83,7 @@ El elemento **CryptographicKeys** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| client_secret | SÍ | Secreto de cliente de la aplicación del proveedor de identidades.   | 
+| client_secret | Sí | Secreto de cliente de la aplicación del proveedor de identidades.   | 
 
 ## <a name="redirect-uri"></a>URI de redireccionamiento
 
@@ -93,7 +93,7 @@ Si usa el dominio **b2clogin.com** en lugar de **login.microsoftonline.com**, as
 
 Ejemplos:
 
-- [Adición de Twitter como un proveedor de identidades de OAuth1 mediante directivas personalizadas](active-directory-b2c-custom-setup-twitter-idp.md)
+- [Adición de Twitter como proveedor de identidades de OAuth1 mediante directivas personalizadas](active-directory-b2c-custom-setup-twitter-idp.md)
 
 
 

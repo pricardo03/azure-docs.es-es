@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 6dc3fb97c912aa9ac66e3d40a8a0318a6938905c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: ee86b9aa2d920668cf036f3e8f8634e9289e8913
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51230298"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916876"
 ---
-# <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: copias de seguridad y restauración
+# <a name="biztalk-services-backup-and-restore"></a>BizTalk Services: Copia de seguridad y restauración
 
 > [!INCLUDE [BizTalk Services is being retired, and replaced with Azure Logic Apps](../../includes/biztalk-services-retirement.md)]
 
@@ -34,7 +34,7 @@ Azure BizTalk Services incluye las capacidades de copia de seguridad y restaurac
 
 
 ## <a name="before-you-begin"></a>Introducción
-* Puede que las copias de seguridad y restauración no estén disponible para todas las ediciones. Consulte [BizTalk Services: gráfico de ediciones](biztalk-editions-feature-chart.md).
+* Puede que las copias de seguridad y restauración no estén disponible para todas las ediciones. Consulte [BizTalk Services: Gráfico de ediciones](biztalk-editions-feature-chart.md).
 * El contenido de las copias de seguridad se puede restaurar en el mismo servicio de BizTalk o en uno nuevo. Para restaurar el servicio de BizTalk con el mismo nombre, es preciso eliminar el servicio de BizTalk existente y el nombre debe estar disponible. Después de eliminar un servicio de BizTalk, puede tardar más tiempo del deseado para que el mismo nombre esté disponible. Si no puede esperar a que el mismo nombre esté disponible, restaure a un nuevo servicio de BizTalk.
 * Se pueden restaurar BizTalk Services en la misma edición o en una posterior. No se puede realizar la restauración de BizTalk Services en una edición anterior con respecto a la usada para realizar la copia de seguridad.
   
@@ -42,14 +42,14 @@ Azure BizTalk Services incluye las capacidades de copia de seguridad y restaurac
 * A fin de mantener la continuidad de los números de control del intercambio electrónico de datos (EDI), estos se incluyen en una copia de seguridad. Si los mensajes se procesan después de la última copia de seguridad y se restaura el contenido de esta copia de seguridad, se pueden duplicar los números de control.
 * Si un lote tiene mensajes activos, procéselo **antes** de ejecutar una copia de seguridad. Al crear una copia de seguridad (según sea necesario o según se programe), no se almacenan nunca los mensajes en lotes. 
   
-    **Si se realiza una copia de seguridad con mensajes activos en un lote, estos mensajes no se incluyen en la copia de seguridad y, por lo tanto, se pierden.**
-* Opcional: en el Portal de BizTalk Services, detenga todas las operaciones de administración.
+    **Si no se realiza una copia de seguridad con mensajes activos en un lote, estos mensajes no son una copia de seguridad y, por tanto, se pierden.**
+* Opcional: En el Portal de BizTalk Services, detenga las operaciones de administración.
 
 ## <a name="create-a-backup"></a>Creación de una copia de seguridad
-Puede realizar una copia de seguridad en cualquier momento y controlarla por completo. Para crear una copia de seguridad, use la [API de REST de administración de BizTalk Services en Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
+Puede realizar una copia de seguridad en cualquier momento y controlarla por completo. Para crear una copia de seguridad, use la [API de REST de administración de BizTalk Services en Azure](/previous-versions/azure/reference/dn232347(v=azure.100)).
 
 ## <a name="restore"></a>Restauración
-Para restaurar una copia de seguridad, use la [API de REST de administración de BizTalk Services en Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx).
+Para restaurar una copia de seguridad, use la [API de REST de administración de BizTalk Services en Azure](/previous-versions/azure/reference/dn232347(v=azure.100)).
 
 ### <a name="postrestore"></a>Después de restaurar una copia de seguridad
 El servicio de BizTalk siempre está restaurado en un estado **Suspendido** . En este estado, puede realizar cambios de configuración antes de que el nuevo entorno sea funcional, incluyendo:
@@ -92,7 +92,7 @@ Se incluyen los elementos siguientes al crear una copia de seguridad:
 
 <tr>
 <td colspan="2">
- <strong>Servicio Azure BizTalk</strong></td>
+ <strong>Azure BizTalk Service</strong></td>
 </tr> 
 <tr>
 <td>Certificado SSL</td> 
@@ -132,18 +132,18 @@ Si la base de datos de seguimiento se elimina y hay que recuperarla, debe existi
 </table>
 
 ## <a name="next"></a>Pasos siguientes
-Para crear Azure BizTalk Services, vaya a [BizTalk Services: aprovisionamiento](https://go.microsoft.com/fwlink/p/?LinkID=302280). Para comenzar a crear aplicaciones, vaya a [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197).
+Para crear Azure BizTalk Services, vaya a [BizTalk Services: Aprovisionamiento](https://go.microsoft.com/fwlink/p/?LinkID=302280). Para comenzar a crear aplicaciones, vaya a [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
-## <a name="see-also"></a>Otras referencias
-* [Copia de seguridad del servicio de BizTalk](https://go.microsoft.com/fwlink/p/?LinkID=325584)
-* [Restauración del servicio de BizTalk a partir de una copia de seguridad](https://go.microsoft.com/fwlink/p/?LinkID=325582)
-* [BizTalk Services: gráfico de las ediciones Developer, Basic, Standard y Premium](https://go.microsoft.com/fwlink/p/?LinkID=302279)
-* [BizTalk Services: aprovisionamiento](https://go.microsoft.com/fwlink/p/?LinkID=302280)
-* [BizTalk Services: gráfico del estado de aprovisionamiento](https://go.microsoft.com/fwlink/p/?LinkID=329870)
-* [BizTalk Services: pestañas Panel, Monitor y Escala](https://go.microsoft.com/fwlink/p/?LinkID=302281)
-* [BizTalk Services: limitaciones](https://go.microsoft.com/fwlink/p/?LinkID=302282)
-* [BizTalk Services: nombre del emisor y clave del emisor](https://go.microsoft.com/fwlink/p/?LinkID=303941)
-* [¿Cómo puedo comenzar a utilizar el SDK de Azure BizTalk Services?](https://go.microsoft.com/fwlink/p/?LinkID=302335)
+## <a name="see-also"></a>Vea también
+* [Servicio de copia de seguridad de BizTalk](https://go.microsoft.com/fwlink/p/?LinkID=325584)
+* [Restaurar el servicio de BizTalk desde la copia de seguridad](https://go.microsoft.com/fwlink/p/?LinkID=325582)
+* [BizTalk Services: Developer, Basic, Standard y Premium gráfico de ediciones](https://go.microsoft.com/fwlink/p/?LinkID=302279)
+* [BizTalk Services: Aprovisionamiento](https://go.microsoft.com/fwlink/p/?LinkID=302280)
+* [BizTalk Services: Gráfico del estado de aprovisionamiento](https://go.microsoft.com/fwlink/p/?LinkID=329870)
+* [BizTalk Services: Pestañas panel, Monitor y escala](https://go.microsoft.com/fwlink/p/?LinkID=302281)
+* [BizTalk Services: Limitaciones](https://go.microsoft.com/fwlink/p/?LinkID=302282)
+* [BizTalk Services: Nombre del emisor y clave del emisor](https://go.microsoft.com/fwlink/p/?LinkID=303941)
+* [¿Cómo puedo comenzar a utilizar el SDK de Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 
 [BackupStatus]: ./media/biztalk-backup-restore/status-last-backup.png
 [Restore]: ./media/biztalk-backup-restore/restore-ui.png

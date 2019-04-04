@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: ef07def377b74fb74d57372f471efcf48fcf7aa2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bbaf651233d4cebad3f45e5cf3823bcaf6ce38b6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57881102"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905790"
 ---
 # <a name="how-application-gateway-works"></a>Cómo funciona Application Gateway
 
@@ -36,7 +36,7 @@ Después de que se ha determinado un servidor back-end, la puerta de enlace de a
 
 Una instancia interna de Application Gateway tiene solo las direcciones IP privadas. El nombre DNS de una puerta de enlace de aplicaciones interno sea capaz de resolver internamente a su dirección IP privada. Por lo tanto, los equilibradores de carga interno solo pueden enrutar las solicitudes de clientes con acceso a la red virtual para la puerta de enlace de la aplicación.
 
-Tenga en cuenta que enrutar a través de Internet e internas de Application Gateway se solicita a los servidores back-end mediante direcciones IP privadas, si el recurso de grupo de back-end contiene una dirección IP privada, configuración de NIC de VM o una dirección puede resolver internamente y si su grupo back-end es un punto de conexión público, Application Gateway usa su dirección IP pública de front-end para tener acceso al servidor. Si aún no lo ha aprovisionado una dirección IP pública de front-end, uno se asigna para la conectividad saliente externa.
+Si su grupo de back-end contiene un FQDN internamente puede resolver o una dirección IP privada, Application Gateway enruta la solicitud al servidor back-end mediante sus direcciones IP privadas de instancia. Si su grupo de back-end contiene un punto de conexión externo o un FQDN que pueda resolverse externamente y, Application Gateway enruta la solicitud al servidor back-end mediante su dirección IP pública de front-end. La resolución de DNS se basa en una zona DNS privada o el servidor DNS personalizado, si ha configurado o toma el valor predeterminado que había proporcionado por Azure DNS. Si aún no lo ha aprovisionado una dirección IP pública de front-end, uno se asigna para la conectividad saliente externa.
 
 ### <a name="modifications-to-the-request"></a>Modificaciones a la solicitud
 

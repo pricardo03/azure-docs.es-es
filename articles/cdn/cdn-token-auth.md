@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/17/2017
 ms.author: mezha
-ms.openlocfilehash: 6ff7b018cea8bedd93d3c9aef3b3250ecf5251b4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 75d6fb063a6cb5336a4d9945bf6a79a65ed25d40
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123732"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918899"
 ---
 # <a name="securing-azure-cdn-assets-with-token-authentication"></a>Protección de los activos de Azure CDN con autenticación por tokens
 
@@ -33,7 +33,7 @@ La autenticación por tokens es un mecanismo que permite impedir que Azure Conte
 
 La autenticación por tokens verifica que un sitio de confianza genere las solicitudes, para lo que se requiere que contengan un valor de token con información codificada sobre el solicitante. El contenido solo se proporciona al solicitante cuando la información codificada cumple los requisitos; de lo contrario, las solicitudes se deniegan. Puede configurar los requisitos mediante el uso de uno o varios de los siguientes parámetros:
 
-- País: Permitir o denegar las solicitudes que se originan en los países especificados con sus [código de país](https://msdn.microsoft.com/library/mt761717.aspx).
+- País: Permitir o denegar las solicitudes que se originan en los países especificados con sus [código de país](/previous-versions/azure/mt761717(v=azure.100)).
 - Dirección URL: Permitir solo las solicitudes que coinciden con el recurso especificado o la ruta de acceso.
 - Host: Permitir o denegar las solicitudes que usan los hosts especificados en el encabezado de solicitud.
 - Origen de referencia: Permitir o denegar la solicitud de referencia especificado.
@@ -120,7 +120,7 @@ En el diagrama de flujo siguiente se describe cómo Azure CDN valida una solicit
       > </tr>
       > <tr>
       >    <td><b>ec_country_allow</b></td> 
-      >    <td>Solo permite solicitudes que se originen en uno o más países especificados. Se deniegan las solicitudes originadas en los demás países. Utilice un [código ISO 3166 de país](https://msdn.microsoft.com/library/mt761717.aspx) de dos letras para cada país, sepárelos con una coma y no agregue espacios. Por ejemplo, si solo desea permitir el acceso desde Estados Unidos y Francia, escriba `US,FR`.</td>
+      >    <td>Solo permite solicitudes que se originen en uno o más países especificados. Se deniegan las solicitudes originadas en los demás países. Utilice un [código ISO 3166 de país](/previous-versions/azure/mt761717(v=azure.100)) de dos letras para cada país, sepárelos con una coma y no agregue espacios. Por ejemplo, si solo desea permitir el acceso desde Estados Unidos y Francia, escriba `US,FR`.</td>
       > </tr>
       > <tr>
       >    <td><b>ec_country_deny</b></td> 

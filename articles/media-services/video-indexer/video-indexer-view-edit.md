@@ -7,14 +7,14 @@ author: Juliako
 manager: femila
 ms.service: media-services
 ms.topic: article
-ms.date: 02/10/2019
+ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: c1b26b8a59ac0306fc06bf90f01642d4585a45be
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 8c1e50064491032d78e467496f0c53300dd6acd1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55991583"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892796"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>Visualización y edición de la información detallada de Video Indexer
 
@@ -34,17 +34,11 @@ En este tema se muestra cómo ver y editar la información detallada de Video In
 
     El reproductor y la información detallada están sincronizados. Por ejemplo, si hace clic en una palabra clave o en la línea de transcripción, el reproductor le lleva a ese momento del vídeo. Puede lograr la vista del reproductor o información detallada y la sincronización en la aplicación. Para más información, consulte [Inserción de widgets de Azure Video Indexer en la aplicación](video-indexer-embed-widgets.md). 
 
-3. Edite la información detallada de Video Indexer.
-
-    Presione Edit (Editar) en el vídeo. La página que muestra el desglose completo de un vídeo. El desglose se divide en bloques. Los bloques sirven para facilitar el recorrido por los datos. Por ejemplo, el bloque puede dividirse en función de cuándo cambian los oradores o de si hay una pausa larga. Puede crear su propia lista de reproducción que contenga solo las líneas que desee. Para mostrar solo partes específicas del vídeo de origen, puede filtrar por temas o palabras clave, opiniones, personas u oradores. Puede elegir ver solo la transcripción del vídeo o un reconocimiento óptico de caracteres.  
-
-    ![Información detallada](./media/video-indexer-view-edit/video-indexer-create-new-playlist.png)
-
 ## <a name="next-steps"></a>Pasos siguientes
 
 [Obtenga información sobre cómo crear su propia información detallada de Video Indexer basada en otro vídeo](video-indexer-create-new.md).
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
-[Introducción a Video Indexer](video-indexer-overview.md)
+[Vídeo de introducción de indizador](video-indexer-overview.md)
 

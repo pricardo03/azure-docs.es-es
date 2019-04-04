@@ -3,19 +3,19 @@ title: Migración a V3 Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Aprenda a migrar de la versión V2 a la versión V3 de Translator Text API.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 1857cd7c4fe6102f94487dbb2cc5ad5c43c18f99
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d3ffdcb79a56bf2f9f4a6eb192293bbc6bab7dab
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58101183"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916723"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Migrar Translator Text API V2 a V3
 
@@ -44,13 +44,13 @@ La siguiente lista de métodos V2 y V3 identifica los métodos V3 y las API que 
 | Método de API V2   | Compatibilidad de API V3 |
 |:----------- |:-------------|
 | `Translate`     | [Traducir](reference/v3-0-translate.md)          |
-| `TranslateArray`      | [Traducir](reference/v3-0-translate.md)        |
-| `GetLanguageNames`      | [Idiomas](reference/v3-0-languages.md)         |
-| `GetLanguagesForTranslate`     | [Idiomas](reference/v3-0-languages.md)       |
-| `GetLanguagesForSpeak`      | [Servicio Voz de Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
-| `Speak`     | [Servicio Voz de Microsoft](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
-| `Detect`     | [Detectar](reference/v3-0-detect.md)         |
-| `DetectArray`     | [Detectar](reference/v3-0-detect.md)         |
+| `TranslateArray`      | [Translate](reference/v3-0-translate.md)        |
+| `GetLanguageNames`      | [Languages](reference/v3-0-languages.md)         |
+| `GetLanguagesForTranslate`     | [Languages](reference/v3-0-languages.md)       |
+| `GetLanguagesForSpeak`      | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#text-to-speech)         |
+| `Speak`     | [Microsoft Speech Service](https://docs.microsoft.com/azure/cognitive-services/speech-service/text-to-speech)          |
+| `Detect`     | [Detect](reference/v3-0-detect.md)         |
+| `DetectArray`     | [Detect](reference/v3-0-detect.md)         |
 | `AddTranslation`     | Esta característica ya no se admite.       |
 | `AddTranslationArray`    | Esta característica ya no se admite.          |
 | `BreakSentences`      | [BreakSentence](reference/v3-0-break-sentence.md)       |
@@ -112,7 +112,7 @@ Global
 > 
 > El centro de Microsoft Translator se retirará el 30 de abril de 2019. [Ver las fechas y la información de migración importante](https://www.microsoft.com/translator/business/hub/).   
 
-Microsoft Translator V3 usa la traducción automática neuronal por defecto. Por lo tanto, no puede utilizarse con Microsoft Translator Hub. Translator Hub solo admite traducción automática estadística heredada. La personalización de la traducción neuronal está disponible si usa el Traductor personalizado. [Obtenga más información sobre cómo personalizar la traducción automática neuronal](custom-translator/overview.md)
+Microsoft Translator V3 usa la traducción automática neuronal por defecto. Por lo tanto, no puede utilizarse con Microsoft Translator Hub. Translator Hub solo admite traducción automática estadística heredada. La personalización de la traducción neuronal está disponible si usa el Traductor personalizado. [Más información acerca de cómo personalizar neural de traducción automática](custom-translator/overview.md)
 
 La traducción neuronal con Text API V3 no admite el uso de categorías estándar (SMT, voz, tech, generalnn).
 
@@ -142,7 +142,7 @@ Ninguna versión de Translator API crea un registro de las traducciones. Las tra
 
 * [Directiva de privacidad de Microsoft](https://privacy.microsoft.com/privacystatement)
 * [Información legal de Microsoft Azure](https://azure.microsoft.com/support/legal)
-* [Términos de Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31).
+* [Términos de Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

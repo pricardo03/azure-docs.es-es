@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3be702d1f75b0a96e22ea03602c924be580b0968
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: f1c24ec49652cfe9105aa66fd1d5e26c81afcd14
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499257"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904634"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Implementación de la protección de contraseñas de Azure AD
 
@@ -37,6 +37,7 @@ Después de la característica de ejecutarla en modo de auditoría durante un pe
 ## <a name="deployment-requirements"></a>Requisitos de implementación
 
 * Todos los controladores de dominio que obtienen al agente de controlador de dominio de servicio de protección de contraseña de Azure AD instalada debe ejecutar Windows Server 2012 o posterior. Este requisito no implica que el dominio de Active Directory o el bosque también debe estar en el nivel funcional de dominio o bosque de Windows Server 2012. Como se mencionó en [los principios de diseño](concept-password-ban-bad-on-premises.md#design-principles), hay ningún mínimo nivel funcional de dominio o FFL necesarios para que el controlador de dominio proxy o el agente de software ejecutar.
+* Todos los equipos que obtienen instalado el servicio de agente de controlador de dominio deben tener instalado .NET 4.5.
 * Todos los equipos que obtienen al proxy de servicio de protección de contraseña de Azure AD instalada debe ejecutar Windows Server 2012 R2 o posterior.
 * Todas las máquinas donde se instalará el servicio de Proxy de la protección de contraseña de Azure AD deben tener .NET 4.7 instalado.
   .NET 4.7 ya debe instalarse en un servidor de Windows completamente actualizada. Si esto no es el caso, descargue y ejecute el instalador se encuentra en [The .NET Framework 4.7 instalador sin conexión para Windows](https://support.microsoft.com/en-us/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
@@ -109,6 +110,7 @@ Hay dos instaladores necesarios para la protección de contraseña de Azure AD. 
         ```powershell
         Register-AzureADPasswordProtectionProxy -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
+
         > [!NOTE]
         > Este modo no funciona en sistemas operativos de Server Core. En su lugar, use uno de los siguientes modos de autenticación. Además, este modo puede producir un error si la configuración de seguridad mejorada de Internet Explorer está habilitada. La solución consiste en deshabilitar esa configuración, registrar al servidor proxy y, a continuación, volver a habilitarla.
 
@@ -133,7 +135,6 @@ Hay dos instaladores necesarios para la protección de contraseña de Azure AD. 
 
        Actualmente no tiene que especificar el *ForestCredential -* parámetro, que está reservado para futuras funcionalidad.
 
-   
    Registro del servicio de proxy para la protección con contraseña es necesario solamente una vez en la duración del servicio. Después de eso, el servicio de proxy realizará automáticamente cualquier otras tareas de mantenimiento necesarias.
 
    > [!TIP]
@@ -149,6 +150,7 @@ Hay dos instaladores necesarios para la protección de contraseña de Azure AD. 
         ```powershell
         Register-AzureADPasswordProtectionForest -AccountUpn 'yourglobaladmin@yourtenant.onmicrosoft.com'
         ```
+
         > [!NOTE]
         > Este modo no funcionará en sistemas operativos de Server Core. En su lugar, use uno de los siguientes modos de autenticación en dos. Además, este modo puede producir un error si la configuración de seguridad mejorada de Internet Explorer está habilitada. La solución consiste en deshabilitar esa configuración, registrar al servidor proxy y, a continuación, volver a habilitarla.  
 
@@ -162,6 +164,7 @@ Hay dos instaladores necesarios para la protección de contraseña de Azure AD. 
         A continuación, completar la autenticación siguiendo las instrucciones que aparecen en un dispositivo diferente.
 
      * Modo de autenticación silenciosa (basada en contraseña):
+
         ```powershell
         $globalAdminCredentials = Get-Credential
         Register-AzureADPasswordProtectionForest -AzureCredential $globalAdminCredentials
@@ -174,7 +177,7 @@ Hay dos instaladores necesarios para la protección de contraseña de Azure AD. 
 
    > [!NOTE]
    > Si varios servidores proxy están instalados en su entorno, no importa qué servidor proxy se usa para registrar el bosque.
-
+   >
    > [!TIP]
    > Puede haber un retraso notable antes de completarse la primera vez que se ejecuta este cmdlet para un inquilino de Azure específico. A menos que se notifica un error, no se preocupe este retraso.
 
@@ -220,7 +223,8 @@ Hay dos instaladores necesarios para la protección de contraseña de Azure AD. 
 
 1. Opcional: Configurar el servicio de proxy para la protección con contraseña para que escuche en un puerto específico.
    * El software del agente de controlador de dominio para la protección de contraseña en los controladores de dominio usa RPC a través de TCP para comunicarse con el servicio de proxy. De forma predeterminada, el servicio de proxy escucha en cualquier punto de conexión RPC dinámico disponible. Pero puede configurar el servicio para que escuche en un puerto TCP específico, si es necesario debido a la topología de red o los requisitos de firewall en su entorno.
-      * <a id="static" /></a>Para configurar el servicio para ejecutarse en un puerto estático, use el `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet.
+      * <a id="static" /></a>A fin de configurar el servicio para que se ejecute en un puerto estático, use el cmdlet `Set-AzureADPasswordProtectionProxyConfiguration`.
+
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort <portnumber>
          ```
@@ -229,6 +233,7 @@ Hay dos instaladores necesarios para la protección de contraseña de Azure AD. 
          > Debe detener y reiniciar el servicio para que estos cambios surtan efecto.
 
       * Para configurar el servicio para ejecutarse en un puerto dinámico, use el mismo procedimiento pero establecer *StaticPort* a cero:
+
          ```powershell
          Set-AzureADPasswordProtectionProxyConfiguration –StaticPort 0
          ```
@@ -284,4 +289,4 @@ El diseño del software del agente del controlador de dominio mitiga los problem
 
 Ahora que ha instalado los servicios que necesita para la protección de contraseña de Azure AD en los servidores locales, [realizar la configuración posterior a la instalación y recopilar información de notificación](howto-password-ban-bad-on-premises-operations.md) para completar la implementación.
 
-[Conceptual overview of Azure AD password protection](concept-password-ban-bad-on-premises.md) (Introducción al concepto de protección de contraseñas de Azure AD)
+[Información general conceptual de protección mediante contraseña de Azure AD](concept-password-ban-bad-on-premises.md)

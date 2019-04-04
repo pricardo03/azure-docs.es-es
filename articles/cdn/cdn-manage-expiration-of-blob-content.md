@@ -14,17 +14,17 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
-ms.openlocfilehash: 1b2009b54c7f436667c316b7ca002314bc966a1b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f7fc11af8cd2574271b26f7dec62072692685672
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57531936"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916808"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Administración de la expiración de Azure Storage Blob en Azure CDN
 > [!div class="op_single_selector"]
 > * [Contenido web de Azure](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Almacenamiento de blobs de Azure](cdn-manage-expiration-of-blob-content.md)
+> * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
@@ -59,7 +59,7 @@ El método preferido para establecer el encabezado `Cache-Control` de un blob co
    ![Página de caché de CDN](./media/cdn-manage-expiration-of-blob-content/cdn-caching-page.png)
 
 
-**Para establecer encabezados Cache-Control del servicio de almacenamiento de blobs con reglas de almacenamiento en caché globales:**
+**Para establecer los encabezados Cache-Control del servicio de almacenamiento de blobs con reglas de almacenamiento en caché globales:**
 
 1. En **Reglas de almacenamiento en caché globales**, establezca **Comportamiento del almacenamiento en caché de cadenas de consulta** en **Ignorar cadenas de consulta**, y establezca **Comportamiento de almacenamiento en caché** en **Invalidar**.
       
@@ -71,7 +71,7 @@ El método preferido para establecer el encabezado `Cache-Control` de un blob co
 
 3. Seleccione **Guardar**.
  
-**Para establecer encabezados Cache-Control de un archivo de blobs con reglas de almacenamiento en caché personalizadas:**
+**Para establecer los encabezados Cache-Control del archivo de un blob mediante el uso de reglas de almacenamiento en caché personalizadas:**
 
 1. En **Reglas de almacenamiento en caché personalizadas**, cree dos condiciones de coincidencia:
 
@@ -114,7 +114,7 @@ $blob.ICloudBlob.SetProperties()
 >
 
 ## <a name="setting-cache-control-headers-by-using-net"></a>Establecimiento de los encabezados Cache-Control mediante .NET
-Para especificar el encabezado `Cache-Control` de un blob mediante el código .NET, use la [Biblioteca cliente de Azure Storage para .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) para configurar la propiedad [CloudBlob.Properties.CacheControl](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol.aspx).
+Para especificar el encabezado `Cache-Control` de un blob mediante el código .NET, use la [Biblioteca cliente de Azure Storage para .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md) para configurar la propiedad [CloudBlob.Properties.CacheControl](/dotnet/api/microsoft.windowsazure.storage.blob.blobproperties.cachecontrol#Microsoft_WindowsAzure_Storage_Blob_BlobProperties_CacheControl).
 
 Por ejemplo: 
 
@@ -163,23 +163,23 @@ Para actualizar la propiedad *CacheControl* de un blob con el Explorador de Azur
 ![Propiedades del Explorador de Azure Storage](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Interfaz de la línea de comandos de Azure
-Con la [interfaz de la línea de comandos de Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) (CLI), puede administrar recursos de blob de Azure desde la línea de comandos. Para establecer el encabezado de control de caché cuando cargue un blob con la CLI de Azure, establezca la propiedad *cacheControl* mediante el uso del modificador `-p`. En el siguiente ejemplo, se muestra cómo se establece el período de vida en una hora (3600 segundos):
+Con la [interfaz de la línea de comandos de Azure](https://docs.microsoft.com/cli/azure) (CLI), puede administrar recursos de blob de Azure desde la línea de comandos. Para establecer el encabezado de control de caché cuando cargue un blob con la CLI de Azure, establezca la propiedad *cacheControl* mediante el uso del modificador `-p`. En el siguiente ejemplo, se muestra cómo se establece el período de vida en una hora (3600 segundos):
   
 ```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\<blob name> <container name> <blob name>
 ```
 
 ### <a name="azure-storage-services-rest-api"></a>API de REST de servicios de Azure Storage
-Puede usar la [API de REST de servicios de Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx) para establecer explícitamente la propiedad *x-ms-blob-cache-control* mediante el uso de las siguientes operaciones en una solicitud:
+Puede usar la [API de REST de servicios de Azure Storage](/rest/api/storageservices/) para establecer explícitamente la propiedad *x-ms-blob-cache-control* mediante el uso de las siguientes operaciones en una solicitud:
   
-   - [Put Blob](https://msdn.microsoft.com/library/azure/dd179451.aspx)
-   - [Put Block List](https://msdn.microsoft.com/library/azure/dd179467.aspx)
-   - [Set Blob Properties](https://msdn.microsoft.com/library/azure/ee691966.aspx)
+   - [Put Blob](/rest/api/storageservices/Put-Blob)
+   - [Put Block List](/rest/api/storageservices/Put-Block-List)
+   - [Set Blob Properties](/rest/api/storageservices/Set-Blob-Properties)
 
 ## <a name="testing-the-cache-control-header"></a>Prueba del encabezado Cache-Control
 La configuración de TTL de los blobs se puede comprobar con facilidad. Con las [herramientas de desarrollo](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del explorador, compruebe que el blob incluye el encabezado de respuesta `Cache-Control`. Asimismo, también puede usar una herramienta como [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/) o [Fiddler](https://www.telerik.com/fiddler) para examinar los encabezados de respuesta.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Aprenda a administrar la expiración del contenido del Servicio en la nube en Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
-* [Obtenga información sobre conceptos del almacenamiento en caché](cdn-how-caching-works.md)
+* [Obtenga información sobre cómo administrar la caducidad del contenido del servicio en la nube en la red CDN de Azure](cdn-manage-expiration-of-cloud-service-content.md)
+* [Obtenga información sobre los conceptos de almacenamiento en caché](cdn-how-caching-works.md)
 

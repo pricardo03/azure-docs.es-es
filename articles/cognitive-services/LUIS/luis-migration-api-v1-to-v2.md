@@ -1,7 +1,7 @@
 ---
 title: Migración de API v1 a v2
 titleSuffix: Azure Cognitive Services
-description: El punto de conexión de la versión 1 y la creación de API de comprensión de lenguaje están en desuso. Use esta guía para comprender cómo migrar a la versión 2 de las API de punto de conexión y creación.
+description: El punto de conexión de la versión 1 y la creación de Language Understanding API están en desuso. Use esta guía para comprender cómo migrar a la versión 2 de las API de punto de conexión y creación.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: 7496142b1c762ce0a7afa96a1a94dd3026351cc9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9eb73db6f641d3a5f5bb82901bd12ea291eada58
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087931"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894088"
 ---
 # <a name="api-v1-to-v2-migration-guide-for-luis-apps"></a>Guía de migración la API v1 a v2 para las aplicaciones de LUIS
 La versión 1 de las API de [punto de conexión](https://aka.ms/v1-endpoint-api-docs) y [creación](https://aka.ms/v1-authoring-api-docs) va a quedar en desuso. Use esta guía para comprender cómo migrar a la versión 2 de las API de [punto de conexión](https://aka.ms/luis-endpoint-apis) y [creación](https://aka.ms/luis-authoring-apis). 
@@ -134,7 +134,7 @@ Varias API que devuelven metadatos de LUIS tienen nombres nuevos.
 
 
 ## <a name="sample-renamed-to-suggest"></a>"Sample" cambia de nombre a "suggest".
-LUIS sugiere expresiones a partir de [expresiones de punto de conexión](luis-how-to-review-endoint-utt.md) existentes que podrían mejorar el modelo. En la versión anterior, esto se llamaba **sample**. En la nueva versión, el nombre ha cambiado de sample a **suggest**. Esto se denomina **[Review endpoint utterances](luis-how-to-review-endoint-utt.md)** (Revisar las expresiones de punto de conexión) en el sitio web de LUIS.
+LUIS sugiere expresiones a partir de [expresiones de punto de conexión](luis-how-to-review-endpoint-utterances.md) existentes que podrían mejorar el modelo. En la versión anterior, esto se llamaba **sample**. En la nueva versión, el nombre ha cambiado de sample a **suggest**. Esto se denomina **[Review endpoint utterances](luis-how-to-review-endpoint-utterances.md)** (Revisar las expresiones de punto de conexión) en el sitio web de LUIS.
 
 | version | ruta |
 |--|--|

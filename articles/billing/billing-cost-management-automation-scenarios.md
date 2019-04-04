@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 6/13/2018
 ms.author: erikre
-ms.openlocfilehash: 8b42361e7b94bf017dde4eaec882f9fed4d42ed6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d2b0f2d3fad318ac0152d92fe92614d8dadda1e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57862002"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918525"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>Escenarios de automatización de administración de costos y facturación
 
@@ -80,9 +80,9 @@ Los clientes de Web Direct y Enterprise pueden usar todas las API siguientes, ex
 
 -   [Usage Details API](https://docs.microsoft.com/rest/api/consumption/usagedetails): obtenga información sobre los cargos y el uso de todos los recursos de Azure en Microsoft. La información presenta la forma de registros de detalles de uso, que actualmente se emiten una vez por cada medidor al día. Puede utilizar la información para sumar los costos de todos los recursos o investigar los costos o el uso de recursos específicos.
 
--   [RateCard API](https://msdn.microsoft.com/library/azure/mt219005.aspx): obtenga las tasas de los medidores si es un cliente de Web Direct. Posteriormente, puede usar la información devuelta con la información de uso de los recursos para calcular manualmente la factura esperada. 
+-   [RateCard API](/previous-versions/azure/reference/mt219005(v=azure.100)): obtenga las tasas de los medidores si es un cliente de Web Direct. Posteriormente, puede usar la información devuelta con la información de uso de los recursos para calcular manualmente la factura esperada. 
 
--   [Unrated Usage API](https://msdn.microsoft.com/library/azure/mt219003.aspx): obtenga información sobre el uso sin procesar antes de que Azure realice cualquier medición o aplique algún cargo.
+-   [Unrated Usage API](/previous-versions/azure/reference/mt219003(v=azure.100)): obtenga información sobre el uso sin procesar antes de que Azure realice cualquier medición o aplique algún cargo.
 
 ### <a name="billing"></a>Facturación
 -   [Billing Periods API](https://docs.microsoft.com/rest/api/billing/billingperiods): determine un período de facturación para analizar, junto con el identificador de la factura de ese período. Puede usar los identificadores de las facturas con Invoices API.
@@ -121,7 +121,7 @@ Estas API ofrecen básicamente distintos datos:
    - Cambios que tienen en cuenta el uso de compromisos monetarios de prepago
    - Cambios que tienen en cuenta las discrepancias de uso detectadas por Azure
 
-- [Usage API](https://msdn.microsoft.com/library/Mt219003.aspx) proporciona información de uso de Azure sin procesar antes de pasar por el sistema de medición de costos de Azure. Estos datos no pueden tener ninguna correlación con la cantidad de uso o el importe de los cargos que se ven después del sistema de medición de cargos de Azure.
+- [Usage API](/previous-versions/azure/reference/mt219003(v=azure.100)) proporciona información de uso de Azure sin procesar antes de pasar por el sistema de medición de costos de Azure. Estos datos no pueden tener ninguna correlación con la cantidad de uso o el importe de los cargos que se ven después del sistema de medición de cargos de Azure.
 
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>¿Cuál es la diferencia entre Invoice API y Usage Details API?
 Estas API ofrecen una vista diferente de los mismos datos:
@@ -135,7 +135,7 @@ Estas API ofrecen conjuntos similares de datos, pero tienen distintas audiencias
 
 - [Price Sheet API](https://docs.microsoft.com/rest/api/consumption/pricesheet) proporciona los precios personalizados que se han negociado para un cliente Enterprise.
 
-- [RateCard API](https://msdn.microsoft.com/library/mt219005.aspx) proporciona los precios públicos que se aplican a los clientes de Web Direct.
+- [RateCard API](/previous-versions/azure/reference/mt219005(v=azure.100)) proporciona los precios públicos que se aplican a los clientes de Web Direct.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: e08e6ca4f6413b475bd8a0e5ff30b74921c2f0e6
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
-ms.translationtype: HT
+ms.openlocfilehash: beece95164f0d82b1aa7f22d56f4dce02f4bb38c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50227160"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891098"
 ---
 La CLI de Azure le permite crear y administrar los recursos de Azure en Mac OS, Linux y Windows. En este artículo se detallan algunos de los comandos más comunes para crear y administrar máquinas virtuales (VM).
 
@@ -19,14 +19,14 @@ En este artículo se requiere la CLI de Azure versión 2.0.4 o versiones posteri
 Para obtener información más detallada acerca de las opciones y los modificadores de línea de comandos específicos, puede utilizar las opciones y la ayuda en línea de comandos, para lo que debe escribir `az <command> <subcommand> --help`.
 
 ### <a name="create-vms"></a>Creación de máquinas virtuales
-| Task | Comandos de la CLI de Azure |
+| Tarea | Comandos de la CLI de Azure |
 | --- | --- |
 | Crear un grupo de recursos | `az group create --name myResourceGroup --location eastus` |
 | Creación de una máquina virtual Linux | `az vm create --resource-group myResourceGroup --name myVM --image ubuntults` |
 | Creación de una máquina virtual Windows | `az vm create --resource-group myResourceGroup --name myVM --image win2016datacenter` |
 
 ### <a name="manage-vm-state"></a>Administración del estado de la máquina virtual
-| Task | Comandos de la CLI de Azure |
+| Tarea | Comandos de la CLI de Azure |
 | --- | --- |
 | Inicio de una máquina virtual | `az vm start --resource-group myResourceGroup --name myVM` |
 | Detención de una máquina virtual | `az vm stop --resource-group myResourceGroup --name myVM` |
@@ -36,7 +36,7 @@ Para obtener información más detallada acerca de las opciones y los modificado
 | Eliminación de una máquina virtual | `az vm delete --resource-group myResourceGroup --name myVM` |
 
 ### <a name="get-vm-info"></a>Obtener información de la máquina virtual
-| Task | Comandos de la CLI de Azure |
+| Tarea | Comandos de la CLI de Azure |
 | --- | --- |
 | Enumeración de máquinas virtuales | `az vm list` |
 | Obtención información acerca de una máquina virtual | `az vm show --resource-group myResourceGroup --name myVM` |
@@ -44,9 +44,9 @@ Para obtener información más detallada acerca de las opciones y los modificado
 | Obtención de todos los tamaños disponibles de la máquina virtual | `az vm list-sizes --location eastus` |
 
 ## <a name="disks-and-images"></a>Discos e imágenes
-| Task | Comandos de la CLI de Azure |
+| Tarea | Comandos de la CLI de Azure |
 | --- | --- |
-| Incorporación de un disco de datos a una máquina virtual | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new ` |
+| Incorporación de un disco de datos a una máquina virtual | `az vm disk attach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk --size-gb 128 --new` |
 | Eliminación de un disco de datos de una máquina virtual | `az vm disk detach --resource-group myResourceGroup --vm-name myVM --disk myDataDisk` |
 | Cambio del tamaño de un disco | `az disk update --resource-group myResourceGroup --name myDataDisk --size-gb 256` |
 | Instantánea de un disco | `az snapshot create --resource-group myResourceGroup --name mySnapshot --source myDataDisk` |

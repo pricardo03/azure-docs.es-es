@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/29/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7542909df336555e17aea9b0e680879b25dc17f
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: db0eccb542cb4253e6e891fa9fa51e60fb7951a1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58791752"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892745"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning-service"></a>Problemas conocidos y solución de problemas del servicio Azure Machine Learning
 
@@ -24,7 +24,7 @@ En este artículo obtendrá ayuda para buscar y corregir los errores que se prod
 
 ## <a name="sdk-installation-issues"></a>Problemas de instalación de SDK
 
-**Mensaje de error: no se puede desinstalar 'PyYAML'**
+**Mensaje de error: No se puede desinstalar 'PyYAML'**
 
 SDK de Azure Machine Learning para Python: PyYAML es un proyecto instalado de Distutils. Por lo tanto, no se puede determinar con precisión qué archivos le pertenecen en caso de una desinstalación parcial. Para continuar con la instalación del SDK sin tener en cuenta este error, use:
 
@@ -50,7 +50,7 @@ No podrá implementar modelos en FPGA hasta que haya solicitado y se haya aproba
 
 ## <a name="automated-machine-learning"></a>Automated Machine Learning
 
-Aprendizaje automático de flujo automatizado de tensores no admite actualmente la versión del flujo de tensores 1.13. Instalar Esto hará que las dependencias del paquete deje de funcionar. Estamos trabajando para solucionar este problema en una versión futura. 
+Aprendizaje automático de flujo automatizado de tensores no admite actualmente la versión del flujo de tensores 1.13. Instalar esta versión hará que las dependencias del paquete deje de funcionar. Estamos trabajando para corregir este problema en una versión futura. 
 
 
 ## <a name="databricks"></a>Databricks
@@ -96,7 +96,7 @@ Si ve este error cuando se usa había automatizada de aprendizaje automático:
 
 1. Separar y, a continuación, volver a adjuntar el clúster en el Bloc de notas. 
 
-Si esto no resuelve el problema, pruebe a reiniciar el clúster.
+Si estos pasos no resuelven el problema, pruebe a reiniciar el clúster.
 
 ## <a name="azure-portal"></a>Azure Portal
 
@@ -123,7 +123,3 @@ Si realiza una operación de administración en un destino de proceso desde un t
 ```
 
 Por ejemplo, si intenta crear o asociar un destino de proceso desde una canalización de aprendizaje automático que se envía para ejecución remota, recibirá un error.
-
-## <a name="get-more-support"></a>Obtener más soporte técnico
-
-Puede enviar las solicitudes de soporte técnico y obtener ayuda de soporte técnico, foros, etc. [Más información...](support-for-aml-services.md)

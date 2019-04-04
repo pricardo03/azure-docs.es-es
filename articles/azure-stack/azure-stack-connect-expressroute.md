@@ -14,12 +14,12 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 10/22/2018
-ms.openlocfilehash: 0ebd17eca363d7fc02daeb851bb24b8d1d307efc
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: bd5e5a3b6fa72698f04969219b1db3cdb0bde3a5
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339608"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486706"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Conexión de Azure Stack a Azure mediante Azure ExpressRoute
 
@@ -232,7 +232,7 @@ El enrutador es una máquina virtual de Windows Server (AzS-BGPNAT01) que ejecut
 1. Inicie sesión en el equipo host de Azure Stack con su cuenta de administrador.
 1. Copie y edite el siguiente script de PowerShell. Reemplace `your administrator password` por su contraseña de administrador y, a continuación, ejecute el script en una instancia de PowerShell ISE con privilegios elevados. Este script devuelve la **dirección de BGPNAT externa**.
 
-   ```PowerShell
+   ```powershell
    cd \AzureStack-Tools-master\connect
    Import-Module .\AzureStack.Connect.psm1
    $Password = ConvertTo-SecureString "your administrator password" `
@@ -250,7 +250,7 @@ El enrutador es una máquina virtual de Windows Server (AzS-BGPNAT01) que ejecut
 
    Ejecute el script siguiente desde PowerShell ISE con privilegios elevados:
 
-   ```PowerShell
+   ```powershell
    $ExtBgpNat = 'External BGPNAT address'
    $IntBgpNat = 'Internal IP address'
 
@@ -599,7 +599,7 @@ Realice las siguientes pruebas de ping:
 
 De forma predeterminada, Windows Server 2016 no permite paquetes ICMP entrantes a través del firewall. Para cada máquina virtual que use para pruebas de ping, debe permitir paquetes ICMP entrantes. Para crear una regla de firewall de ICMP, ejecute el siguiente cmdlet en una ventana de PowerShell con privilegios elevados:
 
-```PowerShell
+```powershell
 # Create ICMP firewall rule.
 New-NetFirewallRule `
   –DisplayName “Allow ICMPv4-In” `

@@ -9,16 +9,19 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
-ms.openlocfilehash: 725f95797de0a4d4e6240be4d42cf8a196d94889
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54118598"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905314"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Crear y administrar las asignaciones de roles en Azure Digital Twins
 
 Azure Digital Twins usa el control de acceso basado en rol ([RBAC](./security-role-based-access-control.md)) para administrar el acceso a los recursos.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="role-assignments-overview"></a>Información general sobre asignaciones de roles
 
@@ -36,12 +39,12 @@ Cada asignación de roles se ajusta a la siguiente definición:
 
 En la tabla siguiente se describe cada atributo.
 
-| Atributo | NOMBRE | Obligatorio | Escriba | DESCRIPCIÓN |
+| Atributo | NOMBRE | Obligatorio | Type | DESCRIPCIÓN |
 | --- | --- | --- | --- | --- |
-| roleId | Identificador de definición de rol | SÍ | string | El identificador único de la asignación de roles deseada. Busque las definiciones de roles y su identificador consultando la API de sistema o revisando la siguiente tabla. |
-| objectId | Identificador de objeto | SÍ | string | Un identificador de Azure Active Directory, el identificador de objeto de la entidad de servicio o el nombre de dominio. ¿A qué o a quién se asignan los roles? La asignación de roles debe tener el formato en función del tipo asociado. Para el objectIdType `DomainName`, objectId debe comenzar con el carácter `“@”`. |
-| objectIdType | Tipo de identificador de objeto | SÍ | string | El tipo del identificador de objeto utilizado. Consulte **ObjectIdTypes admitidos** a continuación. |
-| path | Ruta de acceso al espacio | SÍ | string | Ruta de acceso completa al objeto `Space`. Un ejemplo es `/{Guid}/{Guid}`. Si un identificador necesita la asignación de roles para todo el grafo, especifique `"/"`. Este carácter designa la raíz, pero se desaconseja su uso. Siga siempre el principio de privilegio mínimo. |
+| roleId | Identificador de definición de rol | Sí | string | El identificador único de la asignación de roles deseada. Busque las definiciones de roles y su identificador consultando la API de sistema o revisando la siguiente tabla. |
+| objectId | Identificador de objeto | Sí | string | Un identificador de Azure Active Directory, el identificador de objeto de la entidad de servicio o el nombre de dominio. ¿A qué o a quién se asignan los roles? La asignación de roles debe tener el formato en función del tipo asociado. Para el objectIdType `DomainName`, objectId debe comenzar con el carácter `“@”`. |
+| objectIdType | Tipo de identificador de objeto | Sí | string | El tipo del identificador de objeto utilizado. Consulte **ObjectIdTypes admitidos** a continuación. |
+| path | Ruta de acceso al espacio | Sí | string | Ruta de acceso completa al objeto `Space`. Un ejemplo es `/{Guid}/{Guid}`. Si un identificador necesita la asignación de roles para todo el grafo, especifique `"/"`. Este carácter designa la raíz, pero se desaconseja su uso. Siga siempre el principio de privilegio mínimo. |
 | tenantId | Identificador de inquilino | Varía | string | En la mayoría de los casos, un identificador de inquilino de Azure Active Directory. No se permite para los ObjectIdType `DeviceId` y `TenantId`. Obligatorio para los ObjectIdType `UserId` y `ServicePrincipalId`. Opcional para el ObjectIdType DomainName. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identificadores de definición de roles admitidos
@@ -83,8 +86,8 @@ El identificador de la aplicación se suministra en Azure Active Directory. Para
 Una vez que tiene el identificador de la aplicación, ejecute los siguientes comandos de PowerShell:
 
 ```shell
-Login-AzureRmAccount
-Get-AzureRmADServicePrincipal -ApplicationId  <ApplicationId>
+Login-AzAccount
+Get-AzADServicePrincipal -ApplicationId  <ApplicationId>
 ```
 
 Un usuario con el rol de **administrador** puede asignar el rol de administrador de espacio a un usuario mediante una solicitud HTTP POST autenticada a la dirección URL:
@@ -160,7 +163,7 @@ Para comprobar una asignación de roles específica, realice una solicitud HTTP 
 YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
 ```
 
-| **Valor del parámetro** | **Obligatorio** |  **Tipo** |  **Descripción** |
+| **Valor del parámetro** | **Obligatorio** |  **Type** |  **DESCRIPCIÓN** |
 | --- | --- | --- | --- |
 | YOUR_USER_ID |  True | string |   El valor de objectId para el objectIdType UserId. |
 | YOUR_PATH | True | string |   La ruta de acceso elegida cuyo acceso se comprobará. |

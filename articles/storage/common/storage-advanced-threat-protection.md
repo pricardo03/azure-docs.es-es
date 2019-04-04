@@ -5,15 +5,15 @@ services: storage
 author: rmatchoro
 ms.service: storage
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
-ms.openlocfilehash: 48fdf277f47b1e4abc8e3d7f7222d5b99a248b55
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850719"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904124"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection para Azure Storage
 
@@ -22,8 +22,8 @@ Protección contra amenazas avanzada de Azure Storage proporciona una capa adici
 Las alertas de seguridad se desencadenan cuando se producen anomalías en la actividad.  Estas alertas de seguridad se integran con [Azure Security Center](https://azure.microsoft.com/services/security-center/)y también se envían por correo electrónico a los administradores de suscripciones con detalles de actividad sospechosa y recomendaciones sobre cómo investigar y solucionar las amenazas.
 
 > [!NOTE]
-> * Protección contra amenazas avanzada de Azure Storage actualmente solo está disponible para el almacenamiento de blobs. 
-> * Detalles sobre los nuevos precios está disponible en el [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-pricing) precios página, incluyendo una opción para un período de prueba durante los primeros 30 días sin cargo alguno. 
+> * Protección contra amenazas avanzada de Azure Storage actualmente solo está disponible para el almacenamiento de blobs.
+> * Para obtener más información, incluida una evaluación gratuita de 30 días, consulte el [página de precios de Azure Security Center]( https://azure.microsoft.com/en-us/pricing/details/security-center/).
 > * ATP para la característica de almacenamiento de Azure actualmente no está disponible en Azure government y las regiones de nube soberana.
 
 Protección contra amenazas avanzada para el almacenamiento de Azure ingiere los registros de diagnóstico de lectura, escritura y solicitudes de eliminación para el almacenamiento de blobs para la detección de amenazas. Para investigar las alertas de protección contra amenazas avanzada, puede ver la actividad de almacenamiento relacionada con el registro de Storage Analytics. Para obtener más información, vea cómo [configurar registro de Storage Analytics](storage-monitor-storage-account.md#configure-logging).
@@ -80,7 +80,7 @@ Usar comandos de la API de Rest para crear, actualizar u obtener la configuraci�
 
 Use los siguientes cmdlets de PowerShell:
 
-  * [Habilitar protección contra amenazas avanzada](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+  * [Activar Protección contra amenazas avanzada](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
   * [Obtener protección contra amenazas avanzada](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
   * [Deshabilitar protección contra amenazas avanzada](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 

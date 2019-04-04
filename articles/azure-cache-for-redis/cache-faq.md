@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: yegu
-ms.openlocfilehash: ddeaec9adc28fa5037a0fc01363e3ad6b78ceeef
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 65e8553969aa92848b1c4496724a7b7754b5d659
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234363"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895603"
 ---
 # <a name="azure-cache-for-redis-faq"></a>Preguntas frecuentes sobre Azure Cache for Redis
 Conozca las respuestas a preguntas comunes, patrones y procedimientos recomendados para Azure Cache for Redis.
@@ -66,10 +66,10 @@ En las siguientes preguntas y respuestas se abordan los conceptos básicos y las
 
 ## <a name="production-faqs"></a>Preguntas más frecuentes de producción
 * [¿Cuáles son algunas prácticas recomendadas de producción?](#what-are-some-production-best-practices)
-* [¿Cuáles son las consideraciones que deben tenerse en cuenta al usar los comandos de Redis comunes?](#what-are-some-of-the-considerations-when-using-common-redis-commands)
+* [¿Cuáles son algunas de las consideraciones al usar los comandos de Redis comunes?](#what-are-some-of-the-considerations-when-using-common-redis-commands)
 * [¿Cómo se pueden realizar bancos de pruebas y probar el rendimiento del caché?](#how-can-i-benchmark-and-test-the-performance-of-my-cache)
 * [Detalles importantes sobre el crecimiento del grupo de subprocesos](#important-details-about-threadpool-growth)
-* [Habilitación de GC del servidor para mejorar el rendimiento del cliente cuando se usa StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
+* [Habilitación de GC del servidor para obtener más rendimiento en el cliente cuando se usa StackExchange.Redis](#enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis)
 * [Consideraciones sobre rendimiento de las conexiones](#performance-considerations-around-connections)
 
 ## <a name="monitoring-and-troubleshooting-faqs"></a>Preguntas más frecuentes de supervisión y solución de problemas
@@ -143,7 +143,7 @@ A partir de esta tabla, podemos extraer las conclusiones siguientes:
 | C4 |13 GB |2 |500 / 62.5 |60 000 |55 000 |
 | C5 |26 GB |4 |1,000 / 125 |102 000 |93 000 |
 | C6 |53 GB |8 |2,000 / 250 |126 000 |120 000 |
-| **Tamaños de caché Premium** | |**Núcleos de CPU por partición** | **Megabits por segundo (Mb/s) o Megabytes por segundo (MB/s)** |**Solicitudes por segundo (RPS) sin SSL por partición** |**Solicitudes por segundo (RPS) SSL por partición** |
+| **Tamaños de caché Premium** | |**Núcleos de CPU por partición** | **Megabits por segundo (Mb/s) o Megabytes por segundo (MB/s)** |**Solicitudes por segundo (RPS) sin SSL, por partición** |**Solicitudes por segundo (RPS) SSL por partición** |
 | P1 |6 GB |2 |1,500 / 187.5 |180,000 |172 000 |
 | P2 |13 GB |4 |3,000 / 375 |350 000 |341 000 |
 | P3 |26 GB |4 |3,000 / 375 |350 000 |341 000 |
@@ -173,8 +173,8 @@ Sí, Azure Cache for Redis está disponible en la nube de Azure Government, la n
 
 Para más información sobre el uso de Azure Cache for Redis con otras nubes, consulte los vínculos siguientes.
 
-- [Bases de datos de Azure Government: Azure Cache for Redis](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
-- [Nube de China de Azure: Azure Cache for Redis](https://www.azure.cn/home/features/redis-cache/)
+- [Bases de datos de Azure Government - caché de Azure para Redis](../azure-government/documentation-government-services-database.md#azure-cache-for-redis)
+- [Nube de China de Azure: caché de Azure para Redis](https://www.azure.cn/home/features/redis-cache/)
 - [Microsoft Azure Alemania](https://azure.microsoft.com/overview/clouds/germany/)
 
 Para más información sobre el uso de Azure Cache for Redis con PowerShell en la nube de Azure Government, la nube de China de Azure y Microsoft Azure Alemania, consulte [cómo conectar con otras nubes: PowerShell con Azure Cache for Redis](cache-howto-manage-redis-cache-powershell.md#how-to-connect-to-other-clouds).
@@ -196,7 +196,7 @@ Habitualmente, los valores predeterminados del cliente son suficientes. Ajuste l
   * Para ConnectRetry y ConnectTimeout, la regla general es fracasar y responder rápido a los errores y volver a intentarlo. Esta regla se basa en la carga de trabajo y en cuánto tiempo como media tarda el cliente en enviar un comando de Redis y en recibir una respuesta.
   * Permita que StackExchange.Redis se vuelva a conectar automáticamente en lugar de comprobar el estado de conexión y volver a conectarse. **Evite el uso de la propiedad ConnectionMultiplexer.IsConnected**.
   * Efecto bola de nieve: a veces puede encontrarse con un problema cuando lo está intentando y este error aumenta y nunca se recupera. En este caso, debe considerar el uso de un algoritmo de reintento de retroceso exponencial, tal y como se describe en el artículo [Orientación general sobre reintentos](../best-practices-retry-general.md) publicado por el grupo de Microsoft Patterns & Practices.
-* **Valores de tiempo de expiración**
+* **Valores de tiempo de espera**
   * Tenga en cuenta la carga de trabajo y establezca los valores según corresponda. Si almacena valores grandes, establezca el tiempo de expiración en un valor superior.
   * Establezca `AbortOnConnectFail` en False y deje que StackExchange.Redis se vuelva a conectar automáticamente.
   * Utilice una única instancia de ConnectionMultiplexer para la aplicación. Puede usar LazyConnection para crear una instancia única que se devuelva por una propiedad de conexión, tal como se muestra en [Conexión a la caché mediante la clase ConnectionMultiplexer](cache-dotnet-how-to-use-azure-redis-cache.md#connect-to-the-cache).
@@ -269,7 +269,7 @@ Sí, para usar Azure Cache for Redis como una memoria caché de sesión PHP, esp
 >
 > `session.save_path = "tcp://mycache.redis.cache.windows.net:6379?auth=<url encoded primary or secondary key here>";`
 >
-> Si la clave no está codificada como dirección URL, puede recibir una excepción con un mensaje similar al siguiente: `Failed to parse session.save_path`
+> Si la clave no está codificado como URL, recibirá una excepción con un mensaje similar al siguiente: `Failed to parse session.save_path`
 >
 >
 
@@ -392,7 +392,7 @@ Cómo configurar este valor:
   > El valor especificado en este elemento de configuración es *por núcleo*. Por ejemplo, si tiene una máquina de 4 núcleos y quiere que su configuración de minIOThreads sea 200 en tiempo de ejecución, use `<processModel minIoThreads="50"/>`.
   >
 
-* Fuera de ASP.NET y Azure WebSites global.asax, use la API [ThreadPool.SetMinThreads (…)](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads.aspx) .
+* Fuera de ASP.NET y Azure WebSites global.asax, use la API [ThreadPool.SetMinThreads (…)](/dotnet/api/system.threading.threadpool.setminthreads#System_Threading_ThreadPool_SetMinThreads_System_Int32_System_Int32_) .
 
   > [!NOTE]
   > El valor especificado por esta API es una configuración global, que afecta a todo AppDomain. Si tiene una máquina de 4 núcleos y desea establecer minWorkerThreads y minIOThreads a 50 por CPU durante el tiempo de ejecución, usaría ThreadPool.SetMinThreads (200, 200).
@@ -402,9 +402,9 @@ Cómo configurar este valor:
 ### <a name="enable-server-gc-to-get-more-throughput-on-the-client-when-using-stackexchangeredis"></a>Habilitación de GC del servidor para obtener más rendimiento en el cliente cuando se usa StackExchange.Redis
 La habilitación de GC del servidor puede optimizar el cliente y mejorar el rendimiento y la capacidad cuando se usa StackExchange.Redis. Para más información sobre GC del servidor y cómo habilitarlo, consulte los siguientes artículos.
 
-* [Para habilitar GC del servidor](https://msdn.microsoft.com/library/ms229357.aspx)
-* [Fundamentos de la recolección de elementos no utilizados](https://msdn.microsoft.com/library/ee787088.aspx)
-* [Recolección de elementos no utilizados y rendimiento](https://msdn.microsoft.com/library/ee851764.aspx)
+* [Para habilitar GC del servidor](/dotnet/framework/configure-apps/file-schema/runtime/gcserver-element)
+* [Aspectos básicos de la recolección de elementos](/dotnet/standard/garbage-collection/fundamentals)
+* [Rendimiento y la recolección de elementos](/dotnet/standard/garbage-collection/performance)
 
 
 ### <a name="performance-considerations-around-connections"></a>Consideraciones sobre rendimiento de las conexiones
@@ -467,13 +467,13 @@ Otro aspecto clave para el éxito de Redis es su ecosistema de código abierto v
 Para más información sobre los primeros pasos con Azure Cache for Redis, consulte el artículo sobre el [uso de Azure Cache for Redis](cache-dotnet-how-to-use-azure-redis-cache.md) y la [Documentación de Azure Cache for Redis](index.md).
 
 ### <a name="managed-cache-service"></a>Managed Cache service
-[Managed Cache Service se retiró el 30 de noviembre de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[Managed Cache service se retiró el 30 de noviembre de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-Para ver la documentación archivada, consulte la [documentación archivada de Managed Cache Service](https://msdn.microsoft.com/library/azure/dn386094.aspx).
+Para ver la documentación archivada, consulte la [documentación archivada de Managed Cache Service](/previous-versions/azure/azure-services/dn386094(v=azure.100)).
 
 ### <a name="in-role-cache"></a>Caché en rol
-[In-Role Cache se retiró el 30 de noviembre de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
+[Caché en rol se retiró el 30 de noviembre de 2016.](https://azure.microsoft.com/blog/azure-managed-cache-and-in-role-cache-services-to-be-retired-on-11-30-2016/)
 
-Para ver la documentación archivada, consulte la [documentación de archivada de In-Role Cache](https://msdn.microsoft.com/library/azure/dn386103.aspx).
+Para ver la documentación archivada, consulte la [documentación de archivada de In-Role Cache](/previous-versions/azure/azure-services/dn386103(v=azure.100)).
 
 ["minIoThreads" configuration setting]: https://msdn.microsoft.com/library/vstudio/7w2sway1(v=vs.100).aspx

@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 3c9227a34c1b7208210b84b5b7d64ecdc8654a83
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: e6ae4cc527ae0828f530ab7f3904d2b3c64c910b
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286387"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895756"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Rendimiento y escalado horizontal en Durable Functions (Azure Functions)
 
@@ -56,7 +56,7 @@ La extensión durable task implementa un algoritmo exponencial aleatorio retroce
 El retraso de sondeo máximo es configurable a través de la `maxQueuePollingInterval` propiedad en el [archivo host.json](../functions-host-json.md#durabletask). Si se establece en un valor más alto podría provocar latencias de procesamiento de mensajes superior. Se espera que las elevadas latencias solo después de períodos de inactividad. Si se establece en un valor inferior podrían mayores costos de almacenamiento debido a las transacciones de almacenamiento mayor.
 
 > [!NOTE]
-> Cuando se ejecuta en los planes de consumo de Azure Functions y Premium, la [controlador de escala de Azure Functions](../functions-scale.md#how-the-consumption-plan-works) sondeará cada cola de control y elementos de trabajo una vez cada 10 segundos. Este sondeo adicional es necesario para determinar cuándo activar instancias de function app y tomar decisiones de escalado. En el momento de escribir este artículo, este segundo intervalo de 10 es constante y no se puede configurar.
+> Cuando se ejecuta en los planes de consumo de Azure Functions y Premium, la [controlador de escala de Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) sondeará cada cola de control y elementos de trabajo una vez cada 10 segundos. Este sondeo adicional es necesario para determinar cuándo activar instancias de function app y tomar decisiones de escalado. En el momento de escribir este artículo, este segundo intervalo de 10 es constante y no se puede configurar.
 
 ## <a name="storage-account-selection"></a>Selección de una cuenta de almacenamiento
 
@@ -244,4 +244,4 @@ Si no ve las cifras de rendimiento que espera, y el uso de CPU y de memoria pare
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Crear su primera función duradera en C#](durable-functions-create-first-csharp.md)
+> [Cree su primera función duradera enC#](durable-functions-create-first-csharp.md)

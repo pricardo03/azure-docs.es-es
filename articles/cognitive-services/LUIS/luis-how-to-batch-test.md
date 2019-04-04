@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: 973a82e97bc9770c30e791512b13e4c57a4c5bca
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 4d29602581531e9e42edbf4e00eca810757a8a99
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116905"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895739"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>Pruebas por lotes con un conjunto de expresiones de ejemplo
 
@@ -100,7 +100,7 @@ Las dos secciones del gráfico en color verde coincidieron con la predicción es
 
 Si las pruebas indican que la aplicación de LUIS no reconoce las entidades y las intenciones correctas, puede trabajar para mejorar el rendimiento de la aplicación de LUIS etiquetando más expresiones o agregando características. 
 
-* [Label suggested utterances with LUIS](luis-how-to-review-endoint-utt.md) (Etiquetado de expresiones sugeridas con LUIS) 
-* [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) (Uso de características para mejorar el rendimiento de la aplicación de LUIS) 
-* [Comprenda las pruebas por lotes con este tutorial](luis-tutorial-batch-testing.md)
+* [Etiqueta sugeridos grabaciones de voz con LUIS](luis-how-to-review-endpoint-utterances.md) 
+* [Uso de características para mejorar el rendimiento de la aplicación de LUIS](luis-how-to-add-features.md) 
+* [Comprender el lote de las pruebas con este tutorial](luis-tutorial-batch-testing.md)
 * [Obtenga información sobre los conceptos de las pruebas por lotes](luis-concept-batch-test.md).

@@ -7,21 +7,26 @@ author: anikaz
 manager: johndeu
 ms.service: media-services
 ms.topic: article
-ms.date: 12/05/2018
+ms.date: 03/19/2019
 ms.author: anzaman
-ms.openlocfilehash: 073cff22f17f496c2ff85cfbf716751dfea1e03e
-ms.sourcegitcommit: 7fd404885ecab8ed0c942d81cb889f69ed69a146
-ms.translationtype: HT
+ms.openlocfilehash: b491120639421d85d2fbb1a0efb2b6dd09ec1d4c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/12/2018
-ms.locfileid: "53283241"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893901"
 ---
 # <a name="customize-a-person-model-in-video-indexer"></a>Personalización de un modelo de persona en Video Indexer
 
+Video Indexer es compatible con reconocimiento de celebridades de los vídeos. La característica de reconocimiento de celebridades abarca aproximadamente un millón de caras basadas en orígenes de datos comúnmente solicitados, como IMDB, Wikipedia y personas con más influencia de LinkedIn. Caras que no son reconocidas por Video Indexer se siguió encontrando pero se dejan sin nombre. Los clientes pueden crear modelos de persona personalizados y habilitar Video Indexer reconocer caras que no se reconocen de forma predeterminada. Los clientes pueden crear estos modelos de persona mediante el emparejamiento de un nombre de persona con archivos de imagen de su cara.  
 
-Video Indexer admite la detección de caras y el reconocimiento de celebridades en contenido de vídeo. La característica de reconocimiento de celebridades abarca aproximadamente 1 000 000 de caras basadas en orígenes de datos comúnmente solicitados, como IMDB, Wikipedia y personas con más influencia de LinkedIn. Las caras que no reconoce la característica de reconocimiento de celebridades se detectan, pero se dejan sin nombre. Después de cargar un vídeo en Video Indexer y recibir los resultados, puede volver y poner nombre a las caras que no se reconocieron. Cuando se etiqueta una cara con un nombre, la cara y el nombre se agregan al modelo de persona de la cuenta. Así, Video Indexer reconocerá esta cara en los vídeos futuros y pasados.
+Si su cuenta se encarga de casos de uso diferentes, puede beneficiarse de poder crear varios modelos de persona por cuenta. Por ejemplo, si el contenido de su cuenta está pensado para ordenar en distintos canales, puede crear un modelo de persona independiente para cada canal. 
 
-Puede usar el sitio web o la API de Video Indexer para editar las caras que se detectaron en un vídeo de su cuenta, como se describe en los siguientes temas:
+> [!NOTE]
+> Cada modelo de la persona que admite hasta 1 millón de personas y cada cuenta tiene un límite de 50 modelos de persona. 
 
-- [Personalización del modelo de persona mediante las API](customize-person-model-with-api.md)
-- [Customize Person model using the website](customize-person-model-with-website.md) (Personalización del modelo de persona mediante el sitio web)
+Una vez que se crea un modelo, para usarlo, proporcione el identificador de modelo de un modelo de persona específico al cargar/indexar o volver a indexar un vídeo. Un nuevo aspecto para ver un vídeo de formación, actualiza el modelo personalizado específico que se ha asociado el vídeo. 
+
+Si no necesita compatibilidad con varios modelos de persona, no asigne un identificador de modelo de persona a su vídeo al cargar/indexar o volver a indexar. En este caso, Video Indexer usará el modelo de la persona de forma predeterminada en su cuenta. 
+
+Puede usar el sitio Web de Video Indexer para editar las caras detectadas en un vídeo y para administrar varios modelos de persona personalizados en su cuenta, como se describe en el [personalizar un modelo de persona con un sitio Web](customize-person-model-with-website.md) tema. También puede usar la API, como se describe en [personalizar un modelo de la persona mediante las API de](customize-person-model-with-api.md).

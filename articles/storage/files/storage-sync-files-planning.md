@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 034beeaaebb86786106f7884fc147ff15167538e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480726"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918644"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -278,6 +278,8 @@ Para admitir la integración de la conmutación por error entre el almacenamient
 | Asia oriental           | Sudeste asiático     |
 | Este de EE. UU             | Oeste de EE. UU.            |
 | Este de EE. UU. 2           | Centro de EE. UU.         |
+| Corea Central       | Corea del Sur        |
+| Corea del Sur         | Corea Central      |
 | Europa del Norte        | Europa occidental        |
 | Centro-Norte de EE. UU    | Centro-Sur de EE. UU   |
 | Sur de la India         | India Central      |
@@ -291,7 +293,7 @@ Para admitir la integración de la conmutación por error entre el almacenamient
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Tenga en cuenta los valores de proxy y firewall](storage-sync-files-firewall-and-proxy.md)
+* [Considere la posibilidad de configuración de proxy y firewall](storage-sync-files-firewall-and-proxy.md)
 * [Planeamiento de una implementación de Azure Files](storage-files-planning.md)
 * [Implementación de Azure Files](storage-files-deployment-guide.md)
 * [Implementación de Azure File Sync](storage-sync-files-deployment-guide.md)

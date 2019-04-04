@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
-ms.openlocfilehash: 4755eeda6a254389f0e0fbceec602fef718a9c45
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cfc63349e20aa6dbef4e0d31e81842d325bd3ec6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100179"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905547"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurar una puerta de enlace de la aplicación con un extremo (ILB) de equilibrador de carga interno
 
@@ -25,13 +25,16 @@ En este artículo, aprenderá a:
 - Cree una configuración de IP de front-end privada para una puerta de enlace de aplicaciones
 - Crear una puerta de enlace de aplicaciones con la configuración de IP de front-end privada
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal en <https://portal.azure.com>
+Inicie sesión en el portal de Azure en <https://portal.azure.com>
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-Para que Azure se comunique entre los recursos que se crean, se necesita una red virtual. Puede crear una nueva red virtual o use uno existente. En este ejemplo, crearemos una nueva red virtual. Puede crear una red virtual a la vez que crea la puerta de enlace de aplicaciones. Se crean instancias de Application Gateway en subredes independientes. En este ejemplo se crean dos subredes: una para la puerta de enlace de aplicaciones y la otra para los servidores back-end.
+Para que Azure se comunique entre los recursos que se crean, se necesita una red virtual. Puede crear una red virtual o usar una existente. En este ejemplo, crearemos una red virtual. Puede crear una red virtual a la vez que crea la puerta de enlace de aplicaciones. Se crean instancias de Application Gateway en subredes independientes. En este ejemplo se crean dos subredes: una para la puerta de enlace de aplicaciones y la otra para los servidores back-end.
 
 1. Haga clic en **Nuevo** en la esquina superior izquierda de Azure Portal.
 2. Seleccione **Redes** y **Application Gateway** en la lista de destacados.
@@ -54,11 +57,11 @@ Para que Azure se comunique entre los recursos que se crean, se necesita una red
 
 ## <a name="add-backend-pool"></a>Agregar grupo de back-end
 
-El grupo de back-end se usa para enrutar las solicitudes a los servidores back-end que atiende la solicitud. Back-end puede constar de NIC, conjuntos de escalado de máquinas virtuales, direcciones IP públicas, nombres de direcciones IP internas, nombre de dominio completo (FQDN) y varios inquilinos back-end, como Azure App Service. En este ejemplo, usaremos las máquinas virtuales como el back-end de destino. Se puede usar máquinas virtuales existentes o crear otras nuevas. En este ejemplo, crearemos dos máquinas virtuales que usa Azure como servidores back-end para la puerta de enlace de la aplicación. Para ello, se hará lo siguiente:
+El grupo de back-end se usa para enrutar las solicitudes a los servidores back-end que atenderán la solicitud. Los servidores back-end pueden constar de NIC, conjuntos de escalado de máquinas virtuales, direcciones IP públicas e internas, nombres de dominio completos (FQDN) y servidores back-end multiinquilino como Azure App Service. En este ejemplo, se usan máquinas virtuales como back-end de destino. Pueden usarse máquinas virtuales existentes o crear otras nuevas. En este ejemplo, se crean dos máquinas virtuales que Azure usa como servidores back-end para la puerta de enlace de aplicaciones. Para ello, se hará lo siguiente:
 
-1. Crear 2 máquinas virtuales, *myVM* y *myVM2*, que se usará como servidores back-end.
-2. Instalar IIS en las máquinas virtuales para comprobar que la puerta de enlace de la aplicación se creó correctamente.
-3. Agregue los servidores back-end para el grupo de back-end.
+1. Crear dos máquinas virtuales, *myVM* y *myVM2*, que se usarán como servidores back-end.
+2. Instalar IIS en las máquinas virtuales para comprobar que la puerta de enlace de aplicaciones se ha creado correctamente.
+3. Agregar los servidores back-end al grupo de back-end.
 
 ### <a name="create-a-virtual-machine"></a>de una máquina virtual
 
@@ -67,7 +70,7 @@ El grupo de back-end se usa para enrutar las solicitudes a los servidores back-e
 3. Especifique estos valores para la máquina virtual:
    - *myVM*: como nombre de la máquina virtual.
    - *azureuser*: como nombre del usuario administrador.
-   - *Azure123456!* como contraseña.
+   - *¡Azure123456!* como contraseña.
    - Seleccione **Usar existente** y *myResourceGroupAG*.
 4. Haga clic en **OK**.
 5. Seleccione **DS1_V2** el tamaño de la máquina virtual y haga clic en **seleccione**.
@@ -82,7 +85,7 @@ El grupo de back-end se usa para enrutar las solicitudes a los servidores back-e
 2. Ejecute el siguiente comando para instalar IIS en la máquina virtual:
 
    ```azurepowershell
-   Set-AzureRmVMExtension `
+   Set-AzVMExtension `
    
      -ResourceGroupName myResourceGroupAG `
    
@@ -100,7 +103,7 @@ El grupo de back-end se usa para enrutar las solicitudes a los servidores back-e
 
 
 
-3. Create a second virtual machine and install IIS using the steps that you just finished. Enter myVM2 for its name and for VMName in Set-AzureRmVMExtension.
+3. Create a second virtual machine and install IIS using the steps that you just finished. Enter myVM2 for its name and for VMName in Set-AzVMExtension.
 
 ### Add backend servers to backend pool
 

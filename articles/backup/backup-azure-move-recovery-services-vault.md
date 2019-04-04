@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sogup
-ms.openlocfilehash: 0bc1ab0586d1a591464711fb0652f81fb082e6c3
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 7745f986c6e9ba22258f51f9329444b8232762e1
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199251"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905773"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Traslado de un almacén de Recovery Services entre suscripciones y grupos de recursos de Azure (vista preliminar pública limitada).
 
@@ -21,6 +21,8 @@ En este artículo se explica cómo mover un almacén de Recovery Services config
 
 > [!NOTE]
 > Para mover un almacén de Recovery Services y sus recursos asociados a otro grupo de recursos, primero debe [registrar la suscripción de origen](#register-the-source-subscription-to-move-your-recovery-services-vault).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites-for-moving-a-vault"></a>Requisitos previos para mover un almacén
 
@@ -50,24 +52,24 @@ Para registrar la suscripción de origen para **mover** el almacén de Recovery 
 1. Inicio de sesión en la cuenta de Azure.
 
    ```
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 
 2. Seleccione la suscripción que quiere registrar.
 
    ```
-   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
+   Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
    ```
 3. Registre esta suscripción.
 
    ```
-   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+   Register-AzProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
    ```
 
 4. Ejecute el comando
 
    ```
-   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+   Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices
    ```
 
 Espere 30 minutos a que la suscripción se incluya en la lista blanca antes de empezar con la operación de traslado mediante Azure Portal o PowerShell.
@@ -137,18 +139,18 @@ Puede mover un almacén de Recovery Services y sus recursos asociados a otra sus
 
 ## <a name="use-powershell-to-move-a-vault"></a>Uso de PowerShell para mover un almacén
 
-Para mover un almacén de Recovery Services a otro grupo de recursos, use el cmdlet `Move-AzureRMResource`. `Move-AzureRMResource` requiere el nombre del recurso y el tipo de recurso. Puede obtener ambos con el cmdlet `Get-AzureRmRecoveryServicesVault`.
+Para mover un almacén de Recovery Services a otro grupo de recursos, use el cmdlet `Move-AzResource`. `Move-AzResource` requiere el nombre del recurso y el tipo de recurso. Puede obtener ambos con el cmdlet `Get-AzRecoveryServicesVault`.
 
 ```
 $destinationRG = "<destinationResourceGroupName>"
-$vault = Get-AzureRmRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
-Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+$vault = Get-AzRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
+Move-AzResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 Para mover los recursos a otra suscripción, incluya el parámetro `-DestinationSubscriptionId`.
 
 ```
-Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+Move-AzResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 Después de ejecutar los cmdlets anteriores, se le pedirá que confirme que desea mover los recursos especificados. Escriba **Y** para continuar. Cuando se haya validado correctamente, el recurso se moverá.

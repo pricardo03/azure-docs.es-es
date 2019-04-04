@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/12/2018
 ms.author: magattus
-ms.openlocfilehash: d2dc8ad1e4b7e429dc758a96e49aa4825ae108e5
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 0d34985c8d83e8adad43aeec36ead939d8b22132
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091324"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918372"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Carga previa de activos en un punto de conexión de Azure CDN
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -49,9 +49,9 @@ Este tutorial le guiará a través de la precarga de contenido almacenado en la 
    > [!TIP]
    > Después de empezar a escribir texto, aparecerán más cuadros de texto de **Ruta de acceso de contenido** para permitirle crear una lista de varios recursos. Para eliminar recursos de la lista, seleccione el botón de puntos suspensivos (...) y, a continuación, seleccione **Eliminar**.
    > 
-   > Cada ruta de acceso de contenido debe ser una dirección URL relativa que se ajuste a las siguientes [expresiones regulares](https://msdn.microsoft.com/library/az24scfc.aspx):  
-   > - Carga de una sola ruta de acceso del archivo: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
-   > - Carga de un único archivo con cadena de consulta: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
+   > Cada ruta de acceso de contenido debe ser una dirección URL relativa que se ajuste a las siguientes [expresiones regulares](/dotnet/standard/base-types/regular-expression-language-quick-reference):  
+   > - Carga una sola ruta de archivo: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
+   > - Cargar un único archivo con cadena de consulta: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
    > Dado que cada recurso debe tener su propia ruta de acceso, no hay ninguna funcionalidad de comodín para recursos de carga previa.
    > 
@@ -66,8 +66,8 @@ Este tutorial le guiará a través de la precarga de contenido almacenado en la 
 > 
 > 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Purgar un punto de conexión de Azure CDN](cdn-purge-endpoint.md)
-* [Referencia de API REST de Azure CDN: cargar previamente contenido en un punto de conexión](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
-* [Referencia de API REST de Azure CDN: purgar contenido desde un punto de conexión](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
+* [Referencia de API de REST de CDN de Azure: Precargar el contenido en un punto de conexión](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent)
+* [Referencia de API de REST de CDN de Azure: Purgar contenido desde un punto de conexión](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent)
 

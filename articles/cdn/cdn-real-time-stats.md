@@ -1,6 +1,6 @@
 ---
-title: Estadísticas en tiempo real en la red CDN de Azure | Microsoft Docs
-description: Las estadísticas en tiempo real proporcionan datos en tiempo real sobre el rendimiento de la red CDN de Azure al entregar contenido a los clientes.
+title: Estadísticas en tiempo real en Azure CDN | Microsoft Docs
+description: Las estadísticas en tiempo real proporcionan datos en tiempo real sobre el rendimiento de Azure CDN al entregar contenido a los clientes.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: e9b9522de6b2c54dc794b00100ffe358296ecfdd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: eb20630533735fb46ea7743be75448329281938a
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22997910"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916570"
 ---
-# <a name="real-time-stats-in-microsoft-azure-cdn"></a>Estadísticas en tiempo real en la CDN de Microsoft Azure
+# <a name="real-time-stats-in-microsoft-azure-cdn"></a>Estadísticas en tiempo real en Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Información general
-En este documento se describe la funcionalidad de Estadísticas en tiempo real en la CDN de Microsoft Azure.  Esta funcionalidad proporciona datos en tiempo real, como el ancho de banda, los estados de la memoria caché y las conexiones simultáneas a su perfil de red CDN cuando se entrega el contenido a los clientes. Esto permite la supervisión continua del estado de su servicio en cualquier momento, incluidos los eventos de puesta en marcha.
+En este documento se describe la funcionalidad de Estadísticas en tiempo real en Microsoft Azure CDN.  Esta funcionalidad proporciona datos en tiempo real, como el ancho de banda, los estados de la memoria caché y las conexiones simultáneas a su perfil de red CDN cuando se entrega el contenido a los clientes. Esto permite la supervisión continua del estado de su servicio en cualquier momento, incluidos los eventos de puesta en marcha.
 
 Los gráficos siguientes están disponibles:
 
@@ -35,14 +35,14 @@ Los gráficos siguientes están disponibles:
 * [Conexiones](#connections)
 
 ## <a name="accessing-real-time-stats"></a>Acceso a estadísticas en tiempo real
-1. En el [Portal de Azure](https://portal.azure.com), vaya a su perfil de la red CDN.
+1. En el [Azure Portal](https://portal.azure.com), vaya a su perfil de la red CDN.
    
     ![Hoja del perfil de red CDN](./media/cdn-real-time-stats/cdn-profile-blade.png)
 2. En la hoja de perfil de CDN, haga clic en el botón **Administrar** .
    
     ![Botón de administración de hoja de perfil de red CDN](./media/cdn-real-time-stats/cdn-manage-btn.png)
    
-    Se abre el portal de administración de CDN.
+    Se abre el Portal de administración de CDN.
 3. Mantenga el mouse sobre la pestaña **Análisis** y, después, sobre el control flotante **Estadísticas en tiempo real**.  Haga clic en **Objeto grande HTTP**.
    
     ![Portal de administración de la red CDN](./media/cdn-real-time-stats/cdn-premium-portal.png)
@@ -62,7 +62,7 @@ El gráfico **Ancho de banda** muestra la cantidad de ancho de banda que se usa 
 El gráfico **Códigos de estado** indica con qué frecuencia se producen ciertos códigos de respuesta HTTP durante el intervalo de tiempo especificado.
 
 > [!TIP]
-> Para obtener una descripción de cada opción de código de estado de HTTP, consulte [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx)(Códigos de estado HTTP de la red CDN de Azure).
+> Para obtener una descripción de cada opción de código de estado de HTTP, consulte [Azure CDN HTTP Status Codes](/previous-versions/azure/mt759238(v=azure.100))(Códigos de estado HTTP de la red CDN de Azure).
 > 
 > 
 
@@ -76,7 +76,7 @@ También puede ocultar temporalmente los datos registrados para un determinado c
 El gráfico **Estado de caché** indica con qué frecuencia se producen determinados tipos de estados de la memoria caché durante el intervalo de tiempo especificado. 
 
 > [!TIP]
-> Para ver una descripción de cada opción de código de estado de caché, consulte [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx)(Códigos de estado de caché de la red CDN de Azure).
+> Para ver una descripción de cada opción de código de estado de caché, consulte [Azure CDN Cache Status Codes](/previous-versions/azure/mt759237(v=azure.100))(Códigos de estado de caché de la red CDN de Azure).
 > 
 > 
 
@@ -90,7 +90,7 @@ También puede ocultar temporalmente los datos registrados para un determinado c
 Este gráfico indica cuántas conexiones se han establecido para los servidores perimetrales. Cada solicitud de un recurso que pasa por la red CDN genera una conexión.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Recibir notificaciones con [alertas en tiempo real en la CDN de Azure](cdn-real-time-alerts.md)
+* Recibir notificaciones con [alertas en tiempo real en Azure CDN](cdn-real-time-alerts.md)
 * Profundizar más con [informes de HTTP avanzados](cdn-advanced-http-reports.md)
 * Analizar [patrones de uso](cdn-analyze-usage-patterns.md)
 

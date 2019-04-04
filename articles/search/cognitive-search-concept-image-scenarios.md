@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: 9e4b9d8cf3300f977824f95aeb14a614d8897abd
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.openlocfilehash: f1491d6b87816dfc70e94e01653567bda101d045
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56430274"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916978"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Procesamiento y extracción de información de imágenes en escenarios de búsqueda cognitiva
 
@@ -34,7 +34,7 @@ No puede desactivar la normalización de imágenes. Las habilidades que iteran l
 
 | Parámetro de configuración | DESCRIPCIÓN |
 |--------------------|-------------|
-| imageAction   | Se establece en "none" si no debe realizar ninguna acción cuando se encuentran imágenes incrustadas o archivos de imagen. <br/>Se establece en "generateNormalizedImages" para generar una matriz de imágenes normalizadas como parte de la averiguación del documento.<br/>Se establece en "generateNormalizedImagePerPage" para generar una matriz de imágenes normalizadas donde en los archivos PDF del origen de datos, cada página se representa en una imagen de salida.  La funcionalidad es igual que "generateNormalizedImages" para tipos de archivos que no son PDF.<br/>En el caso de todas las opciones que no sean "none", las imágenes se expondrán en el campo *normalized_images*. <br/>El valor predeterminado es "none". Esta configuración solo es pertinente para los orígenes de datos de blob cuando "dataToExtract" se establece en "contentAndMetadata". |
+| imageAction   | Se establece en "none" si no debe realizar ninguna acción cuando se encuentran imágenes incrustadas o archivos de imagen. <br/>Se establece en "generateNormalizedImages" para generar una matriz de imágenes normalizadas como parte de la averiguación del documento.<br/>Se establece en "generateNormalizedImagePerPage" para generar una matriz de imágenes normalizadas donde en los archivos PDF del origen de datos, cada página se representa en una imagen de salida.  La funcionalidad es igual que "generateNormalizedImages" para tipos de archivos que no son PDF.<br/>En el caso de todas las opciones que no sean "none", las imágenes se expondrán en el campo *normalized_images*. <br/>El valor predeterminado es "none". Esta configuración solo es pertinente para los orígenes de datos de blob cuando "dataToExtract" se establece en "contentAndMetadata". <br/>Un máximo de 1000 imágenes se extraerán de un documento determinado. Si hay más de 1000 imágenes en un documento, se extraerán los primeros 1.000 y se generará una advertencia. |
 |  normalizedImageMaxWidth | El ancho máximo (en píxeles) para las imágenes normalizadas generadas. El valor predeterminado es 2000.|
 |  normalizedImageMaxHeight | La altura máxima (en píxeles) para las imágenes normalizadas generadas. El valor predeterminado es 2000.|
 
@@ -217,10 +217,10 @@ Como ayuda adicional, si tiene que transformar las coordenadas normalizadas al e
         }
 ```
 
-## <a name="see-also"></a>Otras referencias
-+ [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
-+ [Habilidad Análisis de imágenes](cognitive-search-skill-image-analysis.md)
+## <a name="see-also"></a>Vea también
++ [Crear el indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Analizar la habilidad de imagen](cognitive-search-skill-image-analysis.md)
 + [Habilidad de OCR](cognitive-search-skill-ocr.md)
-+ [Habilidad de Combinación de texto](cognitive-search-skill-textmerger.md)
-+ [Definición de un conjunto de habilidades](cognitive-search-defining-skillset.md)
-+ [Asignación a campos de índice](cognitive-search-output-field-mapping.md)
++ [Habilidades de mezcla de texto](cognitive-search-skill-textmerger.md)
++ [Cómo definir un conjunto de habilidades](cognitive-search-defining-skillset.md)
++ [Cómo asignar campos enriquecidos](cognitive-search-output-field-mapping.md)

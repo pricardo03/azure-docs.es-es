@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 27217b1bdf49f5d2b22ac23a092270be42df9abf
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: e5d7e2bfe1ee4e3ca248f40701aa65e757fc4d74
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55861042"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895095"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Estrategias de Enterprise para una aplicación de LUIS
 Revise estas estrategias de diseño de la aplicación de empresa.
@@ -31,7 +31,7 @@ Para obtener la misma intención principal entre todas las aplicaciones, asegúr
 
 Designar una aplicación única como la maestra. Cualquier expresión que se sugiera para revisión debe agregarse a la aplicación maestra y luego devuelta a las demás aplicaciones. Esto implica una exportación completa de la aplicación, o bien cargar las expresiones etiquetadas desde la maestra a las secundarias. La carga se puede hacer desde el sitio web de [LUIS](luis-reference-regions.md) o la API de creación de una [expresión única](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08) o para un [lote](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c09). 
 
-Programe una [revisión de expresiones de punto de conexión](luis-how-to-review-endoint-utt.md) periódica para obtener un aprendizaje activo, por ejemplo, cada dos semanas, luego vuelva a entrenar y a publicar. 
+Programe una [revisión de expresiones de punto de conexión](luis-how-to-review-endpoint-utterances.md) periódica para obtener un aprendizaje activo, por ejemplo, cada dos semanas, luego vuelva a entrenar y a publicar. 
 
 ### <a name="assign-multiple-luis-keys-to-same-app"></a>Asignar varias claves de LUIS a la misma aplicación
 Si la aplicación de LUIS recibe más visitas del punto de conexión de las que permite la cuota de la clave única, cree y asigne más claves a la aplicación de LUIS. Cree un administrador de tráfico o un equilibrador de carga para administrar las consultas del punto de conexión entre claves del punto de conexión. 
@@ -39,7 +39,7 @@ Si la aplicación de LUIS recibe más visitas del punto de conexión de las que 
 ## <a name="when-your-monolithic-app-returns-wrong-intent"></a>Si la aplicación monolítica devuelve una intención incorrecta
 Si la aplicación se ha diseñado para predecir una amplia variedad de expresiones de usuario, considere la posibilidad de implementar el [modelo de distribución](#dispatch-tool-and-model). Si interrumpe una aplicación monolítica, permite que LUIS se centre en la detección correcta entre intenciones, en lugar de confundir intenciones entre las aplicaciones principales y las secundarias. 
 
-Programe una [revisión de expresiones de punto de conexión](luis-how-to-review-endoint-utt.md) periódica para obtener un aprendizaje activo, por ejemplo, cada dos semanas, luego vuelva a entrenar y a publicar. 
+Programe una [revisión de expresiones de punto de conexión](luis-how-to-review-endpoint-utterances.md) periódica para obtener un aprendizaje activo, por ejemplo, cada dos semanas, luego vuelva a entrenar y a publicar. 
 
 ## <a name="when-you-need-to-have-more-than-500-intents"></a>Si necesita tener más de 500 intenciones
 Por ejemplo, supongamos que está desarrollando un asistente de oficina que tiene más de 500 intenciones. Si 200 intenciones se refieren a la programación de reuniones, 200 son de recordatorios, 200 para obtener información sobre compañeros de trabajo y 200 para el envío de correo electrónico, agrupe las intenciones de forma que cada grupo esté en una única aplicación, y luego cree una aplicación de nivel superior que contenga cada intención. Use la [herramienta de distribución y la arquitectura](#dispatch-tool-and-model) para compilar la aplicación de nivel superior. Después, cambie el bot para que use la llamada en cascada como se muestra en el [tutorial de distribución][dispatcher-application-tutorial]. 

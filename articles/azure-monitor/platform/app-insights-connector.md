@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: magoedte
-ms.openlocfilehash: 4e91e193b3980901e7778a8826989e729517a29a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: aa1bb62e762925dcb5a0ee37b71602094e768137
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58481763"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905705"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Solución de administración de Application Insights Connector (en desuso)
 
@@ -42,6 +42,9 @@ Cuando usa la solución, puede:
 - Visualizar datos de aplicación con perspectivas en la búsqueda de registros.
 - Pasar de los datos de Log Analytics a la aplicación de Application Insights en Azure Portal.
 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="connected-sources"></a>Orígenes conectados
 
 A diferencia de la mayoría de las demás soluciones de Log Analytics, los agentes no recopilan datos para Application Insights Connector. Todos los datos usados por la solución proceden directamente de Azure.
@@ -51,7 +54,7 @@ A diferencia de la mayoría de las demás soluciones de Log Analytics, los agent
 | [Agentes de Windows](../../azure-monitor/platform/agent-windows.md) | Sin  | La solución no recopila información de los agentes de Windows. |
 | [Agentes de Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Sin  | La solución no recopila información de los agentes de Linux. |
 | [Grupo de administración de SCOM](../../azure-monitor/platform/om-agents.md) | Sin  | La solución no recopila información de los agentes de un grupo de administración SCOM conectado. |
-| [Cuenta de Almacenamiento de Azure](collect-azure-metrics-logs.md) | Sin  | La solución no recopila información de Azure Storage. |
+| [Cuenta de almacenamiento de Azure](collect-azure-metrics-logs.md) | Sin  | La solución no recopila información de Azure Storage. |
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -94,11 +97,11 @@ Haga clic en el icono **Application Insights** para abrir el panel **Application
 El panel incluye las hojas que aparecen en la tabla. Cada hoja muestra hasta diez elementos que coinciden con los criterios de esa hoja para el ámbito e intervalo de tiempo especificados. Puede ejecutar una búsqueda de registros que devuelva todos los registros cuando haga clic en **Ver todo** en la parte inferior de la hoja o cuando haga clic en el encabezado de esta.
 
 
-| **Columna** | **Descripción** |
+| **Columna** | **DESCRIPCIÓN** |
 | --- | --- |
-| Aplicaciones: número de aplicaciones | Muestra el número de aplicaciones en los recursos de aplicación. También muestra los nombres de aplicación y la cantidad de registros de aplicación para cada uno. Haga clic en el número para ejecutar una búsqueda de registros de <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code> <br><br>  Haga clic en un nombre de aplicación para ejecutar una búsqueda de registros de la aplicación que muestre registros de aplicación por host, registros por tipo de telemetría y todos los datos por tipo (según el último día). |
-| Volumen de datos: hosts que envían datos | Muestra el número de hosts de equipos que envían datos. También muestra los hosts de equipos y números de registros para cada host. Haga clic en el número para ejecutar una búsqueda de registros de <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code> <br><br> Haga clic en un nombre de equipo para ejecutar una búsqueda de registros del host que muestre registros de aplicación por host, registros por tipo de telemetría y todos los datos por tipo (según el último día). |
-| Disponibilidad: resultados de WebTest | Muestra un gráfico de anillos para los resultados de pruebas web, que indican una prueba correcta o errónea. Haga clic en el gráfico para ejecutar una búsqueda de registros de <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code> <br><br> Los resultados muestran el número de pruebas correctas y erróneas en todas las pruebas. Muestra todas las instancias de Web Apps con tráfico durante el último minuto. Haga clic en un nombre de aplicación para ver una búsqueda de registros con los detalles de las pruebas web erróneas. |
+| Aplicaciones: número de aplicaciones | Muestra el número de aplicaciones en los recursos de aplicación. También muestra los nombres de aplicación y la cantidad de registros de aplicación para cada uno. Haga clic en el número para ejecutar una búsqueda de registros <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName</code> <br><br>  Haga clic en un nombre de aplicación para ejecutar una búsqueda de registros de la aplicación que muestre registros de aplicación por host, registros por tipo de telemetría y todos los datos por tipo (según el último día). |
+| Volumen de datos: hosts que envían datos | Muestra el número de hosts de equipos que envían datos. También muestra los hosts de equipos y números de registros para cada host. Haga clic en el número para ejecutar una búsqueda de registros <code>ApplicationInsights &#124; summarize AggregatedValue = sum(SampledCount) by Host</code> <br><br> Haga clic en un nombre de equipo para ejecutar una búsqueda de registros del host que muestre registros de aplicación por host, registros por tipo de telemetría y todos los datos por tipo (según el último día). |
+| Disponibilidad: resultados de WebTest | Muestra un gráfico de anillos para los resultados de pruebas web, que indican una prueba correcta o errónea. Haga clic en el gráfico para ejecutar una búsqueda de registros <code>ApplicationInsights &#124; where TelemetryType == "Availability" &#124; summarize AggregatedValue = sum(SampledCount) by AvailabilityResult</code> <br><br> Los resultados muestran el número de pruebas correctas y erróneas en todas las pruebas. Muestra todas las instancias de Web Apps con tráfico durante el último minuto. Haga clic en un nombre de aplicación para ver una búsqueda de registros con los detalles de las pruebas web erróneas. |
 | Solicitudes de servidor: solicitudes por hora | Muestra un gráfico de líneas de las solicitudes de servidor por hora para diversas aplicaciones. Mantenga el mouse sobre una línea del gráfico para ver las tres aplicaciones principales que reciben solicitudes en un momento específico. También muestra una lista de las aplicaciones que reciben solicitudes y el número de solicitudes para el período seleccionado. <br><br>Haga clic en el gráfico para ejecutar una búsqueda de registros de <code>ApplicationInsights &#124; where TelemetryType == "Request" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> que muestre un gráfico de líneas más detallado de las solicitudes de servidor por hora para las diversas aplicaciones. <br><br> Haga clic en una aplicación de la lista para ejecutar una búsqueda de registros de <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> que muestre una lista de solicitudes, gráficos de las solicitudes en el tiempo y la duración de las solicitudes, y una lista de los códigos de respuestas de las solicitudes.   |
 | Errores: solicitudes erróneas por hora | Muestra un gráfico de líneas de las solicitudes de aplicación erróneas por hora. Mantenga el mouse sobre el gráfico para ver las tres aplicaciones principales con solicitudes erróneas en un momento específico. También muestra una lista de aplicaciones con el número de solicitudes erróneas para cada una de ellas. Haga clic en el gráfico para ejecutar una búsqueda de registros de <code>ApplicationInsights &#124; where TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> que muestre un gráfico de líneas más detallado con las solicitudes de aplicación erróneas. <br><br>Haga clic en un elemento de la lista para ejecutar una búsqueda de registros de <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Request" and iff(isnotnull(toint(RequestSuccess)), RequestSuccess == false, RequestSuccess == "false") == true</code> que muestre solicitudes erróneas, gráficos de las solicitudes erróneas en el tiempo y la duración de las solicitudes, y una lista de los códigos de respuestas de las solicitudes erróneas. |
 | Excepciones: excepciones por hora | Muestra un gráfico de líneas de las excepciones por hora. Mantenga el mouse sobre el gráfico para ver las tres aplicaciones principales con excepciones en un momento específico. También muestra una lista de aplicaciones con el número de excepciones para cada una de ellas. Haga clic en el gráfico para ejecutar una búsqueda de registros de <code>ApplicationInsights &#124; where TelemetryType == "Exception" &#124; summarize AggregatedValue = sum(SampledCount) by ApplicationName, bin(TimeGenerated, 1h)</code> que muestre un gráfico de líneas más detallado de excepciones. <br><br>Haga clic en un elemento de la lista para ejecutar una búsqueda de registros de <code>ApplicationInsights &#124; where ApplicationName == "yourapplicationname" and TelemetryType == "Exception"</code> que muestre una lista de excepciones, gráficos de las excepciones en el tiempo y las solicitudes erróneas, y una lista de los tipos de excepción.  |
@@ -280,25 +283,25 @@ $Subscription_workspace = "Workspace Subscription Name"
 $ResourceGroup_workspace = "Workspace ResourceGroup"
 $Workspace = "Workspace Name"
 
-Connect-AzureRmAccount
-Set-AzureRmContext -SubscriptionId $Subscription_app
-$AIApp = Get-AzureRmApplicationInsights -ResourceGroupName $ResourceGroup_app -Name $Application 
-Set-AzureRmContext -SubscriptionId $Subscription_workspace
-Remove-AzureRmOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceGroupName $ResourceGroup_workspace -Name $AIApp.Id
+Connect-AzAccount
+Set-AzContext -SubscriptionId $Subscription_app
+$AIApp = Get-AzApplicationInsights -ResourceGroupName $ResourceGroup_app -Name $Application 
+Set-AzContext -SubscriptionId $Subscription_workspace
+Remove-AzOperationalInsightsDataSource -WorkspaceName $Workspace -ResourceGroupName $ResourceGroup_workspace -Name $AIApp.Id
 ```
 
 Puede recuperar una lista de aplicaciones mediante el siguiente script de PowerShell que invoca una llamada API REST. 
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 $Tenant = "TenantId"
 $Subscription_workspace = "Workspace Subscription Name"
 $ResourceGroup_workspace = "Workspace ResourceGroup"
 $Workspace = "Workspace Name"
 $AccessToken = "AAD Authentication Token" 
 
-Set-AzureRmContext -SubscriptionId $Subscription_workspace
-$LAWorkspace = Get-AzureRmOperationalInsightsWorkspace -ResourceGroupName $ResourceGroup_workspace -Name $Workspace
+Set-AzContext -SubscriptionId $Subscription_workspace
+$LAWorkspace = Get-AzOperationalInsightsWorkspace -ResourceGroupName $ResourceGroup_workspace -Name $Workspace
 
 $Headers = @{
     "Authorization" = "Bearer $($AccessToken)"

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: banders
-ms.openlocfilehash: 04b456cbaeeb4ba285fd874f7b21abffcc714653
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 4305db991a8129b0ae4205300051391df893c52c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649263"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917794"
 ---
 # <a name="understand-how-the-suse-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Información sobre cómo se aplica el descuento de plan de reserva de software de SUSE Linux Enterprise para Azure
 
@@ -38,7 +38,7 @@ Por ejemplo, si compra un plan para SUSE Linux Enterprise Server para informáti
 - 1 VM implementada con 3 o 4 vCPU,
 - o 0,77 o, aproximadamente, 77 % de una VM con 5 o más vCPU.
 
-La proporción de 5 o más vCPU es 2,6. Por lo tanto, una reserva para SUSE con una VM con 5 o más vCPU cubre solo una parte del costo de software, que es, aproximadamente, el 77 %.
+La proporción de 5 o más vCPU es 2,6. Por lo tanto, una reserva para SUSE con una máquina virtual con 5 o más vCPU cubre una única parte del costo de software, que es aproximadamente 77%.
 
 ## <a name="understand-suse-vm-usage-before-you-buy"></a>Entender el uso de SUSE VM antes de comprar
 
@@ -127,11 +127,11 @@ Nombres de marketplace de Azure Portal:
 Para más información acerca de las reservas, consulte los siguientes artículos:
 
 - [¿Qué es Azure Reservations?](billing-save-compute-costs-reservations.md)
-- [Pago por adelantado para planes de software SUSE con Azure Reservations](../virtual-machines/linux/prepay-suse-software-charges.md)
+- [Pago por adelantado para los planes de software SUSE con las reservas de Azure](../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
-- [Administración de Azure Reservations](billing-manage-reserved-vm-instance.md)
-- [Información sobre el uso de reservas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)
-- [Información sobre el uso de reservas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Administrar las reservas de Azure](billing-manage-reserved-vm-instance.md)
+- [Entender el uso de reserva para su suscripción de pago por uso](billing-understand-reserved-instance-usage.md)
+- [Entender el uso de reserva para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
 

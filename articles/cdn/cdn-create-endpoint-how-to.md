@@ -14,15 +14,15 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: a3fd85d1dbcba769f47e537e0231f63110752492
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: ba25bef75bc21eea2b0c3a57599a3b9ddd3164e0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093687"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916825"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Creación de un punto de conexión de Azure CDN
-Este artículo describe toda la configuración para crear un punto de conexión de [Azure Content Delivery Network (CDN)](cdn-overview.md) en un perfil de CDN existente. Una vez haya creado un perfil y un punto de conexión, podrá iniciar la entrega de contenido a sus clientes. Para una guía de inicio rápido sobre cómo crear un perfil y un punto de conexión, consulte [Guía de inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN](cdn-create-new-endpoint.md).
+Este artículo describe toda la configuración para crear un punto de conexión de [Azure Content Delivery Network (CDN)](cdn-overview.md) en un perfil de CDN existente. Una vez haya creado un perfil y un punto de conexión, podrá iniciar la entrega de contenido a sus clientes. Una guía de inicio rápido sobre cómo crear un perfil y un punto de conexión, consulte [inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN](cdn-create-new-endpoint.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 Para poder crear un punto de conexión de CDN, debe haber creado al menos un perfil de CDN, que puede contener uno o varios puntos de conexión de CDN. Puede usar varios perfiles para organizar sus puntos de conexión de la red CDN por dominio de Internet, aplicación web o cualquier otro criterio. Dado que los precios de CDN se aplican en el nivel de perfil de CDN, debe crear varios perfiles de CDN si desea utilizar una combinación de los planes de tarifa de Azure CDN. Para crear un perfil de CDN, consulte [Creación de un nuevo perfil de CDN](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
@@ -67,7 +67,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azur
    > [!NOTE]
    > El valor de **Puerto de origen** solo determina el puerto que utiliza el punto de conexión para recuperar información del servidor de origen. El propio punto de conexión solo está disponible para los clientes finales en los puertos HTTP y HTTPS predeterminados (80 y 443), con independencia de cuál sea el **puerto de origen**.  
    > 
-   > Los puntos de origen de los perfiles de **Azure CDN de Akamai** no permiten el intervalo completo de puertos TCP para los puertos de origen. Para obtener una lista de los puertos de origen que no se permiten, consulte [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx)(Puertos de origen permitidos de la red CDN de Azure de Akamai).  
+   > Los puntos de origen de los perfiles de **Azure CDN de Akamai** no permiten el intervalo completo de puertos TCP para los puertos de origen. Para obtener una lista de los puertos de origen que no se permiten, consulte [Azure CDN from Akamai Allowed Origin Ports](/previous-versions/azure/mt757337(v=azure.100))(Puertos de origen permitidos de la red CDN de Azure de Akamai).  
    > 
    > La compatibilidad de HTTPS con los dominios personalizados de Azure CDN no se admite en los productos de **Azure CDN de Akamai**. Para más información, consulte [Configuración de HTTPS en un dominio personalizado de Azure CDN](cdn-custom-ssl.md).
     
@@ -108,6 +108,6 @@ Para eliminar un punto de conexión cuando ya no sea necesario, selecciónelo y,
 Para más información acerca de los dominios personalizados, continúe con el tutorial para agregar un dominio personalizado al punto de conexión de CDN.
 
 > [!div class="nextstepaction"]
-> [Agregar un dominio personalizado](cdn-map-content-to-custom-domain.md)
+> [Adición de un dominio personalizado](cdn-map-content-to-custom-domain.md)
 
 

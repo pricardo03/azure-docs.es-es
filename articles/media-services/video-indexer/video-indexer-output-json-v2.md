@@ -9,16 +9,16 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 05de1640fbee7799da0a14bba262ef9724686878
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 552c3fa81a213d0be32c5498cde5a50fb44291d0
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650098"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892584"
 ---
-# <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Examen de la salida de Video Indexer producida por la API v2
+# <a name="examine-the-video-indexer-output-produced-by-api"></a>Examine la salida de Video Indexer producida por la API
 
-Cuando se llama a **Get Video Index** API y el estado de la respuesta es correcto, obtendrá una salida JSON detallada como contenido de la respuesta. El contenido JSON incluye información detallada del vídeo especificado. La información detallada incluye dimensiones como: transcripciones, OCR, rostros, temas o bloques, entre otras. Las dimensiones tienen instancias de intervalos de tiempo que muestran cuándo apareció cada dimensión en el vídeo.  
+Cuando se llama a **Get Video Index** API y el estado de la respuesta es correcto, obtendrá una salida JSON detallada como contenido de la respuesta. El contenido JSON incluye información detallada del vídeo especificado. La información incluye dimensiones como: las transcripciones, aplica OCR, caras, temas, bloques, etcetera. Las dimensiones tienen instancias de intervalos de tiempo que muestran cuándo apareció cada dimensión en el vídeo.  
 
 También puede examinar visualmente la información detallada del vídeo. Para ello, presione el botón **Reproducir** que hay encima del vídeo en el sitio web de [Video Indexer](https://www.videoindexer.ai/). Para más información, consulte [Visualización y edición de la información detallada de un vídeo](video-indexer-view-edit.md).
 
@@ -83,7 +83,7 @@ En esta sección se muestra el resumen de la información detallada.
 |faces|Puede contener cero o más rostros. Para más información, consulte [faces](#faces).|
 |keywords|Puede contener cero o más palabras clave. Para más información, consulte [keywords](#keywords).|
 |sentiments|Puede contener cero o más opiniones. Para más información, consulte [sentiments](#sentiments).|
-|audioEffects| Puede contener cero o más efectos de audio. Para más información, consulte [audioEffects](#audioeffects).|
+|audioEffects| Puede contener cero o más efectos de audio. Para más información, consulte [audioEffects](#audioEffects).|
 |labels| Puede contener cero o más etiquetas. Para más información, consulte [labels](#labels).|
 |brands| Puede contener cero o más marcas. Para más información, consulte [brands](#brands).|
 |statistics | Para más información, consulte [statistics](#statistics).|
@@ -153,14 +153,14 @@ Un rostro podría tener un identificador, un nombre, una miniatura, otros metada
 |sourceLanguage|Idioma de origen del vídeo (suponiendo que hay un idioma principal). Con el formato de cadena [BCP-47](https://tools.ietf.org/html/bcp47).|
 |language|Idioma de la información detallada (traducida del idioma de origen). Con el formato de cadena [BCP-47](https://tools.ietf.org/html/bcp47).|
 |transcript|Dimensión [transcript](#transcript).|
-|ocr|Dimensión [ocr](#ocr).|
+|ocr|El [OCR](#ocr) dimensión.|
 |keywords|Dimensión [keywords](#keywords).|
 |blocks|Puede contener uno o más dimensiones [blocks](#blocks).|
 |faces|Dimensión [faces](#faces).|
 |labels|Dimensión [labels](#labels).|
 |shots|Dimensión [shots](#shots).|
 |brands|Dimensión [brands](#brands).|
-|audioEffects|Dimension [audioEffects](#audioeffects).|
+|audioEffects|Dimension [audioEffects](#audioEffects).|
 |sentiments|Dimension [sentiments](#sentiments).|
 |visualContentModeration|Dimensión [visualContentModeration](#visualcontentmoderation).|
 |textualContentModeration|Dimensión [textualConentModeration](#textualcontentmoderation).|
@@ -419,61 +419,85 @@ Ejemplo:
   ] 
 ```
 
+#### <a name="scenes"></a>scenes
+
+|NOMBRE|Descripción|
+|---|---|
+|id|Identificador de la escena.|
+|instances|Una lista de intervalos de tiempo de esta escena (una escena puede tener solo 1 instancia).|
+
+```json
+"scenes":[  
+    {  
+      "id":0,
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
+      ]
+    },
+    {  
+      "id":1,
+      "instances":[  
+          {  
+            "start":"0:00:06.34",
+            "end":"0:00:47.047",
+            "duration":"0:00:40.707"
+          }
+      ]
+    },
+
+]
+```
+
 #### <a name="shots"></a>shots
 
 |Nombre|Descripción|
 |---|---|
 |id|Identificador de la toma.|
-|keyFrames|Lista de los fotogramas clave dentro de la toma (cada uno con un identificador y una lista de intervalos de tiempo de instancias). Las instancias de fotogramas clave tienen un campo thumbnailId con el identificador de la miniatura del fotograma clave.|
-|instances|Lista de intervalos de tiempo de esta toma (las tomas solo tienen 1 instancia).|
+|keyFrames|Una lista de fotogramas clave dentro de la captura (cada uno tiene un identificador y una lista de intervalos de tiempo de las instancias). Cada instancia de fotograma clave tiene un campo thumbnailId, que contiene la miniatura del fotograma clave identificador.|
+|instances|Una lista de intervalos de tiempo de esta toma (una captura puede tener solo 1 instancia).|
 
 ```json
-"Shots": [
-    {
-      "id": 0,
-      "keyFrames": [
-        {
-          "id": 0,
-          "instances": [
-            {
-                "thumbnailId": "00000000-0000-0000-0000-000000000000",
-              "start": "00: 00: 00.1670000",
-              "end": "00: 00: 00.2000000"
-            }
-          ]
-        }
+"shots":[  
+    {  
+      "id":0,
+      "keyFrames":[  
+          {  
+            "id":0,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:00.209",
+                  "end":"0:00:00.251",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          },
+          {  
+            "id":1,
+            "instances":[  
+                {  
+                  "thumbnailId":"00000000-0000-0000-0000-000000000000",
+                  "start":"0:00:04.755",
+                  "end":"0:00:04.797",
+                  "duration":"0:00:00.042"
+                }
+            ]
+          }
       ],
-      "instances": [
-        {
-            "thumbnailId": "00000000-0000-0000-0000-000000000000",  
-          "start": "00: 00: 00.2000000",
-          "end": "00: 00: 05.0330000"
-        }
+      "instances":[  
+          {  
+            "start":"0:00:00",
+            "end":"0:00:06.34",
+            "duration":"0:00:06.34"
+          }
       ]
     },
-    {
-      "id": 1,
-      "keyFrames": [
-        {
-          "id": 1,
-          "instances": [
-            {
-                "thumbnailId": "00000000-0000-0000-0000-000000000000",      
-              "start": "00: 00: 05.2670000",
-              "end": "00: 00: 05.3000000"
-            }
-          ]
-        }
-      ],
-      "instances": [
-        {
-      "thumbnailId": "00000000-0000-0000-0000-000000000000",
-          "start": "00: 00: 05.2670000",
-          "end": "00: 00: 10.3000000"
-        }
-      ]
-    }
-  ]
+
+]
 ```
 
 #### <a name="brands"></a>brands
@@ -796,7 +820,7 @@ Video Indexer saca conclusiones de los temas principales a partir de las transcr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Portal para desarrolladores de Video Indexer](https://api-portal.videoindexer.ai)
+[Portal para desarrolladores de video Indexer](https://api-portal.videoindexer.ai)
 
 Para más información acerca de cómo insertar widgets en su aplicación, consulte [Embed Video Indexer widgets into your applications](video-indexer-embed-widgets.md) (Inserción de widgets de Video Indexer en sus aplicaciones). 
 

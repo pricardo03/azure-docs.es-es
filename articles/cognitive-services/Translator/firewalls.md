@@ -3,19 +3,19 @@ title: 'Traducción detrás de los firewalls: Translator Text API'
 titlesuffix: Azure Cognitive Services
 description: Realice sus traducciones detrás de los firewalls de direcciones IP con Translator Text API.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 053bc5964644b4183572de35372e2580a80f19ae
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: ebc8b7ce4ed0242f1bc62e3b97b6594cfe810374
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729991"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915754"
 ---
 # <a name="how-to-translate-behind-ip-firewalls-with-the-translator-text-api"></a>Traducción detrás de los firewalls de direcciones IP con Translator Text API
 
@@ -31,4 +31,4 @@ Direcciones IP de api.cognitive.microsofttranslator.com en Microsoft Translator 
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
-> [Translate behind IP firewalls in your Translator API call](reference/v3-0-translate.md) (Traducción detrás de los firewalls de direcciones IP en la llamada API de Translator)
+> [Traducir detrás de firewalls IP en la llamada de API del traductor](reference/v3-0-translate.md)

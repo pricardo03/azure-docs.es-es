@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: a73559e233f647d5bf0812a5acdf5e19f05b0858
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: d2daae2a3317d3b48748262d87ab8d7f7e13f2b0
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51255428"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918423"
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Solución de problemas de roles de servicios en la nube que no se inician
 Presentamos algunos problemas y soluciones comunes relacionados con los roles de Azure Cloud Services que no se inician.
@@ -75,8 +75,8 @@ Puede usar Escritorio remoto para acceder al rol y ver información más complet
 Si navega al sitio web, se devolverán mensajes de error más explícitos:
 
 * Error del servidor en la aplicación '/'
-* Descripción: Se produjo una excepción no controlada durante la ejecución de la solicitud web actual. Revise el seguimiento de la pila para obtener más información acerca del error y en donde se originó en el código.
-* Detalles de la excepción: System.IO.FIleNotFoundException: No se puede cargar el archivo o ensamblado ‘Microsoft.WindowsAzure.StorageClient, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf856ad364e35’ ni una de sus dependencias. El sistema no encuentra el archivo especificado.
+* Description: Se produjo una excepción no controlada durante la ejecución de la solicitud web actual. Revise el seguimiento de la pila para obtener más información acerca del error y en donde se originó en el código.
+* Detalles de la excepción: System.IO.FIleNotFoundException: No se pudo cargar el archivo o ensamblado ' Microsoft.WindowsAzure.StorageClient, Version = 1.1.0.0, Culture = neutral, PublicKeyToken = 31bf856ad364e35' o uno de sus dependencias. El sistema no encuentra el archivo especificado.
 
 Por ejemplo: 
 
@@ -96,7 +96,7 @@ Para obtener unos mejores resultados con este método de diagnóstico, debe usar
 7. Cuando se inicie el rol, verá información detallada del error en Internet Explorer. También puede usar las herramientas de solución de problemas estándar de Windows para efectuar un diagnóstico exhaustivo del problema.
 
 ## <a name="diagnose-issues-by-using-intellitrace"></a>Diagnóstico de problemas mediante IntelliTrace
-Para los roles web y de trabajo que usan .NET Framework 4, puede usar [IntelliTrace](https://msdn.microsoft.com/library/dd264915.aspx), que está disponible en Microsoft Visual Studio Enterprise.
+Para los roles web y de trabajo que usan .NET Framework 4, puede usar [IntelliTrace](/visualstudio/debugger/intellitrace), que está disponible en Microsoft Visual Studio Enterprise.
 
 Siga estos pasos para implementar el servicio con IntelliTrace habilitado:
 

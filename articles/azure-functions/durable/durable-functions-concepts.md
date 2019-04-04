@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: e5be81efcd655f1f0361d8c00d978a81c3e6caa5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e54fe17e80382348bcf463624043f7922a29d1c1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443426"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892762"
 ---
 # <a name="durable-functions-patterns-and-technical-concepts-azure-functions"></a>Patrones durable Functions y conceptos técnicos (Azure Functions)
 
@@ -415,7 +415,7 @@ Debido al comportamiento de la reproducción del distribuidor de Durable Task Fr
 
 La extensión Durable Functions usa blobs, tablas y colas de Azure Storage para conservar ejecución historial desencadenador y el estado de ejecución de la función. Puede usar la cuenta de almacenamiento predeterminada para la aplicación de función, o puede configurar una cuenta de almacenamiento independiente. Es posible que desee una cuenta independiente en función de los límites de rendimiento de almacenamiento. El código de orquestador que escribe no interactúa con las entidades en estas cuentas de almacenamiento. Durable Task Framework administra las entidades directamente como un detalle de implementación.
 
-Las funciones del orquestador programan funciones de actividad y reciben sus respuestas a través de mensajes de la cola interna. Cuando se ejecuta una aplicación de función en el plan de consumo de Azure Functions, el [controlador de escala de Azure Functions](../functions-scale.md#how-the-consumption-plan-works) supervisa estas colas. Se agregan nuevas instancias de proceso según sea necesario. Al escalar horizontalmente a varias máquinas virtuales, puede ejecutar una función de orquestador en una máquina virtual, mientras que las funciones de actividad que las llamadas de función de orquestador se pueden ejecutar en varias máquinas virtuales diferentes. Para obtener más información sobre el comportamiento de la escala de Durable Functions, consulte [de escala y rendimiento](durable-functions-perf-and-scale.md).
+Las funciones del orquestador programan funciones de actividad y reciben sus respuestas a través de mensajes de la cola interna. Cuando se ejecuta una aplicación de función en el plan de consumo de Azure Functions, el [controlador de escala de Azure Functions](../functions-scale.md#how-the-consumption-and-premium-plans-work) supervisa estas colas. Se agregan nuevas instancias de proceso según sea necesario. Al escalar horizontalmente a varias máquinas virtuales, puede ejecutar una función de orquestador en una máquina virtual, mientras que las funciones de actividad que las llamadas de función de orquestador se pueden ejecutar en varias máquinas virtuales diferentes. Para obtener más información sobre el comportamiento de la escala de Durable Functions, consulte [de escala y rendimiento](durable-functions-perf-and-scale.md).
 
 El historial de ejecución para las cuentas de orchestrator se almacena en table storage. Cada vez que una instancia se rehidrata en una máquina virtual concreta, el orquestador captura su historial de ejecución de table storage, por lo que puede volver a generar su estado local. Un aspecto cómodo de tener el historial disponible en table storage es que puede usar herramientas como [Explorador de Azure Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md) para ver el historial de las orquestaciones.
 
@@ -437,6 +437,6 @@ Para obtener más información acerca de Durable Functions, consulte [tipos y ca
 Primeros pasos:
 
 > [!div class="nextstepaction"]
-> [Creación de su primera función duradera](durable-functions-create-first-csharp.md)
+> [Cree su primera función duradera](durable-functions-create-first-csharp.md)
 
 [DurableOrchestrationContext]: https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html

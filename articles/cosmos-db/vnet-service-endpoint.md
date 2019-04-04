@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 4e609bf6d96fa9cc3f2dc179157ecd27178608f9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 672c62c440708f8e949d67d545bee2179c6066b2
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57860370"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894942"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>Acceso a Azure Cosmos DB desde redes virtuales (VNET)
 
@@ -55,9 +55,12 @@ Las reglas de los grupos de seguridad de red se usan para limitar la conectivida
 ### <a name="are-service-endpoints-available-for-all-vnets"></a>¿Están disponibles los puntos de conexión de servicio para todas las redes virtuales?
 No, solo las redes virtuales de Azure Resource Manager pueden tener el punto de conexión de servicio habilitado. Las redes virtuales clásicas no admiten puntos de conexión de servicio.
 
+### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>¿Puedo aceptar conexiones de centros de datos Azure públicos cuando está habilitado el acceso al punto de conexión de servicio para Azure Cosmos DB?  
+Esto solo es necesario si desea que otros servicios propios de Azure accedan a la cuenta de Azure Cosmos DB, como Azure Data Factory, Azure Search o cualquier servicio implementado en una región de Azure determinada.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Cómo limitar el acceso de la cuenta de Azure Cosmos a las subredes de redes virtuales](how-to-configure-vnet-service-endpoint.md)
-* [How to configure IP firewall for your Azure Cosmos account](how-to-configure-firewall.md) (Configuración del firewall de IP para la cuenta de Azure Cosmos)
+* [Cómo limitar el acceso a la cuenta de Azure Cosmos a subredes de redes virtuales](how-to-configure-vnet-service-endpoint.md)
+* [Cómo configurar firewall IP para la cuenta de Azure Cosmos](how-to-configure-firewall.md)
 

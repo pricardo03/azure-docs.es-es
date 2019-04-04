@@ -14,28 +14,28 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
 ms.author: victorh
-ms.openlocfilehash: ad9e22668d0f6d994ad0fce7b207b5849dfa27e9
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 199843be72df473ae501eaf6bd47dce41b079c94
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651250"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906113"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Administración de conjuntos de registros y registros de DNS en Azure DNS mediante Azure PowerShell
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-operations-recordsets-portal.md)
 > * [CLI de Azure clásica](dns-operations-recordsets-cli-nodejs.md)
-> * [CLI de Azure](dns-operations-recordsets-cli.md)
+> * [Azure CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
 En este artículo se muestra cómo administrar registros DNS para su zona DNS mediante Azure PowerShell. Los registros de DNS también se pueden administrar mediante la [CLI de Azure](dns-operations-recordsets-cli.md) multiplataforma o [Azure Portal](dns-operations-recordsets-portal.md).
 
 En los ejemplos de este artículo se supone que ya ha [instalado Azure PowerShell, iniciado sesión y creado una zona DNS](dns-operations-dnszones.md).
 
-## <a name="introduction"></a>Introducción
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+## <a name="introduction"></a>Introducción
 
 Antes de crear registros DNS en Azure DNS, es necesario que comprenda cómo Azure DNS los organiza en conjuntos de registros DNS.
 
@@ -398,4 +398,4 @@ Más información sobre [zonas y registros en Azure DNS](dns-zones-records.md).
 <br>
 Aprenda a [proteger las zonas y los registros](dns-protect-zones-recordsets.md) cuando se usa Azure DNS.
 <br>
-Revise la [documentación de referencia de PowerShell para Azure DNS](/powershell/module/azurerm.dns).
+Revise la [documentación de referencia de PowerShell para Azure DNS](/powershell/module/az.dns).

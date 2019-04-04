@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: monhaber
-ms.openlocfilehash: 680e39b291cbaa1012cd972e188ab4e5f7aef694
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 27acda2496adea39321e498868aebcc2f824df3c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449017"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905297"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Actualización al nivel Estándar de Security Center para mejorar la seguridad
 Azure Security Center ofrece una administración de seguridad unificada y una protección contra amenazas avanzada para las cargas de trabajo que se ejecutan en Azure, de forma local y en otras nubes. Ofrece visibilidad y control sobre las cargas de trabajo de nube híbrida, defensas activas que reducen la exposición a las amenazas y una detección inteligente, lo que le permitirá mantenerse al día de los ciberataques, que se expanden rápidamente.
@@ -46,7 +46,7 @@ Para obtener el nivel Estándar:
 4. Seleccione **Estándar** para efectuar la actualización.
 5. Haga clic en **Save**(Guardar).
 
-![Precios de Security Center](./media/security-center-pricing/get-standard.png)
+(Los precios en la imagen por ejemplo son solo con fines). ![Precios de Security Center](./media/security-center-pricing/get-standard.png)
 
 > [!NOTE]
 > Para habilitar todas las características de Security Center, debe aplicar el plan para la suscripción que contiene las máquinas virtuales aplicables de tarifa estándar. La configuración de los precios para un área de trabajo no habilita el acceso a VM Just-In-Time, los controles de aplicación adaptables ni las detecciones de red para los recursos de Azure.
@@ -65,7 +65,7 @@ Security Center ofrece una seguridad mejorada y una protección contra amenazas 
 En este artículo se han presentado los precios de Security Center. Para obtener más información sobre la seguridad mejorada y la protección contra amenazas avanzada del nivel Estándar, vea:
 
 - [Detección de amenazas avanzada](security-center-threat-report.md)
-- [Control de acceso a VM Just-In-Time](security-center-just-in-time.md)
+- [Just-in-control de acceso de máquina virtual de tiempo](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png

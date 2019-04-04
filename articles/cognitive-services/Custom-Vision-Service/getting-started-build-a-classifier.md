@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: anroth
-ms.openlocfilehash: cf8a36145ebf5d5dabf8c539d4f245e1d4b209f0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 78ee24280600d336d394819d33762d8cf6278858
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886444"
+ms.locfileid: "58891487"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Cómo crear un clasificador con Custom Vision
 
@@ -125,9 +125,7 @@ La interpretación de las llamadas de predicción con un umbral de alta probabil
 
 ## <a name="manage-training-iterations"></a>Administración de iteraciones de entrenamiento
 
-Cada vez que entrena al clasificador, se crea una nueva _iteración_ con sus propias métricas de rendimiento actualizadas. Puede ver todas las iteraciones en el panel izquierdo de la pestaña **Performance** (Rendimiento). Si selecciona una, puede convertirla en la _iteración predeterminada_. Para ello, haga clic en el botón **Make default** (Convertir en predeterminada) de la parte superior. La _iteración predeterminada_ es el modelo que se usará de forma predeterminada cuando realice consultas con Prediction API (desde una aplicación, por ejemplo). Si rechaza la actualización de la _iteración predeterminada_, podrá continuar entrenando al modelo sin que ello afecte al comportamiento actual de la aplicación. Posteriormente, una vez que esté satisfecho con el modelo mejorado, podrá actualizar la iteración predeterminada.
-
-En el panel izquierdo encontrará también el botón **Delete** (Eliminar), que puede usar para eliminar una iteración si está obsoleta. Cuando se elimina una iteración, elimina las imágenes que están asociadas exclusivamente a ella.
+Cada vez que entrena al clasificador, se crea una nueva _iteración_ con sus propias métricas de rendimiento actualizadas. Puede ver todas las iteraciones en el panel izquierdo de la pestaña **Performance** (Rendimiento). En el panel izquierdo encontrará también el botón **Delete** (Eliminar), que puede usar para eliminar una iteración si está obsoleta. Cuando se elimina una iteración, elimina las imágenes que están asociadas exclusivamente a ella.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
-ms.openlocfilehash: be0b930c99bb14c34e395efce494e8d7372719b0
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 7b81b53c03104023823bef75beb4ac6077feede7
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55998198"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918695"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Personalización de un modelo de lenguaje con el sitio web de Video Indexer
 
@@ -117,6 +117,34 @@ Se abrirá una nueva ventana que le indica que la eliminación no se puede desha
 
 Esta acción quita completamente el modelo de lenguaje de su cuenta. Cualquier vídeo que estuviera usando el modelo de lenguaje eliminado mantendrá el mismo índice hasta que vuelva a indexar el vídeo. Si vuelve a indexar el vídeo, puede asignarle un nuevo modelo de lenguaje. En caso contrario, Video Indexer usará su modelo predeterminado para volver a indexar el vídeo. 
 
+## <a name="customize-language-models-by-correcting-transcripts"></a>Personalizar modelos de lenguaje mediante la corrección de transcripciones
+
+Video Indexer admite la personalización automática del lenguaje de modelos basados en los usuarios reales de las correcciones que se realice en las transcripciones de sus vídeos.
+
+1. Para realizar correcciones en una transcripción, abra el vídeo que desee editar de los vídeos de la cuenta. Seleccione el **escala de tiempo** ficha.
+
+    ![Personalización del modelo de lenguaje](./media/customize-language-model/timeline.png)
+1. Haga clic en el icono de lápiz para editar la transcripción de la transcripción. 
+
+    ![Personalización del modelo de lenguaje](./media/customize-language-model/edits.png)
+
+    Video Indexer captura todas las líneas que se corrigen por el usuario en la transcripción del vídeo y los agregan automáticamente a un archivo de texto denominado "de las ediciones de transcripción". Estas modificaciones se usan para volver a entrenar el modelo de lenguaje específico que se utiliza para indizar este vídeo. 
+    
+    Si no ha especificado un modelo de lenguaje al indizar este vídeo, todas las ediciones de este vídeo se almacenarán en un modelo de lenguaje predeterminado llamado adaptaciones de cuenta en el idioma detectado del vídeo. 
+    
+    En caso de que se han realizado varias modificaciones a la misma línea, se usará solo la última versión de la línea corregida para actualizar el modelo de lenguaje.  
+    
+    > [!NOTE]
+    > Sólo las correcciones textuales se usan para la personalización. Esto significa que no se incluyen las correcciones que no impliquen palabras reales (por ejemplo, signos de puntuación o espacios). 
+    
+1. Verá las correcciones de transcripción se muestran en la ficha de idioma de la página de personalización del modelo de contenido.
+
+    ![Personalización del modelo de lenguaje](./media/customize-language-model/customize.png)
+
+   Para ver el archivo "de transcripción ediciones" para cada uno de sus modelos de lenguaje, haga clic en él para abrirlo. 
+
+    ![Ediciones de transcripción de origen](./media/customize-language-model/from-transcript-edits.png)
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Personalización del modelo de lenguaje mediante las API](customize-language-model-with-api.md)
+[Personalizar el modelo de lenguaje mediante las API](customize-language-model-with-api.md)

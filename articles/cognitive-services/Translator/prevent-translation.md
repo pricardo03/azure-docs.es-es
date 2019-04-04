@@ -3,19 +3,19 @@ title: 'Impedir la traducción de contenido: Translator Text API'
 titlesuffix: Azure Cognitive Services
 description: Impida que se traduzca contenido con Translator Text API.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: cc06e020001e0e0696fe1e89863f7df705d7fe98
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: a9590a9a38859818e0b609d64fc12e30afd2e09e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726983"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915278"
 ---
 # <a name="how-to-prevent-translation-of-content-with-the-translator-text-api"></a>Impedir la traducción de contenido con Translator Text API
 
@@ -42,4 +42,4 @@ Translator Text API permite etiquetar contenido para que no se traduzca. Por eje
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
-> [Impedir la traducción en la llamada API de Translator](reference/v3-0-translate.md)
+> [Evitar la traducción en la llamada de API del traductor](reference/v3-0-translate.md)

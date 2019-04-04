@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: diberry
-ms.openlocfilehash: d7547ecf387e070efe788ba5f8582076388f422a
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 9a6f9d54c52f36b8f709eacaf25d3fea31dbe516
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984210"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895822"
 ---
 # <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Procedimientos recomendados para compilar una aplicación de reconocimiento de lenguaje con Cognitive Services
 Use el proceso de creación de aplicaciones para compilar la aplicación de LUIS. 
@@ -36,13 +36,13 @@ En la lista siguiente, se incluyen los procedimientos recomendados para las apli
 
 |Sí|No|
 |--|--|
-|[Definir diferentes intenciones](#do-define-distinct-intents) |[Agregar varias expresiones de ejemplo a las intenciones](#dont-add-many-example-utterances-to-intents) |
-|[Buscar un punto óptimo entre ser demasiado genérico y demasiado específico para cada intención](#do-find-sweet-spot-for-intents)|[Usar LUIS como una plataforma de aprendizaje](#dont-use-luis-as-a-training-platform)|
-|[Compilar la aplicación de forma iterativa](#do-build-the-app-iteratively)|[Agregar varias expresiones de ejemplo del mismo formato, omitiendo otros formatos](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
-|[Agregar listas de frases y patrones en iteraciones posteriores](#do-add-phrase-lists-and-patterns-in-later-iterations)|[Combinar la definición de intenciones y entidades](#dont-mix-the-definition-of-intents-and-entities)|
-|[Equilibrar las expresiones en todas las intenciones](#balance-your-utterances-across-all-intents), excepto en la intención None.<br>[Agregar expresiones de ejemplo a la intención None](#do-add-example-utterances-to-none-intent)|[Crear listas de frases con todos los valores posibles](#dont-create-phrase-lists-with-all-the-possible-values)|
-|[Aprovechar la característica de sugerencia para un aprendizaje activo](#do-leverage-the-suggest-feature-for-active-learning)|[Agregar demasiados patrones](#dont-add-many-patterns)|
-|[Supervisar el rendimiento de la aplicación](#do-monitor-the-performance-of-your-app)|[Entrenar y publicar al agregar cada expresión de ejemplo](#dont-train-and-publish-with-every-single-example-utterance)|
+|[Definir distintas intenciones](#do-define-distinct-intents) |[Agregar muchas grabaciones de voz de ejemplo a las intenciones](#dont-add-many-example-utterances-to-intents) |
+|[Buscar un uso más idóneo entre demasiado genéricos y demasiado específicos para cada intención](#do-find-sweet-spot-for-intents)|[Uso de LUIS como una plataforma de aprendizaje](#dont-use-luis-as-a-training-platform)|
+|[Compilar la aplicación de forma iterativa](#do-build-the-app-iteratively)|[Agregar muchas grabaciones de voz de ejemplo del mismo formato, omitiendo otros formatos](#dont-add-many-example-utterances-of-the-same-format-ignoring-other-formats)|
+|[Agregar listas de frases y patrones en posteriores iteraciones](#do-add-phrase-lists-and-patterns-in-later-iterations)|[Combinación de la definición de intenciones y entidades](#dont-mix-the-definition-of-intents-and-entities)|
+|[Equilibrar las expresiones en todas las intenciones](#balance-your-utterances-across-all-intents), excepto en la intención None.<br>[Adición de expresiones de ejemplo a la intención None](#do-add-example-utterances-to-none-intent)|[Crear listas de frase con todos los valores posibles](#dont-create-phrase-lists-with-all-the-possible-values)|
+|[Aprovechar la característica de sugerir para aprendizaje activo](#do-leverage-the-suggest-feature-for-active-learning)|[Agregar demasiados patrones](#dont-add-many-patterns)|
+|[Supervisar el rendimiento de la aplicación](#do-monitor-the-performance-of-your-app)|[Entrene y publique con cada declaración de ejemplo solo agrega](#dont-train-and-publish-with-every-single-example-utterance)|
 |[Usar versiones para cada iteración de la aplicación](#do-use-versions-for-each-app-iteration)||
 
 ## <a name="do-define-distinct-intents"></a>Definir diferentes intenciones
@@ -122,12 +122,12 @@ Para obtener más información:
 
 ## <a name="do-leverage-the-suggest-feature-for-active-learning"></a>Aprovechar la característica de sugerencia para un aprendizaje activo
 
-Use la **revisión de las expresiones del punto de conexión** del [aprendizaje activo](luis-how-to-review-endoint-utt.md) de forma habitual, en lugar de agregar más expresiones de ejemplo a las intenciones. Dado que la aplicación recibe de forma constante expresiones de punto de conexión, esta lista crece y cambia.
+Use la **revisión de las expresiones del punto de conexión** del [aprendizaje activo](luis-how-to-review-endpoint-utterances.md) de forma habitual, en lugar de agregar más expresiones de ejemplo a las intenciones. Dado que la aplicación recibe de forma constante expresiones de punto de conexión, esta lista crece y cambia.
 
 Para obtener más información:
 * Concepto: [Conceptos para habilitar el aprendizaje activo mediante la revisión de expresiones de punto de conexión](luis-concept-review-endpoint-utterances.md)
 * Tutorial: [Tutorial: Corrección de predicciones poco seguras mediante la revisión de las expresiones del punto de conexión](luis-tutorial-review-endpoint-utterances.md)
-* Procedimiento: [Cómo revisar las expresiones del punto de conexión en el portal de LUIS](luis-how-to-review-endoint-utt.md)
+* Procedimiento: [Cómo revisar las expresiones del punto de conexión en el portal de LUIS](luis-how-to-review-endpoint-utterances.md)
 
 ## <a name="do-monitor-the-performance-of-your-app"></a>Supervisar el rendimiento de la aplicación
 

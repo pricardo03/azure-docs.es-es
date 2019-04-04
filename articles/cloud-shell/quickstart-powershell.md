@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
-ms.openlocfilehash: 5b4f9715e47483fa64840c521620bec79f3041cd
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1fc9883e0ea35c384c3bfc83e76b8eded48cbcba
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106413"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905076"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Guía de inicio rápido de PowerShell en Azure Cloud Shell
 
@@ -36,7 +36,7 @@ En este documento se detalla cómo usar PowerShell en Cloud Shell en [Azure Port
 
    ![](media/quickstart-powershell/shell-icon.png)
 
-2. Seleccione el entorno PowerShell en el menú desplegable y estará en la unidad `(Azure:)` de Azure
+2. Seleccione el entorno de PowerShell en la lista desplegable y estará en la unidad de Azure `(Azure:)`
 
    ![](media/quickstart-powershell/environment-ps.png)
 
@@ -68,7 +68,7 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
     PS Azure:\> dir
     ```
 
- 2. `cd` a la suscripción de su preferencia
+ 2. `cd` a su suscripción preferida
 
     ```azurepowershell-interactive
     PS Azure:\> cd MySubscriptionName
@@ -267,7 +267,7 @@ Para realizar la autenticación en servidores o máquinas virtuales mediante SSH
 
 ### <a name="using-ssh"></a>Uso de SSH
 
-Siga las instrucciones que se indican [aquí](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) para crear una nueva configuración de máquina virtual mediante cmdlets de AzureRM.
+Siga las instrucciones [aquí](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-powershell) para crear una nueva configuración de máquina virtual mediante cmdlets de PowerShell de Azure.
 Antes de llamar a `New-AzVM` para iniciar la implementación, agregue la clave pública SSH a la configuración de la máquina virtual.
 La máquina virtual recién creada contendrá la clave pública en la ubicación `~\.ssh\authorized_keys`, lo cual permitirá una sesión SSH sin credenciales en la máquina virtual.
 
@@ -292,7 +292,7 @@ ssh azureuser@MyVM.Domain.Com
 
 En la unidad `Azure`, escriba `Get-AzCommand` para obtener comandos de Azure específicos del contexto.
 
-De manera alternativa, siempre puede usar `Get-Command *azurerm* -Module AzureRM.*` para saber cuáles son los comandos disponibles de Azure.
+De manera alternativa, siempre puede usar `Get-Command *az* -Module Az.*` para saber cuáles son los comandos disponibles de Azure.
 
 ## <a name="install-custom-modules"></a>Instalación de módulos personalizados
 

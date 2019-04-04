@@ -1,6 +1,6 @@
 ---
-title: Introducción a la biblioteca de la red CDN de Azure para .NET | Microsoft Docs
-description: Aprenda a escribir aplicaciones .NET para administrar la red CDN de Azure con Visual Studio.
+title: Introducción a la biblioteca de Azure CDN para .NET | Microsoft Docs
+description: Aprenda a escribir aplicaciones .NET para administrar Azure CDN con Visual Studio.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 5379586355ece98af6295236d6cbd09cb31c742b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
-ms.translationtype: HT
+ms.openlocfilehash: 838c76e6a383b61ff465f3ed7506af34c8cd01d4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38454471"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916621"
 ---
-# <a name="get-started-with-azure-cdn-development"></a>Introducción al desarrollo de la red de entrega de contenido (CDN) de Azure
+# <a name="get-started-with-azure-cdn-development"></a>Introducción al desarrollo de Azure CDN
 > [!div class="op_single_selector"]
 > * [Node.js](cdn-app-dev-node.md)
 > * [.NET](cdn-app-dev-net.md)
 > 
 > 
 
-Puede usar la [biblioteca de red CDN de Azure para .NET](https://msdn.microsoft.com/library/mt657769.aspx) con el fin de automatizar la creación y la administración de perfiles y puntos de conexión de red CDN.  Este tutorial describe la creación de una aplicación de consola .NET sencilla que muestra algunas de las operaciones disponibles.  Con este tutorial no se pretende describir todos los aspectos de la biblioteca de red CDN de Azure para .NET en detalle.
+Puede usar la [biblioteca de Azure CDN para .NET](/dotnet/api/overview/azure/cdn) con el fin de automatizar la creación y la administración de perfiles y puntos de conexión de red CDN.  Este tutorial describe la creación de una aplicación de consola .NET sencilla que muestra algunas de las operaciones disponibles.  Con este tutorial no se pretende describir todos los aspectos de la biblioteca de Azure CDN para .NET en detalle.
 
 Necesita Visual Studio 2015 para completar este tutorial.  [Visual Studio Community 2015](https://www.visualstudio.com/products/visual-studio-community-vs.aspx) está disponible gratis para descargarse.
 
@@ -54,7 +54,7 @@ El proyecto va a usar algunas bibliotecas de Azure contenidas en paquetes NuGet.
 2. En la Consola del Administrador de paquetes, ejecute el siguiente comando para instalar la **biblioteca de autenticación de Active Directory (ADAL)**:
    
     `Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory`
-3. Ejecute lo siguiente para instalar la **biblioteca de administración de red CDN de Azure**:
+3. Ejecute lo siguiente para instalar la **biblioteca de administración de Azure CDN**:
    
     `Install-Package Microsoft.Azure.Management.Cdn`
 
@@ -155,8 +155,8 @@ Escribamos la estructura básica del programa.
 
 Ahora que ya hemos escrito la estructura básica del programa, deberíamos crear los métodos a los que llama `Main` .
 
-## <a name="authentication"></a>Autenticación
-Para poder usar la biblioteca de administración de CDN de Azure, es necesario autenticar la entidad de servicio y obtener un token de autenticación.  Este método usa ADAL para recuperar el token.
+## <a name="authentication"></a>Authentication
+Para poder usar la biblioteca de administración de Azure CDN, es necesario autenticar la entidad de servicio y obtener un token de autenticación.  Este método usa ADAL para recuperar el token.
 
 ```csharp
 private static AuthenticationResult GetAccessToken()
@@ -291,7 +291,7 @@ private static void PromptPurgeCdnEndpoint(CdnManagementClient cdn)
 ```
 
 > [!NOTE]
-> En el ejemplo anterior, la cadena `/*` denota que queremos purgar todo el contenido en la raíz de la ruta de acceso del punto de conexión.  Esto equivale a activar **Purgar todo** en el cuadro de diálogo de purga del Portal de Azure. En el método `CreateCdnProfile` hemos creado el perfil como un perfil de **Red CDN de Azure de Verizon** con el código `Sku = new Sku(SkuName.StandardVerizon)`, por lo que será correcto.  Pero los perfiles de **Red CDN de Azure de Akamai** no admiten **Purgar todo** (en el caso de usar un perfil de Akamai para este tutorial, tendría que incluir las rutas de acceso específicas que quiera purgar).
+> En el ejemplo anterior, la cadena `/*` denota que queremos purgar todo el contenido en la raíz de la ruta de acceso del punto de conexión.  Esto equivale a activar **Purgar todo** en el cuadro de diálogo de purga del Portal de Azure. En el método `CreateCdnProfile` hemos creado el perfil como un perfil de **Azure CDN de Verizon** con el código `Sku = new Sku(SkuName.StandardVerizon)`, por lo que será correcto.  Pero los perfiles de **Azure CDN de Akamai** no admiten **Purgar todo** (en el caso de usar un perfil de Akamai para este tutorial, tendría que incluir las rutas de acceso específicas que quiera purgar).
 > 
 > 
 
@@ -338,7 +338,7 @@ Después, se pueden confirmar los mensajes para ejecutar el resto del programa.
 ## <a name="next-steps"></a>Pasos siguientes
 Para ver el proyecto de este tutorial terminado, [descargue el ejemplo](https://code.msdn.microsoft.com/Azure-CDN-Management-1f2fba2c).
 
-Para ver más documentación sobre la biblioteca de administración de red CDN de Azure para .NET, consulte la [referencia en MSDN](https://msdn.microsoft.com/library/mt657769.aspx).
+Para ver más documentación sobre la biblioteca de administración de Azure CDN para .NET, consulte la [referencia en MSDN](/dotnet/api/overview/azure/cdn).
 
 Administre sus recursos de red CDN con [PowerShell](cdn-manage-powershell.md).
 

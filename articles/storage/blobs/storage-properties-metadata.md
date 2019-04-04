@@ -5,30 +5,29 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 07/16/2018
+ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: 2641e1653e14a7c101d95b02b8a5af71ceb9fdc6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
-ms.translationtype: HT
+ms.openlocfilehash: 86bb7e736754cbc6a93bba5fff5d8d1877b1e3b4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398181"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916587"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Establecimiento y recuperación de propiedades y metadatos
 
 Objetos en las propiedades de compatibilidad de sistema de Azure Storage y metadatos definidos por el usuario, además de los datos que contienen. En este artículo se describen las propiedades del sistema de administración y los metadatos definidos por el usuario con la [biblioteca de cliente de Azure Storage para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/).
 
-* **Propiedades del sistema**: en cada recurso de almacenamiento existen propiedades del sistema. Algunas se pueden leer o establecer, mientras que otras son de solo lectura. En segundo plano, algunas propiedades del sistema corresponden a ciertos encabezados HTTP estándar. Las bibliotecas cliente de Azure Storage mantienen estas propiedades por usted.
+* **Propiedades del sistema**:  En cada recurso de almacenamiento existen propiedades del sistema. Algunas se pueden leer o establecer, mientras que otras son de solo lectura. En segundo plano, algunas propiedades del sistema corresponden a ciertos encabezados HTTP estándar. Las bibliotecas cliente de Azure Storage mantienen estas propiedades por usted.
 
-* **Metadatos definidos por el usuario**: los metadatos definidos por el usuario se componen de uno o más pares nombre-valor que especifique para un recurso de Azure Storage. Puede usar metadatos para almacenar valores adicionales con un recurso. Los valores de metadatos se proporcionan para uso personal y no afectan a cómo se comporta el recurso.
+* **Los metadatos definidos por el usuario**: Los metadatos definidos por el usuario constan de uno o más pares de nombre-valor que especifique para un recurso de almacenamiento de Azure. Puede usar metadatos para almacenar valores adicionales con un recurso. Los valores de metadatos se proporcionan para uso personal y no afectan a cómo se comporta el recurso.
 
 El proceso de recuperación de los valores de propiedad y metadatos de un recurso de almacenamiento consta de dos pasos. Para poder leer estos valores, tiene que capturarlos explícitamente llamando al método **FetchAttributes** o **FetchAttributesAsync**. La excepción es si llama al método **Exists** o **ExistsAsync** en un recurso. Cuando se llama a uno de estos métodos, Azure Storage llama al método **FetchAttributes** adecuado en segundo plano como parte de la llamada al método **Exists**.
 
 > [!IMPORTANT]
 > Si descubre que no se han rellenado los valores de propiedad ni metadatos para un recurso de almacenamiento, compruebe que su código llama al método **FetchAttributes** o **FetchAttributesAsync**.
 >
-> Los pares nombre-valor de los metadatos solo pueden contener caracteres ASCII. Los pares de nombre/valor de metadatos son encabezados HTTP válidos y, por tanto, deben cumplir todas las restricciones que controlan los encabezados HTTP. Se recomienda que utilice la codificación de direcciones URL o codificación Base64 para nombres y valores que contengan caracteres no ASCII.
->
+> Pares de nombre/valor de metadatos son encabezados HTTP válidos y, por lo que deben cumplir todas las restricciones que rigen los encabezados HTTP. Los nombres de metadatos deben ser nombres válidos de encabezado HTTP, pueden contener sólo caracteres ASCII y deben tratarse como mayúsculas y minúsculas. Los valores de metadatos que contiene caracteres no ASCII deben estar codificados en Base64 o codificados de dirección URL.
 
 ## <a name="setting-and-retrieving-properties"></a>Establecimiento y recuperación de propiedades
 Para recuperar valores de propiedad, llame al método **FetchAttributesAsync** en el blob o contenedor para rellenar las propiedades y, a continuación, lea los valores.
@@ -100,5 +99,5 @@ public static async Task ListContainerMetadataAsync(CloudBlobContainer container
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Documentación de referencia de la biblioteca cliente de Azure Storage para .NET](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
-* [Paquete de NuGet de la biblioteca cliente de Azure Storage para .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)
+* [Biblioteca de cliente de Azure Storage para referencia de .NET](/dotnet/api/?term=Microsoft.WindowsAzure.Storage)
+* [Biblioteca de cliente de Azure Storage para el paquete NuGet de .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

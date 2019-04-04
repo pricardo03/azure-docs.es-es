@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 04/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5217f21449efeb2086770f040fb781765ea819eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 813ab2a349ba843e9f41675234e395470bef9740
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083944"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58896132"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Inmersión técnica profunda
 
@@ -39,15 +39,12 @@ Esta sección tiene tres partes:
 
 SSO de conexión directa se habilita a través de Azure AD Connect tal como se muestra [aquí](how-to-connect-sso-quick-start.md). Cuando se habilita la característica, se producen los pasos siguientes:
 
-- Se crea una cuenta de equipo llamada `AZUREADSSOACC` (que representa a Azure AD) en la instancia local de Active Directory (AD) en cada bosque de AD.
-- La clave de descifrado de Kerberos de la cuenta de equipo se comparte de manera segura con Azure AD. Si hay varios bosques de AD, cada uno tendrá su propia clave de descifrado de Kerberos.
-- Además, se crean dos nombres de entidad de seguridad de servicio (SPN) de Kerberos que representan las dos direcciones URL que se usan en el inicio de sesión de Azure AD.
-
->[!NOTE]
-> La cuenta de equipo y los SPN de Kerberos se crean en cada bosque de AD que sincronice con Azure AD (a través de Azure AD Connect) y para cuyos usuarios desee SSO de conexión directa. Migre la cuenta de equipo `AZUREADSSOACC` a una unidad organizativa (UO) donde se almacenen otras cuentas de equipo para garantizar que se administre de la misma manera y que no se elimine.
+- Una cuenta de equipo (`AZUREADSSOACC`) se crea en local Active Directory (AD) en cada bosque de AD que sincronice con Azure AD (con Azure AD Connect).
+- Además, un número de nombres de entidad de servicio (SPN) de Kerberos se crea para utilizarse durante el proceso de inicio de sesión de Azure AD.
+- La clave de descifrado de Kerberos de la cuenta de equipo se comparte de manera segura con Azure AD. Si hay varios bosques de AD, cada cuenta de equipo tendrá su propia clave de descifrado de Kerberos único.
 
 >[!IMPORTANT]
->Se recomienda encarecidamente [sustituir la clave de descifrado de Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) de la cuenta de equipo de `AZUREADSSOACC` al menos cada 30 días.
+> El `AZUREADSSOACC` cuenta de equipo debe protegerse fuertemente por motivos de seguridad. Solo los administradores de dominio debe ser capaces de administrar la cuenta de equipo. Asegúrese de que la delegación Kerberos en la cuenta de equipo está deshabilitada. Store a la cuenta de equipo en una unidad organizativa (OU) donde estén protegidos frente a eliminaciones accidentales. La clave de descifrado de Kerberos en la cuenta de equipo también se debe tratar como confidencial. Se recomienda encarecidamente [sustituir la clave de descifrado de Kerberos](how-to-connect-sso-faq.md#how-can-i-roll-over-the-kerberos-decryption-key-of-the-azureadssoacc-computer-account) de la cuenta de equipo de `AZUREADSSOACC` al menos cada 30 días.
 
 Una vez que se completa la instalación, SSO de conexión directa funcionan del mismo modo que cualquier otro inicio de sesión que usa la autenticación integrada de Windows (IWA).
 

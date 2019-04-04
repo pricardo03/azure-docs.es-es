@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: ee64b4cbfd024c91b226736bc8cac0b9b33f964e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7edf0a9f8d4eb4c01b6d80fd82a1061b6cbb1e35
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58170401"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918559"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Uso de la red Azure CDN con SAS
 
@@ -86,10 +86,11 @@ Esta opción solo está disponible para los perfiles de **Azure CDN Premium de V
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![Regla de reescritura de direcciones URL de CDN - izquierda](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![Regla de reescritura de direcciones URL de CDN - derecha](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+   ![Reescritura de direcciones URL de CDN regla - izquierda](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![regla reescritura de direcciones URL de CDN - derecha](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
-2. Una vez que la nueva regla esté activa, cualquiera puede acceder a los archivos del contenedor especificado en el punto de conexión de CDN, con independencia de si usan un token de SAS en la dirección URL. Este es el formato: `https://<endpoint hostname>.azureedge.net/<container>/<file>`
+2. Una vez que la nueva regla esté activa, cualquiera puede acceder a los archivos del contenedor especificado en el punto de conexión de CDN, con independencia de si usan un token de SAS en la dirección URL. Este es el formato:
+   `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Por ejemplo:    
    `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
@@ -124,8 +125,8 @@ Para usar la autenticación de token de seguridad de Azure CDN, debe tener un pe
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
-   ![Regla de reescritura de direcciones URL de CDN - izquierda](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![Regla de reescritura de direcciones URL de CDN - derecha](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
+   ![Reescritura de direcciones URL de CDN regla - izquierda](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
+   ![regla reescritura de direcciones URL de CDN - derecha](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 3. Si renueva la SAS, actualice la regla de reescritura de direcciones URL con el nuevo token de SAS. 
 
@@ -137,13 +138,13 @@ Como los parámetros de SAS no son visibles para Azure CDN, esta no puede cambia
 | --- | --- |
 | Iniciar | Hora en que Azure CDN puede comenzar a acceder al archivo de blob. Debido al desplazamiento del reloj (es decir, cuando la señal de un reloj llega a distintas horas para componentes diferentes), elija una hora 15 minutos antes si quiere que el recurso esté disponible de inmediato. |
 | End | Hora tras la cual Azure CDN ya no tiene acceso al archivo de blob. Los archivos almacenados previamente en caché en Azure CDN siguen siendo accesibles. Para controlar la hora de expiración de los archivos, establezca la hora de expiración correspondiente en el token de seguridad de Azure CDN o purgue el recurso. |
-| Direcciones IP permitidas | Opcional. Si usa la **red Azure CDN de Verizon**, puede establecer este parámetro en los intervalos que aparecen definidos en [Azure CDN from Verizon Edge Server IP Ranges](https://msdn.microsoft.com/library/mt757330.aspx) (Azure CDN de intervalos IP del servidor perimetral de Verizon). Si usa **Azure CDN de Akamai**, no puede establecer el parámetro de intervalos IP porque las direcciones IP no son estáticas.|
+| Direcciones IP permitidas | Opcional. Si usa la **red Azure CDN de Verizon**, puede establecer este parámetro en los intervalos que aparecen definidos en [Azure CDN from Verizon Edge Server IP Ranges](/azure/cdn/cdn-pop-list-api) (Azure CDN de intervalos IP del servidor perimetral de Verizon). Si usa **Azure CDN de Akamai**, no puede establecer el parámetro de intervalos IP porque las direcciones IP no son estáticas.|
 | Protocolos admitidos | Protocolos que se permiten para una solicitud realizada con la SAS de cuenta. Se recomienda la configuración HTTPS.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información acerca de SAS, vea los siguientes artículos:
-- [Uso de Firmas de acceso compartido (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
-- [Firmas de acceso compartido, Parte 2: Creación y uso de una SAS con Almacenamiento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
+- [Uso de firmas de acceso compartido (SAS)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+- [Firmas de acceso compartido, Parte 2: Creación y uso de una firma de acceso compartido (SAS) con Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-shared-access-signature-part-2)
 
 Para más información acerca de cómo configurar la autenticación por tokens, consulte [Protección de recursos de Azure Content Delivery Network con la autenticación por tokens](https://docs.microsoft.com/azure/cdn/cdn-token-auth).

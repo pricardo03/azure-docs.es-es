@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 584b9d67808e75222d832f045e5d3f93fbb326ae
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9d659262195fef0cc6871bac409dd5914b70f401
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105097"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916128"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Creación y administración de conexiones híbridas
 
@@ -50,7 +50,7 @@ En este tema se muestran estos pasos.
 > 
 
 ## <a name="CreateHybridConnection"></a>Creación de una conexión híbrida
-Puede crear una conexión híbrida en [Conexiones híbridas de Azure App Service](../app-service/app-service-hybrid-connections.md) **o** con las [API de REST de BizTalk Services](https://msdn.microsoft.com/library/azure/dn232347.aspx). 
+Puede crear una conexión híbrida en [Conexiones híbridas de Azure App Service](../app-service/app-service-hybrid-connections.md) **o** con las [API de REST de BizTalk Services](/previous-versions/azure/reference/dn232347(v=azure.100)). 
 
 <!-- **To create Hybrid Connections using Web Apps**, see [Connect Azure Web Apps to an On-Premises Resource](../app-service-web/web-sites-hybrid-connection-get-started.md). You can also install the Hybrid Connection Manager (HCM) from your web app, which is the preferred method.  -->
 
@@ -118,9 +118,9 @@ Una vez copiados, puede usar el Editor de directivas de grupo para cambiar la di
 [Introducción a las conexiones híbridas](integration-hybrid-connection-overview.md)
 
 ## <a name="see-also"></a>Vea también
-[API REST para administrar BizTalk Services en Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
-[BizTalk Services: Gráfico de ediciones](biztalk-editions-feature-chart.md)  
-[Creación de una instancia de BizTalk Services](biztalk-provision-services.md)  
+[API de REST para administrar BizTalk Services en Microsoft Azure](/previous-versions/azure/reference/dn232347(v=azure.100))  
+[BizTalk Services: Tabla de ediciones](biztalk-editions-feature-chart.md)  
+[Crear un Servicio de BizTalk](biztalk-provision-services.md)  
 [BizTalk Services: Pestañas panel, Monitor y escala](biztalk-dashboard-monitor-scale-tabs.md)
 
 [HybridConnectionTab]: ./media/integration-hybrid-connection-create-manage/WABS_HybridConnectionTab.png

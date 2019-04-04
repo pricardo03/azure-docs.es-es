@@ -11,17 +11,17 @@ ms.date: 11/26/2018
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 1c02a30800e86c7b32524fb9cdba7dacf3bba9c7
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652100"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904583"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1](v1/data-factory-use-custom-activities.md)
+> * [versión 1](v1/data-factory-use-custom-activities.md)
 > * [Versión actual](transform-data-using-dotnet-custom-activity.md)
 
 Hay dos tipos de actividades que puede usar en una canalización de Azure Data Factory.
@@ -356,7 +356,7 @@ Si tiene código .NET ya existente escrito para una versión 1 actividad de DotN
   - Ya no es necesario el paquete NuGet Microsoft.Azure.Management.DataFactories.
   - Compile el código, cargue el ejecutable y sus dependencias en Azure Storage y defina la ruta de acceso en la propiedad `folderPath`.
 
-Para un ejemplo completo de cómo el archivo DLL entero y el ejemplo de canalización que se describen en el artículo [Uso de actividades personalizadas en una canalización de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) de la versión 1 de Data Factory se pueden reescribir como una actividad personalizada de Data Factory, consulte un [ejemplo de la actividad personalizada de Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample).
+Para un ejemplo completo de cómo el archivo DLL entero y el ejemplo de canalización que se describen en el artículo [Uso de actividades personalizadas en una canalización de Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) de la versión 1 de Data Factory se pueden reescribir como una actividad personalizada de Data Factory, consulte un [ejemplo de la actividad personalizada de Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
 
 ## <a name="auto-scaling-of-azure-batch"></a>Escalado automático de Azure Batch
 
@@ -384,8 +384,8 @@ Vea los siguientes artículos, en los que se explica cómo transformar datos de 
 * [Actividad de U-SQL](transform-data-using-data-lake-analytics.md)
 * [Actividad de Hive](transform-data-using-hadoop-hive.md)
 * [Actividad de Pig](transform-data-using-hadoop-pig.md)
-* [Actividad de MapReduce](transform-data-using-hadoop-map-reduce.md)
-* [Actividad de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
+* [Actividad MapReduce](transform-data-using-hadoop-map-reduce.md)
+* [Actividad de Streaming de Hadoop](transform-data-using-hadoop-streaming.md)
 * [Actividad de Spark](transform-data-using-spark.md)
-* [Actividad de ejecución de Batch de Machine Learning](transform-data-using-machine-learning.md)
+* [Actividad de ejecución de lotes de aprendizaje de máquina](transform-data-using-machine-learning.md)
 * [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md)

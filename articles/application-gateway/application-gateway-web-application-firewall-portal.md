@@ -11,12 +11,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 03/25/2019
 ms.author: victorh
-ms.openlocfilehash: c5f1cb992f27a8d3f97967ff6b885b3296be8710
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 1284ddec4cd9cea3ea53c20d437550405dd614d9
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58448430"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905875"
 ---
 # <a name="create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>Creación de una puerta de enlace de aplicaciones con un firewall de aplicaciones web mediante Azure Portal
 
@@ -24,11 +24,11 @@ ms.locfileid: "58448430"
 >
 > - [Azure Portal](application-gateway-web-application-firewall-portal.md)
 > - [PowerShell](tutorial-restrict-web-traffic-powershell.md)
-> - [CLI de Azure](tutorial-restrict-web-traffic-cli.md)
+> - [Azure CLI](tutorial-restrict-web-traffic-cli.md)
 >
 > 
 
-Este tutorial muestra cómo usar el portal de Azure para crear un [puerta de enlace de aplicaciones](application-gateway-introduction.md) con un [firewall de aplicaciones web](application-gateway-web-application-firewall-overview.md) (WAF). WAF usa reglas de [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) para proteger la aplicación. Estas reglas incluyen protección frente a ataques, como la inyección de SQL, ataques de scripts entre sitios y apropiaciones de sesión. Después de crear la puerta de enlace de la aplicación, probarlo para asegurarse de que funciona correctamente. Con Azure Application Gateway, dirigir el tráfico de aplicación web a recursos específicos mediante la asignación de agentes de escucha a los puertos, creación de reglas y cómo agregar recursos a un grupo de back-end. Por simplicidad, este artículo usa una configuración simple con una dirección IP de front-end pública, un agente de escucha básico para hospedar un único sitio en esta puerta de enlace de la aplicación, dos máquinas virtuales que se utiliza para el grupo de back-end y una regla de enrutamiento de solicitud básica.
+Este tutorial muestra cómo usar el portal de Azure para crear un [puerta de enlace de aplicaciones](application-gateway-introduction.md) con un [firewall de aplicaciones web](application-gateway-web-application-firewall-overview.md) (WAF). WAF usa reglas de [OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) para proteger la aplicación. Estas reglas incluyen protección frente a ataques, como la inyección de SQL, ataques de scripts entre sitios y apropiaciones de sesión. Después de crear la puerta de enlace de aplicaciones, pruébela para asegurarse de que funciona correctamente. Con Azure Application Gateway, puede dirigir el tráfico web de la aplicación a recursos específicos mediante la asignación de agentes de escucha a los puertos, la creación de reglas y la adición de recursos a un grupo de back-end. Para simplificar, en este artículo se usa una configuración sencilla con una dirección IP de front-end pública, un agente de escucha básico para hospedar un único sitio en esta puerta de enlace de aplicaciones, dos máquinas virtuales que se usan con el grupo de back-end y una regla de enrutamiento de solicitudes básica.
 
 En este artículo, aprenderá a:
 
@@ -47,7 +47,7 @@ Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azur
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
-Para que Azure se comunique entre los recursos que se crean, se necesita una red virtual. Puede crear una nueva red virtual o use uno existente. En este ejemplo, crearemos una nueva red virtual. Puede crear una red virtual a la vez que crea la puerta de enlace de aplicaciones. Se crean instancias de Application Gateway en subredes independientes. En este ejemplo se crean dos subredes: una para la puerta de enlace de aplicaciones y la otra para los servidores back-end.
+Para que Azure se comunique entre los recursos que se crean, se necesita una red virtual. Puede crear una red virtual o usar una existente. En este ejemplo, crearemos una red virtual. Puede crear una red virtual a la vez que crea la puerta de enlace de aplicaciones. Se crean instancias de Application Gateway en subredes independientes. En este ejemplo se crean dos subredes: una para la puerta de enlace de aplicaciones y la otra para los servidores back-end.
 
 Seleccione **Crear un recurso** en el menú de la izquierda de Azure Portal. Aparece la ventana **Nuevo**.
 
@@ -71,9 +71,9 @@ Acepte los valores predeterminados para las demás opciones y haga clic en **Ace
    - **Nombre de subred**: Especifique *myAGSubnet* como nombre de subred.<br>La subred de la puerta de enlace de aplicaciones solo puede contener puertas de enlace de aplicaciones. No se permite ningún otro recurso.
    - **Rango de direcciones de subred**: Escriba *10.0.0.0/24* para el intervalo de direcciones de subred.![ Crear red virtual](./media/application-gateway-web-application-firewall-portal/application-gateway-vnet.png)
 3. Haga clic en **Aceptar** para crear la red virtual y la subred.
-4. Elija la **configuración de Frontend IP**. En **Configuración de IP de front-end**, compruebe que **Tipo de dirección IP** está establecido en **Público**. En **Dirección IP pública**, compruebe que la opción **Crear nueva** está seleccionada. <br>Puede configurar el Frontend IP para que sea público o privado, según el caso de uso. En este ejemplo, elegimos una IP pública de front-end. 
+4. Elija la **configuración IP de front-end**. En **Configuración de IP de front-end**, compruebe que **Tipo de dirección IP** está establecido en **Público**. En **Dirección IP pública**, compruebe que la opción **Crear nueva** está seleccionada. <br>Puede configurar la dirección IP de front-end para que sea pública o privada, según el caso de uso. En este ejemplo, elegimos una IP de front-end pública. 
 5. Escriba *myAGPublicIPAddress* para el nombre de la dirección IP pública. 
-6. Acepte los valores predeterminados para las demás opciones y seleccione **Aceptar**.<br>Aquí se elegirá valores predeterminados en este artículo por motivos de simplicidad, pero se pueden configurar valores personalizados para las demás opciones según el caso de uso 
+6. Acepte los valores predeterminados para las demás opciones y seleccione **Aceptar**.<br>Por simplicidad, en este artículo se elegirán valores predeterminados, pero pueden configurarse valores personalizados para las demás opciones según el caso de uso. 
 
 ### <a name="summary-page"></a>Página de resumen
 
@@ -81,14 +81,14 @@ Revise la configuración en la página de **resumen** y seleccione **Aceptar** p
 
 ## <a name="add-backend-pool"></a>Agregar grupo de back-end
 
-El grupo de back-end se usa para enrutar las solicitudes a los servidores back-end que atiende la solicitud. Los grupos de back-end pueden constar de NIC, conjuntos de escalado de máquinas virtuales, direcciones IP públicas e internas, nombres de dominio completos (FQDN) y servidores back-end multiinquilino como Azure App Service. Deberá agregar los destinos de back-end a un grupo de back-end.
+El grupo de back-end se usa para enrutar las solicitudes a los servidores back-end que atenderán la solicitud. Los grupos de back-end pueden constar de NIC, conjuntos de escalado de máquinas virtuales, direcciones IP públicas e internas, nombres de dominio completos (FQDN) y servidores back-end multiinquilino como Azure App Service. Hay que agregar los destinos de back-end a un grupo de back-end.
 
-En este ejemplo, usaremos las máquinas virtuales como el back-end de destino. Se puede usar máquinas virtuales existentes o crear otras nuevas. En este ejemplo, crearemos dos máquinas virtuales que usa Azure como servidores back-end para la puerta de enlace de la aplicación. Para ello, se hará lo siguiente:
+En este ejemplo, se usan máquinas virtuales como back-end de destino. Pueden usarse máquinas virtuales existentes o crear otras nuevas. En este ejemplo, se crean dos máquinas virtuales que Azure usa como servidores back-end para la puerta de enlace de aplicaciones. Para ello, se hará lo siguiente:
 
-1. Crear una nueva subred, *myBackendSubnet*, que se crearán las nuevas máquinas virtuales. 
-2. Crear 2 máquinas virtuales, *myVM* y *myVM2*, que se usará como servidores back-end.
-3. Instalar IIS en las máquinas virtuales para comprobar que la puerta de enlace de la aplicación se creó correctamente.
-4. Agregue los servidores back-end para el grupo de back-end.
+1. Crear una subred, *myBackendSubnet*, en la que se crearán las máquinas virtuales. 
+2. Crear dos máquinas virtuales, *myVM* y *myVM2*, que se usarán como servidores back-end.
+3. Instalar IIS en las máquinas virtuales para comprobar que la puerta de enlace de aplicaciones se ha creado correctamente.
+4. Agregar los servidores back-end al grupo de back-end.
 
 ### <a name="add-a-subnet"></a>Incorporación de una subred
 
@@ -105,7 +105,7 @@ Agregue una subred a la red virtual que creó siguiendo estos pasos:
 ### <a name="create-a-virtual-machine"></a>de una máquina virtual
 
 1. En Azure Portal, seleccione **Crear un recurso**. Aparece la ventana **Nuevo**.
-2. Haga clic en **Compute** y, a continuación, seleccione **Windows Server 2016 Datacenter** en la lista **Destacados**. Aparecerá la página **Creación de una máquina virtual**.<br>Instancia de Application Gateway puede enrutar el tráfico a cualquier tipo de máquina virtual que se usa en su grupo de back-end. En este ejemplo, use un Windows Server 2016 Datacenter.
+2. Haga clic en **Compute** y, a continuación, seleccione **Windows Server 2016 Datacenter** en la lista **Destacados**. Aparecerá la página **Creación de una máquina virtual**.<br>Application Gateway puede enrutar el tráfico a cualquier tipo de máquina virtual que se use en el grupo de back-end. En este ejemplo se usa un Windows Server 2016 Datacenter.
 3. Especifique estos valores en la pestaña **Datos básicos** de la siguiente configuración de máquina virtual:
    - **Grupo de recursos**: Seleccione **myResourceGroupAG** como nombre del grupo de recursos.
    - **Nombre de la máquina virtual**: Especifique *myVM* como nombre de la máquina virtual.
@@ -113,14 +113,14 @@ Agregue una subred a la red virtual que creó siguiendo estos pasos:
    - **Contraseña**: Escriba *Azure123456!* como la contraseña de administrador.
 4. Acepte los valores predeterminados y haga clic en **Siguiente: Discos**.  
 5. Acepte los valores predeterminados de la pestaña **Discos** y seleccione **Siguiente: Redes**.
-6. En la pestaña **Redes**, compruebe que **myVNet** está seleccionada como **red virtual** y que la **subred** es **myBackendSubnet**. Acepte los valores predeterminados y haga clic en **Siguiente: Administración**.<br>Instancia de Application Gateway puede comunicarse con instancias fuera de la red virtual que se encuentra, pero debemos asegurarnos de que hay conectividad IP. 
+6. En la pestaña **Redes**, compruebe que **myVNet** está seleccionada como **red virtual** y que la **subred** es **myBackendSubnet**. Acepte los valores predeterminados y haga clic en **Siguiente: Administración**.<br>Application Gateway puede comunicarse con instancias fuera de la red virtual en la que se encuentra, pero hay que comprobar que haya conectividad IP. 
 7. En la pestaña **Administración**, establezca **Diagnósticos de arranque** en **Desactivado**. Acepte los demás valores predeterminados y seleccione **Revisar y crear**.
 8. En la pestaña **Revisar y crear**, revise la configuración, corrija los errores de validación y, después, seleccione **Crear**.
 9. Espere a que se complete la creación de la máquina virtual antes de continuar.
 
-### <a name="install-iis-for-testing"></a>Instalar IIS para las pruebas
+### <a name="install-iis-for-testing"></a>Instalación de IIS para pruebas
 
-En este ejemplo, IIS se instalan en las máquinas virtuales solo con el fin de comprobar que Azure creó la puerta de enlace de aplicaciones correctamente. 
+En este ejemplo se instala IIS en las máquinas virtuales con el único fin de comprobar que Azure creó correctamente la puerta de enlace de aplicaciones. 
 
 1. Abra [Azure PowerShell](https://docs.microsoft.com/azure/cloud-shell/quickstart-powershell). Para ello, seleccione **Cloud Shell** en la barra de navegación superior de Azure Portal y, a continuación, seleccione **PowerShell** en la lista desplegable. 
 
@@ -129,7 +129,7 @@ En este ejemplo, IIS se instalan en las máquinas virtuales solo con el fin de c
 2. Ejecute el siguiente comando para instalar IIS en la máquina virtual: 
 
    ```azurepowershell-interactive
-   Set-AzureRmVMExtension `
+   Set-AzVMExtension `
      -ResourceGroupName myResourceGroupAG `
      -ExtensionName IIS `
      -VMName myVM `
@@ -140,9 +140,9 @@ En este ejemplo, IIS se instalan en las máquinas virtuales solo con el fin de c
      -Location EastUS
    ```
 
-3. Cree una segunda máquina virtual e instale IIS con los pasos que acaba de finalizar. Use *myVM2* como nombre de la máquina virtual y como valor de **VMName** para el cmdlet **Set-AzureRmVMExtension**.
+3. Cree una segunda máquina virtual e instale IIS con los pasos que acaba de finalizar. Use *myVM2* para el nombre de la máquina virtual y para el **VMName** configuración de la **conjunto AzVMExtension** cmdlet.
 
-### <a name="add-backend-servers-to-backend-pool"></a>Agregar servidores de back-end al grupo de back-end
+### <a name="add-backend-servers-to-backend-pool"></a>Incorporación de servidores back-end a un grupo de back-end
 
 1. Seleccione **Todos los recursos** y, después, seleccione **myAppGateway**.
 
@@ -186,9 +186,9 @@ Configure los diagnósticos para registrar datos en los registros ApplicationGat
 
 No es necesario instalar IIS para crear la puerta de enlace de aplicaciones, pero se instaló en este inicio rápido para comprobar si la puerta de enlace de aplicaciones se creó correctamente. Use IIS para probar la puerta de enlace de aplicaciones:
 
-1. Encontrar la dirección IP pública para la puerta de enlace de aplicaciones en su **Introducción** página.![ Registrar la dirección IP pública de application gateway](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png)como alternativa, puede seleccionar **todos los recursos**, escriba *myAGPublicIPAddress* en la búsqueda cuadro y, a continuación, selecciónelo en la búsqueda resultados. Azure muestra la dirección IP pública en la página de **información general**.
+1. Busque la dirección IP pública de la puerta de enlace de aplicaciones en la página de **información general**.![ Registre la dirección IP pública de la puerta de enlace de aplicaciones](./media/application-gateway-create-gateway-portal/application-gateway-record-ag-address.png). O bien, puede seleccionar **Todos los recursos**, escribir *myAGPublicIPAddress* en el cuadro de búsqueda y luego seleccionarlo en los resultados de la búsqueda. Azure muestra la dirección IP pública en la página de **información general**.
 2. Copie la dirección IP pública y péguela en la barra de direcciones del explorador.
-3. Compruebe la respuesta. Una respuesta válida comprueba que la puerta de enlace de la aplicación se ha creado correctamente y es capaz de conectarse correctamente con el back-end.![Prueba de la puerta de enlace de aplicaciones](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
+3. Compruebe la respuesta. Una respuesta válida corrobora que la puerta de enlace de aplicaciones se ha creado correctamente y puede conectarse correctamente con el back-end.![Prueba de la puerta de enlace de aplicaciones](./media/application-gateway-create-gateway-portal/application-gateway-iistest.png)
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

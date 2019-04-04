@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: d627c3c4419affa0d71cdb23df945c96d9fd7585
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: bd4285a2d0f882b8c766563f2304031f1f6e2898
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652440"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904804"
 ---
 # <a name="glossary"></a>Glosario
 
@@ -233,13 +233,13 @@ Para obtener más información, consulte la documentación de referencia: [Large
 
 #### <a name="persistedface"></a>PersistedFace
 
-PersistedFace es una estructura de datos en Face API. Un elemento PersistedFace tiene una id. de PersistedFace, además de otros atributos como el nombre y los datos de usuario.
+PersistedFace es una estructura de datos en Face API. PersistedFace viene con un [PersistedFace ID](#persisted-face-id), así como otros atributos como nombre y los datos de usuario.
 
 Para obtener más información, consulte la documentación de referencia: [LargeFaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3) (LargeFaceList: agregar cara), [FaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) (FaceList: agregar cara), [LargePersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) (Persona LargePersonGroup: agregar cara), [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) (Persona PersonGroup: agregar cara).
 
-#### <a name="person-id"></a>Id. de persona
+#### <a name="persisted-face-id"></a>Id. de caras persistentes
 
-La id. de persona se genera cuando se crea correctamente un elemento [PersistedFace](#persistedface). Se crea una cadena para representar esta cara en [Face API](#face-api).
+Conserva Face ID se genera cuando un [PersistedFace](#persistedface) se ha creado correctamente. Se crea una cadena para representar esta cara en [Face API](#face-api).
 
 Para obtener más información, consulte la documentación de referencia: [LargeFaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3) (LargeFaceList: agregar cara), [FaceList - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) (FaceList: agregar cara), [LargePersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42) (Persona LargePersonGroup: agregar cara), [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) (Persona PersonGroup: agregar cara).
 

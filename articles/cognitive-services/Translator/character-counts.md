@@ -3,19 +3,19 @@ title: Recuentos de caracteres de Translator Text API
 titlesuffix: Azure Cognitive Services
 description: Cómo hace Translator Text API para contar caracteres.
 services: cognitive-services
-author: Jann-Skotdal
+author: v-pawal
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: v-jansko
-ms.openlocfilehash: 2164070c8f0efe2898e3780cac30a80c9f1ca986
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: c88eb56288d3a7cf46ce84430a53c12a4ee31c7a
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55874420"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917420"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Cómo hace Translator Text API para contar caracteres
 
@@ -24,8 +24,8 @@ Translator Text API cuenta cada punto de código Unicode de texto de entrada com
 Lo que importa es:
 
 * El texto que se pasa a Translator Text API en el cuerpo de la solicitud
-   * `Text` al usar los métodos Translate, Transliterate y Dictionary Lookup
-   * `Text` y `Translation` al usar el método Dictionary Examples
+   * `Text` al utilizar los métodos de traducir, Transliterate y búsqueda de diccionario
+   * `Text` y `Translation` cuando se usa el método de ejemplos de diccionario
 * Todo el marcado: HTML, etiquetas XML, etc., en el campo de texto del cuerpo de la solicitud. La notación JSON que se usa para compilar la solicitud (por ejemplo "Text:") no se cuenta.
 * Una letra individual
 * Signos de puntuación

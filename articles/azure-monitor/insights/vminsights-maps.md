@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 0bf7c335f552fee103118e57239bcd872e880edb
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 34e6ce7f3b38dfd583aa557d2f1d7340ea444da9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56984856"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916740"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Uso de la asignación de Azure Monitor para VM (versión preliminar) para conocer los componentes de una aplicación
 Los componentes de aplicación detectados en máquinas virtuales de Windows y Linux que se ejecutan en el entorno de Azure se pueden observar de dos formas gracias a Azure Monitor para VM: directamente desde la máquina virtual o a través de los grupos de máquinas virtuales en Azure Monitor. 
@@ -43,7 +43,7 @@ En el lado derecho del panel, haga clic en el **eventos de registro** icono para
 
 ![Lista de búsqueda de registros en el panel Propiedades](./media/vminsights-maps/properties-pane-logs-01.png)
 
-Cierre la página *Registros*\*, vuelva al panel **Propiedades** y seleccione **Alertas** para ver las alertas que Alertas generó para la máquina virtual a partir de los criterios de mantenimiento. La asignación se integra con Alertas de Azure para mostrar las alertas activadas del servidor seleccionado en el intervalo de tiempo seleccionado. El servidor muestra un icono si hay alertas actuales y el panel de alertas del equipo enumera las alertas. 
+Cerrar **registros** y volver a la **propiedades** panel y seleccione **alertas** para ver las alertas que alerta se genera para la máquina virtual de los criterios de estado. La asignación se integra con Alertas de Azure para mostrar las alertas activadas del servidor seleccionado en el intervalo de tiempo seleccionado. El servidor muestra un icono si hay alertas actuales y el panel de alertas del equipo enumera las alertas. 
 
 ![Alertas de equipo en el panel Propiedades](./media/vminsights-maps/properties-pane-alerts-01.png)
 

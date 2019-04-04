@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: ergreenl
-ms.openlocfilehash: 7210610f8a082c34f8e87ef715b8252c2821bc83
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 8beba4f66cf24a937eec77e4bfdee2057b417269
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187103"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58892813"
 ---
 # <a name="azure-active-directory-ad-domain-services-for-azure-cloud-solution-providers-csp"></a>Azure Active Directory (AD) Domain Services para Azure Cloud Solution Providers (CSP)
 En este artículo se explica cómo puede usar Azure AD Domain Services en una suscripción a Azure CSP.
@@ -41,7 +41,7 @@ Para más información, consulte [Azure CSP overview](https://docs.microsoft.com
 ## <a name="benefits-of-using-azure-ad-domain-services-in-an-azure-csp-subscription"></a>Ventajas de usar Azure AD Domain Services en una suscripción a Azure CSP
 Azure AD Domain Services proporciona servicios compatibles con Windows Server AD en Azure, como LDAP, autenticación Kerberos/NTLM, unión a un dominio, directiva de grupo y DNS. A lo largo de décadas, muchas aplicaciones se han compilado para funcionar con AD con estas funcionalidades. Muchos proveedores de software independientes (ISV) han creado e implementado aplicaciones en las instalaciones de sus clientes. El soporte técnico de estas aplicaciones resulta difícil, ya que, a menudo, requiere acceso a los distintos entornos en que están implementadas las aplicaciones. Con las suscripciones a Azure CSP, tiene una alternativa más sencilla gracias al escalado y la flexibilidad de Azure.
 
-Ahora, Azure AD Domain Services admite suscripciones a Azure CSP. Ya puede implementar la aplicación en una suscripción a Azure CSP enlazada al directorio de Azure AD de su cliente. Como resultado, los empleados (personal de soporte técnico) pueden administrar y realizar el mantenimiento de las máquinas virtuales en las que se implementa la aplicación mediante credenciales corporativas de la organización. Además, puede aprovisionar un dominio administrado de Azure AD Domain Services para el directorio de Azure AD de su cliente. La aplicación está conectada al dominio administrado del cliente. Por lo tanto, las funciones de la aplicación dependan de Kerberos/NTLM, LDAP o la [API System.DirectoryServices](https://msdn.microsoft.com/library/system.directoryservices) funcionan sin problemas en el directorio de su cliente. Los clientes finales se beneficiarán enormemente de consumir la aplicación como servicio sin tener que preocuparse del mantenimiento de la infraestructura en que se implementó la aplicación.
+Ahora, Azure AD Domain Services admite suscripciones a Azure CSP. Ya puede implementar la aplicación en una suscripción a Azure CSP enlazada al directorio de Azure AD de su cliente. Como resultado, los empleados (personal de soporte técnico) pueden administrar y realizar el mantenimiento de las máquinas virtuales en las que se implementa la aplicación mediante credenciales corporativas de la organización. Además, puede aprovisionar un dominio administrado de Azure AD Domain Services para el directorio de Azure AD de su cliente. La aplicación está conectada al dominio administrado del cliente. Por lo tanto, las funciones de la aplicación dependan de Kerberos/NTLM, LDAP o la [API System.DirectoryServices](/dotnet/api/system.directoryservices) funcionan sin problemas en el directorio de su cliente. Los clientes finales se beneficiarán enormemente de consumir la aplicación como servicio sin tener que preocuparse del mantenimiento de la infraestructura en que se implementó la aplicación.
 
 Se le cobrará la facturación de todos los recursos de Azure que consuma en dicha suscripción, incluido Azure AD Domain Services. Tiene control completo sobre la relación con el cliente en lo que respecta a ventas, facturación, soporte técnico, etc. Con la flexibilidad de la plataforma Azure CSP, un pequeño equipo de agentes de soporte técnico puede ofrecer servicio a muchos clientes que tengan instancias de la aplicación implementadas.
 
