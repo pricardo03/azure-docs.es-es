@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
 ms.author: glenga
-ms.openlocfilehash: 079fe74ec11570b26cbba93e4aba26d7359bef20
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 30d578f130985548c431dea8b68ee291325b5c99
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402378"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893229"
 ---
 # <a name="manage-connections-in-azure-functions"></a>Administrar conexiones en Azure Functions
 
@@ -23,7 +23,7 @@ Las funciones en una aplicación de función comparten recursos. Entre esos recu
 
 El número de conexiones disponibles está limitado en parte porque una aplicación de función se ejecuta en un [entorno de recinto](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). Una de las restricciones que impone el recinto de seguridad en el código es un [límite del número de conexiones (actualmente en 600 conexiones activas y 1.200 total de conexiones)](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox#numerical-sandbox-limits) por instancia. Cuando se alcanza este límite, el runtime de las funciones crea un registro con el siguiente mensaje: `Host thresholds exceeded: Connections`.
 
-Este límite es por instancia.  Cuando el [controlador de escala agrega instancias de function app](functions-scale.md#how-the-consumption-plan-works) para controlar más solicitudes, cada instancia tiene un límite de conexiones independientes. Esto significa que no hay ningún límite de conexión global y puede tener mucho más de 600 conexiones activas a través de todas las instancias activas.
+Este límite es por instancia.  Cuando el [controlador de escala agrega instancias de function app](functions-scale.md#how-the-consumption-and-premium-plans-work) para controlar más solicitudes, cada instancia tiene un límite de conexiones independientes. Esto significa que no hay ningún límite de conexión global y puede tener mucho más de 600 conexiones activas a través de todas las instancias activas.
 
 ## <a name="static-clients"></a>Clientes estáticos
 

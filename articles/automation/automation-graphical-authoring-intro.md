@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d637436721ff464f58e41069bb00746fcd82410
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: ae732ab5c73dbec4a2aef6521b9edb490079112e
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54427243"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918151"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Creación gráfica en Azure Automation
 
@@ -48,7 +48,7 @@ El control de Biblioteca es donde selecciona las [actividades](#activities) para
 |:--- |:--- |
 | Cmdlets |Incluye todos los cmdlets que se pueden usar en su runbook. Los cmdlets se organizan por módulo. Están disponibles todos los módulos que ha instalado en su cuenta de Automation. |
 | Runbooks |Incluye los runbooks de la cuenta de Automatización de Azure. Estos runbooks se pueden agregar al lienzo para usarse como runbooks secundarios. Solo se muestran los runbooks del mismo tipo básico que el del runbook que se está editando; para los runbooks gráficos, solo se muestran los basados en PowerShell, mientras que para los runbooks gráficos de flujo de trabajo de PowerShell, solo se muestran los basados en el flujo de trabajo de PowerShell. |
-| Recursos |Incluye los [recursos de Automatización](https://msdn.microsoft.com/library/dn939988.aspx) de su cuenta de Automatización que se pueden usar en el runbook. Cuando agrega un recurso a un runbook, este agrega una actividad de flujo de trabajo que obtiene el recurso seleccionado. En el caso de los recursos de variables, puede seleccionar si agregar una actividad para obtener o seleccionar la variable. |
+| Recursos |Incluye los [recursos de Automatización](/previous-versions/azure/dn939988(v=azure.100)) de su cuenta de Automatización que se pueden usar en el runbook. Cuando agrega un recurso a un runbook, este agrega una actividad de flujo de trabajo que obtiene el recurso seleccionado. En el caso de los recursos de variables, puede seleccionar si agregar una actividad para obtener o seleccionar la variable. |
 | Control de Runbook |Incluye las actividades de control de runbook que se pueden usar en el runbook actual. Una *unión* toma varias entradas y espera hasta que todas se completen antes de continuar con el flujo de trabajo. Una actividad de *código* ejecuta una o varias líneas de código de PowerShell o de flujo de trabajo de esta herramienta, en función del tipo de runbook gráfico. Puede usar esta actividad para ejecutar código personalizado o utilizar funcionalidades que sean difíciles de obtener con otras actividades. |
 
 ### <a name="configuration-control"></a>Control de Configuración
@@ -326,7 +326,7 @@ Las propiedades de la siguiente tabla definen los parámetros de entrada:
 |:--- |:--- |
 | NOMBRE |El nombre único del parámetro. Solo puede contener caracteres alfanuméricos y no puede contener un espacio. |
 | DESCRIPCIÓN |Una descripción opcional del parámetro de entrada. |
-| Escriba |El tipo de datos que se espera para el valor del parámetro. Azure Portal proporciona un control adecuado para el tipo de datos de cada parámetro cuando se solicite una entrada. |
+| Type |El tipo de datos que se espera para el valor del parámetro. Azure Portal proporciona un control adecuado para el tipo de datos de cada parámetro cuando se solicite una entrada. |
 | Obligatorio |Especifica si se debe proporcionar un valor para el parámetro. No es posible iniciar el runbook si no se proporciona un valor para cada parámetro obligatorio que no tiene definido un valor predeterminado. |
 | Valor predeterminado |Especifica el valor que se usa para el parámetro si no se brinda alguno. Puede ser Null o un valor específico. |
 

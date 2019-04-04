@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: d8ada53082b0ccc95d472b43a0ae2ff63cd76a3e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5f1774e02a34b60a8a6e936b62905a0a27ccfb85
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58125032"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891092"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Uso de herramientas de automatización de la infraestructura con máquinas virtuales de Azure
 Para crear y administrar máquinas virtuales (VM) de Azure de manera coherente a escala, suele ser deseable alguna forma de automatización. Existen muchas herramientas y soluciones que le permiten automatizar la implementación de toda la infraestructura de Azure y el ciclo de vida de administración. En este artículo se detallan algunas de las herramientas de automatización de la infraestructura que puede usar en Azure. Estas herramientas se adaptan normalmente a alguno de los siguientes enfoques:
@@ -53,7 +53,7 @@ Obtenga información sobre cómo:
 
 
 ## <a name="cloud-init"></a>Cloud-Init
-[cloud-init](https://cloudinit.readthedocs.io) es un enfoque ampliamente usado para personalizar una máquina virtual Linux la primera vez que se arranca. Puede usar cloud-init para instalar paquetes y escribir archivos o para configurar los usuarios y la seguridad. Dado que se llama a cloud-init durante el proceso de arranque inicial, no se necesitan pasos adicionales ni agentes para aplicar la configuración.  Para más información sobre cómo dar formato correctamente a sus archivos `#cloud-config`, consulte el [sitio de documentación de cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  Los archivos `#cloud-config` son archivos de texto codificados en base64.
+[cloud-init](https://cloudinit.readthedocs.io) es un enfoque ampliamente usado para personalizar una máquina virtual Linux la primera vez que se arranca. Puede usar cloud-init para instalar paquetes y escribir archivos o para configurar los usuarios y la seguridad. Dado que se llama a cloud-init durante el proceso de arranque inicial, no se necesitan pasos adicionales ni agentes para aplicar la configuración.  Para más información sobre cómo dar formato correctamente a sus archivos `#cloud-config`, consulte el [sitio de documentación de cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` son archivos de texto codificados en base64.
 
 cloud-init también funciona entre distribuciones. Por ejemplo, no use **apt-get install** o **yum install** para instalar un paquete. En su lugar, puede definir una lista de paquetes que se van a instalar. Cloud-init usará automáticamente la herramienta de administración de paquetes nativos para la distribución de Linux (distro) que seleccione.
 
@@ -80,7 +80,7 @@ Las configuraciones de DSC definen lo que se debe instalar en una máquina y có
 
 Obtenga información sobre cómo:
 
-- [Crear una configuración básica de DSC](https://msdn.microsoft.com/powershell/dsc/quickstart).
+- [Crear una configuración básica de DSC](https://msdn.microsoft.com/powershell/dsc/quickstarts/website-quickstart).
 - [Configurar un servidor de extracción de DSC](https://msdn.microsoft.com/powershell/dsc/pullserver).
 - [Usar DSC para Linux](https://msdn.microsoft.com/powershell/dsc/lnxgettingstarted).
 

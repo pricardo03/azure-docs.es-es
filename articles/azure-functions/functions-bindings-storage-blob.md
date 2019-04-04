@@ -11,20 +11,20 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: e18a63892f000eff0f72656082d5e6e1f0ca159b
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: c1c20e225e15769a8cb09f60dfc371f4ec4d81f6
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437482"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895856"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Enlaces de Azure Blob Storage para Azure Functions
 
 En este artículo se explica cómo trabajar con enlaces de Azure Blob Storage en Azure Functions. Azure Functions admite enlaces de desencadenador, entrada y salida para blobs. El artículo incluye una sección para cada enlace:
 
-* [Desencadenador de blobs](#trigger)
-* [Enlace de entrada de blob](#input)
-* [Enlace de salida de blob](#output)
+* [Desencadenador de blob](#trigger)
+* [Enlace de entrada de BLOB](#input)
+* [Enlace de salida de BLOB](#output)
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -316,11 +316,11 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
-|**type** | N/D | Se debe establecer en `blobTrigger`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
+|**Tipo** | N/D | Se debe establecer en `blobTrigger`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal.|
 |**dirección** | N/D | Se debe establecer en `in`. Esta propiedad se establece automáticamente cuando se crea el desencadenador en Azure Portal. Las excepciones se indican en la sección [uso](#trigger---usage). |
-|**name** | N/D | Nombre de la variable que representa el blob en el código de la función. |
+|**Nombre** | N/D | Nombre de la variable que representa el blob en el código de la función. |
 |**path** | **BlobPath** |El [contenedor](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources) que se va a supervisar.  Puede ser un [patrón de nombre de blob](#trigger---blob-name-patterns). |
-|**conexión** | **Connection** | El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.<br><br>La cadena de conexión debe ser para una cuenta de almacenamiento de uso general, no una [cuenta de Blob Storage](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|**connection** | **Conexión** | El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions usa la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.<br><br>La cadena de conexión debe ser para una cuenta de almacenamiento de uso general, no una [cuenta de Blob Storage](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -444,7 +444,7 @@ Si se produce un error en los 5 intentos, Azure Functions agregará un mensaje a
 
 El desencadenador de blob utiliza una cola internamente, por lo que el número máximo de invocaciones de funciones simultáneas lo controla la [configuración de colas en host.json](functions-host-json.md#queues). La configuración predeterminada limita la simultaneidad a 24 invocaciones. Este límite se aplica por separado a cada función que usa un desencadenador de blob.
 
-[El plan de consumo](functions-scale.md#how-the-consumption-plan-works) limita una aplicación de función de una máquina virtual (VM) a 1,5 GB de memoria. Tanto las instancias de función que se ejecutan de forma simultánea como el entorno de ejecución de Functions utilizan la memoria. Si una función desencadenada por un blob carga el blob entero a la memoria, la memoria máxima utilizada por esa función solo para blobs tiene un tamaño máximo de blob de 24 *. Por ejemplo, una aplicación de función con tres funciones desencadenadas por un blob y la configuración predeterminada tendrían una simultaneidad máxima por máquina virtual de 3*24 = 72 invocaciones de función.
+[El plan de consumo](functions-scale.md#how-the-consumption-and-premium-plans-work) limita una aplicación de función de una máquina virtual (VM) a 1,5 GB de memoria. Tanto las instancias de función que se ejecutan de forma simultánea como el entorno de ejecución de Functions utilizan la memoria. Si una función desencadenada por un blob carga el blob entero a la memoria, la memoria máxima utilizada por esa función solo para blobs tiene un tamaño máximo de blob de 24 *. Por ejemplo, una aplicación de función con tres funciones desencadenadas por un blob y la configuración predeterminada tendrían una simultaneidad máxima por máquina virtual de 3*24 = 72 invocaciones de función.
 
 Las funciones de JavaScript y Java cargan el blob entero a la memoria, mientras que las funciones de C# lo hacen si establece un enlace a `string`, `Byte[]` o POCO.
 
@@ -636,8 +636,8 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
 
 En esta sección se incluyen los ejemplos siguientes:
 
-* [Desencadenador de HTTP, búsqueda de nombre de blob en la cadena de consulta](#http-trigger-look-up-blob-name-from-query-string-java)
-* [Desencadenador de cola, recepción del nombre del blob de la cola de mensajes](#queue-trigger-receive-blob-name-from-queue-message-java)
+* [Desencadenador HTTP, el nombre del blob de cadena de consulta de búsqueda](#http-trigger-look-up-blob-name-from-query-string-java)
+* [Desencadenador de cola, recibir el nombre del blob de la cola de mensajes](#queue-trigger-receive-blob-name-from-queue-message-java)
 
 #### <a name="http-trigger-look-up-blob-name-from-query-string-java"></a>Desencadenador de HTTP, búsqueda nombre de blob en la cadena de consulta (Java)
 
@@ -727,12 +727,12 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
-|**type** | N/D | Se debe establecer en `blob`. |
+|**Tipo** | N/D | Se debe establecer en `blob`. |
 |**dirección** | N/D | Se debe establecer en `in`. Las excepciones se indican en la sección [uso](#input---usage). |
-|**name** | N/D | Nombre de la variable que representa el blob en el código de la función.|
+|**Nombre** | N/D | Nombre de la variable que representa el blob en el código de la función.|
 |**path** |**BlobPath** | Ruta de acceso al blob. |
-|**conexión** |**Connection**| El nombre de una configuración de aplicación que contiene la [cadena de conexión de almacenamiento](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account) que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions utiliza la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.<br><br>La cadena de conexión debe ser para una cuenta de almacenamiento de uso general, no una [cuenta de almacenamiento solo de blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|N/D | **Acceder** | Indica si va a leer o escribir. |
+|**connection** |**Conexión**| El nombre de una configuración de aplicación que contiene la [cadena de conexión de almacenamiento](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-azure-storage-account) que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions utiliza la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.<br><br>La cadena de conexión debe ser para una cuenta de almacenamiento de uso general, no una [cuenta de almacenamiento solo de blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|N/D | **Access** | Indica si va a leer o escribir. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -960,8 +960,8 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream,
 
 En esta sección se incluyen los ejemplos siguientes:
 
-* [Desencadenador HTTP, uso de OutputBinding](#http-trigger-using-outputbinding-java)
-* [Desencadenador de cola, uso del valor devuelto de la función](#queue-trigger-using-function-return-value-java)
+* [Desencadenador HTTP, mediante OutputBinding](#http-trigger-using-outputbinding-java)
+* [Desencadenador de cola, utilizando el valor devuelto de función](#queue-trigger-using-function-return-value-java)
 
 #### <a name="http-trigger-using-outputbinding-java"></a>Desencadenador HTTP, uso de OutputBinding (Java)
 
@@ -1061,12 +1061,12 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
-|**type** | N/D | Se debe establecer en `blob`. |
+|**Tipo** | N/D | Se debe establecer en `blob`. |
 |**dirección** | N/D | Debe establecerse en `out` para un enlace de salida. Las excepciones se indican en la sección [uso](#output---usage). |
-|**name** | N/D | Nombre de la variable que representa el blob en el código de la función.  Se establece en `$return` para hacer referencia al valor devuelto de la función.|
+|**Nombre** | N/D | Nombre de la variable que representa el blob en el código de la función.  Se establece en `$return` para hacer referencia al valor devuelto de la función.|
 |**path** |**BlobPath** | La ruta de acceso al blob. |
-|**conexión** |**Connection**| El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions utiliza la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.<br><br>La cadena de conexión debe ser para una cuenta de almacenamiento de uso general, no una [cuenta de almacenamiento solo de blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
-|N/D | **Acceder** | Indica si va a leer o escribir. |
+|**connection** |**Conexión**| El nombre de una configuración de aplicación que contiene la cadena de conexión de almacenamiento que se usará para este enlace. Si el nombre de la configuración de aplicación comienza con "AzureWebJobs", puede especificar solo el resto del nombre aquí. Por ejemplo, si establece `connection` en "MyStorage", el entorno en tiempo de ejecución de Functions busca una configuración de aplicación denominada "AzureWebJobsMyStorage". Si deja `connection` vacía, el entorno en tiempo de ejecución de Functions utiliza la cadena de conexión de almacenamiento predeterminada en la configuración de aplicación que se denomina `AzureWebJobsStorage`.<br><br>La cadena de conexión debe ser para una cuenta de almacenamiento de uso general, no una [cuenta de almacenamiento solo de blob](../storage/common/storage-account-overview.md#types-of-storage-accounts).|
+|N/D | **Access** | Indica si va a leer o escribir. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -1103,13 +1103,13 @@ En JavaScript, acceda a los datos de blob mediante `context.bindings.<name from 
 
 | Enlace |  Referencia |
 |---|---|
-| Blob | [Códigos de error de blobs](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
-| Blob, tabla, cola |  [Códigos de error de almacenamiento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| Blob, tabla, cola |  [Solución de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+| Blob | [Códigos de Error de BLOB](https://docs.microsoft.com/rest/api/storageservices/fileservices/blob-service-error-codes) |
+| Blob, tabla, cola |  [Códigos de Error de almacenamiento](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
+| Blob, tabla, cola |  [solución de problemas](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)
+* [Más información sobre los enlaces y desencadenadores de Azure functions](functions-triggers-bindings.md)
 
 <!---
 > [!div class="nextstepaction"]

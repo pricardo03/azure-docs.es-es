@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c475fc4d958044413ae7566c027c0e796f1d699a
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 27ba1a1b5fbc0c7533da3634ec8a435468704c33
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486400"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906096"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
 
@@ -241,7 +241,7 @@ Cada cuenta de almacenamiento admite hasta 100 reglas de red IP, que se pueden c
 
 Para conceder acceso desde las redes locales a la cuenta de almacenamiento con una regla de red IP, debe identificar las direcciones IP orientadas a Internet que usa su red. Para obtener ayuda, póngase en contacto con el administrador de red.
 
-Puede usar [ExpressRoute](/azure/expressroute/expressroute-introduction) para conectar la red a la red de Azure. En este caso, cada circuito se configura con dos direcciones IP públicas. Pueden encontrarse en Microsoft Edge y usan [emparejamiento público de Azure](/azure/expressroute/expressroute-circuit-peerings) para conectarse a servicios de Microsoft como Azure Storage. Para permitir la comunicación con Azure Storage, cree reglas de red IP para direcciones IP públicas de los circuitos. Para encontrar las direcciones IP públicas del circuito de ExpressRoute, [abra una incidencia de soporte técnico con ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) a través de Azure Portal.
+Si usa [ExpressRoute](/azure/expressroute/expressroute-introduction) desde las instalaciones para pares públicos o el emparejamiento de Microsoft, tiene que identificar las direcciones IP de NAT que se usan. Para el emparejamiento público, cada circuito ExpressRoute usa de forma predeterminada dos direcciones IP de NAT que se aplican al tráfico del servicio de Azure cuando el tráfico entra en la red troncal de Microsoft Azure. Para el emparejamiento de Microsoft, las direcciones IP de NAT que se utilizan las proporciona el cliente o el proveedor de servicios. Para permitir el acceso a los recursos de servicio, tiene que permitir estas direcciones IP públicas en la configuración del firewall de IP de recursos. Para encontrar las direcciones de IP de circuito de ExpressRoute de los pares públicos, [abra una incidencia de soporte técnico con ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) a través de Azure Portal. Obtenga más información sobre [NAT para ExpressRoute para emparejamiento público y de Microsoft.](/azure/expressroute/expressroute-nat#nat-requirements-for-azure-public-peering)
 
 ### <a name="managing-ip-network-rules"></a>Administración de reglas de red IP
 
@@ -361,7 +361,7 @@ Si habilita la excepción **Permitir que los servicios de Microsoft de confianza
 
 ### <a name="storage-analytics-data-access"></a>Acceso a datos de análisis de almacenamiento
 
-En algunos casos, se requiere acceso para leer registros de diagnóstico y métricas desde fuera del límite de red. Puede conceder excepciones a las reglas de red para permitir acceso de lectura a las tablas de métricas, a archivos de registro de cuentas de almacenamiento o a ambos. [Obtenga más información sobre cómo trabajar con analíticas de almacenamiento](/azure/storage/storage-analytics).
+En algunos casos, se requiere acceso para leer registros de diagnóstico y métricas desde fuera del límite de red. Puede conceder excepciones a las reglas de red para permitir acceso de lectura a las tablas de métricas, a archivos de registro de cuentas de almacenamiento o a ambos. [Más información sobre cómo trabajar con análisis de almacenamiento.](/azure/storage/storage-analytics)
 
 ### <a name="managing-exceptions"></a>Administración de excepciones
 

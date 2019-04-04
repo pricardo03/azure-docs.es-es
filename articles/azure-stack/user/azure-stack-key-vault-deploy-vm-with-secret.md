@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/14/2019
 ms.author: mabrigg
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 30ebccd6bee26900ac01f7f4d17993e24c9db745
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3318e52b29723eaa08d8c3a4fba18e278e6cfe9c
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57779256"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58487760"
 ---
 # <a name="create-a-virtual-machine-using-a-secure-password-stored-in-azure-stack-key-vault"></a>Creación de una máquina virtual mediante una contraseña segura almacenada en Key Vault de Azure Stack
 
@@ -53,7 +53,7 @@ Los pasos siguientes describen el proceso necesario para crear una máquina virt
 
 El script siguiente crea un almacén de claves y almacena en él una contraseña como un secreto. Use el parámetro `-EnabledForDeployment` al crear el almacén de claves. Este parámetro se asegura de que se puede hacer referencia al almacén de claves desde las plantillas de Azure Resource Manager.
 
-```PowerShell
+```powershell
 
 $vaultName = "contosovault"
 $resourceGroup = "contosovaultrg"
@@ -118,7 +118,7 @@ Actualice el archivo azuredeploy.parameters.json con los valores de KeyVault URI
 
 Ahora implemente la plantilla con el siguiente script de PowerShell:
 
-```PowerShell  
+```powershell  
 New-AzureRmResourceGroupDeployment `
   -Name KVPwdDeployment `
   -ResourceGroupName $resourceGroup `

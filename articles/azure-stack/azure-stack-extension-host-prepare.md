@@ -11,12 +11,12 @@ ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
 ms.lastreviewed: 03/07/2019
-ms.openlocfilehash: 47cc7d9f09b7fb22cf99ad010f1dc75e6388c314
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.openlocfilehash: 23cc0f03c41801de944eb9938d4cd15896d1745e
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57731926"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58482188"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Preparación de un host de extensiones de Azure Stack
 
@@ -47,13 +47,13 @@ La herramienta Readiness Checker de Azure Stack permite crear una solicitud de f
 1. Abra PowerShell con permisos elevados en el host de ciclo de vida de hardware o en la estación de trabajo de administración de Azure Stack.
 2. Ejecute el siguiente cmdlet para instalar la herramienta Readiness Checker de Azure Stack.
 
-    ```PowerShell  
+    ```powershell  
     Install-Module -Name Microsoft.AzureStack.ReadinessChecker
     ```
 
 3. Ejecute el script siguiente para crear la estructura de carpetas necesaria:
 
-    ```PowerShell  
+    ```powershell  
     New-Item C:\Certificates -ItemType Directory
 
     $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal', 'Admin extension host', 'Public extension host'
@@ -69,7 +69,7 @@ La herramienta Readiness Checker de Azure Stack permite crear una solicitud de f
 4. Coloque los certificados existentes, que se utilizan actualmente en Azure Stack, en los directorios adecuados. Por ejemplo, coloque el certificado de **ARM de administrador** en la carpeta `Arm Admin`. A continuación, coloque los certificados de hospedaje recién creados en los directorios `Admin extension host` y `Public extension host`.
 5. Ejecute el cmdlet siguiente para iniciar la comprobación de certificados:
 
-    ```PowerShell  
+    ```powershell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD
@@ -86,7 +86,7 @@ Para seguir los pasos que se indican a continuación, utilice un equipo que pued
 2. Abra PowerShell ISE para ejecutar los siguientes bloques de script.
 3. Importe el certificado del punto de conexión de hospedaje de administración.
 
-    ```PowerShell  
+    ```powershell  
 
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 
@@ -104,7 +104,7 @@ Para seguir los pasos que se indican a continuación, utilice un equipo que pued
     }
     ```
 4. Importe el certificado del punto de conexión de hospedaje.
-    ```PowerShell  
+    ```powershell  
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 
     $CloudAdminCred = Get-Credential -UserName <Privileged endpoint credentials> -Message "Enter the cloud domain credentials to access the privileged endpoint."
@@ -142,7 +142,7 @@ En el artículo [Integración del centro de datos de Azure Stack: publicar punto
 
 Hay dos nuevos puntos de conexión que deben publicarse a través del firewall. Las direcciones IP asignadas del grupo VIP público se pueden recuperar mediante el siguiente código que debe ejecutarse desde el [punto de conexión con privilegios del entorno](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) de Azure Stack.
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -173,7 +173,7 @@ Remove-PSSession -Session $PEPSession
 
 #### <a name="sample-output"></a>Salida de ejemplo
 
-```PowerShell
+```powershell
 Can access AZS DNS
 The IP for the Admin Extension Host is: *.adminhosting.\<region>.\<fqdn> - is: xxx.xxx.xxx.xxx
 The Record to be added in the DNS zone: Type A, Name: *.adminhosting.\<region>.\<fqdn>, Value: xxx.xxx.xxx.xxx

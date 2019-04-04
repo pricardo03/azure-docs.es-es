@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: diberry
-ms.openlocfilehash: ae3a2788a0d5451736433a6338a71eda3d0ad9ca
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.openlocfilehash: 2fd3416824189007bfdbe55d30907d9cb56f87ca
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55984365"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895129"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>Comprender cuáles son las expresiones correctas para la aplicación de LUIS
 
@@ -72,7 +72,7 @@ En cada iteración del modelo, no agregue una gran cantidad de expresiones. Agre
 
 LUIS compila modelos efectivos con expresiones seleccionadas cuidadosamente por su autor de modelos. Agregar demasiadas expresiones no resulta útil porque genera confusión.  
 
-Es mejor empezar con pocas expresiones y, luego, [revisar las expresiones del punto de conexión](luis-how-to-review-endoint-utt.md) para que la extracción de la entidad y la predicción de intención se realicen correctamente.
+Es mejor empezar con pocas expresiones y, luego, [revisar las expresiones del punto de conexión](luis-how-to-review-endpoint-utterances.md) para que la extracción de la entidad y la predicción de intención se realicen correctamente.
 
 ## <a name="punctuation-marks"></a>Signos de puntuación
 
@@ -88,11 +88,11 @@ El entrenamiento no es generalmente determinista: la predicción de expresiones 
 
 ## <a name="testing-utterances"></a>Prueba de expresiones 
 
-Los desarrolladores deben empezar a probar su aplicación de LUIS con tráfico real mediante el envío de expresiones a la URL de [punto de conexión de predicción](luis-how-to-azure-subscription.md). Estas expresiones se utilizan para mejorar el rendimiento de las intenciones y las entidades con la [revisión de expresiones](luis-how-to-review-endoint-utt.md). Las pruebas enviadas mediante el panel de pruebas del sitio web de LUIS no se envían a través del punto de conexión y, por lo tanto, no contribuyen al aprendizaje activo. 
+Los desarrolladores deben empezar a probar su aplicación de LUIS con tráfico real mediante el envío de expresiones a la URL de [punto de conexión de predicción](luis-how-to-azure-subscription.md). Estas expresiones se utilizan para mejorar el rendimiento de las intenciones y las entidades con la [revisión de expresiones](luis-how-to-review-endpoint-utterances.md). Las pruebas enviadas mediante el panel de pruebas del sitio web de LUIS no se envían a través del punto de conexión y, por lo tanto, no contribuyen al aprendizaje activo. 
 
 ## <a name="review-utterances"></a>Revisión de las expresiones
 
-Una vez que el modelo esté entrenado, publicado y reciba consultas del [punto de conexión](luis-glossary.md#endpoint), [revise las expresiones](luis-how-to-review-endoint-utt.md) sugeridas por LUIS. LUIS selecciona expresiones del punto de conexión que tienen puntuaciones bajas, ya sea para la intención o para la entidad. 
+Una vez que el modelo esté entrenado, publicado y reciba consultas del [punto de conexión](luis-glossary.md#endpoint), [revise las expresiones](luis-how-to-review-endpoint-utterances.md) sugeridas por LUIS. LUIS selecciona expresiones del punto de conexión que tienen puntuaciones bajas, ya sea para la intención o para la entidad. 
 
 ## <a name="best-practices"></a>Procedimientos recomendados
 

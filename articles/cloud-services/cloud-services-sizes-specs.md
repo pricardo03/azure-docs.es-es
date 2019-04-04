@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: a2af7ffde336016ae89a1ab03d753ed11b901e05
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: 5c4ad5c200bd2e49f3c472d82ad030c6a8f2478d
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55818709"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918270"
 ---
 # <a name="sizes-for-cloud-services"></a>Tamaños de Cloud Services
 En este tema se describen las opciones y los tamaños disponibles para las instancias de rol de servicio en la nube (roles web y roles de trabajo). También ofrece consideraciones de implementación que hay que tener en cuenta a la hora de planear usar estos recursos. Cada tamaño tiene un identificador que pondrá en su [archivo de definición de servicio](cloud-services-model-and-package.md#csdef). Los precios para cada tamaño están disponibles en la página [Precios de Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -213,7 +213,7 @@ A medida que cambia la naturaleza de la carga de trabajo o los tamaños de la nu
 >
 
 ## <a name="get-a-list-of-sizes"></a>Obtención de una lista de tamaños
-Puede usar PowerShell o la API de REST para obtener una lista de tamaños. La API de REST de Storm se documenta [aquí](https://msdn.microsoft.com/library/azure/dn469422.aspx). El código siguiente es un comando de PowerShell que enumerará todos los tamaños disponibles para Cloud Services. 
+Puede usar PowerShell o la API de REST para obtener una lista de tamaños. La API de REST de Storm se documenta [aquí](/previous-versions/azure/reference/dn469422(v=azure.100)). El código siguiente es un comando de PowerShell que enumerará todos los tamaños disponibles para Cloud Services. 
 
 ```powershell
 Get-AzureRoleSize | where SupportedByWebWorkerRoles -eq $true | select InstanceSize, RoleSizeLabel

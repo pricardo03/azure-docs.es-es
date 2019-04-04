@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 01d84914682d40b97c3d480a753c8b966cf61acc
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: dccc967e7899d8cc9c4bde6829d6fc44f9cba4e0
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553972"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891093"
 ---
 En la tabla siguiente se describen los límites predeterminados para Azure Storage. El límite de *entrada* hace referencia a todos los datos de las solicitudes que se envían a una cuenta de almacenamiento. El límite de *salida* hace referencia a todos los datos de las respuestas que se reciben de una cuenta de almacenamiento.
 
 | Recurso | Límite predeterminado |
 | --- | --- |
-| Número de cuentas de almacenamiento por región y suscripción, que incluye las cuentas estándar y Premium | 250 |
+| Número de cuentas de almacenamiento por región y suscripción, incluidas las cuentas Estándar y Premium | 250 |
 | Capacidad de la cuenta de almacenamiento máximo | 2 PB de Estados Unidos y Europa, 500 TB para todas las demás regiones, lo que incluye el Reino Unido |
 | Número máximo de contenedores de blobs, blobs, recursos compartidos de archivos, tablas, colas, entidades o mensajes por cuenta de almacenamiento | Sin límite |
 | Tasa de solicitud total<sup>1</sup> por cuenta de almacenamiento | 20 000 solicitudes por segundo |

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
-ms.openlocfilehash: ff1239093f7562bd314305ae3ea8a580fddb8326
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 1c3c7e913f2f096918efaebb84384df98bd68be8
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55862282"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895839"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>Entrenamiento de la versión activa de la aplicación de LUIS 
 
@@ -60,5 +60,5 @@ Para saber cuando concluirá el entrenamiento, debe sondear el estado hasta que 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Label suggested utterances with LUIS](luis-how-to-review-endoint-utt.md) (Etiquetado de expresiones sugeridas con LUIS) 
-* [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) (Uso de características para mejorar el rendimiento de la aplicación de LUIS) 
+* [Etiqueta sugeridos grabaciones de voz con LUIS](luis-how-to-review-endpoint-utterances.md) 
+* [Uso de características para mejorar el rendimiento de la aplicación de LUIS](luis-how-to-add-features.md) 

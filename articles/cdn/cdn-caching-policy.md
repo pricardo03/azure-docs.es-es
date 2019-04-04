@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2017
 ms.author: juliako
-ms.openlocfilehash: a747e5064ff0ef99fb43c545c29c2a34535445d0
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 516df2f6177303987fc0354dde647c1fc26820ef
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540163"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918287"
 ---
 # <a name="manage-azure-cdn-caching-policy-in-azure-media-services"></a>Administración de la directiva de almacenamiento en caché de Azure CDN en Azure Media Services
 Azure Media Services proporciona streaming adaptable basado en HTTP y descarga progresiva. El streaming basado en HTTP es enormemente escalable con ventajas de almacenamiento en caché en proxy y capas CDN, además de almacenamiento en caché del cliente. Los extremos de streaming proporcionan capacidades generales de streaming, así como configuración para encabezados de caché HTTP. Los extremos de streaming establecen Control de caché HTTP: encabezados max-age y Expires. Puede obtener más información sobre los encabezados de caché HTTP en [W3.org](https://www.w3.org/Protocols/rfc2616/rfc2616-sec13.html).
@@ -39,7 +39,7 @@ Azure Media Services proporciona una [red CDN integrada](https://azure.microsoft
 Puede usar Azure Portal o la API de Azure Media Services para configurar valores de encabezado de caché.
 
 1. Para configurar encabezados de caché mediante Azure Portal, consulte la sección [Administración de puntos de conexión de streaming](../media-services/previous/media-services-portal-manage-streaming-endpoints.md).
-2. API de REST de Azure Media Services, [StreamingEndpoint](https://msdn.microsoft.com/library/azure/dn783468.aspx#StreamingEndpointCacheControl).
+2. API de REST de Azure Media Services, [StreamingEndpoint](/rest/api/media/operations/streamingendpoint#StreamingEndpointCacheControl).
 3. .NET SDK de Azure Media Services, [Propiedades de StreamingEndpointCacheControl](https://go.microsoft.com/fwlink/?LinkId=615302).
 
 ## <a name="cache-configuration-precedence-order"></a>Orden de prioridad de configuración de caché

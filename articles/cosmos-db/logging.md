@@ -7,18 +7,21 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: d75eb87bff812589e4d3a3a14079ddaaf368a588
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259778"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904872"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registro de diagnóstico de Azure Cosmos DB 
 
 Después de comenzar a usar una o más bases de datos de Azure Cosmos DB, puede que quiera supervisar cómo y cuándo se accede a las bases de datos. En este artículo se proporciona información general de los registros que están disponibles en la plataforma Azure. Obtenga información sobre cómo habilitar el registro de diagnóstico con fines para enviar registros a de supervisión [Azure Storage](https://azure.microsoft.com/services/storage/), cómo transmitir registros a [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)y cómo exportar registros a [losregistrosdeAzureMonitor](https://azure.microsoft.com/services/log-analytics/).
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="logs-available-in-azure"></a>Registros disponibles en Azure
 
@@ -132,7 +135,7 @@ Si ya instaló Azure PowerShell y no sabe la versión, en la consola de PowerShe
 Inicie una sesión de PowerShell de Azure e inicie sesión en su cuenta de Azure con el siguiente comando:  
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 En la ventana emergente del explorador, escriba el nombre de usuario y la contraseña de su cuenta de Azure. Azure PowerShell obtiene todas las suscripciones asociadas a esta cuenta y, de forma predeterminada, usa la primera.
@@ -140,13 +143,13 @@ En la ventana emergente del explorador, escriba el nombre de usuario y la contra
 Si tiene más de una suscripción, es posible que deba especificar la suscripción específica que se usó para crear su almacén de claves de Azure. Para ver las suscripciones de su cuenta, escriba el siguiente comando:
 
 ```powershell
-Get-AzureRmSubscription
+Get-AzSubscription
 ```
 
 A continuación, para especificar la suscripción asociada a la cuenta de Azure Cosmos DB que registrará, escriba el siguiente comando:
 
 ```powershell
-Set-AzureRmContext -SubscriptionId <subscription ID>
+Set-AzContext -SubscriptionId <subscription ID>
 ```
 
 > [!NOTE]
@@ -162,7 +165,7 @@ Aunque puede usar una cuenta de almacenamiento existente para sus registros, en 
 A fin de facilitar la administración, en este tutorial usamos el mismo grupo de recursos que el que contiene la base de datos de Azure Cosmos DB. Sustituya los valores por los parámetros **ContosoResourceGroup**, **contosocosmosdblogs** y **North Central US**, según corresponda:
 
 ```powershell
-$sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
+$sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup `
 -Name contosocosmosdblogs -Type Standard_LRS -Location 'North Central US'
 ```
 
@@ -175,15 +178,15 @@ $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup `
 Establezca el nombre de la cuenta de Azure Cosmos DB en una variable denominada **account**, donde **ResourceName** es el nombre de la cuenta de Azure Cosmos DB.
 
 ```powershell
-$account = Get-AzureRmResource -ResourceGroupName ContosoResourceGroup `
+$account = Get-AzResource -ResourceGroupName ContosoResourceGroup `
 -ResourceName contosocosmosdb -ResourceType "Microsoft.DocumentDb/databaseAccounts"
 ```
 
 ### <a id="enable"></a>Habilitación del registro
-Para habilitar el registro para Azure Cosmos DB, use el cmdlet `Set-AzureRmDiagnosticSetting` con las variables para la nueva cuenta de almacenamiento, la cuenta de Azure Cosmos DB y la categoría para la que hay que habilitar el registro. Ejecute el siguiente comando y establezca la marca **-Enabled** en **$true**:
+Para habilitar el registro para Azure Cosmos DB, use el cmdlet `Set-AzDiagnosticSetting` con las variables para la nueva cuenta de almacenamiento, la cuenta de Azure Cosmos DB y la categoría para la que hay que habilitar el registro. Ejecute el siguiente comando y establezca la marca **-Enabled** en **$true**:
 
 ```powershell
-Set-AzureRmDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
+Set-AzDiagnosticSetting  -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests
 ```
 
 La salida del comando debe ser similar a la del siguiente ejemplo:
@@ -221,7 +224,7 @@ La salida del comando confirma que el registro está ahora habilitado para la ba
 Opcionalmente también se puede establecer una directiva de retención para los registros, de forma que los registros más antiguos se eliminen automáticamente. Por ejemplo, establezca la directiva de retención con la marca **-RetentionEnabled** establecida en **$true**. Establezca el parámetro **-RetentionInDays** en **90** para que los registros de más de 90 días se eliminen automáticamente.
 
 ```powershell
-Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`
+Set-AzDiagnosticSetting -ResourceId $account.ResourceId`
  -StorageAccountId $sa.Id -Enabled $true -Categories DataPlaneRequests`
   -RetentionEnabled $true -RetentionInDays 90
 ```
@@ -238,7 +241,7 @@ En primer lugar, cree una variable para el nombre del contenedor. La variable se
 Para mostrar una lista de todos los blobs de este contenedor, escriba:
 
 ```powershell
-Get-AzureStorageBlob -Container $container -Context $sa.Context
+Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
 La salida del comando debe ser similar a la del siguiente ejemplo:
@@ -273,13 +276,13 @@ New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
 Después, obtenga una lista de todos los blobs:  
 
 ```powershell
-$blobs = Get-AzureStorageBlob -Container $container -Context $sa.Context
+$blobs = Get-AzStorageBlob -Container $container -Context $sa.Context
 ```
 
-Canalice esta lista mediante el comando `Get-AzureStorageBlobContent` para descargar los blobs en la carpeta de destino:
+Canalice esta lista mediante el comando `Get-AzStorageBlobContent` para descargar los blobs en la carpeta de destino:
 
 ```powershell
-$blobs | Get-AzureStorageBlobContent `
+$blobs | Get-AzStorageBlobContent `
  -Destination 'C:\Users\username\ContosoCosmosDBLogs'
 ```
 
@@ -290,27 +293,27 @@ Para descargar blobs de forma selectiva, utilice caracteres comodín. Por ejempl
 * Si tiene varias bases de datos y desea descargar los registros solo para una base de datos, denominada **CONTOSOCOSMOSDB3**, utilice el comando:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/DATABASEACCOUNTS/CONTOSOCOSMOSDB3
     ```
 
 * Si tiene varios grupos de recursos y desea descargar los registros solo de un grupo de recursos específico, use el comando `-Blob '*/RESOURCEGROUPS/<resource group name>/*'`:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
     -Context $sa.Context -Blob '*/RESOURCEGROUPS/CONTOSORESOURCEGROUP3/*'
     ```
 * Si desea descargar todos los registros del mes de julio de 2017, use el comando `-Blob '*/year=2017/m=07/*'`:
 
     ```powershell
-    Get-AzureStorageBlob -Container $container `
+    Get-AzStorageBlob -Container $container `
      -Context $sa.Context -Blob '*/year=2017/m=07/*'
     ```
 
 También puede ejecutar los comandos siguientes:
 
-* Para consultar el estado de la configuración del diagnóstico del recurso de la base de datos, use el comando `Get-AzureRmDiagnosticSetting -ResourceId $account.ResourceId`.
-* Para deshabilitar el registro de la categoría **DataPlaneRequests** para el recurso de la cuenta de base de datos, use el comando `Set-AzureRmDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`.
+* Para consultar el estado de la configuración del diagnóstico del recurso de la base de datos, use el comando `Get-AzDiagnosticSetting -ResourceId $account.ResourceId`.
+* Para deshabilitar el registro de la categoría **DataPlaneRequests** para el recurso de la cuenta de base de datos, use el comando `Set-AzDiagnosticSetting -ResourceId $account.ResourceId -StorageAccountId $sa.Id -Enabled $false -Categories DataPlaneRequests`.
 
 
 Los blobs que se devuelven en cada una de estas consultas se almacenan como texto, con el formato de blob JSON, tal como se muestra en el código siguiente:
@@ -437,11 +440,11 @@ En la tabla siguiente se describe el contenido de cada entrada del registro.
 
 | Propiedad o campo de Azure Storage | Propiedad de los registros de Azure Monitor | DESCRIPCIÓN |
 | --- | --- | --- |
-| **time** | **TimeGenerated** | La fecha y hora (UTC) cuando se produjo la operación. |
-| **resourceId** | **Recurso** | La cuenta de Azure Cosmos DB para la cual los registros están habilitados.|
-| **category** | **Categoría** | Para los registros de Azure Cosmos DB, **DataPlaneRequests** es el único valor disponible. |
-| **operationName** | **OperationName** | Nombre de la operación. Este valor puede ser cualquiera de las operaciones siguientes: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed o Upsert.   |
-| **properties** | N/D | El contenido de este campo se describe en las filas siguientes. |
+| **Twitter en tiempo** | **TimeGenerated** | La fecha y hora (UTC) cuando se produjo la operación. |
+| **ResourceId** | **Recurso** | La cuenta de Azure Cosmos DB para la cual los registros están habilitados.|
+| **categoría** | **Categoría** | Para los registros de Azure Cosmos DB, **DataPlaneRequests** es el único valor disponible. |
+| **operationName** | **nombreOperación** | Nombre de la operación. Este valor puede ser cualquiera de las operaciones siguientes: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed o Upsert.   |
+| **propiedades** | N/D | El contenido de este campo se describe en las filas siguientes. |
 | **activityId** | **activityId_g** | GUID único para la operación registrada. |
 | **userAgent** | **userAgent_s** | Una cadena que especifica el agente de usuario de cliente que realiza la solicitud. El formato es {nombre de agente de usuario}/{versión}.|
 | **requestResourceType** | **requestResourceType_s** | Tipo de recurso al que se accede. Este valor puede ser cualquiera de los tipos de recursos siguientes: Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction u Offer. |

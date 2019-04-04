@@ -11,20 +11,20 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: c5fadf5c445310534ab3001371e1b73b1f502f15
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.date: 04/03/2019
+ms.openlocfilehash: 619893ad42664f8d37fff5e61b8560f6c6d83e23
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58661793"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918610"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL
 
 En este artículo se explica la arquitectura de conectividad de Azure SQL Database y SQL Data Warehouse, y cómo funcionan los distintos componentes para dirigir el tráfico a una instancia de Azure SQL. La funcionalidad de estos componentes de conectividad consiste en dirigir el tráfico de red a Azure SQL Database o SQL Data Warehouse con clientes que se conectan desde dentro y desde fuera de Azure. En este artículo también se proporcionan ejemplos de script para cambiar cómo se establece la conectividad y, además, se incluyen consideraciones sobre la modificación de la configuración predeterminada de la conectividad.
 
 > [!IMPORTANT]
-> **[Cambio próximo] Para las conexiones de punto de conexión de servicio a los servidores Azure SQL, un comportamiento de conectividad `Default` cambia a `Redirect`.**
+> **[Próximo cambio] Para las conexiones de punto de conexión de servicio a los servidores SQL de Azure, un `Default` cambios de comportamiento de conectividad `Redirect`.**
 > Se recomienda a los clientes que creen nuevos servidores y que en los existentes seleccionen explícitamente el tipo de conexión Redirigir (preferible) o Proxy, en función de su arquitectura de conectividad.
 >
 > Para evitar que la conectividad a través de un punto de conexión de servicio se interrumpa en los entornos existentes a causa de este cambio, utilizamos telemetría para lo siguiente:
@@ -35,9 +35,9 @@ En este artículo se explica la arquitectura de conectividad de Azure SQL Databa
 > Los usuarios del punto de conexión de servicio todavía pueden verse afectados en los escenarios siguientes:
 >
 > - La aplicación se conecta a un servidor existente con poca frecuencia, por lo que la telemetría no capturó la información acerca de dicha aplicación.
-> - La lógica de implementación automatizada crea un servidor de SQL Database suponiendo que es el comportamiento predeterminado de las conexiones de punto de conexión de servicio es `Proxy`.
+> - Lógica de implementación automatizada crea un servidor de base de datos SQL se supone que es el comportamiento predeterminado para las conexiones de punto de conexión de servicio `Proxy`
 >
-> Si no se pudieron establecer conexiones de punto de conexión de servicio al servidor de Azure SQL y sospecha que este cambio le afecta, compruebe que el tipo de conexión esté establecido explícitamente en `Redirect`. Si es el caso, debe abrir las reglas del firewall de la máquina virtual y los grupos de seguridad de red (NSG) para todas las direcciones IP de Azure en la región que pertenecen a la [etiqueta de servicio](../virtual-network/security-overview.md#service-tags) Sql para los puertos 11000-12000. Si esta no es una opción en su caso, cambie el servidor explícitamente a `Proxy`.
+> Si no se pudieron establecer conexiones de punto de conexión de servicio al servidor de Azure SQL y sospecha que este cambio le afecta, compruebe que el tipo de conexión esté establecido explícitamente en `Redirect`. Si este es el caso, tendrá que abrir el firewall en la máquina virtual y grupos de seguridad de red (NSG) para todas las direcciones IP de Azure en la región que pertenecen a Sql [etiqueta de servicio](../virtual-network/security-overview.md#service-tags) para puertos 11000 a 11999. Si esta no es una opción en su caso, cambie el servidor explícitamente a `Proxy`.
 > [!NOTE]
 > En este tema se aplica a los servidores de Azure SQL Database para hospedar bases de datos únicas y grupos elásticos, bases de datos de SQL Data Warehouse, -Azure Database for MySQL, -Azure Database for MariaDB y -Azure Database for PostgreSQL. Por motivos de simplicidad, SQL Database se usa cuando se hace referencia a SQL Database, SQL Data Warehouse, Azure Database for MySQL, -Azure Database for MariaDB y -Azure Database for PostgreSQL.
 
@@ -57,7 +57,7 @@ En los pasos siguientes se describe cómo se establece una conexión a una insta
 
 Azure SQL Database admite las siguientes tres opciones para la configuración de directiva de conexión de un servidor de SQL Database:
 
-- **Redirigir (recomendado):** los clientes establecen conexiones directamente con el nodo que hospeda la base de datos. Para habilitar la conectividad, los clientes tienen que permitir las reglas de firewall de salida a todas las direcciones IP de Azure en la región utilizando los grupos de seguridad de red (NSG) con [etiquetas de servicio](../virtual-network/security-overview.md#service-tags) para los puertos 11000-12000, no solo las direcciones IP de puerta de enlace de Azure SQL Database en el puerto 1433. Como los paquetes van directamente a la base de datos, la latencia y la capacidad de proceso mejoran.
+- **Redirigir (recomendado):** los clientes establecen conexiones directamente con el nodo que hospeda la base de datos. Para habilitar la conectividad, los clientes deben permitir las reglas de firewall de salida a todas las direcciones IP de Azure en la región con grupos de seguridad de red (NSG) con [etiquetas de servicio](../virtual-network/security-overview.md#service-tags)) para los puertos 11000-11999, no solo la IP de puerta de enlace de Azure SQL Database direcciones en el puerto 1433. Como los paquetes van directamente a la base de datos, la latencia y la capacidad de proceso mejoran.
 - **Proxy:** en este modo, el proxy procesa todas las conexiones a través de las puertas de enlace de Azure SQL Database. Para habilitar la conectividad, el cliente tiene que tener reglas de firewall de salida que permiten solo las direcciones IP de puerta de enlace de Azure SQL Database (normalmente dos direcciones IP por región). La elección de este modo puede producir una latencia mayor y un rendimiento inferior, según la naturaleza de la carga de trabajo. Es muy recomendable utilizar la directiva de conexión `Redirect` frente a `Proxy` para obtener la menor latencia y el mayor rendimiento.
 - **Predeterminado:** esta es la directiva de conexión en vigor en todos los servidores después de su creación, a menos que se modifique explícitamente cambiándola a `Proxy` o `Redirect`. La directiva efectiva depende de si las conexiones se originan desde dentro de Azure (`Redirect`) o fuera de Azure (`Proxy`).
 

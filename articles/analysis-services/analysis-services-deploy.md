@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a9f3dfba4c79b2369e99b95c13557557ed930c24
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.openlocfilehash: b9740d74a25964286ea92b4238684db81a64c9e2
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54188596"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893612"
 ---
 # <a name="deploy-a-model-from-visual-studio"></a>Implementación de un modelo de Visual Studio
 
@@ -24,7 +24,7 @@ Una vez que ha creado un servidor en su suscripción de Azure, está listo para 
 Para empezar, necesitará lo siguiente:
 
 * **Servidor de Analysis Services** en Azure. Para más información, consulte [Creación de un servidor de Azure Analysis Services en Azure Portal](analysis-services-create-server.md).
-* **Proyecto de modelo tabular** en SSDT o un modelo tabular existente en el nivel de compatibilidad 1200 o superior. ¿Nunca ha creado ninguno? Pruebe el [tutorial de modelado tabular de ventas en Internet de Adventure Works](https://msdn.microsoft.com/library/hh231691.aspx).
+* **Proyecto de modelo tabular** en SSDT o un modelo tabular existente en el nivel de compatibilidad 1200 o superior. ¿Nunca ha creado ninguno? Pruebe el [tutorial de modelado tabular de ventas en Internet de Adventure Works](/sql/analysis-services/tabular-modeling-adventure-works-tutorial).
 * **Puerta de enlace local**: si uno o varios orígenes de datos son locales en la red de su organización, debe instalar una [puerta de enlace de datos local](analysis-services-gateway.md). La puerta de enlace es necesaria para que el servidor en la nube se conecte a sus orígenes de datos locales para procesar y actualizar los datos en el modelo.
 
 > [!TIP]

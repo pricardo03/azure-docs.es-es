@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: magattus
-ms.openlocfilehash: a3777533fc967e1974b99375496dd3777fa9fb3a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.openlocfilehash: 76e7817be81a97c8d1a0b9ca2fea8378c3c733e1
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093857"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916486"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Purgar un punto de conexión de Azure CDN
 ## <a name="overview"></a>Información general
@@ -52,13 +52,13 @@ Este tutorial le guiará a través de purga de los recursos de todos los nodos p
    > 
    > 
 4. Seleccione los activos que quiera purgar de los nodos perimetrales.  Si quiere borrar todos los recursos, haga clic en la casilla **Purgar todo** .  De lo contrario, escriba la ruta de acceso completa de cada recurso que quiera purgar en el cuadro de texto **Ruta de acceso**. Los siguientes formatos se pueden usar en las rutas de acceso.
-    1. **Purga con una sola URL**: purgue recursos concretos especificando la URL completa, con o sin la extensión de archivo; por ejemplo,`/pictures/strasbourg.png`; `/pictures/strasbourg`.
+    1. **Purga con una sola URL**: Purgue el recurso individual especificando la dirección URL completa, con o sin la extensión de archivo, por ejemplo,`/pictures/strasbourg.png`; `/pictures/strasbourg`
     2. **Purga con carácter comodín**: se puede usar el asterisco (\*) como carácter comodín. Purgue todas las carpetas, subcarpetas y archivos de un punto de conexión con `/*` en la ruta de acceso o todas las subcarpetas y archivos de una carpeta concreta especificando la carpeta seguido de `/*`; por ejemplo, `/pictures/*`.  Tenga en cuenta que, en estos momentos, la purga de carácter comodín no es compatible con Azure CDN de Akamai. 
     3. **Purga de dominio raíz**: purgue la raíz del punto de conexión con "/" en la ruta de acceso.
    
    > [!TIP]
-   > Las rutas de acceso que se van a purgar deben especificarse y ser una URL relativa que se ajuste a la siguiente [expresión regular](https://msdn.microsoft.com/library/az24scfc.aspx). **Purgar todo** y la **purga con carácter comodín** no son compatibles en estos momentos con **Azure CDN de Akamai**.
-   > > Purga con una sola URL `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
+   > Las rutas de acceso que se van a purgar deben especificarse y ser una URL relativa que se ajuste a la siguiente [expresión regular](/dotnet/standard/base-types/regular-expression-language-quick-reference). **Purgar todo** y la **purga con carácter comodín** no son compatibles en estos momentos con **Azure CDN de Akamai**.
+   > > Purga de dirección URL única `@"^\/(?>(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/?)*)$";`  
    > > Cadena de consulta `@"^(?:\?[-\@_a-zA-Z0-9\/%:;=!,.\+'&\(\)\u0020]*)?$";`  
    > > Purga con carácter comodín `@"^\/(?:[a-zA-Z0-9-_.%=\(\)\u0020]+\/)*\*$";` 
    > 
@@ -73,7 +73,7 @@ Este tutorial le guiará a través de purga de los recursos de todos los nodos p
 > 
 > 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Carga previa de activos en un punto de conexión de Azure CDN](cdn-preload-endpoint.md)
-* [Referencia de la API REST de Azure CDN - purgar o cargar previamente un punto de conexión](https://msdn.microsoft.com/library/mt634451.aspx)
+* [Referencia de API de REST de CDN de Azure - purgar o cargar previamente un punto de conexión](/rest/api/cdn/endpoints)
 

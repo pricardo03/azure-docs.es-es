@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 01/09/2019
 ms.author: diberry
-ms.openlocfilehash: 55284318a627186b7a20d6d36dff1953e80d5020
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: c9f1cf80cd3a781e878daca2048f7c5dc9095a7c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958565"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893238"
 ---
 # <a name="testing-example-utterances-in-luis"></a>Prueba de expresiones de ejemplo en LUIS
 
@@ -48,7 +48,7 @@ Si hace una prueba en un punto de conexión y no quiere que la expresión quede 
 ## <a name="where-to-find-utterances"></a>Dónde encontrar expresiones
 LUIS almacena todas las expresiones registradas en el registro de consultas, que se puede descargar en la página de la lista [Aplicaciones](luis-reference-regions.md) del sitio web de **LUIS**, así como las [API de creación](https://aka.ms/luis-authoring-apis) de LUIS. 
 
-Todas las expresiones de las que LUIS no esté seguro aparecerán en la página **[Revisión de las expresiones de punto de conexión](luis-how-to-review-endoint-utt.md)** del sitio web de [LUIS](luis-reference-regions.md). 
+Todas las expresiones de las que LUIS no esté seguro aparecerán en la página **[Revisión de las expresiones de punto de conexión](luis-how-to-review-endpoint-utterances.md)** del sitio web de [LUIS](luis-reference-regions.md). 
 
 ![Revisar las expresiones de punto de conexión](./media/luis-concept-test/review-endpoint-utterances.png)
  

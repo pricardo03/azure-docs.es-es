@@ -14,12 +14,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 9d358c021f795172e7ced0ba2a2f309a0a0dab6e
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: e0556eb5cc3d0f140067a4e3b4a9054a47b91417
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56649734"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58481495"
 ---
 # <a name="azure-stack-certificates-signing-request-generation"></a>Generación de solicitudes de firma de certificados de Azure Stack
 
@@ -50,13 +50,13 @@ Siga estos pasos para preparar y validar los certificados PKI de Azure Stack:
 
 1. Instale AzsReadinessChecker desde un símbolo del sistema de PowerShell (5.1 o superior) mediante la ejecución del siguiente cmdlet:
 
-    ```PowerShell  
+    ```powershell  
         Install-Module Microsoft.AzureStack.ReadinessChecker
     ```
 
 2. Declare el **asunto** como un diccionario ordenado. Por ejemplo: 
 
-    ```PowerShell  
+    ```powershell  
     $subjectHash = [ordered]@{"OU"="AzureStack";"O"="Microsoft";"L"="Redmond";"ST"="Washington";"C"="US"}
     ```
 
@@ -65,7 +65,7 @@ Siga estos pasos para preparar y validar los certificados PKI de Azure Stack:
 
 3. Declare un directorio de salida que ya exista. Por ejemplo: 
 
-    ```PowerShell  
+    ```powershell  
     $outputDirectory = "$ENV:USERPROFILE\Documents\AzureStackCSR"
     ```
 
@@ -73,19 +73,19 @@ Siga estos pasos para preparar y validar los certificados PKI de Azure Stack:
 
     Azure Active Directory
 
-    ```PowerShell
+    ```powershell
     $IdentitySystem = "AAD"
     ```
 
     Servicios de federación de Active Directory
 
-    ```PowerShell
+    ```powershell
     $IdentitySystem = "ADFS"
     ```
 
 5. Declare un **nombre de región** y un **FQDN externo** pensado para la implementación de Azure Stack.
 
-    ```PowerShell
+    ```powershell
     $regionName = 'east'
     $externalFQDN = 'azurestack.contoso.com'
     ```
@@ -95,7 +95,7 @@ Siga estos pasos para preparar y validar los certificados PKI de Azure Stack:
 
 6. Para generar solicitudes de firma de certificados para cada nombre DNS:
 
-    ```PowerShell  
+    ```powershell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
@@ -103,7 +103,7 @@ Siga estos pasos para preparar y validar los certificados PKI de Azure Stack:
 
 7. Como alternativa, para entornos de desarrollo y pruebas, para generar una única solicitud de certificado con varios nombres alternativos del firmante, agregue el parámetro **-RequestType SingleCSR** y el valor (**no** se recomienda para entornos de producción):
 
-    ```PowerShell  
+    ```powershell  
     New-AzsCertificateSigningRequest -RegionName $regionName -FQDN $externalFQDN -subject $subjectHash -RequestType SingleCSR -OutputRequestPath $OutputDirectory -IdentitySystem $IdentitySystem
     ```
 
@@ -111,7 +111,7 @@ Siga estos pasos para preparar y validar los certificados PKI de Azure Stack:
 
 8. Revise la salida:
 
-    ```PowerShell  
+    ```powershell  
     New-AzsCertificateSigningRequest v1.1809.1005.1 started.
 
     CSR generating for following SAN(s): dns=*.east.azurestack.contoso.com&dns=*.blob.east.azurestack.contoso.com&dns=*.queue.east.azurestack.contoso.com&dns=*.table.east.azurestack.cont

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/20/2016
 ms.author: jehollan
-ms.openlocfilehash: 05dd4ae3c4ee439d66401a3f5595f9104051f8ee
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: HT
+ms.openlocfilehash: 2a82afe396039857e5b9ad6b8a6d0e710573037f
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27962652"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893574"
 ---
 # <a name="get-started-with-the-query-action"></a>Introducción a la acción de consulta
 Mediante la acción de consulta puede utilizar lotes y matrices para realizar flujos de trabajo como los siguientes:
@@ -31,7 +31,8 @@ Mediante la acción de consulta puede utilizar lotes y matrices para realizar fl
 Para empezar a usar la acción de consulta en una aplicación lógica, consulte [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="use-the-query-action"></a>Uso de la acción de consulta
-Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. [Más información acerca de las acciones](connectors-overview.md).  
+Una acción es una operación que se lleva a cabo mediante el flujo de trabajo definido en una aplicación lógica. 
+[Más información acerca de las acciones](../connectors/apis-list.md).  
 
 En estos momentos, la acción de consulta tiene una operación expuesta en el diseñador que se denomina Filter array (Filtrar matriz). Gracias a ella, podrá consultar una matriz y devolver un conjunto de resultados filtrados.
 
@@ -80,6 +81,6 @@ Los detalles de la salida de la respuesta HTTP son los siguientes.
 | --- | --- | --- |
 | Matriz filtrada |array |Una matriz que contiene un objeto de cada resultado filtrado |
 
-## <a name="next-steps"></a>pasos siguientes
+## <a name="next-steps"></a>Pasos siguientes
 Ahora, pruebe la plataforma y [cree una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Puede explorar los demás conectores disponibles en aplicaciones lógicas consultando nuestra [lista de API](apis-list.md).
 

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2016
 ms.author: jeconnoc
-ms.openlocfilehash: 4adc6ef6e7dd445eea3fd567072a995e3ac07dda
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8b521ebe869210b66ac3b3efeebda873f7c0e50b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539639"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918168"
 ---
 # <a name="enable-communication-for-role-instances-in-azure"></a>Habilitar la comunicación para instancias de rol en Azure
 Los roles de servicio en la nube se comunican a través de conexiones internas y externas. Las conexiones externas se denominan **puntos de conexión de entrada** mientras que conexiones internas se denominan **puntos de conexión internos**. En este tema se describe cómo modificar la [definición de servicio](cloud-services-model-and-package.md#csdef) para crear puntos de conexión.
 
 ## <a name="input-endpoint"></a>Extremo de entrada
-Los extremos de entrada se usan para exponer un puerto al exterior. Tiene que especificar el tipo de protocolo y el puerto del extremo que se aplicará a los puertos internos y externos del extremo. Si lo desea, puede especificar un puerto interno diferente para el extremo mediante el atributo [localPort](https://msdn.microsoft.com/library/azure/gg557552.aspx#InputEndpoint) .
+Los extremos de entrada se usan para exponer un puerto al exterior. Tiene que especificar el tipo de protocolo y el puerto del extremo que se aplicará a los puertos internos y externos del extremo. Si lo desea, puede especificar un puerto interno diferente para el extremo mediante el atributo [localPort](/previous-versions/azure/reference/gg557552(v=azure.100)#InputEndpoint) .
 
 El extremo de entrada puede usar los siguientes protocolos: **http, https, tcp y udp**.
 
@@ -96,7 +96,7 @@ La Biblioteca administrada de Azure proporciona métodos a las instancias de rol
 > 
 > 
 
-Puede usar la propiedad [Instances](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.role.instances.aspx) para recuperar las instancias de rol. Primero, use el elemento [CurrentRoleInstance](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.currentroleinstance.aspx) para devolver una referencia a la instancia de rol actual y, a continuación, use la propiedad [Role](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.role.aspx) para devolver una referencia al propio rol.
+Puede usar la propiedad [Instances](/previous-versions/azure/reference/ee741904(v=azure.100)) para recuperar las instancias de rol. Primero, use el elemento [CurrentRoleInstance](/previous-versions/azure/reference/ee741907(v=azure.100)) para devolver una referencia a la instancia de rol actual y, a continuación, use la propiedad [Role](/previous-versions/azure/reference/ee741918(v=azure.100)) para devolver una referencia al propio rol.
 
 Si se conecta a una instancia de rol mediante programación a través del SDK de .NET, le será relativamente fácil obtener acceso a la información del extremo. Por ejemplo, una vez se haya conectado a un entorno de rol específico, puede obtener el puerto de un extremo en concreto con este código:
 
@@ -111,7 +111,7 @@ La propiedad **Instances** devuelve una colección de objetos **RoleInstance**. 
 > 
 > 
 
-Para determinar el número de puerto de un extremo interno en una instancia de rol, puede usar la propiedad [InstanceEndpoints](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstance.instanceendpoints.aspx) para devolver un objeto Dictionary que contenga los nombres de extremo y sus direcciones IP y puertos correspondientes. La propiedad [IPEndpoint](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleinstanceendpoint.ipendpoint.aspx) devuelve la dirección IP y el puerto de un extremo específico. La propiedad **PublicIPEndpoint** devuelve el puerto de un extremo con equilibrio de carga. La parte de la dirección IP de la propiedad **PublicIPEndpoint** no se usa.
+Para determinar el número de puerto de un extremo interno en una instancia de rol, puede usar la propiedad [InstanceEndpoints](/previous-versions/azure/reference/ee741917(v=azure.100)) para devolver un objeto Dictionary que contenga los nombres de extremo y sus direcciones IP y puertos correspondientes. La propiedad [IPEndpoint](/previous-versions/azure/reference/ee741919(v=azure.100)) devuelve la dirección IP y el puerto de un extremo específico. La propiedad **PublicIPEndpoint** devuelve el puerto de un extremo con equilibrio de carga. La parte de la dirección IP de la propiedad **PublicIPEndpoint** no se usa.
 
 Aquí tiene un ejemplo que itera las instancias de rol.
 
@@ -368,7 +368,7 @@ Permitir solo el tráfico de red de **WebRole1** a **WorkerRole1**, **WebRole1**
 </ServiceDefinition>
 ```
 
-Puede encontrar una referencia del esquema XML de los elementos usados anteriormente [aquí](https://msdn.microsoft.com/library/azure/gg557551.aspx).
+Puede encontrar una referencia del esquema XML de los elementos usados anteriormente [aquí](/previous-versions/azure/reference/gg557551(v=azure.100)).
 
 ## <a name="next-steps"></a>Pasos siguientes
 Obtenga más información sobre el [modelo](cloud-services-model-and-package.md)del servicio en la nube.

@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e21f7a67b11caf0180959de68d698f0ff4a1af1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: a7a2866952d5e66e24770b81e69039d733fdd2a1
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371866"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894600"
 ---
 # <a name="what-are-authentication-methods"></a>¿Qué son los métodos de autenticación?
 
-El autoservicio de restablecimiento de contraseña (SSPR) y Multi-Factor Authentication (MFA) de Azure AD pueden solicitar información adicional, lo que se conoce como métodos de autenticación o información de seguridad, para confirmar que usted es quien dice ser al usar las características asociadas.
+Como administrador elegir métodos de autenticación para Azure Multi-factor Authentication y la contraseña de autoservicio de restablecimiento (SSPR) se recomienda requerir a los usuarios registrar varios métodos de autenticación. Cuando un método de autenticación no está disponible para un usuario, puede autenticarse con otro método.
 
-Los administradores pueden definir en la directiva qué métodos de autenticación están disponibles para los usuarios de SSPR y MFA. Algunos métodos de autenticación pueden no estar disponibles para todas las características.
+Los administradores pueden definir en la directiva qué métodos de autenticación están disponibles para los usuarios de SSPR y MFA. Algunos métodos de autenticación pueden no estar disponibles para todas las características. Para obtener más información acerca de cómo configurar las directivas Consulte los artículos [cómo implementar correctamente el restablecimiento de contraseña de autoservicio](howto-sspr-deployment.md) y [planeamiento basados en la nube Azure Multi-factor Authentication](howto-mfa-getstarted.md)
 
 Microsoft recomienda encarecidamente a los administradores que permitan a los usuarios seleccionar más del número mínimo requerido de métodos de autenticación en caso de que no tengan acceso a uno.
 
@@ -233,10 +233,10 @@ Si su organización está federada para SSO con Azure AD y que va a usar Azure M
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Habilitar el autoservicio de restablecimiento de contraseña para la organización](quickstart-sspr.md)
+[Habilitar contraseña de autoservicio de restablecimiento de su organización](quickstart-sspr.md)
 
-[Habilitar Azure Multi-Factor Authentication para la organización](howto-mfa-getstarted.md)
+[Habilitar autenticación multifactor de Azure para su organización](howto-mfa-getstarted.md)
 
 [Habilitar el registro combinado en el inquilino](howto-registration-mfa-sspr-combined.md)
 
-[Documentación de configuración del método de autenticación de usuario final](https://aka.ms/securityinfoguide)
+[Documentación de configuración de método de autenticación del usuario final](https://aka.ms/securityinfoguide)

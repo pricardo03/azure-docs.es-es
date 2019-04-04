@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: johnhas
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 96325d7c21ccf7d93deaafbad974009004030157
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eefd39c751bdbd9ed9c8f3b9112fee1ddbffb9a0
+ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091994"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58486944"
 ---
 # <a name="release-notes-for-validation-as-a-service"></a>Notas de la versión para la validación como servicio
 
@@ -61,7 +61,7 @@ Si ejecuta el flujo de trabajo de verificación de actualización mensual de Azu
 
     `Install-VaaSPrerequisites` ya no requiere credenciales de administrador en la nube. Si ejecuta la versión más reciente de este cmdlet, consulte [Download and install the agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) (Descarga e instalación del agente) para los comandos revisados para instalar los requisitos previos. Estos son los comandos:
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force
     Install-VaaSPrerequisites -AadTenantId $AadTenantId `
@@ -78,7 +78,7 @@ Si ejecuta el flujo de trabajo de verificación de actualización mensual de Azu
 
     `Install-VaaSPrerequisites` ahora requiere credenciales de administrador en la nube para solucionar un problema durante la validación del paquete. La documentación en [Download and install the agent](azure-stack-vaas-local-agent.md#download-and-install-the-agent) (Descarga e instalación del agente) se ha actualizado con lo siguiente:
 
-    ```PowerShell
+    ```powershell
     $ServiceAdminCreds = New-Object System.Management.Automation.PSCredential "<aadServiceAdminUser>", (ConvertTo-SecureString "<aadServiceAdminPassword>" -AsPlainText -Force)
     $CloudAdminCreds = New-Object System.Management.Automation.PSCredential "<cloudAdminDomain\username>", (ConvertTo-SecureString "<cloudAdminPassword>" -AsPlainText -Force)
     Import-Module .\VaaSPreReqs.psm1 -Force

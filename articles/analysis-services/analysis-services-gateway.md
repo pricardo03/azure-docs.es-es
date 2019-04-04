@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.date: 12/19/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 3f87a4c520327f1a13a48c70502b6737c0aa9b3a
-ms.sourcegitcommit: c94cf3840db42f099b4dc858cd0c77c4e3e4c436
-ms.translationtype: HT
+ms.openlocfilehash: f13dd1282a6384a0acca4c6936fe7900a051795f
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53630978"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58896030"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Conexión a orígenes de datos locales con la puerta de enlace de datos local
 La puerta de enlace de datos local proporciona una transferencia de datos segura entre orígenes de datos locales y los servidores de Azure Analysis Services en la nube. Además de funcionar con varios servidores de Azure Analysis Services en la misma región, la versión más reciente de la puerta de enlace también funciona con Azure Logic Apps, Power BI, Power Apps y Microsoft Flow. Puede asociar varios servicios de la misma suscripción y región con una sola puerta de enlace. 
 
 El proceso de instalación de la puerta de enlace consta de cuatro partes:
 
-- **Descargar y ejecutar el programa de instalación**: en este paso se instala un servicio de puerta de enlace en un equipo de la organización. También se inicia sesión en Azure con la cuenta de Azure AD del [inquilino](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant). No se pueden usar cuentas B2B (invitadas) de Azure.
+- **Descargar y ejecutar el programa de instalación**: en este paso se instala un servicio de puerta de enlace en un equipo de la organización. También se inicia sesión en Azure con la cuenta de Azure AD del [inquilino](/previous-versions/azure/azure-services/jj573650(v=azure.100)#BKMK_WhatIsAnAzureADTenant). No se pueden usar cuentas B2B (invitadas) de Azure.
 
 - **Registrar la puerta de enlace**: en este paso se especifica el nombre y la clave de recuperación de la puerta de enlace y se selecciona la región, de modo que la puerta de enlace se registra en el servicio en la nube de la puerta de enlace. El recurso de puerta de enlace se puede registrar en cualquier región, pero se recomienda que esté en la misma región que los servidores de Analysis Services. 
 
@@ -185,7 +185,7 @@ Puede encontrar los registros de Data Management Gateway y PowerBIGateway en **R
 ## <a name="telemetry"></a>Telemetría
 La telemetría puede usarse para tareas de supervisión y solución de problemas. De forma predeterminada
 
-**Para activar la telemetría:**
+**Para activar la telemetría**
 
 1.  Compruebe el directorio de cliente de puerta de enlace de datos local en el equipo. Normalmente, es **%systemdrive%\Program Files\On-premises data gateway**. O bien, puede abrir una consola de servicios y comprobar la ruta de acceso al archivo ejecutable: Una propiedad del servicio de puerta de enlace de datos local.
 2.  En el archivo Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config del directorio del cliente, cambie el valor SendTelemetry a true.

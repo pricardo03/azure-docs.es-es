@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: b52e7c0de2d834c793bb30fa35bd53b45aaebe5d
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 08ae74bcd9ee0a7cf5e0fb6d38758b1429c39145
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58848867"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916349"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Explorador de métricas de Azure Monitor
 
@@ -76,11 +76,33 @@ Puede aplicar filtros a los gráficos que muestran métricas con dimensiones. Po
 
 5. Puede repetir los pasos del 1 al 4 para aplicar varios filtros a los gráficos mismos.
 
+## <a name="multiple-metrics-and-charts"></a>Varias métricas y gráficos
+
+También puede crear gráficos que trazar varias métricas o mostrar varios gráficos de métricas a la vez. Esta funcionalidad le permite:
+
+- poner en correlación las métricas relacionadas en el mismo gráfico para ver cómo una valor está relacionada con otra
+- mostrar las métricas con las diferentes unidades de medida cerca
+- Agregar visualmente y comparar las métricas de varios recursos
+
+Por ejemplo, si tiene 5 cuentas de almacenamiento y desea saber la cantidad total de espacio se consume entre ellos, puede crear un gráfico de áreas (apiladas) que muestra la persona y la suma de todos los valores en momentos concretos de tiempo.
+
+### <a name="multiple-metrics-on-a-chart"></a>Varias métricas en un gráfico
+
+Primero, [cree un nuevo gráfico](#create-a-new-chart). Haga clic en **agregar métrica** y repita los pasos para agregar otra métrica en el mismo gráfico.
+
+### <a name="multiple-charts"></a>Varios gráficos
+
+Haga clic en el **Agregar gráfico** y cree otro gráfico con una métrica diferente.
+
+### <a name="order-or-delete-multiple-charts"></a>El orden o eliminar varios gráficos
+
+Para ordenar o eliminar varios gráficos, haga clic en el botón de puntos suspensivos ( **...**  ) símbolos para abrir el menú de gráfico y elija el elemento de menú adecuado **Subir**, **Bajar**, o **eliminar**.
+
 ## <a name="apply-splitting-to-a-chart"></a>Se aplican a un gráfico de la división
 
-Puede dividir una métrica por dimensión para visualizar cómo se comparan entre sí los distintos segmentos de la métrica, y para identificar los segmentos no relevantes de una dimensión. 
+Puede dividir una métrica por dimensión para visualizar cómo se comparan entre sí los distintos segmentos de la métrica, y para identificar los segmentos no relevantes de una dimensión.
 
-### <a name="to-apply-splitting"></a>Para aplicar la división
+### <a name="apply-splitting"></a>Aplicar división
 
 1. Haga clic en **Aplicar separación** encima del gráfico.
  

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 81401d95b9c40f16a6e593d61b79f5c2d647c0c5
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 38d8bdfcba48d2080b434ebec192b41f3663ae6a
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518837"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895214"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Uso del SDK de Azure WebJobs para el procesamiento en segundo plano basado en eventos
 
@@ -80,7 +80,7 @@ Puede ejecutar el host en modo de desarrollo para aumentar la eficacia del desar
 
 | Propiedad | Configuración de desarrollo |
 | ------------- | ------------- |
-| `Tracing.ConsoleLevel` | `TraceLevel.Verbose` para maximizar la salida de registros. |
+| `Tracing.ConsoleLevel` | `TraceLevel.Verbose` para maximizar la salida del registro. |
 | `Queues.MaxPollingInterval`  | Un valor bajo para asegurar que los métodos de cola se activan inmediatamente.  |
 | `Singleton.ListenerLockPeriod` | 15 segundos para ayudar en el desarrollo iterativo rápido. |
 
@@ -130,7 +130,7 @@ static void Main()
 
 En la versión 3. *x*, el valor predeterminado es el límite de conexiones para conexiones infinitas. Si por algún motivo tiene que cambiar este límite, puede usar el [ `MaxConnectionsPerServer` ](/dotnet/api/system.net.http.winhttphandler.maxconnectionsperserver) propiedad de la [ `WinHttpHandler` ](/dotnet/api/system.net.http.winhttphandler) clase.
 
-En la versión 2. *x*, controlar el número de conexiones simultáneas a un host mediante la [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit) API. En 2. *x*, debe aumentar este valor desde el valor predeterminado de 2 antes de iniciar el host de WebJobs.
+En la versión 2. *x*, controlar el número de conexiones simultáneas a un host mediante la [ServicePointManager.DefaultConnectionLimit](/dotnet/api/system.net.servicepointmanager.defaultconnectionlimit#System_Net_ServicePointManager_DefaultConnectionLimit) API. En 2. *x*, debe aumentar este valor desde el valor predeterminado de 2 antes de iniciar el host de WebJobs.
 
 Todas las solicitudes HTTP que se realice desde una función mediante el uso de `HttpClient` fluya a través de `ServicePointManager`. Después de alcanzar el valor establecido en `DefaultConnectionLimit`, `ServicePointManager` inicia las solicitudes de puesta en cola antes de enviarlos. Suponga que `DefaultConnectionLimit` se establece en 2 y que el código realiza 1000 solicitudes de HTTP. Inicialmente, solo se permiten dos solicitudes mediante el sistema operativo. Las otras 998 se ponen en cola hasta que haya espacio para ellas. Esto significa que su `HttpClient` es posible que el tiempo de espera porque parece que ha realizado la solicitud, pero nunca se envió la solicitud por el sistema operativo para el servidor de destino. Por lo tanto, es posible que vea cierto comportamiento que no parezca tener sentido: el `HttpClient` local tarda 10 segundos en completar una solicitud, pero el servicio devuelve todas las solicitudes en 200 ms. 
 
@@ -1010,9 +1010,9 @@ config.LoggerFactory = new LoggerFactory()
 
 Este artículo proporciona fragmentos de código que muestran cómo tratar escenarios comunes para trabajar con el SDK de WebJobs. Para obtener ejemplos completos, consulte [azure-webjobs-sdk-samples](https://github.com/Azure/azure-webjobs-sdk-samples).
 
-["ExecutionContext"]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
-["TelemetryClient"]: /dotnet/api/microsoft.applicationinsights.telemetryclient
-["ConfigureServices"]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
-["ITelemetryInitializer"]: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
-["TelemetryConfiguration"]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
+[`ExecutionContext`]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Core/ExecutionContext.cs
+[`TelemetryClient`]: /dotnet/api/microsoft.applicationinsights.telemetryclient
+[`ConfigureServices`]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
+[`ITelemetryInitializer`]: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
+[`TelemetryConfiguration`]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
 [`JobHostConfiguration`]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs

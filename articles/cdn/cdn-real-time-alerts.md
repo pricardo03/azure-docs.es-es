@@ -1,6 +1,6 @@
 ---
-title: Alertas en tiempo real en la red CDN de Azure | Microsoft Docs
-description: Alertas en tiempo real en la red CDN de Microsoft Azure. Las alertas en tiempo real proporcionan notificaciones acerca del rendimiento de los puntos de conexión en un perfil de la red CDN.
+title: Alertas en tiempo real en Azure CDN | Microsoft Docs
+description: Alertas en tiempo real en Microsoft Azure CDN. Las alertas en tiempo real proporcionan notificaciones acerca del rendimiento de los puntos de conexión en un perfil de la red CDN.
 services: cdn
 documentationcenter: ''
 author: zhangmanling
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 51dce1680be5f5f4387c2ba02827195bcdbe9b48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: e20161147aa16456e31aff2bd3cc6337c3690e89
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22998330"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917862"
 ---
-# <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Alertas en tiempo real en la red CDN de Microsoft Azure
+# <a name="real-time-alerts-in-microsoft-azure-cdn"></a>Alertas en tiempo real en Microsoft Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
 ## <a name="overview"></a>Información general
-En este documento se explican las alertas en tiempo real en la red CDN de Microsoft Azure. Esta funcionalidad proporciona notificaciones en tiempo real acerca del rendimiento de los puntos de conexión en un perfil de la red CDN.  Las alertas de correo o de HTTP se pueden configurar por:
+En este documento se explican las alertas en tiempo real en Microsoft Azure CDN. Esta funcionalidad proporciona notificaciones en tiempo real acerca del rendimiento de los puntos de conexión en un perfil de la red CDN.  Las alertas de correo o de HTTP se pueden configurar por:
 
 * Ancho de banda
 * Códigos de estado
@@ -40,7 +40,7 @@ En este documento se explican las alertas en tiempo real en la red CDN de Micros
    
     ![Botón de administración de perfil de la red CDN](./media/cdn-real-time-alerts/cdn-manage-btn.png)
    
-    Se abre el portal de administración de CDN.
+    Se abre el Portal de administración de CDN.
 3. Mantenga el mouse sobre la pestaña **Análisis** y, después, sobre el control flotante **Estadísticas en tiempo real**.  Haga clic en **Real-Time Alerts**(Alertas en tiempo real).
    
     ![Portal de administración de la red CDN](./media/cdn-real-time-alerts/cdn-premium-portal.png)
@@ -60,12 +60,12 @@ En este documento se explican las alertas en tiempo real en la red CDN de Micros
     ![Tipo de medio con objetos HTTP grande seleccionado](./media/cdn-real-time-alerts/cdn-http-large.png)
    
    > [!IMPORTANT]
-   > Necesita seleccionar **Objeto grande HTTP** en **Tipo de medio**.  **CDN de Azure de Verizon**no usa las restantes opciones.  Si no se selecciona **HTTP Large Object** (Objeto HTTP grande), la alerta nunca se desencadenará.
+   > Necesita seleccionar **Objeto grande HTTP** en **Tipo de medio**.  **Azure CDN de Verizon**no usa las restantes opciones.  Si no se selecciona **HTTP Large Object** (Objeto HTTP grande), la alerta nunca se desencadenará.
    > 
    > 
 8. Cree la **expresión** que quiera supervisar (para hacerlo, seleccione una **métrica**, un **operador** y un **valor desencadenador**).
    
-   * En **Metric**(Métrica), seleccione el tipo de condición que desea supervisar.  **Bandwidth Mbps** (Mbps de ancho de banda) es la cantidad de uso del ancho de banda, en megabits por segundo.  **Total Connections** (Total de conexiones) es el número de conexiones HTTP simultáneas a nuestros servidores perimetrales.  Vea las definiciones de los diferentes estados de la memoria caché y códigos de estado en [Azure CDN Cache Status Codes](https://msdn.microsoft.com/library/mt759237.aspx) (Códigos de estado de la memoria caché de la red CDN de Azure) y [Azure CDN HTTP Status Codes](https://msdn.microsoft.com/library/mt759238.aspx) (Códigos de estado HTTP de la red CDN de Azure).
+   * En **Metric**(Métrica), seleccione el tipo de condición que desea supervisar.  **Bandwidth Mbps** (Mbps de ancho de banda) es la cantidad de uso del ancho de banda, en megabits por segundo.  **Total Connections** (Total de conexiones) es el número de conexiones HTTP simultáneas a nuestros servidores perimetrales.  Vea las definiciones de los diferentes estados de la memoria caché y códigos de estado en [Azure CDN Cache Status Codes](/previous-versions/azure/mt759237(v=azure.100)) (Códigos de estado de la memoria caché de la red CDN de Azure) y [Azure CDN HTTP Status Codes](/previous-versions/azure/mt759238(v=azure.100)) (Códigos de estado HTTP de la red CDN de Azure).
    * **Operator** (Operador) es el operador matemático que establece la relación entre la métrica y el valor del desencadenador.
    * **Trigger Value** (Valor de desencadenador) es el valor de umbral que debe cumplirse para enviarse una notificación.
      
@@ -108,7 +108,7 @@ En este documento se explican las alertas en tiempo real en la red CDN de Micros
 13. Haga clic en el botón **Save** (Guardar) la configuración de las alertas.  Si activó **Alert Enabled** (Alerta habilitada) en el paso 5, la alerta ya está activa.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* Análisis de [estadísticas en tiempo real en la CDN de Microsoft Azure](cdn-real-time-stats.md)
+* Análisis de [estadísticas en tiempo real en Azure CDN](cdn-real-time-stats.md)
 * Mayor profundización con [Informes de HTTP avanzados en la red CDN de Microsoft Azure](cdn-advanced-http-reports.md)
 * Analizar [patrones de uso](cdn-analyze-usage-patterns.md)
 

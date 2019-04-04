@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/22/2019
 ms.author: cwatson
-ms.openlocfilehash: 9eba59bcdc9974519fc1ed37078a205eff28f116
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: fe0d0f0baa2b3d1c08e871541dce1511e00f7f87
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58653234"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917063"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Información sobre cómo se aplica el descuento de plan de reserva de software de Red Hat Linux Enterprise para Azure
 
@@ -158,12 +158,12 @@ Nombres de marketplace de Azure Portal:
 
 Para más información acerca de las reservas, consulte los siguientes artículos:
 
-- [Qué son las reservas de Azure](billing-save-compute-costs-reservations.md)
+- [¿Cuáles son las reservas para Azure](billing-save-compute-costs-reservations.md)
 - [Pago por adelantado para los planes de software de Red Hat con las reservas de Azure](../virtual-machines/linux/prepay-rhel-software-charges.md)
 - [Pago por adelantado de máquinas virtuales con Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Administrar reservas para Azure](billing-manage-reserved-vm-instance.md)
-- [Información sobre el uso de reservas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)
-- [Información sobre el uso de reservas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
+- [Entender el uso de reserva para su suscripción de pago por uso](billing-understand-reserved-instance-usage.md)
+- [Entender el uso de reserva para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
 
 ## <a name="need-help-contact-us"></a>¿Necesita ayuda? Ponerse en contacto con nosotros
 

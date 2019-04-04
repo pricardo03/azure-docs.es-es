@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 77b704e9359e582664bad8e08e9389cfac8eaca7
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
-ms.translationtype: HT
+ms.openlocfilehash: 9d74cd3bd466578c61f8f12bf9b6e862c046e9bc
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54121403"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903767"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Plantillas de perfil de usuario en Azure API Management
 Azure API Management le ofrece la posibilidad de personalizar el contenido de las páginas del portal para desarrolladores mediante un conjunto de plantillas que configuran su contenido. Por medio de la sintaxis [DotLiquid](http://dotliquidmarkup.org/) y el editor que prefiera, como [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers) (DotLiquid para diseñadores), y un conjunto proporcionado de [recursos de cadena](api-management-template-resources.md#strings), [recursos de glifo](api-management-template-resources.md#glyphs) y [controles de página](api-management-page-controls.md) localizados, puede disponer de una gran flexibilidad para configurar el contenido de las páginas como considere oportuno mediante estas plantillas.  
@@ -28,11 +28,11 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
   
 -   [Perfil](#Profile)  
   
--   [Subscriptions](#Subscriptions)  
+-   [Suscripciones](#Subscriptions)  
   
--   [Aplicaciones](#Applications)  
+-   [APLICACIONES](#Applications)  
   
--   [Update account info](#UpdateAccountInfo)  
+-   [Actualizar la información de cuenta](#UpdateAccountInfo)  
   
 > [!NOTE]
 >  En la siguiente documentación se incluyen plantillas predeterminadas de ejemplo; sin embargo, están sujetas a cambios debido a mejoras continuas. Puede ver las plantillas predeterminadas en vivo en el portal para desarrolladores; para ello, vaya hasta a las plantillas individuales que desee. Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
@@ -106,17 +106,17 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
   
 |Propiedad|Escriba|DESCRIPCIÓN|  
 |--------------|----------|-----------------|  
-|firstName|string|Nombre del usuario actual.|  
-|lastName|string|Apellido del usuario actual.|  
-|companyName|string|El nombre de la empresa del usuario actual.|  
-|addresserEmail|string|Dirección de correo electrónico del usuario actual.|  
-|developersUsageStatisticsLinkk|string|Dirección URL relativa para ver el análisis para el usuario actual.|  
-|subscriptions|Colección de entidades de [suscripción](api-management-template-data-model-reference.md#Subscription).|Las suscripciones para el usuario actual.|  
-|aplicaciones de escala de web|Colección de entidades de [aplicación](api-management-template-data-model-reference.md#Application).|Las aplicaciones del usuario actual.|  
-|changePasswordUrl|string|La dirección URL relativa para cambiar la contraseña del usuario actual.|  
-|changeNameOrEmailUrl|string|La dirección URL relativa para cambiar el nombre y el correo electrónico para el usuario actual.|  
-|canChangePassword|boolean|Si el usuario actual puede cambiar su contraseña.|  
-|isSystemUser|boolean|Si el usuario actual es miembro de uno de los [grupos](api-management-key-concepts.md#groups) integrados.|  
+|`firstName`|string|Nombre del usuario actual.|  
+|`lastName`|string|Apellido del usuario actual.|  
+|`companyName`|string|El nombre de la empresa del usuario actual.|  
+|`addresserEmail`|string|Dirección de correo electrónico del usuario actual.|  
+|`developersUsageStatisticsLink`|string|Dirección URL relativa para ver el análisis para el usuario actual.|  
+|`subscriptions`|Colección de entidades de [suscripción](api-management-template-data-model-reference.md#Subscription).|Las suscripciones para el usuario actual.|  
+|`applications`|Colección de entidades de [aplicación](api-management-template-data-model-reference.md#Application).|Las aplicaciones del usuario actual.|  
+|`changePasswordUrl`|string|La dirección URL relativa para cambiar la contraseña del usuario actual.|  
+|`changeNameOrEmailUrl`|string|La dirección URL relativa para cambiar el nombre y el correo electrónico para el usuario actual.|  
+|`canChangePassword`|boolean|Si el usuario actual puede cambiar su contraseña.|  
+|`isSystemUser`|boolean|Si el usuario actual es miembro de uno de los [grupos](api-management-key-concepts.md#groups) integrados.|  
   
 ### <a name="sample-template-data"></a>Ejemplo de datos de plantilla  
   
@@ -318,7 +318,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 ### <a name="controls"></a>Controles  
  Esta plantilla puede utilizar los siguientes [controles de página](api-management-page-controls.md).  
   
--   [subscription-cancel](api-management-page-controls.md#subscription-cancel)  
+-   [cancelación de suscripción](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>Modelo de datos  
   
@@ -327,17 +327,17 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
   
 |Propiedad|Escriba|DESCRIPCIÓN|  
 |--------------|----------|-----------------|  
-|firstName|string|Nombre del usuario actual.|  
-|lastName|string|Apellido del usuario actual.|  
-|companyName|string|El nombre de la empresa del usuario actual.|  
-|addresserEmail|string|Dirección de correo electrónico del usuario actual.|  
-|developersUsageStatisticsLinkk|string|Dirección URL relativa para ver el análisis para el usuario actual.|  
-|subscriptions|Colección de entidades de [suscripción](api-management-template-data-model-reference.md#Subscription).|Las suscripciones para el usuario actual.|  
-|aplicaciones de escala de web|Colección de entidades de [aplicación](api-management-template-data-model-reference.md#Application).|Las aplicaciones del usuario actual.|  
-|changePasswordUrl|string|La dirección URL relativa para cambiar la contraseña del usuario actual.|  
-|changeNameOrEmailUrl|string|La dirección URL relativa para cambiar el nombre y el correo electrónico para el usuario actual.|  
-|canChangePassword|boolean|Si el usuario actual puede cambiar su contraseña.|  
-|isSystemUser|boolean|Si el usuario actual es miembro de uno de los [grupos](api-management-key-concepts.md#groups) integrados.|  
+|`firstName`|string|Nombre del usuario actual.|  
+|`lastName`|string|Apellido del usuario actual.|  
+|`companyName`|string|El nombre de la empresa del usuario actual.|  
+|`addresserEmail`|string|Dirección de correo electrónico del usuario actual.|  
+|`developersUsageStatisticsLink`|string|Dirección URL relativa para ver el análisis para el usuario actual.|  
+|`subscriptions`|Colección de entidades de [suscripción](api-management-template-data-model-reference.md#Subscription).|Las suscripciones para el usuario actual.|  
+|`applications`|Colección de entidades de [aplicación](api-management-template-data-model-reference.md#Application).|Las aplicaciones del usuario actual.|  
+|`changePasswordUrl`|string|La dirección URL relativa para cambiar la contraseña del usuario actual.|  
+|`changeNameOrEmailUrl`|string|La dirección URL relativa para cambiar el nombre y el correo electrónico para el usuario actual.|  
+|`canChangePassword`|boolean|Si el usuario actual puede cambiar su contraseña.|  
+|`isSystemUser`|boolean|Si el usuario actual es miembro de uno de los [grupos](api-management-key-concepts.md#groups) integrados.|  
   
 ### <a name="sample-template-data"></a>Ejemplo de datos de plantilla  
   
@@ -481,7 +481,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 ### <a name="controls"></a>Controles  
  Esta plantilla puede utilizar los siguientes [controles de página](api-management-page-controls.md).  
   
--   [app-actions](api-management-page-controls.md#app-actions)  
+-   [acciones de aplicación](api-management-page-controls.md#app-actions)  
   
 ### <a name="data-model"></a>Modelo de datos  
   
@@ -490,17 +490,17 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
   
 |Propiedad|Escriba|DESCRIPCIÓN|  
 |--------------|----------|-----------------|  
-|firstName|string|Nombre del usuario actual.|  
-|lastName|string|Apellido del usuario actual.|  
-|companyName|string|El nombre de la empresa del usuario actual.|  
-|addresserEmail|string|Dirección de correo electrónico del usuario actual.|  
-|developersUsageStatisticsLinkk|string|Dirección URL relativa para ver el análisis para el usuario actual.|  
-|subscriptions|Colección de entidades de [suscripción](api-management-template-data-model-reference.md#Subscription).|Las suscripciones para el usuario actual.|  
-|aplicaciones de escala de web|Colección de entidades de [aplicación](api-management-template-data-model-reference.md#Application).|Las aplicaciones del usuario actual.|  
-|changePasswordUrl|string|La dirección URL relativa para cambiar la contraseña del usuario actual.|  
-|changeNameOrEmailUrl|string|La dirección URL relativa para cambiar el nombre y el correo electrónico para el usuario actual.|  
-|canChangePassword|boolean|Si el usuario actual puede cambiar su contraseña.|  
-|isSystemUser|boolean|Si el usuario actual es miembro de uno de los [grupos](api-management-key-concepts.md#groups) integrados.|  
+|`firstName`|string|Nombre del usuario actual.|  
+|`lastName`|string|Apellido del usuario actual.|  
+|`companyName`|string|El nombre de la empresa del usuario actual.|  
+|`addresserEmail`|string|Dirección de correo electrónico del usuario actual.|  
+|`developersUsageStatisticsLink`|string|Dirección URL relativa para ver el análisis para el usuario actual.|  
+|`subscriptions`|Colección de entidades de [suscripción](api-management-template-data-model-reference.md#Subscription).|Las suscripciones para el usuario actual.|  
+|`applications`|Colección de entidades de [aplicación](api-management-template-data-model-reference.md#Application).|Las aplicaciones del usuario actual.|  
+|`changePasswordUrl`|string|La dirección URL relativa para cambiar la contraseña del usuario actual.|  
+|`changeNameOrEmailUrl`|string|La dirección URL relativa para cambiar el nombre y el correo electrónico para el usuario actual.|  
+|`canChangePassword`|boolean|Si el usuario actual puede cambiar su contraseña.|  
+|`isSystemUser`|boolean|Si el usuario actual es miembro de uno de los [grupos](api-management-key-concepts.md#groups) integrados.|  
   
 ### <a name="sample-template-data"></a>Ejemplo de datos de plantilla  
   

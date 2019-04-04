@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 03/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8ebf9826f156245381ce3503dc64275bca571cc5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a182b9ec0fb945b4c2ffddd7a977df8ad9a8d250
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57890797"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895975"
 ---
 # <a name="what-is-video-indexer"></a>¿Qué es Video Indexer?
 
@@ -23,15 +23,17 @@ Azure Video Indexer es una aplicación en la nube creada en Azure Media Analytic
 ## <a name="video-insights"></a>Información de los vídeos
 
 - **Detección de caras**: detecta y agrupa las caras que aparecen en el vídeo.
-- **Identificación de celebridades**: Video Indexer identifica automáticamente más de un millón de (como líderes mundiales, actores y actrices, atletas, investigadores y líderes empresariales y tecnológicos de todo el mundo). Los datos de estos famosos también pueden encontrarse en varios sitios web famosos, como IMDB y Wikipedia.
+- **Identificación de celebridades**: Video Indexer identifica automáticamente las celebridades de más de 1 millón – como líderes mundiales, actores, actresses, atletas, los investigadores, negocios y líderes tecnológicos en todo el mundo. Los datos de estos famosos también pueden encontrarse en varios sitios web famosos, como IMDB y Wikipedia.
 - **Identificación facial basada en cuentas**:  Video Indexer entrena un modelo para una cuenta específica. A continuación, reconozca caras en el vídeo según el modelo entrenado. Para obtener más información, consulte [personalizar un modelo de persona desde el sitio Web de Video Indexer](customize-person-model-with-website.md) y [personalizar un modelo de la persona con la API de Video Indexer](customize-person-model-with-api.md).
 - **Extracción de miniaturas de caras** ("mejor cara"): identifica automáticamente la mejor cara capturada en cada grupo de caras (según la calidad, el tamaño y la posición frontal) y la extrae como un recurso de imagen.
 - **Reconocimiento de texto visual** (OCR): extrae el texto que se muestra visualmente en el vídeo.
 - **Moderación de contenido visual**: Detecta los objetos visuales para adultos o subidos de tono.
 - **Identificación de etiquetas**: identifica los objetos visuales y las acciones que se muestran.
-- **Detección de cortes**: determina cuándo cambia una escena en el vídeo.
+- **Segmentación de la escena**: determina cuándo los cambios de una escena en según las indicaciones visuales de vídeo. Una escena representa un evento único y está compuesto por una serie de capturas consecutivas, que son semánticamente relacionados. 
+- **Detección de captura**: determina cuando se cambia una captura de vídeo en función de las indicaciones visuales. Una captura es una serie de marcos que se toman de la misma cámara imágenes en movimiento. Para obtener más información, consulte [escenas, capturas y fotogramas clave](scenes-shots-keyframes.md).
 - **Detección de fotogramas negros**: identifica los fotogramas negros presentados en el vídeo.
 - **Extracción de fotogramas clave**: detecta los fotogramas clave estables en un vídeo.
+- **Las sucesivas créditos**: identificar el principio y final de los créditos graduales al final de programas de TV y películas.
 
 ## <a name="audio-insights"></a>Información de audio
 
@@ -69,15 +71,14 @@ Puede suscribirse al servicio mediante una cuenta existente de AAD, LinkedIn, Fa
 A continuación se presentan algunos escenarios en los que Video Indexer puede ser útil.
 
 - Búsqueda: las información extraída del vídeo se puede utilizar para mejorar la experiencia de búsqueda en una biblioteca de vídeos. Por ejemplo, la indexación de palabras habladas y caras puede permitir la experiencia de búsqueda de momentos en un vídeo en los que una persona en particular ha pronunciado ciertas palabras o cuando se han visto juntas a dos personas. La búsqueda basada en esta información de los vídeos se puede aplicar a agencias de noticias, instituciones educativas, emisoras, propietarios de contenido de entretenimiento, aplicaciones de línea de negocio de empresas y, en general, a cualquier sector que tenga una biblioteca de vídeos en la que los usuarios necesiten buscar.
-
+- Creación de contenido: insights extraen de vídeos y ayudan a crear eficazmente los contenidos como finalizadores, contenido de medios sociales, noticias clips etc. del contenido existente en el archivo de la organización 
 - Monetización: Video Indexer puede ayudar a mejorar el valor de los vídeos. Por ejemplo, los sectores que dependen de los ingresos por publicidad (por ejemplo, los medios de comunicación, las redes sociales, etc.), pueden entregar anuncios más relevantes con los conocimientos extraídos como señales adicionales para el servidor de anuncios (la presentación de un anuncio de calzado deportivo es más relevante en medio de un partido de fútbol que en una competición de natación).
-
 - Involucración del usuario: la información del vídeo se puede utilizar para mejorar la involucración de los usuarios al posicionar momentos de vídeo más relevantes para ellos. Como ejemplo, considere un vídeo educativo que explique las esferas durante los primeros 30 minutos y las pirámides durante los siguientes 30 minutos. El estudiante que lee sobre las pirámides se beneficiaría más si el vídeo se posiciona a partir del marcador de 30 minutos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Ya está listo para empezar a trabajar con Video Indexer. Para más información, consulte los siguientes artículos.
 
-- [Introducción al sitio web de Video Indexer](video-indexer-get-started.md)
-- [Proceso de contenido con Video Indexer REST API](video-indexer-use-apis.md)
+- [Empezar a trabajar con el sitio Web de Video Indexer](video-indexer-get-started.md)
+- [Contenido de proceso con Video Indexer API de REST](video-indexer-use-apis.md)
 - [Inserción de widgets visuales en la aplicación](video-indexer-embed-widgets.md)

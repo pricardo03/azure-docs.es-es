@@ -15,18 +15,21 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: c316176094f6d9b8b45b812acaad04ad37f4bce2
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8ae6c9d5238f2853a12c20edfd3dba6d3f529b2c
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449136"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905824"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Solución de problemas de dominio y certificado SSL en Azure App Service
 
 En este artículo se indican los problemas que pueden surgir al configurar un dominio o un certificado SSL para las aplicaciones web en Azure App Service. También se describen las posibles causas de estos problemas y sus soluciones.
 
 Si necesita más ayuda con cualquier aspecto de este artículo, puede ponerse en contacto con los expertos de Azure en los [foros de MSDN o Stack Overflow](https://azure.microsoft.com/support/forums/). Como alternativa, puede registrar un incidente de soporte técnico de Azure. Vaya al [sitio de soporte técnico de Azure](https://azure.microsoft.com/support/options/) y seleccione **Soporte técnico**.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="certificate-problems"></a>Problemas con el certificado
 
@@ -284,7 +287,7 @@ Sí, puede señalar el dominio a una máquina virtual. Para más información, c
 
 Dominios de App Service use GoDaddy para el registro de dominio y DNS de Azure para hospedar los dominios. 
 
-**Tengo la renovación automática habilitada, pero todavía recibe un aviso de renovación para mi dominio a través del correo electrónico. ¿qué debo hacer?**
+**Tengo la renovación automática habilitada, pero todavía recibe un aviso de renovación para mi dominio a través del correo electrónico. ¿Cuál debo hacer?**
 
 Si dispone de renovación automática está habilitada, no es necesario realizar ninguna acción. El correo electrónico de aviso se proporciona informar de que el dominio está a punto de expirar y renovar manualmente si la renovación automática no está habilitado.
 
@@ -314,7 +317,7 @@ Sí. Cuando tenga acceso a la hoja dominios personalizados y SSL en el portal de
 
 **¿Puedo transferir un dominio de una suscripción a otra suscripción?**
 
-Puede mover un dominio a otro grupo de recursos/suscripción utilizando el [Move-AzureRmResource](https://docs.microsoft.com/powershell/module/AzureRM.Resources/Move-AzureRmResource) cmdlet de PowerShell.
+Puede mover un dominio a otro grupo de recursos/suscripción utilizando el [movimiento AzResource](https://docs.microsoft.com/powershell/module/az.Resources/Move-azResource) cmdlet de PowerShell.
 
 **¿Cómo puedo administrar mi dominio personalizado si no hay actualmente una aplicación de Azure App Service?**
 

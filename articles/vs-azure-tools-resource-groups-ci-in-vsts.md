@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: d7859572b090913db13fe9bb7f3ed67619fe5521
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: cc9e2e09da572dc4260dcc0e20a8a1846ae17320
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57456353"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894156"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Integración continua de Azure DevOps Services con proyectos del grupo de recursos de Azure
 Para implementar una plantilla de Azure, realizar tareas en varias fases: Compilación, prueba, copia en Azure (también denominado "Ensayo") y plantilla de implementación. Hay dos maneras distintas de implementar plantillas en Azure DevOps Services. Ambos métodos proporcionan los mismos resultados, así que puede elegir el que mejor se adapte a su flujo de trabajo.
@@ -37,7 +37,7 @@ Independientemente del escenario, si dispone de los artefactos necesarios para l
 * Archivos binarios de aplicación
 
 ### <a name="nested-templates-and-configuration-scripts"></a>Plantillas anidadas y scripts de configuración
-Al utilizar las plantillas proporcionadas por Visual Studio (o compilar con fragmentos de código de Visual Studio), el script de PowerShell no solo almacena provisionalmente los artefactos, sino que parametriza también el URI de los recursos de las distintas implementaciones. El script copia los artefactos en un contenedor seguro de Azure, crea un token de SaS para dicho contenedor y, a continuación, pasa esta información a la implementación de plantilla. Consulte [Crear una implementación de plantilla](https://msdn.microsoft.com/library/azure/dn790564.aspx) para obtener más información acerca de las plantillas anidadas.  Cuando se usan tareas en Azure DevOps Services, debe seleccionar las tareas adecuadas para la implementación de plantilla y, si es necesario, pasar valores de parámetro desde el paso de almacenamiento provisional a la implementación de plantilla.
+Al utilizar las plantillas proporcionadas por Visual Studio (o compilar con fragmentos de código de Visual Studio), el script de PowerShell no solo almacena provisionalmente los artefactos, sino que parametriza también el URI de los recursos de las distintas implementaciones. El script copia los artefactos en un contenedor seguro de Azure, crea un token de SaS para dicho contenedor y, a continuación, pasa esta información a la implementación de plantilla. Consulte [Crear una implementación de plantilla](/previous-versions/azure/reference/dn790564(v=azure.100)) para obtener más información acerca de las plantillas anidadas.  Cuando se usan tareas en Azure DevOps Services, debe seleccionar las tareas adecuadas para la implementación de plantilla y, si es necesario, pasar valores de parámetro desde el paso de almacenamiento provisional a la implementación de plantilla.
 
 ## <a name="set-up-continuous-deployment-in-azure-pipelines"></a>Configuración de la implementación continua en Azure Pipelines
 Para llamar al script de PowerShell en Azure Pipelines, debe actualizar la canalización de compilación. En resumen, los pasos son: 

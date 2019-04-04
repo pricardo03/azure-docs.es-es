@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/05/2019
+ms.date: 04/02/2019
 ms.author: magoedte
-ms.openlocfilehash: 677fec21b7491398da5e4958441e5405e0c10e0e
-ms.sourcegitcommit: 947b331c4d03f79adcb45f74d275ac160c4a2e83
-ms.translationtype: HT
+ms.openlocfilehash: 5fdee4edce0301a5a4524725879f599b0a2e3532
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55745680"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58916706"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Problemas conocidos con Azure Monitor para VM (versión preliminar)
 
@@ -31,7 +31,6 @@ Los siguientes son problemas conocidos de la versión actual de la característi
 - Si se quita o se elimina una máquina virtual de Azure, se muestra en la vista de lista de la máquina virtual durante un tiempo. Además, si hace clic en el estado de una máquina virtual que se ha eliminado, se abre la vista **Diagnóstico de mantenimiento** y, a continuación, pasa a un bucle de carga. Si selecciona el nombre de una máquina virtual eliminada, se abre un panel con un mensaje que indica que la máquina virtual se ha eliminado.
 - Los cambios de configuración, como la actualización de un umbral, tardan aproximadamente 30 minutos incluso aunque el portal o en la API Workload Monitor se actualicen inmediatamente. 
 - El Diagnóstico de mantenimiento experimenta las actualizaciones más rápido que cualquier otra vista. La información podría retrasarse al cambiar entre ellas. 
-- Al apagar las máquinas virtuales, se actualizan algunos de los criterios de mantenimiento como *críticos* y otras como *Correcto*. Se muestra el estado de la máquina virtual de red como *críticos*.
 - Para las máquinas virtuales de Linux, el título de la página que enumera los criterios de mantenimiento de una vista única de la máquina virtual tiene el nombre de dominio completo de la máquina virtual en lugar del nombre de máquina virtual definido por el usuario. 
 - Después de deshabilitar la supervisión de una máquina virtual mediante los métodos admitidos e intentar implementarla de nuevo, debería implementarla en la misma área de trabajo. Si elige una nueva área de trabajo e intenta ver el estado de mantenimiento para esa máquina virtual, es posible que muestre comportamientos incoherentes.
 - El criterio de mantenimiento de utilización de la CPU total para Windows muestra un umbral de *no igual a* **4**, lo que significa que la utilización de la CPU es mayor que el 95 % y la longitud de la cola del sistema es mayor que 15. Este criterio de mantenimiento no es configurable en esta versión preliminar.  

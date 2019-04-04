@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/18/2018
 ms.author: diberry
-ms.openlocfilehash: 4465488dc02568932e839d3234bdb672d59e6804
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 5abc2026362e19b406b34a4321e766c3229cc0b4
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58089852"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894191"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Acceso de usuario a la creación y los puntos de conexión
 El acceso a la creación está disponible para los propietarios y colaboradores. Para una aplicación privada, el acceso a los puntos de conexión está disponible para los propietarios y colaboradores. Para una aplicación pública, el acceso al punto de conexión está disponible para todos los usuarios que tengan su propia cuenta de LUIS y el identificador de la aplicación pública. 
@@ -35,7 +35,7 @@ El propietario y todos los colaboradores tienen acceso a la creación de la apli
 |Hacer pública la aplicación|Cuando una aplicación es pública, cualquiera que tenga una clave de creación o del punto de conexión puede consultar la aplicación.|
 |Modificar el modelo|
 |Publicar|
-|Revisar las expresiones de punto de conexión para un [aprendizaje activo](luis-how-to-review-endoint-utt.md)|
+|Revisar las expresiones de punto de conexión para un [aprendizaje activo](luis-how-to-review-endpoint-utterances.md)|
 |Entrenar|
 
 ## <a name="access-to-endpoint"></a>Acceder al punto de conexión

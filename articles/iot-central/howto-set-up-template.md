@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1306b97ce7fcf2cd429be31bc99d022de53805d6
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 602c7385b252daa7db22bd47f43afec3ad072263
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259867"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904209"
 ---
 # <a name="set-up-a-device-template-new-ui-design"></a>Configuración de una plantilla de dispositivo (diseño de la nueva interfaz de usuario)
 
@@ -198,7 +198,7 @@ Puede crear una propiedad de ubicación como una propiedad de la aplicación med
 
    Se admiten dos formatos para agregar una ubicación:
    - **Ubicación como una dirección**
-   - **Ubicación como coordenadas**
+   - **Ubicación de coordenadas**
 
 4. Seleccione **Guardar**. Un operador puede actualizar el valor de ubicación en **Device Explorer**.
 
@@ -280,4 +280,6 @@ Puede cambiar el tamaño del mapa hasta obtener el tamaño deseado. Ahora, cuand
 Ahora que ha aprendido a configurar una plantilla de dispositivo en una aplicación de Azure IoT Central puede:
 
 > [!div class="nextstepaction"]
-> [Creación de una nueva versión de plantilla de dispositivo](howto-version-devicetemplate.md)
+> [Crear una nueva versión de plantilla de dispositivo](howto-version-devicetemplate.md)
+> [conectar un dispositivo MXChip IoT DevKit a una aplicación de Azure IoT Central](howto-connect-devkit.md)
+> [conectar una aplicación cliente genérico a los de Azure Aplicación de IoT Central (Node.js)](howto-connect-nodejs.md)

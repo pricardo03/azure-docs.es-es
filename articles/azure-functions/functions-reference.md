@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: 01fce9813299465767bdaed7f3c2939813cfab87
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/03/2019
-ms.locfileid: "56339500"
+ms.locfileid: "58891896"
 ---
 # <a name="azure-functions-developers-guide"></a>Guía para desarrolladores de Azure Functions
 En Azure Functions, determinadas funciones comparten algunos componentes y conceptos técnicos básicos, independientemente del idioma o el enlace que use. Antes de ir a detalles de aprendizaje específicos de un idioma o un enlace determinados, asegúrese de leer al completo esta información general que se aplica a todos ellos.
@@ -75,7 +75,7 @@ Las aplicaciones de función pueden crearse y publicarse con diversas herramient
 El editor de funciones integrado en Azure Portal le permite actualizar el código y el archivo *function.json* directamente. Esto solo se recomienda para pequeños cambios o pruebas de concepto: el procedimiento recomendado es usar una herramienta de desarrollo local como VS Code.
 
 ## <a name="parallel-execution"></a>Ejecución en paralelo
-Cuando se producen varios eventos de desencadenado más rápido de lo que un tiempo de ejecución de función de un solo subproceso pueda procesarlos, el tiempo de ejecución puede invocar la función varias veces en paralelo.  Si una aplicación de función usa el [plan de hospedaje de consumo](functions-scale.md#how-the-consumption-plan-works), esta aplicación podría escalarse horizontalmente de forma automática.  Cada instancia de la aplicación de función, tanto si la aplicación se ejecuta en el plan de hospedaje de consumo como en el [plan de hospedaje de App Service](../app-service/overview-hosting-plans.md) normal, puede procesar invocaciones de función simultáneas en paralelo mediante varios subprocesos.  El número máximo de invocaciones de función simultáneas en cada instancia de aplicación de función varía según el tipo de desencadenador usado y lo recursos empleados por otras funciones dentro de la aplicación de función.
+Cuando se producen varios eventos de desencadenado más rápido de lo que un tiempo de ejecución de función de un solo subproceso pueda procesarlos, el tiempo de ejecución puede invocar la función varias veces en paralelo.  Si una aplicación de función usa el [plan de hospedaje de consumo](functions-scale.md#how-the-consumption-and-premium-plans-work), esta aplicación podría escalarse horizontalmente de forma automática.  Cada instancia de la aplicación de función, tanto si la aplicación se ejecuta en el plan de hospedaje de consumo como en el [plan de hospedaje de App Service](../app-service/overview-hosting-plans.md) normal, puede procesar invocaciones de función simultáneas en paralelo mediante varios subprocesos.  El número máximo de invocaciones de función simultáneas en cada instancia de aplicación de función varía según el tipo de desencadenador usado y lo recursos empleados por otras funciones dentro de la aplicación de función.
 
 ## <a name="functions-runtime-versioning"></a>Versiones del entorno en tiempo de ejecución de Functions
 

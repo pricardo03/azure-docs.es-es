@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 02/02/2019
 ms.author: haroldw
-ms.openlocfilehash: bc7a49aa143400387afcd59d5b9307d82a028486
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf3a3ca1f751ce9eed5ee5c5397c1d9c864a1dd6
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098668"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903682"
 ---
 # <a name="post-deployment-tasks"></a>Tareas posteriores a la implementación
 
@@ -147,7 +147,7 @@ Inserte las líneas siguientes inmediatamente después de las líneas anteriores
         token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 ```
 
-Asegúrese de que el texto se alinea correctamente en identityProviders. Busque el identificador de inquilino mediante el siguiente comando de CLI: ```az account show```.
+Asegúrese de que el texto se alinea correctamente en identityProviders. Busque el identificador de inquilino mediante el siguiente comando de CLI: ```az account show```
 
 Reinicie los servicios maestros de OpenShift en todos los nodos maestros:
 
@@ -184,7 +184,7 @@ En la consola de OpenShift, ahora verá dos opciones para la autenticación: htp
 Hay tres maneras de agregar al agente de Log Analytics a OpenShift.
 - Instalar el agente de Log Analytics para Linux directamente en cada nodo de OpenShift
 - Habilitar la extensión de máquina virtual de Azure Monitor en cada nodo OpenShift
-- Instalar el agente de Log Analytics como daemon-set de OpenShift
+- Instale al agente de Log Analytics como un daemon-set de OpenShift
 
 Las instrucciones completas se encuentran aquí: https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.
 
@@ -251,7 +251,7 @@ Para la plantilla de OpenShift Container y la oferta de Marketplace, el archivo 
 
 Conéctese mediante SSH al nodo de tipo bastión o al primer nodo maestro (en función de la plantilla y la rama en uso) con las credenciales proporcionadas durante la implementación. Ejecute el siguiente comando:
 
-**OpenShift Container Platform 3.7 y versiones anteriores**
+**OpenShift Container Platform 3.7 y versiones anterior**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -263,7 +263,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cl
 -e openshift_hosted_logging_storage_kind=dynamic
 ```
 
-**OpenShift Container Platform 3.9 y versiones posteriores**
+**OpenShift Container Platform 3.9 y versiones posterior**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
@@ -275,7 +275,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-loggin
 -e openshift_logging_es_pvc_dynamic=true
 ```
 
-**OKD 3.7 y versiones anteriores**
+**OKD 3.7 y versiones anterior**
 
 ```bash
 ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -287,7 +287,7 @@ ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-l
 -e openshift_hosted_logging_storage_kind=dynamic
 ```
 
-**OKD 3.9 y versiones posteriores**
+**OKD 3.9 y versiones posterior**
 
 ```bash
 ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -304,7 +304,7 @@ ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
 Conéctese mediante SSH al nodo de tipo bastión o al primer nodo maestro (en función de la plantilla y la rama en uso) con las credenciales proporcionadas durante la implementación. Ejecute el siguiente comando:
 
 
-**OpenShift Container Platform 3.7 y versiones anteriores**
+**OpenShift Container Platform 3.7 y versiones anterior**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -314,7 +314,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cl
 -e openshift_logging_install_logging=True
 ```
 
-**OpenShift Container Platform 3.9 y versiones posteriores**
+**OpenShift Container Platform 3.9 y versiones posterior**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
@@ -324,7 +324,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-loggin
 -e openshift_logging_install_logging=True
 ```
 
-**OKD 3.7 y versiones anteriores**
+**OKD 3.7 y versiones anterior**
 
 ```bash
 ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -334,7 +334,7 @@ ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-l
 -e openshift_logging_install_logging=True
 ```
 
-**OKD 3.9 y versiones posteriores**
+**OKD 3.9 y versiones posterior**
 
 ```bash
 ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \

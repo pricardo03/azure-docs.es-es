@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: scottwhi
 ms.custom: seodec2018
-ms.openlocfilehash: 78391a9892ff568bfa41b16beb4a5b599ceee6c6
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: c53b84f31100ab72458ab6fb79b2009450eda15c
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337386"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917454"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>Cambio de tamaño y recorte de miniaturas
 
-Cuando se procesa una consulta de búsqueda, Bing genera información sobre las miniaturas de todas las imágenes de la [respuesta](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format). Esta información puede utilizarse para mostrar todas las miniaturas devueltas o un subconjunto de ellas. Si solo se va a mostrar un subconjunto, proporcione al usuario una opción para que pueda consultar las imágenes restantes.
+Cuando se procesa una consulta de búsqueda, Bing genera información sobre las miniaturas de todas las imágenes de la [respuesta](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format). Esta información puede utilizarse para mostrar todas las miniaturas devueltas o un subconjunto de ellas. Si se muestra un subconjunto, proporcionan una opción para ver las imágenes restantes.
 
 
 <!-- Removing image until we can replace it with a sanatized version.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 3a88c29739faca33794ce10de895c0439f007532
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 51d168474fd593dd537a25c0434e240a426c2cbf
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294236"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918355"
 ---
 # <a name="scaling-media-processing-overview"></a>Información general del escalado de procesamiento de medios 
 Esta página proporciona una introducción a cómo y por qué se debe escalar el procesamiento de medios. 
@@ -48,7 +48,7 @@ Con esta tabla será más fácil tomar la decisión de elegir entre distintas ve
 
 ## <a name="billing"></a>Facturación
 
-Se le cobrará en función de los minutos reales de uso de las unidades reservadas de multimedia. Para obtener una explicación detallada, vea la sección de preguntas más frecuentes de la página de [precios de Media Services](https://azure.microsoft.com/pricing/details/media-services/).   
+Se cobran en función del número de minutos que se aprovisionan las unidades reservadas de multimedia en su cuenta. Esto ocurre independientemente de si existen todos los trabajos que se ejecutan en su cuenta. Para obtener una explicación detallada, vea la sección de preguntas más frecuentes de la página de [precios de Media Services](https://azure.microsoft.com/pricing/details/media-services/).   
 
 ## <a name="quotas-and-limitations"></a>Cuotas y limitaciones
 Para obtener información sobre las cuotas y limitaciones y sobre cómo abrir una incidencia de soporte técnico, consulte [Cuotas y limitaciones](media-services-quotas-and-limitations.md).

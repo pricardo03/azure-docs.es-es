@@ -9,32 +9,32 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/03/2019
 ms.author: diberry
-ms.openlocfilehash: fdb105fa5aa9baefc9e64b65c275f07db802daad
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c418e15dbe133d94c081db2b925fa390307c240f
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58091705"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905059"
 ---
 # <a name="entities-per-culture-in-your-luis-model"></a>Entidades por la referencia cultural en el modelo de LUIS
 
 Language Understanding (LUIS) proporciona entidades precompiladas. Cuando una entidad precompilada se incluye en la aplicación, LUIS incluye la predicción de entidad correspondiente en la respuesta del punto de conexión. Todas las expresiones de ejemplo también se etiquetan con la entidad. El comportamiento de las entidades predeterminadas **no puede** modificarse. A menos que se indique lo contrario, las entidades precompiladas están disponibles en todas las configuraciones locales de aplicación LUIS (referencias culturales). En la siguiente tabla se muestran las entidades precompiladas que se admiten para cada referencia cultural.
 
-|Referencia cultural|Referencias culturales secundarias|
-|--|--|
-|Chino|[zh-CN](#chinese-entity-support)|
-|Neerlandés|[nl-NL](#dutch-entity-support)|
-|English|[en-US (inglés de EE. UU.)](#english-american-entity-support)|
-|Francés|[fr-CA (Canadá)](#french-canadian-entity-support), [fr-FR (Francia)](#french-france-entity-support), |
-|Alemán|[de-DE](#german-entity-support)|
-|Italiano|[it-IT](#italian-entity-support)|
-|Japonés|[ja-JP](#japanese-entity-support)|
-|Coreano|[ko-KR](#korean-entity-support)|
-|Portugués|[pt-BR (portugués de Brasil)](#portuguese-brazil-entity-support)|
-|Español|[es-ES (español de España)](#spanish-spain-entity-support), [es-MX (español de México)](#spanish-mexico-entity-support)|
-|Turco|[turco](#turkish-entity-support)|
+|Referencia cultural|Referencias culturales secundarias|Notas|
+|--|--|--|
+|Chino|[zh-CN](#chinese-entity-support)||
+|Neerlandés|[nl-NL](#dutch-entity-support)||
+|English|[en-US (American)](#english-american-entity-support)||
+|Francés|[fr-CA (Canadá)](#french-canadian-entity-support), [fr-FR (Francia)](#french-france-entity-support), ||
+|Alemán|[de-DE](#german-entity-support)||
+|Italiano|[it-IT](#italian-entity-support)||
+|Japonés|[ja-JP](#japanese-entity-support)||
+|Coreano|[ko-KR](#korean-entity-support)||
+|Portugués|[pt-BR (Brasil)](#portuguese-brazil-entity-support)||
+|Español|[es-ES (español de España)](#spanish-spain-entity-support), [es-MX (español de México)](#spanish-mexico-entity-support)||
+|Turco|[turco](#turkish-entity-support)|No hay entidades precompiladas compatibles en turco|
 
 ## <a name="chinese-entity-support"></a>Compatibilidad con la entidad china
 
@@ -46,7 +46,7 @@ Se admiten las siguientes entidades:
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    ✔   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>fecha<br>daterange<br>Twitter en tiempo<br>intervalo de tiempo   |    ✔   | 
 [Dimensión](luis-reference-prebuilt-dimension.md):<br>volumen<br>área<br>peso<br>información (p. ej.: bits/bytes)<br>longitud (p. ej.: medidor)<br>velocidad (p. ej.: millas por hora)  |    ✔   | 
-[Correo electrónico](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
@@ -67,7 +67,7 @@ Se admiten las siguientes entidades:
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    ✔   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>fecha<br>daterange<br>Twitter en tiempo<br>intervalo de tiempo   |    -   | 
 [Dimensión](luis-reference-prebuilt-dimension.md):<br>volumen<br>área<br>peso<br>información (p. ej.: bits/bytes)<br>longitud (p. ej.: medidor)<br>velocidad (p. ej.: millas por hora)  |    ✔   | 
-[Correo electrónico](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
@@ -88,7 +88,7 @@ Se admiten las siguientes entidades:
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    ✔   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>fecha<br>daterange<br>Twitter en tiempo<br>intervalo de tiempo   |    ✔   | 
 [Dimensión](luis-reference-prebuilt-dimension.md):<br>volumen<br>área<br>peso<br>información (p. ej.: bits/bytes)<br>longitud (p. ej.: medidor)<br>velocidad (p. ej.: millas por hora)  |    ✔   | 
-[Correo electrónico](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
@@ -109,7 +109,7 @@ Se admiten las siguientes entidades:
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    ✔   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>fecha<br>daterange<br>Twitter en tiempo<br>intervalo de tiempo   |    ✔   | 
 [Dimensión](luis-reference-prebuilt-dimension.md):<br>volumen<br>área<br>peso<br>información (p. ej.: bits/bytes)<br>longitud (p. ej.: medidor)<br>velocidad (p. ej.: millas por hora)  |    ✔   | 
-[Correo electrónico](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    ✔   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
@@ -130,7 +130,7 @@ Se admiten las siguientes entidades:
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    ✔   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>fecha<br>daterange<br>Twitter en tiempo<br>intervalo de tiempo   |    ✔   | 
 [Dimensión](luis-reference-prebuilt-dimension.md):<br>volumen<br>área<br>peso<br>información (p. ej.: bits/bytes)<br>longitud (p. ej.: medidor)<br>velocidad (p. ej.: millas por hora)  |    ✔   | 
-[Correo electrónico](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
@@ -151,7 +151,7 @@ Se admiten las siguientes entidades:
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    ✔   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>fecha<br>daterange<br>Twitter en tiempo<br>intervalo de tiempo   |    ✔   | 
 [Dimensión](luis-reference-prebuilt-dimension.md):<br>volumen<br>área<br>peso<br>información (p. ej.: bits/bytes)<br>longitud (p. ej.: medidor)<br>velocidad (p. ej.: millas por hora)  |    ✔   | 
-[Correo electrónico](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
@@ -172,7 +172,7 @@ Se admiten las siguientes entidades:
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    ✔   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>fecha<br>daterange<br>Twitter en tiempo<br>intervalo de tiempo   |    -   | 
 [Dimensión](luis-reference-prebuilt-dimension.md):<br>volumen<br>área<br>peso<br>información (p. ej.: bits/bytes)<br>longitud (p. ej.: medidor)<br>velocidad (p. ej.: millas por hora)  |    ✔   | 
-[Correo electrónico](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
@@ -193,7 +193,7 @@ Se admiten las siguientes entidades:
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    ✔   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>fecha<br>daterange<br>Twitter en tiempo<br>intervalo de tiempo   |    -   | 
 [Dimensión](luis-reference-prebuilt-dimension.md):<br>volumen<br>área<br>peso<br>información (p. ej.: bits/bytes)<br>longitud (p. ej.: medidor)<br>velocidad (p. ej.: millas por hora)  |    ✔   | 
-[Correo electrónico](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
@@ -214,7 +214,7 @@ Se admiten las siguientes entidades:
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    -   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>fecha<br>daterange<br>Twitter en tiempo<br>intervalo de tiempo   |    -   | 
 [Dimensión](luis-reference-prebuilt-dimension.md):<br>volumen<br>área<br>peso<br>información (p. ej.: bits/bytes)<br>longitud (p. ej.: medidor)<br>velocidad (p. ej.: millas por hora)  |    -   | 
-[Correo electrónico](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    -   |  
@@ -235,7 +235,7 @@ Se admiten las siguientes entidades:
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    ✔   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>fecha<br>daterange<br>Twitter en tiempo<br>intervalo de tiempo   |    ✔   | 
 [Dimensión](luis-reference-prebuilt-dimension.md):<br>volumen<br>área<br>peso<br>información (p. ej.: bits/bytes)<br>longitud (p. ej.: medidor)<br>velocidad (p. ej.: millas por hora)  |    ✔   | 
-[Correo electrónico](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
@@ -256,7 +256,7 @@ Se admiten las siguientes entidades:
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    ✔   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>fecha<br>daterange<br>Twitter en tiempo<br>intervalo de tiempo   |    ✔   | 
 [Dimensión](luis-reference-prebuilt-dimension.md):<br>volumen<br>área<br>peso<br>información (p. ej.: bits/bytes)<br>longitud (p. ej.: medidor)<br>velocidad (p. ej.: millas por hora)  |    ✔   | 
-[Correo electrónico](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
@@ -277,7 +277,7 @@ Se admiten las siguientes entidades:
 [Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    -   |
 [DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>fecha<br>daterange<br>Twitter en tiempo<br>intervalo de tiempo   |    -   | 
 [Dimensión](luis-reference-prebuilt-dimension.md):<br>volumen<br>área<br>peso<br>información (p. ej.: bits/bytes)<br>longitud (p. ej.: medidor)<br>velocidad (p. ej.: millas por hora)  |    -   | 
-[Correo electrónico](luis-reference-prebuilt-email.md)   |    ✔   | 
+[Email](luis-reference-prebuilt-email.md)   |    ✔   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    ✔   | 
 [Number](luis-reference-prebuilt-number.md)   |    ✔   |  
@@ -294,29 +294,32 @@ KeyPhrase no está disponible en todas las referencias culturales secundarias de
 
 ## <a name="turkish-entity-support"></a>Compatibilidad con la entidad turca
 
-Se admiten las siguientes entidades:
+**No existen entidades creados previamente compatibles en turco.** 
 
-|Entidad creada previamente|```tr-tr``` |
+<!--
+
+|Prebuilt entity|```tr-tr``` |
 ------|:------:|
-[Edad](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
-[Moneda (dinero)](luis-reference-prebuilt-currency.md):<br>dólar<br>unidad fraccional (por ejemplo: penique)  |    -   |
-[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>fecha<br>daterange<br>Twitter en tiempo<br>intervalo de tiempo   |    -   | 
-[Dimensión](luis-reference-prebuilt-dimension.md):<br>volumen<br>área<br>peso<br>información (p. ej.: bits/bytes)<br>longitud (p. ej.: medidor)<br>velocidad (p. ej.: millas por hora)  |    -   | 
-[Correo electrónico](luis-reference-prebuilt-email.md)   |    -   | 
+[Age](luis-reference-prebuilt-age.md):<br>year<br>month<br>week<br>day   |    -   |
+[Currency (money)](luis-reference-prebuilt-currency.md):<br>dollar<br>fractional unit (ex: penny)  |    -   |
+[DatetimeV2](luis-reference-prebuilt-datetimev2.md):<br>date<br>daterange<br>time<br>timerange   |    -   | 
+[Dimension](luis-reference-prebuilt-dimension.md):<br>volume<br>area<br>weight<br>information (ex: bit/byte)<br>length (ex: meter)<br>speed (ex: mile per hour)  |    -   | 
+[Email](luis-reference-prebuilt-email.md)   |    -   | 
 [GeographyV2](luis-reference-prebuilt-geographyV2.md)   |    -   | 
 [KeyPhrase](luis-reference-prebuilt-keyphrase.md)   |    -   | 
 [Number](luis-reference-prebuilt-number.md)   |    -   |  
 [Ordinal](luis-reference-prebuilt-ordinal.md)   |    -   |  
-[Porcentaje](luis-reference-prebuilt-percentage.md)   |    -   | 
+[Percentage](luis-reference-prebuilt-percentage.md)   |    -   | 
 [PersonName](luis-reference-prebuilt-person.md)   |    -   | 
-[Número de teléfono](luis-reference-prebuilt-phonenumber.md)   |    -   | 
-[Temperatura](luis-reference-prebuilt-temperature.md):<br>grados Fahrenheit<br>grados Kelvin<br>grados Rankine<br>grados Delisle<br>grados centígrados   |    -   | 
+[Phonenumber](luis-reference-prebuilt-phonenumber.md)   |    -   | 
+[Temperature](luis-reference-prebuilt-temperature.md):<br>fahrenheit<br>kelvin<br>rankine<br>delisle<br>celsius   |    -   | 
 [URL](luis-reference-prebuilt-url.md)   |    -   |
 
-Vea las notas en [Deprecated prebuilt entities](luis-reference-prebuilt-deprecated.md) (Entidades precompiladas en desuso).
+See notes on [Deprecated prebuilt entities](luis-reference-prebuilt-deprecated.md)
 
-El valor de KeyPhrase no está disponible.
 
+KeyPhrase is not available.
+-->
 
 ## <a name="contribute-to-prebuilt-entity-cultures"></a>Contribuir a las referencias culturales de las entidades precompiladas
 Las entidades precompiladas se desarrollan en el proyecto de código abierto de Recognizers-Text. [Contribuya](https://github.com/Microsoft/Recognizers-Text) al proyecto. Este proyecto incluye ejemplos de moneda por cada referencia cultural. 

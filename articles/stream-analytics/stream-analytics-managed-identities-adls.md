@@ -8,18 +8,16 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.custom: seodec18
-ms.openlocfilehash: 43947413f061ec8b366392b676e848ebf5e6484e
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 994ccf292a4215624d4222fe13ca9ac25c863368
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570120"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58895873"
 ---
-# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities-preview"></a>Autenticación de Stream Analytics en Azure Data Lake Storage Gen1 mediante las entidades administradas (versión preliminar)
+# <a name="authenticate-stream-analytics-to-azure-data-lake-storage-gen1-using-managed-identities"></a>Autenticar Stream Analytics para Azure Data Lake Storage Gen1 en utilizando identidades administradas
 
 Azure Stream Analytics admite la autenticación de identidades administradas con la salida de Azure Data Lake Storage (ADLS) Gen1. La identidad es una aplicación administrada registrada en Azure Active Directory que representa un trabajo de Stream Analytics determinado y que puede usarse para autenticar un recurso de destino. Las identidades administradas eliminan las limitaciones de los métodos de autenticación basada en usuario, como la necesidad de volver a realizar la autenticación debido a los cambios de contraseña o la expiración de tokens de usuario que se produce cada 90 días. Además, las identidades administradas sirven de ayuda en la automatización de las implementaciones de trabajos de Stream Analytics cuya salida es Azure Data Lake Storage Gen1.
-
-Visite la entrada de blog [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) (Ocho características nuevas de Azure Stream Analytics) para registrarse en esta versión preliminar y obtener más información acerca de las nuevas características.
 
 En este artículo, se muestran tres maneras de habilitar la identidad administrada para un trabajo de Azure Stream Analytics cuya salida se envía a Azure Data Lake Storage Gen1 mediante Azure Portal, la implementación de una plantilla de Resource Manager y las herramientas de Azure Stream Analytics para Visual Studio.
 
@@ -27,11 +25,11 @@ En este artículo, se muestran tres maneras de habilitar la identidad administra
 
 ## <a name="azure-portal"></a>Azure Portal
 
-1. Para empezar, cree un trabajo de Stream Analytics o abra un trabajo existente en Azure Portal. En la barra de menús de la izquierda de la pantalla, seleccione **Identidad administrada (versión preliminar)**, que se encuentra en **Configurar**.
+1. Para empezar, cree un trabajo de Stream Analytics o abra un trabajo existente en Azure Portal. En la barra de menús situada en el lado izquierdo de la pantalla, seleccione **identidad administrada** ubicado en **configurar**.
 
-   ![Configuración de la versión preliminar de Identidad administrada de Stream Analytics](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
+   ![Configurar la identidad administrada de análisis de Stream](./media/stream-analytics-managed-identities-adls/stream-analytics-managed-identity-preview.png)
 
-2. Seleccione **Use System-assigned Managed Identity (preview)** [Usar identidad administrada asignada por el sistema (versión preliminar)] en la ventana que aparece a la derecha. Haga clic en **guardar** a una entidad de servicio para la identidad del trabajo de Stream Analytics en Azure Active Directory. El ciclo de vida de la identidad recién creada lo administrará Azure. Cuando se elimina el trabajo de Stream Analytics, Azure elimina automáticamente la identidad asociada (es decir, la entidad de servicio).
+2. Seleccione **identidad administrada asignada por el sistema de uso** desde la ventana que aparece a la derecha. Haga clic en **guardar** a una entidad de servicio para la identidad del trabajo de Stream Analytics en Azure Active Directory. El ciclo de vida de la identidad recién creada lo administrará Azure. Cuando se elimina el trabajo de Stream Analytics, Azure elimina automáticamente la identidad asociada (es decir, la entidad de servicio).
 
    Cuando se guarda la configuración, el Id. de objeto (OID) de la entidad de servicio aparece como Id. de entidad de seguridad, tal como se muestra a continuación:
 
@@ -39,7 +37,7 @@ En este artículo, se muestran tres maneras de habilitar la identidad administra
  
    La entidad de servicio se llama igual que el trabajo de Stream Analytics. Por ejemplo, si es el nombre del trabajo es **MyASAJob**, el nombre de la entidad de servicio creada también será **MyASAJob**.
 
-3. En la ventana de propiedades de la salida del receptor de salida ADLS Gen1, haga clic en la lista desplegable Modo de autenticación y seleccione **Identidad administrada (versión preliminar)**.
+3. En la ventana de propiedades de salida del receptor de salida ADLS Gen1, haga clic en el modo de autenticación de lista desplegable y seleccione ** identidad administrada **.
 
 4. Rellene el resto de las propiedades. Para más información acerca de cómo crear una salida de ADLS, consulte [Creación de una salida de Data Lake Store con Stream Analytics](../data-lake-store/data-lake-store-stream-analytics.md). Cuando haya terminado, haga clic en **Guardar**.
 
@@ -131,7 +129,7 @@ En este artículo, se muestran tres maneras de habilitar la identidad administra
               }
    ```
   
-   **Respuesta del trabajo de ejemplo**
+   **Respuesta de trabajo de ejemplo**
 
    ```json
    {
@@ -183,6 +181,6 @@ Esta característica no es compatible con lo siguiente:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Creación de una salida de Data Lake Store con Stream Analytics](../data-lake-store/data-lake-store-stream-analytics.md)
+* [Crear una salida de Data lake Store con stream analytics](../data-lake-store/data-lake-store-stream-analytics.md)
 * [Prueba de las consultas de Stream Analytics localmente con Visual Studio](stream-analytics-vs-tools-local-run.md)
-* [Prueba local de datos activos mediante las herramientas de Azure Stream Analytics para Visual Studio](stream-analytics-live-data-local-testing.md) 
+* [Datos activos de prueba localmente mediante herramientas de Azure Stream Analytics para Visual Studio](stream-analytics-live-data-local-testing.md) 

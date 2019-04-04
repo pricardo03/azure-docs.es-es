@@ -13,16 +13,16 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 57a97d76a864a644426296cf24401b2210709d39
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 5ddae616f81052e005210310e2d28b1bc10512ab
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805812"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906215"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operaciones del proveedor de recursos de Azure Resource Manager
 
-En este artículo se enumeran las operaciones que están disponibles para cada proveedor de recursos de Azure Resource Manager. Dichas operaciones se pueden usar en [roles personalizados](custom-roles.md) para proporcionar un [control de acceso basado en rol (RBAC)](overview.md) pormenorizado a los recursos en Azure. Las cadenas de las operaciones tienen el siguiente formato: `{Company}.{ProviderName}/{resourceType}/{action}`
+En este artículo se enumeran las operaciones que están disponibles para cada proveedor de recursos de Azure Resource Manager. Dichas operaciones se pueden usar en [roles personalizados](custom-roles.md) para proporcionar un [control de acceso basado en rol (RBAC)](overview.md) pormenorizado a los recursos en Azure. Las cadenas de operación tienen el formato siguiente: `{Company}.{ProviderName}/{resourceType}/{action}`
 
 Las operaciones del proveedor de recursos están en constante evolución. Para obtener las operaciones más recientes, use [Get AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) o [az provider operation list](/cli/azure/provider/operation#az-provider-operation-list).
 
@@ -1432,11 +1432,11 @@ Actualizar un grupo existente persona nombre y userData. Las propiedades conserv
 > | . | Microsoft.ContainerService/managedClusters/resetServicePrincipalProfile/action | Restablece el perfil de la entidad de servicio de un clúster administrado. |
 > | . | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | Obtiene el perfil de actualización del clúster. |
 > | . | Microsoft.ContainerService/managedClusters/write | Crea un nuevo clúster administrado o actualiza uno existente. |
-> | . | Microsoft.ContainerService/openShiftClusters/delete | Elimina un clúster de Open Shift. |
-> | . | Microsoft.ContainerService/openShiftClusters/read | Obtiene un clúster de Open Shift. |
+> | . | Microsoft.ContainerService/openShiftClusters/delete | Eliminación de un clúster de Open Shift |
+> | . | Microsoft.ContainerService/openShiftClusters/read | Obtiene un clúster de Open Shift |
 > | . | Microsoft.ContainerService/openShiftClusters/write | Crea un nuevo clúster de Open Shift o actualiza uno existente. |
-> | . | Microsoft.ContainerService/openShiftManagedClusters/delete | Elimina un clúster administrado de Open Shift. |
-> | . | Microsoft.ContainerService/openShiftManagedClusters/read | Obtiene un clúster administrado de Open Shift. |
+> | . | Microsoft.ContainerService/openShiftManagedClusters/delete | Eliminación de un clúster administrado Open Shift |
+> | . | Microsoft.ContainerService/openShiftManagedClusters/read | Obtener un clúster administrado Open Shift |
 > | . | Microsoft.ContainerService/openShiftManagedClusters/write | Crea un nuevo clúster administrado de Open Shift o actualiza uno existente. |
 > | . | Microsoft.ContainerService/operations/read | Enumera las operaciones disponibles en el proveedor de recursos de Microsoft.ContainerService. |
 > | . | Microsoft.ContainerService/register/action | Registra la suscripción con el proveedor de recursos de Microsoft.ContainerService. |

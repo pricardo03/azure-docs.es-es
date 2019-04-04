@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 3c8fab85d71f5f81bbf81bc3dd7a22d6c0b7f11b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 635b4e71c09a2e8b3901af5580f221bc4716831d
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57551847"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917777"
 ---
 # <a name="using-azure-cdn-with-cors"></a>Uso de Azure CDN con CORS
 ## <a name="what-is-cors"></a>¿Qué es CORS?
@@ -85,7 +85,7 @@ Si la expresión regular coincide, la regla reemplazará el encabezado **Access-
 ![Ejemplo de reglas con expresiones regulares](./media/cdn-cors/cdn-cors-regex.png)
 
 #### <a name="request-header-rule-for-each-origin"></a>Regla de encabezado de solicitud para cada origen
-En lugar de usar expresiones regulares, puede crear una regla aparte para cada origen que quiera permitir con la **condición de coincidencia** [carácter comodín del encabezado de solicitud](https://msdn.microsoft.com/library/mt757336.aspx#Anchor_1). Al igual que con el método de expresión regular, el motor de reglas es el único que establece los encabezados de CORS. 
+En lugar de usar expresiones regulares, puede crear una regla aparte para cada origen que quiera permitir con la **condición de coincidencia** [carácter comodín del encabezado de solicitud](/previous-versions/azure/mt757336(v=azure.100)#Anchor_1). Al igual que con el método de expresión regular, el motor de reglas es el único que establece los encabezados de CORS. 
 
 ![Ejemplo de reglas sin expresiones regulares](./media/cdn-cors/cdn-cors-no-regex.png)
 
