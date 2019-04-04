@@ -5490,7 +5490,7 @@ Automatización de tareas de Azure mediante scripts con PowerShell </a>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Policy</h3>
-                                                    <p>Implemente gobierno y normas corporativos a escala para sus recursos de Azure</p>
+                                                    <p>Implementación de gobernanza corporativo y estándares a escala para sus recursos de Azure</p>
                                                 </div>
                                             </div>
                                         </div>

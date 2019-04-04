@@ -5192,7 +5192,7 @@ Las capacidades de diversas métricas para este tipo de nodo
 |minOccurs|0|
 
 #### <a name="sfssrgpolicies"></a>SfssRgPolicies
-Directiva de gobierno del recurso de servicios del sistema de SF para este tipo de nodo.
+Directiva de gobernanza del recurso de servicios del sistema de SF para este tipo de nodo.
 
 |Atributo|Valor|
 |---|---|
@@ -7435,7 +7435,7 @@ ServicePackage representa una unidad con control de versiones de implementación
 
 <a id="ServicePackageResourceGovernancePolicyElementServicePackageResourceGovernancePolicyTypeComplexTypeDefinedInServiceManifestImportPoliciesTypecomplexTypeDefinedInServicePackageTypecomplexType"></a>
 ## <a name="servicepackageresourcegovernancepolicy-element"></a>Elemento ServicePackageResourceGovernancePolicy
-Define la directiva de gobierno de recursos que se aplica en el nivel del paquete de servicio completo.
+Define la directiva de gobernanza de recursos que se aplica en el nivel del paquete de servicio completo.
 
 |Atributo|Valor|
 |---|---|
@@ -7936,7 +7936,7 @@ Es un punto de entrada con privilegios que se ejecuta de forma predeterminada co
 
 <a id="SfssRgPoliciesElementanonymouscomplexTypeComplexTypeDefinedInNodeTypeelement"></a>
 ## <a name="sfssrgpolicies-element"></a>Elemento SfssRgPolicies
-Directiva de gobierno del recurso de servicios del sistema de SF para este tipo de nodo.
+Directiva de gobernanza del recurso de servicios del sistema de SF para este tipo de nodo.
 
 |Atributo|Valor|
 |---|---|

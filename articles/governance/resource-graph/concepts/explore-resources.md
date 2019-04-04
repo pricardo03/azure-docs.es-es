@@ -11,7 +11,7 @@ manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: d6ce615e23ce71f22eff3c2c70b387267792fef9
 ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/06/2019
 ms.locfileid: "55768443"
@@ -161,7 +161,7 @@ Los resultados de JSON tienen una estructura similar a la del ejemplo siguiente:
 ]
 ```
 
-El primer conjunto de propiedades bajo **aliases** ofrece una serie de valores de propiedad relacionados. Para más información sobre los alias y descubrir qué alias están disponibles, consulte [Estructura de definición de Azure Policy: alias](../../policy/concepts/definition-structure.md#aliases). Los alias se utilizan principalmente por Azure Policy para administrar el cumplimiento de las reglas y gobierno de la organización.
+El primer conjunto de propiedades bajo **aliases** ofrece una serie de valores de propiedad relacionados. Para más información sobre los alias y descubrir qué alias están disponibles, consulte [Estructura de definición de Azure Policy: alias](../../policy/concepts/definition-structure.md#aliases). Los alias se utilizan principalmente por Azure Policy para administrar el cumplimiento de las reglas y gobernanza de la organización.
 
 Las otras propiedades nos proporcionan información adicional sobre el propio recurso de la máquina virtual, desde SKU, sistema operativo, discos, etiquetas y el grupo de recursos y la suscripción a la que pertenece.
 

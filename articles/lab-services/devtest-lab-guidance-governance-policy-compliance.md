@@ -1,6 +1,6 @@
 ---
-title: Gobierno de la infraestructura de Azure DevTest Labs
-description: En este artículo se proporcionan instrucciones para el gobierno de la infraestructura de Azure DevTest Labs.
+title: Gobernanza de la infraestructura de Azure DevTest Labs
+description: En este artículo se proporcionan instrucciones para la gobernanza de la infraestructura de Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,12 +15,12 @@ ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: e02400ef940efdf42370fbdc1da75bdc7062a8ef
 ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/14/2019
 ms.locfileid: "56243712"
 ---
-# <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Gobierno de la infraestructura de Azure DevTest Labs: directiva de la empresa y cumplimiento
+# <a name="governance-of-azure-devtest-labs-infrastructure---company-policy-and-compliance"></a>Gobernanza de la infraestructura de Azure DevTest Labs: directiva de la empresa y cumplimiento
 En este artículo se proporciona orientación sobre la directiva de la empresa y el cumplimiento de la infraestructura de Azure DevTest Labs. 
 
 ## <a name="public-vs-private-artifact-repository"></a>Repositorio de artefactos público frente a privado
@@ -33,7 +33,7 @@ El [repositorio de artefactos público](https://github.com/Azure/azure-devtestla
 
 - ¿Tiene la organización el requisito de tener un software corporativo con licencia como parte de su oferta de DevTest Labs? Si la respuesta es afirmativa, entonces se debe crear un repositorio privado.
 - ¿Desarrolla la organización software personalizado que proporciona una operación específica, que se requiere como parte del proceso general de aprovisionamiento? Si la respuesta es afirmativa, se debe implementar un repositorio privado.
-- Si la directiva de gobierno de la organización requiere aislamiento y los repositorios externos no están bajo la administración directa de la configuración por parte de la organización, se debe implementar un repositorio de artefactos privado. Como parte de este proceso, una copia inicial del repositorio público se puede copiar e integrar con el repositorio privado. Después, el repositorio público se puede deshabilitar para que nadie dentro de la organización pueda acceder a él. Este enfoque obliga a todos los usuarios dentro de la organización a tener un único repositorio aprobado por ella y minimizar la deriva de la configuración.
+- Si la directiva de gobernanza de la organización requiere aislamiento y los repositorios externos no están bajo la administración directa de la configuración por parte de la organización, se debe implementar un repositorio de artefactos privado. Como parte de este proceso, una copia inicial del repositorio público se puede copiar e integrar con el repositorio privado. Después, el repositorio público se puede deshabilitar para que nadie dentro de la organización pueda acceder a él. Este enfoque obliga a todos los usuarios dentro de la organización a tener un único repositorio aprobado por ella y minimizar la deriva de la configuración.
 
 ### <a name="single-repository-or-multiple-repositories"></a>Repositorio único o varios repositorios 
 
@@ -41,7 +41,7 @@ El [repositorio de artefactos público](https://github.com/Azure/azure-devtestla
 ¿Debería una organización planear para un único repositorio o permitir múltiples repositorios?
 
 ### <a name="answer"></a>Respuesta
-Como parte de la estrategia general de gobierno y administración de configuración de la organización, le recomendamos que utilice un repositorio centralizado. Cuando utiliza varios repositorios, pueden convertirse en silos de software no administrado con el tiempo. Con un repositorio central, múltiples equipos pueden consumir artefactos de este repositorio para sus proyectos. Impone la estandarización, la seguridad, la facilidad de administración y elimina la duplicación de esfuerzos. Como parte de la centralización, las siguientes acciones son procedimientos recomendados para la administración a largo plazo y la sostenibilidad:
+Como parte de la estrategia general de gobernanza y administración de configuración de la organización, le recomendamos que utilice un repositorio centralizado. Cuando utiliza varios repositorios, pueden convertirse en silos de software no administrado con el tiempo. Con un repositorio central, múltiples equipos pueden consumir artefactos de este repositorio para sus proyectos. Impone la estandarización, la seguridad, la facilidad de administración y elimina la duplicación de esfuerzos. Como parte de la centralización, las siguientes acciones son procedimientos recomendados para la administración a largo plazo y la sostenibilidad:
 
 - Asocie los servicios de Azure Repos con el mismo inquilino de Azure Active Directory que la suscripción de Azure está utilizando para la autenticación y autorización.
 - Cree un grupo llamado **Todos los desarrolladores de DevTest Labs** en Azure Active Directory que se administre de forma centralizada. Cualquier desarrollador que contribuya al desarrollo de artefacto debe colocarse en este grupo.

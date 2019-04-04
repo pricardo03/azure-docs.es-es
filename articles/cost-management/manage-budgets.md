@@ -19,7 +19,7 @@ ms.locfileid: "58009116"
 ---
 # <a name="manage-azure-budgets-with-cloudyn"></a>Administración de presupuestos de Azure con Cloudyn
 
-La configuración de presupuestos y de alertas basadas en presupuestos ayuda a mejorar el gobierno de la nube y la responsabilidad. Este artículo le ayuda a crear presupuestos e iniciar su administración en Cloudyn rápidamente.
+La configuración de presupuestos y de alertas basadas en presupuestos ayuda a mejorar la gobernanza de la nube y la responsabilidad. Este artículo le ayuda a crear presupuestos e iniciar su administración en Cloudyn rápidamente.
 
 Cuando tenga una cuenta Enterprise o de MSP, puede utilizar la estructura de entidades de costo jerárquicas para asignar cuotas de presupuesto mensuales a diferentes unidades de negocio, departamentos o cualquier otra entidad de costo. Cuando tiene una cuenta Premium, puede utilizar la funcionalidad de administración de presupuestos, que se aplica luego a todos sus gastos de la nube. Todos los presupuestos se asignan manualmente.
 

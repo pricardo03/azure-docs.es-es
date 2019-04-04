@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 02/28/2018
 ms.openlocfilehash: 946f7011c51b7c6844e023d03e01e4c2043d2578
 ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 12/17/2018
 ms.locfileid: "53544470"
@@ -27,7 +27,7 @@ Azure Database for MySQL usa la versión de la comunidad de MySQL, compatible co
 
 ## <a name="resource-limitations"></a>Limitaciones de recursos
 Azure Database for MySQL administra los recursos disponibles para un servidor mediante dos mecanismos diferentes: 
-- Gobierno de recursos.
+- Gobernanza de recursos.
 - Aplicación de límites
 
 ## <a name="security"></a>Seguridad

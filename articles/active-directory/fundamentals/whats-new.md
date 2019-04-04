@@ -155,7 +155,7 @@ Para ayudar a impedir que los administradores accidentalmente bloqueen a sí mis
 
 **Tipo:** Característica modificada  
 **Categoría del servicio:** Términos de uso  
-**Funcionalidad del producto:** Gobierno
+**Funcionalidad del producto:** Gobernanza
 
 Hemos actualizado nuestros términos de experiencias de uso existentes para ayudar a mejorar cómo revisar y dar su consentimiento a los términos de uso en un dispositivo móvil. Ahora puede acercar y alejar, vuelva atrás, descargar la información y seleccionar los hipervínculos. Para obtener más información acerca de los términos de uso actualizados, consulte [Azure Active Directory característica términos de uso](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#what-terms-of-use-looks-like-for-users).
 
@@ -217,7 +217,7 @@ Para obtener más información acerca de cómo configurar el cifrado de tokens S
 
 **Tipo:** Nueva característica  
 **Categoría del servicio:** Revisiones de acceso  
-**Funcionalidad del producto:** Gobierno
+**Funcionalidad del producto:** Gobernanza
 
 Ahora puede incluir varios grupos o la revisión de pertenencia a grupos o asignación de aplicaciones de acceso de aplicaciones en una única instancia de AD Azure. Revisiones de acceso con varios grupos o las aplicaciones se configuran con la misma configuración y se notifica a todos los revisores incluye al mismo tiempo.
 
@@ -530,7 +530,7 @@ Para más información acerca de cómo obtener y usar esta marca de tiempo, cons
 
 **Tipo:** Nueva característica  
 **Categoría del servicio:** Términos de uso  
-**Funcionalidad del producto:** Gobierno
+**Funcionalidad del producto:** Gobernanza
  
 Los administradores ahora pueden activar la opción **Requerir que los usuarios concedan su consentimiento en todos los dispositivos** para requerir que los usuarios acepten los términos de uso en todos los dispositivos que estén usando en su inquilino.
 
@@ -542,7 +542,7 @@ Para más información, consulte [la sección de términos de uso por dispositiv
 
 **Tipo:** Nueva característica  
 **Categoría del servicio:** Términos de uso  
-**Funcionalidad del producto:** Gobierno
+**Funcionalidad del producto:** Gobernanza
  
 
 Los administradores pueden ahora activar la opción **Expirar autorizaciones** para hacer que los términos de uso expiren para todos los usuarios según la programación periódica especificada. La programación puede ser anual, semestral, trimestral o mensual. Después de que caduquen los términos de uso, los usuarios deben Aceptar.
@@ -555,7 +555,7 @@ Para más información, consulte [la sección Agregar términos de uso del artí
 
 **Tipo:** Nueva característica  
 **Categoría del servicio:** Términos de uso  
-**Funcionalidad del producto:** Gobierno
+**Funcionalidad del producto:** Gobernanza
 
 Los administradores ahora pueden especificar una duración tras la cual el usuario debe volver a aceptar los términos de uso. Por ejemplo, los administradores pueden especificar que los usuarios deben volver a aceptar los términos de uso cada 90 días.
 

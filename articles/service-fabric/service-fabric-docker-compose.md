@@ -133,7 +133,7 @@ Esta versión preliminar admite un subconjunto de las opciones de configuración
 * Services > Logging > Driver > Options
 * Volumen e implementación > Volumen
 
-Configure el clúster para exigir límites de recursos, como se describe en [Regulación de recursos de Service Fabric](service-fabric-resource-governance.md). El resto de directivas de Docker Compose no se admiten en esta versión preliminar.
+Configure el clúster para exigir límites de recursos, como se describe en [Gobernanza de recursos de Service Fabric](service-fabric-resource-governance.md). El resto de directivas de Docker Compose no se admiten en esta versión preliminar.
 
 ### <a name="ports-section"></a>Sección de puertos
 

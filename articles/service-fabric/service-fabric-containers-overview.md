@@ -80,7 +80,7 @@ Ejemplos típicos de buena elección de contenedor:
 
 * **Combinación de contenedores y microservicios de Service Fabric**: Use una imagen de contenedor existente para parte de la aplicación. Por ejemplo, podría usar el [contenedor NGINX](https://hub.docker.com/_/nginx/) para el front-end web de su aplicación y los servicios con estado para la computación de back-end más intensa.
 
-* **Reducir el impacto de los servicios de "vecinos ruidosos"**: Puede usar la capacidad de regulación de recursos de contenedores para restringir los recursos que utiliza un servicio en un host. Si hay servicios que consuman un gran número de recursos y afecten al rendimiento de otros (por ejemplo, una consulta de larga ejecución como operación), considere la posibilidad de poner estos servicios en contenedores con regulación de recursos.
+* **Reducir el impacto de los servicios de "vecinos ruidosos"**: Puede usar la capacidad de regulación de recursos de contenedores para restringir los recursos que utiliza un servicio en un host. Si hay servicios que consuman un gran número de recursos y afecten al rendimiento de otros (por ejemplo, una consulta de larga ejecución como operación), considere la posibilidad de poner estos servicios en contenedores con gobernanza de recursos.
 
 ## <a name="service-fabric-support-for-containers"></a>Compatibilidad de los contenedores con Service Fabric
 
@@ -93,7 +93,7 @@ También puede ejecutar [servicios de Service Fabric dentro de un contenedor](se
 Service Fabric ofrece varias funcionalidades de contenedor que le ayudarán a crear aplicaciones que se componen de microservicios en contenedores, como:
 
 * Activación e implementación de la imagen de contenedor.
-* Administración de recursos, incluida la configuración de valores de recursos predeterminados en clústeres de Azure.
+* Gobernanza de recursos, incluida la configuración de valores de recursos predeterminados en clústeres de Azure.
 * La autenticación de repositorios.
 * La asignación de puerto a host de contenedor.
 * La detección y comunicación entre contenedores.

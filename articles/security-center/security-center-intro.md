@@ -68,7 +68,7 @@ Security Center ayuda a  **identificar las suscripciones de Shadow IT**. Si ech
 
 ![Panel de directivas de Security Center](media/security-center-intro/sc-policy-dashboard.png)
 
-Las funcionalidades avanzadas de supervisión de Security Center también le permiten  **hacer seguimiento del cumplimiento y el gobierno y administrarlos a lo largo del tiempo**. El  **cumplimiento general**  le permite medir qué tan compatibles son las suscripciones con respecto a las directivas asociadas con la carga de trabajo. 
+Las funcionalidades avanzadas de supervisión de Security Center también le permiten  **hacer seguimiento del cumplimiento y la gobernanza, y administrarlos a lo largo del tiempo**. El  **cumplimiento general**  le permite medir qué tan compatibles son las suscripciones con respecto a las directivas asociadas con la carga de trabajo. 
 
 ![Directiva de Security Center en el tiempo](media/security-center-intro/sc-policy-time.png)
 

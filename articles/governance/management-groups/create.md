@@ -1,5 +1,5 @@
 ---
-title: 'Creación de grupos de administración para organizar los recursos de Azure: gobierno de Azure'
+title: 'Creación de grupos de administración para organizar los recursos de Azure: gobernanza de Azure'
 description: Aprenda a crear grupos de administración de Azure para administrar varios recursos mediante el portal, Azure PowerShell y la CLI de Azure.
 author: rthorn17
 manager: rithorn

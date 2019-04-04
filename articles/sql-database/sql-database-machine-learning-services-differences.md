@@ -43,7 +43,7 @@ La instalación y administración de paquetes de R funciona de forma distinta pa
 - Los paquetes no pueden realizar llamadas de red salientes. Esta limitación es similar a la [predeterminado de las reglas de firewall de Machine Learning Services](https://docs.microsoft.com//sql/advanced-analytics/security/firewall-configuration) en SQL Server, pero no se puede cambiar en la base de datos SQL.
 - No hay ninguna compatibilidad con los paquetes que dependen de los entornos de ejecución externos (por ejemplo, Java) o que necesitan tener acceso a las API del sistema operativo para instalarse o usarse.
 
-## <a name="resource-governance"></a>Regulador de recursos
+## <a name="resource-governance"></a>Gobernanza de recursos
 
 No es posible limitar los recursos de R a través de [Resource Governor](https://docs.microsoft.com/sql/relational-databases/resource-governor/resource-governor) ni de grupos de recursos externos.
 

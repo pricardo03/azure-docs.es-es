@@ -1,7 +1,7 @@
 ---
 layout: HubPage
 title: Documentación de Azure Cognitive Services
-description: 'Aprenda a compilar algoritmos inteligentes en aplicaciones, sitios web y bots que permitan ver, oír, hablar, comprender e interpretar las necesidades de los usuarios a través de formas de comunicación naturales. Estos tutoriales, guías de inicio rápido, referencias de API y ejemplos le muestran cómo usar las API.'
+description: Aprenda a compilar algoritmos inteligentes en aplicaciones, sitios web y bots que permitan ver, oír, hablar, comprender e interpretar las necesidades de los usuarios a través de formas de comunicación naturales. Estos tutoriales, guías de inicio rápido, referencias de API y ejemplos le muestran cómo usar las API.
 services: cognitive-services
 author: nitinme
 manager: nitinme
@@ -9,8 +9,13 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 02/21/2019
 ms.topic: hub-page
+ms.openlocfilehash: 621cf49284ac1080bf18619f80f14c8a21c2f761
+ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58472929"
 ---
-
 <div id="main" class="v2">
 <h1>Documentación de Azure Cognitive Services</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Aprenda a compilar algoritmos inteligentes en aplicaciones, sitios web y bots que permitan ver, oír, hablar y comprender las necesidades de los usuarios a través de formas de comunicación naturales. Estos tutoriales, guías de inicio rápido, referencias de API y ejemplos le muestran cómo hacerlo.</p>

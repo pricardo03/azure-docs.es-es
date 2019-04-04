@@ -42,13 +42,13 @@ Con un conjunto de entradas de usuario y una implementación con un solo clic a 
 
 Para aquellos que no están familiarizados con la comunidad de cadena de bloques, el lanzamiento de esta solución es una excelente oportunidad para obtener información sobre la tecnología de una manera fácil y que se puede configurar en Azure. Prueba de trabajo es un mecanismo de resistencia de Sybil que aprovecha los costos de cálculo para regular automáticamente la red y permitir la participación razonable. Esto funciona bien en redes anónimas, redes de cadena de bloques abiertas donde la competencia por criptomoneda promueve la seguridad en la red. Sin embargo, en redes privadas y del consorcio, Ether subyacente no tiene ningún valor. Un protocolo alternativo, la prueba de autoridad, es más adecuado para las redes permitidas en la que se conocen todos los participantes de consenso y buena reputación. Sin la necesidad de minería, la prueba de autoridad resulta más eficaz y, al mismo tiempo, se conserva una tolerancia a errores bizantina.
 
-### <a name="consortium-governance"></a>Gobierno del consorcio
+### <a name="consortium-governance"></a>Gobernanza del consorcio
 
 Puesto que la prueba de autoridad se basa en una lista de entidades de red para que la red esté en buen estado, es importante proporcionar un mecanismo razonable para realizar modificaciones en esta lista de permisos. Cada implementación incluye un conjunto de contratos inteligentes y el portal para el gobierno de la cadena de esta lista de permitidos. Una vez que un cambio propuesto alcanza el voto mayoritario de los miembros del consorcio, se realiza dicho cambio. Esto permite agregar nuevos participantes de consenso o quitar participantes comprometidos de una forma transparente que fomenta una red honesta.
 
 ### <a name="admin-account"></a>Cuenta de administrador
 
-Durante la implementación de los nodos de prueba de autoridad, se le pedirá una dirección de administración Ethereum. Puede usar varios mecanismos diferentes para generar y proteger esta cuenta de Ethereum. Una vez que esta dirección se agrega como una autoridad en la red, puede utilizar esta cuenta para participar en el gobierno. Esta cuenta de administrador también se utilizará para delegar la participación del consenso en los nodos de validador que se crean como parte de esta implementación. Puesto que se usa solo la dirección pública de Ethereum, cada administrador tiene la flexibilidad para proteger sus claves privadas de forma que sigue a su modelo de seguridad deseado.
+Durante la implementación de los nodos de prueba de autoridad, se le pedirá una dirección de administración Ethereum. Puede usar varios mecanismos diferentes para generar y proteger esta cuenta de Ethereum. Una vez que esta dirección se agrega como una autoridad en la red, puede utilizar esta cuenta para participar en la gobernanza. Esta cuenta de administrador también se utilizará para delegar la participación del consenso en los nodos de validador que se crean como parte de esta implementación. Puesto que se usa solo la dirección pública de Ethereum, cada administrador tiene la flexibilidad para proteger sus claves privadas de forma que sigue a su modelo de seguridad deseado.
 
 ### <a name="validator-node"></a>Nodo de validador
 
@@ -65,7 +65,7 @@ Para habilitar la facilidad de conectividad, cada miembro hospedará un conjunto
 
 ### <a name="bring-your-own-operator"></a>Traiga su propio operador
 
-A menudo, un miembro del consorcio querrá participar en el gobierno de la red, pero no quiere operar ni mantener su infraestructura. A diferencia de los sistemas tradicionales, tener un único operador en la red funciona en contra del modelo descentralizado de sistemas de cadena de bloques. En lugar de alquilar un intermediario centralizado para operar una red, cada miembro del consorcio puede delegar la administración de la infraestructura al operador que prefiera. Esto permite un modelo híbrido, donde puede elegir cada miembro para operar su propia infraestructura o delegar la operación a un socio diferente. El flujo de trabajo de la operación delegada funciona de la siguiente manera:
+A menudo, un miembro del consorcio querrá participar en la gobernanza de la red, pero no quiere operar ni mantener su infraestructura. A diferencia de los sistemas tradicionales, tener un único operador en la red funciona en contra del modelo descentralizado de sistemas de cadena de bloques. En lugar de alquilar un intermediario centralizado para operar una red, cada miembro del consorcio puede delegar la administración de la infraestructura al operador que prefiera. Esto permite un modelo híbrido, donde puede elegir cada miembro para operar su propia infraestructura o delegar la operación a un socio diferente. El flujo de trabajo de la operación delegada funciona de la siguiente manera:
 
 1.  El **miembro del consorcio** genera una dirección de Ethereum (contiene la clave privada)
 
@@ -93,7 +93,7 @@ Cada implementación de los miembros del consorcio incluye:
 
 -   Máquinas virtuales para ejecutar los validadores de prueba de autoridad
 
--   Azure Load Balancer para distribuir solicitudes de RPC, de emparejamiento y de aplicaciones descentralizadas de gobierno
+-   Azure Load Balancer para distribuir solicitudes de RPC, de emparejamiento y de aplicaciones descentralizadas de gobernanza
 
 -   Azure Key Vault para proteger las identidades de validador
 
@@ -111,7 +111,7 @@ Hemos aprovechado los contenedores de Docker para la confiabilidad y la modulari
 
     -   Se ejecuta una vez durante la implementación
 
-    -   Genera identidades y los contratos de gobierno
+    -   Genera identidades y los contratos de gobernanza
 
     -   Almacena identidades en el almacén de identidades
 
@@ -125,18 +125,18 @@ Hemos aprovechado los contenedores de Docker para la confiabilidad y la modulari
 
     -   Recopila estadísticas y registros locales a través de RPC y los envía a Azure Monitor
 
--   Aplicación descentralizada de gobierno
+-   Aplicación descentralizada de gobernanza
 
-    -   Interfaz web para interactuar con los contratos de gobierno
+    -   Interfaz web para interactuar con los contratos de gobernanza
 
 ## <a name="how-to-guides"></a>Guías de procedimientos
-### <a name="governance-dapp"></a>Aplicación descentralizada de gobierno
+### <a name="governance-dapp"></a>Aplicación descentralizada de gobernanza
 
-En el corazón de la prueba de autoridad está el gobierno descentralizado. La aplicación descentralizada de gobierno es un conjunto de [contratos inteligentes](https://github.com/Azure-Samples/blockchain/tree/master/ethereum-on-azure/) implementados previamente y una aplicación web que se usan para gobernar las autoridades en la red.
+En el corazón de la prueba de autoridad está la gobernanza descentralizado. La aplicación descentralizada de gobernanza es un conjunto de [contratos inteligentes](https://github.com/Azure-Samples/blockchain/tree/master/ethereum-on-azure/) implementados previamente y una aplicación web que se usan para gobernar las autoridades en la red.
 Las autoridades se dividen en identidades de administrador y nodos de validador.
 Los administradores tienen la capacidad de delegar la participación de consenso en un conjunto de nodos de validador. Los administradores también pueden votar otros administradores dentro o fuera de la red.
 
-![aplicación descentralizada de gobierno](./media/ethereum-poa-deployment/governance-dapp.png)
+![aplicación descentralizada de gobernanza](./media/ethereum-poa-deployment/governance-dapp.png)
 
 -   **Gobierno descentralizado**: los cambios en las autoridades de la red se administran mediante la votación en cadena por parte de administradores seleccionados.
 
@@ -144,10 +144,10 @@ Los administradores tienen la capacidad de delegar la participación de consenso
 
 -   **Historial de cambios auditable**: cada cambio se registra en la cadena de bloques, lo que proporciona transparencia y capacidad de auditoría.
 
-#### <a name="getting-started-with-governance"></a>Introducción al gobierno
-Para realizar cualquier tipo de transacciones a través de la DApp gobierno, deberá aprovechar una cartera de Ethereum.  La estrategia más sencilla es usar una cartera en el explorador, como [MetaMask](https://metamask.io); pero puesto que son contratos inteligentes implementados en la red, también puede automatizar las interacciones con el contrato de gobierno.
+#### <a name="getting-started-with-governance"></a>Introducción a la gobernanza
+Para realizar cualquier tipo de transacciones a través de la DApp gobierno, deberá aprovechar una cartera de Ethereum.  La estrategia más sencilla es usar una cartera en el explorador, como [MetaMask](https://metamask.io); pero puesto que son contratos inteligentes implementados en la red, también puede automatizar las interacciones con el contrato de gobernanza.
 
-Después de instalar MetaMask, vaya a la aplicación descentralizada de gobierno en el explorador.  Puede encontrar la URL en el correo electrónico de confirmación de implementación o mediante Azure Portal, en el resultado de la implementación.  Si no tiene una cartera en el explorador instalado, no podrá realizar ninguna acción; Sin embargo, todavía puede leer el estado de administrador.  
+Después de instalar MetaMask, vaya a la aplicación descentralizada de gobernanza en el explorador.  Puede encontrar la URL en el correo electrónico de confirmación de implementación o mediante Azure Portal, en el resultado de la implementación.  Si no tiene una cartera en el explorador instalado, no podrá realizar ninguna acción; Sin embargo, todavía puede leer el estado de administrador.  
 
 #### <a name="becoming-an-admin"></a>Convertirse en administrador
 Si es el primer miembro que implementa en la red, a continuación, le pone automáticamente un administrador y los nodos de paridad se mostrará como validadores.  Si va a unir a la red, deberá obtener votado como administrador por una mayoría (mayor que 50%) del conjunto de administrador existente.  Si prefiere no ser administrador, los nodos seguirán sincronizándose y validarán la cadena de bloques, pero no participarán en el proceso de creación de bloques. Para iniciar el proceso de votación para convertirse en administrador, haga clic en __Designar__ y escriba su alias y dirección de Ethereum.
@@ -276,7 +276,7 @@ A continuación se proporciona una descripción detallada de cada parámetro:
   ---|---|---|---
 Consortium Member ID (Identificador de miembro del consorcio)|El identificador asociado con cada miembro que participa en la red del consorcio usada para configurar los espacios de direcciones IP para evitar la colisión. En el caso de una red privada, el identificador de miembro debe ser único en las diferentes organizaciones de la misma red.  Es necesario un identificador de miembro único incluso si la misma organización se implementa en varias regiones. Tome nota del valor de este parámetro, ya que necesitará compartirlo con otros miembros para asegurarse de que no hay ningún conflicto de combinación.|0-255|N/D
 Id. de red|El identificador de red para la red del consorcio de Ethereum que se está implementando.  Cada red de Ethereum tiene su propio identificador de red, siendo 1 el identificador de la red pública.|De 5 a 999 999 999|10101010
-Admin Ethereum Address (Dirección de Ethereum del administrador)|Dirección de cuenta de Ethereum que se usa para participar en el gobierno de prueba de autoridad.  Se recomienda usar MetaMask para generar una dirección de Ethereum.|42 caracteres alfanuméricos empezando con 0x|N/D
+Admin Ethereum Address (Dirección de Ethereum del administrador)|Dirección de cuenta de Ethereum que se usa para participar en la gobernanza de prueba de autoridad.  Se recomienda usar MetaMask para generar una dirección de Ethereum.|42 caracteres alfanuméricos empezando con 0x|N/D
 Opciones avanzadas|Opciones avanzadas de configuración de Ethereum|Habilitar o Deshabilitar|Disable
 Dirección IP pública (Opciones avanzadas = Habilitar)|Implementa la red detrás de una puerta de enlace de red virtual y quita el acceso de emparejamiento. Si se selecciona esta opción, todos los miembros deben usar una puerta de enlace de red virtual para que la conexión sea compatible.|Red privada virtual de dirección IP pública|Dirección IP pública
 Límite de gas del bloque (opciones avanzadas = Habilitar)|El límite de gas del bloque inicial de la red|Cualquier elemento numérico|50 000 00
@@ -316,7 +316,7 @@ Una vez completada la implementación, puede tener acceso a los parámetros nece
 
 -   Punto de conexión RPC de Ethereum
 
--   Dirección URL del panel de gobierno
+-   Dirección URL del panel de gobernanza
 
 -   Dirección URL de Azure Monitor
 
@@ -345,7 +345,7 @@ Una vez que la implementación haya finalizado correctamente y todos los recurso
 ### <a name="growing-the-consortium"></a>Crecimiento del consorcio
 
 Para expandir el consorcio, primero debe conectar la red física.
-Mediante la implementación basada en direcciones IP públicas, este primer paso no da problemas. Si implementa detrás de una VPN, consulte la sección [conexión de puerta de enlace de red virtual](#connecting-vnet-gateways) para realizar la conexión de red como parte de la nueva implementación de miembro.  Una vez finalizada la implementación, use la [aplicación descentralizada de gobierno](#governance-dapp) para convertirse en administrador de red.
+Mediante la implementación basada en direcciones IP públicas, este primer paso no da problemas. Si implementa detrás de una VPN, consulte la sección [conexión de puerta de enlace de red virtual](#connecting-vnet-gateways) para realizar la conexión de red como parte de la nueva implementación de miembro.  Una vez finalizada la implementación, use la [aplicación descentralizada de gobernanza](#governance-dapp) para convertirse en administrador de red.
 
 #### <a name="new-member-deployment"></a>Implementación de un nuevo miembro
 
@@ -482,7 +482,7 @@ Si realizó la implementación en más de una región, cambie el comando anterio
 
 ### <a name="azure-traffic-manager-load-balancing"></a>Equilibrio de carga de Azure Traffic Manager
 
-Azure Traffic Manager puede ayudar a reducir el tiempo de inactividad y a mejorar la capacidad de respuesta de la red de prueba de autoridad mediante el enrutamiento de tráfico entrante a través de varias implementaciones en diferentes regiones. Las comprobaciones de estado incorporadas y el reenrutamiento automático ayudan a garantizar una alta disponibilidad de los puntos de conexión RPC y la aplicación descentralizada de gobierno. Esta característica es útil si ha implementado en varias regiones y están listas para producción.
+Azure Traffic Manager puede ayudar a reducir el tiempo de inactividad y a mejorar la capacidad de respuesta de la red de prueba de autoridad mediante el enrutamiento de tráfico entrante a través de varias implementaciones en diferentes regiones. Las comprobaciones de estado incorporadas y el reenrutamiento automático ayudan a garantizar una alta disponibilidad de los puntos de conexión RPC y la aplicación descentralizada de gobernanza. Esta característica es útil si ha implementado en varias regiones y están listas para producción.
 
 Use Traffic Manager para:
 

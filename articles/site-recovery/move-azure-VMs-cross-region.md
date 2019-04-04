@@ -17,7 +17,7 @@ ms.locfileid: "57192929"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Traslado de máquinas virtuales de Azure a otra región
 
-Puede que quiera mover máquinas virtuales de infraestructura como servicio (IaaS) de Azure de una región a otra para mejorar la confiabilidad, la disponibilidad, la administración o el gobierno. En este tutorial se muestra cómo mover las máquinas virtuales de Azure a otra región con Azure Site Recovery. Aprenderá a:
+Puede que quiera mover máquinas virtuales de infraestructura como servicio (IaaS) de Azure de una región a otra para mejorar la confiabilidad, la disponibilidad, la administración o la gobernanza. En este tutorial se muestra cómo mover las máquinas virtuales de Azure a otra región con Azure Site Recovery. Aprenderá a:
 
 > [!div class="checklist"]
 > * Verificar los requisitos previos

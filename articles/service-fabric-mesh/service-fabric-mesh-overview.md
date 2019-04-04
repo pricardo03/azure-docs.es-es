@@ -34,7 +34,7 @@ Service Fabric Mesh admite todos los lenguajes de programación o plataformas qu
 Con Service Fabric Mesh, puede:
 
 - "Levantar y mover" aplicaciones existentes en contenedores para modernizar y ejecutar las aplicaciones actuales a escala.
-- Compilar e implementar nuevas aplicaciones de microservicios a escala en Azure.  Realizar la integración con otros servicios o aplicaciones existentes de Azure que se ejecutan en contenedores. Cada microservicio forma parte de una aplicación aislada de la red segura que tiene definidas directivas de gobierno de recursos para núcleos de CPU, memoria, espacio en disco y mucho más.
+- Compilar e implementar nuevas aplicaciones de microservicios a escala en Azure.  Realizar la integración con otros servicios o aplicaciones existentes de Azure que se ejecutan en contenedores. Cada microservicio forma parte de una aplicación aislada de la red segura que tiene definidas directivas de gobernanza de recursos para núcleos de CPU, memoria, espacio en disco y mucho más.
 - Realizar la integración con aplicaciones existentes y ampliarlas sin efectuar cambios en esas aplicaciones. Usar su propia red virtual para conectar las aplicaciones existentes a las nuevas aplicaciones.  
 - Modernizar las aplicaciones existentes de Cloud Services mediante la migración a Service Fabric Mesh.  
 

@@ -12,7 +12,7 @@ ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 8debab073d65cd64303d2f395b73a3a04e8105b6
 ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/29/2019
 ms.locfileid: "55166873"
@@ -65,7 +65,7 @@ Los TF son el eje del modelo de marco de confianza de Open Identity Exchange (OI
 
 Por lo tanto, una especificación de TF controla cómo se intercambia la información de identidad entre los participantes de la comunidad de interés: usuarios de confianza, proveedores de atributos e identidades y comprobadores de atributos.
 
-Una especificación de TF es uno o varios documentos que sirven de referencia para el gobierno de la comunidad de interés que regulan la aserción y el consumo de información de identidad digital dentro de la comunidad. Es un conjunto de directivas y procedimientos, diseñados para establecer la confianza en las identidades digitales usadas para las transacciones en línea entre los miembros de una comunidad de interés.  
+Una especificación de TF es uno o varios documentos que sirven de referencia para la gobernanza de la comunidad de interés que regulan la aserción y el consumo de información de identidad digital dentro de la comunidad. Es un conjunto de directivas y procedimientos, diseñados para establecer la confianza en las identidades digitales usadas para las transacciones en línea entre los miembros de una comunidad de interés.  
 
 En otras palabras, una especificación de TF define las reglas para la creación de un ecosistema de identidad federada viable para una comunidad.
 
@@ -73,7 +73,7 @@ Actualmente, existe un consenso generalizado sobre el beneficio de este enfoque.
 
 Por este motivo, las directivas personalizadas de Azure AD B2C que utilizan el marco de experiencia de identidad usan la especificación como base de su representación de datos de un TF a fin de facilitar la interoperabilidad.  
 
-Las directivas personalizadas de Azure AD B2C que aprovechan el marco de experiencia de identidad representan una especificación de TF como una combinación de datos que pueden leer un usuario y una máquina. Algunas secciones de este modelo (normalmente, las que están más orientadas a la regulación) se representan como referencias a la documentación publicada sobre la directiva de seguridad y privacidad junto con los procedimientos relacionados (si existen). Otras secciones describen en detalle las reglas de configuración de metadatos y en tiempo de ejecución que facilitan la automatización de las operaciones.
+Las directivas personalizadas de Azure AD B2C que aprovechan el marco de experiencia de identidad representan una especificación de TF como una combinación de datos que pueden leer un usuario y una máquina. Algunas secciones de este modelo (normalmente, las que están más orientadas a la gobernanza) se representan como referencias a la documentación publicada sobre la directiva de seguridad y privacidad junto con los procedimientos relacionados (si existen). Otras secciones describen en detalle las reglas de configuración de metadatos y en tiempo de ejecución que facilitan la automatización de las operaciones.
 
 ## <a name="understand-trust-framework-policies"></a>Descripción de las directivas del marco de confianza
 

@@ -13,7 +13,7 @@ ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
 ms.openlocfilehash: 05fc742bba535ea3968e60cd0f40c80b812c09fd
 ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/31/2019
 ms.locfileid: "55466445"
@@ -35,7 +35,7 @@ Las funciones de ciencia de datos en las empresas a menudo se pueden organizar e
 
 2. ***Equipos de ciencia de datos dentro de grupos***
 
-En este tipo de estructura habrá responsables de grupo y equipo. Normalmente, un proyecto de ciencia de datos lo realiza un equipo de ciencia de datos, que puede estar formado por responsables de proyecto (para tareas de administración y regulación del proyecto) y científicos de datos o ingenieros (colaboradores individuales y personal técnico) que ejecutarán las partes de ciencia de datos e ingeniería de datos del proyecto. Antes de la ejecución, los responsables de grupo, equipo o proyecto realizan la configuración y regulación.
+En este tipo de estructura habrá responsables de grupo y equipo. Normalmente, un proyecto de ciencia de datos lo realiza un equipo de ciencia de datos, que puede estar formado por responsables de proyecto (para tareas de administración y gobernanza del proyecto) y científicos de datos o ingenieros (colaboradores individuales y personal técnico) que ejecutarán las partes de ciencia de datos e ingeniería de datos del proyecto. Antes de la ejecución, los responsables de grupo, equipo o proyecto realizan la configuración y gobernanza.
 
 ## <a name="definition-of-four-tdsp-roles"></a>Definición de los cuatro roles de TDSP
 Con la suposición anterior, hay cuatro roles diferentes para el personal del equipo:

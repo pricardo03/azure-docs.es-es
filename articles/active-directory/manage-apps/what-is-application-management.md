@@ -37,7 +37,7 @@ Habilitar el inicio de sesión único (SSO) en las aplicaciones y Office 365 ofr
 
 El inicio de sesión único mejora la seguridad. *Sin el inicio de sesión único*, los administradores necesitan crear y actualizar cuentas de usuario para cada aplicación individual, lo que requiere tiempo. Además, los usuarios deben realizar un seguimiento de varias credenciales para acceder a sus aplicaciones. Como resultado, los usuarios tienden a anotar las contraseñas o usar otras soluciones de administración de contraseñas que presentan riesgos para la seguridad de los datos. 
 
-## <a name="address-governance-and-compliance"></a>Abordar el gobierno y el cumplimiento
+## <a name="address-governance-and-compliance"></a>Abordar la gobernanza y el cumplimiento
 Con Azure AD, puede supervisar los inicios de sesión en la aplicación mediante informes que usan herramientas de supervisión de eventos e incidentes de seguridad (SIEM). Puede acceder a los informes desde el portal o con las API. Audite mediante programación quién accede a sus aplicaciones y retire el acceso a usuarios inactivos mediante revisiones de acceso.
 
 ## <a name="manage-costs"></a>Administrar costos

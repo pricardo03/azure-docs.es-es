@@ -16,7 +16,7 @@ ms.date: 05/16/2018
 ms.author: jdial
 ms.openlocfilehash: acd7a88acb31b9d3bd3ba714387561e91b3524a6
 ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/18/2019
 ms.locfileid: "56339523"
@@ -39,7 +39,7 @@ Todos los recursos de Azure se crean en una suscripción y una región de Azure.
 
 ## <a name="subscriptions"></a>Suscripciones
 
-Puede implementar tantas redes virtuales como sea necesario en cada suscripción, hasta el [límite](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) que se haya establecido. Por ejemplo, algunas organizaciones tienen suscripciones distintas para diferentes departamentos. Para obtener más información y detalles en torno a las suscripciones, consulte [Subscription governance](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy) (Gobierno de suscripciones).
+Puede implementar tantas redes virtuales como sea necesario en cada suscripción, hasta el [límite](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) que se haya establecido. Por ejemplo, algunas organizaciones tienen suscripciones distintas para diferentes departamentos. Para obtener más información y detalles en torno a las suscripciones, consulte [Gobernanza de suscripción](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy).
 
 ## <a name="segmentation"></a>Segmentación
 

@@ -16,7 +16,7 @@ ms.date: 11/21/2017
 ms.author: terrylan
 ms.openlocfilehash: 2d6d1d121e41b0446e7f63b9aa530df89697ef67
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56117931"
@@ -215,7 +215,7 @@ Reducir el número de tareas que los administradores pueden realizar en una esta
 * Aprovisionamiento con seguridad mejorada. Proteja la imagen de su estación de trabajo protegida de referencia contra la manipulación. Use medidas de seguridad tales como cifrado y aislamiento para almacenar imágenes, máquinas virtuales y scripts, y restrinja el acceso (quizás con un proceso de inserción y extracción del repositorio que se pueda auditar).
 * Aplicación de revisiones. Mantenga una compilación coherente (o use imágenes diferentes para desarrollo, operaciones y otras tareas administrativas), examine de forma rutinaria si hay cambios y malware, mantenga la compilación al día y active los equipos solo cuando se necesiten.
 * Cifrado. Asegúrese de que las estaciones de trabajo de administración tengan TPM para habilitar [Sistema de cifrado de archivos](https://technet.microsoft.com/library/cc700811.aspx) (EFS) y BitLocker de forma más segura. Si usa Windows To Go, utilice solo llaves USB cifradas junto con BitLocker.
-* Gobierno. Use GPO de AD DS para controlar todas las interfaces de Windows de los administradores, como el uso compartido de archivos. Incluya las estaciones de trabajo de administración de procesos de auditoría, supervisión y registro. Realice un seguimiento del acceso y uso de los administradores y programadores.
+* Gobernanza. Use GPO de AD DS para controlar todas las interfaces de Windows de los administradores, como el uso compartido de archivos. Incluya las estaciones de trabajo de administración de procesos de auditoría, supervisión y registro. Realice un seguimiento del acceso y uso de los administradores y programadores.
 
 ## <a name="summary"></a>Resumen
 Usar una configuración de estación de trabajo protegida para administrar los servicios en la nube de Azure, las máquinas virtuales y las aplicaciones puede ayudarle a evitar muchos riesgos y amenazas que pueden derivar de la administración remota de la infraestructura de TI esencial. Tanto Azure como Windows proporcionan mecanismos que puede emplear para ayudar a proteger y controlar el comportamiento de las comunicaciones, la autenticación y los clientes.

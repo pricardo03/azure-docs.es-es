@@ -34,7 +34,7 @@ Análisis de Data Lake incluye U-SQL, un lenguaje de consulta que amplia la senc
 
 ### <a name="integrates-seamlessly-with-your-it-investments"></a>Se integra sin problemas con los elementos de TI en los que ha invertido
   
-Data Lake Analytics utiliza las inversiones existentes en TI para identidad, administración y seguridad. De esta forma se simplifica el control de los datos y se facilita la ampliación de sus aplicaciones de datos actuales. Data Lake Analytics se integra con Active Directory para la administración de usuarios y permisos, y viene con funciones de supervisión y auditoría integradas.
+Data Lake Analytics utiliza las inversiones existentes en TI para identidad, administración y seguridad. De esta forma se simplifica la gobernanza de los datos y se facilita la ampliación de sus aplicaciones de datos actuales. Data Lake Analytics se integra con Active Directory para la administración de usuarios y permisos, y viene con funciones de supervisión y auditoría integradas.
 
 ### <a name="affordable-and-cost-effective"></a>Asequible y rentable
 

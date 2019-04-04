@@ -304,7 +304,7 @@ Para más información sobre esta actualización, consulte [Azure AD Connect: hi
 
 **Tipo:** Característica modificada  
 **Categoría del servicio:** Términos de uso  
-**Funcionalidad del producto:** Gobierno
+**Funcionalidad del producto:** Gobernanza
 
 Estamos actualizando la cadena de aceptación en la interfaz de usuario del usuario final correspondiente a las condiciones de uso.
 
@@ -462,7 +462,7 @@ Para obtener más información acerca de la Protección con contraseña de Azure
 
 **Tipo:** Nueva característica  
 **Categoría del servicio:** Términos de uso  
-**Funcionalidad del producto:** Gobierno
+**Funcionalidad del producto:** Gobernanza
 
 Durante la creación de los Términos de uso (TOU), también se ha creado una nueva plantilla de la directiva de acceso condicional para "todos los invitados" y "todas las aplicaciones". Esta nueva plantilla de la directiva se aplica a los Términos de uso recién creados, lo que facilita el proceso de cumplimiento y creación para los invitados.
 
@@ -474,7 +474,7 @@ Para obtener más información, consulte [Característica Azure Active Directory
 
 **Tipo:** Nueva característica  
 **Categoría del servicio:** Términos de uso  
-**Funcionalidad del producto:** Gobierno
+**Funcionalidad del producto:** Gobernanza
 
 Durante la creación de los términos de uso (TOU), también se ha creado una nueva plantilla "personalizado" de la directiva de acceso condicional. Esta nueva plantilla de la directiva le permite crear los términos de uso y, a continuación, pasar inmediatamente a la hoja de creación de la directiva de acceso condicional, sin necesidad de navegar de forma manual a través del portal.
 
@@ -602,7 +602,7 @@ Para obtener una lista de todas las aplicaciones que admiten el aprovisionamient
 
 **Tipo:** Nueva característica  
 **Categoría del servicio:** Revisiones de acceso  
-**Funcionalidad del producto:** Gobierno
+**Funcionalidad del producto:** Gobernanza
  
 La revisión de acceso de grupos y aplicaciones ya está disponible de forma generalizada como parte de Azure AD Premium P2.  Los administradores podrán configurar las revisiones de acceso de los miembros de un grupo y las asignaciones de aplicaciones para que se repitan automáticamente a intervalos periódicos; por ejemplo, cada mes o cada trimestre.
 
@@ -684,7 +684,7 @@ La versión de mayo de AADConnect contiene una versión preliminar pública de l
 
 **Tipo:** Característica modificada  
 **Categoría del servicio:** Revisiones de acceso  
-**Funcionalidad del producto:** Gobierno
+**Funcionalidad del producto:** Gobernanza
 
 Las revisiones de acceso de grupos y aplicaciones ahora están disponibles de forma generalizada como parte de Azure AD Premium P2. Un administrador puede realizar la configuración necesaria para aplicar automáticamente los cambios del revisor a un grupo o aplicación cuando se complete la revisión de acceso. El administrador también puede especificar lo que ocurre al acceso continuado del usuario si los revisores no responden: quitar el acceso, mantener el acceso o seguir las recomendaciones del sistema. 
 

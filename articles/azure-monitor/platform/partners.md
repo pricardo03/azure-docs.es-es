@@ -68,7 +68,7 @@ Circonus es una plataforma de análisis y supervisión de microservicios integra
 ![Logotipo de CloudHealth](./media/partners/cloudhealth.png)
 
 
-Una y automatice la nube con una plataforma creada para ahorrar tiempo y dinero. CloudHealth proporciona visibilidad, optimización intuitiva y prácticas de regulación sólidas para la administración en la nube. La plataforma Cloudhealth permite que tanto las empresas como los MSP maximicen la rentabilidad de las inversiones en la nube. Tome decisiones seguras relacionadas con el costo, el uso, el rendimiento y la seguridad.
+Una y automatice la nube con una plataforma creada para ahorrar tiempo y dinero. CloudHealth proporciona visibilidad, optimización intuitiva y prácticas de gobernanza sólidas para la administración en la nube. La plataforma Cloudhealth permite que tanto las empresas como los MSP maximicen la rentabilidad de las inversiones en la nube. Tome decisiones seguras relacionadas con el costo, el uso, el rendimiento y la seguridad.
 
 [Más información.][cloudhealth-doc]
 

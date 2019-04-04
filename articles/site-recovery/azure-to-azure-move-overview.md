@@ -34,7 +34,7 @@ En este tutorial, aprenderá lo siguiente:
 
 Posibles motivos para trasladas las máquinas virtuales:
 
-- Que ya se haya implementado en una región y se haya agregado compatibilidad con una nueva, que está más cerca de los usuarios finales de la aplicación o el servicio. En este escenario, quizá quiera trasladas las máquinas virtuales tal cual están a la nueva región para reducir la latencia. Use el mismo enfoque si desea consolidar las suscripciones o si existen reglas de gobierno o de organización que requieran el traslado.
+- Que ya se haya implementado en una región y se haya agregado compatibilidad con una nueva, que está más cerca de los usuarios finales de la aplicación o el servicio. En este escenario, quizá quiera trasladas las máquinas virtuales tal cual están a la nueva región para reducir la latencia. Use el mismo enfoque si desea consolidar las suscripciones o si existen reglas de gobernanza o de organización que requieran el traslado.
 - Que la máquina virtual se implementara como de instancia única o como parte de un conjunto de disponibilidad. Si desea aumentar la disponibilidad de los Acuerdos de Nivel de Servicio, puede trasladar las máquinas virtuales a una zona de disponibilidad.
 
 ## <a name="steps-to-move-azure-vms"></a>Pasos para trasladar máquinas virtuales de Azure

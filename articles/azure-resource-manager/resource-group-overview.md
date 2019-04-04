@@ -68,7 +68,7 @@ Las siguientes sugerencias le ayudarán a sacar el máximo partido de Resource M
 * Ejecute comandos imperativos para administrar los recursos, como iniciar o detener una aplicación o un equipo.
 * Organice los recursos con el mismo ciclo de vida en un grupo de recursos. Use etiquetas para organizar los demás recursos.
 
-Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobierno de suscripción prescriptivo](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json).
+Para obtener instrucciones sobre cómo las empresas pueden utilizar Resource Manager para administrar eficazmente las suscripciones, vea [Scaffold empresarial de Azure: Gobernanza de suscripción prescriptiva](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json).
 
 Para más recomendaciones sobre creación de platillas, consulte [Procedimientos recomendados de plantillas de Azure Resource Manager](template-best-practices.md).
 

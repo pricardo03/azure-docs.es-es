@@ -49,7 +49,7 @@ items:
     - name: Usuarios, grupos y roles
       tocHref: /azure/active-directory/users-groups-roles/
       topicHref: /azure/active-directory/users-groups-roles/
-    - name: Identity Governance
+    - name: Gobernanza de identidades
       tocHref: /azure/active-directory/governance/
       topicHref: /azure/active-directory/governance/
     - name: Administración de aplicaciones
@@ -405,7 +405,7 @@ items:
   - name: Genomics
     tocHref: /azure/genomics/
     topicHref: /azure/genomics/
-  - name: Gobierno
+  - name: Gobernanza
     tocHref: /azure/governance/
     topicHref: /azure/governance/
     items:

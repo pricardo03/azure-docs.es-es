@@ -22,7 +22,7 @@ En el pasado, Azure HDInsight solo era compatible con un único usuario: el admi
 
 Puede crear un clúster de HDInsight con Enterprise Security Package (ESP) que esté unido a un dominio de Active Directory. A continuación, puede configurar una lista de empleados de la empresa que pueden autenticarse a través de Azure Active Directory para iniciar sesión en el clúster de HDInsight. Nadie desde fuera de la empresa puede iniciar sesión o acceder al clúster de HDInsight. 
 
-El administrador de la empresa puede configurar el control de acceso basado en rol (RBAC) para la seguridad de Apache Hive mediante el uso de [Apache Ranger](https://hortonworks.com/apache/ranger/). Configurar el RBAC restringe el acceso solo a los datos necesarios. Por último, el administrador puede auditar el acceso a los datos de los empleados y todos los cambios que se realizan en las directivas de control de acceso. El administrador puede lograr un alto grado de gobierno de sus recursos corporativos.
+El administrador de la empresa puede configurar el control de acceso basado en rol (RBAC) para la seguridad de Apache Hive mediante el uso de [Apache Ranger](https://hortonworks.com/apache/ranger/). Configurar el RBAC restringe el acceso solo a los datos necesarios. Por último, el administrador puede auditar el acceso a los datos de los empleados y todos los cambios que se realizan en las directivas de control de acceso. El administrador puede lograr un alto grado de gobernanza de sus recursos corporativos.
 
 > [!NOTE]  
 > Apache Oozie está habilitado ahora en los clústeres ESP. Para tener acceso a la interfaz de usuario web de Oozie, los usuarios deben habilitar la [tunelización](../hdinsight-linux-ambari-ssh-tunnel.md).

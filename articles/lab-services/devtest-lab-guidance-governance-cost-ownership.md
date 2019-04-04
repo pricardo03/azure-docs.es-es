@@ -1,6 +1,6 @@
 ---
-title: Gobierno de la infraestructura de Azure DevTest Labs
-description: En este artículo se proporcionan instrucciones para el gobierno de la infraestructura de Azure DevTest Labs.
+title: Gobernanza de la infraestructura de Azure DevTest Labs
+description: En este artículo se proporcionan instrucciones para la gobernanza de la infraestructura de Azure DevTest Labs.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -15,12 +15,12 @@ ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
 ms.openlocfilehash: 7832691812d8f10342dc7df20a7cfab7265f2d9d
 ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/14/2019
 ms.locfileid: "56243525"
 ---
-# <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Gobierno de la infraestructura de Azure DevTest Labs: administrar costo y propiedad
+# <a name="governance-of-azure-devtest-labs-infrastructure---manage-cost-and-ownership"></a>Gobernanza de la infraestructura de Azure DevTest Labs: administrar costo y propiedad
 El costo y la propiedad son las principales preocupaciones cuando considere la posibilidad de crear los entornos de desarrollo y pruebas. En esta sección, encontrará información que le ayudará a optimizar el costo y alinear la propiedad en su entorno.
 
 ## <a name="optimize-for-cost"></a>Optimizar el costo
@@ -58,7 +58,7 @@ Los propietarios del recurso de DevTest Labs deben estar cerca del equipo de pro
 
 Los miembros del equipo de proyecto o aplicación se deben agregar al rol de usuarios de DevTest Labs. Estos usuarios pueden crear máquinas virtuales (en línea con las directivas de nivel de suscripción y de laboratorio). También pueden administrar sus propias máquinas virtuales. No pueden administrar las máquinas virtuales que pertenecen a otros usuarios.
 
-Para obtener más información vea la documentación de [Scaffold empresarial de Azure: gobierno de suscripción prescriptivo](/azure/architecture/cloud-adoption/appendix/azure-scaffold).
+Para obtener más información vea la documentación de [Scaffold empresarial de Azure: gobernanza de suscripción prescriptiva](/azure/architecture/cloud-adoption/appendix/azure-scaffold).
 
 
 ## <a name="next-steps"></a>Pasos siguientes

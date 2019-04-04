@@ -31,7 +31,7 @@ Actualmente, se admiten seis efectos en una definición de directiva:
 
 ## <a name="order-of-evaluation"></a>Orden de evaluación
 
-En primer lugar, Policy evalúa las solicitudes para crear o actualizar un recurso a través de Azure Resource Manager. Policy crea una lista de todas las asignaciones que se aplican al recurso y, a continuación, evalúa el recurso de acuerdo con cada definición. Policy procesa algunos de los efectos antes de entregar la solicitud al proveedor de recursos adecuado. De este modo, se evita que un proveedor de recursos realice un procesamiento innecesario cuando un recurso no cumple con los controles de gobierno diseñados de Policy.
+En primer lugar, Policy evalúa las solicitudes para crear o actualizar un recurso a través de Azure Resource Manager. Policy crea una lista de todas las asignaciones que se aplican al recurso y, a continuación, evalúa el recurso de acuerdo con cada definición. Policy procesa algunos de los efectos antes de entregar la solicitud al proveedor de recursos adecuado. De este modo, se evita que un proveedor de recursos realice un procesamiento innecesario cuando un recurso no cumple con los controles de gobernanza diseñados de Policy.
 
 - Primero se selecciona **Deshabilitado** para determinar si se debe evaluar la regla de directivas.
 - Luego se evalúa **Append**. Dado que append ya podría alterar la solicitud, un cambio realizado por append podría evitar la activación de un efecto audit o deny.

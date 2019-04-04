@@ -5436,7 +5436,7 @@ La cantidad total de memoria de intercambio que puede utilizarse, en MB. Debe se
 |default|0|
 
 #### <a name="memoryreservationinmb"></a>MemoryReservationInMB
-El límite flexible (en MB) para el gobierno de memoria que se aplica únicamente cuando se detecta contención de la memoria en el nodo. Debe ser un entero positivo.
+El límite flexible (en MB) para la gobernanza de memoria que se aplica únicamente cuando se detecta contención de la memoria en el nodo. Debe ser un entero positivo.
 
 |Atributo|Valor|
 |---|---|
@@ -6491,7 +6491,7 @@ Especifica las directivas que determinan cómo se expone a las réplicas el runt
 |maxOccurs|1|
 
 #### <a name="servicepackageresourcegovernancepolicy"></a>ServicePackageResourceGovernancePolicy
-Define la directiva de gobierno de recursos que se aplica en el nivel del paquete de servicio completo.
+Define la directiva de gobernanza de recursos que se aplica en el nivel del paquete de servicio completo.
 
 |Atributo|Valor|
 |---|---|

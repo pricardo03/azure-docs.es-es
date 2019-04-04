@@ -22,7 +22,7 @@ ms.locfileid: "57440479"
 
 En este artículo se proporcionan recomendaciones sobre cómo construir la plantilla de Resource Manager. Estas recomendaciones ayudan a evitar problemas comunes al usar una plantilla para implementar una solución.
 
-Para obtener recomendaciones sobre cómo controlar las suscripciones de Azure, vea [Scaffolding empresarial de Azure: gobierno de suscripción prescriptivo](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
+Para obtener recomendaciones sobre cómo controlar las suscripciones de Azure, vea [Scaffolding empresarial de Azure: gobernanza de suscripción prescriptiva](/azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=%2Fen-us%2Fazure%2Fazure-resource-manager%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json).
 
 Para obtener recomendaciones sobre cómo crear plantillas que funcionan en todos los entornos de nube de Azure, vea [Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube](templates-cloud-consistency.md).
 

@@ -9,7 +9,7 @@ ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 40e2baaeaae933e8ff6a88eff2e2d86f645ad37b
 ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/03/2019
 ms.locfileid: "58881048"
@@ -487,7 +487,7 @@ Si la tasa de solicitudes es mayor que la capacidad del rendimiento aprovisionad
 
 Si no se especifica un rendimiento predeterminado para el contenedor en el archivo app.config o a través del portal, Azure Cosmos DB establecerá uno.
 
-Azure Cosmos DB ofrece garantías de rendimiento y latencia con límites superiores por operación. Esta garantía es posible cuando un motor puede aplicar la regulación de las operaciones del inquilino. Al establecer TableThroughput se asegura de obtener el rendimiento y la latencia garantizados, ya que la plataforma reserva esta capacidad y garantiza el éxito operativo.
+Azure Cosmos DB ofrece garantías de rendimiento y latencia con límites superiores por operación. Esta garantía es posible cuando un motor puede aplicar la gobernanza de las operaciones del inquilino. Al establecer TableThroughput se asegura de obtener el rendimiento y la latencia garantizados, ya que la plataforma reserva esta capacidad y garantiza el éxito operativo.
 
 Si usa la especificación de rendimiento, puede cambiarla de forma elástica para aprovechar la estacionalidad de la aplicación, satisfacer las necesidades de rendimiento y ahorrar costos.
 
@@ -647,7 +647,7 @@ La API de Apache Cassandra para Azure Cosmos DB admite ahora CQL versión 4. Si 
 ### <a name="why-is-choosing-a-throughput-for-a-table-a-requirement"></a>¿Por qué es un requisito elegir un rendimiento para una tabla?
 
 Azure Cosmos DB establece el rendimiento predeterminado para el contenedor en función de a partir de dónde se crea la tabla: desde el portal o desde CQL.
-Azure Cosmos DB ofrece garantías de rendimiento y latencia con límites superiores por operación. Esta garantía es posible cuando un motor puede aplicar la regulación de las operaciones del inquilino. Al establecer el rendimiento, se asegura de obtener el rendimiento y la latencia garantizados, ya que la plataforma reserva esta capacidad y asegura el éxito operativo.
+Azure Cosmos DB ofrece garantías de rendimiento y latencia con límites superiores por operación. Esta garantía es posible cuando un motor puede aplicar la gobernanza de las operaciones del inquilino. Al establecer el rendimiento, se asegura de obtener el rendimiento y la latencia garantizados, ya que la plataforma reserva esta capacidad y asegura el éxito operativo.
 Puede cambiar con total flexibilidad el rendimiento para beneficiarse de la estacionalidad de su aplicación y ahorrar costos.
 
 El concepto de rendimiento se explica en el artículo [Unidades de solicitud en Azure Cosmos DB](request-units.md). El rendimiento de una tabla se distribuye equitativamente entre las particiones físicas subyacentes.
@@ -674,7 +674,7 @@ simpleStatement.SetOutgoingPayload(outgoingPayload);
 
 ### <a name="what-happens-when-throughput-is-used-up"></a>¿Qué ocurre cuando se usa el rendimiento?
 
-Azure Cosmos DB ofrece garantías de rendimiento y latencia con límites superiores por operación. Esta garantía es posible cuando un motor puede aplicar la regulación de las operaciones del inquilino. Esto es posible por la configuración del rendimiento, que asegura que se obtiene el rendimiento y la latencia garantizados, ya que la plataforma reserva esta capacidad y asegura el éxito operativo.
+Azure Cosmos DB ofrece garantías de rendimiento y latencia con límites superiores por operación. Esta garantía es posible cuando un motor puede aplicar la gobernanza de las operaciones del inquilino. Esto es posible por la configuración del rendimiento, que asegura que se obtiene el rendimiento y la latencia garantizados, ya que la plataforma reserva esta capacidad y asegura el éxito operativo.
 Al superar esta capacidad, obtiene mensajes de error de sobrecarga que indican que se usó la capacidad.
 0 x 1001 elementos sobrecargados: no se puede procesar la solicitud porque la "Tasa de solicitudes es grande". En este momento, es esencial ver qué operaciones ocasionan este problema y su volumen. Puede hacerse una idea sobre el exceso de capacidad consumida que supera la aprovisionada con las métricas del portal. A continuación, debe asegurarse de que se consume la capacidad prácticamente igual en todas las particiones subyacentes. Si ve que una partición consume la mayor parte del rendimiento, tiene un sesgo de la carga de trabajo.
 

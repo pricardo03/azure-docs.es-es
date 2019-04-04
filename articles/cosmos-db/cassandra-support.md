@@ -137,7 +137,7 @@ Azure Cosmos DB admite los siguientes comandos de base de datos en las cuentas d
 * BATCH (solo se admiten los comandos no registrados) 
 * DELETE
 
-Cuando se ejecutan mediante SDK compatibles con CQLV4, todas las operaciones crud devolverán información adicional sobre el error, las unidades de solicitud consumidas o el identificador de actividad. A la hora de utilizar los comandos de eliminación y actualización se tendrá en cuenta el gobierno de recursos para evitar el uso de recursos aprovisionados. 
+Cuando se ejecutan mediante SDK compatibles con CQLV4, todas las operaciones crud devolverán información adicional sobre el error, las unidades de solicitud consumidas o el identificador de actividad. A la hora de utilizar los comandos de eliminación y actualización se tendrá en cuenta la gobernanza de recursos para evitar el uso de recursos aprovisionados. 
 * Tenga en cuenta que el valor gc_grace_seconds debe ser cero si se especifica.
 
 ```csharp

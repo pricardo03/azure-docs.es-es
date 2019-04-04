@@ -21,7 +21,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 02/18/2019
 ms.locfileid: "56343075"
 ---
-# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Tutorial: Información acerca del gobierno de máquinas virtuales Linux con la CLI de Azure
+# <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Tutorial: Información acerca de la gobernanza de máquinas virtuales Linux con la CLI de Azure
 
 [!INCLUDE [Resource Manager governance introduction](../../../includes/resource-manager-governance-intro.md)]
 

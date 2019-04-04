@@ -15,7 +15,7 @@ ms.date: 06/05/2018
 ms.author: adpick
 ms.openlocfilehash: 7a2397328f715dbf63246e8d4aaa789b5986b3b4
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56112570"
@@ -104,4 +104,4 @@ GET "/providers/Microsoft.Insights/eventtypes/management/values?api-version=2015
 * Para obtener un ejemplo sobre cómo crear suscripciones con. NET, vea [ejemplo de código en GitHub](https://github.com/Azure-Samples/create-azure-subscription-dotnet-core).
 * Para obtener más información sobre Azure Resource Manager y sus API, vea [Información general de Azure Resource Manager](resource-group-overview.md).
 * Para obtener más información sobre cómo administrar grandes cantidades de suscripciones mediante grupos de administración, consulte [Organización de los recursos con grupos de administración de Azure](management-groups-overview.md).
-* Para consultar una guía completa de procedimientos recomendados para grandes organizaciones sobre el gobierno de suscripciones, vea [Scaffolding empresarial de Azure: gobierno de suscripción preceptivo](/azure/architecture/cloud-adoption-guide/subscription-governance)
+* Para consultar una guía completa de procedimientos recomendados para grandes organizaciones sobre la gobernanza de suscripciones, vea [Scaffolding empresarial de Azure: gobernanza de suscripciones preceptiva](/azure/architecture/cloud-adoption-guide/subscription-governance)

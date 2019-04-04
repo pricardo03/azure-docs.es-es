@@ -204,7 +204,7 @@ En esta sección se le recomiendan algunos procedimientos para la administració
 - [Administración de recursos](#best-practice-name-resource-groups): procedimientos recomendados para los grupos de recursos y los recursos de Azure, como la nomenclatura inteligente, la prevención de la eliminación accidental, la administración de los permisos de recursos y el etiquetado eficaz de los recursos.
 - [Uso de planos técnicos](#best-practice-implement-blueprints): obtenga una visión general rápida sobre el uso de planos técnicos para crear y administrar los entornos de implementación.
 - [Revisión de las arquitecturas](#best-practice-review-azure-reference-architectures): revise arquitecturas de Azure de ejemplo para obtener información al crear las implementaciones posteriores a la migración.
-- [Configuración de grupos de administración](#best-practice-manage-resources-with-management-groups): si tiene varias suscripciones, puede reunirlas en grupos de administración y aplicar la configuración de gobierno a esos grupos.
+- [Configuración de grupos de administración](#best-practice-manage-resources-with-management-groups): si tiene varias suscripciones, puede reunirlas en grupos de administración y aplicar la configuración de gobernanza a esos grupos.
 - [Configuración de directivas de acceso](#best-practice-deploy-azure-policy): aplique directivas de cumplimiento a los recursos de Azure.
 - [Implementación de una estrategia de BCDR](#best-practice-implement-a-bcdr-strategy): elabore una estrategia de continuidad empresarial y recuperación ante desastres (BCDR) para mantener los datos seguros, el entorno resistente y los recursos activos y en ejecución cuando se producen interrupciones.
 - [Administración de máquinas virtuales](#best-practice-use-managed-disks-and-availability-sets): agrupe las máquinas virtuales en grupos de disponibilidad para alta disponibilidad y resistencia. Use discos administrados para facilitar la administración de los discos y el almacenamiento de la máquina virtual.
@@ -297,13 +297,13 @@ Azure App Service Environment proporciona un entorno completamente aislado y ded
 
 Si la organización tiene varias suscripciones, deberá administrar el acceso, las directivas y su cumplimiento. Los grupos de administración de Azure proporcionan un nivel de ámbito por encima de las suscripciones.
 
-- Las suscripciones se organizan en contenedores llamados grupos de administración, a los que se aplican las condiciones de gobierno.
+- Las suscripciones se organizan en contenedores llamados grupos de administración, a los que se aplican las condiciones de gobernanza.
 - Todas las suscripciones de un grupo de administración heredan automáticamente las condiciones del grupo de administración.
 - Los grupos de administración proporcionan capacidad de administración de nivel empresarial a gran escala con independencia del tipo de suscripciones que tenga.
 - Por ejemplo, puede aplicar una directiva de grupo de administración que limita las regiones en las que se pueden crear máquinas virtuales. Esta directiva se aplica a todos los grupos de administración, las suscripciones y los recursos de ese grupo de administración.
 - Puede crear una estructura flexible de grupos de administración y suscripciones para organizar los recursos en una jerarquía para la administración unificada de las directivas y el acceso.
 
-El siguiente diagrama muestra un ejemplo de creación de una jerarquía para el gobierno mediante grupos de administración.
+El siguiente diagrama muestra un ejemplo de creación de una jerarquía para la gobernanza mediante grupos de administración.
 
 ![Grupos de administración](./media/migrate-best-practices-security-management/management-groups.png)
 *Management groups*

@@ -1,5 +1,5 @@
 ---
-title: 'Introducción a la administración de Azure: Gobierno de Azure'
+title: 'Introducción a la administración de Azure: Gobernanza de Azure'
 description: Información general de las áreas de administración para las aplicaciones y los recursos de Azure con vínculos a contenido sobre las herramientas de administración de Azure.
 author: DCtheGeek
 manager: carmonm
@@ -16,7 +16,7 @@ ms.locfileid: "58804146"
 ---
 # <a name="overview-of-management-services-in-azure"></a>Información general de servicios de administración de Azure
 
-El gobierno de Azure es uno de los aspectos de la administración de Azure. En este artículo se describen las distintas áreas de administración para implementar y mantener los recursos de Azure.
+La gobernanza de Azure es uno de los aspectos de la administración de Azure. En este artículo se describen las distintas áreas de administración para implementar y mantener los recursos de Azure.
 
 Administración hace referencia a las tareas y procesos necesarios para mantener las aplicaciones empresariales y los recursos que las dan soporte. Azure tiene muchos servicios y herramientas que funcionan en conjunto para proporcionar una administración completa. Estos servicios no solo son para los recursos de Azure, sino también de otras nubes y en entornos locales. El primer paso para diseñar un entorno de administración completo es entender las distintas herramientas y cómo funcionan en conjunto.
 
@@ -39,8 +39,8 @@ La automatización de estas tareas permite eliminar la redundancia, reducir el t
 
 ## <a name="govern"></a>Control
 
-El gobierno proporciona mecanismos y procesos para mantener el control de las aplicaciones y recursos de Azure. Conlleva la planificación de las iniciativas y el establecimiento de prioridades estratégicas.
-En Azure, el gobierno se implementa principalmente con dos servicios. [Azure Policy](./policy/overview.md) permite crear, asignar y administrar definiciones de directivas para aplicar las reglas en los recursos. Con esta característica, esos recursos se mantienen en cumplimiento con los estándares corporativos. [Azure Cost Management de Cloudyn](../cost-management/overview.md) permite realizar un seguimiento del uso y de los gastos de la nube de los recursos no solo de Azure, sino también de otros proveedores de servicios en la nube.
+La gobernanza proporciona mecanismos y procesos para mantener el control de las aplicaciones y recursos de Azure. Conlleva la planificación de las iniciativas y el establecimiento de prioridades estratégicas.
+En Azure, la gobernanza se implementa principalmente con dos servicios. [Azure Policy](./policy/overview.md) permite crear, asignar y administrar definiciones de directivas para aplicar las reglas en los recursos. Con esta característica, esos recursos se mantienen en cumplimiento con los estándares corporativos. [Azure Cost Management de Cloudyn](../cost-management/overview.md) permite realizar un seguimiento del uso y de los gastos de la nube de los recursos no solo de Azure, sino también de otros proveedores de servicios en la nube.
 
 ## <a name="secure"></a>Protección
 

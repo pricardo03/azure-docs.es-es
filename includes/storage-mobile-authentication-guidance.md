@@ -6,7 +6,7 @@ ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 6911e06dc023027ab32b99387b9f7d3f5e708f86
 ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/26/2018
 ms.locfileid: "50165550"
@@ -30,7 +30,7 @@ Si se usa la autenticación de clave compartida, se creará una [cadena de conex
 * Protocolo **DefaultEndpointsProtocol** : puede elegir si usar HTTP o HTTPS. De todos modos, se recomienda encarecidamente el uso de HTTPS.
 * **Nombre de cuenta** : es el nombre de la cuenta de almacenamiento.
 * **Clave de cuenta**: en [Azure Portal](https://portal.azure.com), navegue a la cuenta de almacenamiento y haga clic en el icono **Claves** para buscar esta información.
-* (Opcional) **EndpointSuffix** : se usa para servicios de almacenamiento en regiones con distintos sufijos de punto de conexión, como Azure China o Azure Governance.
+* (Opcional) **EndpointSuffix**: se usa para servicios de almacenamiento en regiones con distintos sufijos de punto de conexión, como Azure China o Azure Governance.
 
 Este es un ejemplo de cadena de conexión que usa la autenticación de clave compartida.
 

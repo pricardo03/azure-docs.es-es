@@ -38,7 +38,7 @@ Vídeos
 * [Introducción a las funcionalidades de prevención, detección y respuesta de Security Center](https://azure.microsoft.com/resources/videos/azurecon-2015-new-azure-security-center-helps-you-prevent-detect-and-respond-to-threats/)
 
 ## <a name="planning-and-operations"></a>Planeamiento y operaciones
-Para sacar el máximo partido a Security Center, es importante comprender cómo distintas personas o equipos de su organización usarán el servicio para satisfacer las necesidades relativas a las operaciones seguras, la supervisión, el gobierno y la respuesta a incidentes.
+Para sacar el máximo partido a Security Center, es importante comprender cómo distintas personas o equipos de su organización usarán el servicio para satisfacer las necesidades relativas a las operaciones seguras, la supervisión, la gobernanza y la respuesta a incidentes.
 
 Use los siguientes recursos como ayuda durante los procesos de planeamiento y de operaciones.
 

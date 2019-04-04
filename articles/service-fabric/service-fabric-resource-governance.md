@@ -1,5 +1,5 @@
 ---
-title: Gobierno de recursos de Azure Service Fabric para contenedores y servicios | Microsoft Docs
+title: Gobernanza de recursos de Azure Service Fabric para contenedores y servicios | Microsoft Docs
 description: Azure Service Fabric permite especificar los límites de recursos de servicios que se ejecutan dentro o fuera de contenedores.
 services: service-fabric
 documentationcenter: .net
@@ -21,16 +21,16 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 03/29/2019
 ms.locfileid: "58669255"
 ---
-# <a name="resource-governance"></a>Regulador de recursos
+# <a name="resource-governance"></a>Gobernanza de recursos
 
 Cuando se ejecutan varios servicios en el mismo clúster o nodo, es posible que un servicio pueda consumir más recursos y privar así a otros servicios en el proceso. A este problema se le conoce como el problema del entorno ruidoso. Azure Service Fabric permite al desarrollador establecer reservas y límites por servicio, a fin de garantizar la disponibilidad de recursos y, además, limita el uso de recursos.
 
 > Antes de continuar con este artículo, le recomendamos que se familiarice con el [modelo de aplicación de Service Fabric](service-fabric-application-model.md) y con el [modelo de hospedaje de Service Fabric](service-fabric-hosting-model.md).
 >
 
-## <a name="resource-governance-metrics"></a>Métricas de regulación de recursos
+## <a name="resource-governance-metrics"></a>Métricas de gobernanza de recursos
 
-Service Fabric admite el gobierno de recursos de acuerdo con el [paquete de servicio](service-fabric-application-model.md). Los recursos asignados al paquete de servicio pueden dividirse además entre paquetes de código. Los límites de recursos especificados también suponen la reserva de los recursos. Service Fabric admite la determinación de CPU y memoria por cada paquete de servicio, con dos [métricas](service-fabric-cluster-resource-manager-metrics.md) integradas:
+Service Fabric admite la gobernanza de recursos de acuerdo con el [paquete de servicio](service-fabric-application-model.md). Los recursos asignados al paquete de servicio pueden dividirse además entre paquetes de código. Los límites de recursos especificados también suponen la reserva de los recursos. Service Fabric admite la determinación de CPU y memoria por cada paquete de servicio, con dos [métricas](service-fabric-cluster-resource-manager-metrics.md) integradas:
 
 * *CPU* (nombre de la métrica `servicefabric:/_CpuCores`): un núcleo lógico que está disponible en la máquina host. Todos los núcleos de los nodos se ponderan igual.
 
@@ -44,9 +44,9 @@ Para estas dos métricas, [Cluster Resource Manager](service-fabric-cluster-reso
 
 El [informe de carga dinámica](service-fabric-cluster-resource-manager-metrics.md) no es compatible con estas métricas, y las cargas para estas métricas se definen en el momento de la creación.
 
-## <a name="resource-governance-mechanism"></a>Mecanismo de gobierno de recursos
+## <a name="resource-governance-mechanism"></a>Mecanismo de gobernanza de recursos
 
-El entorno de tiempo de ejecución de Service Fabric no proporciona actualmente reserva de recursos. Cuando se abre un proceso o un contenedor, el entorno de tiempo de ejecución establece los límites de recursos en las cargas definidas en tiempo de creación. Además, el entorno de tiempo de ejecución no admite la apertura de nuevos paquetes de servicio disponibles cuando se superan los recursos. Para comprender mejor cómo funciona el proceso, veamos un ejemplo de un nodo con dos núcleos de CPU (el mecanismo para el gobierno de memoria es equivalente):
+El entorno de tiempo de ejecución de Service Fabric no proporciona actualmente reserva de recursos. Cuando se abre un proceso o un contenedor, el entorno de tiempo de ejecución establece los límites de recursos en las cargas definidas en tiempo de creación. Además, el entorno de tiempo de ejecución no admite la apertura de nuevos paquetes de servicio disponibles cuando se superan los recursos. Para comprender mejor cómo funciona el proceso, veamos un ejemplo de un nodo con dos núcleos de CPU (el mecanismo para la gobernanza de memoria es equivalente):
 
 1. En primer lugar, se coloca un contenedor en el nodo, que solicita un núcleo de CPU. El tiempo de ejecución abre el contenedor y establece el límite de CPU en un núcleo. El contenedor no podrá usar más de un núcleo.
 
@@ -56,11 +56,11 @@ En este momento, la suma de los límites es igual a la capacidad del nodo. Un pr
 
 Sin embargo, hay dos situaciones en las que otros procesos pueden competir por la CPU. En estas situaciones, un proceso y un contenedor del ejemplo pueden experimentar el problema del entorno ruidoso:
 
-* *Combinación de servicios con gobierno y sin gobierno y contenedores*: si el usuario crea un servicio sin ningún gobierno de recursos especificado, el entorno de tiempo de ejecución considera que no estaba consumiendo ningún recurso y puede colocarlo en el nodo de nuestro ejemplo. En este caso, este nuevo proceso consume eficazmente algún recurso de CPU a costa de los servicios que se ejecutan en el nodo. Hay dos soluciones al problema. Una solución consiste en no combinar servicios con gobierno y sin gobierno en el mismo clúster, y la otra en usar [restricciones de posición](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para que estos dos tipos de servicio no finalicen en el mismo conjunto de nodos.
+* *Combinación de servicios con gobierno y sin gobierno y contenedores*: si el usuario crea un servicio sin especificar una gobernanza de recursos, el entorno de tiempo de ejecución considera que no estaba consumiendo ningún recurso y puede colocarlo en el nodo de nuestro ejemplo. En este caso, este nuevo proceso consume eficazmente algún recurso de CPU a costa de los servicios que se ejecutan en el nodo. Hay dos soluciones al problema. Una solución consiste en no combinar servicios con gobierno y sin gobierno en el mismo clúster, y la otra en usar [restricciones de posición](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md) para que estos dos tipos de servicio no finalicen en el mismo conjunto de nodos.
 
 * *Cuando se inicia otro proceso en el nodo, fuera de Service Fabric (por ejemplo, un servicio de sistema operativo)*: En esta situación, el proceso fuera de Service Fabric también competirá por la CPU con los servicios existentes. La solución a este problema consiste en configurar correctamente las capacidades del nodo en la cuenta para la sobrecarga del sistema operativo, tal como se muestra en la sección siguiente.
 
-## <a name="cluster-setup-for-enabling-resource-governance"></a>Configuración del clúster para habilitar el gobierno de recursos
+## <a name="cluster-setup-for-enabling-resource-governance"></a>Configuración del clúster para habilitar la gobernanza de recursos
 
 Cuando el nodo se inicia y se une al clúster, Service Fabric detecta la cantidad de memoria disponible y el número de núcleos disponibles, y establece las capacidades del nodo para esos dos recursos.
 
@@ -110,9 +110,9 @@ Para obtener un rendimiento óptimo, también es necesario activar la siguiente 
 </Section>
 ```
 
-## <a name="specify-resource-governance"></a>Especificación del gobierno de recursos
+## <a name="specify-resource-governance"></a>Especificación de la gobernanza de recursos
 
-Los límites de la regulación de recursos se especifican en el manifiesto de aplicación (sección ServiceManifestImport) como se muestra en el ejemplo siguiente:
+Los límites de la gobernanza de recursos se especifican en el manifiesto de aplicación (sección ServiceManifestImport) como se muestra en el ejemplo siguiente:
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -141,7 +141,7 @@ Los límites de memoria son absolutos, por lo que ambos paquetes de código est�
 
 ### <a name="using-application-parameters"></a>Uso de los parámetros de la aplicación
 
-Al especificar la regulación de recursos es posible utilizar [parámetros de la aplicación](service-fabric-manage-multiple-environment-app-configuration.md) para administrar varias configuraciones de la aplicación. En el ejemplo siguiente se muestra el uso de los parámetros de la aplicación:
+Al especificar la gobernanza de recursos es posible utilizar [parámetros de la aplicación](service-fabric-manage-multiple-environment-app-configuration.md) para administrar varias configuraciones de la aplicación. En el ejemplo siguiente se muestra el uso de los parámetros de la aplicación:
 
 ```xml
 <?xml version='1.0' encoding='UTF-8'?>
@@ -182,16 +182,16 @@ En este ejemplo, se establecen los valores de los parámetros predeterminados pa
 ```
 
 > [!IMPORTANT]
-> La especificación de la regulación de recursos con parámetros de la aplicación está disponible a partir de Service Fabric versión 6.1.<br>
+> La especificación de la gobernanza de recursos con parámetros de la aplicación está disponible a partir de Service Fabric versión 6.1.<br>
 >
-> Cuando se usan parámetros de la aplicación para especificar la regulación de recursos, Service Fabric no se puede degradar a una versión anterior a la versión 6.1.
+> Cuando se usan parámetros de la aplicación para especificar la gobernanza de recursos, Service Fabric no se puede degradar a una versión anterior a la versión 6.1.
 
 ## <a name="other-resources-for-containers"></a>Otros recursos para los contenedores
 
 Además de la CPU y de la memoria, es posible especificar otros límites de recursos para los contenedores. Estos límites se especifican en el nivel del paquete de código y se aplican cuando se inicia el contenedor. A diferencia de con la CPU y la memoria, Cluster Resource Manager no tiene en cuenta estos recursos y no realiza ninguna comprobación de capacidad ni de equilibrio de carga para ellos.
 
 * *MemorySwapInMB*: la cantidad de memoria de intercambio que puede usar un contenedor.
-* *MemoryReservationInMB*: el límite flexible para el gobierno de memoria que se aplica únicamente cuando se detecta contención de la memoria en el nodo.
+* *MemoryReservationInMB*: el límite flexible para la gobernanza de memoria que se aplica únicamente cuando se detecta contención de la memoria en el nodo.
 * *CpuPercent*: porcentaje de CPU que puede usar el contenedor. Si se especifican los límites de CPU para el Service Pack, se omite este parámetro.
 * *MaximumIOps*: E/S máximas que puede usar un contenedor (lectura y escritura).
 * *MaximumIOBytesps*: E/S máxima (bytes por segundo) que puede usar un contenedor (lectura y escritura).

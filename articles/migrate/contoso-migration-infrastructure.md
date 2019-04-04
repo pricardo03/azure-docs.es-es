@@ -54,7 +54,7 @@ Antes de poder migrar Contoso a Azure, es fundamental preparar una infraestructu
 **Paso 3: Recuperación ante desastres y resiliencia**. ¿Cómo garantiza Contoso que las aplicaciones y las infraestructuras son resilientes si se producen interrupciones y desastres?  
 **Paso 4: Redes**. ¿Cómo debe diseñar Contoso la infraestructura de red y establecer la conectividad entre el centro de datos local y Azure?  
 **Paso 5: Seguridad**. ¿Cómo protege Contoso la implementación híbrida o de Azure?  
-**Paso 6: Gobierno**. ¿Cómo mantiene Contoso alineada la implementación con los requisitos de seguridad y gobierno?
+**Paso 6: Gobernanza**. ¿Cómo mantiene Contoso alineada la implementación con los requisitos de seguridad y gobernanza?
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
@@ -63,7 +63,7 @@ Antes de empezar a trabajar con la infraestructura, debe leer información bási
 - Hay una serie de opciones disponibles para adquirir acceso a Azure, entre las que se incluyen: Pago por uso, Contratos Enterprise y licencias Open de revendedores de Microsoft o de asociados de Microsoft, también conocidos como proveedores de soluciones en la nube (CSP). Obtenga información acerca de las [opciones de compra](https://azure.microsoft.com/pricing/purchase-options/) y sobre cómo [se organizan las suscripciones a Azure](https://azure.microsoft.com/blog/organizing-subscriptions-and-resource-groups-within-the-enterprise/).
 - Obtenga información general acerca de la [administración de identidades y acceso](https://www.microsoft.com/trustcenter/security/identity) de Azure. En concreto, obtenga información acerca de [Azure AD y la ampliación de la instancia de AD local a la nube](https://docs.microsoft.com/azure/active-directory/identity-fundamentals). Tiene a su disposición un libro electrónico descargable acerca de la [administración de identidades y acceso (IAM) en un entorno híbrido](https://azure.microsoft.com/resources/hybrid-cloud-identity/) que le resultará muy útil.
 - Azure ofrece una sólida infraestructura de red con opciones para conectividad híbrida. Obtenga información general acerca de las [redes y el control de acceso de red](https://docs.microsoft.com/azure/security/security-network-overview).
-- Obtenga una introducción a [Azure Security](https://docs.microsoft.com/azure/security/azure-security) y consiga información acerca de cómo crear un plan de [gobierno](https://docs.microsoft.com/azure/security/governance-in-azure).
+- Obtenga una introducción a [Azure Security](https://docs.microsoft.com/azure/security/azure-security) y consiga información acerca de cómo crear un plan de [gobernanza](https://docs.microsoft.com/azure/security/governance-in-azure).
 
 
 ## <a name="on-premises-architecture"></a>Arquitectura local
@@ -98,7 +98,7 @@ Contoso va a elegir un [contrato Enterprise (EA)](https://azure.microsoft.com/pr
 
 Después de pagar Azure, Contoso debe averiguar cómo administrar las suscripciones de Azure. Contoso tiene un EA y, por tanto, no hay límite en el número de suscripciones a Azure que puede configurar.
 
-- Una inscripción Azure Enterprise define cómo una empresa da forma y usa los servicios de Azure y cómo define una estructura de gobierno básica.
+- Una inscripción Azure Enterprise define cómo una empresa da forma y usa los servicios de Azure y cómo define una estructura de gobernanza básica.
 - Como primer paso, Contoso ha determinado una estructura (conocida como un scaffold empresarial para la inscripción Enterprise). Usó [este artículo](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-governance) para comprender y diseñar un scaffold.
 - Por ahora, Contoso ha decidido usar un enfoque funcional para administrar sus suscripciones.
   - Dentro de la empresa, tendrá un solo departamento de TI que controlará el presupuesto de Azure. Este es el único grupo con suscripciones.
@@ -632,11 +632,11 @@ AD es un servicio crítico en la red y debe estar configurado correctamente. Los
 
     ![Centro de administración de AD](./media/contoso-migration-infrastructure/ad-center.png)
 
-## <a name="step-5-plan-for-governance"></a>Paso 5: Planeación para el gobierno
+## <a name="step-5-plan-for-governance"></a>Paso 5: Planeación para la gobernanza
 
-Azure proporciona una gama de controles de gobierno a través de los servicios y la plataforma de Azure. [Siga leyendo](https://docs.microsoft.com/azure/security/governance-in-azure) para conocer las opciones básicas.
+Azure proporciona una gama de controles de gobernanza a través de los servicios y la plataforma de Azure. [Siga leyendo](https://docs.microsoft.com/azure/security/governance-in-azure) para conocer las opciones básicas.
 
-A medida que Contoso configura la identidad y el control de acceso, ya ha comenzado a tener en cuenta algunos aspectos acerca del gobierno y la seguridad. En términos generales, hay tres áreas que deben tener en cuenta:
+A medida que Contoso configura la identidad y el control de acceso, ya ha comenzado a tener en cuenta algunos aspectos acerca de la gobernanza y la seguridad. En términos generales, hay tres áreas que deben tener en cuenta:
 
 - **Directiva**: la directiva de Azure aplica y hace cumplir las reglas y los efectos sobre sus recursos, de modo que los recursos cumplan con los requisitos corporativos y los SLA.
 - **Bloqueos**: Azure permite el bloqueo de suscripciones, grupos de recursos y otros recursos, por lo que solo pueden modificarlos aquellas personas con autoridad para hacerlo.
@@ -798,7 +798,7 @@ Azure Disk Encryption se integra con Azure Key Vault para controlar y administra
 
 ## <a name="conclusion"></a>Conclusión
 
-En este artículo, Contoso configuró su infraestructura y directiva para la suscripción a Azure, la identificación híbrida, la recuperación ante desastres, las redes, el gobierno y la seguridad. 
+En este artículo, Contoso configuró su infraestructura y directiva para la suscripción a Azure, la identificación híbrida, la recuperación ante desastres, las redes, la gobernanza y la seguridad. 
 
 No todos los pasos que Contoso llevó a cabo aquí son necesarios para realizar una migración a la nube. En este caso, quería planear una infraestructura de red que pudiera usarse para todos los tipos de migraciones y que fuera segura, resistente y escalable. 
 

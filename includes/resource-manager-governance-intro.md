@@ -30,4 +30,4 @@ En este artículo se da respuesta a esas preguntas. En concreto, puede:
 > * Bloquear los recursos que son críticos para el sistema.
 > * Etiquetar recursos para que pueda realizar su seguimiento según los valores que encajan con su organización.
 
-Este artículo se centra en las tareas que se realizan para implementar el sistema de gobierno. Para obtener una explicación más amplia de los conceptos, consulte [Sistema de gobierno en Azure](../articles/security/governance-in-azure.md). 
+Este artículo se centra en las tareas que se realizan para implementar el sistema de gobernanza. Para obtener una explicación más amplia de los conceptos, consulte [Sistema de gobernanza en Azure](../articles/security/governance-in-azure.md). 

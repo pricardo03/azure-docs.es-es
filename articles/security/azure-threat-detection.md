@@ -357,7 +357,7 @@ Cloud App Security integra visibilidad con la nube mediante lo siguiente:
 
 -   La prohibición y autorización de aplicaciones en la nube.
 
--   El uso de conectores de aplicaciones fáciles de implementar que aprovechan las ventajas de las API de proveedor, para ganar visibilidad y gobierno de las aplicaciones a las que se conecte.
+-   El uso de conectores de aplicaciones fáciles de implementar que aprovechan las ventajas de las API de proveedor, para ganar visibilidad y gobernanza de las aplicaciones a las que se conecte.
 
 -   La ayuda para mantener el control constante mediante la configuración y posterior ajuste permanente de las directivas.
 

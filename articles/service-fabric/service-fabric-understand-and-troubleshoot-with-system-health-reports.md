@@ -118,8 +118,8 @@ El equilibrador de carga de Service Fabric notifica una advertencia cuando detec
 * **Propiedad**: Se inicia con **capacidad**.
 * **Pasos siguientes**: Compruebe las métricas proporcionadas y vea la capacidad actual en el nodo.
 
-### <a name="node-capacity-mismatch-for-resource-governance-metrics"></a>Error de coincidencia de la capacidad de nodo de las métricas de regulación de recursos
-Si las capacidades de nodo definidas en el manifiesto de clúster son mayores que las capacidades de nodo reales de las métricas de regulación de recursos (núcleos de memoria y CPU), System.Hosting se encarga de proporcionar un aviso. Aparece un informe de mantenimiento cuando el primer paquete de servicio que usa la [regulación de recursos](service-fabric-resource-governance.md) se registra en un nodo específico.
+### <a name="node-capacity-mismatch-for-resource-governance-metrics"></a>Error de coincidencia de la capacidad de nodo de las métricas de gobernanza de recursos
+Si las capacidades de nodo definidas en el manifiesto de clúster son mayores que las capacidades de nodo reales de las métricas de gobernanza de recursos (núcleos de memoria y CPU), System.Hosting se encarga de proporcionar un aviso. Aparece un informe de mantenimiento cuando el primer paquete de servicio que usa la [gobernanza de recursos](service-fabric-resource-governance.md) se registra en un nodo específico.
 
 * **SourceId**: System.Hosting
 * **Propiedad**: **ResourceGovernance**.
@@ -854,8 +854,8 @@ System.Hosting notifica un error si se produce un error de validación durante l
 * **Propiedad**: Usa el prefijo **FabricUpgradeValidation** y contiene la versión de actualización.
 * **Descripción**: Señala el error encontrado.
 
-### <a name="undefined-node-capacity-for-resource-governance-metrics"></a>Capacidad de nodo sin definir de las métricas de regulación de recursos
-Si las capacidades de nodo no se definen en el manifiesto de clúster y se desactiva la configuración de la detección automática, System.Hosting se encarga de mostrar un aviso. Asimismo, Service Fabric mostrará un aviso de mantenimiento cada vez que el paquete de servicio que usa la [regulación de recursos](service-fabric-resource-governance.md) se registre en un nodo específico.
+### <a name="undefined-node-capacity-for-resource-governance-metrics"></a>Capacidad de nodo sin definir de las métricas de gobernanza de recursos
+Si las capacidades de nodo no se definen en el manifiesto de clúster y se desactiva la configuración de la detección automática, System.Hosting se encarga de mostrar un aviso. Asimismo, Service Fabric mostrará un aviso de mantenimiento cada vez que el paquete de servicio que usa la [gobernanza de recursos](service-fabric-resource-governance.md) se registre en un nodo específico.
 
 * **SourceId**: System.Hosting
 * **Propiedad**: **ResourceGovernance**.

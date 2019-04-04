@@ -16,7 +16,7 @@ ms.date: 11/21/2017
 ms.author: terrylan
 ms.openlocfilehash: f06c8ec60831314dad30673fec4d2ea5901e11b6
 ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/12/2019
 ms.locfileid: "56115222"
@@ -48,7 +48,7 @@ En esta sesión, aprenda cómo Azure Active Directory y Microsoft Advanced Threa
 
 [Security in a Cloud-Enabled World](https://mva.microsoft.com/en-us/training-courses/security-in-a-cloudenabled-world-12725?l=CfLHobAcB_3904300474) (Seguridad en un mundo habilitado para la nube)
 
-Un grupo de expertos le llevan por el plan de responsabilidad del cliente del póster [Microsoft Cloud Security for Enterprise Architects](https://www.microsoft.com/download/48121) (Seguridad de Microsoft Cloud para arquitectos de empresa). También proporcionan recomendaciones para modernizar cada una de las partes de su postura sobre seguridad, como gobierno, estrategias de contención, operaciones de seguridad, protección de recursos de valor alto, protección de la información y seguridad de usuarios y dispositivos, con un énfasis especial en la protección del control administrativo. Aprenda del mismo marco que usa el equipo de ciberseguridad de Microsoft para evaluar la seguridad de la nube de los clientes y construirles un plan de seguridad.
+Un grupo de expertos le llevan por el plan de responsabilidad del cliente del póster [Microsoft Cloud Security for Enterprise Architects](https://www.microsoft.com/download/48121) (Seguridad de Microsoft Cloud para arquitectos de empresa). También proporcionan recomendaciones para modernizar cada una de las partes de su postura sobre seguridad, como gobernanza, estrategias de contención, operaciones de seguridad, protección de recursos de valor alto, protección de la información y seguridad de usuarios y dispositivos, con un énfasis especial en la protección del control administrativo. Aprenda del mismo marco que usa el equipo de ciberseguridad de Microsoft para evaluar la seguridad de la nube de los clientes y construirles un plan de seguridad.
 
 [Microsoft Azure IaaS Deep Dive](https://mva.microsoft.com/en-us/training-courses/microsoft-azure-iaas-deep-dive-14339?l=PtppYVQgB_8300115888) (Inmersión en IaaS de Microsoft Azure)
 

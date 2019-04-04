@@ -32,7 +32,7 @@ Azure Container Instances permite exponer los contenedores directamente a Intern
 
 ## <a name="hypervisor-level-security"></a>Seguridad de nivel de hipervisor
 
-Históricamente, los contenedores han ofrecido aislamiento a la dependencia entre aplicaciones y gobierno de recursos, pero no se han considerado suficientemente protegidos para el uso de varios inquilinos hostiles. Azure Container Instances garantiza que la aplicación está tan aislada en un contenedor como lo estaría en una máquina virtual.
+Históricamente, los contenedores han ofrecido aislamiento a la dependencia entre aplicaciones y gobernanza de recursos, pero no se han considerado suficientemente protegidos para el uso de varios inquilinos hostiles. Azure Container Instances garantiza que la aplicación está tan aislada en un contenedor como lo estaría en una máquina virtual.
 
 ## <a name="custom-sizes"></a>Tamaños personalizados
 

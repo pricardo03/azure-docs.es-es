@@ -22,7 +22,7 @@ ms.locfileid: "57888577"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de error de SQL para aplicaciones cliente de SQL Database: Errores de conexión de base de datos y otros problemas
 
-En este artículo se enumeran los códigos de error de SQL de la aplicación cliente de SQL Database, incluidos los errores de conexión de base de datos, los errores transitorios, los errores de regulación de recursos, los problemas de copia de la base de datos, el grupo elástico y otros errores. La mayoría de las categorías son específicas de Azure SQL Database y no se aplican a Microsoft SQL Server. Consulte también los [mensajes de error del sistema](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx).
+En este artículo se enumeran los códigos de error de SQL de la aplicación cliente de SQL Database, incluidos los errores de conexión de base de datos, los errores transitorios, los errores de gobernanza de recursos, los problemas de copia de la base de datos, el grupo elástico y otros errores. La mayoría de las categorías son específicas de Azure SQL Database y no se aplican a Microsoft SQL Server. Consulte también los [mensajes de error del sistema](https://technet.microsoft.com/library/cc645603(v=sql.105).aspx).
 
 ## <a name="database-connection-errors-transient-errors-and-other-temporary-errors"></a>Errores de conexión de base de datos, errores transitorios y otros errores temporales
 
@@ -84,7 +84,7 @@ Pueden encontrarse los siguientes errores al copiar una base de datos en Azure S
 | 40570 |16 |No se pudo copiar la base de datos debido a un error interno. Quite la base de datos de destino y vuelva a intentarlo más adelante. |
 | 40571 |16 |No se pudo copiar la base de datos debido a un error interno. Quite la base de datos de destino y vuelva a intentarlo más adelante. |
 
-## <a name="resource-governance-errors"></a>Errores de regulación de recursos
+## <a name="resource-governance-errors"></a>Errores de gobernanza de recursos
 
 La causa de los siguientes errores es un uso excesivo de recursos mientras se trabaja con Azure SQL Database. Por ejemplo: 
 

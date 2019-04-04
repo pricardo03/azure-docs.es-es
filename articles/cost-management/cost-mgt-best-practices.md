@@ -62,7 +62,7 @@ Actúe para reducir los gastos. Aproveche al máximo en función de las conclusi
 
 #### <a name="iteration"></a>Iteración
 
-Todas las personas de la organización deben participar en el ciclo de vida de la administración de costos. Deben permanecer implicados de forma continuada para optimizar los costos. Sea riguroso en este proceso iterativo y conviértalo en una pieza clave del gobierno responsable de la nube en la organización.
+Todas las personas de la organización deben participar en el ciclo de vida de la administración de costos. Deben permanecer implicados de forma continuada para optimizar los costos. Sea riguroso en este proceso iterativo y conviértalo en una pieza clave de la gobernanza responsable de la nube en la organización.
 
 ![Diagrama de principios clave que muestra la visibilidad, responsabilidad y optimización](./media/cost-mgt-best-practices/principles.png)
 

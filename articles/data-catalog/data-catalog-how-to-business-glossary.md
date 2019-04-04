@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.date: 01/18/2018
 ms.openlocfilehash: 9c5d7ac792f2a68d6187c7c2831b1e7404f41f30
 ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 09/27/2018
 ms.locfileid: "47409429"
@@ -28,7 +28,7 @@ Sin embargo, el etiquetado a veces puede causar problemas por sí mismo. Estos s
 
 Para ayudar a solucionar estos y otros problemas similares, Data Catalog incluye un glosario empresarial.
 
-Con el glosario empresarial de Data Catalog, las organizaciones pueden documentar los términos empresariales clave y sus definiciones para crear un vocabulario empresarial común. Esta regulación permite la coherencia del uso de datos por la organización. Una vez que un término se define un término en el glosario empresarial, se puede asignar a un recurso de datos del catálogo. Este enfoque, el *etiquetado regulado*, es el mismo que el etiquetado.
+Con el glosario empresarial de Data Catalog, las organizaciones pueden documentar los términos empresariales clave y sus definiciones para crear un vocabulario empresarial común. Esta gobernanza permite la coherencia del uso de datos por la organización. Una vez que un término se define un término en el glosario empresarial, se puede asignar a un recurso de datos del catálogo. Este enfoque, el *etiquetado regulado*, es el mismo que el etiquetado.
 
 ## <a name="glossary-availability-and-privileges"></a>Disponibilidad del glosario y privilegios
 El glosario empresarial solo está disponible en la Edición Estándar de Azure Data Catalog. La edición gratuita de Data Catalog no incluye un glosario y no proporciona funcionalidades para el etiquetado regulado.

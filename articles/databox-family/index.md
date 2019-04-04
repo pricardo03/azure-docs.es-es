@@ -1,6 +1,6 @@
 ---
 title: Documentación de Azure Data Box
-description: 'La familia Azure Data Box ofrece productos de diferentes capacidades de almacenamiento para ayudar a enviar terabytes de datos a Azure de una manera rápida, económica y confiable. Microsoft acelera la transferencia de datos segura al enviarle dispositivos de almacenamiento patentados que permiten la transferencia de datos sin conexión o a través de la red.'
+description: La familia Azure Data Box ofrece productos de diferentes capacidades de almacenamiento para ayudar a enviar terabytes de datos a Azure de una manera rápida, económica y confiable. Microsoft acelera la transferencia de datos segura al enviarle dispositivos de almacenamiento patentados que permiten la transferencia de datos sin conexión o a través de la red.
 services: databox
 author: alkohli
 manager: twooley
@@ -11,6 +11,12 @@ ms.devlang: na
 ms.topic: hub-page
 ms.date: 09/24/2018
 ms.author: alkohli
+ms.openlocfilehash: c0c5ea8dc069d24d01313bb68c0afb7c7aac1a33
+ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/25/2019
+ms.locfileid: "58417707"
 ---
 <div id="main" class="v2">
 <h1>Azure Data Box</h1>

@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
 title: 'Ayuda para usuarios sobre autenticación, aplicaciones y administración de dispositivos: Azure Active Directory | Microsoft Docs'
-description: 'La ayuda para usuarios está pensada para usuarios que necesitan ayuda para configurar y usar la información de seguridad, la verificación en dos pasos, el autoservicio de restablecimiento de contraseñas, la administración de dispositivos, la aplicación de Microsoft Authenticator y el portal Mis aplicaciones.'
+description: La ayuda para usuarios está pensada para usuarios que necesitan ayuda para configurar y usar la información de seguridad, la verificación en dos pasos, el autoservicio de restablecimiento de contraseñas, la administración de dispositivos, la aplicación de Microsoft Authenticator y el portal Mis aplicaciones.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -11,8 +11,13 @@ ms.topic: landing-page
 ms.date: 07/30/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
+ms.openlocfilehash: 6e73e089f0753f49233c75a5e55513ebaf7bf9c9
+ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 03/21/2019
+ms.locfileid: "58338112"
 ---
-
 # <a name="user-help-for-authentication-apps-and-device-management"></a>Ayuda para usuarios sobre autenticación, aplicaciones y administración de dispositivos
 
 Hemos creado este contenido para ayudarle a configurar y usar la información de seguridad, la verificación en dos pasos, para aprender a restablecer sus propias contraseñas, para configurar y unir los dispositivos de Azure Active Directory, y para configurar y usar la aplicación Microsoft Authenticator y el portal Mis aplicaciones.

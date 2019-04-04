@@ -27,17 +27,17 @@ items:
   items:
   - name: Adopción en la nube empresarial
     items:
-    - name: ¿Qué es el gobierno de los recursos en la nube?
+    - name: ¿Qué es la gobernanza de los recursos en la nube?
       href: /azure/architecture/cloud-adoption/getting-started/what-is-governance?toc=/azure/governance/toc.json
-    - name: Gobierno del acceso a los recursos en Azure
+    - name: Gobernanza del acceso a los recursos en Azure
       href: /azure/architecture/cloud-adoption/getting-started/azure-resource-access?toc=/azure/governance/toc.json
-    - name: Diseño de gobierno para un único equipo
+    - name: Diseño de gobernanza para un único equipo
       href: /azure/architecture/cloud-adoption/governance/governance-single-team?toc=/azure/governance/toc.json
-    - name: Diseño de gobierno para varios equipos
+    - name: Diseño de gobernanza para varios equipos
       href: /azure/architecture/cloud-adoption/governance/governance-multiple-teams?toc=/azure/governance/toc.json
   - name: Scaffold de Azure Enterprise
     items:
-    - name: Gobierno de suscripción prescriptivo
+    - name: Gobernanza de suscripción prescriptiva
       href: /azure/architecture/cloud-adoption/appendix/azure-scaffold?toc=/azure/governance/toc.json
     - name: Implementación de scaffold de Azure Enterprise
       href: /azure/architecture/cloud-adoption/appendix/azure-scaffold-examples?toc=/azure/governance/toc.json
@@ -50,9 +50,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Voz del usuario
     href: https://feedback.azure.com/forums/915958-azure-governance
-  - name: Vídeo sobre gobierno
+  - name: Vídeo sobre gobernanza
     href: https://www.youtube.com/watch?v=MhGbKjlmuRs
-  - name: Canal de YouTube de gobierno
+  - name: Canal de YouTube de gobernanza
     href: https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ
 ms.openlocfilehash: 1d6a62a682762060898d8599c5cee18929ef86e1
 ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
