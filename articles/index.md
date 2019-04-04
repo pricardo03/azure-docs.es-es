@@ -2,10 +2,16 @@
 layout: HubPage
 hide_bc: true
 title: Documentación de Microsoft Azure
-description: 'Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc.'
+description: Aprenda a compilar y administrar aplicaciones eficaces mediante Microsoft Azure Cloud Services. Obtenga documentación, código de ejemplo, tutoriales, etc.
 ms.topic: hub-page
 featureFlags:
-  - clicktale
+- clicktale
+ms.openlocfilehash: 97fd2ffd22f4a4c883d284a2d2db060cd1c2121c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.translationtype: HT
+ms.contentlocale: es-ES
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878679"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -90,7 +96,7 @@ featureFlags:
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/virtual-machines/linux/">Máquinas virtuales Linux</a></li>
                                                     <li><a class="barLink" href="/azure/virtual-machines/windows/">Máquinas virtuales Windows</a></li>
-                                                    <li><a class="barLink" href="/azure/governance/blueprints/">Azure Blueprints</a></li>
+                                                    <li><a class="barLink" href="/azure/governance/blueprints/">Azure Blueprint</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -169,7 +175,7 @@ Go</a>
                                                 </ul></td></tr></table>
                                                <h4>Modelos de aplicaciones</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/app-service-web/">Aplicaciones web</a></li>
+                                                    <li><a class="barLink" href="/azure/app-service-web/">Web Apps</a></li>
                                                     <li><a class="barLink" href="/azure/azure-functions/">Funciones sin servidor</a></li>
                                                     <li><a class="barLink" href="/azure/containers/">Contenedores</a></li>
                                                     <li><a class="barLink" href="/azure/aks/">Microservicios con Kubernetes</a></li>
@@ -204,7 +210,7 @@ Go</a>
                                                 </ul>
                                                 <h4>AI y Cognitive Services</h4>
                                                 <ul class="noBullet">
-                                                    <li><a class="barLink" href="/azure/machine-learning/">Machine Learning</a></li>
+                                                    <li><a class="barLink" href="/azure/machine-learning/">Machine Learning </a></li>
                                                     <li><a class="barLink" href="/azure/cognitive-services/">Cognitive Services</a></li>
                                                     <li><a class="barLink" href="/azure/notebooks/">Azure Notebooks</a></li>
                                                 </ul>
@@ -223,7 +229,7 @@ Go</a>
                                                     <li>
                                                         <a class="barLink" href="/cli/azure">
                                                             <img src="media/index/azure_dev-7.svg" alt="">
-CLI de Azure</a>
+Azure CLI </a>
                                                     </li>
                                                     <li>
                                                         <a class="barLink" href="/powershell/azure/overview">
@@ -1619,6 +1625,12 @@ Automatización de tareas de Azure mediante scripts con PowerShell </a>
                                                 <p>Azure Sentinel</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/asc-for-iot/">
+                                                <img src="media/index/asc-for-iot.svg" alt="" />
+                                                <p>Preguntas más frecuentes de Azure Security Center for IoT</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Identidad</h3>
                                     <ul>
@@ -2328,7 +2340,7 @@ Automatización de tareas de Azure mediante scripts con PowerShell </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#storage">Storage</a>
+                        <a href="#storage">Almacenamiento</a>
                         <ul id="storage" class="cardsA">
                             <li>
                                 <a href="/azure/storage/">
@@ -2341,7 +2353,7 @@ Automatización de tareas de Azure mediante scripts con PowerShell </a>
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Storage</h3>
+                                                    <h3>Almacenamiento</h3>
                                                     <p>Almacenamiento en la nube duradero, de alta disponibilidad y escalable a gran escala</p>
                                                 </div>
                                             </div>
@@ -2737,7 +2749,7 @@ Automatización de tareas de Azure mediante scripts con PowerShell </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#mobile">Mobile</a>
+                        <a href="#mobile">Móvil</a>
                         <ul id="mobile" class="cardsA">
                             <li>
                                 <a href="/azure/app-service-mobile">
@@ -4843,6 +4855,25 @@ Automatización de tareas de Azure mediante scripts con PowerShell </a>
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/asc-for-iot/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/asc-for-iot.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Preguntas más frecuentes de Azure Security Center for IoT</h3>
+                                                    <p>Aprenda a unificar la administración de seguridad y a habilitar la protección contra amenazas avanzada en la solución de IoT.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -5583,7 +5614,7 @@ Automatización de tareas de Azure mediante scripts con PowerShell </a>
                         </ul>
                     </li>
                     <li>
-                        <a href="#media">Elementos multimedia</a>
+                        <a href="#media">Multimedia</a>
                         <ul id="media" class="cardsA">
                             <li>
                                 <a href="/azure/media-services/">
@@ -5910,7 +5941,7 @@ Automatización de tareas de Azure mediante scripts con PowerShell </a>
                 <a href="#sdkstools">SDK y herramientas</a>
                 <ul id="sdkstools">
                     <li>
-                        <a href="#sdkstools-all">todo</a>
+                        <a href="#sdkstools-all">todas</a>
                         <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
@@ -5930,7 +5961,7 @@ Automatización de tareas de Azure mediante scripts con PowerShell </a>
                                                 <h3>
 Azure para desarrolladores de .NET </h3>
                                                 <p>
-                                                    <a href="/dotnet/azure">Primeros pasos</a>
+                                                    <a href="/dotnet/azure">Introducción</a>
                                                 </p>
                                                 <p>
                                                     <a href="/dotnet/api/overview/azure/?view=azure-dotnet">Referencia de API</a>
@@ -5953,7 +5984,7 @@ Azure para desarrolladores de .NET </h3>
                                                 <h3>
 Azure para desarrolladores de Python </h3>
                                                 <p>
-                                                    <a href="/python/azure">Primeros pasos</a>
+                                                    <a href="/python/azure">Introducción</a>
                                                 </p>
                                                 <p>
                                                     <a href="/python/api/overview/azure/">Referencia de API</a>
@@ -5976,7 +6007,7 @@ Azure para desarrolladores de Python </h3>
                                                 <h3>
 Azure para desarrolladores de Node.js </h3>
                                                 <p>
-                                                    <a href="/javascript/azure/">Primeros pasos</a>
+                                                    <a href="/javascript/azure/">Introducción</a>
                                                 </p>
                                                 <p>
                                                     <a href="/javascript/api/overview/azure/">Referencia de API</a>
@@ -5999,7 +6030,7 @@ Azure para desarrolladores de Node.js </h3>
                                                 <h3>
 Azure para desarrolladores de Java </h3>
                                                 <p>
-                                                    <a href="/java/azure">Primeros pasos</a>
+                                                    <a href="/java/azure">Introducción</a>
                                                 </p>
                                                 <p>
                                                     <a href="/java/api">Referencia de API</a>
@@ -6022,7 +6053,7 @@ Azure para desarrolladores de Java </h3>
                                                 <h3>
 Azure para desarrolladores de Go </h3>
                                                 <p>
-                                                    <a href="/go/azure/">Primeros pasos</a>
+                                                    <a href="/go/azure/">Introducción</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://godoc.org/github.com/Azure/azure-sdk-for-go">Referencia de API</a>
@@ -6151,7 +6182,7 @@ Azure CLI </h3>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions">Azure Functions</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">Storage</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestorage">Almacenamiento</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb">Cosmos DB</a>
@@ -6183,7 +6214,7 @@ Docker </h3>
                                                     <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Descargar para Visual Studio Code</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Descarga de Azure DevOps</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Descargar para Azure DevOps</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6321,7 +6352,7 @@ SDK y herramientas de Service Fabric </h3>
                                                     <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac">Descargar Mac OS X</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Descargar CLI de Service Fabric</a>
+                                                    <a href="https://docs.microsoft.com/azure/service-fabric/service-fabric-cli">Descargar CLI de Service Fabric </a>
                                                 </p>
                                             </div>
                                         </div>
@@ -6368,16 +6399,16 @@ Herramientas SQL </h3>
                                                 <h3>
 Azure Dev Spaces </h3>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces">Primeros pasos</a>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/azure-dev-spaces">Introducción</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-netcore">Descarga de .NET Core y VS Code</a>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-netcore">Descargar para .NET Core y VS Code</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-netcore-visualstudio">Descarga de .NET Core y Visual Studio</a>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-netcore-visualstudio">Descargar para .NET Core y Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-nodejs">Descarga de Node.js</a>
+                                                    <a href="https://docs.microsoft.com/azure/dev-spaces/quickstart-nodejs">Descargar para Node.js</a>
                                                 </p>
                                             </div>
                                         </div>

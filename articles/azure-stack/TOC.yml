@@ -4,21 +4,21 @@ items:
 - name: Información general
   items:
   - name: ¿Qué es Azure Stack?
-    href: azure-stack-poc.md
-  - name: Características y conceptos principales
-    href: azure-stack-key-features.md
+    href: azure-stack-overview.md
+  - name: Comparación del ecosistema de Azure
+    href: compare-azure-azure-stack.md
   - name: Notas de la versión
     items:
     - name: Actualizaciones recientes
       href: azure-stack-servicing-policy.md
+    - name: Actualización 1903
+      href: azure-stack-update-1903.md
     - name: Actualización 1902
       href: azure-stack-update-1902.md
     - name: Actualización 1901
       href: azure-stack-update-1901.md
     - name: Actualización 1811
       href: azure-stack-update-1811.md
-    - name: Actualización 1809
-      href: azure-stack-update-1809.md
 - name: Guías de inicio rápido
   items:
   - name: Uso del portal de administración
@@ -115,12 +115,12 @@ items:
         href: azure-stack-integrate-security.md
       - name: Auditoría de dispositivo
         href: azure-stack-integrate-physical-device-auditing.md
-  - name: Conceptos básicos de administración
-    href: azure-stack-manage-basics.md
 - name: Guías de procedimientos
   items:
   - name: Administración de Azure Stack
     items:
+    - name: Conceptos básicos de administración
+      href: azure-stack-manage-basics.md
     - name: Configuración de la recopilación de telemetría
       href: azure-stack-telemetry.md
     - name: Registro de Azure Stack
@@ -233,6 +233,8 @@ items:
       href: azure-stack-redhat-create-upload-vhd.md
     - name: Oferta de un clúster de Kubernetes
       href: azure-stack-solution-template-kubernetes-cluster-add.md
+    - name: Creación de una conexión VPN de sitio a sitio
+      href: azure-stack-create-vpn-connection-one-node.md
   - name: Oferta de servicios
     href: azure-stack-offer-services-overview.md
   - name: Oferta de SQL como PaaS
@@ -403,9 +405,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-stack
   - name: Aprendizaje y certificación
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: f2ea6b4ae7ff49d3263805460a30e5d407f7c0e6
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: a0c5682428d740bd109411333f13849c0e74d88e
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338367"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906317"
