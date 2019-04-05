@@ -102,7 +102,7 @@ El servicio SQL Database crea un firewall por IP en el nivel de servidor. Este f
 
 6. Haga clic en **Aceptar** y después cierre la página **Configuración de firewall**.
 
-Ahora puede pasar la dirección IP a través del firewall por IP. Ahora puede conectarse a la base de datos única mediante SQL Server Management Studio u otra herramienta que elija. Asegúrese de usar la cuenta de administración de servidor que creó anteriormente.
+Ahora la dirección IP puede pasar a través del firewall de IP; además, puede conectarse a la base de datos única mediante SQL Server Management Studio u otra herramienta que elija. Asegúrese de usar la cuenta de administración de servidor que creó anteriormente.
 
 > [!IMPORTANT]
 > De forma predeterminada, el acceso a través del firewall por IP de SQL Database está habilitado para todos los servicios de Azure. Haga clic en **OFF** en esta página para deshabilitar todos los servicios de Azure.

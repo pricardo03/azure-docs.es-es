@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
-ms.openlocfilehash: c26117bf298d5fe7fd8a14e0aa2b14834e412328
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 6086c182763885b62f28ab093be2a7f3f8282b8a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009928"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046315"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Preguntas más frecuentes (P+F) sobre Traffic Manager
 
@@ -309,7 +309,7 @@ Azure Resource Manager requiere que todos los grupos de recursos especifiquen un
 
 ### <a name="how-do-i-determine-the-current-health-of-each-endpoint"></a>¿Cómo se determina el estado actual de cada punto de conexión?
 
-El estado de supervisión actual de cada punto de conexión, junto con el del perfil global, se muestra en el Portal de Azure. Esta información también está disponible a través de la [API de REST](https://msdn.microsoft.com/library/azure/mt163667.aspx), los [cmdlets de PowerShell](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager) y la [CLI de Azure multiplataforma](../cli-install-nodejs.md) del Monitor de tráfico.
+El estado de supervisión actual de cada punto de conexión, junto con el del perfil global, se muestra en el Portal de Azure. Esta información también está disponible a través de la [API de REST](https://msdn.microsoft.com/library/azure/mt163667.aspx), los [cmdlets de PowerShell](https://docs.microsoft.com/powershell/module/az.trafficmanager) y la [CLI de Azure multiplataforma](../cli-install-nodejs.md) del Monitor de tráfico.
 
 También puede usar Azure Monitor para hacer un seguimiento del mantenimiento de los puntos de conexión y ver una representación visual de los mismos. Para más información sobre cómo usar Azure Monitor, consulte la [documentación de supervisión de Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 

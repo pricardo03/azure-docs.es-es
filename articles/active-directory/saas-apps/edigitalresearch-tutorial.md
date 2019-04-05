@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a4bebbda528f7ed6d7bee6ce77c744c6349d0bd
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d81797f0d1e7f72842c3a5a127756b99bdc93992
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190898"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047813"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-edigitalresearch"></a>Tutorial: Integración de Azure Active Directory con eDigitalResearch
 
@@ -89,7 +89,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con eDigitalRes
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
 1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de eDigitalResearch](#create-a-edigitalresearch-test-user)**: para tener un homólogo de Britta Simon en eDigitalResearch que esté vinculado a la representación de ella en Azure AD.
+1. **[Creación de un usuario de prueba de eDigitalResearch](#create-an-edigitalresearch-test-user)**  : para tener un homólogo de Britta Simon en eDigitalResearch que esté vinculado a la representación del usuario en Azure AD.
 1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
 1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
@@ -97,7 +97,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con eDigitalRes
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación eDigitalResearch.
 
-**Para configurar el inicio de sesión único de Azure AD con eDigitalResearch, realice los pasos siguientes:**
+**Para configurar el inicio de sesión único en Azure AD con eDigitalResearch, realice los pasos siguientes:**
 
 1. En la página de integración de la aplicación **eDigitalResearch** de Azure Portal, haga clic en **Inicio de sesión único**.
 
@@ -113,7 +113,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
      a. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<company-name>.edigitalresearch.com`
 
-    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<company-name>.edigitalresearch.com/login/consume`.
+    b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://<company-name>.edigitalresearch.com/login/consume`
 
     > [!NOTE] 
     > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de eDigitalResearch](https://www.maruedr.com/contact) para obtener estos valores.
@@ -143,7 +143,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
    ![Creación de un usuario de prueba de Azure AD][100]
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+**Para crear un usuario de prueba en Azure AD, realice los pasos siguientes:**
 
 1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
 
@@ -169,7 +169,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     d. Haga clic en **Create**(Crear).
   
-### <a name="create-a-edigitalresearch-test-user"></a>Creación de un usuario de prueba de eDigitalResearch
+### <a name="create-an-edigitalresearch-test-user"></a>Creación de un usuario de prueba de eDigitalResearch
 
 El objetivo de esta sección es crear un usuario llamado Britta Simon en eDigitalResearch. 
 
@@ -184,7 +184,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ![Asignación de rol de usuario][200] 
 
-**Para asignar Britta Simon a eDigitalResearch, realice los pasos siguientes:**
+**Para asignar a Britta Simon a eDigitalResearch, realice los pasos siguientes:**
 
 1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 

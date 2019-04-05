@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 3/18/2019
 ms.author: raynew
-ms.openlocfilehash: 018368d28dd34787046ae655a98527aede28603f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 231533f9609a4cf8cc11bedf88aafdfd37d1cb7e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313375"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050125"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery: preguntas más frecuentes (P+F)
 En este artículo se resume las preguntas más frecuentes sobre Azure Site Recovery. 
@@ -36,9 +36,9 @@ Sí, puede replicar máquinas virtuales de Azure compatibles entre regiones de A
 ### <a name="what-do-i-need-in-hyper-v-to-orchestrate-replication-with-site-recovery"></a>¿Qué necesito en Hyper-V para orquestar la replicación con Site Recovery?
 Los requisitos para el servidor host de Hyper-V dependen del escenario de implementación. Revise los requisitos previos de Hyper-V en:
 
-* [Replicación de máquinas virtuales de Hyper-V (sin VMM) a Azure](site-recovery-hyper-v-site-to-azure.md)
-* [Replicación de máquinas virtuales de Hyper-V (con VMM) a Azure](site-recovery-vmm-to-azure.md)
-* [Replicación de máquinas virtuales de Hyper-V a un centro de datos secundario](site-recovery-vmm-to-vmm.md)
+* [Replicación de máquinas virtuales de Hyper-V (sin VMM) en Azure](site-recovery-hyper-v-site-to-azure.md)
+* [Replicación de máquinas virtuales de Hyper-V (con VMM) en Azure](site-recovery-vmm-to-azure.md)
+* [Replicar máquinas virtuales de Hyper-V en un centro de datos secundaria](site-recovery-vmm-to-vmm.md)
 * Si está replicando en un centro de datos secundario, consulte [Sistemas operativos invitados compatibles para máquinas virtuales Hyper-V](https://technet.microsoft.com/library/mt126277.aspx).
 * Si está replicando a Azure, Site Recovery es compatible con todos los sistemas operativos invitados [admitidos por Azure](https://technet.microsoft.com/library/cc794868%28v=ws.10%29.aspx).
 
@@ -107,9 +107,9 @@ Durante una replicación normal, los datos se replican en el almacenamiento de A
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>¿Se pueden automatizar escenarios de Site Recovery con un SDK?
 Sí. Puede automatizar los flujos de trabajo de Site Recovery mediante la API de Rest, PowerShell o el SDK de Azure. Escenarios admitidos actualmente para la implementación de Site Recovery con PowerShell:
 
-* [Replicación de máquinas virtuales de Hyper-V en nubes VMM en Azure PowerShell Resource Manager](hyper-v-vmm-powershell-resource-manager.md)
-* [Replicación de máquinas virtuales de Hyper-V sin VMM en Azure PowerShell Resource Manager](hyper-v-azure-powershell-resource-manager.md)
-* [Replicación de máquinas virtuales de VMware en Azure con el Administrador de recursos de PowerShell](vmware-azure-disaster-recovery-powershell.md)
+* [Replicar máquinas virtuales de Hyper-V en nubes VMM a Azure PowerShell Resource Manager](hyper-v-vmm-powershell-resource-manager.md)
+* [Replicación de máquinas virtuales de Hyper-V sin VMM en el Administrador de recursos de Azure PowerShell](hyper-v-azure-powershell-resource-manager.md)
+* [Replicación de VMware en Azure con PowerShell Resource Manager](vmware-azure-disaster-recovery-powershell.md)
 
 ### <a name="if-i-replicate-to-azure-what-kind-of-storage-account-or-managed-disk-do-i-need"></a>¿Si se replica a Azure, qué tipo de cuenta de almacenamiento o un disco administrado necesito?
 Necesita un almacenamiento LRS o GRS. Se recomienda GRS para que los datos sean resistentes si se produce una interrupción regional o si no se puede recuperar la región principal. La cuenta debe estar en la misma región que el almacén de Recovery Services. Al implementar Site Recovery en Azure Portal, Premium Storage es compatible con máquinas virtuales de VMware, máquinas virtuales de Hyper-V y con la replicación de servidores físicos. Discos administrados solo son compatibles con LRS.
@@ -138,8 +138,8 @@ Puede agregar nuevos equipos a grupos de replicación existentes. Para ello, sel
 ### <a name="can-i-throttle-bandwidth-allotted-for-hyper-v-replication-traffic"></a>¿Puedo limitar el ancho de banda asignado para el tráfico de replicación de Hyper-V?
 Sí. Puede leer más acerca de la limitación de ancho de banda en los artículos de implementación donde se tratan los siguientes temas:
 
-* [Capacity planning for replicating VMware VMs and physical servers](site-recovery-plan-capacity-vmware.md)
-* [Capacity planning for replicating Hyper-V VMs without VMM (Planeamiento de la capacidad para replicar máquinas virtuales VMware y servidores físicos)](site-recovery-capacity-planning-for-hyper-v-replication.md)
+* [Planeamiento de capacidad para replicar máquinas virtuales de VMware y servidores físicos](site-recovery-plan-capacity-vmware.md)
+* [Planeamiento de capacidad para replicar máquinas virtuales de Hyper-V en Azure](site-recovery-capacity-planning-for-hyper-v-replication.md)
 
 ## <a name="failover"></a>Conmutación por error
 ### <a name="if-im-failing-over-to-azure-how-do-i-access-the-azure-virtual-machines-after-failover"></a>Si se realiza una conmutación por error a Azure, ¿cómo se puede tener acceso a las máquinas virtuales de Azure tras este proceso?
@@ -153,7 +153,7 @@ Azure está diseñado para la resistencia. Site Recovery ya se ha diseñado para
 Puede desencadenar una conmutación por error no planeada desde el sitio secundario. Site Recovery no necesita conectividad desde el sitio principal para realizar la conmutación por error.
 
 ### <a name="is-failover-automatic"></a>¿La conmutación por error es automática?
-La conmutación por error no es automática. Puede iniciar las conmutaciones por error con solo un clic en el portal o bien puede usar [Site Recovery PowerShell](/powershell/module/azurerm.siterecovery) para desencadenar una conmutación por error. La conmutación por recuperación también es una acción sencilla en el portal de Site Recovery.
+La conmutación por error no es automática. Puede iniciar las conmutaciones por error con solo un clic en el portal o bien puede usar [Site Recovery PowerShell](/powershell/module/az.recoveryservices) para desencadenar una conmutación por error. La conmutación por recuperación también es una acción sencilla en el portal de Site Recovery.
 
 Para automatizar estos procesos, puede utilizar Orchestrator u Operations Manager locales para detectar un error de la máquina virtual y desencadenar luego la conmutación por error mediante el SDK.
 
@@ -164,8 +164,8 @@ Para automatizar estos procesos, puede utilizar Orchestrator u Operations Manage
 ### <a name="if-my-on-premises-host-is-not-responding-or-crashed-can-i-failover-back-to-a-different-host"></a>¿Si mi host local no responde o se ha bloqueado, puedo conmutar por error a otro host?
 Sí, puede usar la recuperación en una ubicación alternativa para realizar la conmutación por recuperación a otro host de Azure. Lea más sobre las opciones de los vínculos siguientes para las máquinas virtuales de Hyper-V y VMware.
 
-* [Para máquinas virtuales de VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
-* [Para máquinas virtuales de Hyper-V](hyper-v-azure-failback.md#perform-failback)
+* [Para las máquinas virtuales de VMware](concepts-types-of-failback.md#alternate-location-recovery-alr)
+* [Para las máquinas virtuales de Hyper-V](hyper-v-azure-failback.md#perform-failback)
 
 ## <a name="service-providers"></a>Proveedores de servicios
 ### <a name="im-a-service-provider-does-site-recovery-work-for-dedicated-and-shared-infrastructure-models"></a>Soy un proveedor de servicios. ¿Site Recovery funciona para los modelos de infraestructura compartida o específica?

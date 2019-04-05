@@ -13,16 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 64a1693907dbf144aa34f5c35ae925af74d2cb34
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 65948b1de3a972687e738b011acf3542073db277
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803231"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046997"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
 
 En este artículo se recopila en un solo lugar muchas de las preguntas más frecuentes sobre Análisis de tráfico de Azure Network Watcher.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="what-are-the-prerequisites-to-use-traffic-analytics"></a>¿Cuáles son los requisitos previos para usar Análisis de tráfico?
 
@@ -51,11 +54,11 @@ Debe cumplir alguno de los siguientes requisitos para habilitar Análisis de tr�
         
 Para comprobar los roles asignados a un usuario para una suscripción:
 
-1. Inicie sesión en Azure mediante **Login-AzureRmAccount**. 
+1. Inicie sesión en Azure mediante el uso de **AzAccount de inicio de sesión**. 
 
-2. Seleccione la suscripción necesaria con **Select-AzureRmSubscription**. 
+2. Seleccione la suscripción necesaria mediante el uso de **seleccione AzSubscription**. 
 
-3. Para enumerar todos los roles asignados a un usuario específico, use **Get-AzureRmRoleAssignment -SignInName [correo electrónico del usuario] -IncludeClassicAdministrators**. 
+3. Para enumerar todos los roles que están asignados a un usuario específico, use **AzRoleAssignment de Get - SignInName [correo electrónico del usuario] - IncludeClassicAdministrators**. 
 
 Si no se muestra ninguna salida, póngase en contacto con el administrador de la suscripción correspondiente para acceder para ejecutar los comandos. Para más información, consulte [Administración del control de acceso basado en rol con Azure PowerShell](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
@@ -139,8 +142,8 @@ Si el problema persiste, póngase en contacto con soporte técnico.
 Para que los registros de flujo funcionen correctamente, el proveedor Microsoft.Insight debe estar registrado. Si no sabe con seguridad si el proveedor Microsoft.Insights está registrado en su suscripción, sustituya *xxxxx-xxxxx-xxxxxx-xxxx* en el siguiente comando y ejecute los siguientes comandos en PowerShell:
 
 ```powershell-interactive
-**Select-AzureRmSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
-**Register-AzureRmResourceProvider** -ProviderNamespace Microsoft.Insights
+**Select-AzSubscription** -SubscriptionId xxxxx-xxxxx-xxxxxx-xxxx
+**Register-AzResourceProvider** -ProviderNamespace Microsoft.Insights
 ```
 
 ## <a name="i-have-configured-the-solution-why-am-i-not-seeing-anything-on-the-dashboard"></a>He configurado la solución. ¿Por qué no veo nada en el panel?
@@ -170,13 +173,13 @@ Puede ver información sobre los recursos en el panel; sin embargo, no aparece n
 
 ## <a name="can-i-configure-traffic-analytics-using-powershell-or-an-azure-resource-manager-template-or-client"></a>¿Puedo configurar Análisis de tráfico mediante PowerShell o una plantilla o cliente de Azure Resource Manager?
 
-Puede configurar Análisis de tráfico con Windows PowerShell desde la versión 6.2.1 en adelante. Para configurar un registro de flujo y Análisis de tráfico para un grupo de seguridad de red específico mediante el cmdlet Set, consulte [Set-AzureRmNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog). Para obtener un registro de flujo y Análisis de tráfico de un grupo de seguridad de red específico, consulte [Get-AzureRmNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkwatcherflowlogstatus).
+Puede configurar Análisis de tráfico con Windows PowerShell desde la versión 6.2.1 en adelante. Para configurar registros de flujo y análisis de tráfico con un NSG específico mediante el cmdlet Set, consulte [conjunto AzNetworkWatcherConfigFlowLog](https://docs.microsoft.com/powershell/module/az.network/set-aznetworkwatcherconfigflowlog). Para obtener los registros de flujo y el estado de análisis de tráfico de un NSG específico, vea [Get AzNetworkWatcherFlowLogStatus](https://docs.microsoft.com/powershell/module/az.network/get-aznetworkwatcherflowlogstatus).
 
 En la actualidad, no puede usar una plantilla de Azure Resource Manager para configurar Análisis de tráfico.
 
 Para configurar Análisis de tráfico mediante un cliente de Azure Resource Manager, consulte los siguientes ejemplos.
 
-**Ejemplo de cmdlet Set:**
+**Ejemplo de conjunto de cmdlet:**
 ```
 #Requestbody parameters
 $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<name of NSG>"
@@ -217,7 +220,7 @@ $apiversion = "2016-09-01"
 armclient login
 armclient post "https://management.azure.com/subscriptions/<NSG subscription id>/resourceGroups/<network watcher resource group name>/providers/Microsoft.Network/networkWatchers/<network watcher name>/configureFlowlog?api-version=${apiversion}" $requestBody
 ```
-**Ejemplo de cmdlet Get:**
+**Obtener el ejemplo de cmdlet:**
 ```
 #Requestbody parameters
 $TAtargetUri ="/subscriptions/<NSG subscription id>/resourceGroups/<NSG resource group name>/providers/Microsoft.Network/networkSecurityGroups/<NSG name>"
@@ -269,7 +272,7 @@ La página del mapa geográfico se compone de dos secciones principales:
         
 ### <a name="keyboard-navigation-at-any-stage"></a>Navegación mediante el teclado en cualquier etapa
     
-- `Esc` contrae la selección expandida.
+- `Esc` Contrae la selección expandida.
 - La tecla `Up arrow` realiza la misma acción que `Esc`. La tecla `Down arrow` realiza la misma acción que `Enter`.
 - Use `Shift+Plus` para acercar el zoom y `Shift+Minus` para alejarlo.
 

@@ -14,23 +14,26 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/25/2019
 ms.author: aljo
-ms.openlocfilehash: 91b694070147cb0591bcc1763905f471161bf07b
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 2cf5bf26dbe18d7b4c6e3b1a93aa38d7748dc5a3
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336769"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049498"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Cree la primera aplicación contenedora en Service Fabric en Windows
 
 > [!div class="op_single_selector"]
-> * [Windows](service-fabric-get-started-containers.md)
+> * [ Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
 Para ejecutar una aplicación que existe en un contenedor de Windows en un clúster de Service Fabric no hay que hacer ningún cambio en la aplicación. Este artículo le guiará por la creación de una imagen de Docker que contiene una aplicación web [Flask](http://flask.pocoo.org/) en Python y su implementación en un clúster de Service Fabric que se ejecuta en su máquina local. También compartirá la aplicación en el contenedor mediante [Azure Container Registry](/azure/container-registry/). Este artículo supone que el usuario tiene un conocimiento básico de Docker. Para obtener información acerca de Docker, lea la [introducción a Docker](https://docs.docker.com/engine/understanding-docker/).
 
 > [!NOTE]
 > Este artículo es aplicable a un entorno de desarrollo de Windows.  El runtime del clúster de Service Fabric y el runtime de Docker deben ejecutarse en el mismo sistema operativo.  No se pueden ejecutar contenedores de Windows en un clúster de Linux.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -293,9 +296,9 @@ $clustername = "mycluster"
 
 $subscriptionId = "subscription ID"
 
-Login-AzureRmAccount
+Login-AzAccount
 
-Select-AzureRmSubscription -SubscriptionId $subscriptionId
+Select-AzSubscription -SubscriptionId $subscriptionId
 
 # Create a self signed cert, export to PFX file.
 New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEncipherment -Subject $subjectname -Provider 'Microsoft Enhanced Cryptographic Provider v1.0' `
@@ -304,10 +307,10 @@ New-SelfSignedCertificate -Type DocumentEncryptionCert -KeyUsage DataEnciphermen
 # Import the certificate to an existing key vault. The key vault must be enabled for deployment.
 $cer = Import-AzureKeyVaultCertificate -VaultName $vaultName -Name $certificateName -FilePath $filepath -Password $certpwd
 
-Set-AzureRmKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
+Set-AzKeyVaultAccessPolicy -VaultName $vaultName -ResourceGroupName $groupname -EnabledForDeployment
 
 # Add the certificate to all the VMs in the cluster.
-Add-AzureRmServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
+Add-AzServiceFabricApplicationCertificate -ResourceGroupName $groupname -Name $clustername -SecretIdentifier $cer.SecretId
 ```
 Cifre la contraseña mediante el cmdlet [Invoke-ServiceFabricEncryptText](/powershell/module/servicefabric/Invoke-ServiceFabricEncryptText?view=azureservicefabricps).
 
@@ -723,6 +726,15 @@ Con la versión 6.2 del entorno del tiempo de ejecución de Service Fabric y sup
 ## <a name="next-steps"></a>Pasos siguientes
 * Más información acerca de cómo ejecutar [contenedores en Service Fabric](service-fabric-containers-overview.md).
 * Consulte el tutorial [Implementación de una aplicación .NET en un contenedor](service-fabric-host-app-in-a-container.md).
+* Más información acerca del [ciclo de vida de aplicaciones](service-fabric-application-lifecycle.md) de Service Fabric.
+* Consulte [los ejemplos de código de contenedor de Service Fabric](https://github.com/Azure-Samples/service-fabric-containers) en GitHub.
+
+[1]: ./media/service-fabric-get-started-containers/MyFirstContainerError.png
+[2]: ./media/service-fabric-get-started-containers/MyFirstContainerReady.png
+[3]: ./media/service-fabric-get-started-containers/HealthCheckHealthy.png
+[4]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_App.png
+[5]: ./media/service-fabric-get-started-containers/HealthCheckUnhealthy_Dsp.png
+tutorial c-host-App-in-a-Container.MD).
 * Más información acerca del [ciclo de vida de aplicaciones](service-fabric-application-lifecycle.md) de Service Fabric.
 * Consulte [los ejemplos de código de contenedor de Service Fabric](https://github.com/Azure-Samples/service-fabric-containers) en GitHub.
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: f886de9160b52b8a4e3ee8beaf2e22022a097666
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d49104c1d1402969917de63e22bd41e7489a08c7
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662795"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046302"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Recopilación y agregación de eventos con Azure Diagnostics de Windows
 > [!div class="op_single_selector"]
-> * [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+> * [ Windows](service-fabric-diagnostics-event-aggregation-wad.md)
 > * [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
 >
 >
@@ -32,12 +32,15 @@ Cuando se ejecuta un clúster de Azure Service Fabric, es conveniente recopilar 
 
 Uno de los métodos para cargar y recopilar registros es usar la extensión Azure Diagnostics de Windows (WAD), que carga registros en Azure Storage, y también tiene la opción de enviar registros a Azure Application Insights o Event Hubs. También puede usar un proceso externo para leer los eventos de almacenamiento y colocarlos en un producto de plataforma de análisis, como [registros de Azure Monitor](../log-analytics/log-analytics-service-fabric.md) u otra solución de análisis de registros.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Requisitos previos
 En este artículo se emplean las herramientas siguientes:
 
 * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [Azure PowerShell](/powershell/azure/overview)
-* [Plantilla de Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Plantilla del Administrador de recursos de Azure](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric-platform-events"></a>Eventos de plataforma de Service Fabric
 Service Fabric configura algunos [canales de registro predefinidos](service-fabric-diagnostics-event-generation-infra.md). Los que se indican a continuación se configuran previamente con la extensión para que envíen datos de supervisión y diagnóstico a una tabla de almacenamiento u otro lugar:
@@ -71,7 +74,7 @@ Para crear un clúster mediante el Resource Manager, tiene que agregar el JSON d
 
 Para ver la configuración de Diagnósticos en la plantilla de Resource Manager, abra el archivo azuredeploy.json y busque **IaaSDiagnostics**. Para crear un clúster con esta plantilla, presione el botón **Deploy to Azure** (Implementar en Azure) disponible en el vínculo anterior.
 
-También puede descargar el ejemplo de Resource Manager, modificarlo y crear un clúster con la plantilla modificada mediante el comando `New-AzureRmResourceGroupDeployment` en una ventana de Azure PowerShell. Vea el código siguiente para los parámetros que se pasan al comando. Para más información sobre cómo implementar un grupo de recursos con PowerShell, vea el artículo sobre la [implementación de un grupo de recursos con la plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
+También puede descargar el ejemplo de Resource Manager, modificarlo y crear un clúster con la plantilla modificada mediante el comando `New-AzResourceGroupDeployment` en una ventana de Azure PowerShell. Vea el código siguiente para los parámetros que se pasan al comando. Para más información sobre cómo implementar un grupo de recursos con PowerShell, vea el artículo sobre la [implementación de un grupo de recursos con la plantilla de Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md).
 
 ### <a name="add-the-diagnostics-extension-to-an-existing-cluster"></a>Incorporación de la extensión de Diagnostics a un clúster existente
 Si tiene un clúster existente sin la extensión de Diagnostics implementada, puede agregarla o actualizarla con la plantilla del clúster. Modifique la plantilla de Resource Manager usada para crear el clúster existente o descargue la plantilla desde el portal, tal como se describió anteriormente. Modifique el archivo template.json mediante la realización de las siguientes tareas:
@@ -189,7 +192,7 @@ Después de modificar el archivo template.json tal como se indicó, vuelva a pub
 
 ### <a name="update-storage-quota"></a>Actualización de la cuota de almacenamiento
 
-Como las tablas que rellena la extensión aumentan hasta que se alcanza la cuota, quizá quiera considerar reducir el tamaño de esta. El valor predeterminado es 50 GB y se puede configurar en la plantilla en el campo `overallQuotaInMB` de `DiagnosticMonitorConfiguration`
+Como las tablas que rellena la extensión aumentan hasta que se alcanza la cuota, quizá quiera considerar reducir el tamaño de esta. El valor predeterminado es de 50 GB y se puede configurar en la plantilla en el `overallQuotaInMB` campo `DiagnosticMonitorConfiguration`
 
 ```json
 "overallQuotaInMB": "50000",
@@ -269,7 +272,7 @@ Para habilitar el **Canal operativo básico**, nuestra recomendación para reali
 
 Para actualizar Diagnostics de forma que recopile registros de canales EventSource nuevos que representan una nueva aplicación que vaya a implementar, siga los mismos pasos que se han descrito anteriormente para configurar Diagnostics para un clúster existente.
 
-Actualice la sección `EtwEventSourceProviderConfiguration` del archivo template.json para agregar entradas para los canales EventSource nuevos antes de aplicar la actualización de la configuración mediante el comando `New-AzureRmResourceGroupDeployment` de PowerShell. El nombre del origen del evento se define como parte del código en el archivo generado en Visual Studio ServiceEventSource.cs.
+Actualice la sección `EtwEventSourceProviderConfiguration` del archivo template.json para agregar entradas para los canales EventSource nuevos antes de aplicar la actualización de la configuración mediante el comando `New-AzResourceGroupDeployment` de PowerShell. El nombre del origen del evento se define como parte del código en el archivo generado en Visual Studio ServiceEventSource.cs.
 
 Por ejemplo, si el origen del evento se denomina My-Eventsource, agregue el código siguiente para colocar los eventos de My-Eventsource en una tabla denominada MyDestinationTableName.
 
@@ -345,6 +348,8 @@ Una vez que haya configurado correctamente Azure Diagnostics, verá los datos en
 >[!NOTE]
 >Actualmente no existe ninguna manera de filtrar o limpiar los eventos que se envían a la tabla. Si no se implementa un proceso para quitar eventos de la tabla, la tabla seguirá aumentando. Actualmente, hay un ejemplo de un servicio de limpieza de datos en ejecución en el [ejemplo de guardián](https://github.com/Azure-Samples/service-fabric-watchdog-service). Se recomienda que escriba uno para sí mismo, a menos que tenga una buena razón para almacenar los registros durante más de 30 o 90 días.
 
-* [Información sobre cómo recopilar registros o contadores de rendimiento mediante la extensión de Diagnósticos](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Análisis y visualización de eventos con Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [Obtenga información sobre cómo recopilar registros o contadores de rendimiento mediante el uso de la extensión de diagnósticos](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Análisis de eventos y la visualización con Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [Análisis de eventos y la visualización con registros de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
+* [Análisis de eventos y la visualización con Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Análisis de eventos y la visualización con registros de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)

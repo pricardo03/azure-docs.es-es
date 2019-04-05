@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: pbutlerm
-ms.openlocfilehash: da3e7e44ed1ad0698392ba1afcb59887ffbc53fe
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.openlocfilehash: 6f1a93c3d3059e612d8c309b263e263dbb84c67f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639385"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050108"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Creación de recursos técnicos para una oferta de máquina virtual
 
@@ -35,8 +35,9 @@ Debe configurar el sistema operativo de la máquina virtual, el tamaño, los pue
 > Independientemente del sistema operativo que use, agregue solo el número mínimo de discos de datos necesarios para la SKU. Los usuarios no pueden quitar los discos que formen parte de una imagen durante la implementación, pero siempre pueden agregar discos durante o después de la implementación. 
 
 > [!IMPORTANT]
-> *No cambie el número de discos en una nueva versión de imagen.* Si necesita volver a configurar los discos de datos de la imagen, defina una nueva SKU. Si publica una versión nueva de la imagen con otro número de discos, las nuevas implementaciones que se realicen en función de la versión nueva pueden registrar problemas con el escalado automático, las implementaciones automáticas de soluciones mediante plantillas de Azure Resource Manager y otros escenarios.
+> *No cambie el número de discos en una nueva versión de imagen.*  Si necesita volver a configurar los discos de datos de la imagen, defina una nueva SKU. Si publica una versión nueva de la imagen con otro número de discos, las nuevas implementaciones que se realicen en función de la versión nueva pueden registrar problemas con el escalado automático, las implementaciones automáticas de soluciones mediante plantillas de Azure Resource Manager y otros escenarios.
 
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="fundamental-technical-knowledge"></a>Conocimientos técnicos básicos
 
@@ -52,7 +53,7 @@ El diseño, la compilación y las pruebas de estos recursos lleva tiempo y requi
 
 Elija uno o ambos de los entornos de scripting siguientes para ayudar a administrar los discos duros virtuales y las máquinas virtuales:
 -   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
--   [CLI de Azure](https://docs.microsoft.com/cli/azure)
+-   [Azure CLI](https://docs.microsoft.com/cli/azure)
 
 Además, se recomienda agregar las herramientas siguientes al entorno de desarrollo: 
 

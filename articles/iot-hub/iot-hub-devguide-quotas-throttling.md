@@ -3,17 +3,17 @@ title: Información de la limitación y las cuotas de IoT de Azure | Microsoft D
 description: 'Guía del desarrollador: descripción de las cuotas que se aplican a IoT Hub y comportamiento esperado de limitación'
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/05/2018
-ms.openlocfilehash: d27b1ae05205d5b9c19b99733a3fa647a7f69c58
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 14c563fda48bc7c54dcce1e1ccbfba716b6c73ad
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499201"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049610"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referencia: Cuotas y limitación de IoT Hub
 

@@ -8,17 +8,16 @@ services: site-recovery
 ms.date: 03/21/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: cdb8fe5deb71c014f7e0af01d070e5004d8c9994
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 4237e259d1ba9cb826d89eba212b6931d933626d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418801"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051927"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Preguntas frecuentes: replicación de VMware en Azure
 
 En este artículo se proporcionan respuestas a preguntas comunes que podemos observar al implementar la recuperación ante desastres de máquinas virtuales de VMware locales en Azure. Si tiene alguna pregunta después de leer el artículo, publíquela en el [Foro de Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
-
 
 ## <a name="general"></a>General
 ### <a name="how-is-site-recovery-priced"></a>¿Cómo se fija el precio de Site Recovery?
@@ -323,7 +322,7 @@ Después de la conmutación por error, puede tener acceso a las máquinas virtua
 Azure está diseñado para la resistencia. Site Recovery está diseñado para la conmutación por error en un centro de datos de Azure secundario según el Acuerdo de Nivel de Servicio de Azure. Cuando se produce una conmutación por error, nos aseguramos de que los metadatos y los almacenes permanecen en la misma región geográfica que eligió para el almacén.
 
 ### <a name="is-failover-automatic"></a>¿La conmutación por error es automática?
-La [conmutación por error](site-recovery-failover.md) no es automática. Puede iniciar las conmutaciones por error con solo un clic en el portal, o puede usar [PowerShell](/powershell/module/azurerm.siterecovery) para desencadenar una conmutación por error.
+La [conmutación por error](site-recovery-failover.md) no es automática. Puede iniciar las conmutaciones por error con solo un clic en el portal, o puede usar [PowerShell](/powershell/module/az.recoveryservices) para desencadenar una conmutación por error.
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>¿Es posible conmutar por recuperación en otra ubicación?
 Sí, si conmutó por error en Azure, puede conmutar por recuperación en otra ubicación si la ubicación original no está disponible. [Más información](concepts-types-of-failback.md#alternate-location-recovery-alr).
