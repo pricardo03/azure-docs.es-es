@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: da027e492633ba3e4da912c2c45b2432fd217576
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: c3ef6ff73366ae3017e1126de16153195576a1a8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802968"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048716"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtener datos de cumplimiento de los recursos de Azure
 
@@ -30,7 +30,7 @@ Antes de pasar a los métodos que informan sobre el cumplimiento, veamos cuándo
 > [!WARNING]
 > Si el estado de cumplimiento se notifica como **no registrado**, compruebe que la **Microsoft.PolicyInsights** está registrado el proveedor de recursos y que el usuario tiene el acceso adecuado basado en roles de control () Permisos de RBAC) como se describe en [RBAC en Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
 
-[!INCLUDE [az-powershell-update](../../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
 ## <a name="evaluation-triggers"></a>Desencadenadores de evaluación
 
@@ -56,8 +56,8 @@ Con una llamada a la API de REST se puede iniciar un examen de evaluación de un
 
 En cada identificador URI de la API REST, hay variables usadas que se deben reemplazar por sus propios valores:
 
-- `{YourRG}`: reemplácelo por el nombre del grupo de recursos
-- `{subscriptionId}`: reemplácelo por el identificador de suscripción
+- `{YourRG}` -Reemplazar por el nombre del grupo de recursos
+- `{subscriptionId}` -Se reemplace por su identificador de suscripción
 
 El examen admite la evaluación de recursos de una suscripción o de un grupo de recursos. Inicie un examen para el ámbito con un comando **POST** de API REST mediante las siguientes estructuras de URI:
 

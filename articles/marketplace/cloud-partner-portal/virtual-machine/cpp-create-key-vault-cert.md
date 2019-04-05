@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 4223f9ec3bfaeacf7843508b13b5b5d81474311f
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.openlocfilehash: a25418f30225184424011527def468d0d3909563
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53196325"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045703"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Creación de certificados para Azure Key Vault
 
@@ -32,11 +32,14 @@ En este artículo se explica cómo aprovisionar los certificados autofirmados re
 Puede usar un grupo de recursos de Azure nuevo o existente para este trabajo.  El enfoque anterior se usa en la explicación siguiente.
 
 
+
+[!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
+
 ## <a name="create-the-certificate"></a>Creación del certificado
 
 Edite y ejecute el siguiente script de Azure PowerShell para crear el archivo de certificado (.pfx) en una carpeta local.  Tendrá que reemplazar los valores para los parámetros siguientes:
 
-|  **Parámetro**        |   **Descripción**                                                               |
+|  **Parámetro**        |   **DESCRIPCIÓN**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$certroopath` | Carpeta local donde guardar el archivo .pfx  |
 | `$location`    | Una de las ubicaciones geográficas estándares de Azure  |
@@ -82,7 +85,7 @@ Edite y ejecute el siguiente script de Azure PowerShell para crear el archivo de
 
 Copie el contenido de la [plantilla de implementación de Key Vault](./cpp-key-vault-deploy-template.md) en un archivo en el equipo local (en el siguiente script de ejemplo, este recurso es `C:\certLocation\keyvault.json`).  Edite y ejecute el siguiente script de Azure PowerShell para crear una instancia de Azure Key Vault y el grupo de recursos asociado.  Tendrá que reemplazar los valores para los parámetros siguientes:
 
-|  **Parámetro**        |   **Descripción**                                                               |
+|  **Parámetro**        |   **DESCRIPCIÓN**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$postfix`            | Cadena numérica arbitraria anexada a identificadores de implementación                     |
 | `$rgName`             | Nombre del grupo de recursos (RG) de Azure para crear                                        |
@@ -130,7 +133,7 @@ Copie el contenido de la [plantilla de implementación de Key Vault](./cpp-key-v
         $id = $accountSelected.Id
                               
         Write-Host "User $id Selected"
-        $myobjectId=(Get-AzureRmADUser -Mail $id)[0].Id
+        $myobjectId=(Get-AzADUser -Mail $id)[0].Id
       }
       catch
       {
@@ -181,9 +184,9 @@ Copie el contenido de la [plantilla de implementación de Key Vault](./cpp-key-v
      Write-Host "-----------------------------------" 
     
     # Create key vault and configure access
-    New-AzureRmResourceGroupDeployment -Name "kvdeploy$postfix" -ResourceGroupName $rgName -TemplateFile $kvTemplateJson -keyVaultName $kvname -tenantId $mytenantId -objectId $myobjectId
+    New-AzResourceGroupDeployment -Name "kvdeploy$postfix" -ResourceGroupName $rgName -TemplateFile $kvTemplateJson -keyVaultName $kvname -tenantId $mytenantId -objectId $myobjectId
     
-    Set-AzureRmKeyVaultAccessPolicy -VaultName $kvname -ObjectId $myobjectId -PermissionsToKeys all -PermissionsToSecrets all 
+    Set-AzKeyVaultAccessPolicy -VaultName $kvname -ObjectId $myobjectId -PermissionsToKeys all -PermissionsToSecrets all 
         
 ```
 

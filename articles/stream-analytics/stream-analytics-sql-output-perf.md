@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 3/18/2019
-ms.openlocfilehash: d259fd5fc8c60837c6b6110eb751360227d70836
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: d685b06b95af42f07449cc84e70220dd1a4afa9f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338435"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051791"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Salida de Azure Stream Analytics a Azure SQL Database
 
@@ -29,7 +29,7 @@ A continuación se indican algunas configuraciones de cada servicio que pueden a
 - **Inherit Partitioning** (Heredar la creación de particiones): esta opción de configuración de salida de SQL habilita la herencia del esquema de partición de la entrada o el paso anterior de la consulta. Con esta opción habilitada, al escribir en una tabla basada en disco y tener una topología [totalmente paralela](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) para su trabajo, espere ver un rendimiento superior. Esta creación de particiones se produce automáticamente para muchas otras [salidas](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks). El bloqueo de tabla (TABLOCK) también se deshabilita para las inserciones masivas realizadas con esta opción.
 
 > [!NOTE] 
-> Cuando hay más de 8 particiones de entrada, es posible que heredar el esquema de partición de entrada no sea una opción adecuada. Se ha observado este límite superior en una tabla con una columna de identidad única y un índice agrupado. Según el esquema y la elección de índices, sus observaciones pueden variar.
+> Cuando hay más de 8 particiones de entrada, es posible que heredar el esquema de partición de entrada no sea una opción adecuada. Se ha observado este límite superior en una tabla con una columna de identidad única y un índice agrupado. En este caso, considere el uso de [INTO](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count) 8 en la consulta para especificar explícitamente el número de redactores de salida. Según el esquema y la elección de índices, sus observaciones pueden variar.
 
 - **Tamaño del lote**: la configuración de salida de SQL le permite especificar el tamaño del lote máximo en una salida de SQL de Azure Stream Analytics según la naturaleza de la carga de trabajo o la tabla de destino. El tamaño del lote es el número máximo de registros que se envía con cada transacción de inserción masiva. En los índices de almacén de columnas agrupados, los tamaños de lote en torno a [100 000](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-data-loading-guidance) permiten más paralelización, registros mínimos y optimizaciones de bloqueo. En las tablas basadas en disco, un tamaño de 10 000 (valor predeterminado) o inferior puede ser óptimo para su solución, ya que los tamaños de lote mayores pueden desencadenar la extensión de bloqueo durante las inserciones masivas.
 

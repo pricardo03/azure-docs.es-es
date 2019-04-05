@@ -9,17 +9,17 @@ ms.topic: conceptual
 ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
-ms.date: 03/27/2019
-ms.openlocfilehash: 1cd5f48e8e0e74dfa04465993246e5d68840a783
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.date: 04/04/2019
+ms.openlocfilehash: f72923b80751f16ece128ced209679bbc325226c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58919731"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051808"
 ---
 # <a name="azure-machine-learning-interpretability-sdk"></a>Interoperabilidad de aprendizaje automático de Azure SDK
 
-Obtenga información sobre cómo explicar por qué el modelo llega las predicciones realiza. El SDK de interoperabilidad de Azure Machine Learning le permite explicar el modelo, lo que es importante por los motivos siguientes:
+En este artículo, aprenderá a explicar por qué el modelo realiza las predicciones se realiza mediante el SDK de interoperabilidad de Azure Machine Learning. Es importante poder explicar el modelo por las razones siguientes:
 
 * Los clientes y las partes interesadas desean saber **si puede confiar en las predicciones del modelo hace**.
 * Como científico de datos, le interesa entender **cómo consultar el modelo para buscar información**. También necesita herramientas para tomar decisiones informadas sobre **cómo mejorar el modelo**.
@@ -27,16 +27,10 @@ Obtenga información sobre cómo explicar por qué el modelo llega las prediccio
 
 Interoperabilidad de Machine learning es importante en dos fases del ciclo de desarrollo de aprendizaje automático: **entrenamiento** tiempo y **inferencia** tiempo:
 
-* Durante la **entrenamiento**: Diseñadores de modelos y evaluadores requieren herramientas de interoperabilidad para explicar el resultado de un modelo a las partes interesadas para crear relaciones de confianza. Herramientas de interoperabilidad también permiten depurar el modelo:
-
-    * ¿Su comportamiento coincide con las metas y objetivos?
-    * ¿Se inclina?
-
+* Durante la **entrenamiento**: Diseñadores de modelos y evaluadores requieren herramientas de interoperabilidad para explicar el resultado de un modelo a las partes interesadas para crear relaciones de confianza. También necesitan información sobre el modelo para que se puede depurar el modelo y tomar decisiones sobre si el comportamiento coincide con sus objetivos. Por último, que necesitan para garantizar que el modelo se inclina no.
 * Durante la **inferencia**: Predicciones deben ser explicación a las personas que utilizan el modelo. Por ejemplo, ¿por qué el modelo denegar un préstamo hipotecario o predecir una cartera de inversiones que lleva a un riesgo más alto?
 
-El SDK de Azure Machine Learning interoperabilidad incorpora las tecnologías desarrolladas por Microsoft y probadas las bibliotecas de terceros (por ejemplo, formas y CAL). Proporciona una API común a través de las bibliotecas integradas y se integra con Azure Machine Learning services. 
-
-Con este SDK, puede explicar los modelos de aprendizaje automático **globalmente en todos los datos**, o **localmente en un punto de datos específico** mediante las tecnologías de última generación de forma escalable y fácil de usar.
+El SDK de Azure Machine Learning interoperabilidad incorpora las tecnologías desarrolladas por Microsoft y probadas las bibliotecas de terceros (por ejemplo, formas y CAL). El SDK crea una API común a través de las bibliotecas integradas e integra servicios de Azure Machine Learning. Con este SDK, puede explicar los modelos de aprendizaje automático **globalmente en todos los datos**, o **localmente en un punto de datos específico** mediante las tecnologías de última generación de forma escalable y fácil de usar.
 
 ## <a name="how-does-it-work"></a>¿Cómo funciona?
 
@@ -48,11 +42,7 @@ Interoperabilidad de Azure Machine Learning devuelve un conjunto de información
 
 * Importancia de características relativas de global o local
 * Relación de característica y predicción global o local
-* Visualizaciones interactivas para:
-
-    * Predicciones
-    * Relaciones de característica y predicción
-    * Los valores de importancia de características relativa globalmente y localmente
+* Visualizaciones interactivas que muestra las predicciones, característica y relación de predicción y relative cuentan con valores de importancia globalmente y localmente
 
 ## <a name="architecture"></a>Arquitectura
 
@@ -114,11 +104,7 @@ Las funciones de explicación aceptan modelos y las canalizaciones como entrada.
 
 ### <a name="local-and-remote-compute-target"></a>Destino de proceso local y remota
 
-El SDK de interoperabilidad de Machine Learning está diseñado para trabajar con ambos destinos de proceso local y remota. 
-
-* Si ejecuta **localmente**, el SDK no ponerse en contacto con los servicios de Azure.
-
-* Si ejecuta **remotamente**, se registra información acerca de la ejecución en los servicios de Azure Machine Learning ejecuta historial. Una vez que esta información se registra, informes y visualizaciones de la explicación están disponibles en el Portal del área de trabajo de Azure Machine Learning para el análisis de usuario.
+El SDK de interoperabilidad de Machine Learning está diseñado para trabajar con ambos destinos de proceso local y remota. Si se ejecutan localmente, las funciones el SDK no se comunicará con los servicios de Azure. Puede ejecutar una explicación de forma remota en Azure Machine Learning Compute y registrar la información de la explicación en servicios de historial de ejecución de Azure Machine Learning. Una vez que esta información se registra, informes y visualizaciones de la explicación están disponibles en el Portal del área de trabajo de Azure Machine Learning para el análisis de usuario.
 
 ## <a name="train-and-explain-locally"></a>Entrenar y explique localmente
 
@@ -138,9 +124,7 @@ El SDK de interoperabilidad de Machine Learning está diseñado para trabajar co
     model = clf.fit(x_train, y_train)
     ```
 
-2. Llame a la explicación. Al crear una instancia de un objeto de la explicación, pase el modelo y datos de entrenamiento. Opcionalmente, puede pasar las características de interés. Si usa la clasificación, pase los nombres de clase de salida.
-
-    En el ejemplo siguiente se muestra cómo crear un objeto de explicación mediante [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), y `LimeExplainer` localmente. `TabularExplainer` se llama a uno de los tres explainers debajo (`TreeExplainer`, `DeepExplainer`, o `KernelExplainer`) y se selecciona automáticamente uno más adecuada para su caso de uso. Sin embargo, puede llamar directamente a cada uno de sus tres explainers subyacentes.
+2. Llame a la explicación: Para iniciar un objeto de la explicación, deberá pasar el modelo, los datos de entrenamiento, las características de interés (opcional) y los nombres de clase de salida (si clasificación) para la explicación. Aquí le mostramos cómo crear una instancia de un objeto de explicación mediante [TabularExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.tabularexplainer?view=azure-ml-py), [MimicExplainer](https://docs.microsoft.com/python/api/azureml-explain-model/azureml.explain.model.mimic.mimicexplainer?view=azure-ml-py), y `LimeExplainer` localmente. `TabularExplainer` se llama a uno de los tres explainers debajo (`TreeExplainer`, `DeepExplainer`, o `KernelExplainer`) y se selecciona automáticamente uno más adecuada para su caso de uso. Sin embargo, puede llamar directamente a cada uno de sus tres explainers subyacentes.
 
     ```python
     from azureml.explain.model.tabular_explainer import TabularExplainer
@@ -213,7 +197,7 @@ Aunque puede entrenar en los distintos destinos de proceso compatibles con el se
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-2. Para enviar una ejecución de aprendizaje, siga los pasos descritos en la [configurar destinos de proceso de entrenamiento del modelo](how-to-set-up-training-targets.md#amlcompute) artículo. Use los pasos para crear un destino de Azure Machine Learning Compute y, a continuación, envía una ejecución de entrenamiento.
+2. Siga las instrucciones de [configurar destinos de proceso de entrenamiento del modelo](how-to-set-up-training-targets.md#amlcompute) para obtener información sobre cómo configurar un proceso de Azure Machine Learning como destino de proceso y envía la ejecución de entrenamiento.
 
 3. Descargue la explicación en el cuaderno de Jupyter local. 
 

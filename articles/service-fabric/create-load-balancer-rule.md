@@ -14,18 +14,21 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: aljo
-ms.openlocfilehash: 526e70fe8548b23f08a2c85e8a59bdc2c25199b4
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d95d2802398a61b948ff6c59fb3eab0e1ddddbc5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58660947"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051672"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Abrir puertos para un clúster de Service Fabric
 
 El equilibrador de carga que se implementa con el clúster de Azure Service Fabric dirige el tráfico a la aplicación que se ejecuta en un nodo. Si cambia la aplicación para usar otro puerto, debe exponer ese puerto (o enrutar un puerto diferente) en Azure Load Balancer.
 
 Al implementar el clúster de Service Fabric en Azure, se crea automáticamente un equilibrador de carga. Si no tiene un equilibrador de carga, consulte [Creación de un equilibrador de carga orientado a Internet](../load-balancer/load-balancer-get-started-internet-portal.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="configure-service-fabric"></a>Configurar Service Fabric
 
@@ -82,14 +85,14 @@ PowerShell es un poco más complicado que la CLI de Azure. Siga estos pasos conc
 >[!NOTE]
 >Si necesita determinar el nombre del equilibrador de carga, use este comando para obtener rápidamente una lista de todos los equilibradores de carga y los grupos de recursos asociados.
 >
->`Get-AzureRmLoadBalancer | Select Name, ResourceGroupName`
+>`Get-AzLoadBalancer | Select Name, ResourceGroupName`
 
 ```powershell
 # Get the load balancer
-$lb = Get-AzureRmLoadBalancer -Name LB-svcfab3 -ResourceGroupName svcfab_cli
+$lb = Get-AzLoadBalancer -Name LB-svcfab3 -ResourceGroupName svcfab_cli
 
 # Create the rule based on information from the load balancer.
-$lbrule = New-AzureRmLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -FrontendPort 39990 -BackendPort 40009 `
+$lbrule = New-AzLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -FrontendPort 39990 -BackendPort 40009 `
                                             -FrontendIpConfiguration $lb.FrontendIpConfigurations[0] `
                                             -BackendAddressPool  $lb.BackendAddressPools[0] `
                                             -Probe $lb.Probes[0]
@@ -98,14 +101,14 @@ $lbrule = New-AzureRmLoadBalancerRuleConfig -Name my-app-rule7 -Protocol Tcp -Fr
 $lb.LoadBalancingRules.Add($lbrule)
 
 # Update the load balancer on Azure
-$lb | Set-AzureRmLoadBalancer
+$lb | Set-AzLoadBalancer
 ```
 
-Con respecto al comando `New-AzureRmLoadBalancerRuleConfig`, `-FrontendPort` representa el puerto que el equilibrador de carga expone para las conexiones externas, y `-BackendPort` representa el puerto en que está escuchando la aplicación de Service Fabric.
+Con respecto al comando `New-AzLoadBalancerRuleConfig`, `-FrontendPort` representa el puerto que el equilibrador de carga expone para las conexiones externas, y `-BackendPort` representa el puerto en que está escuchando la aplicación de Service Fabric.
 
 >[!NOTE]
 >Para obtener más información sobre cómo crear un equilibrador de carga con PowerShell, consulte [Creación de un equilibrador de carga orientado a Internet en Resource Manager mediante PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga más información sobre [las redes en Service Fabric](service-fabric-patterns-networking.md).
+Obtenga más información sobre [funciones de red en Service Fabric](service-fabric-patterns-networking.md).rvice-fabric-patrones-networking.md).

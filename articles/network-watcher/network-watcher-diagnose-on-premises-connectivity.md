@@ -14,18 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: f5c4f8d2c9cec4372ef5de70485d45ab33e022de
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
-ms.translationtype: HT
+ms.openlocfilehash: 323e5d63b5f8566d570dfd47323fcf12f7c6b28b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55099403"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051587"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>Diagnóstico de la conectividad local a través de puertas de enlace de VPN
 
 Azure VPN Gateway le permite crear soluciones híbridas que dan soluciones a la necesidad de una conexión segura entre su red local y la red virtual de Azure. Como sus necesidades son únicas, también lo es la elección del dispositivo VPN local. Azure admite actualmente [varios dispositivos VPN](../vpn-gateway/vpn-gateway-about-vpn-devices.md#devicetable) que se validan constantemente en asociación con los proveedores de los dispositivos. Revise los valores de configuración específicos del dispositivo antes de configurar el dispositivo VPN local. Igualmente, Azure VPN Gateway está configurado con un conjunto de [parámetros de IPsec admitidos](../vpn-gateway/vpn-gateway-about-vpn-devices.md#ipsec) que se utilizan para establecer conexiones. Actualmente no hay ninguna manera de especificar o seleccionar una combinación específica de parámetros de IPsec desde Azure VPN Gateway. Para establecer una conexión correcta entre la red local y Azure, la configuración del dispositivo VPN local debe estar de acuerdo con los parámetros de IPsec prescritos por Azure VPN Gateway. Si la configuración es incorrecta, se produce una pérdida de conectividad y además, hasta ahora, solucionar estos problemas no era algo trivial y normalmente se tardaban horas en identificar y corregir el problema.
 
 Con la característica de solución de problemas de Azure Network Watcher, es posible diagnosticar cualquier problema de la puerta de enlace y las conexiones y, en cuestión de minutos, disponer de información suficiente para tomar una decisión informada para rectificar el problema.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario"></a>Escenario
 
@@ -57,7 +60,7 @@ Estos problemas son difíciles de solucionar y las causas principales suelen ser
 
 ## <a name="troubleshooting-using-azure-network-watcher"></a>Solución de problemas mediante Azure Network Watcher
 
-Para diagnosticar la conexión, conéctese a Azure PowerShell e inicie el cmdlet `Start-AzureRmNetworkWatcherResourceTroubleshooting`. Puede encontrar los detalles sobre el uso de este cmdlet en [Solución de problemas de las conexiones y la puerta de enlace de Virtual Network mediante PowerShell](network-watcher-troubleshoot-manage-powershell.md). Este cmdlet puede tardar varios minutos en completarse.
+Para diagnosticar la conexión, conéctese a Azure PowerShell e inicie el cmdlet `Start-AzNetworkWatcherResourceTroubleshooting`. Puede encontrar los detalles sobre el uso de este cmdlet en [Solución de problemas de las conexiones y la puerta de enlace de Virtual Network mediante PowerShell](network-watcher-troubleshoot-manage-powershell.md). Este cmdlet puede tardar varios minutos en completarse.
 
 Una vez completado el cmdlet, puede navegar a la ubicación de almacenamiento especificada en el cmdlet para obtener información detallada sobre el problema y los registros. Azure Network Watcher crea una carpeta zip que contiene los archivos de registro siguientes:
 
@@ -80,7 +83,7 @@ La característica de solución de problemas de Azure Network Watcher le permite
 
 | Tipo de error | Motivo | Registro|
 |---|---|---|
-| NoFault | Cuando no se detecta ningún error. |SÍ|
+| NoFault | Cuando no se detecta ningún error. |Sí|
 | GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin |
 | PlannedMaintenance |  La instancia de puerta de enlace está en mantenimiento.  |Sin |
 | UserDrivenUpdate | Cuando hay una actualización del usuario en curso. Podría tratarse de una operación de cambio de tamaño. | Sin  |
@@ -88,26 +91,26 @@ La característica de solución de problemas de Azure Network Watcher le permite
 | PlatformInActive | Hay un problema con la plataforma. | Sin |
 | ServiceNotRunning | No se está ejecutando el servicio subyacente. | Sin |
 | NoConnectionsFoundForGateway | No existe ninguna conexión en la puerta de enlace. Esto es solo una advertencia.| Sin |
-| ConnectionsNotConnected | No está conectada ninguna de las conexiones. Esto es solo una advertencia.| SÍ|
-| GatewayCPUUsageExceeded | El uso de CPU de la puerta de enlace actual es >95 %. | SÍ |
+| ConnectionsNotConnected | No está conectada ninguna de las conexiones. Esto es solo una advertencia.| Sí|
+| GatewayCPUUsageExceeded | El uso de CPU de la puerta de enlace actual es >95 %. | Sí |
 
 ### <a name="connection"></a>Conexión
 
 | Tipo de error | Motivo | Registro|
 |---|---|---|
-| NoFault | Cuando no se detecta ningún error. |SÍ|
+| NoFault | Cuando no se detecta ningún error. |Sí|
 | GatewayNotFound | No se encuentra la puerta de enlace o no está aprovisionada. |Sin |
 | PlannedMaintenance | La instancia de puerta de enlace está en mantenimiento.  |Sin |
 | UserDrivenUpdate | Cuando hay una actualización del usuario en curso. Podría tratarse de una operación de cambio de tamaño.  | Sin  |
 | VipUnResponsive | No se puede alcanzar la instancia principal de la puerta de enlace. Sucede cuando se produce un error en el sondeo de estado. | Sin  |
 | ConnectionEntityNotFound | Falta una configuración de conexión. | Sin  |
 | ConnectionIsMarkedDisconnected | La conexión está marcada como "desconectada". |Sin |
-| ConnectionNotConfiguredOnGateway | El servicio subyacente no tiene configurada la conexión. | SÍ |
-| ConnectionMarkedStandby | El servicio subyacente está marcado como en espera activa.| SÍ|
-| Autenticación | Error de coincidencia de clave previamente compartida. | SÍ|
-| PeerReachability | La puerta de enlace del mismo nivel no está accesible. | SÍ|
-| IkePolicyMismatch | La puerta de enlace del mismo nivel tiene directivas IKE que no son compatibles con Azure. | SÍ|
-| Error de WfpParse | Se produjo un error al analizar el registro de WFP. |SÍ|
+| ConnectionNotConfiguredOnGateway | El servicio subyacente no tiene configurada la conexión. | Sí |
+| ConnectionMarkedStandby | El servicio subyacente está marcado como en espera activa.| Sí|
+| Authentication | Error de coincidencia de clave previamente compartida. | Sí|
+| PeerReachability | La puerta de enlace del mismo nivel no está accesible. | Sí|
+| IkePolicyMismatch | La puerta de enlace del mismo nivel tiene directivas IKE que no son compatibles con Azure. | Sí|
+| WfpParse Error | Se produjo un error al analizar el registro de WFP. |Sí|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

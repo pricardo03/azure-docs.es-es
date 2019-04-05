@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5077f09cba3548b03045011a7b8f16844156de55
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 7cd3286d51154c9c1dd53a2f87dd8a97999d064a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757637"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046706"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>¿Cuáles son las novedades de Azure Active Directory?
 
@@ -157,7 +157,7 @@ Para ayudar a impedir que los administradores accidentalmente bloqueen a sí mis
 **Categoría del servicio:** Términos de uso  
 **Funcionalidad del producto:** Gobernanza
 
-Hemos actualizado nuestros términos de experiencias de uso existentes para ayudar a mejorar cómo revisar y dar su consentimiento a los términos de uso en un dispositivo móvil. Ahora puede acercar y alejar, vuelva atrás, descargar la información y seleccionar los hipervínculos. Para obtener más información acerca de los términos de uso actualizados, consulte [Azure Active Directory característica términos de uso](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#what-terms-of-use-looks-like-for-users).
+Hemos actualizado nuestros términos de experiencias de uso existentes para ayudar a mejorar cómo revisar y dar su consentimiento a los términos de uso en un dispositivo móvil. Ahora puede acercar y alejar, vuelva atrás, descargar la información y seleccionar los hipervínculos. Para obtener más información acerca de los términos de uso actualizados, consulte [Azure Active Directory característica términos de uso](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#what-terms-of-use-looks-like-for-users).
 
 ---
 
@@ -337,11 +337,11 @@ Para más información, consulte [Autenticación con código de acceso de un sol
 
 Hemos incluido tres nuevas configuraciones de cookies, disponibles para las aplicaciones que se publican a través de Application Proxy:
 
-- **Usar cookie solo HTTP.** Establece la marca **HTTPOnly** en las cookies de sesión y acceso de Application Proxy. La activación de esta configuración ofrece ventajas de seguridad adicionales, como ayuda para evitar la copia o modificación de cookies por medio de scripting del lado cliente. Se recomienda activar esta marca (elija **Sí**) para disfrutar de estas ventajas.
+- **Usar cookie sólo HTTP.** Establece la marca **HTTPOnly** en las cookies de sesión y acceso de Application Proxy. La activación de esta configuración ofrece ventajas de seguridad adicionales, como ayuda para evitar la copia o modificación de cookies por medio de scripting del lado cliente. Se recomienda activar esta marca (elija **Sí**) para disfrutar de estas ventajas.
 
 - **Usar cookies seguras.** Establece la marca **Segura** en las cookies de sesión y acceso de Application Proxy. La activación de esta configuración ofrece ventajas de seguridad adicionales, como la garantía de que las cookies se transmiten solo a través de canales seguros de TLS, como HTTPS. Se recomienda activar esta marca (elija **Sí**) para disfrutar de estas ventajas.
 
-- **Usar cookies persistentes.** Impide que las cookies de acceso expiren cuando se cierra el explorador web. Estas cookies se mantienen vigentes durante toda la duración del token de acceso. Sin embargo, las cookies se restablecen si se alcanza la hora de expiración o si el usuario elimina manualmente la cookie. Se recomienda que mantenga la configuración predeterminada **No**, activando el ajuste solo para las aplicaciones anteriores que no comparten cookies entre procesos.
+- **Usar cookie persistente.** Impide que las cookies de acceso expiren cuando se cierra el explorador web. Estas cookies se mantienen vigentes durante toda la duración del token de acceso. Sin embargo, las cookies se restablecen si se alcanza la hora de expiración o si el usuario elimina manualmente la cookie. Se recomienda que mantenga la configuración predeterminada **No**, activando el ajuste solo para las aplicaciones anteriores que no comparten cookies entre procesos.
 
 Para obtener más información acerca de las nuevas cookies, consulte [Configuración de las cookies para el acceso a aplicaciones locales en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings).
 
@@ -424,11 +424,11 @@ En este momento, la única manera de convertir realmente una cuenta sincronizada
 
 Por lo tanto, esta corrección evita las actualizaciones directas sobre el atributo ImmutableID de un usuario sincronizado desde AD, lo que era necesario en algunos escenarios en el pasado. Por diseño, el atributo ImmutableID de un objeto en Azure AD, como su nombre indica, es inmutable. Existen nuevas características implementadas en los clientes de sincronización de Azure AD Connect y Azure AD Connect Health para abordar estos escenarios:
 
-- **Actualizaciones del atributo ImmutableID a gran escala para muchos usuarios por etapas**
+- **Actualización de ImmutableID a gran escala para muchos usuarios en un enfoque por fases**
   
   Por ejemplo, debe realizar una migración entre bosques de AD DS larga. Solución: Use Azure AD Connect para la **Configuración del delimitador de origen** y, mientras el usuario migra, copie los valores del atributo ImmutableID existentes de Azure AD al atributo DS-Consistency-Guid del usuario de AD DS local del nuevo bosque. Para obtener más información, consulte [Uso de msDS-ConsistencyGuid como sourceAnchor](/azure/active-directory/hybrid/plan-connect-design-concepts#using-ms-ds-consistencyguid-as-sourceanchor).
 
-- **Actualizaciones del atributo ImmutableID a gran escala para muchos usuarios de una sola vez**
+- **Actualizaciones de ImmutableID a gran escala para muchos usuarios de una sola vez**
 
   Por ejemplo, al implementar Azure AD Connect se cometió un error, y ahora es necesario cambiar el atributo SourceAnchor. Solución: Deshabilite DirSync en el nivel del inquilino y borre todos los valores de ImmutableID no válidos. Para obtener más información, vea [Desactivar la sincronización de directorios para Office 365](/office365/enterprise/turn-off-directory-synchronization).
 
@@ -534,7 +534,7 @@ Para más información acerca de cómo obtener y usar esta marca de tiempo, cons
  
 Los administradores ahora pueden activar la opción **Requerir que los usuarios concedan su consentimiento en todos los dispositivos** para requerir que los usuarios acepten los términos de uso en todos los dispositivos que estén usando en su inquilino.
 
-Para más información, consulte [la sección de términos de uso por dispositivo del artículo Característica Azure Active Directory Terms of Use](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#per-device-terms-of-use).
+Para más información, consulte [la sección de términos de uso por dispositivo del artículo Característica Azure Active Directory Terms of Use](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#per-device-terms-of-use).
 
 ---
 
@@ -547,7 +547,7 @@ Para más información, consulte [la sección de términos de uso por dispositiv
 
 Los administradores pueden ahora activar la opción **Expirar autorizaciones** para hacer que los términos de uso expiren para todos los usuarios según la programación periódica especificada. La programación puede ser anual, semestral, trimestral o mensual. Después de que caduquen los términos de uso, los usuarios deben Aceptar.
 
-Para más información, consulte [la sección Agregar términos de uso del artículo Característica Azure Active Directory Terms of Use](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#add-terms-of-use).
+Para más información, consulte [la sección Agregar términos de uso del artículo Característica Azure Active Directory Terms of Use](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
 
 ---
 
@@ -559,7 +559,7 @@ Para más información, consulte [la sección Agregar términos de uso del artí
 
 Los administradores ahora pueden especificar una duración tras la cual el usuario debe volver a aceptar los términos de uso. Por ejemplo, los administradores pueden especificar que los usuarios deben volver a aceptar los términos de uso cada 90 días.
 
-Para más información, consulte [la sección Agregar términos de uso del artículo Característica Azure Active Directory Terms of Use](https://docs.microsoft.com/azure/active-directory/governance/active-directory-tou#add-terms-of-use).
+Para más información, consulte [la sección Agregar términos de uso del artículo Característica Azure Active Directory Terms of Use](https://docs.microsoft.com/azure/active-directory/conditional-access/terms-of-use#add-terms-of-use).
  
 ---
 

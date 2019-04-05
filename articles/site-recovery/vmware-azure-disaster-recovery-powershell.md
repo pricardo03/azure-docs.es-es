@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/27/2018
 ms.topic: conceptual
 ms.author: sutalasi
-ms.openlocfilehash: aa8292aac82f478422f9214c26d974825872eed6
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: d70f2b2f0afb99263eaefe1122dba565231d978c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226342"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046935"
 ---
 # <a name="set-up-disaster-recovery-of-vmware-vms-to-azure-with-powershell"></a>Aprenda a configurar la recuperación ante desastres de máquinas virtuales de VMware en Azure con PowerShell.
 
@@ -28,32 +28,35 @@ Aprenderá a:
 > - Crear cuentas de almacenamiento para almacenar los datos de replicación y replicar las máquinas virtuales.
 > - Realizar una conmutación por error. Configurar opciones de conmutación por error, lleve a cabo una configuración para la replicación de máquinas virtuales.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de comenzar:
 
 - Asegúrese de entender la [arquitectura y los componentes del escenario](vmware-azure-architecture.md).
 - Revise los [requisitos de compatibilidad](site-recovery-support-matrix-to-azure.md) de todos los componentes.
-- Tiene la versión 5.0.1 o posterior del módulo AzureRm PowerShell. Si necesita instalar o actualizar Azure PowerShell, siga la guía [Cómo instalar y configurar Azure PowerShell](/powershell/azureps-cmdlets-docs).
+- Tiene Azure PowerShell `Az` módulo. Si necesita instalar o actualizar Azure PowerShell, siga la guía [Cómo instalar y configurar Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="log-into-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en su suscripción de Azure con el cmdlet Connect-AzureRmAccount:
+Inicie sesión en su suscripción de Azure mediante el cmdlet Connect-AzAccount:
 
 ```azurepowershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
-Seleccione la suscripción de Azure en la que quiere replicar sus máquinas virtuales de VMware. Use el cmdlet Get-AzureRmSubscription para obtener la lista de suscripciones de Azure a las que tiene acceso. Seleccione la suscripción de Azure con la que quiere trabajar mediante el cmdlet Select-AzureRmSubscription.
+Seleccione la suscripción de Azure en la que quiere replicar sus máquinas virtuales de VMware. Use el cmdlet Get-AzSubscription para obtener la lista de las suscripciones de Azure que se tiene acceso a. Seleccione la suscripción de Azure para trabajar con el cmdlet Select-AzSubscription.
 
 ```azurepowershell
-Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
+Select-AzSubscription -SubscriptionName "ASR Test Subscription"
 ```
 ## <a name="set-up-a-recovery-services-vault"></a>Configuración del almacén de Recovery Services
 
 1. Cree el grupo de recursos en el que se creará el almacén de Recovery Services. En el ejemplo siguiente, el grupo de recursos se denomina VMwareDRtoAzurePS y se crea en la región de Asia Oriental.
 
    ```azurepowershell
-   New-AzureRmResourceGroup -Name "VMwareDRtoAzurePS" -Location "East Asia"
+   New-AzResourceGroup -Name "VMwareDRtoAzurePS" -Location "East Asia"
    ```
    ```
    ResourceGroupName : VMwareDRtoAzurePS
@@ -66,7 +69,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 2. Cree un almacén de Recovery Services. En el ejemplo siguiente, el almacén de Recovery Services se denomina VMwareDRToAzurePs, y se crea en la región de Asia Oriental y en el grupo de recursos creado en el paso anterior.
 
    ```azurepowershell
-   New-AzureRmRecoveryServicesVault -Name "VMwareDRToAzurePs" -Location "East Asia" -ResourceGroupName "VMwareDRToAzurePs"
+   New-AzRecoveryServicesVault -Name "VMwareDRToAzurePs" -Location "East Asia" -ResourceGroupName "VMwareDRToAzurePs"
    ```
    ```
    Name              : VMwareDRToAzurePs
@@ -82,10 +85,10 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 
    ```azurepowershell
    #Get the vault object by name and resource group and save it to the $vault PowerShell variable 
-   $vault = Get-AzureRmRecoveryServicesVault -Name "VMwareDRToAzurePS" -ResourceGroupName "VMwareDRToAzurePS"
+   $vault = Get-AzRecoveryServicesVault -Name "VMwareDRToAzurePS" -ResourceGroupName "VMwareDRToAzurePS"
 
    #Download vault registration key to the path C:\Work
-   Get-AzureRmRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
+   Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
    ```
    ```
    FilePath
@@ -94,7 +97,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
    ```
 
 4. Use la clave de registro del almacén descargado y siga los pasos que se describen en los artículos que se indican a continuación para completar la instalación y el registro del servidor de configuración.
-   - [Selección de los objetivos de protección](vmware-azure-set-up-source.md#choose-your-protection-goals).
+   - [Selección de los objetivos de protección](vmware-azure-set-up-source.md#choose-your-protection-goals)
    - [Configuración del entorno de origen](vmware-azure-set-up-source.md#set-up-the-configuration-server) 
 
 ### <a name="set-the-vault-context"></a>Establecer el contexto de almacén
@@ -102,7 +105,7 @@ Select-AzureRmSubscription -SubscriptionName "ASR Test Subscription"
 Establezca el contexto de almacén mediante el cmdlet Set-ASRVaultContext. Una vez establecido, las operaciones posteriores de Azure Site Recovery de la sesión de PowerShell se realizan en el contexto de almacén seleccionado.
 
 > [!TIP]
-> El módulo PowerShell de Azure Site Recovery (módulo AzureRm.RecoveryServices.SiteRecovery) viene con alias fáciles de usar para la mayoría de los cmdlets. Los cmdlets del módulo adoptan la forma *\<Operación>-**AzureRmRecoveryServicesAsr**\<Objeto>* y tienen alias equivalentes que adoptan la forma *\<Operación>-**ASR**\<Objeto>*. En este artículo se usan alias de cmdlet para facilitar la lectura.
+> El módulo de PowerShell de Azure Site Recovery (módulo Az.RecoveryServices) viene con alias fáciles de usar para la mayoría de los cmdlets. Los cmdlets del módulo adoptan la forma  *\<operación >-**AzRecoveryServicesAsr**\<objeto >* y tienen alias equivalentes que adoptan la forma  *\< Operación >-**ASR**\<objeto >*. En este artículo se usan alias de cmdlet para facilitar la lectura.
 
 En el ejemplo siguiente, los detalles del almacén desde la variable $vault se usan para especificar el contexto de almacén para la sesión de PowerShell.
 
@@ -115,11 +118,11 @@ En el ejemplo siguiente, los detalles del almacén desde la variable $vault se u
    VMwareDRToAzurePs VMwareDRToAzurePs Microsoft.RecoveryServices vaults
    ```
 
-Como alternativa al cmdlet Set-ASRVaultContext, también puede usarse el cmdlet Import-AzureRmRecoveryServicesAsrVaultSettingsFile para establecer el contexto de almacén. Especifique la ruta de acceso donde se encuentra el archivo de clave de registro del almacén como el parámetro -path al cmdlet Import-AzureRmRecoveryServicesAsrVaultSettingsFile. Por ejemplo: 
+Como alternativa al cmdlet Set-ASRVaultContext, uno también puede usar el cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile para establecer el contexto de almacén. Especifique la ruta de acceso a la que el archivo de clave de registro de almacén como el parámetro - path al cmdlet Import-AzRecoveryServicesAsrVaultSettingsFile. Por ejemplo: 
 
    ```azurepowershell
-   Get-AzureRmRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
-   Import-AzureRmRecoveryServicesAsrVaultSettingsFile -Path "C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials"
+   Get-AzRecoveryServicesVaultSettingsFile -SiteRecovery -Vault $Vault -Path "C:\Work\"
+   Import-AzRecoveryServicesAsrVaultSettingsFile -Path "C:\Work\VMwareDRToAzurePs_2017-11-23T19-52-34.VaultCredentials"
    ```
 En las secciones siguientes de este artículo se supone que se ha establecido el contexto de almacén para las operaciones de Azure Site Recovery.
 
@@ -321,11 +324,11 @@ En este paso, se crean las cuentas de almacenamiento que se usarán para la repl
 
 ```azurepowershell
 
-$PremiumStorageAccount = New-AzureRmStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "premiumstorageaccount1" -Location "East Asia" -SkuName Premium_LRS
+$PremiumStorageAccount = New-AzStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "premiumstorageaccount1" -Location "East Asia" -SkuName Premium_LRS
 
-$LogStorageAccount = New-AzureRmStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "logstorageaccount1" -Location "East Asia" -SkuName Standard_LRS
+$LogStorageAccount = New-AzStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "logstorageaccount1" -Location "East Asia" -SkuName Standard_LRS
 
-$ReplicationStdStorageAccount= New-AzureRmStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "replicationstdstorageaccount1" -Location "East Asia" -SkuName Standard_LRS
+$ReplicationStdStorageAccount= New-AzStorageAccount -ResourceGroupName "VMwareDRToAzurePs" -Name "replicationstdstorageaccount1" -Location "East Asia" -SkuName Standard_LRS
 ```
 
 ## <a name="replicate-vmware-vms"></a>Replicación de máquinas virtuales de VMware
@@ -355,10 +358,10 @@ Ahora, replique las siguientes máquinas virtuales mediante la configuración es
 ```azurepowershell
 
 #Get the target resource group to be used
-$ResourceGroup = Get-AzureRmResourceGroup -Name "VMwareToAzureDrPs"
+$ResourceGroup = Get-AzResourceGroup -Name "VMwareToAzureDrPs"
 
 #Get the target virtual network to be used
-$RecoveryVnet = Get-AzureRmVirtualNetwork -Name "ASR-vnet" -ResourceGroupName "asrrg" 
+$RecoveryVnet = Get-AzVirtualNetwork -Name "ASR-vnet" -ResourceGroupName "asrrg" 
 
 #Get the protection container mapping for replication policy named ReplicationPolicy
 $PolicyMap  = Get-ASRProtectionContainerMapping -ProtectionContainer $ProtectionContainer | where PolicyFriendlyName -eq "ReplicationPolicy"
@@ -444,7 +447,7 @@ Errors           : {}
    #Test failover of Win2K12VM1 to the test virtual network "V2TestNetwork"
 
    #Get details of the test failover virtual network to be used
-   TestFailovervnet = Get-AzureRmVirtualNetwork -Name "V2TestNetwork" -ResourceGroupName "asrrg" 
+   TestFailovervnet = Get-AzVirtualNetwork -Name "V2TestNetwork" -ResourceGroupName "asrrg" 
 
    #Start the test failover operation
    $TFOJob = Start-ASRTestFailoverJob -ReplicationProtectedItem $ReplicatedVM1 -AzureVMNetworkId $TestFailovervnet.Id -Direction PrimaryToRecovery
@@ -487,4 +490,4 @@ En este paso, se conmuta por error la máquina virtual Win2K12VM1 en un punto de
 2. Después de realizar la conmutación por error correctamente, puede confirmar la operación y configurar la replicación inversa desde Azure nuevamente en el sitio de VMware local.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Obtenga información sobre cómo automatizar las tareas más mediante la [referencia de PowerShell de Azure Site Recovery](https://docs.microsoft.com/powershell/module/AzureRM.RecoveryServices.SiteRecovery).
+Obtenga información sobre cómo automatizar las tareas más mediante la [referencia de PowerShell de Azure Site Recovery](https://docs.microsoft.com/powershell/module/Az.RecoveryServices).

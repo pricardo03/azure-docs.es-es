@@ -1,19 +1,18 @@
 ---
 title: Conectar con el Explorador de datos de Azure con ODBC
 description: En este tema de procedimientos, aprenda a configurar una conexión ODBC con el Explorador de datos de Azure, a continuación, usar esa conexión para visualizar datos con una plantilla.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/21/2019
-ms.openlocfilehash: 0ec1c2f4fc412ca6c81e179d0ad22f781b896357
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d01c825e50e30e3545a0d47e432835c658d677af
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757623"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59043888"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>Conectar con el Explorador de datos de Azure con ODBC
 
@@ -101,6 +100,6 @@ Ahora que ha terminado de configurar ODBC, puede traer datos de ejemplo a Tablea
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Write queries for Azure Data Explorer](write-queries.md) (Escritura de consultas del Explorador de datos de Azure)
+[Escribir consultas para el Explorador de datos de Azure](write-queries.md)
 
-[Tutorial: Visualización de datos desde Azure Data Explorer en Power BI](visualize-power-bi.md)
+[Tutorial: Visualizar datos desde el Explorador de datos de Azure en Power BI](visualize-power-bi.md)

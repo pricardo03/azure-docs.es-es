@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
-ms.openlocfilehash: 0bce0d407246ceab05c3951dc976884dd6f15b08
-ms.sourcegitcommit: d4f728095cf52b109b3117be9059809c12b69e32
-ms.translationtype: HT
+ms.openlocfilehash: c251cc851b34f708a2150d3b0444f235d2bc50d6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54200197"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045311"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Métricas y alertas de Traffic Manager
 
@@ -33,13 +33,13 @@ En el ejemplo siguiente, la figura 1 muestra todas las respuestas a consultas qu
   
 ![Vista agregada de todas las consultas](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
-*Figura 1: Vista agregada con todas las consultas*
+*Ilustración 1: Vista con todas las consultas de agregado*
   
 La figura 2 muestra la misma información, sin embargo, se divide por puntos de conexión. Como resultado, puede ver el volumen de las respuestas a consultas en la que se devolvió un punto de conexión en particular.
 
 ![Métricas de Traffic Manager: vista dividida del volumen de consultas por punto de conexión](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-query-volume-per-endpoint.png)
 
-*Figura 2: Vista dividida con el volumen de consultas por punto de conexión devuelto*
+*Ilustración 2: Vista en dos paneles con el volumen de consultas que se muestran por punto de conexión devuelta*
 
 ## <a name="endpoint-status-by-endpoint"></a>Estado de punto de conexión por punto de conexión
 Use [esta métrica](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) para conocer el estado de mantenimiento de los puntos de conexión en el perfil. Toma dos valores:
@@ -51,14 +51,14 @@ Esta métrica puede mostrarse como valor agregado que representa el estado de to
 
 ![Métricas de Traffic Manager: vista compuesta del estado de los puntos de conexión](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)
 
-*Figura 3: Vista compuesta de la métrica de estado de los puntos de conexión, agregación "Avg" seleccionada*
+*Ilustración 3: Vista compuesta de métrica de estado de punto de conexión: agregación "Promedio" seleccionado*
 
 
 ![Métricas de Traffic Manager: vista dividida del estado de los puntos de conexión](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-split-view.png)
 
-*Figura 4: Vista dividida de las métricas de estado de los puntos de conexión*
+*Ilustración 4: Vista en dos paneles de métricas de estado de punto de conexión*
 
-Puede consumir estas métricas a través del portal del [servicio Azure Monitor](../azure-monitor/platform/metrics-supported.md), la [API de REST](https://docs.microsoft.com/rest/api/monitor/), [CLI de Azure](https://docs.microsoft.com/cli/azure/monitor) y [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights), o a través de la sección de métricas de la experiencia del portal de Traffic Manager.
+Puede consumir estas métricas a través del portal del [servicio Azure Monitor](../azure-monitor/platform/metrics-supported.md), la [API de REST](https://docs.microsoft.com/rest/api/monitor/), [CLI de Azure](https://docs.microsoft.com/cli/azure/monitor) y [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights), o a través de la sección de métricas de la experiencia del portal de Traffic Manager.
 
 ## <a name="alerts-on-traffic-manager-metrics"></a>Alertas relativas a métricas de Traffic Manager
 Además de procesar y mostrar las métricas de Traffic Manager, Azure Monitor permite a los clientes configurar y recibir alertas asociadas a estas métricas. Puede elegir qué condiciones deben cumplirse en estas métricas para que se produzca una alerta, con qué frecuencia deben supervisarse esas condiciones y cómo se le deberían enviar las alertas. Para obtener más información, consulte la [documentación sobre alertas de Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).

@@ -7,15 +7,15 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/03/2017
-ms.author: robin.shahan
-ms.openlocfilehash: 5ef34fb039d35ff714e249a6ac107e6ec615093e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: robinsh
+ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010997"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049979"
 ---
-# <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Administración de las identidades de dispositivo de IoT Hub de forma masiva
+# <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importar y exportar identidades de dispositivo de IoT Hub de forma masiva
 
 Cada Centro de IoT tiene un registro de identidad que se puede usar para crear recursos por dispositivo en el servicio. El registro de identidad también permite controlar el acceso a los puntos de conexión accesibles desde los dispositivos. En este artículo se describe cómo importar y exportar identidades de dispositivo de forma masiva hacia y desde un Registro de identidad.
 
@@ -255,13 +255,13 @@ Use la propiedad opcional **importMode** en los datos de serialización de impor
 
 | importMode | DESCRIPCIÓN |
 | --- | --- |
-| **createOrUpdate** |Si no existe un dispositivo con el **id.** especificado, este se registra por primera vez. <br/>Si el dispositivo ya existe, la información existente se sobrescribe con los datos de entrada proporcionados con independencia del valor **ETag** . <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
-| **crear** |Si no existe un dispositivo con el **id.** especificado, este se registra por primera vez. <br/>Si el dispositivo ya existe, se escribe un error en el archivo de registro. <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
-| **update** |Si ya existe un dispositivo con el **identificador** especificado, la información existente se sobrescribe con los datos de entrada proporcionados con independencia del valor **ETag**. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. |
-| **updateIfMatchETag** |Si ya existe un dispositivo con el **identificador** especificado, la información existente se sobrescribe con los datos de entrada proporcionados solo si hay una coincidencia con **ETag**. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. <br/>Si no existe la coincidencia con **ETag** , se escribe un error en el archivo de registro. |
-| **createOrUpdateIfMatchETag** |Si no existe un dispositivo con el **id.** especificado, este se registra por primera vez. <br/>Si el dispositivo ya existe, la información existente se sobrescribe con los datos de entrada proporcionados solo si hay una coincidencia con **ETag** . <br/>Si no existe la coincidencia con **ETag** , se escribe un error en el archivo de registro. <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
-| **delete** |Si ya existe un dispositivo con el **identificador** especificado, este se elimina con independencia del valor **ETag**. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. |
-| **deleteIfMatchETag** |Si ya existe un dispositivo con el **identificador** especificado, este se elimina solo si hay una coincidencia con **ETag**. Si el dispositivo no existe, se escribe un error en el archivo de registro. <br/>Si no existe una coincidencia con ETag, se escribe un error en el archivo de registro. |
+| **createOrUpdate** |Si no existe un dispositivo con los valores especificados **ID**, se registra por primera vez. <br/>Si el dispositivo ya existe, la información existente se sobrescribe con los datos de entrada proporcionados con independencia del valor **ETag** . <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
+| **create** |Si no existe un dispositivo con los valores especificados **ID**, se registra por primera vez. <br/>Si el dispositivo ya existe, se escribe un error en el archivo de registro. <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
+| **update** |Si ya existe un dispositivo con los valores especificados **ID**, información existente se sobrescribe con los datos de entrada proporcionados sin respecto a la **ETag** valor. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. |
+| **updateIfMatchETag** |Si ya existe un dispositivo con los valores especificados **ID**, información existente se sobrescribe con los datos de entrada proporcionados solo si hay un **ETag** coinciden. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. <br/>Si no existe la coincidencia con **ETag** , se escribe un error en el archivo de registro. |
+| **createOrUpdateIfMatchETag** |Si no existe un dispositivo con los valores especificados **ID**, se registra por primera vez. <br/>Si el dispositivo ya existe, la información existente se sobrescribe con los datos de entrada proporcionados solo si hay una coincidencia con **ETag** . <br/>Si no existe la coincidencia con **ETag** , se escribe un error en el archivo de registro. <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
+| **delete** |Si ya existe un dispositivo con los valores especificados **ID**, se elimina sin respecto a la **ETag** valor. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. |
+| **deleteIfMatchETag** |Si ya existe un dispositivo con los valores especificados **ID**, se elimina solo si hay un **ETag** coinciden. Si el dispositivo no existe, se escribe un error en el archivo de registro. <br/>Si no existe una coincidencia con ETag, se escribe un error en el archivo de registro. |
 
 > [!NOTE]
 > Si los datos de serialización no definen explícitamente una marca **importMode** para un dispositivo, se establece de manera predeterminada en **createOrUpdate** durante la operación de importación.
@@ -424,9 +424,9 @@ En este artículo, aprendió a realizar operaciones de forma masiva en el Regist
 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
-* [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md)
-* [Implementación de IA en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Guía del desarrollador de IoT Hub](iot-hub-devguide.md)
+* [Implementar AI en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 Para explorar el uso del servicio IoT Hub Device Provisioning para habilitar el aprovisionamiento Just-In-Time sin intervención del usuario, vea: 
 
-* [Servicio Azure IoT Hub Device Provisioning](/azure/iot-dps)
+* [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)

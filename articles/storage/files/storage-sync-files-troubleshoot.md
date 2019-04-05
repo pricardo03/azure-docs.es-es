@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: bbda2a16e57f3907ef2910b17ed3c744d2d1ec3e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 328edac78624c192ee139c40fe0ed1853423c639
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487862"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051375"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Solución de problemas de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -116,14 +116,14 @@ Este problema puede producirse si hay un error en una operación de administraci
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
 # Get the server endpoint id based on the server endpoint DisplayName property
-Get-AzureRmStorageSyncServerEndpoint `
+Get-AzStorageSyncServerEndpoint `
     -SubscriptionId mysubguid `
     -ResourceGroupName myrgname `
     -StorageSyncServiceName storagesvcname `
     -SyncGroupName mysyncgroup
 
 # Update the free space percent policy for the server endpoint
-Set-AzureRmStorageSyncServerEndpoint `
+Set-AzStorageSyncServerEndpoint `
     -Id serverendpointid `
     -CloudTiering true `
     -VolumeFreeSpacePercent 60
@@ -164,12 +164,12 @@ Es posible que un punto de conexión del servidor no registre la actividad de si
 Este problema puede producirse si crea un punto de conexión de nube y usa un recurso compartido de archivos de Azure que contiene los datos. El trabajo de enumeración de cambios que analiza en busca de cambios en el recurso compartido de archivos de Azure debe completarse antes de que los archivos puedan sincronizarse entre la nube y los puntos de conexión del servidor. El tiempo para completar el trabajo depende del tamaño del espacio de nombres en el recurso compartido de archivos de Azure. El estado del punto de conexión del servidor debe actualizarse una vez que se complete el trabajo de enumeración de cambios.
 
 ### <a id="broken-sync"></a>¿Cómo superviso el estado de sincronización?
-# <a name="portaltabportal1"></a>[Portal](#tab/portal1)
+# [<a name="portal"></a>Portal](#tab/portal1)
 Dentro de cada grupo de sincronización, puede explorar en profundidad los puntos de conexión individuales del servidor para ver el estado de las últimas sesiones de sincronización completadas. Una columna verde de estado y un valor 0 en archivos que no se sincronizan indican que la sincronización está funcionando como se esperaba. Si este no es el caso, consulte a continuación una lista de errores comunes de sincronización y cómo tratar los archivos que no se están sincronizando. 
 
 ![Captura de pantalla de Azure Portal](media/storage-sync-files-troubleshoot/portal-sync-health.png)
 
-# <a name="servertabserver"></a>[Servidor](#tab/server)
+# [<a name="server"></a>Server](#tab/server)
 Vaya a registros de telemetría del servidor, que pueden encontrarse en el Visor de eventos en `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`. El evento 9102 corresponde a una sesión de sincronización completada; para el último estado de sincronización, busque el evento más reciente con identificador 9102. SyncDirection indica si esta sesión fue una carga o descarga. Si HResult es 0, la sesión de sincronización se realizó correctamente. Un valor de HResult distinto de cero significa que se produjo un error durante la sincronización. Consulte a continuación para obtener una lista de errores comunes. Si PerItemErrorCount es mayor que 0, significa que algunos archivos o carpetas no se sincronizaron correctamente. Es posible tener un valor de HResult de 0 pero un valor de PerItemErrorCount mayor que 0.
 
 Este es un ejemplo de carga correcta. Por brevedad, solo se enumeran a continuación algunos de los valores contenidos en cada evento 9102. 
@@ -201,10 +201,10 @@ A veces, las sesiones de sincronización pueden producir un error general o tien
 ---
 
 ### <a name="how-do-i-monitor-the-progress-of-a-current-sync-session"></a>¿Cómo se puede supervisar el progreso de una sesión de sincronización actual?
-# <a name="portaltabportal1"></a>[Portal](#tab/portal1)
+# [<a name="portal"></a>Portal](#tab/portal1)
 Dentro de su grupo de sincronización, vaya al punto de conexión del servidor en cuestión y consulte la sección Actividad de sincronización para ver el número de archivos cargados o descargados en la sesión de sincronización actual. Tenga en cuenta que este estado se retrasará unos 5 minutos, y si la sesión de sincronización es lo suficientemente pequeña como para completarse dentro de este período, es posible que no se notifique de ello en el portal. 
 
-# <a name="servertabserver"></a>[Servidor](#tab/server)
+# [<a name="server"></a>Server](#tab/server)
 Busque el evento 9302 más reciente en el registro de telemetría en el servidor (en el Visor de eventos, vaya a Registros de aplicaciones y servicios\Microsoft\FileSync\Agent\Telemetry). Este evento indica el estado de la sesión de sincronización actual. TotalItemCount indica cuántos archivos se van a sincronizar, AppliedItemCount indica el número de archivos que se han sincronizado hasta ahora y PerItemErrorCount indica el número de archivos que no se han sincronizado (consulte más abajo cómo tratar esto).
 
 ```
@@ -219,14 +219,14 @@ PerItemErrorCount: 1006.
 ---
 
 ### <a name="how-do-i-know-if-my-servers-are-in-sync-with-each-other"></a>¿Cómo se puede saber si mis servidores están sincronizados entre sí?
-# <a name="portaltabportal1"></a>[Portal](#tab/portal1)
+# [<a name="portal"></a>Portal](#tab/portal1)
 Para cada servidor de un determinado grupo de sincronización, asegúrese de que:
 - Las marcas de tiempo para el último intento de sincronización, tanto para la carga como para la descarga, son recientes.
 - El estado está en color verde para la carga y descarga.
 - El campo Actividad de sincronización muestra muy pocos o ningún archivo que quede por sincronizar.
 - El campo Archivos que no se están sincronizando es 0 tanto para la carga como para la descarga.
 
-# <a name="servertabserver"></a>[Servidor](#tab/server)
+# [<a name="server"></a>Server](#tab/server)
 Examine las sesiones de sincronización completadas, que están marcadas por los eventos 9102 en el registro de eventos de telemetría para cada servidor (en el Visor de eventos, vaya a `Applications and Services Logs\Microsoft\FileSync\Agent\Telemetry`). 
 
 1. En un servidor determinado, desea asegurarse de que las últimas sesiones de carga y descarga se hayan completado correctamente. Para ello, compruebe que los valores de HResult y PerItemErrorCount son 0 tanto para la carga como para la descarga (el campo SyncDirection indica si una sesión determinada es una sesión de carga o descarga). Tenga en cuenta que si no ve una sesión de sincronización completada recientemente, es probable que esté en curso una sesión de sincronización, lo que es de esperar si acaba de agregar o modificar una gran cantidad de datos.
@@ -243,7 +243,7 @@ Si el valor de PerItemErrorCount en el servidor o el recuento de Archivos que no
 Para ver estos errores, ejecute el script de PowerShell **FileSyncErrorsReport.ps1** (ubicado en el directorio de instalación del agente de Azure File Sync) para identificar los archivos que no se sincronizaron debido a identificadores abiertos, caracteres no admitidos u otros problemas. El campo ItemPath indica la ubicación del archivo en relación con el directorio de sincronización raíz. Consulte la lista de errores de sincronización más abajo para conocer los pasos de corrección.
 
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>Solución de errores de sincronización de archivo o directorio
-**Registro de ItemResults: errores de sincronización por elemento**  
+**Registro ItemResults - errores de sincronización por elemento**  
 
 | HRESULT | HRESULT (decimal) | Cadena de error | Problema | Corrección |
 |---------|-------------------|--------------|-------|-------------|
@@ -278,7 +278,7 @@ La siguiente tabla contiene todos los caracteres Unicode que Azure File Sync aú
 | **HRESULT** | 0x800704c7 |
 | **HRESULT (decimal)** | -2147023673 | 
 | **Cadena de error** | ERROR_CANCELLED |
-| **Se requiere una corrección** | Sin  |
+| **Corrección necesaria** | Sin  |
 
 Las sesiones de sincronización pueden producir un error por varias razones, incluido el reinicio o actualización del servidor o instantáneas de VSS, entre otras. Aunque este error parece que requiere seguimiento, es seguro pasar por alto este error a menos que persista durante un período de varias horas.
 
@@ -289,7 +289,7 @@ Las sesiones de sincronización pueden producir un error por varias razones, inc
 | **HRESULT** | 0x80072EE7 |
 | **HRESULT (decimal)** | -2147012889 | 
 | **Cadena de error** | WININET_E_NAME_NOT_RESOLVED |
-| **Se requiere una corrección** | Sí |
+| **Corrección necesaria** | Sí |
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
@@ -300,7 +300,7 @@ Las sesiones de sincronización pueden producir un error por varias razones, inc
 | **HRESULT** | 0x80c8004c |
 | **HRESULT (decimal)** | -2134376372 |
 | **Cadena de error** | ECS_E_USER_REQUEST_THROTTLED |
-| **Se requiere una corrección** | Sin  |
+| **Corrección necesaria** | Sin  |
 
 No se requiere ninguna acción; el servidor lo intentará de nuevo. Si este error persiste durante más de un par de horas, cree una solicitud de soporte técnico.
 
@@ -311,13 +311,13 @@ No se requiere ninguna acción; el servidor lo intentará de nuevo. Si este erro
 | **HRESULT** | 0x80c8305f |
 | **HRESULT (decimal)** | -2134364065 |
 | **Cadena de error** | ECS_E_CANNOT_ACCESS_EXTERNAL_STORAGE_ACCOUNT |
-| **Se requiere una corrección** | Sí |
+| **Corrección necesaria** | Sí |
 
 Este error se produce porque el agente de Azure File Sync no puede acceder al recurso compartido de archivos de Azure, lo que puede deberse a que el recurso compartido de archivos de Azure o la cuenta de almacenamiento que lo hospeda ya no existe. Puede solucionar este error siguiendo estos pasos:
 
-1. [Compruebe que la cuenta de almacenamiento existe.](#troubleshoot-storage-account)
-2. [Compruebe que la cuenta de almacenamiento no contiene ninguna regla de red.](#troubleshoot-network-rules)
-3. [Asegúrese de que el recurso compartido de archivos de Azure existe.](#troubleshoot-azure-file-share)
+1. [Compruebe si que existe la cuenta de almacenamiento.](#troubleshoot-storage-account)
+2. [Compruebe para asegurarse de que la cuenta de almacenamiento no tiene ninguna regla de red.](#troubleshoot-network-rules)
+3. [Asegúrese de que existe el recurso compartido de archivos de Azure.](#troubleshoot-azure-file-share)
 4. [Asegúrese de que Azure File Sync tiene acceso a la cuenta de almacenamiento.](#troubleshoot-rbac)
 
 <a id="-2134364064"></a><a id="cannot-resolve-storage"></a>**No se pudo resolver el nombre de cuenta de almacenamiento usado.**  
@@ -327,15 +327,15 @@ Este error se produce porque el agente de Azure File Sync no puede acceder al re
 | **HRESULT** | 0x80C83060 |
 | **HRESULT (decimal)** | -2134364064 |
 | **Cadena de error** | ECS_E_STORAGE_ACCOUNT_NAME_UNRESOLVED |
-| **Se requiere una corrección** | Sí |
+| **Corrección necesaria** | Sí |
 
 1. Compruebe que puede resolver el nombre DNS de almacenamiento desde el servidor.
 
     ```powershell
     Test-NetConnection -ComputerName <storage-account-name>.file.core.windows.net -Port 443
     ```
-2. [Compruebe que la cuenta de almacenamiento existe.](#troubleshoot-storage-account)
-3. [Compruebe que la cuenta de almacenamiento no contiene ninguna regla de red.](#troubleshoot-network-rules)
+2. [Compruebe si que existe la cuenta de almacenamiento.](#troubleshoot-storage-account)
+3. [Compruebe para asegurarse de que la cuenta de almacenamiento no tiene ninguna regla de red.](#troubleshoot-network-rules)
 
 <a id="-1906441138"></a>**Error de sincronización debido a un problema con la base de datos de sincronización.**  
 
@@ -344,7 +344,7 @@ Este error se produce porque el agente de Azure File Sync no puede acceder al re
 | **HRESULT** | 0x8e5e044e |
 | **HRESULT (decimal)** | -1906441138 |
 | **Cadena de error** | JET_errWriteConflict |
-| **Se requiere una corrección** | Sí |
+| **Corrección necesaria** | Sí |
 
 Este error se produce cuando hay un problema con la base de datos interna utilizada por Azure File Sync. Cuando este problema ocurre, cree una solicitud de soporte técnico y nos pondremos en contacto con usted para ayudarle a resolver este problema.
 
@@ -355,7 +355,7 @@ Este error se produce cuando hay un problema con la base de datos interna utiliz
 | **HRESULT** | 0x80C8306B |
 | **HRESULT (decimal)** | -2134364053 |
 | **Cadena de error** | ECS_E_AGENT_VERSION_BLOCKED |
-| **Se requiere una corrección** | Sí |
+| **Corrección necesaria** | Sí |
 
 Se producirá un error si la versión del agente de Azure File Sync instalada en el servidor no se admite. Para resolver este problema, [actualícelo]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths) a una [versión del agente admitida]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions).
 
@@ -366,7 +366,7 @@ Se producirá un error si la versión del agente de Azure File Sync instalada en
 | **HRESULT** | 0x80c8603e |
 | **HRESULT (decimal)** | -2134351810 |
 | **Cadena de error** | ECS_E_AZURE_STORAGE_SHARE_SIZE_LIMIT_REACHED |
-| **Se requiere una corrección** | Sí |
+| **Corrección necesaria** | Sí |
 
 Este error se produce cuando se ha alcanzado el límite de almacenamiento de los recursos compartidos de archivos de Azure, lo que puede ocurrir si se aplica una cuota para un recurso compartido de archivos de Azure o si el uso excede los límites de algún recurso compartido. Para más información, consulte los [límites actuales para un recurso compartido de archivos de Azure](storage-files-scale-targets.md).
 
@@ -392,12 +392,12 @@ Si el recurso compartido está lleno y no se ha establecido una cuota, una forma
 | **HRESULT** | 0x80c86030 |
 | **HRESULT (decimal)** | -2134351824 |
 | **Cadena de error** | ECS_E_AZURE_FILE_SHARE_NOT_FOUND |
-| **Se requiere una corrección** | Sí |
+| **Corrección necesaria** | Sí |
 
 Este error se produce cuando el recurso compartido de archivos de Azure no está accesible. Para solucionar los problemas:
 
-1. [Compruebe que la cuenta de almacenamiento existe.](#troubleshoot-storage-account)
-2. [Asegúrese de que el recurso compartido de archivos de Azure existe.](#troubleshoot-azure-file-share)
+1. [Compruebe si que existe la cuenta de almacenamiento.](#troubleshoot-storage-account)
+2. [Asegúrese de que existe el recurso compartido de archivos de Azure.](#troubleshoot-azure-file-share)
 
 Si se ha eliminado el recurso compartido de archivos de Azure, tiene que crear un nuevo recurso compartido de archivos y, después, volver a crear el grupo de sincronización. 
 
@@ -408,7 +408,7 @@ Si se ha eliminado el recurso compartido de archivos de Azure, tiene que crear u
 | **HRESULT** | 0x80C83076 |
 | **HRESULT (decimal)** | -2134364042 |
 | **Cadena de error** | ECS_E_SYNC_BLOCKED_ON_SUSPENDED_SUBSCRIPTION |
-| **Se requiere una corrección** | Sí |
+| **Corrección necesaria** | Sí |
 
 Este error se produce cuando se suspende la suscripción a Azure. Se puede volver a habilitar la sincronización cuando se restaure la suscripción a Azure. Consulte [¿Por qué está deshabilitada mi suscripción a Azure y cómo reactivarla?](../../billing/billing-subscription-become-disable.md) para más información.
 
@@ -419,12 +419,12 @@ Este error se produce cuando se suspende la suscripción a Azure. Se puede volve
 | **HRESULT** | 0x80c8306c |
 | **HRESULT (decimal)** | -2134364052 |
 | **Cadena de error** | ECS_E_MGMT_STORAGEACLSNOTSUPPORTED |
-| **Se requiere una corrección** | Sí |
+| **Corrección necesaria** | Sí |
 
 Este error se produce cuando no se puede acceder al recurso compartido de archivos de Azure debido a un firewall de la cuenta de almacenamiento o porque la cuenta de almacenamiento pertenece a una red virtual. Azure File Sync todavía no admite esta característica. Para solucionar los problemas:
 
-1. [Compruebe que la cuenta de almacenamiento existe.](#troubleshoot-storage-account)
-2. [Compruebe que la cuenta de almacenamiento no contiene ninguna regla de red.](#troubleshoot-network-rules)
+1. [Compruebe si que existe la cuenta de almacenamiento.](#troubleshoot-storage-account)
+2. [Compruebe para asegurarse de que la cuenta de almacenamiento no tiene ninguna regla de red.](#troubleshoot-network-rules)
 
 Quite estas reglas para corregir este problema. 
 
@@ -435,7 +435,7 @@ Quite estas reglas para corregir este problema.
 | **HRESULT** | 0x80c80219 |
 | **HRESULT (decimal)** | -2134375911 |
 | **Cadena de error** | ECS_E_SYNC_METADATA_WRITE_LOCK_TIMEOUT |
-| **Se requiere una corrección** | Sin  |
+| **Corrección necesaria** | Sin  |
 
 Este error suele resolverse solo y puede producirse si hay:
 
@@ -451,7 +451,7 @@ Si este error persiste durante más de unas horas, el usuario debe crear una sol
 | **HRESULT** | 0x800b0109 |
 | **HRESULT (decimal)** | -2146762487 |
 | **Cadena de error** | CERT_E_UNTRUSTEDROOT |
-| **Se requiere una corrección** | Sí |
+| **Corrección necesaria** | Sí |
 
 Este error puede ocurrir si su organización usa un proxy con terminación SSL o si una entidad malintencionada intercepta el tráfico entre el servidor y el servicio Azure File Sync. Si está seguro de que esto es lo previsto (porque la organización está utilizando un proxy de terminación SSL), puede omitir la comprobación del certificado con una anulación del registro.
 
@@ -476,7 +476,7 @@ Al establecer este valor de registro, el agente Azure File Sync aceptará cualqu
 | **HRESULT** | 0x80072EE2 |
 | **HRESULT (decimal)** | -2147012894 |
 | **Cadena de error** | WININET_E_TIMEOUT |
-| **Se requiere una corrección** | Sí |
+| **Corrección necesaria** | Sí |
 
 [!INCLUDE [storage-sync-files-bad-connection](../../../includes/storage-sync-files-bad-connection.md)]
 
@@ -487,7 +487,7 @@ Al establecer este valor de registro, el agente Azure File Sync aceptará cualqu
 | **HRESULT** | 0x80c80300 |
 | **HRESULT (decimal)** | -2134375680 |
 | **Cadena de error** | ECS_E_SERVER_CREDENTIAL_NEEDED |
-| **Se requiere una corrección** | Sí |
+| **Corrección necesaria** | Sí |
 
 Este error puede deberse a:
 
@@ -505,8 +505,8 @@ Si la hora del servidor es correcta, realice los siguientes pasos para resolver 
 
     ```powershell
     Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
-    Login-AzureRmStorageSync -SubscriptionID <guid> -TenantID <guid>
-    Reset-AzureRmStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
+    Login-AzStorageSync -SubscriptionID <guid> -TenantID <guid>
+    Reset-AzStorageSyncServerCertificate -SubscriptionId <guid> -ResourceGroupName <string> -StorageSyncServiceName <string>
     ```
 
 <a id="-1906441711"></a><a id="-2134375654"></a><a id="doesnt-have-enough-free-space"></a>**El volumen donde se encuentra el punto de conexión de servidor tiene poco espacio en disco.**  
@@ -516,12 +516,12 @@ Si la hora del servidor es correcta, realice los siguientes pasos para resolver 
 | **HRESULT** | 0x8e5e0211 |
 | **HRESULT (decimal)** | -1906441711 |
 | **Cadena de error** | JET_errLogDiskFull |
-| **Se requiere una corrección** | Sí |
+| **Corrección necesaria** | Sí |
 | | |
 | **HRESULT** | 0x80c8031a |
 | **HRESULT (decimal)** | -2134375654 |
 | **Cadena de error** | ECS_E_NOT_ENOUGH_LOCAL_STORAGE |
-| **Se requiere una corrección** | Sí |
+| **Corrección necesaria** | Sí |
 
 Este error se produce porque el volumen se ha llenado. Este error suele producirse porque los archivos que se encuentran fuera del punto de conexión del servidor consumen espacio en el volumen. Para liberar espacio en el volumen, agregue puntos de conexión adicionales al servidor, mueve los archivos a un volumen diferente o aumente el tamaño del volumen en el que se encuentra el punto de conexión del servidor.
 
@@ -532,7 +532,7 @@ Este error se produce porque el volumen se ha llenado. Este error suele producir
 | **HRESULT** | 0x80c8300f |
 | **HRESULT (decimal)** | -2134364145 |
 | **Cadena de error** | ECS_E_REPLICA_NOT_READY |
-| **Se requiere una corrección** | Sin  |
+| **Corrección necesaria** | Sin  |
 
 Este error se produce porque hay cambios en el recurso compartido de archivos Azure directamente y la detección de cambios está en curso. Se iniciará la sincronización cuando se complete la detección de cambios.
 
@@ -545,17 +545,17 @@ Este error se produce porque hay cambios en el recurso compartido de archivos Az
 | **HRESULT** | 0x80c8023b |
 | **HRESULT (decimal)** | -2134364145 |
 | **Cadena de error** | ECS_E_SYNC_METADATA_KNOWLEDGE_SOFT_LIMIT_REACHED |
-| **Se requiere una corrección** | Sí |
+| **Corrección necesaria** | Sí |
 | | |
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (decimal)** | -2134375908 |
 | **Cadena de error** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
-| **Se requiere una corrección** | Sí |
+| **Corrección necesaria** | Sí |
 | | |
 | **HRESULT** | 0x80c80253 |
 | **HRESULT (decimal)** | -2134375853 |
 | **Cadena de error** | ECS_E_TOO_MANY_PER_ITEM_ERRORS |
-| **Se requiere una corrección** | Sí |
+| **Corrección necesaria** | Sí |
 
 En los casos en los que hay muchos errores de sincronización por archivo, las sesiones de sincronización pueden empezar a producir errores. <!-- To troubleshoot this state, see [Troubleshooting per file/directory sync errors]().-->
 
@@ -569,7 +569,7 @@ En los casos en los que hay muchos errores de sincronización por archivo, las s
 | **HRESULT** | 0x80c80019 |
 | **HRESULT (decimal)** | -2134376423 |
 | **Cadena de error** | ECS_E_SYNC_INVALID_PATH |
-| **Se requiere una corrección** | Sí |
+| **Corrección necesaria** | Sí |
 
 Asegúrese de que la ruta de acceso existe, está en un volumen NTFS local y no es un punto de reanálisis o un punto de conexión de servidor existente.
 
@@ -580,7 +580,7 @@ Asegúrese de que la ruta de acceso existe, está en un volumen NTFS local y no 
 | **HRESULT** | 0x80C80277 |
 | **HRESULT (decimal)** | -2134375817 |
 | **Cadena de error** | ECS_E_INCOMPATIBLE_FILTER_VERSION |
-| **Se requiere una corrección** | Sí |
+| **Corrección necesaria** | Sí |
 
 Este error se debe a que la versión del controlador del filtro de la nube por niveles (StorageSync.sys) cargada no es compatible con el servicio del agente de sincronización de almacenamiento (FileSyncSvc). Si se actualizó el agente de Azure File Sync, reinicie el servidor para completar la instalación. Si el error persiste, desinstale al agente, reinicie el servidor y vuelva a instalar al agente de Azure File Sync.
 
@@ -591,7 +591,7 @@ Este error se debe a que la versión del controlador del filtro de la nube por n
 | **HRESULT** | 0x80c8004b |
 | **HRESULT (decimal)** | -2134376373 |
 | **Cadena de error** | ECS_E_SERVICE_UNAVAILABLE |
-| **Se requiere una corrección** | Sin  |
+| **Corrección necesaria** | Sin  |
 
 Este error se produce porque el servicio Azure File Sync no está disponible. Este error se resolverá automáticamente cuando el servicio Azure File Sync vuelva a estar disponible.
 
@@ -602,20 +602,20 @@ Este error se produce porque el servicio Azure File Sync no está disponible. Es
 | **HRESULT** | 0x80c8020e |
 | **HRESULT (decimal)** | -2134375922 |
 | **Cadena de error** | ECS_E_SYNC_METADATA_WRITE_LEASE_LOST |
-| **Se requiere una corrección** | Sin  |
+| **Corrección necesaria** | Sin  |
 
 Este error se produce debido a un problema interno con la base de datos de sincronización. Este error se resolverá automáticamente cuando se vuelva a intentar la sincronización de Azure File Sync. Si este error continúa durante un período de tiempo prolongado, el usuario debe crear una solicitud de soporte técnico y nos pondremos en contacto con él para ayudarle a resolver este problema.
 
 ### <a name="common-troubleshooting-steps"></a>Pasos comunes de solución de problemas
 <a id="troubleshoot-storage-account"></a>**Compruebe que la cuenta de almacenamiento existe.**  
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# [<a name="portal"></a>Portal](#tab/azure-portal)
 1. Vaya al grupo de sincronización dentro del Servicio de sincronización de almacenamiento.
 2. Seleccione el punto de conexión de nube en el grupo de sincronización.
 3. Observe el nombre del recurso compartido de archivos de Azure en el panel abierto.
 4. Seleccione la cuenta de almacenamiento vinculada. Si se produce un error en este vínculo, significa que se ha quitado la cuenta de almacenamiento de referencia.
     ![Captura de pantalla que muestra el panel de detalles del punto de conexión de nube con un vínculo a la cuenta de almacenamiento.](media/storage-sync-files-troubleshoot/file-share-inaccessible-1.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 ```powershell
 # Variables for you to populate based on your configuration
 $agentPath = "C:\Program Files\Azure\StorageSyncAgent"
@@ -666,7 +666,7 @@ if ($resourceGroups -notcontains $resourceGroup) {
 # the following command creates an AFS context 
 # it enables subsequent AFS cmdlets to be executed with minimal 
 # repetition of parameters or separate authentication 
-Login-AzureRmStorageSync `
+Login-AzStorageSync `
     –SubscriptionId $subID `
     -ResourceGroupName $resourceGroup `
     -TenantId $tenantID `
@@ -676,7 +676,7 @@ Login-AzureRmStorageSync `
 # exists.
 $syncServices = [System.String[]]@()
 
-Get-AzureRmStorageSyncService -ResourceGroupName $resourceGroup | ForEach-Object {
+Get-AzStorageSyncService -ResourceGroupName $resourceGroup | ForEach-Object {
     $syncServices += $_.DisplayName
 }
 
@@ -687,7 +687,7 @@ if ($storageSyncServices -notcontains $syncService) {
 # Check to make sure the provided Sync Group exists
 $syncGroups = [System.String[]]@()
 
-Get-AzureRmStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName $syncService | ForEach-Object {
+Get-AzStorageSyncGroup -ResourceGroupName $resourceGroup -StorageSyncServiceName $syncService | ForEach-Object {
     $syncGroups += $_.DisplayName
 }
 
@@ -696,7 +696,7 @@ if ($syncGroups -notcontains $syncGroup) {
 }
 
 # Get reference to cloud endpoint
-$cloudEndpoint = Get-AzureRmStorageSyncCloudEndpoint `
+$cloudEndpoint = Get-AzStorageSyncCloudEndpoint `
     -ResourceGroupName $resourceGroup `
     -StorageSyncServiceName $storageSyncService `
     -SyncGroupName $syncGroup
@@ -713,12 +713,12 @@ if ($storageAccount -eq $null) {
 ---
 
 <a id="troubleshoot-network-rules"></a>**Compruebe que la cuenta de almacenamiento no contiene ninguna regla de red.**  
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# [<a name="portal"></a>Portal](#tab/azure-portal)
 1. Una vez en la cuenta de almacenamiento, seleccione **Firewalls y redes virtuales** en el lado izquierdo de la cuenta de almacenamiento.
 2. Dentro de la cuenta de almacenamiento, debe estar seleccionado el botón de radio **Permitir el acceso desde todas las redes**.
-    ![Captura de pantalla que muestra el firewall de la cuenta de almacenamiento y las reglas de red deshabilitadas.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
+    ![Captura de pantalla que muestra las reglas firewall y red de cuenta almacenamiento deshabilitadas.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 ```powershell
 if ($storageAccount.NetworkRuleSet.DefaultAction -ne 
     [Microsoft.Azure.Commands.Management.Storage.Models.PSNetWorkRuleDefaultActionEnum]::Allow) {
@@ -729,14 +729,14 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 ---
 
 <a id="troubleshoot-azure-file-share"></a>**Asegúrese de que el recurso compartido de archivos de Azure existe.**  
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# [<a name="portal"></a>Portal](#tab/azure-portal)
 1. Haga clic en **Introducción** en la tabla de contenido para volver a la página de la cuenta de almacenamiento principal izquierda.
 2. Seleccione **Archivos** para ver la lista de recursos compartidos de archivos.
 3. Compruebe que el recurso compartido de archivos al que hace referencia el punto de conexión de nube aparece en la lista de recursos compartidos de archivos (debería haberlo observado en el paso 1 anterior).
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 ```powershell
-$fileShare = Get-AzureStorageShare -Context $storageAccount.Context | Where-Object {
+$fileShare = Get-AzStorageShare -Context $storageAccount.Context | Where-Object {
     $_.Name -eq $cloudEndpoint.StorageAccountShareName -and
     $_.IsSnapshot -eq $false
 }
@@ -748,7 +748,7 @@ if ($fileShare -eq $null) {
 ---
 
 <a id="troubleshoot-rbac"></a>**Asegúrese de que Azure File Sync tiene acceso a la cuenta de almacenamiento.**  
-# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
+# [<a name="portal"></a>Portal](#tab/azure-portal)
 1. Haga clic en **Control de acceso (IAM)** en la tabla de contenido de la izquierda.
 1. Haga clic en la pestaña **Asignaciones de roles** de la lista de los usuarios y las aplicaciones (*entidades de servicio*) que tienen acceso a su cuenta de almacenamiento.
 1. Compruebe que **Hybrid File Sync Service** aparece en la lista con el rol **Lector y acceso a los datos**. 
@@ -761,7 +761,7 @@ if ($fileShare -eq $null) {
     - En el campo **Rol**, seleccione **Lector y acceso a los datos**.
     - En el campo **Seleccionar**, escriba **Hybrid File Sync Service**, seleccione el rol y haga clic en **Guardar**.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 ```powershell    
 $foundSyncPrincipal = $false
 Get-AzRoleAssignment -Scope $storageAccount.Id | ForEach-Object { 
@@ -906,6 +906,6 @@ Si no se resuelve el problema, ejecute la herramienta AFSDiag:
 
 ## <a name="see-also"></a>Vea también
 - [Supervisión de Azure File Sync](storage-sync-files-monitoring.md)
-- [Preguntas más frecuentes de Azure Files](storage-files-faq.md)
+- [Preguntas más frecuentes acerca de los archivos de Azure](storage-files-faq.md)
 - [Solucione problemas de Azure Files en Windows](storage-troubleshoot-windows-file-connection-problems.md)
-- [Solución de problemas de Azure Files en Linux](storage-troubleshoot-linux-file-connection-problems.md)
+- [Solución de problemas de Azure File en Linux](storage-troubleshoot-linux-file-connection-problems.md)

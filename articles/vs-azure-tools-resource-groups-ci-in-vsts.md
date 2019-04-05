@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: cc9e2e09da572dc4260dcc0e20a8a1846ae17320
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894156"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047337"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Integración continua de Azure DevOps Services con proyectos del grupo de recursos de Azure
 Para implementar una plantilla de Azure, realizar tareas en varias fases: Compilación, prueba, copia en Azure (también denominado "Ensayo") y plantilla de implementación. Hay dos maneras distintas de implementar plantillas en Azure DevOps Services. Ambos métodos proporcionan los mismos resultados, así que puede elegir el que mejor se adapte a su flujo de trabajo.
@@ -28,6 +28,8 @@ Para implementar una plantilla de Azure, realizar tareas en varias fases: Compil
 2. Agregue varios pasos de compilación de Azure DevOps Services, cada uno de los cuales realiza una tarea de fase.
 
 En este artículo se muestran ambas opciones. La primera opción tiene la ventaja de usar el mismo script que usan los desarrolladores en Visual Studio y proporcionar coherencia en todo el ciclo de vida. La segunda opción ofrece una alternativa conveniente al script integrado. En ambos procedimientos se supone que ya tiene un proyecto de implementación de Visual Studio activado en Azure DevOps Services.
+
+[!INCLUDE [updated-for-az](../includes/updated-for-az.md)]
 
 ## <a name="copy-artifacts-to-azure"></a>Copia de artefactos en Azure
 Independientemente del escenario, si dispone de los artefactos necesarios para la implementación de plantillas, debe dar a Azure Resource Manager acceso a ellos. Estos artefactos pueden incluir archivos como:
@@ -87,7 +89,7 @@ Los procedimientos siguientes le guiarán a través de los pasos necesarios para
       
       Para scripts de PowerShell, use:
       
-      `Get-AzureRmSubscription`
+      `Get-AzSubscription`
       
       Para la CLI de Azure, utilice:
       

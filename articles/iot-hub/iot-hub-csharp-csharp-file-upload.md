@@ -8,13 +8,13 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 07/04/2017
-ms.author: robin.shahan
-ms.openlocfilehash: d661f8834aec77957e0fd2713cde5da9a48903fd
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.author: robinsh
+ms.openlocfilehash: afa8a77a1c2eabce11af5730ffc5e7b768983589
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57010585"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046776"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Carga de archivos de un dispositivo a la nube con IoT Hub mediante .NET
 
@@ -173,11 +173,11 @@ Ahora está preparado para ejecutar las aplicaciones.
 
 En este tutorial ha aprendido a usar la funcionalidad de carga de archivos de IoT Hub para simplificar la carga de archivos desde los dispositivos. Puede continuar explorando las características y los escenarios del centro de IoT con los siguientes artículos:
 
-* [Creación de un centro de IoT mediante programación](iot-hub-rm-template-powershell.md)
-* [Introducción a SDK para C](iot-hub-device-sdk-c-intro.md)
+* [Crear un Centro de IoT mediante programación](iot-hub-rm-template-powershell.md)
+* [Introducción a C SDK](iot-hub-device-sdk-c-intro.md)
 * [SDK de IoT de Azure](iot-hub-devguide-sdks.md)
 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
-* [Implementación de IA en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Implementar AI en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 

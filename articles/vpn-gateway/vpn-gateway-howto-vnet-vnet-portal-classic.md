@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6924d4eca52bfab8c90e7787bb8849b47df064db
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: e323a8d71bbffd1d29ad793dff7b5b4a072b6979
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112269"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046129"
 ---
 # <a name="configure-a-vnet-to-vnet-connection-classic"></a>Configuración de una conexión de red virtual a red virtual (clásico)
 
@@ -31,14 +31,16 @@ Este artículo lo ayuda a crear una conexión de puerta de enlace de VPN entre l
 > [!div class="op_single_selector"]
 > * [Azure Portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [CLI de Azure](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Portal de Azure clásico](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [Conexión de diferentes modelos de implementación - Azure Portal](vpn-gateway-connect-different-deployment-models-portal.md)
-> * [Conexión de diferentes modelos de implementación - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
+> * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
+> * [Azure Portal (clásico)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
+> * [Conectar diferentes modelos de implementación - Azure portal](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [Conectar diferentes modelos de implementación - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 >
 >
 
 ![Diagrama de conectividad VNet a VNet](./media/vpn-gateway-howto-vnet-vnet-portal-classic/v2vclassic.png)
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="about-vnet-to-vnet-connections"></a>Acerca de conexiones de red virtual a red virtual
 
@@ -56,7 +58,7 @@ Puede que desee conectar redes virtuales por las siguientes razones:
 
   * Puede configurar su propia replicación geográfica o sincronización con conectividad segura sin recurrir a los puntos de conexión a Internet.
   * Con Azure Load Balancer y Microsoft, o con una tecnología de agrupación en clústeres de otros fabricantes, puede configurar cargas de trabajo de alta disponibilidad y redundancia geográfica en varias regiones de Azure. Por ejemplo, puede configurar AlwaysOn de SQL con grupos de disponibilidad distribuidos en varias regiones de Azure.
-* **Aplicaciones regionales de varios niveles con límite de aislamiento sólido**
+* **Aplicaciones regionales de niveles múltiples con límite de aislamiento sólido**
 
   * En la misma región se pueden configurar aplicaciones de niveles múltiples con varias redes virtuales conectadas entre sí, con un aislamiento sólido y una comunicación entre niveles segura.
 * **Comunicación entre suscripciones y entre organizaciones en Azure**
@@ -116,13 +118,13 @@ Grupo de recursos: ClassicRG<br>
 Ubicación: Oeste de EE. UU.<br>
 GatewaySubnet: 10.41.1.0/27
 
-**Cuando cree las redes virtuales, recuerde la siguiente configuración:**
+**Al crear las redes virtuales, tenga en cuenta las siguientes opciones:**
 
 * **Espacios de direcciones de la red virtual**: en la página Espacios de direcciones de la red virtual, especifique el intervalo de direcciones que desea usar para la red virtual. Estas son las direcciones IP dinámicas que se asignarán a las máquinas virtuales y a las demás instancias de rol implementadas en esta red virtual.<br>Los espacios de direcciones que selecciona no se pueden superponer con los espacios de direcciones de ninguna de las otras redes virtuales o las ubicaciones locales a las que se conectará esta red virtual.
 
 * **Ubicación** : al crear una red virtual, la debe asociar a una ubicación de Azure (región). Por ejemplo, Por ejemplo, si desea que las máquinas virtuales que implemente en la red virtual se encuentren físicamente en Oeste de EE.UU., seleccione esa ubicación. No se puede cambiar la ubicación asociada a la red virtual después de crearla.
 
-**Después de crear las redes virtuales, puede agregar la configuración siguiente:**
+**Después de crear las redes virtuales, puede agregar las siguientes opciones:**
 
 * **Espacio de direcciones**: no se requiere espacio de direcciones adicional para esta configuración, pero puede agregar espacio de direcciones adicional después de crear la red virtual.
 
@@ -219,19 +221,19 @@ En los pasos siguientes, se conectará a la cuenta de Azure y descargará y ver�
 2. Abra la consola de PowerShell con privilegios elevados y conéctela a su cuenta. Use el siguiente ejemplo para conectarse:
 
    ```powershell
-   Connect-AzureRmAccount
+   Connect-AzAccount
    ```
 
    Compruebe las suscripciones para la cuenta.
 
    ```powershell
-   Get-AzureRmSubscription
+   Get-AzSubscription
    ```
 
    Si tiene varias suscripciones, seleccione la que quiera usar.
 
    ```powershell
-   Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
+   Select-AzSubscription -SubscriptionName "Replace_with_your_subscription_name"
    ```
 
    A continuación, use el cmdlet siguiente para agregar la suscripción de Azure a PowerShell para el modelo de implementación clásica.

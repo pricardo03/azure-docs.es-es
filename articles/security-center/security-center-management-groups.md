@@ -14,15 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/19/2018
 ms.author: rkarlin
-ms.openlocfilehash: 3282afb87672ba25294e65ea1474a9e06df03362
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e26dc37c5c4f85e3db634bd961bf9308e418a03
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57871069"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045771"
 ---
 # <a name="gain-tenant-wide-visibility-for-azure-security-center"></a>Obtención de visibilidad de todos los inquilinos en Azure Security Center
 Este artículo le ayuda con la realización de varias acciones que maximizan las ventajas que proporciona Azure Security Center. La realización de estas acciones le permite obtener visibilidad en todas las suscripciones de Azure que están vinculadas al inquilino de Azure Active Directory y administrar de un modo eficaz la posición de seguridad de la organización a escala mediante la aplicación de directivas de seguridad en varias suscripciones de forma agregada.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="management-groups"></a>Grupos de administración
 Los grupos de administración de Azure permiten administrar de un modo eficaz el acceso, las directivas y los informes en grupos de suscripciones, además de administrar todas las inversiones en Azure mediante acciones en el grupo de administración raíz. Cada inquilino de Azure AD tiene un grupo de administración de nivel superior único llamado grupo de administración raíz. Este grupo de administración raíz está integrado en la jerarquía de manera que contiene todos los grupos de administración y suscripciones. Este grupo permite que las directivas globales y las asignaciones de RBAC se apliquen en el nivel de directorio. 
@@ -188,8 +191,8 @@ Puede agregar suscripciones al grupo de administración que ha creado. Estos pas
 En este artículo, ha aprendido a obtener la visibilidad de todos los inquilinos en Azure Security Center. Para más información sobre Security Center, consulte los siguientes artículos:
 
 > [!div class="nextstepaction"]
-> [Supervisión del estado de seguridad en Azure Security Center](security-center-monitoring.md)
+> [Supervisión del estado de seguridad en el Centro de seguridad de Azure](security-center-monitoring.md)
 
 > [!div class="nextstepaction"]
-> [Administración y respuesta a alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md)
+> [Administrar y responder a alertas de seguridad en Azure Security Center](security-center-managing-and-responding-alerts.md)
 

@@ -8,17 +8,16 @@ ms.service: site-recovery
 ms.date: 03/18/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 4888d019065e557cb49574e2268515323b3fd005
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8a7694f3a94f9bda7dc905fabbd7adf0e4b7d0f5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310717"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047184"
 ---
 # <a name="common-questions---hyper-v-to-azure-disaster-recovery"></a>Preguntas comunes: recuperación ante desastres de Hyper-V a Azure
 
 En este artículo se responden las preguntas frecuentes que vemos al replicar máquinas virtuales de Hyper-V locales en Azure. 
-
 
 ## <a name="general"></a>General
 
@@ -90,8 +89,8 @@ Sí. Site Recovery convierte de la generación 2 a la generación 1 durante una 
 ### <a name="can-i-automate-site-recovery-scenarios-with-an-sdk"></a>¿Se pueden automatizar escenarios de Site Recovery con un SDK?
 Sí. Puede automatizar los flujos de trabajo de Site Recovery mediante la API de Rest, PowerShell o el SDK de Azure. Escenarios admitidos actualmente para la replicación de Hyper-V en Azure mediante PowerShell:
 
-- [Replicación de Hyper-V sin VMM mediante PowerShell](hyper-v-azure-powershell-resource-manager.md)
-- [Replicación de Hyper-V con VMM mediante PowerShell](hyper-v-vmm-powershell-resource-manager.md)
+- [Replicación de Hyper-V sin VMM con PowerShell](hyper-v-azure-powershell-resource-manager.md)
+- [Replicación de Hyper-V con VMM con Powershell](hyper-v-vmm-powershell-resource-manager.md)
 
 ## <a name="replication"></a>Replicación
 
@@ -188,7 +187,7 @@ Después de la conmutación por error, puede tener acceso a las máquinas virtua
 Azure está diseñado para la resistencia. Site Recovery está diseñado para la conmutación por error en un centro de datos de Azure secundario según el Acuerdo de Nivel de Servicio de Azure. Cuando se produce una conmutación por error, nos aseguramos de que los metadatos y los almacenes permanecen en la misma región geográfica que eligió para el almacén.
 
 ### <a name="is-failover-automatic"></a>¿La conmutación por error es automática?
-La [conmutación por error](site-recovery-failover.md) no es automática. Puede iniciar las conmutaciones por error con solo un clic en el portal, o puede usar [PowerShell](/powershell/module/azurerm.siterecovery) para desencadenar una conmutación por error.
+La [conmutación por error](site-recovery-failover.md) no es automática. Puede iniciar las conmutaciones por error con solo un clic en el portal, o puede usar [PowerShell](/powershell/module/az.siterecovery) para desencadenar una conmutación por error.
 
 ### <a name="how-do-i-fail-back"></a>¿Cómo puedo realizar una conmutación por recuperación?
 

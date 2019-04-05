@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: genli
-ms.openlocfilehash: 6f539cb905c0ed401816c7f223918a1416f95d6c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: f01dfe78d5d5e322258b0ee98cec314f9afe33c0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312281"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050652"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Solución de problemas de estado degradado en el Administrador de tráfico de Azure
 
@@ -80,16 +80,16 @@ public class TrustAllCertsPolicy : ICertificatePolicy {
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-routing-methods.md)
+[Los métodos de enrutamiento de tráfico de Traffic Manager](traffic-manager-routing-methods.md)
 
-[¿Qué es el Administrador de tráfico?](traffic-manager-overview.md)
+[¿Qué es Traffic Manager](traffic-manager-overview.md)
 
 [Cloud Services](https://go.microsoft.com/fwlink/?LinkId=314074)
 
 [Azure App Service](https://azure.microsoft.com/documentation/services/app-service/web/)
 
-[Operaciones del Administrador de tráfico (referencia de la API de REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operaciones del Administrador de tráfico (referencia de API de REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
 [Cmdlets de Azure Traffic Manager][1]
 
-[1]: https://docs.microsoft.com/powershell/module/azurerm.trafficmanager
+[1]: https://docs.microsoft.com/powershell/module/az.trafficmanager

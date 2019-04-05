@@ -16,29 +16,32 @@ ms.workload: infrastructure-services
 ms.date: 12/14/2017
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 0b6baec08470754c04aaa0bea2a3e6defe7fd91f
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 895e29d9855372e418ad5ebf2a3949dc01ddb8de
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117870"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050499"
 ---
 # <a name="view-relative-latency-to-azure-regions-from-specific-locations"></a>Vista de latencias relativas a las regiones de Azure desde ubicaciones específicas
 
 En este tutorial, obtenga información sobre cómo usar el servicio Azure [Network Watcher](network-watcher-monitoring-overview.md) para poder decidir en qué región de Azure implementar su aplicación o servicio, en función de la información demográfica de los usuarios. Además, puede usarlo para evaluar las conexiones a Azure de los proveedores de servicios.  
         
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="create-a-network-watcher"></a>Creación de una instancia de Network Watcher
 
 Si ya cuenta con una instancia de Network Watcher al menos en una [región](https://azure.microsoft.com/regions) de Azure, puede omitir las tareas que aparecen en esta sección. Cree un grupo de recursos para la instancia de Network Watcher. En este ejemplo, el grupo de recursos se crea en la región Este de EE. UU., pero puede crear el grupo de recursos en cualquier región de Azure.
 
 ```powershell
-New-AzureRmResourceGroup -Name NetworkWatcherRG -Location eastus
+New-AzResourceGroup -Name NetworkWatcherRG -Location eastus
 ```
 
 Cree una instancia de Network Watcher. Debe tener creada una instancia de Network Watcher al menos en una región de Azure. En este ejemplo, se crea una instancia de Network Watcher en la región de Azure Este de EE. UU.
 
 ```powershell
-New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Location eastus
+New-AzNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG -Location eastus
 ```
 
 ## <a name="compare-relative-network-latencies-to-a-single-azure-region-from-a-specific-location"></a>Comparación de las latencias relativas de red a una sola región de Azure desde una ubicación específica
@@ -46,7 +49,7 @@ New-AzureRmNetworkWatcher -Name NetworkWatcher_eastus -ResourceGroupName Network
 Evalúe los proveedores de servicios o solucione los problemas que informa un usuario, como "El sitio estaba lento", desde una ubicación específica a la región de Azure donde está implementado un servicio. Por ejemplo, el comando siguiente devuelve las latencias relativas promedio del proveedor de servicios de Internet entre el estado de Washington en Estados Unidos y la región de Azure Oeste de EE. UU. 2 entre el 13 y el 15 de diciembre de 2017:
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityReport `
+Get-AzNetworkWatcherReachabilityReport `
   -NetworkWatcherName NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG `
   -Location "West US 2" `
@@ -109,7 +112,7 @@ En la salida devuelta, el valor de **Score** es la latencia relativa entre las r
 Si en lugar de especificar las latencias relativas entre una ubicación específica y una región de Azure específica mediante `-Location`, desea determinar las latencias relativas a todas las regiones de Azure desde una ubicación física específica, también puede hacerlo. Por ejemplo, el comando siguiente permite evaluar en qué región de Azure implementar un servicio si los usuarios primarios son usuarios de Comcast ubicados en el estado de Washington:
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityReport `
+Get-AzNetworkWatcherReachabilityReport `
   -NetworkWatcherName NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG `
   -Provider "Comcast Cable Communications, LLC - ASN 7922" `
@@ -127,7 +130,7 @@ Get-AzureRmNetworkWatcherReachabilityReport `
 Hay datos disponibles para proveedores de servicios de Internet, países, estados y ciudades específicos. Para ver una lista de todos los proveedores de servicios de Internet, los países, los estados y las ciudades disponibles para los cuales puede ver datos, escriba el comando siguiente:
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
+Get-AzNetworkWatcherReachabilityProvidersList -NetworkWatcherName NetworkWatcher_eastus -ResourceGroupName NetworkWatcherRG
 ```
 
 Solo hay datos disponibles para los países, los estados y las ciudades que devuelve el comando anterior. El comando siguiente requiere que se especifique una instancia existente de Network Watcher. El ejemplo especificó la instancia de Network Watcher *NetworkWatcher_eastus* en un grupo de recursos denominado *NetworkWatcherRG*, pero puede especificar cualquier instancia existente de Network Watcher. Si no tiene una instancia de Network Watcher, complete las tareas que aparecen en [Creación de una instancia de Network Watcher](#create-a-network-watcher) para crear una. 
@@ -135,7 +138,7 @@ Solo hay datos disponibles para los países, los estados y las ciudades que devu
 Después de ejecutar el comando anterior, puede filtrar la salida devuelta si especifica los valores válidos para **Country**, **State** y **City**, si así lo desea.  Por ejemplo, para ver la lista de proveedores de servicios de Internet disponibles en Seattle, Washington, en Estados Unidos, escriba el comando siguiente:
 
 ```powershell
-Get-AzureRmNetworkWatcherReachabilityProvidersList `
+Get-AzNetworkWatcherReachabilityProvidersList `
   -NetworkWatcherName NetworkWatcher_eastus `
   -ResourceGroupName NetworkWatcherRG `
   -City Seattle `

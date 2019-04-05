@@ -9,12 +9,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
-ms.openlocfilehash: 9becc7bacf1b2263f41d4cfb7b9cf3957063b230
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 078815185ddb6018a394401f57f7557ac3aedb73
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649585"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050159"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribución de uso del cliente para asociados de Azure
 
@@ -31,6 +31,9 @@ Como asociado de Microsoft, puede asociar el uso de Azure con todos los recursos
 Atribución de uso del cliente es para la implementación nueva y no admite el etiquetado de recursos existentes que ya se han implementado.
 
 Se requiere la atribución de uso del cliente en [aplicación Azure](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/azure-applications/cpp-azure-app-offer): oferta de plantilla de solución se publica en Azure Marketplace.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="use-resource-manager-templates"></a>Uso de plantillas de Resource Manager
 Muchas soluciones de los asociados se implementan en una suscripción de cliente mediante plantillas de Resource Manager. Si tiene una plantilla de Resource Manager que está disponible en Azure Marketplace, en GitHub, o como una guía de inicio rápido, el proceso para modificar la plantilla para habilitar la atribución de uso del cliente debe ser sencillo.
@@ -223,12 +226,12 @@ Param(
 
 # Get the correlationId of the pid deployment
 
-$correlationId = (Get-AzureRmResourceGroupDeployment -ResourceGroupName
+$correlationId = (Get-AzResourceGroupDeployment -ResourceGroupName
 $resourceGroupName -Name "pid-$guid").correlationId
 
 # Find all deployments with that correlationId
 
-$deployments = Get-AzureRmResourceGroupDeployment -ResourceGroupName $resourceGroupName | Where-Object{$_.correlationId -eq $correlationId}
+$deployments = Get-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName | Where-Object{$_.correlationId -eq $correlationId}
 
 # Find all deploymentOperations in a deployment by name
 # PowerShell doesn't surface outputResources on the deployment
@@ -239,7 +242,7 @@ foreach ($deployment in $deployments){
 # Get deploymentOperations by deploymentName
 # then the resourceId for any create operation
 
-($deployment | Get-AzureRmResourceGroupDeploymentOperation | Where-Object{$_.properties.provisioningOperation -eq "Create" -and $_.properties.targetResource.resourceType -ne "Microsoft.Resources/deployments"}).properties.targetResource.id
+($deployment | Get-AzResourceGroupDeploymentOperation | Where-Object{$_.properties.provisioningOperation -eq "Create" -and $_.properties.targetResource.resourceType -ne "Microsoft.Resources/deployments"}).properties.targetResource.id
 
 }
 ```
@@ -313,19 +316,19 @@ Se contactarán por un consultor técnico de Microsoft Partner para configurar u
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
-**¿Cuál es la ventaja de agregar el identificador único global a la plantilla?**
+**¿Qué es la ventaja de agregar el GUID para la plantilla?**
 
 Microsoft proporciona los socios con una vista de las implementaciones de clientes de sus soluciones e información sobre su uso influido. Tanto Microsoft como el asociado pueden usar dicha información para impulsar una participación más estrecha entre los equipos de ventas. Tanto Microsoft como el asociado pueden usar los datos para obtener una vista más coherente del impacto que un asociado individual tiene en el crecimiento de Azure.
 
-**Una vez que se ha agregado un identificador único global, ¿se puede cambiar?**
+**¿Una vez agregado un GUID, puede cambiar?**
 
 Sí, cualquier cliente o asociado de implementación puede personalizar la plantilla y cambiar o quitar el identificador único global. Se recomienda que los asociados proactivamente describirán la función de los recursos y el GUID a sus clientes y asociados para evitar la eliminación o modificación en el GUID. El cambio del identificador único global solo afecta a las implementaciones y a los recursos nuevos, no a los existentes.
 
-**¿Puedo realizar un seguimiento de las plantillas implementadas desde un repositorio que no sea de Microsoft, como GitHub?**
+**¿Puedo realizar un seguimiento de las plantillas implementadas desde un repositorio que no sean de Microsoft, como GitHub?**
 
 Sí, si el GUID está presente cuando se implemente la plantilla, se realiza el seguimiento. Los asociados deben tener un perfil en el CPP para registrar los identificadores GUID utilizados para la implementación fuera de Azure Marketplace.
 
-**¿El cliente recibe también un informe?**
+**¿El cliente recibe reporting así?**
 
 Los clientes pueden realizar el seguimiento del uso tanto de recursos individuales como de grupos de recursos definidos por los usuarios en Azure Portal.
 
@@ -333,7 +336,7 @@ Los clientes pueden realizar el seguimiento del uso tanto de recursos individual
 
 Este nuevo método de conexión de la implementación y el uso en la solución de un asociado proporciona un mecanismo que permite vincular una solución de asociado al uso de Azure. DPOR está pensado para asociar un asociado de consultoría (integrador de sistemas) o de administración (proveedor de servicios administrados) con la suscripción de Azure de un cliente.
 
-**¿Cuál es la ventaja de usar el formulario del generador de GUID de Azure Storage?**
+**¿Qué es la ventaja de usar el formulario del generador de GUID del almacenamiento de Azure?**
 
 El formulario del generador de GUID de Azure Storage garantiza la generación de un GUID del formato necesario. Además, si usa alguno de los métodos de seguimiento de planos de datos de Azure Storage, puede aprovechar el mismo GUID para el seguimiento de planos de control de Marketplace. Esto le permite aprovechar un único GUID unificado para la atribución de asociado sin tener que mantener distintos GUID.
 

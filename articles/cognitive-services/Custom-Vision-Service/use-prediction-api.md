@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: anroth
-ms.openlocfilehash: 78ca1d7ceb9086e0d589f904b24b967d36b079a0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 1ee6edbf49bbcd2014afcf29ed3b737168a3b5bc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895620"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046077"
 ---
 # <a name="use-your-model-with-the-prediction-api"></a>Utilice el modelo con la API de predicción
 
@@ -45,7 +45,7 @@ Una vez que se ha publicado el modelo, puede recuperar la información necesaria
 ![La ficha rendimiento se muestra con un rectángulo rojo que rodea el valor de dirección URL de predicción para el uso de un archivo de imagen y el valor de clave de la predicción.](./media/use-prediction-api/prediction-api-info.png)
 
 > [!TIP]
-> Su __predicción clave__ también puede encontrarse en el [Portal de Azure](https://portal.azure.com) página para el recurso de Azure Custom Vision asociado con el proyecto, en el __claves__ hoja.
+> Su __predicción clave__ también puede encontrarse en el [portal de Azure](https://portal.azure.com) página para el recurso de Azure Custom Vision asociado con el proyecto, en el __claves__ hoja.
 
 En esta guía, se utilizará una imagen local, por lo que se copie la dirección URL en **si tiene un archivo de imagen** en una ubicación temporal. Copie el correspondiente __predicción clave__ también el valor.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f0963e7f558de7b591576a49a74750d6697d7127
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 87499c1b71e243fe976e436b525e0150689d3aa1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486077"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051196"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Recuperación ante desastres y conmutación por error de la cuenta de almacenamiento (versión preliminar) en Azure Storage
 
@@ -22,6 +22,9 @@ Microsoft se esfuerza por garantizar que los servicios de Azure siempre estén d
 Azure Storage admite la conmutación por error de la cuenta (versión preliminar) en cuentas de almacenamiento con redundancia geográfica. Con la conmutación por error de la cuenta, puede iniciar el proceso de conmutación por error de la cuenta de almacenamiento si el punto de conexión principal deja de estar disponible. La conmutación por error actualiza el punto de conexión secundario para convertirlo en el principal de la cuenta de almacenamiento. Una vez finalizada la conmutación por error, los clientes pueden empezar a escribir en el nuevo punto de conexión principal.
 
 En este artículo se describen los conceptos y el proceso que implica la conmutación por error de una cuenta y se analiza cómo preparar la cuenta de almacenamiento para la recuperación con el menor impacto en el cliente. Para aprender a iniciar la conmutación por error de una cuenta en Azure Portal o PowerShell, consulte el artículo sobre la [iniciación de la conmutación por error de una cuenta (versión preliminar)](storage-initiate-account-failover.md).
+
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="choose-the-right-redundancy-option"></a>Elección de la opción de redundancia correcta
 
@@ -122,14 +125,14 @@ La versión preliminar está pensada para usos distintos del de producción. En 
 Para registrarse y obtener la versión preliminar, ejecute estos comandos en PowerShell. Asegúrese de reemplazar el marcador de posición que aparece entre corchetes por su propio identificador de suscripción:
 
 ```powershell
-Connect-AzureRmAccount -SubscriptionId <subscription-id>
-Register-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+Connect-AzAccount -SubscriptionId <subscription-id>
+Register-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 Puede tardar entre 1 y 2 días en recibir la aprobación para obtener la versión preliminar. Para comprobar que se aprobó el registro, ejecute el comando siguiente:
 
 ```powershell
-Get-AzureRmProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
+Get-AzProviderFeature -FeatureName CustomerControlledFailover -ProviderNamespace Microsoft.Storage
 ```
 
 ### <a name="additional-considerations"></a>Consideraciones adicionales 
@@ -176,6 +179,6 @@ En casos extremos en los que se pierde una región debido a un desastre importan
 
 ## <a name="see-also"></a>Vea también
 
-* [Initiate an account failover (preview)](storage-initiate-account-failover.md) (Iniciación de la conmutación por error de una cuenta [versión preliminar])
+* [Iniciar una conmutación por error de cuenta (versión preliminar)](storage-initiate-account-failover.md)
 * [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 * [Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage](../blobs/storage-create-geo-redundant-storage.md) 

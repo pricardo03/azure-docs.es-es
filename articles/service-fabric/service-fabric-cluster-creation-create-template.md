@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: ddfd8ce14ca20c7094fa927aeafc36ae53271499
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 2fdea1f088dd6eabdf7d72342c837d976133a1bc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58665515"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046198"
 ---
 # <a name="create-a-service-fabric-cluster-resource-manager-template"></a>Creación de una plantilla de Resource Manager para el clúster de Service Fabric
 
@@ -28,6 +28,9 @@ Un [clúster de Azure Service Fabric](service-fabric-deploy-anywhere.md) es un c
 La seguridad del clúster se configura cuando el clúster se configura por primera vez y no se puede cambiar más adelante. Antes de configurar un clúster, lea [Escenarios de seguridad de los clústeres de Service Fabric][service-fabric-cluster-security]. En Azure, Service Fabric usa un certificado x509 para proteger el clúster y sus puntos de conexión, autenticar a los clientes y cifrar los datos. También se recomienda Azure Active Directory para proteger el acceso a los puntos de conexión de administración. Los inquilinos y usuarios de Azure AD deben crearse antes de crear el clúster.  Para obtener más información, lea [Set up Azure AD to authenticate clients](service-fabric-cluster-creation-setup-aad.md) (Configuración de Azure AD para autenticar clientes).
 
 Antes de implementar un clúster de producción para ejecutar cargas de trabajo de producción, asegúrese de leer la [Lista de comprobación sobre la preparación de producción](service-fabric-production-readiness-checklist.md).
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-the-resource-manager-template"></a>Creación de la plantilla de Resource Manager
 Las plantillas de ejemplo de Resource Manager están disponibles en los [ejemplos de Azure de GitHub](https://github.com/Azure-Samples/service-fabric-cluster-templates). Estas plantillas se pueden usar como punto de partida para crear la plantilla de clúster.
@@ -242,13 +245,13 @@ Los módulos de RM no tienen la posibilidad de generar la configuración de Azur
 Use el siguiente comando de PowerShell para probar la plantilla de Resource Manager con un archivo de parámetros:
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
+Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json
 ```
 
 Si se encuentra con problemas y recibe mensajes cifrados, use "-Depurar" como opción.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
+Test-AzResourceGroupDeployment -ResourceGroupName "myresourcegroup" -TemplateFile .\azuredeploy.json -TemplateParameterFile .\azuredeploy.parameters.json -Debug
 ```
 
 En el diagrama siguiente se ilustra el lugar que ocupa el almacén de claves y la configuración de Azure AD en la plantilla de Resource Manager.

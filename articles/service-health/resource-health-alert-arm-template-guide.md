@@ -6,12 +6,12 @@ ms.author: stbaron
 ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
-ms.openlocfilehash: de5419bbfa5a364cb570651fd4d57d7560e4aafd
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: afa89fc90552c7ccba1fcea0945ee223d0096be4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58663441"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047524"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configuración de alertas de estado de los recursos con plantillas de Resource Manager
 
@@ -22,30 +22,32 @@ Azure Resource Health le mantiene informado sobre el estado actual y pasado de s
 > [!NOTE]
 > Alertas de estado de recursos están actualmente en versión preliminar.
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para seguir las instrucciones que aparecen en esta página, necesita de antemano algunas cosas:
 
-1. Debe instalar el [módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) (`AzureRm`)
+1. Deberá instalar el [módulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 2. Debe [crear o volver a usar un grupo de acciones](../azure-monitor/platform/action-groups.md) configurado para recibir notificaciones
 
 ## <a name="instructions"></a>Instrucciones
 1. Con PowerShell, inicie sesión en su cuenta de Azure y seleccione la suscripción con la que desee interactuar
 
-        Login-AzureRmAccount
-        Select-AzureRmSubscription -Subscription <subscriptionId>
+        Login-AzAccount
+        Select-AzSubscription -Subscription <subscriptionId>
 
-    > Puede usar `Get-AzureRmSubscription` para enumerar las suscripciones a las que tiene acceso.
+    > Puede usar `Get-AzSubscription` para enumerar las suscripciones a las que tiene acceso.
 
 2. Busque y guarde el identificador completo del grupo de acciones de Azure Resource Manager
 
-        (Get-AzureRmActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
+        (Get-AzActionGroup -ResourceGroupName <resourceGroup> -Name <actionGroup>).Id
 
 3. Cree y guarde una plantilla de Resource Manager para las alertas de Resource Health como `resourcehealthalert.json` ([consulte los detalles a continuación](#resource-manager-template-for-resource-health-alerts))
 
 4. Cree una nueva implementación de Azure Resource Manager con esta plantilla
 
-        New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
+        New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <resourceGroup> -TemplateFile <path\to\resourcehealthalert.json>
 
 5. Se le pedirá que escriba el nombre de la alerta y el identificador de recurso del grupo de acciones que copió anteriormente:
 
@@ -162,7 +164,7 @@ Para un ámbito a nivel de recurso, la sección de ámbito tiene este aspecto:
 ],
 ```
 
-Por ejemplo: `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
+Por ejemplo:  `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
 
 > Puede ir a Azure Portal y observar la dirección URL del recurso de Azure para obtener esta cadena.
 
@@ -426,8 +428,8 @@ Sin embargo, usted conoce mejor las configuraciones que necesita; use las herram
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre Resource Health:
--  [Información general sobre Azure Resource Health](Resource-health-overview.md)
+-  [Introducción a Azure Resource Health](Resource-health-overview.md)
 -  [Tipos de recursos y comprobaciones de mantenimiento disponibles a través de Azure Resource Health](resource-health-checks-resource-types.md)
 
 Creación de alertas de Service Health:
--  [Configuración de alertas de Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+-  [Configurar alertas de estado del servicio](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

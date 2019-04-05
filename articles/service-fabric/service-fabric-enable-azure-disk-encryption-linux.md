@@ -13,17 +13,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
-ms.openlocfilehash: 3de26efb74b9349282d36beb94e8a2a269227fbf
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: f580bf02b222f01a3d5aad1254f208791ea22b38
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58488316"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046988"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-linux-cluster-nodes"></a>Habilitación del cifrado de disco para nodos de clústeres con Linux de Service Fabric 
 > [!div class="op_single_selector"]
-> * [Cifrado de disco para Linux](service-fabric-enable-azure-disk-encryption-linux.md)
-> * [Cifrado de disco para Windows](service-fabric-enable-azure-disk-encryption-windows.md)
+> * [Disk Encryption para Linux](service-fabric-enable-azure-disk-encryption-linux.md)
+> * [Disk Encryption para Windows](service-fabric-enable-azure-disk-encryption-windows.md)
 >
 >
 
@@ -36,33 +36,36 @@ La guía abarca los siguientes procedimientos:
 * Pasos que se deben seguir para habilitar el cifrado de disco en un conjunto de escalado de máquinas virtuales de un clúster con Linux de Service Fabric.
 
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 * **Registro automático**: para su uso, la versión preliminar del cifrado de disco de un conjunto de escalado de máquinas virtuales requiere el registro automático
 * Puede realizar el registro automático de la suscripción mediante la ejecución de los pasos siguientes: 
 ```powershell
-Register-AzureRmProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
+Register-AzProviderFeature -ProviderNamespace Microsoft.Compute -FeatureName "UnifiedDiskEncryption"
 ```
 * Espere unos 10 minutos hasta que el estado sea "Registrado". Puede comprobar el estado ejecutando el comando siguiente: 
 ```powershell
-Get-AzureRmProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+Get-AzProviderFeature -ProviderNamespace "Microsoft.Compute" -FeatureName "UnifiedDiskEncryption"
+Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
 ```
 * **Azure Key Vault**: cree un almacén de claves en la misma suscripción y región que el conjunto de escalado de máquina virtual y establezca la directiva de acceso "EnabledForDiskEncryption" en el almacén de claves mediante el cmdlet de PS. También puede establecer la directiva usando la interfaz de usuario de Key Vault en Azure Portal: 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
+Set-AzKeyVaultAccessPolicy -VaultName $keyVaultName -EnabledForDiskEncryption
 ```
-* Instale la versión más reciente de la [CLI de Azure 2.0](/cli/azure/install-azure-cli?view=azure-cli-latest), que tiene nuevos comandos de cifrado.
-* Instale la versión más reciente del [SDK de Azure desde Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Los siguientes son el conjunto de escalado de máquinas virtuales ADE cmdlets para habilitar ([establecer](/powershell/module/azurerm.compute/set-azurermvmssdiskencryptionextension?view=azurermps-4.4.1)) cifrado, recuperar ([obtener](/powershell/module/azurerm.compute/get-azurermvmssvmdiskencryption?view=azurermps-4.4.1)) estado de cifrado y quitar ([deshabilitar](/powershell/module/azurerm.compute/disable-azurermvmssdiskencryption?view=azurermps-4.4.1)) cifrado en escala instancia del conjunto. 
+* Instalar la versión más reciente [CLI de Azure](/cli/azure/install-azure-cli) , que contiene los nuevos comandos de cifrado.
+* Instale la versión más reciente del [SDK de Azure desde Azure PowerShell](https://github.com/Azure/azure-powershell/releases). Los siguientes son el conjunto de escalado de máquinas virtuales ADE cmdlets para habilitar ([establecer](/powershell/module/az.compute/set-azvmssdiskencryptionextension)) cifrado, recuperar ([obtener](/powershell/module/az.compute/get-azvmssvmdiskencryption)) estado de cifrado y quitar ([deshabilitar](/powershell/module/az.compute/disable-azvmssdiskencryption)) cifrado en escala instancia del conjunto. 
 
 | Get-Help | Versión |  Origen  |
 | ------------- |-------------| ------------|
-| Get-AzureRmVmssDiskEncryptionStatus   | 3.4.0 o superior | AzureRM.Compute |
-| Get-AzureRmVmssVMDiskEncryptionStatus   | 3.4.0 o superior | AzureRM.Compute |
-| Disable-AzureRmVmssDiskEncryption   | 3.4.0 o superior | AzureRM.Compute |
-| Get-AzureRmVmssDiskEncryption   | 3.4.0 o superior | AzureRM.Compute |
-| Get-AzureRmVmssVMDiskEncryption   | 3.4.0 o superior | AzureRM.Compute |
-| Set-AzureRmVmssDiskEncryptionExtension   | 3.4.0 o superior | AzureRM.Compute |
+| Get-AzVmssDiskEncryptionStatus   | 1.0.0 o versiones posteriores | Az.Compute |
+| Get-AzVmssVMDiskEncryptionStatus   | 1.0.0 o versiones posteriores | Az.Compute |
+| Disable-AzVmssDiskEncryption   | 1.0.0 o versiones posteriores | Az.Compute |
+| Get-AzVmssDiskEncryption   | 1.0.0 o versiones posteriores | Az.Compute |
+| Get-AzVmssVMDiskEncryption   | 1.0.0 o versiones posteriores | Az.Compute |
+| Set-AzVmssDiskEncryptionExtension   | 1.0.0 o versiones posteriores | Az.Compute |
 
 
 ## <a name="supported-scenarios-for-disk-encryption"></a>Escenarios admitidos para el cifrado de disco
@@ -79,8 +82,8 @@ Use los siguientes comandos para crear clúster y habilitar el cifrado de disco 
 
 ```powershell
 
-Login-AzureRmAccount
-Set-AzureRmContext -SubscriptionId <guid>
+Login-AzAccount
+Set-AzContext -SubscriptionId <guid>
 
 ```
 
@@ -147,7 +150,7 @@ $parameterFilePath="c:\templates\templateparam.json"
 $templateFilePath="c:\templates\template.json"
 
 
-New-AzureRmServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
+New-AzServiceFabricCluster -ResourceGroupName $resourceGroupName -CertificateOutputFolder $certOutputFolder -CertificatePassword $certpassword -CertificateSubjectName $CertSubjectName -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 
 ```
 
@@ -184,11 +187,11 @@ Siga los pasos y la guía para [implementar una aplicación en el clúster](serv
 $VmssName = "nt1vm"
 $vaultName = "mykeyvault"
 $resourceGroupName = "mycluster"
-$KeyVault = Get-AzureRmKeyVault -VaultName $vaultName -ResourceGroupName $rgName
+$KeyVault = Get-AzKeyVault -VaultName $vaultName -ResourceGroupName $rgName
 $DiskEncryptionKeyVaultUrl = $KeyVault.VaultUri
 $KeyVaultResourceId = $KeyVault.ResourceId
 
-Set-AzureRmVmssDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType All
+Set-AzVmssDiskEncryptionExtension -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -DiskEncryptionKeyVaultUrl $DiskEncryptionKeyVaultUrl -DiskEncryptionKeyVaultId $KeyVaultResourceId -VolumeType All
 
 ```
 
@@ -206,9 +209,9 @@ Además el usuario puede iniciar sesión en la máquina virtual de clúster de L
 
 $VmssName = "nt1vm"
 $resourceGroupName = "mycluster"
-Get-AzureRmVmssDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName
+Get-AzVmssDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName
 
-Get-AzureRmVmssVMDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -InstanceId "0"
+Get-AzVmssVMDiskEncryption -ResourceGroupName $resourceGroupName -VMScaleSetName $VmssName -InstanceId "0"
 
 ```
 
@@ -223,7 +226,7 @@ La deshabilitación del cifrado del disco se aplica al conjunto de escalado de m
 ```powershell
 $VmssName = "nt1vm"
 $resourceGroupName = "mycluster"
-Disable-AzureRmVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName
+Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssName
 
 ```
 

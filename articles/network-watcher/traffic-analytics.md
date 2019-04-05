@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: ac4351bd2e125c922cb3044c1d06298b3ad6de97
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f00c816f34978ee2f14f16ee9882860750d0e658
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805064"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051893"
 ---
 # <a name="traffic-analytics"></a>Análisis de tráfico
 
@@ -28,6 +28,9 @@ Análisis de tráfico es una solución basada en la nube, que proporciona visibi
 - Identificar las amenazas de seguridad y proteger la red, con información sobre puertos abiertos, aplicaciones que intentan acceder a Internet y máquinas virtuales (VM) que se conectan a redes no autorizadas.
 - Entender los patrones de flujo de tráfico entre regiones de Azure e Internet para optimizar el rendimiento y la capacidad de su implementación de red.
 - Identificar errores de configuración de red que dan lugar a errores de conexión.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="why-traffic-analytics"></a>Motivos para usar Análisis de tráfico
 
@@ -133,7 +136,7 @@ Para analizar el tráfico, debe tener una instancia de Network Watcher existente
 Para poder usar Análisis de tráfico, debe volver a registrar el proveedor de recursos de red. Haga clic en **inténtelo** en el cuadro de código siguiente para abrir Azure Cloud Shell. Cloud Shell inicia la sesión automáticamente en su suscripción de Azure. Una vez abierto Cloud Shell, escriba el siguiente comando para volver a registrar el proveedor de recursos de red:
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Network"
+Register-AzResourceProvider -ProviderNamespace "Microsoft.Network"
 ```
 
 ### <a name="select-a-network-security-group"></a>Selección de un grupo de seguridad de red
@@ -153,13 +156,13 @@ Antes de habilitar la configuración del flujo de registro, debe completar las t
 Registre el proveedor de Azure Insights, si aún no está registrado para su suscripción:
 
 ```azurepowershell-interactive
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Insights
+Register-AzResourceProvider -ProviderNamespace Microsoft.Insights
 ```
 
 Si aún no dispone de una cuenta de Azure Storage para almacenar los registros de flujos de los grupos de seguridad de red, debe crearla. Puede crear una cuenta de almacenamiento con el comando siguiente. Antes de ejecutar el comando, reemplace `<replace-with-your-unique-storage-account-name>` por un nombre que sea exclusivo en todas las ubicaciones de Azure, de entre 3 y 24 caracteres de longitud y que use solo números y letras en minúsculas. También puede cambiar el nombre del grupo de recursos si es necesario.
 
 ```azurepowershell-interactive
-New-AzureRmStorageAccount `
+New-AzStorageAccount `
   -Location westcentralus `
   -Name <replace-with-your-unique-storage-account-name> `
   -ResourceGroupName myResourceGroup `
@@ -182,7 +185,7 @@ Seleccione las opciones siguientes, tal y como se muestra en la imagen:
 
 Repita los pasos anteriores con todos los demás grupos de seguridad de red para los que desee habilitar Análisis de tráfico. Los datos de los registros de flujos se envían al área de trabajo, por tanto, asegúrese de que las leyes y reglamentos locales de su país permiten el almacenamiento de datos en la región donde existe el área de trabajo.
 
-También puede configurar Análisis de tráfico con el cmdlet [Set-AzureRmNetworkWatcherConfigFlowLog](/powershell/module/azurerm.network/set-azurermnetworkwatcherconfigflowlog) de PowerShell en la versión 6.2.1 o posterior del módulo AzureRm de PowerShell. Ejecute `Get-Module -ListAvailable AzureRM` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/azurerm/install-azurerm-ps).
+También puede configurar análisis de tráfico mediante el [conjunto AzNetworkWatcherConfigFlowLog](/powershell/module/az.network/set-aznetworkwatcherconfigflowlog) cmdlet de PowerShell en Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para buscar la versión instalada. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-Az-ps).
 
 ## <a name="view-traffic-analytics"></a>Visualización de Análisis de tráfico
 
@@ -198,7 +201,7 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 
 ### <a name="find-traffic-hotspots"></a>Búsqueda de zonas activas de tráfico
 
-**¿Qué buscar?**
+**Busca**
 
 - ¿Qué hosts, subredes y máquinas virtuales envían o reciben la mayor parte del tráfico, recorren el máximo de tráfico malintencionado y bloquean flujos considerables?
     - Revise el gráfico de comparación para host, subred y máquina virtual. Conocer los hosts, las subredes y las máquinas virtuales que envían o reciben más tráfico puede ayudarlo a identificar cuáles son los hosts que procesan la mayor parte del tráfico y si la distribución del tráfico se realiza correctamente.
@@ -218,7 +221,7 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 
     ![Tendencias de los cinco hosts con mayor comunicación](media/traffic-analytics/top-five-most-talking-host-trend.png)
 
-**¿Qué buscar?**
+**Busca**
 
 - ¿Cuáles son los pares de hosts con más interlocuciones?
     - Comportamiento esperado del tipo comunicación entre front-end y back-end, o comportamiento irregular como tráfico de back-end a Internet.
@@ -234,7 +237,7 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 
     ![Tendencias y detalles de las cinco conversaciones principales](./media/traffic-analytics/top-five-chatty-conversation-details-and-trend.png)
 
-**¿Qué buscar?**
+**Busca**
 
 - ¿Qué protocolo de aplicación se usa con más frecuencia en su entorno, y qué pares de hosts interlocutores lo usan más frecuentemente?
     - ¿Se permiten estas aplicaciones en esta red?
@@ -248,7 +251,7 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 
     ![Detalles de los flujos del protocolo de aplicación para la búsqueda de registros](./media/traffic-analytics/flow-details-for-application-protocol-in-log-search.png)
 
-**¿Qué buscar?**
+**Busca**
 
 - Tendencias de uso de la capacidad de una puerta de enlace VPN en su entorno.
     - Cada SKU de VPN permite una determinada cantidad de ancho de banda. ¿Se usan poco las puertas de enlace de VPN?
@@ -264,7 +267,7 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 
 ### <a name="visualize-traffic-distribution-by-geography"></a>Visualización de la distribución del tráfico por geografía
 
-**¿Qué buscar?**
+**Busca**
 
 - La distribución del tráfico por centro de datos como, por ejemplo, los principales orígenes del tráfico a un centro de datos, las principales redes no autorizadas que conversan con el centro de datos y los principales protocolos de aplicaciones de conversación.
   - Si observa más carga en un centro de datos, puede planear una distribución del tráfico más eficaz.
@@ -286,7 +289,7 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 
 ### <a name="visualize-traffic-distribution-by-virtual-networks"></a>Visualización de la distribución del tráfico por redes virtuales
 
-**¿Qué buscar?**
+**Busca**
 
 - La distribución del tráfico por red virtual, la topología, los principales orígenes de tráfico a la red virtual, las principales redes no autorizadas que conversan con la red virtual y los principales protocolos de aplicaciones de conversación.
   - Saber qué red virtual está conversando con qué red virtual. Si no es una conversación esperada, esto se puede corregir.
@@ -306,7 +309,7 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 
     ![Detalles de flujos para la distribución del tráfico de red virtual en búsqueda de registros](./media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
 
-**¿Qué buscar?**
+**Busca**
 
 - La distribución del tráfico por subred, la topología, los principales orígenes de tráfico a la subred, las principales redes no autorizadas que conversan con la subred y los principales protocolos de aplicaciones de conversación.
     - Sepa qué subred está conversando con qué subred. Si ve conversaciones inesperadas, puede corregir la configuración.
@@ -316,7 +319,7 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 
     ![Topología de subred que muestra la distribución de tráfico hacia una subred de red virtual en relación con los flujos](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png)
 
-**¿Qué buscar?**
+**Busca**
 
 La distribución del tráfico por Application Gateway y Load Balancer, la topología, los principales orígenes de tráfico, las principales redes no autorizadas que conversan con Application Gateway y Load Balancer y los principales protocolos de aplicaciones de conversación. 
     
@@ -327,7 +330,7 @@ La distribución del tráfico por Application Gateway y Load Balancer, la topolo
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Visualización de los puertos y máquinas virtuales que reciben tráfico desde Internet
 
-**¿Qué buscar?**
+**Busca**
 
 - ¿Qué puertos abiertos mantienen conversaciones a través de Internet?
   - Si se encuentran abiertos puertos inesperados, puede corregir la configuración:
@@ -336,7 +339,7 @@ La distribución del tráfico por Application Gateway y Load Balancer, la topolo
 
     ![Detalles de puertos y hosts de destino de Azure](./media/traffic-analytics/details-of-azure-destination-ports-and-hosts.png)
 
-**¿Qué buscar?**
+**Busca**
 
 ¿Tiene tráfico malintencionado en su entorno? ¿Desde dónde se origina? ¿Cuál es su destino?
 
@@ -345,7 +348,7 @@ La distribución del tráfico por Application Gateway y Load Balancer, la topolo
 
 ### <a name="visualize-the-trends-in-nsgnsg-rules-hits"></a>Visualización de las tendencias en las coincidencias del grupo de seguridad de red o de las reglas del grupo de seguridad de red
 
-**¿Qué buscar?**
+**Busca**
 
 - ¿Qué grupos de seguridad de red o reglas de grupo de seguridad de red tienen la mayor cantidad de coincidencias en el gráfico comparativo con la distribución de flujos?
 - ¿Cuáles son los pares de conversación de origen y destino principales por grupo de seguridad de red o reglas de grupo de seguridad de red?

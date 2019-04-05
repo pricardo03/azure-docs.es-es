@@ -1,19 +1,18 @@
 ---
 title: Ingesta de datos de ejemplo en el Explorador de datos de Azure
 description: Obtenga información sobre cómo ingerir (cargar) datos de ejemplo relacionadas con el tiempo en el Explorador de datos de Azure.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 2ebbe3434f032b38c33ec7b82e445532836f78c9
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: e80322cda671e2145cf3e65aa1457f1fa1827737
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758474"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050635"
 ---
 # <a name="ingest-sample-data-into-azure-data-explorer"></a>Ingesta de datos de ejemplo en el Explorador de datos de Azure
 
@@ -24,7 +23,7 @@ En este artículo, se muestra cómo ingerir (cargar) datos de ejemplo en una bas
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-[Base de datos y clúster de prueba](create-cluster-database-portal.md)
+[Un clúster de prueba y la base de datos](create-cluster-database-portal.md)
 
 ## <a name="ingest-data"></a>Introducción de datos
 
@@ -64,4 +63,4 @@ El conjunto de datos de ejemplo de **StormEvents** contiene datos relacionados c
 > [Escritura de consultas](write-queries.md)
 
 > [!div class="nextstepaction"]
-> [Azure Data Explorer data ingestion](ingest-data-overview.md) (Ingesta de datos del Explorador de datos de Azure)
+> [Ingesta de datos de Azure Data Explorer](ingest-data-overview.md)

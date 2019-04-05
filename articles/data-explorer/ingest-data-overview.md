@@ -1,19 +1,18 @@
 ---
 title: Ingesta de datos de Azure Data Explorer
 description: Información acerca de las diferentes maneras que puede usar para la ingesta (carga) de datos en Azure Data Explorer
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 2/18/2019
-ms.openlocfilehash: e2dd67b7b8e7eaac1b823c044fe3d345ce7e8c7b
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 02/18/2019
+ms.openlocfilehash: 6c9cb7282ba9d99ea643bbd023d876b8fbe3904c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755773"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045601"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingesta de datos de Azure Data Explorer
 
@@ -65,7 +64,7 @@ Kusto ofrece un cliente SDK que puede utilizarse para la ingesta y consulta de d
 
 * [SDK de Python](/azure/kusto/api/python/kusto-python-client-library)
 
-* [SDK de .NET](/azure/kusto/api/netfx/about-the-sdk)
+* [.NET SDK](/azure/kusto/api/netfx/about-the-sdk)
 
 * [SDK de Java](/azure/kusto/api/java/kusto-java-client-library)
 
@@ -91,7 +90,7 @@ Kusto ofrece un cliente SDK que puede utilizarse para la ingesta y consulta de d
 
 | Método | Latencia |
 | --- | --- |
-| **Ingesta insertada** | Inmediata |
+| **Ingesta en línea** | Inmediata |
 | **Ingesta de consulta** | Tiempo de consulta + tiempo de procesamiento |
 | **Ingesta de almacenamiento** | Tiempo de descarga + tiempo de procesamiento |
 | **Ingesta en cola** | Tiempo del procesamiento por lotes + tiempo de procesamiento |
@@ -145,7 +144,7 @@ La asignación de esquemas, ayuda a enlazar campos de datos de origen a columnas
 > [Ingesta de datos del centro de eventos a Azure Data Explorer](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [Ingesta de datos mediante la suscripción de Event Grid en Azure Data Explorer](ingest-data-event-grid.md)
+> [Ingesta de datos mediante la suscripción de Event Grid en el Explorador de datos de Azure](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
 > [Ingesta de datos de Kafka en Azure Data Explorer](ingest-data-kafka.md)

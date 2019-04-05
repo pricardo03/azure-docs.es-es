@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: ea10e83e8a5963c1ea0073179c15b1c2f3230805
-ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
-ms.translationtype: HT
+ms.openlocfilehash: 601a3f273a8da9100d24dfdbd13bd598b0e48884
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/13/2018
-ms.locfileid: "51615226"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051570"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Creación de una instancia de Azure Network Watcher
 
 Network Watcher es un servicio regional que permite supervisar y diagnosticar problemas en un nivel de escenario de red mediante Azure. La supervisión del nivel de escenario permite diagnosticar problemas en una vista de nivel de red de un extremo a otro. Las herramientas de visualización y diagnóstico de red que incluye Network Watcher le ayudan a conocer, diagnosticar y obtener información acerca de cualquier red de Azure. Network Watcher se habilita al crear un recurso de Network Watcher. Este recurso permite utilizar las funcionalidades de Network Watcher.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="network-watcher-is-automatically-enabled"></a>Network Watcher se habilita automáticamente
 Al crear o actualizar una red virtual en su suscripción, Network Watcher se habilitará automáticamente en la región de la red virtual. El hecho de habilitar Network Watcher de forma automática no afecta a sus recursos ni supone un cargo adicional.
@@ -35,8 +38,8 @@ Si desea dejar de usar la habilitación automática de Network Watcher, puede ha
 > Dejar de usar la habilitación automática de Network Watcher es un cambio permanente. Una vez realizada la operación, no se puede volver a utilizar sin [contactar con el servicio técnico](https://azure.microsoft.com/support/options/).
 
 ```azurepowershell-interactive
-Register-AzureRmProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
-Register-AzureRMResourceProvider -ProviderNamespace Microsoft.Network
+Register-AzProviderFeature -FeatureName DisableNetworkWatcherAutocreation -ProviderNamespace Microsoft.Network
+Register-AzResourceProvider -ProviderNamespace Microsoft.Network
 ```
 
 ```azurecli-interactive
@@ -63,7 +66,7 @@ Si desea personalizar el nombre de una instancia de Network Watcher y el grupo d
 Para crear una instancia de Network Watcher, ejecute el siguiente ejemplo:
 
 ```powershell
-New-AzureRmNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
+New-AzNetworkWatcher -Name "NetworkWatcher_westcentralus" -ResourceGroupName "NetworkWatcherRG" -Location "West Central US"
 ```
 
 ## <a name="create-a-network-watcher-with-the-azure-cli"></a>Creación de una instancia de Network Watcher con la CLI de Azure
@@ -109,7 +112,7 @@ Ahora que tiene una instancia de Network Watcher, obtenga información acerca de
 * [Comprobación de flujo de IP](network-watcher-ip-flow-verify-overview.md)
 * [Próximo salto](network-watcher-next-hop-overview.md)
 * [Vista de grupo de seguridad](network-watcher-security-group-view-overview.md)
-* [Registro de flujo de NSG](network-watcher-nsg-flow-logging-overview.md)
-* [Solución de problemas de una puerta de enlace de Virtual Network](network-watcher-troubleshoot-overview.md)
+* [Registros de flujo de NSG](network-watcher-nsg-flow-logging-overview.md)
+* [Solución de problemas de puerta de enlace de red virtual](network-watcher-troubleshoot-overview.md)
 
 Una vez que hay una instancia de Network Watcher, puede habilitar la captura de paquetes dentro de máquinas virtuales. Para información sobre cómo hacerlo, consulte [Uso de capturas de paquetes para realizar la supervisión proactiva de la red con alertas y Azure Functions](network-watcher-alert-triggered-packet-capture.md).

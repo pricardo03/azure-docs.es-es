@@ -8,16 +8,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 8d0e00223fcd55a1049900b502b52745837bf8fc
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 78bd077b5491b093510b9c55bf7b5a42ee9cb578
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54462563"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045635"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>Configuración de la recuperación ante desastres de máquinas virtuales de Hyper-V en un sitio secundario con PowerShell (Resource Manager)
 
 En este artículo se explica cómo automatizar los pasos necesarios para la replicación de máquinas virtuales de Hyper-V en nubes de System Center Virtual Machine Manager a una nube de Virtual Machine Manager en un sitio local secundario con [Azure Site Recovery](site-recovery-overview.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -59,31 +61,31 @@ Asegúrese de que tiene Azure PowerShell listo para usar:
         $Password = "<password>"
         $SecurePassword = ConvertTo-SecureString -AsPlainText $Password -Force
         $Cred = New-Object System.Management.Automation.PSCredential -ArgumentList $UserName, $SecurePassword
-        Connect-AzureRmAccount #-Credential $Cred
+        Connect-AzAccount #-Credential $Cred
 2. Recupere una lista de sus suscripciones con los identificadores de suscripción. Tome nota del identificador de la suscripción en la que desea crear el almacén de Recovery Services. 
 
-        Get-AzureRmSubscription
+        Get-AzSubscription
 3. Establezca la suscripción para el almacén.
 
-        Set-AzureRmContext –SubscriptionID <subscriptionId>
+        Set-AzContext –SubscriptionID <subscriptionId>
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 1. Cree un grupo de recursos de Azure Resource Manager si no dispone de uno.
 
-        New-AzureRmResourceGroup -Name #ResourceGroupName -Location #location
+        New-AzResourceGroup -Name #ResourceGroupName -Location #location
 2. Cree un almacén de Recovery Services. Guarde el objeto de almacén en una variable para usarlo más adelante. 
 
-        $vault = New-AzureRmRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
+        $vault = New-AzRecoveryServicesVault -Name #vaultname -ResourceGroupName #ResourceGroupName -Location #location
    
-    Tras la creación, puede recuperar el objeto del almacén mediante el cmdlet Get-AzureRMRecoveryServicesVault.
+    Puede recuperar el objeto de almacén después de crearlo mediante el cmdlet Get-AzRecoveryServicesVault.
 
 ## <a name="set-the-vault-context"></a>Establecer el contexto de almacén
 1. Recupere un almacén existente.
 
-       $vault = Get-AzureRmRecoveryServicesVault -Name #vaultname
+       $vault = Get-AzRecoveryServicesVault -Name #vaultname
 2. Establezca el contexto de almacén.
 
-       Set-AzureRmSiteRecoveryVaultSettings -ARSVault $vault
+       Set-AzSiteRecoveryVaultSettings -ARSVault $vault
 
 ## <a name="install-the-site-recovery-provider"></a>Instalación del proveedor de Site Recovery
 1. En el equipo de Virtual Machine Manager, cree un directorio mediante la ejecución del comando siguiente:
@@ -124,7 +126,7 @@ Asegúrese de que tiene Azure PowerShell listo para usar:
         $AuthPort = "8083"  #specify the port number that will be used for replication traffic on Hyper-V hosts
         $InitialRepMethod = "Online" #options are "Online" or "Offline"
 
-        $policyresult = New-AzureRmSiteRecoveryPolicy -Name $policyname -ReplicationProvider $RepProvider -ReplicationFrequencyInSeconds $Replicationfrequencyinseconds -RecoveryPoints $recoverypoints -ApplicationConsistentSnapshotFrequencyInHours $AppConsistentSnapshotFrequency -Authentication $AuthMode -ReplicationPort $AuthPort -ReplicationMethod $InitialRepMethod
+        $policyresult = New-AzSiteRecoveryPolicy -Name $policyname -ReplicationProvider $RepProvider -ReplicationFrequencyInSeconds $Replicationfrequencyinseconds -RecoveryPoints $recoverypoints -ApplicationConsistentSnapshotFrequencyInHours $AppConsistentSnapshotFrequency -Authentication $AuthMode -ReplicationPort $AuthPort -ReplicationMethod $InitialRepMethod
 
     > [!NOTE]
     > La nube de Virtual Machine Manager puede contener hosts de Hyper-V que ejecuten versiones distintas de Windows Server, pero la directiva de replicación es para una versión específica de un sistema operativo. Si tiene diferentes hosts que ejecutan diferentes sistemas operativos, cree directivas de replicación independientes para cada sistema. Por ejemplo, si tiene cinco hosts que ejecutan Windows Server 2012 y tres que ejecutan Windows Server 2012 R2, cree dos directivas de replicación; una para cada tipo de sistema operativo.
@@ -132,19 +134,19 @@ Asegúrese de que tiene Azure PowerShell listo para usar:
 2. Obtenga el contenedor de protección principal (nube de Virtual Machine Manager principal) y el de recuperación (nube de Virtual Machine Manager de recuperación).
 
        $PrimaryCloud = "testprimarycloud"
-       $primaryprotectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $PrimaryCloud;  
+       $primaryprotectionContainer = Get-AzSiteRecoveryProtectionContainer -friendlyName $PrimaryCloud;  
 
        $RecoveryCloud = "testrecoverycloud"
-       $recoveryprotectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $RecoveryCloud;  
+       $recoveryprotectionContainer = Get-AzSiteRecoveryProtectionContainer -friendlyName $RecoveryCloud;  
 3. Recupere la directiva de replicación que creó, utilizando el nombre descriptivo.
 
-       $policy = Get-AzureRmSiteRecoveryPolicy -FriendlyName $policyname
+       $policy = Get-AzSiteRecoveryPolicy -FriendlyName $policyname
 4. Inicie la asociación del contenedor de protección (nube de Virtual Machine Manager) con la directiva de replicación.
 
-       $associationJob  = Start-AzureRmSiteRecoveryPolicyAssociationJob -Policy     $Policy -PrimaryProtectionContainer $primaryprotectionContainer -RecoveryProtectionContainer $recoveryprotectionContainer
+       $associationJob  = Start-AzSiteRecoveryPolicyAssociationJob -Policy     $Policy -PrimaryProtectionContainer $primaryprotectionContainer -RecoveryProtectionContainer $recoveryprotectionContainer
 5. Espere a que finalice el trabajo de asociación de directivas. Para comprobar si el trabajo ha terminado, use el siguiente fragmento de código de PowerShell:
 
-       $job = Get-AzureRmSiteRecoveryJob -Job $associationJob
+       $job = Get-AzSiteRecoveryJob -Job $associationJob
 
        if($job -eq $null -or $job.StateDescription -ne "Completed")
        {
@@ -164,12 +166,12 @@ Para comprobar la finalización de la operación, siga los pasos descritos en [S
 ##  <a name="configure-network-mapping"></a>Configurar asignación de red
 1. Utilice este comando para recuperar los servidores del almacén actual. El comando almacena los servidores de Site Recovery en la variable de matriz $Servers.
 
-        $Servers = Get-AzureRmSiteRecoveryServer
+        $Servers = Get-AzSiteRecoveryServer
 2. Ejecute este comando para recuperar las redes para los servidores de origen y destino de Virtual Machine Manager.
 
-        $PrimaryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[0]        
+        $PrimaryNetworks = Get-AzSiteRecoveryNetwork -Server $Servers[0]        
 
-        $RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
+        $RecoveryNetworks = Get-AzSiteRecoveryNetwork -Server $Servers[1]
 
     > [!NOTE]
     > El servidor de Virtual Machine Manager de origen puede ser el primero o el segundo en la matriz de servidores. Compruebe los nombres de servidor de Virtual Machine Manager y recupere las redes correspondientes.
@@ -177,7 +179,7 @@ Para comprobar la finalización de la operación, siga los pasos descritos en [S
 
 3. Este cmdlet crea una asignación entre la red principal y la de recuperación. Especifica la red principal como el primer elemento de $PrimaryNetworks. Especifica la red de recuperación como el primer elemento de $RecoveryNetworks.
 
-        New-AzureRmSiteRecoveryNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
+        New-AzSiteRecoveryNetworkMapping -PrimaryNetwork $PrimaryNetworks[0] -RecoveryNetwork $RecoveryNetworks[0]
 
 
 ## <a name="enable-protection-for-vms"></a>Habilitación de la protección de las máquinas virtuales
@@ -185,13 +187,13 @@ Una vez configurados correctamente los servidores, las nubes y las redes, habili
 
 1. Para habilitar la protección, ejecute el siguiente comando para recuperar el contenedor de protección:
 
-          $PrimaryProtectionContainer = Get-AzureRmSiteRecoveryProtectionContainer -friendlyName $PrimaryCloudName
+          $PrimaryProtectionContainer = Get-AzSiteRecoveryProtectionContainer -friendlyName $PrimaryCloudName
 2. Obtenga la entidad de protección (máquina virtual) de la siguiente manera:
 
-           $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -friendlyName $VMName -ProtectionContainer $PrimaryProtectionContainer
+           $protectionEntity = Get-AzSiteRecoveryProtectionEntity -friendlyName $VMName -ProtectionContainer $PrimaryProtectionContainer
 3. Habilite la replicación de la máquina virtual.
 
-          $jobResult = Set-AzureRmSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable -Policy $policy
+          $jobResult = Set-AzSiteRecoveryProtectionEntity -ProtectionEntity $protectionentity -Protection Enable -Policy $policy
 
 ## <a name="run-a-test-failover"></a>Ejecución de una conmutación por error de prueba
 
@@ -199,24 +201,24 @@ Para probar la implementación, ejecute una conmutación por error de prueba par
 
 1. Recupere la máquina virtual en la que conmutarán por error las máquinas virtuales.
 
-       $Servers = Get-AzureRmSiteRecoveryServer
-       $RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
+       $Servers = Get-AzSiteRecoveryServer
+       $RecoveryNetworks = Get-AzSiteRecoveryNetwork -Server $Servers[1]
 
 2. Realización de una conmutación por error de prueba.
 
    Para una sola máquina virtual:
 
-        $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -FriendlyName $VMName -ProtectionContainer $PrimaryprotectionContainer
+        $protectionEntity = Get-AzSiteRecoveryProtectionEntity -FriendlyName $VMName -ProtectionContainer $PrimaryprotectionContainer
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -VMNetwork $RecoveryNetworks[1]
+        $jobIDResult =  Start-AzSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity -VMNetwork $RecoveryNetworks[1]
     
    Para un plan de recuperación:
 
         $recoveryplanname = "test-recovery-plan"
 
-        $recoveryplan = Get-AzureRmSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
+        $recoveryplan = Get-AzSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan -VMNetwork $RecoveryNetworks[1]
+        $jobIDResult =  Start-AzSiteRecoveryTestFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan -VMNetwork $RecoveryNetworks[1]
 
 Para comprobar la finalización de la operación, siga los pasos descritos en [Supervisión de la actividad](#monitor-activity).
 
@@ -226,33 +228,33 @@ Para comprobar la finalización de la operación, siga los pasos descritos en [S
 
    Para una sola máquina virtual:
 
-        $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
+        $protectionEntity = Get-AzSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
+        $jobIDResult =  Start-AzSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
 
    Para un plan de recuperación:
 
         $recoveryplanname = "test-recovery-plan"
 
-        $recoveryplan = Get-AzureRmSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
+        $recoveryplan = Get-AzSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan
+        $jobIDResult =  Start-AzSiteRecoveryPlannedFailoverJob -Direction PrimaryToRecovery -Recoveryplan $recoveryplan
 
 2. Realización de una conmutación por error no planeada.
 
    Para una sola máquina virtual:
         
-        $protectionEntity = Get-AzureRmSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
+        $protectionEntity = Get-AzSiteRecoveryProtectionEntity -Name $VMName -ProtectionContainer $PrimaryprotectionContainer
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
+        $jobIDResult =  Start-AzSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
 
    Para un plan de recuperación:
 
         $recoveryplanname = "test-recovery-plan"
 
-        $recoveryplan = Get-AzureRmSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
+        $recoveryplan = Get-AzSiteRecoveryRecoveryPlan -FriendlyName $recoveryplanname
 
-        $jobIDResult =  Start-AzureRmSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
+        $jobIDResult =  Start-AzSiteRecoveryUnPlannedFailoverJob -Direction PrimaryToRecovery -ProtectionEntity $protectionEntity
 
 ## <a name="monitor-activity"></a>Supervisión de la actividad
 Utilice los comandos siguientes para supervisar la actividad de conmutación por error. Espere a que el procesamiento finalice entre los trabajos.
@@ -276,4 +278,4 @@ Utilice los comandos siguientes para supervisar la actividad de conmutación por
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Más información](/powershell/module/azurerm.recoveryservices.backup/) sobre Site Recovery con los cmdlets de PowerShell de Resource Manager.
+[Más información](/powershell/module/az.recoveryservices) sobre Site Recovery con los cmdlets de PowerShell de Resource Manager.

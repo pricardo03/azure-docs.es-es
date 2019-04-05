@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/11/2017
 ms.author: alkohli
-ms.openlocfilehash: be0c1611856a1fa68d20696c32b5fadcd8572004
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: a79753a897a62e194a759c23a9c0acc45c5f36c1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793618"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049479"
 ---
 # <a name="role-based-access-control-for-storsimple"></a>Control de acceso basado en rol en StorSimple
 
 En este artículo se proporciona una breve descripción de cómo se puede usar el control de acceso basado en rol (RBAC) de Azure en un dispositivo StorSimple. RBAC ofrece administración de acceso específico para Azure. Use RBAC para conceder la cantidad justa de acceso a los usuarios de StorSimple para realizar su trabajo, en lugar de darles a todos acceso sin restricciones. Para más información sobre los conceptos básicos de administración de acceso en Azure, consulte [Introducción al control de acceso basado en roles en Azure Portal](../role-based-access-control/overview.md).
 
 Este artículo se aplica solo a los dispositivos de la serie StorSimple 8000 que ejecutan Update 3.0 o posterior en Azure Portal.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="rbac-roles-for-storsimple"></a>Roles de RBAC en StorSimple
 
@@ -46,14 +48,14 @@ En el ejemplo siguiente, empezaremos con el rol integrado **lector** que permite
 
 2. Inicie sesión en Azure.
 
-    `Connect-AzureRmAccount`
+    `Connect-AzAccount`
 
 3. Exporte el rol de lector como una plantilla JSON en el equipo.
 
     ```powershell
-    Get-AzureRMRoleDefinition -Name "Reader"
+    Get-AzRoleDefinition -Name "Reader"
 
-    Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+    Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
     ```
 
 4. Abra el archivo JSON en Visual Studio. Observará que un rol de RBAC consta normalmente de tres secciones principales: **Actions**, **NotActions** y **AssignableScopes**.
@@ -62,7 +64,7 @@ En el ejemplo siguiente, empezaremos con el rol integrado **lector** que permite
 
     Use PowerShell para ver todos los proveedores de recursos disponibles y registrados en su suscripción.
 
-    `Get-AzureRMResourceProvider`
+    `Get-AzResourceProvider`
 
     También puede comprobar todos los cmdlets de PowerShell disponibles para administrar los proveedores de recursos.
 
@@ -102,7 +104,7 @@ En el ejemplo siguiente, empezaremos con el rol integrado **lector** que permite
 
 6. Importe de nuevo el rol personalizado de RBAC en el entorno.
 
-    `New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"`
+    `New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"`
 
 
 Este rol debe aparecer ahora en la lista de roles en la hoja **Control de acceso**.
@@ -114,7 +116,7 @@ Para más información, vaya a [Roles personalizados](../role-based-access-contr
 ### <a name="sample-output-for-custom-role-creation-via-the-powershell"></a>Salida de ejemplo de la creación de roles personalizados mediante PowerShell
 
 ```powershell
-Connect-AzureRmAccount
+Connect-AzAccount
 ```
 
 ```Output
@@ -127,7 +129,7 @@ CurrentStorageAccount :
 ```
 
 ```powershell
-Get-AzureRMRoleDefinition -Name "Reader"
+Get-AzRoleDefinition -Name "Reader"
 ```
 
 ```Output
@@ -141,8 +143,8 @@ AssignableScopes : {/}
 ```
 
 ```powershell
-Get-AzureRMRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
-New-AzureRMRoleDefinition -InputFile "C:\ssrbaccustom.json"
+Get-AzRoleDefinition -Name "Reader" | ConvertTo-Json | Out-File C:\ssrbaccustom.json
+New-AzRoleDefinition -InputFile "C:\ssrbaccustom.json"
 ```
 
 ```Output

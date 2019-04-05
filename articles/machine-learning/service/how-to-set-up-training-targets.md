@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: ec509fc8957d20f95123e9f0f645c3e9b6e832f2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d75deaca7ce052d40274f1f57a8f6603a3ecdfd2
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122376"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046162"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configuración de destinos de proceso del entrenamiento del modelo
 
@@ -118,7 +118,10 @@ Puede crear un entorno de Proceso de Azure Machine Learning a petición al progr
 
 #### <a name="run-based-creation"></a>Creación basada en ejecución
 
-Puede crear una instancia de Proceso de Azure Machine Learning como un destino de proceso en tiempo de ejecución. El proceso se crea automáticamente para la ejecución. El clúster se escala verticalmente hasta el número de **max_nodos** que especifique en la configuración de ejecución. El proceso se elimina automáticamente una vez completada la ejecución.
+Puede crear una instancia de Proceso de Azure Machine Learning como un destino de proceso en tiempo de ejecución. El proceso se crea automáticamente para la ejecución. El proceso se elimina automáticamente una vez completada la ejecución. 
+
+> [!NOTE]
+> Para especificar el número máximo de nodos que usará, establecería normalmente `node_count` al número de nodos. Actualmente no hay (04/04/2019) un error que impide que esto funcione. Como alternativa, use el `amlcompute._cluster_max_node_count` propiedad de la configuración de ejecución. Por ejemplo, `run_config.amlcompute._cluster_max_node_count = 5`.
 
 > [!IMPORTANT]
 > La creación basada en ejecución de una instancia de Proceso de Azure Machine Learning está actualmente en versión preliminar. No use la creación basada en la ejecución si usa el ajuste de hiperparámetros o el aprendizaje automático automatizado. Para utilizar la optimización de hiperparámetros o el aprendizaje automático automatizado, cree en su lugar un [destino de proceso persistente](#persistent).
@@ -358,8 +361,8 @@ Siga los pasos descritos previamente para ver la lista de destinos de proceso. L
     > [!NOTE]
     > Microsoft recomienda que use claves SSH, que son más seguras que las contraseñas. Las contraseñas son vulnerables a ataques por fuerza bruta. Las claves SSH se basan en las firmas criptográficas. Para información sobre cómo crear claves SSH para usarlas con Azure Virtual Machines, consulte los siguientes documentos:
     >
-    > * [Creación y uso de claves SSH en Linux o macOS](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
-    > * [Creación y uso de claves SSH en Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
+    > * [Crear y utilizar claves SSH en Linux o macOS](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
+    > * [Crear y usar claves SSH en Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
 1. Seleccione __Adjuntar__. 
 1. Consulte el estado de la operación de adjuntar seleccionando el destino de proceso en la lista.
@@ -415,7 +418,7 @@ También puede:
 ## <a name="notebook-examples"></a>Ejemplos de cuadernos
 
 Consulte estos cuadernos para ver ejemplos de entrenamiento con varios destinos de proceso:
-* [how-to-use-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
+* [How-to-use-azureml y aprendizaje](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
@@ -425,4 +428,4 @@ Consulte estos cuadernos para ver ejemplos de entrenamiento con varios destinos 
 * [Tutorial: Entrenamiento de un modelo](tutorial-train-models-with-aml.md) utiliza un destino de proceso administrado para entrenar un modelo.
 * Cuando tenga un modelo entrenado, aprenda [cómo y dónde implementar los modelos](how-to-deploy-and-where.md).
 * Consulte la referencia del SDK de la [clase RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
-* [Uso de Azure Machine Learning Service con Azure Virtual Network](how-to-enable-virtual-network.md)
+* [Usar el servicio de Azure Machine Learning con Azure Virtual Network](how-to-enable-virtual-network.md)

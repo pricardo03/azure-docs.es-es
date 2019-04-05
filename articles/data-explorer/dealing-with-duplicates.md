@@ -1,21 +1,20 @@
 ---
-title: Tratamiento de datos duplicados
-description: En este tema se explican varias maneras de tratar con datos duplicados.
-services: data-explorer
+title: Controlar datos duplicados en el Explorador de datos de Azure
+description: En este tema le mostrará varios métodos para tratar con datos duplicados cuando se usa el Explorador de datos de Azure.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/19/2018
-ms.openlocfilehash: 7a9ccd5139168393019a70aafb9b7b705ca25919
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 8f55b6dfb7b5bc9eda675aca4ed80a66b8a25a7f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756373"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045788"
 ---
-# <a name="deal-with-duplicate-data"></a>Tratamiento de datos duplicados
+# <a name="handle-duplicate-data-in-azure-data-explorer"></a>Controlar datos duplicados en el Explorador de datos de Azure
 
 Los dispositivos que envían datos a la nube mantienen una caché local de los datos. Según el tamaño de los datos, la memoria caché local puede almacenar datos de varios días o incluso meses. Es conveniente proteger las bases de datos analíticos de aquellos dispositivos que por error vuelven a enviar los datos almacenados en caché y provocan la duplicación de datos en la base de datos analíticos. En este tema se describen los procedimientos recomendados para controlar los datos duplicados para estos tipos de escenarios.
 
@@ -123,4 +122,4 @@ La duplicación de datos se puede tratar de varias maneras. Evalúe las opciones
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Write queries for Azure Data Explorer](write-queries.md) (Escritura de consultas del Explorador de datos de Azure)
+> [Escribir consultas para el Explorador de datos de Azure](write-queries.md)

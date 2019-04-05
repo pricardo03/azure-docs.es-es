@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
 ms.author: kumud
-ms.openlocfilehash: 85dd3cca081d492bfeefa3e8ea0d143c9c37af8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c2821890408e38d0d2be730da10b7926d77697d4
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58007951"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048306"
 ---
 # <a name="performance-considerations-for-traffic-manager"></a>Consideraciones de rendimiento sobre el Administrador de tráfico
 
@@ -56,7 +56,7 @@ Las herramientas de estos sitios miden las latencias de DNS y muestran las direc
 
     ![pulse2](./media/traffic-manager-performance-considerations/traffic-manager-web-site-pulse2.png)
 
-* [CA App Synthetic Monitor](https://asm.ca.com/en/checkit.php)
+* [Monitor sintético de aplicación de entidad emisora de certificados](https://asm.ca.com/en/checkit.php)
 
     Conocido anteriormente como la herramienta de inspección mouse Check Website, este sitio muestra el tiempo de resolución DNS desde varias regiones geográficas simultáneamente. Escriba la dirección URL para ver el tiempo de resolución de DNS, el tiempo de conexión y la velocidad desde varias ubicaciones geográficas. Use esta prueba para ver qué servicio hospedado se devuelve para diferentes ubicaciones del mundo.
 
@@ -66,21 +66,21 @@ Las herramientas de estos sitios miden las latencias de DNS y muestran las direc
 
     Esta herramienta proporciona estadísticas de rendimiento para cada elemento de una página web. La pestaña de análisis de página muestra el porcentaje de tiempo invertido en la búsqueda de DNS.
 
-* [What's My DNS?](https://www.whatsmydns.net/)
+* [¿Cuál es mi DNS?](https://www.whatsmydns.net/)
 
     Este sitio realiza una búsqueda de DNS desde 20 ubicaciones distintas y muestra los resultados en un mapa.
 
-* [Dig Web Interface](https://www.digwebinterface.com)
+* [Explorar la interfaz Web](https://www.digwebinterface.com)
 
     Este sitio muestra información de DNS más detallada, incluidos los registros A y CNAME. Asegúrese de activar las opciones "Colorize output" (Colorear salida) y "Stats" (Estadísticas), y de seleccionar todos los servidores de nombres.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Información acerca de los métodos de enrutamiento del tráfico del Administrador de tráfico](traffic-manager-routing-methods.md)
+[Los métodos de enrutamiento de tráfico de Traffic Manager](traffic-manager-routing-methods.md)
 
-[Pruebe la configuración del Administrador de tráfico](traffic-manager-testing-settings.md)
+[Pruebe su configuración del Administrador de tráfico](traffic-manager-testing-settings.md)
 
-[Operaciones del Administrador de tráfico (referencia de la API de REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
+[Operaciones del Administrador de tráfico (referencia de API de REST)](https://go.microsoft.com/fwlink/?LinkId=313584)
 
-[Cmdlets del Administrador de tráfico de Azure](https://docs.microsoft.com/powershell/module/azurerm.trafficmanager)
+[Cmdlets de Azure Traffic Manager](https://docs.microsoft.com/powershell/module/az.trafficmanager)
 

@@ -14,18 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
-ms.openlocfilehash: 28bed5503c5c798f244a4ba3a070894aa4538b00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9810baf433ddf67997aeda10856060edc0d1ebec
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57873033"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051160"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use PowerShell para administrar recursos de Service Bus
 
-Microsoft Azure PowerShell es un entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus servicios de Azure. En este artículo se describe cómo utilizar el [módulo de PowerShell de Resource Manager de Service Bus](/powershell/module/azurerm.servicebus) para aprovisionar y administrar entidades de Service Bus (espacios de nombres, colas, temas y suscripciones) mediante una consola o un script de Azure PowerShell.
+Microsoft Azure PowerShell es un entorno de scripting que puede usar para controlar y automatizar la implementación y la administración de sus servicios de Azure. En este artículo se describe cómo utilizar el [módulo de PowerShell de Resource Manager de Service Bus](/powershell/module/az.servicebus) para aprovisionar y administrar entidades de Service Bus (espacios de nombres, colas, temas y suscripciones) mediante una consola o un script de Azure PowerShell.
 
 Las entidades de Service Bus también se pueden administrar mediante plantillas de Azure Resource Manager. Para más información, consulte el artículo [Cómo crear recursos de Service Bus mediante plantillas de Azure Resource Manager](service-bus-resource-manager-overview.md).
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -41,13 +43,13 @@ El primer paso es usar PowerShell para iniciar sesión en su cuenta de Azure y s
 
 ## <a name="provision-a-service-bus-namespace"></a>Aprovisionar un espacio de nombres de Service Bus
 
-Al trabajar con espacios de nombres de Service Bus, puede usar los cmdlets [Get AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace), [New-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace), [Remove-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace) y [Set-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespace).
+Al trabajar con espacios de nombres de Service Bus, puede usar el [Get AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace), [New AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace), [Remove-AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace)y [ Conjunto AzServiceBusNamespace](/powershell/module/az.servicebus/set-azservicebusnamespace) cmdlets.
 
 En este ejemplo se crean algunas variables locales en el script: `$Namespace` y `$Location`.
 
-* `$Namespace` es el nombre del espacio de nombres de Service Bus con el que queremos trabajar.
+* `$Namespace` es el nombre del espacio de nombres de Service Bus con la que queremos trabajar.
 * `$Location` identifica el centro de datos en el que aprovisionamos el espacio de nombres.
-* `$CurrentNamespace` almacena el espacio de nombres de referencia que vamos a recuperar (o crear).
+* `$CurrentNamespace` almacena el espacio de nombres de referencia que se recuperan (o crear).
 
 En un script real, `$Namespace` y `$Location` se pueden pasar como parámetros.
 
@@ -59,21 +61,21 @@ Esta parte del script hace lo siguiente:
    
     ``` powershell
     # Query to see if the namespace currently exists
-    $CurrentNamespace = Get-AzureRMServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace
+    $CurrentNamespace = Get-AzServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace
    
     # Check if the namespace already exists or needs to be created
     if ($CurrentNamespace)
     {
         Write-Host "The namespace $Namespace already exists in the $Location region:"
         # Report what was found
-        Get-AzureRMServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace
+        Get-AzServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace
     }
     else
     {
         Write-Host "The $Namespace namespace does not exist."
         Write-Host "Creating the $Namespace namespace in the $Location region..."
-        New-AzureRmServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace -Location $Location
-        $CurrentNamespace = Get-AzureRMServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace
+        New-AzServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace -Location $Location
+        $CurrentNamespace = Get-AzServiceBusNamespace -ResourceGroup $ResGrpName -NamespaceName $Namespace
         Write-Host "The $Namespace namespace in Resource Group $ResGrpName in the $Location region has been successfully created."
                 
     }
@@ -81,11 +83,11 @@ Esta parte del script hace lo siguiente:
 
 ### <a name="create-a-namespace-authorization-rule"></a>Creación de una regla de autorización de espacios de nombres
 
-En el ejemplo siguiente se muestra cómo administrar las reglas de autorización de espacios de nombres mediante los cmdlets [New-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespaceauthorizationrule), [Get- AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespaceauthorizationrule), [Set-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespaceauthorizationrule) y [Remove-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespaceauthorizationrule).
+En el ejemplo siguiente se muestra cómo administrar las reglas de autorización de espacio de nombres mediante el [New AzServiceBusNamespaceAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusnamespaceauthorizationrule), [Get AzServiceBusNamespaceAuthorizationRule](/powershell/module/az.servicebus/get-azservicebusnamespaceauthorizationrule), [Conjunto AzServiceBusNamespaceAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusnamespaceauthorizationrule), y [cmdlets Remove-AzServiceBusNamespaceAuthorizationRule](/powershell/module/az.servicebus/remove-azservicebusnamespaceauthorizationrule).
 
 ```powershell
 # Query to see if rule exists
-$CurrentRule = Get-AzureRmServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
+$CurrentRule = Get-AzServiceBusNamespaceAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
 
 # Check if the rule already exists or needs to be created
 if ($CurrentRule)
@@ -96,28 +98,28 @@ else
 {
     Write-Host "The $AuthRule rule does not exist."
     Write-Host "Creating the $AuthRule rule for the $Namespace namespace..."
-    New-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule -Rights @("Listen","Send")
-    $CurrentRule = Get-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
+    New-AzServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule -Rights @("Listen","Send")
+    $CurrentRule = Get-AzServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
     Write-Host "The $AuthRule rule for the $Namespace namespace has been successfully created."
 
     Write-Host "Setting rights on the namespace"
-    $authRuleObj = Get-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
+    $authRuleObj = Get-AzServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthorizationRuleName $AuthRule
 
     Write-Host "Remove Send rights"
     $authRuleObj.Rights.Remove("Send")
-    Set-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
+    Set-AzServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
 
     Write-Host "Add Send and Manage rights to the namespace"
     $authRuleObj.Rights.Add("Send")
-    Set-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
+    Set-AzServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
     $authRuleObj.Rights.Add("Manage")
-    Set-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
+    Set-AzServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -AuthRuleObj $authRuleObj
 
     Write-Host "Show value of primary key"
-    $CurrentKey = Get-AzureRmServiceBusKey -ResourceGroup $ResGrpName -NamespaceName $Namespace -Name $AuthRule
+    $CurrentKey = Get-AzServiceBusKey -ResourceGroup $ResGrpName -NamespaceName $Namespace -Name $AuthRule
         
     Write-Host "Remove this authorization rule"
-    Remove-AzureRmServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -Name $AuthRule
+    Remove-AzServiceBusAuthorizationRule -ResourceGroup $ResGrpName -NamespaceName $Namespace -Name $AuthRule
 }
 ```
 
@@ -127,7 +129,7 @@ Para crear una cola o un tema, realice una comprobación de espacio de nombres m
 
 ```powershell
 # Check if queue already exists
-$CurrentQ = Get-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName
+$CurrentQ = Get-AzServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName
 
 if($CurrentQ)
 {
@@ -137,15 +139,15 @@ else
 {
     Write-Host "The $QueueName queue does not exist."
     Write-Host "Creating the $QueueName queue in the $Location region..."
-    New-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName -EnablePartitioning $True
-    $CurrentQ = Get-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName
+    New-AzServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName -EnablePartitioning $True
+    $CurrentQ = Get-AzServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName
     Write-Host "The $QueueName queue in Resource Group $ResGrpName in the $Location region has been successfully created."
 }
 ```
 
 ### <a name="modify-queue-properties"></a>Modificación de las propiedades de una cola
 
-Después de ejecutar el script de las sección anterior, puede usar el cmdlet [Set-AzureRmServiceBusQueue](/powershell/module/azurerm.servicebus/set-azurermservicebusqueue) para actualizar las propiedades de una cola, como en el ejemplo siguiente:
+Después de ejecutar el script en la sección anterior, puede usar el [conjunto AzServiceBusQueue](/powershell/module/az.servicebus/set-azservicebusqueue) cmdlet para actualizar las propiedades de una cola, como se muestra en el ejemplo siguiente:
 
 ```powershell
 $CurrentQ.DeadLetteringOnMessageExpiration = $True
@@ -153,23 +155,23 @@ $CurrentQ.MaxDeliveryCount = 7
 $CurrentQ.MaxSizeInMegabytes = 2048
 $CurrentQ.EnableExpress = $True
 
-Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName -QueueObj $CurrentQ
+Set-AzServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace -QueueName $QueueName -QueueObj $CurrentQ
 ```
 
 ## <a name="provisioning-other-service-bus-entities"></a>Aprovisionamiento de otras entidades de Service Bus
 
-Puede usar el [módulo de PowerShell de Service Bus](/powershell/module/azurerm.servicebus) para aprovisionar otras entidades, como temas y suscripciones. Estos cmdlets son sintácticamente similares a los de creación de colas que se han mostrado en la sección anterior.
+Puede usar el [módulo de PowerShell de Service Bus](/powershell/module/az.servicebus) para aprovisionar otras entidades, como temas y suscripciones. Estos cmdlets son sintácticamente similares a los de creación de colas que se han mostrado en la sección anterior.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Consulte la documentación completa del módulo de PowerShell de Resource Manager de Service Bus [aquí](/powershell/module/azurerm.servicebus). Esta página enumera todos los cmdlets disponibles.
+- Consulte la documentación completa del módulo de PowerShell de Resource Manager de Service Bus [aquí](/powershell/module/az.servicebus). Esta página enumera todos los cmdlets disponibles.
 - Para obtener información acerca del uso de las plantillas de Azure Resource Manager, consulte el artículo [Cómo crear recursos de Service Bus mediante plantillas de Azure Resource Manager](service-bus-resource-manager-overview.md).
 - Información sobre las [bibliotecas de administración de .NET de Service Bus](service-bus-management-libraries.md).
 
 Hay varias formas alternativas de administrar entidades de Service Bus, tal como se describe en estas entradas de blog:
 
-* [Cómo crear colas, temas y suscripciones de Service Bus con un script de PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [Cómo crear un espacio de nombres de Service Bus y un centro de eventos mediante un script de PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+* [Creación de colas de Service Bus, temas y suscripciones con un script de PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [Cómo crear un Namespace de Bus de servicio y un centro de eventos mediante un script de PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 * [Scripts de PowerShell de Service Bus](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->

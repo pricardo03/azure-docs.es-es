@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/13/2018
 ms.author: aljo
-ms.openlocfilehash: 534335b15d61d1e411ec2e7fb96123eb4701878e
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0038de621a02a2edf3198686e1f2fc88fb917d9c
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57315286"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050244"
 ---
 # <a name="add-or-remove-certificates-for-a-service-fabric-cluster-in-azure"></a>Agregar o quitar certificados para un clúster de Service Fabric de Azure
 Se recomienda leer [Escenarios de seguridad de los clústeres de Service Fabric](service-fabric-cluster-security.md) para familiarizarse con cómo Service Fabric usa los certificados X.509. Debe entender qué es un certificado de clúster y para qué se usa antes de seguir avanzando.
@@ -33,6 +33,9 @@ Además de los certificados de client, al configurar la seguridad mediante certi
 > 
 > 
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="add-a-secondary-cluster-certificate-using-the-portal"></a>Incorporación de un certificado de clúster secundario mediante el portal
 No se pueden agregar certificados de clúster secundarios mediante Azure Portal; en su lugar, use Azure PowerShell. El proceso se describe más adelante en este documento.
 
@@ -45,7 +48,7 @@ Si su intención es eliminar el certificado marcado como principal, deberá impl
 
 ## <a name="add-a-secondary-certificate-using-resource-manager-powershell"></a>Incorporación de un certificado secundario mediante Powershell para Resource Manager
 > [!TIP]
-> Ahora disponemos de una forma mejor y más fácil de agregar un certificado secundario mediante el cmdlet [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate). No es necesario que siga el resto de los pasos descritos en esta sección.  Además, al usar el cmdlet [Add-AzureRmServiceFabricClusterCertificate](/powershell/module/azurerm.servicefabric/add-azurermservicefabricclustercertificate) no necesita la plantilla usada originalmente para implementar el clúster.
+> Ahora es mejor y más fácil forma para agregar un certificado secundario mediante la [agregar AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet. No es necesario que siga el resto de los pasos descritos en esta sección.  Además, no es necesario en la plantilla usada originalmente para crear e implementar el clúster cuando se usa el [agregar AzServiceFabricClusterCertificate](/powershell/module/az.servicefabric/add-azservicefabricclustercertificate) cmdlet.
 
 En estos pasos se da por hecho que está familiarizado con el funcionamiento de Resource Manager, que ha implementado al menos un clúster de Service Fabric mediante una plantilla de Resource Manager, y que tiene a mano la plantilla que utilizó para configurar el clúster. También se da por hecho que está familiarizado con el uso de JSON.
 
@@ -195,19 +198,19 @@ Modifique el parámetro File de la plantilla de Resource Manager, y agregue los 
 - Inicie sesión en su cuenta de Azure y seleccione la suscripción de Azure específica. Este es un paso importante para personas que tienen acceso a más de una suscripción.
 
 ```powershell
-Connect-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId <Subscription ID> 
+Connect-AzAccount
+Select-AzSubscription -SubscriptionId <Subscription ID> 
 
 ```
 
 Pruebe la plantilla antes de implementarla. Utilice el grupo de recursos en el que esté implementado el clúster actualmente.
 
 ```powershell
-Test-AzureRmResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
+Test-AzResourceGroupDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 
 ```
 
-Implemente la plantilla en el grupo de recursos. Utilice el grupo de recursos en el que esté implementado el clúster actualmente. Ejecute el comando New-AzureRmResourceGroupDeployment. No es necesario especificar el modo, ya que el valor predeterminado es **incremental**.
+Implemente la plantilla en el grupo de recursos. Utilice el grupo de recursos en el que esté implementado el clúster actualmente. Ejecute el comando New-AzResourceGroupDeployment. No es necesario especificar el modo, ya que el valor predeterminado es **incremental**.
 
 > [!NOTE]
 > Si establece el modo completo, podría eliminar accidentalmente los recursos que no estén en la plantilla. Por ello no lo utilice en este escenario.
@@ -215,7 +218,7 @@ Implemente la plantilla en el grupo de recursos. Utilice el grupo de recursos en
 > 
 
 ```powershell
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName <Resource Group that your cluster is currently deployed to> -TemplateFile <PathToTemplate>
 ```
 
 Este es un ejemplo ya rellenado del mismo powershell.
@@ -225,7 +228,7 @@ $ResourceGroup2 = "chackosecure5"
 $TemplateFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure_Step2.json"
 $TemplateParmFile = "C:\GitHub\Service-Fabric\ARM Templates\Cert Rollover Sample\5-VM-1-NodeTypes-Secure.parameters_Step2.json"
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
+New-AzResourceGroupDeployment -ResourceGroupName $ResourceGroup2 -TemplateParameterFile $TemplateParmFile -TemplateUri $TemplateFile -clusterName $ResourceGroup2
 
 ```
 
@@ -288,8 +291,8 @@ Para quitar un certificado secundario y dejar de usarlo para la seguridad del cl
 ## <a name="next-steps"></a>Pasos siguientes
 Lea estos artículos para más información sobre la administración de clúster:
 
-* [Proceso de actualización del clúster de Service Fabric y expectativas del usuario](service-fabric-cluster-upgrade.md)
-* [Control de acceso basado en roles para clientes de Service Fabric](service-fabric-cluster-security-roles.md)
+* [Proceso de actualización de clúster de Service Fabric y expectativas del usuario](service-fabric-cluster-upgrade.md)
+* [Configurar el acceso basado en roles para clientes](service-fabric-cluster-security-roles.md)
 
 <!--Image references-->
 [Add_Client_Cert]: ./media/service-fabric-cluster-security-update-certs-azure/SecurityConfigurations_13.PNG

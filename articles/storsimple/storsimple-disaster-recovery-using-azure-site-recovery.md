@@ -14,14 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2017
 ms.author: vidarmsft
-ms.openlocfilehash: f5eefd1d3fa26738729d98e60d8a56cd8d33d86c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 11ff7066019654ce2771bce242f3431d10da44ae
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58084885"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051944"
 ---
 # <a name="automated-disaster-recovery-solution-using-azure-site-recovery-for-file-shares-hosted-on-storsimple"></a>Solución de recuperación ante desastres automatizada con Azure Site Recovery para recursos compartidos de archivos alojados en StorSimple
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="overview"></a>Información general
 Microsoft Azure StorSimple es una solución de almacenamiento en la nube híbrida que aborda las dificultades de los datos no estructurados asociados normalmente a recursos compartidos de archivos. StorSimple usa el almacenamiento en la nube como una extensión de la solución local y organiza los datos en niveles automáticamente entre el almacenamiento local y el almacenamiento en la nube. La protección de datos integrada, con instantáneas locales y de nube, elimina la necesidad de una extensa infraestructura de almacenamiento.
 
@@ -167,7 +170,7 @@ Puede crear un plan de recuperación en ASR para automatizar el proceso de conmu
    
 1. En la cuenta de Automation, haga clic en **Variables** &gt; **Agregar variable** y agregue las siguientes variables. Puede elegir cifrar estos activos. Estas variables son específicas del plan de recuperación. Si el plan de recuperación que creará en el paso siguiente se denomina TestPlan, las variables deben ser TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName y así sucesivamente.
 
-   - **BaseUrl**: Dirección URL de Resource Manager para la nube de Azure. Se obtiene mediante el cmdlet **Get-AzureRmEnvironment | Select-Object Name, ResourceManagerUrl**.
+   - **BaseUrl**: Dirección URL de Resource Manager para la nube de Azure. Obtener utilizando **Get AzEnvironment | Select-Object Name, ResourceManagerUrl** cmdlet.
    - *RecoveryPlanName***-ResourceGroupName**: El grupo de Resource Manager que tiene el recurso de StorSimple.
    - *RecoveryPlanName***-ManagerName**: El recurso de StorSimple que tiene el dispositivo StorSimple.
    - *RecoveryPlanName***-DeviceName**: El dispositivo StorSimple que debe conmutarse por error.

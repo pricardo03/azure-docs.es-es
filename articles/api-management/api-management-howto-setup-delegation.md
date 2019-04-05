@@ -12,31 +12,33 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: c15dc83929aeaf6811f4d19bfca462abfacf4014
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 796bea3c64ef7fc03367707461d13e0ea2514b8b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57892462"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051763"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Delegación de registros de usuario y suscripciones a producto
-La delegación le permite usar su sitio web actual para controlar el inicio de sesión y la suscripción de los desarrolladores, así como sus suscripciones a productos, en contraposición al uso de la funcionalidad integrada en el portal para desarrolladores. Esto habilita su sitio web como propietario de los datos de usuario para poder realizar la validación de estos pasos de forma personalizada.
+
+La delegación permite que usa el sitio Web existente para controlar el inicio de sesión para desarrolladores o Suscríbase y suscripciones a productos, en lugar de usar la funcionalidad integrada en el portal para desarrolladores. Esto habilita su sitio web como propietario de los datos de usuario para poder realizar la validación de estos pasos de forma personalizada.
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-## <a name="delegate-signin-up"> </a>Delegación de inicios de sesión y suscripciones de desarrolladores
-Para delegar el inicio de sesión y la suscripción de los desarrolladores a su sitio web actual, deberá crear un punto de conexión especial de delegación en el sitio que funcione como punto de entrada de cualquier solicitud de este tipo que se inicie en el portal para desarrolladores de API Management.
+## <a name="delegate-signin-up"> </a>Delegar para desarrolladores iniciar sesión y registrarse
+
+Para delegar el inicio de sesión para desarrolladores y suscribirse a su sitio Web existente, deberá crear un punto de conexión de delegación especial en su sitio. Necesita para que actúe como el punto de entrada para cualquier solicitud de este tipo iniciada desde el portal para desarrolladores de API Management.
 
 El flujo de trabajo final será el siguiente:
 
-1. El desarrollador hace clic en el enlace de inicio de sesión o de suscripción que se encuentra en el portal para desarrolladores de API Management.
+1. El desarrollador hace clic en el inicio de sesión o registro de vínculo, en el portal para desarrolladores de API Management
 2. El explorador se redirige al extremo de delegación.
-3. Como respuesta, el punto de conexión de delegación se redirige a la interfaz de usuario o la presenta para pedir al usuario que inicie sesión o se suscriba.
+3. Extremo de delegación se redirige a cambio o presenta la interfaz de usuario que solicita a usuario para iniciar sesión o registrarse
 4. Una vez conseguido, se redirige de nuevo al usuario a la página del portal para desarrolladores de API Management de la que partió.
 
-Para empezar, configuremos primero Administración de API para que dirija las solicitudes a través del extremo de delegación. En el portal para editores de API Management, haga clic en **Seguridad** y, a continuación, haga clic en la pestaña **Delegación**. Haga clic en la casilla para activar "Delegar inicio de sesión y suscripción".
+Para empezar, configuremos primero Administración de API para que dirija las solicitudes a través del extremo de delegación. En el portal para editores de API Management, haga clic en **Seguridad** y, a continuación, haga clic en la pestaña **Delegación**. Haga clic en la casilla para activar "Delegar inicio de sesión & registrarse".
 
 ![Delegation page][api-management-delegation-signin-up]
 
@@ -51,10 +53,10 @@ Ahora debe crear el **extremo de delegación**. Este tiene que realizar varias a
    > 
    > 
    
-    Parámetros de consulta en el caso de inicio de sesión o suscripción:
+    Consultar los parámetros para el inicio de sesión / registro caso:
    
    * **operation**: identifica el tipo de solicitud de delegación del que se trata. Solo puede ser **SignIn** en este caso.
-   * **returnUrl**: la dirección URL de la página en la que el usuario hizo clic en un vínculo de suscripción o de inicio de sesión.
+   * **returnUrl**: la dirección URL de la página donde el usuario hace clic en un inicio de sesión o vínculo de registro
    * **salt**: una cadena salt especial que se usa para procesar un hash de seguridad
    * **sig**: un hash de seguridad procesado que se comparará con su propio hash procesado
 2. Compruebe que la solicitud procede de Azure API Management (opcional, pero especialmente recomendado por motivos de seguridad).
@@ -65,9 +67,9 @@ Ahora debe crear el **extremo de delegación**. Este tiene que realizar varias a
      > 
      > 
    * Compare el hash procesado anteriormente con el valor del parámetro de consulta **sig** . Si los dos hashes coinciden, vaya a paso siguiente; de lo contrario, deniegue la solicitud.
-3. Compruebe que ha recibido una solicitud para inicio de sesión/suscripción: el parámetro de consulta **operation** se establecerá en "**SignIn**".
-4. Presente al usuario la interfaz de usuario para que inicie sesión o se suscriba.
-5. Si el usuario se suscribe, hay que crear la cuenta correspondiente en Administración de API. [Cree un usuario] con la API de REST de API Management. Al hacerlo, asegúrese de que el identificador de usuario se establece en el mismo que existe en su almacén de usuario o en un identificador al que pueda realizar el seguimiento.
+3. Compruebe que recibe una solicitud de inicio de sesión o registrarse: el **operación** parámetro de consulta se establecerá en "**SignIn**".
+4. Presentar al usuario con la interfaz de usuario para iniciar sesión o registrarse
+5. Si el usuario se suscribe, hay que crear la cuenta correspondiente en Administración de API. [Cree un usuario] con la API de REST de API Management. Al hacerlo, asegúrese de establecer el identificador de usuario en el mismo valor, como se muestra en el almacén de usuario o a un identificador que puede realizar un seguimiento de.
 6. Cuando el usuario se autentique correctamente:
    
    * [solicite un token de inicio de sesión único (SSO)] a través de la API de REST de API Management
@@ -92,21 +94,20 @@ Debe pasar los siguientes parámetros de consulta para las operaciones de admini
 * **sig**: un hash de seguridad procesado que se comparará con su propio hash procesado
 
 ## <a name="delegate-product-subscription"></a>Delegación de suscripciones a productos
-La delegación de una suscripción a productos funciona de forma similar a la delegación de inicio de sesión y suscripción de usuario. El flujo de trabajo final sería el siguiente:
+Delegación de suscripciones a productos funciona de forma similar a la delegación de usuario de inicio de sesión/copia de seguridad. El flujo de trabajo final sería el siguiente:
 
-1. El desarrollador selecciona un producto en el portal para desarrolladores de API Management y hace clic en el botón Suscribir.
-2. El explorador se redirige al extremo de delegación.
-3. El extremo de delegación realiza los pasos necesarios para la suscripción al producto: esto depende de usted, y puede que implique la redirección a otra página para solicitar información de facturación, la formulación de otras preguntas o simplemente el almacenamiento de la información sin que se requiera ninguna acción del usuario.
+1. Desarrollador selecciona un producto en el portal para desarrolladores de API Management y hace clic en el botón de suscripción.
+2. Explorador se redirige al extremo de delegación.
+3. Extremo de delegación realiza los pasos de la suscripción de producto necesario. Depende de los pasos de diseño. Pueden incluir redirigir a otra página para solicitar información de facturación, preguntas adicionales, o simplemente el almacenamiento de la información y no requiere ninguna acción del usuario.
 
 Para habilitar la funcionalidad, en la página **Delegación**, haga clic en **Delegar suscripción de productos**.
 
-A continuación, asegúrese de que el extremo de delegación realiza las siguientes acciones:
+A continuación, asegúrese del que punto de conexión de delegación realiza las siguientes acciones:
 
 1. Recibir una solicitud de la forma siguiente:
    
    > *http:\//www.yourwebsite.com/apimdelegation?operation= {operation} & productId = {product para suscribirse a} & userId = {usuario realizar solicitud} & salt = {string} & sig = {string}*
-   > 
-   > 
+   >
    
     Parámetros de consulta en el caso de suscripción a producto:
    
@@ -115,9 +116,11 @@ A continuación, asegúrese de que el extremo de delegación realiza las siguien
      * "Unsubscribe": una solicitud para cancelar la suscripción de un usuario a un producto.
      * "Renew": una solicitud para renovar una suscripción (por ejemplo, que esté a punto de expirar).
    * **productId**: el id. del producto al que el usuario solicitó suscribirse.
-   * **userId**: el id. del usuario para el que se realiza la solicitud.
+   * **subscriptionId**: en *Unsubscribe* y *Renew* -el identificador de la suscripción de producto
+   * **userId**: el identificador del usuario se realiza la solicitud para
    * **salt**: una cadena salt especial que se usa para procesar un hash de seguridad
    * **sig**: un hash de seguridad procesado que se comparará con su propio hash procesado
+
 2. Compruebe que la solicitud procede de Azure API Management (opcional, pero especialmente recomendado por motivos de seguridad).
    
    * Calcular un hash HMAC-SHA512 de una cadena según la **productId**, **userId**, y **salt** parámetros de consulta:
@@ -126,13 +129,19 @@ A continuación, asegúrese de que el extremo de delegación realiza las siguien
      > 
      > 
    * Compare el hash procesado anteriormente con el valor del parámetro de consulta **sig** . Si los dos hashes coinciden, vaya a paso siguiente; de lo contrario, deniegue la solicitud.
-3. Realice cualquier procesamiento de la suscripción a producto en función del tipo de operación solicitada en **operation**; por ejemplo, facturación, preguntas adicionales, etc.
+3. Procesar la suscripción del producto en función del tipo de operación solicitada en **operación** : por ejemplo, facturación, preguntas adicionales, etcetera.
 4. Tras la correcta suscripción del usuario al producto por su parte, suscriba al usuario al producto de API Management [llamando a la API de REST para la suscripción del producto].
 
 ## <a name="delegate-example-code"></a> Ejemplo de código
-Estos ejemplos de código muestran cómo aprovechar la *clave de validación de delegación*, que se establece en la pantalla de delegación del portal del publicador para crear un HMAC que se utiliza para validar la firma, probando la validez del valor returnUrl que se ha pasado. El mismo código funciona para productId y userId con pequeñas modificaciones.
 
-**Código C# para generar el hash de returnUrl**
+Estos muestran ejemplos de código cómo para:
+
+* Tome el *clave de validación de delegación*, que se establece en la pantalla de delegación del portal del publicador
+* Crear un HMAC, que, a continuación, se utiliza para validar la firma, probando la validez de la returnUrl pasado.
+
+El mismo código funciona para productId y userId con pequeñas modificaciones.
+
+**C#código para generar el hash de returnUrl**
 
 ```csharp
 using System.Security.Cryptography;
@@ -173,12 +182,12 @@ Para más información acerca de la delegación, vea el siguiente vídeo:
 > 
 > 
 
-[Delegating developer sign-in and sign-up]: #delegate-signin-up
+[Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[solicite un token de inicio de sesión único (SSO)]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
-[Cree un usuario]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[llamando a la API de REST para la suscripción del producto]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
+[solicitar un token de inicio de sesión único (SSO)]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
+[creación de un usuario]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
+[una llamada a la API de REST para la suscripción de producto]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
 [Next steps]: #next-steps
-[se proporciona código de ejemplo a continuación]: #delegate-example-code
+[a continuación proporcionado el código de ejemplo]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 

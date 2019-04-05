@@ -1,19 +1,18 @@
 ---
-title: Análisis de series temporales de Azure Data Explorer
-description: 'Aprenda sobre el análisis de series temporales en Azure Data Explorer. '
-services: data-explorer
+title: Analizar datos de series temporales mediante el Explorador de datos de Azure
+description: Aprenda a analizar datos de series temporales en la nube mediante el Explorador de datos de Azure.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/30/2018
-ms.openlocfilehash: 6a77e399e4de6ec41e74d1e5b9f9f518126958c2
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 496c033e3df096cdada2b3facba3e73092ffd755
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756782"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051502"
 ---
 # <a name="time-series-analysis-in-azure-data-explorer"></a>Análisis de series temporales en Azure Data Explorer
 
@@ -58,10 +57,10 @@ demo_make_series1
 ```
 
 - Utilice el operador [`make-series`](/azure/kusto/query/make-seriesoperator) para crear un conjunto de tres series temporales, donde:
-    - `num=count()`: serie temporal de tráfico
-    - `range(min_t, max_t, 1h)`: la serie temporal se crea en intervalos de 1 hora en el intervalo de tiempo (marcas de tiempo más recientes y más antiguas de los registros de la tabla)
-    - `default=0`: especifique el método de relleno para los intervalos que faltan para crear series temporales regulares. O bien use [`series_fill_const()`](/azure/kusto/query/series-fill-constfunction), [`series_fill_forward()`](/azure/kusto/query/series-fill-forwardfunction), [`series_fill_backward()`](/azure/kusto/query/series-fill-backwardfunction) y [`series_fill_linear()`](/azure/kusto/query/series-fill-linearfunction) para los cambios
-    - `byOsVer`: partición por sistema operativo
+    - `num=count()`: hora de la serie de tráfico
+    - `range(min_t, max_t, 1h)`: serie temporal se crea en intervalos de 1 hora en el intervalo de tiempo (más reciente y más antiguo marcas de tiempo de registros de la tabla)
+    - `default=0`: especifique el método de relleno para las ubicaciones que faltan crear series de tiempo regulares. O bien use [`series_fill_const()`](/azure/kusto/query/series-fill-constfunction), [`series_fill_forward()`](/azure/kusto/query/series-fill-forwardfunction), [`series_fill_backward()`](/azure/kusto/query/series-fill-backwardfunction) y [`series_fill_linear()`](/azure/kusto/query/series-fill-linearfunction) para los cambios
+    - `byOsVer`: partición de sistema operativo
 - La estructura de datos de series temporales reales es una matriz numérica del valor agregado por cada intervalo temporal. Usamos `render timechart` para la visualización.
 
 En la tabla anterior, tenemos tres particiones. Podemos crear una serie temporal independiente: Windows 10 (rojo), 7 (azul) y 8.1 (verde) para cada versión de sistema operativo, tal y como se muestra en el gráfico:
@@ -79,7 +78,7 @@ El filtrado es una práctica común en el procesamiento de señales y muy útil 
 - Hay dos funciones de filtrado genéricas:
     - [`series_fir()`](/azure/kusto/query/series-firfunction): aplicación de filtro FIR. Se utiliza para el cálculo simple de la media acumulada y la diferenciación de las series temporales para la detección de cambios.
     - [`series_iir()`](/azure/kusto/query/series-iirfunction): aplicación de filtro IIR. Se utiliza para el suavizado exponencial y la suma acumulativa.
-- `Extend` la serie temporal establecida mediante la adición de una nueva serie de media acumulada de intervalos de tamaño 5 (denominada *ma_num*) a la consulta:
+- `Extend` cambiar el tamaño de la serie temporal que se establece mediante la adición de una nueva serie de promedio móvil de 5 discretizaciones (denominado *ma_num*) a la consulta:
 
 ```kusto
 let min_t = toscalar(demo_make_series1 | summarize min(TimeStamp));

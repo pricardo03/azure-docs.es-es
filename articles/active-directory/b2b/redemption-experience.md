@@ -11,12 +11,12 @@ author: msmimart
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 543c19d41cee55a309b5345af4f811c60b82a613
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 5e5a8d46f67553cc10bd9cdb31cf64511858948f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178981"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046502"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Experiencia de invitación de colaboración B2B de Azure Active Directory
 
@@ -56,7 +56,7 @@ Para obtener información sobre cómo puede, como administrador de inquilinos, v
 
 ## <a name="terms-of-use"></a>Términos de uso
 
-Puede presentar los términos de uso al usuario invitado durante el proceso de canje inicial mediante la característica de términos de uso de Azure AD. En Azure Active Directory, puede acceder a esta característica en **Administrar** > **Relaciones organizativas** > **Términos de uso** o en **Seguridad** > **Acceso condicional** > **Términos de uso**. Para obtener más información, vea [Característica de términos de uso de Azure AD](../governance/active-directory-tou.md).
+Puede presentar los términos de uso al usuario invitado durante el proceso de canje inicial mediante la característica de términos de uso de Azure AD. En Azure Active Directory, puede acceder a esta característica en **Administrar** > **Relaciones organizativas** > **Términos de uso** o en **Seguridad** > **Acceso condicional** > **Términos de uso**. Para obtener más información, vea [Característica de términos de uso de Azure AD](../conditional-access/terms-of-use.md).
 
 ![Captura de pantalla en la que se muestran los nuevos términos de uso](media/redemption-experience/organizational-relationships-terms-of-use.png) 
 
@@ -65,5 +65,5 @@ Puede presentar los términos de uso al usuario invitado durante el proceso de c
 - [¿Qué es la colaboración B2B de Azure AD?](what-is-b2b.md)
 - [Incorporación de usuarios de colaboración B2B de Azure Active Directory en Azure Portal](add-users-administrator.md)
 - [¿Cómo agregan los trabajadores de la información usuarios de colaboración B2B a Azure Active Directory?](add-users-information-worker.md)
-- [Incorporación de usuarios de colaboración B2B de Azure Active Directory con PowerShell](customize-invitation-api.md#powershell)
+- [Agregar usuarios de colaboración B2B de Azure Active Directory mediante PowerShell](customize-invitation-api.md#powershell)
 - [Salir de una organización como usuario invitado](leave-the-organization.md)

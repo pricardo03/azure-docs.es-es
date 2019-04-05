@@ -1,19 +1,18 @@
 ---
 title: Supervisar el rendimiento, mantenimiento y uso con métricas de explorador de datos de Azure
 description: Obtenga información sobre cómo usar las métricas del explorador de datos de Azure para supervisar el rendimiento, mantenimiento y el uso del clúster.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/01/2019
-ms.openlocfilehash: 5252ca8898439b63a8819f6abfd634de0786932b
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: a9c9f4d827d21c374bebba9d39e33b0bcad8a83e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851937"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050624"
 ---
 # <a name="monitor-azure-data-explorer-performance-health-and-usage-with-metrics"></a>Supervisar el rendimiento, mantenimiento y uso con métricas de explorador de datos de Azure
 
@@ -43,15 +42,15 @@ En el panel de métricas:
 
     **Métrica** | **Unidad** | **Agregación** | **Descripción de la métrica**
     |---|---|---|---|
-    | Utilización de la caché | Percent | AVG, Max, Min | Relación entre el tamaño de caché necesarias (según la directiva de caché definido) y el tamaño de caché total del clúster (el tamaño total de SSD para la actividad del usuario). Una utilización media de memoria caché de 80% o menos es un estado sostenible para un clúster. Si la utilización media de memoria caché es superior al 80%, el clúster debe ser [escalar verticalmente](manage-cluster-scale-up.md) a un almacenamiento optimizado para plan de tarifa o [escalar horizontalmente](manage-cluster-scale-out.md) de varias instancias. Como alternativa, adaptar la directiva de caché (menos días en caché). Si la utilización de la caché es más de 100%, el tamaño de los datos en caché, según la directiva de caché es mayor que el tamaño total de memoria caché en el clúster. |
-    | CPU | Percent | AVG, Max, Min | Proporción entre total uso de CPU y la CPU disponible en todo el clúster. Un promedio de CPU del 80% o menos es sostenible para un clúster. El valor máximo de CPU es 100%, lo que significa que no hay ningún recurso de proceso adicionales para procesar los datos. Cuando un clúster no está funcionando correctamente, compruebe el valor máximo de la CPU para determinar si existen las CPU específicas que están bloqueadas. |
-    | Eventos procesados (para Event Hubs) | Número | MAX, Min, Sum | Número total de eventos enviados por Event Hubs y recibidos por el clúster. Los eventos se dividen en eventos rechazados y aceptados por el motor de clúster. |
-    | Latencia de ingesta | Segundos | AVG, Max, Min | Latencia de datos recibidos desde el momento en que se recibieron los datos en el clúster hasta que esté preparado para la consulta. Latencia de ingesta se mide en segundos. El periodo de latencia de ingesta depende del escenario de ingesta. |
-    | Resultado de ingesta | Número | Número | Número total de operaciones de ingesta de errores y se ha realizado correctamente. Use **aplicar dividir** para crear cubos de éxito y producirá un error en los resultados.|
-    | Uso de ingesta | Percent | AVG, Max, Min | Proporción entre los recursos reales que se usa para la ingesta de datos y los recursos totales asignados en la directiva de capacidad para realizar la ingesta. La directiva de capacidad predeterminada no es más de 512 operaciones simultáneas de ingesta o el 75% de los recursos de clúster invertidos en la ingesta. Utilización de la ingesta promedio de 80% o menos es un estado sostenible para un clúster. Valor máximo de utilización de ingesta es 100%, lo que significa que se usa la capacidad de ingesta de todos los clúster y puede dar lugar a una cola de ingesta. |
-    | Volumen de ingesta (en MB) | Número | MAX, Min, Sum | El tamaño total de datos ingeridos en el clúster (en MB). Las unidades son el número de megabytes de datos introducidos antes de la compresión. |
+    | Utilización de la caché | Percent | AVG, Max, Min | Porcentaje de recursos de memoria caché asignada actualmente en uso por el clúster. Memoria caché se refiere al tamaño de SSD asignado para la actividad de usuario según la directiva de caché definido. Una utilización media de memoria caché de 80% o menos es un estado sostenible para un clúster. Si la utilización media de memoria caché es superior al 80%, el clúster debe ser [escalar verticalmente](manage-cluster-scale-up.md) a un almacenamiento optimizado para plan de tarifa o [escalar horizontalmente](manage-cluster-scale-out.md) de varias instancias. Como alternativa, adaptar la directiva de caché (menos días en caché). Si la utilización de la caché es más de 100%, el tamaño de los datos en caché, según la directiva de caché es mayor que el tamaño total de memoria caché en el clúster. |
+    | CPU | Percent | AVG, Max, Min | Porcentaje de recursos de proceso asignadas actualmente en uso por las máquinas del clúster. Un promedio de CPU del 80% o menos es sostenible para un clúster. El valor máximo de CPU es 100%, lo que significa que no hay ningún recurso de proceso adicionales para procesar los datos. Cuando un clúster no está funcionando correctamente, compruebe el valor máximo de la CPU para determinar si existen las CPU específicas que están bloqueadas. |
+    | Eventos procesados (para Event Hubs) | Número | MAX, Min, Sum | Número total de eventos lee desde event hubs y procesa el clúster. Los eventos se dividen en eventos rechazados y aceptados por el motor de clúster. |
+    | Latencia de ingesta | Segundos | AVG, Max, Min | Latencia de datos recibidos desde el momento en que se recibieron los datos en el clúster hasta que esté preparado para la consulta. El periodo de latencia de ingesta depende del escenario de ingesta. |
+    | Resultado de ingesta | Número | Número | Número total de operaciones de ingesta de errores y se ha realizado correctamente. Use **aplicar dividir** crear depósitos de éxito y producirá un error en los resultados y analizar las dimensiones (**valor** > **estado**).|
+    | Uso de ingesta | Percent | AVG, Max, Min | Porcentaje de recursos reales que se usa para introducir datos desde los recursos totales asignados en la directiva de capacidad para realizar la ingesta. La directiva de capacidad predeterminada no es más de 512 operaciones simultáneas de ingesta o el 75% de los recursos de clúster invertidos en la ingesta. Utilización de la ingesta promedio de 80% o menos es un estado sostenible para un clúster. Valor máximo de utilización de ingesta es 100%, lo que significa que se usa la capacidad de ingesta de todos los clúster y puede dar lugar a una cola de ingesta. |
+    | Volumen de ingesta (en MB) | Número | MAX, Min, Sum | El tamaño total de datos ingeridos en el clúster (en MB) antes de la compresión. |
     | Mantenimiento de conexión | Número | Media | Realiza un seguimiento de la capacidad de respuesta del clúster. Un clúster totalmente responde devuelve el valor 1 y un clúster desconectado o bloqueado devuelve 0. |
-    | Duración de la consulta | Segundos | Count, Avg, Min, Max, Sum | Tiempo total hasta que se reciben los resultados de la consulta. |
+    | Duración de la consulta | Segundos | Count, Avg, Min, Max, Sum | Total de tiempo hasta que se reciben los resultados de la consulta (no incluye la latencia de red). |
     | | | |
 
     Información adicional relacionada con [métricas de clúster del explorador de datos de Azure compatibles](/azure/azure-monitor/platform/metrics-supported#microsoftkustoclusters)

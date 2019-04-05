@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: renash
 ms.subservice: files
-ms.openlocfilehash: 2bf323b34c5a5301094bdecdc9fa705fe9077320
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 315bad5c4ffc3d5e8909c86cb8de703e9cb941b0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482137"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048850"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Uso de un recurso compartido de archivos de Azure con Windows
 [Azure Files](storage-files-introduction.md) es el sencillo sistema de archivos en la nube de Microsoft. Los recursos compartidos de archivos de Azure se pueden usar sin problemas en Windows y Windows Server. En este artículo se describen los aspectos que se deben tener en cuenta al usar un recurso compartido de archivos de Azure con Windows y Windows Server.
@@ -40,6 +40,9 @@ Puede usar recursos compartidos de archivos de Azure en una instalación de Wind
 > [!Note]  
 > Siempre se recomienda disponer de la KB más reciente para su versión de Windows.
 
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Requisitos previos 
 * **Nombre de la cuenta de almacenamiento**: para montar un recurso compartido de archivos de Azure, necesitará el nombre de la cuenta de almacenamiento.
 
@@ -47,13 +50,13 @@ Puede usar recursos compartidos de archivos de Azure en una instalación de Wind
 
 * **Asegúrese de que el puerto 445 está abierto**: el protocolo SMB requiere que esté abierto el puerto TCP 445; las conexiones producirán errores si el puerto 445 está bloqueado. Otra forma de comprobar si el firewall está bloqueando el puerto 445 es usar el cmdlet `Test-NetConnection`. Puede obtener información acerca de [diversos métodos para solucionar bloqueados el puerto 445 aquí](https://docs.microsoft.com/en-us/azure/storage/files/storage-troubleshoot-windows-file-connection-problems#cause-1-port-445-is-blocked).
 
-    En el siguiente código de PowerShell se da por hecho que tiene instalado el módulo AzureRM PowerShell. Para más información, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps). No olvide reemplazar `<your-storage-account-name>` y `<your-resource-group-name>` por los nombres correspondientes de su cuenta de almacenamiento.
+    Vea el siguiente código se supone que tiene instalado, el módulo PowerShell de Azure de PowerShell [instalar Azure PowerShell module](https://docs.microsoft.com/powershell/azure/install-az-ps) para obtener más información. No olvide reemplazar `<your-storage-account-name>` y `<your-resource-group-name>` por los nombres correspondientes de su cuenta de almacenamiento.
 
     ```powershell
     $resourceGroupName = "<your-resource-group-name>"
     $storageAccountName = "<your-storage-account-name>"
 
-    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
+    # This command requires you to be logged into your Azure account, run Login-AzAccount if you haven't
     # already logged in.
     $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
 
@@ -295,13 +298,13 @@ Set-ItemProperty -Path "HKLM:\SYSTEM\CurrentControlSet\Services\LanmanServer\Par
 Después de crear esta clave del Registro, debe reiniciar el servidor para deshabilitar SMB 1.
 
 ### <a name="smb-resources"></a>Recursos de SMB
-- [Stop using SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/) (Dejar de usar SMB1)
-- [SMB 1 Product Clearinghouse](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/) (Centro de enrutamiento de productos de SMB 1)
-- [Discover SMB 1 in your environment with DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/) (Detección de SMB 1 en el entorno con DSCEA)
-- [Disabling SMB 1 through Group Policy](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/) (Deshabilitación de SMB 1 mediante directiva de grupo)
+- [Dejar de usar SMB 1](https://blogs.technet.microsoft.com/filecab/2016/09/16/stop-using-smb1/)
+- [Centro de activación SMB 1 producto](https://blogs.technet.microsoft.com/filecab/2017/06/01/smb1-product-clearinghouse/)
+- [Detectar SMB 1 en su entorno con DSCEA](https://blogs.technet.microsoft.com/ralphkyttle/2017/04/07/discover-smb1-in-your-environment-with-dscea/)
+- [Deshabilitar SMB 1 a través de la directiva de grupo](https://blogs.technet.microsoft.com/secguide/2017/06/15/disabling-smbv1-through-group-policy/)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los vínculos siguientes para más información sobre Azure Files:
 - [Planeamiento de una implementación de Azure Files](storage-files-planning.md)
-- [P+F](../storage-files-faq.md)
+- [Preguntas más frecuentes](../storage-files-faq.md)
 - [Solución de problemas en Windows](storage-troubleshoot-windows-file-connection-problems.md)      

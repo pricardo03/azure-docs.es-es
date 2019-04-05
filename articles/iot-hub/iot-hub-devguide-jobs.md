@@ -3,17 +3,17 @@ title: Conceptos de trabajos de IoT Hub de Azure | Microsoft Docs
 description: 'Guía de desarrollador: programación de trabajos para su ejecución en varios dispositivos conectados al centro de IoT Hub. Trabajos pueden actualizar las etiquetas y propiedades que desee y llamar a métodos directas en varios dispositivos.'
 author: robinsh
 manager: philmea
-ms.author: robin.shahan
+ms.author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 10/09/2018
-ms.openlocfilehash: c2b05b1854b4f1d7ee4ac65ebe635330ba8c604e
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: aacb0ab69dad45f9ca7655daaae0c2acff0403f5
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011371"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044379"
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Programación de trabajos en varios dispositivos
 
@@ -32,7 +32,7 @@ Le recomendamos que tenga en cuenta la posibilidad de usar trabajos cuando neces
 Los trabajos se inician mediante el back-end de solución y se mantienen mediante IoT Hub. Puede iniciar un trabajo a través de un URI orientado a servicios (`PUT https://<iot hub>/jobs/v2/<jobID>?api-version=2018-06-30`) y una consulta para el progreso de un trabajo en ejecución a través de un URI orientado a servicios (`GET https://<iot hub>/jobs/v2/<jobID?api-version=2018-06-30`). Para actualizar el estado de los trabajos en ejecución una vez que se inicia un trabajo, ejecute una consulta de trabajo.
 
 > [!NOTE]
-> Cuando se inicia un trabajo, los valores y los nombres de propiedad solo pueden contener caracteres alfanuméricos US-ASCII imprimibles, excepto los del siguiente conjunto: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
+> Cuando se inicia un trabajo, los nombres de propiedad y valores solo pueden contener US-ASCII imprimibles caracteres alfanuméricos, excepto los del siguiente conjunto: `$ ( ) < > @ , ; : \ " / [ ] ? = { } SP HT`
 
 ## <a name="jobs-to-execute-direct-methods"></a>Trabajos para ejecutar métodos directos
 
@@ -118,10 +118,10 @@ La siguiente lista muestra las propiedades y las descripciones correspondientes,
 | **jobId** |Id. proporcionado de la aplicación para el trabajo. |
 | **startTime** |Hora de inicio proporcionada de la aplicación (ISO 8601) para el trabajo. |
 | **endTime** |Fecha proporcionada de IoT Hub (ISO 8601) cuando hay un trabajo completado. Válido solo después de que el trabajo alcance el estado 'completado'. |
-| **type** |Tipos de trabajos: |
+| **Tipo** |Tipos de trabajos: |
 | | **scheduledUpdateTwin**: Un trabajo que se usa para actualizar un conjunto de propiedades deseadas o etiquetas. |
 | | **scheduledDeviceMethod**: Un trabajo que se utiliza para invocar un método de dispositivo en un conjunto de dispositivos gemelos. |
-| **estado** |Estado actual del trabajo. Posibles valores para el estado: |
+| **status** |Estado actual del trabajo. Posibles valores para el estado: |
 | | **pending**: Programado y en espera para que se tomen el servicio de trabajo. |
 | | **scheduled**: Programado para una hora en el futuro. |
 | | **running**: Trabajo activo actualmente. |
@@ -154,4 +154,4 @@ Otros temas de referencia en la guía del desarrollador de IoT Hub son los sigui
 
 Para probar algunos de los conceptos descritos en este artículo, vea el siguiente tutorial de IoT Hub:
 
-* [Programar y difundir trabajos](iot-hub-node-node-schedule-jobs.md)
+* [Programación y difusión de trabajos](iot-hub-node-node-schedule-jobs.md)

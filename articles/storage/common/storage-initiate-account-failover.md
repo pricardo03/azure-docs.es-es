@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/11/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: f582ef8cca3c36bad40f14026aea1ad422b6106f
-ms.sourcegitcommit: 8ca6cbe08fa1ea3e5cdcd46c217cfdf17f7ca5a7
+ms.openlocfilehash: fd8eecbd20446bfde8d3a7467e2982398c3b8c19
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/22/2019
-ms.locfileid: "56668571"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044970"
 ---
 # <a name="initiate-a-storage-account-failover-preview"></a>Inicio de una conmutación por error de la cuenta de almacenamiento (versión preliminar)
 
@@ -23,6 +23,8 @@ En este artículo se muestra cómo iniciar una conmutación por error de la cuen
 
 > [!WARNING]
 > Una conmutación por error de la cuenta tiene normalmente como resultado la pérdida de datos. Para entender sus implicaciones y prepararse para dicha pérdida de datos, revise [Descripción del proceso de conmutación por error de la cuenta](storage-disaster-recovery-guidance.md#understand-the-account-failover-process).
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -35,7 +37,7 @@ Para poder realizar una conmutación por error de la cuenta, asegúrese de que s
 
 Cuando se inicia una conmutación por error de la cuenta de almacenamiento, se actualizan los registros DNS del punto de conexión secundario para que pase a ser el punto de conexión principal. Asegúrese de comprender el posible efecto para la cuenta de almacenamiento antes de iniciar una conmutación por error.
 
-Para calcular el alcance de la posible pérdida de datos antes de iniciar una conmutación por error, compruebe la propiedad **Hora de la última sincronización** mediante el cmdlet `Get-AzureRmStorageAccount` de PowerShell e incluya el parámetro `-IncludeGeoReplicationStats`. A continuación, compruebe la propiedad `GeoReplicationStats` de su cuenta. 
+Para calcular el alcance de la posible pérdida de datos antes de iniciar una conmutación por error, compruebe la propiedad **Hora de la última sincronización** mediante el cmdlet `Get-AzStorageAccount` de PowerShell e incluya el parámetro `-IncludeGeoReplicationStats`. A continuación, compruebe la propiedad `GeoReplicationStats` de su cuenta. 
 
 Después de la conmutación por error, el tipo de cuenta de almacenamiento se convierte automáticamente en almacenamiento con redundancia local (LRS) en la nueva región primaria. Puede volver a habilitar el almacenamiento con redundancia geográfica (GRS) o el almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) para la cuenta. Tenga en cuenta que la conversión de LRS a GRS o a RA-GRS supone un costo adicional. Para más información, consulte [Detalles de precios de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/). 
 
@@ -104,6 +106,6 @@ az storage account failover \ --name accountName
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Recuperación ante desastres y conmutación por error de la cuenta (versión preliminar) en Azure Storage](storage-disaster-recovery-guidance.md)
+- [Disaster recovery cuenta conmutación por error y (versión preliminar) en Azure Storage](storage-disaster-recovery-guidance.md)
 - [Diseño de aplicaciones de alta disponibilidad mediante RA-GRS](storage-designing-ha-apps-with-ragrs.md)
 - [Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage](../blobs/storage-create-geo-redundant-storage.md) 

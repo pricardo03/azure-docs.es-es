@@ -1,19 +1,18 @@
 ---
 title: Escribir consultas para el Explorador de datos de Azure
 description: En estas instrucciones, aprenderá a realizar consultas básicas y avanzadas para el Explorador de datos de Azure.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 8afb829f806ab55a069ded9cb7198f66368e8720
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6a764c5051aad9123c605ae51807117ef75a7047
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758688"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048493"
 ---
 # <a name="write-queries-for-azure-data-explorer"></a>Escribir consultas para el Explorador de datos de Azure
 
@@ -902,7 +901,7 @@ StormEvents
 
 [**complemento funnel_sequence_completion**](https://docs.microsoft.com/azure/kusto/query/funnel-sequence-completion-plugin): calcula el embudo de los pasos de la secuencia completados dentro de diferentes períodos de tiempo.
 
-La siguiente consulta comprueba el embudo de finalización de la secuencia: `Hail -> Tornado -> Thunderstorm -> Wind` en momentos "generales" de una hora, cuatro horas y un día (`[1h, 4h, 1d]`).
+La consulta siguiente comprueba el embudo de finalización de la secuencia: `Hail -> Tornado -> Thunderstorm -> Wind` en momentos "generales" de una hora, cuatro horas y un día (`[1h, 4h, 1d]`).
 
 **\[**[**Haga clic para ejecutar la consulta**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA12QTYvCMBCG74L/YW6tkIV2XT9g8SjsnlvwICKhM9JAOqlJqrj4402CW0RIIB/PPLwzmjwcnZfWwwZQevKqo/yzKFYfRRnW7Hs60ZEhxjdi/UZcFaO5VuqPAjhfLvD/w9F5IG7iM95YdqrJ99mPVDoTkNXGskSTju3ASNZ5Y7t43wVhdhj9PVll0L1aylbAV9glJqyKldsLsXfTyR3oIvUQAsNpYCY95jg2puuDUhnOt71yBukXBVRxCnVoTjwnIlLX4rUzAUlf3/pEPYViDDd7AOyqowFQAQAA)**\]**
 
@@ -949,4 +948,4 @@ El ejemplo siguiente elimina la función que se creó en el primer paso.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Referencia de idioma de consulta de Kusto](https://aka.ms/kustolangref)
+[Referencia del lenguaje de consulta de Kusto](https://aka.ms/kustolangref)

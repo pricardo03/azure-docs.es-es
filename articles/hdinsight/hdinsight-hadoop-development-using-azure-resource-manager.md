@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: hrasheed
-ms.openlocfilehash: 501f215ae3daf24db6307b4f8afb0c7d3271d8a5
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 2c64019ae667ff4a2ce0694ffc4a9cd69b9116b3
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361870"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048926"
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migración a las herramientas de desarrollo basadas en Azure Resource Manager para clústeres de HDInsight
 
@@ -32,10 +32,10 @@ HDInsight está abandonando el uso de herramientas basadas en Azure Service Mana
 
 Estos son los comandos básicos para trabajar con HDInsight mediante la CLI de Azure clásica:
 
-* `azure hdinsight cluster create` : crea un clúster de HDInsight
-* `azure hdinsight cluster delete` : elimina un clúster de HDInsight que ya existe
-* `azure hdinsight cluster show` : muestra información acerca de un clúster que ya existe
-* `azure hdinsight cluster list` : enumera los clústeres de HDInsight para la suscripción de Azure
+* `azure hdinsight cluster create` -crea un nuevo clúster de HDInsight
+* `azure hdinsight cluster delete` -elimina un clúster de HDInsight existente
+* `azure hdinsight cluster show` -Mostrar información acerca de un clúster existente
+* `azure hdinsight cluster list` -Enumera los clústeres de HDInsight para su suscripción de Azure
 
 Utilice el conmutador `-h` para inspeccionar los parámetros y conmutadores disponibles para cada comando.
 
@@ -43,17 +43,17 @@ Utilice el conmutador `-h` para inspeccionar los parámetros y conmutadores disp
 Los nuevos comandos disponibles con Azure Resource Manager son:
 
 * `azure hdinsight cluster resize` : cambia dinámicamente el número de nodos de trabajo del clúster
-* `azure hdinsight cluster enable-http-access` : habilita el acceso HTTP al clúster (de forma predeterminada)
-* `azure hdinsight cluster disable-http-access` : deshabilita el acceso HTTP al clúster
-* `azure hdinsight script-action`: proporciona comandos para crear y administrar las acciones de script en un clúster
-* `azure hdinsight config`: proporciona comandos para crear un archivo de configuración que se puede usar con el comando `hdinsight cluster create` para proporcionar información de configuración.
+* `azure hdinsight cluster enable-http-access` -habilita el acceso HTTP al clúster (de forma predeterminada)
+* `azure hdinsight cluster disable-http-access` -deshabilita el acceso HTTP al clúster
+* `azure hdinsight script-action` -proporciona comandos para crear y administrar las acciones de Script en un clúster
+* `azure hdinsight config` -proporciona comandos para crear un archivo de configuración que se puede usar con el `hdinsight cluster create` comando para proporcionar información de configuración.
 
 ### <a name="deprecated-commands"></a>Comandos en desuso
 Si utiliza los comandos `azure hdinsight job` para enviar trabajos al clúster de HDInsight, estos comandos no estarán disponibles a través de los comandos de Resource Manager. Si necesita enviar trabajos a HDInsight mediante programación desde scripts, debe usar las API de REST proporcionadas por HDInsight. Para más información sobre el envío de trabajos mediante las API de REST, consulte los siguientes documentos.
 
-* [Ejecución de trabajos de MapReduce con Hadoop en HDInsight con Curl](hadoop/apache-hadoop-use-mapreduce-curl.md)
-* [Ejecución de consultas de Apache Hive con Apache Hadoop en HDInsight mediante cURL](hadoop/apache-hadoop-use-hive-curl.md)
-* [Ejecución de trabajos de Apache Pig con Apache Hadoop en HDInsight mediante cURL](hadoop/apache-hadoop-use-pig-curl.md)
+* [Ejecutar trabajos de MapReduce con Hadoop en HDInsight con cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
+* [Ejecutar consultas de Apache Hive con Hadoop Apache en HDInsight con cURL](hadoop/apache-hadoop-use-hive-curl.md)
+* [Ejecutar trabajos de Apache Pig con Hadoop Apache en HDInsight con cURL](hadoop/apache-hadoop-use-pig-curl.md)
 
 Para más información sobre otras formas de ejecutar Apache Hadoop MapReduce, Apache Hive y Apache Pig interactivamente, consulte [Uso de MapReduce con Hadoop en HDInsight](hadoop/hdinsight-use-mapreduce.md), [Uso de Apache Hive con Apache Hadoop en HDInsight](hadoop/hdinsight-use-hive.md) y [Uso de Apache Pig con Apache Hadoop en HDInsight](hadoop/hdinsight-use-pig.md).
 
@@ -63,7 +63,7 @@ Para más información sobre otras formas de ejecutar Apache Hadoop MapReduce, A
 * Comando anterior (ASM): `azure hdinsight cluster create myhdicluster --location northeurope --osType linux --storageAccountName mystorage --storageAccountKey <storagekey> --storageContainer mycontainer --userName admin --password mypassword --sshUserName sshuser --sshPassword mypassword`
 * Nuevo comando: `azure hdinsight cluster create myhdicluster -g myresourcegroup --location northeurope --osType linux --clusterType hadoop --defaultStorageAccountName mystorage --defaultStorageAccountKey <storagekey> --defaultStorageContainer mycontainer --userName admin -password mypassword --sshUserName sshuser --sshPassword mypassword`
 
-**Eliminación de un cluster**
+**Al eliminar un clúster**
 
 * Comando anterior (ASM): `azure hdinsight cluster delete myhdicluster`
 * Nuevo comando: `azure hdinsight cluster delete mycluster -g myresourcegroup`
@@ -76,7 +76,7 @@ Para más información sobre otras formas de ejecutar Apache Hadoop MapReduce, A
 > [!NOTE]  
 > Para el comando list, si especifica el grupo de recursos mediante `-g` devolverá solo los clústeres del grupo de recursos especificado.
 
-**Presentación de la información de clúster**
+**Mostrar información del clúster**
 
 * Comando anterior (ASM): `azure hdinsight cluster show myhdicluster`
 * Nuevo comando: `azure hdinsight cluster show myhdicluster -g myresourcegroup`
@@ -94,7 +94,7 @@ Para poder usar los cmdlets de HDInsight, debe conectarse a su cuenta de Azure y
 ### <a name="renamed-cmdlets"></a>Cmdlets cuyo nombre ha cambiado
 Para enumerar los cmdlets de ASM para HDInsight en la consola de Windows PowerShell:
 
-    help *azurermhdinsight*
+    help *azurehdinsight*
 
 En la tabla siguiente se enumeran los cmdlets de ASM y sus nombres en el modo de Resource Manager:
 
@@ -131,7 +131,7 @@ En la tabla siguiente se enumeran los cmdlets de ASM y sus nombres en el modo de
 ### <a name="new-cmdlets"></a>Nuevos cmdlets
 Los siguientes son los nuevos cmdlets que solo están disponibles en el modo de Resource Manager. 
 
-**Cmdlets relacionados con acciones de script:**
+**Cmdlets relacionados con la acción de secuencia de comandos:**
 
 * **Get-AzHDInsightPersistedScriptAction**: obtiene las acciones de script persistentes para un clúster y las muestra en orden cronológico u obtiene detalles de una acción de script persistente concreta. 
 * **Get-AzHDInsightScriptActionHistory**: obtiene el historial de una acción de script para un clúster y los datos se enumeran en orden cronológico inverso u obtiene detalles de una acción de script ejecutada anteriormente. 
@@ -214,8 +214,8 @@ Nuevo comando:
 #### <a name="other-samples"></a>Otros ejemplos
 * [Creación de clústeres de HDInsight](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
 * [Envío de trabajos de Apache Hive](hadoop/apache-hadoop-use-hive-powershell.md)
-* [Envío de trabajos de Apache Pig](hadoop/apache-hadoop-use-pig-powershell.md)
-* [Envío de trabajos de Apache Sqoop](hadoop/apache-hadoop-use-sqoop-powershell.md)
+* [Enviar trabajos de Pig de Apache](hadoop/apache-hadoop-use-pig-powershell.md)
+* [Enviar trabajos de Sqoop de Apache](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## <a name="migrating-to-the-new-hdinsight-net-sdk"></a>Migración al nuevo SDK de .NET de HDInsight
 El [SDK de .NET de HDInsight](https://msdn.microsoft.com/library/azure/mt416619.aspx) basado en Azure Service Management (ASM) ya está en desuso. Se recomienda utilizar el [SDK de .NET de HDInsight basado en Resource Manager](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight). Los siguientes paquetes de HDInsight basado en ASM quedarán obsoletos.
@@ -347,7 +347,7 @@ A continuación se muestran algunos ejemplos de cómo se realiza una operación 
         };
         client.Clusters.ConfigureHttpSettings(resourceGroup, dnsname, httpParams);
 
-**Eliminación de un cluster**
+**Al eliminar un clúster**
 
 * Comando anterior (ASM)
   

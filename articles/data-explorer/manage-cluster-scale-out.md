@@ -1,19 +1,18 @@
 ---
-title: Escalado del clúster del Explorador de datos de Azure para ajustarse a los cambios en la demanda
+title: Escalar horizontalmente un clúster del explorador de datos de Azure para dar cabida a cambios en la demanda
 description: En este artículo se describe los pasos para el escalado horizontal y vertical en un clúster del explorador de datos de Azure basado en la variable a petición.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
-services: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 9b54bf182f23eceb47c392059ff52c04bf0a8aed
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: ab4ced6695e6066098dd5ff7348528deedfc0e1b
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755068"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044241"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Administración del escalado horizontal de clúster para ajustarse a los cambios en la demanda
 
@@ -44,18 +43,18 @@ En el gráfico siguiente se muestra el flujo de los pasos siguientes. Obtener m�
     | Configuración | Descripción y valor |
     | --- | --- |
     | **Agregación de tiempo** | Seleccione un criterio de agregación, como **Promedio**. |
-    | **Nombre de la métrica** | Seleccione la métrica en la que quiera que se base la operación de escalado, como **Cache Utilization**. |
+    | **Nombre de métrica** | Seleccione la métrica en la que quiera que se base la operación de escalado, como **Cache Utilization**. |
     | **Estadísticas de intervalo de agregación** | Elija entre **Promedio**, **Mínimo**, **Máximo** y **Suma**. |
     | **Operador** | Elija la opción adecuada, como **Mayor o igual que**. |
     | **Umbral** | Elija un valor apropiado. Por ejemplo, para la utilización de memoria caché, el 80 por ciento es un buen punto de partida. |
     | **Duración (en minutos)** | Elija un período apropiado para que el sistema busque al calcular las métricas. Comience con el valor predeterminado de 10 minutos. |
     |  |  |
 
-    **Acción**
+    **.**
 
     | Configuración | Descripción y valor |
     | --- | --- |
-    | **operación** | Elija la opción adecuada para reducir o escalar horizontalmente. |
+    | **Operación** | Elija la opción adecuada para reducir o escalar horizontalmente. |
     | **Recuento de instancias** | Elija el número de nodos o instancias que quiere agregar o quitar cuando se cumpla una condición de métrica. |
     | **Tiempo de finalización (minutos)** | Elija un intervalo de tiempo adecuado para esperar entre las operaciones de escalado. Comience con el valor predeterminado de cinco minutos. |
     |  |  |
@@ -66,8 +65,8 @@ En el gráfico siguiente se muestra el flujo de los pasos siguientes. Obtener m�
 
     | Configuración | Descripción y valor |
     | --- | --- |
-    | **Mínimo** | Número de instancias por debajo del cual el clúster no se escalará, independientemente del uso. |
-    | **Máximo** | Número de instancias por encima del cual el clúster no se escalará, independientemente del uso. |
+    | **Mínima** | Número de instancias por debajo del cual el clúster no se escalará, independientemente del uso. |
+    | **Máxima** | Número de instancias por encima del cual el clúster no se escalará, independientemente del uso. |
     | **Valor predeterminado** | El número predeterminado de instancias. Esta configuración se utiliza si hay problemas con la lectura de las métricas de recursos. |
     |  |  |
 

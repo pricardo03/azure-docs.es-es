@@ -3,17 +3,17 @@ title: Conceptos de seguridad del servicio Azure IoT Hub Device Provisioning | M
 description: Describe conceptos del aprovisionamiento de la seguridad específicos de dispositivos con el servicio Azure IoT Hub Device Provisioning
 author: nberdy
 ms.author: nberdy
-ms.date: 03/30/2018
+ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: briz
-ms.openlocfilehash: 92a30f0754decc3052bf53a64da13325ddc4f954
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 7835553dafd66830b7a483c58bc2c7b7cf8c93f8
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946568"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046907"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>Conceptos de seguridad del servicio Azure IoT Hub Device Provisioning 
 
@@ -29,7 +29,7 @@ El mecanismo de atestación es el método utilizado para confirmar la identidad 
 El servicio de aprovisionamiento de dispositivos admite las siguientes formas de atestación:
 * **Certificados X.509** basado en el flujo de autenticación de certificados X.509 estándar.
 * **Módulo de plataforma segura (TPM)** basado en un desafío nonce, utilizando el estándar TPM para las claves para presentar un token de Firma de acceso compartido (SAS) firmado. Esta forma de atestación no requiere un módulo de plataforma segura (TPM) físico en el dispositivo, pero el servicio espera realizar la atestación mediante la clave de aprobación para cada [especificación de TPM](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/).
-* **Clave simétrica**, basada en los [tokens de seguridad](../iot-hub/iot-hub-devguide-security.md#security-tokens) de las firmas de acceso compartido (SAS), los cuales incluyen una firma hash y una fecha de expiración insertada. Para obtener más información, consulte [Symmetric key attestation](concepts-symmetric-key-attestation.md) (Atestación de clave simétrica).
+* **Clave simétrica**, basada en los [tokens de seguridad](../iot-hub/iot-hub-devguide-security.md#security-tokens) de las firmas de acceso compartido (SAS), los cuales incluyen una firma hash y una fecha de expiración insertada. Para más información, consulte [Symmetric key attestation](concepts-symmetric-key-attestation.md) (Atestación de clave simétrica).
 
 
 ## <a name="hardware-security-module"></a>Módulo de seguridad de hardware

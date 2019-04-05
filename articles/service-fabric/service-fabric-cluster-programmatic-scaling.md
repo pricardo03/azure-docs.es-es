@@ -14,16 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: ff02f79321823e42c25897e9de30dfbb6fac46b0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 552c9820cca4380c00e1bf435fdb3d068c0690fb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949629"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047946"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Escalado mediante programación de un clúster de Service Fabric 
 
 Los clústeres de Service Fabric que se ejecutan en Azure se basan en conjuntos de escalado de máquinas virtuales.  En el artículo de [escalado de clústeres](./service-fabric-cluster-scale-up-down.md) se describe la manera de escalar los clústeres de Service Fabric, ya sea manualmente o con reglas de escalado automático. En este artículo se describe cómo administrar las credenciales y reducir o escalar horizontalmente un clúster en mediante el SDK de proceso fluido de Azure, que es un escenario más avanzado. Para una introducción, lea la sección de [métodos de programación para coordinar las operaciones de escalado de Azure](service-fabric-cluster-scaling.md#programmatic-scaling). 
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="manage-credentials"></a>Administración de credenciales
 Una dificultad que se presenta al escribir un servicio para controlar el escalado es que el servicio tiene que tener acceso a recursos de conjunto de escalado de máquinas virtuales sin un inicio de sesión interactivo. El acceso al clúster de Service Fabric es fácil si el servicio de escalado está modificando su propia aplicación de Service Fabric, pero se requieren credenciales para tener acceso al conjunto de escalado. Para iniciar sesión, puede usar una [entidad de servicio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli) creada con la [CLI de Azure](https://github.com/azure/azure-cli).
@@ -31,9 +34,9 @@ Una dificultad que se presenta al escribir un servicio para controlar el escalad
 Una entidad de servicio se puede crear con los pasos siguientes:
 
 1. Inicie sesión en la CLI de Azure (`az login`) como un usuario con acceso al conjunto de escalado de máquinas virtuales
-2. Cree la entidad de servicio con `az ad sp create-for-rbac`
+2. Crear entidad con el servicio `az ad sp create-for-rbac`
     1. Anote el appId (denominado "ID de cliente" en otros lugares), el nombre, la contraseña y el inquilino para su uso posterior.
-    2. También necesitará el identificador de suscripción, que se puede ver con `az account list`
+    2. También necesitará el identificador de suscripción, que puede verse con `az account list`
 
 Se puede iniciar sesión en la biblioteca de proceso fluida puede con estas credenciales de la siguiente forma (tenga en cuenta que los tipos de Azure fluidos principales como `IAzure` se encuentran en el paquete [Microsoft.Azure.Management.Fluent](https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/)):
 
@@ -65,7 +68,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-Como alternativa, el tamaño del conjunto de escalado de máquinas virtuales también puede administrarse con cmdlets de PowerShell. [`Get-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss) puede recuperar el objeto del conjunto de escalado de máquinas virtuales. La capacidad actual está disponible a través de la propiedad `.sku.capacity`. Después de cambiarla capacidad al valor deseado, el conjunto de escalado de máquinas virtuales en Azure puede actualizarse con el comando [`Update-AzureRmVmss`](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss).
+Como alternativa, el tamaño del conjunto de escalado de máquinas virtuales también puede administrarse con cmdlets de PowerShell. [`Get-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/get-azvmss) puede recuperar el objeto del conjunto de escalado de máquinas virtuales. La capacidad actual está disponible a través de la propiedad `.sku.capacity`. Después de cambiarla capacidad al valor deseado, el conjunto de escalado de máquinas virtuales en Azure puede actualizarse con el comando [`Update-AzVmss`](https://docs.microsoft.com/powershell/module/az.compute/update-azvmss).
 
 Tal y como cuando se agrega manualmente un nodo, agregar una instancia de conjunto de escalado debe ser todo lo que se necesita para iniciar un nuevo nodo de Service Fabric, ya que la plantilla de conjunto de escalado incluye extensiones para unir automáticamente nuevas instancias al clúster de Service Fabric. 
 

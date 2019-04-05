@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: aljo
-ms.openlocfilehash: feea57122d805ae065278458f90afbc960221a9d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: d5aa09f3ff899766e6eb6d1784e4417f7b48eac0
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670258"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049904"
 ---
 # <a name="service-fabric-networking-patterns"></a>Patrones de redes de Service Fabric
 Puede integrar el clúster de Azure Service Fabric con otras características de red de Azure. En este artículo se muestra cómo crear clústeres que usan las siguientes características:
@@ -34,6 +34,9 @@ Service Fabric se ejecuta en un conjunto de escalado de máquinas virtuales est�
 Service Fabric es único en relación con otras características de red en un aspecto. [Azure Portal](https://portal.azure.com) usa internamente el proveedor de recursos de Service Fabric para llamar a un clúster con el fin de obtener información de los nodos y las aplicaciones. El proveedor de recursos de Service Fabric requiere acceso de entrada público al puerto de la puerta de enlace HTTP (puerto 19080 de forma predeterminada) en el punto de conexión de administración. [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) utiliza el punto de conexión de administración para administrar el clúster. Este puerto también lo emplea el proveedor de recursos de Service Fabric para consultar información sobre el clúster con el fin de que se muestre en Azure Portal. 
 
 Si el puerto 19080 no es accesible desde el proveedor de recursos de Service Fabric, aparecerá un mensaje del tipo *No se encontraron los nodos* en el portal, y la lista de nodos y aplicaciones aparecerá vacía. Si desea ver el clúster en Azure Portal, el equilibrador de carga debe exponer una dirección IP pública y el grupo de seguridad de red debe permitir el tráfico entrante en el puerto 19080. Si no se cumplen estos requisitos de configuración, Azure Portal no mostrará el estado del clúster.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="templates"></a>Plantillas
 
@@ -51,7 +54,7 @@ En el ejemplo siguiente, vamos a empezar con una red virtual existente denominad
 Una dirección IP pública estática es normalmente un recurso dedicado que se administra de forma independiente de las máquinas virtuales a las que está asignada. Se aprovisiona en un grupo de recursos de red dedicado (en contraposición al aprovisionamiento en el grupo de recursos del clúster de Service Fabric en sí). Cree una dirección IP pública estática con el nombre "staticIP1" en el mismo grupo de recursos ExistingRG, ya sea a través de Azure Portal o mediante PowerShell:
 
 ```powershell
-PS C:\Users\user> New-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
+PS C:\Users\user> New-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG -Location westus -AllocationMethod Static -DomainNameLabel sfnetworking
 
 Name                     : staticIP1
 ResourceGroupName        : ExistingRG
@@ -166,8 +169,8 @@ En los ejemplos de este artículo, usamos el archivo template.json de Service Fa
 6. Implemente la plantilla:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingexistingvnet -Location westus
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
+    New-AzResourceGroup -Name sfnetworkingexistingvnet -Location westus
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingexistingvnet -TemplateFile C:\SFSamples\Final\template\_existingvnet.json
     ```
 
     Después de la implementación, la red virtual debe incluir las nuevas máquinas virtuales del conjunto de escalado. El tipo de nodo del conjunto de escalado de máquinas virtuales debe mostrar la red virtual y la subred existentes. También puede usar el protocolo de escritorio remoto (RDP) para tener acceso a la máquina virtual que se encontraba ya en la red virtual y hacer ping en las nuevas máquinas virtuales del conjunto de escalado:
@@ -276,13 +279,13 @@ Para obtener otro ejemplo, consulte [uno que no es específico de Service Fabric
 8. Implemente la plantilla:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkingstaticip -Location westus
+    New-AzResourceGroup -Name sfnetworkingstaticip -Location westus
 
-    $staticip = Get-AzureRmPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
+    $staticip = Get-AzPublicIpAddress -Name staticIP1 -ResourceGroupName ExistingRG
 
     $staticip
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkingstaticip -TemplateFile C:\SFSamples\Final\template\_staticip.json -existingStaticIPResourceGroup $staticip.ResourceGroupName -existingStaticIPName $staticip.Name -existingStaticIPDnsFQDN $staticip.DnsSettings.Fqdn
     ```
 
 Después de la implementación, puede ver que el equilibrador de carga está enlazado a la dirección IP estática pública del otro grupo de recursos. El punto de conexión del cliente de Service Fabric y [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) apuntan al FQDN de DNS de la dirección IP estática.
@@ -378,9 +381,9 @@ Este escenario reemplaza el equilibrador de carga externo en la plantilla predet
 7. Implemente la plantilla:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternallb -Location westus
+    New-AzResourceGroup -Name sfnetworkinginternallb -Location westus
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternallb -TemplateFile C:\SFSamples\Final\template\_internalonlyLB.json
     ```
 
 Después de la implementación, el equilibrador de carga usará la dirección IP privada estática 10.0.0.250. Si tiene otra máquina en esa misma red virtual puede ir al punto de conexión interno de [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md). Tenga en cuenta que se conecta a uno de los nodos detrás del equilibrador de carga.
@@ -595,9 +598,15 @@ En un clúster de dos tipos de nodo, un tipo de nodo está en el equilibrador de
 7. Implemente la plantilla:
 
     ```powershell
-    New-AzureRmResourceGroup -Name sfnetworkinginternalexternallb -Location westus
+    New-AzResourceGroup -Name sfnetworkinginternalexternallb -Location westus
 
-    New-AzureRmResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
+    New-AzResourceGroupDeployment -Name deployment -ResourceGroupName sfnetworkinginternalexternallb -TemplateFile C:\SFSamples\Final\template\_internalexternalLB.json
+    ```
+
+Después de la implementación, puede ver dos de equilibradores de carga en el grupo de recursos. Si examina los equilibradores de carga, puede ver la dirección IP pública y los puntos de conexión de administración (puertos 19000 y 19080) asignados a la dirección IP pública. También puede ver la dirección IP interna estática y el punto de conexión de la aplicación (puerto 80) asignados al equilibrador de carga interno. Ambos equilibradores de carga usan el mismo grupo de back-end de conjunto de escalado de máquinas virtuales.
+
+## <a name="next-steps"></a>Pasos siguientes
+[Crear un clúster](service-fabric-cluster-creation-via-arm.md) ternalLB.json
     ```
 
 Después de la implementación, puede ver dos de equilibradores de carga en el grupo de recursos. Si examina los equilibradores de carga, puede ver la dirección IP pública y los puntos de conexión de administración (puertos 19000 y 19080) asignados a la dirección IP pública. También puede ver la dirección IP interna estática y el punto de conexión de la aplicación (puerto 80) asignados al equilibrador de carga interno. Ambos equilibradores de carga usan el mismo grupo de back-end de conjunto de escalado de máquinas virtuales.

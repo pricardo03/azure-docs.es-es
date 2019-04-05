@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/21/2018
 ms.author: srrengar
-ms.openlocfilehash: ec66a4fdffcff2d2ff7c11c969900c8b12dda755
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 20fa8945f01a3431d2fd78d545c43d6215c83f56
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669702"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049462"
 ---
 # <a name="performance-monitoring-with-the-windows-azure-diagnostics-extension"></a>Supervisión del rendimiento con la extensión de Microsoft Azure Diagnostics
 
@@ -27,6 +27,9 @@ Este documento incluye los pasos necesarios para configurar los contadores de re
 
  > [!NOTE]
 > Se debe implementar la extensión de Microsoft Azure Diagnostics en el clúster para que estos pasos funcionen. Si no está configurado, diríjase a [Recopilación y agregación de eventos con Azure Diagnostics de Windows](service-fabric-diagnostics-event-aggregation-wad.md).  
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="collect-performance-counters-via-the-wadcfg"></a>Recopilación de contadores de rendimiento a través de WadCfg
 
@@ -192,10 +195,10 @@ Este es un ejemplo de una configuración con el contador para la *Tiempo total d
  >[!NOTE]
  >Aunque puede utilizar `*` para especificar grupos de contadores de rendimiento con nombres similares, el envío de todos los contadores a través de un receptor (para Application Insights) requiere que se declaren individualmente. 
 
-1. Una vez que haya agregado los contadores de rendimiento adecuados que se deben recopilar, debe actualizar el recurso de clúster de manera que estos cambios se reflejan en el clúster de ejecución. Guarde su `template.json` modificado y abra PowerShell. Puede actualizar el clúster con `New-AzureRmResourceGroupDeployment`. La llamada requiere el nombre del grupo de recursos, el archivo de plantilla actualizado y el archivo de parámetro, y solicita a Resource Manager realizar los cambios adecuados en los recursos que se ha actualizado. Una vez que haya iniciado sesión en su cuenta y esté en la suscripción correcta, utilice el siguiente comando para ejecutar la actualización:
+1. Una vez que haya agregado los contadores de rendimiento adecuados que se deben recopilar, debe actualizar el recurso de clúster de manera que estos cambios se reflejan en el clúster de ejecución. Guarde su `template.json` modificado y abra PowerShell. Puede actualizar el clúster con `New-AzResourceGroupDeployment`. La llamada requiere el nombre del grupo de recursos, el archivo de plantilla actualizado y el archivo de parámetro, y solicita a Resource Manager realizar los cambios adecuados en los recursos que se ha actualizado. Una vez que haya iniciado sesión en su cuenta y esté en la suscripción correcta, utilice el siguiente comando para ejecutar la actualización:
 
     ```sh
-    New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
+    New-AzResourceGroupDeployment -ResourceGroupName <ResourceGroup> -TemplateFile <PathToTemplateFile> -TemplateParameterFile <PathToParametersFile> -Verbose
     ```
 
 1. Una vez que la actualización finalice la implementación (tarda entre 15 y 45 minutos en función de si se trata de la primera implementación y del tamaño del grupo de recursos), WAD debería recopilar los contadores de rendimiento y enviarlos a una tabla denominada WADPerformanceCountersTable en la cuenta de almacenamiento asociada al clúster. Para ver los contadores de rendimiento en Application Insights, [agregue el receptor de AI a la plantilla de Resource Manager](service-fabric-diagnostics-event-aggregation-wad.md#add-the-application-insights-sink-to-the-resource-manager-template).
@@ -203,4 +206,4 @@ Este es un ejemplo de una configuración con el contador para la *Tiempo total d
 ## <a name="next-steps"></a>Pasos siguientes
 * Recopile más contadores de rendimiento para el clúster. Vea [Métricas de rendimiento](service-fabric-diagnostics-event-generation-perf.md) para obtener una lista de contadores que debe recopilar.
 * [Use la supervisión y diagnóstico con una máquina virtual Windows y plantillas de Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md) para realizar más modificaciones en `WadCfg`, incluida la configuración de cuentas de almacenamiento adicionales a la que enviar datos de diagnóstico.
-* Visite el [generador de WadCfg](https://azure.github.io/azure-diagnostics-tools/config-builder/) para compilar una plantilla desde cero y asegúrese de que la sintaxis sea correcta.
+* Visite el [WadCfg generador](https://azure.github.io/azure-diagnostics-tools/config-builder/) para generar una plantilla desde cero y asegúrese de que la sintaxis es correcta. () https://azure.github.io/azure-diagnostics-tools/config-builder/) para generar una plantilla desde cero y asegúrese de que la sintaxis es correcta.
