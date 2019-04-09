@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 82755f01cc881703eeefb6415b2e8e87e50fba60
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: f71fe9b02765e0fc8fd5f3b7abbd54c87b08132f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652389"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264070"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Visualización y descarga de la factura de Microsoft Azure
 
@@ -135,15 +135,15 @@ Si tiene alguna pregunta o necesita ayuda, [crear una solicitud de soporte técn
 
 Para obtener más información acerca de la factura y los cargos, consulte:
 
-- [Ver y descargar los cargos y el uso de Microsoft Azure](billing-download-azure-daily-usage.md)
+- [Visualización y descarga de los datos de uso y los cargos de Microsoft Azure](billing-download-azure-daily-usage.md)
 - [Comprender la factura de Microsoft Azure](billing-understand-your-bill.md)
 - [Descripción de los términos en la factura de Azure](billing-understand-your-invoice.md)
-- [Descripción de los términos de uso detallados de Microsoft Azure](billing-understand-your-usage.md)
+- [Descripción de los términos en Microsoft Azure detallados de uso](billing-understand-your-usage.md)
 - [Ver los precios de Azure de su organización](billing-ea-pricing.md)
 
 Si tiene un contrato de cliente de Microsoft, consulte:
 
-- [Comprender los cargos en la factura para el perfil de facturación ](billing-mca-understand-your-bill.md)
+- [Comprender los cargos en la factura para el perfil de facturación](billing-mca-understand-your-bill.md)
 - [Descripción de los términos de la factura para el perfil de facturación](billing-mca-understand-your-invoice.md)
 - [Comprender el archivo de uso y los cargos de Azure para el perfil de facturación](billing-mca-understand-your-usage.md)
 - [Ver y descargar documentos de impuestos para el perfil de facturación](billing-mca-download-tax-document.md)

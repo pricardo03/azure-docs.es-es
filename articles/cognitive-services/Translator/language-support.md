@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/21/2019
 ms.author: v-jansko
-ms.openlocfilehash: 62a4493204fdc09dbd48b1463e5558fabf9c7c40
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 5c41456f1cf661fd372a565885c9196593c894ee
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918049"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267913"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Compatibilidad de idiomas y regiones para Translator Text API
 
@@ -33,7 +33,10 @@ Translator Text API admite los siguientes idiomas para la conversión de texto a
 * Neuronal como sistema predeterminado: el sistema de traducción neuronal es el predeterminado. Utilice el parámetro `category=smt` para acceder al sistema estadístico y utilizarlo con Microsoft Translator Hub.
 * Solo neuronal: la traducción neuronal es la única que está disponible.
 
-**Translator API V3** Translator API V3 utiliza el sistema neuronal de forma predeterminada, por lo que los sistemas estadísticos solamente están disponibles cuando no existe un sistema neuronal. La característica Traductor personalizado solo puede utilizarse con idiomas neuronales. [Ver los idiomas disponibles actualmente en el traductor personalizado](#customization).
+**Translator API V3** Translator API V3 utiliza el sistema neuronal de forma predeterminada, por lo que los sistemas estadísticos solamente están disponibles cuando no existe un sistema neuronal. 
+
+> [!NOTE]
+> Actualmente, un subconjunto de los lenguajes neuronales están disponibles en Translator personalizado y otros que estamos agregando gradualmente. [Ver los idiomas disponibles actualmente en el traductor personalizado](#customization).
 
 |Idioma|  Código de idioma|  API V2| API V3|
 |:-----|:-----:|:-----|:-----|

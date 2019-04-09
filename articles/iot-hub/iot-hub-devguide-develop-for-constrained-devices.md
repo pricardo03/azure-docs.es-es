@@ -7,16 +7,19 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: yizhon
-ms.openlocfilehash: 683f3ca88c349fef31f9647566dbed8a840f94dd
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
-ms.translationtype: HT
+ms.openlocfilehash: 7788bca621a59ec8cdfe36edf73a99efca8c460c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451738"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261401"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Desarrollo para dispositivos restringidos con los SDK para C de Azure IoT
 
 El SDK de Azure IoT Hub para C está escrito en ANSI C (C99), lo que resulta ideal para operar en una variedad de plataformas con pequeña superficie de memoria y de disco. La cantidad de RAM recomendada es al menos de 64 KB, pero la superficie de memoria exacta depende del protocolo utilizado, el número de conexiones abiertas, así como la plataforma de destino.
+> [!NOTE]
+> * Azure SDK IoT para C publica regularmente la información de consumo de recursos para ayudar con el desarrollo.  Visite nuestro [repositorio de GitHub](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md) y revise el banco de pruebas más reciente.
+>
 
 El SDK para C está disponible en forma de paquete desde apt-get, NuGet y MBED. Para tener como destino dispositivos restringidos, puede que desee compilar el SDK de forma local para la plataforma de destino. En esta documentación se muestra cómo eliminar ciertas características para reducir la superficie del SDK para C con [cmake](https://cmake.org/). Además, esta documentación describe los modelos de programación recomendados para trabajar con dispositivos restringidos.
 
@@ -30,7 +33,7 @@ Siga esta [guía de configuración del SDK para C](https://github.com/Azure/azur
 
 ### <a name="remove-additional-protocol-libraries"></a>Eliminación de las bibliotecas de protocolos adicionales
 
-El SDK para C admite cinco protocolos actualmente: MQTT, MQTT sobre WebSocket, AMQPs, AMQP sobre WebSocket y HTTPS. La mayoría de los escenarios requiere uno o dos protocolos en ejecución en un cliente; por lo tanto, puede eliminar las bibliotecas de protocolo que no se usan del SDK. Puede encontrar información adicional acerca de cómo elegir el protocolo de comunicación apropiado para su escenario en [Elegir un protocolo de comunicación para IoT Hub](iot-hub-devguide-protocols.md). Por ejemplo, MQTT es un protocolo ligero que es a menudo más adecuado para dispositivos restringidos.
+SDK de C admite cinco protocolos hoy mismo: MQTT, MQTT sobre WebSocket, AMQPs, AMQP sobre WebSocket y HTTPS. La mayoría de los escenarios requiere uno o dos protocolos en ejecución en un cliente; por lo tanto, puede eliminar las bibliotecas de protocolo que no se usan del SDK. Puede encontrar información adicional acerca de cómo elegir el protocolo de comunicación apropiado para su escenario en [Elegir un protocolo de comunicación para IoT Hub](iot-hub-devguide-protocols.md). Por ejemplo, MQTT es un protocolo ligero que es a menudo más adecuado para dispositivos restringidos.
 
 Puede eliminar las bibliotecas de AMQP y HTTP mediante el siguiente comando de cmake:
 
@@ -79,5 +82,5 @@ Otro conjunto de API sin el índice _LL_ se denomina capa de comodidad, en las q
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información acerca de la arquitectura del SDK de Azure IoT para C:
--   [Código fuente del SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c/)
--   [Introducción al SDK de dispositivo IoT de Azure para C](iot-hub-device-sdk-c-intro.md)
+-   [Código de origen de C SDK IoT de Azure](https://github.com/Azure/azure-iot-sdk-c/)
+-   [Dispositivo de IoT de Azure SDK para la introducción de C](iot-hub-device-sdk-c-intro.md)

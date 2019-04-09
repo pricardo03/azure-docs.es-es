@@ -13,13 +13,13 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.author: jowargo
-ms.date: 01/23/2019
-ms.openlocfilehash: 028e9a2973ed524037f6415d9e802f947458cfa6
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/08/2019
+ms.openlocfilehash: 559dd5ecfa4615e42e4f7ac40008e69c9210e2a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58166776"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260466"
 ---
 # <a name="registration-management"></a>Administración de registros
 
@@ -45,12 +45,12 @@ Una Instalación es un registro mejorado que incluye un conjunto de propiedades 
 Las siguientes son algunas ventajas clave de usar las instalaciones:
 
 - Crear o actualizar una instalación es completamente idempotente. Por lo tanto, puede volver a intentarla sin preocuparse de obtener registros duplicados.
-- El modelo de instalación facilita la realización de inserciones individuales, orientándose a un dispositivo específico. Una etiqueta de instalación **"$InstallationId:[IdentificadordeInstalación]"** se crea automáticamente con cada registro basado en instalación. Por lo tanto, puede llamar un envío a esta etiqueta para orientarse a un dispositivo específico sin tener que realizar ninguna codificación adicional.
+- El modelo de instalación es compatible con un formato de etiqueta especial (`$InstallationId:{INSTALLATION_ID}`) que permite enviar una notificación directamente en el dispositivo específico. Por ejemplo, si el código de la aplicación establece un identificador de instalación de `joe93developer` para este dispositivo concreto, un desarrollador puede tener como destino este dispositivo al enviar una notificación a la `$InstallationId:{joe93developer}` etiqueta. Esto le permite tener como destino un dispositivo específico sin tener que realizar ninguna codificación adicional.
 - El uso de las instalaciones también le permite realizar actualizaciones parciales de registros. La actualización parcial de una instalación se solicita con un método PATCH a través del [estándar JSON-Patch](https://tools.ietf.org/html/rfc6902). Esto resulta útil cuando desea actualizar las etiquetas del registro. No es necesario desplegar todo el registro y reenviar todas las etiquetas anteriores.
 
 Una instalación puede contener las siguientes propiedades. Para una lista completa de las propiedades de instalación, consulte los artículos de [creación o sobreescritura de una instalación con la API REST](https://msdn.microsoft.com/library/azure/mt621153.aspx) o de [propiedades de instalación](https://msdn.microsoft.com/library/azure/microsoft.azure.notificationhubs.installation_properties.aspx).
 
-```javascript
+```json
 // Example installation format to show some supported properties
 {
     installationId: "",
@@ -101,8 +101,7 @@ Cada nombre de plantilla está asignado al cuerpo de una plantilla y a un conjun
 
 En el caso de las aplicaciones cliente de la Tienda Windows, enviar notificaciones a los iconos secundarios es igual que enviarlos al icono principal. Esto también se admite en las instalaciones. Los iconos secundarios tienen un ChannelUri distinto, que el SDK de la aplicación cliente administra sin problemas.
 
-El diccionario SecondaryTiles utiliza el mismo TileId que se usa para crear el objeto SecondaryTiles en la aplicación de la Tienda Windows.
-Al igual que lo que ocurre con el ChannelUri principal, los ChannelUri de los iconos secundarios pueden cambiar en cualquier momento. Para mantener actualizadas las instalaciones en el centro de notificaciones, el dispositivo debe actualizarlas con los ChannelUri actuales de los iconos secundarios.
+El diccionario SecondaryTiles utiliza el mismo TileId que se usa para crear el objeto SecondaryTiles en la aplicación de la Tienda Windows. Al igual que lo que ocurre con el ChannelUri principal, los ChannelUri de los iconos secundarios pueden cambiar en cualquier momento. Para mantener actualizadas las instalaciones en el centro de notificaciones, el dispositivo debe actualizarlas con los ChannelUri actuales de los iconos secundarios.
 
 ## <a name="registration-management-from-the-device"></a>Administración de registros desde el dispositivo
 

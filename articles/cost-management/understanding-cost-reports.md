@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/18/2019
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 92ce35e88cc73c16e3d3670e07ff8b996192b825
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f856aeae74ea285cd6a0326fd225e454a1cbe43
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109821"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265838"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Descripción de los informes de administración de costos de Cloudyn
 
@@ -29,10 +29,10 @@ A continuación se muestra un ejemplo del informe de costo a lo largo del tiempo
 
 Cada área numerada de la imagen anterior se describe detalladamente en la siguiente información:
 
-1. **Date Range** (Intervalo de fechas)
+1. **Intervalo de fecha**
 
     Utilice la lista Date Range para definir un intervalo de tiempo del informe mediante una configuración prefijada o personalizada.
-2. **Saved Filter** (Filtro guardado)
+2. **Filtro guardado**
 
     Utilice la lista Saved Filter para guardar los grupos y filtros actuales que se aplican al informe. Los filtros guardados están disponibles en todos los informes de costos y rendimiento, incluidos los siguientes:
 
@@ -57,7 +57,7 @@ Cada área numerada de la imagen anterior se describe detalladamente en la sigui
 
     La agrupación y el filtrado de etiquetas de asignación de costos están disponibles en la opción del menú **Groups** (Grupos).
 
-4. **Grupos en informes**
+4. **Grupos en los informes**
 
     Utilice grupos en los informes de análisis de costos para mostrar en su informe categorías desglosadas y estándar de los datos de facturación.  Sin embargo, los grupos en los informes de asignación de costos muestran categorías basadas en etiquetas. Las categorías basadas en etiquetas se definen en el modelo de asignación de costos y en las categorías desglosadas estándar de los datos de facturación.
 
@@ -97,7 +97,7 @@ Cada área numerada de la imagen anterior se describe detalladamente en la sigui
        - Seleccione un servicio, varios o todos ellos.
      - **Proveedor**
        - El proveedor de la nube donde están asociados los recursos y los gastos.
-     - **Región**
+     - **Region**
        - Región en la que se hospeda el recurso.
      - **Zona de disponibilidad**
        - Ubicaciones aisladas de AWS dentro de una región.
@@ -105,7 +105,7 @@ Cada área numerada de la imagen anterior se describe detalladamente en la sigui
        - El tipo de recurso en uso.
      - **Subtipo**
        - Seleccione el subtipo.
-     - **operación**
+     - **Operación**
        - Seleccione la operación o **Mostrar todo**.
      - **Modelo de precios**
        - Todo por adelantado
@@ -116,22 +116,22 @@ Cada área numerada de la imagen anterior se describe detalladamente en la sigui
        - Zona
      - **Tipo de gasto**
        - Seleccione el tipo de gasto, negativo o positivo, o ambos.
-     - **Inquilinato**
+     - **Inquilinos**
        - Si una máquina se ejecuta como equipo dedicado o no.
-     - **Tipo de uso**
+     - **Usage Type (Tipo de uso)**
        - El tipo de uso puede ser un pago único o pagos periódicos.
 
 5. **Filtros**
 
     Utilice filtros de selección única o múltiple para establecer rangos a los valores seleccionados. Para establecer un filtro, haga clic en **Add** (Agregar) y seleccione las categorías y los valores del filtro.
 
-6. **Cost Model** (Modelo de costo)
+6. **Modelo de costos**
 
     Utilice Cost Model para seleccionar un modelo de costo creado anteriormente con la asignación de costos 360. Es posible que tenga varios modelos de costos de Cloudyn, dependiendo de los requisitos de asignación de costos. Algunos de los equipos de organización pueden tener requisitos de asignación de costos que difieren de otros. Cada equipo puede tener su propio modelo de costo dedicado.
 
     Para obtener información sobre la creación de una definición de modelo de asignación de costos, consulte la sección [Uso de etiquetas personalizadas para asignar costos](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs).
 
-7. **Amortization** (Amortización)
+7. **Amortización**
 
     Utilice Amortization en los informes de asignación de costos para ver los cargos por servicios no basados en el uso o los costos pagaderos una sola vez y repartir su costo a lo largo del tiempo de manera uniforme durante su vida útil. Ejemplos de cargos únicos podrían incluir:
     - Cargos anuales por soporte técnico
@@ -150,25 +150,25 @@ Cada área numerada de la imagen anterior se describe detalladamente en la sigui
     - Trimestral
     - Anual
 
-9. **Allocation rules** (Reglas de asignación)
+9. **Reglas de asignación**
 
     Utilice Allocation rules para aplicar o deshabilitar el recálculo de los costos de asignación de costos. Se puede habilitar o deshabilitar el nuevo cálculo de la asignación de costos para los datos de facturación. El nuevo cálculo se aplica a las categorías seleccionadas en el informe. Permite evaluar el impacto del nuevo cálculo de la asignación de costos en comparación con los datos de facturación sin procesar.
 
-10. **Uncategorized** (Sin categoría)
+10. **Sin categoría**
 
     Use Uncategorized para incluir o excluir los costos sin categoría en el informe.
 
-11. **Show/hide fields** (Mostrar u ocultar campos)
+11. **Mostrar/ocultar campos**
 
     La opción Show/hide fields no tiene ningún efecto en los informes.
 
-12. **Display formats** (Formatos de presentación)
+12. **Formatos de presentación**
 
     Utilice Display formats para seleccionar varias vistas de gráfico o tabla.
 
     ![Símbolos de los formatos de presentación que se pueden seleccionar](./media/understanding-cost-reports/display-formats.png)
 
-13. **Multi-color** (Multicolor)
+13. **Opción Multi-color**
 
     Utilice la opción Multi-color para establecer el color de los gráficos en el informe.
 
@@ -191,7 +191,7 @@ Mientras ve cualquier informe, haga clic en **Actions** (Acciones) y, a continua
 
 ### <a name="save-a-report-to-cloud-provider-storage"></a>Guardar un informe en el almacenamiento del proveedor de nube
 
-Para guardar un informe en su proveedor de servicios en la nube, ya debe haber configurado una cuenta de almacenamiento. Mientras ve cualquier informe, haga clic en **Actions** (Acciones) y, a continuación, seleccione **Schedule report** (Programar informe). Asigne un nombre al informe y, a continuación, agregue su propia dirección URL o use la dirección URL creada automáticamente. Seleccione **Save to storage** (Guardar en el almacenamiento) y, a continuación, seleccione la cuenta de almacenamiento o agregue una nueva. Escriba un prefijo que se anexe al nombre de archivo del informe. Seleccione el formato de archivo CSV o JSON y, a continuación, guarde el informe.
+Para guardar un informe en su proveedor de servicios en la nube, ya debe haber configurado una cuenta de almacenamiento. Mientras ve cualquier informe, haga clic en **Actions** (Acciones) y, a continuación, seleccione **Schedule report** (Programar informe). Asigne un nombre al informe y, a continuación, agregue su propia dirección URL o use la dirección URL creada automáticamente. Seleccione **Save to storage** (Guardar en el almacenamiento) y, a continuación, seleccione la cuenta de almacenamiento o agregue una nueva. Escriba un prefijo que se anexe al nombre de archivo del informe. Seleccione un formato de archivo CSV o JSON y, a continuación, guarde el informe.
 
 ### <a name="schedule-a-report"></a>Programar un informe
 

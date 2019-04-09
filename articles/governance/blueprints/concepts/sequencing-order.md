@@ -1,7 +1,6 @@
 ---
 title: Orden de la secuencia de implementación
 description: Obtenga información sobre el ciclo de vida que atraviesa una definición del plano técnico y los detalles sobre cada fase.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/25/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 8451b858717e1a3e66214f66db624ee41f6da375
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 5552e44fcca056bd4fd5b4fd19559adfbd005444
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434813"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266195"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Información sobre la secuencia de implementación en Azure Blueprint
 
@@ -26,7 +25,7 @@ Azure usa planos un **orden secuenciación** para determinar el orden de creaci�
 
 Hay variables en los ejemplos JSON que se deben reemplazar por los suyos propios:
 
-- `{YourMG}`: reemplácelo por el nombre del grupo de administración
+- `{YourMG}` -Reemplazar por el nombre del grupo de administración
 
 ## <a name="default-sequencing-order"></a>Orden de secuenciación predeterminado
 
@@ -47,7 +46,7 @@ Dentro de cada artefacto de **grupo de recursos**, se usa el orden de secuencia 
 
 Al crear la definición del plano técnico grandes, puede ser necesario para los recursos que se creará en un orden específico. El patrón de uso más común de este escenario es cuando una definición de plano técnico incluye varias plantillas de Azure Resource Manager. Para que Blueprints controle este patrón, permite definir el orden de secuenciación.
 
-La ordenación se logra definiendo una propiedad `dependsOn` en JSON. La definición del plano técnico para grupos de recursos y objetos de artefacto admite esta propiedad. `dependsOn` es una matriz de cadenas de nombres de artefacto que el artefacto en particular debe crear antes de su propia creación.
+La ordenación se logra definiendo una propiedad `dependsOn` en JSON. La definición del plano técnico para grupos de recursos y objetos de artefacto admite esta propiedad. `dependsOn` es una matriz de cadenas de nombres de artefacto que el artefacto en particular debe crearse antes de crearlo.
 
 ### <a name="example---ordered-resource-group"></a>Por ejemplo, ordenados de grupo de recursos
 

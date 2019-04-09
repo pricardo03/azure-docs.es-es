@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: bwren
-ms.openlocfilehash: f3ee9b7aa595ae07bb97a8513bc0b751e94d7cc9
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9fd65dc0a6d2a5756acd2de7cb46fbf7943a8758
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883945"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264104"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Envío de datos de registro a Azure Monitor con HTTP Data Collector API (versión preliminar pública)
 En este artículo se muestra cómo utilizar HTTP Data Collector API para enviar datos de registro a Azure Monitor desde un cliente de API REST.  Describe cómo dar formato a los datos recopilados por el script o la aplicación, incluirlos en una solicitud y hacer que esa solicitud la autorice Azure Monitor.  Se proporcionan ejemplos de PowerShell, C# y Python.
@@ -61,7 +61,8 @@ Para usar la API de recopilador de datos de HTTP, cree una solicitud POST que in
 | Autorización |Firma de la autorización. Más adelante en este artículo, encontrará información acerca de cómo crear un encabezado HMAC-SHA256. |
 | Log-Type |Especifica el tipo de registro de los datos que se envían. El límite de tamaño para este parámetro es de 100 caracteres. |
 | x-ms-date |Fecha en que se procesó la solicitud, en formato RFC 1123. |
-| time-generated-field |Nombre de un campo en los datos que contiene la marca de tiempo del elemento de datos. Si especifica un campo, su contenido se usa para **TimeGenerated**. Si no se especifica este campo, el valor predeterminado de **TimeGenerated** es el tiempo que el mensaje se ingiere. El contenido del campo de mensaje debe seguir el formato ISO 8601 AAAA-MM-DDThh:mm:ssZ. |
+| x-ms-AzureResourceId | Identificador de recurso del recurso de Azure los datos debe estar asociado. Esto rellena el [_ResourceId](log-standard-properties.md#_resourceid) propiedad y permite que los datos que se incluirán en [centrada en los recursos](manage-access.md#access-modes) consultas. Si no se especifica este campo, los datos no se incluirán en las consultas centrada en los recursos. |
+| time-generated-field | Nombre de un campo en los datos que contiene la marca de tiempo del elemento de datos. Si especifica un campo, su contenido se usa para **TimeGenerated**. Si no se especifica este campo, el valor predeterminado de **TimeGenerated** es el tiempo que el mensaje se ingiere. El contenido del campo de mensaje debe seguir el formato ISO 8601 AAAA-MM-DDThh:mm:ssZ. |
 
 ## <a name="authorization"></a>Autorización
 Cualquier solicitud a HTTP Data Collector API de Azure Monitor debe incluir un encabezado de autorización. Para autenticar una solicitud, debe firmar la solicitud con la clave principal o secundaria del área de trabajo que realiza la solicitud. Después, pase esa firma como parte de la solicitud.   

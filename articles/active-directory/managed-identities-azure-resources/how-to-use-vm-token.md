@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c7354ed8362412c40d52a3895a9b4118eb7c1544
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: abdeb7ce5327db57b8a6ae48fdd8d8c0c81879a7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449393"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258919"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Cómo usar identidades administradas de recursos de Azure en una máquina virtual de Azure para adquirir un token de acceso 
 
@@ -58,7 +58,7 @@ Una aplicación cliente puede solicitar un [token de acceso de solo aplicación]
 | [Obtención de un token con CURL](#get-a-token-using-curl) | Ejemplo del uso del punto de conexión REST de identidades administradas de recursos de Azure desde un cliente de Bash o CURL |
 | Control del almacenamiento en caché de tokens | Instrucciones para controlar los tokens de acceso expirados |
 | [Control de errores](#error-handling) | Instrucciones para controlar los errores HTTP devueltos desde el punto de conexión del token de las identidades administradas de recursos de Azure |
-| [Identificadores de recurso de servicios de Azure](#resource-ids-for-azure-services) | Dónde obtener identificadores de recurso de los servicios de Azure admitidos |
+| [Identificadores de recurso para los servicios de Azure](#resource-ids-for-azure-services) | Dónde obtener identificadores de recurso de los servicios de Azure admitidos |
 
 ## <a name="get-a-token-using-http"></a>Obtención de un token con HTTP 
 
@@ -79,10 +79,11 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `Metadata` | Un campo de encabezado de la solicitud HTTP, requerido por las identidades administradas de recursos de Azure como mitigación frente a ataques de falsificación de solicitud de lado del servidor (SSRF). Este valor debe establecerse en "true", todo en minúsculas. |
 | `object_id` | (Opcional) Un parámetro de cadena de consulta, que indica el valor de object_id de la identidad administrada para la que quiere que sea el token. Es obligatorio si la máquina virtual tiene varias identidades administradas asignadas por el usuario.|
 | `client_id` | (Opcional) Un parámetro de cadena de consulta, que indica el valor de client_id de la identidad administrada para la que quiere que sea el token. Es obligatorio si la máquina virtual tiene varias identidades administradas asignadas por el usuario.|
+| `mi_res_id` | (Opcional) Un parámetro de cadena de consulta, que indican la identidad administrada que desea que el token para el mi_res_id (Id. de recurso de Azure). Es obligatorio si la máquina virtual tiene varias identidades administradas asignadas por el usuario. |
 
 Solicitud de ejemplo con el punto de conexión de extensión de máquina virtual de identidades administradas de recursos de Azure *(plan de desuso previsto para enero de 2019)*:
 
-```
+```http
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1
 Metadata: true
 ```
@@ -96,10 +97,9 @@ Metadata: true
 | `object_id` | (Opcional) Un parámetro de cadena de consulta, que indica el valor de object_id de la identidad administrada para la que quiere que sea el token. Es obligatorio si la máquina virtual tiene varias identidades administradas asignadas por el usuario.|
 | `client_id` | (Opcional) Un parámetro de cadena de consulta, que indica el valor de client_id de la identidad administrada para la que quiere que sea el token. Es obligatorio si la máquina virtual tiene varias identidades administradas asignadas por el usuario.|
 
-
 Respuesta de ejemplo:
 
-```
+```json
 HTTP/1.1 200 OK
 Content-Type: application/json
 {
@@ -365,7 +365,7 @@ Si se produce un error, el cuerpo de respuesta HTTP correspondiente contiene los
 | Elemento | DESCRIPCIÓN |
 | ------- | ----------- |
 | error   | Identificador del error. |
-| error_description | Descripción detallada del error. **Las descripciones de error pueden cambiar en cualquier momento. No escriba código que cree ramas en función de los valores de la descripción del error.**|
+| error_description | Descripción detallada del error. **Descripciones de error pueden cambiar en cualquier momento. No escriba código que ramas basándose en valores de la descripción del error.**|
 
 ### <a name="http-response-reference"></a>Referencia de la respuesta HTTP
 
@@ -391,7 +391,7 @@ Se aplican límites al número de llamadas realizadas al punto de conexión de I
 
 Para volver a intentarlo, se recomienda la estrategia siguiente: 
 
-| **Estrategia de reintento** | **Configuración** | **Valores** | **Funcionamiento** |
+| **Estrategia de reintento** | **Configuración** | **Valores** | **Cómo funciona** |
 | --- | --- | --- | --- |
 |ExponentialBackoff |Número de reintentos<br />Interrupción mínima<br />Interrupción máxima<br />Interrupción delta<br />Primer reintento rápido |5<br />0 segundos<br />60 segundos<br />2 segundos<br />false |Intento 1 - retraso de 0 segundos<br />Intento 2 - retraso de ~2 segundos<br />Intento 3 - retraso de ~6 segundos<br />Intento 4 - retraso de ~14 segundos<br />Intento 5 - retraso de ~30 segundos |
 
