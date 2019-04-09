@@ -8,12 +8,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: 7a6362ea33a27b27798f1304e779099fca60cdd5
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 3b10ae0998acbb010e61ebb41c602c7d42bc14fa
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54446568"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263169"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-net-back-end-and-net-device"></a>Introducción a la identidad de módulo y los dispositivos gemelos de módulo de IoT Hub con un dispositivo .NET y un servidor back-end .NET
 
@@ -54,7 +54,7 @@ En esta sección se crea una aplicación de consola .NET en el dispositivo simul
 
 1. **Creación de un proyecto de Visual Studio:** En Visual Studio, agregue un proyecto de escritorio clásico de Windows de Visual C# a la solución existente mediante la plantilla de proyecto **Aplicación de consola (.NET Framework)**. Asegúrese de que la versión de .NET Framework sea 4.6.1 o una posterior. Denomine el proyecto **UpdateModuleTwinReportedProperties**.
 
-    ![Creación de un proyecto de Visual Studio](./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.JPG)
+    ![Creación de un proyecto de Visual Studio](./media/iot-hub-csharp-csharp-module-twin-getstarted/update-twins-csharp1.png)
 
 2. **Instalación del SDK de dispositivo más reciente de .NET de Azure IoT Hub:** La identidad de módulo y el módulo gemelo se encuentran en versión preliminar pública. Solo está disponible en los SDK de dispositivo de la versión preliminar de IoT Hub. En Visual Studio, abra Herramientas > Administrador de paquetes NuGet > Administrar paquetes NuGet para la solución. Busque Microsoft.Azure.Devices.Client. Asegúrese de que ha marcado la casilla de inclusión de la versión preliminar. Seleccione la versión más reciente e instale. Ahora tendrá acceso a todas las características del módulo. 
 
@@ -62,7 +62,7 @@ En esta sección se crea una aplicación de consola .NET en el dispositivo simul
 
 3. **Obtenga la cadena de conexión del módulo**: para ello, inicie sesión en [Azure Portal](https://portal.azure.com/). Vaya a la instancia de IoT Hub y haga clic en Dispositivos IoT. Busque myFirstDevice, ábralo y verá que myFirstModule se creó correctamente. Copie la cadena de conexión del módulo, la necesitará en el paso siguiente.
 
-    ![Detalles del módulo en Azure Portal](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG)
+    ![Detalles del módulo en Azure Portal](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.png)
 
 4. **Cree la aplicación de consola UpdateModuleTwinReportedProperties**
 
@@ -160,11 +160,11 @@ En esta sección se crea una aplicación de consola .NET en el dispositivo simul
 
 ## <a name="run-the-apps"></a>Ejecución de las aplicaciones
 
-Ya está preparado para ejecutar las aplicaciones. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en la solución y seleccione **Establecer proyectos de inicio**. Seleccione **Proyectos de inicio múltiples** e **Iniciar** como acción para la aplicación de consola. Después, presione F5 para iniciar la aplicación. 
+Ya está preparado para ejecutar las aplicaciones. En el Explorador de soluciones de Visual Studio, haga clic con el botón derecho en la solución y seleccione **Establecer proyectos de inicio**. Seleccione **Proyectos de inicio múltiples** e **Iniciar** como acción para la aplicación de consola. Después, presione F5 para iniciar la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para continuar la introducción a IoT Hub y explorar otros escenarios de IoT, consulte:
 
-* [Introducción a la administración de dispositivos](iot-hub-node-node-device-management-get-started.md)
+* [Introducción a administración de dispositivos](iot-hub-node-node-device-management-get-started.md)
 * [Introducción a IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

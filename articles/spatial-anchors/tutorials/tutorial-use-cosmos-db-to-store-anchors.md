@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Uso compartido entre sesiones y dispositivos con Azure Spatial Anchors y un back-end de Azure Cosmos DB | Microsoft Docs'
+title: 'Tutorial: Uso compartido de Azure Spatial Anchors entre sesiones y dispositivos con un back-end de Azure Cosmos DB | Microsoft Docs'
 description: En este tutorial, aprenderá a compartir identificadores de Azure Spatial Anchors entre los dispositivos Android o iOS de Unity con un servicio de back-end y Azure Cosmos DB.
 author: ramonarguelles
 manager: vicenterivera
@@ -8,19 +8,16 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 0e7011b9778221869940b137a2b87239f2d8db9b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d955654eee1d02994f303b6270b156eb9a61c29b
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286404"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915262"
 ---
-# <a name="tutorial-sharing-across-sessions-and-devices-with-azure-spatial-anchors-and-an-azure-cosmos-db-back-end"></a>Tutorial: Uso compartido entre sesiones y dispositivos con Azure Spatial Anchors y un back-end de Azure Cosmos DB
+# <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices-with-an-azure-cosmos-db-back-end"></a>Tutorial: Uso compartido de Azure Spatial Anchors entre sesiones y dispositivos con un back-end de Azure Cosmos DB
 
-En este tutorial aprenderá a usar [Azure Spatial Anchors](../overview.md) para:
-
-- Crear delimitadores en una sesión y encontrarlos en otra sesión, en el mismo dispositivo o en otro. Por ejemplo, la segunda sesión podría ser otro día.
-- Crear delimitadores que puedan encontrar varios dispositivos en el mismo lugar y al mismo tiempo.
+En este tutorial, obtendrá información sobre cómo usar [Azure Spatial Anchors](../overview.md) para crear delimitadores durante una sesión y, a continuación, buscarlos, durante otra sesión en el mismo dispositivo o en uno diferente. Por ejemplo, la segunda sesión podría ser otro día. Estos mismos delimitadores podrían también ser encontrados por varios dispositivos en el mismo lugar y al mismo tiempo.
 
 ![GIF que ilustra la persistencia de objetos](./media/persistence.gif)
 
@@ -73,7 +70,7 @@ Busque la propiedad `StorageConnectionString` y establezca que el valor sea el m
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial, ha usado Azure Cosmos DB para compartir identificadores de delimitador en todos los dispositivos. Para más información acerca de la biblioteca de Azure Spatial Anchors, consulte nuestra guía sobre cómo crear y localizar los delimitadores.
+En este tutorial, ha usado Azure Cosmos DB para compartir identificadores de delimitador en todos los dispositivos. Para más información acerca de cómo usar Azure Spatial Anchors en una nueva aplicación Android, continúe con el siguiente tutorial.
 
 > [!div class="nextstepaction"]
-> [Creación y localización de delimitadores mediante Azure Spatial Anchors](../create-locate-anchors-overview.md)
+> [Inicio de una nueva aplicación Android](./tutorial-new-android-app.md)

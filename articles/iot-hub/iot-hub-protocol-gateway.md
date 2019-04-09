@@ -8,18 +8,20 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/11/2017
-ms.openlocfilehash: ecce53420a92713ad2dcfcc7e0fed9fc226b1d52
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 9dbb7905c2a0fed65ede610577e0fa11a1deef92
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046434"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276242"
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>Compatibilidad con protocolos adicionales para centro de IoT Hub
+
 Azure IoT Hub admite de manera nativa la comunicación a través de los protocolos MQTT, AMQP y HTTPS. En algunos casos, puede que los dispositivos o las puertas de enlace de campo no puedan usar uno de estos protocolos estándar y requieran la adaptación del mismo. En esos casos, puede usar una puerta de enlace personalizada. Una puerta de enlace personalizada habilita la adaptación de protocolos para los puntos de conexión de IoT Hub puenteando el tráfico que se origina o finaliza en IoT Hub. Puede usar la [Puerta de enlace de protocolos de IoT de Azure](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) como puerta de enlace personalizada para permitir la adaptación de protocolos para Azure IoT Hub.
 
 ## <a name="azure-iot-protocol-gateway"></a>Puerta de enlace de protocolos de IoT de Azure
-La puerta de enlace de protocolos de IoT de Azure es un marco para la adaptación de protocolos diseñado para la comunicación bidireccional a gran escala de dispositivos con Azure IoT Hub. La puerta de enlace de protocolo es un componente de acceso directo que acepta conexiones de dispositivos a través de un protocolo específico. Une el tráfico a IoT Hub sobre AMQP 1.0. 
+
+La puerta de enlace de protocolos de IoT de Azure es un marco para la adaptación de protocolos diseñado para la comunicación bidireccional a gran escala de dispositivos con Azure IoT Hub. La puerta de enlace de protocolo es un componente de acceso directo que acepta conexiones de dispositivos a través de un protocolo específico. Une el tráfico a IoT Hub sobre AMQP 1.0.
 
 Puede implementar la puerta de enlace de protocolo en Azure de forma muy escalable con Azure Service Fabric, los roles de trabajo de Azure Cloud Services o Windows Virtual Machines. Además, la puerta de enlace de protocolos puede implementarse en entornos locales como puertas de enlace de campo.
 
@@ -30,17 +32,17 @@ El adaptador de MQTT también muestra el modelo de programación para la creaci�
 Para mayor flexibilidad, la puerta de enlace de protocolos de Azure IoT y la implementación de MQTT se ofrecen como proyecto de software de código abierto. Puede usar el proyecto de código abierto para agregar compatibilidad con distintos protocolos y versiones de protocolo o personalizar la implementación para su escenario. 
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Para más información sobre la puerta de enlace de protocolos de IoT de Azure y cómo usarlo e implementarlo como parte de su solución de IoT, vea:
 
 * [Repositorio de puerta de enlace de protocolo de Azure IoT en GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
+
 * [Guía para desarrolladores de puerta de enlace de protocolo de IoT de Azure](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
 Para más información acerca de planificación de la implementación de IoT Hub, consulte:
 
-* [Comparación con Event Hubs][lnk-compare]
-* [Escalado, alta disponibilidad y recuperación ante desastres][lnk-scaling]
-* [Guía para desarrolladores de IoT Hub][lnk-devguide]
+* [Comparar con Event Hubs](iot-hub-compare-event-hubs.md)
 
-[lnk-compare]: iot-hub-compare-event-hubs.md
-[lnk-scaling]: iot-hub-scaling.md
-[lnk-devguide]: iot-hub-devguide.md
+* [El escalado, alta disponibilidad y recuperación ante desastres](iot-hub-scaling.md)
+
+* [Guía del desarrollador de IoT Hub](iot-hub-devguide.md)

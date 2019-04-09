@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: CodyBorn
 ms.author: coborn
-ms.date: 8/2/2018
+ms.date: 04/08/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
-ms.openlocfilehash: 5a693fef2f77471f799bec46f149ff19d6edca80
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905926"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274797"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Consorcio de prueba de autoridad de Ethereum
 
@@ -279,7 +279,7 @@ Id. de red|El identificador de red para la red del consorcio de Ethereum que se 
 Admin Ethereum Address (Dirección de Ethereum del administrador)|Dirección de cuenta de Ethereum que se usa para participar en la gobernanza de prueba de autoridad.  Se recomienda usar MetaMask para generar una dirección de Ethereum.|42 caracteres alfanuméricos empezando con 0x|N/D
 Opciones avanzadas|Opciones avanzadas de configuración de Ethereum|Habilitar o Deshabilitar|Disable
 Dirección IP pública (Opciones avanzadas = Habilitar)|Implementa la red detrás de una puerta de enlace de red virtual y quita el acceso de emparejamiento. Si se selecciona esta opción, todos los miembros deben usar una puerta de enlace de red virtual para que la conexión sea compatible.|Red privada virtual de dirección IP pública|Dirección IP pública
-Límite de gas del bloque (opciones avanzadas = Habilitar)|El límite de gas del bloque inicial de la red|Cualquier elemento numérico|50 000 00
+Límite de gas del bloque (opciones avanzadas = Habilitar)|El límite de gas del bloque inicial de la red|Cualquier elemento numérico|50000000
 Período de resellado del bloque (s)|La frecuencia con que se crearán bloques vacíos cuando no hay ninguna transacción en la red. Una frecuencia mayor finalizará más rápido, pero los costos de almacenamiento serán superiores.|Cualquier elemento numérico|15
 Transaction Permission Contract (Contrato de permiso de transacciones) (Opciones avanzadas = Habilitar)|Código de bytes para el contrato de permisos de la transacción. Restringe la implementación de contrato inteligente y la ejecución de una lista de cuentas de Ethereum.|Código de bytes de contrato|N/D
 

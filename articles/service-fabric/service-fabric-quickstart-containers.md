@@ -15,18 +15,18 @@ ms.workload: NA
 ms.date: 01/31/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 0d4689e35cd308478ae0c0154761534dd834f146
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 34a967640ec039727e8947e865eeff1f5fef4649
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482341"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758599"
 ---
 # <a name="quickstart-deploy-windows-containers-to-service-fabric"></a>Inicio rápido: Implementación de contenedores de Windows en Service Fabric
 
 Azure Service Fabric es una plataforma de sistemas distribuidos para implementar y administrar microservicios y contenedores escalables y confiables.
 
-Para ejecutar una aplicación que existe en un contenedor de Windows en un clúster de Service Fabric no hay que hacer ningún cambio en la aplicación. Esta guía de inicio rápido muestra cómo implementar una imagen de contenedor Docker creada previamente en una aplicación de Service Fabric. Cuando haya terminado, tendrá un contenedor de Windows Server 2016 Nano e IIS en ejecución. Esta guía de inicio rápido describe la implementación de un contenedor Windows; lea [esta otra guía](service-fabric-quickstart-containers-linux.md) para implementar un contenedor Linux.
+Para ejecutar una aplicación que existe en un contenedor de Windows en un clúster de Service Fabric no hay que hacer ningún cambio en la aplicación. Esta guía de inicio rápido muestra cómo implementar una imagen de contenedor Docker creada previamente en una aplicación de Service Fabric. Cuando haya terminado, tendrá un contenedor de Windows Server Core 2016 Server e IIS en ejecución. Esta guía de inicio rápido describe la implementación de un contenedor Windows; lea [esta otra guía](service-fabric-quickstart-containers-linux.md) para implementar un contenedor Linux.
 
 ![Página web predeterminada de IIS][iis-default]
 
@@ -54,7 +54,7 @@ Seleccione **Aplicación de Service Fabric**, asígnele el nombre "MyFirstContai
 
 Seleccione **Contenedor** en las plantillas **Aplicaciones y contenedores hospedados**.
 
-En **Nombre de imagen**, escriba "microsoft/iis:nanoserver", la [imagen de base de Windows Server Nano Server e IIS](https://hub.docker.com/r/microsoft/iis/).
+En **Nombre de la imagen**, escriba "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016", la [imagen base de Windows Server Core Server e IIS](https://hub.docker.com/r/microsoft-windows-servercore-iis).
 
 Configure la asignación de los puertos del host al contenedor para que las solicitudes que lleguen al puerto 80 para el servicio se asignen al puerto 80 del contenedor.  Establezca **Puerto del contenedor** en "80" y establezca **Puerto del host** en "80".  
 
@@ -74,14 +74,14 @@ Microsoft publica imágenes distintas para las versiones de IIS que se compilaro
     <ContainerHostPolicies CodePackageRef="Code"> 
       <ImageOverrides> 
         ...
-          <Image Name="microsoft/iis:nanoserverDefault" /> 
-          <Image Name= "microsoft/iis:nanoserver" Os="14393" /> 
-          <Image Name="microsoft/iis:windowsservercore-1709" Os="16299" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1803" /> 
+          <Image Name= "mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016" Os="14393" /> 
+          <Image Name="mcr.microsoft.com/windows/servercore/iis:windowservercore-1709" Os="16299" /> 
       </ImageOverrides> 
     </ContainerHostPolicies> 
 ```
 
-El manifiesto de servicio continúa especificando solo una imagen para el servidor nanoserver, `microsoft/iis:nanoserver`.
+El manifiesto de servicio continúa especificando solo una imagen para el servidor nanoserver, `mcr.microsoft.com/windows/servercore/iis:windowservercore-ltsc2016`.
 
 También en el archivo *ApplicationManifest.xml*, cambie **PasswordEncrypted** a **false**. La cuenta y la contraseña están en blanco para la imagen de contenedor público que está en Docker Hub, por lo que es necesario desactivar el cifrado porque al cifrar una contraseña en blanco se generará un error de compilación.
 

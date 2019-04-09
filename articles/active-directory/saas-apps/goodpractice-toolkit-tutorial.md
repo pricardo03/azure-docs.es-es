@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd8453c93b4e48a076d8efbe1d438d15d8131fc9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f9b847fd424e14eba492018887dbc28c44100f61
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864412"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885356"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>Tutorial: Integración de Azure Active Directory con GoodPractice Toolkit
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con GoodPractice Toolkit
 
     ![Información de dominio y direcciones URL de inicio de sesión único de GoodPractice Toolkit](common/sp-intiated.png)
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId> `.
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://app.goodpractice.net/#/<subscriptionUrl>/s/<locationId>`.
 
     > [!Note]
     > El valor de la dirección URL de inicio de sesión no es real. Actualícelo con la dirección URL de inicio de sesión real. Pónganse en contacto con el [equipo de soporte técnico de GoodPractice Toolkit](mailto:support@goodpractice.com) para obtener este valor.
@@ -146,7 +146,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

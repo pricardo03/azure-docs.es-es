@@ -5,19 +5,19 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 02/27/2019
+ms.date: 03/27/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 485a386210458d57b87aaa0537b1c58a6adab2c7
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: b2549abd3a4f87de99efa9a916e39b99c6fc8747
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58342613"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58616494"
 ---
-1. Puede encontrar redes Virtual WAN en **Todos los servicios** y después busque Virtual WAN. O bien, puede buscar redes Virtual WAN en el cuadro de búsqueda de la parte superior de Azure Portal. Haga clic en **Virtual WAN** para abrir la página.
-2. Haga clic en **+ Agrear** para abrir la página **Crear una red WAN**.
-3. En la página **Crear una red WAN**, rellene los campos siguientes:
+1. Vaya a la página de Virtual WAN. Una manera de ir a la página es ir a **Todos los servicios** y, a continuación, buscar Virtual WAN.
+1. Haga clic en **+ Agrear** para abrir la página **Crear una red WAN**.
+1. En la página **Crear una red WAN**, rellene los campos siguientes:
 
    * **Nombre**: seleccione el nombre que desea dar a la WAN.
    * **Suscripción**: seleccione la suscripción que quiere usar.

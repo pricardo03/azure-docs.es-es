@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 03/18/2019
+ms.date: 03/29/2019
 ms.author: spelluru
-ms.openlocfilehash: 31bf2de7417a1be6139de3ec9dcc8d531df586d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 00c32d1aaace765a1b46d5b25e82bab6e937d2ed
+ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58090328"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58649730"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>Tutorial: Configuración de un laboratorio educativo 
 En este tutorial, se va a configurar un laboratorio de clase con las máquinas virtuales que van a utilizar los estudiantes de la clase.  
@@ -48,8 +48,8 @@ El propietario de un laboratorio puede agregar a otros usuarios al rol **Creador
 
         ![Creación de un laboratorio educativo](../media/tutorial-setup-classroom-lab/new-lab-window.png)
 4. En la página **Seleccionar especificaciones de máquina virtual**, realice los pasos siguientes:
-    1. Seleccione un **tamaño** para las máquinas virtuales (VM) creadas en el laboratorio. 
-    3. Seleccione la **imagen de máquina virtual** que se usará para crear máquinas virtuales en el laboratorio. 
+    1. Seleccione un **tamaño** para las máquinas virtuales (VM) creadas en el laboratorio. Actualmente, los tamaños permitidos son **pequeña**, **mediana**, **grande** y **GPU**.
+    3. Seleccione la **imagen de máquina virtual** que se usará para crear máquinas virtuales en el laboratorio. Si selecciona una imagen de Linux, verá una opción para habilitar la conexión a Escritorio remoto para ella. Para más información, consulte [Habilitar conexión de escritorio remoto para Linux](how-to-enable-remote-desktop-linux.md).
     4. Seleccione **Next** (Siguiente).
 
         ![Especificaciones de máquina virtual](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
@@ -69,7 +69,7 @@ El propietario de un laboratorio puede agregar a otros usuarios al rol **Creador
 
     ![Página Configurar plantilla una vez terminada](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
 8. En la página **Configurar plantilla**, siga estos pasos: Estos pasos son **opcionales** para el tutorial.
-    1. Seleccione **Conectar** para conectarse a la plantilla de máquina virtual. 
+    1. Seleccione **Conectar** para conectarse a la plantilla de máquina virtual. Si es una plantilla de máquina virtual Linux, decida si desea conectarse mediante SSH o RDP (si RDP está habilitado).
     2. Instale y configure el software en la plantilla de máquina virtual.     
     3. Escriba una **descripción** para la plantilla.
 9. Seleccione **Siguiente** en la página de plantilla. 
@@ -109,14 +109,19 @@ El propietario de un laboratorio puede agregar a otros usuarios al rol **Creador
 
 
 ## <a name="send-an-email-with-the-registration-link"></a>Envío de un correo electrónico con el vínculo de registro
+
 1. Cambie a la vista **Users** (Usuarios) si aún no está en la página. 
-2. Seleccione usuarios específicos o todos ellos en la lista. Para seleccionar usuarios específicos, active las casillas de la primera columna de la lista. Para seleccionar todos los usuarios, seleccione la casilla situada delante del título de la primera columna (**Nombre**) o seleccione todas las casillas d todos los usuarios de la lista.
-3. Seleccione **Enviar invitación** en la barra de herramientas. También puede mantener el ratón sobre un nombre de alumno en la lista y enviar el icono de correo electrónico. 
+2. Seleccione usuarios específicos o todos ellos en la lista. Para seleccionar usuarios específicos, active las casillas de la primera columna de la lista. Para seleccionar todos los usuarios, seleccione la casilla situada delante del título de la primera columna (**Nombre**) o seleccione todas las casillas d todos los usuarios de la lista. Puede ver el **estado de la invitación** en esta lista.  En la siguiente imagen, se establece el estado de la invitación para todos los alumnos en **Invitación no enviada**. 
+
+    ![Selección de alumnos](../media/tutorial-setup-classroom-lab/select-students.png)
+1. Seleccione el **icono de correo electrónico (sobre)** en una de las filas o seleccione **Enviar invitación** en la barra de herramientas. También puede mantener el ratón sobre un nombre de alumno en la lista para ver el icono de correo electrónico. 
 
     ![Envío del vínculo de registro por correo electrónico](../media/tutorial-setup-classroom-lab/send-email.png)
 4. En la página **Send registration link by email** (Enviar vínculo de registro por correo electrónico), siga estos pasos: 
     1. Escriba un **mensaje opcional** que desee enviar a los alumnos. El correo electrónico incluye automáticamente el vínculo de registro. 
-    2. En la página **Send registration link by email** (Enviar vínculo de registro por correo electrónico), seleccione **Enviar**. 
+    2. En la página **Send registration link by email** (Enviar vínculo de registro por correo electrónico), seleccione **Enviar**. Puede ver cómo cambia el estado de la invitación a **Enviando invitación** y, a continuación, a **Invitación enviada**. 
+        
+        ![Invitaciones enviadas](../media/tutorial-setup-classroom-lab/invitations-sent.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este tutorial, ha creado un laboratorio de clase y ha configurado el laboratorio. Para saber cómo el estudiante puede acceder a una máquina virtual en el laboratorio con el enlace de registro, avance al siguiente tutorial:

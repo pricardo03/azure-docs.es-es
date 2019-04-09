@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
-ms.openlocfilehash: 4b5b7cf3a00e21b9904f72a98d5f24264bb0ecbc
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58484294"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266212"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
 <a name="Overview"></a>
@@ -84,7 +84,12 @@ Cuando crea un clon de la configuración de otro espacio de implementación, la 
 * Configuración de supervisión y diagnóstico
 * Certificados públicos
 * Contenido de WebJobs
-* Conexiones híbridas
+* Conexiones híbridas *
+* Integración con red virtual *
+* Los extremos del servicio *
+* Red CDN de Azure *
+
+Las características que se marcan con un * se prevé que se realizan rápidas en la ranura. 
 
 **Valores que no se intercambian**:
 
@@ -93,10 +98,15 @@ Cuando crea un clon de la configuración de otro espacio de implementación, la 
 * Certificados privados y enlaces SSL
 * Configuración de escala
 * Programadores de WebJobs
+* Restricciones de IP
+* Always On
+* Configuración del protocolo (HTTP**S**, versión de TLS, certificados de cliente)
+* Configuración del registro de diagnóstico
+* CORS
 
-<!-- VNET, IP restrictions, CORS, hybrid connections? -->
+<!-- VNET and hybrid connections not yet sticky to slot -->
 
-Para configurar que un valor de una aplicación o una cadena de conexión se quede en un espacio (que no se intercambie), vaya a la página **Configuración de la aplicación** de dicho espacio específico y seleccione el cuadro **Configuración de espacios** en los elementos de la configuración que deben permanecer en el espacio. Marcar un elemento de la configuración como específico de un espacio indica a App Service que no se puede intercambiar.
+Para configurar que un valor de una aplicación o una cadena de conexión se quede en un espacio (que no se intercambie), vaya a la página **Configuración de la aplicación** de dicho espacio específico y seleccione el cuadro **Configuración de espacios** en los elementos de la configuración que deben permanecer en el espacio. Marcar un elemento de la configuración como específico de un espacio indica a App Service que no se puede intercambiar. 
 
 ![Configuración de espacios](./media/web-sites-staged-publishing/SlotSetting.png)
 
@@ -329,4 +339,4 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 Para información sobre los comandos de la [CLI de Azure](https://github.com/Azure/azure-cli) que se usan con las ranuras de implementación, consulte [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Bloqueo del acceso a espacios que no sean de producción](app-service-ip-restrictions.md)
+[Bloquear el acceso a los espacios que no sean de producción](app-service-ip-restrictions.md)

@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 901c844ecbfbbe68163c70b12cc061eae0f75d5a
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: ed5df09d492bbf6123e76f73717a1738a23a066c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860480"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893714"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Tutorial: Compilación e implementación de imágenes de contenedor en la nube con Azure Container Registry Tasks
 
@@ -30,7 +30,7 @@ Este tutorial es la primera parte de una serie:
 > * Compilación de una imagen de contenedor en Azure
 > * Implementación de un contenedor en Azure Container Instances
 
-En tutoriales posteriores, aprenderá a usar ACR Tasks para compilaciones automatizadas de imágenes de contenedor después de una confirmación de código y la actualización de la imagen base. Azure Container Registry Tasks también puede ejecutar [tareas de varios pasos](container-registry-tasks-multi-step.md) (actualmente en versión preliminar) mediante un archivo YAML que define pasos para compilar, insertar y, opcionalmente, probar varios contenedores.
+En tutoriales posteriores, aprenderá a usar ACR Tasks para compilaciones automatizadas de imágenes de contenedor después de una confirmación de código y la actualización de la imagen base. Azure Container Registry Tasks también puede ejecutar [tareas de varios pasos](container-registry-tasks-multi-step.md) mediante un archivo YAML que define los pasos para compilar, insertar y, opcionalmente, probar varios contenedores.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

@@ -4,16 +4,16 @@ description: Aprenda a usar los bloqueos de recursos de Azure Blueprints Solo le
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/13/2018
+ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: e3a05329ea247dbf5baa23ae9b3d32f909c0d1bb
-ms.sourcegitcommit: b8f9200112cae265155b8877f7e1621c4bcc53fc
+ms.openlocfilehash: f39d59ef7ab3f555637aef69b301a0e77c00fc24
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/14/2019
-ms.locfileid: "57855769"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58629229"
 ---
 # <a name="protect-new-resources-with-azure-blueprints-resource-locks"></a>Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints
 
@@ -30,7 +30,7 @@ Se tratan los siguientes pasos:
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para completar este tutorial, necesitará una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
+Para completar este tutorial, necesita una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="create-new-blueprint-definition"></a>Creación de una nueva definición del plano técnico
 
@@ -40,9 +40,9 @@ En primer lugar, cree la nueva definición del plano técnico.
 
 1. En la página **Introducción** de la izquierda, seleccione el botón **Crear** en _Creación de un plano técnico_.
 
-1. Busque la muestra de plano técnico **Muestra en blanco** en la parte superior de la página y seleccione **Usar esta muestra**.
+1. Busque la muestra de plano técnico **Plano técnico en blanco** en la parte superior de la página y seleccione **Empezar con un plano técnico en blanco**.
 
-1. Escriba los _conceptos básicos_ de la muestra de plano técnico:
+1. Escriba los _conceptos básicos_ del ejemplo de plano técnico:
 
    - **Nombre del plano técnico**: proporcione un nombre para su copia de la muestra de plano técnico. Para este tutorial, usaremos el nombre _locked-storageaccount_.
    - **Descripción del plano técnico**: describe la definición del plano técnico. Use "For testing blueprint resource locking on deployed resources" (Para probar el bloqueo de recursos del plano técnico en los recursos implementados).
@@ -81,7 +81,7 @@ En primer lugar, cree la nueva definición del plano técnico.
        "resources": [{
            "type": "Microsoft.Storage/storageAccounts",
            "name": "[variables('storageAccountName')]",
-           "location": "[resourceGroups('RGtoLock').location]",
+           "location": "[resourceGroup().location]",
            "apiVersion": "2018-07-01",
            "sku": {
                "name": "[parameters('storageAccountType')]"
@@ -134,7 +134,7 @@ Una vez que se haya **publicado** correctamente la definición del plano técnic
 
      - **Suscripciones**: seleccione una o más de las suscripciones que están en el grupo de administración donde guardó la definición del plano técnico. Si selecciona más de una suscripción, se creará una asignación para cada una mediante los parámetros especificados.
      - **Nombre de asignación**: el nombre se rellena previa y automáticamente en función del nombre de la definición del plano técnico. Queremos esta asignación para representar el bloqueo del nuevo grupo de recursos, de modo que cambie el nombre de asignación por _assignment-locked-storageaccount-TestingBPLocks_.
-     - **Ubicación**: Seleccione una región para la identidad administrada en la que se va a crear. Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado. Para más información, consulte [Identidades administradas para recursos de Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
+     - **Ubicación**: seleccione una región para la identidad administrada en la que se va a crear. Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado. Para más información, consulte [Identidades administradas para recursos de Azure](../../../active-directory/managed-identities-azure-resources/overview.md).
        Para este tutorial, seleccione _Este de EE. UU. 2_.
      - **Versión de definición del plano técnico**: elija la versión **publicada** _1.0_ de la definición del plano técnico.
 
@@ -144,7 +144,7 @@ Una vez que se haya **publicado** correctamente la definición del plano técnic
 
    - Identidad administrada
 
-     Deje la opción _Asignado por el sistema_ predeterminada. Para obtener más información, consulte [managed identities](../../../active-directory/managed-identities-azure-resources/overview.md) (identidades administradas).
+     Deje la opción _Asignado por el sistema_ predeterminada. Para más información, vea [identidades administradas](../../../active-directory/managed-identities-azure-resources/overview.md).
 
    - Parámetros de artefacto
 
@@ -181,6 +181,8 @@ La asignación creó el grupo de recursos _TestingBPLocks_ y la cuenta de almace
 1. Seleccione la pestaña **Asignaciones de denegación**.
 
    La asignación de plano técnico creó una [asignación de denegación](../../../role-based-access-control/deny-assignments.md) en el grupo de recursos implementados para forzar el modo de bloqueo de plano técnico _Solo lectura_. La asignación de denegación evita que alguien con los derechos adecuados en la pestaña _Asignaciones de roles_ tome medidas específicas. La asignación de denegación afecta a _Todas las entidades de seguridad_.
+
+   Para información acerca de cómo excluir una entidad de seguridad de una asignación de denegación, consulte cómo [bloquear los recursos de planos técnicos](../concepts/resource-locking.md#exclude-a-principal-from-a-deny-assignment).
 
 1. Seleccione la asignación de denegación y, a continuación, seleccione la página **Permisos denegados** de la izquierda.
 
@@ -222,8 +224,8 @@ Cuando termine con este tutorial, elimine los siguientes recursos:
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Más información sobre el [ciclo de vida del plano técnico](../concepts/lifecycle.md)
-- Descubra cómo utilizar [parámetros estáticos y dinámicos](../concepts/parameters.md)
+- Descubra cómo utilizar [parámetros estáticos y dinámicos](../concepts/parameters.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](../concepts/resource-locking.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](../concepts/sequencing-order.md).
-- Más información sobre la [actualización de las asignaciones existentes](../how-to/update-existing-assignments.md).
+- Aprenda a [actualizar las asignaciones existentes](../how-to/update-existing-assignments.md).
 - Puede consultar la información de [solución de problemas generales](../troubleshoot/general.md) para resolver los problemas durante la asignación de un plano técnico.

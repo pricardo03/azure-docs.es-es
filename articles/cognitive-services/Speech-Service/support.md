@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: a4c256a6acd8e51986b40e28a6f658f1103ab337
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: c403bca3abf493448265e25316babe20ea9c8544
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877707"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272027"
 ---
 # <a name="support-and-help-options"></a>Opciones de ayuda y soporte técnico
 
@@ -23,6 +23,7 @@ ms.locfileid: "57877707"
 
 > [!div class="checklist"]
 > * Manténgase informado sobre los nuevos desarrollos en *Azure Cognitive Services* o busque las últimas noticias relacionadas con el *servicio Voz*.
+> * Notas de la versión contienen información para todas las versiones.
 > * Realice una búsqueda para ver la comunidad ya ha tratado este problema o si ya existe documentación de la característica que quiere implementar.
 > * Si no encuentra una respuesta satisfactoria, formule una pregunta en *Stack Overflow*.
 > * Si encuentra algún problema con uno de los ejemplos de GitHub, puede abrir un problema en *GitHub*.
@@ -31,6 +32,10 @@ ms.locfileid: "57877707"
 ## <a name="stay-informed"></a>Manténgase informado
 
 Las noticias sobre Cognitive Services se recopilan en el [blog de Cognitive Services](https://azure.microsoft.com/blog/topics/cognitive-services/). Para obtener la información más reciente acerca de los servicios de voz, realizar un seguimiento de la [blog de servicios de voz](https://azure.microsoft.com/blog/tag/speech-service/).
+
+## <a name="release-notes"></a>Notas de la versión
+
+[Notas de la versión]] (https://aka.ms/csspeech/whatsnew) se actualizan en cuanto está disponible una nueva versión. Las notas contienen información sobre las nuevas características, mejoras y correcciones de errores.
 
 ## <a name="search"></a>Search
 
@@ -51,7 +56,7 @@ Donde *{Your Search Terms}* son sus palabras clave de búsqueda.
 Los clientes de Azure pueden crear y administrar las solicitudes de soporte técnico en Azure Portal.
 
 * [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-* [Azure Portal para el gobierno de los Estados Unidos](https://portal.azure.us)
+* [Portal de Azure para el gobierno de Estados Unidos](https://portal.azure.us)
 
 ## <a name="post-a-question-to-stack-overflow"></a>Publique una pregunta en Stack Overflow
 
@@ -69,23 +74,23 @@ Si no encuentra una respuesta a su problema a través de la búsqueda, envíe un
 
 > [!TIP]
 > Las siguientes publicaciones de Stack Overflow contienen sugerencias sobre cómo formular preguntas y agregar código fuente. Seguir estas directrices puede ayudarle a aumentar las posibilidades de que los miembros de la comunidad evalúen y respondan a su pregunta rápidamente:  
-> * [Cómo se puede formular una buena pregunta](https://stackoverflow.com/help/how-to-ask)
-> * [Cómo crear un ejemplo mínimo, completo y comprobable](https://stackoverflow.com/help/mcve)
+> * [¿Cómo puedo formular una buena pregunta?](https://stackoverflow.com/help/how-to-ask)
+> * [Creación de un número mínimo, completo y comprobable ejemplo](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>Creación de un problema de GitHub
 
 A menudo se envían ejemplos como código abierto. Para preguntas y problemas, cree un *problema* en el repositorio de GitHub correspondiente. También puede enviar una solicitud de incorporación de cambios. La lista siguiente contiene vínculos a los repositorios de ejemplos:
 
-* [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
+* [SDK de voz](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
 * [SDK de dispositivos](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
 Puede crear un informe de errores, solicitar una característica o formular una pregunta general y compartir procedimientos recomendados. Para los informes de errores, siga la plantilla proporcionada:
 
-**Describa el error**
+**Describe el error**
 
 Proporcione una descripción clara y concisa de lo que es el error.
 
-**Pasos de reproducción**
+**Para reproducir**
 
 Pasos para reproducir el comportamiento:
 1. ...
@@ -95,11 +100,11 @@ Pasos para reproducir el comportamiento:
 
 Proporcione una descripción clara y concisa de lo que esperaba que sucediera.
 
-**Versión del SDK de Voz de Cognitive Services**
+**Versión de Cognitive Services Speech SDK**
 
 ¿Qué versión del SDK está usando?
 
-**Plataforma, sistema operativo y lenguaje de programación**
+**Lenguaje de programación, sistema operativo y plataforma**
 
  - SO: sea específico; por ejemplo, Windows, Linux, Android, iOS, etc.
  - Hardware: x64, x86, ARM, etc.
@@ -108,7 +113,7 @@ Proporcione una descripción clara y concisa de lo que esperaba que sucediera.
 **Contexto adicional**
 
  - Mensajes de error, información de registro, seguimiento de la pila, etc.
- - Si informa de un error de interacción de un determinado servicio, indique los valores de SessionId y time (incluido timezone) de los incidentes notificados. SessionId se indica en todas las llamadas y eventos que recibe.
+ - Si utiliza para notificar un error para la interacción de un servicio específico, notifique el SessionId y la hora (incluido timezone) de los incidentes notificados. SessionId se indica en todas las llamadas y eventos que recibe.
  - Cualquier otra información adicional
 
 

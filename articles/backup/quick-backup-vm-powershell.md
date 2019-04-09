@@ -10,16 +10,14 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: aa637571ca11ea294b1f95df49855d7ee81b3001
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 00ec813aec37697526233532b75ba6c55bf852c2
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258877"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906079"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Copia de seguridad de una máquina virtual en Azure con PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 El módulo [Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-1.4.0) se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. 
 
@@ -27,8 +25,9 @@ El módulo [Azure PowerShell AZ](https://docs.microsoft.com/powershell/azure/new
 
 Esta guía de inicio rápido permite realizar copias de seguridad en una máquina virtual de Azure existente. Si necesita crear una máquina virtual, puede [crearla con Azure PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json).
 
-Para realizar los pasos de esta guía, se requiere la versión 1.0.0 del módulo Azure PowerShell AZ, o cualquier versión posterior. Ejecute ` Get-Module -ListAvailable Az` para encontrar la versión. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-az-ps).
+Para realizar los pasos de esta guía, se requiere la versión 1.0.0 del módulo Azure PowerShell AZ, o cualquier versión posterior. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita instalarla o actualizarla, consulte el artículo sobre [cómo instalar el módulo de Azure PowerShell](/powershell/azure/install-az-ps).
 
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="log-in-and-register"></a>Inicio de sesión y registro
 
@@ -73,6 +72,14 @@ Ahora, cree un almacén.
         -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesVaultContext
     ```
 
+3. Cambie la configuración de redundancia de almacenamiento (LRS y GRS) del almacén con [Set-AzRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/module/az.recoveryservices/Set-AzRecoveryServicesBackupProperties?view=azps-1.6.0) tal como se muestra a continuación:
+    
+    ```powershell
+    Get-AzRecoveryServicesVault `
+        -Name "myRecoveryServicesVault" | Set-AzRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant/GeoRedundant
+    ```
+    > [!NOTE]
+    > La redundancia de almacenamiento solo se puede modificar si no hay ningún elemento de copia de seguridad protegido en el almacén.
 
 ## <a name="enable-backup-for-an-azure-vm"></a>Habilitación de la copia de seguridad de una máquina virtual de Azure
 

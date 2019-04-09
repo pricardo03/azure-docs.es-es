@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: a721cc2252619923496ee5a3a8ae590a5cda3b04
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 23c74c0b1d4c311cd57a02cbac9498f3acb16992
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487556"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578125"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Inicio rápido: Creación de una aplicación ASP.NET Core con Azure App Configuration
 
@@ -93,13 +93,15 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 
     Se accede a este secreto con la API de configuración. Un signo de dos puntos (:) funciona en el nombre de configuración con la API de configuración en todas las plataformas compatibles. Consulte [Configuración en ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0).
 
-4. Abra Program.cs y actualice el método `CreateWebHostBuilder` para usar App Configuration mediante una llamada al método `config.AddAzureAppConfiguration()`.
+4. Abra *Program.cs* y agregue una referencia a un proveedor de configuración .NET Core de App Configuration.
 
     ```csharp
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
+    ```
 
-    ...
+5. Actualice el método `CreateWebHostBuilder` para usar App Configuration; para ello, llame al método `config.AddAzureAppConfiguration()`.
 
+    ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
             .ConfigureAppConfiguration((hostingContext, config) =>
@@ -113,7 +115,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
             .UseStartup<Startup>();
     ```
 
-5. Abra el archivo Index.cshtml, que se encuentra en el directorio Views > Home, y sustituya su contenido por el siguiente código:
+6. Abra el archivo Index.cshtml, que se encuentra en el directorio Views > Home, y sustituya su contenido por el siguiente código:
 
     ```html
     @using Microsoft.Extensions.Configuration
@@ -139,7 +141,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
     </html>
     ```
 
-6. Abra el archivo _Layout.cshtml, que se encuentra en el directorio Views > Shared, y sustituya su contenido por el siguiente código:
+7. Abra el archivo _Layout.cshtml, que se encuentra en el directorio Views > Shared, y sustituya su contenido por el siguiente código:
 
     ```html
     <!DOCTYPE html>

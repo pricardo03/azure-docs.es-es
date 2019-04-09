@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9dada3c6f0718db41a24368aca594bbd3215fec5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 06ee97cff08804093d3ee77ee11eca1b4e84bb0f
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994863"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885968"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definición y asignación de un plano técnico de Azure Blueprint con API REST
 
@@ -40,10 +40,10 @@ Para información sobre las especificaciones de planos técnicos, consulte [Azur
 
 Si aún no tiene una herramienta para realizar llamadas de API REST, considere el uso de PowerShell para estas instrucciones. A continuación se muestra un encabezado de ejemplo para autenticar con Azure. Genere un encabezado de autenticación, a veces llamado **Token de portador**, y proporcione el identificador URI de la API REST al que conectarse con cualquier parámetro o un **cuerpo de la solicitud**:
 
-```powershell-interactive
-# Login first with Connect-AzureRmAccount if not using Cloud Shell
+```azurepowershell-interactive
+# Log in first with Connect-AzAccount if not using Cloud Shell
 
-$azContext = Get-AzureRmContext
+$azContext = Get-AzContext
 $azProfile = [Microsoft.Azure.Commands.Common.Authentication.Abstractions.AzureRmProfileProvider]::Instance.Profile
 $profileClient = New-Object -TypeName Microsoft.Azure.Commands.ResourceManager.Common.RMProfileClient -ArgumentList ($azProfile)
 $token = $profileClient.AcquireAccessToken($azContext.Subscription.TenantId)
@@ -68,8 +68,8 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
 En cada identificador URI de la API REST, hay variables usadas que se deben reemplazar por sus propios valores:
 
-- `{YourMG}`: reemplácelo por el identificador del grupo de administración
-- `{subscriptionId}`: reemplácelo por el identificador de suscripción
+- `{YourMG}` : reemplácelo por el identificador del grupo de administración
+- `{subscriptionId}` : reemplácelo por el identificador de suscripción
 
 > [!NOTE]
 > Los planos técnicos también pueden crearse en el nivel de suscripción. Para ver un ejemplo, consulte el artículo de [creación de un plano técnico en el ejemplo de suscripción](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
@@ -334,9 +334,9 @@ Cuando se ha publicado un plano técnico mediante la API REST, se puede asignar 
 
 En cada identificador URI de la API REST, hay variables usadas que se deben reemplazar por sus propios valores:
 
-- `{tenantId}`: reemplácelo por su identificador de inquilino
-- `{YourMG}`: reemplácelo por el identificador del grupo de administración
-- `{subscriptionId}`: reemplácelo por el identificador de suscripción
+- `{tenantId}` : reemplácelo por su identificador de inquilino
+- `{YourMG}` : reemplácelo por el identificador del grupo de administración
+- `{subscriptionId}` : reemplácelo por el identificador de suscripción
 
 1. Proporcione a la entidad de servicio de Azure Blueprint el rol de **propietario** en la suscripción de destino. El valor de AppId es estático (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), pero el identificador de la entidad de servicio varía según el inquilino. Los detalles se pueden solicitar para su inquilino mediante la API REST siguiente. Utiliza [Graph API de Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tiene una autorización diferente.
 

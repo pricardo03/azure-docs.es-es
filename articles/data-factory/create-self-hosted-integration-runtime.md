@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 6ab5ee923cc439901149a26d7af4b57f9933ee19
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 7fd4fd65b48c199527d9172b7cea89010c962f5b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905892"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261044"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 El entorno de ejecución de integración (IR) es la infraestructura de proceso que Azure Data Factory usa para proporcionar funcionalidades de integración de datos en distintos entornos de red. Para más información acerca del entorno de ejecución de integración, consulte [Introducción al entorno de ejecución de integración](concepts-integration-runtime.md).
@@ -39,7 +39,9 @@ En este documento se describe cómo crear y configurar un IR autohospedado.
 3. Recupere la clave de autenticación y registre el entorno de ejecución de integración autohospedado con la clave. Este es un ejemplo con PowerShell:
 
     ```powershell
-    Get-AzDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+
+    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName  
+
     ```
 
 ## <a name="setting-up-a-self-hosted-ir-on-an-azure-vm-by-using-an-azure-resource-manager-template-automation"></a>Configuración de un IR autohospedado en una máquina virtual de Azure mediante una plantilla de Azure Resource Manager (automatización)
@@ -110,7 +112,7 @@ Para instalar el entorno de ejecución de integración autohospedado, descargue 
 
 
 ## <a name="high-availability-and-scalability"></a>Alta disponibilidad y escalabilidad
-Un entorno de ejecución de integración autohospedado puede asociarse con varios equipos locales. Estas máquinas se llaman nodos. Puede tener hasta cuatro nodos asociados con un entorno de ejecución de integración autohospedado. Las ventajas de tener varios nodos (equipos locales con una puerta de enlace instalada) para una puerta de enlace lógica son:
+Un entorno integration runtime autohospedado puede asociarse con varias máquinas locales o máquinas virtuales en Azure. Estas máquinas se llaman nodos. Puede tener hasta cuatro nodos asociados con un entorno de ejecución de integración autohospedado. Las ventajas de tener varios nodos (equipos locales con una puerta de enlace instalada) para una puerta de enlace lógica son:
 * Mayor disponibilidad del entorno de ejecución de integración autohospedado para que deje de ser el único punto de error de la solución de Big Data o la integración de datos en la nube con Azure Data Factory, lo que garantiza la continuidad con un máximo de cuatro nodos.
 * Rendimiento mejorado durante el movimiento de datos entre almacenes de datos locales y en la nube. Obtenga más información sobre las [comparaciones de rendimiento](copy-activity-performance.md).
 

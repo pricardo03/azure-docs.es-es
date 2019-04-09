@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/03/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fed62dfc3f7e7dc974fb709261e363f26ce97c51
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 0fa2e38a680e8590a89131717136a7960c1d3680
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200997"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58903597"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de ASP.NET Core
 
@@ -40,7 +40,7 @@ En esta guía de inicio rápido, obtendrá información sobre cómo una aplicaci
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo
 >
-> 1. Vaya a [Azure Portal: registros de aplicaciones (versión preliminar)](https://aka.ms/aspnetcore2-1-aad-quickstart-v2).
+> 1. Vaya a [Azure Portal: registros de aplicaciones](https://aka.ms/aspnetcore2-1-aad-quickstart-v2).
 > 1. Escriba un nombre para la aplicación y seleccione **Registrar**.
 > 1. Siga las instrucciones para descargar y configurar automáticamente la nueva aplicación en un solo clic.
 >
@@ -51,7 +51,8 @@ En esta guía de inicio rápido, obtendrá información sobre cómo una aplicaci
 >
 > 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
 > 1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
-> 1. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory** y, a continuación, seleccione **Registros de aplicaciones (versión preliminar)** > **Nuevo registro**.
+> 1. Vaya a la página [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) de la plataforma de identidad de Microsoft para desarrolladores.
+> 1. Seleccione **Nuevo registro**.
 > 1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
 >    - En la sección **Nombre**, escriba un nombre significativo para la aplicación, que se mostrará a los usuarios de la aplicación, por ejemplo, `AspNetCore-Quickstart`.
 >    - En **Dirección URL de respuesta**, agregue `https://localhost:44321/` y seleccione **Registrar**.
@@ -78,7 +79,7 @@ En esta guía de inicio rápido, obtendrá información sobre cómo una aplicaci
 
 1. Extraiga el archivo ZIP en una carpeta local de la carpeta raíz (por ejemplo, **C:\Azure-Samples**)
 1. Si usa Visual Studio 2017, abra la solución en Visual Studio (opcional).
-1. Edite el archivo **appsettings.json**. Busque `ClientId` y reemplace `Enter_the_Application_Id_here` por el valor del **Identificador de aplicación (cliente)** de la aplicación que acaba de registrar. 
+1. Edite el archivo **appsettings.json**. Busque `ClientId` y actualice el valor de `ClientId` con el valor de **Identificador de aplicación (cliente)** de la aplicación que acaba de registrar. 
 
     ```json
     "ClientId": "Enter_the_Application_Id_here"
@@ -87,8 +88,8 @@ En esta guía de inicio rápido, obtendrá información sobre cómo una aplicaci
 
 > [!div renderon="docs"]
 > Donde:
-> - `Enter_the_Application_Id_here`: es el **Identificador de aplicación (cliente)** de la aplicación que ha registrado en Azure Portal. Puede encontrar el **Identificador de aplicación (cliente)** en la página **Información general** de la aplicación.
-> - `Enter_the_Tenant_Info_Here`: es una de las siguientes opciones:
+> - `Enter_the_Application_Id_here` : es el **identificador de aplicación (cliente)** de la aplicación que ha registrado en Azure Portal. Puede encontrar el **Identificador de aplicación (cliente)** en la página **Información general** de la aplicación.
+> - `Enter_the_Tenant_Info_Here` : es una de las siguientes opciones:
 >   - Si la aplicación admite **Solo las cuentas de este directorio organizativo**, reemplace este valor por el **Identificador de inquilino** o el **Nombre de inquilino** (por ejemplo, contoso.microsoft.com)
 >   - Si la aplicación admite **Cuentas en cualquier directorio organizativo**, reemplace este valor por `organizations`
 >   - Si la aplicación admite **Todos los usuarios de cuentas Microsoft**, reemplace este valor por `common`

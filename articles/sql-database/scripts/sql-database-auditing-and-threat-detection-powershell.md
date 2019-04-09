@@ -3,7 +3,7 @@ title: Ejemplo de PowerShell para auditoría y detección de amenazas en Azure S
 description: Ejemplo de script de Azure PowerShell para configurar la auditoría y la detección de amenazas en Azure SQL Database
 services: sql-database
 ms.service: sql-database
-ms.subservice: threat-detection
+ms.subservice: security
 ms.custom: security
 ms.devlang: PowerShell
 ms.topic: sample
@@ -12,12 +12,12 @@ ms.author: ronitr
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: d206d3f95f28fe058e836c3d0abbf0f270329657
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5e838aa0bda0620958e679ab614cc238df607fdd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57857324"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891538"
 ---
 # <a name="use-powershell-to-configure-sql-database-auditing-and-threat-detection"></a>Uso de PowerShell para configurar la auditoría y detección de amenazas en SQL Database
 
@@ -49,7 +49,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) | Crea un servidor de SQL Database que hospeda una base de datos única o un grupo elástico. |
-| [New-AzSQLDatabase](/powershell/module/az.sql/new-azsqldatabase) | Crea una base de datos única o un grupo elástico. |
+| [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) | Crea una base de datos única o un grupo elástico. |
 | [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) | Crea una cuenta de Storage. |
 | [Set-AzSqlDatabaseAuditing](/powershell/module/az.sql/set-azsqldatabaseauditing) | Establece la directiva de auditoría para una base de datos. |
 | [Set-AzSqlDatabaseThreatDetectionPolicy](/powershell/module/az.sql/set-azsqldatabasethreatdetectionpolicy) | Establece una directiva de detección de amenazas en una base de datos. |

@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: tutorial
 ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 2befbf66733430e6077f5e5ff3044c30a77b7e5c
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: 10837730bea17f98083f456ec4c9fb0d7567af57
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958990"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877268"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Tutorial: Supervisión de métricas y registros de Azure Firewall
 
@@ -41,7 +41,7 @@ Antes de comenzar este tutorial, debe leer el artículo acerca de las [métricas
 Puede tardar algunos minutos en que los datos aparezcan en los registros después de completar este procedimiento para activar el registro de diagnóstico. Si no ve nada a primera vista, vuelva a comprobarlo en unos minutos.
 
 1. En Azure Portal, abra el grupo de recursos de firewall y haga clic en el firewall.
-2. En **Supervisión**, haga clic en **Registros de diagnóstico**.
+2. En **Supervisión**, haga clic en **Configuración de diagnóstico**.
 
    En Azure Firewall hay dos registros específicos del servicio:
 

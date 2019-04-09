@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d30fe326ef677ca4543534d57dd306ed2a660300
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: eafc379a65fda1ed64c6afee1427e704558b1ee6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895569"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261551"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedimientos recomendados para el acceso condicional en Azure Active Directory
 
@@ -138,6 +138,7 @@ En su entorno, debería evitar las siguientes configuraciones:
 
 - **Requerir unión a un dominio** : este acceso al bloqueo de directivas también ofrece la posibilidad de bloquear el acceso a todos los usuarios de su organización si aún no tiene un dispositivo unido al dominio.
 
+- **Requerir la directiva de protección de aplicaciones** : este bloque de la Directiva acceso también tiene la posibilidad de bloquear el acceso a todos los usuarios de su organización si no tiene una directiva de Intune. Si es un administrador y no una aplicación cliente que tiene una directiva de protección de aplicaciones de Intune, esta directiva le impide metiendo portales, como Intune y Azure.
 
 **Para todos los usuarios, todas las aplicaciones de nube, todas las plataformas de dispositivo:**
 

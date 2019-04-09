@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 763ff0d5f619d2808fb06c05d5b266160b3a7069
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 5aa637938433eb1f906f0a4d81038cec0d6c6dcc
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55868572"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893017"
 ---
 # <a name="tutorial-automate-container-image-builds-in-the-cloud-when-you-commit-source-code"></a>Tutorial: Automatización de las compilaciones de imágenes de contenedor en la nube al confirmar código fuente
 
@@ -52,7 +52,7 @@ ACR Tasks admite actualmente los siguientes desencadenadores:
 * Confirmación en un repositorio Git
 * Actualización de imagen base
 
-En este tutorial, la tarea ACR compila e inserta una imagen de contenedor único especificada en un archivo Dockerfile. Azure Container Registry Tasks también puede ejecutar [tareas de varios pasos](container-registry-tasks-multi-step.md) (actualmente en versión preliminar) mediante un archivo YAML que define pasos para compilar, insertar y, opcionalmente, probar varios contenedores.
+En este tutorial, la tarea ACR compila e inserta una imagen de contenedor único especificada en un archivo Dockerfile. Azure Container Registry Tasks también puede ejecutar [tareas de varios pasos](container-registry-tasks-multi-step.md) mediante un archivo YAML que define los pasos para compilar, insertar y, opcionalmente, probar varios contenedores.
 
 ## <a name="create-a-build-task"></a>Creación de una tarea de compilación
 
@@ -319,7 +319,7 @@ da1                       Linux       Succeeded  Manual      2018-09-17T22:29:59
 En este tutorial ha aprendido a usar una tarea que desencadena automáticamente compilaciones de imágenes de contenedor en Azure cuando confirma código fuente en un repositorio Git. Pase al siguiente tutorial para aprender a crear tareas que desencadenan compilaciones cuando se actualiza la imagen base de la imagen de contenedor.
 
 > [!div class="nextstepaction"]
-> [Automatización de compilaciones después de una actualización de imagen base](container-registry-tutorial-base-image-update.md)
+> [Automatización de compilaciones en una actualización de la imagen base](container-registry-tutorial-base-image-update.md)
 
 <!-- LINKS - External -->
 [sample-repo]: https://github.com/Azure-Samples/acr-build-helloworld-node

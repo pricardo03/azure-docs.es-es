@@ -1,6 +1,6 @@
 ---
-title: ¿Qué es Azure AD Privileged Identity Management? | Microsoft Docs
-description: Ofrece una introducción a Azure Active Directory Privileged Identity Management (PIM).
+title: Qué es Privileged Identity Management Azure Active Directory | Microsoft Docs
+description: Ofrece una introducción a Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,12 +14,12 @@ ms.date: 01/16/2019
 ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 022fd8e1ab8445954b205f471cd1aa4d18e11545
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 22f4caed1ea0490470009c21f22624861808cb2d
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56178165"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578686"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>¿Qué es Azure AD Privileged Identity Management?
 
@@ -67,7 +67,7 @@ Para conocer mejor PIM y su documentación, debe revisar los términos siguiente
 | apto con expiración | Duration | Asignación de roles en la que un usuario es apto para activar el rol en un plazo específico de tiempo, con principio y fin. |
 | activo con expiración | Duration | Asignación de roles en la que un usuario puede usar el rol sin realizar ninguna acción en un plazo determinado con principio y fin. |
 | acceso just-in-time (JIT) |  | Modelo en el que los usuarios reciben permisos temporales para realizar tareas con privilegios, lo que impide que usuarios malintencionados o sin autorización obtengan acceso después de que el permiso haya expirado. El acceso se concede solo cuando los usuarios lo necesitan. |
-| principio de acceso con privilegios mínimos |  | Una práctica de seguridad recomendada en la que se proporcionan a todos los usuarios únicamente los privilegios mínimos necesarios para realizar las tareas que están autorizados a realizar. Esta práctica minimiza el número de administradores globales, ya que en su lugar utiliza roles de administrador específicos para determinados escenarios. |
+| Principio de acceso con privilegios mínimos |  | Una práctica de seguridad recomendada en la que se proporcionan a todos los usuarios únicamente los privilegios mínimos necesarios para realizar las tareas que están autorizados a realizar. Esta práctica minimiza el número de administradores globales, ya que en su lugar utiliza roles de administrador específicos para determinados escenarios. |
 
 ## <a name="what-does-pim-look-like"></a>¿Qué aspecto tiene PIM?
 

@@ -9,12 +9,12 @@ ms.date: 01/03/2019
 ms.author: tamram
 ms.custom: mvc
 ms.subservice: blobs
-ms.openlocfilehash: c8796c300b5163f23ad1156650f6e74b61ccdfa6
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: c4e81d9be09855cde986bfd21f8f688fa7d1341e
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486672"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793726"
 ---
 # <a name="tutorial-build-a-highly-available-application-with-blob-storage"></a>Tutorial: Creación de una aplicación de alta disponibilidad con Blob Storage
 
@@ -49,14 +49,15 @@ Para completar este tutorial:
 * Instalación de [Python](https://www.python.org/downloads/)
 * Descargue e instale el [SDK de Azure Storage para Python](https://github.com/Azure/azure-storage-python).
 
-# <a name="java-v10-sdktabjava-v10"></a>[SDK de Java V10](#tab/java-v10)
+# <a name="java-v7-sdktabjava-v7"></a>[SDK de Java V7](#tab/java-v7)
 
 * Instale y configure [Maven](https://maven.apache.org/download.cgi) para trabajar desde la línea de comandos
 * Instalación y configuración de [JDK](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+# <a name="java-v10-sdktabjava-v10"></a>[SDK de Java V10](#tab/java-v10)
 
-* [Instale Node.js](https://nodejs.org).
+* Instale y configure [Maven](http://maven.apache.org/download.cgi) para trabajar desde la línea de comandos
+* Instalación y configuración de [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 
 ---
 
@@ -75,16 +76,16 @@ Siga estos pasos para crear una cuenta de almacenamiento con redundancia geográ
 3. Seleccione **Cuenta de almacenamiento: blob, archivo, tabla, cola** en **Destacados**.
 4. Rellene el formulario de la cuenta de almacenamiento con la siguiente información, como se muestra en la siguiente imagen y seleccione **Crear**:
 
-   | Configuración       | Valor sugerido | DESCRIPCIÓN |
+   | Configuración       | Valor sugerido | Descripción |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Suscripción** | Su suscripción |Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
-   | **Grupos de recursos** | myResourceGroup |Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
-   | **Nombre de cuenta de almacenamiento** | mystorageaccount | Valor único para la cuenta de almacenamiento |
-   | **Ubicación** | Este de EE. UU | Elija una ubicación. |
-   | **Rendimiento** | Estándar | Suficiente para el escenario de ejemplo. |
+   | **Nombre** | mystorageaccount | Valor único para la cuenta de almacenamiento |
+   | **Modelo de implementación** | Resource Manager  | Resource Manager contiene las características más recientes.|
    | **Tipo de cuenta** | StorageV2 | Para más información sobre los tipos de cuenta, consulte [Tipos de cuentas de almacenamiento](../common/storage-introduction.md#types-of-storage-accounts) |
+   | **Rendimiento** | Estándar | Suficiente para el escenario de ejemplo. |
    | **Replicación**| Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS). | Necesario para el ejemplo funcione. |
-   | **Nivel de acceso** | Acceso frecuente | Suficiente para el escenario de ejemplo. |
+   |**Suscripción** | Su suscripción |Para más información acerca de sus suscripciones, consulte [Suscripciones](https://account.windowsazure.com/Subscriptions). |
+   |**ResourceGroup** | myResourceGroup |Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
+   |**Ubicación** | Este de EE. UU | Elija una ubicación. |
 
 ![creación de cuenta de almacenamiento](media/storage-create-geo-redundant-storage/createragrsstracct.png)
 
@@ -95,7 +96,7 @@ Siga estos pasos para crear una cuenta de almacenamiento con redundancia geográ
 [Descargue el proyecto de ejemplo](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs/archive/master.zip) y extraiga (descomprima) el archivo storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.zip. También puede usar [git](https://git-scm.com/) para descargar una copia de la aplicación en el entorno de desarrollo. El proyecto de ejemplo contiene una aplicación de consola.
 
 ```bash
-git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git 
+git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
@@ -106,6 +107,14 @@ git clone https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-pattern-ha-apps-using-ra-grs.git
 ```
 
+# <a name="java-v7-sdktabjava-v7"></a>[SDK de Java V7](#tab/java-v7)
+
+[Descargue el proyecto de ejemplo](https://github.com/Azure-Samples/storage-java-ha-ra-grs) y extraiga el archivo ragrs.zip de java de almacenamiento. También puede usar [git](https://git-scm.com/) para descargar una copia de la aplicación en el entorno de desarrollo. El proyecto de ejemplo contiene una aplicación de básica de Java.
+
+```bash
+git clone https://github.com/Azure-Samples/storage-java-ha-ra-grs.git
+```
+
 # <a name="java-v10-sdktabjava-v10"></a>[SDK de Java V10](#tab/java-v10)
 
 [Descargue el proyecto de ejemplo](https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs) y extraiga el archivo ragrs.zip de java de almacenamiento. También puede usar [git](https://git-scm.com/) para descargar una copia de la aplicación en el entorno de desarrollo. El proyecto de ejemplo contiene una aplicación de básica de Java.
@@ -114,57 +123,65 @@ git clone https://github.com/Azure-Samples/storage-python-circuit-breaker-patter
 git clone https://github.com/Azure-Samples/storage-java-V10-ha-ra-grs
 ```
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
-
-[Descargue el proyecto de ejemplo](https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs) y descomprima el archivo. También puede usar [git](https://git-scm.com/) para descargar una copia de la aplicación en el entorno de desarrollo. El proyecto de ejemplo contiene una aplicación básica de Node.js.
-
-```bash
-git clone https://github.com/Azure-Samples/storage-node-v10-ha-ra-grs
-```
-
 ---
-
-## <a name="configure-the-sample"></a>Configuración del ejemplo
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
-En la aplicación, debe proporcionar la cadena de conexión para la cuenta de almacenamiento. Esta cadena de conexión se puede almacenar en una variable de entorno de la máquina local que ejecuta la aplicación. Siga uno de los estos ejemplos dependiendo de su sistema operativo para crear la variable de entorno.
+En la aplicación, debe proporcionar la cadena de conexión para la cuenta de almacenamiento. Se recomienda almacenar esta cadena de conexión dentro de una variable de entorno en la máquina local que ejecuta la aplicación. Siga uno de los estos ejemplos dependiendo de su sistema operativo para crear la variable de entorno.
 
-En Azure Portal, vaya a la cuenta de almacenamiento. Seleccione **Claves de acceso** en **Configuración**, en su cuenta de almacenamiento. Copie la **cadena de conexión** de la clave principal o secundaria. Reemplace \<yourconnectionstring\> por la cadena de conexión real para ejecutar uno de los siguientes comandos en función de su sistema operativo. Este comando guarda una variable de entorno en la máquina local. En Windows, la variable de entorno no está disponible hasta que vuelve a cargar el **símbolo del sistema** o el shell que usa.
+En Azure Portal, vaya a la cuenta de almacenamiento. Seleccione **Claves de acceso** en **Configuración**, en su cuenta de almacenamiento. Copie la **cadena de conexión** de la clave principal o secundaria. Reemplace \<yourconnectionstring\> con la cadena de conexión real ejecutando uno de los siguientes comandos en función de su sistema operativo. Este comando guarda una variable de entorno en la máquina local. En Windows, la variable de entorno no está disponible hasta que vuelve a cargar el **símbolo del sistema** o el shell que usa. Reemplace  **\<storageConnectionString\>** en el ejemplo siguiente:
 
 ### <a name="linux"></a>Linux
 
 ```
-export storageconnectionstring=<yourconnectionstring>
+export storageconnectionstring=\<yourconnectionstring\>
 ```
+
 ### <a name="windows"></a> Windows
 
-```powershell
-setx storageconnectionstring "<yourconnectionstring>"
+```PowerShell
+setx storageconnectionstring "\<yourconnectionstring\>"
 ```
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-En la aplicación, debe proporcionar las credenciales de la cuenta de almacenamiento. Esta información se puede almacenar en variables de entorno en la máquina local que ejecuta la aplicación. Siga uno de estos ejemplos (dependiendo de su sistema operativo) para crear las variables de entorno.
+En la aplicación, debe proporcionar la cadena de conexión para la cuenta de almacenamiento. Se recomienda almacenar esta cadena de conexión dentro de una variable de entorno en la máquina local que ejecuta la aplicación. Siga uno de los estos ejemplos dependiendo de su sistema operativo para crear la variable de entorno.
 
-En Azure Portal, vaya a la cuenta de almacenamiento. Seleccione **Claves de acceso** en **Configuración**, en su cuenta de almacenamiento. Pegue los valores de **Nombre de la cuenta de almacenamiento** y **Clave** en los siguientes comandos y reemplace los marcadores de posición \<youraccountname\> y \<youraccountkey\>. Este comando guarda las variables de entorno en la máquina local. En Windows, la variable de entorno no está disponible hasta que vuelve a cargar el **símbolo del sistema** o el shell que usa.
+En Azure Portal, vaya a la cuenta de almacenamiento. Seleccione **Claves de acceso** en **Configuración**, en su cuenta de almacenamiento. Copie la **cadena de conexión** de la clave principal o secundaria. Reemplace \<yourconnectionstring\> con la cadena de conexión real ejecutando uno de los siguientes comandos en función de su sistema operativo. Este comando guarda una variable de entorno en la máquina local. En Windows, la variable de entorno no está disponible hasta que vuelve a cargar el **símbolo del sistema** o el shell que usa. Reemplace  **\<storageConnectionString\>** en el ejemplo siguiente:
 
 ### <a name="linux"></a>Linux
 
 ```
-export accountname=<youraccountname>
-export accountkey=<youraccountkey>
+export storageconnectionstring=\<yourconnectionstring\>
 ```
+
 ### <a name="windows"></a> Windows
 
-```powershell
-setx accountname "<youraccountname>"
-setx accountkey "<youraccountkey>"
+```PowerShell
+setx storageconnectionstring "\<yourconnectionstring\>"
+```
+
+# <a name="java-v7-sdktabjava-v7"></a>[SDK de Java V7](#tab/java-v7)
+
+En la aplicación, debe proporcionar la cadena de conexión para la cuenta de almacenamiento. Se recomienda almacenar esta cadena de conexión dentro de una variable de entorno en la máquina local que ejecuta la aplicación. Siga uno de los estos ejemplos dependiendo de su sistema operativo para crear la variable de entorno.
+
+En Azure Portal, vaya a la cuenta de almacenamiento. Seleccione **Claves de acceso** en **Configuración**, en su cuenta de almacenamiento. Copie la **cadena de conexión** de la clave principal o secundaria. Reemplace \<yourconnectionstring\> con la cadena de conexión real ejecutando uno de los siguientes comandos en función de su sistema operativo. Este comando guarda una variable de entorno en la máquina local. En Windows, la variable de entorno no está disponible hasta que vuelve a cargar el **símbolo del sistema** o el shell que usa. Reemplace  **\<storageConnectionString\>** en el ejemplo siguiente:
+
+### <a name="linux"></a>Linux
+
+```
+export storageconnectionstring=\<yourconnectionstring\>
+```
+
+### <a name="windows"></a> Windows
+
+```PowerShell
+setx storageconnectionstring "\<yourconnectionstring\>"
 ```
 
 # <a name="java-v10-sdktabjava-v10"></a>[SDK de Java V10](#tab/java-v10)
 
-Este ejemplo requiere que almacene de forma segura el nombre y la clave de la cuenta de almacenamiento. Almacene esta información en variables de entorno locales de la máquina en la que se ejecutará el ejemplo. Siga el ejemplo para Linux o el de Windows, según su sistema operativo, para crear las variables de entorno. 
+Este ejemplo requiere que almacene de forma segura el nombre y la clave de la cuenta de almacenamiento. Almacene esta información en variables de entorno locales de la máquina en la que se ejecutará el ejemplo. Siga el ejemplo para Linux o el de Windows, según su sistema operativo, para crear las variables de entorno. En Windows, la variable de entorno no está disponible hasta que vuelve a cargar el **símbolo del sistema** o el shell que usa.
 
 ### <a name="linux-example"></a>Ejemplo de Linux
 
@@ -179,21 +196,6 @@ export AZURE_STORAGE_ACCESS_KEY="<youraccountkey>"
 setx AZURE_STORAGE_ACCOUNT "<youraccountname>"
 setx AZURE_STORAGE_ACCESS_KEY "<youraccountkey>"
 ```
-
-Puede encontrar esta información en Azure Portal; vaya a la cuenta de almacenamiento y seleccione **Claves de acceso** en la sección **Configuración**. 
-
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
-
-Para ejecutar este ejemplo, debe agregar las credenciales de la cuenta de almacenamiento al archivo `.env.example` y cambiarle el nombre por `.env`.
-
-```
-AZURE_STORAGE_ACCOUNT_NAME=<replace with your storage account name>
-AZURE_STORAGE_ACCOUNT_ACCESS_KEY=<replace with your storage account access key>
-```
-
-Puede encontrar esta información en Azure Portal; vaya a la cuenta de almacenamiento y seleccione **Claves de acceso** en la sección **Configuración**. 
-
-También debe instalar las dependencias necesarias. Para ello, abra un símbolo del sistema, vaya a la carpeta de ejemplo y escriba `npm install`.
 
 ---
 
@@ -215,17 +217,23 @@ Para ejecutar la aplicación en un terminal o un símbolo del sistema, vaya al d
 
 ![Aplicación de consola en ejecución](media/storage-create-geo-redundant-storage/figure3.png)
 
-En el código de ejemplo, el método `run_circuit_breaker` del archivo `circuitbreaker.py` se usa para descargar una imagen de la cuenta de almacenamiento con el método [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html). 
+En el código de ejemplo, el método `run_circuit_breaker` del archivo `circuitbreaker.py` se usa para descargar una imagen de la cuenta de almacenamiento con el método [get_blob_to_path](https://azure.github.io/azure-storage-python/ref/azure.storage.blob.baseblobservice.html).
 
 La función de reintento de objeto de Storage se establece en una directiva de reintento lineal. La función de reintento determina si se debe reintentar una solicitud y especifica el número de segundos que deben transcurrir para reintentar la solicitud. Establezca el valor de **retry\_to\_secondary** en true, si la solicitud debe reintentarse en el elemento secundario en caso de que la solicitud inicial al principal produzca error. En la aplicación de ejemplo, una directiva de reintento personalizada se define en la función `retry_callback` del objeto de almacenamiento.
 
-Antes de la descarga, se definen el objeto de servicio [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) y la función [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python). Estas funciones definen los controladores de eventos que se activan cuando una descarga se completa correctamente o si se produce un error de descarga y se vuelve a intentar.  
+Antes de la descarga, se definen el objeto de servicio [retry_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python) y la función [response_callback](https://docs.microsoft.com/python/api/azure.storage.common.storageclient.storageclient?view=azure-python). Estas funciones definen los controladores de eventos que se activan cuando una descarga se completa correctamente o si se produce un error de descarga y se vuelve a intentar.
+
+# <a name="java-v7-sdktabjava-v7"></a>[SDK de Java V7](#tab/java-v7)
+
+Para ejecutar la aplicación, abra un terminal o el símbolo del sistema con ámbito en la carpeta de aplicaciones descargadas. Desde ahí, escriba `mvn compile exec:java` para ejecutar la aplicación. A continuación, la aplicación carga la imagen **HelloWorld.png** desde el directorio para la cuenta de almacenamiento y realiza las comprobaciones necesarias para asegurarse de que la imagen se ha replicado en el punto de conexión de RA-GRS secundario. Una vez completada la comprobación, la aplicación iniciará la descarga de la imagen varias veces, mientras notifica el punto de conexión desde el que realiza la descarga.
+
+Está establecido que la función de reintento de objeto de Storage use en una directiva de reintento lineal. La función de reintento determina si se reintenta una solicitud y especifica el número de segundos que deben transcurrir para reintentar la solicitud. La propiedad **LocationMode** de **BlobRequestOptions** está establecida en **PRIMARY\_THEN\_SECONDARY**. Esto permite que la aplicación cambie automáticamente a la ubicación secundaria si no logra acceder a la ubicación principal al intentar descargar **HelloWorld.png**.
 
 # <a name="java-v10-sdktabjava-v10"></a>[SDK de Java V10](#tab/java-v10)
 
 Para ejecutar el ejemplo, use Maven en la línea de comandos.
 
-1. Abra un shell y vaya a **storage-blobs-java-v10-tutorial-master** dentro del directorio clonado.
+1. Abra un shell y vaya a **storage-blobs-java-v10-quickstart** dentro del directorio clonado.
 2. Escriba `mvn compile exec:java`.
 
 Este ejemplo crea un archivo de prueba en el directorio predeterminado, que es **AppData\Local\Temp** para los usuarios de Windows. El ejemplo, a continuación, presenta las siguientes opciones de comandos que puede escribir:
@@ -265,33 +273,6 @@ Cleaning up the sample and exiting!
 
 Tiene el control del ejemplo, por lo tanto, escriba los comandos para que se ejecute el código. Las entradas distinguen mayúsculas de minúsculas.
 
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
-
-Para ejecutar el ejemplo, abra un símbolo del sistema, vaya a la carpeta de ejemplo y escriba `node index.js`.
-
-El ejemplo crea un contenedor en la cuenta de almacenamiento de blobs, carga **HelloWorld.png** en el contenedor y comprueba periódicamente si el contenedor y la imagen se han replicado en la región secundaria. Después de la replicación, se le pide que escriba **D** o **Q** (seguido de ENTRAR) para descargar o salir. La salida debería similar al siguiente ejemplo:
-
-```
-Created container successfully: newcontainer1550799840726
-Uploaded blob: HelloWorld.png
-Checking to see if container and blob have replicated to secondary region.
-[0] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
-[1] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
-...
-[31] Container has not replicated to secondary region yet: newcontainer1550799840726 : ContainerNotFound
-[32] Container found, but blob has not replicated to secondary region yet.
-...
-[67] Container found, but blob has not replicated to secondary region yet.
-[68] Blob has replicated to secondary region.
-Ready for blob download. Enter (D) to download or (Q) to quit, followed by ENTER.
-> D
-Attempting to download blob...
-Blob downloaded from primary endpoint.
-> Q
-Exiting...
-Deleted container newcontainer1550799840726
-```
-
 ---
 
 ## <a name="understand-the-sample-code"></a>Descripción del código de ejemplo
@@ -301,7 +282,7 @@ Deleted container newcontainer1550799840726
 ### <a name="retry-event-handler"></a>Controlador de eventos de reintento
 
 El controlador de eventos `OperationContextRetrying` se llama cuando se produce un error de descarga de la imagen y se ha establecido el reintento. Si se alcanza el máximo de reintentos definido en la aplicación, el valor [LocationMode](/dotnet/api/microsoft.windowsazure.storage.blob.blobrequestoptions.locationmode?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_LocationMode) de la solicitud cambia a `SecondaryOnly`. Esta opción obliga a la aplicación a intentar la descarga de la imagen desde el punto de conexión secundario. Esta configuración reduce el tiempo necesario para solicitar la imagen, ya que no se reintenta siempre con el punto de conexión principal.
- 
+
 ```csharp
 private static void OperationContextRetrying(object sender, RequestEventArgs e)
 {
@@ -335,7 +316,7 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 {
     if (blobClient.DefaultRequestOptions.LocationMode == LocationMode.SecondaryOnly)
     {
-        // You're reading the secondary. Let it read the secondary [secondaryThreshold] times, 
+        // You're reading the secondary. Let it read the secondary [secondaryThreshold] times,
         //    then switch back to the primary and see if it's available now.
         secondaryReadCount++;
         if (secondaryReadCount >= secondaryThreshold)
@@ -347,11 +328,11 @@ private static void OperationContextRequestCompleted(object sender, RequestEvent
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python) 
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 ### <a name="retry-event-handler"></a>Controlador de eventos de reintento
 
-El controlador de eventos `retry_callback` se llama cuando se produce un error de descarga de la imagen y se ha establecido el reintento. Si se alcanza el máximo de reintentos definido en la aplicación, el valor [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python) de la solicitud cambia a `SECONDARY`. Esta opción obliga a la aplicación a intentar la descarga de la imagen desde el punto de conexión secundario. Esta configuración reduce el tiempo necesario para solicitar la imagen, ya que no se reintenta siempre con el punto de conexión principal.  
+El controlador de eventos `retry_callback` se llama cuando se produce un error de descarga de la imagen y se ha establecido el reintento. Si se alcanza el máximo de reintentos definido en la aplicación, el valor [LocationMode](https://docs.microsoft.com/python/api/azure.storage.common.models.locationmode?view=azure-python) de la solicitud cambia a `SECONDARY`. Esta opción obliga a la aplicación a intentar la descarga de la imagen desde el punto de conexión secundario. Esta configuración reduce el tiempo necesario para solicitar la imagen, ya que no se reintenta siempre con el punto de conexión principal.
 
 ```python
 def retry_callback(retry_context):
@@ -389,6 +370,19 @@ def response_callback(response):
             secondary_read_count = 0
 ```
 
+# <a name="java-v7-sdktabjava-v7"></a>[SDK de Java V7](#tab/java-v7)
+
+Con Java, no es preciso definir controladores de devolución de llamada si la **LocationMode** propiedad de **BlobRequestOptions** está establecida en **PRIMARY\_THEN\_SECONDARY**. Esto permite que la aplicación cambie automáticamente a la ubicación secundaria si no logra acceder a la ubicación principal al intentar descargar **HelloWorld.png**.
+
+```java
+    BlobRequestOptions myReqOptions = new BlobRequestOptions();
+    myReqOptions.setRetryPolicyFactory(new RetryLinearRetry(deltaBackOff, maxAttempts));
+    myReqOptions.setLocationMode(LocationMode.PRIMARY_THEN_SECONDARY);
+    blobClient.setDefaultRequestOptions(myReqOptions);
+
+    blob.downloadToFile(downloadedFile.getAbsolutePath(),null,blobClient.getDefaultRequestOptions(),opContext);
+```
+
 # <a name="java-v10-sdktabjava-v10"></a>[SDK de Java V10](#tab/java-v10)
 
 Con el SDK de Java V10, definir controladores de devolución de llamada es innecesario y el SDK ahora presenta algunas diferencias fundamentales con respecto a SDK V7. En lugar de LocationMode, tenemos una **canalización** secundaria. Puede definir una canalización secundaria con **RequestRetryOptions** y, si define esta opción, permitirá que la aplicación cambie automáticamente a la canalización secundaria si se produce un error al acceder a los datos mediante la canalización principal.
@@ -399,29 +393,6 @@ PipelineOptions myOptions = new PipelineOptions();
 myOptions.withRequestRetryOptions(new RequestRetryOptions(RetryPolicyType.EXPONENTIAL, 3, 10, 500L, 1000L, accountName + "-secondary.blob.core.windows.net"));
 // We are using a default pipeline here, you can learn more about it at https://github.com/Azure/azure-storage-java/wiki/Azure-Storage-Java-V10-Overview
 final ServiceURL serviceURL = new ServiceURL(new URL("https://" + accountName + ".blob.core.windows.net"), StorageURL.createPipeline(creds, myOptions));
-```
-
-# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
-
-Con el SDK de Node.js V10, los controladores de devolución de llamada son innecesarios. En su lugar, el ejemplo crea una canalización que se configura con opciones de reintento y un punto de conexión secundario. Esto permite que la aplicación cambie automáticamente a la canalización secundaria si se produce un error al acceder a los datos mediante la canalización principal. 
-
-```javascript
-const accountName = process.env.AZURE_STORAGE_ACCOUNT_NAME;
-const storageAccessKey = process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY;
-const sharedKeyCredential = new SharedKeyCredential(accountName, storageAccessKey);
-
-const primaryAccountURL = `https://${accountName}.blob.core.windows.net`;
-const secondaryAccountURL = `https://${accountName}-secondary.blob.core.windows.net`;
-
-const pipeline = StorageURL.newPipeline(sharedKeyCredential, {
-  retryOptions: {
-    maxTries: 3, 
-    tryTimeoutInMs: 10000,
-    retryDelayInMs: 500, 
-    maxRetryDelayInMs: 1000,
-    secondaryHost: secondaryAccountURL
-  }
-});
 ```
 
 ---

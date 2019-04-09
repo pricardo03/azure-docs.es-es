@@ -43,7 +43,7 @@ Vaya a [Establecimiento del entorno de desarrollo](#start) para leer los pasos d
 Para ejecutar el cuaderno, complete primero el entrenamiento del modelo en [Tutorial (parte 1): Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning Service](tutorial-train-models-with-aml.md).   A continuación, ejecute el cuaderno **tutorials/img-clasificación-part2-deploy.ipynb** con el mismo servidor del cuaderno.
 
 
-## <a name="start"></a>
+## <a name="start"></a>Configuración del entorno
 
 Empiece por configurar un entorno de prueba.
 

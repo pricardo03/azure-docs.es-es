@@ -1,34 +1,34 @@
 ---
 title: Hacer que expiren datos en Azure Cosmos DB con período de vida
 description: Con TTL, Microsoft Azure Cosmos DB ofrece la posibilidad de que los documentos se purguen automáticamente del sistema tras un período de tiempo.
-author: markjbrown
+author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/14/2018
-ms.author: mjbrown
+ms.date: 04/08/2019
+ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f9dec5b3aeb951316985c965de70a372f55b8225
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 27540c3dfce73788e01f0f8ab0892c733f153fdf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549194"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271278"
 ---
-# <a name="time-to-live-in-azure-cosmos-db"></a>Período de vida en Azure Cosmos DB 
+# <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Período de vida (TTL) en Azure Cosmos DB 
 
-Mediante el "período de vida" o TTL, Azure Cosmos DB proporciona la capacidad de eliminar automáticamente elementos de un contenedor después de un determinado período de tiempo. De forma predeterminada, puede establecer el período de vida en el nivel de contenedor e invalidar el valor en cada elemento. Después de establecer el TTL en el nivel de contenedor o de elemento, Azure Cosmos DB eliminará automáticamente estos elementos cuando haya pasado el período de tiempo seleccionado tras la hora de la última modificación. El valor del período de vida se configura en segundos. Cuando se configura el TTL, el sistema elimina automáticamente los elementos expirados en función del valor de TTL, a diferencia de una operación de eliminación que se emite explícitamente desde la aplicación cliente.
+Con **período de vida** o TTL, Azure Cosmos DB proporciona la capacidad de eliminar automáticamente elementos de un contenedor después de un determinado período de tiempo. De forma predeterminada, puede establecer el período de vida en el nivel de contenedor e invalidar el valor en cada elemento. Después de establecer el TTL en el nivel de contenedor o de elemento, Azure Cosmos DB eliminará automáticamente estos elementos cuando haya pasado el período de tiempo seleccionado tras la hora de la última modificación. El valor del período de vida se configura en segundos. Cuando se configura el TTL, el sistema eliminará automáticamente los elementos expirados en función del valor TTL, sin necesidad de una operación de eliminación explícitamente emitido por la aplicación cliente.
 
 ## <a name="time-to-live-for-containers-and-items"></a>Período de vida para contenedores y elementos
 
-El período de vida se establece en segundos y se interpreta como una delta desde el momento en que se modificó por última vez un elemento. Puede establecer el período de vida en un contenedor o en un elemento dentro del contenedor:
+El tiempo de vida se establece en segundos, y se interpreta como una diferencia desde el momento en que se modificó por última vez un elemento. Puede establecer el período de vida en un contenedor o en un elemento dentro del contenedor:
 
 1. **Período de vida en un contenedor** (se establece mediante `DefaultTimeToLive`):
 
    - Si no existe (o está establecido en NULL), los elementos no expiran automáticamente.
 
-   - Si existe y el valor se ha establecido en "-1", es igual a infinito y los documentos no expiran de forma predeterminada.
+   - Si existe y el valor se establece en "-1", equivale a infinito y elementos no caducan de forma predeterminada.
 
-   - Si existe y el valor se ha establecido en un número ("n"), los elementos expiran "n" segundos después de la última modificación.
+   - Si existe y el valor se establece en un número *"n"* : los elementos expirarán *"n"* segundos después de su última hora de modificación.
 
 2. **Período de vida en un elemento** (se establece mediante `ttl`):
 
@@ -38,7 +38,7 @@ El período de vida se establece en segundos y se interpreta como una delta desd
 
 ## <a name="time-to-live-configurations"></a>Configuraciones de período de vida
 
-* Si el TTL se establece en "n" en un contenedor, los elementos de ese contenedor expirarán después de n segundos.  Si hay elementos en el mismo contenedor que tengan su propio período de vida establecido en -1 (lo que indica que no expiran) o si algunos elementos han invalidado la configuración del período de vida con un número distinto, estos elementos expirarán según el valor de TTL configurado. 
+* Si se establece el TTL *"n"* en un contenedor, a continuación, los elementos de ese contenedor expirará después *n* segundos.  Si hay elementos en el mismo contenedor que tienen su propio tiempo de live, se establece en -1 (lo que indica que no caduquen) o si el período de vida de configuración con un número diferente invalidar algunos elementos, estos elementos expiran según su propio valor TTL configurado. 
 
 * Si no se establece el TTL en un contenedor, el período de vida en un elemento de este contenedor no tiene ningún efecto. 
 

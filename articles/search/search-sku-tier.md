@@ -7,19 +7,21 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 523c99436eb49f1658a5d4c56d64248adccc5c3a
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: da8c8adacfead598a8dec6280cf3518fb7b31f49
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621278"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270961"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Selección de un plan de tarifa de Azure Search
 
-En Azure Search, un [recurso se crea](search-create-service-portal.md) en el plan de tarifa o SKU que se fija para el periodo de vigencia del servicio. Los niveles incluyen **gratis**, **básica**, **estándar**, o **optimizadas para almacenamiento**.  **Estándar** y **optimizadas para almacenamiento** están disponibles en varias configuraciones y capacidades. La mayoría de clientes comienzan con la **gratis** nivel para su evaluación y, a continuación, se graduará en uno de los niveles más altos de pago para las implementaciones de desarrollo y producción. Puede completar todos los inicios rápidos y tutoriales en el nivel **Gratis**, incluidos los de búsqueda cognitiva que consumen gran cantidad de recursos.
+En Azure Search, un [recurso se crea](search-create-service-portal.md) en el plan de tarifa o SKU que se fija para el periodo de vigencia del servicio. Los niveles incluyen **gratis**, **básica**, **estándar**, o **optimizadas para almacenamiento**.  **Estándar** y **optimizadas para almacenamiento** están disponibles en varias configuraciones y capacidades. 
+
+La mayoría de clientes comienzan con la **gratis** nivel para su evaluación y, a continuación, se graduará en uno de los niveles más altos de pago para las implementaciones de desarrollo y producción. Puede completar todos los inicios rápidos y tutoriales en el nivel **Gratis**, incluidos los de búsqueda cognitiva que consumen gran cantidad de recursos.
 
 > [!NOTE]
 > Los niveles de servicio de almacenamiento optimizado disponibles actualmente como versión preliminar a un precio con descuento para fines de pruebas y experimentación con el fin de recabar comentarios. El precio final se anunciará más adelante cuando estos niveles están disponibles con carácter general. Aconsejamos que no se usen estos niveles para las aplicaciones de producción.
@@ -29,7 +31,7 @@ Los niveles reflejan las características del hardware que hospeda el servicio (
 + Número de índices que puede crear
 + Tamaño y velocidad de particiones (almacenamiento físico)
 
-Aunque todos los niveles, incluido el nivel **Gratis**, generalmente ofrecen paridad de características, las cargas de trabajo más grandes pueden dictar requisitos para niveles más altos. Por ejemplo, la indexación de [Cognitive Search](cognitive-search-concept-intro.md) tiene funcionalidades de ejecución prolongada que agotan el tiempo de espera en un servicio gratis a menos que el conjunto de datos sea pequeño.
+Aunque todos los niveles, incluido el nivel **Gratis**, generalmente ofrecen paridad de características, las cargas de trabajo más grandes pueden dictar requisitos para niveles más altos. Por ejemplo, [AI indexación con Cognitive Services](cognitive-search-concept-intro.md) tiene habilidades de larga ejecución ese tiempo de espera en un servicio gratuito, a menos que el conjunto de datos resulta ser pequeño.
 
 > [!NOTE] 
 > La excepción a la paridad de características reside en los [indizadores](search-indexer-overview.md), que no están disponibles en S3HD.
@@ -53,7 +55,7 @@ En la tabla siguiente se enumera los niveles disponibles. Incluyen otras fuentes
 |Almacenamiento optimizado 2 (L2) | 2 TB o partición (máximo 24 TB por servicio) |
 
 > [!NOTE] 
-> Los niveles de almacenamiento optimizado para ofrecen mayor capacidad de almacenamiento a un precio menor por cada TB que los niveles estándar.  El principal inconveniente es mayor latencia de consulta, lo que debe validar para sus requisitos de aplicación específica.  Para obtener más información acerca de consideraciones de rendimiento de este nivel, vea [consideraciones de rendimiento y optimización](search-performance-optimization.md).
+> Los niveles de almacenamiento optimizado para ofrecen mayor capacidad de almacenamiento a un precio menor por cada TB que los niveles estándar. El principal inconveniente es mayor latencia de consulta, lo que debe validar para sus requisitos de aplicación específica.  Para obtener más información acerca de consideraciones de rendimiento de este nivel, vea [consideraciones de rendimiento y optimización](search-performance-optimization.md).
 >
 
 ## <a name="how-billing-works"></a>Cómo funciona la facturación
@@ -70,17 +72,27 @@ En la siguiente captura de pantalla, por unidad de precio se indica para gratis,
 
 Las particiones y réplicas adicionales son un complemento de la carga inicial. Un servicio de búsqueda requiere una réplica y partición por lo que la configuración mínima es uno de cada uno. Más allá del mínimo, agrega réplicas y particiones por separado. Por ejemplo, podría agregar sólo las réplicas o solo las particiones. 
 
-Particiones y réplicas adicionales se cobran según un [fórmula](#search-units). Los costos no son lineales (lo que duplica capacidad más que duplica el costo). Para obtener un ejemplo de cómo de la fórmula funciona, consulte ["Cómo asignar particiones y réplicas"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions)
+Particiones y réplicas adicionales se cobran según un [fórmula](#search-units). Los costos no son lineales (lo que duplica capacidad más que duplica el costo). Para obtener un ejemplo de cómo de la fórmula funciona, consulte ["Cómo asignar particiones y réplicas"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
 ### <a name="2-data-egress-charges-during-indexing"></a>2. Cargos de salida de datos durante la indización.
 
-Al extraer datos desde un origen de datos de Azure SQL Database o Cosmos DB, verá los cargos de la transacción en la factura para esos recursos. Dichos cargos no son los medidores de Azure Search, pero se mencionan aquí porque si usa indexadores para extraer datos de Azure SQL Database o Azure Cosmos DB, verá que cargos en su factura.
+El uso de [indexadores de Azure Search](search-indexer-overview.md) puede dar lugar a facturación impacto dependiendo de dónde se encuentran los servicios. Puede eliminar los cargos de salida de datos completamente si crea el servicio Azure Search en la misma región que los datos.
+
++ Ningún cargo por los datos de entrada a cualquier servicio de Azure.
+
++ No hay cargos para los datos de salida de Azure Search.
+
++ Ningún cargo por datos o archivos de salida de la base de datos SQL, Cosmos, almacenamiento de blobs (de entrada a Azure Search) siempre y cuando todos los servicios están en la misma región.
+
++ Se aplican cargos para los archivos o datos de salida si storage y Azure Search se encuentran en regiones diferentes.
+
+Al enrutar datos entre regiones de Azure, verá los cargos de ancho de banda en la factura para esos recursos. Dichos cargos no forman parte de la factura de Azure Search, pero se mencionan aquí porque si usa indexadores para extraer los archivos de datos o a través del cable, verá que cargos en su factura general.
+
+Si no utiliza indizadores, no hay ningún cargo de ancho de banda. 
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. IA-indexación enriquecida con Cognitive Services
 
-Solo para [Cognitive Search](cognitive-search-concept-intro.md), la extracción de imágenes durante la averiguación de documentos se factura en función del número de imágenes que se extraen de los documentos. La extracción de texto es actualmente gratuita. Según otros enriquecimientos [integrados conocimientos cognitivos](cognitive-search-predefined-skills.md) se facturan con un recurso de Cognitive Services. Los enriquecimientos se facturan a la misma tarifa que si hubiera realizado la tarea mediante Cognitive Services directamente.
-
-Si no usa [Cognitive Search](cognitive-search-concept-intro.md) ni los [indexadores de Azure Search](search-indexer-overview.md), los costos solo están relacionadas con las réplicas y las particiones activas y en uso, por las cargas de trabajo de indexación y consulta normales.
+Para [AI indexación con Cognitive Services](cognitive-search-concept-intro.md) solo, extracción de imagen durante la averiguación de documentos se factura en función del número de imágenes que se extraen de los documentos. La extracción de texto es actualmente gratuita. Enriquecimientos de otros, como el procesamiento de lenguaje natural, se basan en [integrados conocimientos cognitivos](cognitive-search-predefined-skills.md) se facturan con un recurso de Cognitive Services. Los enriquecimientos se facturan a la misma tarifa que si hubiera realizado la tarea mediante Cognitive Services directamente.
 
 <a name="search-units"></a>
 
@@ -181,7 +193,7 @@ Para determinar el tamaño de un índice, tendrá que [crear uno](search-create-
 
 Un enfoque para calcular la capacidad es comenzar con el nivel **Gratis**. Recuerde que el servicio **Gratis** ofrece hasta 3 índices, 50 MB de almacenamiento y 2 minutos de tiempo de indexación. Puede resultar complicado calcular un tamaño proyectado de índice con estas restricciones, pero en el ejemplo siguiente se muestra un enfoque:
 
-+ [Cree un servicio gratis](search-create-service-portal.md)
++ [Crear un servicio gratuito](search-create-service-portal.md)
 + Prepare un conjunto de datos pequeño y representativo (supongamos cinco mil documentos y tamaño de la muestra del diez por ciento)
 + [Genere un índice inicial](search-create-index-portal.md) y anote su tamaño en el portal (supongamos 30 MB)
 

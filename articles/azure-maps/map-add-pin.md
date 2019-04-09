@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 3225ae919e221935b6d8a52e20d943d2178f6a47
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 2580f1177bf9e6e3a92934f88a5d8ab51894e8d9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59056859"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269493"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Adición de una capa de símbolo a un mapa
 
@@ -76,13 +76,16 @@ Más información sobre las clases y los métodos utilizados en este artículo:
 Para obtener más ejemplos de código para agregar a los mapas:
 
 > [!div class="nextstepaction"]
-> [Adición de un elemento emergente](./map-add-popup.md)
+> [Adición de un elemento emergente](map-add-popup.md)
 
 > [!div class="nextstepaction"]
-> [Adición de una forma](./map-add-shape.md)
+> [Usar expresiones de estilo controladas por datos](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [Adición de una capa de burbuja](./map-add-bubble-layer.md)
+> [Adición de una forma](map-add-shape.md)
 
 > [!div class="nextstepaction"]
-> [Agregue los creadores de HTML](./map-add-bubble-layer.md)
+> [Adición de una capa de burbuja](map-add-bubble-layer.md)
+
+> [!div class="nextstepaction"]
+> [Agregue los creadores de HTML](map-add-bubble-layer.md)

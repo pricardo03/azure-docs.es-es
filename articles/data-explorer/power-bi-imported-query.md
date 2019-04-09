@@ -1,21 +1,21 @@
 ---
-title: 'Guía de inicio rápido: Visualización de datos mediante una consulta importada en Power BI'
+title: 'Inicio rápido: Visualización de datos mediante una consulta importada en Power BI'
 description: 'En esta guía de inicio rápido aprenderá a usar una de las tres opciones de visualización de datos de Power BI: importación de una consulta de Azure Data Explorer.'
 services: data-explorer
 author: orspod
-ms.author: v-orspod
+ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 139b20a2390c7301bd83113c3e98be40846fab22
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 3251ae9f39ea38eac6887df3072257e1e8e88306
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51858156"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756103"
 ---
-# <a name="quickstart-visualize-data-using-a-query-imported-into-power-bi"></a>Guía de inicio rápido: Visualización de datos mediante una consulta importada en Power BI
+# <a name="quickstart-visualize-data-using-a-query-imported-into-power-bi"></a>Inicio rápido: Visualización de datos mediante una consulta importada en Power BI
 
 El Explorador de datos de Azure es un servicio de exploración de datos altamente escalable y rápido para datos de telemetría y registro. Power BI es una solución de análisis de negocios que le permite visualizar sus datos y compartir los resultados en su organización.
 
@@ -84,4 +84,4 @@ Si ya no necesita el informe que ha creado para esta guía de inicio rápido, el
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Guía de inicio rápido: Visualización de datos mediante una consulta importada en Power BI](power-bi-sql-query.md)
+> [Inicio rápido: Visualización de datos mediante una consulta importada en Power BI](power-bi-sql-query.md)

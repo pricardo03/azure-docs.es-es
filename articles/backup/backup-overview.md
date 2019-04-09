@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 02/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d1debbcc8f225a0d4608d67b19e5e00aca580ce1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 51191f3276a9420129f47944b47a182479719d5a
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58122019"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621675"
 ---
 # <a name="what-is-azure-backup"></a>¿Qué es Azure Backup?
 
@@ -26,12 +26,16 @@ El servicio Azure Backup realiza copias de seguridad de los datos en la nube de 
 Azure Backup proporciona las siguientes ventajas principales:
 
 - **Descarga de copia de seguridad local**: Azure Backup ofrece una solución sencilla para hacer copias de seguridad de los recursos locales en la nube. Obtenga copias de seguridad a corto y largo plazo sin necesidad de implementar complejas soluciones de copias de seguridad locales. 
-- **Copia de seguridad de máquinas virtuales de IaaS de Azure**: Azure Backup proporciona copias de seguridad independientes y aisladas para evitar la destrucción accidental de datos originales. Las copias de seguridad se almacenan en un almacén de Recovery Services con puntos de recuperación administrados e integrados. La configuración y escalabilidad es sencilla, las copias de seguridad están optimizadas y puede restaurarlas fácilmente cuando sea necesario.
+- **Copia de seguridad de máquinas virtuales de IaaS de Azure**: Azure Backup proporciona copias de seguridad independientes y aisladas para evitar la destrucción accidental de datos originales. Las copias de seguridad se almacenan en un almacén de Recovery Services con puntos de recuperación administrados e integrados. La configuración y la escalabilidad son sencillas, las copias de seguridad están optimizadas y puede restaurarlas fácilmente cuando sea necesario.
 - **Escala sencilla**: Azure Backup usa la eficacia subyacente y la escala ilimitada de la nube de Azure para proporcionar alta disponibilidad, sin sobrecarga de mantenimiento o supervisión. 
-- **Obtención de una transferencia de datos ilimitados**: Azure Backup no limita la cantidad de datos de entrada y salida que se transfieren ni cobra por ellos.
+- **Obtención de una transferencia de datos ilimitada**: Azure Backup no limita la cantidad de datos de entrada y salida que se transfieren ni cobra por ellos.
     - Datos de salida hacen referencia a los datos transferidos desde un almacén de Recovery Services durante una operación de restauración.
     - Si realiza una copia de seguridad inicial sin conexión mediante el servicio Azure Import/Export para importar grandes cantidades de datos, hay un costo asociado con los datos de entrada.  [Más información](backup-azure-backup-import-export.md). 
-- **Protección de los datos**: el cifrado de datos permite la transmisión y el almacenamiento seguros de los datos del cliente en la nube pública. La frase de contraseña de cifrado se almacena localmente y nunca se transmite ni se almacena en Azure. Si es necesario restaurar algunos de los datos, solo cuenta con la frase de contraseña o clave de cifrado.
+- **Protección de los datos**:
+    - En el entorno local, los datos en tránsito se cifran en la máquina local mediante AES256. Los datos transmitidos se protegen con HTTPS entre el almacenamiento y la copia de seguridad. El protocolo iSCSI protege los datos transmitidos entre el servicio de recuperación y la máquina del usuario. Se usa la tunelización segura para proteger el canal iSCSI.
+    - En el entorno local para una copia de seguridad de Azure, los datos de Azure se cifran en reposo con la frase de contraseña que proporcione al configurar las copias de seguridad. La frase de contraseña o la clave nunca se transmiten ni se almacenan en Azure. Si es necesario restaurar algunos de los datos, solo cuenta con la frase de contraseña o clave de cifrado.
+    - Para las máquinas virtuales de Azure, los datos se cifran en reposo con Storage Service Encryption (SSE). Backup cifra automáticamente los datos antes de almacenarlos. Azure Storage descifra los datos antes de recuperarlos.
+    - Backup también admite máquinas virtuales de Azure cifradas mediante Azure Disk Encryption (ADE). [Más información](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 - **Obtención de copias de seguridad coherentes de la aplicación**: una copia de seguridad coherente con la aplicación significa un punto de recuperación que tiene todos los datos necesarios para restaurar la copia de seguridad. Azure Backup proporciona copias de seguridad coherentes con la aplicación, lo que garantiza que no se necesitarán correcciones adicionales para restaurar los datos. La restauración de datos coherentes con la aplicación reduce el tiempo de restauración, lo que permite volver rápidamente a un estado de ejecución.
 - **Retención de los datos a corto y largo plazo**: puede usar los almacenes de Recovery Services para la retención de datos tanto a corto como a largo plazo. Azure no limita el tiempo que los datos pueden permanecer en un almacén de Recovery Services. Puede conservarlos el tiempo que desee. Azure Backup tiene un límite de 9999 puntos de recuperación por instancia protegida. [Más información](backup-introduction-to-azure-backup.md#backup-and-retention) sobre cómo afecta este límite a sus necesidades de copia de seguridad.
 - **Administración de almacenamiento automática**: los entornos híbridos requieren con frecuencia almacenamiento heterogéneo, unos local y otros en la nube. Con Azure Backup, no hay ningún costo por el uso de dispositivos de almacenamiento local. Azure Backup asigna y administra automáticamente almacenamiento de copia de seguridad y usa un modelo de pago por uso para que solo pague por el almacenamiento que consume. [Más información](https://azure.microsoft.com/pricing/details/backup) sobre precios.
@@ -78,7 +82,7 @@ Azure Backup puede hacer copias de seguridad tanto de las máquinas locales como
 Las ventajas de realizar una copia de seguridad de las máquinas y aplicaciones en almacenamiento MABS o DPM y, luego, hacer lo mismo con el almacenamiento DPM o MABS en un almacén son las siguientes:
 
 - La copia de seguridad en DPM o MABS proporciona copias de seguridad compatibles con aplicaciones optimizadas para aplicaciones comunes como SQL Server, Exchange y SharePoint, además de copias de seguridad de archivos, carpetas o volúmenes, y copias de seguridad del estado de la máquina (estado del sistema, sin sistema operativo).
-- Con máquinas locales, no es necesario instalar al agente de MARS en cada máquina de la que quiera hacer una copia de seguridad. Cada máquina ejecuta al agente de protección DPM o MABS y el agente MARS se ejecuta solo en MABS o DPM.
+- Con máquinas locales, no es necesario instalar al agente de MARS en cada máquina de la que quiera hacer una copia de seguridad. Cada máquina ejecuta el agente de protección DPM o MABS, y el agente MARS se ejecuta solo en MABS o DPM.
 - Tiene más flexibilidad y opciones de programación pormenorizado para ejecutar copias de seguridad.
 - Puede administrar las copias de seguridad de varios equipos que reunirá en grupos de protección en una única consola. Esto es particularmente útil cuando las aplicaciones están organizadas en niveles sobre varias máquinas y se quiere hacer una copia de seguridad de las mismas.
 

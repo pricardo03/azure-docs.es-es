@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 1/10/2019
+ms.date: 4/8/2019
 ms.author: victorh
-ms.openlocfilehash: 3da9982d1af886a4329ddc77a7b297e9e285453e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 258113f5201ad3d09df6119dec738d528e640c40
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101557"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269357"
 ---
 # <a name="configure-end-to-end-ssl-by-using-application-gateway-with-powershell"></a>Configuración de SSL de un extremo a otro con Application Gateway mediante PowerShell
 
@@ -52,20 +52,17 @@ El proceso de configuración se describe en las secciones siguientes.
 
 Esta sección le explica cómo crear un grupo de recursos que contiene la puerta de enlace de aplicaciones.
 
-
 1. Inicie sesión en la cuenta de Azure.
 
    ```powershell
    Connect-AzAccount
    ```
 
-
 2. Seleccione la suscripción que se usará en este escenario.
 
    ```powershell
    Select-Azsubscription -SubscriptionName "<Subscription name>"
    ```
-
 
 3. Cree un grupo de recursos. (Si utiliza un grupo de recursos existente, puede omitir este paso).
 
@@ -77,7 +74,6 @@ Esta sección le explica cómo crear un grupo de recursos que contiene la puerta
 
 En el ejemplo siguiente se crea una red virtual y dos subredes. Una subred se usa para alojar la puerta de enlace de aplicaciones. La otra se usa para los back-ends que hospedan la aplicación web.
 
-
 1. Asigne un rango de direcciones para la subred que se va a utiliza para la puerta de enlace de aplicaciones.
 
    ```powershell
@@ -86,8 +82,7 @@ En el ejemplo siguiente se crea una red virtual y dos subredes. Una subred se us
 
    > [!NOTE]
    > Las subredes configuradas para una puerta de enlace de aplicaciones deben tener el tamaño correcto. Las puertas de enlace de aplicaciones se puede configurar para un máximo de diez instancias. Cada instancia toma una dirección IP de la subred. Una subred demasiado pequeña puede afectar negativamente el escalado horizontal de una puerta de enlace de aplicaciones.
-   > 
-   > 
+   >
 
 2. Asigne un rango de direcciones para el grupo de direcciones de back-end.
 
@@ -130,7 +125,6 @@ Se deben establecer todos los elementos de configuración antes de crear la puer
    $gipconfig = New-AzApplicationGatewayIPConfiguration -Name 'gwconfig' -Subnet $gwSubnet
    ```
 
-
 2. Cree una configuración de dirección IP de front-end. Esta configuración asigna una dirección IP pública o privada al front-end de la puerta de enlace de aplicaciones. El paso siguiente asocia la dirección IP pública del paso anterior con la configuración IP de front-end.
 
    ```powershell
@@ -145,7 +139,6 @@ Se deben establecer todos los elementos de configuración antes de crear la puer
 
    > [!NOTE]
    > Un nombre de dominio completo (FQDN) es también un valor válido para utilizarlo en lugar de una dirección IP para los servidores back-end. Se habilita mediante el conmutador **-BackendFqdns**. 
-
 
 4. Configure el puerto IP de front-end para el punto de conexión de IP pública. Este puerto es el puerto al que se conectan los usuarios finales.
 
@@ -177,7 +170,7 @@ Se deben establecer todos los elementos de configuración antes de crear la puer
    > Si usa encabezados de host y de Indicación de nombre de servidor (SNI) en el back-end, es posible que la clave pública recuperada no sea el sitio previsto al que el tráfico fluirá. En caso de duda, visite https://127.0.0.1/ en los servidores back-end para confirmar qué certificado se usa para el enlace SSL *predeterminado*. Utilice la clave pública de dicha solicitud en esta sección. Si usa encabezados de host y SNI en enlaces HTTPS y no recibe una respuesta y un certificado de una solicitud manual de un explorador a https://127.0.0.1/ en los servidores back-end, debe configurar un enlace SSL de forma predeterminada en ellos. Si no lo hace, se producirán errores en los sondeos y el back-end no estará en la lista de permitidos.
 
    ```powershell
-   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\users\gwallace\Desktop\cert.cer
+   $authcert = New-AzApplicationGatewayAuthenticationCertificate -Name 'whitelistcert1' -CertificateFile C:\cert.cer
    ```
 
    > [!NOTE]
@@ -227,7 +220,7 @@ Se deben establecer todos los elementos de configuración antes de crear la puer
     El siguiente ejemplo establece la versión mínima del protocolo en **TLSv1_2** y solo habilita **TLS\_ECDHE\_ECDSA\_WITH\_AES\_128\_GCM\_SHA256**, **TLS\_ECDHE\_ECDSA\_WITH\_AES\_256\_GCM\_SHA384** y **TLS\_RSA\_WITH\_AES\_128\_GCM\_SHA256**.
 
     ```powershell
-    $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256"
+    $SSLPolicy = New-AzApplicationGatewaySSLPolicy -MinProtocolVersion TLSv1_2 -CipherSuite "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256", "TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384", "TLS_RSA_WITH_AES_128_GCM_SHA256" -PolicyType Custom
     ```
 
 ## <a name="create-the-application-gateway"></a>Creación de la puerta de enlace de aplicaciones

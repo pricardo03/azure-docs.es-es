@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: cc0f452cf9dc27354124437acc8d9a7c99fa80f4
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
+ms.openlocfilehash: 577a047fb88208d7e14e8ba06a1b9e7e87c5ef91
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065195"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884248"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Inicio rápido: Creación del primer flujo de trabajo automatizado con Azure Logic Apps: Azure Portal
 
@@ -44,8 +44,8 @@ Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Porta
 
    | Propiedad | Valor | DESCRIPCIÓN | 
    |----------|-------|-------------| 
-   | **Nombre** | MyFirstLogicApp | Nombre de la aplicación lógica | 
-   | **Suscripción** | <*nombre-de-su-suscripción-a-Azure*> | El nombre de la suscripción a Azure | 
+   | **NOMBRE** | MyFirstLogicApp | Nombre de la aplicación lógica | 
+   | **Subscription** | <*nombre-de-su-suscripción-a-Azure*> | El nombre de la suscripción a Azure | 
    | **Grupos de recursos** | My-First-LA-RG | Nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) que se utiliza para organizar recursos relacionados | 
    | **Ubicación** | Oeste de EE. UU. | Región en la que desea almacenar la información de la aplicación lógica | 
    | **Log Analytics** | Off | Mantenga el valor **Off** para el registro de diagnóstico. | 
@@ -114,7 +114,7 @@ Ahora, añada una [acción](../logic-apps/logic-apps-overview.md#logic-app-conce
       Por ahora, ignore la lista **Agregar contenido dinámico** que aparece. 
       Al hacer clic en algunos cuadros de edición, esta lista aparece y muestra los parámetros disponibles del paso anterior que se pueden incluir como entradas en el flujo de trabajo. 
 
-   2. En el cuadro **Asunto**, escriba este texto con un espacio en blanco final: ```New RSS item: ```
+   2. En el cuadro **Asunto**, escriba este texto con un espacio en blanco final: ```New RSS item:```
 
       ![Incorporación del asunto del correo electrónico](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
  

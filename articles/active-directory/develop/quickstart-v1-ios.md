@@ -18,12 +18,12 @@ ms.author: celested
 ms.custom: aaddev
 ms.reviewer: brandwe
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53efe44f17f174073ea5ed39f94c9dc8078a9779
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 9d986ccbf92192c1fb7375e9db1fb398ed86a829
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56206776"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879971"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-app"></a>Inicio rápido: Hacer que los usuarios inicien sesión y llamar a Microsoft Graph API desde una aplicación de iOS
 
@@ -67,7 +67,7 @@ El formato de iOS para un URI de redireccionamiento es:
 
 Ejemplo de este código de inicio rápido:
 
-***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***.
+***msquickstart://com.microsoft.azureactivedirectory.samples.graph.QuickStart***
 
 ## <a name="step-2-register-the-directorysearcher-application"></a>Paso 2: Registro de la aplicación DirectorySearcher
 
@@ -118,7 +118,7 @@ Ahora que tiene una aplicación en Azure AD, puede instalar ADAL y escribir el c
 
 ## <a name="step-4-use-adal-to-get-tokens-from-azure-ad"></a>Paso 4: Uso de ADAL para obtener tokens de Azure AD
 
-El principio básico inherente a ADAL es que cada vez que la aplicación necesita un token de acceso, simplemente llama a un completionBlock `+(void) getToken : ` y ADAL se encarga del resto.
+El principio básico inherente a ADAL es que cada vez que la aplicación necesita un token de acceso, simplemente llama a un completionBlock `+(void) getToken :` y ADAL se encarga del resto.
 
 1. En el proyecto `QuickStart`, abra `GraphAPICaller.m` y busque el comentario `// TODO: getToken for generic Web API flows. Returns a token with no additional parameters provided.` en la parte superior.
 

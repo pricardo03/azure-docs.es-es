@@ -10,14 +10,14 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 02/07/2019
 ms.author: sajagtap
-ms.openlocfilehash: cc8cbc19f416e6e80d2d0fdfb4862536da7f0ce2
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 09fd58fa33873c06ac5dab4970af199bc3030479
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56312249"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58756529"
 ---
-# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Guía de inicio rápido: Análisis de contenido de textos para detectar material inapropiado en C# 
+# <a name="quickstart-analyze-text-content-for-objectionable-material-in-c"></a>Guía de inicio rápido: Análisis de contenido de textos para detectar material inapropiado en C#
 
 En este artículo se proporciona información y ejemplos de código que le ayudarán a empezar a usar el [SDK de Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Obtendrá información sobre cómo ejecutar el filtrado y la clasificación basada en términos del contenido de texto con el fin de moderar el material potencialmente ofensivo.
 
@@ -74,7 +74,7 @@ These are all UK phone numbers, the last two being Microsoft UK support numbers:
 Agregue el siguiente código al método **Main**. El método **ScreenText** constituye la operación esencial. Sus parámetros especifican qué operaciones de moderación de contenido se realizarán. En este ejemplo, el método se configura para:
 - Detectar posibles blasfemias en el texto.
 - Normalizar el texto y corregir los errores tipográficos automáticamente.
-- Detectar información de identificación personal (PII) como números de teléfono de Estados Unidos y Reino Unido, direcciones de correo electrónico y direcciones postales de Estados Unidos.
+- Detectar datos personales, como números de teléfono de Estados Unidos y Reino Unido, direcciones de correo electrónico y direcciones postales de Estados Unidos.
 - Usar modelos basados en aprendizaje automático para clasificar el texto en tres categorías.
 
 Si desea más información sobre lo que hacen estas operaciones, siga el vínculo de la sección [Pasos siguientes](#next-steps).

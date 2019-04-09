@@ -1,6 +1,6 @@
 ---
 title: Seguimiento de dependencia en Azure Application Insights | Microsoft Docs
-description: Analice el uso, la disponibilidad y el rendimiento de su aplicación web de Microsoft Azure o local con Application Insights.
+description: Analizar el uso, disponibilidad y rendimiento de su aplicación de web de Microsoft Azure con Application Insights o en el entorno local.
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 4aa18ae791e5fa573eae76d5bdb9c45b9311e6b5
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: c77b5810164aef7508f717a0f75d90cf6cba2089
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888090"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273114"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar Application Insights: Seguimiento de dependencias
 Una *dependencia* es un componente externo al que llama la aplicación. Suele ser un servicio al que se llama mediante HTTP, una base de datos o un sistema de archivos. [Application Insights](../../azure-monitor/app/app-insights-overview.md) mide cuánto tiempo espera su aplicación a las dependencias y la frecuencia con que se produce un error en una llamada de dependencia. Puede investigar llamadas específicas y relacionarlas a solicitudes y excepciones.
@@ -50,7 +50,7 @@ El [SDK de Application Insights](asp-net.md) recopila automáticamente informaci
 
 ## <a name="where-to-find-dependency-data"></a>Dónde encontrar los datos de dependencia
 * [Asignación de aplicación](#application-map) visualiza las dependencias entre la aplicación y los componentes colindantes.
-* Las hojas [Rendimiento, Exploradores y Errores](#performance-and-failure-blades) muestran datos de dependencia del servidor.
+* Las hojas [Rendimiento, Exploradores y Errores](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-performance) muestran datos de dependencia del servidor.
 * La hoja [Exploradores](#ajax-calls) muestra las llamadas AJAX de los exploradores de los usuarios.
 * Haga clic en las solicitudes lentas o con errores para comprobar sus llamadas de dependencia.
 * [Análisis](#analytics) puede utilizarse para consultar los datos de dependencia.
@@ -58,7 +58,7 @@ El [SDK de Application Insights](asp-net.md) recopila automáticamente informaci
 ## <a name="application-map"></a>Mapa de aplicación
 Mapa de aplicación sirve de ayuda visual para detectar las dependencias entre los componentes de la aplicación. Se genera automáticamente a partir de la telemetría de la aplicación. En este ejemplo se muestran las llamadas AJAX de los scripts del explorador y las llamadas REST de la aplicación del servidor a dos servicios externos.
 
-![Mapa de aplicación](./media/asp-net-dependencies/08.png)
+![Mapa de aplicación](./media/asp-net-dependencies/cloud-rolename.png)
 
 * **Desplácese por los cuadros** para ir a la dependencia pertinente y a otros gráficos.
 * **Ancle el mapa** al [panel](../../azure-monitor/app/app-insights-dashboards.md), donde será completamente funcional.
@@ -66,18 +66,12 @@ Mapa de aplicación sirve de ayuda visual para detectar las dependencias entre l
 [Más información](../../azure-monitor/app/app-map.md).
 
 ## <a name="performance-and-failure-blades"></a>Hojas Rendimiento y Errores
-La hoja Rendimiento muestra la duración de las llamadas de dependencia que realiza la aplicación del servidor. Hay un gráfico de resumen y una tabla segmentada por llamadas.
-
-![Gráficos de dependencia de la hoja Rendimiento](./media/asp-net-dependencies/dependencies-in-performance-blade.png)
-
-Haga clic en los gráficos de resumen o los elementos de tabla para buscar repeticiones sin formato de estas llamadas.
-
-![Instancias de llamadas de dependencia](./media/asp-net-dependencies/dependency-call-instance.png)
+La hoja Rendimiento muestra la duración de las llamadas de dependencia que realiza la aplicación del servidor.
 
 Los **número de errores** se muestran en la hoja **Errores**. Un error es cualquier código de retorno que no está en el intervalo 200-399, o bien uno desconocido.
 
 > [!NOTE]
-> **¿El porcentaje de errores es 100?** Probablemente, esto signifique que está obteniendo datos de dependencias parciales. Tiene que [configurar la supervisión de dependencias adecuada a su plataforma](#set-up-dependency-monitoring).
+> **¿100% de errores?** Probablemente, esto signifique que está obteniendo datos de dependencias parciales. Tiene que [configurar la supervisión de dependencias adecuada a su plataforma](#set-up-dependency-monitoring).
 >
 >
 
@@ -85,52 +79,11 @@ Los **número de errores** se muestran en la hoja **Errores**. Un error es cualq
 La hoja Exploradores muestra la duración y la frecuencia de errores de las llamadas AJAX de [JavaScript en las páginas web](../../azure-monitor/app/javascript.md). Se muestran como dependencias.
 
 ## <a name="diagnosis"></a> Diagnóstico de solicitudes lentas
-Cada evento de solicitud está asociado a las llamadas de dependencia, las excepciones y otros eventos de los que se realizan un seguimiento mientras la aplicación está procesando la solicitud. Por lo tanto, si algunas solicitudes no se procesan correctamente, puede averiguar si se debe a respuestas lentas de una dependencia.
-
-Veamos un ejemplo.
-
-### <a name="tracing-from-requests-to-dependencies"></a>Seguimiento de solicitudes en dependencias
-Abra la hoja Rendimiento y examine la cuadrícula de solicitudes:
-
-![Lista de solicitudes con promedios y recuentos](./media/asp-net-dependencies/02-reqs.png)
-
-La primera tarda mucho tiempo. Veamos si podemos averiguar dónde se está invirtiendo el tiempo.
-
-Haga clic en esa fila para ver los eventos de solicitud individuales:
-
-![Lista de casos de solicitudes](./media/asp-net-dependencies/03-instances.png)
-
-Haga clic en cualquier instancia que tarda en ejecutarse para realizar una inspección más profunda y desplácese hacia abajo hasta las llamadas de dependencia remotas relacionadas con esta solicitud:
-
-![Búsqueda de llamadas a dependencias remotas, identificación de duración inusual.](./media/asp-net-dependencies/04-dependencies.png)
-
-Parece que la mayoría del tiempo que se ha invertido en atender a esta solicitud se ha empleado en una llamada a un servicio local.
-
-Seleccione esa fila para obtener más información:
-
-![Haga clic en esa dependencia remota para identificar la causa.](./media/asp-net-dependencies/05-detail.png)
-
-Parece que este es el origen del problema. Hemos detectado el problema, así que ahora necesitamos averiguar por qué esa llamada tarda tanto en realizarse.
-
-### <a name="request-timeline"></a>Escala de tiempo de solicitudes
-En otro caso, no hay ninguna llamada de dependencia especialmente larga. Sin embargo, al cambiar a la vista Escala de tiempo, podemos ver dónde se produce el retraso en nuestro procesamiento interno:
-
-![Búsqueda de llamadas a dependencias remotas, identificación de duración inusual.](./media/asp-net-dependencies/04-1.png)
-
-Parece haber un intervalo de gran duración después de la primera llamada de dependencia, por lo que debemos examinar el código para ver el motivo.
+Cada evento de solicitud se asocia con las llamadas de dependencia, excepciones y otros eventos que se realiza un seguimiento mientras la aplicación está procesando la solicitud. Por lo tanto, si algunas solicitudes no se procesan correctamente, puede averiguar si se debe a respuestas lentas de una dependencia.
 
 ### <a name="profile-your-live-site"></a>Generación de un perfil del sitio activo
 
-¿Quiere saber en qué se invierte el tiempo? El generador de perfiles de [Application Insights](../../azure-monitor/app/profiler.md) realizará un seguimiento de las llamadas HTTP a los sitios activos y mostrará qué funciones del código tardan más tiempo en ejecutarse.
-
-## <a name="failed-requests"></a>Error en las solicitudes
-Las solicitudes con error también podrían estar asociadas a llamadas a dependencias con errores. Una vez más, podemos clic para realizar un seguimiento del problema.
-
-![Haga clic en el gráfico de las solicitudes con error.](./media/asp-net-dependencies/06-fail.png)
-
-Desplazarse hasta una repetición de una solicitud con error y examine los eventos asociados.
-
-![Haga clic en un tipo de solicitud, haga clic en la instancia para obtener acceso a una vista diferente de la misma instancia, haga clic en ella para obtener detalles de la excepción.](./media/asp-net-dependencies/07-faildetail.png)
+¿Quiere saber en qué se invierte el tiempo? El [Application Insights profiler](../../azure-monitor/app/profiler.md) seguimientos HTTP llama a los sitios activos y muestra qué funciones del código tardaron más tiempo.
 
 ## <a name="analytics"></a>Análisis
 Puede realizar un seguimiento de las dependencias en el [lenguaje de consulta de Kusto](/azure/kusto/query/). Estos son algunos ejemplos.
@@ -201,7 +154,7 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 ## <a name="troubleshooting"></a>solución de problemas
 *La marca de éxito de dependencia siempre muestra true o false.*
 
-*La consulta SQL no se muestra en su totalidad.*
+*Consulta SQL que no se muestra en su totalidad.*
 
 Consulte la tabla siguiente y asegúrese de que ha elegido la configuración correcta para habilitar la supervisión de las dependencias de la aplicación.
 
@@ -211,10 +164,6 @@ Consulte la tabla siguiente y asegúrese de que ha elegido la configuración cor
 | IIS Express |Use el servidor de IIS en su lugar. |
 | Aplicación web de Azure |En el panel de control de la aplicación web, [abra la hoja Application Insights del panel de control de la aplicación web](../../azure-monitor/app/azure-web-apps.md) y seleccione Instalar, si aparece dicha opción. |
 | Servicio en la nube de Azure |[Use la tarea de la startup](../../azure-monitor/app/cloudservices.md) o [instale .NET Framework 4.6 o una versión más reciente](../../cloud-services/cloud-services-dotnet-install-dotnet.md). |
-
-## <a name="video"></a>Vídeo
-
-> [!VIDEO https://channel9.msdn.com/events/Connect/2016/112/player]
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Excepciones](../../azure-monitor/app/asp-net-exceptions.md)

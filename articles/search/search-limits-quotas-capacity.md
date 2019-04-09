@@ -7,15 +7,15 @@ services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8a6023c87dd1d68ab76c5c2342cb825e63d2b336
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: c52ac6128ad00d9bb772816d6130f3aedc480138
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620656"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273403"
 ---
 # <a name="service-limits-in-azure-search"></a>Límites de servicio en Azure Search
 Los límites máximos del almacenamiento, las cargas de trabajo y las cantidades de índices, documentos y otros objetos dependen de si se [aprovisiona Azure Search](search-create-service-portal.md) en **gratis**, **básica**,  **Estándar**, o **optimizadas para almacenamiento** planes de tarifa.
@@ -114,7 +114,7 @@ Las operaciones que consumen muchos recursos, como el análisis de la imagen en 
 | Indexador de blobs: tamaño máximo de blob, MB |16 |16 |128 |256 |256 |N/D  |256 |256 |
 | Indexador de blobs: número máximo de caracteres del contenido extraído de un blob |32 000 |64 000 |4 millones |4 millones |4 millones |N/D |4 millones |4 millones |
 
-<sup>1</sup> Los servicios gratuitos tienen un tiempo de ejecución máximo del indexador de 3 minutos para servicios de blob y de 1 minuto para todos los demás orígenes de datos.
+<sup>1</sup> Los servicios gratuitos tienen un tiempo de ejecución máximo del indexador de 3 minutos para servicios de blob y de 1 minuto para todos los demás orígenes de datos. Para AI de indización que llama a Cognitive Services, servicios gratis se limitan a 20 transacciones gratuitas al día, donde una transacción se define como un documento que se pasa correctamente a través de la canalización de enriquecimiento.
 
 <sup>2</sup> Los servicios básicos creados después de finales de 2017 han aumentado su límite en 15 índices, orígenes de datos e indexadores. Los servicios creados anteriormente tienen 5.
 

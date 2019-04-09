@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
-ms.openlocfilehash: c66a7d7af2a73e26878b92f34e0f42ce0b3ae7f2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: fb17afa4bfe8c00c91cc8fb33ab3326452065a9e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57437504"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885424"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Tutorial: Uso de Azure Key Vault con una máquina virtual Windows en .NET
 
@@ -109,7 +109,7 @@ Puede crear una máquina virtual mediante uno de los métodos siguientes:
 
 * [La CLI de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
 * [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
-* [Portal de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+* [El Portal de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
 ## <a name="assign-an-identity-to-the-vm"></a>Asignación de una identidad a la máquina virtual
 En este paso, va a crear una identidad asignada por el sistema para la máquina virtual mediante la ejecución del siguiente comando en la CLI de Azure:
@@ -148,7 +148,7 @@ Abra el símbolo del sistema.
 
 Puede imprimir "Hola mundo" en la consola mediante la ejecución de los siguientes comandos:
 
-```
+```batch
 dotnet new console -o helloworldapp
 cd helloworldapp
 dotnet run
@@ -158,7 +158,7 @@ dotnet run
 
 Abra el archivo *Program.cs* y agregue estos paquetes:
 
-```
+```csharp
 using System;
 using System.IO;
 using System.Net;
@@ -172,7 +172,7 @@ Edite el archivo de clase para que contenga el código en el proceso de dos paso
 1. Capturar un token del punto de conexión MSI local en la máquina virtual. Si lo hace, también captura un token de Azure AD.
 1. Pase el token al almacén de claves y, después, capture el secreto. 
 
-```
+```csharp
  class Program
     {
         static void Main(string[] args)

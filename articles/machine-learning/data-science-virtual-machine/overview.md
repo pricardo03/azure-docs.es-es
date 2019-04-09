@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 10/27/2017
 ms.author: gokuma
-ms.openlocfilehash: f90e82fea9cbb3c3052738d15ff4a3838f1ad000
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 74fe2345af5d1249d6704c7560b42323561bc623
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57863247"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918253"
 ---
 # <a name="introduction-to-azure-data-science-virtual-machine-for-linux-and-windows"></a>Introducción a Data Science Virtual Machine de Azure para Linux y Windows
 
@@ -66,7 +66,7 @@ La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de 
 | Bases de datos relacionales                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) (CentOS),<br/>[SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Edición para desarrolladores (Ubuntu) |
 | Herramientas de base de datos                                                       | * SQL Server Management Studio <br/>* SQL Server Integration Services<br/>* [bcp, sqlcmd](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br /> * Controladores ODBC/JDBC| * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/) (herramienta de consulta), <br /> * bcp, sqlcmd <br /> * Controladores ODBC/JDBC|
 | Análisis de base de datos escalable con ML Services de SQL Server (R, Python) | Y     |N              |
-| **[Jupyter Notebook Server](https://jupyter.org/) con los kernel siguientes,**                                  | Y     | Y |
+| **[Servidor de Jupyter Notebook](https://jupyter.org/) con los siguientes kernels,**                                  | Y     | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* R | Y | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Python | Y | Y |
 |     &nbsp;&nbsp;&nbsp;&nbsp;* Julia | Y | Y |
@@ -87,9 +87,9 @@ La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de 
 | &nbsp;&nbsp;&nbsp;&nbsp;* Git y GitBash | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* OpenJDK | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* .NET Framework | Y | N |
-| PowerBI Desktop | Y | N |
+| Power BI Desktop | Y | N |
 | SDK para obtener acceso al conjunto de aplicaciones Cortana Intelligence y Azure | Y | Y |
-| **Herramientas de movimiento de datos y administración** | | |
+| **Herramientas de administración y movimiento de datos** | | |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Explorador de Azure Storage | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;*   [CLI de Azure](https://docs.microsoft.com/cli/azure) | Y | Y |
 | &nbsp;&nbsp;&nbsp;&nbsp;* Azure Powershell | Y | N |
@@ -139,4 +139,4 @@ La máquina virtual de ciencia de datos tiene muchas herramientas de ciencia de 
 * Para ver un tutorial que muestra cómo llevar a cabo varias tareas de ciencia de datos comunes con la máquina virtual Linux, tanto con CentOS y con Ubuntu, consulte [Ciencia de datos con una instancia de Data Science Virtual Machine de Linux en Azure](linux-dsvm-walkthrough.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Guía del desarrollador de R para Azure](../r-developers-guide.md)
+[Guía del desarrollador de R para Azure](/azure/architecture/data-guide/technology-choices/r-developers-guide)

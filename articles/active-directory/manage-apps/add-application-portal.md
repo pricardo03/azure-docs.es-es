@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/24/2018
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f062596e2be93065b3c076787c2f5b3dfcedf9d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: af30568d3ab35b35d2a0e0bef00921debb1ea451
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58110127"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917811"
 ---
 # <a name="quickstart-add-an-application-to-your-azure-active-directory-tenant"></a>Inicio rápido: Incorporación de una aplicación al inquilino de Azure Active Directory
 
@@ -42,38 +42,29 @@ Para probar los pasos de este tutorial, se recomienda usar un entorno que no sea
 
 Para agregar una aplicación de la galería a su inquilino de Azure AD:
 
-1. En el panel de navegación izquierdo de [Azure Portal](https://portal.azure.com), haga clic en **Azure Active Directory**.
+1. En [Azure Portal](https://portal.azure.com), en el panel de navegación izquierdo, seleccione **Azure Active Directory**.
 
-2. En la hoja **Azure Active Directory**, haga clic en **Aplicaciones empresariales**.
+2. En el panel **Azure Active Directory**, seleccione **Aplicaciones empresariales**.
 
     ![Apertura de las aplicaciones empresariales](media/add-application-portal/open-enterprise-apps.png)
 
-3. La hoja **Todas las aplicaciones** se abre para mostrar una muestra aleatoria de las aplicaciones en su inquilino de Azure AD.
-
-    ![Hoja Todas las aplicaciones](media/add-application-portal/applications-blade.png)
-
-
-4. Haga clic en **Nueva aplicación** en la parte superior de la hoja **Todas las aplicaciones**.
+3. Se abre el panel **Todas las aplicaciones**, en el que se ve una muestra aleatoria de las aplicaciones que hay en su inquilino de Azure AD. Seleccione **Nueva aplicación** en la parte superior del panel **Todas las aplicaciones**.
 
     ![Nueva aplicación](media/add-application-portal/new-application.png)
 
-5. Para ver una lista de aplicaciones en la galería, es más fácil usar el icono **Categorías** ya que los iconos de **Aplicaciones destacadas** son una muestra aleatoria de las aplicaciones de la galería.
+4. En el panel **Categorías**, verá iconos en el área **Aplicaciones destacadas** que son una muestra aleatoria de las aplicaciones de la galería.  Para ver más aplicaciones, puede seleccionar **Mostrar más**. Sin embargo, no es aconsejable buscar de este modo porque hay miles de aplicaciones en la galería.
 
     ![Buscar por nombre o categoría](media/add-application-portal/categories.png)
 
-    Para ver más aplicaciones, puede hacer clic en **Mostrar más**. No se recomienda buscar de este modo porque hay miles de aplicaciones en la galería.
-
-6. Para buscar una aplicación, en **Agregar desde la galería**, escriba el nombre de la aplicación que desee agregar. Seleccione la aplicación en los resultados y haga clic en **Agregar**. El ejemplo siguiente muestra el formulario **Agregar aplicación** que aparece después de buscar github.com.
+5. Para buscar una aplicación, en **Agregar desde la galería**, escriba el nombre de la aplicación que desea agregar. Seleccione la aplicación en los resultados y, después, **Agregar**. El ejemplo siguiente muestra el formulario **Agregar aplicación** que aparece después de buscar github.com.
 
     ![Adición de una aplicación](media/add-application-portal/add-an-application.png)
 
 6. En el formulario específico de la aplicación, puede cambiar la información de la propiedad. Por ejemplo, puede editar el nombre de la aplicación para que coincida con las necesidades de su organización. Este ejemplo usa el nombre **GitHub-test**.
 
-8. Cuando haya terminado de realizar cambios en las propiedades, haga clic en **Agregar**.
+7. Cuando haya terminado de realizar cambios en las propiedades, seleccione **Agregar**.
 
-9. Aparece una página de introducción con las opciones para configurar la aplicación para su organización.
-
-    ![Menú de introducción](media/add-application-portal/get-started.png)
+8. Aparece una página de introducción con las opciones para configurar la aplicación para su organización.
 
 Ha terminado de agregar la aplicación. Puede tomarse un descanso. Las secciones siguientes muestran cómo cambiar el logotipo y modificar otras propiedades de la aplicación.
 
@@ -81,15 +72,15 @@ Ha terminado de agregar la aplicación. Puede tomarse un descanso. Las secciones
 
 Supongamos que tuvo que salir y ahora vuelve para continuar con la configuración de la aplicación. Lo primero que debe hacer es encontrar la aplicación.
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en **Azure Active Directory**.
+1. En **[Azure Portal](https://portal.azure.com)**, en el panel de navegación izquierdo, seleccione **Azure Active Directory**.
 
-2. En la hoja Azure Active Directory, haga clic en **Aplicaciones empresariales**.
+2. En el panel **Azure Active Directory**, seleccione **Aplicaciones empresariales**.
 
-3. Desde el menú desplegable **Tipo de aplicación**, seleccione **Todas las aplicaciones** y haga clic en **Aplicar**. Para obtener más información acerca de las opciones de presentación, consulte [Visualización de las aplicaciones de inquilino](view-applications-portal.md).
+3. En el menú desplegable **Tipo de aplicación**, seleccione **Todas las aplicaciones** y, después, **Aplicar**. Para obtener más información acerca de las opciones de presentación, consulte [Visualización de las aplicaciones de inquilino](view-applications-portal.md).
 
-4. Ahora puede ver una lista de todas las aplicaciones en su inquilino de Azure AD. La lista es una muestra aleatoria. Para ver más aplicaciones, haga clic en **Mostrar más** una o varias veces.
+4. Ahora puede ver una lista de todas las aplicaciones en su inquilino de Azure AD. La lista es una muestra aleatoria. Para ver más aplicaciones, seleccione **Mostrar más** una o varias veces.
 
-5. Para encontrar rápidamente una aplicación en el inquilino, escriba el nombre de la aplicación en el cuadro de búsqueda y haga clic en **Aplicar**. Este ejemplo busca la aplicación de GitHub-test que agregamos anteriormente.
+5. Para encontrar rápidamente una aplicación en el inquilino, escriba el nombre de la misma en el cuadro de búsqueda y seleccione **Aplicar**. Este ejemplo encuentra la aplicación de prueba de GitHub que ha agregado anteriormente.
 
     ![Búsqueda de una aplicación](media/add-application-portal/find-application.png)
 
@@ -98,20 +89,20 @@ Supongamos que tuvo que salir y ahora vuelve para continuar con la configuració
 
 Ahora que ha encontrado la aplicación, puede abrirla y configurar sus propiedades.
 
-Para modificar las propiedades de la aplicación
+Para editar las propiedades de la aplicación:
 
-1. Haga clic en la aplicación para abrirla.
-2. Haga clic en **Propiedades** para abrir la hoja de propiedades y modificarlas.
+1. Seleccione la aplicación para abrirla.
+2. Seleccione **Propiedades** para abrir el panel de propiedades para editarlas.
 
-    ![Hoja Editar propiedades](media/add-application-portal/edit-properties.png)
+    ![Panel Editar propiedades](media/add-application-portal/edit-properties.png)
 
-3. Dedique un momento para conocer las opciones de inicio de sesión. Las opciones **Habilitada para que los usuarios inicien sesión**, **Asignación de usuarios necesaria** y **Visible para el usuario** se combinan para determinar si los usuarios asignados o no asignados a la aplicación pueden iniciar sesión. También determinan si el usuario puede ver la aplicación en el panel de acceso.
+3. Dedique un momento para conocer las opciones de inicio de sesión. Las opciones determinan la forma en que los usuarios que están asignados, o no, a la aplicación pueden iniciar sesión en ella. Y las opciones también determinan si los usuarios pueden ver la aplicación en el panel de acceso.
 
     - **Enabled for users to sign-in** (Habilitado para que los usuarios inicien sesión) determina si los usuarios asignados a la aplicación pueden iniciar sesión.
     - **Asignación de usuarios necesaria** determina si los usuarios que no están asignados a la aplicación pueden iniciar sesión.
     - **Visible to user** (Visible para el usuario) determina si los usuarios asignados a una aplicación pueden verlo en el panel de acceso y el iniciador de Office 365.
 
-4. Use las tablas siguientes para ayudarle a elegir las opciones que son más adecuadas para sus necesidades.
+4. Use las siguientes tablas para ayudarle a elegir las opciones que más se ajusten a sus necesidades.
 
    - Comportamiento para los usuarios **asignados**:
 
@@ -131,7 +122,7 @@ Para modificar las propiedades de la aplicación
 
        | Configuración de propiedades de la aplicación | | | Experiencia del usuario no asignado | |
        |---|---|---|---|---|
-       | ¿Habilitado para que los usuarios inicien sesión? | ¿Se requiere la asignación de usuarios? | ¿Es visible para los usuarios? | ¿Pueden iniciar sesión los usuarios no asignados? | ¿Pueden ver la aplicación los usuarios no asignados?* |
+       | ¿Está habilitado para que los usuarios inicien sesión? | ¿Se requiere la asignación de usuarios? | ¿Es visible para los usuarios? | ¿Pueden iniciar sesión los usuarios no asignados? | ¿Pueden ver la aplicación los usuarios no asignados?* |
        | Sí | Sí | Sí | no  | no   |
        | Sí | Sí | no  | no  | no   |
        | Sí | no  | Sí | Sí | no   |
@@ -148,10 +139,10 @@ Para modificar las propiedades de la aplicación
 Para usar un logotipo personalizado:
 
 1. Cree un logotipo de 215 por 215 píxeles y guárdelo en formato PNG.
-2. Puesto que ya ha encontrado la aplicación, haga clic en ella.
-2. En la hoja de la izquierda, haga clic en **Propiedades**.
+2. Puesto que ya ha encontrado la aplicación, selecciónela.
+2. Seleccione **Propiedades** en el panel izquierdo.
 4. Cargue el logotipo.
-5. Cuando haya terminado, haga clic en **Guardar**.
+5. Cuando haya terminado, seleccione **Guardar**.
 
     ![Cambio del logotipo](media/add-application-portal/change-logo.png)
 
@@ -163,6 +154,6 @@ En esta guía de inicio rápido, ha aprendido a agregar una aplicación de la ga
 Ahora, está preparado para configurar la aplicación para el inicio de sesión único.
 
 > [!div class="nextstepaction"]
-> [Configuración del inicio de sesión único](configure-single-sign-on-portal.md)
+> [Configurar inicio de sesión único](configure-single-sign-on-portal.md)
 
 

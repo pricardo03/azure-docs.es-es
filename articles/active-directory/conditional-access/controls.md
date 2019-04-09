@@ -18,12 +18,12 @@ ms.date: 03/23/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ceaf472f53c48b17701b14fdf4107045c2e43fdc
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521982"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258749"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>¿Qué son los controles de acceso en el acceso condicional de Azure Active Directory?
 
@@ -58,7 +58,7 @@ Con los controles de concesión, puede bloquear el acceso por completo o permiti
 - Que todos los controles se cumplan (*Y*)
 - Que un control seleccionado se cumpla (*O*)
 
-![Control](./media/controls/17.png)
+![Control](./media/controls/18.png)
 
 ### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
@@ -78,7 +78,7 @@ El dispositivo tiene que estar registrado en Azure AD antes de que se pueda marc
 
 - [Dispositivos registrados en Azure AD](../devices/overview.md#azure-ad-registered-devices)
 - [Dispositivos unidos a Azure AD](../devices/overview.md#azure-ad-joined-devices)  
-- [Dispositivos unidos a Azure AD híbrido](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- [Dispositivos híbridos unidos a Azure AD](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
 Para más información, consulte [Uso obligatorio de dispositivos administrados para el acceso a aplicaciones en la nube mediante el acceso condicional](require-managed-devices.md).
 
@@ -94,6 +94,18 @@ Dado que los empleados emplean dispositivos móviles tanto para las tareas de tr
 Puede usar [directivas de protección de aplicaciones de Intune](https://docs.microsoft.com/intune/app-protection-policy) para ayudar a proteger los datos de su compañía independientes de cualquier solución de administración de dispositivos móviles (MDM).
 
 Con las aplicaciones cliente aprobadas, puede requerir que una aplicación cliente que intente obtener acceso a las aplicaciones en la nube admita [directivas de protección de aplicaciones de Intune](https://docs.microsoft.com/intune/app-protection-policy). Por ejemplo, puede restringir el acceso a Exchange Online para la aplicación Outlook. Una directiva de acceso condicional que requiere aplicaciones cliente aprobadas se conoce también como [directiva de acceso condicional basado en aplicaciones](app-based-conditional-access.md). Para una lista de las aplicaciones cliente admitidas, consulte el [requisito de las aplicaciones cliente aprobadas](technical-reference.md#approved-client-app-requirement).
+
+### <a name="app-protection-policy-preview"></a>Directiva de protección de aplicaciones (versión preliminar)
+
+Dado que los empleados emplean dispositivos móviles tanto para las tareas de trabajo como para uso personal, debe tener la capacidad de proteger los datos de la empresa a los que se accede con dispositivos, incluso en el caso en el que no estén administrados por el usuario.
+Puede usar [directivas de protección de aplicaciones de Intune](https://docs.microsoft.com/intune/app-protection-policy) para ayudar a proteger los datos de su compañía independientes de cualquier solución de administración de dispositivos móviles (MDM).
+
+Con la directiva de protección de aplicaciones, puede limitar el acceso a las aplicaciones cliente que han notificado a Azure AD tiene que hayan recibido [las directivas de Intune app protection](https://docs.microsoft.com/intune/app-protection-policy). Por ejemplo, puede restringir el acceso a Exchange Online a la aplicación de Outlook que tiene una directiva de protección de aplicaciones de Intune. Una directiva de acceso condicional que requiere la directiva de protección de aplicaciones es también conocida como [directiva de acceso condicional basado en la protección de aplicaciones](app-protection-based-conditional-access.md). 
+
+El dispositivo debe estar registrado en Azure AD antes de que una aplicación puede marcarse como directiva protegida.
+
+Para obtener una lista de directiva compatible las aplicaciones cliente protegido, consulte [requisito de directiva de protección de aplicación](technical-reference.md#app-protection-policy-requirement).
+
 
 ### <a name="terms-of-use"></a>Términos de uso
 
@@ -113,7 +125,7 @@ Los proveedores que actualmente ofrecen un servicio compatible incluyen:
 
 - [Duo Security](https://duo.com/docs/azure-ca)
 - [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
-- [Identidad de ping](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
+- [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)

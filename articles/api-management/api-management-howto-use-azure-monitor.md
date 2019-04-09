@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 7f2fe6fc3ba3ae515d372fb5a794e46897bad115
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 6a4e9a0c33b227716227213e94948df430566065
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517953"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58622202"
 ---
 # <a name="monitor-published-apis"></a>Supervisión de las API publicadas
 
@@ -77,21 +77,28 @@ Puede configurar la recepción de alertas en función de métricas y registros d
 
 Para configurar alertas:
 
-1. Seleccione **Alertas (clásico)** en la barra de menús cerca de la parte inferior de la página.
+1. Seleccione **Alertas** en la barra de menús cerca de la parte inferior de la página.
 
-    ![alerts](./media/api-management-azure-monitor/api-management-alert-rules-blade.png)
+    ![alerts](./media/api-management-azure-monitor/alert-menu-item.png)
 
-2. Seleccione **Agregar alerta de métrica**.
-3. Escriba un **nombre** para esta alerta.
-4. Seleccione **Unauthorized Gateway Requests** (Solicitudes de puerta de enlace no autorizadas), que es la métrica que quiere supervisar.
-5. Seleccione **Lectores, contribuyentes y propietarios de correo electrónico**.
-6. Presione **Aceptar**.
-7. Intente llamar a la Conference API sin una clave de API. Como propietario de este servicio API Management, recibirá una alerta por correo electrónico. 
+2. Haga clic en una **Nueva regla de alerta** para esta alerta.
+3. Haga clic en **Agregar condición**.
+4. Seleccione **Métricas** en el cuadro desplegable del tipo de señal.
+5. Seleccione **Unauthorized Gateway Requests** (Solicitudes de puerta de enlace no autorizadas) como la señal que se desea supervisar.
 
-    > [!TIP]
-    > La regla de alerta también puede llamar a un webhook o una aplicación lógica de Azure cuando se desencadena.
+    ![alerts](./media/api-management-azure-monitor/signal-type.png)
 
-    ![configurar alerta](./media/api-management-azure-monitor/set-up-alert.png)
+6. En la vista **Configurar lógica de señal**, especifique un umbral después del cual debe activarse la alerta y haga clic en **Hecho**.
+
+    ![alerts](./media/api-management-azure-monitor/threshold.png)
+
+7. Seleccione un grupo de acciones existente o cree uno nuevo. En el ejemplo siguiente, se enviará un correo electrónico a los administradores. 
+
+    ![alerts](./media/api-management-azure-monitor/action-details.png)
+
+8. Escriba un nombre y la descripción para la regla de alertas y elija el nivel de gravedad. 
+9. Presione **Crear regla de alertas**.
+10. Ahora, intente llamar a Conference API sin una clave de API. La alerta se desencadenará y se enviará un correo electrónico a los administradores. 
 
 ## <a name="activity-logs"></a>Registros de actividad
 

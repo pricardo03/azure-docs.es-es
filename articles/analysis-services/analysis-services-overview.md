@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 02/14/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a908b00022351b9a91f9381229c773d063390744
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 8eccc79969ce1a474fe0b22f2c250f8e31281550
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444164"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893136"
 ---
 # <a name="what-is-azure-analysis-services"></a>¿Qué es Azure Analysis Services?
 
@@ -144,6 +144,11 @@ El modo de DirectQuery * aprovecha la base de datos relacional de back-end para 
 
 Los modelos tabulares de Azure Analysis Services admiten una amplia variedad de orígenes de datos, desde archivos de texto simples a macrodatos, en Azure Data Lake Store. Para más información, consulte [Orígenes de datos admitidos en Azure Analysis Services](analysis-services-datasource.md).
 
+## <a name="compatibility-level"></a>Nivel de compatibilidad
+
+Nivel de compatibilidad hace referencia a los comportamientos específicos de la versión del motor de Analysis Services. Azure Analysis Services admite modelos tabulares tanto en el nivel de compatibilidad 1200 como en los superiores. Para más información, consulte [Nivel de compatibilidad para los modelos tabulares de Analysis Services](analysis-services-compat-level.md).
+
+
 ## <a name="your-data-is-secure"></a>Los datos están seguros
 
 Azure Analysis Services proporciona seguridad a los datos confidenciales a varios niveles. Como servicio de Azure, Analysis Services proporciona un nivel **Básico**de ataques de denegación de servicio distribuido (DDoS) habilitados automáticamente como parte de la plataforma Azure. Para más información, consulte [Introducción a Azure DDoS Protection estándar](../virtual-network/ddos-protection-overview.md). 
@@ -193,7 +198,7 @@ Para más información sobre la seguridad de Azure, consulte [Microsoft Trust Ce
 
 ### <a name="visual-studio"></a>Visual Studio
 
-Desarrolle e implemente modelos con [SQL Server Data Tools (SSDT) para Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx) de forma gratuita. SSDT incluye plantillas de proyecto de Analysis Services que le permiten ponerse rápidamente a pleno funcionamiento. SSDT ya incluye la moderna funcionalidad de consultas de orígenes de datos y de mashup denominada Obtención de datos para los modelos tabulares 1400. Si está familiarizado con esta funcionalidad en Power BI Desktop y Excel 2016, ya sabe lo fácil que es crear consultas de orígenes de datos altamente personalizadas. 
+Desarrolle e implemente modelos con [SQL Server Data Tools (SSDT) para Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt) de forma gratuita. SSDT incluye plantillas de proyecto de Analysis Services que le permiten ponerse rápidamente a pleno funcionamiento. SSDT ya incluye la moderna funcionalidad de consultas de orígenes de datos y de mashup denominada Obtención de datos para los modelos tabulares 1400. Si está familiarizado con esta funcionalidad en Power BI Desktop y Excel 2016, ya sabe lo fácil que es crear consultas de orígenes de datos altamente personalizadas. 
 
 Si usa Visual Studio 2017, Microsoft Analysis Services Projects están disponibles como un paquete VSIX instalable gratuito. [Descargar de Marketplace](https://marketplace.visualstudio.com/items?itemName=ProBITools.MicrosoftAnalysisServicesModelingProjects).
 
@@ -207,7 +212,7 @@ Las tareas de administración de los recursos del servidor como crear los recurs
 
 ### <a name="object-model-and-scripting"></a>Modelo de objetos y scripting
 
-Los modelos tabulares ofrecen un desarrollo rápido y son altamente personalizables. Los modelos tabulares incluyen el [Modelo de objetos tabulares](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM) para describir los objetos del modelo. El modelo de objetos tabulares se expone en JSON por medio del [lenguaje de scripting de modelos tabulares (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) y el lenguaje de definición de datos AMO mediante el espacio de nombres [Microsoft.AnalysisServices.Tabular](https://msdn.microsoft.com/library/microsoft.analysisservices.tabular.aspx). 
+Los modelos tabulares ofrecen un desarrollo rápido y son altamente personalizables. Los modelos tabulares incluyen el [Modelo de objetos tabulares](https://docs.microsoft.com/sql/analysis-services/tabular-model-programming-compatibility-level-1200/introduction-to-the-tabular-object-model-tom-in-analysis-services-amo) (TOM) para describir los objetos del modelo. El modelo de objetos tabulares se expone en JSON por medio del [lenguaje de scripting de modelos tabulares (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference) y el lenguaje de definición de datos AMO mediante el espacio de nombres [Microsoft.AnalysisServices.Tabular](/dotnet/api/microsoft.analysisservices.tabular). 
 
 ## <a name="supports-the-latest-client-tools"></a>Compatibilidad con las herramientas de cliente más recientes
 
@@ -225,7 +230,7 @@ Azure Analysis Services también admite el uso de [vistas de administración din
 
 Aquí se incluye documentación específica de Azure Analysis Services. Utilice la tabla de contenido del lado izquierdo de la pantalla del explorador para buscar artículos. 
 
-Dado que los modelos tabulares de Analysis Services de Azure son muy parecidos a los modelos tabulares de SQL Server Analysis Services, hay una amplia biblioteca de artículos compartidos de referencia sobre desarrollo, conceptos y procedimientos en la [documentación de SQL Server Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services). Los artículos de la documentación de SQL Server Analysis Services muestran si también se aplican a Azure Analysis Services con un banner APPLIES TO debajo del título.
+Dado que los modelos tabulares de Azure Analysis Services son muy parecidos a los de SQL Server Analysis Services, hay una amplia biblioteca de artículos compartidos de referencia sobre desarrollo, conceptos y procedimientos en la [documentación de SQL Server Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services). Los artículos de la documentación de SQL Server Analysis Services muestran si también se aplican a Azure Analysis Services con un banner APPLIES TO debajo del título.
 
 ![Documentación compartida](./media/analysis-services-overview/aas-overview-applies-to.png)
 
@@ -250,7 +255,7 @@ Analysis Services cuenta con una dinámica comunidad de usuarios. Únase a la co
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Registrarse para obtener una evaluación gratuita de Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   
+> [Registro para obtener una evaluación gratuita de Azure](https://azure.microsoft.com/offers/ms-azr-0044p/)   
 
 > [!div class="nextstepaction"]
 > [Inicio rápido: Creación de un servidor: Portal](analysis-services-create-server.md)   

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 03/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 06b2a5211c720d50a2f14e5fa56fa296cb80d41f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: b536c55b0f7c29bc463781d9fda0348ef994c5ce
+ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519636"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58662231"
 ---
 # <a name="what-are-the-speech-services"></a>¿Qué son los servicios Voz?
 
@@ -39,7 +39,7 @@ Estas características conforman los servicios de voz de Azure. Use los vínculo
 
 Obtenga información sobre las novedades con los servicios de voz de Azure.
 
-* Marzo de 2019: está disponible un nuevo punto de conexión para texto a voz que devuelve una lista completa de las voces disponibles en una región concreta. Para más información, consulte la [referencia de Text-to-speech API (REST)](rest-text-to-speech.md).
+* Marzo de 2019: está disponible un nuevo punto de conexión para texto a voz (TTS) que devuelve una lista completa de las voces disponibles en una región concreta. Además, ahora se admiten regiones nuevas para TTS. Para más información, consulte la [referencia de Text-to-speech API (REST)](rest-text-to-speech.md).
 * Febrero de 2019: Speech SDK 1.3.0 publicado con compatibilidad para [Unity (beta)](quickstart-csharp-unity.md). Se agregó compatibilidad para la clase `AudioInput`, que le permite elegir el origen de streaming para audio. Para obtener una lista completa de mejoras y problemas conocidos, consulte [Notas de la versión](releasenotes.md).
 * Diciembre de 2018: Speech SDK 1.2.0 publicado con compatibilidad para [Python](quickstart-python.md) y [Node.js](quickstart-js-node.md), así como Ubuntu 18.04 LTS. Para más información, consulte [Notas de la versión](releasenotes.md).
 

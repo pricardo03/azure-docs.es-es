@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dca14f4c74c130145ba6792d2a3ee5c43f3c72b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8ba9f4df36f753a1caf619ad90015fa073a00de3
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57874803"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58883384"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>Tutorial: Integración de Azure Active Directory con SharePoint local
 
@@ -106,7 +106,7 @@ Para configurar el inicio de sesión único de Azure AD con SharePoint local, re
 
     ![Información de inicio de sesión único de Dominio y direcciones URL de SharePoint local](common/sp-identifier-reply.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YourSharePointServerURL>/_trust/default.aspx`
+     a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YourSharePointServerURL>/_trust/default.aspx`
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `urn:sharepoint:federation`
 
@@ -142,14 +142,14 @@ Para configurar el inicio de sesión único de Azure AD con SharePoint local, re
 
 1. En otra ventana del explorador web, inicie sesión en el sitio de la empresa de SharePoint local como administrador.
 
-2. **Configurar un nuevo proveedor de identidades de confianza en SharePoint Server 2016**
+2. **Configuración de un nuevo proveedor de identidades de confianza en SharePoint Server 2016**
 
     Inicie sesión en el servidor de SharePoint Server 2016 y abra el Shell de administración de SharePoint 2016. Rellene los valores de $realm (valor de identificador de la sección de dominio y direcciones URL locales de SharePoint de Azure Portal), $wsfedurl (dirección URL del servicio de inicio de sesión único) y $filepath (ruta de acceso del archivo en la que ha descargado el archivo de certificado) en Azure Portal y ejecute los siguientes comandos para configurar un nuevo proveedor de identidades de confianza.
 
     > [!TIP]
     > Si no está familiarizado con PowerShell o quiere obtener más información sobre el funcionamiento de PowerShell, vea [SharePoint PowerShell](https://docs.microsoft.com/powershell/sharepoint/overview?view=sharepoint-ps).
 
-    ```
+    ```powershell
     $realm = "<Identifier value from the SharePoint on-premises Domain and URLs section in the Azure portal>"
     $wsfedurl="<SAML single sign-on service URL value which you have copied from the Azure portal>"
     $filepath="<Full path to SAML signing certificate file which you have downloaded from the Azure portal>"
@@ -198,7 +198,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -270,7 +270,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
     > [!NOTE]
     > Tenga en cuenta que AzureCP no es un producto de Microsoft ni soporte técnico de Microsoft lo admite. Descarga, instalación y configuración de AzureCP en la granja de SharePoint local por https://yvand.github.io/AzureCP/ 
 
-11. **Concesión de acceso al grupo de seguridad de Azure Active Directory en SharePoint local** :- Debe concederse acceso a los grupos a la aplicación en SharePoint local.  Use los siguientes pasos para establecer los permisos a fin de obtener acceso a la aplicación web.
+11. **Concesión de acceso al grupo de seguridad de Azure Active Directory en SharePoint local**: debe concederse acceso a los grupos a la aplicación en SharePoint local.  Use los siguientes pasos para establecer los permisos a fin de obtener acceso a la aplicación web.
 
 12. En Administración central, haga clic en Administración de aplicaciones y en Administrar aplicaciones web y, a continuación, seleccione la aplicación web para activar la cinta y haga clic en Directiva de usuario.
 
@@ -310,11 +310,12 @@ La configuración funciona para una sola aplicación web, pero se necesitará co
 
 5. En el servidor de SharePoint, abra la **consola de administración de SharePoint 2016** y ejecute los comandos siguientes, utilizando el nombre del emisor de tokens de identidad de confianza que usó anteriormente.
 
-    ```
+    ```powershell
     $t = Get-SPTrustedIdentityTokenIssuer "AzureAD"
     $t.UseWReplyParameter=$true
     $t.Update()
     ```
+
 6. En Administración Central, vaya a la aplicación web y habilite el proveedor de identidades de confianza existente. No olvide configurar también la dirección URL de la página de inicio de sesión como una página de inicio de sesión personalizada `/_trust/`.
 
 7. En Administración Central, haga clic en la aplicación web y elija **Directiva de usuario**. Agregue un usuario con los permisos adecuados, como se demostró anteriormente en este artículo.

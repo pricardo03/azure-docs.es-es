@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc09c8d8e284fc81a26097a7c1a58732539029c6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
-ms.translationtype: MT
+ms.openlocfilehash: 3f92001e9d2fd322e858440ef64991b9de856735
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051129"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273046"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referencia de configuración del acceso condicional de Azure Active Directory
 
@@ -232,6 +232,23 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
 - Las aplicaciones cliente aprobadas admiten la característica de administración de aplicaciones móviles de Intune.
 - Requisito de la opción **Solicitar aplicación cliente aprobada**:
    - Solo admite iOS y Android como [condición de plataformas de dispositivo](#device-platform-condition).
+
+## <a name="app-protection-policy-requirement"></a>Requisito de directiva de protección de aplicaciones 
+
+En la directiva de acceso condicional, puede requerir que una directiva de protección de aplicaciones esté presente en la aplicación cliente antes de que el acceso está disponible para las aplicaciones de nube seleccionado. 
+
+![Controlar el acceso con la directiva de protección de aplicaciones](./media/technical-reference/22.png)
+
+Esta configuración se aplica a las aplicaciones cliente siguientes:
+
+- Microsoft OneDrive
+- Microsoft Outlook
+
+**Comentarios**
+
+- Las aplicaciones para la directiva de protección de aplicaciones admiten la característica de administración de aplicaciones móviles de Intune con la protección de la directiva.
+- El **requieren la directiva de protección de aplicaciones** requisitos:
+    - Solo admite iOS y Android como [condición de plataformas de dispositivo](#device-platform-condition).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

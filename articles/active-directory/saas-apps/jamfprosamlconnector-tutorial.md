@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50349d008e3c2a7a8a09fd3e2d9e96097acc0c9e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 18b575b74c80499f2ddd6648bf051b5245077d2f
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855825"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906147"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jamf-pro"></a>Tutorial: Integración de Azure Active Directory con Jamf Pro
 
@@ -160,11 +160,11 @@ Para configurar el inicio de sesión único de Azure AD con Jamf Pro, realice lo
 
     ![Configuración de Jamf Pro](./media/jamfprosamlconnector-tutorial/configure3.png)
 
-     a. En el menú desplegable **PROVEEDOR DE IDENTIDADES**, seleccione **Otro**.
+     a. Seleccione la opción **Otro** en el menú desplegable **PROVEEDOR DE IDENTIDADES**.
 
     b. En el cuadro de texto **OTRO PROVEEDOR**, escriba **Azure AD**.
 
-    c. Seleccione la **dirección URL de metadatos** como una opción del menú desplegable **ORIGEN DE METADATOS DEL PROVEEDOR DE IDENTIDADES** y, en el siguiente cuadro de texto, pegue el valor de la **dirección URL de metadatos de la federación de aplicaciones** que copió en Azure Portal.
+    c. Seleccione la opción **URL de metadatos** en el menú desplegable **ORIGEN DE METADATOS DEL PROVEEDOR DE IDENTIDADES** y, en el siguiente cuadro de texto, pegue el valor de **Dirección URL de metadatos de federación de aplicación** que ha copiado en Azure Portal.
 
     d. Copie el valor del **id. de entidad** y péguelo en el cuadro de texto **Identificador (id. de entidad)**, que se encuentra en la sección **Dominio y direcciones URL de Jamf Pro** de Azure Portal.
 
@@ -191,7 +191,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

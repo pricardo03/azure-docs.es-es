@@ -9,30 +9,33 @@ ms.topic: conceptual
 ms.subservice: implement
 ms.date: 03/18/2019
 ms.author: rortloff
-ms.reviewer: igorstan
-ms.openlocfilehash: fe19510d9b4c6311923b4b2ea15f133249e6cbd5
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.reviewer: jrasnick
+ms.custom: seoapril2019
+ms.openlocfilehash: eab64d9494ef2d2838e16c55eed6ecf0db9736e9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190046"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270054"
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexación de tablas en SQL Data Warehouse
+
 Recomendaciones y ejemplos para indexar tablas en Azure SQL Data Warehouse.
 
-## <a name="what-are-index-choices"></a>¿Cuáles son las opciones de indexación?
+## <a name="index-types"></a>Tipos de índice
 
 SQL Data Warehouse ofrece varias opciones de indexación, entre las que se incluyen [índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-overview), [índices agrupados e índices no agrupados](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described) y una opción que no es de índice también conocida como [montón](/sql/relational-databases/indexes/heaps-tables-without-clustered-indexes).  
 
 Para crear una tabla con un índice, consulte la documentación de [CREATE TABLE (Azure SQL Data Warehouse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse).
 
 ## <a name="clustered-columnstore-indexes"></a>Índices de almacén de columnas en clúster
+
 De forma predeterminada, SQL Data Warehouse crea un índice de almacén de columnas en clúster cuando se especifican opciones sin índice en una tabla. Las tablas del almacén de columnas en clúster ofrecen el máximo nivel de compresión de datos, así como el mejor rendimiento general de las consultas.  Por lo general, las tablas del almacén de columnas en clúster funcionan mejor que las tablas de montón o de índice agrupado, y suelen ser la mejor opción para tablas grandes.  Por estos motivos, el almacén de columnas agrupado es el mejor lugar por el que empezar cuando no se sabe cómo indexar una tabla.  
 
 Para crear una tabla de almacén de columnas en clúster, simplemente especifique CLUSTERED COLUMNSTORE INDEX en la cláusula WITH u omita la cláusula WITH:
 
 ```SQL
-CREATE TABLE myTable   
+CREATE TABLE myTable
   (  
     id int NOT NULL,  
     lastName varchar(20),  
@@ -48,6 +51,7 @@ Hay algunos escenarios en los que un almacén de columnas en clúster puede que 
 - Tablas pequeñas con menos de 60 millones de filas. Considere la posibilidad de usar tablas de montón.
 
 ## <a name="heap-tables"></a>Tablas de montón
+
 Cuando almacene datos temporalmente en SQL Data Warehouse, es posible que usar una tabla de montón hace agilizar el proceso global. Esto se debe a que las cargas en montones son más rápidas que la indexación de tablas y, en algunos casos, la posterior lectura se puede realizar desde la memoria caché.  Si solo carga datos para transformarlos después, cargar la tabla de apilamiento es mucho más rápido que cargar los datos en una tabla de almacén de columnas agrupadas. Además, la carga de datos en una [tabla temporal](sql-data-warehouse-tables-temporary.md) es una operación mucho más rápida que la carga de una tabla en un almacenamiento permanente.  
 
 Para las tablas de búsqueda pequeño, menos de 60 millones de filas, a menudo las tablas de montón que tenga sentido.  Las tablas de almacén de columnas clúster empiezan a lograr una compresión óptima cuando hay más de 60 millones de filas.
@@ -55,7 +59,7 @@ Para las tablas de búsqueda pequeño, menos de 60 millones de filas, a menudo l
 Para crear una tabla de montón, solo es preciso especificar HEAP en la cláusula WITH:
 
 ```SQL
-CREATE TABLE myTable   
+CREATE TABLE myTable
   (  
     id int NOT NULL,  
     lastName varchar(20),  
@@ -65,12 +69,13 @@ WITH ( HEAP );
 ```
 
 ## <a name="clustered-and-nonclustered-indexes"></a>Índices clúster y no clúster
+
 Los índices clúster pueden ser mejores que las tablas del almacén de columnas en clúster cuando se necesita recuperar rápidamente una sola fila. En el caso de las consultas en que se requiera realizar una búsqueda en una sola o en muy pocas filas a gran velocidad, considere la posibilidad de un índice clúster o un índice no clúster secundario. La desventaja de utilizar un índice clúster es que solo se benefician las consultas que utilicen un filtro muy selectivo en la columna del índice agrupado. Para mejorar el filtro en las restantes columnas se puede agregar un índice no clúster a las mismas. Sin embargo, cada índice que se agrega a una tabla agrega espacio y tiempo de procesamiento a las cargas.
 
 Para crear una tabla de índice clúster, solo es preciso especificar CLUSTERED INDEX en la cláusula WITH:
 
 ```SQL
-CREATE TABLE myTable   
+CREATE TABLE myTable
   (  
     id int NOT NULL,  
     lastName varchar(20),  
@@ -86,6 +91,7 @@ CREATE INDEX zipCodeIndex ON myTable (zipCode);
 ```
 
 ## <a name="optimizing-clustered-columnstore-indexes"></a>Optimización de índices de almacén de columnas en clúster
+
 Las tablas de almacén de columnas en clúster organizan los datos en segmentos.  El hecho de que los segmentos sean de gran calidad es fundamental para conseguir un rendimiento óptimo de las consultas en una tabla de almacén de columnas.  La calidad de los segmentos se puede medir por el número de filas de un grupo de filas comprimido.  La calidad de los segmentos es mayor donde hay al menos 100 000 filas por grupo de filas comprimido y su rendimiento aumenta a medida que el número de filas por grupo se aproxima a 1.048.576, que es el número máximo de filas que puede contener un grupo.
 
 La siguiente vista se puede crear y utilizar en un sistema para calcular el promedio de filas por cada fila de grupo e identificar los índices de almacén de columnas de clúster que no llegan a ser óptimos.  La última columna de esta vista genera una instrucción SQL que se puede usar para volver a crear los índices.
@@ -137,7 +143,7 @@ GROUP BY
 ;
 ```
 
-Ahora que ha creado la vista, ejecute esta consulta para identificar las tablas con grupos de filas con menos de 100 000 filas. Por supuesto, puede aumentar el umbral de 100 000 si desea obtener mayor calidad de los segmentos. 
+Ahora que ha creado la vista, ejecute esta consulta para identificar las tablas con grupos de filas con menos de 100 000 filas. Por supuesto, puede aumentar el umbral de 100 000 si desea obtener mayor calidad de los segmentos.
 
 ```sql
 SELECT    *
@@ -172,6 +178,7 @@ Una vez ejecutada la consulta, puede empezar a examinar los datos y analizar los
 | [Rebuild_Index_SQL] |SQL para volver a generar un índice de almacén de columnas de una tabla |
 
 ## <a name="causes-of-poor-columnstore-index-quality"></a>Causas de una calidad deficiente del índice de almacén de columnas
+
 Si ha identificado las tablas con una calidad deficiente de sus segmentos, querrá identificar la causa principal.  A continuación se muestran otras causas comunes de baja calidad de los segmentos:
 
 1. Presión de la memoria cuando se generó el índice
@@ -179,33 +186,39 @@ Si ha identificado las tablas con una calidad deficiente de sus segmentos, querr
 3. Operaciones de carga pequeña o lenta
 4. Demasiadas particiones
 
-Estos factores pueden ser la causa de que un índice de almacén de columnas tenga mucho menos de un millón de filas por grupo de filas, que es el número óptimo. También pueden provocar que las filas vayan al grupo de filas delta, en lugar de a un grupo de filas comprimido. 
+Estos factores pueden ser la causa de que un índice de almacén de columnas tenga mucho menos de un millón de filas por grupo de filas, que es el número óptimo. También pueden provocar que las filas vayan al grupo de filas delta, en lugar de a un grupo de filas comprimido.
 
 ### <a name="memory-pressure-when-index-was-built"></a>Presión de la memoria cuando se generó el índice
+
 El número de filas por grupo de filas comprimido está directamente relacionado con el ancho de la fila y la cantidad de memoria disponible para procesar el grupo de filas.  Escriben filas en las tablas de almacén de columnas bajo presión de memoria afecta a la calidad de segmento.  Por consiguiente, es un procedimiento recomendado dar a la sesión que escribe en las tablas del índice de almacén de columnas acceso a tanta memoria como sea posible.  Dado que hay un equilibrio entre memoria y concurrencia, la guía sobre la asignación de memoria adecuada depende de los datos de cada fila de la tabla, de las unidades de almacenamiento de datos que ha asignado al sistema y de la cantidad de ranuras de concurrencia que puede dar a la sesión que escribe datos en la tabla.
 
 ### <a name="high-volume-of-dml-operations"></a>Gran volumen de operaciones de DML
+
 Un alto volumen de operaciones de DML que actualizan y eliminan filas puede introducir ineficacia en el almacén de columnas. Esto sucede especialmente cuando se modifica la mayor parte de las filas de un grupo de filas.
 
 - La eliminación de una fila de un grupo de filas comprimido solo marca lógicamente la fila como eliminada. La fila permanece en el grupo de filas comprimido hasta que se vuelven a generar la partición o la tabla.
-- La inserción de una fila agrega la fila a una tabla de almacén de filas interna denominada grupo de filas delta. La fila insertada no se convierte en almacén de columnas hasta que el grupo de filas delta está lleno y marcado como cerrado. Los grupos de filas se cierran cuando alcanzan la capacidad máxima de 1 048 576 filas. 
+- La inserción de una fila agrega la fila a una tabla de almacén de filas interna denominada grupo de filas delta. La fila insertada no se convierte en almacén de columnas hasta que el grupo de filas delta está lleno y marcado como cerrado. Los grupos de filas se cierran cuando alcanzan la capacidad máxima de 1 048 576 filas.
 - La actualización de una fila en formato de almacén de columnas se procesa como eliminación lógica y luego como inserción. La fila insertada se puede guardar en el almacén delta.
 
-Las operaciones de actualización e inserción por lotes que superen el umbral en masa de 102 400 filas por distribución de particiones alineada se escriben directamente en formato de almacén de columnas. Pero para ello, suponiendo una distribución uniforme, tendría que estar modificando más de 6.144 millones de filas en una sola operación. Si el número de filas de una determinada distribución de particiones alineada es inferior a 102 400, las filas van al almacén delta y permanecen allí hasta que se hayan insertado o modificado un número suficiente de filas para cerrar el grupo de filas o hasta que se haya recompilado el índice.
+Las operaciones de actualización e inserción por lotes que superen el umbral en masa de 102 400 filas por distribución de particiones alineada se escriben directamente en formato de almacén de columnas. Pero para ello, suponiendo una distribución uniforme, tendría que estar modificando más de 6.144 millones de filas en una sola operación. Si el número de filas para una determinada distribución alineadas de partición es inferior a 102 400, a continuación, las filas van al almacén delta y permanecen allí hasta que se han insertado o modificado para cerrar el grupo de filas suficiente de filas o se ha recompilado el índice.
 
 ### <a name="small-or-trickle-load-operations"></a>Operaciones de carga pequeña o lenta
+
 Las cargas pequeñas que fluyen al SQL Data Warehouse también se denominan cargas lentas. Normalmente, representan una transmisión prácticamente constante de los datos que ingiere el sistema. Pero como esta transmisión es casi continua, el volumen de filas no es especialmente grande. Con frecuencia los datos están significativamente por debajo del umbral necesario para una carga directa en formato de almacén de columnas.
 
 En estas situaciones, a menudo es preferible que los datos vayan primero a Almacenamiento de blobs de Azure y dejar que se acumulen antes de cargarlos. A menudo, esta técnica se conoce como *procesamiento por microlotes*.
 
 ### <a name="too-many-partitions"></a>Demasiadas particiones
-Otra cosa que se debe tener en cuenta es el impacto de la creación de particiones en las tablas de almacén de columnas en clúster.  Antes de crear particiones, SQL Data Warehouse ya divide los datos en 60 bases de datos.  La creación de particiones divide aún más los datos.  Si crea particiones de los datos, debe considerar que **cada** partición debe tener un mínimo de un millón de filas para beneficiarse de un índice de almacén de columnas en clúster.  Si crea 100 particiones en una tabla, esta deberá tener al menos 6000 millones de filas para beneficiarse de un índice de almacén de columnas en clúster (60 distribuciones * 100 particiones * 1 millón de filas). Si la tabla de 100 particiones no tiene 6000 millones de filas, reduzca el número de particiones o considere la posibilidad de usar una tabla de montón en su lugar.
+
+Otra cosa que se debe tener en cuenta es el impacto de la creación de particiones en las tablas de almacén de columnas en clúster.  Antes de crear particiones, SQL Data Warehouse ya divide los datos en 60 bases de datos.  La creación de particiones divide aún más los datos.  Si crea particiones de los datos, debe considerar que **cada** partición debe tener un mínimo de un millón de filas para beneficiarse de un índice de almacén de columnas en clúster.  Si particionar la tabla en 100 particiones, la tabla tiene al menos 6 mil millones de filas para beneficiarse de un índice agrupado (60 distribuciones *100 particiones* 1 millón de filas). Si la tabla de 100 particiones no tiene 6000 millones de filas, reduzca el número de particiones o considere la posibilidad de usar una tabla de montón en su lugar.
 
 Una vez que las tablas se hayan cargado las tablas con datos, siga los pasos que se indican a continuación para identificar las tablas y volver a crearlas con índices de almacén de columnas agrupadas que no llegan a ser óptimas.
 
 ## <a name="rebuilding-indexes-to-improve-segment-quality"></a>Regeneración de índices para mejorar la calidad de los segmentos
+
 ### <a name="step-1-identify-or-create-user-which-uses-the-right-resource-class"></a>Paso 1: Identificación o creación de un usuario que use la clase de recurso adecuada
-Una manera rápida de mejorar rápidamente la calidad de los segmentos es volver a generar el índice.  La instrucción SQL que devuelve la vista anterior devuelve una instrucción ALTER INDEX REBUILD que puede utilizarse para volver a crear los índices. Al volver a crear los índices, asegúrese de asignar suficiente memoria a la sesión que volverá a generar el índice.  Para ello, aumente la clase de recurso de un usuario que tenga permisos para volver a generar el índice en esta tabla al mínimo recomendado. 
+
+Una manera rápida de mejorar rápidamente la calidad de los segmentos es volver a generar el índice.  La instrucción SQL que devuelve la vista anterior devuelve una instrucción ALTER INDEX REBUILD que puede utilizarse para volver a crear los índices. Al volver a crear los índices, asegúrese de asignar suficiente memoria a la sesión que volverá a generar el índice.  Para ello, aumente la clase de recurso de un usuario que tenga permisos para volver a generar el índice en esta tabla al mínimo recomendado.
 
 A continuación se muestra un ejemplo de cómo asignar más memoria a un usuario mediante el aumento de su clase de recurso. Para trabajar con clases de recursos, consulte [Clases de recursos para la administración de cargas de trabajo](resource-classes-for-workload-management.md).
 
@@ -214,9 +227,10 @@ EXEC sp_addrolemember 'xlargerc', 'LoadUser'
 ```
 
 ### <a name="step-2-rebuild-clustered-columnstore-indexes-with-higher-resource-class-user"></a>Paso 2: Recompilación de índices de almacén de columnas en clúster con un usuario de clase de recurso mayor
-Inicie sesión como el usuario del paso 1 (p. ej., LoadUser), que ahora usa una clase de recurso superior, y ejecute las instrucciones ALTER INDEX. Asegúrese de que este usuario tiene el permiso ALTER en las tablas en las que se vuelve a generar el índice. En estos ejemplos se muestra cómo volver a generar todo el índice de almacén de columnas y una sola partición. En tablas mayores, es más práctico volver a generar los índices partición a partición.
 
-Como alternativa, en lugar de volver a crear el índice, se puede copiar la tabla en otra tabla nueva con [CTAS](sql-data-warehouse-develop-ctas.md). ¿De qué manera es mejor? En el caso de grandes volúmenes de datos, CTAS suele ser más rápido que [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Sin embargo, en el caso de volúmenes menores de datos, ALTER INDEX es más fácil de usar y no requerirá el intercambio de la tabla. 
+Inicie sesión como el usuario del paso 1 (por ejemplo, LoadUser), que ahora usa una clase de recurso superior, y ejecute las instrucciones ALTER INDEX. Asegúrese de que este usuario tiene el permiso ALTER en las tablas en las que se vuelve a generar el índice. En estos ejemplos se muestra cómo volver a generar todo el índice de almacén de columnas y una sola partición. En tablas mayores, es más práctico volver a generar los índices partición a partición.
+
+Como alternativa, en lugar de volver a crear el índice, se puede copiar la tabla en otra tabla nueva con [CTAS](sql-data-warehouse-develop-ctas.md). ¿De qué manera es mejor? En el caso de grandes volúmenes de datos, CTAS suele ser más rápido que [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql). Sin embargo, en el caso de volúmenes menores de datos, ALTER INDEX es más fácil de usar y no requerirá el intercambio de la tabla.
 
 ```sql
 -- Rebuild the entire clustered index
@@ -241,10 +255,12 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 La regeneración de un índice en SQL Data Warehouse es una operación que se realiza sin conexión.  Para más información sobre cómo volver a crear los índices, consulte la sección ALTER INDEX REBUILD de [Desfragmentación de índices de almacén de columnas](/sql/relational-databases/indexes/columnstore-indexes-defragmentation) y [ALTER INDEX](/sql/t-sql/statements/alter-index-transact-sql).
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Paso 3: Comprobación de que ha mejorado la calidad de los segmentos de almacén de columnas en clúster
+
 Vuelva a ejecutar la consulta que identificó la tabla con una calidad deficiente de los segmentos y compruebe que dicha calidad ha mejorado.  Si no lo ha hecho, puede deberse a que las filas de la tabla son demasiado anchas.  Considere el uso de una clase de recurso superior o de DWU al volver a generar los índices.
 
 ## <a name="rebuilding-indexes-with-ctas-and-partition-switching"></a>Regeneración de índices con CTAS y conmutación de particiones
-Este ejemplo utiliza la instrucción [CREATE TABLE AS SELECT (CTAS) ](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) y el cambio de partición para volver a crear una partición de tabla. 
+
+Este ejemplo utiliza la instrucción [CREATE TABLE AS SELECT (CTAS) ](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) y el cambio de partición para volver a crear una partición de tabla.
 
 ```sql
 -- Step 1: Select the partition of data and write it out to a new table using CTAS
@@ -270,5 +286,5 @@ ALTER TABLE [dbo].[FactInternetSales_20000101_20010101] SWITCH PARTITION 2 TO  [
 Para más información sobre cómo volver a crear particiones mediante CTAS, consulte [Creación de particiones de tablas en SQL Data Warehouse](sql-data-warehouse-tables-partition.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información sobre el desarrollo de tablas, consulte el artículo sobre [desarrollo de tablas](sql-data-warehouse-tables-overview.md).
 
+Para más información sobre el desarrollo de tablas, consulte el artículo sobre [desarrollo de tablas](sql-data-warehouse-tables-overview.md).

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e39f271eaf0eccd0b3f3439492205e0d3398358
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 06639f943542e322e79e137e31be7b8954566a0f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58851188"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261996"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>Autorización del acceso a aplicaciones web con OpenID Connect y Azure Active Directory
 
@@ -47,12 +47,12 @@ OpenID Connect describe un documento de metadatos que contiene la mayor parte de
 ```
 https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration
 ```
-Los metadatos son un documento de notación de objetos JavaScript (JSON) simple. Consulte el fragmento de código siguiente para ver un ejemplo. El contenido del fragmento de código se describe detalladamente en la [especificación de OpenID Connect](https://openid.net). Tenga en cuenta que al proporcionar tenant en lugar de `common` y no {tenant} anteriormente, el resultado serán URI específicos del inquilino en el objeto JSON devuelto.
+Los metadatos son un documento de notación de objetos JavaScript (JSON) simple. Consulte el fragmento de código siguiente para ver un ejemplo. El contenido del fragmento de código se describe detalladamente en la [especificación de OpenID Connect](https://openid.net). Tenga en cuenta que proporciona un identificador de inquilino en lugar de `common` en lugar de {tenant} anterior dará como resultado en los URI específico del inquilino en el objeto JSON devuelto.
 
 ```
 {
-    "authorization_endpoint": "https://login.microsoftonline.com/common/oauth2/authorize",
-    "token_endpoint": "https://login.microsoftonline.com/common/oauth2/token",
+    "authorization_endpoint": "https://login.microsoftonline.com/{tenant}/oauth2/authorize",
+    "token_endpoint": "https://login.microsoftonline.com/{tenant}/oauth2/token",
     "token_endpoint_auth_methods_supported":
     [
         "client_secret_post",
@@ -64,6 +64,8 @@ Los metadatos son un documento de notación de objetos JavaScript (JSON) simple.
     ...
 }
 ```
+
+Si la aplicación tiene las claves de firma personalizadas como resultado de utilizar el [asignación de notificaciones](active-directory-claims-mapping.md) característica, debe anexar un `appid` que contiene el identificador de aplicación con el fin de obtener el parámetro de consulta un `jwks_uri` que apunta a la aplicación de la clave de firma información. Por ejemplo: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contiene un `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ## <a name="send-the-sign-in-request"></a>Envío de la solicitud de inicio de sesión
 
@@ -91,14 +93,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | Parámetro |  | DESCRIPCIÓN |
 | --- | --- | --- |
 | tenant |requerido |El valor `{tenant}` de la ruta de acceso de la solicitud se puede usar para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son los identificadores de inquilino; por ejemplo, `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com` o `common` para los tokens independientes del inquilino. |
-| client_id |requerido |Identificador de aplicación asignado a la aplicación cuando se registra en Azure AD. Puede encontrarlo en Azure Portal. Haga clic en **Azure Active Directory**, en **Registros de aplicaciones**, elija la aplicación y busque el identificador de la aplicación en la página de aplicación. |
+| client_id |requerido |Identificador de aplicación asignado a la aplicación cuando se registra en Azure AD. Puede encontrarlo en Azure Portal. Haga clic en **Azure Active Directory**, haga clic en **registros de aplicaciones**, elija la aplicación y busque el identificador de aplicación en la página de aplicación. |
 | response_type |requerido |Debe incluir `id_token` para el inicio de sesión en OpenID Connect. También puede incluir otros elementos response_type como `code` o `token`. |
 | ámbito | recomendado | La especificación de OpenID Connect requiere el ámbito `openid`, que se convierte en el permiso "Iniciar sesión" en la IU de consentimiento. Este y otros ámbitos OIDC se omiten en el punto de conexión v1.0, pero sigue siendo una práctica recomendada para los clientes compatibles con los estándares. |
 | valor de seguridad |requerido |Un valor incluido en la solicitud que ha generado la aplicación y que se incluye en el elemento `id_token` resultante como una notificación. La aplicación puede comprobar este valor para mitigar los ataques de reproducción de token. Normalmente, el valor es un GUID o una cadena única aleatorios que puede utilizarse para identificar el origen de la solicitud. |
 | redirect_uri | recomendado |El redirect_uri de su aplicación, a donde su aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los redirect_uris que registró en el portal, con la excepción de que debe estar codificado como URL. Si faltan, se enviará al agente de usuario a uno de lo URI de redirección registrados para la aplicación, de forma aleatoria. La longitud máxima es 255 bytes |
 | response_mode |opcional |Especifica el método que debe usarse para enviar el authorization_code resultante de nuevo a tu aplicación. Los valores admitidos son `form_post` para *envíos de formulario HTTP* y `fragment` para *fragmentos de dirección URL*. Para las aplicaciones web, se recomienda usar `response_mode=form_post` para asegurar la transferencia más segura de tokens a la aplicación. El valor predeterminado para cualquier flujo que incluye un elemento id_token es `fragment`.|
 | state |recomendado |Un valor incluido en la solicitud que se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Normalmente se usa un valor único generado de forma aleatoria para [evitar los ataques de falsificación de solicitudes entre sitios](https://tools.ietf.org/html/rfc6749#section-10.12). El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
-| símbolo del sistema |opcional |Indica el tipo de interacción necesaria con el usuario. Actualmente, los únicos valores válidos son 'login', 'none' y 'consent'. `prompt=login` obliga al usuario a escribir sus credenciales en esa solicitud, negando el inicio de sesión único. `prompt=none` se asegura de que al usuario no se le presenta ninguna solicitud interactiva del tipo que sea. Si la solicitud no se puede completar sin notificaciones mediante el inicio de sesión único, el punto de conexión devuelve un error. `prompt=consent` desencadena el cuadro de diálogo de consentimiento de OAuth después de que el usuario inicia sesión y solicita a este que conceda permisos a la aplicación. |
+| símbolo del sistema |opcional |Indica el tipo de interacción necesaria con el usuario. Actualmente, los únicos valores válidos son 'login', 'none' y 'consent'. `prompt=login` obliga al usuario a escribir sus credenciales en esa solicitud, negando inicio de sesión único. `prompt=none` es lo contrario: garantiza que el usuario no se le presenta ninguna solicitud interactiva de ningún tipo. Si la solicitud no se puede completar sin notificaciones mediante el inicio de sesión único, el punto de conexión devuelve un error. `prompt=consent` desencadenadores el OAuth cuadro de diálogo de consentimiento después de que el usuario inicia sesión y solicita al usuario que conceda permisos a la aplicación. |
 | login_hint |opcional |Puede usarse para rellenar previamente el campo de nombre de usuario y dirección de correo electrónico de la página de inicio de sesión del usuario, si sabe su nombre de usuario con antelación. A menudo las aplicaciones usan este parámetro durante la reautenticación, dado que ya han extraído el nombre de usuario de un inicio de sesión anterior mediante la notificación `preferred_username`. |
 
 En este punto, se le pide al usuario que escriba sus credenciales y que complete la autenticación.
@@ -179,13 +181,13 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 | Parámetro |  | DESCRIPCIÓN |
 | --- | --- | --- |
-| post_logout_redirect_uri |recomendado |La dirección URL a la que se debe redirigir al usuario después de un cierre de sesión correcto. Si no se incluye, se muestra un mensaje genérico al usuario. |
+| post_logout_redirect_uri |recomendado |La dirección URL que se debe redirigir al usuario después de cierre de sesión correcto. Si no se incluye, se muestra un mensaje genérico al usuario. |
 
 ## <a name="single-sign-out"></a>Cierre de sesión único
 
 Cuando redirige al usuario a `end_session_endpoint`, Azure AD borra la sesión del usuario del explorador. Sin embargo, el usuario podrá permanecer conectado a otras aplicaciones que utilizan Azure AD para la autenticación. Para permitir que esas aplicaciones cierren la sesión del usuario de manera simultánea, Azure AD envía una solicitud HTTP GET al elemento `LogoutUrl` registrado de todas las aplicaciones en las que tiene una sesión iniciada. Las aplicaciones deben responder a esta solicitud mediante la eliminación de la sesión que identifica al usuario y la devolución de una respuesta `200`. Si quiere admitir el inicio de sesión único en la aplicación, debe implementar este elemento `LogoutUrl` en el código de la aplicación. Puede habilitar `LogoutUrl` desde Azure Portal:
 
-1. Vaya a [Azure Portal](https://portal.azure.com).
+1. Acceda a [Azure Portal](https://portal.azure.com).
 2. Para elegir la instancia de Active Directory, haga clic en su cuenta en la esquina superior derecha de la página.
 3. En el panel de navegación izquierdo, elija **Azure Active Directory**, a continuación, elija **Registros de aplicaciones** y seleccione la aplicación.
 4. Haga clic en **Configuración**, después, en **Propiedades** y busque el cuadro de texto **URL de cierre de sesión**. 
@@ -200,7 +202,7 @@ Para obtener tokens de acceso, debe modificar la solicitud anterior de inicio de
 // Line breaks for legibility only
 
 GET https://login.microsoftonline.com/{tenant}/oauth2/authorize?
-client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application Id
+client_id=6731de76-14a6-49ae-97bc-6eba6914391e        // Your registered Application ID
 &response_type=id_token+code
 &redirect_uri=http%3A%2F%2Flocalhost%3a12345          // Your registered Redirect Uri, url encoded
 &response_mode=form_post                              // `form_post' or 'fragment'

@@ -1,19 +1,18 @@
 ---
 title: Uso de grandes conjuntos de datos
 description: Aprenda a obtener y controlar grandes conjuntos de datos mientras trabaja con Azure Resource Graph.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 04/01/2019
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 40aa8ca0ebfcc8eb5b686143960af1441768622a
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 729e9fe749212942c6dc18fc7d6301934e7dd184
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59058398"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262472"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Uso de grandes conjuntos de datos de recursos de Azure
 

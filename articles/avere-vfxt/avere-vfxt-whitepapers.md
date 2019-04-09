@@ -6,12 +6,12 @@ author: ekpgh
 ms.author: v-erkell
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.openlocfilehash: cc1d706ac1749c4655f15948f06b2ff1f360dde3
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: cf111f2ebe4233ea5d02cf5c7fbc0967655475d9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188139"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264172"
 ---
 # <a name="azure-vftx-for-azure-whitepapers-and-other-resources"></a>Notas del producto y otros recursos de Avere vFXT for Azure 
 
@@ -25,7 +25,7 @@ En esta guía se proporciona una guía paso a paso para instalar el software de 
 
 ## <a name="datasheet-avere-vfxt-for-azure"></a>Hoja de datos: Avere vFXT for Azure
 
-**Vínculo:** [Hoja de datos de Avere vFXT for Azure](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE2NIlv)
+**Vínculo:** [Hoja de datos de Avere vFXT for Azure](https://azure.microsoft.com/resources/avere-vfxt-for-azure-data-sheet/)
 
 Este breve resumen de dos páginas contiene información básica y diagramas que explican cómo utilizar Avere vFXT for Azure en varios escenarios de casos de uso.
 
