@@ -6,21 +6,22 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 879b0ee9-042a-441b-90a7-8c364d62426a
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 03/27/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74c14de0d09006aefb342590f613edb129ab5016
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 4ad0ee590572dbc92e67be9f84ffc65afc3e8473
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56173715"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056969"
 ---
 # <a name="tutorial-configure-bonusly-for-automatic-user-provisioning"></a>Tutorial: configuración de Bonusly para el aprovisionamiento automático de usuarios
 
@@ -33,39 +34,34 @@ El objetivo de este tutorial es mostrar los pasos que se realizan en Bonusly y A
 
 En el escenario que se describe en este tutorial se supone que ya cuenta con los elementos siguientes:
 
-*   Un inquilino de Azure AD
-*   Un [inquilino de Bonusly](https://bonus.ly/pricing)
-*   Una cuenta de usuario de Bonusly con permisos de administrador
+* Un inquilino de Azure AD
+* Un [inquilino de Bonusly](https://bonus.ly/pricing)
+* Una cuenta de usuario de Bonusly con permisos de administrador
 
 > [!NOTE]
 > El aprovisionamiento de integración de Azure AD se basa en la [API REST de Bonusly](https://bonusly.gelato.io/reference) que está disponible para desarrolladores de Bonusly.
 
 ## <a name="adding-bonusly-from-the-gallery"></a>Adición de Bonusly desde la galería
+
 Antes de configurar Bonusly para el aprovisionamiento automático de usuarios con Azure AD, es preciso agregar Bonusly desde la galería de aplicaciones de Azure AD hasta la lista de aplicaciones SaaS administradas.
 
-**Para agregar Bonusly desde la galería de aplicaciones de Azure AD, siga estos pasos:**
+**Para agregar Bonusly desde la Galería de aplicaciones de Azure AD, realice los pasos siguientes:**
 
-1. En **[Azure Portal](https://portal.azure.com)**, en el panel de navegación izquierdo, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Botón Azure Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** > **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![Sección Aplicaciones empresariales][2]
-    
-3. Para agregar Bonusly, haga clic en el botón **Nueva aplicación** en la parte superior del cuadro de diálogo.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![Botón Nueva aplicación][3]
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-4. En el cuadro de búsqueda, escriba **Bonusly**.
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-    ![Aprovisionamiento de Bonusly](./media/bonusly-provisioning-tutorial/AppSearch.png)
+4. En el cuadro de búsqueda, escriba **Bonusly**, seleccione **Bonusly** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-5. En el panel de resultados, seleccione **Bonusly** y, luego, haga clic en el botón **Agregar** para agregar Bonusly a la lista de aplicaciones SaaS.
-
-    ![Aprovisionamiento de Bonusly](./media/bonusly-provisioning-tutorial/AppSearchResults.png)
-
-    ![Aprovisionamiento de Bonusly](./media/bonusly-provisioning-tutorial/AppCreation.png)
+    ![Bonusly en la lista de resultados](common/search-new-app.png)
 
 ## <a name="assigning-users-to-bonusly"></a>Asignación de usuarios a Bonusly
 
@@ -73,13 +69,13 @@ Azure Active Directory usa un concepto que se denomina "asignaciones" para deter
 
 Antes de configurar y habilitar el aprovisionamiento automático de usuarios, debe decidir qué usuarios o grupos de Azure AD necesitan acceder a Bonusly. Una vez que lo decida, puede seguir estas instrucciones para asignar dichos usuarios o grupos a Bonusly:
 
-*   [Asignar un usuario o grupo a una aplicación empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [Asignar un usuario o grupo a una aplicación empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-bonusly"></a>Sugerencias importantes para asignar usuarios a Bonusly
 
-*   Se recomienda asignar un único usuario de Azure AD a Bonusly para probar la configuración de aprovisionamiento automático de usuarios. Más tarde, se pueden asignar otros usuarios o grupos.
+* Se recomienda asignar un único usuario de Azure AD a Bonusly para probar la configuración de aprovisionamiento automático de usuarios. Más tarde, se pueden asignar otros usuarios o grupos.
 
-*   Al asignar un usuario a Bonusly, debe seleccionar un rol válido específico de la aplicación (si está disponible) en el cuadro de diálogo de asignación. Los usuarios con el rol de **Acceso predeterminado** quedan excluidos del aprovisionamiento.
+* Al asignar un usuario a Bonusly, debe seleccionar un rol válido específico de la aplicación (si está disponible) en el cuadro de diálogo de asignación. Los usuarios con el rol de **Acceso predeterminado** quedan excluidos del aprovisionamiento.
 
 ## <a name="configuring-automatic-user-provisioning-to-bonusly"></a>Configuración del aprovisionamiento automático de usuarios en Bonusly
 
@@ -90,14 +86,16 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 ### <a name="to-configure-automatic-user-provisioning-for-bonusly-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Bonusly en Azure AD:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a **Azure Active Directory > Aplicaciones empresariales > Todas las aplicaciones**.
+1. Inicie sesión en el [portal Azure](https://portal.azure.com) y seleccione **aplicaciones empresariales**, seleccione **todas las aplicaciones**, a continuación, seleccione **Bonusly**.
 
-2. Seleccione Bonusly en la lista de aplicaciones SaaS.
- 
-    ![Aprovisionamiento de Bonusly](./media/bonusly-provisioning-tutorial/AppInstanceSearch.png)
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
+
+2. En la lista de aplicaciones, seleccione **Bonusly**.
+
+    ![Vínculo a Bonusly en la lista de aplicaciones](common/all-applications.png)
 
 3. Seleccione la pestaña **Aprovisionamiento**.
-    
+
     ![Aprovisionamiento de Bonusly](./media/bonusly-provisioning-tutorial/ProvisioningTab.png)
 
 4. Establezca el **modo de aprovisionamiento** en **Automático**.
@@ -105,6 +103,8 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
     ![Aprovisionamiento de Bonusly](./media/bonusly-provisioning-tutorial/ProvisioningCredentials.png)
 
 5. En la sección **Credenciales de administrador**, escriba el **token secreto** de la cuenta de Bonusly, tal como se ha descrito en el paso 6.
+
+    ![Aprovisionamiento de Bonusly](./media/bonusly-provisioning-tutorial/secrettoken.png)
 
 6. El **token secreto** para su cuenta de Bonusly está ubicado en **Administración > API > Configuración**. En la sección **If you want to code** (Si desea codificar), haga clic en **API > Create New API Access Token** (Crear nuevo token de acceso de API) para crear un nuevo token secreto.
 
@@ -123,7 +123,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 8. Tras rellenar los campos que se muestran en el paso 5, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Bonusly. Si la conexión no se establece, asegúrese de que la cuenta de Bonusly tiene permisos de administrador y pruebe de nuevo.
 
     ![Aprovisionamiento de Bonusly](./media/bonusly-provisioning-tutorial/TestConnection.png)
-    
+
 9. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Aprovisionamiento de Bonusly](./media/bonusly-provisioning-tutorial/EmailNotification.png)
@@ -152,20 +152,18 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
     ![Aprovisionamiento de Bonusly](./media/bonusly-provisioning-tutorial/SaveProvisioning.png)
 
-
 Esta operación inicia la sincronización inicial de todos los usuarios o grupos definidos en **Ámbito** en la sección **Configuración**. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y seguir los vínculos al informe de actividad de aprovisionamiento, donde se describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento de Azure AD en Bonusly.
 
 Para más información sobre cómo leer los registros de aprovisionamiento de Azure AD, consulte el tutorial de [Creación de informes sobre el aprovisionamiento automático de cuentas de usuario](../manage-apps/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Administración de aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../manage-apps/check-status-user-account-provisioning.md)
+* [Obtenga información sobre cómo revisar los registros y obtener informes sobre la actividad de aprovisionamiento](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/bonusly-provisioning-tutorial/tutorial_general_01.png

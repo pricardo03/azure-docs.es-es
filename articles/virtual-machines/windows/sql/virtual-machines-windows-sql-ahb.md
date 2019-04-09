@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: bc3e2955049188b0794367d5391762f5eb50b1c0
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
-ms.translationtype: MT
+ms.openlocfilehash: c0d659d983e62cd2a85c0d6768c54e5a1d9e9217
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58850197"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005798"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Modificación del modelo de licencia para una máquina virtual de SQL Server en Azure
 En este artículo se describe cómo cambiar el modelo de licencia para una máquina virtual con SQL Server en Azure mediante el nuevo proveedor de recursos de VM con SQL, **Microsoft.SqlVirtualMachine**. Hay dos modelos para una máquina virtual (VM) que hospeda SQL Server - pago por uso, de licencia y traiga su propia licencia (BYOL). Y ahora, con PowerShell o la CLI de Azure, puede modificar qué modelo de licencia usa la VM con SQL Server. 
@@ -35,12 +35,17 @@ El cambio entre los dos modelos de licencia no genera **ningún tiempo de inacti
 
 ## <a name="remarks"></a>Comentarios
 
- - Actualmente, la capacidad de convertir el modelo de licencia solo está disponible cuando se inicia con una imagen de VM con SQL Server de pago por uso. Si inicia con una imagen de traiga su propia licencia desde el portal, no podrá convertir esa imagen al modo pago por uso.
  - Los clientes CSP pueden utilizar la Ventaja híbrida de Azure si implementan una máquina virtual de pago por uso y, a continuación, la convierten al modo traiga su propia licencia. 
- - Actualmente esta capacidad está habilitada solo para las instalaciones de la nube pública.
  - Al registrar una imagen de máquina virtual de SQL Server personalizada con el proveedor de recursos, especifique el tipo de licencia como = 'AHUB'. Salir de la licencia, escriba en blanco, o especificando 'PAYG' provocará que se producirá un error en el registro. 
+ 
+## <a name="limitations"></a>Limitaciones
+
+ - Actualmente, la capacidad de convertir el modelo de licencia solo está disponible cuando se inicia con una imagen de VM con SQL Server de pago por uso. Si inicia con una imagen de traiga su propia licencia desde el portal, no podrá convertir esa imagen al modo pago por uso.
+  - Actualmente, solo se admite cambiar el modelo de licencias para máquinas virtuales implementadas mediante el modelo de Resource Manager. No se admiten las máquinas virtuales implementadas mediante el modelo clásico. 
+   - Solo está habilitado actualmente cambiar el modelo de licencia para las instalaciones de la nube pública.
 
 ## <a name="prerequisites"></a>Requisitos previos
+
 El uso del proveedor de recursos de VM con SQL requiere la extensión IaaS de SQL. Por lo tanto, para seguir usando el proveedor de recursos de VM con SQL, necesita lo siguiente:
 - Una [suscripción de Azure](https://azure.microsoft.com/free/).
 - [Programa Software assurance](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default). 
@@ -231,9 +236,9 @@ Este error se produce cuando se intenta cambiar el modelo de licencias en una VM
 
 Para más información, consulte los siguientes artículos. 
 
-* [Introducción a SQL Server en máquinas virtuales Windows](virtual-machines-windows-sql-server-iaas-overview.md)
-* [Preguntas más frecuentes para SQL Server en máquinas virtuales Windows](virtual-machines-windows-sql-server-iaas-faq.md)
-* [Orientación de precios de SQL Server para máquinas virtuales Windows](virtual-machines-windows-sql-server-pricing-guidance.md)
-* [SQL Server on a Windows VM release notes](virtual-machines-windows-sql-server-iaas-release-notes.md) (Notas de la versión de SQL Server en máquinas virtuales Windows)
+* [Introducción a SQL Server en una máquina virtual de Windows](virtual-machines-windows-sql-server-iaas-overview.md)
+* [SQL Server en una máquina virtual de preguntas más frecuentes sobre Windows](virtual-machines-windows-sql-server-iaas-faq.md)
+* [SQL Server en una máquina virtual de Windows orientación de precios](virtual-machines-windows-sql-server-pricing-guidance.md)
+* [SQL Server en un notas de la máquina virtual de Windows](virtual-machines-windows-sql-server-iaas-release-notes.md)
 
 

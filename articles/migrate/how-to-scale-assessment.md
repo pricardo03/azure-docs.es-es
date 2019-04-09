@@ -4,18 +4,21 @@ description: Se describe cómo evaluar un número elevado de máquinas locales m
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 12/05/2018
+ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: 8a2ea64d32194ff06378e3227b260c4f10d53175
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ae84313cd750e3d6c7eb9443ec59095dec9c632e
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58116680"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057479"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detección y evaluación de un entorno grande de VMware
 
-Azure Migrate tiene un límite de 1500 máquinas por proyecto. En este artículo se describe cómo evaluar un número elevado de máquinas virtuales (VM) locales mediante [Azure Migrate](migrate-overview.md).   
+Azure Migrate tiene un límite de 1500 máquinas por proyecto. En este artículo se describe cómo evaluar un número elevado de máquinas virtuales (VM) locales mediante [Azure Migrate](migrate-overview.md).
+
+> [!NOTE]
+> Tenemos una versión preliminar disponible que permite la detección de hasta 10.000 máquinas virtuales de VMware en un solo proyecto con un solo dispositivo, si está interesado en probar a probarlo, suscríbase [aquí.](https://aka.ms/migratefuture)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -62,7 +65,7 @@ En el caso de una detección de una sola vez (actualmente en desuso), funciona e
 
 Planee las detecciones y evaluaciones en función de los límites siguientes:
 
-| **Entidad** | **Límite de máquinas** |
+| **Entidad** | **Límite del equipo** |
 | ---------- | ----------------- |
 | proyecto    | 1500             |
 | Detección  | 1500             |
@@ -233,7 +236,7 @@ Si tiene varios proyectos, asegúrese de identificar el identificador y la clave
 
 1. En el proyecto, seleccione **Introducción** > **Detectar y evaluar** > **Detectar máquinas**.
 2. En **Copiar las credenciales del proyecto**, copie la clave y el identificador del proyecto.
-    ![Copia de las credenciales del proyecto](./media/how-to-scale-assessment/copy-project-credentials.png)
+    ![Copiar las credenciales del proyecto](./media/how-to-scale-assessment/copy-project-credentials.png)
 
 ### <a name="run-the-collector-to-discover-vms"></a>Ejecución del recopilador para detectar VM
 

@@ -1,5 +1,5 @@
 ---
-title: 'Importación de un paquete de ADM en una solución de supervisión remota: Azure | Microsoft Docs'
+title: Solución de supervisión remota Importar paquete - Azure | Microsoft Docs
 description: En este artículo se describe cómo importar un paquete de administración de dispositivos automática en un acelerador de soluciones de supervisión remota.
 author: dominicbetts
 manager: philmea
@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8fd6e733f3e80ba2a3ec632c088d070252e260cc
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
-ms.translationtype: HT
+ms.openlocfilehash: 8100914e9a1d1489cb80de55a689e17f6d28a941
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52684366"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009859"
 ---
 # <a name="import-an-automatic-device-management-package-into-your-remote-monitoring-solution-accelerator"></a>Importación de un paquete de administración de dispositivos automática en el acelerador de soluciones de supervisión remota
 
@@ -30,14 +30,14 @@ Use Azure Portal para exportar la configuración de administración de dispositi
 
 1. En Azure Portal, vaya a la instancia de IoT Hub que se usa para desarrollar y probar los dispositivos IoT. Haga clic en **Configuración de dispositivos IoT**:
 
-    [![Configuración de dispositivos IoT](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-expanded.png#lightbox)
+    [![Iconfiguración del dispositivo oT](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/deviceconfiguration-expanded.png#lightbox)
 
 1. Haga clic en la configuración que desee utilizar. Se muestra la página **Detalles de configuración del dispositivo**:
 
-    [![Detalles de configuración del dispositivo IoT](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-expanded.png#lightbox)
+    [![Idetalles de configuración del dispositivo oT](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/configuration-details-expanded.png#lightbox)
 1. Haga clic en **Download configuration file** (Descargar archivo de configuración):
 
-    [![Download configuration file (Descargar archivo de configuración)](./media/iot-accelerators-remote-monitoring-import-adm-package/download-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/download-expanded.png#lightbox)
+    [![Darchivo de configuración escargar](./media/iot-accelerators-remote-monitoring-import-adm-package/download-inline.png)](./media/iot-accelerators-remote-monitoring-import-adm-package/download-expanded.png#lightbox)
 
 1. Guarde el archivo JSON como un archivo local denominado **configuration.json**.
 

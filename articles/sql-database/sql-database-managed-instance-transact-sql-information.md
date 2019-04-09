@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: b633c6a8ccbf9f29b93314bb9391215031d523eb
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: 208370884d89a7a2585f320c037284d6657732db
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893068"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010607"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferencias de T-SQL en Instancia administrada de Azure SQL Database
 
@@ -288,10 +288,9 @@ Para más información, consulte [ALTER DATABASE](https://docs.microsoft.com/sql
     - No se admite el lector de colas.  
     - Aún no se admite el shell de comandos.
   - Las instancias administradas no pueden acceder a los recursos externos (por ejemplo, recursos compartidos de red a través de robocopy).  
-  - Aún no se admite PowerShell.
   - No se admite Analysis Services.
 - Las notificaciones se admiten parcialmente.
-- Se admite la notificación por correo electrónico; es necesario configurar un perfil de Correo electrónico de base de datos. Solo puede haber un perfil de Correo electrónico de base de datos y debe llamarse `AzureManagedInstance_dbmail_profile` en la versión preliminar pública (limitación temporal).  
+- Se admite la notificación por correo electrónico; es necesario configurar un perfil de Correo electrónico de base de datos. Agente SQL puede usar el perfil de correo electrónico de una base de datos y debe llamarse `AzureManagedInstance_dbmail_profile`.  
   - El buscapersonas no se admite.  
   - No se admite NetSend.
   - Aún no se admiten las alertas.
@@ -432,10 +431,7 @@ Las siguientes opciones de base de datos se establecen o invalidan, y no se pued
 - `.BAK` no se puede restaurar los archivos que contienen varios conjuntos de copia de seguridad.
 - `.BAK` no se puede restaurar los archivos que contienen varios archivos de registro.
 - Se producirá un error en la restauración si el archivo .bak contiene datos `FILESTREAM`.
-- Actualmente no se pueden restaurar las copias de seguridad que contienen bases de datos que tienen objetos en memoria activos.  
-- Actualmente no se pueden restaurar las copias de seguridad que contienen bases de datos en las que han existido objetos en memoria en algún momento.
-- Actualmente no se pueden restaurar las copias de seguridad que contienen bases de datos en modo de solo lectura. En breve se quitará esta limitación.
-
+- No se puede restaurar las copias de seguridad que contiene las bases de datos que tienen objetos en memoria activa en la instancia de propósito General.  
 Para más información acerca de las instrucciones Restore, consulte [Instrucciones RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
 ### <a name="service-broker"></a>Service Broker
@@ -485,6 +481,8 @@ No se puede restaurar la instancia administrada [bases de datos independientes](
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Exceder el espacio de almacenamiento con archivos de base de datos pequeños
 
+`CREATE DATABASE `, `ALTER DATABASE ADD FILE`, y `RESTORE DATABASE` instrucciones pueden producir un error porque la instancia puede alcanzar el límite de almacenamiento de Azure.
+
 Cada instancia administrada de propósito General tiene hasta 35 TB de almacenamiento reservado para el espacio de disco Premium de Azure, y cada archivo de base de datos se coloca en un disco físico independiente. Los posibles tamaños de disco son: 128 GB, 256 GB, 512 GB, 1 TB o 4 TB. El espacio no utilizado en el disco no se cobra, pero la suma total de los tamaños de disco Premium de Azure no puede superar los 35 TB. En algunos casos, una instancia administrada que no necesita 8 TB en total puede superar los 35 TB de límite de Azure en tamaño de almacenamiento debido a la fragmentación interna.
 
 Por ejemplo, podría tener una instancia administrada de propósito General uno archivo 1,2 TB de tamaño que se coloca en un disco de 4 TB y 248 archivos (cada 1 GB de tamaño) que se colocan en discos independientes de 128 GB. En este ejemplo:
@@ -514,9 +512,13 @@ SQL Server Management Studio (SSMS) y SQL Server Data Tools (SSDT) podrían tene
 
 Varias vistas del sistema, contadores de rendimiento, mensajes de error, XEvents y entradas de registro de errores muestran identificadores de base de datos GUID en lugar de los nombres reales de base de datos. No confíe en estos identificadores GUID porque se reemplazarán por los nombres reales de base de datos en el futuro.
 
+### <a name="database-mail"></a>Correo electrónico de base de datos
+
+`@query` parámetro [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) procedimiento no funcionan.
+
 ### <a name="database-mail-profile"></a>Perfil de Correo electrónico de base de datos
 
-El perfil de correo electrónico de base de datos utilizado por el Agente SQL se debe llamar a `AzureManagedInstance_dbmail_profile`.
+El perfil de correo electrónico de base de datos utilizado por el Agente SQL se debe llamar a `AzureManagedInstance_dbmail_profile`. No hay ninguna restricción con respecto a otros nombres de perfil de correo electrónico de base de datos.
 
 ### <a name="error-logs-are-not-persisted"></a>Los registros de errores no son persistentes
 

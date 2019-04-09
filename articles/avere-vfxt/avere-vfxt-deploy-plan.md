@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 3212befac60e3677c0b556825560cc548df42969
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 46978d19a0789bb43e861ca89661aa5b78eb4ec7
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56990992"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056731"
 ---
 # <a name="plan-your-avere-vfxt-system"></a>Planear un sistema de Avere vFXT
 
@@ -130,6 +130,17 @@ Al crear el clúster, puede elegir si desea crear o no una dirección IP públic
 
 * Si crea una red virtual o una subred, al controlador del clúster se le asignará una dirección IP pública.
 * Si selecciona una red virtual y una subred existentes, el controlador del clúster solo tendrá direcciones IP privadas. 
+
+## <a name="vm-access-roles"></a>Roles de acceso de máquina virtual 
+
+Azure usa [control de acceso basado en roles](../role-based-access-control/index.yml) (RBAC) para autorizar el clúster de máquinas virtuales para realizar ciertas tareas. Por ejemplo, el controlador del clúster necesita autorización para crear y configurar máquinas virtuales de nodos de clúster. Los nodos del clúster deben ser capaz de asignar o reasignar las direcciones IP a otros nodos del clúster.
+
+Dos roles integrados de Azure se utilizan para las máquinas de virtuales Avere vFXT: 
+
+* El controlador del clúster utiliza el rol integrado [Avere colaborador](../role-based-access-control/built-in-roles.md#avere-contributor). 
+* Nodos del clúster utilizan el rol integrado [Avere operador](../role-based-access-control/built-in-roles.md#avere-operator)
+
+Si necesita personalizar los roles de acceso para los componentes de vFXT Avere, debe definir su propio rol y, a continuación, asignar a las máquinas virtuales en el momento en que se crean. No se puede usar la plantilla de implementación en Azure Marketplace. Consulte el servicio al cliente de Microsoft y soporte técnico abriendo una incidencia en el portal de Azure, como se describe en [obtener ayuda con su sistema](avere-vfxt-open-ticket.md). 
 
 ## <a name="next-step-understand-the-deployment-process"></a>Paso siguiente: comprender el proceso de implementación
 

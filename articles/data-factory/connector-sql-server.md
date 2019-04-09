@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 78d82f7604d86b50ee5e05e5c3b5b9802a9559e5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: cb1b8171dc45c286d3f87a3c33e366d818cfaad9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877945"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283416"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copia de datos con SQL Server como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1](v1/data-factory-sqlserver-connector.md)
+> * [versión 1](v1/data-factory-sqlserver-connector.md)
 > * [Versión actual](connector-sql-server.md)
 
 En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos con una base de datos SQL Server como origen o destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
@@ -64,7 +64,7 @@ Las propiedades siguientes son compatibles con el servicio vinculado SQL Server:
 >[!TIP]
 >Si recibió un error con código de error como "UserErrorFailedToConnectToSqlServer" y un mensaje como "The session limit for the database is XXX and has been reached" (El límite de sesión de la base de datos es XXX y ya se ha alcanzado), agregue `Pooling=false` a la cadena de conexión e inténtelo de nuevo.
 
-**Ejemplo 1: con autenticación de SQL**
+**Ejemplo 1: mediante autenticación de SQL**
 
 ```json
 {
@@ -85,7 +85,7 @@ Las propiedades siguientes son compatibles con el servicio vinculado SQL Server:
 }
 ```
 
-**Ejemplo 2: Uso de la autenticación de SQL con contraseña en Azure Key Vault**
+**Ejemplo 2: con autenticación de SQL y la contraseña en Azure Key Vault**
 
 ```json
 {
@@ -114,7 +114,7 @@ Las propiedades siguientes son compatibles con el servicio vinculado SQL Server:
 }
 ```
 
-**Ejemplo 3: Uso de autenticación de Windows**
+**Ejemplo 3: uso de autenticación de Windows**
 
 ```json
 {
@@ -190,7 +190,7 @@ Si va a copiar datos desde SQL Server, establezca el tipo de origen de la activi
 - Si se especifica **sqlReaderQuery** para SqlSource, la actividad de copia ejecuta la consulta en el origen de SQL Server para obtener los datos. Como alternativa, puede indicar un procedimiento almacenado mediante la especificación de **sqlReaderStoredProcedureName** y **storedProcedureParameters** (si el procedimiento almacenado toma parámetros).
 - Si no especifica "sqlReaderQuery" ni "sqlReaderStoredProcedureName", las columnas que se definen en la sección "structure" del JSON del conjunto de datos se usan para construir una consulta (`select column1, column2 from mytable`) para ejecutarla en SQL Server. Si la definición del conjunto de datos no tiene la sección "structure", se seleccionan todas las columnas de la tabla.
 
-**Ejemplo: con la consulta SQL**
+**Ejemplo: uso de consulta SQL**
 
 ```json
 "activities":[
@@ -222,7 +222,7 @@ Si va a copiar datos desde SQL Server, establezca el tipo de origen de la activi
 ]
 ```
 
-**Ejemplo: con el procedimiento almacenado**
+**Ejemplo: uso de procedimiento almacenado**
 
 ```json
 "activities":[
@@ -258,7 +258,7 @@ Si va a copiar datos desde SQL Server, establezca el tipo de origen de la activi
 ]
 ```
 
-**Definición del procedimiento almacenado:**
+**La definición del procedimiento almacenado:**
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -284,7 +284,7 @@ Si va a copiar datos en SQL Server, establezca el tipo de receptor de la activid
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **SqlSink** | Sí |
-| writeBatchSize |Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor writeBatchSize.<br/>Los valores permitidos son: enteros (número de filas). |No (valor predeterminado: 10000) |
+| writeBatchSize |Número de filas que se inserta en la tabla SQL **por lote**.<br/>Los valores permitidos son: enteros (número de filas). |No (valor predeterminado: 10000) |
 | writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son: intervalos de tiempo. Ejemplo: "00:30:00" (30 minutos). |Sin  |
 | preCopyScript |Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en SQL Server. Solo se invocará una vez por cada copia que se ejecute. Puede usar esta propiedad para limpiar los datos cargados previamente. |Sin  |
 | sqlWriterStoredProcedureName |Nombre del procedimiento almacenado que define cómo aplicar datos de origen en la tabla de destino, por ejemplo, cómo realizar operaciones Upsert o transformaciones con su propia lógica de negocios. <br/><br/>Tenga en cuenta que este procedimiento almacenado se **invocará por lote**. Si desea realizar una operación que solo se ejecuta una vez y que no tiene nada que ver con los datos de origen, como por ejemplo, eliminar o truncar, use la propiedad `preCopyScript`. |Sin  |
@@ -294,7 +294,7 @@ Si va a copiar datos en SQL Server, establezca el tipo de receptor de la activid
 > [!TIP]
 > Cuando se copian datos en SQL Server, la actividad de copia anexa datos a la tabla receptora de forma predeterminada. Para llevar a cabo una operación UPSERT o una lógica de negocios adicional, use el procedimiento almacenado de SqlSink. Obtenga más información en [Invocación del procedimiento almacenado para el receptor de SQL](#invoking-stored-procedure-for-sql-sink).
 
-**Ejemplo 1: Anexo de datos**
+**Ejemplo 1: anexar datos**
 
 ```json
 "activities":[
@@ -326,7 +326,7 @@ Si va a copiar datos en SQL Server, establezca el tipo de receptor de la activid
 ]
 ```
 
-**Ejemplo 2: Invocación de un procedimiento almacenado durante la copia para realizar la operación UPSERT**
+**Ejemplo 2: invocar un procedimiento almacenado durante la copia de upsert**
 
 Obtenga más información en [Invocación del procedimiento almacenado para el receptor de SQL](#invoking-stored-procedure-for-sql-sink).
 
@@ -440,9 +440,9 @@ Al copiar datos en una base de datos SQL Server, se puede configurar e invocar u
 
 Cuando los mecanismos de copia integrada no prestan el servicio, se puede usar un procedimiento almacenado. Normalmente, se suele realizar al realizar operaciones UPSERT (actualización e inserción) y procesos adicionales (combinación de columnas, buscar valores adicionales, inserción en varias tablas, etc.) antes de la inserción final de datos de origen en la tabla de destino.
 
-En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para realizar una operación UPSERT en una tabla en la base de datos SQL Server. Supongamos que los datos de entrada y la tabla "Marketing" del receptor tienen tres columnas: ProfileID, State y Category. realice una operación UPSERT en función de la columna "ProfileID" y aplíquela solo a una categoría específica.
+En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para realizar una operación UPSERT en una tabla en la base de datos SQL Server. Supongamos que los datos de entrada y la tabla **Marketing** del receptor tienen tres columnas: **ProfileID**, **State** y **Category**. Realice una operación UPSERT en función de la columna **ProfileID** y aplíquela solo a una categoría concreta.
 
-**Conjunto de datos de salida**
+**Conjunto de datos de salida:** "tableName" debe ser el mismo nombre de parámetro de tipo de tabla en el procedimiento almacenado (vea a continuación de la secuencia de comandos de procedimiento almacenado).
 
 ```json
 {
@@ -461,7 +461,7 @@ En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para r
 }
 ```
 
-Defina la sección SqlSink de la actividad de copia como se indica a continuación.
+Definir la **receptor SQL** sección actividad de copia como se indica a continuación.
 
 ```json
 "sink": {
@@ -476,7 +476,7 @@ Defina la sección SqlSink de la actividad de copia como se indica a continuaci�
 }
 ```
 
-En la base de datos, defina el procedimiento almacenado con el mismo nombre que SqlWriterStoredProcedureName. De este modo, se administran los datos de entrada desde el origen especificado y se combinan en la tabla de salida. El nombre del parámetro del tipo de tabla en el procedimiento almacenado debe ser el mismo que el de "tableName" definido en el conjunto de datos.
+En la base de datos, defina el procedimiento almacenado con el mismo nombre que **SqlWriterStoredProcedureName**. Dicho procedimiento administra los datos de entrada del origen especificado y los combina en la tabla de salida. El nombre del parámetro del tipo de tabla en el procedimiento almacenado debe ser el mismo que el de **tableName** definido en el conjunto de datos.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)

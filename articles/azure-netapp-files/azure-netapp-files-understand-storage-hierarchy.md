@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2019
+ms.date: 04/03/2019
 ms.author: b-juche
-ms.openlocfilehash: 1cce1883295277f6c6c36d686d90370238265dbf
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 3df092377a29492facd972745933cd5f4a1ae3bf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57775856"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275528"
 ---
 # <a name="understand-the-storage-hierarchy-of-azure-netapp-files"></a>Información sobre la jerarquía del almacenamiento de Azure NetApp Files
 
@@ -36,18 +36,15 @@ Antes de crear un volumen en Azure NetApp Files, debe adquirir y configurar un g
 
 - Un grupo de capacidad se mide por su capacidad aprovisionada.  
 - La capacidad se aprovisiona con las SKU fijas que adquirió (por ejemplo, una capacidad de 4 TiB).
-- El tamaño mínimo para un grupo de capacidades único es de 4 TiB, y el tamaño máximo es de 500 TiB. 
 - Un grupo de capacidad puede tener solo un nivel de servicio.  
-  Actualmente, solo está disponible el nivel de servicio Premium.
 - Cada grupo de capacidad puede pertenecer a una sola cuenta de NetApp. Sin embargo, puede tener varios grupos de capacidad dentro de una cuenta de NetApp.  
 - Un grupo de capacidad no se puede mover entre las cuentas de NetApp.   
   Por ejemplo, en el [Diagrama conceptual de la jerarquía de almacenamiento](#conceptual_diagram_of_storage_hierarchy) a continuación, el grupo de capacidad 1 no se puede mover de la cuenta de NetApp Este de EE. UU. a la cuenta de NetApp Oeste de EE. UU. 2.  
 
 ## <a name="volumes"></a>Volúmenes
 
-- Un volumen se mide según el consumo de capacidad lógica y es escalable. El tamaño mínimo para un volumen único es de 100 GiB, y el tamaño máximo es de 92 TiB.
+- Un volumen se mide según el consumo de capacidad lógica y es escalable. 
 - El consumo de la capacidad de un volumen se descuenta de la capacidad aprovisionada de su grupo.
--   Puede tener un máximo de 100 volúmenes por suscripción de Azure y por región. 
 - Cada volumen pertenece a un solo grupo, pero un grupo puede contener varios volúmenes. 
 - En la misma cuenta de NetApp, puede mover un volumen a través de los grupos.    
   Por ejemplo, en el [diagrama conceptual de la jerarquía de almacenamiento](#conceptual_diagram_of_storage_hierarchy) a continuación, puede mover los volúmenes del grupo de capacidad 1 al grupo de capacidad 2.
@@ -60,4 +57,4 @@ El ejemplo siguiente muestra las relaciones de la suscripción de Azure, las cue
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Límites de recursos para Azure NetApp Files](azure-netapp-files-resource-limits.md)
-- [Registro de Azure NetApp Files](azure-netapp-files-register.md)
+- [Registro en Azure NetApp Files](azure-netapp-files-register.md)

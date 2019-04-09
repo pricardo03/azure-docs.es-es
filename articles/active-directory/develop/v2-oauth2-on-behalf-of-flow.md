@@ -1,5 +1,5 @@
 ---
-title: Flujo en nombre de OAuth 2.0 de Azure AD v2.0 | Microsoft Docs
+title: Plataforma de identidad de Microsoft y flujo de On-Behalf-Of OAuth2.0 | Azure
 description: En este artículo se describe cómo usar los mensajes HTTP para implementar la autenticación entre servicios mediante el flujo en nombre de OAuth 2.0.
 services: active-directory
 documentationcenter: ''
@@ -13,30 +13,28 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 04/05/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d933eaf99258a3f3322a915b418b52fad6e459f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
-ms.translationtype: MT
+ms.openlocfilehash: f4de33bb02a008d6b394055c64119ac2a4fbc4d9
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576937"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058686"
 ---
-# <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 y el flujo en nombre de OAuth 2.0
+# <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidad de Microsoft y flujo en nombre de OAuth 2.0
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-El flujo con derechos delegados (OBO) de OAuth 2.0 se usa en los casos en que una aplicación invoca un servicio o una API web que a su vez debe llamar a otro servicio o API web. La idea es propagar la identidad y los permisos del usuario delegado a través de la cadena de solicitud. Para que el servicio de nivel intermedio realice solicitudes autenticadas al servicio de bajada, debe proteger un token de acceso de Azure Active Directory (Azure AD) en nombre del usuario.
+El flujo con derechos delegados (OBO) de OAuth 2.0 se usa en los casos en que una aplicación invoca un servicio o una API web que a su vez debe llamar a otro servicio o API web. La idea es propagar la identidad y los permisos del usuario delegado a través de la cadena de solicitud. Para que el servicio de nivel intermedio realice solicitudes autenticadas al servicio de bajada, debe proteger un token de acceso de la plataforma Microsoft identity, en nombre del usuario.
 
 > [!NOTE]
-> No todas las características y escenarios de Azure AD son compatibles con la versión 2.0 del punto de conexión. Para determinar si debe usar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md). En concreto, no se admiten las aplicaciones cliente conocidas para las aplicaciones con la cuenta de Microsoft (MSA) y los públicos de Azure AD. Por lo tanto, un patrón común de consentimiento para OBO no funcionará para los clientes que inician sesión en cuentas tanto personales como profesionales o educativas. Para más información sobre cómo controlar este paso del flujo, vea [Obtener consentimiento para la aplicación de nivel intermedio](#gaining-consent-for-the-middle-tier-application).
-
-
-> [!IMPORTANT]
-> A partir de mayo de 2018, algún token `id_token` derivado del flujo implícito no se puede usar para el flujo OBO. Las aplicaciones de una sola página (SPA) deben pasar un token de **acceso** a un cliente confidencial de nivel intermedio para ejecutar flujos de OBO en su lugar. Para más información sobre los clientes que pueden realizar llamadas OBO, vea [Limitaciones](#client-limitations).
+>
+> - El punto de conexión de plataforma de identidad de Microsoft no es compatible con todas las características y escenarios. Para determinar si debe utilizar el punto de conexión de plataforma de identidad de Microsoft, obtenga información sobre [limitaciones de la plataforma de identidad de Microsoft](active-directory-v2-limitations.md). En concreto, no se admiten las aplicaciones cliente conocidas para las aplicaciones con la cuenta de Microsoft (MSA) y los públicos de Azure AD. Por lo tanto, un patrón común de consentimiento para OBO no funcionará para los clientes que inician sesión en cuentas tanto personales como profesionales o educativas. Para más información sobre cómo controlar este paso del flujo, vea [Obtener consentimiento para la aplicación de nivel intermedio](#gaining-consent-for-the-middle-tier-application).
+> - A partir de mayo de 2018, algún token `id_token` derivado del flujo implícito no se puede usar para el flujo OBO. Las aplicaciones de una sola página (SPA) deben pasar un token de **acceso** a un cliente confidencial de nivel intermedio para ejecutar flujos de OBO en su lugar. Para más información sobre los clientes que pueden realizar llamadas OBO, vea [Limitaciones](#client-limitations).
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
 
@@ -44,16 +42,16 @@ Suponga que el usuario se ha autenticado en una aplicación mediante el [flujo d
 
 Los pasos siguientes constituyen el flujo con derechos delegados y se explican con la ayuda del diagrama siguiente.
 
-![Flujo con derechos delegados de OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+![Flujo con derechos delegados de OAuth 2.0](./media/v2-oauth2-on-behalf-of-flow/protocols-oauth-on-behalf-of-flow.png)
 
 1. La aplicación cliente realiza una solicitud a la API A con el token A (con una notificación `aud` de la API A).
-1. La API A se autentica en el punto de conexión de emisión de tokens de Azure AD y solicita un token para obtener acceso a la API B.
-1. El punto de conexión de emisión de tokens de Azure AD valida las credenciales de la API A con el token A y emite el token de acceso para la API B (token B).
+1. API A se autentica en el extremo de emisión de tokens de plataforma de identidad de Microsoft y solicita un token para acceder a la API B.
+1. El extremo de emisión de tokens de plataforma de identidad de Microsoft valida las credenciales de la API A con el token A y emite el token de acceso para la API B (token B).
 1. El token B se establece en el encabezado de autorización de la solicitud a la API B.
 1. La API B devuelve los datos del recurso protegido.
 
 > [!NOTE]
-> En este caso, el servicio de nivel intermedio no tiene interacción con el usuario para obtener el consentimiento del usuario para obtener acceso a la API de bajada. Por lo tanto, la opción para conceder acceso a la API de bajada se presenta inicialmente como parte del paso de autorización durante la autenticación. Para obtener información sobre cómo configurar esta opción para la aplicación, vea [Obtener consentimiento para la aplicación de nivel intermedio](#gaining-consent-for-the-middle-tier-application). 
+> En este caso, el servicio de nivel intermedio no tiene interacción con el usuario para obtener el consentimiento del usuario para obtener acceso a la API de bajada. Por lo tanto, la opción para conceder acceso a la API de bajada se presenta inicialmente como parte del paso de autorización durante la autenticación. Para obtener información sobre cómo configurar esta opción para la aplicación, vea [Obtener consentimiento para la aplicación de nivel intermedio](#gaining-consent-for-the-middle-tier-application).
 
 ## <a name="service-to-service-access-token-request"></a>Solicitud de token de acceso entre servicios
 
@@ -139,7 +137,7 @@ Una respuesta correcta es una respuesta de OAuth 2.0 de JSON con los parámetros
 
 | Parámetro | DESCRIPCIÓN |
 | --- | --- |
-| `token_type` | Indica el valor de tipo de token. El único tipo que admite Azure AD es `Bearer`. Para más información sobre los tokens de portador, vea [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Marco de autorización de OAuth2.0: uso del token de portador [RFC 6750]). |
+| `token_type` | Indica el valor de tipo de token. El único tipo que Microsoft admite de plataforma de identidad es `Bearer`. Para más información sobre los tokens de portador, vea [OAuth 2.0 Authorization Framework: Bearer Token Usage (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt) (Marco de autorización de OAuth2.0: uso del token de portador [RFC 6750]). |
 | `scope` | Ámbito de acceso concedido en el token. |
 | `expires_in` | El período de validez, en segundos, del token de acceso. |
 | `access_token` | El token de acceso solicitado. El servicio de llamada puede usar este token para autenticarse en el servicio de recepción. |
@@ -161,7 +159,7 @@ En el ejemplo siguiente se muestra una respuesta correcta a una solicitud de un 
 ```
 
 > [!NOTE]
-> El token de acceso anterior es un token con formato v1.0. Esto es porque el token se proporciona en función del recurso al que se accede. Microsoft Graph solicita tokens v1.0, por lo que Azure AD genera tokens de acceso v1.0 cuando un cliente solicita tokens para Microsoft Graph. Solo las aplicaciones deben revisar los tokens de acceso. Los clientes no deberían necesitar examinarlos. 
+> El token de acceso anterior es un token con formato v1.0. Esto es porque el token se proporciona en función del recurso al que se accede. Microsoft Graph solicita tokens v1.0, por lo que la plataforma de identidad de Microsoft genera tokens de acceso de v1.0 cuando un cliente solicita tokens para Microsoft Graph. Solo las aplicaciones deben revisar los tokens de acceso. Los clientes no deberían necesitar examinarlos.
 
 ### <a name="error-response-example"></a>Ejemplo de respuesta de error
 
@@ -199,9 +197,9 @@ Dependiendo de la audiencia para su aplicación, puede considerar estrategias di
 
 #### <a name="default-and-combined-consent"></a>Consentimiento /.default y combinado
 
-Para las aplicaciones que solo necesitan iniciar sesión en cuentas profesionales o educativas, es suficiente con el enfoque tradicional "Aplicaciones cliente conocidas". La aplicación de nivel intermedio agrega el cliente a la lista de aplicaciones cliente conocidas en su manifiesto y, a continuación, el cliente puede desencadenar un flujo de consentimiento combinado tanto para sí mismo como para la aplicación de nivel intermedio. En el punto de conexión v2.0, esto se realiza mediante el [ámbito `/.default`](v2-permissions-and-consent.md#the-default-scope). Cuando se desencadena una pantalla de consentimiento con aplicaciones cliente conocidas y `/.default`, la pantalla de consentimiento mostrará los permisos para el cliente a la API de nivel intermedio y también solicitará los permisos requeridos por la API de nivel intermedio. El usuario da su consentimiento para ambas aplicaciones y, a continuación, el flujo OBO funcionará. 
+Para las aplicaciones que solo necesitan iniciar sesión en cuentas profesionales o educativas, es suficiente con el enfoque tradicional "Aplicaciones cliente conocidas". La aplicación de nivel intermedio agrega el cliente a la lista de aplicaciones cliente conocidas en su manifiesto y, a continuación, el cliente puede desencadenar un flujo de consentimiento combinado tanto para sí mismo como para la aplicación de nivel intermedio. En el punto de conexión v2.0, esto se realiza mediante el [ámbito `/.default`](v2-permissions-and-consent.md#the-default-scope). Cuando se desencadena una pantalla de consentimiento con aplicaciones cliente conocidas y `/.default`, la pantalla de consentimiento mostrará los permisos para el cliente a la API de nivel intermedio y también solicitará los permisos requeridos por la API de nivel intermedio. El usuario da su consentimiento para ambas aplicaciones y, a continuación, el flujo OBO funcionará.
 
-En este momento, el sistema de cuentas personales de Microsoft no admite el consentimiento combinado y, por tanto, este enfoque no funciona para las aplicaciones que desean iniciar sesión específicamente en las cuentas personales. Las cuentas personales de Microsoft utilizadas como cuentas de invitado en un inquilino se controlan con el sistema de Azure AD y pueden admitir un consentimiento combinado. 
+En este momento, el sistema de cuentas personales de Microsoft no admite el consentimiento combinado y, por tanto, este enfoque no funciona para las aplicaciones que desean iniciar sesión específicamente en las cuentas personales. Las cuentas personales de Microsoft utilizadas como cuentas de invitado en un inquilino se controlan con el sistema de Azure AD y pueden admitir un consentimiento combinado.
 
 #### <a name="pre-authorized-applications"></a>Aplicaciones preautorizadas
 
@@ -209,24 +207,24 @@ Una característica del portal de la aplicación es "aplicaciones preautorizadas
 
 #### <a name="admin-consent"></a>Consentimiento de administrador
 
-Un administrador de inquilinos puede garantizar que las aplicaciones tienen permiso para llamar a las API necesarias al proporcionar el consentimiento del administrador para la aplicación de nivel intermedio. Para ello, el administrador puede encontrar la aplicación de nivel intermedio en su inquilino, abrir la página de los permisos necesarios y elegir la opción para dar permiso a la aplicación. Para más información sobre el consentimiento del administrador, vea la [documentación sobre consentimientos y permisos](v2-permissions-and-consent.md). 
+Un administrador de inquilinos puede garantizar que las aplicaciones tienen permiso para llamar a las API necesarias al proporcionar el consentimiento del administrador para la aplicación de nivel intermedio. Para ello, el administrador puede encontrar la aplicación de nivel intermedio en su inquilino, abrir la página de los permisos necesarios y elegir la opción para dar permiso a la aplicación. Para más información sobre el consentimiento del administrador, vea la [documentación sobre consentimientos y permisos](v2-permissions-and-consent.md).
 
 ### <a name="consent-for-azure-ad--microsoft-account-applications"></a>Consentimiento para aplicaciones de cuentas de Microsoft + Azure AD
 
-Debido a las restricciones del modelo de permisos para las cuentas personales y a la ausencia de un inquilino regulador, los requisitos de consentimiento para las cuentas personales varían ligeramente con respecto a los de Azure AD. No existe ningún inquilino para el que dar consentimiento a nivel de inquilino ni existe la posibilidad de aplicar un consentimiento combinado. Por tanto, se presentan otras estrategias; tenga en cuenta, que estas funcionan para aplicaciones que solo necesitan admitir también cuentas de Azure AD. 
+Debido a las restricciones del modelo de permisos para las cuentas personales y a la ausencia de un inquilino regulador, los requisitos de consentimiento para las cuentas personales varían ligeramente con respecto a los de Azure AD. No existe ningún inquilino para el que dar consentimiento a nivel de inquilino ni existe la posibilidad de aplicar un consentimiento combinado. Por tanto, se presentan otras estrategias; tenga en cuenta, que estas funcionan para aplicaciones que solo necesitan admitir también cuentas de Azure AD.
 
 #### <a name="use-of-a-single-application"></a>Uso de una sola aplicación
 
-En algunos escenarios, solo puede haber un único emparejamiento entre el nivel intermedio y el cliente front-end. En este escenario, le resultará más fácil hacer esto en una sola aplicación, sin la necesidad de que exista una aplicación de nivel intermedio. Para realizar la autenticación entre el cliente front-end y la API web, puede usar cookies, un token de identificador o un token de acceso solicitado para la propia aplicación. A continuación, solicite el consentimiento a esta aplicación única para el recurso back-end. 
+En algunos escenarios, solo puede haber un único emparejamiento entre el nivel intermedio y el cliente front-end. En este escenario, le resultará más fácil hacer esto en una sola aplicación, sin la necesidad de que exista una aplicación de nivel intermedio. Para realizar la autenticación entre el cliente front-end y la API web, puede usar cookies, un token de identificador o un token de acceso solicitado para la propia aplicación. A continuación, solicite el consentimiento a esta aplicación única para el recurso back-end.
 
 ## <a name="client-limitations"></a>Limitaciones del cliente
 
-Si un cliente usa el flujo implícito para obtener un id_token y ese cliente también incluye caracteres comodín en una dirección URL de respuesta, el id_token no se puede usar con un flujo OBO.  Sin embargo, los tokens de acceso adquiridos mediante del flujo de concesión implícita todavía pueden ser canjeados por un cliente confidencial, aunque el cliente iniciador tenga registrada una dirección URL de respuesta con caracteres comodín. 
+Si un cliente usa el flujo implícito para obtener un id_token y ese cliente también incluye caracteres comodín en una dirección URL de respuesta, el id_token no se puede usar con un flujo OBO.  Sin embargo, los tokens de acceso adquiridos mediante del flujo de concesión implícita todavía pueden ser canjeados por un cliente confidencial, aunque el cliente iniciador tenga registrada una dirección URL de respuesta con caracteres comodín.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información sobre el protocolo OAuth 2.0 y conozca otra manera de realizar la autenticación entre servicios con las credenciales del cliente.
 
-* [Concesión de credenciales del cliente de OAuth 2.0 en Azure AD v2.0](v2-oauth2-client-creds-grant-flow.md)
-* [Flujo de código de OAuth 2.0 en Azure AD v2.0](v2-oauth2-auth-code-flow.md)
-* [Uso del ámbito `/.default`](v2-permissions-and-consent.md#the-default-scope) 
+* [Concesión las credenciales del cliente de OAuth 2.0 en la plataforma Microsoft identity](v2-oauth2-client-creds-grant-flow.md)
+* [Flujo de código de OAuth 2.0 en la plataforma Microsoft identity](v2-oauth2-auth-code-flow.md)
+* [Mediante el `/.default` ámbito](v2-permissions-and-consent.md#the-default-scope)

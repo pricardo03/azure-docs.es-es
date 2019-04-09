@@ -1,5 +1,5 @@
 ---
-title: Atributos de seguridad de Azure Backup
+title: Atributos de seguridad para copia de seguridad de Azure
 description: Lista de comprobación de los atributos de seguridad que se utilizan habitualmente para evaluar Azure Backup
 services: backup
 documentationcenter: ''
@@ -7,29 +7,19 @@ author: msmbaldwin
 manager: barbkess
 ms.service: backup
 ms.topic: conceptual
-ms.date: 01/31/2019
+ms.date: 04/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1de148005b2f1e5a543507a5bff5378221a454df
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 22f073e96c26213f821259e6230f4a801ca45709
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56116684"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59007083"
 ---
-# <a name="security-attributes-for-azure-backup"></a>Atributos de seguridad de Azure Backup
+# <a name="security-attributes-for-azure-backup"></a>Atributos de seguridad para copia de seguridad de Azure
 
-La seguridad está integrada en todos los aspectos de los servicios de Azure. En este artículo, se explican los atributos de seguridad integrados en Azure Backup. Un atributo de seguridad es una cualidad o característica de un servicio de Azure que ayuda a dicho servicio a prevenir y detectar vulnerabilidades de seguridad, así como a responder a ellas.
+La seguridad está integrada en todos los aspectos de los servicios de Azure. Este artículo documenta los atributos comunes de seguridad integrados en Azure Backup. 
 
-Los atributos de seguridad se clasifican en las siguientes categorías:
-* Prevención
-* Segmentación de red
-* Detección
-* Compatibilidad con la administración de identidades y acceso (IAM)
-* Pista de auditoría
-* Controles de acceso (si se utilizan)
-* Administración de la configuración (si se utiliza)
-
-En todas las categorías, especificamos si el atributo se utiliza o no (sí/no). En posible que, en algunos servicios, haya atributos que no sean aplicables, lo que se indica con N/A. También puede incluirse una nota o un vínculo para aportar más información sobre un atributo.
-
+[!INCLUDE [Security Attributes Header](../../includes/security-attributes-header.md)]
 
 [!INCLUDE [security-attributes-backup](../../includes/security-attributes-backup.md)]

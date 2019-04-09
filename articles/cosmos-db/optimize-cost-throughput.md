@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
-ms.openlocfilehash: 63adb354d51caa8f01df8bf05c85257c75b5fe41
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877833"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009774"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimización del costo de rendimiento aprovisionado en Azure Cosmos DB
 
@@ -33,7 +33,7 @@ Las siguientes son algunas directrices para decidir una estrategia de rendimient
 
 1. Tiene algunas decenas de contenedores de Azure Cosmos y quiere compartir el rendimiento entre algunos o todos ellos. 
 
-2. Va a migrar desde una base de datos de inquilino único diseñada para ejecutarse en VM hospedadas por IaaS o en entornos locales, por ejemplo, NoSQL o bases de datos relacionales, a Azure Cosmos DB. Y si tiene muchas colecciones, tablas o grafos y no quiere hacer cambios en el modelo de datos. Tenga en cuenta, es posible que deba poner en peligro algunas de las ventajas que ofrece Azure Cosmos DB si no va a actualizar el modelo de datos al migrar desde una base de datos local. Se recomienda volver a acceder siempre al modelo de datos para sacar el máximo provecho en cuanto a rendimiento y también para optimizar los costos. 
+2. Va a migrar desde una base de datos de inquilino único diseñada para ejecutarse en VM hospedadas por IaaS o en entornos locales, por ejemplo, NoSQL o bases de datos relacionales, a Azure Cosmos DB. Y si tiene muchas colecciones, grafos o tablas y no desean realizar cambios en el modelo de datos. Tenga en cuenta, es posible que deba poner en peligro algunas de las ventajas que ofrece Azure Cosmos DB si no va a actualizar el modelo de datos al migrar desde una base de datos local. Se recomienda volver a acceder siempre al modelo de datos para sacar el máximo provecho en cuanto a rendimiento y también para optimizar los costos. 
 
 3. Quiere absorber los picos no planeados en cargas de trabajo en virtud de rendimiento agrupado en el nivel de base de datos sometido a un pico inesperado en la carga de trabajo. 
 

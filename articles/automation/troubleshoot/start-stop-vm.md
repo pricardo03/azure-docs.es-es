@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 02/13/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f503d890dcc8ba90a8a4d8bafc09d5fd8b2856e6
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 03bad12b7fcba5a247e05884aa0eb0493163a5c4
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804860"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009791"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>Solución de problemas de la solución Start/Stop VMs during off-hours
 
@@ -88,7 +88,7 @@ Revise la siguiente lista de posibles soluciones para su problema o para saber d
 
 * Compruebe que ha configurado correctamente una programación para la solución Start/Stop VMs. Para más información sobre cómo configurar una programación, vea el artículo sobre [programación](../automation-schedules.md).
 
-* Compruebe los flujos de trabajo de los runbooks para detectar posibles errores. En Azure Portal, vaya a la cuenta de Automation y seleccione **Trabajos** en **Automatización de procesos**. En la página **Trabajos**, busque los trabajos de alguno de los siguientes runbooks:
+* Compruebe el [flujos de trabajo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) para buscar los errores. En Azure Portal, vaya a la cuenta de Automation y seleccione **Trabajos** en **Automatización de procesos**. En la página **Trabajos**, busque los trabajos de alguno de los siguientes runbooks:
 
   * AutoStop_CreateAlert_Child
   * AutoStop_CreateAlert_Parent
@@ -143,6 +143,8 @@ Revise la siguiente lista de posibles soluciones para su problema o para saber d
 
 * Si la máquina virtual presenta algún problema para iniciarse o desasignarse, este comportamiento puede deberse a algún problema en la propia máquina virtual. Entre algunos ejemplos o posibles problemas destacan la aplicación en curso de alguna actualización al intentar apagar, el bloqueo de un servicio, etc. Vaya al recurso de máquina virtual y consulte los **registros de actividad** para ver si en ellos se ha identificado algún error. También puede intentar iniciar sesión en la máquina virtual para ver si existe algún error en los registros de eventos. Para obtener más información acerca de la máquina virtual de solución de problemas, vea [solución de problemas de Azure virtual machines](../../virtual-machines/troubleshooting/index.md)
 
+* Compruebe el [flujos de trabajo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) para buscar los errores. En Azure Portal, vaya a la cuenta de Automation y seleccione **Trabajos** en **Automatización de procesos**.
+
 ## <a name="custom-runbook"></a>Escenario: Mi runbook personalizado no puede iniciar o detener mis máquinas virtuales
 
 ### <a name="issue"></a>Problema
@@ -155,7 +157,7 @@ La causa del error podría ser una entre muchas. Vaya a la cuenta de Automation 
 
 ### <a name="resolution"></a>Resolución
 
-Se recomienda usar la [solución Start/Stop VMs during off-hours](../automation-solution-vm-management.md) para iniciar y detener máquinas virtuales en Azure Automation. Esta solución la creó Microsoft. Los runbooks personalizados no son compatibles con Microsoft. Puede encontrar una solución para su runbook personalizado en el artículo [Solución de problemas relativos a errores con runbooks](runbooks.md). En este artículo se proporcionan instrucciones generales y solución de problemas para runbooks de todos los tipos.
+Se recomienda usar la [solución Start/Stop VMs during off-hours](../automation-solution-vm-management.md) para iniciar y detener máquinas virtuales en Azure Automation. Esta solución la creó Microsoft. Los runbooks personalizados no son compatibles con Microsoft. Puede encontrar una solución para su runbook personalizado en el artículo [Solución de problemas relativos a errores con runbooks](runbooks.md). En este artículo se proporcionan instrucciones generales y solución de problemas para runbooks de todos los tipos. Compruebe el [flujos de trabajo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) para buscar los errores. En Azure Portal, vaya a la cuenta de Automation y seleccione **Trabajos** en **Automatización de procesos**.
 
 ## <a name="dont-start-stop-in-sequence"></a>Escenario: Las máquinas virtuales no se inician o detienen en la secuencia correcta
 
@@ -209,7 +211,7 @@ Muchas veces los errores pueden deberse a que se usa una versión anterior y obs
 
 ### <a name="resolution"></a>Resolución
 
-Para resolver muchos errores, se recomienda quitar y actualizar la solución. Para obtener información sobre cómo actualizar la solución, vea [Actualización de la solución](../automation-solution-vm-management.md#update-the-solution).
+Para resolver muchos errores, se recomienda quitar y actualizar la solución. Para obtener información sobre cómo actualizar la solución, vea [Actualización de la solución](../automation-solution-vm-management.md#update-the-solution). Además, puede comprobar el [flujos de trabajo](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) para buscar los errores. En Azure Portal, vaya a la cuenta de Automation y seleccione **Trabajos** en **Automatización de procesos**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

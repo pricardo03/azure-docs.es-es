@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: 9b04ca359a0c71a04e762452fa33345201f37e84
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9f48303396d1ecd03fdffd2c6ab1e0c122615a21
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58124327"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005749"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Supervisión de la disponibilidad y la capacidad de respuesta de cualquier sito web
 Después de haber implementado la aplicación web o el sitio web en cualquier servidor, puede configurar pruebas para supervisar su disponibilidad y capacidad de respuesta. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) envía solicitudes web a su aplicación a intervalos regulares desde puntos de todo el mundo. Le alerta si la aplicación no responde o lo hace lentamente.
@@ -92,7 +92,7 @@ Utilice Visual Studio Enterprise para grabar una sesión web.
 
     ![En Visual Studio Enterprise, cree un proyecto a partir de la plantilla de prueba de carga y rendimiento web.](./media/monitor-web-app-availability/appinsights-71webtest-multi-vs-create.png)
 
-   * *¿No ve la plantilla de prueba de carga y rendimiento web?* - Cierre Visual Studio Enterprise. Abra **Visual Studio Installer** para modificar la instalación de Visual Studio Enterprise. En **Componentes individuales**, seleccione **Herramientas de prueba de carga y rendimiento web**.
+   * *¿No ve la plantilla de prueba de carga y rendimiento Web?* - Cierre Visual Studio Enterprise. Abra **Visual Studio Installer** para modificar la instalación de Visual Studio Enterprise. En **Componentes individuales**, seleccione **Herramientas de prueba de carga y rendimiento web**.
 
 2. Abra el archivo .webtest y empiece a grabar.
 
@@ -167,7 +167,7 @@ Puede aplicar filtros en el nombre de la prueba y la ubicación para analizar la
 
 ## <a name="edit"></a> Inspección y edición de pruebas
 
-En la pestaña de detalles, en una prueba específica, seleccione el signo de puntos suspensivos del extremo derecho para editar la prueba web, deshabilitarla de forma temporal, eliminarla o descargarla.
+En la pestaña de detalles, en una prueba específica, seleccione el signo de puntos suspensivos del extremo derecho para editar la prueba web, deshabilitarla de forma temporal, eliminarla o descargarla. Pueden tardar hasta 20 minutos para propagar los cambios de configuración.
 
 Seleccione **Ver detalles de la prueba** en una prueba específica para ver el gráfico de dispersión y los detalles específicos de la ubicación de prueba.
 
@@ -175,8 +175,8 @@ Seleccione **Ver detalles de la prueba** en una prueba específica para ver el g
 
 Tal vez le interese deshabilitar las pruebas de disponibilidad o las reglas de alerta asociadas a ellas mientras esté realizando el mantenimiento del servicio.
 
-![Deshabilitar una prueba web](./media/monitor-web-app-availability/6disable.png)
-![Editar prueba](./media/monitor-web-app-availability/8edittest.png)
+![Deshabilitación de una prueba web](./media/monitor-web-app-availability/6disable.png)
+![editar prueba](./media/monitor-web-app-availability/8edittest.png)
 
 ## <a name="failures"></a>Si ve errores
 Haga clic en un punto rojo.
@@ -227,7 +227,7 @@ Mediante las [nuevas alertas unificadas](https://docs.microsoft.com/azure/monito
 1. Seleccione un recurso de Application Insights en la experiencia de métricas y seleccione una métrica de disponibilidad:  ![Selección de métricas de disponibilidad](./media/monitor-web-app-availability/selectmetric.png)
 
 2. Al configurar la opción de alertas desde el menú se abrirá la nueva experiencia, donde podrá seleccionar pruebas o ubicaciones específicas para establecer la regla de alertas. También puede configurar los grupos de acciones para esta regla de alertas.
-    ![Configuración de las alertas de disponibilidad](./media/monitor-web-app-availability/availabilitymetricalert.png)
+    ![Configuración de alertas de disponibilidad](./media/monitor-web-app-availability/availabilitymetricalert.png)
 
 ### <a name="alert-on-custom-analytics-queries"></a>Alertas sobre las consultas de análisis personalizadas
 Mediante las [nuevas alertas unificadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), puede generar alertas sobre las [consultas de registro personalizadas](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Con las consultas personalizadas, puede enviar alertas sobre cualquier condición arbitraria que le ayude a obtener los indicadores de problemas de disponibilidad más fiables. Además, esta opción puede aplicarse de forma concreta si está enviando resultados personalizados de disponibilidad mediante el SDK de TrackAvailability. 
@@ -293,7 +293,7 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
 
 ## <a name="qna"></a> Preguntas más frecuentes
 
-* *Este sitio parece correcto, pero se ven errores de pruebas. ¿Por qué recibo alertas de Application Insights?*
+* *¿Este sitio parece correcto, pero cuando veo errores de pruebas? ¿Por qué es Application Insights alertas me?*
 
     * ¿La prueba tiene habilitada la opción "Analizar solicitudes dependientes"? Esta opción da como resultado una comprobación estricta de los recursos, como las secuencias de comandos y las imágenes, entre otros. Estos tipos de errores pueden no ser visibles en un explorador. Compruebe todas las imágenes, los scripts, las hojas de estilo y cualquier otro archivo cargado que haya cargado la página. Si se produce un error en cualquiera de ellos, se notifica que la prueba ha concluido con errores, incluso si la página html principal se carga correctamente. Para reducir la sensibilidad de la prueba para tales errores de recursos, simplemente desactive "Analizar las solicitudes dependientes" de la configuración de pruebas. 
 
@@ -305,44 +305,44 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
 
     * ¿Todas las ubicaciones ha informado de un error, o solo algunas de ellas? Si solo algunas informan de errores, puede ser debido a problemas de red o CDN. De nuevo, hacer clic en los puntos rojos debe ayudar a entender por qué la ubicación notifica errores.
 
-* *No recibí ningún correo electrónico cuando la alerta se desencadenó, se resolvió, o ambos.*
+* *¿No recibo un correo electrónico cuando se desencadena la alerta, o puede resolver o ambos?*
 
     Compruebe la configuración de alertas clásicas para confirmar que su correo electrónico aparezca directamente en la lista, o que la lista de distribución en la que se encuentra esté configurada para recibir notificaciones. De ser así, compruebe la configuración de la lista de distribución para confirmar que puede recibir mensajes de correo electrónico externos. Compruebe también si el administrador de correo tiene configurada alguna directiva que pueda estar causando este problema.
 
-* *No recibí la notificación de webhook.*
+* *¿No se recibió la notificación de webhook?*
 
     Compruebe que la aplicación que recibe la notificación de webhook esté disponible y procese correctamente las solicitudes de webhook. Para obtener más información, consulte [este artículo](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook).
 
-* *Error de prueba intermitente con un error de infracción de protocolo*
+* *¿Error de prueba intermitente con un error de infracción de protocolo?*
 
     El error ("infracción del protocolo... CR debe ir seguido de LF") indica un problema con el servidor (o las dependencias). Aparece cuando se establecen los encabezados con formato incorrecto en la respuesta. Puede deberse a equilibradores de carga o CDN. En concreto, algunos encabezados podrían no estar usando CRLF para indicar el final de línea, lo que provoca una infracción de la especificación del HTTP y, por tanto, no superan la validación en el nivel de WebRequest de .NET. Inspeccione la respuesta para detectar encabezados que podrían estar cometiendo una infracción.
     
     Nota: La dirección URL podría no dar error en los exploradores que tienen una validación poco minuciosa de encabezados HTTP. Consulte esta entrada del blog para obtener una explicación detallada del problema: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
     
-* *No veo telemetría relacionada del lado servidor para diagnosticar errores de pruebas*
+* *¿No veo ninguna telemetría de lado de servidor relacionado para diagnosticar errores en las pruebas?*
     
     Si tiene Application Insights configurado para la aplicación de servidor, esto puede deberse a que se está llevando a cabo un [muestreo](../../azure-monitor/app/sampling.md). Seleccione un resultado de disponibilidad diferente.
 
-* *¿Puedo llamar el código desde mi prueba web?*
+* *¿Se puede llamar a código desde mi prueba web?*
 
-    No. Los pasos de la prueba deben encontrarse en el archivo .webtest. Y no se puede llamar a otras pruebas web ni utilizar bucles. Pero hay varios complementos que pueden resultarle útiles.
+     No. Los pasos de la prueba deben encontrarse en el archivo .webtest. Y no se puede llamar a otras pruebas web ni utilizar bucles. Pero hay varios complementos que pueden resultarle útiles.
 
 * *¿Se admite HTTPS?*
 
     Admitimos TLS 1.1 y TLS 1.2. Actualmente no se comprueba si hay errores de certificado HTTPS.  
 
-* *¿Existe alguna diferencia entre las "pruebas web" y las "pruebas de disponibilidad"?*
+* *¿Hay alguna diferencia entre "pruebas web" y "pruebas de disponibilidad"?*
 
     Los dos términos se pueden usar indistintamente. El término "pruebas de disponibilidad" es más genérico, e incluye las pruebas de ping de dirección URL única y las pruebas web de varios pasos.
     
-* *Me gustaría usar pruebas de disponibilidad en nuestro servidor interno que se ejecuta detrás de un firewall.*
+* *Gustaría usar pruebas de disponibilidad en nuestro servidor interno que se ejecuta detrás de un firewall.*
 
     Hay dos soluciones posibles:
     
     * Configure el firewall para que permita las solicitudes entrantes de las [direcciones IP de los agentes de prueba web](../../azure-monitor/app/ip-addresses.md).
     * Escriba su propio código para comprobar periódicamente el servidor interno. Ejecute el código como un proceso en segundo plano en un servidor de prueba detrás del firewall. El proceso de prueba puede enviar sus resultados a Application Insights mediante la API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) en el paquete de SDK principal. Para ello, es necesario que el servidor de prueba tenga acceso saliente al punto de conexión de ingesta de Application Insights, pero plantea un riesgo de seguridad mucho menor que la alternativa de permitir las solicitudes entrantes. Los resultados no se mostrarán en las hojas de las pruebas web de disponibilidad, pero sí aparecerán como resultados de disponibilidad en Analytics, Search y en el Explorador de métricas.
 
-* *Al cargar una prueba web de varios pasos, se produce un error*
+* *Cargar una prueba web de varios pasos, se produce un error*
 
     Algunas razones por las que puede ocurrir:
     * Hay un límite de tamaño de 300 000.
@@ -350,7 +350,7 @@ Una vez finalizada la prueba, se muestran los tiempos de respuesta y las tasas d
     * No se admiten referencias a otras pruebas web.
     * No se admiten orígenes de datos.
 
-* *No se completa la prueba de varios pasos*
+* *No se completa mi prueba de varios pasos*
 
     Hay un límite de 100 solicitudes por prueba. Además, la prueba se detiene si se ejecuta durante más de dos minutos.
 
@@ -380,7 +380,7 @@ Use la nueva experiencia de alertas o las alertas prácticamente en tiempo real 
 
 [Solución de problemas][qna]
 
-[Direcciones IP de agentes de pruebas web](../../azure-monitor/app/ip-addresses.md)
+[Direcciones IP de los agentes de prueba web](../../azure-monitor/app/ip-addresses.md)
 
 <!--Link references-->
 

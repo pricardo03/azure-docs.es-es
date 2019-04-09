@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: fb107d9e48db5a9809ceb7ffcbac09550279f12d
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: d22fffcb792227b4d0805abd005d8c050cb97248
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485873"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006203"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparación y personalización de una imagen de disco duro virtual maestro
 
@@ -260,7 +260,7 @@ También puede configurar las directivas de sesión remoto manualmente ejecutand
 ```batch
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v fResetBroken /t REG_DWORD /d 1 /f
-reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 600000 /f
+reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxConnectionTime /t REG_DWORD /d 10800000 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v RemoteAppLogoffTimeLimit /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxDisconnectionTime /t REG_DWORD /d 5000 /f
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services" /v MaxIdleTime /t REG_DWORD /d 7200000 /f
@@ -368,8 +368,8 @@ Las siguientes instrucciones le indicará cómo cargar su imagen maestra en una 
 
 Ahora que tiene una imagen, puede crear o actualizar los grupos host. Para obtener más información sobre cómo crear y actualizar los grupos host, consulte los artículos siguientes:
 
-- [Crear un grupo host con una plantilla de Azure Resource Manager](create-host-pools-arm-template.md)
-- [Tutorial: Crear un grupo host con Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Creación de un grupo host con una plantilla de Azure Resource Manager](create-host-pools-arm-template.md)
+- [Tutorial: Creación de un grupo host con Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Creación de un grupo host con PowerShell](create-host-pools-powershell.md)
-- [Configure un recurso compartido de perfil de usuario para un grupo host](create-host-pools-user-profile.md)
-- [Configurar el método de equilibrio de carga de Escritorio Virtual de Windows](configure-host-pool-load-balancing.md)
+- [Configuración de un recurso compartido de archivos de perfil de usuario para un grupo host](create-host-pools-user-profile.md)
+- [Configuración del método de equilibrio de carga de Windows Virtual Desktop](configure-host-pool-load-balancing.md)
