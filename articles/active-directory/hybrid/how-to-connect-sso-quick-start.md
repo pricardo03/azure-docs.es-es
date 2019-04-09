@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 04/08/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b56aeb4fb0c902d3c824c58d2ac589c5f1fb01b
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 1f8483eb0ce8f5ea890e453828d36afda61ef86f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58894772"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256896"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Inicio de sesión único de conexión directa de Azure Active Directory: Inicio rápido
 
@@ -93,7 +93,7 @@ Siga estas instrucciones para verificar que ha habilitado SSO de conexión direc
 ![Azure Portal: Panel de Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> SSO de conexión directa crea una cuenta de equipo denominada `AZUREADSSOACC` en local Active Directory (AD) en cada bosque de AD. El `AZUREADSSOACC` cuenta de equipo debe protegerse fuertemente por motivos de seguridad. Solo los administradores de dominio debe ser capaces de administrar la cuenta de equipo. Asegúrese de que la delegación Kerberos en la cuenta de equipo está deshabilitada. Store a la cuenta de equipo en una unidad organizativa (OU) donde estén protegidos frente a eliminaciones accidentales.
+> SSO de conexión directa crea una cuenta de equipo denominada `AZUREADSSOACC` en local Active Directory (AD) en cada bosque de AD. El `AZUREADSSOACC` cuenta de equipo debe protegerse fuertemente por motivos de seguridad. Solo los administradores de dominio debe ser capaces de administrar la cuenta de equipo. Asegúrese de que la delegación Kerberos en la cuenta de equipo está deshabilitada. Store a la cuenta de equipo en una unidad organizativa (OU) que están protegidos frente a eliminaciones accidentales y donde los administradores de dominio sólo tienen acceso.
 
 >[!NOTE]
 > Si utilizas arquitecturas de Pass-the-Hash y mitigación del robo de credenciales en su entorno local, realice los cambios apropiados para asegurarse de que el `AZUREADSSOACC` cuenta de equipo no termine en el contenedor de cuarentena. 

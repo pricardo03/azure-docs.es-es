@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
-ms.openlocfilehash: dbfe33d062c4609ba29adbaa2d9956687115cb5a
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57441005"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278832"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
 En este artículo se muestran los pasos a seguir para configurar informes para Azure Backup mediante un almacén de Recovery Services. También muestra cómo acceder a informes mediante Power BI. Cuando haya completado estos pasos, puede ir directamente a Power BI para ver, personalizar y crear informes.
@@ -43,9 +43,6 @@ Siga estos pasos para configurar la cuenta de almacenamiento para el almacén de
 
    * En la lista de recursos, escriba **Recovery Services**.
    * Cuando comience a escribir, la lista se filtrará en función de la entrada. Cuando vea la opción **Almacenes de Recovery Services**, haga clic en ella.
-
-      ![Creación del almacén de Recovery Services, paso 1](./media/backup-azure-vms-encryption/browse-to-rs-vaults.png) <br/>
-
    * Aparece la lista de almacenes de Recovery Services. En la lista de almacenes de Recovery Services, seleccione un almacén.
 
      Se abre el panel del almacén seleccionado.
@@ -153,6 +150,6 @@ Sí, puede configurar la misma cuenta de Storage en varios almacenes para ver lo
 ## <a name="next-steps"></a>Pasos siguientes
 Después de configurar la cuenta de almacenamiento y ha importado el paquete de contenido de Azure Backup, el siguiente paso es personalizar los informes y usar el modelo de datos de informes para crear informes. Para obtener más información, consulte los siguientes artículos.
 
-* [Uso del modelo de datos de informes de Azure Backup](backup-azure-reports-data-model.md)
-* [Filtrado de informes en Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
-* [Creación de informes en Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
+* [Usar un modelo de datos de informes de Azure Backup](backup-azure-reports-data-model.md)
+* [Filtro de informes de Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
+* [Crear informes en Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)

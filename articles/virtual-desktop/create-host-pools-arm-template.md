@@ -5,18 +5,18 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: 262ec35a8a177652dff12bccb3b5435cb5856d81
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: ba98328002cafbcede855b1187881d39f1de8fc5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401415"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279234"
 ---
-# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Crear un grupo host con una plantilla de Azure Resource Manager
+# <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Creación de un grupo host con una plantilla de Azure Resource Manager
 
-Los grupos host son una colección de uno o más máquinas virtuales idénticas en entornos de inquilinos de vista previa de Escritorio Virtual de Windows. Cada grupo host puede contener un grupo de aplicaciones que los usuarios pueden interactuar con como lo harían en un equipo de escritorio físico.
+Los grupos de hosts son una colección de una o más máquinas virtuales idénticas en entornos de inquilinos de Windows Virtual Desktop (versión preliminar). Cada grupo de hosts puede contener un grupo de aplicaciones con las que los usuarios pueden interactuar igual que harían en un equipo de escritorio físico.
 
 Siga las instrucciones de esta sección para crear un grupo host para un inquilino de Escritorio Virtual de Windows con una plantilla de Azure Resource Manager proporcionada por Microsoft. Este artículo explica cómo crear un grupo host en el escritorio Virtual de Windows, cree un grupo de recursos con las máquinas virtuales en una suscripción de Azure, unir esas máquinas virtuales al dominio de Active Directory y registrar las máquinas virtuales con Windows de Escritorio Virtual.
 
@@ -52,7 +52,7 @@ Para obtener instrucciones acerca de los parámetros que debe escribir para su e
 
 Una vez finalizada la plantilla de GitHub de Azure Resource Manager, asigne acceso de usuario antes de iniciar las pruebas de los escritorios de la sesión completa en sus máquinas virtuales.
 
-Primero, [descargar e importar el módulo de Windows PowerShell de Escritorio Virtual](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) usar en la sesión de PowerShell si no lo ha hecho ya.
+En primer lugar y, si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) que se usará en la sesión de PowerShell.
 
 Para asignar a usuarios al grupo de aplicaciones de escritorio, abra una ventana de PowerShell y ejecute este cmdlet para iniciar sesión en el entorno de Escritorio Virtual de Windows:
 
@@ -74,4 +74,7 @@ Add-RdsAppGroupUser <tenantname> <hostpoolname> "Desktop Application Group" -Use
 
 El UPN del usuario debe coincidir con la identidad del usuario en Azure Active Directory (por ejemplo, user1@contoso.com). Si desea agregar varios usuarios, debe ejecutar este cmdlet para cada usuario.
 
-Después de haber completado estos pasos, los usuarios agregados al grupo de aplicaciones de escritorio pueden iniciar sesión Escritorio Virtual Windows con clientes compatibles de escritorio remoto y ve un recurso para un equipo de escritorio de la sesión.
+Después de haber completado estos pasos, los usuarios agregados al grupo de aplicaciones de escritorio pueden iniciar sesión en Windows Virtual Desktop con clientes de Escritorio remoto compatibles y ver un recurso de escritorio de sesión.
+
+>[!IMPORTANT]
+>Para ayudar a proteger su entorno de Escritorio Virtual de Windows en Azure, se recomienda que no abrir el puerto 3389 de entrada en las máquinas virtuales. Escritorio Virtual de Windows no requiere un puerto de entrada abierto 3389 para que los usuarios accedan a máquinas virtuales del grupo host. Si debe abrir el puerto 3389 para solucionar problemas, le recomendamos que use [acceso de máquina virtual just-in-time](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).

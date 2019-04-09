@@ -1,32 +1,40 @@
 ---
 title: Texto a voz con servicios de voz de Azure
 titleSuffix: Azure Cognitive Services
-description: Texto a voz de servicios de voz de Azure es un servicio basado en REST que permite a las aplicaciones, herramientas o dispositivos convertir texto en voz sintetizada de natural similar a la humana. Elija entre estándares y neuronales voces, o crear su propia voz personalizados únicos para su producto o marca. 75 voces estándares están disponibles en más de 45 idiomas y configuraciones regionales y 5 voces neuronales están disponibles en 4 idiomas y configuraciones regionales.
+description: Texto a voz de servicios de voz de Azure es un servicio que permite a las aplicaciones, herramientas o dispositivos convertir texto en voz sintetizada de natural similar a la humana. Elija entre estándares y neuronales voces, o crear su propia voz personalizados únicos para su producto o marca. 75 voces estándares están disponibles en más de 45 idiomas y configuraciones regionales y 5 voces neuronales están disponibles en 4 idiomas y configuraciones regionales.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 52f74bb3cb9e460fc5c572079355f47b4b0bf0a3
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: 597932ae9ad4dba76428fa6a4882c50f6ff98754
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010454"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263118"
 ---
 # <a name="what-is-text-to-speech"></a>¿Qué es el texto a voz?
 
-Texto a voz de servicios de voz de Azure es un servicio basado en REST que permite a las aplicaciones, herramientas o dispositivos convertir texto en voz sintetizada de natural similar a la humana. Elija entre estándares y neuronales voces, o crear su propia voz personalizados únicos para su producto o marca. 75 voces estándares están disponibles en más de 45 idiomas y configuraciones regionales y 5 voces neuronales están disponibles en 4 idiomas y configuraciones regionales. Para obtener una lista completa, consulte [idiomas admitidos](language-support.md#text-to-speech).
+Texto a voz de servicios de voz de Azure es un servicio que permite a las aplicaciones, herramientas o dispositivos convertir texto en voz sintetizada de natural similar a la humana. Elija entre estándares y neuronales voces, o crear su propia voz personalizados únicos para su producto o marca. 75 voces estándares están disponibles en más de 45 idiomas y configuraciones regionales y 5 voces neuronales están disponibles en 4 idiomas y configuraciones regionales. Para obtener una lista completa, consulte [idiomas admitidos](language-support.md#text-to-speech).
 
 Tecnología de texto a voz permite que los creadores de contenido interactuar con los usuarios de maneras diferentes. Texto a voz puede mejorar la accesibilidad proporcionando a los usuarios con una opción para interactuar con el contenido de forma audible. Si el usuario tiene dificultades visuales, una discapacidad de aprendizaje, o si requiere información de navegación mientras conduce, una experiencia existente puede mejorar el texto a voz. Texto a voz también es un complemento valioso para los bots de voz y asistentes virtuales.
 
+### <a name="standard-voices"></a>Voces estándar
+
+Las voces estándares se crean mediante técnicas de estadística síntesis paramétrico o síntesis de concatenación. Estas voces son altamente inteligibles y suenan bastante naturales. Puede habilitar fácilmente sus aplicaciones hablar en más de 45 idiomas, con una amplia gama de opciones de voz. Estas voces proporcionan precisión pronunciación alta, incluida la compatibilidad con las abreviaturas, expansiones de acrónimos, interpretaciones de fecha y hora, polyphones y mucho más. Usar llamadas de voz para mejorar la accesibilidad de sus aplicaciones y servicios, ya que permite a los usuarios interactuar con el contenido de forma audible.
+
 ### <a name="neural-voices"></a>Voces neuronales
 
+Voces neuronales usar redes neuronales profundas a superar los límites de los sistemas tradicionales de texto a voz de coincidencia de patrones de esfuerzo y entonación en idioma hablado y en la síntesis de las unidades de voz en una voz de equipo. Estándar texto a voz desglosa prosody en análisis lingüístico independiente y pasos de predicción acústico controladas por modelos independientes. Esto puede acarrear síntesis de voz con murmullo, estropeados. Nuestra capacidad neuronal hace síntesis de voz y de predicción de prosodia simultáneamente, lo que da como resultado una voz más fluida y naturalidad de sonido.
+
 Las voces neuronales se pueden usar para que las interacciones con los bots de chat y los asistentes virtuales sean más naturales y atractivas, para convertir textos digitales, como los libros electrónicos, en audiolibros y para mejorar los sistemas de navegación de los automóviles. Con la prosodia natural similar a la humana y desactive articulación de palabras, voces neuronales reducen significativamente fatiga de la escucha al interactuar con sistemas de inteligencia artificial. Para más información acerca de las voces neuronales, consulte los [idiomas compatibles](language-support.md#text-to-speech).
+
+Para obtener más información acerca de las ventajas de voces neuronales, vea [servicio de texto a voz neuronal nuevo de Microsoft ayuda a las máquinas hablar al igual que las personas](https://azure.microsoft.com/blog/microsoft-s-new-neural-text-to-speech-service-helps-machines-speak-like-people/).
 
 ### <a name="custom-voices"></a>Voces personalizadas
 
@@ -54,11 +62,7 @@ Esta tabla enumeran las características principales de texto a voz:
 
 Se ofrecen tutoriales rápidos diseñados para tener que ejecutar código en menos de 10 minutos. Esta tabla incluye una lista de tutoriales rápidos de texto a voz organizadas por lenguaje.
 
-| Guía de inicio rápido (REST) | Plataforma | Referencia de API |
-|------------|----------|---------------|
-| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Examinar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Ventana, macOS, Linux | [Examinar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Python](quickstart-python-text-to-speech.md) | Ventana, macOS, Linux | [Examinar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+### <a name="sdk-quickstarts"></a>Inicios rápidos del SDK
 
 | Guía de inicio rápido (SDK) | Plataforma | Referencia de API |
 |------------|----------|---------------|
@@ -66,12 +70,20 @@ Se ofrecen tutoriales rápidos diseñados para tener que ejecutar código en men
 | [C++](quickstart-text-to-speech-cpp-windows.md) |  Windows | [Examinar](https://aka.ms/csspeech/cppref) |
 | [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Examinar](https://aka.ms/csspeech/cppref) |
 
+### <a name="rest-quickstarts"></a>Guías de inicio rápido REST
+
+| Guía de inicio rápido (REST) | Plataforma | Referencia de API |
+|------------|----------|---------------|
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Examinar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Ventana, macOS, Linux | [Examinar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Python](quickstart-python-text-to-speech.md) | Ventana, macOS, Linux | [Examinar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+
 ## <a name="sample-code"></a>Código de ejemplo
 
 Código de ejemplo de texto a voz está disponible en GitHub. Estos ejemplos tratan la conversión de texto a voz en lenguajes de programación más populares.
 
-* [Ejemplos de texto a voz (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 * [Ejemplos de texto a voz (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
+* [Ejemplos de texto a voz (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
 
 ## <a name="reference-docs"></a>Documentos de referencia
 

@@ -5,14 +5,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 18dc7ea513d1e3787dbd38b1ab687be607a79f8b
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
-ms.translationtype: HT
+ms.openlocfilehash: b60d8a8fb9b9300a6914ad33b2f760fb5adde3b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006819"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278231"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Configuración y administración de directivas de replicación para la recuperación ante desastres de VMware en Azure
 En este artículo se describe cómo configurar una directiva de replicación cuando se replican máquinas virtuales de VMware en Azure mediante [Azure Site Recovery](site-recovery-overview.md).
@@ -20,7 +20,7 @@ En este artículo se describe cómo configurar una directiva de replicación cua
 ## <a name="create-a-policy"></a>Para crear una directiva
 
 1. Seleccione **Administrar** > **Infraestructura de Site Recovery**.
-2. En **For VMware and Physical machines** (Para máquinas de VMware y físicas), seleccione **Directivas de replicación**. 
+2. En **For VMware and Physical machines** (Para máquinas de VMware y físicas), seleccione **Directivas de replicación**.
 3. Haga clic en **+Directiva de replicación** y especifique el nombre de la directiva.
 4. En **Umbral de RPO**, especifique el límite de RPO. Se generan alertas cuando la replicación continua supera este límite.
 5. En **Retención de punto de recuperación**, especifique (en horas) la duración del período de retención para cada punto de recuperación. Las máquinas protegidas se pueden recuperar en cualquier punto dentro de un período de retención. Se admite una retención de hasta 24 horas para máquinas replicadas en Premium Storage. Se admite hasta 72 horas para un almacenamiento estándar.
@@ -29,7 +29,7 @@ En este artículo se describe cómo configurar una directiva de replicación cua
 
 Cuando se crea una directiva de replicación, se crea automáticamente una directiva de replicación para la conmutación por recuperación, con el sufijo "failback". Una vez creada la directiva, se puede editar seleccionándola > **Editar configuración**.
 
-## <a name="associate-a-configuration-server"></a>Asociación de un servidor de configuración 
+## <a name="associate-a-configuration-server"></a>Asociación de un servidor de configuración
 
 Asocie la directiva de replicación con el servidor de configuración local.
 

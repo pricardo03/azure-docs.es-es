@@ -3,17 +3,17 @@ title: Descripción del control de versiones de las plantillas de dispositivo pa
 description: Iteración sobre las plantillas de dispositivo mediante la creación de nuevas versiones y sin afectar a los dispositivos conectados en vivo
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 01/19/2018
+ms.date: 03/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 3889aa1e8b19e203a3f6354c2d26fb82afe2b922
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: d4f9617a5c2ba6f6cf8dc261845aa98e33d70a55
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57214289"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281784"
 ---
 # <a name="create-a-new-device-template-version"></a>Creación de una nueva versión de plantilla de dispositivo
 
@@ -68,4 +68,4 @@ Puede crear varias versiones de la plantilla de dispositivo. Con el tiempo, tend
 Ahora que ha aprendido a usar las versiones de plantilla de un dispositivo en la aplicación de Azure IoT Central, este es el paso siguiente sugerido:
 
 > [!div class="nextstepaction"]
-> [Creación de reglas de telemetría](howto-create-telemetry-rules.md)
+> [Cómo crear reglas de telemetría](howto-create-telemetry-rules.md)

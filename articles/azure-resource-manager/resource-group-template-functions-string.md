@@ -4,22 +4,20 @@ description: Describe las funciones para usar en una plantilla de Azure Resource
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/11/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 07221e5d93c004a2542adfc3a5374fd75ca34b31
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621420"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278792"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funciones de cadena para las plantillas de Azure Resource Manager
 
@@ -35,7 +33,8 @@ El Administrador de recursos ofrece las siguientes funciones para trabajar con c
 * [empty](#empty)
 * [endsWith](#endswith)
 * [first](#first)
-* [guid](#guid)
+* [formato](#format)
+* [GUID](#guid)
 * [indexOf](#indexof)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
@@ -46,7 +45,7 @@ El Administrador de recursos ofrece las siguientes funciones para trabajar con c
 * [skip](#skip)
 * [split](#split)
 * [startsWith](#startswith)
-* [cadena](#string)
+* [string](#string)
 * [substring](#substring)
 * [take](#take)
 * [toLower](#tolower)
@@ -714,9 +713,66 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | arrayOutput | string | one |
 | stringOutput | string | O |
 
+## <a name="format"></a>formato
+
+`format(formatString, arg1, arg2, ...)`
+
+Crea una cadena con formato de valores de entrada.
+
+### <a name="parameters"></a>Parámetros
+
+| Parámetro | Obligatorio | Type | DESCRIPCIÓN |
+|:--- |:--- |:--- |:--- |
+| formatString | Sí | string | La cadena de formato compuesto. |
+| arg1 | Sí | valor booleano, entero o cadena | El valor que se va a incluir en la cadena con formato. |
+| argumentos adicionales | Sin  | valor booleano, entero o cadena | Valores adicionales que incluir en la cadena con formato. |
+
+### <a name="remarks"></a>Comentarios
+
+Utilice esta función para dar formato a una cadena en la plantilla. Usa las mismas opciones de formato que el [System.String.Format](/dotnet/api/system.string.format) método en. NET.
+
+### <a name="examples"></a>Ejemplos
+
+La plantilla de ejemplo siguiente muestra cómo usar la función format.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "greeting": {
+            "type": "string",
+            "defaultValue": "Hello"
+        },
+        "name": {
+            "type": "string",
+            "defaultValue": "User"
+        },
+        "numberToFormat": {
+            "type": "int",
+            "defaultValue": 8175133
+        }
+    },
+    "resources": [
+    ],
+    "outputs": {
+        "formatTest": {
+            "type": "string",
+            "value": "[format('{0}, {1}. Formatted number: {2:N0}', parameters('greeting'), parameters('name'), parameters('numberToFormat'))]"
+        }
+    }
+}
+```
+
+La salida del ejemplo anterior con el valor predeterminado es:
+
+| NOMBRE | type | Valor |
+| ---- | ---- | ----- |
+| formatTest | string | Hola, usuario. Número con formato: 8,175,133 |
+
 ## <a name="guid"></a>GUID
 
-`guid (baseString, ...)`
+`guid(baseString, ...)`
 
 Crea un valor en el formato de un identificador único global en función de los valores proporcionados como parámetros.
 
@@ -731,7 +787,7 @@ Crea un valor en el formato de un identificador único global en función de los
 
 Esta función es útil cuando se necesita crear un valor en el formato de un identificador único global. Proporciona valores de parámetros que limitan el ámbito de unicidad del resultado. Puede especificar si el nombre es único para la suscripción, el grupo de recursos o la implementación.
 
-El valor devuelto no es una cadena aleatoria, pero en su lugar el resultado de una función hash en los parámetros. El valor devuelto tiene 36 caracteres. Debe ser único globalmente. Para crear un nuevo GUID que no se basa en el valor hash de los parámetros, use la [newGuid](#newguid) función.
+El valor devuelto no es una cadena aleatoria, pero en su lugar el resultado de una función hash en los parámetros. El valor devuelto tiene 36 caracteres. No es único globalmente. Para crear un nuevo GUID que no se basa en el valor hash de los parámetros, use la [newGuid](#newguid) función.
 
 En los ejemplos siguientes se muestra cómo utilizar un GUID para crear un valor único para niveles de uso común.
 
@@ -1229,7 +1285,7 @@ Devuelve una cadena con todos los caracteres después del número especificado d
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sí |matriz o cadena |La matriz o cadena que se usará para la omisión. |
-| numberToSkip |Sí |int |El número de elementos o caracteres que se van a omitir. Si este valor es 0 o un valor inferior, se devuelven todos los elementos o caracteres del valor. Si es mayor que la longitud de la matriz o la cadena, se devuelve una matriz o cadena vacía. |
+| numberToSkip |Sí |int |El número de elementos o caracteres que se van a omitir. Si este valor es 0 o un valor inferior, se devuelven todos los elementos o caracteres del valor. Si es mayor que la longitud de la matriz o cadena, se devuelve una matriz o cadena vacía. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1554,7 +1610,7 @@ Devuelve una cadena con el número especificado de caracteres desde el inicio de
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
 | originalValue |Sí |matriz o cadena |La matriz o cadena de la que se van a tomar los elementos. |
-| numberToTake |Sí |int |El número de elementos o caracteres que se van a tomar. Si este valor es 0 o un valor inferior, se devolverá una matriz o cadena vacía. Si es mayor que la longitud de la matriz o cadena especificada, se devuelven todos los elementos de la matriz o cadena. |
+| numberToTake |Sí |int |El número de elementos o caracteres que se van a tomar. Si este valor es 0 o un valor inferior, se devolverá una matriz o cadena vacía. Si es mayor que la longitud de la cadena o matriz, se devuelven todos los elementos de la matriz o cadena. |
 
 ### <a name="return-value"></a>Valor devuelto
 
@@ -1776,7 +1832,7 @@ Crea una cadena de hash determinista basada en los valores proporcionados como p
 
 Esta función es útil cuando se debe crear un nombre único para un recurso. Proporciona valores de parámetros que limitan el ámbito de unicidad del resultado. Puede especificar si el nombre es único para la suscripción, el grupo de recursos o la implementación. 
 
-El valor devuelto no es una cadena aleatoria, sino que es el resultado de una función hash. El valor devuelto tiene 13 caracteres. Debe ser único globalmente. Puede que desee combinar el valor con un prefijo de su convención de nomenclatura para crear un nombre que sea más fácil de reconocer. En el ejemplo siguiente se muestra el formato del valor devuelto. El valor real varía según los parámetros proporcionados.
+El valor devuelto no es una cadena aleatoria, sino más bien el resultado de una función hash. El valor devuelto tiene 13 caracteres. No es único globalmente. Puede que desee combinar el valor con un prefijo de su convención de nomenclatura para crear un nombre que sea más fácil de reconocer. En el ejemplo siguiente se muestra el formato del valor devuelto. El valor real varía según los parámetros proporcionados.
 
     tcvhiyu5h2o5o
 
@@ -1800,7 +1856,7 @@ En los ejemplos siguientes se muestra cómo utilizar uniqueString a fin de crear
 "[uniqueString(resourceGroup().id, deployment().name)]"
 ```
 
-En el ejemplo siguiente se muestra cómo crear un nombre único para una cuenta de almacenamiento basada en el grupo de recursos. Dentro del grupo de recursos, el nombre no es único si crea de la misma manera.
+En el ejemplo siguiente se muestra cómo crear un nombre único para una cuenta de almacenamiento basada en el grupo de recursos. En el grupo de recursos, el nombre no es único si crea la misma manera.
 
 ```json
 "resources": [{ 
@@ -1809,7 +1865,7 @@ En el ejemplo siguiente se muestra cómo crear un nombre único para una cuenta 
     ...
 ```
 
-Si necesita crear un nuevo nombre único cada vez que se implementa una plantilla y no pretendemos para actualizar el recurso, puede usar el [utcNow](#utcnow) función con uniqueString. Podría utilizar este enfoque en un entorno de prueba. Para obtener un ejemplo, vea [utcNow](#utcnow).
+Si necesita crear un nuevo nombre único cada vez que implemente una plantilla y no tiene intención de actualizar el recurso, puede usar el [utcNow](#utcnow) función con uniqueString. Podría utilizar este enfoque en un entorno de prueba. Para obtener un ejemplo, vea [utcNow](#utcnow).
 
 ### <a name="return-value"></a>Valor devuelto
 
