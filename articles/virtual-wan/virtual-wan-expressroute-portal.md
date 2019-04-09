@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 10/5/2018
+ms.date: 04/02/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 017c8c2f060f969f2e7f8d387dcbafa2dac426d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7b7adcc85b9274af45ddab653e875377e959e40c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842952"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58876333"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan-preview"></a>Tutorial: Creación de una asociación de ExpressRoute mediante Azure Virtual WAN (versión preliminar)
 
@@ -45,10 +45,9 @@ En este tutorial, aprenderá a:
 
 Para poder configurar una instancia de Virtual WAN, primero hay que inscribir una suscripción en la versión preliminar. En caso contrario, no podrá trabajar con Virtual WAN en el portal. Para inscribirse, envíe un correo electrónico a **azurevirtualwan\@microsoft.com** con el identificador de suscripción. Recibirá un correo electrónico una vez inscrita la suscripción.
 
-**Consideraciones de la versión preliminar**
+**Consideraciones sobre la versión preliminar:**
 
-* Disponibilidad en regiones: Centro occidental de EE.UU.
-* El circuito ExpressRoute debe estar habilitado en un país que admita [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported)
+El circuito ExpressRoute debe estar habilitado en un país que admita [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-faqs#where-is-expressroute-global-reach-supported).
 
 ## <a name="vnet"></a>1. Creación de una red virtual
 
@@ -71,15 +70,15 @@ En un explorador, vaya a [Azure Portal (versión preliminar)](https://aka.ms/azu
 ## <a name="hub"></a>4. Buscar y asociar un circuito con el centro
 
 1. Seleccione su WAN virtual y en **Virtual WAN Architecture** (Arquitectura de WAN virtual), seleccione **ExpressRoute Circuits** (Circuitos de ExpressRoute)
-1. Si el circuito de ExpressRoute se encuentra en la misma suscripción que su WAN virtual, haga clic en **Select ExpressRoute circuit** (Seleccionar circuito de ExpressRoute) de sus suscripciones 
+1. Si el circuito de ExpressRoute se encuentra en la misma suscripción que su WAN virtual, haga clic en **Select ExpressRoute circuit** (Seleccionar circuito de ExpressRoute) de sus suscripciones. 
 1. Mediante la lista desplegable, seleccione la instancia de ExpressRoute que desea asociar al centro.
 1. Si el circuito de ExpressRoute no está en la misma suscripción o si se le ha proporcionado [una clave de autorización y un identificador de par ](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md), seleccione **Find a circuit redeeming an authorization key** (Buscar un circuito que canjee una clave de autorización)
 1. Escriba la siguiente información:
 1. **Clave de autorización** : generada por el propietario del circuito como se describió anteriormente
 1. **URI de circuito del mismo nivel**: identificador URI del circuito que proporciona el propietario del circuito y es el identificador único del circuito
 1. **Ponderación del enrutamiento** - [Routing Weight](../expressroute/expressroute-optimize-routing.md) permite elegir ciertas rutas de acceso cuando varios circuitos de diferentes ubicaciones de emparejamiento están conectados al mismo centro
-1. Haga clic en **Find circuit** (Buscar circuito) y seleccione el circuito, si lo encuentra
-1. Seleccione uno o varios centros en la lista desplegable y haga clic en **Guardar**
+1. Haga clic en **Find circuit** (Buscar circuito) y seleccione el circuito, si lo encuentra.
+1. Seleccione uno o varios centros en la lista desplegable y haga clic en **Guardar**.
 
 ## <a name="vnet"></a>5. Conexión de la red virtual a un concentrador
 

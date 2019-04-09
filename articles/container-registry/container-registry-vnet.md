@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 04/03/2019
 ms.author: danlep
-ms.openlocfilehash: 0a4d9f355a5cdc92bab4491c08677042c42986cb
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 15b67218b129b5e017e67651587c389af412d7a1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517936"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268438"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Restringir el acceso a Azure container registry mediante una red virtual de Azure o las reglas de firewall
 
@@ -29,6 +29,8 @@ En este artículo se muestra dos escenarios para crear las reglas de acceso de r
 * Solo un **Premium** registro de contenedor puede configurarse con reglas de acceso de red. Para obtener información acerca de los niveles de servicio de registro, vea [SKU de Azure Container Registry](container-registry-skus.md). 
 
 * Solo un [Azure Kubernetes Service](../aks/intro-kubernetes.md) clúster o Azure [máquina virtual](../virtual-machines/linux/overview.md) puede usarse como un host para tener acceso a un registro de contenedor en una red virtual. *Actualmente no se admiten otros servicios de Azure como Azure Container Instances.*
+
+* [Tareas de ACR](container-registry-tasks-overview.md) operaciones no se admiten actualmente en un registro de contenedor que se implementa en una red virtual.
 
 * Cada registro admite un máximo de 100 reglas de red virtual.
 
@@ -371,7 +373,7 @@ Para limpiar los recursos en el portal, navegue hasta el grupo de recursos myRes
 
 En este artículo se trataron varios recursos de red virtual y características, aunque de forma breve. La documentación de Azure Virtual Network trata estos temas ampliamente:
 
-* [Red virtual](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network)
+* [Virtual network](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network)
 * [Subred](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)
 * [Puntos de conexión de servicio](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
 

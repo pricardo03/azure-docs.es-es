@@ -10,12 +10,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/20/2019
-ms.openlocfilehash: 7511b85384c2c64c823d93df4369b0fea3e64b51
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 5d168264cbc392e1ba426707429f47dea70d1ea8
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58226222"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882062"
 ---
 # <a name="tutorial-managed-instance-security-in-azure-sql-database-using-azure-ad-server-principals-logins"></a>Tutorial: Seguridad de una instancia administrada de Azure SQL Database mediante entidades de seguridad del servidor de Azure AD (inicios de sesión)
 
@@ -50,7 +50,7 @@ Para completar el tutorial, asegúrese de que cuenta con estos requisitos previo
 - Una instancia administrada de Azure SQL Database
   - Siga este artículo: [Inicio rápido: Creación de una Instancia administrada de Azure SQL Database](sql-database-managed-instance-get-started.md)
 - Poder acceder a la instancia administrada y [aprovisionar un administrador de Azure AD para ella](sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-managed-instance). Para obtener más información, consulte:
-    - [Conexión de aplicaciones a una instancia administrada](sql-database-managed-instance-connect-app.md). 
+    - [Conexión de aplicaciones a una instancia administrada](sql-database-managed-instance-connect-app.md) 
     - [Arquitectura de conectividad de la instancia administrada](sql-database-managed-instance-connectivity-architecture.md)
     - [Configuración y administración de la autenticación de Azure Active Directory con SQL](sql-database-aad-authentication-configure.md)
 
@@ -453,4 +453,4 @@ Consulte el siguiente artículo sobre las [características de seguridad de las 
 Para obtener una visión general completa de las funcionalidades de una instancia administrada, consulte:
 
 > [!div class="nextstepaction"]
-> [Funcionalidades de Instancia administrada](sql-database-managed-instance.md)
+> [Funcionalidades de instancia administrada](sql-database-managed-instance.md)

@@ -10,18 +10,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: e9efe96490ea1c9351d87b5b2477474ef68fbda9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d0ecf6a48735ec2ba1623f97d4760d230a6e6fbf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57875244"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266326"
 ---
 # <a name="copy-data-to-or-from-azure-sql-database-by-using-azure-data-factory"></a>Copia de datos con una instancia de Azure SQL Database como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you use:"]
-> * [Versión 1](v1/data-factory-azure-sql-connector.md)
+> * [versión 1](v1/data-factory-azure-sql-connector.md)
 > * [Versión actual](connector-azure-sql-database.md)
 
 En este artículo se explica el uso de la actividad de copia en Azure Data Factory para copiar datos desde Azure SQL Database y en este servicio. Se basa en el artículo [Actividad de copia en Azure Data Factory](copy-activity-overview.md), en el que se ofrece información general acerca de la actividad de copia.
@@ -64,8 +64,8 @@ Estas propiedades son compatibles con un servicio vinculado de Azure SQL Databas
 Para ver los distintos tipos de autenticación, consulte las secciones siguientes acerca de requisitos previos y ejemplos de JSON, respectivamente:
 
 - [Autenticación de SQL](#sql-authentication)
-- [Autenticación de token de la aplicación de Azure AD: entidad de servicio](#service-principal-authentication)
-- [Autenticación de token de la aplicación de Azure AD: identidades administradas de recursos de Azure](#managed-identity)
+- [Autenticación de token de la aplicación de Azure AD: Entidad de servicio](#service-principal-authentication)
+- [Autenticación de token de la aplicación de Azure AD: Identidades administradas de recursos de Azure](#managed-identity)
 
 >[!TIP]
 >Si recibió un error con código de error como "UserErrorFailedToConnectToSqlServer" y un mensaje como "The session limit for the database is XXX and has been reached" (El límite de sesión de la base de datos es XXX y ya se ha alcanzado), agregue `Pooling=false` a la cadena de conexión e inténtelo de nuevo.
@@ -182,7 +182,7 @@ Una factoría de datos se puede asociar con una [identidad administrada para rec
 
 Para usar la autenticación de identidad administrada, siga estos pasos:
 
-1. **Cree a grupo en Azure AD.** Convertir en miembro del grupo de la identidad administrada.
+1. **Cree un grupo en Azure AD.** Convertir en miembro del grupo de la identidad administrada.
     
    1. Busque la identidad de data factory administra desde el portal de Azure. Vaya a las **propiedades** de la factoría de datos. Copie el valor de Id. de la identidad de servicio.
     
@@ -373,7 +373,7 @@ Para copiar los datos a Azure SQL Database, establezca la propiedad **type** del
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad **type** del receptor de la actividad de copia debe establecerse en **SqlSink**. | Sí |
-| writeBatchSize | Inserta datos en la tabla SQL cuando el tamaño del búfer alcanza el valor de **writeBatchSize**.<br/> El valor que se permite es un **entero** (número de filas). |  No. El valor predeterminado es 10 000. |
+| writeBatchSize | Número de filas que se inserta en la tabla SQL **por lote**.<br/> El valor que se permite es un **entero** (número de filas). |  No. El valor predeterminado es 10 000. |
 | writeBatchTimeout | Tiempo que se concede a la operación de inserción por lotes para que finalice antes de que se agote el tiempo de espera.<br/> El valor permitido es **intervalo de tiempo**. Ejemplo: "00:30:00" (30 minutos). | Sin  |
 | preCopyScript | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Azure SQL Database. Solo se invoca una vez por cada copia que se ejecute. Esta propiedad se usa para limpiar los datos cargados previamente. | Sin  |
 | sqlWriterStoredProcedureName | El nombre del procedimiento almacenado que define cómo se aplican los datos de origen en una tabla de destino. Un ejemplo es realizar operaciones upsert o transformaciones mediante su propia lógica de negocios. <br/><br/>Este procedimiento almacenado se **invoca por lote**. En las operaciones que se ejecutan solo una vez y no tienen nada que ver con los datos de origen, use la propiedad `preCopyScript`. Algunas operaciones de ejemplo son eliminar y truncar. | Sin  |
@@ -535,7 +535,7 @@ Cuando los mecanismos de copia integrados no prestan el servicio, se puede usar 
 
 En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para realizar una operación upsert en una tabla de Azure SQL Database. Supongamos que los datos de entrada y la tabla **Marketing** del receptor tienen tres columnas: **ProfileID**, **State** y **Category**. Realice una operación UPSERT en función de la columna **ProfileID** y aplíquela solo a una categoría concreta.
 
-#### <a name="output-dataset"></a>Conjunto de datos de salida
+**Conjunto de datos de salida:** "tableName" debe ser el mismo nombre de parámetro de tipo de tabla en el procedimiento almacenado (vea a continuación de la secuencia de comandos de procedimiento almacenado).
 
 ```json
 {
@@ -554,7 +554,7 @@ En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para r
 }
 ```
 
-Defina la sección **SqlSink** de la actividad de copia:
+Definir la **receptor SQL** sección actividad de copia como se indica a continuación.
 
 ```json
 "sink": {

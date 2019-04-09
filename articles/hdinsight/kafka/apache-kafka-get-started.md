@@ -1,19 +1,18 @@
 ---
-title: 'Guía de inicio rápido de introducción a Apache Kafka: Azure HDInsight'
+title: 'Inicio rápido: Configuración de Apache Kafka en HDInsight mediante Azure Portal'
 description: En esta guía de inicio rápido, aprenderá a crear un clúster de Apache Kafka en Azure HDInsight con Azure Portal. También aprenderá sobre los temas, los suscriptores y los consumidores de Kafka.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
-ms.custom: mvc,hdinsightactive
+ms.custom: mvc
 ms.topic: quickstart
-ms.date: 03/26/2019
-ms.openlocfilehash: c2e4b5b1b56ef7940b0774845af5b06661c5e8bf
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.date: 04/01/2019
+ms.openlocfilehash: 4099d6ea12774fec2b24895b42d8e780bd36e2a4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522118"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917352"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Inicio rápido: Creación de un clúster de Apache Kafka en HDInsight
 
@@ -32,34 +31,19 @@ En esta guía de inicio rápido, aprenderá a crear un clúster de [Apache Kafka
 
 * Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-* Un cliente SSH. Los pasos descritos en este documento usan SSH para conectarse al clúster.
-
-    El comando `ssh` se proporciona de forma predeterminada en los sistemas Linux, Unix y macOS. En Windows 10, use uno de los métodos siguientes para instalar el comando `ssh`:
-
-  * Use [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/quickstart). Cloud Shell proporciona el comando `ssh` y puede configurarse para usar Bash o PowerShell como entorno de shell.
-
-  * [Instale el subsistema de Windows para Linux](https://docs.microsoft.com/windows/wsl/install-win10). Las distribuciones de Linux disponibles en Microsoft Store proporcionan el comando `ssh`.
-
-    > [!IMPORTANT]  
-    > Los pasos descritos en este documento suponen que usa uno de los clientes SSH mencionados anteriormente. Si usa un cliente SSH diferente y tiene problemas, consulte la documentación para el cliente SSH.
-    >
-    > Para más información, vea el documento [Uso de SSH con HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+* Un cliente SSH. Para más información, consulte [Conexión a través de SSH con HDInsight (Apache Hadoop)](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
 ## <a name="create-an-apache-kafka-cluster"></a>Creación de un clúster de Apache Kafka
 
 Siga estos pasos para crear un clúster de Apache Kafka en HDInsight:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com).
+1. Inicie sesión en el [Azure Portal](https://portal.azure.com).
 
-1. En el menú de la izquierda, seleccione **+ Crear un recurso**.
-
-1. En **Azure Marketplace**, seleccione **Analytics**.
-
-1. En **Destacados**, seleccione **HDInsight**.
+2. En el menú de la izquierda, vaya a la opción **+ Crear un recurso** > **Analytics** > **HDInsight**.
    
     ![Creación de un clúster de HDInsight](./media/apache-kafka-get-started/create-hdinsight.png)
 
-2. En **Básico**, escriba o seleccione la siguiente información:
+3. En **Básico**, escriba o seleccione la siguiente información:
 
     | Configuración | Valor |
     | --- | --- |
@@ -70,18 +54,18 @@ Siga estos pasos para crear un clúster de Apache Kafka en HDInsight:
    
    ![Configuración básica del clúster de Apache Kafka en HDInsight](./media/apache-kafka-get-started/hdinsight-basic-configuration-1.png)
 
-3. En __Configuración del clúster__, seleccione los valores siguientes:
+4. En __Configuración del clúster__, seleccione los valores siguientes:
 
     | Configuración | Valor |
     | --- | --- |
     | Tipo de clúster | Kafka |
     | Versión | Kafka 1.1.0 (HDI 3.6) |
 
-    Use el botón **Seleccionar** para guardar la configuración del tipo de clúster y vuelva a __Básico__.
+    Seleccione **Seleccionar** para guardar la configuración del tipo de clúster y vuelva a __Básico__.
 
     ![Seleccionar el tipo de clúster](./media/apache-kafka-get-started/kafka-cluster-type.png)
 
-4. En __Básico__, escriba o seleccione la siguiente información:
+5. En __Básico__, escriba o seleccione la siguiente información:
 
     | Configuración | Valor |
     | --- | --- |
@@ -96,23 +80,23 @@ Siga estos pasos para crear un clúster de Apache Kafka en HDInsight:
     >
     > Para lograr la alta disponibilidad de los datos, seleccione una ubicación (región) que contenga __tres dominios de error__. Para información sobre el número de dominios de error de una región, consulte el documento sobre la [disponibilidad de las máquinas virtuales Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
-   ![Seleccione la suscripción.](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
+   ![Selección de la suscripción](./media/apache-kafka-get-started/hdinsight-basic-configuration-2.png)
 
-    Use el botón __Siguiente__ para finalizar la configuración básica.
+    Seleccione __Siguiente__ para finalizar la configuración básica.
 
-5. En esta guía de inicio rápido, deje la configuración predeterminada de seguridad. Para más información acerca de Enterprise Security Package, visite [Configurar un clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). Para obtener información acerca de cómo usar su propia clave de cifrado de disco de Apache Kafka, visite [Aporte su propia clave para Apache Kafka en Azure HDInsight (versión preliminar)](apache-kafka-byok.md)
+6. En esta guía de inicio rápido, deje la configuración predeterminada de seguridad. Para más información acerca de Enterprise Security Package, visite [Configurar un clúster de HDInsight con Enterprise Security Package mediante Azure Active Directory Domain Services](../domain-joined/apache-domain-joined-configure-using-azure-adds.md). Para obtener información acerca de cómo usar su propia clave de cifrado de disco de Apache Kafka, visite [Aporte su propia clave para Apache Kafka en Azure HDInsight (versión preliminar)](apache-kafka-byok.md)
 
    Si desea conectar su clúster a una red virtual, seleccione una red virtual desde la lista desplegable **Red virtual**.
 
    ![Incorporación de un clúster a una red virtual](./media/apache-kafka-get-started/kafka-security-config.png)
 
-6. Desde **Storage**, seleccione o cree una cuenta de Storage. Para seguir los pasos de este documento, deje los demás campos con los valores predeterminados. Use el botón __Siguiente__ para guardar la configuración de almacenamiento. Para más información sobre el uso de Data Lake Storage Gen2, consulte [Guía de inicio rápido: Configuración de clústeres en HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
+7. Desde **Storage**, seleccione o cree una cuenta de Storage. Para seguir los pasos de este documento, deje los demás campos con los valores predeterminados. Use el botón __Siguiente__ para guardar la configuración de almacenamiento. Para más información sobre el uso de Data Lake Storage Gen2, consulte [Guía de inicio rápido: Configuración de clústeres en HDInsight](../../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md).
 
    ![Configuración de la cuenta de almacenamiento de HDInsight](./media/apache-kafka-get-started/storage-configuration.png)
 
-7. En __Aplicaciones (opcional)__, seleccione __Siguiente__ para continuar con la configuración predeterminada.
+8. En __Aplicaciones (opcional)__, seleccione __Siguiente__ para continuar con la configuración predeterminada.
 
-8. En __Tamaño de clúster__, seleccione __Siguiente__ para continuar con la configuración predeterminada.
+9. En __Tamaño de clúster__, seleccione __Siguiente__ para continuar con la configuración predeterminada.
 
     > [!IMPORTANT]  
     > Para garantizar la disponibilidad de Apache Kafka en HDInsight, la entrada del __número de nodos de trabajo__ debe establecerse en 3 o más. El valor predeterminado es 4.
@@ -122,9 +106,9 @@ Siga estos pasos para crear un clúster de Apache Kafka en HDInsight:
 
    ![Establecimiento del tamaño de clúster de Apache Kafka](./media/apache-kafka-get-started/kafka-cluster-size.png)
 
-9. En __Configuración avanzada__, seleccione __Siguiente__ para continuar con la configuración predeterminada.
+10. En __Configuración avanzada__, seleccione __Siguiente__ para continuar con la configuración predeterminada.
 
-10. En **Resumen**, revise la configuración para el clúster. Use los vínculos __Edit__ (Editar) para cambiar cualquier configuración incorrecta. Por último, use el botón __Crear__ para crear el clúster.
+11. En **Resumen**, revise la configuración para el clúster. Use los vínculos __Edit__ (Editar) para cambiar cualquier configuración incorrecta. Por último, seleccione **Crear** para crear el clúster.
    
     ![Resumen de configuración del clúster](./media/apache-kafka-get-started/kafka-configuration-summary.png)
    
@@ -143,29 +127,28 @@ Siga estos pasos para crear un clúster de Apache Kafka en HDInsight:
 
 3. Cuando se le solicite, escriba la contraseña del usuario de SSH.
 
-Una vez que se haya conectado, verá información similar al texto siguiente:
+    Una vez que se haya conectado, verá información similar al texto siguiente:
+    
+    ```text
+    Authorized uses only. All activity may be monitored and reported.
+    Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
+    
+     * Documentation:  https://help.ubuntu.com
+     * Management:     https://landscape.canonical.com
+     * Support:        https://ubuntu.com/advantage
+    
+      Get cloud support with Ubuntu Advantage Cloud Guest:
+        https://www.ubuntu.com/business/services/cloud
+    
+    83 packages can be updated.
+    37 updates are security updates.
 
-```text
-Authorized uses only. All activity may be monitored and reported.
-Welcome to Ubuntu 16.04.4 LTS (GNU/Linux 4.13.0-1011-azure x86_64)
 
- * Documentation:  https://help.ubuntu.com
- * Management:     https://landscape.canonical.com
- * Support:        https://ubuntu.com/advantage
-
-  Get cloud support with Ubuntu Advantage Cloud Guest:
-    https://www.ubuntu.com/business/services/cloud
-
-83 packages can be updated.
-37 updates are security updates.
-
-
-
-Welcome to Apache Kafka on HDInsight.
-
-Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
-ssuhuser@hn0-mykafk:~$
-```
+    Welcome to Apache Kafka on HDInsight.
+    
+    Last login: Thu Mar 29 13:25:27 2018 from 108.252.109.241
+    ssuhuser@hn0-mykafk:~$
+    ```
 
 ## <a id="getkafkainfo"></a>Obtención de la información del host de Apache Zookeeper y del agente
 
@@ -173,59 +156,58 @@ Cuando se trabaja con Kafka, debe conocer los hosts de *Apache Zookeeper* y del 
 
 En esta sección, obtendrá la información de host de la API de REST de Apache Ambari en el clúster.
 
-1. Desde la conexión SSH al clúster, use el siguiente comando para instalar la utilidad `jq`. Esta utilidad se usa para analizar documentos JSON y es útil para recuperar la información de host:
+1. Instale [jq](https://stedolan.github.io/jq/), un procesador JSON de línea de comandos. Esta utilidad se usa para analizar documentos JSON y es útil para analizar la información de host. En la conexión SSH abierta, escriba el siguiente comando para instalar `jq`:
    
     ```bash
     sudo apt -y install jq
     ```
 
-2. Para establecer una variable de entorno en el nombre del clúster, use el comando siguiente:
-
-    > [!Important]
-    > Escriba el nombre del clúster en minúsculas para este comando, aunque se aprovisionara con letras mayúsculas en el nombre. No se pueden usar nombres en mayúsculas con Zookeeper ni para obtener información de agente.
+2. Configure las variables de entorno. Reemplace `PASSWORD` y `CLUSTERNAME` por la contraseña de inicio de sesión del clúster y el nombre del clúster, respectivamente y, después, escriba el comando:
 
     ```bash
-    read -p "Enter the Kafka on HDInsight cluster name: " CLUSTERNAME
+    export password='PASSWORD'
+    export clusterNameA='CLUSTERNAME'
     ```
 
-    Cuando se le solicite, escriba el nombre del clúster de Apache Kafka.
+3. Extraiga el nombre del clúster con las mayúsculas y minúsculas correctas. Las mayúsculas y minúsculas reales del nombre del clúster pueden no ser como cabría esperar, dependen de la forma en que se haya creado el clúster. Este comando obtendrá las mayúsculas y minúsculas reales, las almacenará en una variable y, después, mostrará el nombre con las mayúsculas y minúsculas correctas y el nombre que especificó anteriormente. Escriba el comando siguiente:
 
-3. Para establecer una variable de entorno con la información de host de Zookeeper, use el comando siguiente:
+    ```bash
+    export clusterName=$(curl -u admin:$password -sS -G "https://$clusterNameA.azurehdinsight.net/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
+    echo $clusterName, $clusterNameA
+    ```
+
+4. Para establecer una variable de entorno con la información de host de Zookeeper, use el comando siguiente:
     
     ```bash
-    export KAFKAZKHOSTS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
+    export KAFKAZKHOSTS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/ZOOKEEPER/components/ZOOKEEPER_SERVER | jq -r '["\(.host_components[].HostRoles.host_name):2181"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    > [!TIP]
-    > Este comando realiza una consulta directamente al servicio Ambari en el nodo principal del clúster. También puede acceder a Ambari utilizando la dirección pública `https://$CLUSTERNAME.azurehdinsight.net:80/`. Algunas configuraciones de red pueden impedir el acceso a la dirección pública. Por ejemplo, mediante grupos de seguridad de red (NSG) para restringir el acceso a HDInsight en una red virtual.
+    > [!TIP]  
+    > Este comando realiza una consulta directamente al servicio Ambari en el nodo principal del clúster. También puede acceder a Ambari mediante la dirección pública `https://$CLUSTERNAME.azurehdinsight.net:80/`. Algunas configuraciones de red pueden impedir el acceso a la dirección pública. Por ejemplo, mediante grupos de seguridad de red (NSG) para restringir el acceso a HDInsight en una red virtual.
 
-    Cuando se le solicite, escriba la contraseña de la cuenta de inicio de sesión del clúster (no la cuenta de SSH).
-
-    > [!NOTE]
+    > [!NOTE]  
     > Este comando recupera todos los hosts de Zookeeper y, a continuación, devuelve solo las dos primeras entradas. Esto se debe a que quiere cierta redundancia en caso de que un host sea inaccesible.
 
-4. Para comprobar que la variable de entorno se ha establecido correctamente, use el comando siguiente:
+5. Para comprobar que la variable de entorno se ha establecido correctamente, use el comando siguiente:
 
     ```bash
-     echo '$KAFKAZKHOSTS='$KAFKAZKHOSTS
+    echo $KAFKAZKHOSTS
     ```
 
     Este comando devuelve información similar al texto siguiente:
 
     `zk0-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181,zk2-kafka.eahjefxxp1netdbyklgqj5y1ud.ex.internal.cloudapp.net:2181`
 
-5. Para establecer una variable de entorno con la información de host del agente de Apache Kafka, use el comando siguiente:
+6. Para establecer una variable de entorno con la información de host del agente de Apache Kafka, use el comando siguiente:
 
     ```bash
-    export KAFKABROKERS=`curl -sS -u admin -G http://headnodehost:8080/api/v1/clusters/$CLUSTERNAME/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
+    export KAFKABROKERS=`curl -sS -u admin:$password -G http://headnodehost:8080/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2`
     ```
 
-    Cuando se le solicite, escriba la contraseña de la cuenta de inicio de sesión del clúster (no la cuenta de SSH).
-
-6. Para comprobar que la variable de entorno se ha establecido correctamente, use el comando siguiente:
+7. Para comprobar que la variable de entorno se ha establecido correctamente, use el comando siguiente:
 
     ```bash   
-    echo '$KAFKABROKERS='$KAFKABROKERS
+    echo $KAFKABROKERS
     ```
 
     Este comando devuelve información similar al texto siguiente:
@@ -248,14 +230,14 @@ Kafka almacena flujos de datos en *temas*. Puede usar la utilidad `kafka-topics.
 
     * Cada partición se replica en tres nodos de trabajo del clúster.
 
-        > [!IMPORTANT]
+        > [!IMPORTANT]  
         > Si ha creado el clúster en una región de Azure que proporciona tres dominios de error, use un factor de replicación de 3. De lo contrario, use un factor de replicación de 4.
         
         En regiones con tres dominios de error, un factor de replicación de 3 permite que las réplicas se distribuyan entre los dominios de error. En regiones con dos dominios de error, un factor de replicación de cuatro permite que las réplicas se distribuyan equitativamente entre los dominios.
         
         Para información sobre el número de dominios de error de una región, consulte el documento sobre la [disponibilidad de las máquinas virtuales Linux](../../virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set).
 
-        > [!IMPORTANT] 
+        > [!IMPORTANT]  
         > Apache Kafka no es compatible con dominios de error de Azure. Al crear réplicas de la partición de temas, puede que estas no se distribuyan correctamente con alta disponibilidad.
 
         Para garantizar la alta disponibilidad, use la [herramienta de reequilibrado de particiones de Apache Kafka](https://github.com/hdinsight/hdinsight-kafka-tools). Esta herramienta se debe ejecutar desde una conexión SSH en el nodo principal del clúster de Apache Kafka.
@@ -282,7 +264,7 @@ Kafka almacena flujos de datos en *temas*. Puede usar la utilidad `kafka-topics.
 
     Este comando elimina el tema `topicname`.
 
-    > [!WARNING]
+    > [!WARNING]  
     > Si elimina el tema `test` que ha creado anteriormente, debe volver a crearlo. Se usa más adelante en este documento.
 
 Para obtener más información acerca de los comandos disponibles con la utilidad `kafka-topics.sh`, use el siguiente comando:
@@ -332,7 +314,7 @@ Para quitar el grupo de recursos mediante Azure Portal:
 2. Busque el grupo de recursos que desea eliminar y haga clic con el botón derecho en __Más__ (...) en el lado derecho de la lista.
 3. Seleccione __Eliminar grupo de recursos__ y confirme la elección.
 
-> [!WARNING]
+> [!WARNING]  
 > La facturación del clúster de HDInsight se inicia una vez creado el clúster y solo se detiene cuando se elimina. Se facturan por minuto realizando una prorrata, por lo que siempre debe eliminar aquellos que ya no se estén utilizando.
 > 
 > Al eliminar un clúster de Apache Kafka en HDInsight se eliminan todos los datos almacenados en Kafka.
@@ -341,4 +323,3 @@ Para quitar el grupo de recursos mediante Azure Portal:
 
 > [!div class="nextstepaction"]
 > [Uso de Apache Spark con Apache Kafka](../hdinsight-apache-kafka-spark-structured-streaming.md)
-

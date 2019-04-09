@@ -4,137 +4,133 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 6d54d20c-eca1-4fa6-b56a-4c3ed0593db0
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 04/16/2018
+ms.topic: tutorial
+ms.date: 03/28/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a1a334c6c7852923da94403352bb7318b241629
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: MT
+ms.openlocfilehash: 1a2964d2a79238bd085afe9527d71a8b083286a9
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56735851"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848720"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trisotech-digital-enterprise-server"></a>Tutorial: Integración de Azure Active Directory con Trisotech Digital Enterprise Server
 
 En este tutorial, aprenderá a integrar Trisotech Digital Enterprise Server con Azure Active Directory (Azure AD).
-
 Integrar Trisotech Digital Enterprise Server con Azure AD le proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a Trisotech Digital Enterprise Server.
-- Puede permitir que los usuarios inicien sesión automáticamente en Trisotech Digital Enterprise Server (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Puede controlar en Azure AD quién tiene acceso a Trisotech Digital Enterprise Server.
+* Puede permitir que los usuarios inicien sesión automáticamente en Trisotech Digital Enterprise Server (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con Trisotech Digital Enterprise Server, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción con inicio de sesión único de Trisotech Digital Enterprise Server
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Una suscripción con inicio de sesión único de Trisotech Digital Enterprise Server
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Adición de Trisotech Digital Enterprise Server desde la galería
-1. Configuración y comprobación del inicio de sesión único de Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+
+* Trisotech Digital Enterprise Server admite el inicio de sesión único iniciado por **SP**.
+
+* Trisotech Digital Enterprise Server admite el aprovisionamiento de usuarios **Just-In-Time**.
 
 ## <a name="adding-trisotech-digital-enterprise-server-from-the-gallery"></a>Adición de Trisotech Digital Enterprise Server desde la galería
+
 Para configurar la integración de Trisotech Digital Enterprise Server en Azure AD, será preciso que agregue Trisotech Digital Enterprise Server desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Trisotech Digital Enterprise Server desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Botón Azure Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![Hoja Aplicaciones empresariales][2]
-    
-1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![Botón Nueva aplicación][3]
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-1. En el cuadro de búsqueda, escriba **Trisotech Digital Enterprise Server**, seleccione **Trisotech Digital Enterprise Server** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-    ![Trisotech Digital Enterprise Server en la lista de resultados](./media/trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_addfromgallery.png)
+4. En el cuadro de búsqueda, escriba **Trisotech Digital Enterprise Server**, seleccione **Trisotech Digital Enterprise Server** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+
+     ![Trisotech Digital Enterprise Server en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con Trisotech Digital Enterprise Server con un usuario de prueba llamado Britta Simon.
-
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de Trisotech Digital Enterprise Server para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Trisotech Digital Enterprise Server.
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con Trisotech Digital Enterprise Server con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Trisotech Digital Enterprise Server.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Trisotech Digital Enterprise Server, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de Trisotech Digital Enterprise Server](#create-a-trisotech-digital-enterprise-server-test-user)**: para tener un homólogo de Britta Simon en Trisotech Digital Enterprise Server que esté vinculado a la representación del usuario en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+2. **[Configuración del inicio de sesión único de Trisotech Digital Enterprise Server](#configure-trisotech-digital-enterprise-server-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de Trisotech Digital Enterprise Server](#create-trisotech-digital-enterprise-server-test-user)**: para tener un homólogo de Britta Simon en Trisotech Digital Enterprise Server que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, va a habilitar el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación Trisotech Digital Enterprise Server.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con Trisotech Digital Enterprise Server, realice los pasos siguientes:**
+Para configurar el inicio de sesión único de Azure AD con Trisotech Digital Enterprise Server, realice los pasos siguientes:
 
-1. En Azure Portal, en la página de integración de la aplicación **Trisotech Digital Enterprise Server**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Trisotech Digital Enterprise Server**, haga clic en **Inicio de sesión único**.
 
-    ![Vínculo Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Cuadro de diálogo Inicio de sesión único](./media/trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_samlbase.png)
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-1. En la sección **Trisotech Digital Enterprise Server Domain and URLs** (Dominio y direcciones URL de Trisotech Digital Enterprise Server), lleve a cabo los pasos siguientes:
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-    ![Información de inicio de sesión único de dominio y direcciones URL de Trisotech Digital Enterprise Server](./media/trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_url.png)
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.trisotech.com`.
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.trisotech.com`
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    > [!NOTE] 
-    > Estos valores no son reales. Debe actualizarlos con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de cliente de Trisotech Digital Enterprise Server](mailto:support@trisotech.com) para obtener estos valores.
+    ![Información de inicio de sesión único de dominio y direcciones URL de Trisotech Digital Enterprise Server](common/sp-identifier.png)
 
-1. En la sección **Certificado de firma de SAML**, haga clic en el botón Copiar para copiar la **dirección URL de metadatos de federación de la aplicación** y péguela en el Bloc de notas. 
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.trisotech.com`
 
-    ![Vínculo de descarga del certificado](./media/trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_certificate.png)
+    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://<companyname>.trisotech.com`
 
-1. Haga clic en el botón **Guardar** .
+    > [!NOTE]
+    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de cliente de Trisotech Digital Enterprise Server](mailto:support@trisotech.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-    ![Botón Configurar inicio de sesión único](./media/trisotechdigitalenterpriseserver-tutorial/tutorial_general_400.png)
+4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en el botón de copia para copiar **Dirección URL de metadatos de federación de aplicación** y guárdela en su equipo.
+
+    ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
+
+### <a name="configure-trisotech-digital-enterprise-server-single-sign-on"></a>Configuración del inicio de sesión único de Trisotech Digital Enterprise Server
 
 1. En otra ventana del explorador web, inicie sesión en el sitio web de la empresa Trisotech Digital Enterprise Server Configuration como administrador.
 
-1. Haga clic en el **icono de menú** y, después, seleccione **Administration** (Administración).
+2. Haga clic en el **icono de menú** y, después, seleccione **Administration** (Administración).
 
     ![Configurar inicio de sesión único](./media/trisotechdigitalenterpriseserver-tutorial/user1.png)
 
-1. Seleccione **User Provider** (Proveedor de usuarios).
+3. Seleccione **User Provider** (Proveedor de usuarios).
 
     ![Configurar inicio de sesión único](./media/trisotechdigitalenterpriseserver-tutorial/user2.png)
 
-1. En la sección **User Provider Configurations** (Configuración de proveedor de usuarios), realice los pasos siguientes:
+4. En la sección **User Provider Configurations** (Configuración de proveedor de usuarios), realice los pasos siguientes:
 
     ![Configurar inicio de sesión único](./media/trisotechdigitalenterpriseserver-tutorial/user3.png)
 
@@ -150,97 +146,74 @@ En esta sección, va a habilitar el inicio de sesión único de Azure AD en Azur
 
     f. Haga clic en **Guardar**
 
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-   ![Creación de un usuario de prueba de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Botón Azure Active Directory](./media/trisotechdigitalenterpriseserver-tutorial/create_aaduser_01.png)
+    ![Botón Nuevo usuario](common/new-user.png)
 
-1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+3. En las propiedades Usuario, siga estos pasos.
 
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/trisotechdigitalenterpriseserver-tutorial/create_aaduser_02.png)
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-1. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba brittasimon@yourcompanydomain.extension. Por ejemplo: BrittaSimon@contoso.com
 
-    ![Botón Agregar](./media/trisotechdigitalenterpriseserver-tutorial/create_aaduser_03.png)
-
-1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
-
-    ![Cuadro de diálogo Usuario](./media/trisotechdigitalenterpriseserver-tutorial/create_aaduser_04.png)
-
-     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
     d. Haga clic en **Create**(Crear).
- 
-### <a name="create-a-trisotech-digital-enterprise-server-test-user"></a>Creación de un usuario de prueba de Trisotech Digital Enterprise Server
-
-El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en Trisotech Digital Enterprise Server. Trisotech Digital Enterprise Server admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Al intentar acceder a Trisotech Digital Enterprise Server, se crea un nuevo usuario, en caso de que no exista.
->[!Note]
->Si tiene que crear manualmente un usuario, póngase en contacto con el  [equipo de soporte técnico de Trisotech Digital Enterprise Server](mailto:support@trisotech.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Trisotech Digital Enterprise Server.
 
-![Asignación de rol de usuario][200] 
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Trisotech Digital Enterprise Server**.
 
-**Para asignar Britta Simon a Trisotech Digital Enterprise Server, realice los pasos siguientes:**
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
+2. En la lista de aplicaciones, seleccione **Trisotech Digital Enterprise Server**.
 
-    ![Asignar usuario][201] 
+    ![Vínculo de Trisotech Digital Enterprise Server en la lista de aplicaciones](common/all-applications.png)
 
-1. En la lista de aplicaciones, seleccione **Trisotech Digital Enterprise Server**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![Vínculo de Trisotech Digital Enterprise Server en la lista de aplicaciones](./media/trisotechdigitalenterpriseserver-tutorial/tutorial_trisotechdigitalenterpriseserver_app.png)  
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![Vínculo "Usuarios y grupos"][202]
+    ![Panel Agregar asignación](common/add-assign-user.png)
 
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-    ![Panel Agregar asignación][203]
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+### <a name="create-trisotech-digital-enterprise-server-test-user"></a>Creación de un usuario de prueba de Trisotech Digital Enterprise Server
 
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+En esta sección se va a crear un usuario de prueba llamado Britta Simon en Trisotech Digital Enterprise Server. Trisotech Digital Enterprise Server admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si un usuario deja de existir en Trisotech Digital Enterprise Server, se crea uno después de la autenticación.
+
+>[!Note]
+>Si tiene que crear manualmente un usuario, póngase en contacto con el [equipo de soporte técnico de Trisotech Digital Enterprise Server](mailto:support@trisotech.com).
+
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Trisotech Digital Enterprise Server en el panel de acceso, debería iniciar sesión automáticamente en su aplicación Trisotech Digital Enterprise Server.
-Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Al hacer clic en el icono de Trisotech Digital Enterprise Server en el panel de acceso, debería iniciar sesión automáticamente en la aplicación Trisotech Digital Enterprise Server para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-<!--Image references-->
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-[1]: ./media/trisotechdigitalenterpriseserver-tutorial/tutorial_general_01.png
-[2]: ./media/trisotechdigitalenterpriseserver-tutorial/tutorial_general_02.png
-[3]: ./media/trisotechdigitalenterpriseserver-tutorial/tutorial_general_03.png
-[4]: ./media/trisotechdigitalenterpriseserver-tutorial/tutorial_general_04.png
-
-[100]: ./media/trisotechdigitalenterpriseserver-tutorial/tutorial_general_100.png
-
-[200]: ./media/trisotechdigitalenterpriseserver-tutorial/tutorial_general_200.png
-[201]: ./media/trisotechdigitalenterpriseserver-tutorial/tutorial_general_201.png
-[202]: ./media/trisotechdigitalenterpriseserver-tutorial/tutorial_general_202.png
-[203]: ./media/trisotechdigitalenterpriseserver-tutorial/tutorial_general_203.png
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

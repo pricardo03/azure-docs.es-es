@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 0d8fd6a0422ee26610f58f872cba4487d4e01e6b
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: cac685cc3f5a19e9da134df87076299e3f38fe11
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403636"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58880980"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Tutorial: Integración de Azure Active Directory con Periscope Data
 
@@ -109,7 +109,7 @@ Para configurar el inicio de sesión único de Azure AD con Periscope Data, real
     | |
     |--|
     | `https://app.periscopedata.com/` |
-    | ` https://app.periscopedata.com/app/<SITENAME>` |
+    | `https://app.periscopedata.com/app/<SITENAME>` |
 
     b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://app.periscopedata.com/<SITENAME>/sso`
 
@@ -231,9 +231,9 @@ Al hacer clic en el icono de Periscope Data en el panel de acceso, debería inic
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

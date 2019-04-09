@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: dd14ec4f4b6395e5733f4f17165e94ca7e77f883
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/03/2019
+ms.openlocfilehash: 1e1cb509f296d8bed8efc3a3d520a1c480c1f775
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008635"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58885305"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms-preview"></a>Tutorial: Migración de MongoDB a la API de Azure Cosmos DB para MongoDB sin conexión mediante DMS (versión preliminar)
 Puede usar Azure Database Migration Service para realizar una migración en línea (tiempo de inactividad mínimo) de las bases de datos desde una instancia local o en la nube de MongoDB a la API de Azure Cosmos DB para MongoDB.
@@ -54,7 +54,7 @@ Para completar este tutorial, necesita:
     >
     > Esta configuración es necesaria porque la instancia de Azure Database Migration Service carece de conectividad a internet.
 
-- Asegúrese de que las reglas del grupo de seguridad de red de VNET no bloquean los puertos de comunicación: 443, 53, 9354, 445 y 12000. Para obtener información más detallada sobre el filtrado de tráfico con NSG de Azure VNET, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Asegúrese de que las reglas del grupo de seguridad de red de VNET no bloquean los siguientes puertos de comunicación de entrada a Azure Database Migration Service: 443, 53, 9354, 445 y 12000. Para obtener información más detallada sobre el filtrado de tráfico con NSG de Azure VNET, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Cambie el firewall del servidor de origen para permitir que Azure Database Migration Service acceda al servidor de MongoDB de origen que, de manera predeterminada, es el puerto TCP 27017.
 - Cuando se usa un dispositivo de firewall frente a las bases de datos de origen, puede que sea necesario agregar reglas de firewall para permitir que Azure Database Migration Service acceda a las bases de datos de origen para realizar la migración.
 

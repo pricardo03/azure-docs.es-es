@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ca50c7cbbcccadf96641c28e43f7da48421c8f3b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 98acb6c5b83ce31046b50f744492c518cdf77498
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994428"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621658"
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Introducción a las características de Azure Backup
 Azure Backup es el servicio de Azure que puede usar para realizar una copia de seguridad de los datos (protegerlos) y recuperarlos en la nube de Microsoft. Reemplaza su solución de copia de seguridad local o remota existente por una solución confiable, segura y rentable basada en la nube. Azure Backup ofrece varios componentes que se descargan e implementan en el equipo o servidor adecuados, o en la nube. El componente, o agente, que se implemente depende de lo que quiera proteger. Todos los componentes de Azure Backup (sin importar si va a proteger los datos de forma local o en la nube) se pueden usar para realizar una copia de seguridad de datos en un almacén de Azure Recovery Services. Para más información sobre qué componente usar para proteger datos, aplicaciones o cargas de trabajo específicos, consulte la [tabla de componentes de Azure Backup](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (más adelante en este artículo).
@@ -37,7 +37,11 @@ Las soluciones de copia de seguridad tradicionales han evolucionado para tratar 
 
 **Transferencia de datos ilimitada**: Azure Backup no limita la cantidad de datos de entrada y salida que se transfieren. Tampoco cobra por los datos que se transfieren. Sin embargo, si usa el servicio Azure Import/Export para importar grandes cantidades de datos, existe un costo asociado con los datos de entrada. Para más información sobre este costo, consulte [Flujo de trabajo de copia de seguridad sin conexión en Azure Backup](backup-azure-backup-import-export.md). Datos de salida hacen referencia a los datos transferidos desde un almacén de Recovery Services durante una operación de restauración.
 
-**Cifrado de datos**: el cifrado de datos permite la transmisión y el almacenamiento seguros de los datos en la nube pública. La frase de contraseña de cifrado se almacena localmente y nunca se transmite ni se almacena en Azure. Si es necesario restaurar algunos de los datos, solo cuenta con la frase de contraseña o clave de cifrado.
+**Cifrado de datos**:
+- En el entorno local, los datos en tránsito se cifran en la máquina local mediante AES256. Los datos transmitidos se protegen con HTTPS entre el almacenamiento y la copia de seguridad. El protocolo iSCSI protege los datos transmitidos entre el servicio de recuperación y la máquina del usuario. Se usa la tunelización segura para proteger el canal iSCSI.
+- En el entorno local para una copia de seguridad de Azure, los datos de Azure se cifran en reposo con la frase de contraseña que proporcione al configurar las copias de seguridad. La frase de contraseña o la clave nunca se transmiten ni se almacenan en Azure. Si es necesario restaurar algunos de los datos, solo cuenta con la frase de contraseña o clave de cifrado.
+- Para las máquinas virtuales de Azure, los datos se cifran en reposo con Storage Service Encryption (SSE). Backup cifra automáticamente los datos antes de almacenarlos. Azure Storage descifra los datos antes de recuperarlos.
+- Backup también admite máquinas virtuales de Azure cifradas mediante Azure Disk Encryption (ADE). [Más información](backup-azure-vms-introduction.md#encryption-of-azure-vm-backups).
 
 **Copia de seguridad coherente con la aplicación**: una copia de seguridad coherente con la aplicación significa un punto de recuperación que tiene todos los datos necesarios para restaurar la copia de seguridad. Azure Backup proporciona copias de seguridad coherentes con la aplicación, lo que garantiza que no se necesitarán correcciones adicionales para restaurar los datos. La restauración de datos coherentes con la aplicación reduce el tiempo de restauración, lo que permite volver rápidamente a un estado de ejecución.
 
@@ -84,9 +88,9 @@ En la siguiente tabla se muestran los componentes de Azure Backup que son compat
 **Componente** | **Linux (reconocido por Azure)**
 --- | ---
 Agente de Azure Backup (MARS) | No (solo agente basado en Windows)
-System Center DPM | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare</br></br> Copia de seguridad coherente con archivo no disponible para las máquinas virtuales de Azure
+System Center DPM | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare<br/><br/> Restauraciones de máquinas virtuales invitadas de Linux en Hyper-V y VMWare</br></br> Copia de seguridad coherente con archivo no disponible para las máquinas virtuales de Azure
 Servidor de Azure Backup | Copia de seguridad coherente con archivo de máquinas virtuales invitadas de Linux en Hyper-V y VMWare<br/><br/> Restauración de máquinas virtuales invitadas de Linux en Hyper-V y VMWare</br></br> Copia de seguridad coherente con archivo no disponible para las máquinas virtuales de Azure
-Copia de seguridad de máquina virtual de IaaS de Azure | Copia de seguridad coherente con la aplicación mediante un [plataforma de scripts previos y posteriores](backup-azure-linux-app-consistent.md)<br/><br/> [Recuperación de nivel de archivo](backup-azure-restore-files-from-vm.md)<br/><br/> [Creación de una máquina virtual a partir de discos restaurados](backup-azure-arm-restore-vms.md#create-new-restore-disks)<br/><br/> [Creación de una máquina virtual a partir de un punto de recuperación](backup-azure-arm-restore-vms.md#create-new-create-a-vm)
+Copia de seguridad de máquina virtual de IaaS de Azure | Copia de seguridad coherente con la aplicación mediante un [plataforma de scripts previos y posteriores](backup-azure-linux-app-consistent.md)<br/><br/> [Recuperación de nivel de archivo](backup-azure-restore-files-from-vm.md)<br/><br/> [Creación de una máquina virtual a partir de discos restaurados](backup-azure-arm-restore-vms.md#restore-disks)<br/><br/> [Creación de una máquina virtual a partir de un punto de recuperación](backup-azure-arm-restore-vms.md#create-a-vm)
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Uso de máquinas virtuales de Premium Storage con Azure Backup
 Azure Backup protege las máquinas virtuales de Premium Storage. Azure Premium Storage es almacenamiento basado en unidades de estado sólido (SSD) diseñado para admitir cargas de trabajo de E/S intensivas. Premium Storage es adecuado para cargas de trabajo de máquina virtual (VM). Para más información sobre Premium Storage y otros tipos de disco, consulte el artículo [Selección de un tipo de disco](../virtual-machines/windows/disks-types.md).

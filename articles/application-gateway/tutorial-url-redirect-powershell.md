@@ -3,19 +3,15 @@ title: 'Creación de una puerta de enlace de aplicaciones con redireccionamiento
 description: Aprenda a crear una puerta de enlace de aplicaciones con tráfico redirigido basado en rutas de URL con Azure PowerShell.
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
-ms.topic: tutorial
-ms.workload: infrastructure-services
-ms.date: 11/13/2018
+ms.date: 4/3/2019
 ms.author: victorh
-ms.custom: mvc
-ms.openlocfilehash: 91cc28ec3df6a1d9ef4fc773687a0ec2870b623d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
+ms.openlocfilehash: febe02ac7fe4dfcb4140a8e5796c4c9fa86f6de3
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001385"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58918389"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Creación de una puerta de enlace de aplicaciones con redireccionamiento basado en rutas de dirección URL con Azure PowerShell
 
@@ -41,11 +37,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Si decide instalar y usar PowerShell de forma local, en este tutorial necesitará la versión 1.0.0 del módulo de Azure PowerShell o cualquier versión posterior. Para encontrar la versión, ejecute ` Get-Module -ListAvailable Az`. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
+Si decide instalar y usar PowerShell de forma local, en este tutorial necesitará la versión 1.0.0 del módulo de Azure PowerShell o cualquier versión posterior. Para encontrar la versión, ejecute `Get-Module -ListAvailable Az`. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Connect-AzAccount` para crear una conexión con Azure.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos de Azure con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
+Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos de Azure mediante [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupAG -Location eastus
@@ -502,7 +498,7 @@ Get-AzPublicIPAddress -ResourceGroupName myResourceGroupAG -Name myAGPublicIPAdd
 
 ![Prueba de la dirección URL base en la puerta de enlace de aplicaciones](./media/tutorial-url-redirect-powershell/application-gateway-iistest.png)
 
-Cambie la dirección URL por http://&lt;dirección-ip&gt;:8080/video/test.htm, sustituyendo &lt;dirección-ip&gt; por su dirección IP y verá algo similar al ejemplo siguiente:
+Cambie la dirección URL por http://&lt;dirección-ip&gt;:8080/images/test.htm, sustituyendo &lt;dirección-ip&gt; por su dirección IP y verá algo similar al ejemplo siguiente:
 
 ![Prueba de la dirección URL de imágenes en la puerta de enlace de aplicaciones](./media/tutorial-url-redirect-powershell/application-gateway-iistest-images.png)
 
@@ -522,4 +518,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Obtenga más información sobre lo que puede hacer con la puerta de enlace de aplicaciones](application-gateway-introduction.md).
+> [Más información acerca de lo que se puede hacer con la puerta de enlace de aplicaciones](application-gateway-introduction.md)

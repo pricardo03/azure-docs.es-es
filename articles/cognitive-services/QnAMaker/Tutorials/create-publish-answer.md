@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
-ms.openlocfilehash: 42d53cee48be73a0d151b6f44d381463fa1c4e16
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d209d73d67af96e99589dddcb71b6b50214356ee
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102169"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877285"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Tutorial: Uso de C# para crear una base de conocimiento y responder a las preguntas
 
@@ -32,10 +32,10 @@ Este tutorial le guía mediante la creación y publicación de una base de conoc
 
 En esta guía de inicio rápido se llama a las siguientes API de QnA Maker:
 
-* [Creación de una base de conocimiento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+* [Creación de una base de conocimientos](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 * [Obtención de los detalles de la operación](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
-* [Obtención de los detalles de la base de conocimiento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) 
-* [Obtención de los puntos de conexión de la base de conocimiento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys)
+* [Obtención de los detalles de la base de conocimientos](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) 
+* [Obtención de los puntos de conexión de la base de conocimientos](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys)
 * [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 
 
 ## <a name="prerequisites"></a>Requisitos previos
@@ -158,7 +158,7 @@ El _punto de conexión principal_ se pasa como encabezado para autenticar la sol
 
 |Nombre de encabezado|Valor de encabezado|
 |--|--|
-|Autorización|`Endpoint ` + **punto de conexión principal**<br>Ejemplo: `Endpoint xxxxxxx`<br>Observe el espacio entre el texto de `Endpoint` y el valor del punto de conexión principal. 
+|Autorización|`Endpoint` + **punto de conexión principal**<br>Ejemplo: `Endpoint xxxxxxx`<br>Observe el espacio entre el texto de `Endpoint` y el valor del punto de conexión principal. 
 
 El cuerpo de la solicitud debe usar el JSON adecuado:
 

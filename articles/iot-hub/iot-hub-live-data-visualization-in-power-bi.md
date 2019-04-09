@@ -1,20 +1,20 @@
 ---
 title: Visualización de información en tiempo real de los datos del sensor desde Azure IoT Hub – Power BI | Microsoft Docs
 description: Use Power BI para visualizar datos de temperatura y humedad que se recopilan desde el sensor y se le envían a Azure IoT Hub.
-author: rangv
+author: robinsh
 keywords: visualización de datos en tiempo real, visualización de datos en directo, visualización de datos de sensor
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 4/11/2018
-ms.author: rangv
-ms.openlocfilehash: 240895f4e8567426fec8e270b96b9e6528392a46
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: robinsh
+ms.openlocfilehash: 5349a8a81c1d1361637b4fc9cf83e1ee83f5276a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103084"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265515"
 ---
 # <a name="visualize-real-time-sensor-data-from-azure-iot-hub-using-power-bi"></a>Visualización de datos del sensor en tiempo real desde Azure IoT Hub mediante Power BI
 

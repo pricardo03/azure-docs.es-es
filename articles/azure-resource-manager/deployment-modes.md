@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/27/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: 5213affe953636c46486614ee2a020d7727e1478
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: d2de802b2170feb6130cdce8007e16cc37561f5e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57407543"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265396"
 ---
 # <a name="azure-resource-manager-deployment-modes"></a>Modos de implementación de Azure Resource Manager
 
@@ -28,11 +28,13 @@ En ambos modos, Resource Manager intenta crear todos los recursos especificados 
 
 En el modo completo, Resource Manager **elimina** los recursos que existen en el grupo de recursos pero que no se especifican en la plantilla. Los recursos especificados en la plantilla que están sin implementar porque una [condición](resource-group-authoring-templates.md#condition) se evalúa como false no se eliminan.
 
-Hay algunas diferencias en la forma en que los diferentes tipos de recursos controlan las eliminaciones en modo completo. Los recursos principales se eliminan automáticamente cuando no están en una plantilla implementada en modo completo. Por el contrario, algunos recursos secundarios no se eliminan automáticamente cuando no están en la plantilla. Sin embargo, estos recursos secundarios sí se eliminan si lo hace el recurso principal. 
+Hay algunas diferencias en cómo los tipos de recursos para controlar las eliminaciones de modo completo. Los recursos principales se eliminan automáticamente cuando no están en una plantilla implementada en modo completo. Por el contrario, algunos recursos secundarios no se eliminan automáticamente cuando no están en la plantilla. Sin embargo, estos recursos secundarios se eliminan si se elimina el recurso primario. 
 
-Por ejemplo, si el grupo de recursos contiene una zona DNS (Microsoft.Network/tipo de recurso dnsZones) y un registro CNAME (Microsoft.Network/dnsZones/tipo de recurso CNAME), la zona DNS estará en el recurso principal del registro CNAME. Si la implementación se realiza en modo completo y no se incluye la zona DNS en la plantilla, se eliminará tanto la zona DNS como el registro CNAME. Si se incluye la zona DNS en la plantilla pero no se incluye el registro CNAME, el registro CNAME no se eliminará. 
+Por ejemplo, si el grupo de recursos contiene una zona DNS (Microsoft.Network/tipo de recurso dnsZones) y un registro CNAME (Microsoft.Network/dnsZones/tipo de recurso CNAME), la zona DNS estará en el recurso principal del registro CNAME. Si la implementación se realiza en modo completo y no se incluye la zona DNS en la plantilla, se eliminará tanto la zona DNS como el registro CNAME. Si incluye la zona DNS en la plantilla, pero no incluyen el registro CNAME, no se elimina el registro CNAME. 
 
 Para ver una lista del modo en que los diferentes tipos de recursos administran las eliminaciones, consulte [Eliminación de recursos de Azure en implementaciones en modo completo](complete-mode-deletion.md).
+
+Si el grupo de recursos es [bloqueado](resource-group-lock-resources.md), el modo completo, no elimina los recursos.
 
 > [!NOTE]
 > Solo las plantillas de nivel de raíz admiten el modo de implementación completa. En cuanto a [ plantillas vinculadas o anidadas ](resource-group-linked-templates.md), debe usar el modo incremental. 

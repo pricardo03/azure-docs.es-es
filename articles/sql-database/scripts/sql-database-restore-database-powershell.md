@@ -1,6 +1,6 @@
 ---
 title: Ejemplo de PowerShell para restaurar una instancia de Azure SQL Database a partir de una copia de seguridad | Microsoft Docs
-description: Script de ejemplo de Azure PowerShell para restaurar base de datos única de Azure SQL a partir de copias de seguridad con redundancia geográfica
+description: Script de ejemplo de Azure PowerShell para restaurar una base de datos única de Azure SQL a un momento anterior a partir de copias de seguridad automáticas
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -11,17 +11,17 @@ author: mashamsft
 ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 3bfefa704fdd819b3841dcc58866c310353bfdc3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 03/27/2019
+ms.openlocfilehash: f58cc930ace2dc1fc65aa0494fd6c1510ee5ff29
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57883617"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621352"
 ---
-# <a name="use-powershell-to-restore-an-azure-sql-single-database-from-backups"></a>Uso de PowerShell para restaurar una base de datos única de Azure SQL a partir de copias de seguridad
+# <a name="use-powershell-to-restore-an-azure-sql-single-database-to-an-earlier-point-in-time"></a>Uso de PowerShell para restaurar una base de datos única de Azure SQL a un momento anterior
 
-Este script de PowerShell restaura una instancia de Azure SQL Database desde una copia de seguridad con redundancia geográfica y restaura una instancia de Azure SQL Database eliminada a la copia de seguridad más reciente y restaura una instancia de Azure SQL Database a un momento dado.  
+En este ejemplo de script de PowerShell se restaura una base de datos Azure SQL a un momento dado.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.date: 7/13/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: fa54f814e3247c20b8a2c9a176bdc4fdaff7cc6a
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: f9352735b360b687d89acc6491c9b33dcda934ac
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57311821"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881943"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Crear una puerta de enlace de aplicaciones que hospede varios sitios web mediante Azure PowerShell
 
@@ -38,11 +38,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Si decide instalar y usar PowerShell de forma local, en este tutorial necesitará la versión 1.0.0 del módulo de Azure PowerShell o cualquier versión posterior. Para encontrar la versión, ejecute ` Get-Module -ListAvailable Az`. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzAccount` para crear una conexión con Azure.
+Si decide instalar y usar PowerShell de forma local, en este tutorial necesitará la versión 1.0.0 del módulo de Azure PowerShell o cualquier versión posterior. Para encontrar la versión, ejecute `Get-Module -ListAvailable Az`. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzAccount` para crear una conexión con Azure.
 
 ## <a name="create-a-resource-group"></a>Crear un grupo de recursos
 
-Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos de Azure con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
+Un grupo de recursos es un contenedor lógico en el que se implementan y se administran los recursos de Azure. Cree un grupo de recursos de Azure mediante [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).  
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myResourceGroupAG -Location eastus

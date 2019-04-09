@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: overview
 ms.date: 02/20/2019
 ms.author: pafarley
-ms.openlocfilehash: 7a6424921b869428d1dbeffadd68e173a32d8821
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.openlocfilehash: 440471acb6e122bf25ba21b0ab3b5a2f7d9b021d
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56455253"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58758139"
 ---
 # <a name="what-is-azure-content-moderator"></a>¿Qué es Azure Content Moderator?
 
@@ -41,24 +41,23 @@ El servicio Content Moderator consta de varias API de servicio de web disponible
 
 El servicio Content Moderator incluye API para los escenarios siguientes.
 
-| . | DESCRIPCIÓN |
+| Grupo de API | DESCRIPCIÓN |
 | ------ | ----------- |
-|[**Moderación de texto**](text-moderation-api.md)| Analiza si el texto contiene contenido ofensivo, sexualmente explícito o sugerente, blasfemias e información personal identificable (PII).|
+|[**Moderación de texto**](text-moderation-api.md)| Examina si el texto contiene contenido ofensivo, sexualmente explícito o sugerente, blasfemias y datos personales.|
 |[**Listas de términos personalizada**](try-terms-list-api.md)| Analiza el texto con respecto a una lista personalizada de términos, además de los términos integrados. Use listas personalizadas para bloquear o permitir el contenido en función de sus propias directivas de contenido.|  
 |[**Moderación de imágenes**](image-moderation-api.md)| Analiza imágenes en busca de contenido para adultos o inapropiado, detecta texto en imágenes con la funcionalidad de reconocimiento óptico de caracteres (OCR) y detecta rostros.|
 |[**Listas de imágenes personalizadas**](try-image-list-api.md)| Analiza imágenes con una lista personalizada de imágenes. Use las listas de imágenes personalizadas para filtrar el contenido comúnmente recurrente que no desea volver a clasificar.|
 |[**Moderación en vídeos**](video-moderation-api.md)| Examina si los vídeos tienen contenido para adultos o inapropiado y devuelve los marcadores de tiempo de dicho contenido.|
-|[**Revisión**](try-review-api-job.md)| Use las operaciones de [Jobs](try-review-api-job.md), [Reviews](try-review-api-review.md) y [Workflow](try-review-api-workflow.md) para crear y automatizar los flujos de trabajo administrados por personas con la herramienta de revisión humana. La API de flujo de trabajo aún no está disponible mediante el SDK de .NET.|
+|[**Revisión de las API**](try-review-api-job.md)| Use las operaciones de [Jobs](try-review-api-job.md), [Reviews](try-review-api-review.md) y [Workflow](try-review-api-workflow.md) para crear y automatizar los flujos de trabajo administrados por personas con la herramienta de revisión humana. La API de flujo de trabajo aún no está disponible mediante .NET SDK.|
 
-### <a name="human-review-tool"></a>Herramienta de revisión humana
+### <a name="review-tool"></a>Herramienta de revisión
 
-El servicio Content Moderator también incluye [herramienta de revisión humana](Review-Tool-User-Guide/human-in-the-loop.md) basada en web. 
+El servicio Content Moderator también incluye la [herramienta de revisión](Review-Tool-User-Guide/human-in-the-loop.md) basada en web, que hospeda las revisiones del contenido para su procesamiento por parte de moderadores humanos. La entrada humana no entrena el servicio, pero el trabajo combinado del servicio y los equipos de revisión humana permite a los desarrolladores lograr un equilibrio adecuado entre eficacia y precisión. La herramienta de revisión también proporciona un servidor front-end sencillo para diversos recursos de Content Moderator.
 
 ![Página principal de la herramienta de revisión humana de Content Moderator](images/homepage.PNG)
 
-Las API de revisión se pueden usar para configurar las revisiones por parte del equipo del contenido de texto, imagen y vídeo, según los filtros que especifique. A continuación, los moderadores humanos pueden tomar las decisiones finales con respecto a la moderación. La entrada humana no entrena el servicio, pero el trabajo combinado del servicio y los equipos de revisión humana permite a los desarrolladores lograr un equilibrio adecuado entre eficacia y precisión.
-
 ## <a name="data-privacy-and-security"></a>Seguridad y privacidad de los datos
+
 Al igual que sucede con todas las instancias de Cognitive Services, los desarrolladores que usan el servicio Content Moderator deben estar al tanto de las directivas de Microsoft sobre los datos de los clientes. Para más información, consulte la [página de Cognitive Services](https://www.microsoft.com/trustcenter/cloudservices/cognitiveservices) en Microsoft Trust Center.
 
 ## <a name="next-steps"></a>Pasos siguientes

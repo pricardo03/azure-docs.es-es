@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: kumud;tyao
-ms.openlocfilehash: 2553dccaa57e5340bf36bbccdf7826d242716300
-ms.sourcegitcommit: fbfe56f6069cba027b749076926317b254df65e5
+ms.openlocfilehash: bdbf0d78b45291e7482c1af3999c8ce3980ef36f
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58472640"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578499"
 ---
 # <a name="how-to-set-up-a-geo-filtering-waf-policy-for-your-front-door"></a>Procedimientos para configurar una directiva de WAF de filtrado geográfico para Front Door
 En este tutorial se muestra cómo usar Azure PowerShell para crear una directiva de filtrado geográfico de ejemplo y a asociarla con el host de front-end de Front Door existente. Esta directiva de filtrado geográfico de ejemplo bloqueará las solicitudes de todos los países, salvo Estados Unidos.
@@ -79,7 +79,7 @@ $nonUSBlockRule = New-AzFrontDoorCustomRuleObject `
 ## <a name="add-rules-to-a-policy"></a>Adición de reglas a una directiva
 Busque el nombre del grupo de recursos que contiene el perfil de Front Door que usan `Get-AzResourceGroup`. A continuación, cree un objeto de directiva `geoPolicy` que contenga `nonUSBlockRule` para lo que usa [New-AzFrontDoorFireWallPolicy](/powershell/module/az.frontdoor/new-azfrontdoorfirewallPolicy) en el grupo de recursos especificado que contiene el perfil de Front Door. Debe especificar un nombre único para la directiva de replicación geográfica. 
 
-En el ejemplo siguiente se usa el nombre de grupo de recursos *myResourceGroupFD1* con la suposición de que ha creado el perfil de Front Door mediante las instrucciones proporcionadas en el artículo [Inicio rápido: Creación de una instancia de Front Door](quickstart-create-front-door.md).
+En el ejemplo siguiente se usa el nombre de grupo de recursos *myResourceGroupFD1* con la suposición de que ha creado el perfil de Front Door mediante las instrucciones proporcionadas en el artículo [Inicio rápido: Creación de una instancia de Front Door](quickstart-create-front-door.md). En el ejemplo siguiente, reemplace el nombre de la directiva *geoPolicyAllowUSOnly* con un nombre de directiva único.
 
 ```
 $geoPolicy = New-AzFrontDoorFireWallPolicy `

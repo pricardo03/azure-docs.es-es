@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 791b224f141dc0baa5babc401c35d6860a213df5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5a2472e78a9da223b0c651551d7cc8e05ab6eea9
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875041"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905501"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Tutorial: Integración de Azure Active Directory con Slack
 
@@ -53,7 +53,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 Para configurar la integración de Slack en Azure AD, tendrá que agregar Slack desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Slack desde la galería, realice los pasos siguientes:**
+**Para agregar Slack desde la galería, siga estos pasos:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -206,7 +206,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -247,7 +247,7 @@ El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon 
 > Si necesita crear manualmente un usuario, es preciso que se ponga en contacto con el [equipo de soporte técnico de Slack](https://slack.com/help/contact).
 
 > [!NOTE]
-> Azure AD Connect es la herramienta de sincronización que permite sincronizar usuarios locales de Active Directory Identity con Azure AD. A continuación, estos usuarios sincronizados también podrán usar las aplicaciones como otros usuarios en la nube.
+> Azure AD Connect es la herramienta de sincronización que puede sincronizar usuarios locales de Active Directory Identity con Azure AD y estos usuarios sincronizados también podrán usar las aplicaciones como otros usuarios en la nube.
 
 ### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
@@ -263,4 +263,4 @@ Al hacer clic en el icono de Slack en el panel de acceso y debería iniciar sesi
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Configuración del aprovisionamiento de usuarios](slack-provisioning-tutorial.md)
+- [Configurar aprovisionamiento de usuarios](slack-provisioning-tutorial.md)

@@ -1,20 +1,19 @@
 ---
-title: 'Guía de inicio rápido de introducción a Apache Kafka: Azure HDInsight'
+title: 'Inicio rápido: Configuración de Apache Kafka en HDInsight mediante Azure PowerShell'
 description: En esta guía de inicio rápido, aprenderá a crear un clúster de Apache Kafka en Azure HDInsight con Azure PowerShell. También aprenderá sobre los temas, los suscriptores y los consumidores de Kafka.
-services: hdinsight
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: mvc,hdinsightactive
+ms.custom: mvc
 ms.topic: quickstart
 ms.date: 04/16/2018
-ms.openlocfilehash: 42384d3ef025640e302ef8173a25965580784319
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: c86e5faa212fb6458326e00cba02fbe2ea83c8f7
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361207"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58850332"
 ---
 # <a name="quickstart-create-an-apache-kafka-on-hdinsight-cluster"></a>Inicio rápido: Creación de un clúster de Apache Kafka en HDInsight
 
@@ -83,7 +82,7 @@ New-AzStorageAccount `
         -Location $location
 ```
 
-HDInsight almacena los datos en la cuenta de almacenamiento en un contenedor de blobs. Use [New-AzStorageContainer](/powershell/module/Azure.Storage/New-AzStorageContainer) para crear un contenedor nuevo.
+HDInsight almacena los datos en la cuenta de almacenamiento en un contenedor de blobs. Use [New-AzStorageContainer](/powershell/module/Az.Storage/New-AzStorageContainer) para crear un contenedor nuevo.
 
 ```powershell
 $containerName = Read-Host -Prompt "Enter the container name"

@@ -1,5 +1,5 @@
 ---
-title: Creación de una asignación de directiva para recursos no compatibles mediante una plantilla de Resource Manager
+title: Creación de una asignación de directiva con una plantilla de Resource Manager
 description: Este artículo le guiará por los pasos para usar una plantilla de Resource Manager para crear una asignación de directiva para identificar recursos no compatibles.
 services: azure-policy
 author: DCtheGeek
@@ -8,12 +8,12 @@ ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 6ff76a66eba42fd87e88846f9ec2378bd63893f2
-ms.sourcegitcommit: 4133f375862fdbdec07b70de047d70c66ac29d50
+ms.openlocfilehash: 354d5aa250449b87345cef17778befddc761fa19
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/15/2019
-ms.locfileid: "58008621"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802514"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Creación de una asignación de directiva para identificar recursos no compatibles mediante una plantilla de Resource Manager
 
@@ -31,14 +31,14 @@ En este inicio rápido, creará una asignación de directiva y asignará una def
 Existen varios métodos de creación de asignaciones de directivas. En este inicio rápido se usa una [plantilla de inicio rápido](https://azure.microsoft.com/resources/templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/).
 Esta es una copia de la plantilla:
 
-[!code-json[policy-assingment](~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json)]
+[!code-json[policy-assignment](~/quickstart-templates/101-azurepolicy-assign-builtinpolicy-resourcegroup/azuredeploy.json)]
 
 > [!NOTE]
 > El servicio Azure Policy es gratuito.  Para más información, consulte la [Introducción a Azure Policy](./overview.md).
 
 1. Seleccione la siguiente imagen para iniciar sesión en Azure Portal y abrir la plantilla:
 
-   <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json"><img src="./media/assign-policy-template/deploy-to-azure.png" alt="deploy to azure"/></a>
+   [![Implementación de la plantilla en Azure](./media/assign-policy-template/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-azurepolicy-assign-builtinpolicy-resourcegroup%2Fazuredeploy.json)
 
 1. Seleccione o escriba los siguientes valores:
 
@@ -46,9 +46,9 @@ Esta es una copia de la plantilla:
    |------|-------|
    | Subscription | Seleccione su suscripción a Azure. |
    | Grupos de recursos | Seleccione **Crear**, especifique un nombre y seleccione **Aceptar**. En la captura de pantalla, el nombre del grupo de recursos es *mypolicyquickstart<Date in MMDD>rg*. |
-   | Ubicación | Seleccione una región. Por ejemplo, **Centro de EE. UU.**. |
+   | Ubicación | Seleccione una región. Por ejemplo, **Centro de EE. UU**. |
    | Nombre de la asignación de directiva | Especifique un nombre para la asignación de directiva. Si lo desea, puede usar la definición de directiva en pantalla. Por ejemplo, **Auditoría de máquinas virtuales que no usan discos administrados**. |
-   | Nombre del grupo de recursos | Especifique un nombre para el grupo de recursos donde desea asignar la directiva. En este inicio rápido se usa el valor predeterminado **[resourceGroup().name]**. **[resourceGroup()](/azure/azure-resource-manager/resource-group-template-functions-resource#resourcegroup)** es una función de plantilla que recupera el grupo de recursos. |
+   | Nombre del grupo de recursos | Especifique un nombre para el grupo de recursos donde desea asignar la directiva. En este inicio rápido se usa el valor predeterminado **[resourceGroup().name]**. **[resourceGroup()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)** es una función de plantilla que recupera el grupo de recursos. |
    | ID de definición de directiva | Especifique **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-b460-a2d36003525a**. |
    | Acepto los términos y condiciones indicados anteriormente | (Seleccionar) |
 
@@ -65,7 +65,7 @@ Algunos recursos adicionales:
 
 Seleccione **Cumplimiento** en el panel izquierdo de la página. A continuación, busque la asignación de directiva **Auditoría de máquinas virtuales que no usan discos administrados** que ha creado.
 
-![Cumplimiento de directivas](./media/assign-policy-template/policy-compliance.png)
+![Página de información general del cumplimiento de directivas](./media/assign-policy-template/policy-compliance.png)
 
 Si hay algún recurso existente no compatible con esta nueva asignación, aparecerá en la pestaña **Recursos no compatibles**.
 
@@ -79,7 +79,7 @@ Para quitar la asignación creada, siga estos pasos:
 
 1. Haga clic con el botón derecho en la asignación de directiva **Auditoría de máquinas virtuales que no usan discos administrados** y seleccione **Eliminar asignación**.
 
-   ![Eliminación de una asignación](./media/assign-policy-template/delete-assignment.png)
+   ![Eliminación de una asignación de la página de información general de cumplimiento](./media/assign-policy-template/delete-assignment.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -1,24 +1,25 @@
 ---
-title: 'Tutorial: Creación del módulo personalizado de Python: Azure IoT Edge | Microsoft Docs'
+title: 'Creación del módulo personalizado de Python: Azure IoT Edge | Microsoft Docs'
 description: En este tutorial, se explica cómo se crea un módulo IoT Edge con código Python y cómo se implementa en un dispositivo perimetral.
 services: iot-edge
 author: shizn
 manager: philmea
+ms.reviewer: kgremban
 ms.author: xshi
-ms.date: 01/04/2019
+ms.date: 03/24/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 24ca97c21ac3728880db4c924179be1b78ec2f18
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: 0affd965bbfc587933a9cdbf5b96c470a6e4dd6a
+ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55565775"
+ms.lasthandoff: 03/28/2019
+ms.locfileid: "58578295"
 ---
 # <a name="tutorial-develop-and-deploy-a-python-iot-edge-module-to-your-simulated-device"></a>Tutorial: Desarrollo e implementación de un módulo de Python de IoT Edge en su dispositivo simulado
 
-Los módulos Azure IoT Edge se pueden usar para implementar código que, a su vez, implementa una lógica de negocios directamente en los dispositivos IoT Edge. En este tutorial, se detallan los pasos para crear e implementar un módulo de IoT Edge que filtra los datos de sensor. Utilizará el dispositivo de IoT Edge simulado que creó en las guías de inicio rápido. En este tutorial, aprenderá a:    
+Los módulos Azure IoT Edge se pueden usar para implementar código que, a su vez, implementa una lógica de negocios directamente en los dispositivos IoT Edge. En este tutorial, se detallan los pasos para crear e implementar un módulo de IoT Edge que filtra los datos de sensor en el dispositivo IoT Edge que configuró en el inicio rápido. En este tutorial, aprenderá a:    
 
 > [!div class="checklist"]
 > * Usar Visual Studio Code para crear un módulo de Python para IoT Edge.
@@ -36,8 +37,8 @@ El módulo IoT Edge que creó en este tutorial filtra lo datos sobre la temperat
 
 Un dispositivo de Azure IoT Edge:
 
-* Puede usar la máquina de desarrollo o una máquina virtual como dispositivo Edge siguiendo los pasos que se indican en la guía de inicio rápido para [Linux](quickstart-linux.md).
-* Los módulos de Python para IoT Edge no admiten dispositivos Windows.
+* Puede usar una máquina de Azure como dispositivo de IoT Edge; para ello, siga los pasos que se indican en el artículo de inicio rápido para [Linux](quickstart-linux.md).
+* Los módulos de Python para IoT Edge no admiten contenedores Windows.
 
 Recursos en la nube:
 
@@ -48,9 +49,10 @@ Recursos de desarrollo:
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) para Visual Studio Code.
 * [Extensión de Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) para Visual Studio Code. 
-* [Docker CE](https://docs.docker.com/engine/installation/). 
 * [Python](https://www.python.org/downloads/)
 * [Pip](https://pip.pypa.io/en/stable/installing/#installation) para instalar paquetes de Python (normalmente, se incluye con la instalación de Python).
+* [Docker CE](https://docs.docker.com/install/). 
+  * Si está desarrollando en una máquina Windows, asegúrese de que Docker esté [configurado para usar contenedores de Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
 
 >[!Note]
 >Asegúrese de que su carpeta `bin` se encuentra en la ruta de acceso de su plataforma. Normalmente `~/.local/` para UNIX y macOS, o `%APPDATA%\Python` en Windows.
@@ -91,7 +93,7 @@ Use el paquete **cookiecutter** de Python para crear una plantilla con la que ge
 
 1. En Visual Studio Code, seleccione **Ver** > **Terminal** para abrir el terminal integrado de VS Code.
 
-2. En el terminal integrado, escriba el siguiente comando para instalar (o actualizar) **cookiecutter**, ya que lo necesitará para crear la plantilla de la solución de IoT Edge en VS Code:
+2. En el terminal, escriba el siguiente comando para instalar (o actualizar) **cookiecutter**, ya que lo necesitará para crear la plantilla de la solución de IoT Edge:
 
     ```cmd/sh
     pip install --upgrade --user cookiecutter
@@ -105,7 +107,7 @@ Use el paquete **cookiecutter** de Python para crear una plantilla con la que ge
 
 4. En la paleta de comandos, escriba y ejecute el comando **Azure: Sign in** (Azure: iniciar sesión) y siga las instrucciones para iniciar sesión en la cuenta de Azure. Si ya ha iniciado sesión, puede omitir este paso.
 
-5. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge solution** (Nueva solución de IoT Edge). Para crear la solución, siga las indicaciones de la paleta de comandos.
+5. En la paleta de comandos, escriba y ejecute el comando **Azure IoT Edge: New IoT Edge solution** (Azure IoT Edge: nueva solución de IoT Edge). Siga los mensajes y proporcione la siguiente información para crear la solución:
 
    | Campo | Valor |
    | ----- | ----- |
@@ -129,9 +131,9 @@ Si no especificó un registro de contenedor al crear la solución y aceptó el v
 
 El archivo del entorno almacena las credenciales del repositorio de contenedores y las comparte con el entorno de ejecución de IoT Edge. El entorno de ejecución necesita estas credenciales para extraer las imágenes privadas e insertarlas en el dispositivo IoT Edge. 
 
-1. En el explorador de VS Code, abra el archivo .env. 
+1. En el explorador de VS Code, abra el archivo **.env**. 
 2. Actualice los campos con los valores de **nombre de usuario** y **contraseña** que ha copiado del Registro de contenedor de Azure. 
-3. Guarde este archivo. 
+3. Guarde el archivo .env. 
 
 ### <a name="update-the-module-with-custom-code"></a>Actualización del módulo con código personalizado
 
@@ -206,7 +208,7 @@ Cada plantilla incluye un código de ejemplo, que toma los datos del sensor simu
 
 8. En el explorador de VS Code, abra el archivo **deployment.template.json** en el área de trabajo de la solución de IoT Edge. Este archivo le indica al agente de IoT Edge qué módulos implementar, en este caso **tempSensor** y **PythonModule**, y a IoT Edge Hub cómo enrutar los mensajes entre ellos. La extensión de Visual Studio Code rellena de forma automática la mayor parte de la información que necesita en la plantilla de implementación, aunque comprueba que todo sea correcto para la solución: 
 
-   1. La plataforma predeterminada de la instancia de IoT Edge está establecida en **amd64** en la barra de estado de VS Code, lo que significa que **PythonModule** está establecido en la versión Linux amd64 de la imagen. Cambie la plataforma predeterminada en la barra de estado de **amd64** a **arm32v7** o **windows-amd64** si esa es la arquitectura del dispositivo de IoT Edge. 
+   1. La plataforma predeterminada de la instancia de IoT Edge está establecida en **amd64** en la barra de estado de VS Code, lo que significa que **PythonModule** está establecido en la versión Linux amd64 de la imagen. Cambie la plataforma predeterminada en la barra de estado de **amd64** a **arm32v7** si esa es la arquitectura del dispositivo de IoT Edge. 
 
       ![Actualización de la plataforma de imagen del módulo](./media/tutorial-python-module/image-platform.png)
 
@@ -241,6 +243,9 @@ En la sección anterior, creó una solución de IoT Edge y agregó código a **P
    ```
    Utilice el nombre de usuario, la contraseña y el servidor de inicio de sesión que copió de Azure Container Registry en la primera sección. También puede recuperar estos valores en la sección **Claves de acceso** del registro en Azure Portal.
 
+   También puede ver una advertencia de seguridad que recomienda el uso del parámetro --password-stdin. Cuando su uso esté fuera del ámbito de este artículo, recomendamos seguir este procedimiento recomendado. Para más información, vea la referencia del comando [docker login](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin). 
+
+
 2. En el explorador de VS Code, haga clic con el botón derecho en el archivo deployment.template.json y seleccione **Build and Push IoT Edge solution** (Compilar e insertar solución de IoT Edge). 
 
 Cuando le indica a Visual Studio Code que compile la solución, esta herramienta primero toma la información de la plantilla de implementación y genera un archivo deployment.json en una nueva carpeta denominada **config**. Después, ejecuta dos comandos en el terminal integrado: `docker build` y `docker push`. Estos dos comandos compilan el código, empaquetan el código Python en contenedores e insertan el código en el registro de contenedor que especificó cuando inicializó la solución. 
@@ -250,7 +255,7 @@ Puede ver la dirección completa de la imagen de contenedor con la etiqueta del 
 >[!TIP]
 >Si recibe un error al intentar compilar e insertar su módulo, realice las siguientes comprobaciones:
 >* ¿Ha iniciado sesión en Docker en Visual Studio Code con las credenciales de su registro de contenedor? Estas credenciales son diferentes a las que se utilizan para iniciar sesión en Azure Portal.
->* ¿Es el repositorio de contenedor correcto? Abra **Módulos** > **cmodule** > **module.json** y busque el campo **repositorio**. El repositorio de imágenes final será similar a este: **\<nombre del Registro\>.azurecr.io/pythonmodule**. 
+>* ¿Es el repositorio de contenedor correcto? Abra **módulos** > **PythonModule** > **module.json** y busque el campo **repositorio**. El repositorio de imágenes final será similar a este: **\<nombre del Registro\>.azurecr.io/pythonmodule**. 
 >* ¿Va a compilar el mismo tipo de contenedores que está ejecutando la máquina de desarrollo? Visual Studio Code establece de forma predeterminada contenedores de Linux amd64. Si el equipo de desarrollo ejecuta contenedores de Linux arm32v7, actualice la plataforma en la barra de estado azul en la parte inferior de la ventana de VS Code para que coincida. Los módulos de Python no son compatibles con los contenedores de Windows. 
 
 ## <a name="deploy-and-run-the-solution"></a>Implementación y ejecución de la solución
@@ -267,7 +272,7 @@ En el artículo de la guía de inicio rápido que siguió para configurar el dis
 
    ![Crear una implementación para un dispositivo individual](./media/tutorial-python-module/create-deployment.png)
 
-5. Seleccione el archivo **deployment.json** de la carpeta **config** y, a continuación, haga clic en **Select Edge Deployment Manifest** (Seleccionar manifiesto de implementación de Edge). No utilice el archivo deployment.template.json. 
+5. Seleccione el archivo **deployment.amd64** o **deployment.arm32v7** (dependiendo de la arquitectura de destino) en la carpeta **config** y, a continuación, haga clic en **Seleccionar Edge Deployment Manifest**. No utilice el archivo deployment.template.json. 
 
 6. Haga clic en el botón Actualizar. Debería ver el nuevo **PythonModule** en ejecución junto con el módulo **TempSensor**, así como **$edgeAgent** y **$edgeHub**. 
 
@@ -287,7 +292,7 @@ Puede ver los mensajes conforme llegan a IoT Hub mediante Visual Studio Code.
 2. Para supervisar el mensaje de D2C de un determinado dispositivo, haga clic con el botón derecho en un dispositivo de la lista y seleccione **Start Monitoring D2C Messages** (Iniciar supervisión de mensajes de D2C).
 3. Para detener la supervisión de datos, ejecute el comando **Azure IoT Hub: Stop Monitoring D2C Message** (Detener supervisión de mensaje de D2C) en la paleta de comandos. 
 4. Para ver o actualizar el módulo gemelo, haga clic con el botón derecho en el módulo de la lista y seleccione **Edit module twin** (Editar módulo gemelo). Para actualizar el módulo gemelo, guarde el archivo JSON gemelo, haga clic con el botón derecho en el área del editor y seleccione **Update Module Twin** (Actualizar módulo gemelo).
-5. Para ver los registros de Docker, instale [Docker](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker) para VS Code. Puede encontrar los módulos que se están ejecutando localmente en el explorador de Docker. En el menú contextual, haga clic en **Show Logs** (Mostrar registros) en la vista del terminal integrado. 
+5. Abra los registros de Docker e instale [la extensión de Docker para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker). Puede encontrar los módulos que se están ejecutando localmente en el explorador de Docker. En el menú contextual, haga clic en **Show Logs** (Mostrar registros) en la vista del terminal integrado. 
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos 
 
@@ -297,36 +302,6 @@ En caso contrario, para evitar gastos, puede eliminar las configuraciones locale
 
 [!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-### <a name="delete-local-resources"></a>Eliminación de recursos locales
-
-Si desea eliminar el runtime de Azure IoT Edge y los recursos relacionados del dispositivo, use los siguientes comandos. 
-
-Quite el entorno de ejecución de Azure IoT Edge.
-
-   ```bash
-   sudo apt-get remove --purge iotedge
-   ```
-
-Cuando se quita el entorno de ejecución de Azure IoT Edge, los contenedores que se han creado se detienen, pero siguen existiendo en el dispositivo. Vea todos los contenedores.
-
-   ```bash
-   sudo docker ps -a
-   ```
-
-Elimine los contenedores del entorno de ejecución que se crearon en el dispositivo.
-
-   ```bash
-   docker rm -f edgeHub
-   docker rm -f edgeAgent
-   ```
-
-Elimine los contenedores adicionales que se muestran en la salida `docker ps` haciendo referencia a los nombres de los contenedores. 
-
-Quite el entorno de ejecución del contenedor.
-
-   ```bash
-   sudo apt-get remove --purge moby
-   ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 

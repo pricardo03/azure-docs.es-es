@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 138bc0350e4eecac4639125dc3ae508ddbbd7d72
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234873"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58893748"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Creación de una tabla de clasificación cache-aside en ASP.NET
 
@@ -79,7 +79,7 @@ Para más información acerca de este paquete, consulte la página [EntityFramew
     using System.Data.Entity.SqlServer;
     ```
 
-1. Reemplace la definición de la clase `Team` por el siguiente fragmento de código que contiene una definición de clase `Team` actualizada, así como algunas otras clases de asistente de Entity Framework. Este tutorial utiliza el enfoque de Code First con Entity Framework. Este enfoque permite a Entity Framework crear la base de datos desde el código. Para más información sobre el enfoque de Code First en Entity Framework, consulte [Code First para una nueva base de datos](https://msdn.microsoft.com/data/jj193542).
+1. Reemplace la definición de la clase `Team` por el siguiente fragmento de código que contiene una definición de clase `Team` actualizada, así como algunas otras clases de asistente de Entity Framework. Este tutorial utiliza el enfoque de Code First con Entity Framework. Este enfoque permite a Entity Framework crear la base de datos desde el código. Para más información sobre el enfoque de Code First en Entity Framework, consulte [Code First para una nueva base de datos](/ef/ef6/modeling/code-first/workflows/new-database).
 
     ```csharp
     public class Team
@@ -663,7 +663,7 @@ En esta sección, aprovisionará una nueva base de datos SQL de Azure para que l
    | Configuración       | Valor sugerido | DESCRIPCIÓN |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nombre de la base de datos** | *ContosoTeamsDatabase* | Para conocer los nombres de base de datos válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). |
-   | **Suscripción** | *Su suscripción*  | Seleccione la misma suscripción que usó para crear la memoria caché y hospedar la instancia de App Service. |
+   | **Subscription** | *Su suscripción*  | Seleccione la misma suscripción que usó para crear la memoria caché y hospedar la instancia de App Service. |
    | **Grupos de recursos**  | *TestResourceGroup* | Haga clic en **Usar existente** y use el grupo de recursos en el que colocó la memoria caché y App Service. |
    | **Seleccionar origen** | **Base de datos en blanco** | Comience con una base de datos en blanco. |
 
@@ -671,10 +671,10 @@ En esta sección, aprovisionará una nueva base de datos SQL de Azure para que l
 
    | Configuración       | Valor sugerido | DESCRIPCIÓN |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
-   | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). |
+   | **Nombre de servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
+   | **Inicio de sesión de administrador de servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). |
    | **Contraseña** | Cualquier contraseña válida | La contraseña debe tener un mínimo de 8 caracteres y debe contener caracteres de tres de las siguientes categorías: caracteres en mayúsculas, caracteres en minúsculas, números y caracteres no alfanuméricos. |
-   | **Ubicación** | *Este de EE. UU.* | Seleccione la región en la que creó la caché y la instancia de App Service. |
+   | **Ubicación** | *Este de EE. UU* | Seleccione la región en la que creó la caché y la instancia de App Service. |
 
 1. Haga clic en **Anclar al panel** y, después, en **Crear** para crear la nueva base de datos y el servidor.
 

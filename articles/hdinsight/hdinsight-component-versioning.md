@@ -2,20 +2,19 @@
 title: 'Componentes y versiones de Apache Hadoop: Azure HDInsight'
 description: Conozca los componentes y las versiones de Apache Hadoop en HDInsight y los niveles de servicio disponibles en esta distribución de nube de Hortonworks Data Platform.
 keywords: versiones de Hadoop, componentes del ecosistema de Hadoop, componentes de Hadoop, cómo comprobar la versión de Hadoop
-services: hdinsight
-ms.reviewer: jasonh
 author: hrasheed-msft
+ms.author: hrasheed
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 03/26/2019
-ms.author: hrasheed
-ms.openlocfilehash: 1783bf51c33a1dec84572b76149771a9723fe209
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 1c8977090fe0ea0dfd5822c7bb448d313de7cf14
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519653"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917930"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>¿Cuáles son los componentes y versiones de Apache Hadoop disponibles con HDInsight?
 
@@ -57,7 +56,7 @@ En la tabla siguiente se enumeran las versiones de componente asociadas a las ve
 | Control deslizante de Apache |-| 0.92.0 |-|-|-|-|-|-|
 
 > [!NOTE]
-> Debido a consideraciones de rendimiento del sistema, compatibilidad con Kafka versión 0.10 había caducado en marzo de 2019.
+> Debido a consideraciones de rendimiento del sistema, la compatibilidad con la versión 0.10 de Kafka expiró en marzo de 2019.
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>Comprobación de la información de la versión de los componentes actuales de Hadoop
 
@@ -75,7 +74,7 @@ Las tablas siguientes enumeran las versiones de HDInsight. Las versiones de HDP 
 
 ### <a name="available-versions"></a>Versiones disponibles
 
-En la tabla siguiente se enumera las versiones de HDInsight que están disponibles en el portal de Azure, así como otros métodos de implementación como PowerShell y .NET SDK.
+En la tabla siguiente se enumeran las versiones de HDInsight que están disponibles en Azure Portal, así como otros métodos de implementación como PowerShell y SDK de .NET.
 
 | Versión de HDInsight | Versión de HDP | SISTEMA OPERATIVO DE LA MÁQUINA VIRTUAL | Fecha de lanzamiento | Fecha de expiración del soporte técnico | Fecha de retirada | Alta disponibilidad |  Disponibilidad en Azure Portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -83,15 +82,15 @@ En la tabla siguiente se enumera las versiones de HDInsight que están disponibl
 | HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |4 de abril de 2017 | | |Sí |Sí |
 | HDInsight 3.5 <br> (Spark)\* |HDP 2.6 |Ubuntu 16.0.4 LTS |30 de septiembre de 2016 |13 de marzo de 2019 |13 de marzo de 2019 |Sí |Sí |
 
-*&ast;Se amplió la compatibilidad de HDInsight 3.5 solo para los tipos de clúster de Spark*
+*&ast;La compatibilidad con HDInsight 3.5 solo se ha ampliado para los tipos de clúster de Spark*
 
 > [!NOTE]  
-> Cuando expira la compatibilidad de una versión, puede dejar de estar disponible en Microsoft Azure Portal. Sin embargo, las versiones de clúster seguirán estando disponibles usando el `Version` parámetro en Windows PowerShell [New AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) comando y el SDK de .NET hasta la fecha de retirada de la versión.
+> Cuando expira la compatibilidad de una versión, puede dejar de estar disponible en Microsoft Azure Portal. Sin embargo, las versiones del clúster seguirán estando disponibles mediante el parámetro `Version` del comando [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) de Windows PowerShell y en el SDK de .NET hasta la fecha de retirada de la versión.
 >
 
 ### <a name="retired-versions"></a>Versiones retiradas
 
-La tabla siguiente enumeran las versiones de HDInsight que están **no** disponibles en el portal de Azure.
+En la tabla siguiente se enumeran las versiones de HDInsight que **no** están disponibles en Azure Portal.
 
 | Versión de HDInsight | Versión de HDP | SISTEMA OPERATIVO DE LA MÁQUINA VIRTUAL | Fecha de lanzamiento | Fecha de expiración del soporte técnico | Fecha de retirada | Alta disponibilidad |  Disponibilidad en Azure Portal | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -281,7 +280,7 @@ En las tablas siguientes se indican los tamaños de máquina virtual predetermin
 
 ## <a name="next-steps"></a>Pasos siguientes
 - [Configuración de clúster para Apache Hadoop, Spark, etc. en HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
-- [Trabajo en Apache Hadoop en HDInsight desde un equipo Windows](hdinsight-hadoop-windows-tools.md)
+- [Uso de Apache Hadoop en HDInsight desde un equipo Windows](hdinsight-hadoop-windows-tools.md)
 
 [Supported HDInsight versions]:(#supported-hdinsight-versions)
 

@@ -4,139 +4,139 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
-ms.reviewer: joflore
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: 34123629-4ad5-465c-a4c1-8299f857e720
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 10/20/2017
+ms.topic: tutorial
+ms.date: 03/27/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88f998949713e9f5789b4fdf49cd877e2cb2015b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c5375bc88281eb31637f42b1f13b59cb11a8ade8
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56195321"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58848592"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-timelive"></a>Tutorial: Integración de Azure Active Directory con TimeLive
 
 En este tutorial, obtendrá información acerca de cómo integrar TimeLive con Azure Active Directory (Azure AD).
-
 La integración de TimeLive con Azure AD proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD quién tiene acceso a TimeLive.
-- Puede habilitar que los usuarios inicien sesión automáticamente en TimeLive (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: Azure Portal.
+* Puede controlar en Azure AD quién tiene acceso a TimeLive.
+* Puede permitir que los usuarios inicien sesión automáticamente en TimeLive (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea saber más sobre la integración de aplicaciones SaaS con Azure AD, consulte [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con TimeLive, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada para el inicio de sesión único en TimeLive
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No use el entorno de producción, salvo que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede [obtener una versión de prueba durante un mes](https://azure.microsoft.com/pricing/free-trial/).
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
+* Una suscripción habilitada para el inicio de sesión único en TimeLive
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Adición de TimeLive desde la galería
-1. Configuración y comprobación del inicio de sesión único de Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
+
+* TimeLive admite inicio de sesión único iniciado por **SP**
+
+* TimeLive admite el aprovisionamiento de usuarios **Just-In-Time**.
 
 ## <a name="adding-timelive-from-the-gallery"></a>Adición de TimeLive desde la galería
+
 Para configurar la integración de TimeLive en Azure AD, será preciso que agregue TimeLive desde la galería a la lista de aplicaciones SaaS administradas.
 
 **Para agregar TimeLive desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Botón Azure Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![Hoja Aplicaciones empresariales][2]
-    
-1. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![Botón Nueva aplicación][3]
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-1. En el cuadro de búsqueda, escriba **TimeLive**, seleccione **TimeLive** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-    ![TimeLive en la lista de resultados](./media/timelive-tutorial/tutorial_timelive_addfromgallery.png)
+4. En el cuadro de búsqueda, escriba **TimeLive**, seleccione **TimeLive** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+
+     ![TimeLive en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con TimeLive según un usuario de prueba llamado "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de TimeLive para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de TimeLive.
-
-Para establecer la relación de vínculo, en TimeLive, asigne el valor de **nombre de usuario** de Azure AD como valor de **nombre de usuario**.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con TimeLive según un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de TimeLive.
 
 Para configurar y probar el inicio de sesión único de Azure AD con TimeLive, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de TimeLive](#create-a-timelive-test-user)**: para tener un homólogo de Britta Simon en TimeLive que esté vinculado a la representación del usuario en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
+2. **[Configuración del inicio de sesión único de TimeLive](#configure-timelive-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de TimeLive](#create-timelive-test-user)**: para tener un homólogo de Britta Simon en TimeLive que esté vinculado a la representación del usuario en Azure AD.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación TimeLive.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con TimeLive, siga estos pasos:**
+Para configurar el inicio de sesión único de Azure AD con TimeLive, siga estos pasos:
 
-1. En Azure Portal, en la página de integración de la aplicación **TimeLive**, haga clic en **Inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **TimeLive**, haga clic en **Inicio de sesión único**.
 
-    ![Vínculo Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo** seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Cuadro de diálogo Inicio de sesión único](./media/timelive-tutorial/tutorial_timelive_samlbase.png)
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-1. En la sección **Dominio y direcciones URL de TimeLive**, lleve a cabo los pasos siguientes:
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-    ![Información sobre el inicio de sesión único del dominio y las direcciones URL de TimeLive](./media/timelive-tutorial/tutorial_timelive_url.png)
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://domainname.livetecs.com/`.
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-    b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://domainname.livetecs.com/`
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    > [!NOTE] 
-    > Estos valores no son reales. Actualice estos valores con el identificador y la dirección URL de inicio de sesión reales. Póngase en contacto con el [equipo de soporte de cliente de TimeLive](mailto:support@livetecs.com) para obtener estos valores. 
+    ![Información sobre el inicio de sesión único del dominio y las direcciones URL de TimeLive](common/sp-identifier.png)
 
-1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo.
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<domainname>.livetecs.com/`
 
-    ![Vínculo de descarga del certificado](./media/timelive-tutorial/tutorial_timelive_certificate.png) 
+    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://<domainname>.livetecs.com/`
 
-1. Haga clic en el botón **Guardar** .
+    > [!NOTE]
+    > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte de cliente de TimeLive](mailto:support@livetecs.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-    ![Botón Configurar inicio de sesión único](./media/timelive-tutorial/tutorial_general_400.png)
-    
-1. En la sección **TimeLive Configuration** (Configuración de TimeLive), haga clic en **Configure TimeLive** (Configurar TimeLive) para abrir la ventana **Configurar inicio de sesión**. Copie las **direcciones URL del servicio de inicio de sesión único de SAML y de cierre de sesión** de la sección **Referencia rápida**.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
-    ![Configuración de TimeLive](./media/timelive-tutorial/tutorial_timelive_configure.png)
+    ![Vínculo de descarga del certificado](common/certificatebase64.png)
+
+6. En la sección **Configurar TimeLive**, copie las direcciones URL adecuadas según sus necesidades.
+
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
+
+    a. URL de inicio de sesión
+
+    b. Identificador de Azure AD
+
+    c. URL de cierre de sesión
+
+### <a name="configure-timelive-single-sign-on"></a>Configuración del inicio de sesión único de TimeLive
 
 1. En otra ventana del explorador web, inicie sesión en su sitio de la compañía de TimeLive como administrador.
 
-1. Seleccione **Preferencias** en **Opciones de administración**.
+2. Seleccione **Preferencias** en **Opciones de administración**.
 
     ![Configuración de TimeLive](./media/timelive-tutorial/configure1.png)
 
-1. En la sección **Application Preference** (Aplicación de preferencia), realice los pasos siguientes:
+3. En la sección **Application Preference** (Aplicación de preferencia), realice los pasos siguientes:
     
     ![Configuración de TimeLive](./media/timelive-tutorial/configure2.png)
 
@@ -146,7 +146,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     c. Seleccione **SAML** en el menú desplegable con el encabezado **Sign in using Single Sign-On (SSO) with** (Iniciar sesión con inicio de sesión único [SSO] con).
 
-    d. Pegue el valor de la **dirección URL del servicio de inicio de sesión único de SAML** que copió de Azure Portal en el cuadro de texto **SAML SSO URL** (Dirección URL de inicio de sesión de SAML).
+    d. En **Dirección URL de inicio de sesión único de SAML**, pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
     e. En **Dirección URL de cierre de sesión remoto**, pegue el valor de **URL de cierre de sesión** que copió de Azure Portal.
 
@@ -154,100 +154,71 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     g. Haga clic en **Update**(Actualizar).
 
-> [!TIP]
-> Ahora puede leer una versión resumida de estas instrucciones dentro de [Azure Portal](https://portal.azure.com) mientras configura la aplicación.  Después de agregar esta aplicación desde la sección **Active Directory > Aplicaciones empresariales**, simplemente haga clic en la pestaña **Inicio de sesión único** y acceda a la documentación insertada a través de la sección **Configuración** de la parte inferior. Puede leer más aquí sobre la característica de documentación insertada: [Documentación insertada de Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-
-### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
 El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-   ![Creación de un usuario de prueba de Azure AD][100]
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
 
-    ![Botón Azure Active Directory](./media/timelive-tutorial/create_aaduser_01.png)
+    ![Botón Nuevo usuario](common/new-user.png)
 
-1. Para mostrar la lista de usuarios, vaya a **Usuarios y grupos** y, luego, haga clic en **Todos los usuarios**.
+3. En las propiedades Usuario, siga estos pasos.
 
-    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](./media/timelive-tutorial/create_aaduser_02.png)
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
 
-1. En la parte superior del cuadro de diálogo **Todos los usuarios**, haga clic en **Agregar** para abrir el cuadro de diálogo **Agregar**.
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
+  
+    b. En el campo **Nombre de usuario**, escriba brittasimon@yourcompanydomain.extension. Por ejemplo: BrittaSimon@contoso.com
 
-    ![Botón Agregar](./media/timelive-tutorial/create_aaduser_03.png)
-
-1. En el cuadro de diálogo **Usuario** , realice los pasos siguientes:
-
-    ![Cuadro de diálogo Usuario](./media/timelive-tutorial/create_aaduser_04.png)
-
-     a. En el cuadro **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la dirección de correo electrónico del usuario Britta Simon.
-
-    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro **Contraseña**.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
     d. Haga clic en **Create**(Crear).
- 
-### <a name="create-a-timelive-test-user"></a>Crear un usuario de prueba de TimeLive
-
-El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en TimeLive. TimeLive admite el aprovisionamiento Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Al intentar acceder a TimeLive, se crea un nuevo usuario, en caso de que no exista.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a TimeLive.
 
-![Asignación de rol de usuario][200] 
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **TimeLive**.
 
-**Para asignar a Britta Simon a TimeLive, realice los pasos siguientes:**
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
+2. En la lista de aplicaciones, seleccione **TimeLive**.
 
-    ![Asignar usuario][201] 
+    ![Vínculo a TimeLive en la lista de aplicaciones](common/all-applications.png)
 
-1. En la lista de aplicaciones, seleccione **TimeLive**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![Vínculo a TimeLive en la lista de aplicaciones](./media/timelive-tutorial/tutorial_timelive_app.png)  
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![Vínculo "Usuarios y grupos"][202]
+    ![Panel Agregar asignación](common/add-assign-user.png)
 
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-    ![Panel Agregar asignación][203]
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+### <a name="create-timelive-test-user"></a>Creación de un usuario de prueba de TimeLive
 
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
-### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único
+En esta sección, se crea un usuario llamado Britta Simon en TimeLive. TimeLive admite el aprovisionamiento de usuarios Just-In-Time, que está habilitado de forma predeterminada. No hay ningún elemento de acción para usted en esta sección. Si aún no existe un usuario en TimeLive, se crea uno después de la autenticación.
+
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de TimeLive en el Panel de acceso, debería iniciar sesión automáticamente en su aplicación TimeLive.
-Para más información sobre el Panel de acceso, consulte la [introducción al Panel de acceso](../user-help/active-directory-saas-access-panel-introduction.md). 
+Al hacer clic en el icono de TimeLive en el panel de acceso y debería iniciar sesión automáticamente en la versión de TimeLive para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-
-<!--Image references-->
-
-[1]: ./media/timelive-tutorial/tutorial_general_01.png
-[2]: ./media/timelive-tutorial/tutorial_general_02.png
-[3]: ./media/timelive-tutorial/tutorial_general_03.png
-[4]: ./media/timelive-tutorial/tutorial_general_04.png
-
-[100]: ./media/timelive-tutorial/tutorial_general_100.png
-
-[200]: ./media/timelive-tutorial/tutorial_general_200.png
-[201]: ./media/timelive-tutorial/tutorial_general_201.png
-[202]: ./media/timelive-tutorial/tutorial_general_202.png
-[203]: ./media/timelive-tutorial/tutorial_general_203.png
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8a7c722944aacaca9780939a1726c6e47be79be1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d3ed9370726d35f67edfbcf32dfd25e74d7865e5
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58112048"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58621573"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-the-cli"></a>Copia de seguridad de una máquina virtual en Azure con la CLI
 La CLI de Azure se usa para crear y administrar recursos de Azure desde la línea de comandos o en scripts. Para proteger sus datos realice copias de seguridad a intervalos regulares. Azure Backup crea puntos de recuperación que se guardan en almacenes de recuperación con redundancia geográfica. En este artículo se explica cómo realizar una copia de seguridad de una máquina virtual (VM) en Azure con la CLI de Azure. Estos pasos también se pueden llevar a cabo con [Azure PowerShell](quick-backup-vm-powershell.md) o en [Azure Portal](quick-backup-vm-portal.md).
@@ -43,7 +43,14 @@ az backup vault create --resource-group myResourceGroup \
     --location eastus
 ```
 
-De forma predeterminada, el almacén de Recovery Services se establece para el almacenamiento con redundancia geográfica. El almacenamiento con redundancia geográfica garantiza que se repliquen los datos de copia de seguridad en una región de Azure secundaria que se encuentra a cientos de kilómetros de distancia de la región primaria.
+De forma predeterminada, el almacén de Recovery Services se establece para el almacenamiento con redundancia geográfica. El almacenamiento con redundancia geográfica garantiza que se repliquen los datos de copia de seguridad en una región de Azure secundaria que se encuentra a cientos de kilómetros de distancia de la región primaria. Si es necesario modificar la configuración de la redundancia del almacenamiento, utilice el cmdlet [az backup vault backup-properties set](https://docs.microsoft.com/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set).
+
+```azurecli
+az backup vault backup-properties set \
+    --name myRecoveryServicesVault  \
+    --resource-group myResourceGroup \
+    --backup-storage-redundancy "LocallyRedundant/GeoRedundant" 
+```
 
 
 ## <a name="enable-backup-for-an-azure-vm"></a>Habilitación de la copia de seguridad de una máquina virtual de Azure

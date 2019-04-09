@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: cf5eeff9aa56a2c3366c57ddef47f4020e73c161
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804656"
 documentType: LandingData
 title: Documentación del servicio Azure Policy
 metadata:
   title: 'Documentación sobre Azure Policy: tutoriales y referencia de API'
-  description: Azure Policy le ayuda a administrar y evitar problemas de TI con definiciones de directivas que aplican reglas y efectos a los recursos. Cuando se usa Azure Policy, los recursos se mantienen compatibles con los estándares corporativos y los acuerdos de nivel de servicio.
-  services: azure-policy
+  description: 'Azure Policy le ayuda a administrar y evitar problemas de TI con definiciones de directivas que aplican reglas y efectos a los recursos. Cuando se usa Azure Policy, los recursos se mantienen compatibles con los estándares corporativos y los acuerdos de nivel de servicio.'
   author: DCtheGeek
   manager: carmonm
   ms.service: azure-policy
@@ -18,62 +11,62 @@ metadata:
   ms.date: 03/16/2019
   ms.author: dacoulte
 abstract:
-  description: Azure Policy le ayuda a administrar y evitar problemas de TI con definiciones de directivas que aplican reglas y efectos a los recursos. Cuando se usa Azure Policy, los recursos se mantienen compatibles con los estándares corporativos y los acuerdos de nivel de servicio.
+  description: 'Azure Policy le ayuda a administrar y evitar problemas de TI con definiciones de directivas que aplican reglas y efectos a los recursos. Cuando se usa Azure Policy, los recursos se mantienen compatibles con los estándares corporativos y los acuerdos de nivel de servicio.'
 sections:
-- title: Inicio rápido en 5 minutos
-  items:
-  - type: paragraph
-    text: Aprenda a crear, asignar y administrar definiciones de directivas en Azure.
-  - type: list
-    style: icon48
+  - title: Inicio rápido en 5 minutos
     items:
-    - image:
-        alt: Azure Portal
-        src: https://docs.microsoft.com/media/common/i_portal.svg
-      text: Azure Portal
-      href: ./assign-policy-portal
-    - image:
-        alt: Azure PowerShell
-        src: ./media/powershell.svg
-      text: Azure PowerShell
-      href: ./assign-policy-powershell
-    - image:
-        alt: Azure CLI
-        src: ./media/cli.svg
-      text: Azure CLI
-      href: ./assign-policy-azurecli
-    - image:
-        alt: Plantilla de Resource Manager
-        src: https://docs.microsoft.com/media/logos/logo_vs-code.svg
-      text: Plantilla de Resource Manager
-      href: ./assign-policy-template
-- title: Tutoriales detallados
-  items:
-  - type: paragraph
-    text: Aprenda a crear, asignar y administrar definiciones de directivas en Azure.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Aprenda a crear, asignar y administrar definiciones de directivas en Azure.'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: Azure Portal
+              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
+            text: Azure Portal
+            href: ./assign-policy-portal
+          - image:
+              alt: Azure PowerShell
+              src: ./media/powershell.svg
+            text: Azure PowerShell
+            href: ./assign-policy-powershell
+          - image:
+              alt: Azure CLI
+              src: ./media/cli.svg
+            text: Azure CLI
+            href: ./assign-policy-azurecli
+          - image:
+              alt: Plantilla de Resource Manager
+              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
+            text: Plantilla de Resource Manager
+            href: ./assign-policy-template
+  - title: Tutoriales detallados
     items:
-    - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Creación y administración de Azure Policy</a>
-    - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">Creación de una definición de directiva personalizada</a>
-- title: Ejemplos
-  items:
-  - type: paragraph
-    text: Revise los ejemplos disponibles para ayudarle a crear definiciones de directivas en Azure.
-  - type: list
-    style: unordered
-    className: spaced noBullet
+      - type: paragraph
+        text: 'Aprenda a crear, asignar y administrar definiciones de directivas en Azure.'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/governance/policy/tutorials/create-and-manage">Creación y administración de Azure Policy</a>
+          - html: <a href="/azure/governance/policy/tutorials/create-custom-policy-definition">Creación de una definición de directiva personalizada</a>
+  - title: Ejemplos
     items:
-    - html: <a href="/azure/governance/policy/samples/index">Índice de ejemplos</a>
-- title: Referencia
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Revise los ejemplos disponibles para ayudarle a crear definiciones de directivas en Azure.
+      - type: list
+        style: unordered
+        className: spaced noBullet
+        items:
+          - html: <a href="/azure/governance/policy/samples/index">Índice de ejemplos</a>
+  - title: Referencia
     items:
-    - title: Línea de comandos
-      html: <p><a href="/cli/azure/policy">CLI de Azure</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell (directiva)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell (información de directiva)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell (configuración de invitado)</a></p>
-    - title: Plantillas de Resource Manager
-      html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">Asignaciones</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">Definiciones de directiva</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">Definiciones de iniciativas</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/policy-insights/policyevents">Eventos</a></p><p><a href="/rest/api/policy-insights/policystates">Estados</a></p><p><a href="/rest/api/resources/policyassignments">Asignaciones</a></p><p><a href="/rest/api/resources/policydefinitions">Definiciones de directiva</a></p><p><a href="/rest/api/resources/policysetdefinitions">Definiciones de iniciativas</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Recursos con seguimiento de directiva</a></p><p><a href="/rest/api/policy-insights/remediations">Correcciones</a></p><p><a href="/rest/api/guestconfiguration/">Configuración de invitado</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Línea de comandos
+            html: '<p><a href="/cli/azure/policy">Azure CLI</a></p><p><a href="/powershell/module/az.resources/#policies">Azure PowerShell (directiva)</a></p><p><a href="/powershell/module/az.policyinsights#policy_insights">Azure PowerShell (información de directiva)</a></p><p><a href="https://www.powershellgallery.com/packages/Az.GuestConfiguration">Azure PowerShell (configuración de invitado)</a></p>'
+          - title: Plantillas de Resource Manager
+            html: <p><a href="/azure/templates/microsoft.authorization/policyassignments">Assignments</a></p><p><a href="/azure/templates/microsoft.authorization/policydefinitions">Definiciones de directiva</a></p><p><a href="/azure/templates/microsoft.authorization/policysetdefinitions">Definiciones de iniciativas</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/policy-insights/policyevents">Eventos</a></p><p><a href="/rest/api/policy-insights/policystates">States</a></p><p><a href="/rest/api/resources/policyassignments">Assignments</a></p><p><a href="/rest/api/resources/policydefinitions">Definiciones de directiva</a></p><p><a href="/rest/api/resources/policysetdefinitions">Definiciones de iniciativas</a></p><p><a href="/rest/api/policy-insights/policytrackedresources">Recursos con seguimiento de directiva</a></p><p><a href="/rest/api/policy-insights/remediations">Correcciones</a></p><p><a href="/rest/api/guestconfiguration/">Configuración de invitado</a></p>

@@ -16,12 +16,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu;yili
 ms.custom: seodec18
-ms.openlocfilehash: 161b2054d690a2e609085852aa7caf2f02366f69
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 22c4096711bbc1d47ff6684e38ac829d77681a9f
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215666"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58793448"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Introducción a Azure App Service en Linux
 
@@ -73,7 +73,7 @@ Azure Portal solo muestra las características que funcionan actualmente para We
 
 App Service en Linux solo se admite con los planes de App Service [Básico, Estándar y Premium](https://azure.microsoft.com/pricing/details/app-service/plans/); no tiene un nivel [Gratis o Compartido](https://azure.microsoft.com/pricing/details/app-service/plans/). No se puede crear Web App for Containers en un plan de App Service que ya hospeda Web Apps que no sean de Linux.  
 
-Además, debido a una limitación actual, no mezcle aplicaciones de Windows y Linux en el mismo grupo de recursos.
+Debido a una limitación actual, no mezcle aplicaciones de Windows y Linux en el mismo grupo de recursos.
 
 ## <a name="troubleshooting"></a>solución de problemas
 

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: c888c134054f50bc8ab17d17524a4f89d5081dfc
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: f60b9002f939cbf4c3a0ecfb78b358598713ea1c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259625"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881637"
 ---
 # <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Tutorial: Llamada a Cognitive Services APIs en una canalización de indexación de Azure Search (versión preliminar)
 
@@ -129,9 +129,6 @@ Puesto que se trata de su primera solicitud, consulte Azure Portal para confirma
   ![Icono de Data Sources del portal](./media/cognitive-search-tutorial-blob/data-source-tile.png "Icono de Data Sources del portal")
 
 Si obtuvo un error 403 o 404, compruebe la construcción de la solicitud: `api-version=2017-11-11-Preview` debe estar en el punto de conexión, `api-key` debe estar en el encabezado después de `Content-Type` y su valor debe ser válido para un servicio de búsqueda. Puede volver a usar el encabezado para los pasos restantes de este tutorial.
-
-> [!TIP]
-> Antes de realizar una gran cantidad de trabajo, es un buen momento para comprobar que el servicio de búsqueda se está ejecutando en una de las ubicaciones admitidas que ofrecen la característica en vista previa: Centro y Sur de EE. UU. o Europa Occidental.
 
 ## <a name="create-a-skillset"></a>Creación de un conjunto de aptitudes
 

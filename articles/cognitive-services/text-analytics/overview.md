@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: overview
 ms.date: 03/01/2019
 ms.author: aahi
-ms.openlocfilehash: 1e6aea792666447141e504f45a3ff55cb70f6261
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 59763b1146986b9920b87152101fd1dcdb00fece
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57533245"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904770"
 ---
 # <a name="what-is-text-analytics-api"></a>¿Qué es Text Analytics API?
 
@@ -77,7 +77,7 @@ Todos los puntos de conexión de Text Analytics API aceptan datos de texto sin f
 | Tamaño máximo de la solicitud completa | 1 MB |
 | Número máximo de documentos de una solicitud | 1000 documentos |
 
-El límite de la tarifa es 100 llamadas por minuto. Tenga en cuenta que puede enviar una gran cantidad de documentos en una sola llamada (hasta 1000 documentos).
+El límite de velocidad es 100 solicitudes por segunda y 1000 solicitudes por minuto. Puede enviar una gran cantidad de documentos en una sola llamada (hasta 1000).
 
 ## <a name="unicode-encoding"></a>Codificación Unicode
 

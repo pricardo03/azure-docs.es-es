@@ -1,18 +1,18 @@
 ---
-title: Escalar horizontalmente un clúster del explorador de datos de Azure para dar cabida a cambios en la demanda
+title: Escalar horizontalmente un clúster del explorador de datos de Azure
 description: En este artículo se describe los pasos para el escalado horizontal y vertical en un clúster del explorador de datos de Azure basado en la variable a petición.
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 02/18/2019
-ms.openlocfilehash: ab4ced6695e6066098dd5ff7348528deedfc0e1b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.date: 04/05/2019
+ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59044241"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261605"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Administración del escalado horizontal de clúster para ajustarse a los cambios en la demanda
 
@@ -22,21 +22,23 @@ Un enfoque mejor es *escalar* un clúster, es decir, agregar y quitar capacidad 
 
 En este artículo se muestra cómo administrar el clúster escalado horizontal, también conocida como escalado automático. El escalado automático permite escalar horizontalmente el recuento de instancias automáticamente según las programaciones y reglas predefinidas. Especifique la configuración de escalado automático para el clúster en Azure portal, tal como se describe en este artículo.
 
-Vaya a su clúster. En **configuración**, seleccione **escalar horizontalmente**. En **Configurar**, seleccione **Habilitar escalado automático**.
+## <a name="steps-to-configure-autoscale"></a>Pasos para configurar el escalado automático
 
-![Habilitar escalado automático](media/manage-cluster-scaling/enable-autoscale.png)
+En el portal de Azure, vaya a su recurso de clúster del explorador de datos. En el **configuración** encabezado, seleccione **escalar horizontalmente**. En el **configurar** ficha, seleccione **habilitar escalado automático**.
 
-En el gráfico siguiente se muestra el flujo de los pasos siguientes. Obtener más detalles están por debajo del gráfico.
+   ![Habilitar escalado automático](media/manage-cluster-scaling/enable-autoscale.png)
 
-![Regla de escalado](media/manage-cluster-scaling/scale-rule.png)
+En el gráfico siguiente se muestra el flujo de los pasos siguientes. Más detalles a continuación en el gráfico.
 
-1. En el **nombre de la configuración de escalado automático** cuadro, proporcione un nombre, como *escalada: uso de caché*.
+1. En el **nombre de la configuración de escalado automático** cuadro, proporcione un nombre, como *escalada: uso de caché*. 
 
-1. Para **modo escala**, seleccione **escalado según una métrica**. Este modo proporciona escalado dinámico. También puede seleccionar **escala a un número específico de instancias**.
+   ![Regla de escalado](media/manage-cluster-scaling/scale-rule.png)
 
-1. Seleccione **+ agregar una regla**.
+2. Para **modo escala**, seleccione **escalado según una métrica**. Este modo proporciona escalado dinámico. También puede seleccionar **escala a un número específico de instancias**.
 
-1. En la sección**Escalar regla** de la derecha, proporcione valores para cada ajuste.
+3. Seleccione **+ agregar una regla**.
+
+4. En la sección**Escalar regla** de la derecha, proporcione valores para cada ajuste.
 
     **Criterios**
 
@@ -59,9 +61,9 @@ En el gráfico siguiente se muestra el flujo de los pasos siguientes. Obtener m�
     | **Tiempo de finalización (minutos)** | Elija un intervalo de tiempo adecuado para esperar entre las operaciones de escalado. Comience con el valor predeterminado de cinco minutos. |
     |  |  |
 
-1. Seleccione **Agregar**.
+5. Seleccione **Agregar**.
 
-1. En la sección **Límites de instancia** de la izquierda, indique valores para cada configuración.
+6. En la sección **Límites de instancia** de la izquierda, indique valores para cada configuración.
 
     | Configuración | Descripción y valor |
     | --- | --- |
@@ -70,10 +72,14 @@ En el gráfico siguiente se muestra el flujo de los pasos siguientes. Obtener m�
     | **Valor predeterminado** | El número predeterminado de instancias. Esta configuración se utiliza si hay problemas con la lectura de las métricas de recursos. |
     |  |  |
 
-1. Seleccione **Guardar**.
+7. Seleccione **Guardar**.
 
 Ha configurado una operación de escalado horizontal para el clúster del Explorador de datos de Azure. Agregue otra regla para una operación de reducción horizontal. Esta configuración permite que el clúster se escale dinámicamente según las métricas que especifique.
 
 También puede [administrar clúster escalado](manage-cluster-scale-up.md) para ajustar el tamaño adecuado de un clúster.
 
 Si necesita ayuda con problemas de escalado de clústeres, [abrir una solicitud de soporte técnico](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) en Azure portal.
+
+## <a name="next-steps"></a>Pasos siguientes
+
+[Supervisar el rendimiento, mantenimiento y uso con métricas de explorador de datos de Azure](using-metrics.md)

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: szark
-ms.openlocfilehash: c2c02283518bab0723b7bc815f034c4324c944e1
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: ecd30d30434d91893102ce6ec0df21daa84b677c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232900"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276869"
 ---
 # <a name="prepare-an-oracle-linux-virtual-machine-for-azure"></a>Preparación de una máquina virtual Oracle Linux para Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -37,7 +37,7 @@ En este artículo se supone que ya ha instalado un sistema operativo Oracle Linu
 * NUMA no se admite para tamaños de máquina virtual más grandes debido a un error en las versiones del kernel de Linux anteriores a la 2.6.37. Este problema afecta principalmente a las distribuciones que usan el kernel Red Hat 2.6.32 de canal de subida. La instalación manual del agente de Linux de Azure (waagent) deshabilitará automáticamente NUMA en la configuración GRUB para el kernel de Linux. Puede encontrar más información al respecto en los pasos que vienen a continuación.
 * No cree una partición de intercambio en el disco del SO. El agente de Linux se puede configurar para crear un archivo de intercambio en el disco de recursos temporal.  Puede encontrar más información al respecto en los pasos que vienen a continuación.
 * En Azure, todos los discos duros virtuales deben tener un tamaño virtual alineado con 1 MB. Al convertir un disco sin procesar en un disco duro virtual, tiene que asegurarse de que su tamaño es un múltiplo de 1 MB antes de la conversión. Para más información, consulte [Notas sobre la instalación de Linux](create-upload-generic.md#general-linux-installation-notes).
-* Asegúrese de que el repositorio `Addons` está habilitado. Edite el archivo `/etc/yum.repo.d/public-yum-ol6.repo`(Oracle Linux 6) o `/etc/yum.repo.d/public-yum-ol7.repo`(Oracle Linux) y cambie la línea `enabled=0` a `enabled=1` en **[ol6_addons]** o **[ol7_addons]** en este archivo.
+* Asegúrese de que el repositorio `Addons` está habilitado. Edite el archivo `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) o `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux 7) y cambie la línea `enabled=0` a `enabled=1` en **[ol6_addons]** o **[ol7_addons]** en este archivo.
 
 ## <a name="oracle-linux-64"></a>Oracle Linux 6.4+
 Debe completar los pasos de configuración específicos del sistema operativo para que la máquina virtual se ejecute en Azure.

@@ -1,6 +1,6 @@
 ---
-title: Explorador de métricas de Azure Monitor
-description: Descubra las nuevas características en el explorador de métricas de Azure Monitor
+title: Características avanzadas del explorador de métricas de Azure
+description: Obtenga información sobre las características avanzadas del explorador de métricas de Azure Monitor
 author: vgorbenko
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,51 +8,46 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 08ae74bcd9ee0a7cf5e0fb6d38758b1429c39145
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 67e4281b24a7489cf202d82bdddbe99992aac095
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916349"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271686"
 ---
-# <a name="azure-monitor-metrics-explorer"></a>Explorador de métricas de Azure Monitor
+# <a name="advanced-features-of-azure-metrics-explorer"></a>Características avanzadas del explorador de métricas de Azure
 
-El explorador de métricas de Azure Monitor es un componente de Microsoft Azure Portal que permite trazar los gráficos, correlacionar visualmente las tendencias e investigar crestas y valles en valores de las métricas. El explorador de métricas es un punto de partida esencial para investigar diversos problemas de rendimiento y disponibilidad en las aplicaciones e infraestructura hospedadas en Azure o supervisadas por servicios de Azure Monitor.
+> [!NOTE]
+> En este artículo se da por supuesto que está familiarizado con las características básicas del explorador de métricas. Si es un usuario nuevo y desea aprender a crear su primer gráfico de métricas, consulte [Introducción al explorador de métricas de Azure](metrics-getting-started.md).
 
 ## <a name="metrics-in-azure"></a>Métricas en Azure
 
 Las [métricas en Azure Monitor](data-platform-metrics.md) son la serie de valores medidos y recuentos que se recopilan y se almacenan con el tiempo. Hay métricas estándar (o de la “plataforma”) y métricas personalizadas. La misma plataforma de Azure le proporciona las métricas estándares. Las métricas estándares reflejan las estadísticas de uso y mantenimiento de los recursos de Azure. Mientras que las métricas personalizadas se envían a Azure desde las aplicaciones mediante el [API de Application Insights para eventos y métricas personalizados](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics), [extensión de Windows Azure Diagnostics (WAD)](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-overview), o por [Azure Supervisar la API de REST](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-store-custom-rest-api).
 
-## <a name="create-a-new-chart"></a>Creación de un canal
+## <a name="create-views-with-multiple-metrics-and-charts"></a>Crear vistas con varias métricas y gráficos
 
-1. Abra Azure Portal.
-2. Vaya a la nueva pestaña **Monitor** y seleccione **Métricas**.
+Puede crear gráficos que trazar varias líneas de las métricas o mostrar varios gráficos de métricas a la vez. Esta funcionalidad le permite:
 
-   ![Imagen de métricas](./media/metrics-charts/00001.png)
+- poner en correlación las métricas relacionadas en el mismo gráfico para ver cómo una valor está relacionada con otra
+- mostrar las métricas con las diferentes unidades de medida cerca
+- Agregar visualmente y comparar las métricas de varios recursos
 
-3. El **selector de métricas** se abrirá automáticamente. Elija un recurso de la lista para ver las métricas asociadas. Solo los recursos con métricas se muestran en la lista.
+Por ejemplo, si tiene 5 cuentas de almacenamiento y desea saber la cantidad total de espacio se consume entre ellos, puede crear un gráfico de áreas (apiladas) que muestra la persona y la suma de todos los valores en momentos concretos de tiempo.
 
-   ![Imagen de métricas](./media/metrics-charts/00002.png)
+### <a name="multiple-metrics-on-the-same-chart"></a>Varias métricas en el mismo gráfico
 
-   > [!NOTE]
-   >Si tiene más de una suscripción a Azure, el Explorador de métricas extrae los recursos de todas las suscripciones que están seleccionadas en la lista de Configuración del portal -> Filtrar por suscripciones. Para cambiar esto, haga clic en el icono de engranaje de Configuración del portal en la parte superior de la pantalla y seleccione las suscripciones que quiere utilizar.
-
-4. Para algunos tipos de recursos (cuentas de almacenamiento y máquinas virtuales), antes de seleccionar una métrica, debe elegir un **Espacio de nombres**. Cada espacio de nombres lleva su propio conjunto de métricas que son pertinentes para este espacio de nombres únicamente, y no para otros espacios de nombres.
-
-   Por ejemplo, cada Azure Storage tiene métricas para los subservicios “Blobs”, “Files”, “Queues” y “Tables”, que son todas partes de la cuenta de almacenamiento. Sin embargo, la métrica “Queue Message Count” se aplica naturalmente al subservicio “Queue” y no a ningún otro subservicio de la cuenta de almacenamiento.
-
-   ![Imagen de métricas](./media/metrics-charts/00003.png)
-
-5. Seleccione una métrica de la lista. Si conoce un nombre parcial de la métrica que desea, puede empezar a escribirlo para ver una lista filtrada de las métricas disponibles:
-
-   ![Imagen de métricas](./media/metrics-charts/00004.png)
-
-6. Después de seleccionar una métrica, el gráfico se representará con la agregación predeterminada de la métrica seleccionada. En este momento, puede hacer clic fuera del **selector de métricas** para cerrarlo. Como alternativa, también puede cambiar el gráfico a otra agregación. Para algunas métricas, cambiar la agregación le permite elegir qué valor desea ver en el gráfico. Por ejemplo, puede cambiar entre los valores promedio, mínimo y máximo. 
-
-7. Al hacer clic en **Agregar métrica** y repetir los pasos del 3 al 6, puede agregar más métricas en el mismo gráfico.
+Primero, [cree un nuevo gráfico](metrics-getting-started.md#create-your-first-metric-chart). Haga clic en **agregar métrica** y repita los pasos para agregar otra métrica en el mismo gráfico.
 
    > [!NOTE]
    > Normalmente no querrá tener en un gráfico métricas con unidades de medida diferentes (es decir, milisegundos y kilobytes) ni con una escala muy diferente. En su lugar, considere el uso de varios gráficos. Haga clic en el botón Agregar gráfico para crear varios gráficos en el explorador de métricas.
+
+### <a name="multiple-charts"></a>Varios gráficos
+
+Haga clic en el **Agregar gráfico** y cree otro gráfico con una métrica diferente.
+
+### <a name="order-or-delete-multiple-charts"></a>El orden o eliminar varios gráficos
+
+Para ordenar o eliminar varios gráficos, haga clic en el botón de puntos suspensivos ( **...**  ) símbolos para abrir el menú de gráfico y elija el elemento de menú adecuado **Subir**, **Bajar**, o **eliminar**.
 
 ## <a name="apply-filters-to-charts"></a>Aplicación de filtros a gráficos
 
@@ -76,27 +71,7 @@ Puede aplicar filtros a los gráficos que muestran métricas con dimensiones. Po
 
 5. Puede repetir los pasos del 1 al 4 para aplicar varios filtros a los gráficos mismos.
 
-## <a name="multiple-metrics-and-charts"></a>Varias métricas y gráficos
 
-También puede crear gráficos que trazar varias métricas o mostrar varios gráficos de métricas a la vez. Esta funcionalidad le permite:
-
-- poner en correlación las métricas relacionadas en el mismo gráfico para ver cómo una valor está relacionada con otra
-- mostrar las métricas con las diferentes unidades de medida cerca
-- Agregar visualmente y comparar las métricas de varios recursos
-
-Por ejemplo, si tiene 5 cuentas de almacenamiento y desea saber la cantidad total de espacio se consume entre ellos, puede crear un gráfico de áreas (apiladas) que muestra la persona y la suma de todos los valores en momentos concretos de tiempo.
-
-### <a name="multiple-metrics-on-a-chart"></a>Varias métricas en un gráfico
-
-Primero, [cree un nuevo gráfico](#create-a-new-chart). Haga clic en **agregar métrica** y repita los pasos para agregar otra métrica en el mismo gráfico.
-
-### <a name="multiple-charts"></a>Varios gráficos
-
-Haga clic en el **Agregar gráfico** y cree otro gráfico con una métrica diferente.
-
-### <a name="order-or-delete-multiple-charts"></a>El orden o eliminar varios gráficos
-
-Para ordenar o eliminar varios gráficos, haga clic en el botón de puntos suspensivos ( **...**  ) símbolos para abrir el menú de gráfico y elija el elemento de menú adecuado **Subir**, **Bajar**, o **eliminar**.
 
 ## <a name="apply-splitting-to-a-chart"></a>Se aplican a un gráfico de la división
 

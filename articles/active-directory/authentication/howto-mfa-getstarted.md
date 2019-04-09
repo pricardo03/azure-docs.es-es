@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11846ca2a323da5889f444024767df4803a48a51
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
-ms.translationtype: MT
+ms.openlocfilehash: b91af553c402cc1cb241e51e2bb2289bf45b1825
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892218"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269034"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Planeamiento de Azure Multi-factor Authentication en la nube
 
@@ -60,8 +60,14 @@ Azure Multi-factor Authentication se implementa mediante la aplicación de direc
 * Dispositivos compatible
 * Dispositivo unido a Azure AD híbrido
 * Aplicación cliente aprobada
+ 
+
+Use los pósteres personalizables y plantillas de correo electrónico en [materiales de lanzamiento de la autenticación multifactor] para implementar la autenticación multifactor en su organización. (https://www.microsoft.com/en-us/download/details.aspx?id=57600&WT.mc_id=rss_alldownloads_all)
+
+## <a name="enable-multi-factor-authentication-with-conditional-access"></a>Habilitación de Multi-Factor Authentication con acceso condicional
 
 Directivas de acceso condicional forzar el registro, que requieren los usuarios no registrados completar el registro en el primer inicio de sesión, una consideración de seguridad importante.
+
 
 [Azure AD Identity Protection](../identity-protection/howto-configure-risk-policies.md) contribuye para una directiva de registro y las directivas de detección y corrección automatizada de riesgos en el caso de Azure Multi-factor Authentication. Las directivas se pueden crear para forzar los cambios de contraseña cuando hay una amenaza de identidad en peligro o requerir MFA cuando un inicio de sesión se considera riesgo por los siguientes [eventos](../reports-monitoring/concept-risk-events.md):
 

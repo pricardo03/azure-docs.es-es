@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: cf89d814d6d46482c54d6991ba16b3050b882d05
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8690c9f58a539337659d18ef954f88e4bb2baf9d
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57993992"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58881501"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Redirigir el tráfico web en función de la dirección URL mediante Azure PowerShell
 
@@ -40,7 +40,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Si decide instalar y usar PowerShell de forma local, en este tutorial necesitará la versión 1.0.0 del módulo de Azure PowerShell o cualquier versión posterior. Para encontrar la versión, ejecute ` Get-Module -ListAvailable Az`. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzAccount` para crear una conexión con Azure.
+Si decide instalar y usar PowerShell de forma local, en este tutorial necesitará la versión 1.0.0 del módulo de Azure PowerShell o cualquier versión posterior. Para encontrar la versión, ejecute `Get-Module -ListAvailable Az`. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](/powershell/azure/install-az-ps). Si PowerShell se ejecuta localmente, también debe ejecutar `Login-AzAccount` para crear una conexión con Azure.
 
 Debido al tiempo necesario para crear recursos, puede tardar hasta 90 minutos en completar este tutorial.
 
@@ -444,7 +444,7 @@ En este tutorial aprendió lo siguiente:
 > [!div class="checklist"]
 > * Configuración de la red
 > * Crear agentes de escucha, asignaciones de rutas de dirección URL y reglas.
-> * Crear grupos de back-end escalables
+> * Crear grupos de back-end escalables.
 
 > [!div class="nextstepaction"]
 > [Redirigir el tráfico web en función de la dirección URL](./tutorial-url-redirect-powershell.md)

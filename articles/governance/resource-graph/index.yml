@@ -1,16 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 4e2515e8976976184b720ad1a612f96bff3eeaba
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803428"
 documentType: LandingData
 title: Documentación del servicio Azure Resource Graph
 metadata:
   title: 'Documentación de Azure Resource Graph: tutoriales y referencia de la API'
   description: Azure Resource Graph es un servicio de Azure que permite realizar consultas complejas de recursos a escala.
-  services: resource-graph
   author: DCtheGeek
   manager: carmonm
   ms.service: resource-graph
@@ -20,36 +13,36 @@ metadata:
 abstract:
   description: La documentación de Azure Resource Graph le ayuda a configurar y a aprender el lenguaje de consultas para detectar y explorar los recursos a escala.
 sections:
-- title: Inicio rápido en 5 minutos
-  items:
-  - type: paragraph
-    text: Configure Resource Graph y ejecute su primera consulta.
-  - type: list
-    style: icon48
+  - title: Inicio rápido en 5 minutos
     items:
-    - image:
-        alt: Azure CLI
-        src: ./media/cli.svg
-      text: Azure CLI
-      href: first-query-azurecli.md
-    - image:
-        alt: Azure PowerShell
-        src: ./media/powershell.svg
-      text: Azure PowerShell
-      href: first-query-powershell.md
-- title: Comentarios
-  items:
-  - type: paragraph
-    text: Para proporcionar comentarios sobre esta característica o para obtener ayuda con las consultas, visite la página <b>Resource Graph (versión preliminar)</b> de <b>Azure Policy</b> en Azure Portal y haga clic en comentarios. También nos puede enviar sugerencias mediante <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a>.
-- title: Referencia
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Configure Resource Graph y ejecute su primera consulta.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              alt: Azure CLI
+              src: ./media/cli.svg
+            text: Azure CLI
+            href: first-query-azurecli.md
+          - image:
+              alt: Azure PowerShell
+              src: ./media/powershell.svg
+            text: Azure PowerShell
+            href: first-query-powershell.md
+  - title: Comentarios
     items:
-    - title: Línea de comandos
-      html: <p><a href="/cli/azure/ext/resource-graph/graph">CLI de Azure</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
-    - title: Languages
-      html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">SDK de Azure para .NET</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">SDK de Azure para Python</a></p>
-    - title: REST
-      html: <p><a href="/rest/api/azureresourcegraph/resources/resources">Referencia de API</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">Versión preliminar del 01-09-2018 (OpenAPI)</a></p>
+      - type: paragraph
+        text: 'Para proporcionar comentarios sobre esta característica o para obtener ayuda con las consultas, visite la página <b>Resource Graph (versión preliminar)</b> de <b>Azure Policy</b> en Azure Portal y haga clic en comentarios. También nos puede enviar sugerencias mediante <a href="https://feedback.azure.com/forums/915958-azure-governance">UserVoice</a>.'
+  - title: Referencia
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Línea de comandos
+            html: <p><a href="/cli/azure/ext/resource-graph/graph">Azure CLI</a></p><p><a href="/powershell/module/az.resourcegraph/">Azure PowerShell</a></p>
+          - title: Languages
+            html: <p><a href="/dotnet/api/Microsoft.Azure.Management.ResourceGraph">SDK de Azure para .NET</a></p><p><a href="/python/api/azure-mgmt-resourcegraph/azure.mgmt.resourcegraph">SDK de Azure para Python</a></p>
+          - title: REST
+            html: '<p><a href="/rest/api/azureresourcegraph/resources/resources">Referencia de API</a></p><p><a href="https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/preview/2018-09-01-preview">Versión preliminar del 01-09-2018 (OpenAPI)</a></p>'

@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 02/21/2019
+ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: dc21a246c6129a12d0336733cfa2e9e7fd4a29ce
-ms.sourcegitcommit: a4efc1d7fc4793bbff43b30ebb4275cd5c8fec77
+ms.openlocfilehash: 4d7ec6ddeb48a9a24cdd8bd9bc2c28b6cbe70b3e
+ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56652236"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58630063"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>Inicio rápido: Análisis de una imagen local mediante la API REST y Python en Computer Vision
 
@@ -31,7 +31,11 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Debe tener [Python](https://www.python.org/downloads/) instalado si desea ejecutar el ejemplo localmente.
-- Debe tener una clave de suscripción para Computer Vision. Para obtener una clave de suscripción, consulte [Obtención de claves de suscripción](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Debe tener una clave de suscripción para Computer Vision. Para obtener una clave de suscripción, consulte [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Cómo obtener las claves de suscripción).
+- Debe tener instalados los siguientes paquetes Python: Puede usar [pip](https://packaging.python.org/tutorials/installing-packages/) para instalar los paquetes de Python.
+    - [requests](http://docs.python-requests.org/en/master/)
+    - [matplotlib](https://matplotlib.org/)
+    - [pillow](https://python-pillow.org/)
 
 ## <a name="create-and-run-the-sample"></a>Creación y ejecución del ejemplo
 

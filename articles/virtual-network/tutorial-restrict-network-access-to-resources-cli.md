@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: e4f8b99cfeaa35644ed51fd8ad712fe4744c0226
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 35f2c1bcc3db82f5fbca5f0458d534bf73d9067a
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55890950"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010505"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-the-azure-cli"></a>Restricción del acceso a la red a los recursos de PaaS con puntos de conexión de servicio de red virtual mediante la CLI de Azure
 
@@ -118,9 +118,11 @@ az network nsg rule create \
   --source-port-range "*" \
   --destination-address-prefix "Storage" \
   --destination-port-range "*"
+```
 
-Each network security group contains several [default security rules](security-overview.md#default-security-rules). The rule that follows overrides a default security rule that allows outbound access to all public IP addresses. The `destination-address-prefix "Internet"` option denies outbound access to all public IP addresses. The previous rule overrides this rule, due to its higher priority, which allows access to the public IP addresses of Azure Storage.
+Cada grupo de seguridad de red contiene varias [reglas de seguridad predeterminadas](security-overview.md#default-security-rules). La regla siguiente reemplaza una regla de seguridad predeterminada que permite el acceso saliente a todas las direcciones IP públicas. El `destination-address-prefix "Internet"` opción deniega el acceso saliente a direcciones IP públicas todo. La regla anterior invalida esta regla porque su prioridad es más alta, lo que permite el acceso a las direcciones IP públicas de Azure Storage.
 
+```azurecli-interactive
 az network nsg rule create \
   --resource-group myResourceGroup \
   --nsg-name myNsgPrivate \
@@ -133,9 +135,11 @@ az network nsg rule create \
   --source-port-range "*" \
   --destination-address-prefix "Internet" \
   --destination-port-range "*"
+```
 
-The following rule allows SSH traffic inbound to the subnet from anywhere. The rule overrides a default security rule that denies all inbound traffic from the internet. SSH is allowed to the subnet so that connectivity can be tested in a later step.
+La siguiente regla permite el tráfico SSH entrante a la subred desde cualquier lugar. La regla invalidará cualquier regla de seguridad predeterminada que deniegue todo el tráfico de entrada procedente de Internet. SSH se permite a la subred para que se puede probar la conectividad en un paso posterior.
 
+```azurecli-interactive
 az network nsg rule create \
   --resource-group myResourceGroup \
   --nsg-name myNsgPrivate \
@@ -150,7 +154,7 @@ az network nsg rule create \
   --destination-port-range "22"
 ```
 
-## <a name="restrict-network-access-to-a-resource"></a>Restricción del acceso a la red a un recurso
+## <a name="restrict-network-access-to-a-resource"></a>Restricción del acceso de la red a un recurso
 
 Los pasos que deben seguirse para restringir el acceso de la red a los recursos creados con servicios de Azure habilitados para puntos de conexión de servicio varían en función del servicio. Consulte en la documentación de cada servicio concreto los pasos necesarios para dicho servicio. Como ejemplo, de aquí en adelante se explican los pasos necesarios para restringir el acceso de red en una cuenta de Azure Storage.
 

@@ -7,20 +7,22 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/08/2019
+ms.date: 03/25/2019
 ms.author: dobett
-ms.openlocfilehash: befef76e19640683ba3219374702a049bdecb43b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 32e2d3f9e8bbd63944188355774558ca5ea7bd9d
+ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58184179"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58792508"
 ---
 # <a name="quickstart-try-a-cloud-based-remote-monitoring-solution"></a>Inicio rápido: Prueba de una solución de supervisión remota basada en la nube
 
 En esta guía de inicio rápido se muestra cómo implementar el acelerador de soluciones de supervisión remota de Azure IoT. En esta solución basada en la nube, se usa la página **Panel** para visualizar los dispositivos simulados en un mapa y la página **Mantenimiento** para responder a una alerta de presión de un dispositivo refrigerador simulado. Puede utilizar este acelerador de soluciones como punto de partida de su propia implementación o como una herramienta de aprendizaje.
 
 La implementación inicial configura el acelerador de soluciones para una empresa llamada Contoso. Como un operador de Contoso, administra una selección de diferentes tipos de dispositivos, como los refrigeradores, implementados en diferentes entornos físicos. Un dispositivo refrigerador envía los datos de telemetría de la presión, la temperatura y la humedad al acelerador de soluciones de supervisión remota.
+
+En este inicio rápido se implementa una versión **básica** del acelerador de soluciones con fines de prueba y demostración que reduce los costos. Para más información sobre las distintas versiones que puede implementar, consulte [Implementaciones estándar y básicas](iot-accelerators-remote-monitoring-deploy-cli.md#basic-and-standard-deployments).
 
 Para completar esta guía de inicio rápido, necesita una suscripción de Azure.
 
@@ -36,9 +38,7 @@ Haga clic en el icono **Supervisión remota**. En la página **Supervisión remo
 
 ![Elección de Supervisión remota](./media/quickstart-remote-monitoring-deploy/remotemonitoring.png)
 
-En la página **Create Remote Monitoring solution** (Crear solución de supervisión remota), seleccione una implementación **Básica**. Si implementa el acelerador de soluciones para saber cómo funciona o para ejecutar una demostración, elija la opción **Básica** para aminorar los costos.
-
-Elija **.NET** como lenguaje. Las implementaciones de Java y de .NET tienen las mismas características.
+Elija **C# Microservices** (Microservicios de C#) en **Opciones de implementación**. Las implementaciones de Java y C# tienen las mismas características.
 
 Escriba un valor único de **Nombre de la solución** para el acelerador de soluciones de supervisión remota. En esta guía de inicio rápido, llamamos a nuestro **contoso-rm**.
 
@@ -111,7 +111,7 @@ Para actuar en el refrigerador, desplácese hacia abajo hacia **Información rel
 
 En el panel **Trabajos**, elija **Run method** (Método de ejecución) y, después, el método **EmergencyValveRelease**. Agregue el nombre del trabajo **ChillerPressureRelease** y haga clic en **Aplicar**. Esta configuración crea un trabajo que se ejecuta de inmediato.
 
-Para ver el estado del trabajo, vuelva a la página **Mantenimiento** y vea la lista de trabajos en la vista **Trabajos**. Puede que tenga que esperar unos segundos para poder ver que el trabajo se ejecutó para liberar la presión de la válvula del refrigerador:
+Para ver el estado del trabajo, vuelva a la página **Mantenimiento** y vea la lista de trabajos en la vista **Trabajos**. Puede que deba esperar unos segundos para poder ver que el trabajo se ha ejecutado:
 
 [![Estado de los trabajos en la vista Trabajos](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-inline.png)](./media/quickstart-remote-monitoring-deploy/maintenancerunningjob-expanded.png#lightbox)
 

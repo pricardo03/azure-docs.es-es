@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: e6e20db39be8a6e60833bf5c4f9b6a34a9ead461
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 22a95ce506a7f906604cc65d08a04b7f761bb4c2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58013038"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273590"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Creación y administración de presupuestos de Azure
 
@@ -39,7 +39,7 @@ Los presupuestos se admiten en varios tipos de cuenta de Azure. Para ver la list
 
  En el caso de las suscripciones con contrato Enterprise de Azure, debe tener acceso de lectura para ver los presupuestos. Para crear y administrar presupuestos, debe tener permiso de colaborador. Puede crear presupuestos individuales para las suscripciones de EA y los grupos de recursos. Sin embargo, no se pueden crear presupuestos para cuentas de facturación de EA.
 
-Los siguientes permisos de Azure, o ámbitos, se admiten por suscripción para los presupuestos por usuario y grupo. Para obtener más información sobre los ámbitos, consulte [entender y trabajar con los ámbitos](understand-work-scopes.md).
+Los siguientes permisos de Azure, o ámbitos, se admiten por suscripción para los presupuestos por usuario y grupo. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
 - Propietario: puede crear, modificar o eliminar los presupuestos para una suscripción.
 - Colaborador y Colaborador de Cost Management: puede crear, modificar o eliminar sus propios presupuestos. Puede modificar el importe presupuestario para los presupuestos creados por otros usuarios.
@@ -55,7 +55,7 @@ Para más información sobre cómo asignar permisos a los datos de Cost Manageme
 
 Puede crear un presupuesto de suscripción de Azure durante un período mensual, trimestral o anual. El contenido de navegación en el portal de Azure determina si crea un presupuesto para una suscripción o para un grupo de administración.
 
-Para crear o ver un presupuesto, abra el ámbito deseado en Azure portal y seleccione **presupuestos** en el menú. Por ejemplo, vaya a **suscripciones**, seleccione una suscripción en la lista y, a continuación, seleccione **presupuestos** en el menú. Use la **ámbito** pastilla para cambiar a un ámbito diferente, como un grupo de administración, en los presupuestos. Para obtener más información sobre los ámbitos, consulte [entender y trabajar con los ámbitos](understand-work-scopes.md).
+Para crear o ver un presupuesto, abra el ámbito deseado en Azure portal y seleccione **presupuestos** en el menú. Por ejemplo, vaya a **suscripciones**, seleccione una suscripción en la lista y, a continuación, seleccione **presupuestos** en el menú. Use la **ámbito** pastilla para cambiar a un ámbito diferente, como un grupo de administración, en los presupuestos. Para más información sobre los ámbitos, consulte [Descripción y uso de ámbitos](understand-work-scopes.md).
 
 Después de crear los presupuestos, muestran a un lado una vista sencilla de su gasto actual.
 
@@ -63,7 +63,9 @@ Haga clic en **Agregar**.
 
 ![Presupuestos de Cost Management que se muestran en Azure Portal](./media/tutorial-acm-create-budgets/budgets01.png)
 
-En la ventana **Crear presupuesto**, escriba un nombre de presupuesto y el importe presupuestario. A continuación, elija un período mensual, trimestral o anual. A continuación, seleccione una fecha de finalización. Los presupuestos requieren al menos un umbral de costos (% del presupuesto) y una dirección de correo electrónico correspondiente. De manera opcional, puede incluir hasta cinco umbrales y cinco direcciones de correo electrónico en un único presupuesto. Cuando se alcanza un umbral de presupuesto, las notificaciones por correo electrónico se reciben normalmente en menos de ocho horas. Para más información acerca de las notificaciones, consulte [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md) (Uso de alertas de costos).
+En la ventana **Crear presupuesto**, escriba un nombre de presupuesto y el importe presupuestario. A continuación, elija una cuota mensual, trimestral o anual duración<sup>1</sup>. A continuación, seleccione una fecha de finalización. Los presupuestos requieren al menos un umbral de costos (% del presupuesto) y una dirección de correo electrónico correspondiente. De manera opcional, puede incluir hasta cinco umbrales y cinco direcciones de correo electrónico en un único presupuesto. Cuando se alcanza un umbral de presupuesto, las notificaciones por correo electrónico se reciben normalmente en menos de ocho horas. Para más información acerca de las notificaciones, consulte [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md) (Uso de alertas de costos).
+
+<sup>1</sup> si es un cliente de pago por uso, MSDN o Visual Studio el período de facturación de la factura para una suscripción no puede alinear con el mes natural. Para las suscripciones y grupos de recursos que pertenecen a este cubo, puede crear un presupuesto que se alinea a la factura o meses naturales. Para crear un presupuesto alineado en la factura, seleccione un período de restablecimiento de mes de facturación, facturación trimestre o año de facturación en tiempo de creación. Para crear un presupuesto alineado con el mes natural, seleccione un período de restablecimiento de mensual, trimestral o anualmente en el momento de creación.
 
 Este es un ejemplo de creación de un presupuesto mensual para 4500 USD. Se genera una alerta por correo electrónico cuando se alcanza el 90 % del presupuesto.
 

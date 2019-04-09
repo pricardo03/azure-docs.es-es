@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/12/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dacf58760d353eea3c552a9113589259148f3558
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 1bb1370b2d828aaddae61c32a663bd032b18e7b1
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447908"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801902"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Tutorial: Uso de las identidades administradas asignadas por el sistema de una máquina virtual Windows para acceder a Azure Storage
 
@@ -76,7 +76,7 @@ Puede usar la identidad administrada asignada por el sistema de la máquina virt
 1. Vuelva a la cuenta de almacenamiento recién creada.
 2. Haga clic en el vínculo **Control de acceso (IAM)** en el panel izquierdo.
 3. Haga clic en **+ Agregar asignación de rol** en la parte superior de la página para agregar una asignación de roles nueva para la máquina virtual.
-4. En la lista desplegable de **Rol**, seleccione **Lector de datos de blobs de almacenamiento (versión preliminar)**.
+4. En la lista desplegable de **Rol**, seleccione **Lector de datos de blobs de almacenamiento**.
 5. En la lista desplegable siguiente, en **Asignar acceso a**, elija **Máquina virtual**.
 6. A continuación, asegúrese de que la suscripción adecuada aparece en el menú desplegable **Suscripción** y establezca **Grupo de recursos** en **Todos los grupos de recursos**.
 7. En **Seleccionar**, elija la máquina virtual y haga clic en **Guardar**.

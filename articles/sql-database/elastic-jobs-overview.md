@@ -12,12 +12,12 @@ ms.author: srinia
 ms.reviewer: sstein
 manager: craigg
 ms.date: 12/18/2018
-ms.openlocfilehash: aa4fff24620ffd74393d549f1888bdf0e1cb0224
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 62efee57f3663f1dad0446da659de16d2800bf75
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57773586"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264427"
 ---
 # <a name="create-configure-and-manage-elastic-jobs"></a>Creación, configuración y administración de trabajos elásticos
 
@@ -76,6 +76,8 @@ Actualmente, la versión preliminar está limitada a 100 trabajos simultáneos.
 
 Para asegurarse de que los recursos no están sobrecargados al ejecutar trabajos en las bases de datos de un grupo elástico de SQL, los trabajos se pueden configurar para limitar el número de bases de datos en las que puede ejecutarse un trabajo al mismo tiempo.
 
+Establecer el número de bases de datos simultáneas se ejecuta un trabajo estableciendo el `sp_add_jobstep` procedimiento almacenado `@max_parallelism` parámetro en T-SQL, o `Add-AzSqlElasticJobStep -MaxParallelism` en PowerShell.
+
 ## <a name="best-practices-for-creating-jobs"></a>Procedimientos recomendados para crear trabajos
 
 ### <a name="idempotent-scripts"></a>Scripts idempotentes
@@ -96,5 +98,5 @@ De forma similar, un script debe ser capaz de comprobar lógicamente y contrarre
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación y administración de trabajos elásticos mediante PowerShell](elastic-jobs-powershell.md)
-- [Creación y administración de trabajos elásticos mediante Transact-SQL (T-SQL)](elastic-jobs-tsql.md)
+- [Crear y administrar trabajos elásticos mediante PowerShell](elastic-jobs-powershell.md)
+- [Crear y administrar trabajos elásticos mediante Transact-SQL (T-SQL)](elastic-jobs-tsql.md)

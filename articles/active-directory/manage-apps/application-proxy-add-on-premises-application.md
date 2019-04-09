@@ -12,12 +12,12 @@ ms.date: 03/12/2019
 ms.author: celested
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29f2de6eb0171e5e1c792e8860a56f014dad501f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: fd494ffe6bc48495c882ed84062503bdc00ae9f4
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314831"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917845"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Tutorial: Adición de una aplicación local para el acceso remoto mediante el proxy de aplicación en Azure Active Directory
 
@@ -49,7 +49,7 @@ Para conseguir una alta disponibilidad del entorno de producción, se recomienda
 
 1. Busque físicamente el servidor de conector cerca de los servidores de aplicación para optimizar el rendimiento entre el conector y la aplicación. Para más información, vea [Consideraciones sobre la topología de red](application-proxy-network-topology.md).
 
-2. El servidor de conector y los servidores de aplicaciones web deben pertenecer al mismo dominio de Active Directory. Disponer de servidores en el mismo dominio es un requisito para usar el inicio de sesión único (SSO) con la autenticación integrada de Windows (IWA) y la delegación restringida de Kerberos (KCD). Si el servidor de conector y los servidores de aplicaciones web están en diferentes dominios de Active Directory, deberá utilizar la delegación basada en recursos para el inicio de sesión único. Para obtener más información, consulte el artículo sobre[la KCD para el inicio de sesión único con el proxy de aplicación](application-proxy-configure-single-sign-on-with-kcd.md).
+2. El servidor del conector y los servidores de aplicaciones web deben pertenecer al mismo dominio de Active Directory o abarcar dominios de confianza. Tener los servidores en el mismo dominio o en dominios de confianza es un requisito para usar el inicio de sesión único (SSO) con la autenticación integrada de Windows (IWA) y la delegación restringida de Kerberos (KCD). Si el servidor de conector y los servidores de aplicaciones web están en diferentes dominios de Active Directory, deberá utilizar la delegación basada en recursos para el inicio de sesión único. Para obtener más información, consulte el artículo sobre[la KCD para el inicio de sesión único con el proxy de aplicación](application-proxy-configure-single-sign-on-with-kcd.md).
 
 #### <a name="software-requirements"></a>Requisitos de software
 
@@ -172,7 +172,7 @@ Ahora que ya ha preparado el entorno y ha instalado un conector, está listo par
 
     | Campo | DESCRIPCIÓN |
     | :---- | :---------- |
-    | **Nombre** | El nombre de la aplicación que va a aparecer en el panel de acceso y en Azure Portal. |
+    | **NOMBRE** | El nombre de la aplicación que va a aparecer en el panel de acceso y en Azure Portal. |
     | **Dirección URL interna** | La dirección URL para acceder a la aplicación desde la red privada. Puede especificar una ruta de acceso específica en el servidor back-end para publicar, mientras que el resto del servidor no se publica. De esta forma, puede publicar sitios diferentes en el mismo servidor como aplicaciones diferentes y dar a cada uno un nombre y unas reglas de acceso propios.<br><br>Si publica una ruta de acceso, asegúrese de que incluye todas las imágenes, los scripts y las hojas de estilos necesarias para la aplicación. Por ejemplo, si la aplicación está en https:\//yourapp/app y usa las imágenes que se encuentran en https:\//yourapp/media, debe publicar https:\//yourapp/ como la ruta de acceso. Esta dirección URL interna no tiene que ser la página de inicio que verán los usuarios. Para más información, consulte [Establecimiento de una página principal personalizada para aplicaciones publicadas mediante el proxy de aplicación de Azure AD](application-proxy-configure-custom-home-page.md). |
     | **Dirección URL externa** | La dirección para que los usuarios accedan a la aplicación desde fuera de la red. Si no desea usar el dominio del proxy de aplicación predeterminado, lea sobre el [uso de dominios personalizados en el proxy de aplicación de Azure AD](application-proxy-configure-custom-domain.md).|
     | **Autenticación previa** | La forma en que el proxy de aplicación verifica los usuarios antes de concederles acceso a la aplicación.<br><br>**Azure Active Directory**: el proxy de la aplicación redirige a los usuarios para que inicien sesión en Azure AD, que autentica sus permisos para el directorio y la aplicación. Se recomienda mantener esta opción como predeterminada, para que puede aprovechar las características de seguridad de Azure AD como el acceso condicional y Multi-Factor Authentication. Se necesita **Azure Active Directory** para la supervisión de la aplicación con Microsoft Cloud Application Security.<br><br>**Acceso directo**: los usuarios no tienen que autenticarse en Azure Active Directory para tener acceso a la aplicación. Esto no impide que pueda configurar los requisitos de autenticación en el back-end. |
@@ -187,7 +187,7 @@ Ahora que ya ha preparado el entorno y ha instalado un conector, está listo par
     | **Usar cookies seguras**| Establezca este valor en **Sí** para transmitir las cookies a través de un canal seguro como una solicitud HTTPS cifrada.
     | **Usar cookies persistentes**| Mantenga este valor establecido en **No**. Esta configuración solo debe usarse para las aplicaciones que no pueden compartir cookies entre procesos. Para más información sobre la configuración de las cookies, consulte [Cookie settings for accessing on-premises applications in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-cookie-settings) (Configuración de las cookies para el acceso a aplicaciones locales en Azure Active Directory)
     | **Traducir URL en encabezados** | Mantenga este valor como **Sí** a menos que la aplicación requiera el encabezado de host original en la solicitud de autenticación. |
-    | **Traducir direcciones URL en el cuerpo de la aplicación** | Mantenga este valor como **No** a menos que tenga vínculos HTML codificados a otras aplicaciones locales y no use dominios personalizados. Para más información, consulte sobre la [traducción de vínculos con el proxy de aplicación](application-proxy-configure-hard-coded-link-translation.md).<br><br>Establezca este valor en **Sí** si tiene previsto supervisar esta aplicación con Microsoft Cloud App Security (MCAS). Para más información, consulte [Configure real-time application access monitoring with Microsoft Cloud App Security and Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md) (Configuración de la supervisión del acceso a las aplicaciones en tiempo real con Microsoft Cloud App Security y Azure Active Directory). |
+    | **Traducir URL en el cuerpo de la aplicación** | Mantenga este valor como **No** a menos que tenga vínculos HTML codificados a otras aplicaciones locales y no use dominios personalizados. Para más información, consulte sobre la [traducción de vínculos con el proxy de aplicación](application-proxy-configure-hard-coded-link-translation.md).<br><br>Establezca este valor en **Sí** si tiene previsto supervisar esta aplicación con Microsoft Cloud App Security (MCAS). Para más información, consulte [Configure real-time application access monitoring with Microsoft Cloud App Security and Azure Active Directory](application-proxy-integrate-with-microsoft-cloud-application-security.md) (Configuración de la supervisión del acceso a las aplicaciones en tiempo real con Microsoft Cloud App Security y Azure Active Directory). |
    
 6. Seleccione **Agregar**.
 
@@ -239,4 +239,4 @@ Hizo todo esto:
 Ya está preparado para configurar la aplicación para el inicio de sesión único. Use el siguiente vínculo para elegir un método de inicio de sesión único y buscar tutoriales sobre el inicio de sesión único. 
 
 > [!div class="nextstepaction"]
->[Configuración del inicio de sesión único](what-is-single-sign-on.md#choosing-a-single-sign-on-method)
+>[Configurar inicio de sesión único](what-is-single-sign-on.md#choosing-a-single-sign-on-method)

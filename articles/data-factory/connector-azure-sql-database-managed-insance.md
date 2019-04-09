@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 782027f19d4e82f26fc1265f25b86223386d7182
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57903392"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59272213"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copia de datos hacia y desde Instancia administrada de Azure SQL Database mediante Azure Data Factory
 
@@ -62,7 +62,7 @@ Las siguientes propiedades se admiten en el servicio vinculado de Instancia admi
 >[!TIP]
 >Es posible que vea el código de error "UserErrorFailedToConnectToSqlServer" con un mensaje como "Se ha alcanzado el límite de la sesión para la base de datos establecido en XXX". Si se produce este error, agregue `Pooling=false` a la cadena de conexión y vuelva a intentarlo.
 
-**Ejemplo 1: Uso de la autenticación de SQL**
+**Ejemplo 1: Utilizar autenticación de SQL**
 
 ```json
 {
@@ -83,7 +83,7 @@ Las siguientes propiedades se admiten en el servicio vinculado de Instancia admi
 }
 ```
 
-**Ejemplo 2: Uso de la autenticación de SQL con contraseña en Azure Key Vault**
+**Ejemplo 2: Utilizar autenticación de SQL con contraseña en Azure Key Vault**
 
 ```json
 {
@@ -112,7 +112,7 @@ Las siguientes propiedades se admiten en el servicio vinculado de Instancia admi
 }
 ```
 
-**Ejemplo 3: Uso de la autenticación de Windows**
+**Ejemplo 3: Usar la autenticación de Windows**
 
 ```json
 {
@@ -188,7 +188,7 @@ Tenga en cuenta los siguientes puntos:
 - Si se especifica **sqlReaderQuery** para **SqlSource**, la actividad de copia ejecuta esta consulta en el origen de Instancia administrada para obtener los datos. También puede indicar un procedimiento almacenado mediante la definición de **sqlReaderStoredProcedureName** y **storedProcedureParameters** si el procedimiento almacenado adopta parámetros.
 - Si no se especifican las propiedades **sqlReaderQuery** o **sqlReaderStoredProcedureName**, se usan las columnas que se definen en la sección “structure” del JSON del conjunto de datos para construir una consulta. La consulta `select column1, column2 from mytable` se ejecuta en la instancia administrada. Si la definición del conjunto de datos no tiene la sección "structure", se seleccionan todas las columnas de la tabla.
 
-**Ejemplo: Uso de una consulta SQL**
+**Ejemplo: Usar una consulta SQL**
 
 ```json
 "activities":[
@@ -220,7 +220,7 @@ Tenga en cuenta los siguientes puntos:
 ]
 ```
 
-**Ejemplo: Uso de un procedimiento almacenado**
+**Ejemplo: Usar un procedimiento almacenado**
 
 ```json
 "activities":[
@@ -256,7 +256,7 @@ Tenga en cuenta los siguientes puntos:
 ]
 ```
 
-**Definición del procedimiento almacenado**
+**La definición del procedimiento almacenado**
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -282,7 +282,7 @@ Para copiar datos en Instancia administrada de Azure SQL Database, establezca el
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
 | Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en **SqlSink**. | Sí. |
-| writeBatchSize |Esta propiedad inserta datos en la tabla SQL cuando el tamaño de búfer alcanza el valor de writeBatchSize.<br/>Los valores permitidos son enteros para el número de filas. |No (valor predeterminado: 10 000). |
+| writeBatchSize |Número de filas que se inserta en la tabla SQL **por lote**.<br/>Los valores permitidos son enteros para el número de filas. |No (valor predeterminado: 10 000). |
 | writeBatchTimeout |Esta propiedad especifica el tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son para el intervalo de tiempo. Un ejemplo es "00:30:00", que es 30 minutos. | No. |
 | preCopyScript |Esta propiedad especifica una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en la instancia administrada. Solo se invoca una vez por cada copia que se ejecuta. Puede usar esta propiedad para limpiar los datos cargados previamente. | No. |
 | sqlWriterStoredProcedureName |Este nombre es para el procedimiento almacenado que define cómo se aplican los datos de origen en una tabla de destino. Los ejemplos de procedimientos son realizar operaciones upsert o transformaciones mediante su propia lógica de negocios. <br/><br/>Este procedimiento almacenado se *invoca por lote*. Para realizar una operación que solo se ejecuta una vez y que no tiene nada que ver con los datos de origen, como por ejemplo, eliminar o truncar, use la propiedad `preCopyScript`. | No. |
@@ -292,7 +292,7 @@ Para copiar datos en Instancia administrada de Azure SQL Database, establezca el
 > [!TIP]
 > Cuando se copian datos en Instancia administrada de Azure SQL Database, la actividad de copia anexa datos a la tabla receptora de forma predeterminada. Para llevar a cabo una operación upsert o una lógica de negocios adicional, use el procedimiento almacenado de SqlSink. Para más información, vea [Invocación del procedimiento almacenado desde el receptor de SQL](#invoke-a-stored-procedure-from-a-sql-sink).
 
-**Ejemplo 1: Anexión de datos**
+**Ejemplo 1: Anexar datos**
 
 ```json
 "activities":[
@@ -324,7 +324,7 @@ Para copiar datos en Instancia administrada de Azure SQL Database, establezca el
 ]
 ```
 
-**Ejemplo 2: Invocación de un procedimiento almacenado durante la copia para la operación upsert**
+**Ejemplo 2: Invocar un procedimiento almacenado durante la copia de upsert**
 
 Para más información, vea [Invocación del procedimiento almacenado desde el receptor de SQL ](#invoke-a-stored-procedure-from-a-sql-sink).
 
@@ -438,9 +438,9 @@ Al copiar datos en Instancia administrada de Azure SQL Database, se puede config
 
 Cuando los mecanismos de copia integrados no prestan el servicio, se puede usar un procedimiento almacenado. Normalmente se utiliza cuando se debe realizar una operación upsert (actualización más inserción) o un procesamiento adicional antes de la inserción final de los datos de origen en la tabla de destino. El procesamiento adicional puede incluir tareas como la combinación de columnas, la búsqueda de valores adicionales y la inserción en varias tablas.
 
-En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para realizar una operación upsert en una tabla de la instancia administrada. En el ejemplo se supone que los datos de entrada y la tabla “Marketing” del receptor tienen tres columnas: ProfileID, State y Category. Realice una operación upsert en función de la columna ProfileID y aplíquela solo a una categoría específica.
+En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para realizar una operación UPSERT en una tabla en la base de datos SQL Server. Supongamos que los datos de entrada y la tabla **Marketing** del receptor tienen tres columnas: **ProfileID**, **State** y **Category**. Realice una operación UPSERT en función de la columna **ProfileID** y aplíquela solo a una categoría concreta.
 
-**Conjunto de datos de salida**
+**Conjunto de datos de salida:** "tableName" debe ser el mismo nombre de parámetro de tipo de tabla en el procedimiento almacenado (vea a continuación de la secuencia de comandos de procedimiento almacenado).
 
 ```json
 {
@@ -459,7 +459,7 @@ En el ejemplo siguiente se muestra cómo usar un procedimiento almacenado para r
 }
 ```
 
-Defina la sección SqlSink de una actividad de copia como se indica a continuación:
+Definir la **receptor SQL** sección actividad de copia como se indica a continuación.
 
 ```json
 "sink": {
@@ -474,7 +474,7 @@ Defina la sección SqlSink de una actividad de copia como se indica a continuaci
 }
 ```
 
-En la base de datos, defina el procedimiento almacenado con el mismo nombre que SqlWriterStoredProcedureName. Dicho procedimiento administra los datos de entrada del origen especificado y los combina en la tabla de salida. El nombre del parámetro del tipo de tabla en el procedimiento almacenado es el mismo que el de “tableName” que se ha definido en el conjunto de datos.
+En la base de datos, defina el procedimiento almacenado con el mismo nombre que **SqlWriterStoredProcedureName**. Dicho procedimiento administra los datos de entrada del origen especificado y los combina en la tabla de salida. El nombre del parámetro del tipo de tabla en el procedimiento almacenado debe ser el mismo que el de **tableName** definido en el conjunto de datos.
 
 ```sql
 CREATE PROCEDURE spOverwriteMarketing @Marketing [dbo].[MarketingType] READONLY, @category varchar(256)

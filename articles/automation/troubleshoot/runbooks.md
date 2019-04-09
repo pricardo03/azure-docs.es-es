@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 84db71f8dabfb7557b5efbc06e024c43e654b56d
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: f93f6c8891ba9f7407310a8f09387e97f5c1f578
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805081"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267351"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Solución de problemas relativos a errores con runbooks
 
@@ -137,7 +137,7 @@ Para usar un certificado con los cmdlets del modelo de implementación clásica 
 
 #### <a name="issue"></a>Problema
 
-Recibe el siguiente error al invocar un runbook secundario con el modificador `-Wait` y el flujo de salida contiene el objeto:
+Recibe el siguiente error al invocar un runbook secundario con el `-Wait` conmutador y el flujo de salida contiene y de objeto:
 
 ```error
 Object reference not set to an instance of an object
@@ -483,6 +483,29 @@ Hay dos maneras de resolver este error:
 
 * Edite el runbook y reduzca el número de flujos de trabajo que emite.
 * Reduzca el número de flujos para recuperar cuando se ejecuta el cmdlet. Para seguir este comportamiento, puede especificar el parámetro `-Stream Output` para el cmdlet `Get-AzureRmAutomationJobOutput` a fin de recuperar solo los flujos de salida. 
+
+### <a name="cannot-invoke-method"></a>Escenario: Se produce un error en el trabajo de PowerShell con error: No se puede invocar método
+
+#### <a name="issue"></a>Problema
+
+Recibirá el siguiente mensaje de error al iniciar un PowerShell Job en un runbook que se ejecuta en Azure:
+
+```error
+Exception was thrown - Cannot invoke method. Method invocation is supported only on core types in this language mode.
+```
+
+#### <a name="cause"></a>Causa
+
+Este error puede producirse cuando se inicia un PowerShell se ejecutó el trabajo en un runbook en Azure. Este comportamiento puede producirse porque los runbooks se ejecutó en Azure espacio aislado no se puede ejecutar en el [modo de lenguaje completo](/powershell/module/microsoft.powershell.core/about/about_language_modes)).
+
+#### <a name="resolution"></a>Resolución
+
+Hay dos maneras de resolver este error:
+
+* En lugar de usar `Start-Job`, utilice `Start-AzureRmAutomationRunbook` para iniciar un runbook
+* Si el runbook tiene este mensaje de error, se ejecutan en Hybrid Runbook Worker
+
+Para obtener más información sobre este comportamiento y otros comportamientos de Runbooks de Azure Automation, consulte [Runbook comportamiento](../automation-runbook-execution.md#runbook-behavior).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

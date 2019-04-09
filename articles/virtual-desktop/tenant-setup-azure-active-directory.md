@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: b8b5c2cef1db5018ce0d61e1950f49a3bd215ac2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 1c66b3de9e18cb74c43f20499e4065c7ec7ae5ca
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402905"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801687"
 ---
 # <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Tutorial: Creación de un inquilino en Windows Virtual Desktop (versión preliminar)
 
@@ -30,6 +30,8 @@ Esto es lo que necesita para configurar el inquilino de Windows Virtual Desktop:
 * El identificador de inquilino de [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) para los usuarios de Windows Virtual Desktop.
 * Una cuenta de administrador global en el inquilino de Azure Active Directory.
    * Esto también es aplicable a las organizaciones de proveedores de soluciones en la nube (CSP) que crean un inquilino de Windows Virtual Desktop para sus clientes. Si este es su caso, debe poder iniciar sesión como administrador global de la instancia de Azure Active Directory del cliente.
+   * La cuenta de administrador se debe originar en el inquilino de Azure Active Directory en el que está intentando crear el inquilino de Windows Virtual Desktop. Este proceso no es compatible con las cuentas de Azure Active Directory B2B (invitado).
+   * La cuenta de administrador debe ser una cuenta profesional o educativa.
 * Un identificador de suscripción de Azure
 
 ## <a name="grant-azure-active-directory-permissions-to-the-windows-virtual-desktop-preview-service"></a>Conceder permisos de Azure Active Directory en el servicio Windows Virtual Desktop (versión preliminar)
@@ -75,7 +77,7 @@ En primer lugar y, si aún no lo ha hecho, [descargue e importe el módulo de Wi
 Inicie sesión en Windows Virtual Desktop mediante la cuenta de usuario de TenantCreator con este cmdlet:
 
 ```powershell
-Add-RdsAccount -DeploymentUrl “https://rdbroker.wvd.microsoft.com”
+Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ```
 
 Después de eso, cree un nuevo inquilino de Windows Virtual Desktop asociado al inquilino de Azure Active Directory:

@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, vanto
 manager: craigg
-ms.date: 03/29/2019
-ms.openlocfilehash: 5c9e11572bc142637066214e1a807a80ce711c48
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.date: 04/08/2019
+ms.openlocfilehash: f1e86e4556931c00d317a618eeaf35ac988a2879
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877693"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266246"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Uso de Advanced Data Security en SQL Database con redes virtuales y casi un 100 % de compatibilidad
 
@@ -50,7 +50,7 @@ Una instancia administrada combina las mejores características que están dispo
 |Entorno aislado ([integración con red virtual](sql-database-managed-instance-connectivity-architecture.md), servicio de inquilino único y procesos y almacenamiento dedicados) <br>[Cifrado de datos transparente (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticación de Azure AD](sql-database-aad-authentication.md), compatibilidad con el inicio de sesión único <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entidades de seguridad (inicios de sesión) de un servidor de Azure AD</a> (**versión preliminar pública**) <br>Se adhiere a las mismas normas de cumplimiento estándar que Azure SQL Database <br>[Auditoría de SQL](sql-database-managed-instance-auditing.md) <br>[detección de amenazas](sql-database-managed-instance-threat-detection.md) |API de Azure Resource Manager para automatizar el aprovisionamiento y escalado del servicio <br>Funcionalidad de Azure Portal para el aprovisionamiento y escalado manuales del servicio <br>Data Migration Service
 
 > [!IMPORTANT]
-> Azure SQL Database (todas las opciones de implementación), ha sido certificada con una serie de estándares de cumplimiento. Para más información, consulte el [Centro de confianza de Microsoft Azure](https://azure.microsoft.com/support/trust-center/), donde podrá encontrar la lista más reciente de [certificaciones de cumplimiento de SQL Database](https://www.microsoft.com/trustcenter/compliance/complianceofferings).
+> Azure SQL Database (todas las opciones de implementación), ha sido certificada con una serie de estándares de cumplimiento. Para obtener más información, consulte el [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) donde puede encontrar la lista más actualizada de certificaciones de cumplimiento de la base de datos SQL.
 
 Las características principales de las instancias administradas se muestran en la tabla siguiente:
 

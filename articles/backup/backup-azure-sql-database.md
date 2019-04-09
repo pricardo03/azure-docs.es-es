@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 03/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4eaaff859811e4d97cbd4f73231d702285792064
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: d99a3d23959cfdd9bd068fbde3a882eb1bc9b4ae
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285452"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58847300"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Acerca de la copia de seguridad de SQL Server en máquinas virtuales de Azure
 
@@ -55,7 +55,7 @@ Antes de empezar, compruebe lo siguiente:
 
 - La copia de seguridad de SQL Server se puede configurar en Azure Portal o **PowerShell**. No se admite la CLI.
 - La máquina virtual que ejecuta SQL Server requiere conectividad a Internet para acceder a las direcciones IP públicas de Azure.
-- No se admiten las **instancias de clústeres de conmutación por error (FCI)** de los grupos de disponibilidad Always On de SQL Server.
+- La **instancia del clúster de conmutación por error (FCI)** de SQL Server y la instancia del clúster de conmutación por error de SQL Server AlwaysOn no se admiten.
 - No se admiten operaciones de copia de seguridad y restauración de bases de datos reflejadas ni de instantáneas de bases de datos.
 - Si se usa más de una solución para realizar copias de seguridad de una instancia de SQL Server independiente o de un grupo de disponibilidad Always On de SQL, se pueden producir errores en la copia de seguridad, por lo que es aconsejable evitar hacerlo.
 - La realización de una copia de seguridad de dos nodos de un grupo de disponibilidad individualmente con las mismas soluciones o soluciones diferentes, también puede dar lugar a errores en la copia de seguridad. Azure Backup puede detectar todos los nodos que se encuentran en la misma región que el almacén y protegerlos. Si su grupo de disponibilidad Always On de SQL Server abarca varias regiones de Azure, configure la copia de seguridad de la región que tenga el nodo principal. Azure Backup puede detectar todas las bases de datos del grupo de disponibilidad en función de sus preferencias con respecto a la copia de seguridad y protegerlas.  

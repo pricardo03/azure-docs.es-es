@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: diberry
-ms.openlocfilehash: 5635e0f669cec64bdbbf947099f980066a4aebc1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6f79614e4b1ec660d2ec5c8aee40924908cf8f5c
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58121424"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58884132"
 ---
 # <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Tutorial: Creación de una base de conocimiento y posterior respuesta a una pregunta mediante el portal de QnA Maker
 
@@ -105,7 +105,7 @@ Una vez publicada la base de conocimiento, se muestra el punto de conexión
 
     ![Comando Curl](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-3-curl.png)
 
-1. Copie el texto de la pestaña **Curl** y ejecútelo en un terminal con Curl habilitado o en la línea de comandos. El valor del encabezado de la autorización incluye el texto `Endpoint ` con un espacio al final y, después, la clave.
+1. Copie el texto de la pestaña **Curl** y ejecútelo en un terminal con Curl habilitado o en la línea de comandos. El valor del encabezado de la autorización incluye el texto `Endpoint` con un espacio al final y, después, la clave.
 
 1. Reemplace `<Your question>` por `How large can my KB be?`. Es muy parecida a la pregunta, `How large a knowledge base can I create?`, pero no es exactamente igual. QnA Maker aplica el procesamiento de lenguaje natural para determinar si las dos preguntas son iguales.     
 
@@ -208,4 +208,4 @@ Más información acerca de las [personalidades](../Concepts/best-practices.md#c
 Para más información acerca de la respuesta predeterminada, consulte [No se encontraron coincidencias](../Concepts/confidence-score.md#no-match-found). 
 
 > [!div class="nextstepaction"]
-> [Conceptos de bases de conocimiento](../Concepts/knowledge-base.md)
+> [Conceptos de bases de conocimientos](../Concepts/knowledge-base.md)

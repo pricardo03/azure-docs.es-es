@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 04/01/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4e9080cfc863b4253a4eb4d427f21df74bb08874
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
+ms.openlocfilehash: e54c18eb405ffa36260e9980705784130bc0ca4c
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54186743"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803017"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Inicio rápido: Creación de un servidor: Portal
 
@@ -46,7 +46,7 @@ En este inicio rápido se describe cómo crear un recurso de servidor de Analysi
    * **Configuración de almacenamiento de copia de seguridad**: Opcional. Si ya tiene una [cuenta de almacenamiento](../storage/common/storage-introduction.md), puede especificarla como valor predeterminado para la copia de seguridad de la base de datos modelo. También puede especificar la configuración de [copia de seguridad y restauración](analysis-services-backup.md) más adelante.
    * **Expiración de la clave de almacenamiento**: Opcional. Especifique un período de caducidad de la clave de almacenamiento.
 
-Por lo general, el proceso de crear el servidor toma menos de un minuto. Si seleccionó **Add to Portal** (Agregar al portal), desplácese hasta el portal para ver el nuevo servidor. O bien, vaya a **Todos los servicios** > **Analysis Services** para ver si el servidor está listo.
+Por lo general, el proceso de crear el servidor toma menos de un minuto. Si seleccionó **Add to Portal** (Agregar al portal), desplácese hasta el portal para ver el nuevo servidor. O bien, vaya a **Todos los servicios** > **Analysis Services** para ver si el servidor está listo. Los servidores admiten modelos tabulares en el nivel de compatibilidad 1200 y superiores. El nivel de compatibilidad del modelo se especifica en SSDT o SSMS.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

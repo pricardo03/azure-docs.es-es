@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 6470a358fd3127c93e2e2248b42f79690f4e8b55
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 9b905a81751ce5f4de4a4efbb9ff4c328269fe34
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449350"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58904855"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial: Implementación de HSM en una red virtual existente con PowerShell
 
@@ -34,6 +34,9 @@ Una arquitectura de implementación típica, con alta disponibilidad y para vari
 ![implementación de varias regiones](media/tutorial-deploy-hsm-powershell/high-availability.png)
 
 Este tutorial se centra en dos HSM y en la puerta de enlace de ExpressRoute necesaria (consulte la Subred 1 anterior) que se integra en una red virtual ya existente (consulte la red virtual 1 anterior).  Todos los demás recursos son recursos estándar de Azure. Se puede utilizar el mismo proceso de integración para HSM en la subred 4 de la red virtual 3 anterior.
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -56,13 +59,13 @@ El aprovisionamiento de los HSM y la integración en una red virtual ya existent
 Como ya se ha mencionado anteriormente, cualquier actividad de aprovisionamiento requiere que se registre el servicio Dedicated HSM para su suscripción. Para validar, ejecute el siguiente comando de PowerShell en Cloud Shell de Azure Portal. 
 
 ```powershell
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -FeatureName AzureDedicatedHsm
+Get-AzProviderFeature -ProviderNamespace Microsoft.HardwareSecurityModules -FeatureName AzureDedicatedHsm
 ```
 
 El comando siguiente comprueba las características de red necesarias para el servicio Dedicated HSM.
 
 ```powershell
-Get-AzureRmProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBaremetalServers
+Get-AzProviderFeature -ProviderNamespace Microsoft.Network -FeatureName AllowBaremetalServers
 ```
 
 Ambos comandos deben devolver un estado "Registrado" (como se indica a continuación) antes de continuar.  Si tiene que registrarse para este servicio, póngase en contacto con su representante de cuenta Microsoft.
@@ -75,12 +78,12 @@ Un dispositivo HSM se aprovisiona en la red virtual de un cliente. Esto conlleva
 
 Una vez que tenga los archivos, debe editar el archivo de parámetros para insertar los nombres preferidos de los recursos. Esto significa editar las líneas con "value": "".
 
-- `namingInfix` Prefijo para los nombres de los recursos HSM
+- `namingInfix` Prefijo para los nombres de los recursos de HSM
 - `ExistingVirtualNetworkName` Nombre de la red virtual que se usa para los HSM
-- `DedicatedHsmResourceName1` Nombre del recurso HSM en la marca del centro de datos 1
-- `DedicatedHsmResourceName2` Nombre del recurso HSM en la marca del centro de datos 2
-- `hsmSubnetRange` Intervalo de direcciones IP de la subred para los HSM
-- `ERSubnetRange` Intervalo de direcciones IP de la subred para la puerta de enlace de la red virtual
+- `DedicatedHsmResourceName1` Nombre del recurso de HSM de la marca 1 del centro de datos
+- `DedicatedHsmResourceName2` Nombre del recurso de HSM de la marca 2 del centro de datos
+- `hsmSubnetRange` Rango de direcciones IP de la subred para los HSM
+- `ERSubnetRange` Rango de direcciones IP de la subred para la puerta de enlace de la red virtual
 
 A continuación puede ver un ejemplo de estos cambios:
 
@@ -130,20 +133,20 @@ Una vez cargados los archivos, ya está listo para crear recursos.
 Antes de crear nuevos recursos HSM hay algunos requisitos previos que debe garantizar. Debe disponer de una red virtual con intervalos de subred para procesos, HSM y una puerta de enlace. Los siguientes comandos sirven como ejemplo de la creación de esa red virtual.
 
 ```powershell
-$compute = New-AzureRmVirtualNetworkSubnetConfig `
+$compute = New-AzVirtualNetworkSubnetConfig `
   -Name compute `
   -AddressPrefix 10.2.0.0/24
 ```
 
 ```powershell
-$delegation = New-AzureRmDelegation `
+$delegation = New-AzDelegation `
   -Name "myDelegation" `
   -ServiceName "Microsoft.HardwareSecurityModules/dedicatedHSMs"
 
 ```
 
 ```powershell
-$hsmsubnet = New-AzureRmVirtualNetworkSubnetConfig ` 
+$hsmsubnet = New-AzVirtualNetworkSubnetConfig ` 
   -Name hsmsubnet ` 
   -AddressPrefix 10.2.1.0/24 ` 
   -Delegation $delegation 
@@ -152,7 +155,7 @@ $hsmsubnet = New-AzureRmVirtualNetworkSubnetConfig `
 
 ```powershell
 
-$gwsubnet= New-AzureRmVirtualNetworkSubnetConfig `
+$gwsubnet= New-AzVirtualNetworkSubnetConfig `
   -Name GatewaySubnet `
   -AddressPrefix 10.2.255.0/26
 
@@ -160,7 +163,7 @@ $gwsubnet= New-AzureRmVirtualNetworkSubnetConfig `
 
 ```powershell
 
-New-AzureRmVirtualNetwork `
+New-AzVirtualNetwork `
   -Name myHSM-vnet `
   -ResourceGroupName myRG `
   -Location westus `
@@ -176,7 +179,7 @@ Una vez que se cumplen todos los requisitos previos, ejecute el siguiente comand
 
 ```powershell
 
-New-AzureRmResourceGroupDeployment -ResourceGroupName myRG `
+New-AzResourceGroupDeployment -ResourceGroupName myRG `
      -TemplateFile .\Deploy-2HSM-toVNET-Template.json `
      -TemplateParameterFile .\Deploy-2HSM-toVNET-Params.json `
      -Name HSMdeploy -Verbose
@@ -195,10 +198,10 @@ Para comprobar que los dispositivos se hayan aprovisionado y ver los atributos d
 
 ```powershell
 
-$subid = (Get-AzureRmContext).Subscription.Id
+$subid = (Get-AzContext).Subscription.Id
 $resourceGroupName = "myRG"
 $resourceName = "HSM1"  
-Get-AzureRmResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName
+Get-AzResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName
 
 ```
 
@@ -218,7 +221,7 @@ Una vez que ha iniciado sesión en la máquina virtual Linux puede iniciar sesi�
 
 ```powershell
 
-(Get-AzureRmResource -ResourceGroupName myRG -Name HSMdeploy -ExpandProperties).Properties.networkProfile.networkInterfaces.privateIpAddress
+(Get-AzResource -ResourceGroupName myRG -Name HSMdeploy -ExpandProperties).Properties.networkProfile.networkInterfaces.privateIpAddress
 
 ```
 Una vez que tenga la dirección IP, ejecute el siguiente comando:
@@ -262,10 +265,10 @@ Si ya ha terminado con los recursos de este grupo de recursos, puede quitarlos t
 
 ```powershell
 
-$subid = (Get-AzureRmContext).Subscription.Id
+$subid = (Get-AzContext).Subscription.Id
 $resourceGroupName = "myRG" 
 $resourceName = "HSMdeploy"  
-Remove-AzureRmResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName 
+Remove-AzResource -Resourceid /subscriptions/$subId/resourceGroups/$resourceGroupName/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/$resourceName 
 
 ```
 

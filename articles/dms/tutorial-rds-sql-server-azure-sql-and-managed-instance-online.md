@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: 5b91e3082dba2ac8ea19606f4269e65a0f537ce1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/03/2019
+ms.openlocfilehash: 4990b5f42291856c3695b4bf0eb6ec4084e9214e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183142"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58886410"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>Tutorial: Migración de RDS SQL Server a Azure SQL Database o a una instancia administrada de Azure SQL Database en línea mediante DMS
 Azure Database Migration Service se puede usar para migrar las bases de datos de una instancia de RDS SQL Server local a [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) o a una [instancia administrada de Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index) con un tiempo de inactividad mínimo. En este tutorial migrará la base de datos **Adventureworks2012** restaurada en una instancia de RDS SQL Server de SQL 2012 (o posterior) a Azure SQL Database o a una instancia administrada de Azure SQL Database mediante Azure Database Migration Service.
@@ -55,13 +55,13 @@ Para completar este tutorial, necesita:
  
     > [!NOTE]
     > Durante la configuración de la red virtual, si usa ExpressRoute con emparejamiento de red con Microsoft, agregue los siguientes [puntos de conexión](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) de servicio a la subred en la que se aprovisionará el servicio:
-    > - punto de conexión de base de datos de destino (por ejemplo, punto de conexión de SQL, punto de conexión de Cosmos DB, etc.)
+    > - Punto de conexión de base de datos de destino (por ejemplo, punto de conexión de SQL, punto de conexión de Cosmos DB, etc.)
     > - Punto de conexión de Storage
     > - Punto de conexión de Service Bus
     >
-    > Esta configuración es necesaria porque la instancia de Azure Database Migration Service carece de conectividad a Internet. 
+    > Esta configuración es necesaria porque la instancia de Azure Database Migration Service carece de conectividad a internet. 
  
-- Asegúrese de que las reglas del grupo de seguridad de red de VNET no bloquean los siguientes puertos de comunicación, 443, 53, 9354, 445, 12000. Para obtener información más detallada sobre el filtrado de tráfico con NSG de Azure VNET, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
+- Asegúrese de que las reglas del grupo de seguridad de red de VNET no bloquean los siguientes puertos de comunicación de entrada a Azure Database Migration Service: 443, 53, 9354, 445, 12000. Para obtener información más detallada sobre el filtrado de tráfico con NSG de Azure VNET, vea el artículo [Filtrado del tráfico de red con grupos de seguridad de red](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 - Configurar su [Firewall de Windows para acceder al motor de base de datos](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
 - Abra el Firewall de Windows para permitir que Azure Database Migration Service acceda a la instancia de SQL Server de origen que, de manera predeterminada, es el puerto TCP 1433.
 - Crear una [regla de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) a nivel de servidor para que el servidor de Azure SQL Database permita a Azure Database Migration Service acceder a las bases de datos de destino. Proporcionar el intervalo de subred de la red virtual usada para Azure Database Migration Service.

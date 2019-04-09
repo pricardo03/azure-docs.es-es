@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
-ms.openlocfilehash: d33ef63f142763d5d29c9cb1931fdd87bae5976e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 17c5e568bbdbdd9aa07db0ee10438cb7d05bd56c
+ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891025"
+ms.lasthandoff: 04/02/2019
+ms.locfileid: "58849239"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netop-portal"></a>Tutorial: Integración de Azure Active Directory con Netop Portal
 
@@ -128,7 +128,7 @@ Para configurar el inicio de sesión único en Azure AD con Netop Portal, realic
 
     b. En el cuadro de texto **Nombre**, escriba el nombre que se muestra para la fila.
 
-    c. Deje **Espacio de nombres** en blanco.
+    c. En el cuadro de texto **Espacio de nombres**, escriba https:\//secure.netop.com.
 
     d. Seleccione **Atributo** como origen.
 
@@ -154,7 +154,7 @@ Para configurar el inicio de sesión único en Azure AD con Netop Portal, realic
 
 ### <a name="configure-netop-portal-single-sign-on"></a>Configuración del inicio de sesión único en Netop Portal
 
-Para configurar el inicio de sesión único en **Netop Portal**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Netop Portal](mailto:casemanager@netop.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Netop Portal** necesita el **XML de metadatos de federación** descargado y la dirección URL de inicio de sesión de Azure Portal. Siga las instrucciones del paso 3 de la documentación que puede encontrar [aquí](https://kb.netop.com/assets/netop_portal_adfs_and_azure_ad_integration.pdf) para configurar NetOp Portal para la autenticación de Azure AD.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 

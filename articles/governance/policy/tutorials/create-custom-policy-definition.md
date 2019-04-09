@@ -8,12 +8,12 @@ ms.date: 02/12/2019
 ms.topic: tutorial
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: ddda2a8bf1fab4e4c48c647237617d8f705f0561
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 79b99532f5fb38123b03d2a39b7c9c6364e9f636
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56112099"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58802277"
 ---
 # <a name="create-a-custom-policy-definition"></a>Creación de una definición de directiva personalizada
 
@@ -72,7 +72,7 @@ Hay varias maneras de examinar una [plantilla de Resource Manager](../../../azur
 La manera más sencilla de buscar propiedades es examinar un recurso existente del mismo tipo. Los recursos que ya haya configurado con el valor que quiere aplicar también proporcionan el valor con el que comparar.
 Examine la página **Script de automatización** (en **Configuración**) en Azure Portal para ese recurso concreto.
 
-![Página Script de automatización](../media/create-custom-policy-definition/automation-script.png)
+![Exportación de la página de plantilla en el recurso existente](../media/create-custom-policy-definition/automation-script.png)
 
 Al hacer esto mismo con una cuenta de almacenamiento se revela una plantilla similar a la de este ejemplo:
 

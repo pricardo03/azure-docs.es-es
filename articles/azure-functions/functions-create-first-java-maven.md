@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 96ac8522f94a3555fe63575baca8bbfbabc272d9
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: d25fbfc058337c7a96414cf41f321e039ebc2258
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57570460"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58801851"
 ---
 # <a name="create-your-first-function-with-java-and-maven"></a>Creación de la primera función con Java y Maven
 
@@ -48,6 +48,9 @@ mvn archetype:generate \
     -DarchetypeGroupId=com.microsoft.azure \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
+
+> [!NOTE]
+> Si experimenta problemas al ejecutar el comando, eche un vistazo a qué versión de `maven-archetype-plugin` se usa. Dado que se ejecuta el comando en un directorio vacío sin ningún archivo `.pom`, podría estar intentando usar un complemento de la versión anterior de `~/.m2/repository/org/apache/maven/plugins/maven-archetype-plugin` si actualizó desde una versión anterior de Maven. Si es así, intente eliminar el directorio `maven-archetype-plugin` y vuelva a ejecutar el comando.
 
 ### <a name="windows"></a> Windows
 
@@ -150,6 +153,9 @@ az login
 ```
 
 Implemente el código en una aplicación de función nueva `azure-functions:deploy` con el destino de Maven.
+
+> [!NOTE]
+> Cuando se usa Visual Studio Code para implementar la aplicación de función, recuerde que debe elegir una suscripción de pago o se producirá un error. Puede ver la suscripción en el lado izquierdo del IDE.
 
 ```
 mvn azure-functions:deploy

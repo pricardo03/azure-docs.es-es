@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fdf87bff026dee4969b3995b37c31de3ead7714b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0b27514dfa34963901fb94be37d8fe330a3c65ce
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58004907"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58804401"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definición y asignación de un plano técnico de Azure Blueprint en Azure Portal
 
@@ -40,7 +40,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
    - También, puede hacer clic en **Crear** en la página **Introducción** para ir directamente a la creación de un plano técnico.
 
-   ![Creación de un plano técnico](./media/create-blueprint-portal/create-blueprint-button.png)
+   ![Creación de un plano técnico desde la página Definiciones de plano técnico](./media/create-blueprint-portal/create-blueprint-button.png)
 
 1. Proporcione un **Nombre del plano técnico** como "MyBlueprint" (letras y números, hasta 48 caracteres, pero sin espacios ni caracteres especiales) para el plano técnico, pero deje **Descripción del plano técnico** en blanco por ahora. En el cuadro **Ubicación de definición**, haga clic en el botón de puntos suspensivos de la derecha, seleccione el [grupo de administración](../management-groups/overview.md) o la suscripción donde desea guardar el plano técnico y haga clic en **Seleccionar**.
 
@@ -48,7 +48,7 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
 1. Agregue una asignación de roles a la suscripción: haga clic en la fila **+ Agregar artefacto...** en **Suscripción** y se abrirá la ventana "Agregar artefacto" en el lado derecho del explorador. Seleccione "Asignación de roles" para _Tipo de artefacto_. En _Rol_, seleccione Colaborador y deje el campo _Agregar usuario, aplicación o grupo_ con la casilla que indica un **parámetro dinámico**. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
 
-   ![Artefacto: asignación de roles](./media/create-blueprint-portal/add-role-assignment.png)
+   ![Artefacto de plano técnico: asignación de roles](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
    > La mayoría de los _artefactos_ admiten parámetros. Un parámetro que se asigna a un valor durante la creación del plano técnico es un **parámetro estático**. Si el parámetro se asigna durante la asignación del plano técnico, es un **parámetro dinámico**. Para más información, consulte el artículo sobre los [parámetros de un plano técnico](./concepts/parameters.md).
@@ -113,11 +113,11 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
    }
    ```
 
-   ![Artefacto: plantilla de Resource Manager](./media/create-blueprint-portal/add-resource-manager-template.png)
+   ![Artefacto de plano técnico: plantilla de Resource Manager](./media/create-blueprint-portal/add-resource-manager-template.png)
 
 1. El plano técnico completado debería tener una apariencia similar a esta. Observe que cada artefacto tiene '_x_ de _y_ parámetros rellenados bajo la columna _Parámetros_. Los **parámetros dinámicos** se establecen durante cada asignación del plano técnico.
 
-   ![Plano técnico completado](./media/create-blueprint-portal/completed-blueprint.png)
+   ![Definición de plano técnico completada](./media/create-blueprint-portal/completed-blueprint.png)
 
 1. Ahora que se han agregado todos los artefactos planeados, haga clic en **Guardar borrador** en la parte inferior de la página.
 
@@ -135,11 +135,11 @@ En [Crear un plano técnico](#create-a-blueprint), no se proporcionó una descri
 
 1. Agregue la asignación de roles en el grupo de recursos: haga clic en la fila **+ Agregar artefacto...** directamente bajo **Grupo de recursos**. Seleccione "Asignación de roles" para _Tipo de artefacto_. En _Rol_, seleccione "Propietario" y quite la marca del campo _Agregar usuario, aplicación o grupo_, y busque y seleccione un usuario, una aplicación o un grupo que agregar. Este artefacto utiliza un **parámetro estático** que se establece igual en cada asignación de este plano técnico. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
 
-   ![Artefacto: asignación de roles número 2](./media/create-blueprint-portal/add-role-assignment-2.png)
+   ![Artefacto de plano técnico: asignación de roles n. º 2](./media/create-blueprint-portal/add-role-assignment-2.png)
 
 1. El plano técnico completado debería tener una apariencia similar a esta. Observe que la nueva asignación de roles agregada muestra **1 de 1 parámetros rellenadas**, lo que significa que es un **parámetro estático**.
 
-   ![Plano técnico completado número 2](./media/create-blueprint-portal/completed-blueprint-2.png)
+   ![Definición de plano técnico n. º 2 completada](./media/create-blueprint-portal/completed-blueprint-2.png)
 
 1. Haga clic en **Guardar borrador** ahora que se ha actualizado.
 
@@ -224,7 +224,7 @@ Ahora que el plano técnico se ha asignado a una suscripción, compruebe el prog
 
 1. En la lista de planos técnicos, haga clic con el botón derecho en el que asignó anteriormente y seleccione **Ver los detalles de la asignación**.
 
-   ![Visualización de los detalles de la asignación](./media/create-blueprint-portal/view-assignment-details.png)
+   ![Visualización de detalles de asignación de la página Planos técnicos asignados](./media/create-blueprint-portal/view-assignment-details.png)
 
 1. En la página **Asignación de plano técnico**, compruebe que todos los artefactos se han implementado correctamente y que no ha habido ningún error durante el proceso. Si se han producido errores, consulte la [solución de problemas de planos técnicos](./troubleshoot/general.md) para conocer los pasos necesarios para determinar el motivo del error.
 

@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c20ae6acaf600cdde6e168c6db96deb7a28e9fa
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 1527a326ca0107df33857284774252b327b7d8bc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112711"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273267"
 ---
 # <a name="azure-active-directory-v20-and-the-openid-connect-protocol"></a>Azure Active Directory v2.0 y el protocolo OpenID Connect
 
@@ -57,26 +57,28 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 | `common` |Los usuarios con una cuenta personal de Microsoft y una cuenta profesional o educativa de Azure Active Directory (Azure AD) pueden iniciar sesión en la aplicación. |
 | `organizations` |Solo los usuarios con cuentas profesionales o educativas de Azure AD pueden iniciar sesión en la aplicación. |
 | `consumers` |Solo los usuarios con una cuenta de Microsoft personal pueden iniciar sesión en la aplicación. |
-| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` o `contoso.onmicrosoft.com` |Solo los usuarios con una cuenta profesional o educativa de un inquilino específico de Azure AD puede iniciar sesión en la aplicación. Puede usarse el nombre de dominio descriptivo del inquilino de Azure AD o bien el identificador de GUID del inquilino. |
+| `8eaef023-2b34-4da1-9baa-8bc8c9d6a490` o `contoso.onmicrosoft.com` | Solo los usuarios con una cuenta profesional o educativa de un inquilino específico de Azure AD puede iniciar sesión en la aplicación. Puede usarse el nombre de dominio descriptivo del inquilino de Azure AD o bien el identificador de GUID del inquilino. También puede usar el inquilino consumidor `9188040d-6c67-4c5b-b112-36a304b66dad`, en lugar de la `consumers` inquilino.  |
 
 Los metadatos son un documento de notación de objetos JavaScript (JSON) simple. Consulte el fragmento de código siguiente para ver un ejemplo. El contenido del fragmento de código se describe detalladamente en la [especificación de OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html#rfc.section.4.2).
 
 ```
 {
-  "authorization_endpoint": "https:\/\/login.microsoftonline.com\/common\/oauth2\/v2.0\/authorize",
-  "token_endpoint": "https:\/\/login.microsoftonline.com\/common\/oauth2\/v2.0\/token",
+  "authorization_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/authorize",
+  "token_endpoint": "https:\/\/login.microsoftonline.com\/{tenant}\/oauth2\/v2.0\/token",
   "token_endpoint_auth_methods_supported": [
     "client_secret_post",
     "private_key_jwt"
   ],
-  "jwks_uri": "https:\/\/login.microsoftonline.com\/common\/discovery\/v2.0\/keys",
+  "jwks_uri": "https:\/\/login.microsoftonline.com\/{tenant}\/discovery\/v2.0\/keys",
 
   ...
 
 }
 ```
+Si la aplicación tiene las claves de firma personalizadas como resultado de utilizar el [asignación de notificaciones](active-directory-claims-mapping.md) característica, debe anexar un `appid` que contiene el identificador de aplicación con el fin de obtener el parámetro de consulta un `jwks_uri` que apunta a la aplicación de la clave de firma información. Por ejemplo: `https://login.microsoftonline.com/{tenant}/.well-known/v2.0/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contiene un `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/v2.0/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
-Normalmente, este documento de metadatos se usa para configurar una biblioteca o SDK de OpenID Connect; la biblioteca usa los metadatos para realizar su trabajo. Sin embargo, si no usa una biblioteca de OpenID Connect anterior a la generación, puede seguir los pasos del resto de este artículo para realizar el inicio de sesión en una aplicación web mediante el punto de conexión v2.0.
+
+Normalmente, este documento de metadatos se usa para configurar una biblioteca o SDK de OpenID Connect; la biblioteca usa los metadatos para realizar su trabajo. Sin embargo, si no usa una biblioteca precompilada OpenID Connect, puede seguir los pasos descritos en el resto de este artículo para realizar el inicio de sesión en una aplicación web mediante el uso de punto de conexión v2.0.
 
 ## <a name="send-the-sign-in-request"></a>Envío de la solicitud de inicio de sesión
 
@@ -87,7 +89,7 @@ Cuando su aplicación web deba autenticar al usuario, puede dirigirlo al punto d
 * La solicitud debe incluir el parámetro `nonce` .
 
 > [!IMPORTANT]
-> Para solicitar correctamente un token de identificador, el registro de la aplicación del [portal de registro](https://apps.dev.microsoft.com) tiene que tener la opción **[Concesión implícita](v2-oauth2-implicit-grant-flow.md)** habilitada para el cliente web. Si no está habilitado, se devolverá un error `unsupported_response`: "The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'" ("No se permite el valor proporcionado para el parámetro de entrada "response_type" para este cliente. El valor esperado es "code"")
+> Con el fin de solicitar un token de identificador correctamente desde el punto de conexión /authorization, el registro de aplicación en el [portal de registro](https://portal.azure.com) debe tener la concesión implícita de los id_tokens habilitada en la ficha autenticación (que establece el `oauth2AllowIdTokenImplicitFlow`marca en el [manifiesto de aplicación](reference-app-manifest.md) a `true`). Si no está habilitado, se devolverá un error `unsupported_response`: "The provided value for the input parameter 'response_type' is not allowed for this client. Expected value is 'code'" ("No se permite el valor proporcionado para el parámetro de entrada "response_type" para este cliente. El valor esperado es "code"")
 
 Por ejemplo: 
 
@@ -113,14 +115,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | tenant |Obligatorio |Puede usar el valor `{tenant}` en la ruta de acceso de la solicitud para controlar quién puede iniciar sesión en la aplicación. Los valores permitidos son `common`, `organizations`, `consumers` y los identificadores de inquilinos. Para más información, consulte los [conceptos básicos sobre el protocolo](active-directory-v2-protocols.md#endpoints). |
 | client_id |Obligatorio |El identificador de aplicación que el [portal de registro de aplicaciones](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) asignó a la aplicación. |
 | response_type |Obligatorio |Debe incluir `id_token` para el inicio de sesión en OpenID Connect. También puede incluir otros valores `response_type`, como `code`. |
-| redirect_uri |Recomendado |El URI de redireccionamiento de la aplicación, adonde la aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los URI de redireccionamiento que registró en el portal, con la excepción de que debe estar codificado como URL. |
+| redirect_uri |Recomendado |El URI de redireccionamiento de la aplicación, adonde la aplicación puede enviar y recibir las respuestas de autenticación. Debe coincidir exactamente con uno de los URI de redireccionamiento que registró en el portal, con la excepción de que debe estar codificado como URL. Si no se presente, el punto de conexión realizará una selección de redirect_uri registrados una al azar a enviar al usuario a. |
 | ámbito |Obligatorio |Una lista de ámbitos separada por espacios. Asegúrese de incluir el ámbito `openid`para OpenID Connect, lo que se traduce en el permiso de inicio de sesión en la interfaz de usuario de consentimiento. También puede incluir otros ámbitos en esta solicitud para solicitar el consentimiento. |
 | valor de seguridad |Obligatorio |Un valor incluido en la solicitud, generado por la aplicación, que se incluirá en el valor id_token resultante como una notificación. La aplicación puede comprobar este valor para mitigar los ataques de reproducción de token. Habitualmente, el valor es una cadena única aleatoria que se puede usar para identificar el origen de la solicitud. |
 | response_mode |Recomendado |Especifica el método que se debe usar para enviar el código de autorización resultante de nuevo a la aplicación. Puede ser `form_post` o `fragment`. En el caso de las aplicaciones web, se recomienda usar `response_mode=form_post` para asegurar la transferencia más segura de tokens a la aplicación. |
 | state |Recomendado |Un valor incluido en la solicitud que también se devolverá en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Se usa normalmente un valor único generado de forma aleatoria para [evitar los ataques de falsificación de solicitudes entre sitios](https://tools.ietf.org/html/rfc6749#section-10.12). El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, como la página o la vista en la que estaba el usuario. |
 | símbolo del sistema |Opcional |Indica el tipo de interacción necesaria con el usuario. Los únicos valores válidos en este momento son `login`, `none` y `consent`. La notificación `prompt=login` obliga al usuario a escribir sus credenciales en esa solicitud, lo que niega el inicio de sesión único. La notificación `prompt=none` es lo contrario. Esta notificación se asegura de que al usuario no se le presente ninguna solicitud interactiva de ningún tipo. Si la solicitud no se puede completar sin notificaciones mediante el inicio de sesión único, el punto de conexión v2.0 devuelve un error. La notificación `prompt=consent` desencadena el cuadro de diálogo de consentimiento de OAuth después de que el usuario inicia sesión. El cuadro de diálogo le pide al usuario que conceda permisos a la aplicación. |
 | login_hint |Opcional |Puede usar este parámetro para rellenar previamente el campo de nombre de usuario y dirección de correo electrónico de la página de inicio de sesión del usuario, si sabe el nombre de usuario con anticipación. A menudo, las aplicaciones usan este parámetro durante la reautenticación, una vez que ya se extrajo el nombre de usuario de un inicio de sesión anterior mediante la notificación `preferred_username`. |
-| domain_hint |Opcional |Este valor puede ser `consumers` o `organizations`. Si se incluye, omite el proceso de detección basado en correo electrónico por el que pasa el usuario de la página de inicio de sesión v2.0, para obtener una experiencia de usuario ligeramente más sencilla. A menudo, las aplicaciones usarán este parámetro durante la reautenticación; para ello, extraen la notificación `tid` desde el token de identificador. Si el valor de la notificación `tid` es `9188040d-6c67-4c5b-b112-36a304b66dad` (el inquilino consumidor de la cuenta Microsoft), use `domain_hint=consumers`. De lo contrario, use `domain_hint=organizations`. |
+| domain_hint |Opcional | El dominio Kerberos del usuario en un directorio federado.  Esto omite el proceso de detección basada en correo electrónico que pasa el usuario en la versión 2.0 inicio de sesión de página, para una experiencia de usuario será ligeramente más sencilla. Para los inquilinos que están federados a través de un directorio local como AD FS, esto suele ocurrir en una sesión sin problemas debido a la sesión de inicio de sesión existente. |
 
 En este punto, se le pide al usuario que escriba sus credenciales y que complete la autenticación. El punto de conexión v2.0 comprueba que el usuario dio su consentimiento a los permisos indicados en el parámetro de la consulta `scope`. Si el usuario no dio su consentimiento a ninguno de estos permisos, el punto de conexión v2.0 solicita al usuario que dé su consentimiento para los permisos requeridos. Puede leer más información sobre los [permisos, el consentimiento y las aplicaciones multiinquilino](v2-permissions-and-consent.md).
 
@@ -179,7 +181,6 @@ En la tabla siguiente se describen los códigos de error que puede devolver el p
 Recibir un solo id_token no es suficiente para autenticar al usuario; debe validar la firma del id_token y comprobar las notificaciones en el token según los requisitos de su aplicación. El punto de conexión v2.0 usa [tokens web JSON (JWT)](https://self-issued.info/docs/draft-ietf-oauth-json-web-token.html) y criptografía de clave pública para firmar los tokens y comprobar que son válidos.
 
 Puede elegir validar el `id_token` en el código de cliente, pero lo habitual es enviar el `id_token` a un servidor back-end y realizar allí la validación. Una vez haya validado la firma del id_token, se le solicitará que compruebe algunas notificaciones: Para más información, consulte la [Referencia de `id_token`](id-tokens.md), incluidas la sección [Validación de los tokens](id-tokens.md#validating-an-id_token) y [Sustitución de claves de firma de Azure Active Directory](active-directory-signing-key-rollover.md). Hay al menos una disponible para la mayoría de los lenguajes y las plataformas.
-<!--TODO: Improve the information on this-->
 
 Se recomienda que valide notificaciones adicionales según su escenario. Algunas validaciones comunes incluyen:
 

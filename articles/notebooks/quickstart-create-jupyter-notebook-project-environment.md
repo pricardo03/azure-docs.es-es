@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: e049f591-27a7-440f-a1a3-c5bef25e8a28
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 35b5f1e29ae125dcac79c278578e900a73ffc7be
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 368bc0402e56479ad8696ca9ed0702f246a670bd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57771401"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262013"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>Inicio rápido: Creación de un proyecto con un entorno personalizado
 
@@ -61,7 +61,7 @@ Un proyecto de Azure Notebooks es una colección de archivos, como cuadernos, ar
 
     | Operación | DESCRIPCIÓN |
     | --- | --- |
-    | Requirements.txt | Los proyectos de Python definen sus dependencias en un archivo llamado requirements.txt. Con esta opción, seleccione el archivo adecuado en la lista de archivos del proyecto y seleccione también la versión de Python en la otra lista desplegable que aparece. Si es necesario, seleccione **Cancelar** para volver al proyecto, cargue o cree el archivo y, luego, vuelva a la pestaña **Configuración del proyecto** > **Entorno** para crear un paso. Una vez que se crea este paso, al ejecutar un cuaderno en el proyecto, automáticamente se ejecuta `pip install -r <file>` |
+    | Requirements.txt | Los proyectos de Python definen sus dependencias en un archivo llamado requirements.txt. Con esta opción, seleccione el archivo adecuado en la lista de archivos del proyecto y seleccione también la versión de Python en la otra lista desplegable que aparece. Si es necesario, seleccione **Cancelar** para volver al proyecto, cargue o cree el archivo y, luego, vuelva a la pestaña **Configuración del proyecto** > **Entorno** para crear un paso. Con este paso en su lugar, se ejecuta la ejecución de cuadernos en el proyecto automáticamente `pip install -r <file>` |
     | Script de shell | Úselo para indicar un script de shell de bash (por lo general, un archivo con extensión *.sh*) que contiene cualquier comando que quiere ejecutar para inicializar el entorno. |
     | Environment.yml | Un proyecto de Python que usa conda para administrar un entorno usa un archivo *environments.yml* para describir las dependencias. Con esta opción, seleccione el archivo correspondiente en la lista de archivos del proyecto. |
 
@@ -74,7 +74,7 @@ Un proyecto de Azure Notebooks es una colección de archivos, como cuadernos, ar
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Manage and configure projects in Azure Notebooks](configure-manage-azure-notebooks-projects.md) (Administración y configuración de proyectos en Azure Notebooks)
+> [Administrar y configurar los proyectos en Azure Notebooks](configure-manage-azure-notebooks-projects.md)
 
 > [!div class="nextstepaction"]
-> [Tutorial: create an run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md) (Tutorial: Creación y ejecución de un cuaderno de Jupyter Notebook para hacer regresión lineal)
+> [Tutorial: crear una ejecución de un cuaderno de Jupyter notebook para realizar la regresión lineal](tutorial-create-run-jupyter-notebook.md)

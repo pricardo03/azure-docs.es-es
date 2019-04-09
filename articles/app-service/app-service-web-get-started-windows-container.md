@@ -11,15 +11,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 09/17/2018
+ms.date: 04/03/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: af5f1a5b8775e1e7346d4280dab77b98760b3209
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
+ms.openlocfilehash: 8bc213c14553bc73c7eb7fffcb1c1dcad924aaed
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895234"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58906062"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Ejecución de un contenedor de Windows personalizado en Azure (versión preliminar)
 
@@ -61,7 +61,7 @@ Si el archivo _Dockerfile_ no se abre automáticamente, ábralo desde el **Explo
 Tiene que usar una [imagen principal compatible](#use-a-different-parent-image). Cambie la imagen primaria reemplazando la línea `FROM` con el código siguiente y guarde el archivo:
 
 ```Dockerfile
-FROM microsoft/aspnet:4.7.1
+FROM mcr.microsoft.com/dotnet/framework/aspnet:4.7.2-windowsservercore-ltsc2019
 ```
 
 En el menú, seleccione **Depurar > Iniciar sin depurar** para ejecutar la aplicación web localmente.
@@ -130,7 +130,7 @@ Espere unos minutos e inténtelo de nuevo, hasta que llegue a la página princip
 
 ![](media/app-service-web-get-started-windows-container/app-running-vs.png)
 
-**¡Enhorabuena!** Ya está ejecutando el primer contenedor de Windows personalizado en Azure App Service.
+**Felicidades.** Ya está ejecutando el primer contenedor de Windows personalizado en Azure App Service.
 
 ## <a name="see-container-start-up-logs"></a>Consulta de los registros de inicio del contenedor
 
@@ -178,18 +178,15 @@ Vuelva a [desplazarse a la aplicación de contenedor](#browse-to-the-container-a
 
 Puede usar una imagen personalizada de Docker distinta para ejecutar la aplicación. Sin embargo, debe elegir la [imagen primaria](https://docs.docker.com/develop/develop-images/baseimages/) correcta para la plataforma que desee: 
 
-- Para implementar aplicaciones de .NET Framework, use una imagen primaria basada en la versión del [canal de servicio a largo plazo (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) de Windows Server Core 2016. 
-- Para implementar aplicaciones de .NET Core, use una imagen primaria basada en la versión del [canal de servicio a largo plazo (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) de Windows Server Nano 2016. 
+- Para implementar aplicaciones de .NET Framework, use una imagen primaria basada en la versión del [canal de mantenimiento a largo plazo (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) de Windows Server Core 2019. 
+- Para implementar aplicaciones de .NET Core, use una imagen primaria basada en la versión del [canal de servicio a largo plazo (LTSC)](https://docs.microsoft.com/windows-server/get-started/semi-annual-channel-overview#long-term-servicing-channel-ltsc) de Windows Server Nano 1809. 
 
 La descarga de una imagen primaria tarda un tiempo en completarse durante el inicio de la aplicación. Sin embargo, puede reducir el tiempo de inicio mediante una de las siguientes imágenes primarias que ya están almacenadas en caché en Azure App Service:
 
-- [microsoft/iis](https://hub.docker.com/r/microsoft/iis/):windowsservercore-ltsc2016, latest
-- [microsoft/iis](https://hub.docker.com/r/microsoft/iis/):nanoserver-sac2016
-- [microsoft/aspnet](https://hub.docker.com/r/microsoft/aspnet/):4.7.2-windowsservercore-ltsc2016, 4.7.2, latest
-- [microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/):2.1-aspnetcore-runtime
-- [microsoft/dotnet](https://hub.docker.com/r/microsoft/dotnet/):2.1-sdk
+- [mcr.microsoft.com/dotnet/framework/aspnet](https://hub.docker.com/_/microsoft-dotnet-framework-aspnet/):4.7.2-windowsservercore-ltsc2019
+- [mcr.microsoft.com/windows/nanoserver](https://hub.docker.com/_/microsoft-windows-nanoserver/):1809 (este es el contenedor base que se usa en las imágenes de Microsoft Windows Nano Server de Microsoft [ASP.NET Core](https://hub.docker.com/_microsoft-dotnet-cores-aspnet).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Migrar al contenedor de Windows en Azure](app-service-web-tutorial-windows-containers-custom-fonts.md)
+> [Migración al contenedor de Windows en Azure](app-service-web-tutorial-windows-containers-custom-fonts.md)

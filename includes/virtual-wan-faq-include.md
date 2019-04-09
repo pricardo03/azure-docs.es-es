@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/18/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 931bc26e22db4bbf02a18d4824b9c846f1e66b18
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 3fa261c6cb76cb95cffc602e5018e480afbb5dae
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58190632"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58891090"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpngateway"></a>¿Cuál es la diferencia entre una puerta de enlace de red virtual de Azure (VPN Gateway) y un elemento vpngateway de Azure Virtual WAN?
 
@@ -81,7 +81,7 @@ Sí. Consulte la página [Precios](https://azure.microsoft.com/pricing/details/v
 
 ### <a name="how-do-i-calculate-price-of-a-hub"></a>¿Cómo se calcula el precio de un centro?
  
-Tendría que pagar para el servicio en el centro. Por ejemplo, 10 ramas o dispositivos locales que necesiten conectarse a Azure red WAN Virtual supondría conectarse a puntos de conexión de VPN en el centro. Supongamos que esta VPN es de 1 unidad de escala = 500 Mbps, esto se cobraría a 0,361 USD/h. Cada conexión se cobra a 0,08 USD/h. Para 10 conexiones, el costo total de servicio/h sería de 0,361 USD + 0,08 USD/h. Se aplican cargos de datos por el tráfico que sale de Azure. 
+Tendría que pagar para el servicio en el centro. Por ejemplo, si diez ramas o dispositivos locales necesitaran conectarse a Azure Virtual WAN, implicaría la conexión a los puntos de conexión de la VPN en el centro. Supongamos que esta VPN es de 1 unidad de escala = 500 Mbps, esto se cobraría a 0,361 USD/h. Cada conexión se cobra a 0,08 USD/h. Para 10 conexiones, el costo total de servicio/h sería de 0,361 USD + 0,08 USD/h. Se aplican cargos de datos por el tráfico que sale de Azure. 
 
 ### <a name="how-do-new-partners-that-are-not-listed-in-your-launch-partner-list-get-onboarded"></a>¿Cómo consiguen los nuevos asociados que no aparecen en la lista de asociados de partida ser incluidos en ella?
 

@@ -4,16 +4,16 @@ description: Obtenga información acerca de la solución de problemas relacionad
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 12/05/2018
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b92ce1d5fb0e0b2b043b1bbfcb78dbaf3dde2e23
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 22e3ea1c90946902fc2a16d947ff2884e5e0a44b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804469"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274593"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Solución de problemas relacionados con Update Management
 
@@ -181,6 +181,8 @@ Haga doble clic en la excepción que se muestra en rojo para ver el mensaje de e
 |`0x8024402C`     | Si usa un servidor WSUS, asegúrese de que los valores de registro de `WUServer` y `WUStatusServer` bajo la clave del registro `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` tienen el servidor WSUS correcto.        |
 |`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Asegúrese de que el servicio Windows Update (wuauserv) se está ejecutando y no está deshabilitado.        |
 |Cualquier otra excepción genérica     | Realice una búsqueda en Internet para ver las soluciones posibles y colabore con el equipo de soporte técnico de TI local.         |
+
+Revisar el `windowsupdate.log` puede ayudarle a probar determinar la posible causa. Para obtener más información sobre cómo leer el registro, consulte [cómo leer el archivo Windowsupdate.log](https://support.microsoft.com/en-ca/help/902093/how-to-read-the-windowsupdate-log-file).
 
 Además, puede descargar y ejecutar el [solucionador de problemas de Windows Update](https://support.microsoft.com/help/4027322/windows-update-troubleshooter) para comprobar si hay algún problema con Windows Update en el equipo.
 

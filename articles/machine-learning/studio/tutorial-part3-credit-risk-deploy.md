@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: tutorial
 ms.date: 02/11/2019
-ms.openlocfilehash: 7132c2073223008cd82d0ffd54aaf266d0a630ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6cdccd54546296c85864f1588b71109ed8b8f79f
+ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839024"
+ms.lasthandoff: 03/29/2019
+ms.locfileid: "58620521"
 ---
 # <a name="tutorial-3-deploy-credit-risk-model---azure-machine-learning-studio"></a>Tutorial 3: Implementación de un modelo de riesgo crediticio: Azure Machine Learning Studio
 
@@ -172,7 +172,7 @@ Cuando se accede al servicio web, los datos del usuario se escriben a través de
 Los resultados se devuelven al usuario desde el servicio web a través del módulo **Web service output** (Salida del servicio web).
 
 > [!TIP]
-> La forma en que se configura el experimento predictivo permitirá que se devuelvan los resultados desde el módulo [Score Model][score-model] (Puntuar modelo). Esto incluye todos los datos de entrada además del valor de riesgo de crédito y la probabilidad de puntuación. Pero puede devolver algo distinto si lo desea; por ejemplo, podría devolver solamente el valor de riesgo de crédito. Para ello, inserte un módulo [Columnas del proyecto][project-columns] entre [Puntuar modelo][score-model] y **Web service output** (Salida del servicio web) para eliminar aquellas columnas que no desea que devuelva el servicio web. 
+> La forma en que se configura el experimento predictivo permitirá que se devuelvan los resultados desde el módulo [Score Model][score-model] (Puntuar modelo). Esto incluye todos los datos de entrada además del valor de riesgo de crédito y la probabilidad de puntuación. Pero puede devolver algo distinto si lo desea; por ejemplo, podría devolver solamente el valor de riesgo de crédito. Para ello, inserte un módulo [Seleccionar columnas][select-columns] entre [Puntuar modelo][score-model] y **Web service output** (Salida del servicio web) para eliminar aquellas columnas que no desea que devuelva el servicio web. 
 > 
 > 
 
@@ -267,4 +267,4 @@ También puede desarrollar una aplicación personalizada para acceder al servici
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
 [two-class-boosted-decision-tree]: https://msdn.microsoft.com/library/azure/e3c522f8-53d9-4829-8ea4-5c6a6b75330c/
 [two-class-support-vector-machine]: https://msdn.microsoft.com/library/azure/12d8479b-74b4-4e67-b8de-d32867380e20/
-[project-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
+[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: af14b242ae7578e1f9797895bd18c37231959ac9
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 99c9caa167b1615705adc29193bc395b0c9e2a66
+ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56342718"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58803993"
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources"></a>Creación de una asignación de directiva para identificar recursos no compatibles
 
@@ -31,15 +31,15 @@ En esta guía de inicio rápido, creará una asignación de directiva y asignar�
 
 1. Inicie el servicio Azure Policy en Azure Portal. Para ello, haga clic en **Todos los servicios** y, a continuación, busque y seleccione **Directiva**.
 
-   ![Búsqueda de directivas](./media/assign-policy-portal/search-policy.png)
+   ![Búsqueda de la directiva en todos los servicios](./media/assign-policy-portal/search-policy.png)
 
 1. Seleccione **Asignaciones** en el panel izquierdo de la página de Azure Policy. Una asignación es una directiva que se asignó para que se lleve a cabo dentro de un ámbito específico.
 
-   ![Seleccione Asignaciones](./media/assign-policy-portal/select-assignments.png)
+   ![Página Seleccionar asignaciones en la página Información general de directivas](./media/assign-policy-portal/select-assignments.png)
 
 1. Seleccione **Asignar directiva** en la parte superior de la página **Policy - Asignaciones**.
 
-   ![Asignación de una definición de directiva](./media/assign-policy-portal/select-assign-policy.png)
+   ![Asignación de una definición de directiva en la página Asignaciones](./media/assign-policy-portal/select-assign-policy.png)
 
 1. En la página **Asignar directiva**, haga clic en los puntos suspensivos para seleccionar una opción de **Ámbito** y seleccione una suscripción y un grupo de administración. Opcionalmente, seleccione un grupo de recursos. Un ámbito determina en qué recursos o agrupación de recursos se implementa la asignación de directiva.  Después, haga clic en **Seleccionar** en la parte inferior de la página **Ámbito**.
 
@@ -71,7 +71,7 @@ Ahora ya está listo para identificar los recursos no compatibles para saber el 
 
 Seleccione **Cumplimiento** en el panel izquierdo de la página. A continuación, busque la asignación de directiva **Auditoría de máquinas virtuales que no usan discos administrados** que ha creado.
 
-![Cumplimiento de directivas](./media/assign-policy-portal/policy-compliance.png)
+![Detalles de cumplimiento en la página Cumplimiento de directivas](./media/assign-policy-portal/policy-compliance.png)
 
 Si hay algún recurso existente no compatible con esta nueva asignación, aparecerá en la pestaña **Recursos no compatibles**.
 
@@ -94,7 +94,7 @@ Para quitar la asignación creada, siga estos pasos:
 
 1. Haga clic en la asignación de directiva **Auditoría de máquinas virtuales que no usan discos administrados** y seleccione **Eliminar asignación**
 
-   ![Eliminación de una asignación](./media/assign-policy-portal/delete-assignment.png)
+   ![Eliminación de una asignación desde la página Cumplimiento](./media/assign-policy-portal/delete-assignment.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

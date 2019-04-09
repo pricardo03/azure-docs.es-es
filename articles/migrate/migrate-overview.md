@@ -4,15 +4,15 @@ description: Proporciona información general acerca del servicio Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 03/11/2019
+ms.date: 04/03/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7f0b3a0f63b87928938e5c0e9d39cc49c0fc791d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9f1d127405046400e2a92ffc5ab695d287e297bd
+ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57999976"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58894976"
 ---
 # <a name="about-azure-migrate"></a>Acerca de Azure Migrate
 
@@ -37,7 +37,7 @@ Azure Migrate le ayuda a:
 - Azure Migrate solo admite discos administrados para la valoración de la migración.
 -  Los proyectos de Azure Migrate solo se pueden crear en las siguientes geografías. Sin embargo, esto no restringe su capacidad de crear evaluaciones para otras ubicaciones de Azure de destino.
 
-    **Geografía** | **Ubicación de almacenamiento**
+    **Geography** | **Ubicación de almacenamiento**
     --- | ---
     Azure Government | Gobierno de EE. UU. - Virginia
     Asia | Sudeste Asiático o Asia Oriental
@@ -65,7 +65,7 @@ La configuración de evaluación se puede personalizar según sus necesidades. L
 **Criterio de ajuste de tamaño** | El ajuste de tamaño se puede basar en el **historial de rendimiento** de las máquinas virtuales locales (opción predeterminada), o **como local**, sin tener en cuenta el historial de rendimiento.
 **Historial de rendimiento** | De forma predeterminada, Azure Migrate usa el historial de rendimiento del último día para evaluar el rendimiento de las máquinas locales, con un valor de percentil del 95 %.
 **Factor de confort** | Azure Migrate tiene en cuenta un búfer (factor de confort) durante la evaluación. Dicho búfer se aplica además de los datos de uso de la máquina en las máquinas virtuales (CPU, memoria, disco y red). El factor de confort se tiene en cuenta en problemas como el uso estacional, un historial de rendimiento corto y los posibles aumentos en el uso futuro.<br/><br/> Por ejemplo, una máquina virtual de 10 núcleos con un uso del 20 % normalmente genera una máquina virtual de 2 núcleos. Sin embargo, con un factor de confort de 2.0 x, el resultado es una máquina virtual de 4 núcleos. El valor de confort predeterminado es 1.3 x.
-**Series de VM** | La serie de máquinas virtuales que se usa para las estimaciones de tamaño. Por ejemplo, si tiene un entorno de producción que no vaya a migrar a la serie A de las máquinas virtuales de Azure, puede excluir la serie A de la lista o serie. El ajuste de tamaño se basa solo en la serie seleccionada.   
+**Series de máquinas virtuales** | La serie de máquinas virtuales que se usa para las estimaciones de tamaño. Por ejemplo, si tiene un entorno de producción que no vaya a migrar a la serie A de las máquinas virtuales de Azure, puede excluir la serie A de la lista o serie. El ajuste de tamaño se basa solo en la serie seleccionada.   
 **Moneda** | Divisa de facturación. El valor predeterminado es el dólar estadounidense.
 **Descuento (%)** | Cualquier descuento específico de la suscripción que reciba además de la oferta de Azure. La configuración predeterminada es 0 %.
 **Tiempo de actividad de VM** | Si las máquinas virtuales no se van a ejecutar todas las horas en Azure, puede especificar la duración (número de días al mes y número de horas al día) del período en el que se estarán ejecutando y las estimaciones de costo se realizarán en consecuencia. El valor predeterminado es 31 días al mes y 24 horas al día.
@@ -103,6 +103,12 @@ Una vez que haya evaluado las máquinas locales, puede usar un par de herramient
 
 - **Azure Site Recovery**: puede usar Azure Site Recovery para realizar la migración a Azure. Para ello, [prepare los componentes de Azure](../site-recovery/tutorial-prepare-azure.md) que necesita, incluida una cuenta de almacenamiento y una red virtual. De forma local, [prepare el entorno de VMware](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md). Cuando todo esté preparado, configure y habilite la replicación en Azure y migre las máquinas virtuales. [Más información](../site-recovery/vmware-azure-tutorial.md).
 - **Azure Database Migration**: si las máquinas locales ejecutan una base de datos como SQL Server, MySQL u Oracle, puede usar [Azure Database Migration Service](../dms/dms-overview.md) para migrarlas a Azure.
+
+## <a name="want-to-learn-more-from-community-experts"></a>¿Desea obtener más información de los expertos de la comunidad?
+Visite el [foro de MSDN de Azure Migrate](https://social.msdn.microsoft.com/Forums/home?forum=AzureMigrate&filter=alltypes&sort=lastpostdesc) o [Stack Overflow](https://stackoverflow.com/search?q=azure+migrate)
+
+## <a name="need-help-contact-us"></a>¿Necesita ayuda? Póngase en contacto con nosotros.  
+Si tiene alguna pregunta o necesita ayuda, cree una [solicitud de soporte técnico](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Si la solicitud de soporte técnico necesita una orientación técnica profunda, visite [Planes de soporte técnico de Azure](https://azure.microsoft.com/support/plans/)     
 
 
 ## <a name="next-steps"></a>Pasos siguientes

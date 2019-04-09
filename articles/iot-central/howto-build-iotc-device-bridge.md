@@ -5,19 +5,19 @@ services: iot-central
 ms.service: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 12/4/2018
+ms.date: 03/26/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 6133a7441459072d0c7da1841161da563a28aa31
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 246c9ad8ab3083c1b847c1c25230a7193a8192e3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56730331"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263577"
 ---
 # <a name="build-the-iot-central-device-bridge-to-connect-other-iot-clouds-to-iot-central"></a>Creación del puente de dispositivos de IoT Central para conectar otras nubes de IoT a IoT Central
 
-*Este tema se aplica a administradores*.
+*En este tema se aplica a los administradores.*
 
 El puente de dispositivos de IoT Central es una solución de código abierto que se conecta su nube de Sigfox, Particle, The Things Network y otras nubes a la aplicación IoT Central. Si usa dispositivos de seguimiento de activos, conectados a la red de área amplia de baja potencia de Sigfox, o usa dispositivos de control de la calidad del aire en Device Cloud de Particle, o usa dispositivos de supervisión de la humedad de suelo de TTN, puede aprovechar directamente el potencial de IoT Central mediante el puente de dispositivos de IoT Central. El puente de dispositivos conecta otras nubes de IoT con IoT Central mediante el reenvío de los datos que los dispositivos envían a las demás nubes a través a la aplicación IoT Central. En la aplicación IoT Central, puede crear reglas y ejecutar análisis en esos datos, crear flujos de trabajo en aplicaciones de Microsoft Flow y Azure Logic, exportar los datos y mucho más. Obtenga el [puente de dispositivos de IoT Central](https://aka.ms/iotcentralgithubdevicebridge) desde GitHub.
 
@@ -45,4 +45,4 @@ Los recursos de Azure se hospedarán en su suscripción de Azure. Puede aprender
 Ahora que ha aprendido a crear un puente de dispositivos de IoT Central, este es el paso siguiente sugerido:
 
 > [!div class="nextstepaction"]
-> [Administración de dispositivos](howto-manage-devices.md)
+> [Administración de los dispositivos](howto-manage-devices.md)

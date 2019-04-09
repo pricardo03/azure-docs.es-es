@@ -8,16 +8,16 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 01/10/2019
+ms.date: 03/20/2019
 ms.author: sajagtap
-ms.openlocfilehash: bd281191deb1a82d4b1b5247a011d9867f0c9bc4
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 9cc18ce1fde5de354e3da5e384c08ada1927d097
+ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55879299"
+ms.lasthandoff: 04/01/2019
+ms.locfileid: "58757232"
 ---
-# <a name="quickstart-analyze-image-content-for-objectionable-material-in-c"></a>Inicio rápido: Análisis de contenido de imágenes para detectar material inapropiado en C#
+# <a name="quickstart-analyze-images-for-objectionable-content-in-c"></a>Inicio rápido: Análisis de imágenes en busca de contenido inapropiado en C#
 
 En este artículo se proporciona información y ejemplos de código que le ayudarán a empezar a usar el [SDK de Content Moderator para .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/). Aprenderá a buscar contenido para adultos o subido de tono, texto extraíble y caras humanas con el fin de moderar material posiblemente ofensivo.
 
