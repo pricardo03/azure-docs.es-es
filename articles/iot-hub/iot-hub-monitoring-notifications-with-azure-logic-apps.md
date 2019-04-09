@@ -1,25 +1,24 @@
 ---
 title: Supervisión remota y notificaciones de IoT con Azure Logic Apps | Microsoft Docs
 description: Use Azure Logic Apps para la supervisión de temperatura de IoT en IoT Hub y el envío automático de notificaciones de correo electrónico al buzón de correo cada vez que se detecten anomalías.
-author: rangv
-manager: ''
+author: robinsh
 keywords: supervisión de iot, notificaciones de iot, supervisión de temperatura de iot
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
-ms.author: rangv
-ms.openlocfilehash: adda4e948c11f84517b1e8dd01e6cfe42155e1ca
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
-ms.translationtype: HT
+ms.author: robinsh
+ms.openlocfilehash: 5d5b1d1579600767153fcf5ad751e1224631d611
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409448"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262523"
 ---
 # <a name="iot-remote-monitoring-and-notifications-with-azure-logic-apps-connecting-your-iot-hub-and-mailbox"></a>Supervisión remota y notificaciones de IoT con Azure Logic Apps conectando IoT Hub y el buzón de correo
 
-![Diagrama integral](media/iot-hub-get-started-e2e-diagram/7.png)
+![Diagrama integral](media/iot-hub-monitoring-notifications-with-azure-logic-apps/iot-hub-e2e-logic-apps.png)
 
 [!INCLUDE [iot-hub-get-started-note](../../includes/iot-hub-get-started-note.md)]
 
@@ -38,6 +37,7 @@ Aprenda a crear una aplicación lógica que conecte IoT Hub y el buzón de corre
 ## <a name="what-you-need"></a>Lo que necesita
 
 * Tutorial [Instalación de su dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) completado donde se abordan los siguientes requisitos:
+
   * Una suscripción de Azure activa.
   * Un centro de Azure IoT en su suscripción.
   * Una aplicación cliente que envía mensajes a su centro de Azure IoT.
@@ -46,122 +46,149 @@ Aprenda a crear una aplicación lógica que conecte IoT Hub y el buzón de corre
 
 ### <a name="create-a-service-bus-namespace"></a>Crear un espacio de nombres de Service Bus
 
-1. En [Azure Portal](https://portal.azure.com/), haga clic en **Crear un recurso** > **Integración empresarial** > **Service Bus**.
-1. Proporcione la siguiente información:
+1. En el [portal Azure](https://portal.azure.com/), seleccione **crear un recurso** > **Enterprise Integration Pack** > **Service Bus**.
 
-   **Nombre**: nombre de Service Bus.
+2. Proporcione la siguiente información:
 
-   **Nivel de precios**: haga clic en **Básico** > **Seleccionar**. El nivel Básico es suficiente para este tutorial.
+   **Nombre**: El nombre de service bus.
+
+   **Plan de tarifa**: Seleccione **básica** > **seleccione**. El nivel Básico es suficiente para este tutorial.
 
    **Grupo de recursos**: use el mismo grupo de recursos que usa el centro de IoT.
 
-   **Ubicación**: use la misma ubicación que emplea IoT Hub.
-1. Haga clic en **Create**(Crear).
+   **Ubicación**: Use la misma ubicación que utiliza el IoT hub.
+
+3. Seleccione **Crear**.
 
    ![Crear un espacio de nombres de Service Bus en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/1_create-service-bus-namespace-azure-portal.png)
 
 ### <a name="add-a-service-bus-queue"></a>Agregar una cola de Service Bus
 
-1. Abra el espacio de nombres de Service Bus y haga clic en **+ Cola**.
-1. Escriba un nombre para la cola y haga clic en **Crear**.
-1. Abra la cola de Service Bus y haga clic en **Directivas de acceso compartido** > **+ Agregar**.
-1. Escriba un nombre para la directiva, active **Administrar** y luego haga clic en **Crear**.
+1. Abra el espacio de nombres del bus de servicio y, a continuación, seleccione **+ cola**.
+
+1. Escriba un nombre para la cola y, a continuación, seleccione **crear**.
+
+1. Abra la cola de service bus y, a continuación, seleccione **directivas de acceso compartido** > **+ agregar**.
+
+1. Escriba un nombre para la directiva, active **administrar**y, a continuación, seleccione **crear**.
 
    ![Agregar una cola de Service Bus en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/2_add-service-bus-queue-azure-portal.png)
 
-## <a name="add-an-endpoint-and-a-routing-rule-to-your-iot-hub"></a>Agregar un punto de conexión y una regla de enrutamiento a IoT Hub
+## <a name="add-an-endpoint-and-a-routing-query-to-your-iot-hub"></a>Agregar un punto de conexión y una consulta de enrutamiento a IoT hub
+
+Ahora agregue un punto de conexión y una consulta de enrutamiento a Iot hub.
 
 ### <a name="add-an-endpoint"></a>Agregación de un extremo
 
-1. Abra IoT Hub, haga clic en Puntos de conexión > + Agregar.
+1. Abra el IoT hub, seleccione **extremos** > **+ agregar**.
+
 1. Escriba la siguiente información:
 
-   **Nombre**: nombre del punto de conexión.
+   **Nombre**: Nombre del punto de conexión.
 
-   **Tipo de punto de conexión**: seleccione **Cola de Service Bus**.
+   **Tipo de extremo**: Seleccione la **cola de Service Bus**.
 
-   **Espacio de nombres de Service Bus**: seleccione el espacio de nombres que ha creado.
+   **Espacio de nombres de Service Bus**: Seleccione el espacio de nombres que creó.
 
-   **Cola de Service Bus**: seleccione la cola que ha creado.
-1. Haga clic en **OK**.
+   **Cola de Service Bus**: Seleccione la cola que creó.
+
+3. Seleccione **Aceptar**.
 
    ![Agregar un punto de conexión a IoT Hub en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/3_add-iot-hub-endpoint-azure-portal.png)
 
 ### <a name="add-a-routing-rule"></a>Agregar una regla de enrutamiento
 
-1. En IoT Hub, haga clic en **Rutas** > **+ Agregar**.
-1. Escriba la siguiente información:
+1. En la instancia de IoT hub, seleccione **rutas** > **+ agregar**.
 
-   **Nombre**: nombre de la regla de enrutamiento.
+2. Escriba la siguiente información:
 
-   **Origen de datos**: seleccione **DeviceMessages**.
+   **Nombre**: El nombre de la regla de enrutamiento.
 
-   **Punto de conexión**: seleccione el punto de conexión que ha creado.
+   **Origen de datos**: Seleccione **DeviceMessages**.
 
-   **Cadena de consulta**: escriba `temperatureAlert = "true"`.
-1. Haga clic en **Save**(Guardar).
+   **Punto de conexión**: Seleccione el punto de conexión que creó.
+
+   **Cadena de consulta**: Escriba `temperatureAlert = "true"`.
+
+3. Seleccione **Guardar**.
 
    ![Agregar una regla de enrutamiento en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/4_add-routing-rule-azure-portal.png)
 
 ## <a name="create-and-configure-a-logic-app"></a>Crear y configurar una aplicación lógica
 
+A continuación, crear y configurar una aplicación lógica.
+
 ### <a name="create-a-logic-app"></a>Creación de una aplicación lógica
 
-1. En [Azure Portal](https://portal.azure.com/), haga clic en **Crear un recurso** > **Integración empresarial** > **Aplicación lógica**.
-1. Escriba la siguiente información:
+1. En el [portal Azure](https://portal.azure.com/), seleccione **crear un recurso** > **Enterprise Integration Pack** > **aplicación lógica**.
 
-   **Nombre**: nombre de la aplicación lógica.
+2. Escriba la siguiente información:
+
+   **Nombre**: El nombre de la aplicación lógica.
 
    **Grupo de recursos**: use el mismo grupo de recursos que usa el centro de IoT.
 
-   **Ubicación**: use la misma ubicación que emplea IoT Hub.
-1. Haga clic en **Create**(Crear).
+   **Ubicación**: Use la misma ubicación que utiliza el IoT hub.
+
+3. Seleccione **Crear**.
 
 ### <a name="configure-the-logic-app"></a>Configurar la aplicación lógica
 
 1. Abra la aplicación lógica que se abre en el Diseñador de aplicaciones lógicas.
-1. En el Diseñador de aplicaciones lógicas, haga clic en **Aplicación lógica en blanco**.
+
+2. En el Diseñador de Logic Apps, seleccione **aplicación lógica en blanco**.
 
    ![Comenzar con una aplicación lógica en blanco en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/5_start-with-blank-logic-app-azure-portal.png)
 
-1. Haga clic en **Service Bus**.
+3. Seleccione **Service Bus**.
 
    ![Seleccionar Service Bus para empezar a crear la aplicación lógica en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/6_select-service-bus-when-creating-blank-logic-app-azure-portal.png)
 
-1. Haga clic en **Service Bus: Cuando llegan uno o más mensajes a una cola (autocompletar)**.
-1. Cree una conexión de Service Bus.
+4. Seleccione **Service Bus: cuando uno o más mensajes llegan a una cola (Autocompletar)**.
+
+5. Cree una conexión de Service Bus.
+
    1. Escriba un nombre de conexión.
-   1. Haga clic en el espacio de nombres de Service Bus > directiva de Service Bus > **Crear**.
+
+   2. Seleccione el espacio de nombres de service bus > directiva de service bus > **crear**.
 
       ![Crear una conexión de Service Bus para la aplicación lógica en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/7_create-service-bus-connection-in-logic-app-azure-portal.png)
 
-   1. Haga clic en **Continuar** después de crear la conexión de Service Bus.
-   1. Seleccione la cola que ha creado y escriba `175` en **Recuento máximo de mensajes**.
+   3. Seleccione **continuar** después de crea la conexión de service bus.
+
+   4. Seleccione la cola que ha creado y escriba `175` para **recuento máximo de mensajes**.
 
       ![Especificar el recuento máximo de mensajes de la conexión de Service Bus en la aplicación lógica](media/iot-hub-monitoring-notifications-with-azure-logic-apps/8_specify-maximum-message-count-for-service-bus-connection-logic-app-azure-portal.png)
-   1. Haga clic en el botón "Guardar" para guardar los cambios.
 
-1. Cree una conexión de servicio SMTP.
-   1. Haga clic en **Nuevo paso** > **Agregar una acción**.
-   1. Escriba `SMTP`, haga clic en el servicio **SMTP** en el resultado de la búsqueda y luego haga clic en **SMTP: Enviar correo electrónico**.
+   5. Seleccione el "botón Guardar" para guardar los cambios.
+
+6. Cree una conexión de servicio SMTP.
+
+   1. Seleccione **Nuevo paso** > **Agregar una acción**.
+
+   2. Tipo `SMTP`, seleccione el **SMTP** de servicio en el resultado de búsqueda y, a continuación, seleccione **SMTP - enviar correo electrónico**.
 
       ![Crear una conexión SMTP en la aplicación lógica en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/9_create-smtp-connection-logic-app-azure-portal.png)
 
-   1. Escriba la información SMTP del buzón de correo y luego haga clic en **Crear**.
+   3. Escriba la información de SMTP del buzón de correo y, a continuación, seleccione **crear**.
 
       ![Escribir la información de la conexión SMTP en la aplicación lógica en Azure Portal](media/iot-hub-monitoring-notifications-with-azure-logic-apps/10_enter-smtp-connection-info-logic-app-azure-portal.png)
 
       Obtenga la información SMTP de [Hotmail/Outlook.com](https://support.office.com/article/Add-your-Outlook-com-account-to-another-mail-app-73f3b178-0009-41ae-aab1-87b80fa94970), [Gmail](https://support.google.com/a/answer/176600?hl=en) y [Yahoo Mail](https://help.yahoo.com/kb/SLN4075.html).
-   1. Escriba la dirección de correo electrónico en **De** y **Para** y `High temperature detected` en **Asunto** y **Cuerpo**.
-   1. Haga clic en **Save**(Guardar).
+
+   4. Escriba la dirección de correo electrónico en **De** y **Para** y `High temperature detected` en **Asunto** y **Cuerpo**.
+
+   5. Seleccione **Guardar**.
 
 La aplicación lógica está funcionando al guardarse.
 
 ## <a name="test-the-logic-app"></a>Probar la aplicación lógica
 
 1. Inicie la aplicación cliente que se implementa en el dispositivo en [Connect ESP8266 to Azure IoT Hub (Conectar ESP8266 a Azure IoT Hub)](iot-hub-arduino-huzzah-esp8266-get-started.md).
-1. Aumente la temperatura ambiental en torno al SensorTag para que sea superior a 30 °C. Por ejemplo, encienda una vela al lado del SensorTag.
-1. Debería recibir una notificación de correo electrónico enviada por la aplicación lógica.
+
+2. Aumente la temperatura ambiental en torno al SensorTag para que sea superior a 30 °C. Por ejemplo, encienda una vela al lado del SensorTag.
+
+3. Debería recibir una notificación de correo electrónico enviada por la aplicación lógica.
 
    > [!NOTE]
    > Es posible que el proveedor de servicios de correo electrónico necesite comprobar la identidad del remitente para asegurarse de que es usted quien envía el mensaje.

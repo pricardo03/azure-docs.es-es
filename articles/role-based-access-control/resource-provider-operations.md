@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: a6da0a92e99cbfe49bdebfb33dfaab91e2411acc
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: 2cceaf61129c6c756fadb3d41e825264fa23331f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010743"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278877"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operaciones del proveedor de recursos de Azure Resource Manager
 
@@ -2269,8 +2269,8 @@ Actualizar un grupo existente persona nombre y userData. Las propiedades conserv
 > | . | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de las suscripciones a eventos. |
 > | . | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de las suscripciones a eventos. |
 > | . | Microsoft.EventGrid/eventSubscriptions/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de eventSubscriptions. |
-> | . | Microsoft.EventGrid/eventSubscriptions/read | Lee una clase eventSubscription. |
-> | . | Microsoft.EventGrid/eventSubscriptions/write | Crea o actualiza una clase eventSubscription. |
+> | . | Microsoft.EventGrid/eventSubscriptions/read | Leer una clase eventsubscription. |
+> | . | Microsoft.EventGrid/eventSubscriptions/write | Crear o actualizar una clase eventsubscription. |
 > | . | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/read | Obtiene la configuración de diagnóstico de los temas. |
 > | . | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/diagnosticSettings/write | Crea o actualiza la configuración de diagnóstico de los temas. |
 > | . | Microsoft.EventGrid/extensionTopics/providers/Microsoft.Insights/metricDefinitions/read | Obtiene las métricas disponibles de los temas. |

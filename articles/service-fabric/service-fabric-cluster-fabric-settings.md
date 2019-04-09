@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/11/2018
 ms.author: aljo
-ms.openlocfilehash: 379477cd063192fc8c23c73b4a8814ad13507043
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
-ms.translationtype: MT
+ms.openlocfilehash: 7252af42ac515f9177b8988e2995e6ce77f4e12f
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667539"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058873"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -159,7 +159,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 | --- | --- | --- | --- |
 |ConnectionInitializationTimeout |Tiempo en segundos, el valor predeterminado es 2. |Dinámica|Especifique el intervalo de tiempo en segundos. El intervalo de tiempo de espera de conexión para cada vez que el cliente intenta abrir una conexión a la puerta de enlace.|
 |HealthOperationTimeout. |Tiempo en segundos, el valor predeterminado es 120. |Dinámica|Especifique el intervalo de tiempo en segundos. El tiempo de espera de un mensaje de informe enviado al administrador de mantenimiento. |
-|HealthReportRetrySendInterval |Tiempo en segundos, el valor predeterminado es 30. |Dinámica|Especifique el intervalo de tiempo en segundos. El intervalo dentro del cual el componente de informes reenvía informes de mantenimiento acumulados al administrador de mantenimiento. |
+|HealthReportRetrySendInterval |Tiempo en segundos, el valor predeterminado es 30, el valor mínimo es 1 |Dinámica|Especifique el intervalo de tiempo en segundos. El intervalo en el que el componente de informes vuelve a enviar mantenimiento acumulados informa al administrador de mantenimiento. |
 |HealthReportSendInterval. |Tiempo en segundos, el valor predeterminado es 30. |Dinámica|Especifique el intervalo de tiempo en segundos. El intervalo dentro del cual el componente de informes envía informes de mantenimiento acumulados al administrador de mantenimiento. |
 |KeepAliveIntervalInSeconds |Int, el valor predeterminado es 20. |estática|El intervalo dentro del cual el transporte de FabricClient envía mensajes persistentes a la puerta de enlace. Para 0; keepAlive está deshabilitado. Debe ser un valor positivo. |
 |MaxFileSenderThreads |Uint, el valor predeterminado es 10. |estática|El número máximo de archivos que se transfieren en paralelo. |

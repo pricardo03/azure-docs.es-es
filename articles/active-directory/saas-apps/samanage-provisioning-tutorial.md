@@ -6,21 +6,22 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 62d0392f-37d4-436e-9aff-22f4e5b83623
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2018
+ms.date: 03/28/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b51f8d9329bc86320501183d7dba7735fb369fa5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: ca43b62e66e3a736aa52fdd10fe36e635daba245
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58092385"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280356"
 ---
 # <a name="tutorial-configure-samanage-for-automatic-user-provisioning"></a>Tutorial: Configuración de Samanage para el aprovisionamiento automático de usuarios
 
@@ -33,39 +34,34 @@ El objetivo de este tutorial es mostrar los pasos que se realizan en Samanage y 
 
 En el escenario que se describe en este tutorial se supone que ya cuenta con los elementos siguientes:
 
-*   Un inquilino de Azure AD
-*   Un [inquilino de Samanage](https://www.samanage.com/pricing/) con el paquete Professional
-*   Una cuenta de usuario de Samanage con permisos de administrador
+* Un inquilino de Azure AD
+* Un [inquilino de Samanage](https://www.samanage.com/pricing/) con el paquete Professional
+* Una cuenta de usuario de Samanage con permisos de administrador
 
 > [!NOTE]
 > La integración del aprovisionamiento de Azure AD se basa en [Samanage REST API](https://www.samanage.com/api/), que está disponible para los desarrolladores de Samanage para las cuentas con el paquete Professional.
 
 ## <a name="adding-samanage-from-the-gallery"></a>Adición de Samanage desde la galería
+
 Antes de configurar Samanage para el aprovisionamiento automático de usuarios con Azure AD, es preciso agregar Samanage desde la galería de aplicaciones de Azure AD hasta la lista de aplicaciones SaaS administradas.
 
-**Para agregar Samanage desde la galería de aplicaciones de Azure AD, siga estos pasos:**
+**Para agregar Samanage desde la Galería de aplicaciones de Azure AD, realice los pasos siguientes:**
 
-1. En **[Azure Portal](https://portal.azure.com)**, en el panel de navegación izquierdo, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Botón Azure Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** > **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![Sección Aplicaciones empresariales][2]
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-3. Para agregar Samanage, haga clic en el botón **Nueva aplicación** en la parte superior del cuadro de diálogo.
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Botón Nueva aplicación][3]
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Samanage**.
+4. En el cuadro de búsqueda, escriba **Samanage**, seleccione **Samanage** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![Aprovisionamiento de Samanage](./media/samanage-provisioning-tutorial/AppSearch.png)
-
-5. En el panel de resultados, seleccione **Samanage** y, luego, haga clic en el botón **Agregar** para agregar Samanage a la lista de aplicaciones SaaS.
-
-    ![Aprovisionamiento de Samanage](./media/samanage-provisioning-tutorial/AppSearchResults.png)
-
-    ![Aprovisionamiento de Samanage](./media/samanage-provisioning-tutorial/AppCreation.png)
+    ![Samanage en la lista de resultados](common/search-new-app.png)
 
 ## <a name="assigning-users-to-samanage"></a>Asignación de usuarios a Samanage
 
@@ -92,11 +88,13 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 ### <a name="to-configure-automatic-user-provisioning-for-samanage-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para Samanage en Azure AD, siga estos pasos:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a **Azure Active Directory > Aplicaciones empresariales > Todas las aplicaciones**.
+1. Inicie sesión en el [portal Azure](https://portal.azure.com) y seleccione **aplicaciones empresariales**, seleccione **todas las aplicaciones**, a continuación, seleccione **Samanage**.
 
-2. Seleccione Samanage en la lista de aplicaciones SaaS.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![Aprovisionamiento de Samanage](./media/samanage-provisioning-tutorial/AppInstanceSearch.png)
+2. En la lista de aplicaciones, seleccione **Samanage**.
+
+    ![El vínculo a Samanage en la lista de aplicaciones](common/all-applications.png)
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
@@ -163,13 +161,13 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Administración de aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../manage-apps/check-status-user-account-provisioning.md)
+* [Obtenga información sobre cómo revisar los registros y obtener informes sobre la actividad de aprovisionamiento](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/samanage-provisioning-tutorial/tutorial_general_01.png

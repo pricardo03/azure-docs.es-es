@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
 ms.author: cithomas
-ms.openlocfilehash: ea7f2e730b4963016d221705ba8c9356efffa858
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 9d5e25e0fd00f9c0635009f684e79336d58b7b4a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905280"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263770"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider para los registros de .NET Core ILogger
 
@@ -208,10 +208,10 @@ Aunque todavía puede usar el proveedor anterior (ahora está obsoleta y se elim
 1. Proveedor anterior carecía de compatibilidad de [ámbitos](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.2#log-scopes). En el nuevo proveedor, las propiedades de ámbito se agregan automáticamente como propiedades personalizadas a los datos de telemetría recopilados.
 2. Ahora se pueden capturar registros mucho anteriormente en la canalización de inicio de la aplicación. es decir, Ahora se pueden capturar registros desde las clases de inicio y el programa.
 3. Con el nuevo proveedor, el filtrado se realiza en el nivel del marco de trabajo. Filtrado de registros al proveedor de Application Insights puede realizarse en la misma manera que para otros proveedores, incluidos los proveedores integrados, como la consola de depuración y así sucesivamente. También es posible aplicar los mismos filtros a varios proveedores.
-4. El [recomienda](https://github.com/aspnet/Announcements/issues/255) forma en Asp.Net Core (2.0 y versiones posteriores) para habilitar los proveedores de registro es mediante los métodos de extensión en ILoggingBuilder en `Program.cs` propio.
+4. El [recomienda](https://github.com/aspnet/Announcements/issues/255) forma en ASP.NET Core (2.0 y versiones posteriores) para habilitar los proveedores de registro es mediante los métodos de extensión en ILoggingBuilder en `Program.cs` propio.
 
 > [!Note]
-El nuevo proveedor está disponible para las aplicaciones destinadas a `NETSTANDARD2.0` o superior. Si la aplicación tiene como destino versiones anteriores de .NET Core como .NET Core 1.1 o si el destino es .NET Framework, seguir usando el proveedor anterior.
+> El nuevo proveedor está disponible para las aplicaciones destinadas a `NETSTANDARD2.0` o superior. Si la aplicación tiene como destino versiones anteriores de .NET Core como .NET Core 1.1 o si el destino es .NET Framework, seguir usando el proveedor anterior.
 
 ## <a name="console-application"></a>Aplicación de consola
 

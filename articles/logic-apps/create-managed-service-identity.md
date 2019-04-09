@@ -9,12 +9,12 @@ ms.service: logic-apps
 ms.suite: integration
 ms.topic: article
 ms.date: 03/29/2019
-ms.openlocfilehash: c5fabf37ecc97f8edea437f1628949e45aefde77
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 8445b67fa049116d93f3710ff108f904ca7ecd77
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755703"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010556"
 ---
 # <a name="authenticate-and-access-resources-with-managed-identities-in-azure-logic-apps"></a>Autenticación y acceso a los recursos con identidades administradas en Azure Logic Apps
 
@@ -113,7 +113,7 @@ Cuando Azure crea la aplicación lógica, la definición de flujo de trabajo de 
 
 | Propiedad | Valor | DESCRIPCIÓN | 
 |----------|-------|-------------|
-| **principalId** | <*principal-ID*> | Un identificador único global (GUID) que representa la aplicación lógica en el inquilino de Azure AD y, a veces, aparece como un "Id. de objeto" o `objectID` | 
+| **principalId** | <*principal-ID*> | Un identificador único global (GUID) que representa la aplicación lógica en el inquilino de Azure AD y, a veces aparece como un "Id. de objeto" o `objectID` | 
 | **tenantId** | <*Azure-AD-tenant-ID*> | Un identificador único global (GUID) que representa un inquilino de Azure AD del que la aplicación lógica es ahora miembro. En el inquilino de Azure AD, la entidad de servicio tiene el mismo nombre que la instancia de aplicación lógica. | 
 ||| 
 
@@ -158,7 +158,7 @@ Después de configurar la aplicación lógica con una identidad administrada asi
    En el cuadro **URI**, escriba la dirección URL del punto de conexión para ese servicio de Azure. 
    Por lo tanto, si usa Azure Resource Manager, especifique este valor en la propiedad **URI**:
 
-   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version-2016-06-01`
+   `https://management.azure.com/subscriptions/<Azure-subscription-ID>?api-version=2016-06-01`
 
 1. En la acción HTTP, elija **Mostrar opciones avanzadas**.
 

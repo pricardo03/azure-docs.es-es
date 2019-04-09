@@ -9,22 +9,19 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
-ms.openlocfilehash: 0c6be20bfb2a6f15335564a1aa98dc0ac88e3507
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c616b2578f7606ce7df19fdbef16bec8a24428d3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905841"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262506"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
 
 Habilitar la supervisión de aplicaciones web basadas en que se ejecuta en Azure App Services en un .NET y .NET Core ahora es más fácil que nunca. Mientras que antes, era necesario instalar manualmente una extensión de sitio, el agente de extensión más reciente y ahora está integrado en la imagen del servicio de aplicación de forma predeterminada. En este artículo se le guiará a través de habilitar la supervisión de Application Insights, así como proporcionar instrucciones preliminares para automatizar el proceso para implementaciones a gran escala.
 
 > [!NOTE]
-> Cómo agregar manualmente una extensión de sitio de Application Insights a través de **herramientas de desarrollo** > **extensiones** está en desuso. La última versión estable de la extensión es ahora [preinstalado](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) como parte de la imagen de App Service. Los archivos se encuentran en `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` y se actualizan automáticamente con cada versión estable. Si sigue las instrucciones en función del agente para habilitar la supervisión a continuación, quitará automáticamente la extensión en desuso para usted.
-
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+> Cómo agregar manualmente una extensión de sitio de Application Insights a través de **herramientas de desarrollo** > **extensiones** está en desuso. Este método de instalación de la extensión dependía de actualizaciones manuales para cada nueva versión. La última versión estable de la extensión es ahora [preinstalado](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) como parte de la imagen de App Service. Los archivos se encuentran en `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` y se actualizan automáticamente con cada versión estable. Si sigue las instrucciones en función del agente para habilitar la supervisión a continuación, quitará automáticamente la extensión en desuso para usted.
 
 ## <a name="enable-application-insights"></a>Habilitación de Application Insights
 
@@ -285,6 +282,8 @@ A continuación es un ejemplo, reemplace todas las instancias de `AppMonitoredSi
 
 Para permitir que la aplicación de supervisión a través de PowerShell, sólo la configuración de aplicación subyacente debe cambiarse. A continuación es un ejemplo, que habilita la supervisión de aplicaciones para un sitio Web denominado "AppMonitoredSite" en el grupo de recursos "AppMonitoredRG", y configura los datos se envíen a la clave de instrumentación "012345678-abcd-ef01-2345-6789abcd".
 
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+
 ```powershell
 $app = Get-AzWebApp -ResourceGroupName "AppMonitoredRG" -Name "AppMonitoredSite" -ErrorAction Stop
 $newAppSettings = @{} # case-insensitive hash map
@@ -348,6 +347,7 @@ La tabla siguiente proporciona una explicación más detallada de lo que signifi
 |Valor de problema|Explicación|Solución
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Este valor indica que la extensión ha detectado que algún aspecto SDK de ya está presente en la aplicación y se espera. Esto puede deberse a una referencia a `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation`, o `Microsoft.ApplicationInsights`  | Quite las referencias. Algunas de estas referencias se agregan de forma predeterminada en ciertas plantillas de Visual Studio y las versiones anteriores de Visual Studio pueden agregar referencias a `Microsoft.ApplicationInsights`.
+|`AppAlreadyInstrumented:true` | Si la aplicación tiene como destino .NET Core 2.1 o 2.2 y hace referencia a [Microsoft.AspNetCore.All](https://www.nuget.org/packages/Microsoft.AspNetCore.All) metapaquete, a continuación, presenta en Application Insights y extensión se retroceso. | Los clientes con .NET Core 2.1,2.2 [recomienda](https://github.com/aspnet/Announcements/issues/287) usar Microsoft.AspNetCore.App metapaquete en su lugar.|
 |`AppAlreadyInstrumented:true` | Este valor también puede deberse a la presencia de los archivos DLL anterior en la carpeta de aplicación de una implementación anterior. | Limpiar la carpeta de aplicación para asegurarse de que se han quitado estos archivos DLL.|
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Este valor indica que la extensión detectó referencias a `Microsoft.AspNet.TelemetryCorrelation` en la aplicación y se espera. | Quite la referencia.
 |`AppContainsDiagnosticSourceAssembly**:true`|Este valor indica que la extensión detectó referencias a `System.Diagnostics.DiagnosticSource` en la aplicación y se espera.| Quite la referencia.

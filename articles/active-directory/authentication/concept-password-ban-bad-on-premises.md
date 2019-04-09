@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cd9f6112cbca78b323e0a14818b06f891a3f673
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: d58c019cf3d801ce938a4ca6eca70b1606bf4ff6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862894"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264478"
 ---
 # <a name="enforce-azure-ad-password-protection-for-windows-server-active-directory"></a>Aplicación de Protección con contraseña de Azure AD para Windows Server Active Directory
 
@@ -31,7 +31,8 @@ Protección mediante contraseña de Azure AD está diseñado con estos principio
 * No se requiere ningún cambio de esquema de Active Directory. El software utiliza Active Directory de **contenedor** y **serviceConnectionPoint** los objetos de esquema.
 * Active Directory bosque o dominio de nivel funcional mínimo (DFL/FFL) no se requiere.
 * El software no crear ni exigen que las cuentas de los dominios de Active Directory que protección.
-* Las contraseñas de usuario cifradas no permita que el controlador de dominio durante las operaciones de validación de contraseña o en cualquier otro momento.
+* Las contraseñas de usuario cifradas no deje nunca el controlador de dominio, durante las operaciones de validación de contraseña o en cualquier otro momento.
+* El software no es dependiente de otras características de Azure AD; Por ejemplo la sincronización de hash de contraseña de Azure AD no está relacionado con y no se requiere en orden para la protección de contraseña de Azure AD a la función.
 * Implementación incremental es compatible, pero solo se aplica la directiva de contraseñas está instalado el agente de controlador de dominio (DC agente). Vea el tema siguiente para obtener más detalles.
 
 ## <a name="incremental-deployment"></a>Implementación incremental
@@ -62,7 +63,7 @@ El servicio del agente de controlador de dominio es responsable de iniciar la de
 
 Una vez que el servicio del agente de controlador de dominio recibe una nueva directiva de contraseña de Azure AD, el servicio almacena la directiva en una carpeta dedicada en la raíz de su dominio *sysvol* uso compartido de carpetas. El servicio del agente de controlador de dominio también supervisa esta carpeta en caso de las directivas más recientes replican desde otros servicios de agente de controlador de dominio en el dominio.
 
-El servicio del agente de controlador de dominio siempre solicita una nueva directiva al inicio del servicio. Una vez iniciado el servicio del agente de controlador de dominio, comprueba la antigüedad de la directiva actual disponible de forma local cada hora. Si la directiva es anterior a una hora, el agente de controlador de dominio solicita una nueva directiva de Azure AD, como se describió anteriormente. Si la directiva actual no es anterior a una hora, el agente de controlador de dominio sigue usando esa directiva.
+El servicio del agente de controlador de dominio siempre solicita una nueva directiva al inicio del servicio. Una vez iniciado el servicio del agente de controlador de dominio, comprueba la antigüedad de la directiva actual disponible de forma local cada hora. Si la directiva es anterior a una hora, el agente de controlador de dominio solicita una nueva directiva de Azure AD a través del servicio de proxy, como se describió anteriormente. Si la directiva actual no es anterior a una hora, el agente de controlador de dominio sigue usando esa directiva.
 
 Cada vez que se descarga una directiva de contraseña de protección de contraseña de Azure AD, esa directiva es específica de un inquilino. En otras palabras, las directivas de contraseñas son siempre una combinación de la lista global de contraseñas prohibidas de Microsoft y la lista de contraseñas prohibidas por inquilino personalizados.
 
@@ -77,6 +78,8 @@ El servicio de proxy es sin estado. Nunca almacena en caché las directivas o cu
 El servicio del agente de controlador de dominio siempre usa la directiva de contraseña localmente disponible más reciente para evaluar una contraseña de usuario. Si no hay ninguna directiva de contraseña está disponible en el controlador de dominio local, se acepta automáticamente la contraseña. Cuando esto ocurre, se registra un mensaje de evento para advertir al administrador.
 
 Protección mediante contraseña de Azure AD no es un motor de aplicación de directivas en tiempo real. Puede haber un retraso entre cuando se realiza un cambio de configuración de directiva de contraseña en Azure AD y al que cambiar alcanza y se aplican en todos los controladores de dominio.
+
+Protección mediante contraseña de Azure AD actúa como un complemento para las directivas de contraseña de Active Directory existentes, no es un reemplazo. Esto incluye las demás DLL de filtro de contraseña 3rd-party que puede instalarse. Active Directory requiere siempre que todos los componentes de validación de contraseña de acuerdo antes de aceptar una contraseña.
 
 ## <a name="foresttenant-binding-for-password-protection"></a>Enlace del bosque o el inquilino para la protección con contraseña
 

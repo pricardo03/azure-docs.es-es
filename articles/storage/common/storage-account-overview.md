@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 03/06/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ca71fdc8074e56adc8595ee905d5b1db3b60cef1
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 52226d07595120395909dd5f47d5d896f5cdaa75
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371819"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278996"
 ---
 # <a name="azure-storage-account-overview"></a>Información general acerca de la cuenta de Azure Storage
 
-Una cuenta de Azure Storage contiene todos los objetos de datos de Azure Storage: blobs, archivos, colas, tablas y discos. Los datos en su cuenta de Azure Storage son duraderos, seguros, están completamente disponibles, puede escalarlos de forma masiva y puede acceder a ellos desde cualquier lugar del mundo a través de HTTP o HTTPS. 
+Una cuenta de Azure Storage contiene todos los objetos de datos de Azure Storage: blobs, archivos, colas, tablas y discos. Los datos en su cuenta de Azure Storage son duraderos, seguros, están completamente disponibles, puede escalarlos de forma masiva y puede acceder a ellos desde cualquier lugar del mundo a través de HTTP o HTTPS.
 
 Para obtener información sobre cómo crear una cuenta de Azure Storage, consulte [Crear una cuenta de almacenamiento](storage-quickstart-create-account.md).
 
@@ -52,7 +52,7 @@ Las cuentas de uso general v1 proporcionan acceso a todos los servicios de Azure
 - Colas
 - Tablas
 
-Si bien se recomienda usar las cuentas de uso general v2 en la mayoría de los casos, las cuentas de uso general v1 se adaptan mejor a estos escenarios: 
+Si bien se recomienda usar las cuentas de uso general v2 en la mayoría de los casos, las cuentas de uso general v1 se adaptan mejor a estos escenarios:
 
 * Sus aplicaciones requieren el modelo de implementación clásico de Azure. Las cuentas de uso general v2 y las cuentas de Blob Storage solo admiten el modelo de implementación de Azure Resource Manager.
 
@@ -64,6 +64,10 @@ Si bien se recomienda usar las cuentas de uso general v2 en la mayoría de los c
 
 Una cuenta de almacenamiento de blobs de bloque es una cuenta de almacenamiento especializada para almacenar datos de objetos no estructurados como blobs en bloques o blobs en anexos. Las cuentas de almacenamiento de blobs de bloque ofrecen varios niveles de acceso para almacenar los datos según los patrones de uso. Para obtener más información, consulte [Access tiers for block blob data](#access-tiers-for-block-blob-data) (Niveles de acceso para los datos del blob en bloques).
 
+### <a name="filestorage-preview-storage-accounts"></a>Cuentas de almacenamiento FileStorage (versión preliminar)
+
+Una cuenta de almacenamiento FileStorage es una cuenta de almacenamiento especializada que se utiliza para almacenar y crear recursos compartidos de archivos de premium. Las cuentas de almacenamiento FileStorage ofrecen características de rendimiento único dedicado, como la ampliación de e/s por segundo. Para obtener más información sobre estas características, consulte el [niveles de rendimiento del recurso compartido de archivo](../files/storage-files-planning.md#file-share-performance-tiers) sección de los archivos en la Guía de planeación.
+
 ## <a name="naming-storage-accounts"></a>Nomenclatura de las cuentas de almacenamiento
 
 Cuando especifique un nombre para la cuenta de almacenamiento, tenga en cuenta estas reglas:
@@ -71,7 +75,7 @@ Cuando especifique un nombre para la cuenta de almacenamiento, tenga en cuenta e
 - Los nombres de las cuentas de almacenamiento deben tener entre 3 y 24 caracteres y solo pueden incluir números y letras en minúscula.
 - El nombre de la cuenta de almacenamiento debe ser único dentro de Azure. No puede haber dos cuentas de almacenamiento con el mismo nombre.
 
-## <a name="performance-tiers"></a>Niveles de rendimiento
+## <a name="general-purpose-performance-tiers"></a>Niveles de rendimiento de uso general
 
 Las cuentas de almacenamiento de uso general pueden configurarse para cada uno de los niveles de rendimiento siguientes:
 
@@ -84,9 +88,9 @@ Azure Storage ofrece diferentes opciones para obtener acceso a los datos de blob
 
 Los niveles de acceso disponibles son:
 
-* El nivel de acceso **frecuente**, que está optimizado para el acceso frecuente de objetos en la cuenta de almacenamiento. Obtener acceso a los datos en el nivel de acceso frecuente es más rentable, aunque los costos de almacenamiento son algo más altos. Las nuevas cuentas de almacenamiento se crean en el nivel de acceso frecuente de forma predeterminada.
-* El nivel de acceso **esporádico** está optimizado para almacenar grandes cantidades de datos a los que se accede con poca frecuencia y que llevan guardados al menos 30 días. El almacenamiento de datos en el nivel de acceso esporádico es más rentable, pero el acceso a esos datos puede ser algo más costoso que acceder a los datos del nivel de acceso frecuente.
-* El nivel de almacenamiento de **archivo** está disponible solo para blobs en bloques individuales. Este nivel está destinado a los datos que pueden tolerar varias horas de latencia de recuperación y que permanecerán en el nivel de almacenamiento de archivo durante un mínimo de 180 días. El nivel de almacenamiento de archivo es el más rentable de todos para almacenar datos, pero el acceso a esos datos es más costoso que acceder a los datos del nivel de acceso frecuente o esporádico. 
+* El nivel de acceso **frecuente**, que está optimizado para el acceso frecuente de objetos en la cuenta de almacenamiento. Acceso a datos en el nivel de acceso frecuente es más rentable, mientras que los costos de almacenamiento son más altos. Las nuevas cuentas de almacenamiento se crean en el nivel de acceso frecuente de forma predeterminada.
+* El nivel de acceso **esporádico** está optimizado para almacenar grandes cantidades de datos a los que se accede con poca frecuencia y que llevan guardados al menos 30 días. Almacenar datos en el nivel de acceso esporádico es más rentable, pero el acceso a datos puede ser más costoso que el acceso a datos en el nivel de acceso frecuente.
+* El nivel de almacenamiento de **archivo** está disponible solo para blobs en bloques individuales. Este nivel está destinado a los datos que pueden tolerar varias horas de latencia de recuperación y que permanecerán en el nivel de almacenamiento de archivo durante un mínimo de 180 días. El nivel de almacenamiento de archivo es el más rentable de todos para almacenar datos, pero el acceso a esos datos es más costoso que acceder a los datos del nivel de acceso frecuente o esporádico.
 
 Si hay un cambio en el patrón de uso de datos, también se puede cambiar de nivel de acceso en cualquier momento. Para obtener más información acerca de los niveles de acceso, consulte [Azure Blob storage: niveles de acceso de archivo y frecuente, esporádico](../blobs/storage-blob-storage-tiers.md).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 814ae0e79ac24d5b645c4bf107287ab1b8326ff4
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2255004ae8cd92473b5fe71b44cccb79021a8bf7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121628"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267153"
 ---
 # <a name="configuring-a-custom-domain-name-for-an-azure-cloud-service"></a>Configuración de un nombre de dominio personalizado para un servicio en la nube de Azure
 Cuando se crea un servicio en la nube, Azure lo asigna a un subdominio de **cloudapp.net**. Por ejemplo, si el nombre del servicio en la nube es "contoso", los usuarios podrán tener acceso a la aplicación en una dirección URL como http://contoso.cloudapp.net. Azure también asigna una dirección IP virtual.
@@ -64,11 +64,11 @@ Para crear un registro CNAME, debe agregar una nueva entrada en la tabla DNS par
 
 1. Use uno de estos métodos para buscar el nombre de dominio **.cloudapp.net** asignado a su servicio en la nube.
 
-   * Inicie sesión en [Azure Portal], seleccione el servicio en la nube, busque la sección **Conceptos básicos** y, luego, busque la entrada **Dirección URL del sitio**.
+   * Inicie sesión en el [portal de Azure], seleccione su servicio en la nube, busque el **Overview** sección y, a continuación, busque el **dirección URL del sitio** entrada.
 
        ![sección de vista rápida que muestra la dirección URL del sitio][csurl]
 
-       **O bien**
+       **OR**
    * Instale y configure [Azure Powershell](/powershell/azure/overview)y, luego, use el siguiente comando:
 
        ```powershell
@@ -97,11 +97,11 @@ Para crear un registro D, primero debe buscar la dirección IP virtual de su ser
 
 1. Use uno de los siguientes métodos para obtener la dirección IP de su servicio en la nube.
 
-   * Inicie sesión en [Azure Portal], seleccione el servicio en la nube, busque la sección **Conceptos básicos** y, a continuación, busque la entrada **Direcciones IP públicas**.
+   * Inicie sesión en el [portal de Azure], seleccione su servicio en la nube, busque el **Overview** sección y, a continuación, busque el **direcciones IP públicas** entrada.
 
        ![sección de vista rápida que muestra la IP virtual][vip]
 
-       **O bien**
+       **OR**
    * Instale y configure [Azure Powershell](/powershell/azure/overview)y, luego, use el siguiente comando:
 
        ```powershell
@@ -131,7 +131,7 @@ En este ejemplo se crea un registro D para el dominio raíz. Si desea crear una 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Administración de Cloud Services](cloud-services-how-to-manage-portal.md)
-* [Asignación del contenido de la red CDN a un dominio personalizado](../cdn/cdn-map-content-to-custom-domain.md)
+* [Cómo asignar el contenido de la red CDN a un dominio personalizado](../cdn/cdn-map-content-to-custom-domain.md)
 * [Configuración general de su servicio en la nube](cloud-services-how-to-configure-portal.md).
 * Obtenga información sobre cómo [implementar un servicio en la nube](cloud-services-how-to-create-deploy-portal.md).
 * Configuración de [certificados ssl](cloud-services-configure-ssl-certificate-portal.md).

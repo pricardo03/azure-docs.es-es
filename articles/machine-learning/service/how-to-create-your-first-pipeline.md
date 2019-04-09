@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1ace13b8802c86b3ad40725554c698851ff421b0
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: cc561bd88c18788be3ed1b9aef8a6a985af8a6f2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360527"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278554"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Crear y ejecutar una canalización de aprendizaje automático con el SDK de Azure Machine Learning
 
@@ -35,6 +35,8 @@ Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar.
 * Cree un [área de trabajo de Azure Machine Learning](how-to-configure-environment.md#workspace) que contendrá todos los recursos de la canalización. 
 
   ```python
+  from azureml.core import Workspace
+  
   ws = Workspace.create(
      name = '<workspace-name>',
      subscription_id = '<subscription-id>',
@@ -91,7 +93,7 @@ blob_input_data = DataReference(
     path_on_datastore="20newsgroups/20news.pkl")
 ```
 
-Los datos intermedios (o salida de un paso) se representan mediante un objeto [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). `output_data1` se crea como la salida de un paso y se usa como la entrada de uno o más pasos futuros. `PipelineData` introduce una dependencia de datos entre los pasos y crea un orden de ejecución implícito en la canalización.
+Los datos intermedios (o salida de un paso) se representan mediante un objeto [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). `output_data1` producido como resultado de un paso y utiliza como entrada de uno o varios pasos futuros. `PipelineData` Introduce una dependencia de datos entre pasos y crea una orden de ejecución implícita en la canalización.
 
 ```python
 output_data1 = PipelineData(
@@ -118,6 +120,8 @@ A continuación se muestran ejemplos de creación y asociación de los destinos 
 Puede crear un proceso de Azure Machine Learning para ejecutar sus pasos.
 
 ```python
+from azureml.core.compute import ComputeTarget, AmlCompute
+
 compute_name = "aml-compute"
  if compute_name in ws.compute_targets:
     compute_target = ws.compute_targets[compute_name]
@@ -357,7 +361,7 @@ Ver la lista de todas las canalizaciones y sus detalles de ejecución:
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).  
 
 1. [Ver el área de trabajo](how-to-manage-workspace.md#view) para encontrar la lista de canalizaciones.
- ![lista de canalizaciones de Machine Learning](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
+ ![lista de canalizaciones de aprendizaje automático](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Seleccione una canalización específica para ver los resultados de la ejecución.
 

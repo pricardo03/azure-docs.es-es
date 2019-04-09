@@ -8,18 +8,19 @@ ms.topic: include
 ms.date: 03/23/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: bffe948eec81b480e51d0cf5a25f6091f397dd15
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: d4f57eca89cbb68d61546c6d5ce5bcd04f9256e7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372857"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59286378"
 ---
 Almacenamiento de Azure ofrece varios tipos de cuentas de almacenamiento. Cada tipo admite diferentes características y tiene su propio modelo de precios. Tenga en cuenta estas diferencias antes de crear una cuenta de almacenamiento para determinar el tipo de cuenta más adecuada para sus aplicaciones. Estos son los tipos de cuentas de almacenamiento:
 
 - **Cuentas de uso general v2**: tipo de cuenta de almacenamiento básico para blobs, archivos, colas y tablas. Se recomienda para la mayoría de los escenarios con Azure Storage.
 - **Cuentas de uso general v1**: tipo de cuenta heredada para blobs, archivos, colas y tablas. Cuando sea posible, utilice en su lugar las cuentas de uso general v2.
 - **Bloquear las cuentas de almacenamiento de blobs**: Cuentas de almacenamiento solo para BLOBs con características de rendimiento premium. Se recomienda para escenarios con las tarifas de transacciones alta, utilizando los objetos de menor tamaño, o que requieren la latencia de almacenamiento consistentemente baja.
+- **Las cuentas de almacenamiento (versión preliminar) FileStorage**: Cuentas de almacenamiento de solo archivos con las características de rendimiento premium. Se recomienda para empresas y aplicaciones de alto rendimiento a escala.
 - **Cuentas de almacenamiento de blobs**: cuentas de almacenamiento de solo blobs. Cuando sea posible, utilice en su lugar las cuentas de uso general v2.
 
 En la siguiente tabla se describen los tipos de cuentas de almacenamiento y sus capacidades:
@@ -29,6 +30,7 @@ En la siguiente tabla se describen los tipos de cuentas de almacenamiento y sus 
 | Uso general v2   | Blob, archivo, cola, tabla y disco       | Standard, Premium<sup>5</sup> | Frecuente, Esporádico, Archivo<sup>3</sup> | LRS, ZRS<sup>4</sup>, GRS, RA-GRS | Resource Manager             | Cifrados              |
 | Uso general v1   | Blob, archivo, cola, tabla y disco       | Standard, Premium<sup>5</sup> | N/D                            | LRS, GRS, RA-GRS                  | Resource Manager, clásico    | Cifrados              |
 | Blob storage en bloques   | Blob (solo blobs en bloques y blobs en anexos) | Premium                       | N/D                            | LRS                               | Resource Manager             | Cifrados              |
+| FileStorage (versión preliminar)   | Sólo los archivos | Premium                       | N/D                            | LRS                               | Resource Manager             | Cifrados              |
 | Almacenamiento de blobs         | Blob (solo blobs en bloques y blobs en anexos) | Estándar                      | Frecuente, Esporádico, Archivo<sup>3</sup> | LRS, GRS, RA-GRS                  | Resource Manager             | Cifrados              |
 
 <sup>1</sup>Se recomienda usar el modelo de implementación de Azure Resource Manager. Las cuentas de almacenamiento que usan el modelo de implementación clásico aún se pueden crear en algunas ubicaciones; asimismo, se seguirán admitiendo las cuentas clásicas ya existentes. Para obtener más información, consulte [Implementación de Azure Resource Manager frente a la implementación clásica: Conozca los modelos de implementación y el estado de los recursos](../articles/azure-resource-manager/resource-manager-deployment-model.md).

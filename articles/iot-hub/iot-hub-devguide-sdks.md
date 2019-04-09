@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
-ms.openlocfilehash: fcb6f564c97632e4d62f7f052ec5ecc35a9e479a
-ms.sourcegitcommit: 15e9613e9e32288e174241efdb365fa0b12ec2ac
+ms.openlocfilehash: e51313bbed21459de9f717edd123887caed18f4b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "57011252"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279359"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Información y uso de los SDK de Azure IoT Hub
 
@@ -54,11 +54,12 @@ SDK de dispositivos de Azure IoT Hub para C (ANSI C - C99):
 
 * Se instala desde [apt get, MBED, Arduino IDE o iOS](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md#packages-and-libraries)
 * [Código fuente](https://github.com/Azure/azure-iot-sdk-c)
-* [Compilación del SDK de dispositivos para C](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#compiling-the-c-device-sdk)
+* [Compile el SDK de dispositivos C](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/readme.md#compiling-the-c-device-sdk)
 * [Referencia de API](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 * [Referencia para los módulos](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h)
-* [Migración del SDK de C a otras plataformas](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
+* [Migración del SDK de C para otras plataformas](https://github.com/Azure/azure-c-shared-utility/blob/master/devdoc/porting_guide.md)
 * [Documentación para desarrolladores](https://github.com/Azure/azure-iot-sdk-c/tree/master/doc): contiene información sobre la compilación cruzada y una introducción a distintas plataformas, entre otros temas.
+* [Información de consumo de recursos de Azure SDK de IoT Hub C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/c_sdk_resource_information.md)
 
 SDK de dispositivos Azure IoT Hub para Java: 
 
@@ -83,7 +84,7 @@ SDK de dispositivos Azure IoT Hub para Python:
 SDK de dispositivos Azure IoT Hub para iOS: 
 
 * Se instala desde [CocoaPod](https://cocoapods.org/pods/AzureIoTHubClient)
-* [Muestras](https://github.com/Azure-Samples/azure-iot-samples-ios)
+* [Ejemplos](https://github.com/Azure-Samples/azure-iot-samples-ios)
 * Referencia de API: consulte [referencia de API de C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 
 ## <a name="azure-iot-hub-service-sdks"></a>SDK de servicios de Azure IoT Hub
@@ -121,7 +122,7 @@ SDK de servicios Azure IoT Hub para C:
 SDK de servicios de Azure IoT Hub para iOS: 
 
 * Se instala desde [CocoaPod](https://cocoapods.org/pods/AzureIoTHubServiceClient)
-* [Muestras](https://github.com/Azure-Samples/azure-iot-samples-ios)
+* [Ejemplos](https://github.com/Azure-Samples/azure-iot-samples-ios)
 
 > [!NOTE]
 > Consulte los archivos Léame en los repositorios de GitHub para obtener información sobre el uso de administradores de paquetes específicos de la plataforma y el lenguaje para instalar los archivos binarios y dependencias en el equipo de desarrollo.
@@ -168,7 +169,7 @@ Los SDK de Azure IoT también proporcionan un conjunto de herramientas para asis
 Documentos pertinentes relacionados con el desarrollo con los SDK de Azure IoT:
 * Información acerca de la [administración de la conectividad y la mensajería confiable](iot-hub-reliability-features-in-sdks.md) mediante los SDK de IoT Hub.
 * Aprenda cómo [desarrollar para plataformas móviles](iot-hub-how-to-develop-for-mobile-devices.md) como iOS y Android.
-* [Compatibilidad con plataformas de SDK de Azure IoT](iot-hub-device-sdk-platform-support.md)
+* [Compatibilidad con plataformas de Azure SDK de IoT](iot-hub-device-sdk-platform-support.md)
 
 
 Otros temas de referencia en la Guía del desarrollador de IoT Hub son:
@@ -177,4 +178,4 @@ Otros temas de referencia en la Guía del desarrollador de IoT Hub son:
 * [Lenguaje de consulta de IoT Hub para dispositivos gemelos, trabajos y enrutamiento de mensajes](iot-hub-devguide-query-language.md)
 * [Cuotas y limitación](iot-hub-devguide-quotas-throttling.md)
 * [Compatibilidad con MQTT de IoT Hub](iot-hub-mqtt-support.md)
-* [Referencia de la API REST de IoT Hub](/rest/api/iothub/)
+* [Referencia de API de REST de IoT Hub](/rest/api/iothub/)

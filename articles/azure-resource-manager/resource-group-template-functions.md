@@ -4,22 +4,20 @@ description: Describe las funciones que se van a usar en una plantilla del Admin
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: 0644abe1-abaa-443d-820d-1966d7d26bfd
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
+ms.date: 04/08/2019
 ms.author: tomfitz
-ms.openlocfilehash: eb3435d8c7b10e2de55cb0cf1f3ad2548bf2bcef
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: b5a1f12a877008a3ce2ff7bd9635b9ed47b379f7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57766757"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280322"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Funciones de la plantilla del Administrador de recursos de Azure
 En este artículo se describen todas las funciones que puede utilizar en una plantilla de Azure Resource Manager. Para obtener información sobre el uso de funciones en la plantilla, consulte [sintaxis de la plantilla](resource-group-authoring-templates.md#syntax).
@@ -47,18 +45,18 @@ Para crear sus propias funciones, consulte [Funciones definidas por el usuario](
 ## <a name="array-and-object-functions"></a>Funciones de matriz y objeto
 Resource Manager ofrece varias funciones para trabajar con matrices y objetos.
 
-* [matriz](resource-group-template-functions-array.md#array)
+* [array](resource-group-template-functions-array.md#array)
 * [coalesce](resource-group-template-functions-array.md#coalesce)
 * [concat](resource-group-template-functions-array.md#concat)
 * [contains](resource-group-template-functions-array.md#contains)
 * [createArray](resource-group-template-functions-array.md#createarray)
 * [empty](resource-group-template-functions-array.md#empty)
 * [first](resource-group-template-functions-array.md#first)
-* [intersection](resource-group-template-functions-array.md#intersection)
+* [intersección](resource-group-template-functions-array.md#intersection)
 * [json](resource-group-template-functions-array.md#json)
 * [last](resource-group-template-functions-array.md#last)
 * [length](resource-group-template-functions-array.md#length)
-* [min](resource-group-template-functions-array.md#min)
+* [Min](resource-group-template-functions-array.md#min)
 * [max](resource-group-template-functions-array.md#max)
 * [range](resource-group-template-functions-array.md#range)
 * [skip](resource-group-template-functions-array.md#skip)
@@ -100,11 +98,11 @@ El Administrador de recursos ofrece las siguientes funciones para obtener valore
 ## <a name="logical-functions"></a>Funciones lógicas
 Resource Manager ofrece las siguientes funciones para trabajar con condiciones lógicas:
 
-* [and](resource-group-template-functions-logical.md#and)
-* [bool](resource-group-template-functions-logical.md#bool)
+* [y](resource-group-template-functions-logical.md#and)
+* [booleano](resource-group-template-functions-logical.md#bool)
 * [if](resource-group-template-functions-logical.md#if)
 * [not](resource-group-template-functions-logical.md#not)
-* [or](resource-group-template-functions-logical.md#or)
+* [o](resource-group-template-functions-logical.md#or)
 
 <a id="add" />
 <a id="copyindex" />
@@ -125,7 +123,7 @@ El Administrador de recursos ofrece las siguientes funciones para trabajar con n
 * [div](resource-group-template-functions-numeric.md#div)
 * [float](resource-group-template-functions-numeric.md#float)
 * [int](resource-group-template-functions-numeric.md#int)
-* [min](resource-group-template-functions-numeric.md#min)
+* [Min](resource-group-template-functions-numeric.md#min)
 * [max](resource-group-template-functions-numeric.md#max)
 * [mod](resource-group-template-functions-numeric.md#mod)
 * [mul](resource-group-template-functions-numeric.md#mul)
@@ -145,11 +143,11 @@ El Administrador de recursos ofrece las siguientes funciones para obtener valore
 * [listAccountSas](resource-group-template-functions-resource.md#list)
 * [listKeys](resource-group-template-functions-resource.md#listkeys)
 * [listSecrets](resource-group-template-functions-resource.md#list)
-* [list*](resource-group-template-functions-resource.md#list)
+* [lista*](resource-group-template-functions-resource.md#list)
 * [providers](resource-group-template-functions-resource.md#providers)
 * [reference](resource-group-template-functions-resource.md#reference)
 * [resourceGroup](resource-group-template-functions-resource.md#resourcegroup)
-* [resourceId](resource-group-template-functions-resource.md#resourceid)
+* [ResourceId](resource-group-template-functions-resource.md#resourceid)
 * [suscripción](resource-group-template-functions-resource.md#subscription)
 
 <a id="base64" />
@@ -196,7 +194,8 @@ El Administrador de recursos ofrece las siguientes funciones para trabajar con c
 * [empty](resource-group-template-functions-string.md#empty)
 * [endsWith](resource-group-template-functions-string.md#endswith)
 * [first](resource-group-template-functions-string.md#first)
-* [guid](resource-group-template-functions-string.md#guid)
+* [formato](resource-group-template-functions-string.md#format)
+* [GUID](resource-group-template-functions-string.md#guid)
 * [indexOf](resource-group-template-functions-string.md#indexof)
 * [last](resource-group-template-functions-string.md#last)
 * [lastIndexOf](resource-group-template-functions-string.md#lastindexof)
@@ -207,7 +206,7 @@ El Administrador de recursos ofrece las siguientes funciones para trabajar con c
 * [skip](resource-group-template-functions-string.md#skip)
 * [split](resource-group-template-functions-string.md#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
-* [cadena](resource-group-template-functions-string.md#string)
+* [string](resource-group-template-functions-string.md#string)
 * [substring](resource-group-template-functions-string.md#substring)
 * [take](resource-group-template-functions-string.md#take)
 * [toLower](resource-group-template-functions-string.md#tolower)

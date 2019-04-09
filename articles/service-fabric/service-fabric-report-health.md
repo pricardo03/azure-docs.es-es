@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 06fedddffd51dc22b45e8ae6e415ad139346c5b6
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 49ebf4ab95816a3da2f74a464b12b46de6228456
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670394"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280560"
 ---
 # <a name="add-custom-service-fabric-health-reports"></a>Incorporación de informes de mantenimiento de Service Fabric personalizados
 Azure Service Fabric presenta un [modelo de estado](service-fabric-health-introduction.md) diseñado para marcar las condiciones poco favorables del clúster o de la aplicación en entidades específicas. El modelo de mantenimiento utiliza **informadores de estado** (componentes del sistema y guardianes). El objetivo es obtener un diagnóstico y reparación sencillo y rápido. Los escritores de servicio deben pensar por adelantado sobre el estado. Cualquier condición que pueda afectar al estado debe notificarse, sobre todo si puede ayudar a marcar la causa raíz de los problemas. La información de estado puede ahorrar tiempo y esfuerzo en la depuración y la investigación. La utilidad resulta especialmente clara una vez que el servicio está en funcionamiento a escala en la nube (privada o Azure).
@@ -55,18 +55,18 @@ Una vez que el diseño de informes de mantenimiento está vacío, los informes d
 > 
 
 ## <a name="health-client"></a>Cliente de mantenimiento
-Los informes de mantenimiento se envían al almacén de estado por medio de un cliente de mantenimiento, que reside en el cliente de Fabric. El cliente de mantenimiento puede configurarse con las opciones siguientes:
+Los informes de mantenimiento se envían al administrador de estado a través de un cliente de mantenimiento, que reside en el cliente de fabric. El Administrador de estado guarda los informes en el almacén de estado. El cliente de mantenimiento puede configurarse con las opciones siguientes:
 
-* **HealthReportSendInterval**: el retraso entre el momento en que el informe se agrega al cliente y el momento en que se envía al almacén de estado. Se usa para procesar por lotes los informes en un único mensaje, en lugar de enviar un mensaje para cada informe. El procesamiento por lotes mejora el rendimiento. Valor predeterminado: 30 segundos.
-* **HealthReportRetrySendInterval**: el intervalo en el que el cliente de mantenimiento reenvía los informes de mantenimiento acumulados al almacén de estado. Valor predeterminado: 30 segundos.
-* **HealthOperationTimeout**: el período de tiempo de expiración de un mensaje de informe enviado al almacén de estado. Si un mensaje supera el tiempo de espera, el cliente de mantenimiento lo sigue intentando hasta que el almacén de estado confirme que el informe se ha procesado. Valor predeterminado: dos minutos.
+* **HealthReportSendInterval**: El retraso entre el momento en que el informe se agrega al cliente y la hora se envía al administrador de estado. Se usa para procesar por lotes los informes en un único mensaje, en lugar de enviar un mensaje para cada informe. El procesamiento por lotes mejora el rendimiento. Valor predeterminado: 30 segundos.
+* **HealthReportRetrySendInterval**: Notifica el intervalo en el que el cliente de mantenimiento reenvía mantenimiento acumulados a health manager. Valor predeterminado: 30 segundos como mínimo: 1 segundo.
+* **HealthOperationTimeout**: El período de tiempo de espera para un mensaje de informe enviado al administrador de estado. Si un mensaje de tiempo de espera, el cliente de mantenimiento lo sigue intentando hasta que el Administrador de estado confirme que se ha procesado el informe. Valor predeterminado: dos minutos.
 
 > [!NOTE]
-> Cuando los informes se procesan por lotes, el cliente de Fabric se debe mantener activo durante al menos el valor de HealthReportSendInterval para tener la seguridad de que se envían. Si el mensaje se pierde o el almacén de estado no es capaz de aplicarlos debido a errores transitorios, el cliente de Fabric debe mantenerse activo más tiempo para darle una oportunidad de volver a intentarlo.
+> Cuando los informes se procesan por lotes, el cliente de Fabric se debe mantener activo durante al menos el valor de HealthReportSendInterval para tener la seguridad de que se envían. Si el mensaje se pierde o el Administrador de estado no puede aplicar debido a errores transitorios, el cliente de fabric debe mantenerse activo ya para darle una oportunidad para volver a intentar.
 > 
 > 
 
-El almacenamiento en búfer en el cliente toma en consideración el carácter único de los informes. Por ejemplo, si un informador incorrecto determinado notifica 100 informes por segundo en la misma propiedad de la misma entidad, los informes se reemplazan por la versión más reciente. A lo sumo, existirá un informe de este tipo en la cola de cliente. Si se configura el procesamiento por lotes, el número de informes que se envían al almacén de estado es simplemente uno por intervalo de envío. Este informe es el último informe agregado, que refleja el estado más reciente de la entidad.
+El almacenamiento en búfer en el cliente toma en consideración el carácter único de los informes. Por ejemplo, si un informador incorrecto determinado notifica 100 informes por segundo en la misma propiedad de la misma entidad, los informes se reemplazan por la versión más reciente. A lo sumo, existirá un informe de este tipo en la cola de cliente. Si se configura el procesamiento por lotes, el número de informes que se envió al administrador de estado es simplemente uno por intervalo de envío. Este informe es el último informe agregado, que refleja el estado más reciente de la entidad.
 Especifique los parámetros de configuración al crear `FabricClient`, pasando [FabricClientSettings](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclientsettings) con los valores deseados para las entradas relacionadas con el mantenimiento.
 
 En el siguiente ejemplo se crea un cliente de Fabric y se especifica que se deben enviar los informes cuando se agregan. En tiempos de espera y errores que se pueden reintentar, los reintentos se producen cada 40 segundos.
@@ -304,13 +304,13 @@ Envíe informes de mantenimiento mediante REST con solicitudes POST que vayan a 
 ## <a name="next-steps"></a>Pasos siguientes
 Según los datos del estado, los escritores del servicio y los administradores de clúster/aplicación pueden pensar en maneras de utilizar la información. Por ejemplo, pueden configurar alertas basadas en el estado de mantenimiento para detectar problemas graves antes de provocar interrupciones. Los administradores también pueden configurar sistemas de reparación para solucionar problemas de forma automática.
 
-[Introducción a la supervisión de mantenimiento de Service Fabric](service-fabric-health-introduction.md)
+[Introducción a Service Fabric health Monitoring](service-fabric-health-introduction.md)
 
 [Vista de los informes de estado de Service Fabric](service-fabric-view-entities-aggregated-health.md)
 
-[Notificación y comprobación del estado del servicio](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+[Cómo informar y comprobar el estado del servicio](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
 
-[Uso de informes de mantenimiento del sistema para solucionar problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+[Usar informes de mantenimiento del sistema para solucionar problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 
 [Supervisión y diagnóstico de los servicios localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 

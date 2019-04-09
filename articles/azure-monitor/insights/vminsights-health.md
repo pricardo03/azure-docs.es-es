@@ -11,16 +11,16 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2019
+ms.date: 04/08/2019
 ms.author: magoedte
-ms.openlocfilehash: 987d28470b8a848755cdd7d1264ba7f7f66544df
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 4c330e36210e97172c8f06bbfc3850210e200777
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918950"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260347"
 ---
-# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Descripción del estado de las máquinas virtuales de Azure con Azure Monitor para VM (versión preliminar)
+# <a name="understand-the-health-of-your-azure-virtual-machines"></a>Conocer el estado de las máquinas virtuales de Azure 
 Azure incluye varios servicios que realizan individualmente una tarea o un rol específico en el espacio de supervisión, pero hasta ahora no era posible proporcionar una perspectiva detallada del estado del sistema operativo hospedado en máquinas virtuales de Azure.  Aunque podría supervisar para condiciones diferentes mediante Azure Monitor, se no se ha diseñado para modelar y representan el estado general de la máquina virtual o de mantenimiento de los componentes principales.  Con la característica de estado de Azure Monitor para máquinas virtuales, la disponibilidad y el rendimiento del sistema operativo invitado Windows o Linux se supervisan de forma proactiva con un modelo que representa los principales componentes y sus relaciones, así como los criterios que especifican cómo se debe medir el estado de dichos componentes y, además, le avisa cuando se detecta una condición de estado incorrecto.  
 
 El estado de mantenimiento general de la máquina virtual de Azure y el sistema operativo subyacente pueden observarse desde dos perspectivas con el estado de Azure Monitor para máquinas virtuales, ya sea directamente desde la máquina virtual o bien en todas las máquinas virtuales de un grupo de recursos de Azure Monitor.
@@ -92,16 +92,16 @@ En la tabla siguiente se describen los estados de mantenimiento definidos para u
 
 |Icono |Estado de mantenimiento |Significado |
 |-----|-------------|------------|
-| |Healthy |El estado de mantenimiento es correcto si se encuentra dentro de las condiciones de mantenimiento definidas, lo cual indica que no se detectó ningún problema en la VM y que funciona según lo esperado. En el caso de un monitor de acumulación primario, el mantenimiento se acumula y refleja el mejor o el peor estado del elemento secundario.|
-| |Crítico |El estado de mantenimiento es crítico si no está dentro de la condición de mantenimiento definida, lo cual indica que se han detectado uno o más problemas críticos que deben solucionarse para poder restaurar el funcionamiento normal. En el caso de un monitor de acumulación primario, el mantenimiento se acumula y refleja el mejor o el peor estado del elemento secundario.|
-| |Advertencia |El estado de mantenimiento de advertencia se activa si está entre dos umbrales de la condición de mantenimiento definida; uno de ellos indica un estado de *Advertencia* y el otro indica un estado *Crítico* (pueden configurarse tres umbrales de estado de mantenimiento). También puede activarse cuando se detecta un problema no crítico, pero que puede ocasionar problemas graves si no se resuelve. En el caso de un monitor de acumulación principal, si uno o varios de los elementos secundarios están en un estado de advertencia, el elemento principal reflejará el estado *Advertencia*. Si hay un elemento secundario que se encuentra en estado *Crítico* y otro en estado *Advertencia*, la acumulación primaria mostrará un estado de mantenimiento *Crítico*.|
+| |Healthy |El estado de mantenimiento es correcto si se encuentra dentro de las condiciones de mantenimiento definidas, lo cual indica que no se detectó ningún problema en la VM y que funciona según lo esperado. Con un monitor de acumulación primario, acumula mantenimiento y se refleja el estado de la mejor o peor del elemento secundario.|
+| |Crítico |El estado de mantenimiento es crítico si no está dentro de la condición de mantenimiento definida, lo cual indica que se han detectado uno o más problemas críticos que deben solucionarse para poder restaurar el funcionamiento normal. Con un monitor de acumulación primario, acumula mantenimiento y se refleja el estado de la mejor o peor del elemento secundario.|
+| |Advertencia |El estado de mantenimiento de advertencia se activa si está entre dos umbrales de la condición de mantenimiento definida; uno de ellos indica un estado de *Advertencia* y el otro indica un estado *Crítico* (pueden configurarse tres umbrales de estado de mantenimiento). También puede activarse cuando se detecta un problema no crítico, pero que puede ocasionar problemas graves si no se resuelve. Con una acumulación primario monitor, si uno o varios de los elementos secundarios están en un estado de advertencia y, después, reflejará el elemento primario *advertencia* estado. Si hay un elemento secundario que se encuentra en estado *Crítico* y otro en estado *Advertencia*, la acumulación primaria mostrará un estado de mantenimiento *Crítico*.|
 | |Desconocido |El estado de mantenimiento es *Desconocido* cuando no se puede calcular por varios motivos; por ejemplo, cuando no se pueden recopilar los datos, si no se inicializó el servicio, etc. Este estado de mantenimiento no se puede configurar.| 
 
 Si selecciona **Ver el diagnóstico de estado**, se abre una página que muestra todos los componentes de la VM, los criterios de estado asociados, los cambios de estado y otros temas importantes detectados mediante la supervisión de componentes relacionados con la máquina virtual. Para más información, consulte [Diagnóstico de mantenimiento](#health-diagnostics). 
 
 En la sección **Estado del componente**, la tabla muestra un estado acumulativo del mantenimiento de las categorías de rendimiento principales supervisadas según los criterios de estado de esas áreas, específicamente la **CPU**, la **memoria**, el **disco** y la **red**.  Si selecciona cualquiera de los componentes, se abre una página en la que se enumeran todos los aspectos de supervisión de los criterios de estado individuales de ese componente y el estado de mantenimiento correspondiente de cada uno.  
 
-Al obtener acceso al estado de una VM de Azure que ejecuta el sistema operativo Windows, los estados de mantenimiento de los cinco principales servicios de Windows se muestran en la sección **Estado de los servicios principales**.  Cuando selecciona cualquiera de los servicios, se abre una página que enumera los criterios de estado que supervisan dicho componente y su estado de mantenimiento.  Al hacer clic en el nombre de los criterios de mantenimiento, se abrirá el panel de propiedades y, desde aquí, puede revisar los detalles de configuración, por ejemplo, si los criterios de estado tienen definida una alerta de Azure Monitor correspondiente. Para más información, consulte [Health Diagnostics and working with health criteria](#health-diagnostics) (Diagnóstico de mantenimiento y trabajo con los criterios de mantenimiento).  
+Al obtener acceso al estado de una máquina virtual de Azure que ejecutan el sistema operativo de Windows, el estado de mantenimiento de los principales cinco principales de Windows services se muestran en la sección **estado de los servicios básicos**.  Cuando selecciona cualquiera de los servicios, se abre una página que enumera los criterios de estado que supervisan dicho componente y su estado de mantenimiento.  Al hacer clic en el nombre de los criterios de mantenimiento, se abrirá el panel de propiedades y, desde aquí, puede revisar los detalles de configuración, por ejemplo, si los criterios de estado tienen definida una alerta de Azure Monitor correspondiente. Para más información, consulte [Health Diagnostics and working with health criteria](#health-diagnostics) (Diagnóstico de mantenimiento y trabajo con los criterios de mantenimiento).  
 
 ## <a name="aggregate-virtual-machine-perspective"></a>Perspectiva de la máquina virtual agregada
 Para ver la colección de mantenimiento de todas las máquinas virtuales de un grupo de recursos, vaya a la lista de navegación del portal, seleccione **Azure Monitor** y, a continuación, seleccione **Máquinas virtuales (versión preliminar)**.  
@@ -133,7 +133,7 @@ Desde la vista de la lista de VM, si hace clic en el nombre de una VM, se abre l
 
 ![Conclusiones de una máquina virtual de Azure seleccionada](./media/vminsights-health/vminsights-directvm-health.png)
 
-A continuación, se muestra el **estado de mantenimiento** de una acumulación de la máquina virtual y las **alertas**, clasificadas según la gravedad, que representan las alertas de estado de la VM generadas cuando el estado de mantenimiento cambia de correcto a incorrecto según los criterios de estado.  Si selecciona **VMs in critical condition** (VM en una condición crítica), se abrirá una página con una lista de una o varias VM que se encuentran en un estado de mantenimiento crítico.  Al hacer clic en el estado de mantenimiento de una de las VM de la lista, se mostrará la vista **Diagnóstico de mantenimiento** de la VM.  A continuación, puede averiguar los criterios de estado que reflejan un problema de estado de mantenimiento. Cuando se abre la página **Diagnóstico de mantenimiento**, se muestran todos los componentes de la VM y sus criterios de estado asociados con el estado de mantenimiento actual.  Consulte la sección [Diagnóstico de mantenimiento](#health-diagnostics) para obtener más detalles.  
+A continuación, se muestra el **estado de mantenimiento** de una acumulación de la máquina virtual y las **alertas**, clasificadas según la gravedad, que representan las alertas de estado de la VM generadas cuando el estado de mantenimiento cambia de correcto a incorrecto según los criterios de estado.  Si selecciona **VMs in critical condition** (VM en una condición crítica), se abrirá una página con una lista de una o varias VM que se encuentran en un estado de mantenimiento crítico.  Al hacer clic en el estado de mantenimiento de una de las VM de la lista, se mostrará la vista **Diagnóstico de mantenimiento** de la VM.  A continuación, puede averiguar los criterios de estado que reflejan un problema de estado de mantenimiento. Cuando se abre la página **Diagnóstico de mantenimiento**, se muestran todos los componentes de la VM y sus criterios de estado asociados con el estado de mantenimiento actual. Para obtener más información, consulte [mantenimiento diagnóstico](#health-diagnostics).  
 
 Al seleccionar **Ver todos los criterios de estado**, se abre una página que muestra una lista de todos los criterios de mantenimiento disponibles con esta característica.  La información se puede filtrar aún más en función de las siguientes opciones:
 
@@ -164,7 +164,7 @@ El diagnóstico de mantenimiento organiza la información de estado en las sigui
 * Disponibilidad
 * Rendimiento
  
-Todos los criterios de mantenimiento definidos para un componente específico, como la CPU, el disco lógico, etcétera. Asimismo, la categoría del monitor puede verse junto a él en la columna **Criterios de mantenimiento**.  
+Todos los criterios de estado definidos para un componente específico, como el disco lógico, CPU, etc. pueden verse sin filtrar en las dos categorías (es decir, una vista total de todos los criterios) o filtrar los resultados por cualquier categoría cuando se selecciona **disponibilidad**  o **rendimiento** opciones en la página. Además, la categoría de los criterios puede verse junto a él en el **criterios de estado** columna. Si los criterios no coincide con la categoría seleccionada, mostrará el mensaje **ningún criterio de mantenimiento disponible para la categoría seleccionada** en el **criterios de estado** columna.  
 
 El estado de los criterios de mantenimiento se define mediante uno de estos cuatro estados: *Crítico*, *Advertencia*, *Correcto* y *Desconocido*. Los tres primeros son configurables, lo que significa que puede modificar los valores de umbral de los monitores con [Workload Monitor API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/monitors/update). *Desconocido*: este valor no es configurable y se reserva para escenarios específicos.  
 
@@ -190,7 +190,7 @@ La columna central de la página de diagnóstico de mantenimiento es **Criterios
 
 Un criterio de mantenimiento mide el mantenimiento de la instancia supervisada con algunos criterios, lo que podría ser un valor de umbral, un estado de una entidad, etc. Dicho criterio tiene dos o tres umbrales configurables de estado de mantenimiento, tal y como se describió en la sección anterior. En cualquier momento dado, el criterio de mantenimiento solo puede estar en uno de sus estados posibles. 
 
-El mantenimiento general de un destino viene determinado por el mantenimiento de cada uno de sus criterios de mantenimiento definidos en el modelo de mantenimiento. Se tratará de una combinación de criterios de mantenimiento dirigidos directamente al destino y de criterios de mantenimiento dirigidos a la acumulación de componentes en el destino mediante un criterio de mantenimiento agregado. Esta jerarquía se ilustra en la sección **Criterios de mantenimiento** de la página Diagnóstico de mantenimiento. La directiva de acumulación de mantenimiento es la parte de la configuración de los criterios de mantenimiento agregados (el valor predeterminado está establecido en *Worst-of*). Puede encontrar una lista del conjunto predeterminado de los criterios de mantenimiento que se ejecuta como parte de esta característica en la sección [Detalles de configuración de supervisión](#monitoring-configuration-details).  
+El mantenimiento general de un destino viene determinado por el mantenimiento de cada uno de sus criterios de mantenimiento definidos en el modelo de mantenimiento. Es una combinación de criterios de estado de destino directamente en el destino, dirigidos a los componentes de acumular en el destino a través de un criterio de estado agregado de criterios de estado. Esta jerarquía se ilustra en la sección **Criterios de mantenimiento** de la página Diagnóstico de mantenimiento. La directiva de acumulación de mantenimiento es la parte de la configuración de los criterios de mantenimiento agregados (el valor predeterminado está establecido en *Worst-of*). Puede encontrar una lista del conjunto predeterminado de los criterios de mantenimiento que se ejecuta como parte de esta característica en la sección [Detalles de configuración de supervisión](#monitoring-configuration-details).  
 
 Si quiere, puede modificar la configuración del tipo **Unidad** de los criterios de mantenimiento. Para ello, haga clic en el vínculo de elipse del lado derecho y seleccione **Show Details** (Mostrar detalles) para abrir el panel de configuración. 
 
@@ -256,6 +256,64 @@ La página **Detalles de la alerta** se muestra cuando se selecciona una alerta 
 ![Panel Detalles de la alerta de una alerta seleccionada](./media/vminsights-health/alert-details-pane-01.png)
 
 El estado de la alerta también se puede cambiar para una o varias alertas. Para ello, debe seleccionarlas y, luego, seleccionar **Cambiar estado** en la página **Todas las alertas**, en la esquina superior izquierda. En el panel **Cambiar el estado de alerta**, seleccione uno de los estados, agregue una descripción del cambio en el campo **Comentario** y, a continuación, haga clic en **Aceptar** para confirmar los cambios. Mientras se verifica la información y se aplican los cambios, puede realizar un seguimiento de su progreso en **Notificaciones** en el menú.  
+
+### <a name="configure-alerts"></a>Configurar alertas
+Ciertos administración de alertas de las tareas no pueden administrarse desde el portal de Azure y tienen que realizarse utilizando el [API de REST de Azure Monitor](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components). Concretamente:
+
+- Habilitar o deshabilitar una alerta para los criterios de estado 
+- Configurar notificaciones para alertas de los criterios de estado 
+
+Está usando el enfoque usado en cada ejemplo [ARMClient](https://github.com/projectkudu/armclient) en el equipo de Windows. Si no está familiarizado con este método, consulte [ARMClient utilizando](../platform/rest-api-walkthrough.md#use-armclient).  
+
+#### <a name="enable-or-disable-alert-rule"></a>Habilitar o deshabilitar la regla de alerta
+
+Para habilitar o deshabilitar una regla de alerta para un criterio de mantenimiento específico, la propiedad de los criterios de mantenimiento *alertGeneration* debe modificarse con un valor de uno de ellos **deshabilitado** o **habilitado**. Para identificar el *monitorId* de criterios de un estado determinado, en el ejemplo siguiente, se mostrará cómo realizar una consulta para que el valor de los criterios **discológico\media en segundos por transferencia del disco**.
+
+1. En una ventana de terminal, escriba **inicio de sesión de armclient.exe**. Si lo hace, le pedirá que inicie sesión en Azure.
+
+2. Escriba el siguiente comando para recuperar todos los criterios del estado activo en una máquina virtual específica e identificar el valor de *monitorId* propiedad. 
+
+    ```
+    armclient GET "subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors?api-version=2018-08-31-preview”
+    ```
+
+    El ejemplo siguiente muestra la salida del comando. Tome nota del valor de *MonitorId* resaltado en rojo. Este valor es necesario para el paso siguiente, donde se debe especificar el identificador de los criterios de estado y modificar su propiedad para crear una alerta.
+
+    ![Recuperar el Id. de monitor para los criterios de estado de ejemplo](./media/vminsights-health/get-monitor-identifier-01.png)
+
+3. Escriba el siguiente comando para modificar el *alertGeneration* propiedad.
+
+    ```
+    armclient patch subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/monitors/Microsoft_LogicalDisk_AvgDiskSecPerTransfer?api-version=2018-08-31-preview 1-preview "{'properties':{'alertGeneration':'Disabled'}}"
+    ```   
+
+4. Escriba el comando GET que se usa en el paso 2 para comprobar el valor de la propiedad se establece en **deshabilitado**.  
+
+#### <a name="associate-action-group-with-health-criteria"></a>Asociar el grupo de acciones con los criterios de estado
+
+Azure Monitor de estado de las máquinas virtuales es compatible con notificaciones de SMS y correo electrónico cuando se generan alertas cuando los criterios de estado pasa a ser incorrecto. Para configurar las notificaciones, debe tener en cuenta el nombre del grupo de acción que está configurado para enviar notificaciones de correo electrónico o SMS. 
+
+>[!NOTE]
+>Esta acción debe realizarse en cada máquina virtual que se supervisan que desea recibir una notificación.
+
+1. En una ventana de terminal, escriba **inicio de sesión de armclient.exe**. Si lo hace, le pedirá que inicie sesión en Azure.
+
+2. Escriba el siguiente comando para asociar un grupo de acciones a reglas de alerta.
+ 
+    ```
+    $payload = "{'properties':{'ActionGroupResourceIds':['/subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/microsoft.insights/actionGroups/actiongroupName']}}" 
+    armclient PUT https://management.azure.com/subscriptions/subscriptionId/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/notificationSettings/default?api-version=2018-08-31-preview $payload
+    ```
+
+3. Para comprobar el valor de la propiedad **actionGroupResourceIds** correctamente actualizado, escriba el siguiente comando.
+
+    ```
+    armclient GET "subscriptions/subscriptionName/resourceGroups/resourcegroupName/providers/Microsoft.Compute/virtualMachines/vmName/providers/Microsoft.WorkloadMonitor/notificationSettings?api-version=2018-08-31-preview"
+    ```
+
+    La salida debe ser similar a la siguiente:
+    
+    ![Ejemplo de salida de Get notificationSettings](./media/vminsights-health/get-notification-config-status.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para identificar cuellos de botella y el uso general con el rendimiento de sus VM, consulte el artículo sobre cómo [ver el rendimiento de la VM de Azure](vminsights-performance.md), o bien, para ver las dependencias de la aplicación detectadas, consulte cómo [ver el Azure Monitor para la asignación de VM](vminsights-maps.md). 

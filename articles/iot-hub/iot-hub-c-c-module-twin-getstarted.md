@@ -8,12 +8,12 @@ ms.devlang: c
 ms.topic: conceptual
 ms.date: 06/25/2018
 ms.author: menchi
-ms.openlocfilehash: 853dc443a994601e3900ed16da534254f6af07db
-ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.openlocfilehash: 2642d956d94a0a685d6586be1a7b0446e94f1042
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54452462"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264444"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-c-backend-and-c-device"></a>Introducción a la identidad de módulo y los dispositivos gemelos de módulo de IoT Hub con un dispositivo C y un servidor de back-end C
 
@@ -178,7 +178,7 @@ En esta sección se crea una aplicación de C en el dispositivo simulado que act
 
 1. **Obtenga la cadena de conexión del módulo**: para ello, inicie sesión en [Azure Portal](https://portal.azure.com). Vaya a la instancia de IoT Hub y haga clic en Dispositivos IoT. Busque myFirstDevice, ábralo y verá que myFirstModule se creó correctamente. Copie la cadena de conexión del módulo, la necesitará en el paso siguiente.
 
-    ![Detalles del módulo en Azure Portal](./media/iot-hub-csharp-csharp-module-twin-getstarted/module-detail.JPG)
+    ![Detalles del módulo en Azure Portal](./media/iot-hub-c-c-module-twin-getstarted/module-detail.png)
 
 2. **Cree la aplicación de UpdateModuleTwinReportedProperties**: agregue las siguientes instrucciones `using` a la parte superior del archivo **Program.cs**:
 
@@ -375,5 +375,5 @@ int main(void)
 
 Para continuar la introducción a IoT Hub y explorar otros escenarios de IoT, consulte:
 
-* [Introducción a la administración de dispositivos](iot-hub-node-node-device-management-get-started.md)
+* [Introducción a administración de dispositivos](iot-hub-node-node-device-management-get-started.md)
 * [Introducción a IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

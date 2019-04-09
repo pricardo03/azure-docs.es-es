@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 9ab6d9708843cda492795b92b6fb5f58bd7a9154
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 50f906a9d8a0dc19f5eb47bef4cb68f4703f020f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571429"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256063"
 ---
 # <a name="get-information-from-a-coordinate"></a>Obtención de información de una coordenada
 
@@ -29,11 +29,11 @@ Hay dos maneras de realizar una búsqueda de dirección inversa. Una es consulta
 
 En el código anterior, el primer bloque de código construye un objeto de mapa y establece el mecanismo de autenticación para usar la clave de suscripción. Puede consultar [Creación de un mapa](./map-create.md) para obtener instrucciones.
 
-El segundo bloque de código crea un **SubscriptionKeyCredentialPolicy** para autenticar las solicitudes HTTP a Azure Maps con la clave de suscripción. El **atlas.service.MapsURL.newPipeline()** toma el **SubscriptionKeyCredential** directiva y crea un [canalización](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instancia. El **searchURL** representa una dirección URL de Azure Maps [búsqueda](https://docs.microsoft.com/rest/api/maps/search) operaciones.
+El segundo bloque de código crea un `SubscriptionKeyCredentialPolicy` para autenticar las solicitudes HTTP a Azure Maps con la clave de suscripción. El `atlas.service.MapsURL.newPipeline()` toma el `SubscriptionKeyCredential` directiva y crea un [canalización](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instancia. El `searchURL` representa una dirección URL de Azure Maps [búsqueda](https://docs.microsoft.com/rest/api/maps/search) operaciones.
 
 El tercer bloque de código actualiza el estilo del cursor del mouse en un puntero y crea un [emergente](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#open) objeto. Puede consultar [Adición de un elemento emergente en el mapa](./map-add-popup.md) para obtener instrucciones.
 
-El cuarto bloque de código agrega un clic del mouse [escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Cuando se desencadena, crea una consulta de búsqueda con las coordenadas del punto donde ha hecho clic. A continuación, usa el módulo de servicio [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-) método para consultar el [obtener dirección de búsqueda inversa API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para la dirección de las coordenadas. Una colección de características de GeoJSON de la respuesta, a continuación, se extrae mediante el **geojson.getFeatures()** método.
+El cuarto bloque de código agrega un clic del mouse [escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events). Cuando se desencadena, crea una consulta de búsqueda con las coordenadas del punto donde ha hecho clic. A continuación, usa el módulo de servicio [getSearchAddressReverse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.searchurl?view=azure-iot-typescript-latest#searchaddressreverse-aborter--geojson-position--searchaddressreverseoptions-) método para consultar el [obtener dirección de búsqueda inversa API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para la dirección de las coordenadas. Una colección de características de GeoJSON de la respuesta, a continuación, se extrae mediante el `geojson.getFeatures()` método.
 
 El quinto bloque de código configura el contenido HTML del elemento emergente para mostrar la dirección de respuesta para la posición de la coordenada donde ha hecho clic.
 
@@ -62,7 +62,7 @@ Más información sobre las clases y los métodos utilizados en este artículo:
 > [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
 > [!div class="nextstepaction"]
-> [Popup](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
+> [Elemento emergente](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest)
 
 Consulte los siguientes artículos para obtener ejemplos de código completo:
 

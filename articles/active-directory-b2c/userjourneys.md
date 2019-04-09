@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 20ca4b9d347b9dc01e3b890fcf3758fb2fb135b9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: ccc1f94b9411a158b5c60509e09bd3edc0a61640
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486145"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277602"
 ---
 # <a name="userjourneys"></a>UserJourneys
 
@@ -177,7 +177,7 @@ El elemento **ClaimsProviderSelection** contiene los atributos siguientes:
 
 ### <a name="claimsproviderselection-example"></a>Ejemplo de ClaimsProviderSelection
 
-En el siguiente paso de orquestación, el usuario puede iniciar sesión con una cuenta local o con una cuenta de Facebook, LinkedIn, Twitter o Google. Si el usuario selecciona uno de los proveedores de identidades sociales, el segundo paso de orquestación se ejecuta con el intercambio de notificaciones seleccionado especificado en el atributo `TargetClaimsExchangeId`. El segundo paso de orquestación redirige al usuario al proveedor de identidades sociales para completar el proceso de inicio de sesión. Si el usuario decide iniciar sesión con la cuenta local, Azure AD B2C se mantiene en el mismo paso de orquestación (la misma página de registro o de inicio de sesión) y omite el segundo paso de orquestación.
+En el siguiente paso de orquestación, el usuario puede iniciar sesión con Facebook, LinkedIn, Twitter, Google o una cuenta local. Si el usuario selecciona uno de los proveedores de identidades sociales, el segundo paso de orquestación se ejecuta con el intercambio de notificaciones seleccionado especificado en el atributo `TargetClaimsExchangeId`. El segundo paso de orquestación redirige al usuario al proveedor de identidades sociales para completar el proceso de inicio de sesión. Si el usuario decide iniciar sesión con la cuenta local, Azure AD B2C se mantiene en el mismo paso de orquestación (la misma página de registro o de inicio de sesión) y omite el segundo paso de orquestación.
 
 ```XML
 <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">

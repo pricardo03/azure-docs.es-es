@@ -12,12 +12,12 @@ manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6cb7296ea4acfbf90d94b8f94a644b8a382b033b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 98f81edcfa2a9daf5162ff1c7e23025b405092b8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877370"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260398"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Preguntas más frecuentes acerca de la colaboración B2B de Azure Active Directory
 
@@ -60,7 +60,7 @@ Salvo que a un usuario se le asigne el rol de administrador limitado o administr
 Sí. Cuando configure esta directiva tenga cuidado de evitar que se bloquee accidentalmente el acceso a los administradores y miembros.
 Para bloquear el acceso de un usuario invitado a [Azure Portal](https://portal.azure.com), use una directiva de acceso condicional en la API del modelo de implementación clásica de Azure:
 1. Modifique el grupo **Todos los usuarios** para que contenga solo miembros.
-   ![Captura de pantalla muestra el grupo todos los usuarios que no sea invitado igual UserType ](media/faq/modify-all-users-group.png)
+   ![Captura de pantalla muestra el grupo todos los usuarios que no sea invitado igual UserType](media/faq/modify-all-users-group.png)
 2. Cree un grupo dinámico que contenga usuarios invitados.
    ![Captura de pantalla muestra un nuevo grupo de todos los usuarios invitados](media/faq/group-with-guest-users.png)
 3. Configure una directiva de acceso condicional para bloquear el acceso de los usuarios invitados al portal, tal como se muestra en el siguiente vídeo:

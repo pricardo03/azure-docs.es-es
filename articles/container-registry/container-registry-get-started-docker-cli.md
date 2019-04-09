@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017
-ms.openlocfilehash: 180cbb9c31d14c36679bb84f92b3c9892ee3602d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2cb401dfd68075ff0867ae3f89eee3474000b5de
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011158"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282702"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Inserción de la primera imagen en un registro de contenedor privado de Docker mediante la CLI de Docker
 
@@ -129,3 +129,11 @@ az acr repository delete --name myregistry --image samples/nginx:latest
 * [Azure Kubernetes Service (AKS)](../aks/tutorial-kubernetes-prepare-app.md)
 * [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
 * [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
+
+Opcionalmente, instale el [extensión Docker para Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) y [cuenta de Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extensión para trabajar con los registros de contenedor de Azure. Incorporación de cambios e insertar imágenes en Azure container registry o ejecutar tareas de ACR, todo ello en Visual Studio Code.
+
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-windows]: https://docs.docker.com/docker-for-windows/

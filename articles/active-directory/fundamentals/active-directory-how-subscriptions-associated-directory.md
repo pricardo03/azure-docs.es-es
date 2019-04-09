@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8c5cb04c17e508409e67f0441daee4bc44c29d5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 3322e49c6fdc590b785806f67b5081700bf8b37b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58285013"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264903"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory
 
@@ -30,6 +30,8 @@ Todos los usuarios tienen una sola *principal* directorio para la autenticación
 
 > [!Important]
 > Al asociar una suscripción a un directorio diferente, los usuarios que tienen roles asignados mediante [control de acceso basado en roles (RBAC)](../../role-based-access-control/role-assignments-portal.md) perderán el acceso. Los administradores de suscripciones clásico (Administrador de servicios y los coadministradores) también perderá el acceso.
+> 
+> Además, mover el clúster de Azure Kubernetes Service (AKS) a una suscripción diferente o mover la suscripción propietaria de clúster a un nuevo inquilino, hace que el clúster pierda funcionalidad debido a las asignaciones de roles perdido y derechos de entidades de seguridad de servicio. Para obtener más información acerca de AKS, consulte [Azure Kubernetes Service (AKS)](https://docs.microsoft.com/en-us/azure/aks/).
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -67,15 +69,16 @@ Para poder asociar o agregar su suscripción, debe realizar las siguientes tarea
 
     ![Página de modificador Directory, con información de ejemplo](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
 
-Cambiar el directorio de suscripción es una operación de nivel de servicio, por lo que no afecta a la propiedad de facturación de suscripción. El administrador de cuenta todavía puede cambiar al administrador de servicio desde el [centro de cuentas](https://account.azure.com/subscriptions). Para eliminar el directorio original, debe transferir la propiedad de facturación de suscripción a un nuevo administrador de cuenta. Para más información acerca de cómo transferir la propiedad de facturación, vea [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../../billing/billing-subscription-transfer.md). 
+Cambiar el directorio de suscripción es una operación de nivel de servicio, por lo que no afecta a la propiedad de facturación de suscripción. El administrador de cuenta todavía puede cambiar al administrador de servicio desde el [centro de cuentas](https://account.azure.com/subscriptions). Para eliminar el directorio original, debe transferir la propiedad de facturación de suscripción a un nuevo administrador de cuenta. Para más información acerca de cómo transferir la propiedad de facturación, vea [Transferencia de la propiedad de una suscripción de Azure a otra cuenta](../../billing/billing-subscription-transfer.md).
 
 ## <a name="post-association-steps"></a>Pasos posteriores a la asociación
-
 Después de asociar una suscripción a un directorio diferente, puede haber pasos adicionales que se deben realizar para reanudar las operaciones.
 
 1. Si dispone de los almacenes de claves, debe cambiar el identificador del inquilino de almacén de claves. Para obtener más información, consulte [cambiar un identificador de inquilino de key vault después de mover una suscripción](../../key-vault/key-vault-subscription-move-fix.md).
 
-1. Si ha registrado un usando esta suscripción de Azure Stack, debe volver a registrar. Para obtener más información, consulte [registrar Azure Stack con Azure](../../azure-stack/azure-stack-registration.md).
+2. Si ha registrado un usando esta suscripción de Azure Stack, debe volver a registrar. Para obtener más información, consulte [registrar Azure Stack con Azure](../../azure-stack/azure-stack-registration.md).
+
+
 
 ## <a name="next-steps"></a>Pasos siguientes
 

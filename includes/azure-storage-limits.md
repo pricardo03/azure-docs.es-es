@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: dccc967e7899d8cc9c4bde6829d6fc44f9cba4e0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 2957b45a0a26c590e2db1b402f4956ae9c3b8000
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891093"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59291813"
 ---
 En la tabla siguiente se describen los límites predeterminados para Azure Storage. El límite de *entrada* hace referencia a todos los datos de las solicitudes que se envían a una cuenta de almacenamiento. El límite de *salida* hace referencia a todos los datos de las respuestas que se reciben de una cuenta de almacenamiento.
 
@@ -22,10 +22,15 @@ En la tabla siguiente se describen los límites predeterminados para Azure Stora
 | Número de cuentas de almacenamiento por región y suscripción, incluidas las cuentas Estándar y Premium | 250 |
 | Capacidad de la cuenta de almacenamiento máximo | 2 PB de Estados Unidos y Europa, 500 TB para todas las demás regiones, lo que incluye el Reino Unido |
 | Número máximo de contenedores de blobs, blobs, recursos compartidos de archivos, tablas, colas, entidades o mensajes por cuenta de almacenamiento | Sin límite |
+| Tamaño máximo de una cuenta de almacenamiento FileStorage (versión preliminar) | 100.000 giB |
+| Número máximo de IOPS para una cuenta de almacenamiento FileStorage (versión preliminar) | 100 000 |
+| Ancho de banda máximo para una cuenta de almacenamiento FileStorage (versión preliminar) | 5 GB/s |
 | Tasa de solicitud total<sup>1</sup> por cuenta de almacenamiento | 20 000 solicitudes por segundo |
 | Entrada máxima<sup>1</sup> por cuenta de almacenamiento (regiones de Estados Unidos) | 10 Gbps si RA-GRS/GRS está habilitado, 20 Gbps para LRS/ZRS<sup>2</sup> |
 | Entrada máxima<sup>1</sup> por cuenta de almacenamiento (regiones de Estados Unidos) | 5 Gbps si RA-GRS/GRS está habilitado, 10 Gbps para LRS/ZRS<sup>2</sup> |
-| Salida máxima para uso general v2 y las cuentas de almacenamiento de blobs (todas las regiones) | 50 Gbps |
+| Entrada máxima por cuenta de almacenamiento (regiones de Estados Unidos) de FileStorage (versión preliminar) | 20 Gbps (sólo LRS) |
+| Entrada máxima por cuenta de almacenamiento (regiones de Estados Unidos) de FileStorage (versión preliminar) | 10 Gbps (sólo LRS)|
+| Salida máxima para uso general v2, FileStorage (versión preliminar) y almacenamiento de blobs de cuentas (todas las regiones) | 50 Gbps |
 | Salida máxima para las cuentas de almacenamiento de uso general v1 (regiones de Estados Unidos) | 20 Gbps si RA-GRS/GRS está habilitado, 30 Gbps para LRS/ZRS<sup>2</sup> |
 | Salida máxima para las cuentas de almacenamiento de uso general v1 (regiones de Estados Unidos) | 10 Gbps si RA-GRS/GRS está habilitado, 15 Gbps en el caso de LRS/ZRS<sup>2</sup> |
 

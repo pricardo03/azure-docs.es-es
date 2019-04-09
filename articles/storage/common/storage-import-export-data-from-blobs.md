@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/11/2018
+ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 99e3abb1bedffdb5a7d49c033ebc8b4c46df1c03
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: fc02e830953f8612a077fb219c7fef4e86bc3827
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55769288"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263848"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Uso del servicio Azure Import/Export para exportar datos de Azure Blob Storage
 Este artículo proporciona instrucciones paso a paso sobre cómo usar el servicio Azure Import/Export para exportar de forma segura grandes cantidades de datos desde Azure Blob Storage. El servicio requiere que envíe unidades de disco vacías al centro de datos de Azure. El servicio exporta datos de la cuenta de almacenamiento a las unidades de disco y luego envía de vuelta las unidades de disco.
@@ -25,7 +25,7 @@ Antes de crear un trabajo de exportación para transferir datos fuera de Azure B
 - Tener una suscripción activa de Azure que pueda usarse para el servicio Import/Export.
 - Tener al menos una cuenta de Azure Storage. Consulte la lista de [las cuenta de almacenamiento y los tipos de almacenamiento admitidos para el servicio Import/Export](storage-import-export-requirements.md). Para obtener información acerca de la creación de una nueva cuenta de almacenamiento, consulte [Creación de una cuenta de almacenamiento](storage-quickstart-create-account.md).
 - Tener un número suficiente de discos de los [tipos admitidos](storage-import-export-requirements.md#supported-disks).
-- Tener una cuenta de FedEx o DHL.  
+- Tener una cuenta de FedEx o DHL. Si desea usar un operador distinto de FedEx o DHL, póngase en contacto con el equipo de operaciones de cuadro de datos de Azure en `adbops@microsoft.com`. 
     - La cuenta debe ser válida, debe tener saldo positivo y debe tener capacidades de devolución de envíos.
     - Generar un número de seguimiento del trabajo de exportación.
     - Cada trabajo debe tener un número de seguimiento independiente. No se admiten varios trabajos con el mismo número de seguimiento. 
@@ -82,7 +82,7 @@ Siga estos pasos para crear un trabajo de exportación en Azure Portal.
 
 4. En **Información de envío de devolución**:
 
-    - Seleccione el transportista en la lista desplegable.
+    - Seleccione el transportista en la lista desplegable. Si desea usar un operador distinto de FedEx o DHL, elija una opción existente en la lista desplegable. Parte del equipo de operaciones de cuadro de datos de Azure contacto `adbops@microsoft.com` con la información relacionada con el transportista que se va a usar.
     - Escriba un número válido de cuenta de transportista que haya creado con ese transportista. Microsoft usa esta cuenta para devolverle las unidades una vez que haya finalizado el trabajo de importación. 
     - Proporcione información completa y válida del contacto: nombre, teléfono, correo electrónico, dirección postal, ciudad, código postal, estado o provincia y país o región.
 
@@ -205,7 +205,7 @@ En la siguiente tabla se muestran ejemplos de rutas de acceso del blob válidas:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Visualización del estado del trabajo y de la unidad de disco](storage-import-export-view-drive-status.md)
-* [Revisión de los requisitos de Import/Export](storage-import-export-requirements.md)
+* [Ver el estado del trabajo y la unidad](storage-import-export-view-drive-status.md)
+* [Revise los requisitos de Import/Export](storage-import-export-requirements.md)
 
 

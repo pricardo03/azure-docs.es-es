@@ -17,11 +17,11 @@ ms.date: 03/27/2019
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 00a967d61a5f81fc871488ea48df9cb4cf18c269
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59058074"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268609"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Tutorial: Configuración de Cerner Central para el aprovisionamiento automático de usuarios
 

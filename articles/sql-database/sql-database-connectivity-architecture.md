@@ -1,6 +1,6 @@
 ---
 title: Dirección del tráfico de Azure a Azure SQL Database y SQL Data Warehouse | Microsoft Docs
-description: En este documento, se explica la arquitectura de conectividad de Azure SQL Database y SQL Data Warehouse desde dentro o desde fuera de Azure.
+description: Este documento explica la arquitectura de onnectivity Azcure SQL para las conexiones de base de datos de Azure o desde fuera de Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,34 +12,16 @@ ms.author: srbozovi
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/03/2019
-ms.openlocfilehash: 619893ad42664f8d37fff5e61b8560f6c6d83e23
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 4ff6cc0ba18074f353eb5b99af7052edd658a80e
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918610"
+ms.locfileid: "59006775"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arquitectura de conectividad de Azure SQL
 
 En este artículo se explica la arquitectura de conectividad de Azure SQL Database y SQL Data Warehouse, y cómo funcionan los distintos componentes para dirigir el tráfico a una instancia de Azure SQL. La funcionalidad de estos componentes de conectividad consiste en dirigir el tráfico de red a Azure SQL Database o SQL Data Warehouse con clientes que se conectan desde dentro y desde fuera de Azure. En este artículo también se proporcionan ejemplos de script para cambiar cómo se establece la conectividad y, además, se incluyen consideraciones sobre la modificación de la configuración predeterminada de la conectividad.
-
-> [!IMPORTANT]
-> **[Próximo cambio] Para las conexiones de punto de conexión de servicio a los servidores SQL de Azure, un `Default` cambios de comportamiento de conectividad `Redirect`.**
-> Se recomienda a los clientes que creen nuevos servidores y que en los existentes seleccionen explícitamente el tipo de conexión Redirigir (preferible) o Proxy, en función de su arquitectura de conectividad.
->
-> Para evitar que la conectividad a través de un punto de conexión de servicio se interrumpa en los entornos existentes a causa de este cambio, utilizamos telemetría para lo siguiente:
->
-> - Para los servidores cuyo acceso a través de puntos de conexión de servicio hemos detectado antes del cambio, cambiamos el tipo de conexión a `Proxy`.
-> - Para todos los demás servidores, el tipo de conexión se cambiará por `Redirect`.
->
-> Los usuarios del punto de conexión de servicio todavía pueden verse afectados en los escenarios siguientes:
->
-> - La aplicación se conecta a un servidor existente con poca frecuencia, por lo que la telemetría no capturó la información acerca de dicha aplicación.
-> - Lógica de implementación automatizada crea un servidor de base de datos SQL se supone que es el comportamiento predeterminado para las conexiones de punto de conexión de servicio `Proxy`
->
-> Si no se pudieron establecer conexiones de punto de conexión de servicio al servidor de Azure SQL y sospecha que este cambio le afecta, compruebe que el tipo de conexión esté establecido explícitamente en `Redirect`. Si este es el caso, tendrá que abrir el firewall en la máquina virtual y grupos de seguridad de red (NSG) para todas las direcciones IP de Azure en la región que pertenecen a Sql [etiqueta de servicio](../virtual-network/security-overview.md#service-tags) para puertos 11000 a 11999. Si esta no es una opción en su caso, cambie el servidor explícitamente a `Proxy`.
-> [!NOTE]
-> En este tema se aplica a los servidores de Azure SQL Database para hospedar bases de datos únicas y grupos elásticos, bases de datos de SQL Data Warehouse, -Azure Database for MySQL, -Azure Database for MariaDB y -Azure Database for PostgreSQL. Por motivos de simplicidad, SQL Database se usa cuando se hace referencia a SQL Database, SQL Data Warehouse, Azure Database for MySQL, -Azure Database for MariaDB y -Azure Database for PostgreSQL.
 
 ## <a name="connectivity-architecture"></a>Arquitectura de conectividad
 

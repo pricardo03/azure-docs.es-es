@@ -2,16 +2,16 @@
 title: Administración del acceso de Azure Site Recovery con el control de acceso basado en rol (RBAC) | Microsoft Docs
 description: En este artículo se describe cómo aplicar control de acceso basado en rol (RBAC) para administrar el acceso de Azure Site Recovery.
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 5a6ef10f03bb5e108c226fe3d68f1dec67e6164a
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.openlocfilehash: 33fc2cd19152fb6cbbffb106aa058948d39555f9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55218077"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281716"
 ---
 # <a name="manage-site-recovery-access-with-role-based-access-control-rbac"></a>Administración del acceso de Site Recovery con el control de acceso basado en rol (RBAC)
 
@@ -59,7 +59,7 @@ Un usuario necesita los siguientes permisos para completar la replicación de un
 |  |  | Microsoft.Network/virtualNetworks/subnets/join/action |
 |  | Clásico | Microsoft.ClassicNetwork/virtualNetworks/read |
 |  |  | Microsoft.ClassicNetwork/virtualNetworks/join/action |
-| Storage | Resource Manager | Microsoft.Storage/storageAccounts/read |
+| Almacenamiento | Resource Manager | Microsoft.Storage/storageAccounts/read |
 |  |  | Microsoft.Storage/storageAccounts/listkeys/action |
 |  | Clásico | Microsoft.ClassicStorage/storageAccounts/read |
 |  |  | Microsoft.ClassicStorage/storageAccounts/listKeys/action |
@@ -72,6 +72,6 @@ Considere el uso de los [roles integrados](../role-based-access-control/built-in
 * [Control de acceso basado en rol](../role-based-access-control/role-assignments-portal.md): Puede comenzar con RBAC en Azure Portal.
 * Aprenda a administrar el acceso con:
   * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
-  * [CLI de Azure](../role-based-access-control/role-assignments-cli.md)
+  * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
   * [API DE REST](../role-based-access-control/role-assignments-rest.md)
 * [Solución de problemas del control de acceso basado en rol](../role-based-access-control/troubleshooting.md): Obtenga sugerencias acerca de cómo solucionar problemas comunes.

@@ -3,7 +3,7 @@ title: Tolerancia a errores de la actividad de copia en Azure Data Factory | Mic
 description: Obtenga información sobre cómo agregar una tolerancia a errores para la actividad de copia en Azure Data Factory omitiendo las filas incompatibles.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -11,17 +11,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/26/2018
-ms.author: jingwang
-ms.openlocfilehash: f1a40c09c2d08eddedd3b6b51d2a138ec403f6bc
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.author: yexu
+ms.openlocfilehash: ef0bb3716a32a0f25b90e74bc44d7291c146b431
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54014920"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267470"
 ---
 #  <a name="fault-tolerance-of-copy-activity-in-azure-data-factory"></a>Tolerancia a errores de la actividad de copia en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Versión 1](v1/data-factory-copy-activity-fault-tolerance.md)
+> * [versión 1](v1/data-factory-copy-activity-fault-tolerance.md)
 > * [Versión actual](copy-activity-fault-tolerance.md)
 
 La actividad de copia de Azure Data Factory ofrece dos maneras de tratar filas incompatibles cuando se copian datos entre almacenes de datos de origen y de receptor:

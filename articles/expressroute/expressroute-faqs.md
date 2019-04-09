@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: e078f838620f633743b27d26ba1218e753ff690e
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: f3f013f2e3090b54846ebba94ef54506275d6311
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259829"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282872"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -144,7 +144,7 @@ Si el proveedor de servicios ofrece ExpressRoute en ambos sitios, puede trabajar
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>¿Puedo tener varios circuitos ExpressRoute en el mismo metro? ¿Puedo vincularlos a la misma red virtual?
 
-Sí. Puede haber varios circuitos ExpressRoute con los mismos o distintos proveedores de servicios. Si el metro tiene varias ubicaciones de emparejamiento de ExpressRoute y los circuitos se crean en diferentes ubicaciones de emparejamiento, se pueden vincular a la misma red virtual. Si los circuitos se crean en la misma ubicación de emparejamiento, no puede vincularlos a la misma red virtual. Cada nombre de ubicación en Azure Portal o en PowerShell o la CLI representa una ubicación de emparejamiento. Por ejemplo, puede seleccionar las ubicaciones de emparejamiento "Singapore" y "Singapore2", y conectar los circuitos desde cada una de ellas a la misma red virtual. 
+Sí. Puede haber varios circuitos ExpressRoute con los mismos o distintos proveedores de servicios. Si el metro tiene varias ubicaciones de emparejamiento de ExpressRoute y los circuitos se crean en diferentes ubicaciones de emparejamiento, se pueden vincular a la misma red virtual. Si los circuitos se crean en la misma ubicación de emparejamiento, puede vincularlos a la misma red virtual, pero solo hasta 4 circuitos ExpressRoute en cada ubicación de emparejamiento. Por ejemplo, puede seleccionar las ubicaciones de emparejamiento "Singapore" y "Singapore2", y conectar los circuitos desde cada una de ellas a la misma red virtual. 
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>¿Cómo conecto mis redes virtuales a un circuito ExpressRoute?
 

@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 07e95905-0f1b-49ce-a0f9-820f61952278
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 86821e2082deb500f050eeab827dcee593082661
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 50e24ce29b5378b3aa930c54824fd444cd823b46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57776366"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279897"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>Detección y uso de los cuadernos de ejemplo
 
@@ -37,11 +37,11 @@ Una vez que identifique un cuaderno que le gustaría explorar, estos son algunos
 - [Galería de cuadernos interesantes](https://github.com/ipython/ipython/wiki/A-gallery-of-interesting-IPython-Notebooks) (proyecto de Jupyter en GitHub)
 - [nbviewer.jupyter.org](https://nbviewer.jupyter.org)
 - Instrucciones físicas del [departamento de física de la Escuela Imperial de Londres](https://notebooks.azure.com/cvanbreu/libraries)
-- [Ejemplos de introducción a Azure Machine Learning](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
+- [Ejemplos de introducción de Azure Machine Learning](https://notebooks.azure.com/azureml/projects/azureml-getting-started)
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
-- [How to: Configure and manage projects](configure-manage-azure-notebooks-projects.md) (Configuración y administración de proyectos)
-- [Trabajar con archivos de datos en proyectos de Azure Notebooks](work-with-project-data-files.md)
-- [How to: Access data resources](access-data-resources-jupyter-notebooks.md) (Acceso a los recursos de datos)
-- [Uso de Azure Machine Learning Services en un cuaderno](use-machine-learning-services-jupyter-notebooks.md)
+- [Procedimientos para: Configurar y administrar proyectos](configure-manage-azure-notebooks-projects.md)
+- [Procedimientos para: Uso de archivos de datos](work-with-project-data-files.md)
+- [Procedimientos para: Acceso a recursos de datos](access-data-resources-jupyter-notebooks.md)
+- [Procedimientos para: Uso de Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
