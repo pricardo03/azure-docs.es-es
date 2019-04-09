@@ -1,10 +1,9 @@
 ---
-title: Diferencias de T-SQL en Instancia administrada de Azure SQL Database | Microsoft Docs
+title: Diferencias de T-SQL de instancia administrada de base de datos SQL Azure | Microsoft Docs
 description: En este artículo se describen las diferencias de T-SQL entre una instancia administrada en Azure SQL Database y SQL Server.
 services: sql-database
 ms.service: sql-database
 ms.subservice: managed-instance
-ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
@@ -12,20 +11,17 @@ ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
 ms.date: 03/13/2019
-ms.openlocfilehash: 208370884d89a7a2585f320c037284d6657732db
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.custom: seoapril2019
+ms.openlocfilehash: 14e33ec25dd2384607d41e4be6e5a33ebf889cbc
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010607"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260500"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Diferencias de T-SQL en Instancia administrada de Azure SQL Database
 
-La opción de implementación de la instancia administrada proporciona gran compatibilidad con instancias locales del Motor de base de datos de SQL Server. La instancia administrada admite la mayoría de las características del Motor de base de datos de SQL Server.
-
-![migración](./media/sql-database-managed-instance/migration.png)
-
-Puesto que todavía hay algunas diferencias de comportamiento y de sintaxis, en este artículo se resumen y se explican estas diferencias. <a name="Differences"></a>
+En este artículo se resume y explica las diferencias de sintaxis y el comportamiento entre instancia administrada de Azure SQL Database y el motor de base de datos local SQL Server. <a name="Differences"></a>
 
 - [Disponibilidad](#availability), incluidas las diferencias en [Always-On](#always-on-availability) y [Copias de seguridad](#backup).
 - [Seguridad](#security), incluidas las diferencias en [Auditoría](#auditing), [Certificados](#certificates), [Credenciales](#credential), [Proveedores de servicios criptográficos](#cryptographic-providers), [Inicios de sesión y usuarios](#logins--users), [Clave maestra de servicio y clave de servicio](#service-key-and-service-master-key).
@@ -33,6 +29,10 @@ Puesto que todavía hay algunas diferencias de comportamiento y de sintaxis, en 
 - [Funcionalidades](#functionalities), incluidas [BULK INSERT/OPENROWSET](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [Transacciones distribuidas](#distributed-transactions), [Eventos extendidos](#extended-events), [Bibliotecas externas](#external-libraries), [Filestream y Filetable](#filestream-and-filetable), [Búsqueda semántica de texto completo](#full-text-semantic-search), [Servidores vinculados](#linked-servers), [PolyBase](#polybase), [Replicación](#replication), [RESTORE](#restore-statement), [Service Broker](#service-broker), [Funciones, procedimientos almacenados, desencadenadores](#stored-procedures-functions-triggers).
 - [Características que tienen un comportamiento diferente en instancias administradas](#Changes)
 - [Problemas conocidos y limitaciones temporales](#Issues)
+
+La opción de implementación de la instancia administrada proporciona gran compatibilidad con instancias locales del Motor de base de datos de SQL Server. La instancia administrada admite la mayoría de las características del Motor de base de datos de SQL Server.
+
+![migración](./media/sql-database-managed-instance/migration.png)
 
 ## <a name="availability"></a>Disponibilidad
 
@@ -494,7 +494,7 @@ Esto ilustra que, en determinadas circunstancias, debido a una distribución muy
 
 En este ejemplo, las bases de datos existentes seguirán funcionando y pueden crecer sin ningún problema, siempre y cuando no se agreguen nuevos archivos. Sin embargo, no se podrían crear ni restaurar nuevas bases de datos porque no hay suficiente espacio para nuevas unidades de disco, incluso si el tamaño total de todas las bases de datos no alcanza el límite de tamaño de la instancia. El error que se devuelve en ese caso no está claro.
 
-También puede [identificar el número de archivos restantes](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) usar vistas del sistema. Si se alcanza este límite intenta [vacíos y eliminar algunos de los archivos más pequeños mediante la instrucción DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) o shitch a [nivel crítico para la empresa que no tiene este límite](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+También puede [identificar el número de archivos restantes](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) usar vistas del sistema. Si se alcanza este límite intenta [vacíos y eliminar algunos de los archivos más pequeños mediante la instrucción DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) o cambie a [nivel crítico para la empresa que no tiene este límite](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Configuración incorrecta de la clave SAS durante la restauración de una base de datos
 

@@ -3,7 +3,7 @@ title: 'Ejecución de paquetes de SSIS con una actividad de procedimiento almace
 description: En este artículo se describe cómo ejecutar un paquete de SQL Server Integration Services (SSIS) desde una canalización de Azure Data Factory mediante la actividad de procedimiento almacenado.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: swinarko
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 04/17/2018
-ms.author: jingwang
-ms.openlocfilehash: 1cff60e6134e08e4b9e59a9f69ec09700cca1814
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: sawinark
+ms.openlocfilehash: b71a954da746ba04aeaa0797c13bf2c81838179d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58098753"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256301"
 ---
 # <a name="run-an-ssis-package-with-the-stored-procedure-activity-in-azure-data-factory"></a>Ejecución de un paquete de SSIS mediante una actividad de procedimiento almacenado de Azure Data Factory
 En este artículo se describe cómo ejecutar un paquete de SSIS desde una canalización de Azure Data Factory mediante una actividad de procedimiento almacenado. 
@@ -176,7 +176,7 @@ Puede usar la misma factoría de datos que tiene el IR de SSIS de Azure o crear 
     $DataFactoryName = "ADFTutorialFactory";
     ```
 
-5. Para crear la factoría de datos, ejecute el siguiente **conjunto AzDataFactoryV2** cmdlet, mediante las propiedades ResourceGroupName y Location de la variable $ResGrp: 
+5. Para crear la factoría de datos, ejecute el siguiente cmdlet **Set-AzDataFactoryV2** con las propiedades ResourceGroupName y Location de la variable $ResGrp: 
     
     ```powershell       
     $DataFactory = Set-AzDataFactoryV2 -ResourceGroupName $ResGrp.ResourceGroupName -Location $ResGrp.Location -Name $dataFactoryName 
@@ -217,7 +217,7 @@ Cree un servicio vinculado para vincular su instancia de Azure SQL Database que 
 
 2. En **Azure PowerShell**, cambie a la carpeta **C:\ADF\RunSSISPackage**.
 
-3. Ejecute el **conjunto AzDataFactoryV2LinkedService** para crear el servicio vinculado: **AzureSqlDatabaseLinkedService**. 
+3. Ejecute el cmdlet **Set-AzDataFactoryV2LinkedService** para crear el servicio vinculado: **AzureSqlDatabaseLinkedService**. 
 
     ```powershell
     Set-AzDataFactoryV2LinkedService -DataFactoryName $DataFactory.DataFactoryName -ResourceGroupName $ResGrp.ResourceGroupName -Name "AzureSqlDatabaseLinkedService" -File ".\AzureSqlDatabaseLinkedService.json"

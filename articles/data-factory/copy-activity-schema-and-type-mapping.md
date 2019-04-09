@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
-ms.openlocfilehash: c2f58a3510699cdf74e3150d3ad5882929f4f05b
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
-ms.translationtype: HT
+ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54358718"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267130"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Asignación de esquemas en la actividad de copia
 Este artículo describe el modo en que la actividad de copia de Azure Data Factory realiza la asignación de esquemas y la asignación del tipo de datos desde datos de origen hasta datos receptores al ejecutar la copia de datos.
@@ -146,8 +146,8 @@ La asignación de esquemas se aplica al copiar datos entre tablas de datos jerá
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del traductor de la actividad de copia debe establecerse en: **TabularTranslator** | SÍ |
-| schemaMapping | Una colección de pares clave-valor, que representa la relación de la asignación del lado tabular al lado jerárquico.<br/>- **Clave:** el nombre de columna de los datos tabulares tal y como se define en la estructura del conjunto de datos.<br/>- **Valor:** la expresión de ruta de acceso JSON de cada campo para su extracción y asignación. Para los campos en el objeto raíz, comience por root $; para los campos dentro de la matriz elegida mediante la propiedad `collectionReference`, empiece desde el elemento de matriz.  | SÍ |
+| Tipo | La propiedad type del traductor de la actividad de copia debe establecerse en: **TabularTranslator** | Sí |
+| schemaMapping | Una colección de pares de clave-valor, que representa la relación de asignación **desde el lado del origen al receptor del lado**.<br/>- **Clave:** origen representa. Para **origen tabular**, especifique el nombre de columna tal como se define en la estructura del conjunto de datos; para **origen jerárquica**, especifique la expresión de ruta de acceso JSON para cada campo extraer y asignar.<br/>- **Valor:** representa receptor. Para **receptor tabular**, especifique el nombre de columna tal como se define en la estructura del conjunto de datos; para **receptor jerárquica**, especifique la expresión de ruta de acceso JSON para cada campo extraer y asignar. <br/> En el caso de los datos jerárquicos, para los campos en el objeto raíz, la ruta de acceso JSON se inicia por root $; para los campos dentro de la matriz elegida mediante `collectionReference` propiedad, la ruta de acceso JSON se inicia desde el elemento de matriz.  | Sí |
 | collectionReference | Si desea iterar y extraer datos de los objetos **dentro de un campo de matriz** con el mismo patrón y convertir al modo por fila por objeto, especifique la ruta de acceso JSON de esa matriz para realizar la aplicación cruzada. Esta propiedad solo se admite si el origen son datos jerárquicos. | Sin  |
 
 **Ejemplo: copia de MongoDB a SQL:**
@@ -232,8 +232,8 @@ Data Factory admite los siguientes tipos de datos provisionales: Puede especific
 * boolean
 * DateTime
 * Datetimeoffset
-* DECIMAL
-* Doble
+* Decimal
+* Double
 * Guid
 * Int16
 * Int32
@@ -268,5 +268,5 @@ En los escenarios siguientes, se sugiere el elemento "structure" en el conjunto 
 Consulte los otros artículos de la actividad de copia:
 
 - [Información general de la actividad de copia](copy-activity-overview.md)
-- [Tolerancia a errores de la actividad de copia](copy-activity-fault-tolerance.md)
+- [Copie la tolerancia a errores de actividad](copy-activity-fault-tolerance.md)
 - [Rendimiento de la actividad de copia](copy-activity-performance.md)

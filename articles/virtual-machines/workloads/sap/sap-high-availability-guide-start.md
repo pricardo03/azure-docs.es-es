@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f5ceab083077231fd856bb0f267717afdb9556d3
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 7de46a534ea7920bcae4a5b2a3316117f090a7bf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667062"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265073"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver"></a>Alta disponibilidad de Azure Virtual Machines para SAP NetWeaver
 
@@ -196,8 +196,8 @@ Esta serie de artículos abarcan los siguientes temas:
     > Recomendamos encarecidamente usar el modelo de implementación de Azure Resource Manager para las instalaciones de SAP. Ofrece muchas ventajas que no están disponibles en el modelo de implementación clásica. Obtenga más información sobre los [modelos de implementación de Azure][virtual-machines-azure-resource-manager-architecture-benefits-arm].   
     >
 * Alta disponibilidad de SAP en las siguientes plataformas:
-  * ![Windows][Logo_Windows] **Windows** con **clúster de conmutación por error de Windows (WSFC)**
-  * ![Linux][Logo_Linux] **Linux** con el **marco de clúster de Linux**
+  * ![Windows][Logo_Windows]**Windows**, usando **clúster de conmutación por error de Windows Server (WSFC)** 
+  * ![Linux][Logo_Linux] **Linux**, usando **marco de clústeres de Linux**
 
 En estos artículos, aprenderá cómo ayudar a proteger un punto único de componentes de error (SPOF), como los servicios centrales de SAP (ASCS/SCS) y sistemas de administración de bases de datos (DBMS). También aprenderá sobre los componentes redundantes en Azure, como el servidor de aplicaciones SAP.
 
@@ -218,17 +218,17 @@ En el artículo se habla tanto de ![Windows][Logo_Windows] **Windows** como de !
 
 **Actualizado:** Marzo de 2019
 
-* ![Windows][Logo_Windows] [Preparación de la infraestructura de Azure para la alta disponibilidad de SAP con el clúster de conmutación por error de Windows y el **disco compartido** para la instancia de SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk]
+* ![Windows][Logo_Windows] [infraestructura preparar Azure para alta disponibilidad de SAP mediante el uso de un clúster de conmutación por error de Windows y **disco compartido** para instancias ASCS/SCS de SAP][sap-high-availability-infrastructure-wsfc-shared-disk]
 
-* ![Windows][Logo_Windows] [Preparación de la infraestructura de Azure para la alta disponibilidad de SAP con el clúster de conmutación por error de Windows y el **recurso compartido de archivos** para la instancia de SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-file-share]
+* ![Windows][Logo_Windows] [infraestructura preparar Azure para alta disponibilidad de SAP mediante el uso de un clúster de conmutación por error de Windows y **recurso compartido de archivos** para instancias ASCS/SCS de SAP][sap-high-availability-infrastructure-wsfc-file-share]
 
-* ![Linux][Logo_Linux] [Preparación de la infraestructura de Azure para la alta disponibilidad de SAP con el marco de clúster SUSE Linux Enterprise Server para la instancia de SAP ASCS/SCS ][sap-suse-ascs-ha-setting-ha-nfs]
+* ![Linux][Logo_Linux] [infraestructura preparar Azure para alta disponibilidad mediante el uso de un marco de clúster SUSE Linux Enterprise Server para las instancias de SAP ASCS/SCS de SAP][sap-suse-ascs-ha-setting-ha-nfs]
 
 * ![Linux][Logo_Linux] [infraestructura preparar Azure para alta disponibilidad de SAP mediante el uso de un marco de clúster SUSE Linux Enterprise Server para las instancias de SAP ASCS/SCS con los archivos de NetApp de Azure][sap-suse-ascs-ha-setting-ha-anf]
 
 * ![RHEL][Logo_Linux] [infraestructura preparar Azure para alta disponibilidad de SAP ASCS/SCS: configurar GlusterFS en RHEL][high-availability-guide-rhel-glusterfs]
 
-* ![RHEL][Logo_Linux] [infraestructura preparar Azure para alta disponibilidad de SAP ASCS/SCS: configuración de Pacemaker en RHEL ][high-availability-guide-rhel-pacemaker]
+* ![RHEL][Logo_Linux] [infraestructura preparar Azure para alta disponibilidad de SAP ASCS/SCS: configuración de Pacemaker en RHEL][high-availability-guide-rhel-pacemaker]
 
 ## <a name="installation-of-an-sap-netweaver-high-availability-system-in-azure"></a>Instalación de un sistema de alta disponibilidad para SAP NetWeaver en Azure
 
@@ -236,11 +236,11 @@ En el artículo se habla tanto de ![Windows][Logo_Windows] **Windows** como de !
 
 **Actualizado:** Marzo de 2019
 
-* ![Windows][Logo_Windows] [Instalación de alta disponibilidad para SAP NetWeaver con el clúster de conmutación por error de Windows y el **disco compartido** para la instancia de SAP ASCS/SCS][sap-high-availability-installation-wsfc-shared-disk]
+* ![Windows][Logo_Windows] [instalar SAP NetWeaver de alta disponibilidad mediante el uso de un clúster de conmutación por error de Windows y **disco compartido** para instancias ASCS/SCS de SAP][sap-high-availability-installation-wsfc-shared-disk]
 
-* ![Windows][Logo_Windows] [Instalación de alta disponibilidad para SAP NetWeaver con el clúster de conmutación por error de Windows y el **recurso compartido** de archivos para la instancia de ASCS/SCS][sap-high-availability-installation-wsfc-file-share]
+* ![Windows][Logo_Windows] [instalar SAP NetWeaver de alta disponibilidad mediante el uso de un clúster de conmutación por error de Windows y **recurso compartido de archivos** para instancias ASCS/SCS de SAP][sap-high-availability-installation-wsfc-file-share]
 
-* ![Linux][Logo_Linux] [Instalación de la alta disponibilidad para SAP NetWeaver con el marco de clúster SUSE Linux Enterprise Server para la instancia de SAP ASCS/SCS][sap-suse-ascs-ha-sap-installation]
+* ![Linux][Logo_Linux] [instalar SAP NetWeaver de alta disponibilidad mediante el uso de un marco de clúster SUSE Linux Enterprise Server para las instancias ASCS/SCS de SAP][sap-suse-ascs-ha-sap-installation]
 
 * ![Linux][Logo_Linux] [instalar SAP NetWeaver de alta disponibilidad mediante el uso de un marco de clúster SUSE Linux Enterprise Server para las instancias ASCS/SCS de SAP con Azure Files de NetApp][sap-suse-ascs-ha-sap-installation-anf]
 

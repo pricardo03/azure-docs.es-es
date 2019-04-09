@@ -10,14 +10,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 12/22/2018
+ms.date: 04/05/2019
 ms.author: bwren
-ms.openlocfilehash: 6e84344e1c0229d15891bd15a512880da6e20cfe
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 0e5b9b43e528b37fd994f9131f145abadb33c53b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56110779"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259038"
 ---
 # <a name="viewing-and-analyzing-log-data-in-azure-monitor"></a>Visualización y análisis de datos de registro en Azure Monitor
 Log Analytics es la principal experiencia para trabajar con datos de registro y crear consultas en Azure Monitor. Abra Log Analytics desde **Registros** en el menú **Azure Monitor**. Puede obtener una introducción a este portal e inspeccionar sus características en [Introducción a Log Analytics en Azure Portal](get-started-portal.md).
@@ -39,7 +39,7 @@ Log Analytics proporciona las siguientes características para trabajar con cons
 
 ![Log Analytics](media/portals/log-analytics.png)
 
-### <a name="resource-logs"></a>Registros del recurso
+## <a name="resource-logs"></a>Registros del recurso
 Log Analytics se integra con distintos recursos de Azure, como Virtual Machines. Esto significa que puede abrir Log Analytics directamente a través del menú de supervisión del recurso sin cambiar a Azure Monitor ni perder el contexto del recurso. Los **registros** todavía no se han habilitado para todos los recursos de Azure, pero empezarán a aparecer en el menú del portal para diferentes tipos de recursos.
 
 Al abrir Log Analytics desde un recurso específico, se limita de forma automática a la escritura de registros de ese recurso únicamente.   Si quiere escribir una consulta que incluya otros registros, deberá abrirla desde el menú Azure Monitor.
@@ -52,7 +52,7 @@ Las siguientes opciones aún no están disponibles a través de la vista de recu
 - Cambio a diferentes áreas de trabajo o recursos (actualmente sin planear)
 
 
-### <a name="firewall-requirements"></a>Requisitos de firewall
+## <a name="firewall-requirements"></a>Requisitos de firewall
 El explorador requiere acceso a las direcciones siguientes para obtener acceso a Log Analytics.  Si el explorador tiene acceso a Azure Portal a través de un firewall, debe habilitar el acceso a estas direcciones.
 
 | Identificador URI | IP | Puertos |
@@ -60,14 +60,6 @@ El explorador requiere acceso a las direcciones siguientes para obtener acceso a
 | portal.loganalytics.io | Dinámica | 80 443 |
 | api.loganalytics.io    | Dinámica | 80 443 |
 | docs.loganalytics.io   | Dinámica | 80 443 |
-
-
-## <a name="log-search-classic"></a>Búsqueda de registros (clásico)
-Búsqueda de registros es la experiencia heredada en Azure Portal para consultar y analizar los datos de los registros en Azure Monitor. Se retirará pronto, pero está todavía disponible. Abra Búsqueda de registros de **Registros (clásico)** en el menú de Log Analytics.
-
-
-
-![Búsqueda de registros](media/portals/log-search-portal.png)
 
 
 ## <a name="next-steps"></a>Pasos siguientes
