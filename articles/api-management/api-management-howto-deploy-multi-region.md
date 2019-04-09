@@ -11,20 +11,20 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 04/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 82ae0ef72bb4f546a1f946f3127aa5d74bec3c3b
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: d22da92355616c208c7616b4b0e8c26b7f9e7006
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52957766"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058046"
 ---
 # <a name="how-to-deploy-an-azure-api-management-service-instance-to-multiple-azure-regions"></a>Implementación de una instancia del servicio Azure API Management en varias regiones de Azure
 
 Azure API Management admite la implementación en varias regiones, lo que permite a los publicadores de API distribuir un único servicio Azure API Management en el número de regiones de Azure deseado. Esto ayuda a reducir la latencia de solicitud que perciben los usuarios de API distribuidos geográficamente y, además, mejora la disponibilidad del servicio en caso de que una región se quede sin conexión.
 
-Inicialmente, un nuevo servicio Azure API Management contiene solo una [unidad][unit] en una única región de Azure, la región primaria. Pueden agregarse otras regiones fácilmente mediante Azure Portal. El servidor de puerta de enlace de API Management se implementa en cada región y el tráfico de llamada se enruta a la puerta de enlace más cercana. Cuando una región se queda sin conexión, el tráfico se redirige automáticamente a la siguiente puerta de enlace más cercana.
+Inicialmente, un nuevo servicio Azure API Management contiene solo una [unidad][unit] en una única región de Azure, la región primaria. Pueden agregarse otras regiones fácilmente mediante Azure Portal. Un servidor de puerta de enlace de API Management se implementa en cada región y tráfico de llamada se enrutará a la puerta de enlace más cercano en términos de latencia. Cuando una región se queda sin conexión, el tráfico se redirige automáticamente a la siguiente puerta de enlace más cercana.
 
 > [!NOTE]
 > Azure API Management replica solo el componente de la puerta de enlace de API entre regiones. El componente de administración de servicio se hospeda solo en la región primaria. En caso de interrupción en la región primaria, no se pueden aplicar cambios de configuración en una instancia del servicio Azure API Management, incluidas las configuraciones y las actualizaciones de directivas.
@@ -105,6 +105,20 @@ Para aprovechar completamente la distribución geográfica de su sistema, debe t
         </on-error>
     </policies>
     ```
+
+> [!TIP]
+> También puede frontal sus servicios back-end con [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/), dirigir las llamadas de API para el Administrador de tráfico y permiten resolver automáticamente el enrutamiento.
+
+## <a name="custom-routing"> </a>Uso de enrutamiento a puertas de enlace de API Management regionales personalizadas
+
+API Management enruta las solicitudes a una configuración regional *puerta de enlace* según [la latencia más baja](../traffic-manager/traffic-manager-routing-methods.md#performance). Aunque no es posible invalidar esta configuración en API Management, puede usar su propio administrador de tráfico con reglas de enrutamientos personalizadas.
+
+1. Crear las suyas propias [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/).
+1. Si usas un dominio personalizado, [usarlo con el Administrador de tráfico](../traffic-manager/traffic-manager-point-internet-domain.md) en lugar del servicio API Management.
+1. [Configurar los puntos de conexión regionales de API Management en el Administrador de tráfico](../traffic-manager/traffic-manager-manage-endpoints.md). Los puntos de conexión regionales siguen el patrón de dirección URL de `https://<service-name>-<region>-01.regional.azure-api.net`, por ejemplo `https://contoso-westus2-01.regional.azure-api.net`.
+1. [Configurar los puntos de conexión de API Management estado regionales en Traffic Manager](../traffic-manager/traffic-manager-monitoring.md). Los puntos de conexión de estado regionales siguen el patrón de dirección URL de `https://<service-name>-<region>-01.regional.azure-api.net/status-0123456789abcdef`, por ejemplo `https://contoso-westus2-01.regional.azure-api.net/status-0123456789abcdef`.
+1. Especificar [el método de enrutamiento](../traffic-manager/traffic-manager-routing-methods.md) de Traffic Manager.
+
 
 [api-management-management-console]: ./media/api-management-howto-deploy-multi-region/api-management-management-console.png
 

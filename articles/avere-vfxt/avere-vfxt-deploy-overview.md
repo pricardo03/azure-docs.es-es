@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
-ms.openlocfilehash: 0c61db5e34ba58bb767b0bda773a54c8e65cd404
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
-ms.translationtype: MT
+ms.openlocfilehash: 88305e5d877f5bc3cc7ebb116f69b0f49f162b79
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991808"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056238"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT para Azure: información general de la implementación
 
@@ -32,14 +32,6 @@ Aquí encontrará información general de todos los pasos.
 1. Configuración de los requisitos previos 
 
    Antes de crear una máquina virtual, debe crear una nueva suscripción para el proyecto de Avere vFXT, configurar la propiedad de la suscripción, comprobar las cuotas y solicitar un aumento si fuera necesario y aceptar los términos para usar el software de Avere vFXT. Lea [Prepare to create the Avere vFXT](avere-vfxt-prereqs.md) (Prepararse para crear una instancia de Avere vFXT) para obtener instrucciones detalladas.
-
-1. Creación de un rol de acceso para los nodos de clúster
-
-   Azure usa el [control de acceso basado en rol](../role-based-access-control/index.yml) (RBAC) para autorizar el nodo de clúster de las máquinas virtuales y así poder realizar ciertas tareas. Por ejemplo, los nodos de clúster deben ser capaces de asignar o reasignar las direcciones IP a otros nodos de clúster. Antes de crear el clúster, debe definir un rol que les proporcione los permisos adecuados.
-
-   Lea [Create the cluster node access role](avere-vfxt-prereqs.md#create-the-cluster-node-access-role) (Crear el rol de acceso del nodo de clúster) para obtener instrucciones.
-
-   El controlador de clúster también usa un rol de acceso, pero puede aceptar el rol predeterminado, que es Propietario, en lugar de crear el suyo propio. Si desea crear un rol personalizado para el controlador de clúster, lea [Rol de acceso al controlador personalizado](avere-vfxt-controller-role.md). 
 
 1. Cree el clúster de Avere vFXT 
 
@@ -64,8 +56,8 @@ Aquí encontrará información general de todos los pasos.
 
    Conéctese a la interfaz de configuración de Avere vFXT (panel de control de Avere) para personalizar la configuración del clúster. Puede participar en la opción de supervisión del soporte técnico y agregar el sistema de almacenamiento si usa un centro de datos local.
 
-   * [Obtener acceso al clúster de vFXT](avere-vfxt-cluster-gui.md)
-   * [Habilitar el soporte técnico](avere-vfxt-enable-support.md)
+   * [Acceso al clúster de vFXT](avere-vfxt-cluster-gui.md)
+   * [Habilitar la compatibilidad con](avere-vfxt-enable-support.md)
    * [Configurar el almacenamiento](avere-vfxt-add-storage.md) (si fuera necesario)
 
 1. Agregar clientes

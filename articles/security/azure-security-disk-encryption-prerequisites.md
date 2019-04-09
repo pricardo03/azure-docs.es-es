@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/15/2019
+ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9ce1bb6df0a4c062ee41d2a58adf1b7fc93d9805
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 896553890252572e4b5524d047893953b78a4ba1
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58286251"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010098"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Requisitos previos de Azure Disk Encryption
 
@@ -29,7 +29,7 @@ Antes de habilitar Azure Disk Encryption en máquinas virtuales IaaS de Azure pa
 ## <a name="bkmk_OSs"></a> Sistemas operativos compatibles
 Azure Disk Encryption es compatible con los siguientes sistemas operativos:
 
-- Versiones de Windows Server: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 y Windows Server 2016.
+- Versiones de Windows Server: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 y más versiones de Windows se encuentra en la Galería de Azure.
   - En el caso de Windows Server 2008 R2, debe tener .NET Framework 4.5 instalado para poder habilitar el cifrado en Azure. Instálelo desde Windows Update con la actualización opcional Microsoft .NET Framework 4.5.2 para sistemas basados en x64 con Windows Server 2008 R2 ([KB2901983](https://support.microsoft.com/kb/2901983)).    
 - Versiones de cliente Windows: Cliente Windows 8 y Windows 10.
 - Azure Disk Encryption solo se admite en distribuciones y versiones específicas del servidor Linux basadas en la Galería de Azure. Para la lista de versiones admitidas actualmente, consulte [Preguntas más frecuentes de Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
@@ -301,8 +301,8 @@ Antes de usar el script de PowerShell, debe estar familiarizado con los requisit
  
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
-> [Habilitación de Azure Disk Encryption para Windows](azure-security-disk-encryption-windows.md)
+> [Habilitar Azure Disk Encryption para Windows](azure-security-disk-encryption-windows.md)
 
 > [!div class="nextstepaction"]
-> [Habilitación de Azure Disk Encryption para Linux](azure-security-disk-encryption-linux.md)
+> [Habilitar Azure Disk Encryption para Linux](azure-security-disk-encryption-linux.md)
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 40e2baaeaae933e8ff6a88eff2e2d86f645ad37b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: HT
+ms.openlocfilehash: e734ebb2032a5354e8701129b6a8ad913837bb52
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881048"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010624"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Preguntas más frecuentes sobre diferentes API en Azure Cosmos DB
 
@@ -95,8 +95,9 @@ Las condiciones siguientes se aplican a las suscripciones de prueba de Azure Cos
 * Hasta 3 colecciones por suscripción para las cuentas de MongoDB.
 * 10 GB de capacidad de almacenamiento.
 * La replicación global está disponible en las [regiones de Azure](https://azure.microsoft.com/regions/) siguientes: Centro de EE. UU., Europa del Norte y Sudeste Asiático
-* Rendimiento máximo de 5000 unidades de solicitud por segundo.
-* Las suscripciones expiran después de 24 horas y se pueden extender hasta un máximo de 48 horas.
+* Rendimiento máximo de 5 K RU/s cuando se aprovisionan en el nivel de contenedor.
+* Rendimiento máximo de 20 K RU/s cuando se aprovisionan en el nivel de base de datos.
+* Las suscripciones expiran después de 30 días y pueden ampliarse hasta un máximo de 31 días en total.
 * No se pueden crear incidencias de soporte técnico de Azure para las cuentas de prueba de Azure Cosmos DB; sin embargo, se proporciona soporte técnico para aquellos suscriptores con planes de soporte técnico ya existentes.
 
 ## <a name="set-up-azure-cosmos-db"></a>Configuración de Azure Cosmos DB

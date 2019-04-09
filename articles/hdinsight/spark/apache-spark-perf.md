@@ -3,18 +3,18 @@ title: Optimización de trabajos de Spark para mejorar el rendimiento en Azure H
 description: Se muestran estrategias comunes para obtener el mejor rendimiento de los clústeres de Spark.
 services: hdinsight
 ms.service: hdinsight
-author: maxluk
-ms.author: maxluk
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.openlocfilehash: d1eeedfd91dfe1d4a174a3cbed2c0db826a8d5ab
-ms.sourcegitcommit: 818d3e89821d101406c3fe68e0e6efa8907072e7
+ms.date: 04/03/2019
+ms.openlocfilehash: b846b19d180bf19a0d023a9cd0b92393132f47d4
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/09/2019
-ms.locfileid: "54117867"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058635"
 ---
 # <a name="optimize-apache-spark-jobs"></a>Optimización de trabajos de Apache Spark
 
@@ -24,7 +24,7 @@ En las siguientes secciones se describen las recomendaciones y optimizaciones co
 
 ## <a name="choose-the-data-abstraction"></a>Selección de la abstracción de datos
 
-Las versiones anteriores de Spark usan RDD para abstraer datos; Spark 1.3 y 1.6 introdujeron DataFrames y DataSets, respectivamente. Tenga en cuenta las siguientes ventajas relativas:
+Las versiones anteriores de Spark usan RDD para Spark 1.3, la información abstracta y 1.6 se introdujeron DataFrames y conjuntos de datos, respectivamente. Tenga en cuenta las siguientes ventajas relativas:
 
 * **DataFrames**
     * La mejor opción en la mayoría de los casos.
@@ -60,9 +60,10 @@ Cuando se crea un nuevo clúster de Spark, tiene la opción de seleccionar Azure
 
 | Tipo de almacén | Sistema de archivos | Velocidad | Transitorio | Casos de uso |
 | --- | --- | --- | --- | --- |
-| Azure Blob Storage | **wasb:**//url/ | **Estándar** | SÍ | Clúster transitorio |
-| Azure Data Lake Storage | **adl:**//url/ | **Más rápido** | SÍ | Clúster transitorio |
-| HDFS local | **hdfs:**//url/ | **El más rápido** | Sin  | Clúster 24/7 interactivo |
+| Azure Blob Storage | **wasb[s]:**//url/ | **Estándar** | Sí | Clúster transitorio |
+| Azure Data Lake Storage Gen 2| **abfs[s]:**//url/ | **Más rápido** | Sí | Clúster transitorio |
+| Azure Data Lake Storage Gen 1| **adl:**//url/ | **Más rápido** | Sí | Clúster transitorio |
+| HDFS local | **hdfs:**//url/ | **Más rápido** | Sin  | Clúster 24/7 interactivo |
 
 ## <a name="use-the-cache"></a>Uso de la caché
 
@@ -77,7 +78,7 @@ Spark proporciona sus propios mecanismos nativos de almacenamiento, que se puede
     * Se usa en el almacenamiento en caché SSD y en memoria
 
 * HDFS local (recomendado)
-    * Ruta de acceso de `hdfs://mycluster`
+    * `hdfs://mycluster` ruta de acceso.
     * Usa el almacenamiento en caché SSD
     * Los datos en caché se pierden si se elimina el clúster, por lo que será necesario volver a generar la caché
 
@@ -161,7 +162,7 @@ Estos son algunos parámetros comunes que puede ajustar:
 
 * `--num-executors` establece el número adecuado de ejecutores.
 * `--executor-cores` establece el número de núcleos para cada ejecutor. Normalmente, debería tener ejecutores de tamaño medio, dado que otros procesos consumen parte de la memoria disponible.
-* `--executor-memory` establece el tamaño de memoria de cada ejecutor, que controla el tamaño del montón en YARN. Debe dejar algo de memoria por la sobrecarga de ejecución.
+* `--executor-memory` establece el tamaño de memoria para cada ejecutor, que controla el tamaño del montón en YARN. Debe dejar algo de memoria por la sobrecarga de ejecución.
 
 ### <a name="select-the-correct-executor-size"></a>Selección del tamaño correcto del ejecutor
 
@@ -213,8 +214,8 @@ MAX(AMOUNT) -> MAX(cast(AMOUNT as DOUBLE))
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Depuración de trabajos de Apache Spark que se ejecutan en Azure HDInsight](apache-spark-job-debugging.md)
-* [Administración de recursos de un clúster Apache Spark en Azure HDInsight](apache-spark-resource-manager.md)
-* [Uso de la API REST de Apache Spark para enviar trabajos remotos a un clúster Apache Spark](apache-spark-livy-rest-interface.md)
-* [Ajuste de Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
-* [How to Actually Tune Your Apache Spark Jobs So They Work](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work) (Cómo ajustar realmente los trabajos de Spark para que funcionen)
+* [Administración de recursos para un clúster de Apache Spark en HDInsight](apache-spark-resource-manager.md)
+* [Usar la API de REST de Apache Spark para enviar trabajos remotos a un clúster Apache Spark](apache-spark-livy-rest-interface.md)
+* [Optimización de Apache Spark](https://spark.apache.org/docs/latest/tuning.html)
+* [Cómo optimizar realmente su Apache Spark trabajos por lo que funcionan](https://www.slideshare.net/ilganeli/how-to-actually-tune-your-spark-jobs-so-they-work)
 * [Serialización de Kryo](https://github.com/EsotericSoftware/kryo)

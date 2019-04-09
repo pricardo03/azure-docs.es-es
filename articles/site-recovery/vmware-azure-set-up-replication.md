@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: sutalasi
-ms.openlocfilehash: 4f558d8d1e5e4e743e6d44cca1a804b3e5898b30
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 18dc7ea513d1e3787dbd38b1ab687be607a79f8b
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58443434"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006819"
 ---
 # <a name="configure-and-manage-replication-policies-for-vmware-disaster-recovery-to-azure"></a>Configuración y administración de directivas de replicación para la recuperación ante desastres de VMware en Azure
 En este artículo se describe cómo configurar una directiva de replicación cuando se replican máquinas virtuales de VMware en Azure mediante [Azure Site Recovery](site-recovery-overview.md).
@@ -45,7 +45,7 @@ Asocie la directiva de replicación con el servidor de configuración local.
 1. Seleccione **administrar** > **infraestructura de Site Recovery** > **directivas de replicación**.
 2. Seleccione la directiva de replicación que desea modificar.
 3. Haga clic en **editar la configuración**y actualizar los campos de frecuencia RPO/recuperación del umbral punto retención instantánea horas/coherente con la aplicación según sea necesario.
-4. Si desea desactivar la generación de puntos de coherencia de la aplicación, elija "Valor On/Off" en la lista desplegable de archivado **frecuencia de instantánea coherente con la aplicación**.
+4. Si desea desactivar la generación de puntos de coherencia de la aplicación, elija "Valor On/Off" en la lista desplegable del campo **frecuencia de instantánea coherente con la aplicación**.
 5. Haga clic en **Save**(Guardar). La directiva debe actualizarse en entre 30 y 60 segundos.
 
 ## <a name="disassociate-or-delete-a-replication-policy"></a>Desasociación o eliminación de una directiva de replicación

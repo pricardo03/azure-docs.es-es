@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 030/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 4b3cba7e7656ea13a6e7b36be4cb2fef99893867
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 15e4cf484ae38268c59781101256d64ef85e72ef
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439335"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283042"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Estrategias para probar el código en Azure Functions
 
@@ -26,8 +26,8 @@ Se recomienda probar todo el código, sin embargo, es posible que obtenga los me
 
 El contenido siguiente se divide en dos secciones distintas diseñadas para diferentes lenguajes y entornos de destino. Puede aprender a compilar pruebas en:
 
-- [C# en Visual Studio con xUnit](#c-in-visual-studio)
-- [JavaScript en VS Code con Jest](#javascript-in-vs-code)
+- [C#en Visual Studio con xUnit](#c-in-visual-studio)
+- [JavaScript de VS Code con Jest](#javascript-in-vs-code)
 
 El repositorio de ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/azure-functions-tests).
 
@@ -252,6 +252,8 @@ Los miembros implementados en esta clase son:
 - **Http_trigger_should_return_string_from_member_data**: Esta prueba usa atributos de xUnit para proporcionar datos de ejemplo a la función HTTP.
 
 - **Timer_should_log_message**: Esta prueba crea una instancia de `ListLogger` y la pasa a una función de temporizador. Una vez que se ejecuta la función, se comprueba el registro para garantizar que esté presente el mensaje esperado.
+
+Si desea obtener acceso a la configuración de la aplicación en las pruebas, puede usar [System.Environment.GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
 
 ### <a name="run-tests"></a>Ejecución de las pruebas
 

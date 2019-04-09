@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 2c6f3d88aae99c419b2507f421cc4dfebb2c022b
-ms.sourcegitcommit: 39397603c8534d3d0623ae4efbeca153df8ed791
-ms.translationtype: HT
+ms.openlocfilehash: 1d7874d7c8d04e3d3565cdfe2e52e49c538b3091
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56100217"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009808"
 ---
 # <a name="configure-complexity-requirements-for-passwords-in-azure-active-directory-b2c"></a>Configuración de los requisitos de complejidad de contraseñas de Azure Active Directory B2C
 
@@ -23,7 +23,7 @@ Azure Active Directory B2C (Azure AD B2C) admite el cambio de los requisitos de 
 
 ## <a name="password-rule-enforcement"></a>Aplicación de las reglas de contraseña
 
-Al realizar el registro o el restablecimiento de contraseña, un usuario final tiene que proporcionar una contraseña que cumpla las reglas de complejidad. Las reglas de complejidad de contraseña se aplican por flujo de usuario. Es posible tener un flujo de usuario que exija un pin de cuatro dígitos durante el registro mientras otro flujo de usuario requiere una cadena de ocho caracteres al realizar el registro. Por ejemplo, puede utilizar un flujo de usuario con complejidad de contraseña diferente para adultos y para niños.
+Al realizar el registro o el restablecimiento de contraseña, un usuario final tiene que proporcionar una contraseña que cumpla las reglas de complejidad. Las reglas de complejidad de contraseña se aplican por flujo de usuario. Es posible tener un flujo de usuario requieren un pin de cuatro dígitos durante el registro mientras otro flujo de usuario requiere una cadena de ocho caracteres durante el registro. Por ejemplo, puede utilizar un flujo de usuario con complejidad de contraseña diferente para adultos y para niños.
 
 La complejidad de la contraseña nunca se aplica durante el inicio de sesión. Nunca se pide a los usuarios durante el inicio de sesión que cambien su contraseña porque no cumple los requisitos de complejidad actuales.
 

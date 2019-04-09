@@ -4,7 +4,6 @@ title: 'Administración de Azure: gobernanza'
 metadata:
   title: 'Administración de Azure: gobernanza'
   description: 'Obtenga información sobre los conceptos y los servicios de Azure disponibles para administrar su entorno con coherencia, a través de reglas y diseño explícito, y cómo auditar para el cumplimiento.'
-  services: governance
   author: DCtheGeek
   manager: carmonm
   ms.service: governance

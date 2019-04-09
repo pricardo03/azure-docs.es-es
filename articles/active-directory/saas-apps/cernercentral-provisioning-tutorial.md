@@ -13,27 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 03/27/2019
 ms.author: asmalser-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dda84d30124eca1526f227ffec134f48451c9cb0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 00a967d61a5f81fc871488ea48df9cb4cf18c269
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58102574"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058074"
 ---
 # <a name="tutorial-configure-cerner-central-for-automatic-user-provisioning"></a>Tutorial: Configuración de Cerner Central para el aprovisionamiento automático de usuarios
 
-El objetivo de este tutorial es explicar los pasos que debe realizar en Cerner Central y Azure AD para aprovisionar y cancelar el aprovisionamiento de cuentas de usuario de Azure AD en una lista de Cerner Central automáticamente. 
-
+El objetivo de este tutorial es explicar los pasos que debe realizar en Cerner Central y Azure AD para aprovisionar y cancelar el aprovisionamiento de cuentas de usuario de Azure AD en una lista de Cerner Central automáticamente.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
-*   Un inquilino de Azure Active Directory
-*   Un inquilino de Cerner Central 
+* Un inquilino de Azure Active Directory
+* Un inquilino de Cerner Central
 
 > [!NOTE]
 > Azure Active Directory se integra con Cerner Central mediante el protocolo [SCIM](http://www.simplecloud.info/).
@@ -48,12 +47,11 @@ Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir q
 
 ### <a name="important-tips-for-assigning-users-to-cerner-central"></a>Sugerencias importantes para asignar usuarios a Cerner Central
 
-*   Se recomienda asignar un solo usuario de Azure AD a Cerner Central para probar la configuración del aprovisionamiento. Más tarde, se pueden asignar otros usuarios o grupos.
+* Se recomienda asignar un solo usuario de Azure AD a Cerner Central para probar la configuración del aprovisionamiento. Más tarde, se pueden asignar otros usuarios o grupos.
 
 * Una vez completada la prueba inicial para un solo usuario, Cerner Central recomienda que se aprovisione en la lista de usuarios de Cerner la asignación de toda la lista de usuarios para que tengan acceso a cualquier solución de Cerner (no solo Cerner Central).  Otras soluciones de Cerner aprovechan esta lista de usuarios en la lista de usuarios de Cerner.
 
-*   Al asignar un usuario a Cerner Central, debe seleccionar el rol **Usuario** en el cuadro de diálogo de asignación. Los usuarios con el rol de "Acceso predeterminado" quedan excluidos del aprovisionamiento.
-
+* Al asignar un usuario a Cerner Central, debe seleccionar el rol **Usuario** en el cuadro de diálogo de asignación. Los usuarios con el rol de "Acceso predeterminado" quedan excluidos del aprovisionamiento.
 
 ## <a name="configuring-user-provisioning-to-cerner-central"></a>Configuración del aprovisionamiento de usuarios en Cerner Central
 
@@ -62,9 +60,7 @@ Esta sección le guía a través de los pasos necesarios para conectar Azure AD 
 > [!TIP]
 > También puede habilitar basado en SAML Single Sign-On para Cerner Central, siguiendo las instrucciones en [portal Azure](https://portal.azure.com). El inicio de sesión único puede configurarse independientemente del aprovisionamiento automático, aunque estas dos características se complementan entre sí. Para más información, vea el [Tutorial: Integración de Azure Active Directory con Cerner Central](cernercentral-tutorial.md).
 
-
 ### <a name="to-configure-automatic-user-account-provisioning-to-cerner-central-in-azure-ad"></a>Para configurar el aprovisionamiento de cuentas de usuario automático para Cerner Central en Azure AD, siga estos pasos:
-
 
 Para aprovisionar cuentas de usuario en Cerner Central, debe crear una cuenta del sistema de Cerner Central en Cerner y generar un token de portador de OAuth que Azure AD puede usar para conectarse al punto de conexión SCIM de Cerner. También se recomienda realizar la integración en un entorno de espacio aislado de Cerner antes de su implementación en producción.
 
@@ -106,9 +102,9 @@ Para aprovisionar cuentas de usuario en Cerner Central, debe crear una cuenta de
 
    * En el campo **URL de inquilino**, escriba una dirección URL en el formato siguiente y sustituya "User-Roster-Realm-ID" por el identificador de dominio kerberos que obtuvo en el paso 4.
 
-> Espacio aislado: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
-> 
-> Producción: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > Espacio aislado: https://user-roster-api.sandboxcernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
+    > 
+    > Producción: https://user-roster-api.cernercentral.com/scim/v1/Realms/User-Roster-Realm-ID/ 
 
    * En el campo **Token secreto**, escriba el token de portador de OAuth que generó en el paso 3 y haga clic en **Prueba de conexión**.
 
@@ -116,13 +112,13 @@ Para aprovisionar cuentas de usuario en Cerner Central, debe crear una cuenta de
 
 1. Escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error aprovisionamiento en el campo **Correo electrónico de notificación** y active la casilla que aparece a continuación.
 
-1. Haga clic en **Save**(Guardar). 
+1. Haga clic en **Save**(Guardar).
 
 1. En la sección **Asignaciones de atributos**, revise los atributos de usuario y de grupo que se van a sincronizar desde Azure AD con Cerner Central. Los atributos seleccionados como propiedades **Matching** se usarán para establecer coincidencias con las cuentas de usuario y los grupos de Cerner Central para las operaciones de actualización. Seleccione el botón Guardar para confirmar los cambios.
 
 1. Para habilitar el servicio de aprovisionamiento de Azure AD para Cerner Central, cambie el **Estado de aprovisionamiento** a **Activado** en la sección **Configuración**.
 
-1. Haga clic en **Save**(Guardar). 
+1. Haga clic en **Save**(Guardar).
 
 Esta acción inicia la sincronización inicial de todos los usuarios y grupos asignados a Cerner Central en la sección Usuarios y grupos. La sincronización inicial tarda más tiempo en realizarse que las posteriores, que se producen aproximadamente cada 40 minutos si el servicio de aprovisionamiento de Azure AD está ejecutándose. Puede usar la sección **Detalles de sincronización** para supervisar el progreso y hacer clic en los vínculos a los registros de actividad de aprovisionamiento, que describen todas las acciones que ha llevado a cabo el servicio de aprovisionamiento en la aplicación de Cerner Central.
 
@@ -130,10 +126,11 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Cerner Central: Publishing identity data using Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD) (Cerner Central: Publicación de datos de identidad mediante Azure AD)
+* [Cerner Central: Publicar datos de identidad con Azure AD](https://wiki.ucern.com/display/public/reference/Publishing+Identity+Data+Using+Azure+AD)
 * [Tutorial: Configuración de Cerner Central para el inicio de sesión único con Azure Active Directory](cernercentral-tutorial.md)
-* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Administración de aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).

@@ -1,10 +1,10 @@
 ---
-title: 'Creación y administración de grupos elásticos: Azure SQL Database | Microsoft Docs'
+title: 'Administrar grupos elásticos: base de datos SQL de Azure | Microsoft Docs'
 description: Cree y administre grupos elásticos de Azure SQL.
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: oslake
@@ -12,14 +12,14 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: e3f3a2260ba877c94262c12f5a999c6b7bdf5cd1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: debf91f04cff3cb9705ebc5915e2e665679230a9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892405"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267589"
 ---
-# <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Creación y administración de grupos elásticos en Azure SQL Database
+# <a name="manage-elastic-pools-in-azure-sql-database"></a>Administración de grupos elásticos en Azure SQL Database
 
 Con un grupo elástico, se determina la cantidad de recursos que este requiere para controlar la carga de trabajo de sus bases de datos y la cantidad de recursos para cada base de datos agrupada.
 

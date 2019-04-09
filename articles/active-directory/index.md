@@ -11,12 +11,12 @@ ms.topic: landing-page
 ms.date: 01/24/2019
 ms.author: barbkess
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3ad12ac45a90edc5b3d9be0dc78786ef01a0f04
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 352050f4bd53188a420f75607677d88ebc081505
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337840"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051042"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -156,17 +156,17 @@ ms.locfileid: "58337840"
                                                         <h3><a href="manage-apps/index.yml">Administración de aplicaciones</a></h3>
                                                         <p>
                                                             <a href="manage-apps/what-is-single-sign-on.md">¿Qué es el inicio de sesión único (SSO)?</a><br>
-                                                            <a href="manage-apps/configure-single-sign-on-portal.md">Configuración del inicio de sesión único</a><br>
+                                                            <a href="manage-apps/configure-single-sign-on-portal.md">Configurar inicio de sesión único</a><br>
                                                             <a href="manage-apps/application-proxy.md">Application Proxy para aplicaciones locales</a><br>
-                                                            <a href="manage-apps/index.yml"><i>Más información &gt;</i></a>
+                                                            <a href="manage-apps/index.yml"><i>Más información y</i></a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="authentication/index.yml">Autenticación</a></h3>
+                                                        <h3><a href="authentication/index.yml">Authentication</a></h3>
                                                         <p>
                                                             <a href="authentication/concept-mfa-howitworks.md">Funcionamiento: Azure MFA</a><br>
                                                             <a href="authentication/concept-sspr-howitworks.md">Autoservicio de restablecimiento de contraseña de Azure AD</a><br>
                                                             <a href="authentication/concept-password-ban-bad.md">Protección de contraseñas de Azure AD</a><br>
-                                                            <a href="authentication/index.yml"><i>Más información &gt;</i></a>
+                                                            <a href="authentication/index.yml"><i>Más información y</i></a>
                                                             </p>
                                                         <br><br>
                                                         <h3><a href="b2b/index.yml">Negocio a negocio (B2B)</a></h3>
@@ -174,7 +174,7 @@ ms.locfileid: "58337840"
                                                             <a href="b2b/what-is-b2b.md">¿Qué es Azure AD B2B?</a><br>
                                                             <a href="b2b/add-users-administrator.md">Incorporación de usuarios invitados en el portal</a><br>
                                                             <a href="b2b/o365-external-user.md">B2B y uso compartido de Office 365</a><br>
-                                                            <a href="b2b/index.yml"><i>Más información &gt;</i></a>
+                                                            <a href="b2b/index.yml"><i>Más información y</i></a>
                                                             </p>
                                                         <br><br>
                                                         <h3><a href="/azure/active-directory-b2c/index">Negocio a cliente (B2C)</a></h3>
@@ -182,7 +182,7 @@ ms.locfileid: "58337840"
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-overview">¿Qué es Azure AD B2C?</a><br>
                                                             <a href="/azure/active-directory-b2c/tutorial-create-tenant">Creación de un inquilino de Azure AD B2C</a><br>
                                                             <a href="/azure/active-directory-b2c/active-directory-b2c-get-started-custom">Directivas personalizadas de Azure AD B2C</a><br>
-                                                            <a href="/azure/active-directory-b2c/index"><i>Más información &gt;</i></a>
+                                                            <a href="/azure/active-directory-b2c/index"><i>Más información y</i></a>
                                                         </p>
                                                         <br><br>
                                                     </div>
@@ -200,7 +200,7 @@ ms.locfileid: "58337840"
                                                             <a href="conditional-access/overview.md">¿Qué es el acceso condicional?</a><br>
                                                             <a href="conditional-access/app-based-mfa.md">Requerir MFA para aplicaciones específicas</a><br>
                                                             <a href="conditional-access/location-condition.md">Condiciones basadas en la ubicación</a><br>
-                                                            <a href="conditional-access/index.yml"><i>Más información &gt;</i></a>
+                                                            <a href="conditional-access/index.yml"><i>Más información y</i></a>
                                                             </p>
                                                         <br><br>
                                                            <h3><a href="develop/index.yml">Desarrolladores</a></h3>
@@ -208,7 +208,7 @@ ms.locfileid: "58337840"
                                                             <a href="develop/about-microsoft-identity-platform.md">Acerca de la plataforma de identidad de Microsoft</a><br>
                                                             <a href="develop/v2-oauth2-auth-code-flow.md">Concesión de flujo de código de OAuth 2.0</a><br>
                                                             <a href="develop/quickstart-register-app.md">Registro de una aplicación con la plataforma de identidad de Microsoft</a><br>
-                                                            <a href="develop/index.yml"><i>Más información &gt;</i></a>
+                                                            <a href="develop/index.yml"><i>Más información y</i></a>
                                                             </p>
                                                         <br><br>
                                                         <h3><a href="devices/index.yml">Administración de dispositivos</a></h3>
@@ -216,7 +216,7 @@ ms.locfileid: "58337840"
                                                             <a href="devices/overview.md">¿Qué es la administración de dispositivos?</a><br>
                                                             <a href="devices/hybrid-azuread-join-plan.md">Planeación de una unión a Azure AD híbrido</a><br>
                                                             <a href="devices/azureadjoin-plan.md">Planeación de una unión a Azure AD</a><br>
-                                                            <a href="devices/index.yml"><i>Más información &gt;</i></a><br>
+                                                            <a href="devices/index.yml"><i>Más información y</i></a><br>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="/azure/active-directory-domain-services/index">Servicios de dominio</a></h3>
@@ -224,7 +224,7 @@ ms.locfileid: "58337840"
                                                             <a href="/azure/active-directory-domain-services/active-directory-ds-overview">¿Qué es Azure AD Domain Services?</a><br>
                                                             <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started">Habilitación de Azure AD Domain Services</a><br>
                                                             <a href="/azure/active-directory-domain-services/active-directory-ds-admin-guide-administer-group-policy">Administración de la directiva de grupo</a><br>
-                                                            <a href="/azure/active-directory-domain-services/index"><i>Más información &gt;</i></a>
+                                                            <a href="/azure/active-directory-domain-services/index"><i>Más información y</i></a>
                                                         </p>
                                                         <br><br>
                                                     </div>
@@ -242,7 +242,7 @@ ms.locfileid: "58337840"
                                                             <a href="users-groups-roles/groups-create-rule.md">Creación de un grupo dinámico</a><br>
                                                             <a href="users-groups-roles/groups-settings-v2-cmdlets.md">PowerShell para grupos de Azure AD</a><br>
                                                             <a href="users-groups-roles/directory-service-limits-restrictions.md">Restricciones y límites del servicio Azure AD</a><br>
-                                                            <a href="users-groups-roles/index.yml"><i>Más información &gt;</i></a>
+                                                            <a href="users-groups-roles/index.yml"><i>Más información y</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="hybrid/index.yml">Identidad híbrida</a></h3>
@@ -250,23 +250,23 @@ ms.locfileid: "58337840"
                                                             <a href="hybrid/whatis-hybrid-identity.md">¿Qué es la identidad híbrida?</a><br>
                                                             <a href="hybrid/how-to-connect-sso.md">Inicio de sesión único con Azure AD Connect</a><br>
                                                             <a href="hybrid/how-to-connect-install-custom.md">Instalación personalizada de Azure AD Connect</a><br>
-                                                            <a href="hybrid/index.yml"><i>Más información &gt;</i></a>
+                                                            <a href="hybrid/index.yml"><i>Más información y</i></a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="governance/index.yml">Identity Governance</a></h3>
+                                                        <h3><a href="governance/index.yml">Gobernanza de identidades</a></h3>
                                                         <p>
                                                             <a href="governance/create-access-review.md">Creación de una revisión de acceso</a><br>
-                                                            <a href="governance/perform-access-review.md">Iniciar una revisión de acceso</a><br>
-                                                            <a href="governance/active-directory-tou.md">Utilización de los términos de uso</a><br>
-                                                            <a href="governance/index.yml"><i>Más información &gt;</i></a>
+                                                            <a href="governance/perform-access-review.md">Inicio de una revisión de acceso</a><br>
+                                                            <a href="conditional-access/terms-of-use.md">Utilización de los términos de uso</a><br>
+                                                            <a href="governance/index.yml"><i>Más información y</i></a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="identity-protection/index.yml">Identity Protection</a></h3>
+                                                        <h3><a href="identity-protection/index.yml">Protección de identidad</a></h3>
                                                         <p>
                                                             <a href="identity-protection/overview.md">¿Qué es la protección de identidades?</a><br>
                                                             <a href="identity-protection/quickstart-sign-in-risk-policy.md">Bloqueo del acceso si se detecta riesgo de sesión</a><br>
                                                             <a href="identity-protection/howto-unblock-user.md">Desbloqueo de usuarios</a><br>
-                                                            <a href="identity-protection/index.yml"><i>Más información &gt;</i></a>
+                                                            <a href="identity-protection/index.yml"><i>Más información y</i></a>
                                                         </p>
                                                     </div>
                                                 </div>
@@ -278,12 +278,12 @@ ms.locfileid: "58337840"
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3><a href="managed-identities-azure-resources/index.yml">Identidades administradas para recursos de Azure</a></h3>
+                                                        <h3><a href="managed-identities-azure-resources/index.yml">Identidades administradas de recursos de Azure</a></h3>
                                                         <p>
                                                             <a href="managed-identities-azure-resources/tutorial-windows-vm-access-sql.md">Uso de una máquina virtual Windows para acceder a Azure SQL</a><br>
                                                             <a href="managed-identities-azure-resources/how-to-use-vm-token.md">Uso de una máquina virtual de Azure para la adquisición de tokens</a><br>
                                                             <a href="managed-identities-azure-resources/services-support-managed-identities.md">Servicios que admiten la identidad administrada</a><br>
-                                                            <a href="managed-identities-azure-resources/index.yml"><i>Más información &gt;</i></a>
+                                                            <a href="managed-identities-azure-resources/index.yml"><i>Más información y</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="privileged-identity-management/index.yml">Privileged Identity Management (PIM)</a></h3>
@@ -291,7 +291,7 @@ ms.locfileid: "58337840"
                                                             <a href="privileged-identity-management/pim-getting-started.md">Primer uso de PIM</a><br>
                                                             <a href="privileged-identity-management/pim-how-to-activate-role.md">Activación de mis roles de directorio</a><br>
                                                             <a href="privileged-identity-management/pim-how-to-add-role-to-user.md">Asignación de roles de directorio</a><br>
-                                                            <a href="privileged-identity-management/index.yml"><i>Más información &gt;</i></a>
+                                                            <a href="privileged-identity-management/index.yml"><i>Más información y</i></a>
                                                         </p>
                                                         <br><br>
                                                         <h3><a href="reports-monitoring/index.yml">Informes y supervisión</a></h3>
@@ -299,7 +299,7 @@ ms.locfileid: "58337840"
                                                             <a href="reports-monitoring/concept-audit-logs.md">Registros de auditoría</a><br>
                                                             <a href="reports-monitoring/concept-sign-ins.md">Registros de inicio de sesión</a><br>
                                                             <a href="reports-monitoring/reference-sign-ins-error-codes.md">Referencia sobre códigos de error de inicio de sesión</a><br>
-                                                            <a href="reports-monitoring/index.yml"><i>Más información &gt;</i></a>
+                                                            <a href="reports-monitoring/index.yml"><i>Más información y</i></a>
                                                         </p>
                                                     </div>
                                                 </div>

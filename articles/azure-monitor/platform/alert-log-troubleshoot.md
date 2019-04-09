@@ -1,5 +1,5 @@
 ---
-title: Solución de problemas de alertas de registro en Azure Monitor
+title: Solución de problemas de las alertas del registro en Azure Monitor | Microsoft Docs
 description: Problemas comunes, errores y resolución para las reglas de alertas de registro en Azure.
 author: msvijayn
 services: azure-monitor
@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: 56d76cd43b63a389569ae39c1e987a5fccbb9793
-ms.sourcegitcommit: 9999fe6e2400cf734f79e2edd6f96a8adf118d92
-ms.translationtype: HT
+ms.openlocfilehash: aa42e8975432de8ca489cf9b1b6dd509c9fb01c1
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/22/2019
-ms.locfileid: "54429453"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005293"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Solución de problemas de alertas de registro en Azure Monitor  
 
 ## <a name="overview"></a>Información general
 
-En este artículo se muestra cómo solucionar problemas habituales al configurar las alertas de registro en Azure Monitor. Además, se proporcionan soluciones a las preguntas más frecuentes sobre la funcionalidad o la configuración de las alertas de registro. 
+Este artículo muestra cómo resolver problemas comunes observados al configurar las alertas del registro en Azure Monitor. Además, se proporcionan soluciones a las preguntas más frecuentes sobre la funcionalidad o la configuración de las alertas de registro. 
 
-El término **Alertas de registro** describe las alertas que se activan a partir de en una consulta personalizada de [Log Analytics](../learn/tutorial-viewdata.md) o [Application Insights](../../azure-monitor/app/analytics.md). Obtenga más información acerca de la funcionalidad, la terminología y los tipos en [Alertas de registro: información general](../platform/alerts-unified-log.md).
+El término **alertas del registro** se describen las alertas que fire se basa en una consulta de registro en un [área de trabajo de Log Analytics](../learn/tutorial-viewdata.md) o [Application Insights](../../azure-monitor/app/analytics.md). Obtenga más información acerca de la funcionalidad, la terminología y los tipos en [Alertas de registro: información general](../platform/alerts-unified-log.md).
 
 > [!NOTE]
 > En este artículo no se tienen en cuenta los casos en que Azure Portal muestra una regla de alertas desencadenada y una notificación realizada a través de grupos de acciones asociados. Para estos casos, consulte los detalles en el artículo sobre [grupos de acciones](../platform/action-groups.md).
@@ -33,7 +33,7 @@ Estas son algunas causas habituales por las que el estado de una [regla de alert
 
 ### <a name="data-ingestion-time-for-logs"></a>Tiempo de ingesta de datos para registros
 
-La alerta de registro ejecuta periódicamente una consulta basada en [Log Analytics](../learn/tutorial-viewdata.md) o [Application Insights](../../azure-monitor/app/analytics.md). Ya que Log Analytics procesa muchos terabytes de datos de miles de clientes desde diferentes orígenes en todo el mundo, el servicio es susceptible de sufrir retrasos variables. Para obtener más información, consulte [Tiempos de la ingesta de datos en Log Analytics](../platform/data-ingestion-time.md).
+La alerta de registro ejecuta periódicamente una consulta basada en [Log Analytics](../learn/tutorial-viewdata.md) o [Application Insights](../../azure-monitor/app/analytics.md). Puesto que Azure Monitor procesa muchos terabytes de datos procedentes de miles de clientes de diversos orígenes en todo el mundo, el servicio es susceptible a un retraso de tiempo diferentes. Para obtener más información, consulte [tiempo de recopilación de datos en registros de Azure Monitor](../platform/data-ingestion-time.md).
 
 Para mitigar el retraso durante la ingesta de datos, el sistema espera y vuelve a intentar la consulta de alerta varias veces si detecta que aún no se ingieren los datos necesarios. El sistema tiene un tiempo de espera establecido que aumenta exponencialmente. La alerta de registro solo se desencadena después de que los datos están disponibles, por lo que el retraso puede deberse a una ingesta de datos de registro lenta. 
 
@@ -84,7 +84,7 @@ A continuación, se detallan algunas causas habituales que pueden desencadenar u
 
 ### <a name="alert-triggered-by-partial-data"></a>Alerta desencadenada por datos parciales
 
-Log Analytics y Application Insights utilizan Analytics, que está sujeto a retrasos de ingesta y procesamiento debido a los cuales, en el momento en que se ejecuta la consulta de alerta de registro proporcionada, puede que no haya ningún dato disponible o que haya pocos. Para obtener más información, consulte [Tiempos de la ingesta de datos en Log Analytics](../platform/data-ingestion-time.md).
+Log Analytics y Application Insights utilizan Analytics, que está sujeto a retrasos de ingesta y procesamiento debido a los cuales, en el momento en que se ejecuta la consulta de alerta de registro proporcionada, puede que no haya ningún dato disponible o que haya pocos. Para obtener más información, consulte [tiempo de recopilación de datos de registro en Azure Monitor](../platform/data-ingestion-time.md).
 
 En función de cómo esté configurada la regla de alertas, puede producirse una activación incorrecta si no hay ningún dato en los registros, o los datos que hay son parciales, en el momento de la ejecución de la alerta. En tales casos, se recomienda cambiar la configuración o la consulta de alerta. 
 
@@ -92,7 +92,7 @@ Por ejemplo, si la regla de alertas de registro se configura para desencadenarse
 
 ### <a name="alert-query-output-misunderstood"></a>Salida de la consulta de alerta no comprendida
 
-La lógica de las alertas de registros se proporcionan en una consulta de Analytics. La consulta de Analytics puede usar varias funciones matemáticas y macrodatos.  El servicio de generación de alertas ejecuta la consulta a los intervalos especificados con los datos del período especificado. Este servicio realiza pequeños cambios en la consulta proporcionada en función del tipo de alerta elegido. Esto puede verse en la sección "Query to be executed" (Consulta que se va a ejecutar) de la pantalla *Configure signal logic* (Configurar lógica de señal), como se muestra a continuación: ![Query to be executed](media/alert-log-troubleshoot/LogAlertPreview.png)
+La lógica de las alertas de registros se proporcionan en una consulta de Analytics. La consulta de Analytics puede usar varias funciones matemáticas y macrodatos.  El servicio de generación de alertas ejecuta la consulta a los intervalos especificados con los datos del período especificado. Este servicio realiza pequeños cambios en la consulta proporcionada en función del tipo de alerta elegido. Esto puede verse en la sección "Query to be executed" (Consulta que se va a ejecutar) de la pantalla *Configure signal logic* (Configurar lógica de señal), como se muestra a continuación: ![Consulta que se ejecutará](media/alert-log-troubleshoot/LogAlertPreview.png)
 
 Lo que se muestra en el cuadro **Query to be executed** es lo que ejecuta el servicio de alertas de registros. La consulta indicada se puede ejecutar también como intervalo de tiempo a través del [portal de Analytics](../log-query/portals.md) o [Analytics API](https://docs.microsoft.com/rest/api/loganalytics/) si se desea saber cuál puede ser el resultado de la consulta de la alerta antes de crear la alerta.
 
@@ -100,4 +100,4 @@ Lo que se muestra en el cuadro **Query to be executed** es lo que ejecuta el ser
 
 - Más información sobre las [alertas de registro en las alertas de Azure](../platform/alerts-unified-log.md).
 - Más información sobre [Application Insights](../../azure-monitor/app/analytics.md)
-- Más información sobre [Log Analytics](../../log-analytics/log-analytics-overview.md).
+- Obtenga más información sobre [registrar las consultas](../log-query/log-query-overview.md)

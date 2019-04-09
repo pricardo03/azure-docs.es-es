@@ -9,14 +9,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 02/20/2019
+ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 3663526dc32b0a607c9fca3d7c76496bfb5566f4
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57549156"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260755"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidad administrada de Data Factory
 
@@ -46,7 +46,7 @@ Si observa que la factoría de datos no tiene una identidad administrada asociad
 
 - [Generar una identidad administrada con PowerShell](#generate-managed-identity-using-powershell)
 - [Generar una identidad administrada mediante API de REST](#generate-managed-identity-using-rest-api)
-- Generar una identidad administrada mediante una plantilla de Azure Resource Manager
+- [Generar una identidad administrada mediante una plantilla de Azure Resource Manager](#generate-managed-identity-using-an-azure-resource-manager-template)
 - [Generar una identidad administrada mediante el SDK](#generate-managed-identity-using-sdk)
 
 >[!NOTE]
@@ -156,11 +156,11 @@ Puede recuperar la identidad administrada de Azure portal o mediante programaci�
 
 ### <a name="retrieve-managed-identity-using-azure-portal"></a>Recuperar la identidad administrada mediante Azure portal
 
-Puede encontrar la información de identidad administrada de Azure portal -> su factoría de datos -> Configuración -> Propiedades:
+Puede encontrar la información de identidad administrada de Azure portal -> su factoría de datos -> Propiedades:
 
-- ID. DE LA IDENTIDAD DE SERVICIO
-- INQUILINO DE LA IDENTIDAD DE SERVICIO
-- **ID. DE LA APLICACIÓN DE IDENTIDAD DE SERVICIO** > copie este valor
+- Id. del objeto de identidad administrada
+- Inquilino de identidad administrada
+- **Administra el Id. de aplicación de identidad** > copie este valor
 
 ![Recuperar la identidad administrada](media/data-factory-service-identity/retrieve-service-identity-portal.png)
 
@@ -192,6 +192,6 @@ Type                  : ServicePrincipal
 Consulte los siguientes temas que presentan cuándo y cómo usar factoría de datos de identidad administrada:
 
 - [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md)
-- [Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory](connector-azure-data-lake-store.md)
+- [Copiar datos desde y hacia Azure Data Lake Store con identidades administradas para la autenticación de los recursos de Azure](connector-azure-data-lake-store.md)
 
 Consulte [identidades administradas para Azure Resources Overview](/azure/active-directory/managed-identities-azure-resources/overview) para obtener más información sobre las identidades administradas para los recursos de Azure, la identidad administrada de que data factory se basa en. 

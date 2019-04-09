@@ -12,13 +12,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: bdb89a89713c093768de3e40eda2bcbb6a311b2b
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.date: 04/04/2019
+ms.openlocfilehash: dfa5d4cb2d782f1466329300157a64fd17765460
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960889"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057173"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Introducción a la continuidad empresarial con Azure SQL Database
 
@@ -53,13 +53,17 @@ A continuación, puede obtener información acerca de los mecanismos adicionales
 
 Cada una de ellas posee distintas características que abarcan los conceptos de tiempo de recuperación calculado (ERT) y pérdida de datos potencial de transacciones recientes. Cuando entienda estas opciones, puede elegir las que más relevantes considere y, en la mayoría de los escenarios, utilizarlas juntas con distintos objetivos. A medida que desarrolle el plan de continuidad empresarial, tendrá que saber el tiempo máximo aceptable para que la aplicación se recupere por completo tras un evento de interrupción. El tiempo necesario para que la aplicación se recupere totalmente se conoce como el objetivo de tiempo de recuperación (RTO). También debe conocer el período máximo de actualizaciones de datos recientes (intervalo de tiempo) que la aplicación puede tolerar perder al recuperarse después de un evento de interrupción. El período de tiempo de las actualizaciones que se puede permitir perder se conoce como objetivo de punto de recuperación (RPO).
 
-En la tabla siguiente se comparan los valores de ERT y RPO de cada nivel de servicio en los tres escenarios más comunes.
+En la tabla siguiente compara los valores de ERT y RPO para cada nivel de servicio para los escenarios más comunes.
 
 | Capacidad | Básica | Estándar | Premium | Uso general | Crítico para la empresa
 | --- | --- | --- | --- |--- |--- |
 | Restauración a un momento dado a partir de una copia de seguridad |Cualquier punto de restauración en 7 días |Cualquier punto de restauración en 35 días |Cualquier punto de restauración en 35 días |Cualquier punto de restauración en el período configurado (hasta 35 días)|Cualquier punto de restauración en el período configurado (hasta 35 días)|
 | Restauración geográfica de las copias de seguridad con replicación geográfica |ERT < 12 horas<br> RPO < 1 hora |ERT < 12 horas<br>RPO < 1 hora |ERT < 12 horas<br>RPO < 1 hora |ERT < 12 horas<br>RPO < 1 hora|ERT < 12 horas<br>RPO < 1 hora|
 | Grupos de conmutación por error automática |RTO = 1 hora<br>RPO < 5 segundos |RTO = 1 hora<br>RPO < 5 segundos |RTO = 1 hora<br>RPO < 5 segundos |RTO = 1 hora<br>RPO < 5 segundos|RTO = 1 hora<br>RPO < 5 segundos|
+| Conmutación por error de base de datos manualmente |ERT = 30 s<br>RPO < 5 segundos |ERT = 30 s<br>RPO < 5 segundos |ERT = 30 s<br>RPO < 5 segundos |ERT = 30 s<br>RPO < 5 segundos|ERT = 30 s<br>RPO < 5 segundos|
+
+> [!NOTE]
+> *Conmutación por error de base de datos manualmente* hace referencia a la conmutación por error de una sola base de datos para su uso secundaria con replicación geográfica el [modo no planeado](sql-database-active-geo-replication.md#active-geo-replication-terminology-and-capabilities).
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Recuperación de una base de datos en el servidor existente
 
@@ -84,7 +88,7 @@ Aunque es poco habitual, en los centros de datos de Azure pueden producirse inte
 
 - Una opción consiste en esperar a que la base de datos vuelva a estar en línea cuando termine la interrupción del centro de datos. Esto puede hacerse con las aplicaciones que pueden permitirse que la base de datos esté desconectada. Por ejemplo, los proyectos de desarrollo o las pruebas gratuitas no tienen que estar en funcionamiento constantemente. Cuando se produce una interrupción en un centro de datos, no sabe cuánto durará, por lo que esta opción solo es útil si no necesita utilizar la base de datos durante un tiempo.
 - Otra opción consiste en restaurar una base de datos en cualquier servidor de cualquier región de Azure mediante [copias de seguridad de base de datos con redundancia geográfica](sql-database-recovery-using-backups.md#geo-restore) (restauración geográfica). La funcionalidad de restauración geográfica utiliza una copia de seguridad con redundancia geográfica como origen y se puede usar para recuperar una base de datos, aunque no se pueda acceder a dicha base de datos o al centro de datos debido a una interrupción.
-- Por último, puede recuperarse rápidamente de una interrupción si ha configurado o bien una réplica geográfica con la [replicación geográfica activa](sql-database-active-geo-replication.md) o un [grupo de conmutación por error automática](sql-database-auto-failover-group.md) para las bases de datos. Dependiendo de la selección de estas tecnologías, puede usar la conmutación manual o automática por error. Mientras la propia conmutación por error solo tarda unos segundos, el servicio tardará al menos de 1 hora en activarla. Esto es necesario asegurarse de que la conmutación por error está justificada por la escala de la interrupción. Además, la conmutación por error puede provocar pérdida de datos pequeño debido a la naturaleza de la replicación asincrónica. Consulte la tabla anterior de este artículo para detalles sobre RTO y RPO de conmutación por error automática.
+- Por último, puede recuperar rápidamente de una interrupción si ha configurado ya sea mediante replicación geográfica secundaria [replicación geográfica activa](sql-database-active-geo-replication.md) o un [grupo de conmutación por error automática](sql-database-auto-failover-group.md) para su base de datos o bases de datos. Dependiendo de la selección de estas tecnologías, puede usar la conmutación manual o automática por error. Mientras la propia conmutación por error solo tarda unos segundos, el servicio tardará al menos de 1 hora en activarla. Esto es necesario asegurarse de que la conmutación por error está justificada por la escala de la interrupción. Además, la conmutación por error puede provocar pérdida de datos pequeño debido a la naturaleza de la replicación asincrónica. Consulte la tabla anterior de este artículo para detalles sobre RTO y RPO de conmutación por error automática.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
@@ -116,7 +120,7 @@ Si no se prepara correctamente, el proceso de conectar las aplicaciones después
 
 ### <a name="fail-over-to-a-geo-replicated-secondary-database"></a>Conmutación por error de la base de datos secundaria de replicación geográfica
 
-Si usa grupos de conmutación automática por error y la replicación geográfica activa como el mecanismo de recuperación, puede configurar una directiva de conmutación automática por error o usar la [conmutación por error manual](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group). Tras iniciar la conmutación por error, la base de datos secundaria pasa a ser la principal y está lista para registrar nuevas transacciones y responder a consultas, con una pérdida mínima de los datos que aún no se han replicado. Para obtener información sobre el diseño del proceso de conmutación por error, vea [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Si usas grupos de conmutación por error automática o de replicación geográfica activa como mecanismo de recuperación, puede configurar una directiva de conmutación por error automática o usar [conmutación por error no planeada manual](sql-database-active-geo-replication-portal.md#initiate-a-failover). Tras iniciar la conmutación por error, la base de datos secundaria pasa a ser la principal y está lista para registrar nuevas transacciones y responder a consultas, con una pérdida mínima de los datos que aún no se han replicado. Para obtener información sobre el diseño del proceso de conmutación por error, vea [Diseño de aplicaciones para la recuperación ante desastres en la nube](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
 > Cuando el centro de datos vuelve a estar en línea, las bases de datos principales anteriores se vuelven a conectar automáticamente con la nueva base de datos principal y se convierten en bases de datos secundarias. Si necesita reubicar la base de datos principal de nuevo en la región original, puede iniciar una conmutación por error manual planificada (conmutación por recuperación).

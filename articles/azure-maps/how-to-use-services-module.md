@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: e614758a91cb3ff02822eeeeb8ae7e80d2123e5d
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 3aa39568904cb0acc9b5b76ff7e07729bf99d6b1
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578737"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278605"
 ---
 # <a name="using-the-azure-maps-services-module"></a>Con el módulo de servicios de Azure Maps
 
@@ -27,7 +27,7 @@ El SDK de Web de Azure Maps proporciona un módulo de servicios que es una bibli
      a. Usar la versión CDN global hospedada del módulo de servicios de Azure Maps mediante la adición de una referencia de script a la <head> elemento del archivo:
     
     ```html
-    <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
     ```
     
     b. También puede cargar el código de fuente del SDK de Azure asigna Web localmente mediante el [rest de azure maps](https://www.npmjs.com/package/azure-maps-rest) NPM empaquetar y hospedarlo con su aplicación. Este paquete también incluye las definiciones de TypeScript.
@@ -183,7 +183,7 @@ Más información sobre las clases y los métodos utilizados en este artículo:
 Consulte los siguientes artículos para obtener más ejemplos de código que usan el módulo de servicios:
 
 > [!div class="nextstepaction"]
-> [Mostrar los resultados de búsqueda en el mapa](./map-search-location.md)
+> [Presentación de los resultados de la búsqueda en el mapa](./map-search-location.md)
 
 > [!div class="nextstepaction"]
 > [Obtención de información de una coordenada](./map-get-information-from-coordinate.md)

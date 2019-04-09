@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 04/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: e74b9b5c8347c7348c4da27b80d00daa091b826f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: a5350befd8d0fb1582606554314d909f7fec04c5
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521100"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058771"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
@@ -133,6 +133,7 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Azure Database Migration
 * Azure Databricks
 * Azure Firewall
+* Azure Kubernetes Service (AKS)
 * Azure Migrate
 * Azure NetApp Files
 * Certificados: los certificados de App Service se pueden trasladar, pero los certificados cargados tienen [limitaciones](#app-service-limitations).
@@ -143,7 +144,6 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 * Dev Spaces
 * Dynamics LCS
 * ExpressRoute
-* Kubernetes Service
 * Los servicios de laboratorio - laboratorios de clase no se puede mover a un nuevo grupo de recursos o suscripción. DevTest Labs se pueden mover a un nuevo grupo de recursos en la misma suscripción, pero no a través de suscripciones.
 * Aplicaciones administradas
 * Microsoft Genomics
@@ -156,11 +156,11 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 
 La sección proporciona descripciones de cómo tratar escenarios complicados para trasladar recursos. Las limitaciones son las siguientes:
 
-* [Limitaciones de máquinas virtuales](#virtual-machines-limitations)
+* [Limitaciones de Virtual Machines](#virtual-machines-limitations)
 * [Limitaciones de las redes virtuales](#virtual-networks-limitations)
-* [Limitaciones de App Service](#app-service-limitations)
+* [limitaciones de App Service](#app-service-limitations)
 * [Limitaciones de App Service Certificate](#app-service-certificate-limitations)
-* [Limitaciones de la implementación clásica](#classic-deployment-limitations)
+* [limitaciones de la implementación clásica](#classic-deployment-limitations)
 * [Limitaciones de Recovery Services](#recovery-services-limitations)
 * [Limitaciones de HDInsight](#hdinsight-limitations)
 
@@ -180,8 +180,8 @@ Para mover máquinas virtuales configuradas con la copia de seguridad de Azure, 
 * Busque un grupo de recursos con el patrón de nombres siguiente: `AzureBackupRG_<location of your VM>_1`, por ejemplo, AzureBackupRG_westus2_1
 * Si está en Azure Portal, active "Mostrar tipos ocultos"
 * Si se encuentra en PowerShell, use el cmdlet `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
-* Si está en la CLI, use `az resource list -g AzureBackupRG_<location of your VM>_1`
-* Busque el recurso con el tipo `Microsoft.Compute/restorePointCollections` que tiene el patrón de nombres `AzureBackup_<name of your VM that you're trying to move>_###########`
+* Si en la CLI, utilice el `az resource list -g AzureBackupRG_<location of your VM>_1`
+* Encontrar el recurso con el tipo `Microsoft.Compute/restorePointCollections` que tiene el patrón de nomenclatura `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Elimine este recurso. Esta operación elimina solo los puntos de recuperación instantáneos, no los datos de copia de seguridad que se encuentran en el almacén.
 * Una vez completada la eliminación, podrá mover la máquina virtual. Puede trasladar el almacén y la máquina virtual a la suscripción de destino. Tras el traslado, puede continuar realizando las copias de seguridad sin pérdida de datos.
 * Para más información sobre cómo mover los almacenes de Recovery Services para realizar copias de seguridad, consulte [Limitaciones de Recovery Services](#recovery-services-limitations).

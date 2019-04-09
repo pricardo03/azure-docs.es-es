@@ -12,27 +12,22 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: reference
-ms.date: 02/27/2019
+ms.date: 03/28/2019
 ms.author: pbutlerm
-ms.openlocfilehash: 5c25d6703fe631a401994039200539156cc7b4de
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ROBOTS: NOINDEX
+ms.openlocfilehash: 4908233280c69a37ea470eed2ef077cb220a7930
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579468"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009741"
 ---
-# <a name="saas-fulfillment-apis-version-1"></a>Versión de API de SaaS realización 1
+# <a name="saas-fulfillment-apis-version-1--deprecated"></a>Versión de API de SaaS realización 1 (en desuso)
 
-En este artículo se explica cómo crear una oferta de SaaS con las API. Las API son necesarias para permitir las suscripciones a la oferta de SaaS si tiene seleccionada la venta mediante Azure.  
+En este artículo se explica cómo crear una oferta de SaaS con las API. Las API, formadas por los métodos REST y los puntos de conexión, son necesarias para permitir que las suscripciones a la oferta de SaaS si dispone de vender a través de Azure seleccionada.  
 
 > [!WARNING]
-> Esta versión inicial de la API de entrega SaaS está en desuso; en su lugar, use [SaaS realización API V2](./cpp-saas-fulfillment-api-v2.md).
-
-
-Este artículo se divide en dos secciones:
-
--   Autenticación de servicio a servicio entre un servicio SaaS y Azure Marketplace
--   Métodos y puntos de conexión de API
+> Esta versión inicial de la API de entrega SaaS está en desuso; en su lugar, use [SaaS realización API V2](./cpp-saas-fulfillment-api-v2.md).  Esta API se mantiene actualmente solo para servir editores existentes. 
 
 Las API siguientes se proporcionan para ayudarle a integrar su servicio SaaS con Azure:
 
@@ -41,112 +36,11 @@ Las API siguientes se proporcionan para ayudarle a integrar su servicio SaaS con
 -   Convert
 -   Cancelar suscripción
 
-El siguiente diagrama muestra el flujo de suscripción de un nuevo cliente y cuándo se utilizan estas API:
 
-![Flujo de la API de la oferta de SaaS](./media/saas-offer-publish-api-flow-v1.png)
-
-
-## <a name="service-to-service-authentication-between-saas-service-and-azure-marketplace"></a>Autenticación de servicio a servicio entre un servicio SaaS y Azure Marketplace
-
-Azure no impone ninguna restricción en la autenticación que el servicio SaaS expone a los usuarios finales. Sin embargo, en cuanto a la comunicación del servicio SaaS con las API de Azure Marketplace, la autenticación se realiza en el contexto de una aplicación de Azure Active Directory (Azure AD).
-
-La siguiente sección describe cómo crear una aplicación de Azure AD.
-
-
-### <a name="register-an-azure-ad-application"></a>Registro de una aplicación de Azure AD
-
-Cualquier aplicación que quiera usar las funciones de Azure AD debe registrarse primero en un inquilino de Azure AD. Este proceso de registro implica proporcionar a Azure AD los detalles de la aplicación, como la dirección URL donde se encuentra, la dirección URL para enviar respuestas cuando se autentica un usuario, el identificador URI que identifica la aplicación, etc.
-
-Para registrar una aplicación nueva mediante Azure Portal, realice los pasos siguientes:
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com/).
-2. Si la cuenta proporciona acceso a más de uno, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
-3. En el panel de navegación izquierdo, haga clic en el servicio **Azure Active Directory**, haga clic en **Registros de aplicaciones** y haga clic en **Nuevo registro de aplicación**.
-
-   ![Registros de aplicaciones SaaS de AD](./media/saas-offer-app-registration-v1.png)
-
-4. En la página Crear, escriba la información de registro de la aplicación:
-   - **Nombre**: Especifique un nombre de aplicación significativo.
-   - **Tipo de aplicación**: 
-     - Seleccione **Nativo** para las [aplicaciones cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) que están instaladas localmente en un dispositivo. Esta configuración se utiliza para [clientes nativos](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#native-client) públicos de OAuth.
-     - Seleccione **Aplicación web/API** para las [aplicaciones cliente](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#client-application) y las [aplicaciones de recursos/API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#resource-server) que están instaladas en un servidor seguro. Esta configuración se utiliza para [clientes web](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#web-client) confidenciales de OAuth y [clientes basados en agente de usuario](https://docs.microsoft.com/azure/active-directory/develop/active-directory-dev-glossary#user-agent-based-client) públicos.
-     La misma aplicación también puede exponer tanto un cliente como un recurso o API.
-   - **URL de inicio de sesión**: Para aplicaciones web o aplicaciones de la API, proporcione la dirección URL base de la aplicación. Por ejemplo, **http:\//localhost:31544** podría ser la dirección URL para una aplicación web que se ejecutan en el equipo local. Los usuarios utilizan esta dirección URL para iniciar sesión en una aplicación cliente web.
-   - **URI de redirección**: Para aplicaciones nativas, proporcione el identificador URI que utiliza Azure AD para devolver las respuestas de los tokens. Escriba un valor específico para la aplicación, por ejemplo **http:\//MyFirstAADApp**.
-
-     ![Registros de aplicaciones SaaS de AD](./media/saas-offer-app-registration-v1-2.png)
-
-     Para obtener ejemplos específicos para las aplicaciones nativas o aplicaciones web, consulte el inicio rápido guiado configuraciones que están disponibles en la sección Introducción de la [Guía de desarrolladores de Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-developers-guide).
-
-5. Cuando haya terminado, haga clic en **Crear**. Azure AD asigna un identificador de aplicación único a la aplicación y le lleva a la página de registro principal de la aplicación. En función de que se trate de una aplicación web o nativa, se proporcionan opciones diferentes para agregar funcionalidades adicionales a la aplicación.
-
->[!Note]
->De forma predeterminada, la aplicación recién registrada está configurada para permitir que a solo los usuarios desde el mismo inquilino para iniciar sesión en su aplicación.
-
-<a name="api-methods-and-endpoints"></a>Métodos y puntos de conexión de API
--------------------------
+## <a name="api-methods-and-endpoints"></a>Los puntos de conexión y los métodos de API
 
 Las secciones siguientes describen los métodos de API y los puntos de conexión disponibles para habilitar las suscripciones para una oferta de SaaS.
 
-### <a name="get-a-token-based-on-the-azure-ad-app"></a>Obtención de un token basado en la aplicación de Azure AD
-
-Método HTTP
-
-`GET`
-
-*Request URL* (URL de la solicitud)
-
-**https://login.microsoftonline.com/*{tenantId}*/oauth2/token**
-
-*Parámetro de URI*
-
-|  **Nombre de parámetro**  | **Obligatorio**  | **Descripción**                               |
-|  ------------------  | ------------- | --------------------------------------------- |
-| tenantId             | True          | Identificador de inquilino de la aplicación de AAD registrada   |
-|  |  |  |
-
-
-*Encabezado de solicitud*
-
-|  **Nombre de encabezado**  | **Obligatorio** |  **Descripción**                                   |
-|  --------------   | ------------ |  ------------------------------------------------- |
-|  Content-Type     | True         | Tipo de contenido asociado a la solicitud. El valor predeterminado es `application/x-www-form-urlencoded`.  |
-|  |  |  |
-
-
-*Cuerpo de la solicitud*
-
-| **Nombre de propiedad**   | **Obligatorio** |  **Descripción**                                                          |
-| -----------------   | -----------  | ------------------------------------------------------------------------- |
-|  Grant_type         | True         | Tipo de concesión. El valor predeterminado es `client_credentials`.                    |
-|  Client_id          | True         |  Identificador de cliente o aplicación asociado a la aplicación de Azure AD.                  |
-|  client_secret      | True         |  Contraseña asociada a la aplicación de Azure AD.                               |
-|  Recurso           | True         |  Recurso de destino para el que se solicita el token. El valor predeterminado es `62d94f6c-d599-489b-a797-3e10e42fbe22`. |
-|  |  |  |
-
-
-*Respuesta*
-
-|  **Nombre**  | **Tipo**       |  **Descripción**    |
-| ---------- | -------------  | ------------------- |
-| 200 OK    | TokenResponse  | La solicitud se realizó correctamente   |
-|  |  |  |
-
-*TokenResponse*
-
-Ejemplo de token de respuesta:
-
-``` json
-  {
-      "token_type": "Bearer",
-      "expires_in": "3600",
-      "ext_expires_in": "0",
-      "expires_on": "15251…",
-      "not_before": "15251…",
-      "resource": "62d94f6c-d599-489b-a797-3e10e42fbe22",
-      "access_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayIsImtpZCI6ImlCakwxUmNxemhpeTRmcHhJeGRacW9oTTJZayJ9…"
-  }               
-```
 
 ### <a name="marketplace-api-endpoint-and-api-version"></a>Punto de conexión de la API de Marketplace y versión de la API
 
@@ -167,15 +61,15 @@ Cuando se redirige a un usuario al sitio web del ISV, la dirección URL contiene
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions/resolve?api-version=2017-04-15**
 
-|  **Nombre de parámetro** |     **Descripción**                                      |
+|  **Nombre de parámetro** |     **DESCRIPCIÓN**                                      |
 |  ------------------ |     ---------------------------------------------------- |
 |  api-version        |  Versión de la operación que se usará para esta solicitud.   |
 |  |  |
 
 
-*Encabezados*
+*encabezados*
 
-| **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                                                                                                                                                  |
+| **Clave del encabezado**     | **Obligatorio** | **DESCRIPCIÓN**                                                                                                                                                                                                                  |
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | Sin            | Valor de cadena único para el seguimiento de la solicitud del cliente, preferiblemente un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.  |
 | x-ms-correlationid | Sin            | Valor de cadena único para la operación en el cliente. Pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
@@ -185,7 +79,7 @@ Cuando se redirige a un usuario al sitio web del ISV, la dirección URL contiene
 |  |  |  |
   
 
-*Cuerpo de la respuesta*
+*Cuerpo de respuesta*
 
 ``` json
 {
@@ -196,7 +90,7 @@ Cuando se redirige a un usuario al sitio web del ISV, la dirección URL contiene
 }
 ```
 
-| **Nombre de parámetro** | **Tipo de datos** | **Descripción**                       |
+| **Nombre de parámetro** | **Tipo de datos** | **DESCRIPCIÓN**                       |
 |--------------------|---------------|---------------------------------------|
 | id                 | string        | Identificador de la suscripción de SaaS.          |
 | subscriptionName| string| Nombre de la suscripción de SaaS establecida por el usuario en Azure al suscribirse al servicio SaaS.|
@@ -207,7 +101,7 @@ Cuando se redirige a un usuario al sitio web del ISV, la dirección URL contiene
 
 *Códigos de respuesta*
 
-| **Código de estado HTTP** | **Código de error**     | **Descripción**                                                                         |
+| **Código de estado HTTP** | **Código de error**     | **DESCRIPCIÓN**                                                                         |
 |----------------------|--------------------| --------------------------------------------------------------------------------------- |
 | 200                  | `OK`                 | Token resuelto correctamente.                                                            |
 | 400                  | `BadRequest`         | Faltan encabezados necesarios o se ha especificado una versión de API incorrecta. No se pudo resolver el token porque tiene formato incorrecto o ha expirado (una vez generado, el token solo es válido durante 1 hora). |
@@ -219,11 +113,11 @@ Cuando se redirige a un usuario al sitio web del ISV, la dirección URL contiene
 
 *Encabezados de respuesta*
 
-| **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                        |
+| **Clave del encabezado**     | **Obligatorio** | **DESCRIPCIÓN**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sí          | Identificador de solicitud recibido del cliente.                                                                   |
 | x-ms-correlationid | Sí          | Identificador de correlación si lo pasa el cliente; en caso contrario, este valor es el identificador de correlación del servidor.                   |
-| x-ms-activityid    | Sí          | Valor de cadena único para el seguimiento de la solicitud del servicio. Se utiliza para las reconciliaciones. |
+| x-ms-activityid    | Sí          | Valor de cadena único para el seguimiento de la solicitud del servicio. Este identificador se usa para cualquier recíprocas. |
 | Retry-After        | Sin            | Este valor se establece solo para una respuesta 429.                                                                   |
 |  |  |  |
 
@@ -234,17 +128,17 @@ El punto de conexión de suscripción permite a los usuarios iniciar una suscrip
 
 **PUT**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{identificador_de_suscripción}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
-| **Nombre de parámetro**  | **Descripción**                                       |
+| **Nombre de parámetro**  | **DESCRIPCIÓN**                                       |
 |---------------------|-------------------------------------------------------|
-| subscriptionId      | Identificador único de la suscripción de Saas que se obtiene después de resolver el token mediante la API de resolución.                              |
+| subscriptionId      | Suscripción única de Id. de SaaS que se obtiene después de resolver el token a través de API de resolver.                              |
 | api-version         | Versión de la operación que se usará para esta solicitud. |
 |  |  |
 
-*Encabezados*
+*encabezados*
 
-|  **Clave del encabezado**        | **Obligatorio** |  **Descripción**                                                  |
+|  **Clave del encabezado**        | **Obligatorio** |  **DESCRIPCIÓN**                                                  |
 | ------------------     | ------------ | --------------------------------------------------------------------------------------- |
 | x-ms-requestid         |   Sin          | Valor de cadena único para el seguimiento de la solicitud del cliente, preferiblemente un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
 | x-ms-correlationid     |   Sin          | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
@@ -262,14 +156,14 @@ El punto de conexión de suscripción permite a los usuarios iniciar una suscrip
 }
 ```
 
-| **Nombre del elemento** | **Tipo de datos** | **Descripción**                      |
+| **Nombre del elemento** | **Tipo de datos** | **DESCRIPCIÓN**                      |
 |------------------|---------------|--------------------------------------|
 | planId           | Cadena (obligatorio)        | Identificador del plan del servicio SaaS al que se está suscribiendo el usuario.  |
 |  |  |  |
 
 *Códigos de respuesta*
 
-| **Código de estado HTTP** | **Código de error**     | **Descripción**                                                           |
+| **Código de estado HTTP** | **Código de error**     | **DESCRIPCIÓN**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | Activación de la suscripción SaaS recibida para un plan determinado.                   |
 | 400                  | `BadRequest`         | Faltan encabezados necesarios o el cuerpo del elemento JSON tiene un formato incorrecto. |
@@ -284,7 +178,7 @@ En el caso de una respuesta 202, realice un seguimiento del estado de la operaci
 
 *Encabezados de respuesta*
 
-| **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                        |
+| **Clave del encabezado**     | **Obligatorio** | **DESCRIPCIÓN**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sí          | Identificador de solicitud recibido del cliente.                                                                   |
 | x-ms-correlationid | Sí          | Identificador de correlación si lo pasa el cliente; en caso contrario, este valor es el identificador de correlación del servidor.                   |
@@ -299,17 +193,17 @@ El punto de conexión de cambio permite al usuario convertir el plan al que actu
 
 **PATCH**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{identificador_de_suscripción}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
-| **Nombre de parámetro**  | **Descripción**                                       |
+| **Nombre de parámetro**  | **DESCRIPCIÓN**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | Identificador de la suscripción de SaaS.                              |
 | api-version         | Versión de la operación que se usará para esta solicitud. |
 |  |  |
 
-*Encabezados*
+*encabezados*
 
-| **Clave del encabezado**          | **Obligatorio** | **Descripción**                                                                                                                                                                                                                  |
+| **Clave del encabezado**          | **Obligatorio** | **DESCRIPCIÓN**                                                                                                                                                                                                                  |
 |-------------------------|--------------|---------------------------------------------------------------------------------------------------------------------|
 | x-ms-requestid          | Sin            | Valor de cadena único para el seguimiento de la solicitud del cliente. Se recomienda utilizar un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.   |
 | x-ms-correlationid      | Sin            | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
@@ -326,14 +220,14 @@ El punto de conexión de cambio permite al usuario convertir el plan al que actu
 }
 ```
 
-|  **Nombre del elemento** |  **Tipo de datos**  | **Descripción**                              |
+|  **Nombre del elemento** |  **Tipo de datos**  | **DESCRIPCIÓN**                              |
 |  ---------------- | -------------   | --------------------------------------       |
 |  planId           |  Cadena (obligatorio)         | Identificador del plan del servicio SaaS al que se está suscribiendo el usuario.          |
 |  |  |  |
 
 *Códigos de respuesta*
 
-| **Código de estado HTTP** | **Código de error**     | **Descripción**                                                           |
+| **Código de estado HTTP** | **Código de error**     | **DESCRIPCIÓN**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | Activación de la suscripción SaaS recibida para un plan determinado.                   |
 | 400                  | `BadRequest`         | Faltan encabezados necesarios o el cuerpo del elemento JSON tiene un formato incorrecto. |
@@ -346,7 +240,7 @@ El punto de conexión de cambio permite al usuario convertir el plan al que actu
 
 *Encabezados de respuesta*
 
-| **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                        |
+| **Clave del encabezado**     | **Obligatorio** | **DESCRIPCIÓN**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sí          | Identificador de solicitud recibido del cliente.                                                                   |
 | x-ms-correlationid | Sí          | Identificador de correlación si lo pasa el cliente; en caso contrario, este valor es el identificador de correlación del servidor.                   |
@@ -363,17 +257,17 @@ La acción de eliminación en el punto de conexión de suscripción permite al u
 
 **DELETE**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{identificador_de_suscripción}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
-| **Nombre de parámetro**  | **Descripción**                                       |
+| **Nombre de parámetro**  | **DESCRIPCIÓN**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | Identificador de la suscripción de SaaS.                              |
 | api-version         | Versión de la operación que se usará para esta solicitud. |
 |  |  |
 
-*Encabezados*
+*encabezados*
 
-| **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                                                                                                                                                  |
+| **Clave del encabezado**     | **Obligatorio** | **DESCRIPCIÓN**                                                                                                                                                                                                                  |
 |--------------------|--------------| ----------------------------------------------------------|
 | x-ms-requestid     | Sin            | Valor de cadena único para el seguimiento de la solicitud del cliente. Se recomienda utilizar un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.                                                           |
 | x-ms-correlationid | Sin            | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
@@ -382,7 +276,7 @@ La acción de eliminación en el punto de conexión de suscripción permite al u
 
 *Códigos de respuesta*
 
-| **Código de estado HTTP** | **Código de error**     | **Descripción**                                                           |
+| **Código de estado HTTP** | **Código de error**     | **DESCRIPCIÓN**                                                           |
 |----------------------|--------------------|---------------------------------------------------------------------------|
 | 202                  | `Accepted`           | Activación de la suscripción SaaS recibida para un plan determinado.                   |
 | 400                  | `BadRequest`         | Faltan encabezados necesarios o el cuerpo del elemento JSON tiene un formato incorrecto. |
@@ -396,7 +290,7 @@ En el caso de una respuesta 202, realice un seguimiento del estado de la operaci
 
 *Encabezados de respuesta*
 
-| **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                        |
+| **Clave del encabezado**     | **Obligatorio** | **DESCRIPCIÓN**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sí          | Identificador de solicitud recibido del cliente.                                                                   |
 | x-ms-correlationid | Sí          | Identificador de correlación si lo pasa el cliente; en caso contrario, es el identificador de correlación del servidor.                   |
@@ -413,24 +307,24 @@ Este punto de conexión permite el usuario realizar un seguimiento del estado de
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/operations/*{identificador_de_operación}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/operations/*{operationId}*?api-version=2017-04-15**
 
-| **Nombre de parámetro**  | **Descripción**                                       |
+| **Nombre de parámetro**  | **DESCRIPCIÓN**                                       |
 |---------------------|-------------------------------------------------------|
 | operationId         | Identificador único de la operación desencadenada.                |
 | api-version         | Versión de la operación que se usará para esta solicitud. |
 |  |  |
 
-*Encabezados*
+*encabezados*
 
-| **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                                                                                                                                                  |
+| **Clave del encabezado**     | **Obligatorio** | **DESCRIPCIÓN**                                                                                                                                                                                                                  |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sin            | Valor de cadena único para el seguimiento de la solicitud del cliente. Se recomienda utilizar un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.   |
 | x-ms-correlationid | Sin            | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.  |
 | authorization      | Sí          | Token de portador JSON Web Token (JWT).                    |
 |  |  |  | 
 
-*Cuerpo de la respuesta*
+*Cuerpo de respuesta*
 
 ```json
 {
@@ -442,7 +336,7 @@ Este punto de conexión permite el usuario realizar un seguimiento del estado de
 }
 ```
 
-| **Nombre de parámetro** | **Tipo de datos** | **Descripción**                                                                                                                                               |
+| **Nombre de parámetro** | **Tipo de datos** | **DESCRIPCIÓN**                                                                                                                                               |
 |--------------------|---------------|-------------------------------------------------------------------------------------------|
 | id                 | string        | Identificador de la operación.                                                                      |
 | status             | Enum          | Estado de la operación, uno de los siguientes: `In Progress`, `Succeeded` o `Failed`.          |
@@ -453,7 +347,7 @@ Este punto de conexión permite el usuario realizar un seguimiento del estado de
 
 *Códigos de respuesta*
 
-| **Código de estado HTTP** | **Código de error**     | **Descripción**                                                              |
+| **Código de estado HTTP** | **Código de error**     | **DESCRIPCIÓN**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | La solicitud GET se ha resuelto correctamente y el cuerpo contiene la respuesta.    |
 | 400                  | `BadRequest`         | Faltan encabezados necesarios o se ha especificado una versión de API incorrecta. |
@@ -465,7 +359,7 @@ Este punto de conexión permite el usuario realizar un seguimiento del estado de
 
 *Encabezados de respuesta*
 
-| **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                        |
+| **Clave del encabezado**     | **Obligatorio** | **DESCRIPCIÓN**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sí          | Identificador de solicitud recibido del cliente.                                                                   |
 | x-ms-correlationid | Sí          | Identificador de correlación si lo pasa el cliente; en caso contrario, es el identificador de correlación del servidor.                   |
@@ -481,24 +375,24 @@ La acción Get en el punto de conexión de suscripción permite a un usuario rec
 
 **GET**
 
-**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{identificador_de_suscripción}*?api-version=2017-04-15**
+**https://marketplaceapi.microsoft.com/api/saas/subscriptions/*{subscriptionId}*?api-version=2017-04-15**
 
-| **Nombre de parámetro**  | **Descripción**                                       |
+| **Nombre de parámetro**  | **DESCRIPCIÓN**                                       |
 |---------------------|-------------------------------------------------------|
 | subscriptionId      | Identificador de la suscripción de SaaS.                              |
 | api-version         | Versión de la operación que se usará para esta solicitud. |
 |  |  |
 
-*Encabezados*
+*encabezados*
 
-| **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                           |
+| **Clave del encabezado**     | **Obligatorio** | **DESCRIPCIÓN**                                                                                           |
 |--------------------|--------------|-----------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sin            | Valor de cadena único para el seguimiento de la solicitud del cliente, preferiblemente un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.                                                           |
 | x-ms-correlationid | Sin            | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
 | authorization      | Sí          | Token de portador JSON Web Token (JWT).                                                                    |
 |  |  |  |
 
-*Cuerpo de la respuesta*
+*Cuerpo de respuesta*
 
 ```json
 {
@@ -512,7 +406,7 @@ La acción Get en el punto de conexión de suscripción permite a un usuario rec
 }
 ```
 
-| **Nombre de parámetro**     | **Tipo de datos** | **Descripción**                               |
+| **Nombre de parámetro**     | **Tipo de datos** | **DESCRIPCIÓN**                               |
 |------------------------|---------------|-----------------------------------------------|
 | id                     | string        | Identificador del recurso de la suscripción de SaaS en Azure.    |
 | offerId                | string        | Identificador de la oferta a la que se ha suscrito el usuario.         |
@@ -525,7 +419,7 @@ La acción Get en el punto de conexión de suscripción permite a un usuario rec
 
 *Códigos de respuesta*
 
-| **Código de estado HTTP** | **Código de error**     | **Descripción**                                                              |
+| **Código de estado HTTP** | **Código de error**     | **DESCRIPCIÓN**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | La solicitud GET se ha resuelto correctamente y el cuerpo contiene la respuesta.    |
 | 400                  | `BadRequest`         | Faltan encabezados necesarios o se ha especificado una versión de API incorrecta. |
@@ -537,7 +431,7 @@ La acción Get en el punto de conexión de suscripción permite a un usuario rec
 
 *Encabezados de respuesta*
 
-| **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                        |
+| **Clave del encabezado**     | **Obligatorio** | **DESCRIPCIÓN**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sí          | Identificador de solicitud recibido del cliente.                                                                   |
 | x-ms-correlationid | Sí          | Identificador de correlación si lo pasa el cliente; en caso contrario, es el identificador de correlación del servidor.                   |
@@ -556,21 +450,21 @@ La acción Get en el punto de conexión de las suscripciones permite a un usuari
 
 **https://marketplaceapi.microsoft.com/api/saas/subscriptions?api-version=2017-04-15**
 
-| **Nombre de parámetro**  | **Descripción**                                       |
+| **Nombre de parámetro**  | **DESCRIPCIÓN**                                       |
 |---------------------|-------------------------------------------------------|
 | api-version         | Versión de la operación que se usará para esta solicitud. |
 |  |  |
 
-*Encabezados*
+*encabezados*
 
-| **Clave del encabezado**     | **Obligatorio** | **Descripción**                                           |
+| **Clave del encabezado**     | **Obligatorio** | **DESCRIPCIÓN**                                           |
 |--------------------|--------------|-----------------------------------------------------------|
 | x-ms-requestid     | Sin            | Valor de cadena único para el seguimiento de la solicitud del cliente. Se recomienda utilizar un GUID. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta.             |
 | x-ms-correlationid | Sin            | Valor de cadena único para la operación en el cliente. Este valor pone en correlación todos los eventos de la operación en el cliente con los eventos en el servidor. Si no se proporciona este valor, se generará uno y se proporcionará en los encabezados de respuesta. |
 | authorization      | Sí          | Token de portador JSON Web Token (JWT).                    |
 |  |  |  |
 
-*Cuerpo de la respuesta*
+*Cuerpo de respuesta*
 
 ```json
 {
@@ -584,7 +478,7 @@ La acción Get en el punto de conexión de las suscripciones permite a un usuari
 }
 ```
 
-| **Nombre de parámetro**     | **Tipo de datos** | **Descripción**                               |
+| **Nombre de parámetro**     | **Tipo de datos** | **DESCRIPCIÓN**                               |
 |------------------------|---------------|-----------------------------------------------|
 | id                     | string        | Identificador del recurso de la suscripción de SaaS en Azure.    |
 | offerId                | string        | Identificador de la oferta a la que se ha suscrito el usuario.         |
@@ -597,7 +491,7 @@ La acción Get en el punto de conexión de las suscripciones permite a un usuari
 
 *Códigos de respuesta*
 
-| **Código de estado HTTP** | **Código de error**     | **Descripción**                                                              |
+| **Código de estado HTTP** | **Código de error**     | **DESCRIPCIÓN**                                                              |
 |----------------------|--------------------|------------------------------------------------------------------------------|
 | 200                  | `OK`                 | La solicitud GET se ha resuelto correctamente y el cuerpo contiene la respuesta.    |
 | 400                  | `BadRequest`         | Faltan encabezados necesarios o se ha especificado una versión de API incorrecta. |
@@ -609,7 +503,7 @@ La acción Get en el punto de conexión de las suscripciones permite a un usuari
 
 *Encabezados de respuesta*
 
-| **Clave del encabezado**     | **Obligatorio** | **Descripción**                                                                                        |
+| **Clave del encabezado**     | **Obligatorio** | **DESCRIPCIÓN**                                                                                        |
 |--------------------|--------------|--------------------------------------------------------------------------------------------------------|
 | x-ms-requestid     | Sí          | Identificador de solicitud recibido del cliente.                                                                   |
 | x-ms-correlationid | Sí          | Identificador de correlación si lo pasa el cliente; en caso contrario, es el identificador de correlación del servidor.                   |
@@ -634,7 +528,7 @@ Un webhook de SaaS se usa para notificar los cambios de forma proactiva al servi
   }
 ```
 
-| **Nombre de parámetro**     | **Tipo de datos** | **Descripción**                               |
+| **Nombre de parámetro**     | **Tipo de datos** | **DESCRIPCIÓN**                               |
 |------------------------|---------------|-----------------------------------------------|
 | id  | string       | Identificador único de la operación desencadenada.                |
 | activityId   | string        | Valor de cadena único para el seguimiento de la solicitud del servicio. Se utiliza para las reconciliaciones.               |

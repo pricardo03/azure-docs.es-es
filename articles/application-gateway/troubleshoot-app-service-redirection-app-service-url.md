@@ -7,18 +7,24 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/22/2019
 ms.author: absha
-ms.openlocfilehash: 359d75f10f95b0e41ccd9a869d49247355f0d5d0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: f456cfec82a315a2be877a52e4f3f1850b992736
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123188"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274546"
 ---
-# <a name="troubleshoot-application-gateway-with-app-service--redirection-to-app-services-url"></a>Solución de problemas de Application Gateway con App Service: redireccionamiento a una dirección URL de App Service
+# <a name="troubleshoot-application-gateway-with-app-service"></a>Solución de problemas de puerta de enlace de aplicaciones con App Service
 
- Obtenga información sobre cómo diagnosticar y resolver problemas de redirección con Application Gateway donde introducción se expone la dirección URL del servicio de aplicación.
+Obtenga información sobre cómo diagnosticar y resolver los problemas detectados con Application Gateway y App Service como el servidor back-end.
 
 ## <a name="overview"></a>Información general
+
+En este artículo, obtendrá información sobre cómo solucionar los problemas siguientes:
+
+> [!div class="checklist"]
+> * URL del servicio de aplicación Introducción expuesto en el explorador cuando hay una redirección
+> * Dominio de App Service ARRAffinity Cookie establecida en el nombre de host de App Service (example.azurewebsites.net) en lugar de host original
 
 Al configurar un servicio de aplicación en el grupo de back-end de Application Gateway públicas y tiene un redireccionamiento configurado en el código de aplicación, puede que vea, cuando tiene acceso a Application Gateway, se le redirigirá el explorador directamente a la aplicación Dirección URL del servicio.
 
@@ -28,6 +34,8 @@ Este problema puede ocurrir debido a los siguientes motivos principales:
 - Tener la autenticación de Azure AD, lo que hace que la redirección.
 - Se ha habilitado el modificador "Seleccionar nombre de Host de back-end Address" en la configuración de HTTP de Application Gateway.
 - No tiene el dominio personalizado registrado con el servicio de aplicación.
+
+Además, cuando usa servicios de aplicaciones detrás de Application Gateway y usa un dominio personalizado para tener acceso a Application Gateway, puede ver el valor de dominio de la cookie ARRAffinity establecida por el servicio de aplicación efectuará el nombre de dominio "example.azurewebsites.net". Si desea que el nombre de host original también el dominio de la cookie, siga la solución en este artículo.
 
 ## <a name="sample-configuration"></a>Configuración de ejemplo
 
@@ -94,6 +102,16 @@ Para lograr esto, debe tener un dominio personalizado y siga el proceso que se m
 - Asociar el sondeo personalizado a la configuración HTTP de back-end y comprobar el estado de back-end si es correcto.
 
 - Una vez hecho esto, Application Gateway ahora se debe reenviar el mismo nombre de host "www.contoso.com" al servicio de aplicación y se realizará la redirección en el mismo nombre de host. Puede comprobar los encabezados de solicitud y respuesta de ejemplo siguiente.
+
+Para implementar los pasos mencionados anteriormente con PowerShell para una instalación existente, siga el siguiente script de PowerShell de ejemplo. Tenga en cuenta cómo no hemos usado los modificadores - PickHostname en la configuración de sondeo y la configuración de HTTP.
+
+```azurepowershell-interactive
+$gw=Get-AzApplicationGateway -Name AppGw1 -ResourceGroupName AppGwRG
+Set-AzApplicationGatewayProbeConfig -ApplicationGateway $gw -Name AppServiceProbe -Protocol Http -HostName "example.azurewebsites.net" -Path "/" -Interval 30 -Timeout 30 -UnhealthyThreshold 3
+$probe=Get-AzApplicationGatewayProbeConfig -Name AppServiceProbe -ApplicationGateway $gw
+Set-AzApplicationGatewayBackendHttpSettings -Name appgwhttpsettings -ApplicationGateway $gw -Port 80 -Protocol Http -CookieBasedAffinity Disabled -Probe $probe -RequestTimeout 30
+Set-AzApplicationGateway -ApplicationGateway $gw
+```
   ```
   ## Request headers to Application Gateway:
 

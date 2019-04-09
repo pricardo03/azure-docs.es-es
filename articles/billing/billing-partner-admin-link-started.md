@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 9fb689a2a6e2c1c309d22836e88a63662fed9832
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: ecbdf182fe2da7413e6d27ef5775dbaa7ad60806
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904838"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270190"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Vinculación de un Id. de partner a cuentas de Azure
 
@@ -151,9 +151,9 @@ Puede encontrar los informes de ingresos influido [panel Insights mi](https://pa
 
 No puede ver al cliente en los informes debido a los siguientes motivos
 
-1. No tiene la cuenta de usuario vinculado [acceso basado en roles ](https://docs.microsoft.com/azure/role-based-access-control/overview) en cualquier suscripción de Azure del cliente o recurso.
+1. No tiene la cuenta de usuario vinculado [acceso basado en roles](https://docs.microsoft.com/azure/role-based-access-control/overview) en cualquier suscripción de Azure del cliente o recurso.
 
-2. La suscripción de Azure donde el usuario tenga [acceso basado en roles ](https://docs.microsoft.com/azure/role-based-access-control/overview) acceso no tiene ningún uso.
+2. La suscripción de Azure donde el usuario tenga [acceso basado en roles](https://docs.microsoft.com/azure/role-based-access-control/overview) acceso no tiene ningún uso.
 
 **¿Vincular a asociado al que identificador funciona con Azure Stack?**
 

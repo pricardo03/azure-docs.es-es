@@ -1,27 +1,27 @@
 ---
-title: 'Propiedades de un usuario de colaboración B2B: Azure Active Directory | Microsoft Docs'
-description: Las propiedades de un usuario de colaboración B2B de Azure Active Directory son configurables.
+title: Propiedades de un B2B invitados usuario - Azure Active Directory | Microsoft Docs
+description: Propiedades de usuario de invitado de B2B de Active Directory de Azure y los Estados antes y después del canje de invitación
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 02/12/2019
+ms.date: 04/08/2019
 ms.author: mimart
 author: msmimart
 manager: daveba
 ms.reviewer: sasubram
-ms.custom: it-pro, seo-update-azuread-jan
+ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 791dcfadf1db6cae48bee5c926f75e454c88fc55
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: 4d4466e4ac7a4e818da6332254e3094eccbaf2b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294661"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257610"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propiedades de un usuario de colaboración B2B de Azure Active Directory
 
-Un usuario de colaboración de negocio a negocio (B2B) de Azure Active Directory (Azure AD) es un usuario con UserType = Guest. Dicho usuario suele ser de una organización asociada y tiene, de forma predeterminada, privilegios limitados en el directorio de la invitación.
+En este artículo se describe las propiedades y los Estados del objeto de usuario invitado B2B en Azure Active Directory (Azure AD) antes y después del canje de invitación. Un usuario de colaboración de Azure AD negocio a negocio (B2B) es un usuario con UserType = invitado. Dicho usuario suele ser de una organización asociada y tiene, de forma predeterminada, privilegios limitados en el directorio de la invitación.
 
 En función de las necesidades de la organización invitadora, un usuario de colaboración de B2B de Azure AD puede tener cualquiera de los siguientes estados de cuenta:
 
@@ -107,4 +107,4 @@ Sí. De forma predeterminada, los objetos de invitado no aparecen en la lista gl
 
 * [¿Qué es la colaboración B2B de Azure AD?](what-is-b2b.md)
 * [Tokens de usuario de colaboración B2B](user-token.md)
-* [Asignación de notificaciones de usuario de colaboración B2B](claims-mapping.md)
+* [Asignación de las notificaciones de usuario de colaboración de B2B](claims-mapping.md)

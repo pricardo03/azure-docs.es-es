@@ -12,42 +12,43 @@ ms.date: 03/12/2019
 ms.author: celested
 ms.reviewer: arvindh, japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84f1b7c9461d2eba5e13be8b15b2cbcc62715c23
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
-ms.translationtype: MT
+ms.openlocfilehash: 0357b7f421da753f102d2f05eaf8021cfc74aa2c
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57792045"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057201"
 ---
 # <a name="single-sign-on-to-applications-in-azure-active-directory"></a>Inicio de sesión único en aplicaciones de Azure Active Directory
+
 El inicio de sesión único (SSO) agrega seguridad y comodidad cuando los usuarios inician sesión en aplicaciones en Azure Active Directory (Azure AD). Este artículo describe los métodos del inicio de sesión único y le ayuda a elegir el más apropiado al configurar las aplicaciones.
 
-- **Con el inicio de sesión único**, los usuarios inician sesión una vez con una cuenta para acceder a dispositivos unidos a dominio, recursos de la empresa, aplicaciones de software como servicio (SaaS) y aplicaciones web. Después de iniciar sesión, el usuario puede iniciar aplicaciones desde el portal de Office 365 o el panel de acceso Mis aplicaciones de Azure AD. Los administradores pueden centralizar la administración de cuentas de usuario y automáticamente agregar o quitar el acceso de usuario a aplicaciones basadas en la pertenencia a grupos. 
+- **Con el inicio de sesión único**, los usuarios inician sesión una vez con una cuenta para acceder a dispositivos unidos a dominio, recursos de la empresa, aplicaciones de software como servicio (SaaS) y aplicaciones web. Después de iniciar sesión, el usuario puede iniciar aplicaciones desde el portal de Office 365 o el panel de acceso Mis aplicaciones de Azure AD. Los administradores pueden centralizar la administración de cuentas de usuario y automáticamente agregar o quitar el acceso de usuario a aplicaciones basadas en la pertenencia a grupos.
 
 - **Sin el inicio de sesión único**, los usuarios deben recordar las contraseñas específicas de las aplicaciones e iniciar sesión en cada aplicación. El personal de TI necesita crear y actualizar las cuentas de usuario para cada aplicación como, por ejemplo, Office 365, Box y Salesforce. Los usuarios tienen que recordar sus contraseñas, además de dedicar tiempo a iniciar sesión en cada aplicación.
 
 ## <a name="choosing-a-single-sign-on-method"></a>Elección de un método de inicio de sesión único
 
-Hay varias maneras de configurar una aplicación para el inicio de sesión único. La elección de un método de inicio de sesión único depende de cómo esté configurada la aplicación para la autenticación. 
+Hay varias maneras de configurar una aplicación para el inicio de sesión único. La elección de un método de inicio de sesión único depende de cómo esté configurada la aplicación para la autenticación.
 
 - Las aplicaciones en la nube pueden usar los métodos OpenID Connect, OAuth, SAML, basado en contraseñas, vinculado o deshabilitado para realizar el inicio de sesión único. 
 - Las aplicaciones locales pueden usar métodos de inicio de sesión único basados en contraseñas, de autenticación integrada, basados en encabezados, vinculados o deshabilitados. Las opciones locales funcionan si las aplicaciones están configuradas para el proxy de aplicación.
 
-Este diagrama de flujo le ayuda a decidir qué método de inicio de sesión único es el mejor en su caso. 
+Este diagrama de flujo le ayuda a decidir qué método de inicio de sesión único es el mejor en su caso.
 
-![Elección del método de inicio de sesión único](./media/what-is-single-sign-on/choose-single-sign-on-method-updated.png)
+![Elección del método de inicio de sesión único](./media/what-is-single-sign-on/choose-single-sign-on-method-040419.png)
 
-En la tabla siguiente se resumen los métodos de inicio de sesión únicos y los vínculos para obtener más información. 
+En la tabla siguiente se resumen los métodos de inicio de sesión únicos y los vínculos para obtener más información.
 
 | Método de inicio de sesión único | Tipos de aplicación | Cuándo se deben usar |
 | :------ | :------- | :----- |
 | [OpenID Connect y OAuth](#openid-connect-and-oauth) | solo en la nube | OpenID Connect y OAuth se usan cuando se desarrollan aplicaciones nuevas. Este protocolo simplifica la configuración de la aplicación, tiene SDK fáciles de usar y permite que la aplicación use MS Graph.
 | [SAML](#saml-sso) | En la nube y locales | Elija SAML siempre que sea posible para las aplicaciones existentes que no utilizan OpenID Connect o OAuth. SAML funciona con las aplicaciones realizan la autenticación mediante uno de los protocolos SAML.|
-| [Basado en contraseñas](#password-based-sso) | En la nube y locales | Elija el método basado en contraseña cuando la aplicación se autentique con nombre de usuario y contraseña. El inicio de sesión único basado en contraseña permite el almacenamiento seguro de contraseñas de las aplicaciones y la reproducción mediante una extensión de explorador web o aplicación móvil. Este método usa el proceso de inicio de sesión existente proporcionado por la aplicación, pero permite que un administrador administre las contraseñas. |
+| [Basado en contraseña](#password-based-sso) | En la nube y locales | Elija el método basado en contraseña cuando la aplicación se autentique con nombre de usuario y contraseña. El inicio de sesión único basado en contraseña permite el almacenamiento seguro de contraseñas de las aplicaciones y la reproducción mediante una extensión de explorador web o aplicación móvil. Este método usa el proceso de inicio de sesión existente proporcionado por la aplicación, pero permite que un administrador administre las contraseñas. |
 | [Vinculado](#linked-sso) | En la nube y locales | Elija el inicio de sesión único vinculado si la aplicación está configurada para el inicio de sesión único en otro servicio de proveedor de identidades. Esta opción no agrega el inicio de sesión único a la aplicación. No obstante, es posible que ya se haya implementado el inicio de sesión único en la aplicación mediante otro servicio, como los Servicios de federación de Active Directory.|
-| [Deshabilitada](#disabled-sso) | En la nube y locales | Elija un inicio de sesión único deshabilitado si la aplicación no está lista para configurarse para el inicio de sesión único. Los usuarios necesitan escribir su nombre de usuario y la contraseña cada vez que inician esta aplicación.|
+| [Disabled](#disabled-sso) | En la nube y locales | Elija un inicio de sesión único deshabilitado si la aplicación no está lista para configurarse para el inicio de sesión único. Los usuarios necesitan escribir su nombre de usuario y la contraseña cada vez que inician esta aplicación.|
 | [Autenticación integrada de Windows (IWA)](#integrated-windows-authentication-iwa-sso) | Solo en entornos locales | Elija el inicio de sesión único IWA para aplicaciones que usen la [autenticación integrada de Windows (IWA)](/aspnet/web-api/overview/security/integrated-windows-authentication) o aplicaciones compatibles con notificaciones. Para la autenticación integrada de Windows, los conectores del proxy de aplicación utilizan la delegación restringida de Kerberos (KCD) para autenticar a los usuarios en la aplicación. | 
-| [Basado en encabezados](#header-based-sso) | Solo en entornos locales | Use el inicio de sesión único basado en encabezados si la aplicación usa encabezados para la autenticación. El inicio de sesión único basado en encabezados requiere PingAccess para Azure AD. El proxy de aplicación usa Azure AD para autenticar al usuario y, a continuación, pasa el tráfico a través del servicio de conector.  | 
+| [Basado en encabezado](#header-based-sso) | Solo en entornos locales | Use el inicio de sesión único basado en encabezados si la aplicación usa encabezados para la autenticación. El inicio de sesión único basado en encabezados requiere PingAccess para Azure AD. El proxy de aplicación usa Azure AD para autenticar al usuario y, a continuación, pasa el tráfico a través del servicio de conector.  | 
 
 ## <a name="openid-connect-and-oauth"></a>OpenID Connect y OAuth
 Al desarrollar nuevas aplicaciones, use protocolos modernos como OpenID Connect y OAuth para lograr la mejor experiencia de inicio de sesión única para la aplicación en varias plataformas de dispositivo. OAuth permite a los usuarios o administradores [conceder consentimiento](configure-user-consent.md) para recursos protegidos como [MS Graph](/graph/overview). Se proporciona un [SDK](../develop/reference-v2-libraries.md) de fácil adopción para la aplicación y, además, la aplicación estará lista para usar [MS Graph](/graph/overview).

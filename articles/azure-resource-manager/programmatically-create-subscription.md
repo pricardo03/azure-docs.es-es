@@ -2,23 +2,21 @@
 title: Creación de suscripciones de Azure Enterprise mediante programación | Microsoft Docs
 description: Aprenda a crear suscripciones adicionales de Azure Enterprise o de Desarrollo/pruebas - Enterprise mediante programación.
 services: azure-resource-manager
-author: adpick
-manager: adpick
-editor: ''
+author: tfitzmac
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2018
-ms.author: adpick
-ms.openlocfilehash: 1b772fdbda8e58db9414e09ef3ef7c98fc9f86b8
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
-ms.translationtype: HT
+ms.date: 04/05/2019
+ms.author: tomfitz
+ms.openlocfilehash: 93df0c196d78a4685ff82108354b82a07d67695d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55486986"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256930"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Creación de suscripciones de Azure Enterprise mediante programación (versión preliminar)
 
@@ -30,9 +28,9 @@ Al crear una suscripción a Azure a partir de esta API, dicha suscripción se ri
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Debe tener un rol de propietario o colaborador en la cuenta de inscripción en la que desea crear suscripciones. Existen dos formas de obtener estos roles:
+Debe tener un rol de propietario en la que desea crear suscripciones en la cuenta de inscripción. Existen dos formas de obtener estos roles:
 
-* El administrador de inscripción puede convertirle en [propietario de la cuenta](https://ea.azure.com/helpdocs/addNewAccount) (inicio de sesión requerido), lo que le convierte en propietario de la cuenta de inscripción. Siga las instrucciones del correo electrónico de invitación que reciba para crear manualmente una suscripción inicial. Confirme la propiedad de cuenta y cree manualmente una suscripción inicial de Contrato Enterprise antes de continuar con el paso siguiente. No basta con limitarse a agregar la cuenta a la inscripción.
+* El Administrador de inscripción puede [Asegúrese de un propietario de la cuenta](https://ea.azure.com/helpdocs/addNewAccount) (inicio de sesión requerido) que le hace propietario de la cuenta de inscripción. Siga las instrucciones del correo electrónico de invitación que reciba para crear manualmente una suscripción inicial. Confirme la propiedad de cuenta y cree manualmente una suscripción inicial de Contrato Enterprise antes de continuar con el paso siguiente. No basta con limitarse a agregar la cuenta a la inscripción.
 
 * Un propietario existente de la cuenta de inscripción puede [concederle acceso](grant-access-to-create-subscription.md). De forma similar, si desea usar una entidad de servicio para crear la suscripción a Contrato Enterprise, debe [conceder a dicha entidad de servicio la capacidad de crear suscripciones](grant-access-to-create-subscription.md).
 
@@ -42,7 +40,7 @@ Cuando haya sido agregado a una inscripción de Azure EA como propietario de cue
 
 Para ejecutar los comandos siguientes, debe iniciar sesión en el *directorio particular* del propietario de cuenta, que es el directorio en el que las suscripciones se crean de manera predeterminada.
 
-# <a name="resttabrest"></a>[REST](#tab/rest)
+# [<a name="rest"></a>REST](#tab/rest)
 
 Solicite mostrar todas las cuentas de inscripción:
 
@@ -75,7 +73,7 @@ Azure responde con una lista de todas las cuentas de inscripción a las que tien
 }
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 
 Use el cmdlet [Get-AzEnrollmentAccount](/powershell/module/az.billing/get-azenrollmentaccount) para mostrar todas las cuentas de inscripción a las que tiene acceso.
 
@@ -91,7 +89,7 @@ ObjectId                               | PrincipalName
 4cd2fcf6-xxxx-xxxx-xxxx-xxxxxxxxxxxx   | BillingPlatformTeam@contoso.com
 ```
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# [<a name="azure-cli"></a>Azure CLI](#tab/azure-cli)
 
 Use el comando [az billing enrollment-account list](https://aka.ms/EASubCreationPublicPreviewCLI) para mostrar todas las cuentas de inscripción a las que tiene acceso.
 
@@ -132,7 +130,7 @@ Use la propiedad `principalName` para identificar la cuenta a la que quiere que 
 
 En el ejemplo siguiente se crea una solicitud de creación de una suscripción de nombre *Suscripción Dev Team* y la oferta de suscripción es *MS-AZR - 0017P* (EA normal). La cuenta de inscripción es `747ddfe5-xxxx-xxxx-xxxx-xxxxxxxxxxxx` (el valor de marcador de posición, que es un GUID), que es la cuenta de inscripción de SignUpEngineering@contoso.com. Opcionalmente, también agrega dos usuarios como propietarios de RBAC a la suscripción.
 
-# <a name="resttabrest"></a>[REST](#tab/rest)
+# [<a name="rest"></a>REST](#tab/rest)
 
 Para crear la suscripción, use el elemento `id` del objeto `enrollmentAccount` en la ruta de acceso de la solicitud.
 
@@ -161,7 +159,7 @@ POST https://management.azure.com/providers/Microsoft.Billing/enrollmentAccounts
 
 En la respuesta, se recupera un objeto `subscriptionOperation` para la supervisión. Cuando haya finalizado la creación de la suscripción, el objeto `subscriptionOperation` devolvería un objeto `subscriptionLink`, que tiene el identificador de suscripción.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
 
 Para utilizar este módulo de versión preliminar, instálelo ejecutando primero `Install-Module Az.Subscription -AllowPrerelease`. Para asegurarse de que `-AllowPrerelease` funciona, instale una versión reciente de PowerShellGet desde [Obtención del módulo PowerShellGet](/powershell/gallery/installing-psget).
 
@@ -182,7 +180,7 @@ New-AzSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -Enroll
 
 Para obtener una lista completa de todos los parámetros, consulte [New-AzSubscription](/powershell/module/az.subscription.preview).
 
-# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
+# [<a name="azure-cli"></a>Azure CLI](#tab/azure-cli)
 
 Para utilizar esta extensión de versión preliminar, instálela ejecutando primero `az extension add --name subscription`.
 

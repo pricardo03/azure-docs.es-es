@@ -1,6 +1,6 @@
 ---
-title: Tipos de aplicaciones para v2.0 | Azure
-description: Tipos de aplicaciones y escenarios admitidos por el punto de conexión v2.0 de Azure Active Directory.
+title: Tipos de aplicaciones para la plataforma Microsoft identity | Azure
+description: Los tipos de aplicaciones y escenarios admitidos por el punto de conexión de la plataforma (v2.0) de Microsoft identity.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -13,36 +13,36 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2018
+ms.date: 04/06/2019
 ms.author: celested
-ms.reviewer: saeeda, jmprieur, andret
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0aac3e40089c67cd71a2c634280e333964e47902
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 562b45f30bf057feba38a716e040ab2efc15da90
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58499988"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283331"
 ---
-# <a name="application-types-for-v20"></a>Tipos de aplicaciones para v2.0
+# <a name="application-types-for-microsoft-identity-platform"></a>Tipos de aplicaciones para la plataforma Microsoft identity
 
-El punto de conexión v2.0 de Azure Active Directory (Azure AD) admite la autenticación de una variedad de arquitecturas de aplicaciones modernas, todas ellas basadas en los protocolos estándar del sector [OAuth 2.0 u OpenID Connect](active-directory-v2-protocols.md). En este artículo se describen los tipos de aplicaciones que puede crear mediante Azure AD v2.0, con independencia de su plataforma o idioma preferidos. La información de este artículo está diseñada para ayudarle a entender los escenarios de alto nivel antes de [empezar a trabajar con el código](v2-overview.md#getting-started).
+El punto de conexión de Microsoft identity platform (v2.0) admite la autenticación para una variedad de arquitecturas de aplicaciones modernas, todas ellas basadas en protocolos estándar del sector [OAuth 2.0 u OpenID Connect](active-directory-v2-protocols.md). En este artículo se describe los tipos de aplicaciones que se pueden compilar mediante el uso de la plataforma Microsoft identity, independientemente de su plataforma o idioma preferido. La información está diseñada para ayudarle a entender los escenarios de alto nivel antes de [empiece a trabajar con el código](v2-overview.md#getting-started).
 
 > [!NOTE]
-> No todas las características y escenarios de Azure Active Directory son compatibles con la versión 2.0 del punto de conexión. Para determinar si debe usar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
+> El punto de conexión de plataforma de identidad de Microsoft no es compatible con todas las características y escenarios de Azure Active Directory (Azure AD). Para determinar si debe utilizar el punto de conexión de plataforma de identidad de Microsoft, obtenga información sobre [limitaciones de la plataforma de identidad de Microsoft](active-directory-v2-limitations.md).
 
 ## <a name="the-basics"></a>Conceptos básicos
 
-Cada aplicación que use el punto de conexión v2.0 debe registrarla en el [portal de registro de aplicaciones de Microsoft](https://apps.dev.microsoft.com). El proceso de registro de la aplicación recopila y asigna algunos valores a la aplicación:
+Debe registrar cada aplicación que usa el punto de conexión de plataforma de identidad de Microsoft en el nuevo [portal los registros de aplicación](https://go.microsoft.com/fwlink/?linkid=2083908). El proceso de registro de la aplicación recopila y asigna algunos valores a la aplicación:
 
-* Un **id. de aplicación** que identifica de forma única su aplicación
+* Un **Id. de aplicación (cliente)** que identifica la aplicación
 * Un **URI de redirección** que puede usarse para dirigir las respuestas de nuevo a la aplicación
-* Algunos otros valores específicos de cada escenario.
+* Algunos otros tipos de valores específicos del escenario que se admite como cuenta
 
-Para más información, aprenda a [registrar una aplicación](quickstart-v2-register-an-app.md).
+Para más información, aprenda a [registrar una aplicación](quickstart-register-app.md).
 
-Una vez registrada, la aplicación se comunica con Azure AD mediante el envío de solicitudes al punto de conexión v2.0 de Azure AD. Proporcionamos bibliotecas y marcos de código abierto que controlan los detalles de estas solicitudes. También tiene la opción de implementar la lógica de autenticación por su cuenta mediante la creación de solicitudes a estos puntos de conexión:
+Una vez registrada la aplicación, la aplicación se comunica con la plataforma Microsoft identity mediante el envío de solicitudes al punto de conexión. Proporcionamos bibliotecas y marcos de código abierto que controlan los detalles de estas solicitudes. También tiene la opción de implementar la lógica de autenticación por su cuenta mediante la creación de solicitudes a estos puntos de conexión:
 
 ```
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize
@@ -51,13 +51,13 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>Aplicaciones de una página (JavaScript)
 
-Muchas aplicaciones modernas tienen un front-end de aplicación de una página escrito principalmente en JavaScript. A menudo, se escribe con un marco como AngularJS, Ember.js o Durandal.js. El punto de conexión v2.0 de Azure AD admite estas aplicaciones mediante el [flujo implícito de OAuth 2.0](v2-oauth2-implicit-grant-flow.md).
+Muchas aplicaciones modernas tienen un front-end de aplicación de una página escrito principalmente en JavaScript. A menudo, se escribe con un marco como AngularJS, Ember.js o Durandal.js. El punto de conexión de plataforma de identidad de Microsoft es compatible con estas aplicaciones mediante el uso de la [flujo implícito de OAuth 2.0](v2-oauth2-implicit-grant-flow.md).
 
-En este flujo, la aplicación recibe tokens directamente del punto de conexión de autorización de v2.0, sin necesidad de realizar ningún intercambio de servidor a servidor. Toda la lógica de autenticación y el control de sesiones tiene lugar por completo en el cliente de JavaScript, sin redireccionamientos de página adicionales.
+En este flujo, la aplicación recibe tokens directamente desde la plataforma Microsoft identity autorizar un extremo sin ningún intercambio de servidor a servidor. Toda la lógica de autenticación y el control de sesiones tiene lugar por completo en el cliente de JavaScript, sin redireccionamientos de página adicionales.
 
-![Flujo de autenticación implícita](./media/v2-app-types/convergence_scenarios_implicit.png)
+![Flujo de autenticación implícita](./media/v2-app-types/convergence-scenarios-implicit.svg)
 
-Para ver este escenario en acción, pruebe uno de los ejemplos de código de aplicación de una única página en nuestra sección de [introducción a v2.0](v2-overview.md#getting-started).
+Para ver este escenario en acción, pruebe uno de los ejemplos de código de aplicación de una página en el [Introducción a la plataforma de identidad de Microsoft](v2-overview.md#getting-started) sección.
 
 ## <a name="web-apps"></a>Aplicaciones web
 
@@ -76,21 +76,21 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImtyaU1QZG1Cd...
 }
 ```
 
-Encontrará más información sobre los diferentes tipos de token que se usan en el punto de conexión v2.0 en la [referencia de token de acceso](access-tokens.md) y en la [referencia de `id_token`](id-tokens.md).
+Más detalles sobre los diferentes tipos de tokens que se usan en el punto de conexión de plataforma de identidad de Microsoft están disponibles en el [token de acceso](access-tokens.md) referencia y [referencia id_token](id-tokens.md)
 
 En las aplicaciones de servidor web, el flujo de autenticación de inicio de sesión realiza estos pasos de alto nivel:
 
-![Flujo de autenticación de aplicaciones web](./media/v2-app-types/convergence_scenarios_webapp.png)
+![Flujo de autenticación de aplicaciones web](./media/v2-app-types/convergence-scenarios-webapp.svg)
 
-Puede confirmar la identidad del usuario mediante la validación del token de id. con una clave de firma pública recibida por el punto de conexión v2.0. Se establece una cookie de sesión, que puede usarse para identificar al usuario en las sucesivas solicitudes de página.
+Puede garantizar la identidad del usuario al validar el token de identificador con una clave de firma pública que se recibe desde el punto de conexión de plataforma de identidad de Microsoft. Se establece una cookie de sesión, que puede usarse para identificar al usuario en las sucesivas solicitudes de página.
 
-Para ver este escenario en acción, pruebe uno de los ejemplos de código de inicio de sesión de aplicación web en nuestra sección de [introducción a v2.0](v2-overview.md#getting-started).
+Para ver este escenario en acción, pruebe uno de los ejemplos de código de inicio de sesión de aplicación web en el [Introducción a la plataforma de identidad de Microsoft](v2-overview.md#getting-started) sección.
 
 Además del inicio de sesión sencillo, una aplicación web de servidor podría tener la necesidad de acceder a otros servivio web, como una API de REST. En este caso, la aplicación de servidor web participa en un flujo combinado de OpenID Connect y OAuth 2.0, mediante el [flujo de código de autorización de OAuth 2.0](active-directory-v2-protocols.md). Para más información sobre este escenario, lea acerca de cómo [comenzar con aplicaciones web y API web](active-directory-v2-devquickstarts-webapp-webapi-dotnet.md).
 
 ## <a name="web-apis"></a>API web
 
-Puede usar el punto de conexión v2.0 para proteger los servicios web, como la API web RESTful de su aplicación. En lugar de tokens de id. y cookies de sesión, una API web usa un token de acceso de OAuth 2.0 para proteger sus datos y para autenticar las solicitudes entrantes. El llamador de una API web anexa un token de acceso en el encabezado de autorización de una solicitud HTTP, como esta:
+Puede usar el punto de conexión de plataforma de identidad de Microsoft para proteger los servicios web, como la API Web RESTful de la aplicación. En lugar de tokens de id. y cookies de sesión, una API web usa un token de acceso de OAuth 2.0 para proteger sus datos y para autenticar las solicitudes entrantes. El llamador de una API web anexa un token de acceso en el encabezado de autorización de una solicitud HTTP, como esta:
 
 ```
 GET /api/items HTTP/1.1
@@ -100,32 +100,32 @@ Accept: application/json
 ...
 ```
 
-La API web usa el token de acceso para comprobar la identidad del llamador de API y extraer información sobre el llamador de notificaciones que se codifican en dicho token. Encontrará más información sobre los diferentes tipos de token que se usan en el punto de conexión v2.0 en la [referencia de token de acceso](access-tokens.md) y en la [referencia de `id_token`](id-tokens.md).
+La API web usa el token de acceso para comprobar la identidad del llamador de API y extraer información sobre el llamador de notificaciones que se codifican en dicho token. Más detalles sobre los diferentes tipos de tokens que se usan en el punto de conexión de plataforma de identidad de Microsoft están disponibles en el [token de acceso](access-tokens.md) referencia y [referencia id_token](id-tokens.md)
 
-Una API web puede ofrecer a los usuarios la capacidad para administrar la participación/no participación de ciertas funcionalidades o datos mediante la exposición de permisos, conocidos también como [ámbitos](v2-permissions-and-consent.md). Para que una aplicación de llamada adquiera permiso para un ámbito, el usuario debe consentir el ámbito durante un flujo. El punto de conexión v2.0 solicita al usuario permiso y luego registra los permisos en todos los tokens de acceso que recibe la API web. La API web valida los tokens de acceso que recibe en cada llamada y realiza comprobaciones de autorización.
+Una API web puede ofrecer a los usuarios la capacidad para administrar la participación/no participación de ciertas funcionalidades o datos mediante la exposición de permisos, conocidos también como [ámbitos](v2-permissions-and-consent.md). Para que una aplicación de llamada adquiera permiso para un ámbito, el usuario debe consentir el ámbito durante un flujo. El punto de conexión de plataforma de identidad de Microsoft solicita al usuario permiso y, a continuación, registra los permisos en todos los tokens de acceso que recibe la API Web. La API web valida los tokens de acceso que recibe en cada llamada y realiza comprobaciones de autorización.
 
 Una API web puede recibir tokens de acceso de todos los tipos de aplicaciones, incluidas las aplicaciones de servidor web, aplicaciones móviles y de escritorio, aplicaciones de una página, demonios del lado del servidor e incluso otras API web. El flujo de alto nivel de una API web se parece a este:
 
-![Flujo de autenticación de API web](./media/v2-app-types/convergence_scenarios_webapi.png)
+![Flujo de autenticación de API web](./media/v2-app-types/convergence-scenarios-webapi.svg)
 
-Para aprender a proteger una API web con tokens de acceso de OAuth2, consulte los ejemplos de código de API web en nuestra sección de [introducción a v2.0](v2-overview.md#getting-started).
+Para obtener información sobre cómo proteger una API Web mediante el uso de tokens de acceso de OAuth2, consulte los ejemplos de código de API Web en el [Introducción a la plataforma de identidad de Microsoft](v2-overview.md#getting-started) sección.
 
-En muchos casos, las API web también tienen que realizar solicitudes salientes a otras API web de bajada protegidas por Azure Active Directory. Para ello, las API web pueden aprovechar las ventajas del flujo **en nombre de** de Azure AD, que permite a la API web intercambiar un token de acceso entrante por otro token de acceso que se usará en las solicitudes salientes. El flujo "en nombre de" del punto de conexión v2.0 se describe [aquí con mayor detalle](v2-oauth2-on-behalf-of-flow.md).
+En muchos casos, las API web también se necesita realizar solicitudes salientes a otra bajada las API web protegidas por la plataforma Microsoft identity. Para ello, puede aprovechar las API web de la **On-Behalf-Of** flujo, lo que permite que la API web intercambiar un token de acceso entrante por otro token de acceso que se usará en las solicitudes salientes. Para obtener más información, consulte [plataforma de identidad de Microsoft y flujo en nombre de OAuth 2.0](v2-oauth2-on-behalf-of-flow.md).
 
 ## <a name="mobile-and-native-apps"></a>Aplicaciones móviles y nativas
 
 Las aplicaciones instaladas en un dispositivo, como las aplicaciones móviles y de escritorio, suelen necesitar el acceso a servicios back-end o a las API web que almacenan datos y realizan varias funciones en nombre del usuario. Estas aplicaciones pueden agregar el inicio de sesión y la autorización a los servicios back-end mediante el [flujo de código de autorización de OAuth 2.0](v2-oauth2-auth-code-flow.md).
 
-En este flujo, la aplicación recibe un código de autorización del punto de conexión v2.0 cuando el usuario inicia sesión. El código de autorización representa el permiso de la aplicación para llamar a servicios de back-end en nombre del usuario que inició la sesión. La aplicación podrá intercambiar el código de autorización en segundo plano para un token de acceso de OAuth 2.0 y un token de actualización. La aplicación puede usar el token de acceso para autenticar las API web en las solicitudes HTTP y utilizar el token de actualización para obtener nuevos tokens de acceso cuando expiren los antiguos.
+En este flujo, la aplicación recibe un código de autorización desde el punto de conexión de plataforma de identidad de Microsoft cuando el usuario inicia sesión. El código de autorización representa el permiso de la aplicación para llamar a servicios de back-end en nombre del usuario que inició la sesión. La aplicación podrá intercambiar el código de autorización en segundo plano para un token de acceso de OAuth 2.0 y un token de actualización. La aplicación puede usar el token de acceso para autenticar las API web en las solicitudes HTTP y utilizar el token de actualización para obtener nuevos tokens de acceso cuando expiren los antiguos.
 
-![Flujo de autenticación de la aplicación nativa](./media/v2-app-types/convergence_scenarios_native.png)
+![Flujo de autenticación de la aplicación nativa](./media/v2-app-types/convergence-scenarios-native.svg)
 
 ## <a name="daemons-and-server-side-apps"></a>Demonios y aplicaciones de servidor
 
-Las aplicaciones que contienen procesos de larga duración o que funcionan sin la interacción con un usuario también necesitan un modo de acceder a recursos protegidos, como las API web. Estas aplicaciones pueden autenticarse y obtener tokens mediante la identidad de la aplicación, en lugar de una identidad delegada del usuario, con el flujo de credenciales de cliente de OAuth 2.0. Puede demostrar la identidad de la aplicación mediante un certificado o secreto de cliente. Para obtener más información, consulte [Authenticating to Azure AD in daemon apps with certificates](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/) (Autenticación en Azure AD en aplicaciones demonio con certificados).
+Las aplicaciones que contienen procesos de larga duración o que funcionan sin la interacción con un usuario también necesitan un modo de acceder a recursos protegidos, como las API web. Estas aplicaciones pueden autenticarse y obtener tokens mediante la identidad de la aplicación, en lugar de una identidad delegada del usuario, con el flujo de credenciales de cliente de OAuth 2.0. Puede demostrar la identidad de la aplicación mediante un certificado o secreto de cliente. Para obtener más información, consulte [autenticarse en la plataforma de identidad de Microsoft en aplicaciones de demonio con certificados](https://azure.microsoft.com/resources/samples/active-directory-dotnet-daemon-certificate-credential/).
 
 En este flujo, la aplicación interactúa directamente con el `/token` extremo para obtener acceso:
 
-![Flujo de autenticación de aplicación de demonio](./media/v2-app-types/convergence_scenarios_daemon.png)
+![Flujo de autenticación de aplicación de demonio](./media/v2-app-types/convergence-scenarios-daemon.svg)
 
 Para compilar una aplicación demonio, consulte la [documentación de credenciales de cliente](v2-oauth2-client-creds-grant-flow.md) en nuestra sección de introducción o pruebe una [aplicación de ejemplo de .NET](https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/14/2017
 ms.author: johnkem
 ms.subservice: alerts
-ms.openlocfilehash: 4d82cc59eb1098451a263957aa028b66996bb072
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: fb54e11c9da6bec2a1e0354317df6343140cbf09
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57307197"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006794"
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migración de las alertas de eventos de administración de Azure a Alertas del registro de actividad
 
@@ -104,7 +104,7 @@ Para crear una nueva alerta del registro de actividad:
 * Siga [nuestra guía sobre cómo crear una alerta en Azure Portal](../../azure-monitor/platform/activity-log-alerts.md)
 * Obtenga información acerca de cómo [crear una alerta mediante una plantilla de Resource Manager](../../azure-monitor/platform/alerts-activity-log.md)
  
-Las alertas de eventos de administración que haya creado previamente no se migrarán automáticamente a las alertas del registro de actividad. Debe utilizar el script de PowerShell anterior para mostrar las alertas de eventos de administración que tiene configuradas y volver a crearlas manualmente como alertas del registro de actividad. Esto debe hacerse antes del 1 de octubre, después del cual las alertas de eventos de administración ya no estará visibles en la suscripción de Azure. Otros tipos de alertas de Azure, incluidas las alertas de métricas de Azure Monitor, las alertas de Application Insights y las alertas de Log Analytics no se ven afectadas por este cambio. Si tiene alguna pregunta, indíquela en los comentarios a continuación.
+Las alertas de eventos de administración que haya creado previamente no se migrarán automáticamente a las alertas del registro de actividad. Debe utilizar el script de PowerShell anterior para mostrar las alertas de eventos de administración que tiene configuradas y volver a crearlas manualmente como alertas del registro de actividad. Esto debe hacerse antes del 1 de octubre, después del cual las alertas de eventos de administración ya no estará visibles en la suscripción de Azure. Otros tipos de alertas de Azure, incluidas las alertas de métricas de Azure Monitor, Application Insights alertas y las alertas de búsqueda de registros se ven afectados por este cambio. Si tiene alguna pregunta, indíquela en los comentarios a continuación.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

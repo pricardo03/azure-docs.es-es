@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 1edc2587ef8680f60082bf6271b73d30184f331b
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 52f74bb3cb9e460fc5c572079355f47b4b0bf0a3
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521251"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010454"
 ---
 # <a name="what-is-text-to-speech"></a>¿Qué es el texto a voz?
 
@@ -38,7 +38,7 @@ Esta tabla enumeran las características principales de texto a voz:
 
 | Caso de uso | SDK | REST |
 |----------|-----|------|
-| Convertir texto a voz. | Sin  | Sí |
+| Convertir texto a voz. | Sí | Sí |
 | Cargar conjuntos de datos para la adaptación de voz. | Sin  | Sí\* |
 | Crear y administrar modelos de fuente de voz. | Sin  | Sí\* |
 | Crear y administrar implementaciones de la fuente de voz. | Sin  | Sí\* |
@@ -54,27 +54,34 @@ Esta tabla enumeran las características principales de texto a voz:
 
 Se ofrecen tutoriales rápidos diseñados para tener que ejecutar código en menos de 10 minutos. Esta tabla incluye una lista de tutoriales rápidos de texto a voz organizadas por lenguaje.
 
-| Guía de inicio rápido | Plataforma | Referencia de API |
+| Guía de inicio rápido (REST) | Plataforma | Referencia de API |
 |------------|----------|---------------|
-| [C#, .NET core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Ventana, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Python](quickstart-python-text-to-speech.md) | Ventana, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Examinar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Ventana, macOS, Linux | [Examinar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Python](quickstart-python-text-to-speech.md) | Ventana, macOS, Linux | [Examinar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+
+| Guía de inicio rápido (SDK) | Plataforma | Referencia de API |
+|------------|----------|---------------|
+| [C#, .NET framework](quickstart-text-to-speech-dotnet-windows.md) |  Windows | [Examinar](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-text-to-speech-cpp-windows.md) |  Windows | [Examinar](https://aka.ms/csspeech/cppref) |
+| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Examinar](https://aka.ms/csspeech/cppref) |
 
 ## <a name="sample-code"></a>Código de ejemplo
 
 Código de ejemplo de texto a voz está disponible en GitHub. Estos ejemplos tratan la conversión de texto a voz en lenguajes de programación más populares.
 
 * [Ejemplos de texto a voz (REST)](https://github.com/Azure-Samples/Cognitive-Speech-TTS)
+* [Ejemplos de texto a voz (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 
 ## <a name="reference-docs"></a>Documentos de referencia
 
-* [Speech SDK](speech-sdk-reference.md)
-* [Speech Devices SDK](speech-devices-sdk.md)
-* [API REST: Speech-to-text](rest-speech-to-text.md) (API de REST: Voz a texto)
-* [API REST: Text-to-speech](rest-text-to-speech.md) (API de REST: Texto a voz)
-* [API REST: Batch transcription and customization](https://westus.cris.ai/swagger/ui/index) (API de REST: Transcripción y personalización de Azure Batch)
+* [SDK de voz](speech-sdk-reference.md)
+* [SDK de dispositivos de voz](speech-devices-sdk.md)
+* [API REST: Voz a texto](rest-speech-to-text.md)
+* [API REST: Texto a voz](rest-text-to-speech.md)
+* [API REST: Personalización y transcripción de lote](https://westus.cris.ai/swagger/ui/index)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Obtención de una suscripción de gratuita a servicios de Voz](get-started.md)
-* [Creación de fuentes de voz personalizadas](how-to-customize-voice-font.md)
+* [Obtener una suscripción de servicios de voz gratis](get-started.md)
+* [Crear fuentes de voz personalizados](how-to-customize-voice-font.md)

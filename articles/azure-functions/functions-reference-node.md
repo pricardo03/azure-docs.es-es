@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 02/24/2019
 ms.author: glenga
-ms.openlocfilehash: d9de47ad83f37fa976c3816a0cb2e3e3beaa5472
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 9ef7dd7603b93f6b15988cc4cca089f0486eb3b0
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437584"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010123"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guía para el desarrollador de JavaScript para Azure Functions
 
@@ -110,13 +110,13 @@ En JavaScript, los [enlaces](functions-triggers-bindings.md) se configuran y def
 
 ### <a name="inputs"></a>Entradas
 Las entradas se dividen en dos categorías Azure Functions: una es la entrada del desencadenador y la otra es una entrada adicional. Una función puede leer los enlaces del desencadenador y de entrada (enlaces de `direction === "in"`) de tres maneras:
- - **_[Recomendada]_ Como parámetros pasados a la función.** Se pasan a la función en el mismo orden en que se definen en *function.json*. El `name` propiedad definida en *function.json* no necesita coincidir con el nombre del parámetro, aunque lo que debería.
+ - **_[Recomendado]_  Como parámetros se pasan a la función.** Se pasan a la función en el mismo orden en que se definen en *function.json*. El `name` propiedad definida en *function.json* no necesita coincidir con el nombre del parámetro, aunque lo que debería.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **Como miembros del objeto [`context.bindings`](#contextbindings-property).** Cada miembro se denomina mediante la propiedad `name` definida en el archivo *function.json*.
+ - **Como los miembros de la [ `context.bindings` ](#contextbindings-property) objeto.** Cada miembro se denomina mediante la propiedad `name` definida en el archivo *function.json*.
  
    ```javascript
    module.exports = async function(context) { 
@@ -126,7 +126,7 @@ Las entradas se dividen en dos categorías Azure Functions: una es la entrada de
    };
    ```
    
- - **Como entradas mediante el objeto [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) de JavaScript.** Es básicamente lo mismo que pasar entradas como parámetros, pero permite controlar las entradas de manera dinámica.
+ - **Como entradas con el código JavaScript [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) objeto.** Es básicamente lo mismo que pasar entradas como parámetros, pero permite controlar las entradas de manera dinámica.
  
    ```javascript
    module.exports = async function(context) { 
@@ -141,7 +141,7 @@ Las salidas (enlaces de `direction === "out"`) se pueden escribir mediante una f
 
 Puede asignar datos a los enlaces de salida en una de las maneras siguientes (no combinar estos métodos):
 
-- **_[Recomendado para varias salidas]_ Devolución de un objeto.** Si usa una función de devolución asincrónica o de promesa, puede devolver un objeto con datos de salida asignados. En el ejemplo siguiente, los enlaces de salida se denominan "httpResponse" y "queueOutput" en el archivo *function.json*.
+- **_[Recomendado para varias salidas]_  Devolver un objeto.** Si usas un async/promesa devuelve la función, puede devolver un objeto con datos de salida asignado. En el ejemplo siguiente, los enlaces de salida se denominan "httpResponse" y "queueOutput" en el archivo *function.json*.
 
   ```javascript
   module.exports = async function(context) {
@@ -156,7 +156,7 @@ Puede asignar datos a los enlaces de salida en una de las maneras siguientes (no
   ```
 
   Si utiliza una función sincrónica, puede devolver este objeto mediante [`context.done`](#contextdone-method) (vea el ejemplo).
-- **_[Recomendado para una salida única]_ Devolución de un valor directamente y uso del nombre de enlace $return.** Este método solo funciona con las funciones de devolución asincrónicas o de promesa. Vea el ejemplo de [Exportación de una función asincrónica](#exporting-an-async-function). 
+- **_[Recomendado para la salida solo]_  Devolviendo un valor directamente y con el nombre de enlace $return.** Este método solo funciona con las funciones de devolución asincrónicas o de promesa. Vea el ejemplo de [Exportación de una función asincrónica](#exporting-an-async-function). 
 - **Asignación de valores a `context.bindings`**. Puede asignar valores directamente a context.bindings.
 
   ```javascript
@@ -350,12 +350,12 @@ El objeto `context.req` (solicitud) tiene las siguientes propiedades:
 
 | Propiedad      | DESCRIPCIÓN                                                    |
 | ------------- | -------------------------------------------------------------- |
-| _body_        | Objeto que contiene el cuerpo de la solicitud.               |
-| _headers_     | Objeto que contiene los encabezados de la solicitud.                   |
-| _method_      | Método HTTP de la solicitud.                                |
+| _Cuerpo_        | Objeto que contiene el cuerpo de la solicitud.               |
+| _encabezados_     | Objeto que contiene los encabezados de la solicitud.                   |
+| _estático_      | Método HTTP de la solicitud.                                |
 | _originalUrl_ | Dirección URL de la solicitud.                                        |
 | _params_      | Objeto que contiene los parámetros de enrutamiento de la solicitud. |
-| _consulta_       | Objeto que contiene los parámetros de consulta.                  |
+| _query_       | Objeto que contiene los parámetros de consulta.                  |
 | _rawBody_     | Cuerpo del mensaje como una cadena.                           |
 
 
@@ -365,10 +365,10 @@ El objeto `context.res` (respuesta) tiene las siguientes propiedades:
 
 | Propiedad  | DESCRIPCIÓN                                               |
 | --------- | --------------------------------------------------------- |
-| _body_    | Objeto que contiene el cuerpo de la respuesta.         |
-| _headers_ | Objeto que contiene los encabezados de la respuesta.             |
+| _Cuerpo_    | Objeto que contiene el cuerpo de la respuesta.         |
+| _encabezados_ | Objeto que contiene los encabezados de la respuesta.             |
 | _isRaw_   | Indica que se omite el formato en la respuesta.    |
-| _estado_  | Código de estado HTTP de la respuesta.                     |
+| _status_  | Código de estado HTTP de la respuesta.                     |
 
 ### <a name="accessing-the-request-and-response"></a>Acceso a solicitudes y respuestas 
 
@@ -395,7 +395,7 @@ Cuando se trabaja con desencadenadores HTTP, hay varias maneras de acceder a los
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
-+ **_[Solo respuesta]_ Llamando a `context.res.send(body?: any)`.** Se crea una respuesta HTTP con la entrada `body` como cuerpo de la respuesta. Se llama a `context.done()` implícitamente.
++ **_[Solo respuesta]_ Llamando a `context.res.send(body?: any)`.** Se crea una respuesta HTTP con la entrada `body` como cuerpo de la respuesta. `context.done()` se llama implícitamente.
 
 + **_[Solo respuesta]_ Llamando a `context.done()`.** Un tipo especial de enlace HTTP que devuelve la respuesta que se pasa al método `context.done()`. El enlace de salida HTTP siguiente define un parámetro de salida `$return`:
 
@@ -494,7 +494,7 @@ Las propiedades de `function.json` `scriptFile` y `entryPoint` pueden usarse par
 
 De forma predeterminada, se ejecuta una función de JavaScript desde `index.js`, un archivo que comparte el mismo directorio primario que su archivo `function.json` correspondiente.
 
-`scriptFile` se puede usar para obtener una estructura de carpetas que tenga el aspecto del ejemplo siguiente:
+`scriptFile` puede usarse para obtener una estructura de carpetas es similar al ejemplo siguiente:
 
 ```
 FunctionApp
@@ -626,6 +626,6 @@ Para obtener más información, consulte los siguientes recursos:
 
 + [Procedimientos recomendados para Azure Functions](functions-best-practices.md)
 + [Referencia para desarrolladores de Azure Functions](functions-reference.md)
-+ [Enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md)
++ [Los enlaces y desencadenadores de azure Functions](functions-triggers-bindings.md)
 
 ['func azure functionapp publish']: functions-run-local.md#project-file-deployment

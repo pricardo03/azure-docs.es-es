@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: panosper
 ms.custom: seodec18
-ms.openlocfilehash: 139c5d47fe6ea82148e2d5e1cf2f5fcb72d4020e
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: f825cf8f381a7a2974b150a74a091412b24b09bc
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339404"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005170"
 ---
 # <a name="enable-custom-pronunciation"></a>Habilitar la pronunciación personalizada
 
@@ -63,7 +63,7 @@ La pronunciación personalizada solo se admite en inglés (en-US) y en alemán (
 Un formulario de presentación puede ser solo una palabra personalizada, acrónimo o las palabras compuestas que combinan palabras existentes.
 
 >[!NOTE]
->No se recomienda usar esta característica para volver a formular palabras comunes o para modificar el formato hablado. Es mejor ejecutar el descodificador para ver si algunas palabras poco habituales (por ejemplo, abreviaturas, palabras técnicas o palabras en otros idiomas) no se han descodificado correctamente. Si es así, agréguelas al archivo pronunciación personalizada. En el modelo de lenguaje, debe usar siempre el formato mostrado de una palabra y solo ese formato.
+>No se recomienda usar esta característica para volver a formular palabras comunes o para modificar el formato hablado. Es una mejor comprobación si algunas palabras inusuales (por ejemplo, abreviaturas, palabras técnicas o palabras en otros idiomas) son incorrectamente transribed antes de que se usa esta característica. Si es así, agréguelas al archivo pronunciación personalizada. En el modelo de lenguaje, debe usar siempre el formato mostrado de una palabra y solo ese formato.
 
 ## <a name="requirements-for-the-file-size"></a>Requisitos para el tamaño de archivo
 El tamaño del archivo .txt que contiene las entradas de pronunciación está limitado a 1 megabyte (1 KB para las claves del nivel gratuito). Por lo general, no es necesario cargar grandes cantidades de datos con este archivo. La mayoría de los archivos de pronunciación personalizada suelen tener un tamaño de varios kilobytes (KB). La codificación del archivo .txt para todas las configuraciones regionales debería ser BOM UTF-8. En la configuración regional en inglés, ANSI también es aceptable.

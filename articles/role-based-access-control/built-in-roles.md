@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 4557ce7dea207be0bc6f68a62e3dd7f81ce87911
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: f505f922685cd192525814df25cca1a1401d2913
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010675"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281223"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Roles integrados en los recursos de Azure
 
@@ -121,7 +121,6 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 | [Propietario de cuenta de Spatial Anchors](#spatial-anchors-account-owner) | Permite administrar los anclajes especiales de su cuenta, e incluso eliminarlos. |
 | [Lector de cuenta de Spatial Anchors](#spatial-anchors-account-reader) | Permite encontrar y leer las propiedades de los anclajes espaciales de su cuenta. |
 | [Colaborador de Base de datos de SQL](#sql-db-contributor) | Permite administrar las bases de datos de SQL, pero no acceder a ellas. Además, no puede administrar sus directivas relacionadas con la seguridad ni los servidores SQL primarios. |
-| [Colaborador de la instancia administrada de SQL](#sql-managed-instance-contributor) | Le permite administrar las instancias administradas de SQL, pero no se puede conceder acceso a otros usuarios. |
 | [Administrador de seguridad SQL](#sql-security-manager) | Permite administrar las directivas relacionadas con seguridad de bases de datos y servidores SQL, pero no acceder a ellas. |
 | [Colaborador de SQL Server](#sql-server-contributor) | Permite administrar bases de datos y servidores SQL, pero no acceder a ellos, ni a sus directivas relacionadas con la seguridad. |
 | [Colaborador de la cuenta de almacenamiento](#storage-account-contributor) | Permite administrar cuentas de almacenamiento, pero no acceder a ellas. |
@@ -2229,31 +2228,6 @@ En la tabla siguiente se proporciona una breve descripción de cada rol integrad
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentScans/* |  |
 > | Microsoft.Sql/servers/databases/vulnerabilityAssessmentSettings/* |  |
 > | Microsoft.Sql/servers/vulnerabilityAssessments/* |  |
-> | **DataActions** |  |
-> | *None* |  |
-> | **NotDataActions** |  |
-> | *None* |  |
-
-## <a name="sql-managed-instance-contributor"></a>Colaborador de la instancia administrada de SQL
-> [!div class="mx-tableFixed"]
-> | | |
-> | --- | --- |
-> | **DESCRIPCIÓN** | Le permite administrar las instancias administradas de SQL, pero no se puede conceder acceso a otros usuarios. |
-> | **Id** | 4939a1f6-9ae0-4e48-a1e0-f2cbe897382d |
-> | **Acciones** |  |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtiene los estados de disponibilidad de todos los recursos en el ámbito especificado |
-> | Microsoft.Resources/deployments/* | Crear y administrar implementaciones de grupos de recursos |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtiene o enumera los grupos de recursos. |
-> | Microsoft.Network/networkSecurityGroups/write | Crea un grupo de seguridad de red o actualiza uno que ya existe |
-> | Microsoft.Network/routeTables/write | Crea una tabla de rutas o actualiza una que ya existe. |
-> | Microsoft.Sql/locations/*/read |  |
-> | Microsoft.Sql/managedInstances/* |  |
-> | Microsoft.Support/* | Crear y administrar incidencias de soporte técnico |
-> | Microsoft.Network/virtualNetworks/subnets/write | Crea una subred de red virtual o actualiza una que ya existe |
-> | Microsoft.Network/virtualNetworks/subnets/join/action | Se une a una red virtual. No genera alertas. |
-> | Microsoft.Authorization/*/read | Leer roles y asignaciones de roles |
-> | **NotActions** |  |
-> | *None* |  |
 > | **DataActions** |  |
 > | *None* |  |
 > | **NotDataActions** |  |

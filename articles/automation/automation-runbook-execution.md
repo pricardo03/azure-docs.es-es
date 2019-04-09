@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/03/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9d4661f6c975265ec710b29a8a05cc7ef41b4011
-ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
-ms.translationtype: HT
+ms.openlocfilehash: 0445643d3aae0e4e072e7fa8e3a73dc8973e84a5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59057428"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268507"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ejecución de un runbook en Azure Automation
 
@@ -51,6 +51,8 @@ Los runbooks de Azure Automation puede ejecutarse en un espacio aislado de Azure
 ## <a name="runbook-behavior"></a>Comportamiento del runbook
 
 Los runbooks se ejecutan según la lógica que se define dentro de ellos. Si se interrumpe un runbook, se reinicia desde el principio. Este comportamiento requiere que los runbooks se escriban de forma que puedan reiniciarse en caso de producirse problemas transitorios.
+
+Se ejecutaron los trabajos de PowerShell que se inició desde un Runbook en Azure espacio aislado no se puede ejecutar en el modo de lenguaje completo. Para más información acerca de los modos de lenguaje de PowerShell, consulte [modos de lenguaje de PowerShell](/powershell/module/microsoft.powershell.core/about/about_language_modes). Para obtener más detalles sobre cómo interactuar con los trabajos en Azure Automation, consulte [recuperar el estado del trabajo con PowerShell](#retrieving-job-status-using-powershell)
 
 ### <a name="creating-resources"></a>Creación de recursos
 

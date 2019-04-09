@@ -7,16 +7,16 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 1/15/2019
 ms.author: cherylmc
-ms.openlocfilehash: f7288202eb6dd66aee0bb38bb3611e8b319b50f2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d1e57e623e3e95f3d71e895c49c928f00aa0ad46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58010546"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274679"
 ---
 # <a name="configure-openvpn-clients-for-azure-vpn-gateway-preview"></a>Configuración de los clientes OpenVPN de Azure VPN Gateway (versión preliminar)
 
-En este artículo se ofrece ayuda para configurar los clientes OpenVPN.
+En este artículo le ayuda a configurar **OpenVPN® protocolo** los clientes.
 
 > [!IMPORTANT]
 > Esta versión preliminar pública se proporciona sin un contrato de nivel de servicio y no debe usarse para cargas de trabajo de producción. Puede que algunas características no se admitan, que tengan funcionalidades limitadas o que no estén disponibles en todas las ubicaciones de Azure. Para más información, consulte [Términos de uso complementarios de las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -49,7 +49,7 @@ Compruebe que ha completado los pasos para configurar OpenVPN para VPN Gateway. 
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Abra el archivo *profileinfo.txt* en el Bloc de notas. Para obtener la clave privada, seleccione el texto (incluido y entre) "---BEGIN PRIVATE KEY---" y "---BEGIN PRIVATE KEY---" y cópielo.
+8. Abra el archivo *profileinfo.txt* en el Bloc de notas. Para obtener la clave privada, seleccione el texto (incluido y entre) "---BEGIN PRIVATE KEY---" y "---END PRIVATE KEY---" y cópielo.
 9. Vuelva al archivo vpnconfig.ovpn en el Bloc de notas y busque esta sección. Pegue la clave privada y reemplace todo lo que hay entre "key" y "/key".
 
    ```
@@ -109,7 +109,7 @@ Compruebe que ha completado los pasos para configurar OpenVPN para VPN Gateway. 
    $CLIENTCERTIFICATE
    </cert>
    ```
-8. Abra el archivo profileinfo.txt en un editor de texto. Para obtener la clave privada, seleccione el texto (incluido y entre) "---BEGIN PRIVATE KEY---" y "---BEGIN PRIVATE KEY---" y cópielo.
+8. Abra el archivo profileinfo.txt en un editor de texto. Para obtener la clave privada, seleccione el texto incluido y entre "---BEGIN clave privada---" y "---END PRIVATE KEY---" y cópielo.
 
 9. Abra el archivo vpnconfig.ovpn en un editor de texto y busque esta sección. Pegue la clave privada y reemplace todo lo que hay entre "key" y "/key".
 
@@ -138,4 +138,6 @@ Compruebe que ha completado los pasos para configurar OpenVPN para VPN Gateway. 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Si desea que los clientes de VPN tengan acceso a recursos de otra red virtual (producción), siga las instrucciones del artículo [De red virtual a red virtual](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) para configurar una conexión de red virtual a red virtual. Asegúrese de habilitar BGP en las puertas de enlace y las conexiones; en caso contrario, el tráfico no fluirá.
+Si desea que los clientes de VPN para tener acceso a recursos en otra red virtual (producción), a continuación, siga las instrucciones de la [VNet a](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) artículo para configurar una conexión de red virtual a red virtual. Asegúrese de habilitar BGP en las puertas de enlace y las conexiones; en caso contrario, el tráfico no fluirá.
+
+**"OpenVPN" es una marca de OpenVPN Inc.**

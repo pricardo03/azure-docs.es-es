@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/22/2019
+ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d99c6b419ee201be50e74849cd95a332845f5b73
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 483f9092d29fc40937ed9d54510269af2af30872
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58623174"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008653"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Programación de un runbook en Azure Automation
 
@@ -156,6 +156,9 @@ Cuando se deshabilita una programación, los runbooks vinculados a ella ya no se
 1. En Azure Portal, desde su cuenta de Automation, seleccione **programaciones** en la sección **Recursos compartidos** de la izquierda.
 2. Haga clic en el nombre de una programación para abrir el panel de detalles.
 3. Cambie **Habilitado** a **No**.
+
+> [!NOTE]
+> Si desea deshabilitar una programación que tiene una hora de inicio en el pasado, debe cambiar la fecha de inicio a un momento en el futuro antes de guardarlo.
 
 ### <a name="to-disable-a-schedule-with-powershell"></a>Para deshabilitar una programación con PowerShell
 

@@ -2,14 +2,14 @@
 author: msmbaldwin
 ms.service: key-vault
 ms.topic: include
-ms.date: 01/31/2019
+ms.date: 03/15/2019
 ms.author: mbaldwin
-ms.openlocfilehash: aba09012bf2e9d2741f598280add8b599a6f6d1a
-ms.sourcegitcommit: 415742227ba5c3b089f7909aa16e0d8d5418f7fd
-ms.translationtype: HT
+ms.openlocfilehash: 0a52b7a5234b292fa3f8c3e19fe7f62f989d639c
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55807146"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59007241"
 ---
 ## <a name="preventative"></a>Prevención
 
@@ -17,7 +17,7 @@ ms.locfileid: "55807146"
 |---|---|--|
 | Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>| Sí | Se cifran todos los objetos. |
 | Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>Cifrado en red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sí | Toda la comunicación se realiza a través de llamadas a API cifradas |
-| Control de clave de cifrado (CMK, BYOK, etc.)| Sí | El cliente controla todas las claves de su almacén de claves. Cuando se especifican claves con el respaldo del módulo de seguridad de hardware (HSM), un HSM de nivel 2 de FIPS protege la clave, el certificado o el secreto. |
+| Control de clave de cifrado (CMK, BYOK, etc.)| Sí | El cliente controla todas las claves de su almacén de claves. Cuando se especifican las claves de módulo (HSM) copiada de seguridad de hardware, un HSM de FIPS nivel 2 protege la clave, el certificado o el secreto. |
 | Cifrado de nivel de columna (Azure Data Services)| N/D |  |
 | Llamadas a API cifradas| Sí | Se usa HTTPS. |
 
@@ -34,7 +34,7 @@ ms.locfileid: "55807146"
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Compatibilidad con supervisión de Azure (Log Analytics, Application Insights, etc.)| Sí | Se usa Log Analytics. |
+| Supervisión de soporte técnico (Log analytics, Application insights, etcetera) de Azure| Sí | Se usa Log Analytics. |
 
 ## <a name="iam-support"></a>Compatibilidad con IAM
 

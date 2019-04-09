@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1dda3e379a9dcec9dc48d741c107ee352c4f2033
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
-ms.translationtype: MT
+ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404644"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057156"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Preguntas frecuentes acerca de Avere vFXT for Azure
 
@@ -200,7 +200,15 @@ En entornos sensibles a la latencia, debe usar una solución de fibra con una ve
 
 No, Avere vFXT está pensada para funcionar en un entorno de red protegido a través de los procedimientos recomendados.  
 
-## <a name="technical-back-end-storage-core-filers"></a>Técnico: Almacenamiento de back-end (archivadores de core)
+### <a name="can-i-restrict-internet-access-from-my-clusters-virtual-network"></a>¿Puedo restringir el acceso a internet desde la red virtual de mi clúster? 
+
+En general, puede configurar seguridad adicional en la red virtual según sea necesario, pero algunas restricciones pueden interferir con el funcionamiento del clúster.
+
+Por ejemplo, restringir el acceso saliente a internet desde la red virtual provoca problemas para el clúster a menos que agregue también las reglas que permiten explícitamente acceso a AzureConnectors y a la nube de Azure. Esta situación se describe en [documentación complementaria en GitHub](https://github.com/Azure/Avere/tree/master/src/vfxt/internet_access.md).
+
+Para obtener ayuda con seguridad personalizada, póngase en contacto con soporte técnico como se describe en [obtener ayuda con su sistema](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
+
+## <a name="technical-back-end-storage-core-filers"></a>Técnica: Almacenamiento de back-end (archivadores de core)
 
 ### <a name="how-many-core-filers-does-a-single-avere-vfxt-environment-support"></a>¿Cuántos archivadores de core admite un único entorno de Avere vFXT?
 
@@ -278,9 +286,9 @@ No, los clústeres de Avere vFXT requieren un servicio "siempre disponible". Los
 
 Para empezar a trabajar con Avere vFXT for Azure, lea estos artículos para obtener información sobre cómo planear e implementar su propio sistema:
 
-* [Planeamiento de un sistema de Avere vFXT](avere-vfxt-deploy-plan.md)
+* [Planear un sistema de Avere vFXT](avere-vfxt-deploy-plan.md)
 * [Descripción general de la implementación](avere-vfxt-deploy-overview.md)
-* [Preparación para la creación de un clúster de Avere vFXT](avere-vfxt-prereqs.md)
-* [Implementación del clúster Avere de vFXT](avere-vfxt-deploy.md)
+* [Preparar la creación de un clúster de vFXT Avere](avere-vfxt-prereqs.md)
+* [Implementar el clúster de vFXT Avere](avere-vfxt-deploy.md)
 
 Para más información sobre las funcionalidades y casos de uso de Avere vFXT, visite [Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/).

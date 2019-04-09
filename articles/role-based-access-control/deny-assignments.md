@@ -15,12 +15,12 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
-ms.openlocfilehash: fff213c8d1a408bf96e385f2097a5ef30dcc05d2
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992105"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006726"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Descripción de las asignaciones de denegación para recursos de Azure
 
@@ -31,7 +31,7 @@ En cierto modo, las asignaciones de denegación son diferentes a las asignacione
 En este artículo se describe cómo se definen las asignaciones de denegación.
 
 > [!NOTE]
-> En este momento, la única manera de agregar los suyos propios denegar asignaciones es mediante el uso de proyectos de Azure. Para obtener más información, consulte [proteger nuevos recursos con los bloqueos de recursos de Azure planos](../governance/blueprints/tutorials/protect-new-resources.md).
+> En este momento, la única manera de agregar sus propias asignaciones de denegación es usar Azure Blueprints. Para más información, consulte [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md) (Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints).
 
 ## <a name="deny-assignment-properties"></a>Propiedades de la asignación de denegación
 
@@ -56,12 +56,12 @@ En este artículo se describe cómo se definen las asignaciones de denegación.
 
 ## <a name="system-defined-principal"></a>Entidad de seguridad definida por el sistema
 
-Con objeto de admitir las asignaciones de denegación, se ha introducido la **entidad de seguridad definida por el sistema**. Esta entidad de seguridad representa a todos los usuarios, grupos, entidades de servicio y identidades administradas de un directorio de Azure AD. Si el identificador de la entidad de seguridad es un GUID cero `00000000-0000-0000-0000-000000000000` y el tipo de entidad de seguridad es `SystemDefined`, la entidad de seguridad representa a todas las entidades de seguridad. `SystemDefined` se puede combinar con `ExcludePrincipals` para denegar todas las entidades de seguridad, salvo algunos usuarios. `SystemDefined` tiene las siguientes restricciones:
+Con objeto de admitir las asignaciones de denegación, se ha introducido la **entidad de seguridad definida por el sistema**. Esta entidad de seguridad representa a todos los usuarios, grupos, entidades de servicio y identidades administradas de un directorio de Azure AD. Si el identificador de la entidad de seguridad es un GUID cero `00000000-0000-0000-0000-000000000000` y el tipo de entidad de seguridad es `SystemDefined`, la entidad de seguridad representa a todas las entidades de seguridad. `SystemDefined` se puede combinar con `ExcludePrincipals` para denegar todas las entidades, salvo algunos usuarios. `SystemDefined` tiene las siguientes restricciones:
 
 - Solo se puede utilizar en `Principals` y no se puede usar en `ExcludePrincipals`.
-- `Principals[i].Type` se debe establecer en `SystemDefined`.
+- `Principals[i].Type` Se debe establecer en `SystemDefined`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Enumeración de las asignaciones de denegación para recursos de Azure mediante la API de REST](deny-assignments-rest.md)
+* [Visualización de las asignaciones de denegación de recursos de Azure mediante Azure Portal](deny-assignments-portal.md)
 * [Descripción de definiciones de roles para los recursos de Azure](role-definitions.md)

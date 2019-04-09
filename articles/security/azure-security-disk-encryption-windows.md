@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: c6aa3a1999460b5eb3e62e36883bb4827bd41305
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
-ms.translationtype: HT
+ms.openlocfilehash: f17dc61f47dadf4c808467b2158cd9ef034e1ce9
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010352"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277126"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Habilitación de Azure Disk Encryption para máquinas virtuales IaaS Windows
 
@@ -223,8 +223,7 @@ Use [az vmss encryption enable](/cli/azure/vmss/encryption#az-vmss-encryption-en
 Para cifrar o descifrar conjuntos de escalado de máquinas virtuales Windows, use las plantillas de Azure Resource Manager y las instrucciones siguientes:
 
 - [Habilitar el cifrado en un conjunto de escalado de máquinas virtuales de Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
-- [Implementar un conjunto de escalado de máquinas virtuales de Windows con un jumpbox y habilitar el cifrado en el conjunto de escalado de máquinas virtuales de Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
-- [Deshabilitación del cifrado en un conjunto de escalado de máquina virtual de Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
+- [Deshabilitación del cifrado en un conjunto de escalado de máquinas virtuales de Windows](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
      1. Haga clic en **Implementar en Azure**.
      2. Rellene los campos obligatorios y acepte los términos y condiciones.

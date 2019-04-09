@@ -6,19 +6,19 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
-ms.openlocfilehash: b4d40f011b9a9e69953496fbdb0dc63ffc8a5027
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: d1f94c5fd774b51f57da2885d1ccd8eb909cd3c0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774564"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268014"
 ---
 # <a name="manage-and-configure-projects"></a>Administración y configuración de proyectos
 
@@ -95,7 +95,7 @@ El comando **+ Nuevo** (método abreviado de teclado: n) crea archivos o carpeta
 
 | Tipo de elemento | DESCRIPCIÓN | Comportamiento del comando |
 | --- | --- | --- |
-| **Cuaderno** | Un cuaderno de Jupyter | Muestra un elemento emergente en el que se especifica el nombre de archivo y el lenguaje del cuaderno. |
+| **Bloc de notas** | Un cuaderno de Jupyter | Muestra un elemento emergente en el que se especifica el nombre de archivo y el lenguaje del cuaderno. |
 | **Carpeta** | Una subcarpeta | Crea un campo de edición en la lista de archivos del proyecto donde se escribe el nombre de la carpeta. |
 | **Archivo en blanco** | Un archivo donde puede almacenar cualquier contenido, como texto, datos, etc. | Crea un campo de edición en la lista de archivos del proyecto donde se escribe el nombre del archivo. |
 | **Markdown** | Un archivo Markdown. | Crea un campo de edición en la lista de archivos del proyecto donde se escribe el nombre del archivo. |
@@ -222,5 +222,5 @@ También puede usar el comando desde una celda de código de un cuaderno de Pyth
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Procedimientos: Work with project data files](work-with-project-data-files.md) (Trabajo con archivos de datos de proyecto)
-- [Access cloud data in a notebook](access-data-resources-jupyter-notebooks.md) (Acceso a los datos en la nube en un cuaderno)
+- [Procedimientos para: Trabajar con archivos de datos de proyecto](work-with-project-data-files.md)
+- [Acceso a los datos en la nube en un cuaderno](access-data-resources-jupyter-notebooks.md)

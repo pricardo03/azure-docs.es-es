@@ -1,21 +1,21 @@
 ---
 title: 'Raspberry PI a la nube simulado (Node.js): Conectar el simulador web de Raspberry PI a Azure IoT Hub | Microsoft Docs'
 description: Conectar el simulador web de Raspberry Pi a Azure IoT Hub para que Raspberry Pi envíe datos a la nube de Azure.
-author: rangv
-manager: ''
+author: wesmc7777
+manager: philmea
 keywords: simulador de raspberry pi, azure iot raspberry pi, raspberry pi iot hub, raspberry pi envía datos a la nube, raspberry pi a la nube
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/11/2018
-ms.author: rangv
-ms.openlocfilehash: 3f8fbf571efafe22d7d0c5ccfd71dded381ba6fb
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.author: wesmc
+ms.openlocfilehash: 58e05ba4fb2e362147f7ca28d83440ddabb6ef38
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847213"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267742"
 ---
 # <a name="connect-raspberry-pi-online-simulator-to-azure-iot-hub-nodejs"></a>Conectar el simulador en línea de Raspberry Pi a Azure IoT Hub (Node.js)
 
@@ -90,11 +90,11 @@ Hay tres áreas en el simulador web.
 ## <a name="run-a-sample-application-on-pi-web-simulator"></a>Ejecución de una aplicación de ejemplo en el simulador web de Pi
 
 1. En el área de codificación, asegúrese de trabajar en la aplicación de ejemplo predeterminada. Reemplace el marcador de posición de la línea 15 con la cadena de conexión del dispositivo de Azure IoT Hub.
-   ![Reemplazo de la cadena de conexión de dispositivo](media/iot-hub-raspberry-pi-web-simulator/1_connectionstring.png)
+   ![Reemplace la cadena de conexión de dispositivo](media/iot-hub-raspberry-pi-web-simulator/1_connectionstring.png)
 
 2. Haga clic en **Ejecutar** o escriba `npm start` para ejecutar la aplicación.
 
-Debería ver el resultado siguiente que muestra los datos de sensor y los mensajes que se envían a IoT Hub ![Resultado: datos de sensor enviados desde Raspberry Pi a IoT Hub](media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
+Debería ver el resultado siguiente que muestra los datos del sensor y los mensajes que se envían a IoT hub ![salida: datos de sensor enviados desde Raspberry Pi a IoT hub](media/iot-hub-raspberry-pi-web-simulator/2_run_application.png)
 
 ## <a name="read-the-messages-received-by-your-hub"></a>Leer los mensajes recibidos por el centro
 
