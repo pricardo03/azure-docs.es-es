@@ -2,21 +2,21 @@
 author: msmbaldwin
 ms.service: backup
 ms.topic: include
-ms.date: 01/31/2019
+ms.date: 03/15/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5a4cc3ea822c5613fc7a50b8e370d6846b683721
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
+ms.openlocfilehash: 85d1e4d4909422b82ed38e688e3a62ca53c3430a
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55513300"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59007230"
 ---
-## <a name="preventative"></a>Preventivo
+## <a name="preventative"></a>Prevención
 
 | Atributo de seguridad | Sí/No | Notas |
 |---|---|--|
 | Cifrado en reposo:<ul><li>Cifrado del servidor</li><li>Cifrado del servidor con claves administradas por el cliente</li><li>Otras características de cifrado (por ejemplo, del cliente, siempre cifrado, etc.)</ul>| Sí | Uso de cifrado del servicio de almacenamiento para las cuentas de almacenamiento. |
-| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>En cifrado de red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sin  | Uso de HTTPS. |
+| Cifrado en tránsito:<ul><li>Cifrado de ExpressRoute</li><li>Cifrado en red virtual</li><li>Cifrado de red virtual a red virtual</ul>| Sin  | Uso de HTTPS. |
 | Control de clave de cifrado (CMK, BYOK, etc.)| Sin  |  |
 | Cifrado de nivel de columna (Azure Data Services)| Sin  |  |
 | Llamadas API cifradas| Sí |  |
@@ -34,17 +34,17 @@ ms.locfileid: "55513300"
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Compatibilidad con supervisión de Azure (Log Analytics, Application Insights, etc.)| Sí | Log Analytics se admite a través de los registros de diagnóstico. Para más información, consulte Monitor Azure Backup protected workloads using Log Analytics (Supervisión de cargas de trabajo protegidas por Azure Backup con Log Analytics, https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |
+| Supervisión de soporte técnico (Log analytics, Application insights, etcetera) de Azure| Sí | Log Analytics se admite a través de los registros de diagnóstico. Para más información, consulte Monitor Azure Backup protected workloads using Log Analytics (Supervisión de cargas de trabajo protegidas por Azure Backup con Log Analytics, https://azure.microsoft.com/blog/monitor-all-azure-backup-protected-workloads-using-log-analytics/). |
 
 ## <a name="iam-support"></a>Compatibilidad con IAM
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
 | Administración del acceso: autenticación| Sí | La autenticación se realiza a través de Azure Active Directory. |
-| Administración del acceso: autorización| Sí | Se usan roles RBAC integrados y creados por el cliente. Para más información, consulte Uso del control de acceso basado en roles para administrar puntos de recuperación de Azure Backup (https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault). |
+| Administración del acceso: autorización| Sí | Se usan roles RBAC integrados y creados por el cliente. Consulte Control de acceso basado en rol para administrar puntos de recuperación de copia de seguridad de Azure (/ / / copia de seguridad-rbac-rs-almacén de azure backup) para obtener más información. |
 
 
-## <a name="audit-trail"></a>Registro de auditoría
+## <a name="audit-trail"></a>Pista de auditoría
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
@@ -55,4 +55,4 @@ ms.locfileid: "55513300"
 
 | Atributo de seguridad | Sí/No | Notas|
 |---|---|--|
-| Compatibilidad con la administración de configuración (control de versiones de configuración, etc.)| Sí|  |
+| Compatibilidad con la administración de configuración (control de versiones de configuración, etcetera.)| Sí|  |

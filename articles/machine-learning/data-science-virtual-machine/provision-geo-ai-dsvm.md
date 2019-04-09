@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: c4b178cc7e0604f38e4da25452a3bad01f8145de
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dde9b71c3615a592f8c08e040c5e9ba7bc756bd6
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57858156"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008845"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Aprovisionamiento de una máquina virtual para inteligencia artificial y análisis geoespacial en Azure 
 
@@ -87,7 +87,7 @@ En caso contrario, puede registrar una nueva cuenta y licencia de ArcGIS u obten
 
 ![Evaluación-gratuita-ArcGIS](./media/provision-geo-ai-dsvm/ArcGIS-Free-Trial.png)
 
-Una vez registrada su cuenta de evaluación gratuita o de pago de ArcGIS, puede autorizar a ArcGIS Pro para su cuenta mediante las instrucciones de [Getting Started with ArcGIS Pro documentation](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf) (Introducción a la documentación de ArcGIS Pro). 
+Después de registrarse para cualquier una pagada o gratuita ArcGIS cuenta de prueba, puede autorizar a ArcGIS Pro para su cuenta siguiendo las instrucciones de [Getting Started with ArcGIS Pro](https://www.esri.com/library/brochures/getting-started-with-arcgis-pro.pdf). 
 
 Después de iniciar sesión en el software de escritorio ArcGIS Pro con su cuenta de ArcGIS, podrá empezar a usar las herramientas de ciencia de datos instaladas y configuradas en la máquina virtual para sus proyectos de análisis geoespacial y de aprendizaje automático.
 
@@ -95,4 +95,4 @@ Después de iniciar sesión en el software de escritorio ArcGIS Pro con su cuent
 
 Empiece a usar la máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial con la guía de los temas siguientes:
 
-* [Use the Geo AI Data Science VM](use-geo-ai-dsvm.md) (Uso de la máquina virtual de ciencia de datos para inteligencia artificial y análisis geoespacial)
+* [Utilice el Geo AI Data Science Virtual Machine](use-geo-ai-dsvm.md)

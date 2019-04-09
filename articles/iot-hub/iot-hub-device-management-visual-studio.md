@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: xshi
-ms.openlocfilehash: f0cb740f04970aeed4342511a046862f05aaa736
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: 87a0847f5d42e014f3b2691c96446892176b481b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54109230"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269578"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-for-azure-iot-hub-device-management"></a>Uso de Cloud Explorer para Visual Studio para la administración de dispositivos de Azure IoT Hub
 
-![Diagrama integral](media/iot-hub-get-started-e2e-diagram/2.png)
+![Diagrama integral](media/iot-hub-device-management-visual-studio/iot-e2e-simple.png)
 
 [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) es una extensión útil de Visual Studio que le permite ver los recursos de Azure, inspeccionar sus propiedades y realizar acciones de desarrollador clave desde dentro de Visual Studio. Incluye opciones de administración que puede usar para realizar varias tareas.
 
@@ -35,7 +35,7 @@ Los dispositivos gemelos son documentos JSON que almacenan información sobre el
 
 ## <a name="what-you-learn"></a>Conocimientos que adquirirá
 
-Aprenderá a usar Cloud Explorer para Visual Studio con distintas opciones de administración en su máquina de desarrollo.
+Aprenda a usar Cloud Explorer para Visual Studio con distintas opciones de administración en el equipo de desarrollo.
 
 ## <a name="what-you-do"></a>Qué debe hacer
 
@@ -44,7 +44,7 @@ Ejecute Cloud Explorer para Visual Studio con distintas opciones de administraci
 ## <a name="what-you-need"></a>Lo que necesita
 
 - Una suscripción de Azure activa.
-- Una instancia de Azure IoT Hub en su suscripción.
+- Un centro de IoT de Azure en su suscripción.
 - Microsoft Visual Studio 2017 Update 8 o posterior
 - El componente Cloud Explorer desde el Instalador de Visual Studio (se selecciona de forma predeterminada con la carga de trabajo de Azure)
 

@@ -3,7 +3,7 @@ title: Integration Runtime en Azure Data Factory | Microsoft Docs
 description: Obtenga más información sobre Integration Runtime en Azure Data Factory.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: nabhishek
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/14/2018
-ms.author: jingwang
-ms.openlocfilehash: ab6da597457fa94c171a1e2547c1d48cf35cd0f9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: abnarain
+ms.openlocfilehash: d63ede800f7e60db44072234f5ec74910e4c70f2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893057"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275416"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime en Azure Data Factory
 Integration Runtime (IR) es la infraestructura de proceso que usa Azure Data Factory para proporcionar las siguientes capacidades de integración de datos en distintos entornos de red:
@@ -156,5 +156,5 @@ Cada actividad de transformación tiene un destino de servicio vinculado de proc
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte los artículos siguientes:
 
-- [Crear Integration Runtime autohospedado](create-self-hosted-integration-runtime.md)
+- [Creación de un entorno de ejecución de integración autohospedado](create-self-hosted-integration-runtime.md)
 - [Creación de una instancia de Integration Runtime de SSIS de Azure](create-azure-ssis-integration-runtime.md). Este artículo amplía el tutorial y proporciona instrucciones acerca del uso de Instancia administrada de Azure SQL Database y de la combinación de Integration Runtime con una red virtual. 

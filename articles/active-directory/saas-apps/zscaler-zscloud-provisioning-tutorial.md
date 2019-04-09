@@ -6,20 +6,21 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: a752be80-d3ef-45d1-ac8f-4fb814c07b07
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2019
+ms.date: 03/27/2019
 ms.author: v-ant-msft
-ms.openlocfilehash: 3f7fcd59bafe5619a1ef411bf81a6b8c3431f22c
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8962f0cf79a8e4874018021b1f9009cf3dad844e
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58087421"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058533"
 ---
 # <a name="tutorial-configure-zscaler-zscloud-for-automatic-user-provisioning"></a>Tutorial: Configurar Zscaler ZSCloud para aprovisionar usuarios automáticamente
 
@@ -34,39 +35,34 @@ El objetivo de este tutorial es mostrar los pasos que se realizan en Zscaler ZSC
 
 En el escenario que se describe en este tutorial se supone que ya cuenta con los elementos siguientes:
 
-*   Un inquilino de Azure AD
-*   Un inquilino de Zscaler ZSCloud
-*   Una cuenta de usuario de Zscaler ZSCloud con permisos de administrador
+* Un inquilino de Azure AD
+* Un inquilino de Zscaler ZSCloud
+* Una cuenta de usuario de Zscaler ZSCloud con permisos de administrador
 
 > [!NOTE]
 > La integración del aprovisionamiento de Azure AD se basa en la API de SCIM de Zscaler ZSCloud, que está disponible para los desarrolladores de Zscaler ZSCloud para las cuentas con el paquete de la empresa.
 
 ## <a name="adding-zscaler-zscloud-from-the-gallery"></a>Incorporación de ZScaler ZSCloud desde la galería
+
 Antes de configurar Zscaler ZSCloud para aprovisionar automáticamente usuarios con Azure AD, deberá agregar Zscaler ZSCloud desde la Galería de aplicaciones de Azure AD a la lista de aplicaciones SaaS administradas.
 
 **Para agregar Zscaler ZSCloud desde la Galería de aplicaciones de Azure AD, realice los pasos siguientes:**
 
-1. En **[Azure Portal](https://portal.azure.com)**, en el panel de navegación izquierdo, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Botón Azure Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** > **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![Sección Aplicaciones empresariales][2]
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-3. Para agregar Zscaler ZSCloud, haga clic en el **nueva aplicación** botón en la parte superior del cuadro de diálogo.
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Botón Nueva aplicación][3]
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **ZScaler ZSCloud**.
+4. En el cuadro de búsqueda, escriba **Zscaler ZSCloud**, seleccione **Zscaler ZSCloud** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![Aprovisionamiento de Zscaler ZSCloud](./media/zscaler-zscloud-provisioning-tutorial/appsearch.png)
-
-5. En el panel de resultados, seleccione **Zscaler ZSCloud**y, a continuación, haga clic en el **agregar** para agregar Zscaler ZSCloud a la lista de aplicaciones SaaS.
-
-    ![Aprovisionamiento de Zscaler ZSCloud](./media/zscaler-zscloud-provisioning-tutorial/appsearchresults.png)
-
-    ![Aprovisionamiento de Zscaler ZSCloud](./media/zscaler-zscloud-provisioning-tutorial/appcreation.png)
+    ![Zscaler ZSCloud en la lista de resultados](common/search-new-app.png)
 
 ## <a name="assigning-users-to-zscaler-zscloud"></a>Asignación de usuarios a Zscaler ZSCloud
 
@@ -74,13 +70,13 @@ Azure Active Directory usa un concepto que se denomina "asignaciones" para deter
 
 Antes de configurar y habilitar el aprovisionamiento automático de usuarios, debe decidir qué usuarios o grupos de Azure AD necesitan acceso a Zscaler ZSCloud. Una vez decidido, puede asignar dichos usuarios o grupos a Zscaler ZSCloud siguiendo estas instrucciones:
 
-*   [Asignar un usuario o grupo a una aplicación empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [Asignar un usuario o grupo a una aplicación empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-zscaler-zscloud"></a>Sugerencias importantes para asignar usuarios a Zscaler ZSCloud
 
-*   Se recomienda que un único usuario de Azure AD está asignado a Zscaler ZSCloud para probar la configuración del aprovisionamiento automático de usuarios. Más tarde, se pueden asignar otros usuarios o grupos.
+* Se recomienda que un único usuario de Azure AD está asignado a Zscaler ZSCloud para probar la configuración del aprovisionamiento automático de usuarios. Más tarde, se pueden asignar otros usuarios o grupos.
 
-*   Al asignar a un usuario a Zscaler ZSCloud, debe seleccionar un rol específico de la aplicación válido (si está disponible) en el cuadro de diálogo de asignación. Los usuarios con el rol de **Acceso predeterminado** quedan excluidos del aprovisionamiento.
+* Al asignar a un usuario a Zscaler ZSCloud, debe seleccionar un rol específico de la aplicación válido (si está disponible) en el cuadro de diálogo de asignación. Los usuarios con el rol de **Acceso predeterminado** quedan excluidos del aprovisionamiento.
 
 ## <a name="configuring-automatic-user-provisioning-to-zscaler-zscloud"></a>Configuración del aprovisionamiento automático de usuarios a Zscaler ZSCloud
 
@@ -91,11 +87,13 @@ Esta sección le guiará a través de los pasos para configurar el servicio de a
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-zscloud-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios de Zscaler ZSCloud en Azure AD:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a **Azure Active Directory > Aplicaciones empresariales > Todas las aplicaciones**.
+1. Inicie sesión en el [portal Azure](https://portal.azure.com) y seleccione **aplicaciones empresariales**, seleccione **todas las aplicaciones**, a continuación, seleccione **Zscaler ZSCloud**.
 
-2. Seleccione Zscaler ZSCloud desde la lista de aplicaciones de SaaS.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![Aprovisionamiento de Zscaler ZSCloud](./media/zscaler-zscloud-provisioning-tutorial/appinstancesearch.png)
+2. En la lista de aplicaciones, seleccione **ZScaler ZSCloud**.
+
+    ![En la lista de aplicaciones en el vínculo de Zscaler ZSCloud](common/all-applications.png)
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
@@ -107,20 +105,20 @@ Esta sección le guiará a través de los pasos para configurar el servicio de a
 
 5. En el **las credenciales de administrador** sección, entrada la **dirección URL del inquilino** y **Token secreto** de la cuenta de Zscaler ZSCloud como se describe en el paso 6.
 
-6. Para obtener el **dirección URL del inquilino** y **Token secreto**, vaya a **Administración > configuración de autenticación** en la interfaz de usuario del portal de Zscaler ZSCloud y haga clic en  **SAML** en **tipo de autenticación**. 
+6. Para obtener el **dirección URL del inquilino** y **Token secreto**, vaya a **Administración > configuración de autenticación** en la interfaz de usuario del portal de Zscaler ZSCloud y haga clic en  **SAML** en **tipo de autenticación**.
 
     ![Aprovisionamiento de Zscaler ZSCloud](./media/zscaler-zscloud-provisioning-tutorial/secrettoken1.png)
 
-    Haga clic en **configurar SAML** para abrir **configuración SAML** opciones. 
+    Haga clic en **configurar SAML** para abrir **configuración SAML** opciones.
 
     ![Aprovisionamiento de Zscaler ZSCloud](./media/zscaler-zscloud-provisioning-tutorial/secrettoken2.png)
-    
+
     Seleccione **Enable SCIM-Based aprovisionamiento** para recuperar **URL Base** y **el Token de portador**, a continuación, guarde la configuración. Copia el **URL Base** a **dirección URL del inquilino** y **el Token de portador** a **Token secreto** en Azure portal.
 
 7. Tras rellenar los campos que se muestran en el paso 5, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Zscaler ZSCloud. Si se produce un error en la conexión, asegúrese de que la cuenta de Zscaler ZSCloud tiene permisos de administrador y vuelva a intentarlo.
 
     ![Aprovisionamiento de Zscaler ZSCloud](./media/zscaler-zscloud-provisioning-tutorial/testconnection.png)
-    
+
 8. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Aprovisionamiento de Zscaler ZSCloud](./media/zscaler-zscloud-provisioning-tutorial/Notification.png)
@@ -163,12 +161,12 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Administración de aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../active-directory-saas-provisioning-reporting.md)
+* [Obtenga información sobre cómo revisar los registros y obtener informes sobre la actividad de aprovisionamiento](../active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-zscloud-provisioning-tutorial/tutorial-general-01.png

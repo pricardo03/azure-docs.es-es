@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: a67cbd3bfca478a45e12adeb0bf119b891866718
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: d1e4af6e73c272a7ccc8996b0ccc854be64dd74b
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905246"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006349"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Requisitos del sistema de borde del cuadro de datos Azure
 
@@ -101,6 +101,37 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 ## <a name="internet-bandwidth"></a>Ancho de banda de Internet
 
 [!INCLUDE [Internet bandwidth](../../includes/data-box-edge-gateway-internet-bandwidth.md)]
+
+## <a name="compute-sizing-considerations"></a>Consideraciones de tamaño de proceso
+
+Use su experiencia al desarrollar y probar la solución para asegurarse de hay suficiente capacidad en el dispositivo de borde del cuadro de datos y obtener un rendimiento óptimo del dispositivo.
+
+Debe considerar los siguientes factores:
+
+- **Detalles de contenedor** -pensar en lo siguiente.
+
+    - ¿Cuántos contenedores se encuentran en la carga de trabajo? Podría tener mucha contenedores ligeros en comparación con algunos estilos que consumen muchos recursos.
+    - ¿Cuáles son los recursos asignados a estos contenedores frente a cuáles son los recursos que están consumiendo?
+    - ¿Cuántas capas compartir los contenedores?
+    - ¿Hay contenedores sin usar? Un contenedor detenido todavía ocupa espacio en disco.
+    - ¿En qué idioma se escriben los contenedores?
+- **Tamaño de los datos procesados** -¿cuántos datos los contenedores van a procesar? ¿Estos datos consumirá espacio en disco o los datos se procesarán en la memoria?
+- **Rendimiento esperado** -¿cuáles son las características de rendimiento deseado de la solución? 
+
+Para comprender y refinar el rendimiento de la solución, puede usar:
+
+- Las métricas de proceso disponibles en el portal de Azure. Vaya al recurso de borde del cuadro de datos y, a continuación, vaya a **supervisión > métricas**. Examine el **Edge compute - uso de memoria** y **Edge compute: porcentaje de CPU** para comprender los recursos disponibles y cómo son los recursos de introducción consume el.
+- Los comandos de supervisión disponibles a través de la interfaz de PowerShell del dispositivo, como:
+
+    - `dkr` estadísticas para obtener estadísticas de uso de recursos de una secuencia en directo de contenedores. El comando es compatible con las métricas de E/S de red, uso de memoria, límite de memoria y CPU.
+    - `dkr system df` Para obtener información relacionada con la cantidad de espacio en disco utilizado. 
+    - `dkr image [prune]` para limpiar las imágenes no utilizadas y liberar espacio.
+    - `dkr ps --size` Para ver el tamaño aproximado de un contenedor en ejecución. 
+
+    Para obtener más información sobre los comandos disponibles, vaya a [supervisar y solucionar problemas de los módulos de proceso](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules).
+
+Por último, asegúrese de que validar la solución en el conjunto de datos y cuantificar el rendimiento en el borde del cuadro de datos antes de implementarlo en producción.
+
 
 ## <a name="next-step"></a>Paso siguiente
 

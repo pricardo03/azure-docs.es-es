@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/04/2019
 ms.author: juliako
-ms.openlocfilehash: a6746fa193331aff66b8726da1cb3afe49fdc9bf
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: de5432c4e04fb0cfaf0517426fe9ee9da2a57b37
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351568"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058091"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notas de la versión de Azure Media Services v3
 
@@ -37,6 +37,8 @@ Para más información, consulte [Guía de migración para mover de Media Servic
 ## <a name="march-2019"></a>Marzo de 2019
 
 Ahora el empaquetado dinámico admite Atmos de Dolby. Para obtener más información, consulte [códecs de Audio compatibles con el empaquetado dinámico](dynamic-packaging-overview.md#audio-codecs-supported-by-dynamic-packaging).
+
+Ahora puede especificar una lista de filtros de activo o una cuenta que se aplicaría a su localizador de Streaming. Para obtener más información, consulte [asociar filtros de localizador de Streaming](filters-concept.md#associate-filters-with-streaming-locator).
 
 ## <a name="february-2019"></a>Febrero de 2019
 
@@ -67,47 +69,47 @@ El módulo de la CLI 2.0 está ahora disponible para [Azure Media Services v3 co
 
 ### <a name="new-commands"></a>Nuevos comandos
 
-- [az ams account](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
+- [cuenta de ams AZ](https://docs.microsoft.com/cli/azure/ams/account?view=azure-cli-latest)
 - [az ams account-filter](https://docs.microsoft.com/cli/azure/ams/account-filter?view=azure-cli-latest)
-- [az ams asset](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
-- [az ams asset-filter](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
+- [activos de ams AZ](https://docs.microsoft.com/cli/azure/ams/asset?view=azure-cli-latest)
+- [filtro de activo ams AZ](https://docs.microsoft.com/cli/azure/ams/asset-filter?view=azure-cli-latest)
 - [az ams content-key-policy](https://docs.microsoft.com/cli/azure/ams/content-key-policy?view=azure-cli-latest)
-- [az ams job](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
-- [az ams live-event](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
-- [az ams live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
-- [az ams streaming-endpoint](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
-- [az ams streaming-locator](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
+- [trabajo de ams AZ](https://docs.microsoft.com/cli/azure/ams/job?view=azure-cli-latest)
+- [ams live AZ-evento](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest)
+- [ams AZ live-output](https://docs.microsoft.com/cli/azure/ams/live-output?view=azure-cli-latest)
+- [AZ ams-extremo de streaming](https://docs.microsoft.com/cli/azure/ams/streaming-endpoint?view=azure-cli-latest)
+- [AZ ams-localizador de streaming](https://docs.microsoft.com/cli/azure/ams/streaming-locator?view=azure-cli-latest)
 - [az ams account mru](https://docs.microsoft.com/cli/azure/ams/account/mru?view=azure-cli-latest): permite administrar unidades reservadas de multimedia. Para más información, consulte [Escalado de unidades reservadas de multimedia](media-reserved-units-cli-how-to.md).
 
 ### <a name="new-features-and-breaking-changes"></a>Nuevas características y cambios importantes
 
 #### <a name="asset-commands"></a>Comandos de recursos
 
-- Se han agregado los argumentos ```--storage-account``` y ```--container```.
+- ```--storage-account``` y ```--container``` argumentos sumada.
 - Se han agregado valores predeterminados para la hora de expiración (ahora +23 h) y los permisos (lectura) al comando ```az ams asset get-sas-url```.
 
 #### <a name="job-commands"></a>Comandos de trabajos
 
-- Se han agregado los argumentos ```--correlation-data``` y ```--label```.
-- ```--output-asset-names``` cambia su nombre a ```--output-assets```. Ahora acepta una lista separada por espacios de recursos en formato "assetName=label". Se puede enviar un recurso sin etiqueta del siguiente modo: "assetName=".
+- ```--correlation-data``` y ```--label``` argumentos sumada
+- ```--output-asset-names``` ha cambiado a ```--output-assets```. Ahora acepta una lista separada por espacios de recursos en formato "assetName=label". Se puede enviar un recurso sin etiqueta del siguiente modo: "assetName=".
 
 #### <a name="streaming-locator-commands"></a>Comandos de localizador de streaming
 
-- Se ha reemplazado el comando base ```az ams streaming locator``` por ```az ams streaming-locator```.
-- Se han agregado los argumentos ```--streaming-locator-id``` y ```--alternative-media-id support```.
-- Se ha actualizado el argumento ```--content-keys argument```.
-- ```--content-policy-name``` cambia su nombre a ```--content-key-policy-name```.
+- ```az ams streaming locator``` comando base reemplazado por ```az ams streaming-locator```.
+- ```--streaming-locator-id``` y ```--alternative-media-id support``` argumentos sumada.
+- ```--content-keys argument``` argumento actualizado.
+- ```--content-policy-name``` ha cambiado a ```--content-key-policy-name```.
 
 #### <a name="streaming-policy-commands"></a>Comandos de directiva de streaming
 
-- Se ha reemplazado el comando base ```az ams streaming policy``` por ```az ams streaming-policy```.
+- ```az ams streaming policy``` comando base reemplazado por ```az ams streaming-policy```.
 - Se ha agregado compatibilidad con los parámetros de cifrado en ```az ams streaming-policy create```.
 
 #### <a name="transform-commands"></a>Comandos de transformación
 
-- Se ha reemplazado el argumento ```--preset-names``` por ```--preset```. Ahora solo puede establecer una salida o valor preestablecido cada vez (para agregar más tendrá que ejecutar ```az ams transform output add```). Ademas, puede pasar la ruta de acceso al código JSON personalizado para establecer un StandardEncoderPreset personalizado.
-- ```az ams transform output remove``` se puede realizar pasando el índice de salida a eliminar.
-- Se han agregado argumentos ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` en los comandos ```az ams transform create``` y ```az ams transform output add```.
+- ```--preset-names``` argumento que se reemplaza por ```--preset```. Ahora solo puede establecer una salida o valor preestablecido cada vez (para agregar más tendrá que ejecutar ```az ams transform output add```). Ademas, puede pasar la ruta de acceso al código JSON personalizado para establecer un StandardEncoderPreset personalizado.
+- ```az ams transform output remove``` puede realizarse pasando el índice de salida para eliminarlo.
+- ```--relative-priority, --on-error, --audio-language and --insights-to-extract``` argumentos que se agregó en ```az ams transform create``` y ```az ams transform output add``` comandos.
 
 ## <a name="october-2018---ga"></a>Octubre de 2018: disponibilidad general
 

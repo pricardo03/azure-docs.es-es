@@ -1,19 +1,19 @@
 ---
 title: Conexión de Raspberry Pi a Azure IoT Hub con C | Microsoft Docs
 description: Aprenda a configurar y conectar Raspberry Pi a Azure IoT Hub para que envíe datos a la plataforma en la nube de Azure
-author: rangv
+author: wesmc7777
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: c
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.author: rangv
-ms.openlocfilehash: 2b23725a4bccf753bbe7231202133771e5aaa614
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.author: wesmc
+ms.openlocfilehash: 3b09d9d484c6f17ee591dee9b7202a62502462ef
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847193"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268433"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Conectar Raspberry Pi a Azure IoT Hub (C)
 
@@ -153,7 +153,7 @@ Encienda la Pi mediante un cable microUSB y la fuente de alimentación. Use el c
    
    ![PuTTy](./media/iot-hub-raspberry-pi-kit-node-get-started/7_putty-windows.png)
    
-   **Usuarios de Mac y Ubuntu**
+   **Mac y los usuarios de Ubuntu**
    
    Use el cliente de SSH integrado en Ubuntu o macOS. Quizás deba ejecutar `ssh pi@<ip address of pi>` para conectar Pi mediante SSH.
    > [!NOTE]

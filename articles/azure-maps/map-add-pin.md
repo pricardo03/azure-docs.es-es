@@ -9,19 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: a4d1a54e94b3228c64352bf08cd8cc69820a5e2d
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 3225ae919e221935b6d8a52e20d943d2178f6a47
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500056"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59056859"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>Adición de una capa de símbolo a un mapa
 
-En este artículo se explica cómo puede representar datos de punto de un origen de datos como una capa de símbolo en un mapa. Las capas de símbolo se representan mediante WebGL y admiten considerablemente más puntos de datos que los marcadores HTML, pero no son compatibles con los elementos CSS y HTML tradicionales de estilo.  
+En este artículo se explica cómo puede representar datos de punto de un origen de datos como una capa de símbolo en un mapa. Símbolo capas se representan mediante WebGL y admiten mucho más grandes conjuntos de puntos que marcadores de HTML, pero no son compatibles con los elementos CSS y HTML tradicionales para establecer el estilo.  
 
 > [!TIP]
-> De forma predeterminada, las capas de símbolo representarán las coordenadas de todos los objetos geométricos en un origen de datos. Para limitar la capa de tal forma que solo represente las características geométricas de punto, establezca la propiedad `filter` de la capa en `['==', '$type', 'Point']`.
+> De forma predeterminada, las capas de símbolo representarán las coordenadas de todos los objetos geométricos en un origen de datos. Para limitar la capa de forma que solo se representa la geometría de punto de conjunto de características el `filter` propiedad de la capa a `['==', ['geometry-type'], 'Point']` o `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` si desea incluir también las características de MultiPoint.
 
 ## <a name="add-a-symbol-layer"></a>Adición de una capa de símbolo
 
@@ -34,14 +34,14 @@ En el segundo bloque de código, se crea un objeto de origen de datos con la cla
 
 En el tercer bloque de código se crea una [escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) y se actualizan las coordenadas con el clic del mouse, utilizando la clase shape del método [setCoordinates](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest).
 
-Una [capa de símbolos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa texto o iconos para representar los datos basados en puntos encapsulados en [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como símbolos en el mapa.  El origen de datos,la escucha de eventos de clic y la capa de símbolos se crean y agregan al mapa dentro de la función [escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) para garantizar que se muestre el punto una vez que el mapa se cargue completamente.
+Una [capa de símbolos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer?view=azure-iot-typescript-latest) usa texto o iconos para representar los datos basados en puntos encapsulados en [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) como símbolos en el mapa.  El origen de datos, el agente de escucha de eventos de clic y la capa de símbolos se crean y agregan a la asignación dentro de la `ready` [escucha de eventos](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) función para asegurarse de que el punto se muestra después de la asignación cargada y lista para tener acceso.
 
 > [!TIP]
 > De forma predeterminada, para el rendimiento, las capas de símbolos optimización el procesamiento de los símbolos ocultando los símbolos que se superponen. A medida que los símbolos ocultos se hacen visibles. Para deshabilitar esta característica y representar todos los símbolos en todo momento, establezca la `allowOverlap` propiedad de la `iconOptions` opciones `true`.
 
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>Adición de un icono personalizado a una capa de símbolo
 
-Las capas de símbolo se representan mediante WebGL. Por tanto, todos los recursos, como las imágenes de icono, se deben cargar en el contexto de WebGL. Este ejemplo muestra cómo agregar un icono de símbolo personalizado a los recursos del mapa para usarlo a continuación para representar datos de punto con un símbolo personalizado en el mapa. La propiedad `textField` de la capa de símbolo requiere que se especifique una expresión. En este caso, queremos representar la propiedad de temperatura de la característica de punto como el valor de texto. Esto puede lograrse con esta expresión: `['get', 'temperature']`. 
+Las capas de símbolo se representan mediante WebGL. Por tanto, todos los recursos, como las imágenes de icono, se deben cargar en el contexto de WebGL. Este ejemplo muestra cómo agregar un icono personalizado para la asignación de recursos y, a continuación, se utiliza para representar el punto de datos con un símbolo en el mapa personalizado. La propiedad `textField` de la capa de símbolo requiere que se especifique una expresión. En este caso, queremos representar la propiedad temperature pero puesto que es un número, debe convertirse en una cadena. Además, queremos anexar la "° F" en él. Una expresión puede utilizarse para hacer esto; `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
 
 <br/>
 
@@ -85,4 +85,4 @@ Para obtener más ejemplos de código para agregar a los mapas:
 > [Adición de una capa de burbuja](./map-add-bubble-layer.md)
 
 > [!div class="nextstepaction"]
-> [Adición de marcadores HTML](./map-add-bubble-layer.md)
+> [Agregue los creadores de HTML](./map-add-bubble-layer.md)

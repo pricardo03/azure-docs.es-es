@@ -7,15 +7,15 @@ ms.service: azure-resource-manager
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/20/2018
+ms.date: 04/04/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: a89df98224634c08c84cb059eb58e64e3c7febf7
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: MT
+ms.openlocfilehash: 928cb790bd97270870618534a73316bba5eeb070
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801273"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057445"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Creación de grupos de administración para la organización y la administración de recursos
 
@@ -41,7 +41,7 @@ Puede crear el grupo de administración mediante el portal, PowerShell o la CLI 
 
 1. Rellene el campo de identificador de grupo de administración.
 
-   - El **identificador de grupo de administración** es el identificador único de directorio que se usa para enviar comandos en este grupo de administración. Este identificador no es editable una vez creado el grupo, dado que se usa en todo el sistema de Azure para identificar ese grupo.
+   - El **identificador de grupo de administración** es el identificador único de directorio que se usa para enviar comandos en este grupo de administración. Este identificador no es editable una vez creado, dado que se usa en todo el sistema de Azure para identificar este grupo. El [grupo de administración raíz](index.md#root-management-group-for-each-directory) se crean automáticamente con un identificador que es el identificador de Azure Active Directory. Para todos los grupos de administración, asignar un identificador único.
    - El campo de nombre para mostrar es el nombre que se muestra en Azure Portal. Un nombre para mostrar independiente es un campo opcional al crear el grupo de administración y se puede cambiar en cualquier momento.  
 
    ![Panel de opciones para crear un nuevo grupo de administración](./media/create_context_menu.png)  
@@ -56,7 +56,7 @@ En PowerShell, use el cmdlet New-AzManagementGroup:
 New-AzManagementGroup -GroupName 'Contoso'
 ```
 
-**GroupName** es un identificador único que se crea. Este identificador lo usan otros comandos para hacer referencia a este grupo y no se puede cambiar más adelante.
+**GroupName** es un identificador único que se crea. Este identificador se usa por otros comandos para hacer referencia a este grupo y no puede cambiarse más adelante.
 
 Si quisiera que el grupo de administración mostrara un nombre diferente en Azure Portal, agregaría el parámetro **DisplayName** con la cadena. Por ejemplo, si quisiera crear un grupo de administración con el nombre de grupo de Contoso y el nombre para mostrar de "Grupo de Contoso", usaría el siguiente cmdlet:
 
@@ -79,7 +79,7 @@ az account management-group create --name 'Contoso'
 Para más información sobre los grupos de administración, consulte:
 
 - [Creación de grupos de administración para organizar los recursos de Azure](create.md)
-- [Cambio, eliminación y administración de los grupos de administración](manage.md)
-- [Revisión de grupos de administración en el módulo de recursos de Azure PowerShell](/powershell/module/az.resources#resources)
-- [Revisión de grupos de administración en la API REST](/rest/api/resources/managementgroups)
-- [Revisión de grupos de administración en la CLI de Azure](/cli/azure/account/management-group)
+- [Cómo cambiar, eliminar o administrar los grupos de administración](manage.md)
+- [Revise los grupos de administración en el módulo de recursos de Azure PowerShell](/powershell/module/az.resources#resources)
+- [Revise los grupos de administración en la API de REST](/rest/api/resources/managementgroups)
+- [Revise los grupos de administración en la CLI de Azure](/cli/azure/account/management-group)

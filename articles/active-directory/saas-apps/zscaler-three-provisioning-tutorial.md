@@ -6,20 +6,21 @@ documentationcenter: ''
 author: zchia
 writer: zchia
 manager: beatrizd-msft
-ms.assetid: na
+ms.assetid: 385a1153-0f47-4e41-8f44-da1b49d7629e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/03/2019
+ms.date: 03/27/2019
 ms.author: v-ant-msft
-ms.openlocfilehash: afb80f54c2354f65054d8d53b93add6ed5ffa63e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: ed158ae825ec8aac24a57eb0f5a986b2124b66fb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099957"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057802"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Tutorial: Configurar tres Zscaler para aprovisionar usuarios automáticamente
 
@@ -27,46 +28,41 @@ El objetivo de este tutorial es mostrar los pasos que se realizan en Zscaler tre
 
 > [!NOTE]
 > Este tutorial describe un conector que se crea sobre el servicio de aprovisionamiento de usuarios de Azure AD. Para obtener información importante acerca de lo que hace este servicio, cómo funciona y ver preguntas frecuentes al respecto, consulte [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](../active-directory-saas-app-provisioning.md).
-> 
+>
 > Este conector está actualmente en versión preliminar pública. Para obtener más información sobre los términos de Microsoft Azure generales de uso para características de vista previa, consulte [condiciones de uso complementarias para las versiones preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 En el escenario que se describe en este tutorial se supone que ya cuenta con los elementos siguientes:
 
-*   Un inquilino de Azure AD
-*   Un inquilino de Zscaler tres
-*   Una cuenta de usuario con permisos de administrador en Zscaler tres
+* Un inquilino de Azure AD
+* Un inquilino de Zscaler tres
+* Una cuenta de usuario con permisos de administrador en Zscaler tres
 
 > [!NOTE]
 > La integración del aprovisionamiento de Azure AD se basa en la API Zscaler tres SCIM, que está disponible para los desarrolladores Zscaler tres para las cuentas con el paquete de la empresa.
 
 ## <a name="adding-zscaler-three-from-the-gallery"></a>Incorporación de Zscaler Three desde la galería
+
 Antes de configurar tres Zscaler para aprovisionar automáticamente usuarios con Azure AD, deberá agregar Zscaler tres desde la Galería de aplicaciones de Azure AD a la lista de aplicaciones SaaS administradas.
 
 **Para agregar tres Zscaler desde la Galería de aplicaciones de Azure AD, realice los pasos siguientes:**
 
-1. En **[Azure Portal](https://portal.azure.com)**, en el panel de navegación izquierdo, haga clic en el icono de **Azure Active Directory**.
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Botón Azure Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-2. Vaya a **Aplicaciones empresariales** > **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![Sección Aplicaciones empresariales][2]
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-3. Para agregar Zscaler tres, haga clic en el **nueva aplicación** botón en la parte superior del cuadro de diálogo.
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-    ![Botón Nueva aplicación][3]
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Zscaler tres**.
+4. En el cuadro de búsqueda, escriba **Zscaler Three**, seleccione **Zscaler Three** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
-    ![Aprovisionamiento de Zscaler tres](./media/zscaler-three-provisioning-tutorial/app-search.png)
-
-5. En el panel de resultados, seleccione **Zscaler tres**y, a continuación, haga clic en el **agregar** para agregar Zscaler tres a la lista de aplicaciones SaaS.
-
-    ![Aprovisionamiento de Zscaler tres](./media/zscaler-three-provisioning-tutorial/app-search-results.png)
-
-    ![Aprovisionamiento de Zscaler tres](./media/zscaler-three-provisioning-tutorial/app-creation.png)
+    ![Zscaler Three en la lista de resultados](common/search-new-app.png)
 
 ## <a name="assigning-users-to-zscaler-three"></a>Asignación de usuarios a Zscaler tres
 
@@ -74,13 +70,13 @@ Azure Active Directory usa un concepto que se denomina "asignaciones" para deter
 
 Antes de configurar y habilitar el aprovisionamiento automático de usuarios, debe decidir qué usuarios o grupos de Azure AD necesitan acceso a Zscaler tres. Una vez decidido, puede asignar dichos usuarios o grupos a Zscaler tres siguiendo estas instrucciones:
 
-*   [Asignar un usuario o grupo a una aplicación empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
+* [Asignar un usuario o grupo a una aplicación empresarial](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)
 
 ### <a name="important-tips-for-assigning-users-to-zscaler-three"></a>Sugerencias importantes para asignar usuarios a Zscaler tres
 
-*   Se recomienda que un único usuario de Azure AD está asignado a Zscaler tres para probar la configuración del aprovisionamiento automático de usuarios. Más tarde, se pueden asignar otros usuarios o grupos.
+* Se recomienda que un único usuario de Azure AD está asignado a Zscaler tres para probar la configuración del aprovisionamiento automático de usuarios. Más tarde, se pueden asignar otros usuarios o grupos.
 
-*   Al asignar a un usuario a tres de Zscaler, debe seleccionar un rol específico de la aplicación válido (si está disponible) en el cuadro de diálogo de asignación. Los usuarios con el rol de **Acceso predeterminado** quedan excluidos del aprovisionamiento.
+* Al asignar a un usuario a tres de Zscaler, debe seleccionar un rol específico de la aplicación válido (si está disponible) en el cuadro de diálogo de asignación. Los usuarios con el rol de **Acceso predeterminado** quedan excluidos del aprovisionamiento.
 
 ## <a name="configuring-automatic-user-provisioning-to-zscaler-three"></a>Configuración del aprovisionamiento automático de usuarios a Zscaler tres
 
@@ -91,11 +87,13 @@ En esta sección le guiará por los pasos para configurar el servicio de aprovis
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-three-in-azure-ad"></a>Para configurar el aprovisionamiento automático de usuarios para tres Zscaler en Azure AD:
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) y vaya a **Azure Active Directory > Aplicaciones empresariales > Todas las aplicaciones**.
+1. Inicie sesión en el [portal Azure](https://portal.azure.com) y seleccione **aplicaciones empresariales**, seleccione **todas las aplicaciones**, a continuación, seleccione **Zscaler tres**.
 
-2. Seleccione tres Zscaler desde la lista de aplicaciones de SaaS.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![Aprovisionamiento de Zscaler tres](./media/zscaler-three-provisioning-tutorial/app-instance-search.png)
+2. En la lista de aplicaciones, seleccione **Zscaler Three**.
+
+    ![El vínculo Zscaler tres en la lista de aplicaciones](common/all-applications.png)
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
@@ -111,16 +109,16 @@ En esta sección le guiará por los pasos para configurar el servicio de aprovis
 
     ![Aprovisionamiento de Zscaler tres](./media/zscaler-three-provisioning-tutorial/secret-token-1.png)
 
-    Haga clic en **configurar SAML** para abrir **configuración SAML** opciones. 
+    Haga clic en **configurar SAML** para abrir **configuración SAML** opciones.
 
     ![Aprovisionamiento de Zscaler tres](./media/zscaler-three-provisioning-tutorial/secret-token-2.png)
-    
+
     Seleccione **Enable SCIM-Based aprovisionamiento** para recuperar **URL Base** y **el Token de portador**, a continuación, guarde la configuración. Copia el **URL Base** a **dirección URL del inquilino** y **el Token de portador** a **Token secreto** en Azure portal.
 
 7. Tras rellenar los campos que se muestran en el paso 5, haga clic en **Probar conexión** para asegurarse de que Azure AD puede conectarse a Zscaler tres. Si se produce un error en la conexión, asegúrese de que la cuenta de Zscaler tres tiene permisos de administrador y vuelva a intentarlo.
 
     ![Aprovisionamiento de Zscaler tres](./media/zscaler-three-provisioning-tutorial/test-connection.png)
-    
+
 8. En el campo **Correo electrónico de notificación**, escriba la dirección de correo electrónico de una persona o grupo que debe recibir las notificaciones de error de aprovisionamiento y active la casilla **Enviar una notificación por correo electrónico cuando se produzca un error**.
 
     ![Aprovisionamiento de Zscaler tres](./media/zscaler-three-provisioning-tutorial/notification.png)
@@ -163,12 +161,12 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Administración de aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../active-directory-saas-provisioning-reporting.md)
+* [Obtenga información sobre cómo revisar los registros y obtener informes sobre la actividad de aprovisionamiento](../active-directory-saas-provisioning-reporting.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-three-provisioning-tutorial/tutorial-general-01.png

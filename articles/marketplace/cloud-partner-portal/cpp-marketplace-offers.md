@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 02/07/2019
+ms.date: 03/27/2019
 ms.author: pbutlerm
-ms.openlocfilehash: fd51a9f70d60219a9429ff66d6f1d404391f6fb0
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: f537a43f5d4d0431e1659daa258e0c1453f2295b
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57446716"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010590"
 ---
 # <a name="azure-and-appsource-marketplace-offers"></a>Ofertas del Marketplace de Azure y AppSource
 
@@ -29,7 +29,7 @@ En el siguiente vídeo se presentan las diversas funcionalidades y diferentes ti
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK2513/player]
 
-**Creación de aplicaciones y servicios para Azure Marketplace y AppSource: Build 2018**
+**Creación de aplicaciones y servicios para Azure Marketplace y AppSource - compilación 2018**
 
 Para obtener más información sobre los Marketplace, consulte la [guía de publicación de Azure Marketplace y AppSource](../marketplace-publishers-guide.md).
 
@@ -53,14 +53,14 @@ En la tabla siguiente se enumeran los tipos de oferta actuales compatibles con [
 |                Tipo de oferta                |  Marketplace  |   DESCRIPCIÓN                                                           |
 |                ----------                |  -----------  |   -----------                                                           |
 | [Aplicación de Azure](./azure-applications/cpp-azure-app-offer.md) | Azure | Solución compuesta de una o más máquinas virtuales (VM) y código personalizado opcional de Azure. Se implementa a través de una plantilla de Azure Resource Manager.  La implementación puede realizarla el usuario a través de una plantilla de solución o el anunciante puede encargarse de ella. Este tipo de oferta se usa para una obtener una flexibilidad mayor que la de las ofertas de máquina virtual proporcionadas.  |
-| [Servicio de consultoría](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | Ambos | Los consultores de Microsoft que cumplen los requisitos pueden publicar servicios específicos para un dominio en Azure Marketplace o AppSource.  Su experiencia ayuda a los clientes a evaluar sus problemas y crear e implementar las soluciones correctas para cumplir sus objetivos empresariales.  |
+| [Servicios de consultoría](./consulting-services/cloud-partner-portal-consulting-services-publishing-offer.md) | Ambos | Los consultores de Microsoft que cumplen los requisitos pueden publicar servicios específicos para un dominio en Azure Marketplace o AppSource.  Su experiencia ayuda a los clientes a evaluar sus problemas y crear e implementar las soluciones correctas para cumplir sus objetivos empresariales.  |
 | [Contenedor](./containers/cpp-containers-offer.md)  | Azure | Imagen de contenedor de Docker aprovisionada como un servicio basado en Kubernetes o como una instancia de contenedor de Azure. |
 | [Dynamics 365 Business Central](../cloud-partner-portal-orig/cpp-business-central-offer.md) | AppSource | Paquete que extiende al sistema de planeación de recursos de empresariales (ERP) y administración empresarial. |
-| [Dynamics 365 for Customer Engagement ](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Paquete que extiende este sistema de administración de recursos del usuario (CRM) gracias a los módulos de ventas, servicios, servicio de proyecto y servicio de campo.  |
-| [Dynamics 365 for Finance and Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Paquete que extiende al servicio de planeación de recursos empresariales (ERP) que admite finanzas avanzadas, operaciones, fabricación y administración de la cadena de suministro. |
+| [Dynamics 365 for Customer Engagement](./dyn365ce/cpp-customer-engagement-offer.md) | AppSource | Un paquete que extiende este cliente system management (CRM) de recursos, a través de sus ventas, servicio, servicio de proyecto y los módulos de servicio de campo  |
+| [Dynamics 365 for Financials y Operations](../cloud-partner-portal-orig/cpp-dynamics-365-operations-offer.md) | AppSource | Un paquete que amplíe esta recursos empresariales (ERP) servicio de planeación que admite avanzados finanzas, operaciones, fabricación y administración de la cadena de suministro |
 | [Módulo IoT Edge](./iot-edge-module/cpp-offer-process-parts.md) | Azure | Contenedor compatible con Docker que se ejecuta en un dispositivo IoT Edge.  Contiene módulos pequeños de cálculo que usan una combinación de código personalizado, otros servicios de Azure y servicios de terceros. |
-| [Power BI App](./power-bi/cpp-power-bi-offer.md) | AppSource | Un paquete que utiliza flujos de datos para conectar informes y paneles a los datos del almacenamiento de datos común. |
-| [Aplicación SaaS](./saas-app/cpp-saas-offer.md) | Azure | Suscripción de software como servicio administrada por el anunciante en la que los usuarios inician sesión mediante una interfaz personalizada que aprovecha las funciones de Azure Active Directory. |
+| [Aplicación de Power BI](./power-bi/cpp-power-bi-offer.md) | AppSource | Una aplicación de Power BI que los paquetes incluidos los conjuntos de datos, informes y paneles personalizable contenido de Power BI |
+| [Aplicación SaaS](./saas-app/cpp-saas-offer.md) | Azure | Solución es una suscripción de software como servicio, administrada por el publicador, que los usuarios iniciar sesión a través de una interfaz personalizada que usa Azure Active Directory. |
 | [Máquina virtual](./virtual-machine/cpp-virtual-machine-offer.md)  | Azure  | Solución contenida dentro de una sola máquina virtual que se implementa en la suscripción del cliente.  |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |   |   |
 
@@ -69,4 +69,4 @@ Para obtener más información, consulte la [Guía de publicación por tipo de o
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtendrá información sobre las operaciones generales que puede realizar en las ofertas de Marketplace y sus atributos y recursos técnicos comunes en el tema [Administración de ofertas](./manage-offers/cpp-manage-offers.md).
+Obtendrá información sobre las operaciones generales que puede realizar en las ofertas de marketplace y sus atributos técnicos comunes y los activos en el artículo [administrar ofertas](./manage-offers/cpp-manage-offers.md).

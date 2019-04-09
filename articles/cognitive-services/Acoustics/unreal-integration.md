@@ -10,19 +10,19 @@ ms.subservice: acoustics
 ms.topic: how-to
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 0baaf31386e1155dee6ca2bbfda6827ca3fc36fe
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c6baa9f8330338c1e5fdc9ee0b5a8cc8b344e871
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313454"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006483"
 ---
 # <a name="project-acoustics-unreal-and-wwise-integration"></a>Integración de Wwise y proyecto acústica Unreal
 Este procedimiento proporciona pasos de integración detallada del paquete de complemento acústica del proyecto en el proyecto existente de juegos de Unreal y Wwise. 
 
 Requisitos de software:
-* [Motor Unreal](https://www.unrealengine.com/) 4.21
-* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1. +
+* [Motor Unreal](https://www.unrealengine.com/) 4.20 o 4.21
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.\*
 * [Complemento de Wwise para Unreal](https://www.audiokinetic.com/library/?source=UE4&id=index.html)
   * Si usa una integración directa de Wwise SDK en lugar de usar los complementos Wwise Unreal, consulte el complemento de Project acústica Unreal y ajustar las llamadas API Wwise.
 
@@ -39,17 +39,17 @@ Existen estos pasos principales para instalar el paquete e implementarlo en su j
 1. Instalar el complemento de Project acústica Wwise mixer
 2. (Re) implementar Wwise en su juego. Este paso propaga el complemento de mixer en su proyecto de juego.
 3. Agregue el complemento de Project acústica Unreal a tu juego
-4. Ampliar la funcionalidad de Wwise complemento Unreal
+4. Ampliación de la funcionalidad del complemento Unreal de Wwise
 5. Compile juegos y compruebe que Python está habilitado
 6. Configurar el proyecto Wwise para usar proyecto acústica
 7. Configuración de audio en Unreal
 
 ## <a name="1-install-the-project-acoustics-mixer-plugin"></a>1. Instalar el complemento de mixer acústica del proyecto
-* Abrir selector Wwise, a continuación, en el **complementos** ficha **instalar nuevos complementos**, seleccione **agregar desde el directorio**. 
+* Abra Wwise Launcher y, en la pestaña **Plugins** (Complementos), en **Install New Plugins** (Instalar nuevos complementos), seleccione **Add From Directory** (Agregar del directorio). 
 
     ![Captura de pantalla de la instalación de un complemento en el iniciador de Wwise](media/wwise-install-new-plugin.png)
 
-* Elija la `AcousticsWwisePlugin\ProjectAcoustics` directorio que se incluyó en el paquete descargado. Contiene el paquete de complemento de mixer Wwise.
+* Elija el directorio `AcousticsWwisePlugin\ProjectAcoustics` que se incluyó en el paquete descargado. Contiene el paquete de complemento de mixer Wwise.
 
 * Wwise se instalará el complemento. Proyecto acústica debería aparecer ahora en la lista de complementos instalados en Wwise.
 ![Lista de complementos de captura de pantalla de Wwise instalado después de la instalación de proyecto acústica](media/unreal-integration-post-mixer-plugin-install.png)
@@ -59,7 +59,7 @@ Volver a implementar Wwise en su juego, incluso si ya ha integrado Wwise. Selecc
 
 * **Complemento de motor:** Si tiene Wwise instalado como un complemento de juego en un proyecto de C++ Unreal, omita este paso. Si está instalado en su lugar como un complemento de motor de instancia porque el proyecto Unreal es única, implementación de Wwise Blueprint con nuestro complemento mezclador es más compleja. Crear un proyecto de C++ Unreal ficticio y vacío, ciérrela si abre el editor de Unreal y siga el procedimiento para implementar Wwise en este proyecto ficticio restante. A continuación, copie el complemento Wwise implementado.
  
-* Desde el selector de Wwise, haga clic en el **Unreal Engine** y, después, haga clic en el menú de hamburguesa junto a **proyectos recientes de Unreal Engine** y seleccione **Buscar proyecto**. Abrir proyecto Unreal tu juego `.uproject` archivo.
+* En Wwise Launcher, haga clic en la pestaña **Unreal Engine**, haga clic en el menú lateral junto a **Recent Unreal Engine Projects** (Proyectos de Unreal Engine recientes) y seleccione **Browse for project** (Examinar proyecto). Abrir proyecto Unreal tu juego `.uproject` archivo.
 
     ![Pestaña de captura de pantalla de Wwise del iniciador Unreal](media/wwise-unreal-tab.png)
 
@@ -74,7 +74,7 @@ Volver a implementar Wwise en su juego, incluso si ya ha integrado Wwise. Selecc
 
 * Confirme que aparece un `Wwise` carpeta junto con el `ProjectAcoustics` carpeta. Contiene el complemento Wwise junto con los archivos binarios para el complemento de mixer que (re-) implementado en el paso 2 anterior.
 
-## <a name="4-extend-wwises-unreal-plugin-functionality"></a>4. Ampliar la funcionalidad de Wwise complemento Unreal
+## <a name="4-extend-wwises-unreal-plugin-functionality"></a>4. Ampliación de la funcionalidad del complemento Unreal de Wwise
 * El complemento de Project acústica Unreal requiere un comportamiento adicional se pueden exponer desde el complemento de Wwise Unreal API por [estas directrices](https://www.audiokinetic.com/library/?source=UE4&id=using__initialsetup.html). Hemos incluido un archivo por lotes para automatizar el procedimiento de la aplicación de revisiones. 
 * Dentro de `Plugins\ProjectAcoustics\Resources`, ejecute `PatchWwise.bat`. La imagen de ejemplo siguiente usa nuestro proyecto de ejemplo AcousticsGame.
 
@@ -82,7 +82,7 @@ Volver a implementar Wwise en su juego, incluso si ya ha integrado Wwise. Selecc
 
 * Si no tiene instalado el SDK de DirectX, que necesitará para marcar como comentario la línea que contiene DXSDK_DIR en `[UProject]\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
 
-    ![Captura de pantalla del editor de código que muestra DXSDK comentada](media/directx-sdk-comment.png)
+    ![Captura de pantalla del editor de código que muestra DXSDK convertido en comentario](media/directx-sdk-comment.png)
 
 ## <a name="5-build-game-and-check-python-is-enabled"></a>5. Compile juegos y compruebe que Python está habilitado
 

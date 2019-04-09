@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: traffic-manager
 ms.date: 04/26/2018
 ms.author: kumud
-ms.openlocfilehash: 284e0817023c13cee441d50dc226d5c2aa5f54c2
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 6c610a1cddb0854878d4c2bd5531f88a1cf2ec51
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55891529"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009111"
 ---
 # <a name="route-traffic-for-high-availability-of-applications-using-azure-cli"></a>Enrutamiento del tráfico para la alta disponibilidad de las aplicaciones con la CLI de Azure
 
@@ -52,9 +52,9 @@ Este script usa los siguientes comandos para crear un grupo de recursos, una apl
 |---|---|
 | [az group create](https://docs.microsoft.com/cli/azure/group) | Crea un grupo de recursos en el que se almacenan todos los recursos. |
 | [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan) | Crea un plan de App Service, que es como una granja de servidores para una aplicación web de Azure. |
-| [az webapp web create](https://docs.microsoft.com/cli/azure/webapp#az-webapp-create) | Crea una aplicación web de Azure en el plan de App Service. |
-| [az network traffic-manager profile create](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile) | Crea un perfil de Azure Traffic Manager. |
-| [az network traffic-manager endpoint create](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint) | Añade un punto de conexión a un perfil de Azure Traffic Manager. |
+| [creación de web de AZ webapp](https://docs.microsoft.com/cli/azure/webapp#az-webapp-create) | Crea una aplicación web de Azure en el plan de App Service. |
+| [Crear perfil de administrador de tráfico de red AZ](https://docs.microsoft.com/cli/azure/network/traffic-manager/profile) | Crea un perfil de Azure Traffic Manager. |
+| [Crear punto de conexión de AZ network traffic-manager](https://docs.microsoft.com/cli/azure/network/traffic-manager/endpoint) | Agrega un punto de conexión a un perfil de Azure Traffic Manager. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 

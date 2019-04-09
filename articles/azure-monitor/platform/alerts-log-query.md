@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 02/19/2019
 ms.author: bwren
 ms.subservice: alerts
-ms.openlocfilehash: 53cd84d669a3f14d5ac028cc29ae483962860f72
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
-ms.translationtype: HT
+ms.openlocfilehash: 429770b7651a93473c03f5e386d8f7b72692c161
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447221"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006106"
 ---
 # <a name="log-alert-queries-in-azure-monitor"></a>Consultas de alertas de registro en Azure Monitor
 Las [reglas de alertas basadas en registros de Azure Monitor](alerts-unified-log.md) se ejecutan a intervalos regulares, por lo que debe asegurarse de que están escritas de manera eficiente para minimizar la sobrecarga y la latencia. Este artículo proporciona recomendaciones sobre cómo escribir consultas eficaces para las alertas de registro y un proceso para convertir las consultas existentes. 
 
 ## <a name="types-of-log-queries"></a>Tipos de consultas de registro
-Las [consultas de Log Analytics](../log-query/log-query-overview.md) se inician con una tabla o un operador de [búsqueda](/azure/kusto/query/searchoperator) o de [unión](/azure/kusto/query/unionoperator).
+[Registro de consultas en Azure Monitor](../log-query/log-query-overview.md) comenzar por una tabla o un [búsqueda](/azure/kusto/query/searchoperator) o [unión](/azure/kusto/query/unionoperator) operador.
 
 Por ejemplo, la siguiente consulta se limita a la tabla _SecurityEvent_ y busca el identificador de evento específico. Esta es la única tabla que debe procesar la consulta.
 

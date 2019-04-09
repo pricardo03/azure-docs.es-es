@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/20/2018
+ms.date: 04/02/2019
 ms.author: monhaber
-ms.openlocfilehash: cabd3d58c3b6bf76b294e1edf1cf94aad5d30f2f
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 63ee603f83d0c2de3bc89b8792ada4a61edb7e00
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578958"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006741"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolección de datos en Azure Security Center
 Security Center recopila datos de sus máquinas virtuales (VM), conjuntos de escalado de máquinas virtuales, contenedores de IaaS y los equipos que no son de Azure (incluido local) para supervisar las amenazas y vulnerabilidades de seguridad. Los datos se recopilan con Microsoft Monitoring Agent, que lee distintas configuraciones relacionadas con la seguridad y distintos registros de eventos de la máquina y copia los datos en el área de trabajo para analizarlos. Estos son algunos ejemplos de dichos datos: tipo y versión del sistema operativo, registros del sistema operativo (registros de eventos de Windows), procesos en ejecución, nombre de la máquina, direcciones IP y usuario conectado. El agente de Microsoft Monitoring Agent también copia los archivos de volcado en el área de trabajo.
@@ -77,7 +77,7 @@ Security Center puede crear automáticamente un área de trabajo predeterminada 
 Para seleccionar un área de trabajo creada por Security Center:
 
 1. En **Configuración del área de trabajo predeterminada**, seleccione Use workspace(s) created by Security center (Usar áreas de trabajo creadas por Security Center).
-   ![Selección del plan de tarifa][10] 
+   ![Seleccionar plan de tarifa][10] 
 
 1. Haga clic en **Save**(Guardar).<br>
     Security Center crea un nuevo grupo de recursos y un área de trabajo predeterminada en esa geolocalización y la conecta al agente. La convención de nomenclatura del área de trabajo y el grupo de recursos es:<br>
@@ -137,8 +137,8 @@ Para seleccionar un área de trabajo existente de Log Analytics:
      a.  En el menú principal de Security Center, seleccione **Directiva de seguridad**.
      
     b.  Para seleccionar el área de trabajo deseada en la que quiere conectar el agente, haga clic en **Editar configuración** en la columna de Configuración de la suscripción deseada en la lista.
-        ![Selección del área de trabajo][8] c. Establezca el plan de tarifa.
-        ![Selección del plan de tarifa][9] 
+        ![Seleccione el área de trabajo][8] c. Establezca el plan de tarifa.
+        ![Seleccionar plan de tarifa][9] 
    
    >[!NOTE]
    >Si el área de trabajo ya tiene una solución **Security** o **SecurityCenterFree** habilitada, los precios se establecerán automáticamente. 
@@ -179,7 +179,7 @@ A continuación se muestra un desglose completo de los identificadores de evento
 | --- | --- |
 | Mínimo | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
 | | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
-| Común | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,461,4622, |
+| Común | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,4622, |
 | |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
 | | 4700,4702,4704,4705,4716,4717,4718,4719,4720,4722,4723,4724,4725,4726,4727,4728,4729,4733,4732,4735,4737, |
 | | 4738,4739,4740,4742,4744,4745,4746,4750,4751,4752,4754,4755,4756,4757,4760,4761,4762,4764,4767,4768,4771, |
@@ -256,16 +256,16 @@ Puede instalar Microsoft Monitoring Agent manualmente para que Security Center p
    b.  Seleccione el área de trabajo deseada en la que quiere conectar al agente. Asegúrese de que el área de trabajo está en la misma suscripción que se usa en Security Center y que tiene permisos de lectura/escritura en el área de trabajo.
        ![Selección del área de trabajo][8]
 3. Establezca el plan de tarifa.
-   ![Selección del plan de tarifa][9] 
+   ![Seleccionar plan de tarifa][9] 
    >[!NOTE]
    >Si el área de trabajo ya tiene una solución **Security** o **SecurityCenterFree** habilitada, los precios se establecerán automáticamente. 
    > 
 
 4. Si desea implementar los agentes en nuevas máquinas virtuales mediante una plantilla de Resource Manager, instale la extensión de máquina virtual de OMS:
 
-    a.  [Instalación de la extensión de máquina virtual de OMS para Windows](../virtual-machines/extensions/oms-windows.md)
+    a.  [Instalar la extensión de máquina virtual OMS para Windows](../virtual-machines/extensions/oms-windows.md)
     
-   b.  [Instalación de la extensión de máquina virtual de OMS para Linux](../virtual-machines/extensions/oms-linux.md)
+   b.  [Instalar la extensión de máquina virtual OMS para Linux](../virtual-machines/extensions/oms-linux.md)
 5. Para implementar las extensiones en máquinas virtuales existentes, siga las instrucciones de [Recopilación de datos acerca de máquinas virtuales de Azure](../azure-monitor/learn/quick-collect-azurevm.md).
 
    > [!NOTE]

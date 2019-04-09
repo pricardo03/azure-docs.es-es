@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 01/15/2019
 ms.author: jgao
 ms.custom: include file
-ms.openlocfilehash: 11bcfa1b4719d6def5bfc4a6a189bd2b58896b5b
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
-ms.translationtype: HT
+ms.openlocfilehash: 8c5347b412475b86222acabb76b88baaceb7645a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54334314"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59291825"
 ---
 ## <a name="quickstarts-and-tutorials"></a>Guías de inicio rápido y tutoriales
 
@@ -39,15 +39,14 @@ Use las siguientes guías de inicio rápido y tutoriales para aprender a desarro
     |------|-----|
     |[Utilización de la referencia de la plantilla](../articles/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts.md)|Use la documentación de referencia de la plantilla para desarrollar las plantillas. En el tutorial, busque el esquema de la cuenta de almacenamiento y use la información para crear una cuenta de almacenamiento cifrada.|
     |[Creación de varias instancias](../articles/azure-resource-manager/resource-manager-tutorial-create-multiple-instances.md)|Cree varias instancias de recursos de Azure. En el tutorial, puede crear varias instancias de la cuenta de almacenamiento.|
-    |[Movimiento de recursos](../articles/azure-resource-manager/resource-manager-tutorial-move-resources.md)|Trasladar recursos de un grupo de recursos a otro. En el tutorial, se ejecutará una plantilla existente para crear dos grupos de recursos y una cuenta de almacenamiento. Después, se ejecutará un cmdlet de PowerShell de Azure para mover la cuenta de almacenamiento al otro grupo de recursos.|
     |[Establecimiento del orden de implementación de los recursos](../articles/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources.md)|Defina las dependencias de recursos. En el tutorial, va a crear una red virtual, una máquina virtual y los recursos dependientes de Azure. Aprenderá cómo se definen las dependencias.|
     |[Condiciones de uso](../articles/azure-resource-manager/resource-manager-tutorial-use-conditions.md)|Implemente recursos basados en algunos valores de parámetro. En el tutorial, definirá una plantilla para crear una nueva cuenta de almacenamiento o usará una cuenta de almacenamiento ya existente basada en el valor de un parámetro.|
-    |[Integración de Key Vault](../articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md)|Recupere los secretos o contraseñas de Azure Key Vault. En el tutorial, creará una máquina virtual.  La contraseña del administrador de la máquina virtual se recupera de Key Vault.|
+    |[Integración de key vault](../articles/azure-resource-manager/resource-manager-tutorial-use-key-vault.md)|Recupere los secretos o contraseñas de Azure Key Vault. En el tutorial, creará una máquina virtual.  La contraseña del administrador de la máquina virtual se recupera de Key Vault.|
     |[Creación de plantillas vinculadas](../articles/azure-resource-manager/resource-manager-tutorial-create-linked-templates.md)|Modularice las plantillas y llame a otras plantillas desde una plantilla. En el tutorial, va a crear una red virtual, una máquina virtual y los recursos dependientes.  La cuenta de almacenamiento dependiente se define en una plantilla vinculada. |
-    |[Implementación de extensiones de máquina virtual](../articles/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)|Realice las tareas posteriores a la implementación mediante el uso de extensiones. En el tutorial, se implementa una extensión de script de cliente para instalar el servidor web en la máquina virtual. |
+    |[Implementar extensiones de máquina virtual](../articles/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions.md)|Realice las tareas posteriores a la implementación mediante el uso de extensiones. En el tutorial, se implementa una extensión de script de cliente para instalar el servidor web en la máquina virtual. |
     |[Implementación de extensiones de SQL](../articles/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac.md)|Realice las tareas posteriores a la implementación mediante el uso de extensiones. En el tutorial, se implementa una extensión de script de cliente para instalar el servidor web en la máquina virtual. |
     |[Protección de artefactos](../articles/azure-resource-manager/resource-manager-tutorial-secure-artifacts.md)|Proteja los artefactos necesarios para completar las implementaciones. En el tutorial, obtendrá información sobre cómo proteger el artefacto que se usa en el tutorial de implementación de extensiones SQL. |
     |[Uso de procedimientos de implementación seguros](../articles/azure-resource-manager/deployment-manager-tutorial.md)|Use Azure Deployment Manager. |
-    |[Tutorial: Troubleshoot Resource Manager template deployments](../articles/azure-resource-manager/resource-manager-tutorial-troubleshoot.md) (Tutorial: Solución de problemas con las implementaciones de plantillas de Resource Manager)|Solución de problemas de las implementaciones de plantillas.|
+    |[Tutorial: Solución de problemas en las implementaciones de plantillas de Resource Manager](../articles/azure-resource-manager/resource-manager-tutorial-troubleshoot.md)|Solución de problemas de las implementaciones de plantillas.|
 
 Estos tutoriales se pueden usar individualmente o como una serie para obtener información sobre los conceptos principales de desarrollo de la plantilla de Resource Manager.

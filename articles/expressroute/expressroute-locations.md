@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/02/2019
+ms.date: 04/03/2019
 ms.author: pareshmu
-ms.openlocfilehash: 06e93639e487439207aface0e56616b6492c6f5e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.openlocfilehash: 6d1fa0235c91d17887a40bbe0be9831623fce775
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879252"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006990"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>Asociados de ExpressRoute y ubicaciones de emparejamiento
 
@@ -50,6 +50,7 @@ La siguiente tabla proporciona un mapa de las regiones de Azure para las ubicaci
 | **India** | 2 |India occidental, India central, India del Sur |Chennai (Madrás), Chennai (Madrás)2, Mumbai (Bombay), Mumbai (Bombay)2 |
 | **Japón** | 2 |Oeste de Japón y Este de Japón |Osaka, Tokyo |
 | **Corea del Sur** | 2 |Corea Central, Corea del Sur |Busan, Seúl|
+| **Emiratos Árabes Unidos** | 2 | Centro de eau, Norte de eau | Dubai |
 | **Sudáfrica** | 3 |Oeste de Sudáfrica, Norte de Sudáfrica |Ciudad del cabo, Johannesburgo |
 | **Sudamérica** | 3 |Sur de Brasil |Sao Paulo |
 
@@ -95,6 +96,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **EIR** |Compatible |Compatible |Dublín|
 | **Comunicaciones de épsilon Global** |Compatible |Compatible |Singapur, Singapur2 |
 | **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |Compatible |Compatible |Ámsterdam, Atlanta, Chicago, Dallas, Dublín, Hong Kong, Londres, Londres2, Los Ángeles, Melbourne, Miami, Nueva York, Osaka, París, Sao Paulo, Seattle, Silicon Valley, Singapur, Sydney, Tokio, Toronto, Washington DC |
+| **Etisalat eau** |Compatible |Compatible |Dubai|
 | **euNetworks** |Compatible |Compatible |Ámsterdam, Dublín, Londres |
 | **GÉANT** |Compatible |Compatible |Ámsterdam |
 | **[Global Cloud Xchange (GCX)](https://globalcloudxchange.com/cloud-platform/cloud-x-fusion/)** | Compatible| Compatible | Chennai, Mumbai |
@@ -106,6 +108,7 @@ La siguiente tabla muestra las ubicaciones por proveedor de servicios. Si desea 
 | **[IX Reach](https://www.ixreach.com/partners/cloud-partners/microsoft-azure/)**|Compatible |Compatible | Ámsterdam, London2, Silicon Valley, Toronto |
 | **Jisc +** |Compatible |Compatible |Londres |
 | **[KINX](https://www.kinx.net/service/network/cloudhub/ms-expressroute/?lang=en)** |Compatible |Compatible |Seúl |
+| **Kordia** | Compatible |Compatible |Sidney |
 | **[KPN](https://www.kpn.com/zakelijk/cloud/connect.htm)** | Compatible | Compatible | Ámsterdam | 
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Compatible |Compatible |Ámsterdam, Chicago, Dallas, Londres, Newport (Gales), Sao Paulo, Seattle, Silicon Valley, Singapur y Washington DC |
 | **LG CNS** |Compatible |Compatible |Busan, Seúl |
