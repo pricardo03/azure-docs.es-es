@@ -69,7 +69,7 @@ La unión a Azure AD híbrido requiere que los dispositivos tengan acceso a los 
 - https://enterpriseregistration.windows.net
 - https://login.microsoftonline.com
 - https://device.login.microsoftonline.com
-- https://autologon.microsoftazuread-sso.com (Si está utilizando o planeando usar SSO de conexión directa)
+- [https://autologon.microsoftazuread-sso.com](https://autologon.microsoftazuread-sso.com)(Si está utilizando o planeando usar SSO de conexión directa)
 
 Si su organización requiere acceso a Internet a través de un proxy de salida, a partir de Windows 10 1709, puede [configurar los valores del proxy en el equipo utilizando un objeto de directiva de grupo (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/). Si el equipo está ejecutando versiones anteriores a Windows 10 1709, tiene que implementar la detección automática de proxy web (WPAD) para permitir que los equipos de Windows 10 realicen el registro de dispositivos con Azure AD. 
 

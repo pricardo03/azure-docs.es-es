@@ -5,22 +5,22 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: how-to
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: bd46e5f7428bab58508521b2c7d4d7cca25d689b
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 2af9df4771d58f2288820dad8ef8d7ac84deb8ae
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439080"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258477"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Creación de un grupo host con PowerShell
 
-Los grupos host son una colección de uno o más máquinas virtuales idénticas en entornos de inquilinos de vista previa de Escritorio Virtual de Windows. Cada grupo host puede contener un grupo de aplicaciones que los usuarios pueden interactuar con como lo harían en un equipo de escritorio físico.
+Los grupos de hosts son una colección de una o más máquinas virtuales idénticas en entornos de inquilinos de Windows Virtual Desktop (versión preliminar). Cada grupo de hosts puede contener un grupo de aplicaciones con las que los usuarios pueden interactuar igual que harían en un equipo de escritorio físico.
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Use el cliente de PowerShell para crear un grupo host
 
-Primero, [descargar e importar el módulo de Windows PowerShell de Escritorio Virtual](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) usar en la sesión de PowerShell si no lo ha hecho ya.
+En primer lugar y, si aún no lo ha hecho, [descargue e importe el módulo de PowerShell para Windows Virtual Desktop](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) que se usará en la sesión de PowerShell.
 
 Ejecute el siguiente cmdlet para iniciar sesión en el entorno de Escritorio Virtual de Windows
 
@@ -112,9 +112,12 @@ Para registrar a los agentes de Escritorio Virtual de Windows, haga lo siguiente
      - Seleccione **archivo**, a continuación, **abrir...** y, a continuación, busque el script de PowerShell en los archivos descargados y ábralo.
      - Seleccione el botón verde de reproducción para ejecutar el script.
 
+>[!IMPORTANT]
+>Para ayudar a proteger su entorno de Escritorio Virtual de Windows en Azure, se recomienda que no abrir el puerto 3389 de entrada en las máquinas virtuales. Escritorio Virtual de Windows no requiere un puerto de entrada abierto 3389 para que los usuarios accedan a máquinas virtuales del grupo host. Si debe abrir el puerto 3389 para solucionar problemas, le recomendamos que use [acceso de máquina virtual just-in-time](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha realizado un grupo host, puede rellenarlo con RemoteApp. Para obtener más información sobre cómo administrar las aplicaciones de Escritorio Virtual de Windows, consulte el tutorial de grupos de aplicación de administrar.
+Ahora que ha realizado un grupo host, puede rellenarlo con RemoteApp. Para obtener más información sobre cómo administrar las aplicaciones de Windows Virtual Desktop, consulte el tutorial Administración de grupos de aplicaciones.
 
 > [!div class="nextstepaction"]
 > [Tutorial de aplicación de grupos de administración](./manage-app-groups.md)

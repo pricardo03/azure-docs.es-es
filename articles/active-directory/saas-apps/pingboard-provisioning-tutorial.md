@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 03/27/2019
 ms.author: asmalser
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e36d0985aee53f2a7f701f9bf7887ae26a426b68
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: d2ab7f58c3061044583baf9db73e193966d7d4eb
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56203750"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59058387"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Tutorial: Configuración de Pingboard para el aprovisionamiento automático de usuarios
 
@@ -32,11 +32,11 @@ El objetivo de este tutorial es explicar los pasos que hay que realizar para hab
 
 En la situación descrita en este tutorial se supone que ya cuenta con los elementos siguientes:
 
-*   Un inquilino de Azure AD
-*   Una [cuenta profesional](https://pingboard.com/pricing) de un inquilino de Pingboard 
-*   Una cuenta de usuario de Pingboard con permisos de administrador 
+* Un inquilino de Azure AD
+* Una [cuenta profesional](https://pingboard.com/pricing) de un inquilino de Pingboard
+* Una cuenta de usuario de Pingboard con permisos de administrador
 
-> [!NOTE] 
+> [!NOTE]
 > La integración del aprovisionamiento de Azure AD se basa ([API de Pingboard](https://pingboard.docs.apiary.io/#)) que está disponible para su cuenta.
 
 ## <a name="assign-users-to-pingboard"></a>Asignación de usuarios a Pingboard
@@ -45,7 +45,7 @@ Azure AD usa un concepto denominado "asignaciones" para determinar qué usuarios
 
 Antes de configurar y habilitar el servicio de aprovisionamiento, debe decidir qué usuarios de Azure AD necesitan acceso a la aplicación de Pingboard. Una vez decidido, puede asignar estos usuarios a la aplicación de Pingboard siguiendo estas instrucciones:
 
-[Asignación de un usuario a una aplicación empresarial](../manage-apps/assign-user-or-group-access-portal.md)
+[Asignar a un usuario a una aplicación empresarial](../manage-apps/assign-user-or-group-access-portal.md)
 
 ### <a name="important-tips-for-assigning-users-to-pingboard"></a>Sugerencias importantes para asignar usuarios a Pingboard
 
@@ -69,7 +69,7 @@ Esta sección le guía en el proceso de conectar su instancia de Azure AD a la A
 1. Establezca el **modo de aprovisionamiento** en **Automático**.
 
     ![Aprovisionamiento de Pingboard](./media/pingboard-provisioning-tutorial/pingboardazureprovisioning.png)
-    
+
 1. En la sección **Credenciales de administración**, realice los pasos siguientes:
 
      a. En **URL de inquilino**, escriba `https://your_domain.pingboard.com/scim/v2` y sustituya "your_domain" por su dominio real.
@@ -86,7 +86,7 @@ Esta sección le guía en el proceso de conectar su instancia de Azure AD a la A
 
 1. Escriba la dirección de correo electrónico de una persona o grupo que quiera que reciba las notificaciones de error de aprovisionamiento en **Correo electrónico de notificación**. Active la casilla situada debajo.
 
-1. Seleccione **Guardar**. 
+1. Seleccione **Guardar**.
 
 1. En la sección **Asignaciones**, seleccione **Synchronize Azure Active Directory Users to Pingboard** (Sincronizar usuarios de Azure Active Directory con Pingboard).
 
@@ -102,6 +102,6 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Administrar el aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configuración del inicio de sesión único](pingboard-tutorial.md)
+* [Configurar inicio de sesión único](pingboard-tutorial.md)

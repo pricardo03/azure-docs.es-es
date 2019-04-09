@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 957ce60b8519ccb1e3287232f7a5459a56b25bb7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
+ms.openlocfilehash: 93dae9a69997dd1b513d205118a112119025f4fd
+ms.sourcegitcommit: b4ad15a9ffcfd07351836ffedf9692a3b5d0ac86
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55960622"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59057122"
 ---
 # <a name="add-a-heat-map-layer"></a>Adición de una capa de mapa térmico
 
@@ -25,7 +25,7 @@ Los mapas térmicos, también conocidos como mapas de densidad de puntos, son un
 * La visualización de un seguimiento por GPS que incluya la velocidad como un mapa de altura ponderada, donde la intensidad de cada punto de datos se basaría en la velocidad, es una forma magnífica de ver rápidamente dónde acelera el vehículo.
 
 > [!TIP]
-> De forma predeterminada, las capas de un mapa térmico representarán las coordenadas de todos los objetos geométricos de un origen de datos. Para limitar la capa de tal forma que solo represente las características geométricas de punto, establezca la propiedad `filter` de la capa en `['==', '$type', 'Point']`.
+> De forma predeterminada, las capas de un mapa térmico representarán las coordenadas de todos los objetos geométricos de un origen de datos. Para limitar la capa para que solo representa elija las características de geometría, establecer el `filter` propiedad de la capa a `['==', ['geometry-type'], 'Point']` o `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` si desea incluir también las características de MultiPoint.
 
 ## <a name="add-a-heat-map-layer"></a>Adición de una capa de mapa térmico
 
@@ -36,21 +36,21 @@ Para representar un origen de datos de puntos como un mapa térmico, solo tiene 
 <iframe height='500' scrolling='no' title='Capa de mapa térmico sencilla' src='//codepen.io/azuremaps/embed/gQqdQB/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/gQqdQB/'>Capa de mapa térmico sencilla</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-En este ejemplo, cada punto térmico tiene un radio de 10 píxeles a todos los niveles de zoom. Al agregar la capa de mapa térmico al mapa, en este ejemplo se inserta debajo de la capa de la etiqueta. De esta forma, se crea una experiencia de usuario mejorada, ya que las etiquetas se ven claramente por encima del mapa térmico. Los datos de este ejemplo proceden de [USGS Earthquake Hazards Program](https://earthquake.usgs.gov/) y constan de puntos que representan importantes terremotos que se han producido en los 30 últimos días.
+En este ejemplo, cada punto térmico tiene un radio de 10 píxeles a todos los niveles de zoom. Al agregar la capa de mapa térmico al mapa, en este ejemplo se inserta debajo de la capa de etiqueta para crear una mejor experiencia de usuario como las etiquetas son claramente por encima del mapa térmico. Los datos de este ejemplo proceden de [USGS Earthquake Hazards Program](https://earthquake.usgs.gov/) y constan de puntos que representan importantes terremotos que se han producido en los 30 últimos días.
 
 ## <a name="customizing-the-heat-map-layer"></a>Personalización de la capa de mapa térmico
 
 En el ejemplo anterior se personalizó el mapa térmico con la configuración de las opciones de radio y opacidad. La capa de mapa térmico ofrece varias opciones de personalización:
 
-* `radius`: define un radio de píxel en el que representar cada punto de datos. El radio puede establecerse como un número fijo o como una expresión. Mediante una expresión, es posible escalar el radio en función del nivel de zoom, que parece representar un área espacial coherente del mapa (por ejemplo, un radio de 5 millas).
-* `color`: especifica cómo se colorea el mapa térmico. Se suele utilizar una paleta de colores degradados para los mapas térmicos, pero las paletas de colores escalonados también son útiles si desea que el mapa térmico se asemeje más a datos de contorno. Las paletas de colores definen los colores desde valores de intensidad mínimos hasta máximos. Los valores de color de los mapas térmicos se especifican como una expresión en el valor `heatmap-density`. El color del índice 0 de una expresión de degradado o el color predeterminado de un color escalonado define el color del área donde no hay ningún dato y puede utilizarse para especificar el color de fondo. Muchos prefieren establecer este valor en transparente o en un negro semitransparente. Estos son ejemplos de expresiones de color:
+* `radius`: define un radio de píxel en el que representar cada punto de datos. El radio puede establecerse como un número fijo o como una expresión. Mediante una expresión, es posible escalar el radio según el nivel de zoom, que aparece para representar un área espacial coherente en el mapa (por ejemplo, el radio de 5 millas).
+* `color`: especifica cómo se colorea el mapa térmico. Una paleta de colores de degradado se suele utilizar para mapas térmicos y se puede lograr con una expresión de interpolación, pero también son útiles si desea que el calor mapa paletas de color escalonado parecerse más a los datos de perfil y se puede lograr con una expresión step. Las paletas de colores definen los colores desde valores de intensidad mínimos hasta máximos. Los valores de color de los mapas térmicos se especifican como una expresión en el valor `heatmap-density`. El color en el índice 0 en una expresión de interpolación o el color predeterminado de una expresión de paso, define el color del área donde no hay ningún dato y puede utilizarse para definir un color de fondo. Muchos prefieren establecer este valor en transparente o en un negro semitransparente. Estos son ejemplos de expresiones de color:
 
-| Expresión de color degradado | Expresión de color escalonado | 
-|---------------------------|--------------------------|
-| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpolate',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['linear'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'purple',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'step',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.25, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.50, 'green',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.75, 'yellow',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1.00, 'red'<br/>\] |   
+| Expresión de Color de interpolación | Expresión de color escalonado | 
+|--------------------------------|--------------------------|
+| \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'interpolate',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['linear'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;0, 'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'purple',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.5, '#fb00fb',<br/>&nbsp;&nbsp;&nbsp;&nbsp;1, '#00c3ff'<br/>\] | \[<br/>&nbsp;&nbsp;&nbsp;&nbsp;'step',<br/>&nbsp;&nbsp;&nbsp;&nbsp;\['heatmap-density'\],<br/>&nbsp;&nbsp;&nbsp;&nbsp;'transparent',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.01, 'navy',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0.25, 'verde',<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,50, "amarillo",<br/>&nbsp;&nbsp;&nbsp;&nbsp;0,75, "rojo"<br/>\] | 
 
 * `opacity`: especifica el grado de opacidad o transparencia de la capa de mapa térmico.
-* `intensity`: aplica un multiplicador al peso de cada punto de datos para aumentar la intensidad general del mapa térmico. Esto ayuda a que las pequeñas diferencias en el peso de los puntos de datos resulten más fáciles de visualizar.
+* `intensity`: Se aplica un multiplicador para el peso de cada punto de datos para aumentar la intensidad de los mapas térmicos global y contribuye a que las pequeñas diferencias en el peso de puntos de datos resultan más fáciles de visualizar.
 * `weight`: de forma predeterminada, todos los puntos de datos tienen un peso de 1; por lo tanto, todos los puntos de datos se ponderan equitativamente. La opción de peso actúa como un multiplicador y puede establecerse como un número o una expresión. Si el peso se establece con un número, digamos 2, equivaldría a colocar cada punto de datos dos veces en el mapa, por lo que se duplicaría la densidad. Establecer la opción de peso en un número representa el mapa térmico de forma similar a la opción de intensidad. Sin embargo, si se usa una expresión, el peso de cada punto de datos puede basarse en algunas métricas de las propiedades de dichos puntos de datos. Si tomamos los datos de un terremoto como ejemplo, cada punto de datos representaría un terremoto. Las métricas importantes que tenga cada punto de datos se considerarán valores de magnitud. Los terremotos se producen a menudo, pero la mayoría tienen una magnitud baja y casi no se sienten. Si utilizamos el valor de magnitud de una expresión para asignar el peso a cada punto de datos, conseguiremos que los terremotos más importantes se representen mejor en el mapa térmico.
 * Además de las opciones de la capa base, el zoom mínimo y máximo, la opción Visible y el filtro, también está la opción `source` si desea actualizar el origen de datos y la opción `source-layer` si el origen de dato es un origen de corte vectorial.
 
@@ -61,8 +61,18 @@ A continuación, se muestra una herramienta para probar las diferentes opciones 
 <iframe height='700' scrolling='no' title='Opciones de la capa de mapa térmico' src='//codepen.io/azuremaps/embed/WYPaXr/?height=700&theme-id=0&default-tab=result' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consulte el Pen <a href='https://codepen.io/azuremaps/pen/WYPaXr/'>Opciones de la capa de mapa térmico</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
+## <a name="consistent-zoomable-heat-map"></a>Mapa térmico se puede acercar coherente
+
+De forma predeterminada, el radio de puntos de datos representados en la capa de mapa térmico tiene un radio de píxel fijo para todos los niveles de zoom. Como el mapa se amplía los agregados de datos juntos y la capa de mapa térmico tiene un aspecto diferente. Un `zoom` expresión puede utilizarse para escalar el radio para cada nivel de zoom de forma que cada punto de datos trata de la misma área física de la asignación. Esto hará que la capa de mapa térmico buscar más coherente y estático. Cada nivel de zoom del mapa tiene dos veces tantas píxeles verticalmente y horizontalmente como el nivel de zoom anterior, por lo tanto, el radio de ajuste de escala que duplica con cada nivel de zoom se creará un mapa térmico que tiene un aspecto coherente en todos los niveles de zoom. Esto puede realizarse mediante el uso de la `zoom` en base 2 `exponential interpolation` expresión tal como se muestra en el ejemplo siguiente. Zoom del mapa para ver cómo los puntos de la radio de los datos en la escala de mapa térmico con el nivel de zoom.
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Mapa térmico se puede acercar coherente" src="//codepen.io/azuremaps/embed/OGyMZr/?height=500&theme-id=light&default-tab=js,result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+Consulte el Pen <a href='https://codepen.io/azuremaps/pen/OGyMZr/'>mapa térmico se puede acercar coherente</a> de Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) en <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
 > [!TIP]
-> Al habilitar la agrupación en clústeres en el origen de datos, los puntos que están cerca unos de otros se agrupan como un punto agrupado. El número de puntos de cada clúster puede utilizarse como la expresión de peso para el mapa térmico y reducir significativamente el número de puntos que se deben representar. El número de puntos de un clúster se almacena en la propiedad `point_count property` de la característica de puntos, tal y como se muestra a continuación. 
+> Al habilitar la agrupación en clústeres en el origen de datos, los puntos que están cerca unos de otros se agrupan como un punto agrupado. El número de puntos de cada clúster puede utilizarse como la expresión de peso para el mapa térmico y reducir significativamente el número de puntos que se deben representar. El número de punto de un clúster se almacena en un `point_count` propiedad de la característica punto tal como se muestra a continuación. 
 > ```JavaScript
 > var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 >    weight: ['get', 'point_count']

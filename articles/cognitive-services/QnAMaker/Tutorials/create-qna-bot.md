@@ -1,7 +1,7 @@
 ---
 title: 'Bot de preguntas y respuestas con Azure Bot Service: QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Este tutorial le guía a través de la creación de un bot de preguntas y respuestas con Azure Bot Service v3 en Azure Portal.
+description: Crear un bot de chat de QnA a partir de la página de publicación para una base de conocimiento existente. Este bot usa el v4 de Bot Framework SDK. No es necesario escribir ningún código para generar el bot, todo el código se proporciona automáticamente.
 services: cognitive-services
 author: tulasim88
 manager: nitinme
@@ -9,101 +9,80 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/02/2019
+ms.date: 04/08/2019
 ms.author: tulasim
-ms.openlocfilehash: 218103f2c75ec1016a997c259767ccd011191fab
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 85b0004288a06a834b61f6e3d50017d35d66ce86
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58879618"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59263883"
 ---
-# <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v3"></a>Tutorial: Creación de un bot de preguntas y respuestas con Azure Bot Service v3
+# <a name="tutorial-create-a-qna-bot-with-azure-bot-service-v4"></a>Tutorial: Creación de un QnA Bot con Azure Bot Service v4
 
-Este tutorial le lleva por la creación de un bot de preguntas y respuestas con Azure Bot Service v3 en [Azure Portal](https://portal.azure.com) sin escribir código. La conexión de una base de conocimiento publicada (KB) a un bot es tan sencillo como cambiar la configuración de la aplicación de bot. 
-
-> [!Note] 
-> Este tema es para la versión 3 del SDK de Bot. Puede encontrar la versión 4 [aquí](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs). 
+Creación de un bot de chat de QnA desde el **publicar** página para una base de conocimiento existente. Este bot usa el v4 de Bot Framework SDK. No es necesario escribir ningún código para generar el bot, todo el código se proporciona automáticamente.
 
 **En este tutorial, aprenderá a:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Crear una instancia de Azure Bot Service con la plantilla de QnA Maker
+> * Crear un Azure Bot Service desde una base de conocimiento existente
 > * Charlar con el bot para comprobar que el código funciona 
-> * Conectar la base de conocimiento publicada al bot
-> * Probar el bot con una pregunta
-
-En este artículo, puede usar el [servicio](../how-to/set-up-qnamaker-service-azure.md) de QnA Maker gratuito.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para poder realizar este tutorial, debe tener una base de conocimiento publicada. Si no tiene una, siga los pasos que se describen en [Crear una base de conocimiento](../How-To/create-knowledge-base.md) para crear un servicio de QnA Maker con preguntas y respuestas.
+Para poder realizar este tutorial, debe tener una base de conocimiento publicada. Si no tiene uno, siga los pasos descritos en [Create y respuesta en KB](create-publish-query-in-portal.md) tutorial para crear una base de conocimiento de QnA Maker con preguntas y respuestas.
+
+<a name="create-a-knowledge-base-bot"></a>
 
 ## <a name="create-a-qna-bot"></a>Crear un bot de QnA
 
-1. En Azure Portal, haga clic en **Crear un recurso**.
+Creación de un bot como una aplicación cliente para la base de conocimiento. 
 
-    ![Creación del servicio de bot](../media/qnamaker-tutorials-create-bot/bot-service-creation.png)
+1. En el portal de QnA Maker, vaya a la **publicar** página y publicar la base de conocimiento. Seleccione **crear bots**. 
 
-2. En el cuadro de búsqueda, busque **Bot de aplicación web**.
+    ![En el portal de QnA Maker, vaya a la página de publicación y publicar la base de conocimiento. Seleccione crear Bot.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base-page.png)
 
-    ![Selección del servicio de bot](../media/qnamaker-tutorials-create-bot/bot-service-selection.png)
+    Se abre el portal de Azure con la configuración de creación de bot.
 
-3. En **Bot Service**, proporcione la información necesaria:
+1.  Especifique la configuración para crear el bot:
 
-    - Establezca **Nombre de la aplicación** en el nombre del bot. El nombre se usa como el subdominio cuando el bot se implementa en la nube (por ejemplo, mynotesbot.azurewebsites.net).
-    - Seleccione la suscripción, el grupo de recursos, el plan de App Service y la ubicación.
+    |Configuración|Valor|Propósito|
+    |--|--|--|
+    |Nombre del bot|`my-tutorial-kb-bot`|Este es el nombre de recurso de Azure para el bot.|
+    |Subscription|Consulte propósito.|Seleccione la misma suscripción que utilizó para crear los recursos de QnA Maker.|
+    |Grupos de recursos|`my-tutorial-rg`|El grupo de recursos que se usa para todos los recursos Azure relacionados con el bot.|
+    |Ubicación|`west us`|Ubicación de recursos de Azure del bot.|
+    |Plan de tarifa|`F0`|El nivel gratis para el servicio de Azure bot.|
+    |Nombre de la aplicación|`my-tutorial-kb-bot-app`|Se trata de una aplicación web para admitir sólo el bot. No debe el mismo nombre de aplicación como el servicio QnA Maker ya está usando. No se admite el uso compartido de la aplicación web de QnA Maker con cualquier otro recurso.|
+    |Idioma SDK|C#|Este es el lenguaje de programación subyacente utilizado por el SDK de framework bot. Las opciones son C# o Node.js.|
+    |Clave de autenticación de QnA|**No cambiar**|Este valor se rellena automáticamente.|
+    |Plan de App Service/Ubicación|**No cambiar**|Para este tutorial, la ubicación no es importante.|
+    |Azure Storage|**No cambiar**|Datos de la conversación se almacenan en tablas de Azure Storage.|
+    |Application Insights|**No cambiar**|El registro se envía a Application Insights.|
+    |Microsoft App ID (Id. de aplicación de Microsoft)|**No cambiar**|Se requiere contraseña y usuario de active directory.|
 
-4. Para usar las plantillas de v3, seleccione la versión del SDK de **SDK v3** y el idioma del SDK de **C#** o **Node.js**.
+    ![Cree el bot de base de conocimiento con esta configuración.](../media/qnamaker-tutorials-create-bot/create-bot-from-published-knowledge-base.png)
 
-    ![configuración de sdk de bot](../media/qnamaker-tutorials-create-bot/bot-v3.png)
+    Espere unos minutos hasta que la notificación de proceso de creación de bot un resultado satisfactorio.
 
-5. Seleccione la plantilla **Preguntas y respuestas** para el campo de plantilla de bot y, a continuación, guarde la configuración de la plantilla con **Seleccionar**.
-
-    ![guardar la selección de plantilla de Bot Service](../media/qnamaker-tutorials-create-bot/bot-v3-template.png)
-
-6. Revise la configuración y seleccione **Crear**. Esta acción crea el servicio de bot con Azure y lo implementa en esta plataforma.
-
-    ![crear bot](../media/qnamaker-tutorials-create-bot/bot-blade-settings-v3.png)
-
-7. Confirme que se ha implementado el servicio de bots.
-
-    - Haga clic en **Notificaciones** (el icono de la campana que se encuentra en el borde superior de Azure Portal). La notificación cambiará de **Implementación iniciada** a **Implementación correcta**.
-    - Después de que la notificación cambie a **Implementación correcta**, seleccione **Ir al recurso** en esa notificación.
+<a name="test-the-bot"></a>
 
 ## <a name="chat-with-the-bot"></a>Chat con el bot
 
-Al seleccionar **Ir al recurso** se accede a la hoja de recursos del bot.
+1. En el portal de Azure, abra el nuevo recurso de bot desde la notificación. 
 
-Seleccione **Test in Web Chat** (Probar en Chat en web) para abrir el panel Web Chat (Chat en web). Escriba "hi" en Web Chat (Chat en web).
+    ![En el portal de Azure, abra el nuevo recurso de bot desde la notificación.](../media/qnamaker-tutorials-create-bot/azure-portal-notifications.png)
 
-![Chat en web del bot de QnA](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat.PNG)
+1. Desde **administración Bot**, seleccione **pruebas en Web Chat** y escriba: `How large can my KB be?`. El bot responderá con: 
 
-El bot responde con "Establezca QnAKnowledgebaseId y QnASubscriptionKey en la configuración de la aplicación. Esta respuesta confirma que el bot de QnA ha recibido el mensaje, pero todavía no hay ninguna base de conocimiento de QnA Maker asociada. 
 
-## <a name="connect-your-qna-maker-knowledge-base-to-the-bot"></a>Conectar la base de conocimiento de QnA Maker con el bot
+    `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment)for more details.`
 
-1. Abra **Configuración de la aplicación** y modifique los campos **QnAKnowledgebaseId**, **QnAAuthKey** y **QnAEndpointHostName** para incluir los valores de la base de conocimiento de QnA Maker.
 
-    ![configuración de aplicaciones](../media/qnamaker-tutorials-create-bot/application-settings.PNG)
+    ![Probar el nuevo bot de knowledge base.](../media/qnamaker-tutorial-create-publish-query-in-portal/test-bot-in-web-chat-in-azure-portal.png)
 
-1. Obtenga el identificador de la base de conocimiento, la dirección URL del host y la clave de punto de conexión de la pestaña de configuración de la base de conocimiento del portal de QnA Maker.
-
-   - Inicio de sesión en [QnA Maker](https://qnamaker.ai)
-   - Vaya a la base de conocimiento.
-   - Seleccione la pestaña **Settings** (Configuración).
-   - **Publique** la base de conocimiento, si todavía no lo ha hecho.
-
-     ![Valores de QnA Maker](../media/qnamaker-tutorials-create-bot/qnamaker-settings-kbid-key.PNG)
-
-## <a name="test-the-bot"></a>Probar el bot
-
-En Azure Portal, haga clic en **Test in Web Chat** (Probar en Chat en web) para probar el bot. 
-
-![Bot de QnA Maker](../media/qnamaker-tutorials-create-bot/qna-bot-web-chat-response.PNG)
-
-El bot de QnA responde desde la base de conocimiento.
+    Para obtener más información acerca de los Bots de Azure, consulte [Use QnA Maker para responder a preguntas](https://docs.microsoft.com/azure/bot-service/bot-builder-howto-qna?view=azure-bot-service-4.0&tabs=cs)
 
 ## <a name="related-to-qna-maker-bots"></a>Relacionados con los bots de QnA Maker
 
@@ -113,7 +92,11 @@ El bot de QnA responde desde la base de conocimiento.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando haya terminado con el bot de este tutorial, quítelo en Azure Portal. Los servicios de bot incluyen:
+Cuando haya terminado con el bot de este tutorial, quítelo en Azure Portal. 
+
+Si ha creado un nuevo grupo de recursos para los recursos del bot, elimine el grupo de recursos. 
+
+Si no crea un nuevo grupo de recursos, deberá buscar los recursos asociados con el bot. La manera más fácil es buscar por nombre de la aplicación de bot y bot. Los recursos de bot incluyen:
 
 * El plan de App Service
 * El servicio Search

@@ -1,6 +1,6 @@
 ---
 title: Acciones de webhook para alertas de registro en alertas de Azure
-description: En este artículo se describe cómo una regla de alertas de registro puede insertar datos como webhook de HTTP mediante Log Analytics, así como los detalles de las diferentes personalizaciones posibles.
+description: En este artículo se describe cómo a una regla de alerta de registro mediante log analytics del área de trabajo o la aplicación, insertará datos como webhook HTTP y los detalles de las diferentes personalizaciones posibles.
 author: msvijayn
 services: monitoring
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: a592dc150d535df775a62c157f76f327b54240fd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 2307fa985c88608d80400c8951c47b9f20caa1dc
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496095"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006617"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Acciones de webhook para reglas de alertas de registro
 Cuando se [crea una alerta de registro en Azure](alerts-log.md), tiene la opción de [configurarla mediante grupos de acciones](action-groups.md), para así poder realizar una o varias acciones.  En este artículo se describen las diferentes acciones de webhook que están disponibles y los detalles sobre la configuración de los webhook personalizados basados en JSON.
@@ -202,5 +202,5 @@ A continuación se muestra una carga de ejemplo para una acción de webhook pers
 - Información sobre la [administración de alertas de registro en Azure](alerts-log.md)
 - Crear y administrar [grupos de acciones en Azure](action-groups.md)
 - Más información sobre [Application Insights](../../azure-monitor/app/analytics.md)
-- Más información sobre [Log Analytics](../../azure-monitor/log-query/log-query-overview.md). 
+- Obtenga más información sobre [registrar consultas](../log-query/log-query-overview.md). 
 
