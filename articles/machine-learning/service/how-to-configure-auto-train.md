@@ -9,14 +9,14 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: fd937aba302004f23904e4f743c93e69460f9026
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 5aa9a60c624e1bfaa1570d02bfd1a421fcab3301
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541152"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358293"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configuración de experimentos de aprendizaje automático automatizados
 
@@ -26,7 +26,7 @@ Para ver ejemplos de experimentos de aprendizaje automático automatizado, vea [
 
 Opciones de configuración disponibles en el aprendizaje automático automatizado:
 
-* Selección del tipo de experimento: Clasificación, Regresión o Previsión
+* Selección del tipo de experimento: Clasificación, regresión o la predicción de Series temporales
 * Origen de datos, formatos y datos de captura
 * Elección el destino del proceso: local o remoto
 * Configuración de experimentos de aprendizaje automático automatizado
@@ -39,14 +39,14 @@ Antes de comenzar el experimento, debe determinar el tipo de problema de aprendi
 
 El aprendizaje automático automatizado admite los siguientes algoritmos durante el proceso de optimización y automatización. Como usuario, no hay ninguna necesidad de especificar el algoritmo. Aunque los algoritmos DNN disponibles durante el entrenamiento, ML automatizada no compila los modelos de DNN.
 
-clasificación | Regresión | Previsión
+clasificación | Regresión | Previsión de Series temporales
 |-- |-- |--
 [Regresión logística](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Red elástica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Red elástica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
-[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
+[Luz GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Luz GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Luz GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
 [Potenciación del gradiente](https://scikit-learn.org/stable/modules/ensemble.html#classification)|[Potenciación del gradiente](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[Potenciación del gradiente](https://scikit-learn.org/stable/modules/ensemble.html#regression)
 [Árbol de decisión](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[Árbol de decisión](https://scikit-learn.org/stable/modules/tree.html#regression)|[Árbol de decisión](https://scikit-learn.org/stable/modules/tree.html#regression)
-[K Vecinos más próximos](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Vecinos más próximos](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Vecinos más próximos](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
-[SVC lineal](https://scikit-learn.org/stable/modules/svm.html#classification)|[Lazo LARS](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[Lazo LARS](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
+[K vecinos más cercanos](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K vecinos más cercanos](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K vecinos más cercanos](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
+[Linear SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[LARS lazo](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS lazo](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
 [Clasificación de vectores de soporte de C (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[Descenso de gradiente estocástico (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[Descenso de gradiente estocástico (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
 [Bosque aleatorio](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Bosque aleatorio](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Bosque aleatorio](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Árboles extremadamente aleatorios](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Árboles extremadamente aleatorios](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Árboles extremadamente aleatorios](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
@@ -110,9 +110,9 @@ En su objeto `AutoMLConfig`, especifique el parámetro `data_script` y proporcio
 automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", **** )
 ```
 
-El script `get_data` puede devolver:
+`get_data` puede devolver la secuencia de comandos:
 
-Clave | Type |    Se excluye mutuamente con | DESCRIPCIÓN
+Clave | Type | Se excluye mutuamente con    | DESCRIPCIÓN
 ---|---|---|---
 X | Dataframe de Pandas o matriz de Numpy | data_train, label, columns |  Todas las características que se usan para el aprendizaje
 y | Dataframe de Pandas o matriz de Numpy |   label   | Datos de etiquetas que se usan para el aprendizaje. Para la clasificación, debe ser una matriz de enteros.
@@ -191,6 +191,7 @@ Estos son algunos ejemplos:
         primary_metric='AUC_weighted',
         max_time_sec=12000,
         iterations=50,
+        blacklist_models='XGBoostClassifier',
         X=X,
         y=y,
         n_cross_validations=2)
@@ -202,55 +203,25 @@ Estos son algunos ejemplos:
         task='regression',
         max_time_sec=600,
         iterations=100,
+        whitelist_models='kNN regressor'
         primary_metric='r2_score',
         X=X,
         y=y,
         n_cross_validations=5)
     ```
 
-Hay tres valores de parámetro `task` diferentes, que determinan la lista de algoritmos que se aplicará.  Use los parámetros `whitelist` o `blacklist` para modificar aún más las iteraciones con los algoritmos disponibles para incluir o excluir.
-* clasificación
-    * LogisticRegression
-    * SGD
-    * MultinomialNaiveBayes
-    * BernoulliNaiveBayes
-    * SVM
-    * LinearSVM
-    * KNN
-    * DecisionTree
-    * RandomForest
-    * ExtremeRandomTrees
-    * LightGBM
-    * GradientBoosting
-    * TensorFlowDNN
-    * TensorFlowLinearClassifier
-    * XGBoostClassifier
-* Regresión
-    * ElasticNet
-    * GradientBoosting
-    * DecisionTree
-    * KNN
-    * LassoLars
-    * SGD 
-    * RandomForest
-    * ExtremeRandomTree
-    * LightGBM
-    * TensorFlowLinearRegressor
-    * TensorFlowDNN
-    * XGBoostRegressor
-* Previsión
-    * ElasticNet
-    * GradientBoosting
-    * DecisionTree
-    * KNN
-    * LassoLars
-    * SGD 
-    * RandomForest
-    * ExtremeRandomTree
-    * LightGBM
-    * TensorFlowLinearRegressor
-    * TensorFlowDNN
-    * XGBoostRegressor
+Las tres diferentes `task` los valores de parámetro determinan la lista de algoritmos que se aplicará.  Use los parámetros `whitelist` o `blacklist` para modificar aún más las iteraciones con los algoritmos disponibles para incluir o excluir. Encontrará la lista de los modelos admitidos en [SupportedAlgorithms clase](https://docs.microsoft.com/en-us/python/api/azureml-train-automl/azureml.train.automl.constants.supportedalgorithms?view=azure-ml-py)
+
+## <a name="primary-metric"></a>Métrica principal
+La métrica principal; como se muestra en los ejemplos anteriores determina la métrica que se usará durante el entrenamiento del modelo para la optimización. La métrica principal que puede seleccionar viene determinada por el tipo de tarea que elija. A continuación es una lista de métricas disponibles.
+
+|clasificación | Regresión | Previsión de Series temporales
+|-- |-- |--
+|accuracy| spearman_correlation | spearman_correlation
+|AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
+|average_precision_score_weighted | r2_score | r2_score
+|norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
+|precision_score_weighted |
 
 ## <a name="data-pre-processing-and-featurization"></a>Preprocesamiento de datos y caracterización
 
@@ -269,7 +240,7 @@ Si usa `preprocess=True`, los pasos de preprocesamiento de datos siguientes se r
 
 ## <a name="time-series-forecasting"></a>Previsión de Series temporales
 Tipo de tarea de previsión de tiempo serie tiene parámetros adicionales que se va a definir.
-1. time_horizon_name - se trata de un parámetro necesario que define el nombre de la columna de la serie de fecha y hora que contiene datos de entrenamiento. 
+1. time_column_name - se trata de un parámetro necesario que define el nombre de la columna de la serie de fecha y hora que contiene datos de entrenamiento. 
 1. max_horizon: Esto define el período de tiempo que desea predecir horizontalmente en función de la periodicidad de los datos de entrenamiento. Por ejemplo si tiene datos de entrenamiento con intervalos de agregación diaria, definir hasta qué punto fuera de días que desea que entrenar para el modelo.
 1. grain_column_names: Esto define el nombre de columnas que contienen datos de series de tiempo individual en los datos de entrenamiento. Por ejemplo, si la previsión de ventas de una marca concreta por almacén, definiría marca y el almacén de columnas como columnas de su nivel de detalle.
 
@@ -324,7 +295,6 @@ Hay unas cuantas opciones puede definir para completar el experimento.
 1. Cierre después de un período de tiempo - experiment_timeout_minutes utilizando en la configuración que puede definir cuánto tiempo en minutos debe seguir un experimento en ejecución.
 1. Salga de una vez alcanzada una puntuación - mediante experiment_exit_score que puede elegir para completar la experiement después de que se ha alcanzado una puntuación según la métrica principal.
 
-
 ## <a name="explore-model-metrics"></a>Explorar las métricas del modelo
 Puede ver los resultados en un widget o en línea si se encuentra en un bloc de notas. Vea [Seguimiento y evaluación de modelos](how-to-track-experiments.md#view-run-details) para obtener más información.
 
@@ -355,7 +325,7 @@ recall_score_micro|Recuperación es el porcentaje de elementos que realmente est
 recall_score_weighted|Recuperación es el porcentaje de elementos que realmente están una clase determinada y que están correctamente etiquetados. Weighted es la media aritmética de la recuperación para cada clase, ponderada por el número de instancias verdaderas en cada clase.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
 weighted_accuracy|La precisión ponderada es la precisión donde el peso asignado a cada ejemplo es igual a la proporción de instancias verdades en la clase real de ese ejemplo.|[Cálculo](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight es un vector igual a la proporción de esa clase para cada elemento en el destino|
 
-### <a name="regression-and-forecasting-metrics"></a>Métricas de regresión y previsión
+### <a name="regression-and-time-series-forecasting-metrics"></a>Las métricas de previsión de series de regresión y hora
 Las métricas siguientes se guardan en cada iteración de una tarea de regresión o previsión.
 
 |Métrica|DESCRIPCIÓN|Cálculo|Parámetros adicionales

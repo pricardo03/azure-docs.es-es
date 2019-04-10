@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: 0e9001111d6aa48f0dad69a2fb3b2186bfc37ab7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 46a620900896d07273da22e53171330b85d3f1ec
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58010510"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360191"
 ---
 # <a name="azure-sql-database-purchasing-models"></a>Modelos de compra de Azure SQL Database
 
@@ -36,7 +36,7 @@ Hay disponibles distintos modelos de compra en los modelos de implementación de
 
 En la tabla y el gráfico siguientes se comparan y contrastan estos dos modelos de compra.
 
-|**Modelo de compra**|**Descripción**|**Más adecuado para**|
+|**Modelo de compra**|**DESCRIPCIÓN**|**Más adecuado para**|
 |---|---|---|
 |Modelo basado en DTU|Este modelo se basa en una medida agrupada de recursos de proceso, almacenamiento y E/S. Los tamaños de proceso se expresan como unidades de transacción de base de datos (DTU) para las bases de datos únicas y como unidades de transacción de base de datos elásticas (eDTU) para los grupos elásticos. Para más información sobre las DTU y las eDTU, consulte [¿Qué son las DTU y las eDTU?](sql-database-purchase-models.md#dtu-based-purchasing-model)|Recomendado para los clientes que desean opciones de recursos simples y configuradas previamente.|
 |Modelo basado en núcleos virtuales|Este modelo le permite elegir los recursos de proceso y almacenamiento de manera independiente. El modelo de compra basado en núcleos virtuales también le permite usar la [Ventaja híbrida de Azure para SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/) para ahorrar en los costos.|Recomendado para los clientes que valoran la flexibilidad, el control y la transparencia.|
@@ -50,11 +50,11 @@ El costo de proceso refleja la capacidad de proceso total que se ha aprovisionad
 
 ## <a name="storage-costs"></a>Costos de almacenamiento
 
-Diferentes tipos de almacenamiento se facturan de forma diferente. En el almacenamiento de datos, se le cobra por el almacenamiento aprovisionado en función del tamaño máximo de la base de datos o del grupo que seleccione. El costo no cambia a menos que reduzca o aumente ese máximo. El almacenamiento de copia de seguridad se asocia a las copias de seguridad automatizadas de la instancia y su ubicación es dinámica. Al aumentar el período de retención de las copias de seguridad, aumenta el almacenamiento de copia de seguridad que consume la instancia. 
+Diferentes tipos de almacenamiento se facturan de forma diferente. En el almacenamiento de datos, se le cobra por el almacenamiento aprovisionado en función del tamaño máximo de la base de datos o del grupo que seleccione. El costo no cambia a menos que reduzca o aumente ese máximo. El almacenamiento de copia de seguridad se asocia a las copias de seguridad automatizadas de la instancia y su ubicación es dinámica. Al aumentar el período de retención de las copias de seguridad, aumenta el almacenamiento de copia de seguridad que consume la instancia.
 
 De forma predeterminada, se realizan copias de seguridad automatizadas de las bases de datos en el almacenamiento de blobs RA-GRS estándar durante siete días. El almacenamiento se usa para realizar cada cinco minutos copias de seguridad completas semanales, copias de seguridad diferenciales diarias y copias de seguridad de registros de transacciones. El tamaño del registro de transacciones depende de la tasa de cambio de la base de datos. Se ofrece una cantidad de almacenamiento mínimo igual al 100 % del tamaño de la base de datos sin costo adicional. El consumo adicional de almacenamiento de copia de seguridad se cobrará en GB/mes.
 
-Para más información sobre los precios de almacenamiento, consulte la página de [precios](https://azure.microsoft.com/pricing/details/sql-database/single/). 
+Para más información sobre los precios de almacenamiento, consulte la página de [precios](https://azure.microsoft.com/pricing/details/sql-database/single/).
 
 ## <a name="vcore-based-purchasing-model"></a>Modelo de compra basado en núcleos virtuales
 
@@ -71,7 +71,7 @@ El modelo de compra basado en núcleos virtuales permite elegir los recursos de 
 > **Limitaciones regionales:** Para conocer la lista actual de regiones admitidas, consulte [Productos disponibles por región](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all). Si desea crear una instancia administrada en una región que no se admita actualmente, puede [enviar la solicitud de soporte técnico a través de Azure Portal](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
 .
 
-Si su base de datos única o un grupo elástico consume más de 300 DTU, cambiar al modelo de compra basado en núcleos virtuales puede reducir los costos. Si decide cambiarlo, puede realizar la conversión mediante la API de su elección o usar Azure Portal, sin experimentar tiempo de inactividad. Sin embargo, la conversión no es necesaria y no se realiza automáticamente. Si el modelo de compra basado en DTU satisface sus requisitos de rendimiento y empresariales, debe seguir usándolo. Si decide cambiar del modelo de compra basado en DTU al modelo basado en núcleos virtuales, seleccione el tamaño de proceso mediante las siguientes reglas generales: 
+Si su base de datos única o un grupo elástico consume más de 300 DTU, cambiar al modelo de compra basado en núcleos virtuales puede reducir los costos. Si decide cambiarlo, puede realizar la conversión mediante la API de su elección o usar Azure Portal, sin experimentar tiempo de inactividad. Sin embargo, la conversión no es necesaria y no se realiza automáticamente. Si el modelo de compra basado en DTU satisface sus requisitos de rendimiento y empresariales, debe seguir usándolo. Si decide cambiar del modelo de compra basado en DTU al modelo basado en núcleos virtuales, seleccione el tamaño de proceso mediante las siguientes reglas generales:
 
 - Cada 100 DTU del nivel Estándar requiere al menos 1 núcleo virtual en el nivel de uso general
 - Cada 125 DTU del nivel Premium requiere como mínimo 1 núcleo virtual en el nivel crítico para la empresa

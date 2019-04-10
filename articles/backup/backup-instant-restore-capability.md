@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/20/2019
+ms.date: 04/05/2019
 ms.author: sogup
-ms.openlocfilehash: 56c75840ca3114af40a2c843e2107f850bbff51a
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 3aceffa719ef8938aa049f126231f8628822566b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905977"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359965"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Rendimiento mejorado de la copia de seguridad y la restauración con la funcionalidad de restauración instantánea de Azure Backup
 
@@ -23,12 +23,11 @@ ms.locfileid: "58905977"
 El nuevo modelo de restauración instantánea proporciona las siguientes mejoras en la característica:
 
 * Posibilidad de ver instantáneas tomadas como parte de un trabajo de copia de seguridad que está disponible para la recuperación sin tener que esperar a que finalice la transferencia de datos al almacén. Reduce el tiempo de espera para la copia de instantáneas en el almacén antes de desencadenar la restauración.
-* Reduce los tiempos de copia de seguridad y restauración al conservarse las instantáneas localmente durante dos días (de forma predeterminada). Este almacén predeterminado es configurable en cualquier valor entre 1 y 5 días.
-* Compatibilidad con tamaños de disco de hasta 4 TB.
+* Reduce los tiempos de copia de seguridad y restauración al conservarse las instantáneas localmente durante dos días (de forma predeterminada). Este valor de retención de instantáneas predeterminada es configurable en cualquier valor entre 1 y 5 días.
+* Compatibilidad con tamaños de disco de hasta 4 TB. Azure Backup no admite discos con bandas. No se recomienda cambiar el tamaño del disco de copia de seguridad de Azure.
 * Admite discos SSD estándar junto con los discos de Premium SSD y HDD estándar.
 *   Capacidad de usar cuentas de almacenamiento originales de una máquina virtual no administrada (por disco) al restaurar. Esta capacidad existe aun cuando la máquina virtual tenga discos distribuidos entre cuentas de almacenamiento. Acelera las operaciones de restauración para una amplia variedad de configuraciones de máquina virtual.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="whats-new-in-this-feature"></a>Novedades de esta característica
 
@@ -75,9 +74,9 @@ En el portal de Azure, puede ver un campo de agregado en la **directiva de copia
 > Desde Az PowerShell versión 1.6.0 y versiones posteriores, puede actualizar el período de retención de instantáneas de la restauración instantánea en la directiva con PowerShell
 
 ```powershell
-PS C:\> $bkpPol = Get-AzRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
+PS C:\> $bkpPol = Get-AzureRmRecoveryServicesBackupProtectionPolicy -WorkloadType "AzureVM"
 $bkpPol.SnapshotRetentionInDays=5
-PS C:\> Set-AzRecoveryServicesBackupProtectionPolicy -policy $bkpPol
+PS C:\> Set-AzureRmRecoveryServicesBackupProtectionPolicy -policy $bkpPol
 ```
 La retención de instantáneas predeterminada para cada directiva se establece en 2 días. Usuario puede cambiar el valor a un mínimo de 1 y un máximo de 5 días. Para las directivas de semanales, el período de retención de instantáneas está fija en 5 días.
 

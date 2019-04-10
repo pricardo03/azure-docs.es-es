@@ -1,23 +1,30 @@
 ---
 title: Procedimiento para buscar una dirección mediante el servicio de búsqueda de Azure Maps | Microsoft Docs
 description: Aprenda cómo buscar una dirección mediante el servicio de búsqueda de Azure Maps
-author: dsk-2015
-ms.author: dkshir
-ms.date: 09/11/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 04/05/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: timlt
-ms.openlocfilehash: ba5ea7205a5d0e5fdbadc8a1ba955091ae95b569
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+manager: philmea
+ms.openlocfilehash: 8ab2c73030c0860fc709a774b9fd84d20a6d7c99
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56875793"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277330"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Búsqueda de una dirección mediante el servicio de búsqueda de Azure Maps
 
 El servicio de búsqueda de Maps es un conjunto de API RESTful diseñadas para que los desarrolladores busquen direcciones, lugares, puntos de interés, listados de empresas y otra información geográfica. El servicio de búsqueda asigna una latitud y longitud a una dirección específica, calle transversal, característica geográfica o punto de interés (POI). Los valores de latitud y longitud devueltos por la búsqueda se pueden usar como parámetros en otros servicios de Maps como las rutas y el flujo de tráfico.
+
+En este artículo, aprenderá cómo:
+
+* Busque una dirección con [Fuzzy Search API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+* Buscar una dirección, junto con las propiedades y las coordenadas
+* Realizar una [búsqueda de direcciones inversa](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) para buscar una dirección postal
+* Busque un cruzado mediante Calle [dirección inversa entre calle API de búsqueda](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreversecrossstreet)
 
 ## <a name="prerequisites"></a>Requisitos previos
 

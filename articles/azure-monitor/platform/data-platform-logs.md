@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: a7271aa3faf438b42319f8c2c297c6e39baab92e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 59213c5391b5b652eeead05c4a5af761571fcece
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904158"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360631"
 ---
 # <a name="logs-in-azure-monitor"></a>Registros en Azure Monitor
 
@@ -46,7 +46,7 @@ En la tabla siguiente se enumera las distintas formas que puede usar los registr
 | Análisis | Use [Log Analytics](../log-query/get-started-portal.md) en el portal de Azure para escribir [registrar consultas](../log-query/log-query-overview.md) y analizar datos de registro mediante el potente motor de análisis de explorador de datos de forma interactiva.<br>Use la [consola de Application Insights analytics](../app/analytics.md) en el portal de Azure para escribir consultas de registros y analizar datos de registro de Application Insights de forma interactiva. |
 | Visualizar | Anclar los resultados de la consulta se representa como tablas o gráficos a un [panel Azure](../../azure-portal/azure-portal-dashboards.md).<br>Crear un [libro](../app/usage-workbooks.md) para combinar con varios conjuntos de datos en un informe interactivo. <br>Exportar los resultados de una consulta a [Power BI](powerbi.md) para usar diferentes visualizaciones y compartirlos con usuarios fuera de Azure.<br>Exportar los resultados de una consulta a [Grafana](grafana-plugin.md) aprovechar sus paneles y combinar con otros orígenes de datos.|
 | Alerta | Configurar un [regla de alerta de registro](alerts-log.md) que envíe una notificación o realice [una acción automatizada](action-groups.md) cuando los resultados de la consulta coincidan con un resultado concreto.<br>Configurar un [regla de alerta de métrica](alerts-metric-logs.md) en ciertos registros de datos de registro extraídos como métricas. |
-| Recuperar | Obtener acceso a los resultados de consulta de registro desde una línea de comandos mediante [CLI de Azure](/azure/ext/log-analytics/monitor/log-analytics).<br>Obtener acceso a los resultados de consulta de registro desde una línea de comandos mediante [cmdlets de PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Obtener acceso a los resultados de la consulta de registro de una aplicación personalizada con [API de REST](https://dev.loganalytics.io/). |
+| Recuperar | Obtener acceso a los resultados de consulta de registro desde una línea de comandos mediante [CLI de Azure](/cli/azure/ext/log-analytics/monitor/log-analytics).<br>Obtener acceso a los resultados de consulta de registro desde una línea de comandos mediante [cmdlets de PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights).<br>Obtener acceso a los resultados de la consulta de registro de una aplicación personalizada con [API de REST](https://dev.loganalytics.io/). |
 | Exportación | Crear un flujo de trabajo para recuperar datos de registro y cópielo en una ubicación externa mediante [Logic Apps](~/articles/logic-apps/index.yml). |
 
 
@@ -105,8 +105,8 @@ Azure Monitor puede recopilar datos de registro de diversos orígenes, tanto en 
 |:---|:---|
 | Solicitudes y excepciones | Datos detallados sobre las solicitudes de aplicación y las excepciones que se encuentran en el _solicitudes_, _pageViews_, y _excepciones_ tablas. Las llamadas a [componentes externos](../app/asp-net-dependencies.md) están en el _dependencias_ tabla. |
 | Uso y rendimiento | El rendimiento de la aplicación está disponible en el _solicitudes_, _browserTimings_ y _performanceCounters_ tablas. Datos de [métricas personalizadas](../app/api-custom-events-metrics.md#trackevent) está en el _customMetrics_ tabla.|
-| Datos de seguimiento | Resultado de [seguimiento distribuido](/app/distributed-tracing) se almacenan en el _seguimientos_ tabla. |
-| Pruebas de disponibilidad | Datos de resumen de [pruebas de disponibilidad](/app/monitor-web-app-availability) se almacena en el _availabilityResults_ tabla. Datos detallados de estas pruebas se encuentran en el almacenamiento independiente y tiene acceso desde Application Insights en Azure portal. |
+| Datos de seguimiento | Resultado de [seguimiento distribuido](../app/distributed-tracing.md) se almacenan en el _seguimientos_ tabla. |
+| Pruebas de disponibilidad | Datos de resumen de [pruebas de disponibilidad](../app/monitor-web-app-availability.md) se almacena en el _availabilityResults_ tabla. Datos detallados de estas pruebas se encuentran en el almacenamiento independiente y tiene acceso desde Application Insights en Azure portal. |
 
 ### <a name="insights"></a>Información detallada
 
@@ -127,7 +127,7 @@ Azure Monitor puede recopilar datos de registro de diversos orígenes, tanto en 
 | Datos | DESCRIPCIÓN |
 |:---|:---|
 | Azure Security Center | [Azure Security Center](/azure/security-center/) almacena los datos que recopila en un área de trabajo de Log Analytics donde se puede analizar con otros datos del registro. Consulte [recopilación de datos en Azure Security Center](../../security-center/security-center-enable-data-collection.md) para obtener más información sobre la configuración de área de trabajo. |
-| Azure Sentinel | [Azure centinela](/azure/sentinel/) almacena los datos de orígenes de datos en un área de trabajo de Log Analytics. Consulte [](/sentinel/connect-data-sources.md)  |
+| Azure Sentinel | [Azure centinela](/azure/sentinel/) almacena los datos de orígenes de datos en un área de trabajo de Log Analytics. Consulte [conectar orígenes de datos](/azure/sentinel/connect-data-sources).  |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

@@ -6,14 +6,14 @@ author: sujayt
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/27/2018
+ms.date: 04/08/2019
 ms.author: sutalasi
-ms.openlocfilehash: 27c1481314ba1dd77cdcf229842aeec7de3e4444
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: b3e997a37bb5d030d559b6771b2c0e2f74cc62ab
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58117462"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277703"
 ---
 # <a name="replicate-azure-disk-encryption-ade-enabled-virtual-machines-to-another-azure-region"></a>Replicación de máquinas virtuales habilitadas para Azure Disk Encryption (ADE) en otra región de Azure
 
@@ -148,7 +148,7 @@ Puede usar [el script](#copy-ade-keys-to-dr-region-using-powershell-script) para
 Si va a seleccionar un almacén de claves ya creado en la región de destino, en lugar de dejar que Azure Site Recovery lo cree. Asegúrese de que el almacén de claves tienen los permisos que se han indicado anteriormente.</br>
 *Por ejemplo*: Un usuario intenta replicar una máquina virtual, que tiene un almacén de claves en la región de origen, por ejemplo "ContososourceKeyvault".
 El usuario tiene todos los permisos todo en el almacén de claves de la región de origen, pero durante la protección selecciona un almacén de claves que ya estaba creado, "ContosotargetKeyvault", y que no tiene permisos. En ese caso la protección provocará un error.</br>
-**Solución:** Vaya a "Inicio> Almacenes de claves> ContososourceKeyvault > Directivas de acceso" y agregue los permisos como se ha indicado. 
+**Solución:** Vaya a "Inicio> Almacenes de claves> ContososourceKeyvault > Directivas de acceso" y agregue los permisos como se ha indicado.
 
 **Causa 2:** Es posible que haya seleccionado un almacén de claves que ya se ha creado en la región de destino que no tiene los permisos de cifrado y descifrado.
 Si va a seleccionar un almacén de claves ya creado en la región de destino, en lugar de dejar que Azure Site Recovery lo cree. Asegúrese de que el usuario tiene los permisos de cifrado y descifrado, por si va a cifrar la clave también en la región de origen.</br>

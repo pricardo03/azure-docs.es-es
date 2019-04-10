@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 805de614246028bc75268e83991fa7831b990325
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: bb6ab29f02282a394e3f93e41682ceaec5208b75
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882334"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357620"
 ---
 # <a name="azure-app-service-static-access-restrictions"></a>Restricciones de acceso estático de Azure App Service #
 
@@ -85,3 +85,9 @@ La sintaxis JSON para el ejemplo anterior es:
         "name": "allowed access"
       }
     ],
+
+## <a name="function-app-ip-restrictions"></a>Restricciones de IP de la aplicación de función
+
+Las restricciones de IP están disponibles para ambas aplicaciones de función con la misma funcionalidad que los planes de App Service. Tenga en cuenta que se habilita la IP restricciones se deshabilitará al editor de código de portal para las direcciones IP no permitido.
+
+[Obtenga más información aquí](../azure-functions/functions-networking-options.md#inbound-ip-restrictions)

@@ -3,17 +3,17 @@ title: Idiomas admitidos en Azure Maps | Microsoft Docs
 description: Conozca los idiomas admitidos en los servicios de Azure Maps
 author: juliekohler
 ms.author: julieko
-ms.date: 04/01/2019
+ms.date: 04/08/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: d22ecfbea524ffb2ab48ac9a95e03d7595c4cbfb
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: ad5913224724dcb9cb9033d89010cefb4d9e1f89
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849639"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358128"
 ---
 # <a name="azure-maps-supported-languages"></a>Idiomas admitidos en Azure Maps
 Los servicios de Azure Maps se han localizado en diversos idiomas.  En la tabla siguiente se proporcionan los códigos de idioma admitidos para cada servicio.  
@@ -33,7 +33,10 @@ Los servicios de Azure Maps se han localizado en diversos idiomas.  En la tabla
 | da-DK      | Danés                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | nl-NL      | Neerlandés                  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | nl-BE      | Neerlandés (belga)        |       |    ✓   |         |                   |                |     ✓     |
-| en         | English                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-AU      | Inglés (Australia)    |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-NZ      | Inglés (Nueva Zelanda)  |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-GB      | Inglés (Gran Bretaña) |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
+| en-US      | Inglés (Estados Unidos)          |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | et-EE      | Estonio               |       |    ✓   |         |         ✓         |                |     ✓     |
 | fi-FI      | Finés                |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |
 | fr-FR      | Francés                 |   ✓   |    ✓   |    ✓    |         ✓         |        ✓       |     ✓     |

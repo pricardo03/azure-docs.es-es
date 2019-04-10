@@ -1,25 +1,26 @@
 ---
 title: Detección de orígenes de datos en Azure Data Catalog
 description: Este artículo indica cómo detectar recursos de datos registrados con Azure Data Catalog, mediante la búsqueda y el filtrado, y mediante las capacidades de resaltado de referencias del portal de Azure Data Catalog.
-services: data-catalog
 author: markingmyname
 ms.author: maghan
-ms.assetid: f72ae3a3-6573-4710-89a7-f13555e1968c
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 11216640a4f4f78e0b0de850f32f0ff85bbc9ef2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.date: 04/05/2019
+ms.openlocfilehash: 892a0909f68d89acc463d37edd466dba6a721177
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407066"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277700"
 ---
 # <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Detección de orígenes de datos en Azure Data Catalog
+
 ## <a name="introduction"></a>Introducción
-Azure Data Catalog es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección para orígenes de datos empresariales. En otras palabras, Data Catalog ayuda a los usuarios a detectar, comprender y usar orígenes de datos, así como a las organizaciones a obtener un mayor valor de sus datos. Una vez que se ha registrado un origen de datos con Azure Data Catalog, sus metadatos se indexan según el servicio, de forma que puede realizar búsquedas con facilidad de los datos que necesita.
+
+Azure Data Catalog es un servicio en la nube totalmente administrado que actúa como sistema de registro y de detección para orígenes de datos empresariales. En otras palabras, Data Catalog ayuda a las personas a detectar, comprender y usar orígenes de datos. Ayuda a las organizaciones a obtener más valor de sus datos. Una vez que se ha registrado un origen de datos con Azure Data Catalog, sus metadatos se indexan según el servicio, de forma que puede realizar búsquedas con facilidad de los datos que necesita.
 
 ## <a name="searching-and-filtering"></a>Búsqueda y filtrado
+
 La detección en Azure Data Catalog usa dos mecanismos principales: la búsqueda y el filtrado.
 
 La búsqueda está diseñada para ser intuitiva y eficaz. De forma predeterminada, los términos de la búsqueda se comparan todas las propiedades del catálogo, incluidas las anotaciones proporcionadas por el usuario.
@@ -29,6 +30,7 @@ El filtrado está diseñado para complementar la búsqueda. Puede seleccionar ca
 Con una combinación de la búsqueda y el filtrado, puede navegar rápidamente a través de los orígenes de datos registrados con Azure Data Catalog para detectar los que necesita.
 
 ## <a name="search-syntax"></a>Sintaxis de búsqueda
+
 Aunque la búsqueda de texto libre predeterminada es sencilla e intuitiva, también puede usar la sintaxis de búsqueda de Azure Data Catalog para tener un mayor control sobre los resultados de la búsqueda. Azure Data Catalog admite las siguientes técnicas:
 
 | Técnica | Uso | Ejemplo |
@@ -39,24 +41,25 @@ Aunque la búsqueda de texto libre predeterminada es sencilla e intuitiva, tambi
 | Agrupación con paréntesis |Use paréntesis para agrupar partes de la consulta y así conseguir aislamiento lógico, especialmente en combinación con los operadores booleanos. |`name:finance AND (tags:Q1 OR tags:Q2)` |
 | Operadores de comparación |Use comparaciones distintas de la igualdad de propiedades que tengan tipos de datos numéricos y de fechas. |`modifiedTime > "11/05/2014"` |
 
-Para más información acerca de la búsqueda de Data Catalog, consulte el artículo sobre [Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267594.aspx).
+Para más información acerca de la búsqueda de Data Catalog, consulte el artículo sobre [Azure Data Catalog](/rest/api/datacatalog/#search-syntax-reference).
 
 ## <a name="hit-highlighting"></a>Resaltado de referencias
+
 Al visualizar los resultados de la búsqueda, se resaltarán las propiedades mostradas que coinciden con los términos de búsqueda especificados (como el nombre del recurso de datos, la descripción y las etiquetas), para que sea más fácil identificar por qué se devuelve un recurso de datos concreto a partir de una búsqueda determinada.
 
 > [!NOTE]
 > Para desactivar el resaltado, use el conmutador **Resaltar** del portal de Data Catalog.
->
->
 
-Al visualizar los resultados de la búsqueda, puede que no siempre sea evidente por qué se incluye un recurso de datos, incluso con el resaltado habilitado. Dado que se busca en todas las propiedades de forma predeterminada, es posible que se devuelva un recurso de datos debido a una coincidencia en una propiedad de nivel de columna. Y puesto que distintos usuarios pueden anotar los recursos de datos registrados con sus propias descripciones y etiquetas, es posible que no se muestren todos los metadatos en la lista de resultados de la búsqueda.
+Al ver los resultados de búsqueda, lo que no siempre sea evidente por qué un recurso de datos se incluye, incluso con el resaltado habilitado. Dado que se busca en todas las propiedades de forma predeterminada, es posible que se devuelva un recurso de datos debido a una coincidencia en una propiedad de nivel de columna. Y puesto que varios usuarios pueden anotar los activos de datos registrados con sus propias descripciones y etiquetas, no todos los metadatos se muestran en la lista de resultados de búsqueda.
 
 En la vista de iconos predeterminada, cada icono que se muestre en los resultados de la búsqueda incluirá un icono **Ver coincidencias de los términos de búsqueda**, que le permite ver rápidamente el número de coincidencias y su ubicación, y obtener acceso a ellas si lo desea.
 
  ![Resaltado de referencias y coincidencias de búsqueda en el portal de Azure Data Catalog](./media/data-catalog-how-to-discover/search-matches.png)
 
 ## <a name="summary"></a>Resumen
+
 Puesto que al registrar un origen de datos con Azure Data Catalog se copian los metadatos estructurales y descriptivos del origen de datos en el servicio de catálogo, es más fácil la detección y comprensión de ese origen de datos. Una vez registrado un origen de datos, puede detectarlo mediante el filtrado y la búsqueda desde el portal de Data Catalog.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Para obtener información paso a paso sobre cómo detectar orígenes de datos, consulte [Introducción a Azure Data Catalog](data-catalog-get-started.md).

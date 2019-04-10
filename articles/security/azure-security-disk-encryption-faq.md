@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/15/2019
+ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 14e9bd7b87f2941fcc075a6265f2e6c96fe646ea
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 275907eed94f3165853ecf9adcb11fb62460d2e2
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649924"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282226"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Preguntas más frecuentes de Azure Disk Encryption para máquinas virtuales IaaS
 
@@ -42,7 +42,7 @@ Azure Disk Encryption se admite en las siguientes distribuciones y versiones del
 | Distribución de Linux | Versión | Tipo de volumen admitido para el cifrado|
 | --- | --- |--- |
 | Ubuntu | 16.04| Sistema operativo y disco de datos |
-| Ubuntu | 14.04.5</br>[con kernel optimizado para Azure 4.15 o posterior](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Sistema operativo y disco de datos |
+| Ubuntu | 14.04.5</br>[con Azure optimizado kernel actualizado a 4.15 valor o una versión posterior](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Sistema operativo y disco de datos |
 | RHEL | 7.6 | Sistema operativo y disco de datos* |
 | RHEL | 7.5 | Sistema operativo y disco de datos* |
 | RHEL | 7.4 | Sistema operativo y disco de datos* |
@@ -72,7 +72,7 @@ Para empezar, lea la [información general sobre Azure Disk Encryption](azure-se
 
 ## <a name="can-i-encrypt-both-boot-and-data-volumes-with-azure-disk-encryption"></a>¿Puedo cifrar los volúmenes de datos y arranque con Azure Disk Encryption?
 
-Sí, puede cifrar los volúmenes de datos y de arranque para las máquinas virtuales IaaS de Windows y Linux. En las máquinas virtuales de Windows, no se pueden cifrar los datos sin cifrar primero el volumen del sistema operativo. En las de Linux, se puede cifrar el volumen de datos sin tener que cifrar primero el volumen del sistema operativo. Una vez que haya cifrado el volumen del sistema operativo para Linux, no se puede deshabilitar el cifrado en un volumen del sistema operativo para las máquinas virtuales IaaS Linux.
+Sí, puede cifrar los volúmenes de datos y de arranque para las máquinas virtuales IaaS de Windows y Linux. En las máquinas virtuales de Windows, no se pueden cifrar los datos sin cifrar primero el volumen del sistema operativo. En las de Linux, se puede cifrar el volumen de datos sin tener que cifrar primero el volumen del sistema operativo. Una vez que haya cifrado el volumen del sistema operativo para Linux, no se puede deshabilitar el cifrado en un volumen del sistema operativo para las máquinas virtuales IaaS Linux. Para máquinas virtuales Linux en un conjunto de escalado, se puede cifrar solo el volumen de datos.
 
 ## <a name="can-i-encrypt-an-unmounted-volume-with-azure-disk-encryption"></a>¿Puedo cifrar un volumen desmontado con Azure Disk Encryption?
 
@@ -165,6 +165,6 @@ Puede realizar preguntas o publicar comentarios en el [Foro de Azure Disk Encryp
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, aprendió más acerca de las preguntas más frecuentes sobre Azure Disk Encryption. Para obtener más información acerca de este servicio, vea los siguientes artículos:
 
-- [Introducción a Azure Disk Encryption](azure-security-disk-encryption-overview.md)
-- [Aplicación de cifrado de discos en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Cifrado de datos en reposo de Azure](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+- [Introducción al cifrado de disco de Azure](azure-security-disk-encryption-overview.md)
+- [Aplicación del cifrado de discos en el Centro de seguridad de Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
+- [Cifrado de datos de Azure en reposo](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)

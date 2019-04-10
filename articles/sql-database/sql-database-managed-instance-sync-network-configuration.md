@@ -9,34 +9,34 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 12/13/2018
-ms.openlocfilehash: 02c64fcd51862d8ff9f107adb0ca5cfda5812a88
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: 0d7920080fd61389741fbe785f5141003bef5251
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55567118"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358794"
 ---
 # <a name="sync-networking-configuration-for-azure-app-service-hosting-plan"></a>Sincronización de la configuración de red para el plan de hospedaje de Azure App Service
 
-Puede suceder que aunque haya [integrado la aplicación con una red de Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md) no pueda establecer conexión con Instancia administrada. Puede intentar actualizar la configuración de red para el plan de servicio que tenga. 
+Puede suceder que aunque haya [integrado la aplicación con una red de Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md) no pueda establecer conexión con Instancia administrada. Puede intentar actualizar la configuración de red para el plan de servicio que tenga.
 
 ## <a name="sync-network-configuration-for-app-service-hosting-plan"></a>Sincronización de la configuración de red para el plan de hospedaje de App Service
 
 Para ello, sigue estos pasos:  
 
 1. Vaya al plan de App Service de las aplicaciones web.
- 
+
    ![plan de App Service](./media/sql-database-managed-instance-sync-networking/app-service-plan.png)
 
 2. Haga clic en **Redes** y, a continuación, en **Haga clic aquí para administrar**.
- 
+
    ![administración del plan de servicio](./media/sql-database-managed-instance-sync-networking/manage-plan.png)
 
-3. Seleccione **Red virtual** y haga clic en **Sincronizar red**. 
- 
+3. Seleccione **Red virtual** y haga clic en **Sincronizar red**.
+
    ![sincronización de red](./media/sql-database-managed-instance-sync-networking/sync.png)
 
 4. Espere hasta que se realice la sincronización.

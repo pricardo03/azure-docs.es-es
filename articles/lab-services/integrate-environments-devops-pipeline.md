@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 24391e9e8541f12c434ade837b8f4944711ae375
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: deb5595ac6a8b0d189e5594fda8e4b60480d038c
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58887239"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357394"
 ---
 # <a name="integrate-environments-into-your-azure-devops-cicd-pipelines"></a>Integrar entornos en las canalizaciones de CI/CD de Azure DevOps
 Puede usar la extensión de Azure DevTest Labs Tasks que está instalada en los servicios de DevOps de Azure (anteriormente conocido como Visual Studio Team Services) para integrar fácilmente la integración continua (CI) / canalización de compilación y versión entrega continua (CD) con Azure DevTest Labs. Estas extensiones que sea más fácil implementar rápidamente un [entorno](devtest-lab-test-env.md) una determinada tarea de prueba y, a continuación, eliminarlo cuando finalice la prueba. 
@@ -56,7 +56,7 @@ La siguiente fase de la implementación es crear el entorno que se usará para e
 
 1. En la definición de versión, seleccione **Agregar tareas**.
 2. En el **tareas** pestaña, agregue una tarea de crear entorno de Azure DevTest Labs. Configure la tarea de la siguiente manera:
-    1. En **Suscripción de Azure Resource Manager**, seleccione una conexión en la lista **Conexiones a servicios de Azure disponibles**, o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](/devops/pipelines/library/service-endpoints) (Punto de conexión de servicio de Azure Resource Manager).
+    1. En **Suscripción de Azure Resource Manager**, seleccione una conexión en la lista **Conexiones a servicios de Azure disponibles**, o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints) (Punto de conexión de servicio de Azure Resource Manager).
 2. Para **nombre de laboratorio**, seleccione el nombre de la instancia que creó anteriormente *.
 3. Para **nombre del repositorio**, seleccione el repositorio donde se ha insertado la plantilla de Resource Manager (201) en *.
 4. Para **nombre de la plantilla**, seleccione el nombre del entorno que guardó en el repositorio de código fuente *. 
@@ -71,7 +71,7 @@ La fase final consiste en eliminar el entorno que implementó en la instancia de
 En la definición de versión, seleccione **agregar tareas**y, a continuación, en el **implementar** pestaña, agregue un **eliminar entorno de Azure DevTest Labs** tarea. Configúrelo de la siguiente forma:
 
 1. Para eliminar la máquina virtual, consulte [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks):
-    1. En **Suscripción de Azure Resource Manager**, seleccione una conexión en la lista **Conexiones a servicios de Azure disponibles**, o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](/devops/pipelines/library/service-endpoints) (Punto de conexión de servicio de Azure Resource Manager).
+    1. En **Suscripción de Azure Resource Manager**, seleccione una conexión en la lista **Conexiones a servicios de Azure disponibles**, o cree una conexión con permisos más restrictivos a la suscripción de Azure. Para más información, consulte [Azure Resource Manager service endpoint](/azure/devops/pipelines/library/service-endpoints) (Punto de conexión de servicio de Azure Resource Manager).
     2. Para **nombre de laboratorio**, seleccione aquel donde existe el entorno.
     3. Para **nombre del entorno**, escriba el nombre del entorno que se va a quitar.
 2. Escriba un nombre para la definición de versión y, a continuación, guárdelo.
@@ -80,5 +80,5 @@ En la definición de versión, seleccione **agregar tareas**y, a continuación, 
 Consulte los artículos siguientes: 
 - [Crear entornos de varias máquinas virtuales con plantillas de Resource Manager](devtest-lab-create-environment-from-arm.md).
 - Plantillas de inicio rápido de Resource Manager para la automatización de DevTest Labs desde la [repositorio de GitHub de DevTest Labs](https://github.com/Azure/azure-quickstart-templates).
-- [Página de solución de problemas de VSTS](/devops/pipelines/troubleshooting)
+- [Página de solución de problemas de VSTS](/azure/devops/pipelines/troubleshooting)
 

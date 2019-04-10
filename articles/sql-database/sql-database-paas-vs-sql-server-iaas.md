@@ -8,17 +8,17 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 keywords: Nube de SQL Server, SQL Server en la nube, base de datos de PaaS, DBaaS
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/11/2019
-ms.openlocfilehash: e5f400bb25fce58a4fb63ca1ad76ddf2b71fbd9c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d9cd5ba0b697cbf67f943eb49d66010745d8561e
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57835425"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360819"
 ---
 # <a name="choose-the-right-sql-server-option-in-azure"></a>Selección de la opción de SQL Server correcta en Azure
 
@@ -66,7 +66,7 @@ Por lo general, estas dos opciones SQL se optimizan con diferentes fines:
 
 Optimizado para reducir al mínimo los costos generales de administración para el aprovisionamiento y la administración de muchas bases de datos. Reduce los costos corrientes de administración porque no es necesario administrar máquinas virtuales, el sistema operativo ni el software de base de datos. No es necesario administrar actualizaciones, alta disponibilidad ni [copias de seguridad](sql-database-automated-backups.md). Habitualmente, Azure SQL Database puede aumentar considerablemente el número de bases de datos administradas por un solo recurso de TI o de desarrollo. Los [grupos elásticos](sql-database-elastic-pool.md) también admiten arquitecturas de aplicaciones SaaS multiinquilino con características como el aislamiento de inquilinos y la capacidad de escalado para reducir costos al compartir recursos entre las bases de datos. [Instancia administrada ](sql-database-managed-instance.md) proporciona compatibilidad con características de ámbito de instancia, lo que facilita la migración de las aplicaciones existentes, así como el uso compartido de recursos entre las bases de datos.
 
-- **Ejecución de SQL Server en Azure Virtual Machines**
+- **SQL Server que se ejecutan en máquinas virtuales de Azure**
 
 Optimizada para migrar las aplicaciones existentes a Azure o para llevar las aplicaciones locales existentes a la nube en implementaciones híbridas. Además, puede usar SQL Server en una máquina virtual para desarrollar y probar las aplicaciones tradicionales de SQL Server. Con SQL Server en Azure Virtual Machines, tiene todos los derechos administrativos sobre una instancia dedicada de SQL Server y una máquina virtual basada en la nube. Es la elección perfecta cuando una organización ya dispone de recursos de TI para mantener las máquinas virtuales. Estas funcionalidades permiten crear un sistema muy personalizado para abordar los requisitos de rendimiento y disponibilidad específicos de la aplicación.
 
@@ -74,14 +74,14 @@ En la siguiente tabla se resumen las principales características de SQL Databas
 
 | | Bases de datos únicas y grupos elásticos de SQL Database | Instancias administradas de SQL Database |Máquinas virtuales de Azure con SQL Server |
 | --- | --- | --- |---|
-| **Más adecuado para:** |Nuevas aplicaciones diseñadas para la nube que pretenden usar las características estables de SQL Server más recientes y que tienen restricciones de tiempo en las actividades de desarrollo y marketing. | Nuevas aplicaciones o aplicaciones locales existentes que pretenden usar las características estables de SQL Server más recientes y que se han migrado a la nube con cambios mínimos.  | Aplicaciones existentes que requieren una rápida migración a la nube con mínimos cambios o ninguno. Escenarios de desarrollo rápido y pruebas cuando no se desea comprar hardware de SQL Server de no producción local. |
+| **La mejor opción para:** |Nuevas aplicaciones diseñadas para la nube que pretenden usar las características estables de SQL Server más recientes y que tienen restricciones de tiempo en las actividades de desarrollo y marketing. | Nuevas aplicaciones o aplicaciones locales existentes que pretenden usar las características estables de SQL Server más recientes y que se han migrado a la nube con cambios mínimos.  | Aplicaciones existentes que requieren una rápida migración a la nube con mínimos cambios o ninguno. Escenarios de desarrollo rápido y pruebas cuando no se desea comprar hardware de SQL Server de no producción local. |
 |  | Equipos que requieren mecanismos integrados de alta disponibilidad, recuperación ante desastres y actualización. | Lo mismo que las bases de datos agrupadas y únicas de SQL Database. | Equipos que puedan configurar, ajustar, personalizar y administrar una alta disponibilidad, la recuperación ante desastres y la aplicación de revisiones para SQL Server. Algunas funciones automatizadas ya incorporadas simplifican considerablemente estos aspectos. |
 |  | Equipos que no desean administrar el sistema operativo subyacente ni los valores de configuración. | Lo mismo que las bases de datos agrupadas y únicas de SQL Database. | Necesita un entorno personalizado con derechos administrativos completos. |
 |  | Bases de datos de hasta 100 TB. | Hasta 8 TB. | Instancias de SQL Server con hasta 64 TB de almacenamiento. La instancia puede admitir tantas bases de datos como sea necesario. |
 | **Compatibilidad** | Admite la mayoría de las funcionalidades de nivel de base de datos locales. | Admite casi todas las funcionalidades de nivel de instancia y nivel de base de datos locales. | Admite todas las funcionalidades locales. |
 | **Recursos:** | No desea emplear recursos de TI para la configuración y administración de la infraestructura subyacente, sino centrarse en el nivel de aplicación. | Lo mismo que las bases de datos agrupadas y únicas de SQL Database. | Tiene algunos recursos de TI para la configuración y administración. Algunas funciones automatizadas ya incorporadas simplifican considerablemente estos aspectos. |
 | **Costo total de propiedad:** | Elimina los costos de hardware y reduce los costos administrativos. | Lo mismo que las bases de datos agrupadas y únicas de SQL Database. | Elimina costes de hardware. |
-| **Continuidad del negocio:** |Además de las [funcionalidades integradas de infraestructura de tolerancia a errores](sql-database-high-availability.md), Azure SQL Database proporciona características que aumentan la continuidad empresarial, como, por ejemplo, [copias de seguridad automatizadas](sql-database-automated-backups.md), [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore), [restauración geográfica](sql-database-recovery-using-backups.md#geo-restore), [replicación geográfica activa](sql-database-active-geo-replication.md) y [grupos de conmutación por error](sql-database-auto-failover-group.md). Para más información, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la SQL Database](sql-database-business-continuity.md). | Lo mismo que las bases de datos agrupadas y únicas de SQL Database; además, están disponibles las copias de seguridad que inició el usuario y de solo copia. | SQL Server en máquinas virtuales de Azure permite configurar una solución de recuperación ante desastres y alta disponibilidad para las necesidades específicas de su base de datos. Por consiguiente, podrá tener un sistema altamente optimizado para la aplicación. Podrá probar y ejecutar conmutaciones por error cuando sea necesario. Para más información, consulte [Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
+| **Continuidad de negocio:** |Además de las [funcionalidades integradas de infraestructura de tolerancia a errores](sql-database-high-availability.md), Azure SQL Database proporciona características que aumentan la continuidad empresarial, como, por ejemplo, [copias de seguridad automatizadas](sql-database-automated-backups.md), [restauración a un momento dado](sql-database-recovery-using-backups.md#point-in-time-restore), [restauración geográfica](sql-database-recovery-using-backups.md#geo-restore), [replicación geográfica activa](sql-database-active-geo-replication.md) y [grupos de conmutación por error](sql-database-auto-failover-group.md). Para más información, consulte [Información general: continuidad del negocio en la nube y recuperación ante desastres con la SQL Database](sql-database-business-continuity.md). | Lo mismo que las bases de datos agrupadas y únicas de SQL Database; además, están disponibles las copias de seguridad que inició el usuario y de solo copia. | SQL Server en máquinas virtuales de Azure permite configurar una solución de recuperación ante desastres y alta disponibilidad para las necesidades específicas de su base de datos. Por consiguiente, podrá tener un sistema altamente optimizado para la aplicación. Podrá probar y ejecutar conmutaciones por error cuando sea necesario. Para más información, consulte [Alta disponibilidad y recuperación ante desastres para SQL Server en Azure Virtual Machines](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md). |
 | **Nube híbrida:** |La aplicación local puede obtener acceso a datos de Azure SQL Database. | [Implementación nativa de redes virtuales](sql-database-managed-instance-vnet-configuration.md) y conectividad al entorno local mediante Azure ExpressRoute o VPN Gateway. | Con SQL Server en Máquinas virtuales de Azure, se pueden tener aplicaciones que se ejecuten parcialmente en la nube y parcialmente en la instalación local. Por ejemplo, se puede ampliar la red local y el Dominio de Active Directory a la nube mediante [Azure Virtual Network](../virtual-network/virtual-networks-overview.md). Para obtener más información sobre las soluciones de la nube híbrida, consulte [Ampliación de las soluciones de datos locales a la nube](https://docs.microsoft.com/azure/architecture/data-guide/scenarios/hybrid-on-premises-and-cloud). |
 |  | Admite la [replicación transaccional de SQL Server](https://msdn.microsoft.com/library/mt589530.aspx) como suscriptor para replicar los datos. | La replicación es compatible con la Instancia administrada como característica en vista previa (GB). | Es totalmente compatible con la [replicación transaccional de SQL Server](https://msdn.microsoft.com/library/mt589530.aspx), los [grupos de disponibilidad AlwaysOn](../virtual-machines/windows/sql/virtual-machines-windows-sql-high-availability-dr.md), Integration Services y trasvase de registros para replicar los datos. Además, las copias de seguridad de SQL Server tradicionales son totalmente compatibles. |
 |  | | |
@@ -119,14 +119,14 @@ Con **SQL Server en máquinas virtuales de Azure**, también puede usar cualquie
 
 Cuando se comienza a usar una plataforma en la nube, el coste de ejecución de la aplicación incluye los costos de nuevo desarrollo y de administración continua, además de los costos de servicio de la plataforma en la nube pública.
 
-**Cuándo se usa Azure SQL Database:**
+**Cuando se usa Azure SQL Database:**
 
 - Costos de administración altamente minimizados
 - Costos de desarrollo limitados para aplicaciones migradas (instancias administradas)
 - Costos de servicio de SQL Database
 - No hay costos de compras de hardware
 
-**Cuándo se usa SQL Server en Máquinas virtuales de Azure:**
+**Al usar SQL Server en máquinas virtuales de Azure:**
 
 - Costos de administración más altos
 - Costos de desarrollo de limitados a inexistentes para aplicaciones migradas
@@ -135,7 +135,7 @@ Cuando se comienza a usar una plataforma en la nube, el coste de ejecución de l
 
 Para obtener más información sobre precios, consulte los siguientes recursos:
 
-- [Precios de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/)
+- [Precio de SQL Database](https://azure.microsoft.com/pricing/details/sql-database/)
 - [Precios de máquinas virtuales](https://azure.microsoft.com/pricing/details/virtual-machines/) para [SQL](https://azure.microsoft.com/pricing/details/virtual-machines/#sql) y [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#windows)
 - [Calculadora de precios de Azure](https://azure.microsoft.com/pricing/calculator/)
 

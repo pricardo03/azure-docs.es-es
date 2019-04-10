@@ -1,7 +1,6 @@
 ---
 title: Detalles de la estructura de definición de directivas
 description: Describe cómo Azure Policy usa la definición de directiva de recursos para establecer convenciones para los recursos de su organización al describir cuándo se aplica la directiva y qué efecto tiene.
-services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/13/2019
@@ -9,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 35cb5c286b9c9657c37dcede7f51082b5c48ef99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f554be0803041b12dc49a576e8eb737732ec2a80
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894434"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283110"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -75,8 +74,8 @@ Todos los ejemplos de Azure Policy están en [Ejemplos de directivas](../samples
 
 El **modo** determina qué tipos de recurso se evaluarán para una directiva. Los modos admitidos son:
 
-- `all`: evalúe los grupos de recursos y todos los tipos de recurso
-- `indexed`: evalúe solo los tipos de recurso que admitan las etiquetas y la ubicación
+- `all`: evaluar los grupos de recursos y todos los tipos de recursos
+- `indexed`: evalúe solo los tipos de recursos que admiten etiquetas y ubicación
 
 Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Todas las definiciones de directivas creadas a través del portal usan el modo `all`. Si usa PowerShell o la CLI de Azure, puede especificar el parámetro **mode** de forma manual. Si la definición de directiva no incluye un valor de **modo**, el valor predeterminado es `all` en Azure PowerShell y `null` en la CLI de Azure. Un modo `null` es lo mismo que usar `indexed` para la compatibilidad con versiones anteriores.
 
@@ -95,7 +94,7 @@ Los parámetros funcionan del mismo modo al crear las directivas. Con la inclusi
 Un parámetro tiene las siguientes propiedades que se usan en la definición de directiva:
 
 - **name**: El nombre del parámetro. Lo utiliza la función de la implementación `parameters` dentro de la regla de directiva. Para más información, consulte [Uso de un valor de parámetro](#using-a-parameter-value).
-- `type`: Determina si el parámetro es una **cadena** o una **matriz**.
+- `type`: Determina si el parámetro es una **cadena**o una**matriz.
 - `metadata`: Define las subpropiedades que usa principalmente Azure Portal para mostrar información intuitiva:
   - `description`: La explicación de para qué se usa el parámetro. Puede utilizarse para proporcionar ejemplos de valores aceptables.
   - `displayName`: El nombre descriptivo que se muestra en el portal para el parámetro.
@@ -259,7 +258,7 @@ Se admiten los siguientes campos:
 - alias de propiedad: para obtener una lista, vea [Alias](#aliases).
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]` y `tags[tag.with.dots]` son todavía formas aceptables de declarar un campo de etiquetas.
+> `tags.<tagName>`, `tags[tagName]`, y `tags[tag.with.dots]` todavía aceptable maneras de declarar un campo de etiquetas.
 > Sin embargo, las expresiones preferidas son las mencionadas anteriormente.
 
 #### <a name="use-tags-with-parameters"></a>Uso de etiquetas con parámetros
@@ -421,7 +420,7 @@ Se pueden usar todas las [funciones de plantillas de Resource Manager](../../../
 - resourceId()
 - variables()
 
-Además, la función `field` está disponible para las reglas de directiva. `field` se usa principalmente con **AuditIfNotExists** y **DeployIfNotExists** para hacer referencia a los campos del recurso que se van a evaluar. Este uso se puede observar en el [ejemplo de DeployIfNotExists](effects.md#deployifnotexists-example).
+Además, la función `field` está disponible para las reglas de directiva. `field` se usa principalmente con **AuditIfNotExists** y **DeployIfNotExists** a campos de referencia en el recurso que se va a evaluar. Este uso se puede observar en el [ejemplo de DeployIfNotExists](effects.md#deployifnotexists-example).
 
 #### <a name="policy-function-example"></a>Ejemplo de función de directiva
 

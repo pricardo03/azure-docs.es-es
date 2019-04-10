@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 1/29/2019
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 29c2e53c4fb496e0f12e04f08b0add4273db25a7
-ms.sourcegitcommit: d89b679d20ad45d224fd7d010496c52345f10c96
+ms.openlocfilehash: a814fc6e9a72ba92d915821bd1e1694366844555
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57790165"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277430"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Listas de exclusión y límites de tamaño de solicitud del firewall de aplicaciones web
 
@@ -54,6 +54,7 @@ Estos son los operadores de criterios de coincidencia admitidos:
 - **Starts with** (empieza por): este operador coincide con todos los campos que comienzan por el valor del selector especificado.
 - **Ends with** (termina en):  este operador coincide con todos los campos de solicitud que terminan con el valor del selector especificado.
 - **Contains** (contiene): este operador coincide con todos los campos de solicitud que contienen el valor del selector especificado.
+- **Igual a cualquier**: Este operador coincide con todos los campos de solicitud. * será el valor del selector.
 
 En todos los casos, la coincidencia distingue mayúsculas de minúsculas y no se permiten expresiones regulares como selectores.
 

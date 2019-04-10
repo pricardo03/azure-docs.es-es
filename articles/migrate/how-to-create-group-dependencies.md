@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 12/05/2018
 ms.author: raynew
-ms.openlocfilehash: 71f792dd1238b11810abfb6a97ac9e051da2ec45
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 3ee528cc68a2a5637e85dc1d5ef68203916138e7
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59274645"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357179"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Refinación de un grupo con la asignación de dependencias de grupo
 
@@ -127,14 +127,14 @@ Para ejecutar las consultas de Kusto:
 1. Después de instalar los agentes, vaya al portal y haga clic en **Introducción**.
 2. En **Introducción**, vaya a la sección **Essentials** del proyecto y haga clic en el nombre del área de trabajo que se proporciona junto al **Área de trabajo de OMS**.
 3. En la página del área de trabajo de Log Analytics, haga clic en **General** > **Registros**.
-4. Escriba la consulta para recopilar datos de dependencia mediante registros de Azure Monitor. Existen consultas de ejemplo para recopilar datos de dependencia [aquí](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
+4. Escriba la consulta para recopilar datos de dependencia mediante registros de Azure Monitor. Buscar consultas de ejemplo en la sección siguiente.
 5. Ejecute la consulta haciendo clic en Ejecutar. 
 
 [Obtenga más información](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal) acerca de cómo escribir consultas de Kusto. 
 
 ## <a name="sample-azure-monitor-logs-queries"></a>Ejemplo de Azure Monitor registra aquellas consultas
 
-Estos son ejemplos de consultas puede utilizar para extraer datos de dependencia. Puede modificar las consultas para extraer los puntos de datos preferida. Está disponible una lista exhaustiva de los campos de registros de datos de dependencia [aquí](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records)
+Estos son ejemplos de consultas puede utilizar para extraer datos de dependencia. Puede modificar las consultas para extraer los puntos de datos preferida. Está disponible una lista exhaustiva de los campos de registros de datos de dependencia [aquí](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records). Buscar más ejemplos de consultas [aquí](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches).
 
 ### <a name="summarize-inbound-connections-on-a-set-of-machines"></a>Resumir las conexiones entrantes en un conjunto de máquinas
 

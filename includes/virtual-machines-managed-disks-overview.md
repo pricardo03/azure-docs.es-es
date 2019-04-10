@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: dfd91caf67592b349bd16bab673a3e45397ad282
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 311fdb0b0a2e587e7cf8581f967ed0248de85f6d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58807932"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59291695"
 ---
 ## <a name="benefits-of-managed-disks"></a>Ventajas de los discos administrados
 
@@ -31,6 +31,10 @@ Con discos administrados, puede crear hasta 50 000 **discos** de máquina virtu
 
 Los discos administrados se integran con conjuntos de disponibilidad para garantizar que los discos de [máquinas virtuales de un conjunto de disponibilidad](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) están suficientemente aislados entre sí para evitar un único punto de error. Los discos se colocan automáticamente en diferentes unidades de escalado de almacenamiento (marcas). Si se produce un error en una marca debido a un error de hardware o software, solo dejarán de funcionar las instancias de máquina virtual con discos de dichas marcas. Por ejemplo, suponga que tiene una aplicación que se ejecuta en cinco máquinas virtuales y estas están en un conjunto de disponibilidad. No todos los discos de dichas máquinas virtuales se almacenarán en la misma marca, por lo que, si se produce un error en una, no se detiene la ejecución de las restantes instancias de la aplicación.
 
+## <a name="integration-with-availability-zones"></a>Integración con las zonas de disponibilidad
+
+Admite discos de Managed [zonas de disponibilidad](../articles/availability-zones/az-overview.md), que es una oferta de alta disponibilidad que protege sus aplicaciones frente a errores de centro de datos. Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay tres zonas independientes como mínimo en todas las regiones habilitadas. Con las zonas de disponibilidad, Azure ofrece el mejor Acuerdo de Nivel de Servicio del sector de tiempo de actividad de máquina virtual, con un 99,99 %.
+
 ### <a name="azure-backup-support"></a>Soporte técnico de Azure Backup
 
 Para protegerse frente a desastres regionales, se puede usar [Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md) para crear un trabajo de copia de seguridad con copias de seguridad basadas en el tiempo y directivas de retención de copia de seguridad. Esto le permite realizar restauraciones sencillas de máquinas virtuales a voluntad. Actualmente, Azure Backup admite tamaños de disco de hasta cuatro tebibytes (TiB). Para más información, consulte [Uso de máquinas virtuales de disco administrado con Azure Backup](../articles/backup/backup-introduction-to-azure-backup.md#using-managed-disk-vms-with-azure-backup).
@@ -41,11 +45,15 @@ Puede usar el [control de acceso basado en rol de Azure (RBAC)](../articles/role
 
 ## <a name="disk-roles"></a>Roles de disco
 
-### <a name="data-disks"></a>Discos de datos.
+Hay tres funciones principales de disco en Azure: el disco de datos, el disco del sistema operativo y el disco temporal. Estos roles se asignan a los discos que están conectados a la máquina virtual.
+
+![Roles de disco en acción](media/virtual-machines-managed-disks-overview/disk-types.png)
+
+### <a name="data-disk"></a>Disco de datos
 
 Un disco de datos es un disco administrado que se asocia a una máquina virtual para almacenar datos de aplicaciones u otros datos que necesita mantener. Los discos de datos se registran como unidades SCSI y se etiquetan con una letra elegida por usted. Cada disco de datos tiene una capacidad máxima de 32.767 gibibytes (GiB). El tamaño de la máquina virtual determina cuántos discos de datos puede conectar y el tipo de almacenamiento que puede usar para hospedar los discos.
 
-### <a name="os-disks"></a>Discos del sistema operativo
+### <a name="os-disk"></a>Disco del sistema operativo
 
 Cada máquina virtual tiene un disco de sistema operativo acoplado. Ese disco del sistema operativo tiene un sistema operativo instalado previamente, que se seleccionó cuando se creó la máquina virtual.
 
@@ -61,8 +69,8 @@ Una instantánea de disco administrado es una copia completa de solo lectura de 
 
 Para más información sobre cómo crear instantáneas con discos administrados, consulte los siguientes recursos:
 
-* [Creación de una copia del disco duro virtual que se almacene como un disco administrado mediante instantáneas en Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Creación de una copia del disco duro virtual que se almacene como un disco administrado mediante instantáneas en Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Crear copia del VHD almacenado como un disco administrado mediante instantáneas en Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Crear copia del VHD almacenado como un disco administrado mediante instantáneas en Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Imágenes
 
@@ -70,8 +78,8 @@ Los discos administrados también admiten la creación de una imagen personaliza
 
 Para más información sobre la creación de imágenes, consulte los artículos siguientes:
 
-* [How to capture a managed image of a generalized VM in Azure](../articles/virtual-machines/windows/capture-image-resource.md) (Captura de una imagen administrada de una máquina virtual generalizada en Azure)
-* [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0](../articles/virtual-machines/linux/capture-image.md) (Procedimiento de generalización y captura de una máquina virtual Linux con la CLI de Azure 2.0)
+* [Captura de una imagen administrada de una VM generalizada en Azure](../articles/virtual-machines/windows/capture-image-resource.md)
+* [Procedimiento para generalizar y capturar una máquina virtual de Linux mediante la CLI de Azure](../articles/virtual-machines/linux/capture-image.md)
 
 #### <a name="images-versus-snapshots"></a>Imágenes frente a instantáneas
 

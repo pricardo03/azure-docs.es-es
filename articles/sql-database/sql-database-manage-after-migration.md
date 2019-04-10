@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: joesackmsft
 ms.author: josack
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/13/2019
-ms.openlocfilehash: 2b8c35450ab4586f619993aeb9a578c83cafc0c6
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a83bc6518409add8a0732e5a0b17ab46c36564af
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57216941"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358421"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Nuevo DBA en la nube: administración de las bases de datos únicas o agrupadas en Azure SQL Database
 
@@ -88,7 +88,7 @@ En SQL Database, se ofrecen [dos métodos de autenticación](sql-database-contro
 
 No se admite la autenticación de Windows tradicional. Azure Active Directory (AD) es un servicio de administración de identidades y acceso centralizado. Con esto puede proporcionar cómodamente un acceso de inicio de sesión único (SSO) a todo el personal de su organización. Esto significa que las credenciales se comparten entre todos los servicios de Azure para simplificar la autenticación. AAD es compatible con [MFA (Multi-Factor Authentication)](sql-database-ssms-mfa-authentication.md) y con unos [pocos clics](../active-directory/hybrid/how-to-connect-install-express.md) AAD puede integrarse con Windows Server Active Directory. La autenticación de SQL funciona del mismo modo que la ha estado usando en el pasado. Debe proporcionar un nombre de usuario y una contraseña, y puede autenticar a los usuarios en cualquier base de datos de un servidor de SQL Database determinado. Esto también permite a SQL Database y SQL Data Warehouse ofrecer autenticación multifactor y cuentas de usuario de invitado dentro de un dominio de Azure AD. Si ya tiene una instancia de Active Directory local, puede federar el directorio con Azure Active Directory para extender su directorio a Azure.
 
-|**Si usted...**|**SQL Database/SQL Data Warehouse**|
+|**Si se...**|**Base de datos SQL o SQL Data Warehouse**|
 |---|---|
 |No desea usar Azure Active Directory (AD) en Azure|Use [autenticación de SQL](sql-database-security-overview.md)|
 |Ha utilizado AD en SQL Server local|[Federe AD con Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md) y use la autenticación de Azure AD. De este modo, puede usar el inicio de sesión único.|
@@ -151,10 +151,10 @@ Para proteger los datos confidenciales en curso y en reposo, SQL Database propor
 
 |**Características**|**Always Encrypted**|**Cifrado de datos transparente**|
 |---|---|---|
-|**Cifrado**|Completa|Datos en reposo|
-|**El servidor de bases de datos puede acceder a datos confidenciales**|Sin |Sí, ya que el cifrado es para los datos en reposo|
+|**Intervalo de cifrado**|Completa|Datos en reposo|
+|**Servidor de base de datos puede tener acceso a datos confidenciales**|Sin |Sí, ya que el cifrado es para los datos en reposo|
 |**Operaciones permitidas de T-SQL**|Comparación de igualdad|Toda el área expuesta de T-SQL está disponible|
-|**Cambios de aplicación necesarios para usar la característica**|Mínimo|Muy mínimo|
+|**Cambios necesarios para usar la característica de la aplicación**|Mínimo|Muy mínimo|
 |**Granularidad de cifrado**|Nivel de columna|Nivel de base de datos|
 ||||
 
@@ -195,9 +195,9 @@ El diagrama siguiente muestra las opciones de almacén de claves para las claves
 
 El tráfico de red entre su organización y SQL Database suele enrutarse a través de la red pública. Sin embargo, si decide optimizar esta ruta de acceso y hacerla más seguro, puede explorar ExpressRoute. ExpressRoute le permite esencialmente ampliar la red corporativa a la plataforma Azure a través de una conexión privada. Al hacerlo, no pasa por la red pública de Internet. También obtiene mayores niveles de seguridad, confiabilidad y optimización de enrutamiento, lo que se traduce en menores latencias de red y velocidades mucho más rápidas de lo que experimentaría normalmente a través de la red pública de Internet. Si piensa transferir un fragmento de datos importante entre su organización y Azure, el uso de ExpressRoute puede proporcionarle ventajas económicas. Puede elegir entre tres modelos de conectividad diferentes para la conexión de su organización a Azure:
 
-- [Colocación de intercambio en la nube](../expressroute/expressroute-connectivity-models.md#CloudExchange)
-- [Conexión universal](../expressroute/expressroute-connectivity-models.md#IPVPN)
-- [Conexión de punto a punto](../expressroute/expressroute-connectivity-models.md#Ethernet)
+- [Ubicación compartida de Exchange en la nube](../expressroute/expressroute-connectivity-models.md#CloudExchange)
+- [Cualquier](../expressroute/expressroute-connectivity-models.md#IPVPN)
+- [Punto a punto](../expressroute/expressroute-connectivity-models.md#Ethernet)
 
 ExpressRoute permite ampliar el límite de ancho de banda que adquiere hasta el doble sin ningún cargo adicional. También es posible configurar conectividad entre regiones mediante Express Route. Para ver una lista de proveedores de conectividad de ER, consulte: [Asociados de ExpressRoute y ubicaciones de emparejamiento](../expressroute/expressroute-locations.md). En los artículos siguientes se describe ExpressRoute con más detalle:
 
@@ -207,7 +207,7 @@ ExpressRoute permite ampliar el límite de ancho de banda que adquiere hasta el 
 
 ### <a name="is-sql-database-compliant-with-any-regulatory-requirements-and-how-does-that-help-with-my-own-organizations-compliance"></a>SQL Database cumple con los requisitos de regulación y cómo ayuda eso con el cumplimiento de mi propia organización
 
-SQL Database cumple con una variedad de regulaciones de cumplimiento. Para ver el conjunto más reciente de cumplimientos que se han alcanzado, visite [Microsoft Trust Center](https://microsoft.com/trustcenter/compliance/complianceofferings) para profundizar en los cumplimientos que son importantes para su organización para ver si SQL Database se incluye en los servicios de Azure compatibles. Es importante tener en cuenta que aunque SQL Database puede estar certificada como un servicio conforme, contribuye al cumplimiento del servicio en la organización pero no lo garantiza automáticamente.
+SQL Database cumple con una variedad de regulaciones de cumplimiento. Para ver el conjunto más reciente de cumplimientos que se hayan cumplido por base de datos SQL, visite la [Microsoft Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) y profundizar en los cumplimientos que son importantes para su organización para ver si la base de datos de SQL se incluye en el compatibles Servicios de Azure. Es importante tener en cuenta que aunque SQL Database puede estar certificada como un servicio conforme, contribuye al cumplimiento del servicio en la organización pero no lo garantiza automáticamente.
 
 ## <a name="intelligent-database-monitoring-and-maintenance-after-migration"></a>Supervisión y mantenimiento inteligentes de la base de datos después de la migración
 
@@ -283,7 +283,7 @@ SQL Database ofrece varios niveles de servicio: Básico, Estándar y Premium. Co
 
 |**Nivel de servicio**|**Escenarios de casos de uso comunes**|
 |---|---|
-|**Básico**|Aplicaciones con pocos usuarios y una base de datos que no tienen grandes requisitos de simultaneidad, escalabilidad y rendimiento. |
+|**Básica**|Aplicaciones con pocos usuarios y una base de datos que no tienen grandes requisitos de simultaneidad, escalabilidad y rendimiento. |
 |**Estándar**|Aplicaciones con requisitos de simultaneidad, escalabilidad y rendimiento considerables, y una demanda de E/S de baja a media. |
 |**Premium**|Aplicaciones con una gran cantidad de usuarios simultáneos, y altas demandas de CPU/memoria y E/S. Las aplicaciones confidenciales con una alta latencia, un alto rendimiento y una alta simultaneidad pueden usar el nivel Premium. |
 |||

@@ -10,12 +10,12 @@ ms.assetid: 04b05dea-c066-44a0-9751-0774eb84c689
 ms.service: sql-data-warehouse
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 477a74d7bd0275715222a54800b81c2812da9c77
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 1f645a9c9161fb2fd71b2fd9af9ade65bff0be94
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275613"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361135"
 ---
 # <a name="upgrade-your-data-warehouse-to-gen2"></a>Actualización del almacenamiento de datos a Gen2
 
@@ -34,7 +34,7 @@ En la tabla siguiente se resume por región cuándo estará disponible el nivel 
 |:--- |:--- |:--- |
 | Este de Australia |Disponible |1 de junio de 2019 |
 | Sudeste de Australia |15 de abril de 2019 |1 de mayo de 2019 |
-| Sur de Brasil |15 de mayo de 2019 |\* |
+| Sur de Brasil |15 de mayo de 2019 |1 de junio de 2019 |
 | Centro de Canadá |Disponible |1 de junio de 2019 |
 | Este de Canadá |\* |\* |
 | Centro de EE. UU. |Disponible |1 de junio de 2019 |
@@ -44,8 +44,8 @@ En la tabla siguiente se resume por región cuándo estará disponible el nivel 
 | Norte de China 2 |\* |\* |
 | Asia oriental |Disponible |1 de junio de 2019 |
 | Este de EE. UU |Disponible |1 de junio de 2019 |
-| Este de EE. UU. 2 |Disponible |El 1 de junio. 2019 |
-| Centro de Francia |\* |\* |
+| Este de EE. UU. 2 |Disponible |1 de junio de 2019 |
+| Centro de Francia |\* |1 de junio de 2019 |
 | Centro de Alemania |\* |\* |
 | Centro occidental de Alemania |1 de septiembre de 2019|2 de enero de 2020 |
 | India central |Disponible |1 de junio de 2019 |

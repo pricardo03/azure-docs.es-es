@@ -7,17 +7,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: aa9f3b42bbbe8255be328240d26ed4b8740cc5f7
-ms.sourcegitcommit: d1c5b4d9a5ccfa2c9a9f4ae5f078ef8c1c04a3b4
-ms.translationtype: HT
+ms.openlocfilehash: f8fc1f7e338f69b42df69d9a8983e8ce3bb409e3
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55958497"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359658"
 ---
 # <a name="azure-sql-database-premium-rs-service-tier-preview-is-being-retired---options-for-migration"></a>El nivel de servicio Premium RS de Azure SQL Database (versión preliminar) se está retirando: opciones de migración
 
@@ -48,7 +48,7 @@ Para las cargas de trabajo de proceso intensivo Premium RS, se recomienda migrar
 
 ### <a name="premium-rs-databases"></a>Bases de datos Premium RS
 
-|**Si actualmente está en el nivel…**|**Migre a un nivel basado en núcleos virtuales comparable…**|**Migre a un nivel basado en DTU comparable…**|
+|**Si se encuentra actualmente en...**|**Migrar a comparable basado en núcleos virtuales...**|**Migrar a comparable basado en DTU...**|
 |---|---|---|
 |Premium RS 1|1 núcleo virtual de uso general (generación 4)|Estándar 3|
 |Premium RS 2|2 núcleos virtuales de uso general (generación 4)|Estándar 4|
@@ -57,7 +57,7 @@ Para las cargas de trabajo de proceso intensivo Premium RS, se recomienda migrar
 
 ### <a name="premium-rs-pools"></a>Grupos Premium RS
 
-|**Si actualmente está en el nivel…**|**Migre a un nivel basado en núcleos virtuales comparable…**|**Migre a un nivel basado en DTU comparable…**|
+|**Si se encuentra actualmente en...**|**Migrar a comparable basado en núcleos virtuales...**|**Migrar a comparable basado en DTU...**|
 |---|---|---|
 |125 DTU del grupo Premium RS|1 núcleo virtual de uso general (generación 4)|100 eDTU del grupo Estándar|
 |250 DTU del grupo Premium RS|2 núcleos virtuales de uso general (generación 4)|250 eDTU del grupo Estándar|
@@ -68,14 +68,14 @@ Para las cargas de trabajo de proceso intensivo Premium RS, se recomienda migrar
 
 Se recomienda migrar las bases de datos únicas con un tráfico intensivo de E/S a nuestro nivel Hiperescala basado en núcleos virtuales, actualmente en versión preliminar, y los grupos de bases de datos con un tráfico intensivo de E/S a nuestro nivel Crítico para la empresa disponible con carácter general, para conseguir una combinación óptima de costo y rendimiento.  Las siguientes opciones basadas en núcleos virtuales mantendrán o mejorarán el rendimiento actual y pueden ayudarle a ahorrar dinero si se combinan con los precios de Ventaja híbrida de Azure y capacidad reservada.
 
-|**Si actualmente está en el nivel…**|**Migre a un nivel basado en núcleos virtuales comparable…**|**Migre a un nivel basado en DTU comparable…**|
+|**Si se encuentra actualmente en...**|**Migrar a comparable basado en núcleos virtuales...**|**Migrar a comparable basado en DTU...**|
 |---|---|---|
 |Premium RS 1|(Versión preliminar) 1 núcleo virtual de hiperescala (generación 4) o 1 núcleo virtual crítico para la empresa (generación 4)|Premium 1|
 |Premium RS 2|(Versión preliminar) 2 núcleos virtuales de hiperescala (generación 4) o 2 núcleos virtuales críticos para la empresa (generación 4)|Premium 2|
 |Premium RS 4|(Versión preliminar) 4 núcleos virtuales de hiperescala (generación 4) o 4 núcleos virtuales críticos para la empresa (generación 4)|Premium 4
 |Premium RS 6|(Versión preliminar) 6 núcleos virtuales de hiperescala (generación 4) o 6 núcleos virtuales críticos para la empresa (generación 4)|Premium 6|
 
-|**Si actualmente está en el nivel…**|**Migre a un nivel basado en núcleos virtuales comparable…**|**Migre a un nivel basado en DTU comparable…**|
+|**Si se encuentra actualmente en...**|**Migrar a comparable basado en núcleos virtuales...**|**Migrar a comparable basado en DTU...**|
 |---|---|---|
 |125 DTU del grupo Premium RS|2 núcleos virtuales críticos para la empresa (generación 4)|125 eDTU del grupo Premium|
 |250 DTU del grupo Premium RS|2 núcleos virtuales críticos para la empresa (generación 4)|250 eDTU del grupo Premium|

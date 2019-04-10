@@ -2,16 +2,16 @@
 title: Conservar direcciones IP durante la conmutación por error de las máquinas virtuales de Azure con Azure Site Recovery | Microsoft Docs
 description: Describe cómo retener las direcciones IP cuando se conmuta por error máquinas virtuales de Azure para la recuperación ante desastres en una región secundaria con Azure Site Recovery
 ms.service: site-recovery
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: aefb0684ea065841824ad27d1105ef309418c6b9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 618d60417aa6b582eaef94bf75dcf16c74750f83
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58090753"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357892"
 ---
 # <a name="retain-ip-addresses-during-failover"></a>Conservar las direcciones IP durante la conmutación por error
 
@@ -49,7 +49,7 @@ Esta es la arquitectura antes de la conmutación por error.
         - El Sudeste Asiático tiene una red virtual de recuperación (**VNET de recuperación**) idéntica a la red **VNET de origen**.
         - El Sudeste Asiático tiene una red virtual adicional (**VNET de Azure**) con el espacio de direcciones 10.2.0.0/16.
         - **VNET de Azure** contiene una subred (**Subred 4**) con el espacio de direcciones 10.2.4.0/24.
-        - Los nodos de réplica de SQL Server Always On, el controlador de dominio, etc. se encuentran en la **Subred 4**.
+        - Nodos de réplica de SQL Server Always On, etc. de controlador de dominio se encuentran en **subred 4**.
     - Las redes **VNET de origen** y **VNET de Azure** están conectadas con una conexión VPN de sitio a sitio.
     - La red **Recovery VNet** no está conectada a ninguna otra red virtual.
     - La **empresa A** asigna o comprueba las direcciones IP de destino de los elementos replicados. La IP de destino es la misma que la IP de origen para cada máquina virtual.
@@ -92,7 +92,7 @@ Antes de la conmutación por error, la arquitectura es la siguiente:
 - La región secundaria (destino) es Sudeste Asiático de Azure. Sudeste Asiático tiene redes virtuales de recuperación (**VNET de recuperación 1** y **VNET de recuperación 2**) que son idénticas a las redes **VNET de origen 1** y **VNET de origen 2**.
         Las redes - **VNET de recuperación 1** y **VNET de recuperación 2** tienen, cada una, dos subredes que coinciden con **VNET de origen 1** y **VNET de origen 2**. Sudeste Asiático tiene una red virtual adicional (**VNET de Azure**) con el espacio de direcciones 10.3.0.0/16.
         - **VNET de Azure** contiene una subred (**Subred 4**) con un espacio de direcciones 10.3.4.0/24.
-        Los nodos de réplica de SQL Server Always On, el controlador de dominio, etc. se encuentran en **Subred 4**.
+        -Nodos de réplica para SQL Server Always On, etc. de controlador de dominio se encuentran en **subred 4**.
 - Hay diferentes conexiones de VPN de sitio a sitio: 
     - **VNET de origen 1** y **VNET de Azure**
     - **VNET de origen 2** y **VNET de Azure**

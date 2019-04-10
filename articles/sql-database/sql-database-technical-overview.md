@@ -8,19 +8,19 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
-ms.openlocfilehash: bd696a003b54face4f95ae426c11840bb8805bee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273148"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358334"
 ---
-# <a name="what-is-azure-sql-database-service"></a>¿Qué es el servicio Azure SQL Database?
+# <a name="what-is-azure-sql-database-service"></a>¿Qué es el servicio de Azure SQL Database
 
 SQL Database es un servicio administrado de base de datos relacional de uso general de Microsoft Azure que admite estructuras como datos relacionales, JSON, espacial y XML. SQL Database ofrece un rendimiento escalable de modo dinámico dentro de dos modelos de compra diferentes: un modelo de compra basado en núcleos virtuales y un modelo de compra basado en DTU. SQL Database también proporciona opciones como [índices de almacén de columnas](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview) para un análisis analítico extremo, y [OLTP en memoria](sql-database-in-memory.md) para un procesamiento de transacciones extremo. Microsoft controla perfectamente toda la aplicación de revisiones y de actualizaciones del código base de SQL y desaparece toda la administración de la infraestructura subyacente.
 
@@ -102,12 +102,12 @@ Utilice las herramientas de [supervisión de rendimiento integrado](sql-database
 ## <a name="availability-capabilities"></a>Funcionalidades de disponibilidad
 
 En un entorno tradicional de SQL Server, por lo general tendría (al menos) 2 máquinas configurar localmente con copias exactas de (mantenidos de forma sincrónica) de los datos (con características como grupos de disponibilidad AlwaysOn o instancias de clúster de conmutación por error) para protegerse frente a un Error de un máquina o el componente único.  Esto proporciona una alta disponibilidad pero no protege frente a un desastre natural destruir su centro de datos.
- 
+
 Recuperación ante desastres, se da por supuesto que un evento catastrófico será geográficamente localizada lo suficiente como para tener otro máquina o un conjunto de máquinas con una copia de los datos más lejos.  En SQL Server, puede usar grupos de disponibilidad AlwaysOn que se ejecuta en modo asincrónico para obtener esta funcionalidad.  La velocidad de la luz problemas normalmente significa que las personas no desean esperar para que la replicación en producirse lejos antes de confirmar una transacción, así que no hay posibilidad de pérdida de datos al hacer las conmutaciones por error no planeada.
 
 Las bases de datos en el servicio premium y empresarial crítico planes ya [hacer algo muy similar](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) para la sincronización de un grupo de disponibilidad. Las bases de datos en los niveles de servicio inferior proporcionan redundancia a través de almacenamiento mediante un [mecanismo diferentes pero equivalente](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability). No hay lógica que protege frente a errores de una sola máquina.  La característica de replicación geográfica activa proporciona la capacidad para protegerse frente a desastres donde se destruye toda una región.
 
-Las zonas de disponibilidad de Azure es un problema con la alta disponibilidad de reproducción.  Intenta proteger contra la interrupción de un solo centro de datos la compilación de una sola región.  Por lo tanto, quiere proteger contra la pérdida de alimentación eléctrica o de red en un edificio. En SQL Azure, esto funciona mediante la colocación de las diferentes réplicas en las zonas de disponibilidad diferente (diferentes de los edificios eficazmente) y funciona como antes. 
+Las zonas de disponibilidad de Azure es un problema con la alta disponibilidad de reproducción.  Intenta proteger contra la interrupción de un solo centro de datos la compilación de una sola región.  Por lo tanto, quiere proteger contra la pérdida de alimentación eléctrica o de red en un edificio. En SQL Azure, esto funciona mediante la colocación de las diferentes réplicas en las zonas de disponibilidad diferente (diferentes de los edificios eficazmente) y funciona como antes.
 
 De hecho, contrato de nivel de servicio de disponibilidad del 99,99% líder en la industria de Azure [(SLA)](https://azure.microsoft.com/support/legal/sla/), con la tecnología de una red mundial de centros de datos administrados por Microsoft, ayuda a mantener las aplicaciones en funcionamiento 24/7. La plataforma de Azure administra completamente cada base de datos y garantiza un alto porcentaje de disponibilidad de los datos sin pérdida de datos. Azure controla automáticamente la aplicación de revisiones, las copias de seguridad, la replicación, la detección de errores, los posibles errores de hardware, de software o de red subyacentes, la implementación de correcciones de errores, las conmutaciones por error, las actualizaciones de base de datos y otras tareas de mantenimiento. La disponibilidad Estándar se consigue mediante una separación de las capas de proceso y de almacenamiento. La disponibilidad Premium se logra mediante la integración de los recursos de proceso y almacenamiento en un único nodo para obtener un buen rendimiento y, después, mediante la implementación de tecnología similar para los grupos de disponibilidad AlwaysOn en segundo plano. Para obtener una explicación completa de las funcionalidades de alta disponibilidad de Azure SQL Database, consulte [Disponibilidad de SQL Database](sql-database-high-availability.md). Además, SQL Database proporciona características de [continuidad empresarial y escalabilidad global](sql-database-business-continuity.md) integradas, entre las que se incluyen:
 
@@ -156,7 +156,7 @@ También vamos a agregar la familia de características de [procesamiento adapta
 SQL Database proporciona varias [características integradas de seguridad y cumplimiento](sql-database-security-overview.md) que facilitan que su aplicación cumpla los distintos requisitos de seguridad y cumplimiento normativo.
 
 > [!IMPORTANT]
-> Azure SQL Database (todas las opciones de implementación), ha sido certificada con una serie de estándares de cumplimiento. Para obtener más información, consulte el [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) donde puede encontrar la lista más actualizada de certificaciones de cumplimiento de la base de datos SQL.
+> Azure SQL Database (todas las opciones de implementación), ha sido certificada con una serie de estándares de cumplimiento. Para obtener más información, consulte el [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) donde puede encontrar la lista más actualizada de certificaciones de cumplimiento de la base de datos SQL.
 
 ### <a name="advance-threat-protection"></a>Protección contra amenazas avanzada
 
@@ -186,7 +186,7 @@ SQL Database permite administrar centralmente las identidades de usuario de base
 
 ### <a name="compliance-certification"></a>Certificación de cumplimiento
 
-SQL Database participa en auditorías periódicas y se ha certificado con varios estándares de cumplimiento. Para obtener más información, consulte el [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) donde puede encontrar la lista más actualizada de certificaciones de cumplimiento de la base de datos SQL.
+SQL Database participa en auditorías periódicas y se ha certificado con varios estándares de cumplimiento. Para obtener más información, consulte el [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) donde puede encontrar la lista más actualizada de certificaciones de cumplimiento de la base de datos SQL.
 
 ## <a name="easy-to-use-tools"></a>Herramientas fáciles de usar
 
@@ -240,7 +240,6 @@ Los clientes de SQL Database tendrán asociados los siguientes derechos con la V
 |Clientes de núcleo de SQL Server Enterprise Edition con SA|<li>Puede pagar la tasa base sobre la SKU De uso general o Crítico para la empresa</li><br><li>1 núcleo local = 4 núcleos en la SKU De uso general</li><br><li>1 núcleo local = 1 núcleo en SKU Crítico para la empresa</li>|
 |Clientes de núcleo de SQL Server Standard Edition con SA|<li>Puede pagar la tasa base solo sobre la SKU De uso general</li><br><li>1 núcleo local = 1 núcleo en la SKU De uso general</li>|
 |||
-
 
 ## <a name="engage-with-the-sql-server-engineering-team"></a>Contactar con el equipo de ingeniería de SQL Server
 

@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 01/15/2019
-ms.openlocfilehash: 13038bb7159556b36e82b598732d1f2d497bf314
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: c4ff12f0c9adcb9943a6e2426eaf2740ba171e39
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57762779"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358849"
 ---
 # <a name="configure-an-existing-virtual-network-for-azure-sql-database-managed-instance"></a>Configuración de una red virtual para Instancia administrada de Azure SQL Database
 
@@ -25,10 +25,9 @@ Instancia administrada de Azure SQL Database se debe implementar dentro de una [
 
 Si uno de los casos siguientes se aplica a usted, puede validar y modificar la red mediante el uso del script que se explica en este artículo:
 
-* Tiene una nueva subred que aún no está configurada.
-* No está seguro de que la subred cumple los [requisitos](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
-* Quiere comprobar si la subred cumple con los [requisitos de red](sql-database-managed-instance-connectivity-architecture.md#network-requirements) una vez realizados los cambios.
-
+- Tiene una nueva subred que aún no está configurada.
+- No está seguro de que la subred cumple los [requisitos](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
+- Quiere comprobar si la subred cumple con los [requisitos de red](sql-database-managed-instance-connectivity-architecture.md#network-requirements) una vez realizados los cambios.
 
 > [!Note]
 > Puede crear una Instancia administrada solo en redes virtuales creadas mediante el modelo de implementación de Azure Resource Manager. No se admiten las redes virtuales de Azure creadas mediante el modelo de implementación clásica. Calcule el tamaño de la subred siguiendo las instrucciones del artículo [Determinación del tamaño de subred para instancias administradas](sql-database-managed-instance-determine-size-vnet-subnet.md). No se puede cambiar el tamaño de la subred después de implementar los recursos que contiene.

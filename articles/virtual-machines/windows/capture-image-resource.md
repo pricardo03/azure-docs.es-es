@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 4e79e0a7d05ef70ae9f7ab2cbb2238c42b2a654b
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: aa1858a27d4df413deb562391251a523c28673ad
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847572"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359160"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Captura de una imagen administrada de una máquina virtual generalizada en Azure
 
@@ -88,7 +88,7 @@ Para generalizar la máquina virtual de Windows, siga estos pasos:
 
 Crear una imagen directamente desde la VM garantiza que la imagen incluya todos los discos asociados a la VM, incluido el disco del SO y todos los discos de datos. En este ejemplo se muestra cómo crear una imagen administrada a partir de una máquina virtual que utiliza discos administrados.
 
-Antes de comenzar, asegúrese de que tiene la versión más reciente del módulo Azure PowerShell. Para buscar la versión, ejecute `Get-Module -ListAvailable Az` en PowerShell. Si tiene que actualizar, consulte [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/azurerm/install-az-ps) (Instalación de Azure PowerShell en Windows con PowerShellGet). Si PowerShell se ejecuta localmente, ejecute `Connect-AzAccount` para crear una conexión con Azure.
+Antes de comenzar, asegúrese de que tiene la versión más reciente del módulo Azure PowerShell. Para buscar la versión, ejecute `Get-Module -ListAvailable Az` en PowerShell. Si tiene que actualizar, consulte [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-az-ps) (Instalación de Azure PowerShell en Windows con PowerShellGet). Si PowerShell se ejecuta localmente, ejecute `Connect-AzAccount` para crear una conexión con Azure.
 
 
 > [!NOTE]

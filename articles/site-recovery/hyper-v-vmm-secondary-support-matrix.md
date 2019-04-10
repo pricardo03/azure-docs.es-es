@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/18/2018
+ms.date: 04/08/2019
 ms.author: raynew
-ms.openlocfilehash: 419974138d6f556a2f774e8c1a355729c824fddc
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58310615"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360797"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de Hyper-V a un sitio secundario
 
-En este artículo se resumen las características que son compatibles cuando usa el servicio [Azure Site Recovery](site-recovery-overview.md) para replicar máquinas virtuales de Hyper-V que se administran en nubes de System Center Virtual Machine Manager (VMM) en un sitio secundario. Si quiere replicar máquinas virtuales de Hyper-V en Azure, consulte [esta matriz de compatibilidad](hyper-v-azure-support-matrix.md).
+En este artículo se resume lo que se admite cuando se usa el [Azure Site Recovery](site-recovery-overview.md) service para replicar máquinas virtuales de Hyper-V administradas en nubes de System Center Virtual Machine Manager (VMM) en un sitio secundario. Si quiere replicar máquinas virtuales de Hyper-V en Azure, consulte [esta matriz de compatibilidad](hyper-v-azure-support-matrix.md).
 
 > [!NOTE]
 > Solo puede replicar en un sitio secundario si los hosts de Hyper-V se administran en nubes de VMM.
@@ -70,7 +70,7 @@ VM invitada: múltiples NIC | Sí
 
 ### <a name="host-storage"></a>Almacenamiento de host
 
-**Storage (host)** | **Compatible**
+**Almacenamiento (host)** | **Compatible**
 --- | --- 
 NFS | N/D
 SMB 3.0 |  Sí
@@ -99,7 +99,7 @@ Varias rutas (MPIO) | Sí
 
 ## <a name="vaults"></a>Almacenes
 
-**Acción** | **Compatible**
+**.** | **Compatible**
 --- | --- 
 Migrar los almacenes entre los grupos de recursos (dentro de las suscripciones o entre ellas) |  Sin 
 Migrar el almacenamiento, la red y las VM de Azure entre los grupos de recursos (dentro de las suscripciones o entre ellas) | Sin 
@@ -116,5 +116,5 @@ El proveedor coordina las comunicaciones entre servidores VMM.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Replicar las máquinas virtuales de Hyper-V en nubes VMM en una nube secundaria](tutorial-vmm-to-vmm.md)
+[Replicación de máquinas virtuales de Hyper-V en nubes VMM en un sitio secundario](tutorial-vmm-to-vmm.md)
 

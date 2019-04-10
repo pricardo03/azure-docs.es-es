@@ -12,39 +12,48 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 04/08/2019
 ms.author: kfollis
 ms.custom: accessibility
-ms.openlocfilehash: d9c9c18fb2c20f1b0740a490316826e488049faf
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
-ms.translationtype: HT
+ms.openlocfilehash: fb0b347228fe82725d5246ae9eacdab8dff01257
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54881178"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359692"
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Métodos abreviados de teclado de Azure Portal
-Este artículo muestra los métodos abreviados de teclado que funcionan en Azure Portal. Los servicios individuales pueden tener sus propios métodos abreviados de teclado.
+
+En este artículo se enumera los métodos abreviados de teclado que funcionan en todas partes en el portal de Azure. Los servicios individuales pueden tener sus propios métodos abreviados de teclado.
 
 ## <a name="actions"></a>Acciones
-|Para hacer esto |Presione |
+
+|Para realizar esta acción |Presione |
 | --- | --- |
-|Crear un nuevo recurso|G + N|
-|Abrir el panel "Todos los servicios"|G + B|
-|Búsqueda de recursos|G + /| 
+|Creación de un recurso|G + N|
+|Abra **todos los servicios**|G + B|
+|Buscar recursos, servicios y documentos|G + /|
 |Buscar elementos del menú de recursos|CTRL + / |
-|Subir el elemento del panel izquierdo seleccionado |ALT + MAYÚS + Flecha arriba|
-|Bajar el elemento del panel izquierdo seleccionado |ALT + MAYÚS + Flecha abajo|
+|Subir el elemento seleccionado de barra lateral izquierda |ALT + MAYÚS + Flecha arriba|
+|Bajar el elemento seleccionado de barra lateral izquierda |ALT + MAYÚS + Flecha abajo|
 
 ## <a name="navigation"></a>Navegación
-|Para hacer esto |Presione |
+
+|Para realizar esta navegación |Presione |
 | --- | --- |
 |Mover enfoque a la barra de comandos |G + , |
-|Alternar el foco entre la barra superior y la barra lateral | G + . |
+|Alternar el foco entre encabezado y la barra lateral izquierda | G + . |
 
 ## <a name="go-to"></a>Ir a
-|Para hacer esto |Presione |
+
+|Para ir a esta ubicación |Presione |
 | --- | --- |
-|Ir al panel |G + D |
-|Ir a Todos los recursos|G + A |
-|Ir a grupos de recursos|G + R |
-|Abrir el elemento del panel izquierdo en esta posición |G + número|
+|Vaya a **panel** |G + D |
+|Vaya a **todos los recursos**|G + A |
+|Vaya a **grupos de recursos**|G + R |
+|Abra el elemento de barra lateral izquierda en esta posición |G + número|
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- [Activación del contraste alto o cambio de tema](azure-portal-change-theme-high-contrast.md)
+- [Exploradores y dispositivos compatibles](../azure-preview-portal-supported-browsers-devices.md)

@@ -1,6 +1,6 @@
 ---
 title: Configuración de la aceleración automática de inicio de sesión de una aplicación mediante la directiva de detección del dominio de inicio | Microsoft Docs
-description: Explica qué es un inquilino de Azure AD y cómo administrar Azure mediante Azure Active Directory.
+description: Obtenga información sobre cómo configurar la directiva de Home Realm Discovery para la autenticación de Azure Active Directory para los usuarios federados, incluidas las sugerencias de la aceleración automática y el dominio.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -11,19 +11,20 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/08/2018
+ms.date: 04/08/2019
 ms.author: celested
+ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 333258ef9696e6dbe4aab5b10e815bb84428d425
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: d82ccf7c2983051597ff634117be81311c4c78a9
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56190269"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360939"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configuración del comportamiento de inicio de sesión de Azure Active Directory de una aplicación mediante una directiva de detección del dominio de inicio
 
-En el siguiente documento se proporciona una introducción a la configuración del comportamiento de autenticación de Azure Active Directory para los usuarios federados.   Trata sobre la configuración de las restricciones de la aceleración automática y la autenticación para los usuarios de los dominios federados.
+En este artículo se proporciona una introducción a la configuración de comportamiento de la autenticación de Azure Active Directory para usuarios federados. Trata sobre la configuración de las restricciones de la aceleración automática y la autenticación para los usuarios de los dominios federados.
 
 ## <a name="home-realm-discovery"></a>Detección del dominio de inicio
 La detección del dominio de inicio (HDR) es el proceso que permite a Azure Active Directory (Azure AD) determinar dónde debe autenticarse un usuario en el momento del inicio de sesión.  Al iniciar sesión en un inquilino de Azure AD para obtener acceso a un recurso o a la página de inicio de sesión común de Azure AD, el usuario debe escribir un nombre de usuario (UPN). Azure AD usa esa información para detectar dónde debe iniciar sesión el usuario. 

@@ -9,17 +9,17 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 02/26/2019
-ms.openlocfilehash: f08b22f24dfde41646f56dc1ecd9777f267620ee
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 801294241f399097d363dd8dc2682f158c0bf2cc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651319"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358287"
 ---
-# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitectura de conectividad de una instancia administrada de Azure SQL Database 
+# <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitectura de conectividad de una instancia administrada de Azure SQL Database
 
 En este artículo se explica la comunicación en una instancia administrada de Azure SQL Database. También describe la arquitectura de conectividad y cómo los componentes de dirigir el tráfico a la instancia administrada.  
 
@@ -117,7 +117,6 @@ Implementar una instancia administrada en una subred dentro de la red virtual de
 
 > [!IMPORTANT]
 > Aunque las reglas de seguridad de entrada necesario permiten el tráfico desde _cualquier_ de código fuente en los puertos 9000, 9003, 1438, 1440 y 1452, estos puertos están protegidos por un firewall integrado. Para obtener más información, consulte [determinar la dirección del punto de conexión de administración](sql-database-managed-instance-find-management-endpoint-ip-address.md).
-
 > [!NOTE]
 > Si utiliza la replicación transaccional en una instancia administrada y usar cualquier instancia de la base de datos como un publicador o un distribuidor, abra el puerto 445 (salida TCP) en las reglas de seguridad de la subred. Este puerto permitirá el acceso al recurso compartido de archivos de Azure.
 

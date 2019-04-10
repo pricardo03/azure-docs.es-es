@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop-msft
-ms.reviewer: carlrab
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 83be636317299adf820a60716866aa35d318d6dc
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: dc379f1ee67174cd806840e4244054701d18f0d4
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55997369"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357930"
 ---
 # <a name="general-purpose-service-tier---azure-sql-database"></a>Nivel de servicio de uso general: Azure SQL Database
 
@@ -26,7 +26,7 @@ ms.locfileid: "55997369"
 
 Azure SQL Database se basa en la arquitectura del motor de base de datos de SQL Server adaptada al entorno en la nube, con el fin de garantizar una disponibilidad del 99,99 % incluso en los casos de error de la infraestructura. Hay tres niveles de servicio que se usan en Azure SQL Database, cada uno con diferentes modelos de arquitectura. Estos niveles de servicio son:
 
-- Uso general 
+- Uso general
 - Crítico para la empresa
 - Hiperescala
 

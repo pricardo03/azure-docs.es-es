@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 4/3/2019
 ms.author: geetha
-ms.openlocfilehash: 99117c96f79dd7d0da388a0e793908f6ffb8ed27
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 893a22fb9f325625707869c8f6571d572b8f6b33
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59266451"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358233"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>Copia de seguridad y restauración de máquinas virtuales de Azure cifradas
 
@@ -31,7 +31,7 @@ Azure Backup admite la copia de seguridad de máquinas virtuales de Azure que te
 Azure Backup puede realizar copias de seguridad y restauración de máquinas virtuales de Azure con ADE con y sin la aplicación de Azure AD, como se resume en la tabla siguiente.
 
 **Tipo de disco de máquina virtual** | **ADE (BEK/dm-crypt)** | **ADE y KEK**
---- | --- | --- 
+--- | --- | ---
 **No administrado** | Sí | Sí
 **Administrado**  | Sí | Sí
 
@@ -95,14 +95,14 @@ Además, hay un par de cosas que debe hacer en algunas circunstancias:
 8. Si usa Azure Key Vault, en la página del almacén, verá un mensaje que la copia de seguridad de Azure necesita acceso de solo lectura a las claves y secretos en Key Vault.
 
     - Si recibe este mensaje, se requiere ninguna acción.
-    
+
         ![Acceso Aceptar](./media/backup-azure-vms-encryption/access-ok.png)
-        
+
     - Si recibe este mensaje, deberá establecer los permisos tal como se describe en el [siguiente procedimiento](#provide-permissions).
-    
+
         ![Advertencia de acceso](./media/backup-azure-vms-encryption/access-warning.png)
 
-9. Haga clic en **habilitar copia de seguridad** para implementar la directiva de copia de seguridad en el almacén y habilitar la copia de seguridad para las máquinas virtuales seleccionadas. 
+9. Haga clic en **habilitar copia de seguridad** para implementar la directiva de copia de seguridad en el almacén y habilitar la copia de seguridad para las máquinas virtuales seleccionadas.
 
 
 ## <a name="trigger-a-backup-job"></a>Desencadenamiento de un trabajo de copia de seguridad
@@ -129,18 +129,18 @@ Para establecer permisos:
 1. En el portal de Azure, seleccione **todos los servicios**y busque **los almacenes de claves**.
 2. Seleccione el almacén de claves asociado a la máquina virtual cifrada que se hace copia de seguridad.
 3. Seleccione **las directivas de acceso** > **Agregar nuevo**.
-4. Seleccione **seleccione entidad**y, a continuación, escriba **administración de copia de seguridad**. 
+4. Seleccione **seleccione entidad**y, a continuación, escriba **administración de copia de seguridad**.
 5. Seleccione **servicio de administración de copia de seguridad** > **seleccione**.
 
     ![Selección del servicio Backup](./media/backup-azure-vms-encryption/select-backup-service.png)
 
 6. En **Agregar directiva de acceso** > **configurar a partir de plantilla (opcional)**, seleccione **Azure Backup**.
     - Los permisos necesarios se rellenan previamente en **Permisos clave** y **Permisos de secretos**.
-    - Si la máquina virtual está cifrada con **solo BEK**, eliminar la selección de **permisos de clave** puesto que sólo tiene permisos para los secretos. 
+    - Si la máquina virtual está cifrada con **solo BEK**, eliminar la selección de **permisos de clave** puesto que sólo tiene permisos para los secretos.
 
     ![Selección de Azure Backup](./media/backup-azure-vms-encryption/select-backup-template.png)
 
-6. Haga clic en **OK**. **Servicio de administración de copia de seguridad** se agrega a **las directivas de acceso**. 
+6. Haga clic en **OK**. **Servicio de administración de copia de seguridad** se agrega a **las directivas de acceso**.
 
     ![Directivas de acceso](./media/backup-azure-vms-encryption/backup-service-access-policy.png)
 
@@ -159,6 +159,5 @@ Restaurar las máquinas virtuales cifradas como sigue:
 
 Si experimenta algún problema, consulte
 
-- [Errores comunes](backup-azure-vms-troubleshoot.md#troubleshoot-backup-of-encrypted-vms) cuando copia de seguridad y restauración de máquinas virtuales de Azure cifran.
-- [General](backup-azure-vms-troubleshoot.md) problemas de la máquina virtual de Azure.
+- [Errores comunes](backup-azure-vms-troubleshoot.md) cuando copia de seguridad y restauración de máquinas virtuales de Azure cifran.
 - [Extensión de copia de seguridad o agente de máquina virtual Azure](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md) problemas.

@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 12/31/2018
+ms.date: 04/08/2019
 ms.author: raynew
-ms.openlocfilehash: 2f70a180afcc8eda5d43356c3f4f96b25292c6d5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b316d6a8293d9f23eb89e8b6fffedac316759df4
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58088934"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360148"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de VMware y servidores físicos en un sitio secundario.
 
@@ -72,7 +72,7 @@ VM invitada: múltiples NIC | Sí
 
 ### <a name="host-storage"></a>Almacenamiento de host
 
-**Storage (host)** | **Compatible** 
+**Almacenamiento (host)** | **Compatible** 
 --- | --- 
 NFS | Sí 
 SMB 3.0 | N/D 
@@ -101,7 +101,7 @@ Varias rutas (MPIO) | N/D
 
 ## <a name="vaults"></a>Almacenes
 
-**Acción** | **Compatible** 
+**.** | **Compatible** 
 --- | --- 
 Migrar los almacenes entre los grupos de recursos (dentro de las suscripciones o entre ellas) | Sin  
 Migrar el almacenamiento, la red y las VM de Azure entre los grupos de recursos (dentro de las suscripciones o entre ellas) | Sin  
@@ -120,5 +120,5 @@ Mobility Service coordina la replicación entre los servidores físicos o los se
 
 Descargue la [guía del usuario de InMage Scout](https://aka.ms/asr-scout-user-guide).
 
-- [Replicar las máquinas virtuales de Hyper-V en nubes VMM en una nube secundaria](tutorial-vmm-to-vmm.md)
+- [Replicación de máquinas virtuales de Hyper-V en nubes VMM en un sitio secundario](tutorial-vmm-to-vmm.md)
 - [Replicación de máquinas virtuales de VMware y servidores físicos en un sitio secundario](tutorial-vmware-to-vmware.md)

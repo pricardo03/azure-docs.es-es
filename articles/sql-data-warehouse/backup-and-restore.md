@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 03/01/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 14e7d8cfdaa9ac59a5a43881283fac6e2c9ee08f
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: ebe45bf8f562b5be9ae2afda9d5940296396f155
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58846991"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359011"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Copia de seguridad y restauración en Azure SQL Data Warehouse
 
@@ -25,7 +25,7 @@ Aprenda a usar la copia de seguridad y restauración en Azure SQL Data Warehouse
 
 Una *instantánea de almacenamiento de datos* crea un punto de restauración que se puede aprovechar para recuperar o copiar el almacenamiento de datos en un estado anterior.  Dado que SQL Data Warehouse es un sistema distribuido, una instantánea de almacenamiento de datos consta de muchos archivos que se almacenan en Azure Storage. Las instantáneas capturan los cambios incrementales de los datos almacenados en el almacenamiento de datos.
 
-Una *restauración de almacenamiento de datos* es un nuevo almacenamiento de datos que se crea a partir de un punto de restauración de un almacenamiento de datos existente o eliminado. La restauración del almacenamiento de datos es una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad empresarial, ya que vuelve a crear los datos tras daños o eliminaciones accidentales. El almacenamiento de datos es también un mecanismo eficaz para crear copias del almacenamiento de datos con fines de prueba o desarrollo.  SQL Data Warehouse utiliza mecanismos de restauración rápida en la misma región, lo que se ha medido para que tarde menos de 20 minutos con cualquier tamaño de datos.
+Una *restauración de almacenamiento de datos* es un nuevo almacenamiento de datos que se crea a partir de un punto de restauración de un almacenamiento de datos existente o eliminado. La restauración del almacenamiento de datos es una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad empresarial, ya que vuelve a crear los datos tras daños o eliminaciones accidentales. El almacenamiento de datos es también un mecanismo eficaz para crear copias del almacenamiento de datos con fines de prueba o desarrollo.  Tarifas de restauración de SQL Data Warehouse pueden variar según el tamaño de la base de datos y la ubicación del almacén de datos de origen y de destino. Promedio de la misma región, las tasas de restauración suelen tardar unos 20 minutos. 
 
 ## <a name="automatic-restore-points"></a>Puntos de restauración automáticos
 

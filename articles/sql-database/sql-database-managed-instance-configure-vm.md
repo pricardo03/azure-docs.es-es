@@ -9,19 +9,19 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: carlrab, srbozovi, bonova
+ms.reviewer: sstein, carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
-ms.openlocfilehash: 9e1001816e9a4cf62d2e6c84c72aae84428148d0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57997923"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360488"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Guía de inicio rápido: Configurar una máquina virtual de Azure para la conexión a una Instancia administrada de Azure SQL Database
 
-Esta guía de inicio rápido muestra cómo configurar una máquina virtual de Azure para conectarse a una Instancia administrada de Azure SQL Database mediante SQL Server Management Studio (SSMS). Para obtener una guía de inicio rápido en la que se muestra cómo conectarse desde un equipo cliente local mediante una conexión de punto a sitio, vea [Configuración de una conexión de punto a sitio](sql-database-managed-instance-configure-p2s.md). 
+Esta guía de inicio rápido muestra cómo configurar una máquina virtual de Azure para conectarse a una Instancia administrada de Azure SQL Database mediante SQL Server Management Studio (SSMS). Para obtener una guía de inicio rápido en la que se muestra cómo conectarse desde un equipo cliente local mediante una conexión de punto a sitio, vea [Configuración de una conexión de punto a sitio](sql-database-managed-instance-configure-p2s.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -33,7 +33,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-a-new-subnet-in-the-managed-instance-vnet"></a>Creación de una nueva subred en la red virtual de Instancia administrada
 
-En los pasos siguientes se crea una nueva subred en la red virtual de Instancia administrada para poder conectar una máquina virtual de Azure a la Instancia administrada. La subred de Instancia administrada se dedica a las Instancias administradas. No puede crear ningún otro recurso, como Azure Virtual Machines, en esa subred. 
+En los pasos siguientes se crea una nueva subred en la red virtual de Instancia administrada para poder conectar una máquina virtual de Azure a la Instancia administrada. La subred de Instancia administrada se dedica a las Instancias administradas. No puede crear ningún otro recurso, como Azure Virtual Machines, en esa subred.
 
 1. Abra el grupo de recursos para la Instancia administrada que creó en la guía de inicio rápido [Creación de una Instancia administrada](sql-database-managed-instance-get-started.md). Seleccione la red virtual para su Instancia administrada.
 
@@ -45,22 +45,22 @@ En los pasos siguientes se crea una nueva subred en la red virtual de Instancia 
 
 3. Rellene el formulario con la información de esta tabla:
 
-   | Configuración| Valor sugerido | Descripción |
-   | ---------------- | ----------------- | ----------- | 
-   | **Nombre** | Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   | Configuración| Valor sugerido | DESCRIPCIÓN |
+   | ---------------- | ----------------- | ----------- |
+   | **NOMBRE** | Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    | **Intervalo de direcciones (bloque CIDR)** | Un intervalo válido | El valor predeterminado es adecuado para este inicio rápido.|
    | **Grupo de seguridad de red** | None | El valor predeterminado es adecuado para este inicio rápido.|
    | **Tabla de rutas** | None | El valor predeterminado es adecuado para este inicio rápido.|
    | **Puntos de conexión de servicio** | 0 seleccionado | El valor predeterminado es adecuado para este inicio rápido.|
    | **Delegación de subred** | None | El valor predeterminado es adecuado para este inicio rápido.|
- 
+
    ![Nueva subred de Instancia administrada de una máquina virtual de cliente](./media/sql-database-managed-instance-configure-vm/new-subnet.png)
 
 4. Seleccione **Aceptar** para crear esta subred adicional en la red virtual de Instancia administrada.
 
 ## <a name="create-a-virtual-machine-in-the-new-subnet-in-the-vnet"></a>Creación de una máquina virtual en la nueva subred de la red virtual
 
-En los pasos siguientes se muestra cómo crear una máquina virtual en la nueva subred para la conexión a la Instancia administrada. 
+En los pasos siguientes se muestra cómo crear una máquina virtual en la nueva subred para la conexión a la Instancia administrada.
 
 ## <a name="prepare-the-azure-virtual-machine"></a>Preparación de la máquina virtual de Azure
 
@@ -76,18 +76,18 @@ La forma más fácil de crear una máquina virtual cliente con todas las herrami
 
    | Configuración| Valor sugerido | DESCRIPCIÓN |
    | ---------------- | ----------------- | ----------- |
-   | **Suscripción** | Una suscripción válida | Debe ser una suscripción en la que tiene permiso para crear recursos. |
+   | **Subscription** | Una suscripción válida | Debe ser una suscripción en la que tiene permiso para crear recursos. |
    | **Grupo de recursos** |Grupo de recursos que especificó en el inicio rápido [Crear Instancia administrada](sql-database-managed-instance-get-started.md).|Este grupo de recursos debe ser el grupo de recursos donde existe la red virtual.|
-   | **Ubicación** | Ubicación del grupo de recursos | Este valor se rellena según el grupo de recursos seleccionado. | 
+   | **Ubicación** | Ubicación del grupo de recursos | Este valor se rellena según el grupo de recursos seleccionado. |
    | **Nombre de la máquina virtual**  | Cualquier nombre válido | Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Nombre de usuario administrador**|Cualquier nombre de usuario válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). No utilice "serveradmin", ya es un rol de nivel de servidor reservado.<br>Use este nombre de usuario cada vez que [se conecte a la máquina virtual](#connect-to-virtual-machine).| 
+   |**Nombre de usuario de administrador**|Cualquier nombre de usuario válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). No utilice "serveradmin", ya es un rol de nivel de servidor reservado.<br>Use este nombre de usuario cada vez que [se conecte a la máquina virtual](#connect-to-virtual-machine).|
    |**Contraseña**|Cualquier contraseña válida|La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Use esta contraseña cada vez que [se conecte a la máquina virtual](#connect-to-virtual-machine).|
-   | **Tamaño de máquina virtual** | Cualquier tamaño válido | El valor predeterminado de esta plantilla de **Standard_B2s** es suficiente para esta guía de inicio rápido. |
+   | **Tamaño de la máquina virtual** | Cualquier tamaño válido | El valor predeterminado de esta plantilla de **Standard_B2s** es suficiente para esta guía de inicio rápido. |
    | **Ubicación**|[resourceGroup().location].| No cambie este valor. |
-   | **Nombre de la red virtual**|La red virtual en la que creó la instancia administrada.|
+   | **El nombre de la red virtual**|La red virtual en la que creó la instancia administrada.|
    | **Nombre de subred**|El nombre de la subred que creó en el procedimiento anterior| No elija la subred en la que creó la Instancia administrada.|
    | **Ubicación de artefactos** | [deployment().properties.templateLink.uri] | No cambie este valor. |
-   | **Token de Sas de ubicación de artefactos** | déjelo en blanco | No cambie este valor. |
+   | **token de Sas de ubicación de artefactos** | déjelo en blanco | No cambie este valor. |
 
    ![crear máquina virtual cliente](./media/sql-database-managed-instance-configure-vm/create-client-sql-vm.png)
 
@@ -108,31 +108,31 @@ En los pasos siguientes se muestra cómo conectarse a la máquina virtual recié
 
     ![máquina virtual](./media/sql-database-managed-instance-configure-vm/vm.png)  
 
-2. Seleccione **Conectar**. 
-   
-   Aparece un formulario de archivo de Protocolo de escritorio remoto (archivo .rdp) con la dirección IP pública y el número de puerto de la máquina virtual. 
+2. Seleccione **Conectar**.
+
+   Aparece un formulario de archivo de Protocolo de escritorio remoto (archivo .rdp) con la dirección IP pública y el número de puerto de la máquina virtual.
 
    ![Formulario RDP](./media/sql-database-managed-instance-configure-vm/rdp.png)  
 
 3. Seleccione **Descargar archivo RDP**.
- 
+
    > [!NOTE]
    > También puede usar SSH para conectarse a la máquina virtual.
 
 4. Cierre el formulario **Conexión a la máquina virtual**.
-5. Para conectarse a la máquina virtual, abra el archivo RDP descargado. 
+5. Para conectarse a la máquina virtual, abra el archivo RDP descargado.
 6. Cuando se le pida, seleccione **Connect** (Conectar). En un equipo Mac, necesita un cliente RDP como este [Cliente de Escritorio remoto](https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12) de Mac App Store.
 
-6. Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual y, a continuación, elija **Aceptar**.
+7. Escriba el nombre de usuario y la contraseña que especificó al crear la máquina virtual y, a continuación, elija **Aceptar**.
 
-7. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Elija **Sí** o en **Continuar** para continuar con la conexión.
+8. Puede recibir una advertencia de certificado durante el proceso de inicio de sesión. Elija **Sí** o en **Continuar** para continuar con la conexión.
 
 Está conectado a la máquina virtual en el panel de Administrador del servidor.
 
 ## <a name="use-ssms-to-connect-to-the-managed-instance"></a>Uso de SSMS para conectarse a la Instancia administrada
 
 1. En la máquina virtual, abra SQL Server Management Studio (SSMS).
- 
+
    Tardará unos instantes en abrirse, ya que debe completar su configuración y esta es la primera vez que se inicia SSMS.
 2. En el cuadro de diálogo **Conectar a un servidor**, escriba el **nombre de host** completo para su Instancia administrada en el cuadro **Nombre del servidor**. Seleccione **Autenticación de SQL Server**, proporcione su nombre de usuario y contraseña y, a continuación, seleccione **Conectar**.
 

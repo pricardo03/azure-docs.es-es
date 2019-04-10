@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 5c4ad5c200bd2e49f3c472d82ad030c6a8f2478d
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 6f3177c37a2db03b8821e3e4f5b68c8b1315a016
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918270"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358256"
 ---
 # <a name="sizes-for-cloud-services"></a>Tamaños de Cloud Services
 En este tema se describen las opciones y los tamaños disponibles para las instancias de rol de servicio en la nube (roles web y roles de trabajo). También ofrece consideraciones de implementación que hay que tener en cuenta a la hora de planear usar estos recursos. Cada tamaño tiene un identificador que pondrá en su [archivo de definición de servicio](cloud-services-model-and-package.md#csdef). Los precios para cada tamaño están disponibles en la página [Precios de Cloud Services](https://azure.microsoft.com/pricing/details/cloud-services/).
@@ -205,7 +205,7 @@ Este es un ejemplo de cómo establecer el tamaño del rol como Standard_D2 para 
 
 ## <a name="changing-the-size-of-an-existing-role"></a>Cambio de tamaño de un rol existente
 
-A medida que cambia la naturaleza de la carga de trabajo o los tamaños de la nueva máquina virtual están disponibles, puede que desee cambiar el tamaño de su rol. Para ello, debe cambiar el tamaño de la máquina virtual en el archivo de definición de servicio (tal y como se muestra arriba), volver a empaquetar Cloud Service e implementarlo. No es posible cambiar los tamaños de máquina virtual directamente desde el portal o PowerShell.
+A medida que cambia la naturaleza de la carga de trabajo o los tamaños de la nueva máquina virtual están disponibles, puede que desee cambiar el tamaño de su rol. Para ello, debe cambiar el tamaño de la máquina virtual en el archivo de definición de servicio (tal y como se muestra arriba), volver a empaquetar Cloud Service e implementarlo.
 
 >[!TIP]
 > Puede que desee utilizar diferentes tamaños de máquina virtual para su rol en diferentes entornos (p. ej. prueba frente a producción). Una manera de hacer esto es crear varios archivos de definición de servicio (.csdef) en el proyecto, luego cree diferentes paquetes de servicio en la nube por entorno durante la compilación automatizada con la herramienta CSPack. Para obtener más información acerca de los elementos de un paquete de Cloud Services y cómo crearlos, vea [¿Qué es el modelo de Cloud Services y cómo empaquetarlo?](cloud-services-model-and-package.md)

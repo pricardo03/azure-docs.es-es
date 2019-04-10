@@ -10,18 +10,18 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: c37e41bce481fff5e172687907cce527c10ae006
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 3faa3b0a5cd919752f8b7e4969e3affd668c8077
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225015"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360771"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Crear bucles que repiten las acciones del flujo de trabajo o procesan matrices en Azure Logic Apps
 
 Para procesar una matriz en la aplicación lógica, puede crear un [bucle "Foreach"](#foreach-loop). Este bucle repite una o varias acciones en cada elemento de la matriz. Para conocer los límites del número de elementos de matriz que los bucles "Foreach" pueden procesar, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md). 
 
-Para repetir las acciones hasta que se cumpla una condición o cambie un estado, puede crear un [bucle "Until"](#until-loop). La aplicación lógica ejecuta todas las acciones dentro del bucle y luego comprueba la condición o el estado. Si se cumple la condición, se detiene el bucle. En caso contrario, se repite el bucle. Para conocer el número de bucles "Until" en una ejecución de aplicación lógica, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md). 
+Para repetir las acciones hasta que se cumpla una condición o cambie un estado, puede crear un [bucle "Until"](#until-loop). En primer lugar, la aplicación lógica ejecuta todas las acciones dentro del bucle y, a continuación, comprueba el estado o la condición. Si se cumple la condición, se detiene el bucle. En caso contrario, se repite el bucle. Para conocer el número de bucles "Until" en una ejecución de aplicación lógica, consulte [Límites y configuración](../logic-apps/logic-apps-limits-and-config.md). 
 
 > [!TIP]
 > Si tiene un desencadenador que recibe una matriz y desea ejecutar un flujo de trabajo para cada elemento de matriz, puede *desagrupar* esa matriz con la propiedad de desencadenador [**SplitOn**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
@@ -154,7 +154,9 @@ Si está trabajando con la definición de JSON de la aplicación lógica, puede 
 
 ## <a name="until-loop"></a>Bucle "Until"
   
-Para repetir las acciones hasta que se cumpla una condición o cambie un estado, coloque esas acciones en un bucle "Until". Estos son algunos escenarios comunes en los que puede utilizar un bucle "Until":
+Para ejecutar y repetir acciones hasta que obtiene cumple una condición o cambia un estado, colocar dichas acciones en un bucle "Until". En primer lugar, la aplicación lógica ejecuta todas las acciones dentro del bucle y, a continuación, comprueba el estado o la condición. Si se cumple la condición, se detiene el bucle. En caso contrario, se repite el bucle.
+
+Estos son algunos escenarios comunes en los que puede utilizar un bucle "Until":
 
 * Llamada a un punto de conexión hasta obtener la respuesta que quiere.
 
@@ -193,8 +195,8 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 
    | Propiedad | Valor | DESCRIPCIÓN |
    | -------- | ----- | ----------- |
-   | **Nombre** | Límite | El nombre de la variable | 
-   | **Tipo** | Entero | El tipo de datos de la variable | 
+   | **NOMBRE** | Límite | El nombre de la variable | 
+   | **Type** | Entero | El tipo de datos de la variable | 
    | **Valor** | 0 | El valor de inicio de la variable | 
    |||| 
 
@@ -234,7 +236,7 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 
       | Propiedad | Valor | DESCRIPCIÓN |
       | -------- | ----- | ----------- | 
-      | **To** | *<email-address\@domain>* | La dirección de correo electrónico del destinatario. Para las pruebas, use su propia dirección de correo electrónico. | 
+      | **Para** | *<email-address\@domain>* | La dirección de correo electrónico del destinatario. Para las pruebas, use su propia dirección de correo electrónico. | 
       | **Asunto** | El valor actual de "Límite" es **Limit** | Especifique el asunto del correo electrónico. En este ejemplo, asegúrese de que incluye la variable **Limit**. | 
       | **Cuerpo** | <*email-content*> | Especifique el contenido del mensaje de correo electrónico que desea enviar. En este ejemplo, escriba cualquier texto que desee. | 
       |||| 
@@ -251,7 +253,7 @@ Un bucle "Until" tiene límites predeterminados que detienen la ejecución si se
 
 | Propiedad | Valor predeterminado | DESCRIPCIÓN | 
 | -------- | ------------- | ----------- | 
-| **Recuento** | 60 | Número máximo de bucles que se ejecutan antes de salir del bucle. El valor predeterminado es de 60 ciclos. | 
+| **Número** | 60 | Número máximo de bucles que se ejecutan antes de salir del bucle. El valor predeterminado es de 60 ciclos. | 
 | **Tiempo de espera** | PT1H | Cantidad máxima de tiempo que se ejecuta un bucle antes de salir del bucle. El valor predeterminado es una hora y se especifica en formato ISO 8601. <p>El valor de tiempo de espera se evalúa para cada ciclo del bucle. Si cualquier acción en el bucle tarda más que el límite de tiempo de expiración, el ciclo actual no se detiene. Pero el siguiente ciclo no se inicia porque no se cumple la condición del límite. | 
 |||| 
 
@@ -342,7 +344,7 @@ El bucle "Until" de este ejemplo llama a un punto de conexión HTTP, que crea un
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Ejecución de pasos en función de una condición (instrucciones condicionales)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Realización de pasos en función de los diferentes valores (instrucciones switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Ejecutar pasos según una condición (instrucciones condicionales)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Ejecutar pasos en función de diferentes valores (instrucciones switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Ejecución o combinación de pasos en paralelo (ramas)](../logic-apps/logic-apps-control-flow-branches.md)
-* [Ejecución de pasos en función del estado de las acciones agrupadas (ámbitos)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [Ejecutar pasos según el estado de acciones agrupadas (ámbitos)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

@@ -13,20 +13,20 @@ author: vainolo
 ms.author: arib
 ms.reviewer: vanto
 manager: craigg
-ms.date: 02/07/2019
-ms.openlocfilehash: d283cfa18d31e360aed78ae5262c5416f94c0676
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.date: 04/08/2019
+ms.openlocfilehash: fc8b300cea714ee44f826a78ce8c7a10c1443414
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58086061"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282124"
 ---
 # <a name="get-started-with-azure-sql-database-managed-instance-auditing"></a>Introducción a la auditoría de Instancia administrada de Azure SQL Database
 
 La auditoría de [Instancia administrada](sql-database-managed-instance.md) hace un seguimiento de eventos de bases de datos y los escribe en un registro de auditoría de su cuenta de Azure Storage. La auditoría también:
 
 - Puede ayudarle a mantener el cumplimiento de normativas, comprender la actividad de las bases de datos y conocer las discrepancias y anomalías que pueden indicar problemas en el negocio o infracciones de seguridad sospechosas.
-- Posibilita y facilita la observancia de estándares reguladores aunque no garantiza el cumplimiento. Para obtener más información acerca de los programas de Azure compatibles con la observancia de estándares, consulte el [Centro de confianza de Azure](https://azure.microsoft.com/support/trust-center/compliance/).
+- Posibilita y facilita la observancia de estándares reguladores aunque no garantiza el cumplimiento. Para obtener más información sobre Azure programas ese cumplimiento de estándares de soporte técnico, consulte el [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) donde puede encontrar la lista más actualizada de certificaciones de cumplimiento de la base de datos SQL.
 
 ## <a name="set-up-auditing-for-your-server-to-azure-storage"></a>Configuración de la auditoría de un servidor en Azure Storage
 
@@ -60,7 +60,7 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
 
         ![Botón Propiedades del contenedor de blobs](./media/sql-managed-instance-auditing/4_container_properties_button.png)
 
-     1. Copie la dirección URL del contenedor haciendo clic en el icono de copia y guarde dicha dirección (por ejemplo, en el Bloc de notas) para un uso futuro. El formato de dirección URL del contenedor debe ser `https://<StorageName>.blob.core.windows.net/<ContainerName>`.
+     1. Copie la dirección URL del contenedor haciendo clic en el icono de copia y guarde dicha dirección (por ejemplo, en el Bloc de notas) para un uso futuro. El formato de dirección URL de contenedor debe ser `https://<StorageName>.blob.core.windows.net/<ContainerName>`
 
         ![Dirección URL de copia de contenedores de blob](./media/sql-managed-instance-auditing/5_container_copy_name.png)
 
@@ -141,8 +141,8 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
 
 1. <a id="createspec"></a>Después de configurar el contenedor de blobs como destino para los registros de auditoría, cree una especificación de auditoría de servidor o una de auditoría de base de datos como lo haría para SQL Server:
 
-   - [Crear la guía de T-SQL de especificación de auditoría de servidor](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-   - [Crear la guía de T-SQL de especificación de auditoría de base de datos](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+   - [Crear la Guía de T-SQL de especificación de auditoría de servidor](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [Crear la Guía de T-SQL de especificación de auditoría de base de datos](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 1. Habilite la auditoría de servidor que creó en el paso 6:
 
@@ -154,9 +154,9 @@ En la sección siguiente se describe la configuración de auditoría en su Insta
 
 Para información adicional:
 
-- [Diferencias de auditoría entre bases de datos únicas, grupos elásticos, e instancias administradas en Azure SQL Database y bases de datos de SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
-- [CREATE SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
-- [ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
+- [Diferencias de auditoría entre bases de datos únicas, grupo elástico, s y las instancias administradas de Azure SQL Database y bases de datos de SQL Server](#auditing-differences-between-databases-in-azure-sql-database-and-databases-in-sql-server)
+- [CREAR AUDITORÍA DE SERVIDOR](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-transact-sql)
+- [LA INSTRUCCIÓN ALTER SERVER AUDIT](https://docs.microsoft.com/sql/t-sql/statements/alter-server-audit-transact-sql)
 
 ## <a name="set-up-auditing-for-your-server-to-event-hub-or-azure-monitor-logs"></a>Configurar la auditoría de su servidor para los registros del centro de eventos o Azure Monitor
 
@@ -187,8 +187,8 @@ Los registros de auditoría de una instancia administrada se pueden enviar a Eve
 
 9. Cree una especificación de auditoría de servidor o la especificación de auditoría de base de datos como lo haría para SQL Server:
 
-   - [Crear la guía de T-SQL de especificación de auditoría de servidor](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
-   - [Crear la guía de T-SQL de especificación de auditoría de base de datos](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
+   - [Crear la Guía de T-SQL de especificación de auditoría de servidor](https://docs.microsoft.com/sql/t-sql/statements/create-server-audit-specification-transact-sql)
+   - [Crear la Guía de T-SQL de especificación de auditoría de base de datos](https://docs.microsoft.com/sql/t-sql/statements/create-database-audit-specification-transact-sql)
 
 10. Habilitar la auditoría de servidor que creó en el paso 8:
  
@@ -237,12 +237,12 @@ Las principales diferencias en la sintaxis de `CREATE AUDIT` para la auditoría 
 - Una nueva sintaxis `TO EXTERNAL MONITOR` se proporciona para permitir que los destinos de los registros de incluso Hub y Azure Monitor.
 - La sintaxis `TO FILE` **no se admite** porque SQL Database no puede acceder a los recursos compartidos de archivos de Windows.
 - La opción de apagado **no se admite**.
-- `queue_delay` de 0 **no se admite**.
+- `queue_delay` 0 es **no admite**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para una lista completa de métodos de consumo del registro de auditoría, consulte el [Get started with SQL database auditing](sql-database-auditing.md) (Introducción a la auditoría de base de datos SQL).
-- Para obtener más información acerca de los programas de Azure compatibles con la observancia de estándares, consulte el [Centro de confianza de Azure](https://azure.microsoft.com/support/trust-center/compliance/).
+- Para obtener más información sobre Azure programas ese cumplimiento de estándares de soporte técnico, consulte el [Azure Trust Center](https://azure.microsoft.com/support/trust-center/compliance/) donde puede encontrar la lista más actualizada de certificaciones de cumplimiento de la base de datos SQL.
 
 <!--Image references-->
 

@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 1/14/2019
 ms.author: alkarche
-ms.openlocfilehash: 8bbc44e7af68f005f30fff143741bc4bfe0adcf2
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 10d7daa6da45c56e20c622fcbca9ee288e737dab
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896643"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358177"
 ---
 # <a name="azure-functions-networking-options"></a>Opciones de red de Azure Functions
 
@@ -43,7 +43,8 @@ Función de las aplicaciones puede hospedarse de distintas maneras.
 
 Las restricciones de direcciones IP le permiten definir una lista de direcciones IP ordenadas por prioridad que tienen permiso para acceder a la aplicación. La lista de elementos permitidos puede incluir direcciones IPv4 e IPv6. Cuando hay una o varias entradas, hay una denegación implícita de todo lo que existe al final de la lista. La funcionalidad de las restricciones de IP funciona con la función de todas las opciones de hospedaje.
 
-> ! [IMPORTANTE] Para poder usar el editor de Azure portal, el portal debe ser capaz de acceder directamente a la aplicación de función de ejecución y el dispositivo que se usa para acceder al portal debe tener su en la lista blanca IP. Con las restricciones de red en su lugar, es posible tener acceso cualquier característica en el **características de la plataforma** ficha.
+> [!NOTE]
+> Para poder usar el editor de Azure portal, el portal debe ser capaz de acceder directamente a la aplicación de función de ejecución y el dispositivo que se usa para acceder al portal debe tener su en la lista blanca IP. Con las restricciones de red en su lugar, es posible tener acceso cualquier característica en el **características de la plataforma** ficha.
 
 [Obtenga más información aquí](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)
 

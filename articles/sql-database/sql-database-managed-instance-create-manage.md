@@ -7,17 +7,17 @@ ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: c4f8144c3e941c673da3ecc9be7ac7f091583d4a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6362084c11ce7aa9078823758700239694162765
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864676"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359157"
 ---
 # <a name="managed-api-reference-for-azure-sql-database-managed-instances"></a>Referencia sobre la API de administración de la Instancia administrada de Azure SQL Database
 
@@ -58,15 +58,15 @@ Para crear y administrar instancias administradas con la [CLI de Azure](/cli/azu
 
 | Cmdlet | DESCRIPCIÓN |
 | --- | --- |
-|[az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) |Crea una instancia administrada|
-|[az sql mi list](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-list)|Enumera las instancias administradas disponibles|
-|[az sql mi show](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-show)|Obtiene los detalles de una instancia administrada|
-|[az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)|Actualiza una instancia administrada|
-|[az sql mi delete](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-delete)|Elimina una instancia administrada|
-|[az sql midb create](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |Crea una base de datos administrada|
-|[az sql midb list](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|Enumera las bases de datos administradas disponibles|
+|[creación de instancia administrada de sql AZ](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create) |Crea una instancia administrada|
+|[lista de AZ sql para mi](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-list)|Enumera las instancias administradas disponibles|
+|[Mostrar mi de AZ sql](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-show)|Obtiene los detalles de una instancia administrada|
+|[actualización de AZ sql para mi](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)|Actualiza una instancia administrada|
+|[eliminación de AZ sql para mi](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-delete)|Elimina una instancia administrada|
+|[crear AZ sql midb](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-create) |Crea una base de datos administrada|
+|[lista de AZ sql midb](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-list)|Enumera las bases de datos administradas disponibles|
 |[az sql midb restore](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-restore)|Restaura una base de datos administrada|
-|[az sql midb delete](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|Elimina una base de datos administrada|
+|[eliminación de AZ sql midb](https://docs.microsoft.com/cli/azure/sql/midb#az-sql-midb-delete)|Elimina una base de datos administrada|
 
 ## <a name="transact-sql-create-and-manage-instance-databases"></a>Transact-SQL: Creación y administración de bases de datos de instancia
 
@@ -79,8 +79,8 @@ Para crear y administrar una base de datos de instancia después de crear Instan
 
 | Get-Help | DESCRIPCIÓN |
 | --- | --- |
-|[CREATE DATABASE](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Crea una nueva base de datos de instancias administradas. Debe estar conectado a la base de datos maestra para crear una base de datos.|
-| [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifica una base de datos de Instancia administrada de Azure SQL Database.|
+|[CREAR BASE DE DATOS](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current)|Crea una nueva base de datos de instancias administradas. Debe estar conectado a la base de datos maestra para crear una base de datos.|
+| [MODIFICAR BASE DE DATOS](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-mi-current) |Modifica una base de datos de Instancia administrada de Azure SQL Database.|
 
 ## <a name="rest-api-create-and-manage-managed-instances"></a>API REST: Creación y administración de instancias administradas
 
@@ -88,12 +88,12 @@ Para crear y administrar instancias administradas, use estas solicitudes de la A
 
 | Get-Help | DESCRIPCIÓN |
 | --- | --- |
-|[Managed Instances - Create Or Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)|Crea o actualiza una instancia administrada.|
-|[Managed Instances - Delete](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)|Elimina una instancia administrada.|
-|[Managed Instances - Get](https://docs.microsoft.com/rest/api/sql/managedinstances/get)|Obtiene una instancia administrada.|
-|[Managed Instances - List](https://docs.microsoft.com/rest/api/sql/managedinstances/list)|Devuelve una lista de instancias administradas en una suscripción.|
-|[Managed Instances - List By Resource Group](https://docs.microsoft.com/rest/api/sql/managedinstances/listbyresourcegroup)|Devuelve una lista de instancias administradas en un grupo de recursos.|
-|[Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)|Actualiza una instancia administrada.|
+|[Instancias - administradas crear o actualizar](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)|Crea o actualiza una instancia administrada.|
+|[Eliminar instancias administradas:](https://docs.microsoft.com/rest/api/sql/managedinstances/delete)|Elimina una instancia administrada.|
+|[Instancias administradas - Get](https://docs.microsoft.com/rest/api/sql/managedinstances/get)|Obtiene una instancia administrada.|
+|[Lista de instancias - administradas](https://docs.microsoft.com/rest/api/sql/managedinstances/list)|Devuelve una lista de instancias administradas en una suscripción.|
+|[Instancias - lista por grupo de recursos administradas](https://docs.microsoft.com/rest/api/sql/managedinstances/listbyresourcegroup)|Devuelve una lista de instancias administradas en un grupo de recursos.|
+|[Actualizar las instancias administradas:](https://docs.microsoft.com/rest/api/sql/managedinstances/update)|Actualiza una instancia administrada.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

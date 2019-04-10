@@ -6,14 +6,14 @@ author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/28/2019
+ms.date: 04/08/2019
 ms.author: hrasheed
-ms.openlocfilehash: 373851c406d95a2e458c017cb311bd5cc4e5b30f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 54d7a0bf0474db4a9f9d74a1f694f10ef1be91cc
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664297"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357758"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adición de más cuentas de almacenamiento a HDInsight
 
@@ -106,6 +106,10 @@ az hdinsight script-action execute ^
 Consulte [aplicar una acción de script a un clúster en ejecución](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster).
 
 ## <a name="known-issues"></a>Problemas conocidos
+
+### <a name="storage-firewall"></a>Firewall de almacenamiento
+
+Si decide proteger la cuenta de almacenamiento con el **Firewalls y redes virtuales** restricciones en **redes seleccionadas**, asegúrese de habilitar la excepción **permitir confianza de Microsoft servicios...**  para que HDInsight puede acceder a su cuenta de almacenamiento.
 
 ### <a name="storage-accounts-not-displayed-in-azure-portal-or-tools"></a>Cuentas de almacenamiento que no se muestran en Azure Portal o las herramientas
 
