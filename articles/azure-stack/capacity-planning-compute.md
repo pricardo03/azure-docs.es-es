@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 04/03/2019
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.lastreviewed: 09/18/2018
-ms.custom: mvc
-ms.openlocfilehash: 4ab04fc69d29d9bb5386261f6453b2f47bfd66bc
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.lastreviewed: 04/03/2019
+ms.custom: ''
+ms.openlocfilehash: 437e55b1a2907418fe47f418245431fa1c882b80
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56446331"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58915696"
 ---
 # <a name="azure-stack-compute-capacity-planning"></a>Planeamiento de la capacidad de proceso de Azure Stack
 Los [tamaños de máquinas virtuales admitidos en Azure Stack](./user/azure-stack-vm-sizes.md) son un subconjunto de los admitidos por Azure. Azure impone límites de recursos junto con varios vectores para evitar el consumo excesivo de recursos (nivel de servicio y local del servidor). Sin la imposición de algunos límites sobre el consumo del inquilino, las experiencias de este se verán afectadas cuando otros inquilinos consuman recursos en exceso. Para la salida de redes de la máquina virtual, hay extremos de ancho de banda en Azure Stack que coinciden con las limitaciones de Azure. En el caso de los recursos de almacenamiento, los límites de IOPS de almacenamiento se han implementado en Azure Stack para evitar el consumo excesivo básico de recursos por parte de los inquilinos para el acceso de almacenamiento.  
@@ -45,7 +45,7 @@ El siguiente cálculo da como resultado la memoria total disponible que se puede
 
   Memoria disponible para la selección de ubicación de la máquina virtual = memoria total del servidor - reserva de resistencia - memoria usada por las máquinas virtuales en ejecución - sobrecarga de la infraestructura de Azure Stack<sup>1</sup>
 
-  Reserva de resistencia = H + R * (N-1) + V * (N-2)
+  Reserva de resistencia = H + R * ((N-1) * H) + V * (N-2)
 
 > Donde:
 > - H = tamaño de la memoria de un solo servidor
@@ -53,7 +53,7 @@ El siguiente cálculo da como resultado la memoria total disponible que se puede
 > - R = reserva del sistema operativo para la sobrecarga del sistema operativo<sup>2</sup>
 > - V = máquina virtual más grande de la unidad de escalado
 
-  <sup>1</sup>Sobrecarga de la infraestructura de Azure Stack = 208 GB
+  <sup>1</sup>Sobrecarga de la infraestructura de Azure Stack = 230 GB
 
   <sup>2</sup>Reserva del sistema operativo para la sobrecarga = 15 % de la memoria del nodo. El valor de reserva del sistema operativo es un valor estimado y puede variar según la capacidad de memoria física del servidor y la sobrecarga general del sistema operativo.
 
@@ -64,4 +64,4 @@ El cálculo anterior es un valor estimado y está sujeto a cambios en función d
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Planeamiento de la capacidad de almacenamiento](capacity-planning-storage.md)
+[Planificación de la capacidad de Storage](capacity-planning-storage.md)

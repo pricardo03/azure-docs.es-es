@@ -15,16 +15,16 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 09988009712f9312eb97d5c32dc8991ec5b2f1f9
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: 54bc6bc105dab2831df6e48a64a6f766582a3fb9
+ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55251357"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "58917567"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Cambio de secretos en Azure Stack
 
-*Estas instrucciones se aplican solo a sistemas integrados de Azure Stack (versión 1803 y posteriores). No intente el cambio de secretos en versiones de Azure Stack anteriores a la 1802*
+*Estas instrucciones se aplican solo a sistemas integrados de Azure Stack (versión 1803 y posteriores). No intente el cambio de secretos en versiones de Azure Stack anteriores a la 1802.*
 
 Azure Stack usa varios secretos para proteger las comunicaciones entre los recursos y servicios de la infraestructura de Azure Stack.
 
@@ -122,7 +122,7 @@ Si ejecuta el cambio de secretos mediante las instrucciones que aparecen a conti
 > **.\Certificates\AAD** o ***.\Certificates\ADFS*** en función del proveedor de identidades que se utiliza para Azure Stack.
 >
 > Es de suma importancia que la estructura de carpetas termine con las carpetas **AAD** o **ADFS** y que todos los subdirectorios estén dentro de esta estructura; de lo contrario, **Start-SecretRotation** aparecerá:
-> ```PowerShell
+> ```powershell
 > Cannot bind argument to parameter 'Path' because it is null.
 > + CategoryInfo          : InvalidData: (:) [Test-Certificate], ParameterBindingValidationException
 > + FullyQualifiedErrorId : ParameterArgumentValidationErrorNullNotAllowed,Test-Certificate
@@ -147,7 +147,7 @@ Para cambiar los secretos externos:
 1. En el directorio **\Certificates\\\<IdentityProvider>** que se ha creado en los pasos previos, coloque el nuevo conjunto de certificados externos de reemplazo en la estructura de directorios según el formato descrito en la sección Certificados obligatorios de [Requisitos de certificados de infraestructura de clave pública de Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
 
     Ejemplo de la estructura de carpetas para el proveedor de identidades de AAD:
-    ```PowerShell
+    ```powershell
         <ShareName>
         │   │
         │   ├───Certificates
@@ -209,7 +209,7 @@ Para cambiar los secretos externos:
     > [!Note]
     > Si se produce un error en el cambio de secretos, siga las instrucciones del mensaje de error y vuelva a ejecutar **Start-SecretRotation** con el parámetro **-ReRun**.
 
-    ```PowerShell
+    ```powershell
     Start-SecretRotation -ReRun
     ```
     Póngase en contacto con soporte técnico si la rotación de secretos falla en reiteradas ocasiones.
@@ -220,7 +220,7 @@ Para cambiar los secretos externos:
 
 El siguiente ejemplo de PowerShell muestra los cmdlets y parámetros que debe ejecutar para cambiar los secretos.
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -256,7 +256,7 @@ Cuando se complete correctamente el cambio de secretos, la consola mostrará el 
     > [!Note]
     > If secret rotation fails, follow the instructions in the error message and rerun **Start-SecretRotation** with the  **–Internal** and **-ReRun** parameters.  
 
-```PowerShell
+```powershell
 Start-SecretRotation -Internal -ReRun
 ```
 
@@ -270,25 +270,25 @@ Permite cambiar los secretos de un sistema de Azure Stack. Solo se ejecuta en el
 
 #### <a name="for-external-secret-rotation"></a>Para el cambio de secretos externos
 
-```PowerShell
+```powershell
 Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential <PSCredential>] [-CertificatePassword <SecureString>]  
 ```
 
 #### <a name="for-internal-secret-rotation"></a>Para el cambio de secretos internos
 
-```PowerShell
+```powershell
 Start-SecretRotation [-Internal]  
 ```
 
 #### <a name="for-external-secret-rotation-rerun"></a>Para volver a ejecutar el cambio de secretos externos
 
-```PowerShell
+```powershell
 Start-SecretRotation [-ReRun]
 ```
 
 #### <a name="for-internal-secret-rotation-rerun"></a>Para volver a ejecutar el cambio de secretos internos
 
-```PowerShell
+```powershell
 Start-SecretRotation [-ReRun] [-Internal]
 ```
 
@@ -312,7 +312,7 @@ El cmdlet **Start-SecretRotation** permite cambiar los secretos de la infraestru
 
 Esto se debe ejecutar a través del [punto de conexión con privilegios del entorno](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) de Azure Stack.
 
-```PowerShell
+```powershell
 PS C:\> Start-SecretRotation -Internal
 ```
 
@@ -320,7 +320,7 @@ Este comando permite cambiar todos los secretos de la infraestructura expuesta a
 
 #### <a name="rotate-only-external-infrastructure-secrets"></a>Cambio de solo los secretos de infraestructura externa  
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -346,7 +346,7 @@ Este comando cambia los certificados TLS que se usan para los puntos de conexió
 >
 > **Desde las versiones posteriores a *1811* ya no se pueden cambiar los certificados internos y externos.**
 
-```PowerShell
+```powershell
 # Create a PEP Session
 winrm s winrm/config/client '@{TrustedHosts= "<IpOfERCSMachine>"}'
 $PEPCreds = Get-Credential
@@ -369,11 +369,11 @@ Este comando cambia todos los secretos de la infraestructura expuestos a la red 
 
 El controlador de administración de placa base (BMC) supervisa el estado físico de sus servidores. Las especificaciones e instrucciones para actualizar el nombre de la cuenta de usuario y contraseña de BMC varían según el proveedor de hardware del fabricante de equipos originales (OEM). Debe actualizar regularmente las contraseñas de los componentes de Azure Stack.
 
-1. Actualice el BMC en los servidores físicos de Azure Stack con las instrucciones del OEM. El nombre de la cuenta de usuario y la contraseña para cada BMC de su entorno deben ser los mismos.
+1. Actualice el BMC en los servidores físicos de Azure Stack con las instrucciones del OEM. El nombre de usuario y la contraseña para cada BMC de su entorno deben ser los mismos. Tenga en cuenta que los nombres de usuario de BMC no pueden superar los 16 caracteres.
 2. Abra un punto de conexión con privilegios en sesiones de Azure Stack. Para obtener instrucciones, consulte [Uso del punto de conexión con privilegios en Azure Stack](azure-stack-privileged-endpoint.md).
 3. Cuando el símbolo del sistema de PowerShell cambie a **[IP address or ERCS VM name]: PS >** o a **[azs-ercs01]: PS >**, en función del entorno, ejecute `Set-BmcCredential` mediante `Invoke-Command`. Pase la variable de sesión del punto de conexión con privilegios como parámetro. Por ejemplo: 
 
-    ```PowerShell
+    ```powershell
     # Interactive Version
     $PEPIp = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEPCreds = Get-Credential "<Domain>\CloudAdmin" -Message "PEP Credentials"
@@ -391,7 +391,7 @@ El controlador de administración de placa base (BMC) supervisa el estado físic
 
     También puede usar la versión de PowerShell estática con las contraseñas como líneas de código:
 
-    ```PowerShell
+    ```powershell
     # Static Version
     $PEPIp = "<Privileged Endpoint IP or Name>" # You can also use the machine name instead of IP here.
     $PEPUser = "<Privileged Endpoint user for example Domain\CloudAdmin>"

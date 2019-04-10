@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/08/2019
+ms.date: 04/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 5a72c0539cabec3bf4168280c85a2afb92569b25
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
-ms.translationtype: HT
+ms.openlocfilehash: 3261c2389a9706537366bcd60e00517bbcfb5f48
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56234007"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426399"
 ---
 # <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Comprender el rendimiento del clúster de AKS con Azure Monitor para contenedores 
 Con Azure Monitor para contenedores, puede usar los gráficos de rendimiento y el estado de mantenimiento para supervisar la carga de trabajo de los clústeres de Azure Kubernetes Service (AKS) desde dos perspectivas: directamente desde un clúster de AKS o en todos los clústeres de AKS de una suscripción desde Azure Monitor. La visualización de Azure Container Instances (ACI) también es posible cuando se supervisa un clúster de AKS concreto.
@@ -71,7 +71,7 @@ En la tabla siguiente se proporciona un desglose del cálculo que controla los e
 | |Advertencia |N/D |
 | |Crítico |<100 % |
 | |Desconocido |Si no se notifica en los últimos 30 minutos |
-|**Node** | | |
+|**Nodo** | | |
 | |Healthy |>85 % |
 | |Advertencia |60 - 84 % |
 | |Crítico |<60 % |
@@ -100,7 +100,34 @@ El gráfico del rendimiento muestra cuatro métricas de rendimiento:
 
 Puede usar las teclas de dirección izquierda y derecha para desplazarse por cada punto de datos en el gráfico y las teclas de dirección arriba y abajo para desplazarse por las líneas de percentil.
 
-Cuando cambie a las pestañas **Nodos**, **Controladores** y **Contenedores**, se muestran automáticamente en el lado derecho de la página, en el panel de propiedades.  Muestra las propiedades del elemento seleccionado, incluidas las etiquetas que defina para organizar los objetos de Kubernetes. Haga clic en el vínculo **>>** en el panel, para verlo u ocultarlo.  
+Azure Monitor para los contenedores también es compatible con Azure Monitor [Explorador de métricas](../platform/metrics-getting-started.md), donde puede crear sus propios gráficos de trazado, poner en correlación e investigar las tendencias y anclar en paneles. Desde el Explorador de métricas, también puede usar los criterios que ha establecido para visualizar las métricas como la base de un [métrica según la regla de alerta](../platform/alerts-metric.md).  
+
+## <a name="view-container-metrics-in-metrics-explorer"></a>Visualización de las métricas de contenedor en el Explorador de métricas
+En el Explorador de métricas, puede ver el nodo agregado y pod métricas de utilización de Azure Monitor para contenedores. En la tabla siguiente se resume los detalles que le ayudarán a aprender a usar los gráficos de métricas para visualizar las métricas de contenedor.
+
+|Espacio de nombres | Métrica |
+|----------|--------|
+| insights.container/nodes | |
+| | cpuUsageMillicores |
+| | cpuUsagePercentage |
+| | memoryRssBytes |
+| | memoryRssPercentage |
+| | memoryWorkingSetBytes |
+| | memoryWorkingSetPercentage |
+| | nodesCount |
+| insights.container/pods | |
+| | PodCount |
+
+Puede aplicar [dividir](../platform/metrics-charts.md#apply-splitting-to-a-chart) de una métrica para verlo por dimensión y visualizar diferentes segmentos de la comparar entre sí. Para un nodo, también puede segmentar el gráfico por la *host* dimensión, y desde un pod se puede segmentar por las dimensiones siguientes:
+
+* Controller
+* Kubernetes namespace
+* Nodo
+* Fase
+
+## <a name="analyze-nodes-controllers-and-container-health"></a>Analizar los nodos, los controladores y mantenimiento de contenedores
+
+Cuando cambie a las pestañas **Nodos**, **Controladores** y **Contenedores**, se muestran automáticamente en el lado derecho de la página, en el panel de propiedades.  Muestra las propiedades de los elementos seleccionados, incluidas las etiquetas definen para organizar objetos de Kubernetes. Haga clic en el vínculo **>>** en el panel, para verlo u ocultarlo.  
 
 ![Ejemplo de panel de propiedades de las perspectivas de Kubernetes](./media/container-insights-analyze/perspectives-preview-pane-01.png)
 
@@ -133,7 +160,7 @@ De forma predeterminada, los datos de rendimiento se basan en las últimas seis 
 
 Cuando mueve el mouse sobre el gráfico de barras en la columna **Tendencia**, cada barra muestra el uso de CPU o de memoria, según la métrica seleccionada, dentro de un período de muestreo de 15 minutos. Después de seleccionar el gráfico de tendencias mediante un teclado, puede usar las teclas Alt + RePág o Alt + AvPág para desplazarse por cada barra individualmente y obtener los mismos detalles que obtendría con un evento mouseover.
 
-![Ejemplo de gráfico de barras de tendencias al pasar el puntero](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
+![Gráfico de barras al mantener el mouse de tendencia a través de ejemplo](./media/container-insights-analyze/containers-metric-trend-bar-01.png)    
 
 En el ejemplo siguiente, observe en el primer nodo de la lista en *aks-nodepool-1* que el valor de **Contenedores** es 9, que es un resumen del número total de contenedores implementados.
 
@@ -176,10 +203,10 @@ La información que se muestra al ver los controladores se describe en la siguie
 |--------|-------------|
 | NOMBRE | El nombre del controlador.|
 | Status | Estado de la acumulación de los contenedores cuando ha terminado de ejecutarse con un estado, como *OK (Correcto)*, *Terminated (Finalizado)*, *Failed (Error)* *Stopped (Detenido)* o *Paused (En pausa)*. Si el contenedor se está ejecutando, pero el estado no se mostró correctamente o el agente no lo seleccionó, y no ha respondido durante más de 30 minutos, el estado es *Unknown* (Desconocido). En la tabla siguiente se proporcionan detalles adicionales del icono de estado.|
-| Avg&nbsp;% (Porcentaje medio), Min&nbsp;% (Porcentaje mínimo), Max&nbsp;% (Porcentaje máximo), 50th&nbsp;% (Porcentaje 50) y 90th&nbsp;% (90) | Promedio resumen del porcentaje medio de cada entidad para la métrica y el percentil seleccionados. |
-| Avg (Promedio), Min (Mínimo), Max (Máximo), 50th (50), 90th (90)  | Resumen del rendimiento medio de memoria o CPU de millares de núcleos del contenedor para el percentil seleccionado. El valor medio se mide a partir del límite de CPU o memoria establecido para un pod. |
+| Avg&nbsp;% (Porcentaje medio), Min&nbsp;% (Porcentaje mínimo), Max&nbsp;% (Porcentaje máximo), 50th&nbsp;% (Porcentaje 50) y 90th&nbsp;% (90) | Resumen medio del porcentaje promedio de cada entidad para la métrica seleccionada y percentil. |
+| Avg (Promedio), Min (Mínimo), Max (Máximo), 50th (50), 90th (90)  | Acumulación del rendimiento medio de memoria o CPU de millares de núcleos del contenedor para el percentil seleccionado. El valor medio se mide a partir del límite de CPU o memoria establecido para un pod. |
 | Contenedores | Número total de contenedores para el controlador o pod. |
-| Reinicios | Resumen del número de reinicios de los contenedores. |
+| Reinicios | Resumen del número de reinicios desde los contenedores. |
 | Tiempo de actividad | Representa el tiempo desde que se inició un contenedor. |
 | Nodo | Solo para los contenedores y pods. Muestra el controlador en el que reside. | 
 | Trend Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% (Porcentaje medio, Porcentaje mínimo, Porcentaje máximo, 50 y 90) de tendencia| Tendencia de gráfico de barras que representa las métricas de percentil promedio del controlador. |

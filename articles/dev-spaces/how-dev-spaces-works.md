@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Describe los procesos que espacios de desarrollo de Azure power y cómo están configurados en el archivo de configuración azds.yaml
 keywords: azds.yaml, espacios de desarrollo de Azure, los espacios de desarrollo, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: 622a0780d74618fe694e5b9da0327490e0ec38dd
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 0c22a6bbc9b75a14085f24a5be955e3482687965
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500566"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361497"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Cómo funciona la espacios de desarrollo de Azure y está configurado
 
@@ -85,10 +85,10 @@ Preparar el clúster de AKS implica:
 * Habilitación de espacios de desarrollo de Azure en el clúster con `az aks use-dev-spaces`
 
 Para obtener más información sobre cómo crear y configurar un clúster de AKS para espacios de desarrollo de Azure, consulte uno de las guías de iniciación:
-* [Introducción a espacios de desarrollo de Azure con Java](get-started-java.md)
-* [Introducción a espacios de desarrollo de Azure con .NET Core y Visual Studio](get-started-netcore-visualstudio.md)
-* [Introducción a espacios de desarrollo de Azure con .NET Core](get-started-netcore.md)
-* [Introducción a espacios de desarrollo de Azure con Node.js](get-started-nodejs.md)
+* [Introducción a Azure Dev Spaces con Java](get-started-java.md)
+* [Introducción a Azure Dev Spaces con .NET Core y Visual Studio](get-started-netcore-visualstudio.md)
+* [Introducción a Azure Dev Spaces con .NET Core](get-started-netcore.md)
+* [Introducción a Azure Dev Spaces con Node.js](get-started-nodejs.md)
 
 Cuando se habilita espacios de desarrollo de Azure en el clúster de AKS, instala el controlador para el clúster. El controlador es un recurso de Azure independiente fuera de su clúster y hace lo siguiente a los recursos del clúster:
 

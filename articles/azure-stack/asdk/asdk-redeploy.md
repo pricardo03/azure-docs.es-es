@@ -17,12 +17,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: misainat
 ms.lastreviewed: 11/05/2018
-ms.openlocfilehash: 77942e24af847f7c8f9680ca793dacf8ba0be55f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 284e1ce3c3b9a63f3c25e85891b1d2688726183e
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58112592"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879988"
 ---
 # <a name="redeploy-the-asdk"></a>Reimplementación del Kit de desarrollo de Azure Stack
 En este artículo, aprenderá a reimplementar el Kit de desarrollo de Azure Stack (ASDK) en un entorno que no sea de producción. Dado que la actualización del Kit de desarrollo de Azure Stack, debe volver a implementarla completamente para pasar a una versión más reciente. También puede volver a implementar el Kit de desarrollo de Azure Stack en cualquier momento en el que desea volver a empezar desde el principio.
@@ -61,10 +61,11 @@ Para quitar el recurso de registro, utilice el cmdlet **Remove-AzsRegistration**
 3. Se le pedirá que inicie sesión en su suscripción de Azure y la instalación local de Kit de desarrollo de Azure Stack cuando se ejecuta el script.
 4. Cuando el script se complete, debería ver mensajes similares a los siguientes ejemplos:
 
-    ` De-Activating Azure Stack (this may take up to 10 minutes to complete).`` Your environment is now unable to syndicate items and is no longer reporting usage data.`
-    ` Remove registration resource from Azure...`
-    ` "Deleting the resource..." on target "/subscriptions/<subscription information>"`
-    ` ********** End Log: Remove-AzsRegistration ********* `
+    `De-Activating Azure Stack (this may take up to 10 minutes to complete).`
+    `Your environment is now unable to syndicate items and is no longer reporting usage data.`
+    `Remove registration resource from Azure...`
+    `"Deleting the resource..." on target "/subscriptions/<subscription information>"`
+    `********** End Log: Remove-AzsRegistration *********`
 
 
 
@@ -99,7 +100,7 @@ Si no usó el script asdk-installer.ps1 para instalar el Kit de desarrollo de Az
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Tareas de implementación posteriores al Kit de desarrollo de Azure Stack](asdk-post-deploy.md)
+[Tareas de configuración posteriores a la instalación de ASDK](asdk-post-deploy.md)
 
 
 

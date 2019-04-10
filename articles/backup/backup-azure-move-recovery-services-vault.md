@@ -6,14 +6,14 @@ author: sogup
 manager: vijayts
 ms.service: backup
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/08/2019
 ms.author: sogup
-ms.openlocfilehash: 7745f986c6e9ba22258f51f9329444b8232762e1
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: f4ab983fbebe9c0219e70fa7bd5742cf1c3a0491
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905773"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361965"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups-limited-public-preview"></a>Traslado de un almacén de Recovery Services entre suscripciones y grupos de recursos de Azure (vista preliminar pública limitada).
 
@@ -22,7 +22,9 @@ En este artículo se explica cómo mover un almacén de Recovery Services config
 > [!NOTE]
 > Para mover un almacén de Recovery Services y sus recursos asociados a otro grupo de recursos, primero debe [registrar la suscripción de origen](#register-the-source-subscription-to-move-your-recovery-services-vault).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+## <a name="supported-geos"></a>Zonas geográficas admitidas
+
+Traslado de recursos para almacén de Recovery Services se admite en este de Australia, sudeste de Australia, Canadá Central, Canadá oriental, sudeste asiático, Asia oriental, EE. UU., Ee.uu. Central Norte, este de Estados Unidos, East US2 South central US, centro occidental de Ee.uu., West Central UU.2, oeste de Estados Unidos, Centro de la India, India del Sur, este de Japón, oeste de Japón, Corea Central, Corea del Sur, Europa del Norte, Europa occidental, centro y Norte de Sudáfrica, oeste de Sudáfrica, sur de Reino Unido, oeste de Reino Unido, centro de eau y Norte de eau.
 
 ## <a name="prerequisites-for-moving-a-vault"></a>Requisitos previos para mover un almacén
 
@@ -34,12 +36,12 @@ En este artículo se explica cómo mover un almacén de Recovery Services config
 - Actualmente, puede trasladar un almacén de Recovery Services, por región, cada vez.
 - Si una máquina virtual no se mueve con el almacén de Recovery Services entre suscripciones, o a un nuevo grupo de recursos, los puntos de recuperación de la máquina virtual actuales permanecen intactos en el almacén hasta que caduquen.
 - Independientemente de que la máquina virtual se mueva con el almacén o no, siempre podrá restaurar la máquina virtual desde el historial de copia de seguridad conservado en el almacén.
--   Azure Disk Encryption requiere que el almacén de claves y las máquinas virtuales residan en la misma región y suscripción de Azure.
--   Para mover una máquina virtual con discos administrados, consulte este [artículo](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
--   Las opciones para mover recursos implementados mediante el modelo clásico varían en función de si traslada los recursos dentro de una misma suscripción o a una nueva suscripción. Para más información, consulte este [artículo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#classic-deployment-limitations).
--   Las directivas de copia de seguridad definidas para el almacén se conservan después de que el almacén se mueva entre suscripciones o a un nuevo grupo de recursos.
--   Actualmente, no puede mover los almacenes que contienen Azure Files, Azure File Sync o SQL en VM de IaaS entre suscripciones y grupos de recursos. La compatibilidad para estos escenarios se agregará en futuras versiones.
--   Si traslada un almacén con datos de copia de seguridad de máquinas virtuales entre suscripciones, deberá trasladar sus máquinas virtuales a la misma suscripción y usar el mismo grupo de recursos de destino para continuar con las copias de seguridad.<br>
+- Azure Disk Encryption requiere que el almacén de claves y las máquinas virtuales residan en la misma región y suscripción de Azure.
+- Para mover una máquina virtual con discos administrados, consulte este [artículo](https://azure.microsoft.com/blog/move-managed-disks-and-vms-now-available/).
+- Las opciones para mover recursos implementados mediante el modelo clásico varían en función de si traslada los recursos dentro de una misma suscripción o a una nueva suscripción. Para más información, consulte este [artículo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources#classic-deployment-limitations).
+- Las directivas de copia de seguridad definidas para el almacén se conservan después de que el almacén se mueva entre suscripciones o a un nuevo grupo de recursos.
+- Actualmente, no puede mover los almacenes que contienen Azure Files, Azure File Sync o SQL en VM de IaaS entre suscripciones y grupos de recursos.
+- Si traslada un almacén con datos de copia de seguridad de máquinas virtuales entre suscripciones, deberá trasladar sus máquinas virtuales a la misma suscripción y usar el mismo grupo de recursos de destino para continuar con las copias de seguridad.<br>
 
 > [!NOTE]
 >
@@ -52,24 +54,24 @@ Para registrar la suscripción de origen para **mover** el almacén de Recovery 
 1. Inicio de sesión en la cuenta de Azure.
 
    ```
-   Connect-AzAccount
+   Connect-AzureRmAccount
    ```
 
 2. Seleccione la suscripción que quiere registrar.
 
    ```
-   Get-AzSubscription –SubscriptionName "Subscription Name" | Select-AzSubscription
+   Get-AzureRmSubscription –SubscriptionName "Subscription Name" | Select-AzureRmSubscription
    ```
 3. Registre esta suscripción.
 
    ```
-   Register-AzProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
+   Register-AzureRmProviderFeature -ProviderNamespace Microsoft.RecoveryServices -FeatureName RecoveryServicesResourceMove
    ```
 
 4. Ejecute el comando
 
    ```
-   Register-AzResourceProvider -ProviderNamespace Microsoft.RecoveryServices
+   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.RecoveryServices
    ```
 
 Espere 30 minutos a que la suscripción se incluya en la lista blanca antes de empezar con la operación de traslado mediante Azure Portal o PowerShell.
@@ -139,18 +141,18 @@ Puede mover un almacén de Recovery Services y sus recursos asociados a otra sus
 
 ## <a name="use-powershell-to-move-a-vault"></a>Uso de PowerShell para mover un almacén
 
-Para mover un almacén de Recovery Services a otro grupo de recursos, use el cmdlet `Move-AzResource`. `Move-AzResource` requiere el nombre del recurso y el tipo de recurso. Puede obtener ambos con el cmdlet `Get-AzRecoveryServicesVault`.
+Para mover un almacén de Recovery Services a otro grupo de recursos, use el cmdlet `Move-AzureRMResource`. `Move-AzureRMResource` requiere el nombre del recurso y el tipo de recurso. Puede obtener ambos con el cmdlet `Get-AzureRmRecoveryServicesVault`.
 
 ```
 $destinationRG = "<destinationResourceGroupName>"
-$vault = Get-AzRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
-Move-AzResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+$vault = Get-AzureRmRecoveryServicesVault -Name <vaultname> -ResourceGroupName <vaultRGname>
+Move-AzureRmResource -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 Para mover los recursos a otra suscripción, incluya el parámetro `-DestinationSubscriptionId`.
 
 ```
-Move-AzResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
+Move-AzureRmResource -DestinationSubscriptionId "<destinationSubscriptionID>" -DestinationResourceGroupName $destinationRG -ResourceId $vault.ID
 ```
 
 Después de ejecutar los cmdlets anteriores, se le pedirá que confirme que desea mover los recursos especificados. Escriba **Y** para continuar. Cuando se haya validado correctamente, el recurso se moverá.

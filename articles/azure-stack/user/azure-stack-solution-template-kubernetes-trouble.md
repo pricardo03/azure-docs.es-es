@@ -11,17 +11,17 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.author: mabrigg
-ms.date: 03/20/2019
+ms.date: 04/02/2019
 ms.reviewer: waltero
 ms.lastreviewed: 03/20/2019
-ms.openlocfilehash: 9af4b7a622bfb47d44c3da0edcece8c9528b08c4
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 2a9eccfa109292b7d142092f69f4a664b0ff8f20
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58361547"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58878135"
 ---
-# <a name="troubleshoot-your-kubernetes-deployment-to-azure-stack"></a>Solución de problemas de implementación de Kubernetes en Azure Stack
+# <a name="troubleshoot-kubernetes-deployment-to-azure-stack"></a>Solución de problemas de implementación de Kubernetes en Azure Stack
 
 *Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
@@ -30,11 +30,11 @@ ms.locfileid: "58361547"
 
 En el siguiente artículo se analiza la resolución de problemas del clúster de Kubernetes. Puede revisar la alerta y el estado de la implementación mediante los elementos necesarios para la implementación. Puede que deba recopilar los registros de implementación de Azure Stack o las máquinas virtuales Linux que hospedan Kubernetes. También, puede que deba trabajar con el administrador de Azure Stack para recuperar los registros de un punto de conexión administrativo.
 
-## <a name="overview-of-deployment"></a>Información general de la implementación
+## <a name="overview-of-kubernetes-deployment"></a>Información general de la implementación de Kubernetes
 
 Antes de comenzar a solucionar los problemas del clúster, puede que quiera revisar el proceso de implementación del clúster de Azure Stack Kubernetes. La implementación usa una plantilla de solución de Azure Resource Manager para crear las máquinas virtuales e instalar ACS Engine para el clúster.
 
-### <a name="deployment-workflow"></a>Flujo de trabajo de implementación
+### <a name="kubernetes-deployment-workflow"></a>Flujo de trabajo de implementación de Kubernetes
 
 En el siguiente diagrama se muestra el proceso general para implementar el clúster.
 
@@ -85,7 +85,7 @@ En el siguiente diagrama se muestra el proceso general para implementar el clús
 
 Puede recopilar registros en las máquinas virtuales que admiten el clúster de Kubernetes. También puede revisar el registro de implementación. Puede que también tenga que hablar con el administrador de Azure Stack para comprobar la versión de Azure Stack que debe usar y obtener registros de Azure Stack relacionados con su implementación.
 
-1. Revise el [estado de implementación](#review-deployment-status) y [recupere los registros](#get-logs-from-a-vm) del nodo maestro en el clúster de Kubernetes.
+1. Revise el [estado de implementación](#review-deployment-status) y recupere los registros del nodo maestro en el clúster de Kubernetes.
 2. Asegúrese de que usa la versión más reciente de Azure Stack. Si no está seguro de qué versión usa, póngase en contacto con el administrador de Azure Stack.
 3.  Revise los archivos de creación de la máquina virtual. Puede que haya tenido los siguientes problemas:  
     - Es posible que la clave pública no sea válida. Revise la clave que ha creado.  
@@ -168,7 +168,7 @@ Siga estos pasos para recopilar y descargar los registros del clúster:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Implementación de Kubernetes en Azure Stack](azure-stack-solution-template-kubernetes-deploy.md).
+[Implementación de Kubernetes en Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)
 
 [Agregar un clúster de Kubernetes a Marketplace (para el operador de Azure Stack)](../azure-stack-solution-template-kubernetes-cluster-add.md)
 

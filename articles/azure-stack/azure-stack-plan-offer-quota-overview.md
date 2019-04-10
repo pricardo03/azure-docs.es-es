@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/13/2019
+ms.date: 03/26/2019
 ms.author: sethm
 ms.reviewer: efemmano
 ms.lastreviewed: 10/12/2018
-ms.openlocfilehash: 0de021f4666da805eab8faba527f7c5322c39e9d
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 9d495087a0b3db5bba3b00fa9d0d40c91e5e9244
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57763459"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497864"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Introducción a los planes, ofertas, cuotas y suscripciones
 
@@ -52,6 +52,9 @@ Los planes son agrupaciones de uno o varios servicios. Como operador de Azure St
 ### <a name="quotas"></a>Cuotas
 
 Para ayudarle a administrar la capacidad de la nube, puede usar *cuotas* configuradas previamente o crear una nueva para cada servicio de un plan. Las cuotas definen los límites de recursos superiores que puede aprovisionar o consumir una suscripción de usuario. Por ejemplo, una cuota podría permitir que un usuario creara hasta cinco máquinas virtuales.
+
+> [!IMPORTANT]
+> Pueden pasar hasta dos horas hasta que las nuevas cuotas estén disponibles en el portal del usuario o antes de que se aplique una cuota modificada.
 
 Puede configurar cuotas por región. Por ejemplo, un plan que proporciona servicios de proceso para la región A puede tener una cuota de dos máquinas virtuales.
 

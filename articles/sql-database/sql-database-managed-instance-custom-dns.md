@@ -9,36 +9,37 @@ ms.devlang: ''
 ms.topic: conceptual
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: bonova, carlrab
+ms.reviewer: sstein, bonova, carlrab
 manager: craigg
 ms.date: 12/13/2018
-ms.openlocfilehash: 353df930b5769a585d7372716f33fe724a2a7594
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.openlocfilehash: bb5890b883b6062d834b928bff28a26a3664fb64
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562154"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361696"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Configuración de un DNS personalizado para Instancia administrada de Azure SQL Database
 
-Se debe implementar una instancia administrada de Azure SQL Database dentro de una [red virtual](../virtual-network/virtual-networks-overview.md) de Azure. Hay algunos escenarios (por ejemplo, correo electrónico de base de datos o servidores vinculados a otras instancias de SQL en el entorno híbrido o en la nube) que requieren que los nombres de host privados se resuelvan en Instancia administrada. En este caso, debe configurar un DNS personalizado dentro de Azure. Puesto que Instancia administrada utiliza el mismo DNS para su funcionamiento interno, la configuración de DNS de la red virtual debe ser compatible con Instancia administrada. 
+Se debe implementar una instancia administrada de Azure SQL Database dentro de una [red virtual](../virtual-network/virtual-networks-overview.md) de Azure. Hay algunos escenarios (por ejemplo, correo electrónico de base de datos o servidores vinculados a otras instancias de SQL en el entorno híbrido o en la nube) que requieren que los nombres de host privados se resuelvan en Instancia administrada. En este caso, debe configurar un DNS personalizado dentro de Azure. Puesto que Instancia administrada utiliza el mismo DNS para su funcionamiento interno, la configuración de DNS de la red virtual debe ser compatible con Instancia administrada.
 
    > [!IMPORTANT]
    > Utilice siempre nombres de dominio completos (FQDN) para los servidores de correo electrónico, servidores SQL Server y otros servicios, incluso si están dentro de la zona DNS privada. Por ejemplo, use `smtp.contoso.com` para el servidor de correo electrónico porque simplemente `smtp` no se resolverá correctamente.
 
-Para realizar una configuración personalizada de DNS compatible con Instancia administrada, debe: 
-- Configurar el servidor DNS personalizado para que sea capaz de resolver los nombres de dominio público 
-- Colocar la dirección IP de DNS de resolución recursiva de Azure 168.63.129.16 al final de la lista DNS de la red virtual 
- 
+Para realizar una configuración personalizada de DNS compatible con Instancia administrada, debe:
+
+- Configurar el servidor DNS personalizado para que sea capaz de resolver los nombres de dominio público
+- Colocar la dirección IP de DNS de resolución recursiva de Azure 168.63.129.16 al final de la lista DNS de la red virtual
+
 ## <a name="setting-up-custom-dns-servers-configuration"></a>Configuración de los servidores DNS personalizados
 
 1. En Azure Portal, busque la opción DNS personalizado para la red virtual.
 
-   ![Opción DNS personalizado](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png) 
+   ![Opción DNS personalizado](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png)
 
-2. Cambie a Personalizado y escriba la dirección IP del servidor DNS personalizado, así como la dirección IP de resoluciones recursivas de Azure 168.63.129.16. 
+2. Cambie a Personalizado y escriba la dirección IP del servidor DNS personalizado, así como la dirección IP de resoluciones recursivas de Azure 168.63.129.16.
 
-   ![Opción DNS personalizado](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
+   ![Opción DNS personalizado](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png)
 
    > [!IMPORTANT]
    > No establecer una resolución recursiva de Azure en la lista de DNS puede provocar que la Instancia administrada entre en un estado defectuoso cuando los servidores DNS personalizados no estén disponibles por algún motivo. La recuperación a partir de un estado así puede requerir la creación de una nueva instancia en una red virtual con las directivas de red compatibles, la creación de los datos a nivel de instancia y la restauración de las bases de datos. El establecimiento de la resolución recursiva de Azure como la última entrada de la lista de DNS garantiza, incluso cuando se produce un error en todos los servidores DNS personalizados, que los nombres públicos todavía se puedan resolver.

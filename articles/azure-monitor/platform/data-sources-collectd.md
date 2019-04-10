@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: b6785dc06107424344f0a6af775abe9b1c956f70
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 2118f137f2c0d32f891a170c3509bceee7ba13ed
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55999324"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426144"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Recopilación de datos de CollectD en agentes de Linux en Azure Monitor
 [CollectD](https://collectd.org/) es un demonio de Linux de código abierto que recopila periódicamente métricas de rendimiento de aplicaciones e información de nivel de sistema. Las aplicaciones de ejemplo incluyen la máquina virtual Java (JVM), MySQL Server y Nginx. En este artículo se proporciona información sobre la recopilación de datos de rendimiento de CollectD en Azure Monitor.
@@ -112,14 +112,14 @@ Para mantener un modelo conocido entre las métricas de infraestructura ya recop
 
 | Campo de métrica de CollectD | Campo de Azure Monitor |
 |:--|:--|
-| host | Equipo |
-| complemento | None |
-| plugin_instance | Nombre de instancia<br>Si **plugin_instance** es *null*, entonces InstanceName ="*_Total*". |
-| Tipo | ObjectName |
-| type_instance | CounterName<br>Si **type_instance** es *null*, entonces CounterName=**en blanco**. |
-| dsnames[] | CounterName |
-| dstypes | None |
-| values[] | CounterValue |
+| `host` | Equipo |
+| `plugin` | None |
+| `plugin_instance` | Nombre de instancia<br>Si **plugin_instance** es *null*, entonces InstanceName ="*_Total*". |
+| `type` | ObjectName |
+| `type_instance` | CounterName<br>Si **type_instance** es *null*, entonces CounterName=**en blanco**. |
+| `dsnames[]` | CounterName |
+| `dstypes` | None |
+| `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información acerca de las [consultas de registros](../log-query/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos. 

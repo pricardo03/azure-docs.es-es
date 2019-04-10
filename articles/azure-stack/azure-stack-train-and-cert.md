@@ -8,13 +8,13 @@ ms.service: azure-stack
 ms.topic: article
 ms.date: 12/12/2018
 ms.author: mabrigg
-ms.lastreviewed: 12/12/2018
-ms.openlocfilehash: d4f7ec8f4b6960650b98d8f2d2f051c0873c9754
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.lastreviewed: 3/20/2019
+ms.openlocfilehash: d15a981e0f43c686a5b6f60387dab6aa6f4b8096
+ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55242508"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58540336"
 ---
 # <a name="azure-stack-training-and-certification"></a>Cursos y certificaciones de Azure Stack
 
@@ -24,9 +24,18 @@ Las siguientes oportunidades de cursos y certificaciones están disponibles para
 
 ## <a name="training"></a>Cursos
 
-- [Course 20537A: Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack](https://www.microsoft.com/en-us/learning/course.aspx?cid=20537) (Curso 20537A: Configuración y uso de una nube híbrida con Microsoft Azure Stack)
-- [edX: Azure Stack Online Training](https://aka.ms/AzureStackMOOC) (edX: Aprendizaje en línea de Azure Stack)
-- [Roles de trabajo y las rutas de aprendizaje](https://azure.microsoft.com/training/learning-paths/)
+- Cursos oficiales de Microsoft a petición
+   - [ODX20537: Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack (180 Day)](https://www.microsoft.com/en-us/learning/course.aspx?cid=ODX20537) (Curso 20537A: Configuración y uso de una nube híbrida con Microsoft Azure Stack [180 días])
+   - [OD20537: Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack (90 Day)](https://www.microsoft.com/en-us/learning/course.aspx?cid=OD20537) (Curso 20537A: Configuración y uso de una nube híbrida con Microsoft Azure Stack [90 días])
+
+- Curso de aprendizaje de Microsoft IT
+   - [Course 20537A: Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack](https://aka.ms/azsmoc) (Curso 20537A: Configuración y uso de una nube híbrida con Microsoft Azure Stack)
+
+- Open edx
+   - [edX: Configuring and Operating Microsoft Azure Stack online course](https://aka.ms/AzureStackMOOC) (edX: Configuración y uso de un curso en línea de Microsoft Azure Stack)
+   
+- Rutas de aprendizaje de Microsoft
+   - [Roles de trabajo y las rutas de aprendizaje](https://azure.microsoft.com/training/learning-paths/)
 
 ## <a name="certification"></a>Certificación
 

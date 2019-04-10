@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: sethm
 ms.lastreviewed: 03/20/2018
-ms.openlocfilehash: 99b4134f8f2d6ed2f521a7f488c33e06c0f436bb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3d75467da01f0672bb735e01cbd6d7634cdf843e
+ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58165835"
+ms.lasthandoff: 03/26/2019
+ms.locfileid: "58445236"
 ---
 # <a name="app-service-on-azure-stack-update-1-release-notes"></a>Notas de la versión de App Service en la actualización 1 de Azure Stack
 
@@ -56,6 +56,8 @@ La actualización 1 de Azure App Service en Azure Stack incluye las siguientes c
 - **Implementación en la red virtual existente**: los clientes ahora pueden implementar App Service en Azure Stack dentro de una red virtual existente. La implementación de una red virtual existente permite a los clientes conectarse al servidor de archivos y a SQL Server, lo que es necesario para Azure App Service, a través de puertos privados. Durante la implementación, los clientes pueden seleccionar llevarla a cabo en una red virtual existente, sin embargo [deben crear subredes para que App Service las use](azure-stack-app-service-before-you-get-started.md#virtual-network) antes de la implementación.
 
 - Actualizaciones de las **herramientas de Kudu, los portales de Functions, Admin e inquilino de App Service**. Es coherente con la versión del SDK de Azure Stack Portal.
+
+- Actualiza el **entorno de ejecución de Azure Functions** a **v1.0.11388**.
 
 - **Actualizaciones de las herramientas y plataformas de aplicaciones siguientes**:
     - Se agregó compatibilidad con **.Net Core 2.0**

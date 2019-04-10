@@ -1,6 +1,6 @@
 ---
-title: Procedimientos recomendados para SQL Server en máquinas virtuales de Azure Stack
-description: Se ofrecen procedimientos recomendados para optimizar el rendimiento de SQL Server en máquinas virtuales de Microsoft Azure Stack.
+title: Uso de procedimientos recomendados de SQL Server para mejorar el rendimiento en las máquinas virtuales de Azure Stack | Microsoft Docs
+description: Este artículo proporciona procedimientos recomendados de SQL server para ayudar a aumentar el rendimiento y optimizar SQL Server en máquinas virtuales de Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,20 +12,20 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2019
+ms.date: 04/02/2019
 ms.author: mabrigg
 ms.reviewer: anajod
 ms.lastreviewed: 01/14/2019
-ms.openlocfilehash: 7981df6aa1e08688bdbe3b18629450b996f7609e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 03a354a7d670033fa86ebbb094710a836b6219c4
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58123409"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58879071"
 ---
-# <a name="optimize-sql-server-performance"></a>Optimización del rendimiento de SQL Server
+# <a name="sql-server-best-practices-to-optimize-performance-in-azure-stack"></a>Prácticas recomendadas de SQL Server para optimizar el rendimiento en Azure Stack
 
-En este artículo se ofrece una guía para optimizar el rendimiento de SQL Server en máquinas virtuales de Microsoft Azure Stack. Mientras se ejecuta SQL Server en máquinas virtuales de Azure Stack, use las mismas opciones de ajuste de rendimiento de base de datos que son aplicables a SQL Server en el entorno de servidor local. El rendimiento de una base de datos relacional en una nube de Azure Stack depende de muchos factores. Entre los factores se incluye el tamaño de la familia de una máquina virtual y la configuración de los discos de datos.
+Este artículo proporciona procedimientos recomendados de SQL server para optimizar SQL Server y mejorar el rendimiento de las máquinas virtuales de Microsoft Azure Stack. Mientras se ejecuta SQL Server en máquinas virtuales de Azure Stack, use las mismas opciones de ajuste de rendimiento de base de datos que son aplicables a SQL Server en el entorno de servidor local. El rendimiento de una base de datos relacional en una nube de Azure Stack depende de muchos factores. Entre los factores se incluye el tamaño de la familia de una máquina virtual y la configuración de los discos de datos.
 
 Al crear imágenes de SQL Server, [considere la posibilidad de aprovisionar las máquinas virtuales en el portal de Azure Stack](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision). Descargue la Extensión IaaS de SQL de Administración de Marketplace en el portal de administración de Azure Stack y descargue los discos duros virtuales de la máquina virtual SQL de su elección. Estos incluyen SQL2014SP2, SQL2016SP1 y SQL2017.
 
@@ -37,7 +37,8 @@ Obtener el *mejor* rendimiento de SQL Server en máquinas virtuales de Azure Sta
 > [!NOTE]  
 > Para obtener la guía de rendimiento para SQL Server en Azure Virtual Machines, consulte [este artículo](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-performance).
 
-## <a name="before-you-begin"></a>Antes de empezar
+## <a name="checklist-for-sql-server-best-practices"></a>Lista de comprobación de procedimientos recomendados de SQL Server
+
 La siguiente es una lista de comprobación rápida para un rendimiento óptimo de SQL Server en máquinas virtuales de Azure Stack:
 
 
@@ -112,7 +113,7 @@ Se recomienda almacenar TempDB en un disco de datos, ya que cada disco de datos 
 
        Por ejemplo, aquí PowerShell crea un nuevo grupo de almacenamiento con el tamaño de intercalación establecido en 64 KB y el número de columnas en 2:
 
-       ```PowerShell  
+       ```powershell  
        $PoolCount = Get-PhysicalDisk -CanPool $True
        $PhysicalDisks = Get-PhysicalDisk | Where-Object {$_.FriendlyName -like "*2" -or $_.FriendlyName -like "*3"}
 
@@ -161,4 +162,4 @@ Algunas implementaciones pueden lograr ventajas de rendimiento adicionales media
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Uso de servicios o compilación de aplicaciones para Azure Stack](azure-stack-considerations.md)
+[uso de servicios o compilación de aplicaciones para Azure Stack](azure-stack-considerations.md)

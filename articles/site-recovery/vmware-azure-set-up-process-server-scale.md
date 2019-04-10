@@ -5,14 +5,14 @@ author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 12/11/2018
-ms.author: mayg
-ms.openlocfilehash: e3f6a160f57a4432f91c395a2e0dd664bc8f323d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 4/9/2019
+ms.author: ramamill
+ms.openlocfilehash: 6849ffb6fa46365aa775b9410067cb0874c70ef8
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106549"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59362160"
 ---
 # <a name="scale-for-failback-with-additional-process-servers"></a>Escala para la conmutación por recuperación con servidores de procesos adicionales
 
@@ -31,7 +31,7 @@ Asegúrese de que ha realizado la [planeación de la capacidad](site-recovery-pl
 
 Compruebe los requisitos de tamaño que se resumen en la tabla. En general, si debe escalar horizontalmente la implementación a más de 200 máquinas de origen o si la tasa de renovación diaria total supera los 2 TB, necesitará servidores de procesos adicionales para controlar el volumen del tráfico.
 
-| **Servidores de procesos adicionales** | **Tamaño del disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas** |
+| **Servidor de procesos adicionales** | **Tamaño de disco de caché** | **Frecuencia de cambio de datos** | **Máquinas protegidas** |
 | --- | --- | --- | --- |
 |4 vCPU (2 sockets * 2 núcleos \@ 2,5 GHz), 8 GB de memoria |< 300 GB |250 GB o menos |Replicar 85 máquinas o menos. |
 |8 vCPU (2 sockets * 4 núcleos \@ 2,5 GHz), 12 GB de memoria |600 GB |250 GB a 1 TB |Replicar entre 85 y 150 máquinas. |
@@ -51,7 +51,7 @@ En la tabla siguiente se resumen los requisitos previos para el servidor de proc
 
 Descargue el archivo de instalación del servidor de procesos de la manera siguiente:
 
-1. Inicie sesión en Azure Portal y busque el almacén de Recovery Services.
+1. Inicie sesión en Azure portal y vaya a su almacén de Recovery Services.
 2. Abra **Site Recovery Infrastructure** (Infraestructura de Site Recovery)  > **VMWare and Physical Machines** (Máquinas físicas y VMware)  > **Servidores de configuración** (en For VMware & Physical Machines [Para máquinas físicas y VMware]).
 3. Seleccione el servidor de configuración para explorar en profundidad su página de detalles. Luego haga clic en **Servidor de procesos**.
 4. En **Agregar servidor de procesos** >  **Elegir dónde quiere implementar el servidor de procesos**, seleccione **Implementar un servidor de procesos de escalado horizontal local**.

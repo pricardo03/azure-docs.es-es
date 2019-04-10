@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2018
 ms.author: magoedte
-ms.openlocfilehash: f0f156568eed5a1e8f3296ff7c37df7f050dbc33
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0ed6747573edf4c059eb29d28107a22706c52856
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57540052"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426196"
 ---
 # <a name="collect-alerts-from-nagios-and-zabbix-in-azure-monitor-from-log-analytics-agent-for-linux"></a>Recopilación de alertas de Nagios y Zabbix en Azure Monitor desde el agente de Log Analytics para Linux 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -92,15 +92,15 @@ Los registros de alertas recopilados por Nagios tienen como **tipo** una **alert
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| Type |*Alerta* |
-| SourceSystem |*Nagios* |
-| AlertName |Nombre de la alerta |
-| AlertDescription | Descripción de la alerta |
-| AlertState | Estado del servicio o host.<br><br>OK<br>ADVERTENCIA<br>ARRIBA<br>ABAJO |
-| HostName | Nombre del host que creó la alerta. |
-| PriorityNumber | Nivel de prioridad de la alerta. |
-| StateType | El tipo de estado de la alerta.<br><br>SOFT: problema que no se ha vuelto a comprobar.<br>HARD: problema que se ha vuelto a comprobar un número de veces especificado.  |
-| TimeGenerated |Fecha y hora en que se creó la alerta. |
+| `Type` |*Alerta* |
+| `SourceSystem` |*Nagios* |
+| `AlertName` |Nombre de la alerta |
+| `AlertDescription` | Descripción de la alerta |
+| `AlertState` | Estado del servicio o host.<br><br>OK<br>ADVERTENCIA<br>ARRIBA<br>ABAJO |
+| `HostName` | Nombre del host que creó la alerta. |
+| `PriorityNumber` | Nivel de prioridad de la alerta. |
+| `StateType` | El tipo de estado de la alerta.<br><br>SOFT: problema que no se ha vuelto a comprobar.<br>HARD: problema que se ha vuelto a comprobar un número de veces especificado.  |
+| `TimeGenerated` |Fecha y hora en que se creó la alerta. |
 
 
 ### <a name="zabbix-alert-records"></a>Registros de alertas de Zabbix
@@ -108,17 +108,17 @@ Los registros de alertas recopilados por Zabbix tienen como **tipo** una **alert
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| Type |*Alerta* |
-| SourceSystem |*Zabbix* |
-| AlertName | Nombre de la alerta |
-| AlertPriority | Gravedad de la alerta.<br><br>no clasificada<br>informativo<br>Warning (Advertencia)<br>average<br>alta<br>desastre  |
-| AlertState | Estado de la alerta.<br><br>0: el estado está actualizado.<br>1: el estado es desconocido.  |
-| AlertTypeNumber | Especifica si la alerta puede generar varios eventos de problema.<br><br>0: el estado está actualizado.<br>1: el estado es desconocido.    |
-| Comentarios | Comentarios adicionales de la alerta. |
-| HostName | Nombre del host que creó la alerta. |
-| PriorityNumber | Valor que indica la gravedad de la alerta.<br><br>0: no clasificada<br>1: información<br>2: advertencia<br>3: promedio<br>4: alta<br>5: desastre |
-| TimeGenerated |Fecha y hora en que se creó la alerta. |
-| TimeLastModified |Fecha y hora en que se cambió por última vez el estado de la alerta. |
+| `Type` |*Alerta* |
+| `SourceSystem` |*Zabbix* |
+| `AlertName` | Nombre de la alerta |
+| `AlertPriority` | Gravedad de la alerta.<br><br>no clasificada<br>informativo<br>Warning (Advertencia)<br>average<br>alta<br>desastre  |
+| `AlertState` | Estado de la alerta.<br><br>0: el estado está actualizado.<br>1: el estado es desconocido.  |
+| `AlertTypeNumber` | Especifica si la alerta puede generar varios eventos de problema.<br><br>0: el estado está actualizado.<br>1: el estado es desconocido.    |
+| `Comments` | Comentarios adicionales de la alerta. |
+| `HostName` | Nombre del host que creó la alerta. |
+| `PriorityNumber` | Valor que indica la gravedad de la alerta.<br><br>0: no clasificada<br>1: información<br>2: advertencia<br>3: promedio<br>4: alta<br>5: desastre |
+| `TimeGenerated` |Fecha y hora en que se creó la alerta. |
+| `TimeLastModified` |Fecha y hora en que se cambió por última vez el estado de la alerta. |
 
 
 ## <a name="next-steps"></a>Pasos siguientes

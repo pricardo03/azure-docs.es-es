@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 85fba27c856561eb1270e719dcf24b88d2d5a01f
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.openlocfilehash: 0312e322aea74b3ce9867d09cebc7543da40de5f
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57309917"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426246"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Conexión de un dispositivo Windows IoT Core a una aplicación de Azure IoT Central
 
@@ -48,10 +48,7 @@ Para configurar un dispositivo de Windows IoT Core, siga la guía detallada en [
 
 ### <a name="add-a-real-device"></a>Adición de un dispositivo real
 
-En su aplicación de Azure IoT Central, agregue un dispositivo real de la plantilla de dispositivo **Windows IoT Core** y tome nota de los detalles de conexión del dispositivo (**Id. de ámbito, Id. de dispositivo, clave principal**). Para más información, consulte [Add a real device to your Azure IoT Central application](tutorial-add-device.md) (Adición de un dispositivo real a la aplicación de Azure IoT Central).
-
- > [!NOTE]
-   > Azure IoT Central ha pasado al usar el servicio Azure IoT Hub Device Provisioning (DPS) para todas las conexiones de dispositivo, siga estas instrucciones para [obtener la cadena de conexión de dispositivo](concepts-connectivity.md#get-a-connection-string) y continúe con el resto del tutorial.
+En su aplicación de Azure IoT Central, agregue un dispositivo real de la plantilla de dispositivo **Windows IoT Core** y tome nota de los detalles de conexión del dispositivo (**Id. de ámbito, Id. de dispositivo, clave principal**). Siga estas instrucciones para [generar la cadena de conexión de dispositivo](howto-generate-connection-string.md) utilizando el **Id. de ámbito**, **Id. de dispositivo**, y **clave principal** realizado una Tenga en cuenta de anteriormente.
 
 ## <a name="prepare-the-windows-10-iot-core-device"></a>Preparación del dispositivo Windows 10 IoT Core
 
@@ -65,9 +62,10 @@ También necesitará una aplicación cliente que pueda comunicarse con Azure IoT
 
 Para implementar la aplicación cliente del paso anterior en el dispositivo Windows 10 IoT con el fin de prepararlo:
 
-**Asegúrese de que la cadena de conexión se almacena en el dispositivo para la aplicación cliente que se va a utilizar**
+**Asegúrese de que la cadena de conexión se almacena en el dispositivo para la aplicación cliente para usar**
 * En el escritorio, guarde la cadena de conexión en un archivo de texto denominado connection.string.iothub.
-* Copie el archivo de texto en la carpeta de documentos del dispositivo: `[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
+* Copie el archivo de texto a la carpeta de documentos del dispositivo:
+`[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
 
 Una vez hecho esto, debe abrir el [Portal de dispositivos Windows](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal); para ello, escriba http://[dirección-IP-dispositivo]:8080 en cualquier explorador.
 

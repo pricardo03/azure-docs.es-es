@@ -12,22 +12,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 03/27/2019
 ms.author: sethm
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/07/2018
-ms.openlocfilehash: 3d9376ba5945c97d18f6cf68c242d5217beee679
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 848b2a0c912a00a2185d7e4b7b8d8446bc1f6aca
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349712"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58497184"
 ---
 # <a name="quota-types-in-azure-stack"></a>Tipos de cuota en Azure Stack
 
 *Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 Las [cuotas](azure-stack-plan-offer-quota-overview.md#plans) definen los límites de recursos que puede aprovisionar o consumir una suscripción de usuario. Por ejemplo, una cuota podría permitir que un usuario creara hasta cinco máquinas virtuales. Cada recurso puede tener sus propios tipos de cuotas.
+
+> [!IMPORTANT]
+> Pueden pasar hasta dos horas hasta que las nuevas cuotas estén disponibles en el portal del usuario o antes de que se aplique una cuota modificada.
 
 ## <a name="compute-quota-types"></a>Tipos de cuota de proceso
 
@@ -41,9 +44,9 @@ Las [cuotas](azure-stack-plan-offer-quota-overview.md#plans) definen los límite
 | Capacidad máxima (en GB) de disco administrado premium | 2048 | La capacidad máxima de discos administrados premium que se pueden crear en esta ubicación. |
 
 > [!NOTE]  
-> La capacidad máxima del disco no administrado (blobs en páginas) es independiente de la cuota del disco administrado. Debe establecerse en Storage Quota (Cuota de Storage).
+> La capacidad máxima de discos no administrados (blobs en páginas) es independiente de la cuota de disco administrado. Puede establecer este valor en **Storage quotas** (Cuotas de almacenamiento).
 
-## <a name="storage-quota-types"></a>Tipos de cuotas de almacenamiento 
+## <a name="storage-quota-types"></a>Tipos de cuotas de almacenamiento
 
 | **Elemento** | **Valor predeterminado** | **Descripción** |
 | --- | --- | --- |
@@ -51,7 +54,7 @@ Las [cuotas](azure-stack-plan-offer-quota-overview.md#plans) definen los límite
 | Número total de cuentas de almacenamiento |20 |El número máximo de cuentas de almacenamiento que puede crear una suscripción en esta ubicación. |
 
 > [!NOTE]  
-> Puede que el proceso tarde hasta dos horas antes de aplicar una cuota de almacenamiento. La capacidad máxima del disco administrado es independiente de la cuota de almacenamiento total. Debe establecerse en Compute Quota (Cuota de proceso).
+> La capacidad máxima de los discos administrados es independiente de la cuota de almacenamiento total. Puede establecer este valor en **Compute quotas** (Cuotas de proceso).
 
 ## <a name="network-quota-types"></a>Tipos de cuota de red
 

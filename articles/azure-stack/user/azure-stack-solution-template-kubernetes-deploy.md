@@ -1,6 +1,6 @@
 ---
-title: Implementación de Kubernetes en Azure Stack | Microsoft Docs
-description: Aprenda a implementar Kubernetes en Azure Stack.
+title: Implementación de Kubernetes para usar contenedores de Azure Stack | Microsoft Docs
+description: Aprenda a implementar Kubernetes para usar contenedores con Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,19 +15,19 @@ ms.date: 02/27/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 01/16/2019
-ms.openlocfilehash: 6b00f63fac0110a8964270b9cbcad5330ac44645
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 77275ec274a9c76918874007cfe564eea09e6de5
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56986250"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58877200"
 ---
-# <a name="deploy-kubernetes-to-azure-stack"></a>Implementación de Kubernetes en Azure Stack
+# <a name="deploy-kubernetes-to-use-containers-with-azure-stack"></a>Implementación de Kubernetes para usar contenedores con Azure Stack
 
 *Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
 > [!Note]  
-> Kubernetes en Azure Stack está en versión preliminar. El escenario sin conexión de Azure Stack no es compatible actualmente con la versión preliminar.
+> Kubernetes en Azure Stack está en versión preliminar. Un escenario sin conexión de Azure Stack no es compatible actualmente con la versión preliminar.
 
 Puede seguir los pasos descritos en este artículo para implementar y configurar los recursos de Kubernetes en una operación única y coordinada. Los siguientes pasos usan una plantilla de solución de Azure Resource Manager. Tendrá que recopilar la información necesaria sobre la instalación de Azure Stack, generar la plantilla y, a continuación, implementarla en la nube. La plantilla de Azure Stack no usa el mismo servicio AKS administrado que se ofrece en Azure en general.
 
@@ -43,14 +43,14 @@ Puede utilizar Kubernetes para:
 
 Solo se le cobrará por el uso de proceso requerido por los nodos que forman el clúster. Para más información, consulte [Uso y facturación en Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback).
 
-## <a name="deploy-kubernetes"></a>Implementación de Kubernetes
+## <a name="deploy-kubernetes-to-use-containers"></a>Implementación de Kubernetes para usar contenedores
 
 Los pasos para implementar un clúster de Kubernetes en Azure Stack dependerán de su servicio de administración de identidad. Compruebe la solución de administración de identidades utilizada por la instalación de Azure Stack. Póngase en contacto con el administrador de Azure Stack para comprobar el servicio de administración de identidad.
 
-- **Azure Active Directory (Azure AD)**  
+- **Azure Active Directory (Azure AD)**  
 Para obtener instrucciones acerca de cómo instalar el clúster al usar Azure AD, consulte [Implementación de Kubernetes en Azure Stack con Azure Active Directory (Azure AD)](azure-stack-solution-template-kubernetes-azuread.md).
 
-- **Servicios de federación de Active Directory (AD FS)**.  
+- **Servicios de federación de Active Directory (AD FS)**  
 Para obtener instrucciones acerca de cómo instalar el clúster al usar AD FS, consulte [Deploy Kubernetes to Azure Stack using Active Directory Federated Services (AD FS)](azure-stack-solution-template-kubernetes-adfs.md) [Implementación de Kubernetes en Azure Stack con los Servicios de federación de Active Directory (Azure AD)].
 
 ## <a name="connect-to-your-cluster"></a>Conexión al clúster
@@ -67,6 +67,6 @@ Puede que también le resulte útil el administrador de paquetes **Helm** para i
 
 [Implementación de Kubernetes en Azure Stack con Azure Active Directory (Azure AD)](azure-stack-solution-template-kubernetes-azuread.md)
 
-[Deploy Kubernetes to Azure Stack using Active Directory Federated Services (AD FS)](azure-stack-solution-template-kubernetes-adfs.md) [Implementación de Kubernetes en Azure Stack con los Servicios de federación de Active Directory (AD FS)]
+[Implementación de Kubernetes en Azure Stack con los Servicios de federación de Active Directory](azure-stack-solution-template-kubernetes-adfs.md)
 
 [Kubernetes en Azure](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-kubernetes-walkthrough)

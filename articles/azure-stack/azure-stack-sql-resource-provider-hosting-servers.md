@@ -11,16 +11,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 03/26/2019
 ms.author: jeffgilb
 ms.reviewer: quying
 ms.lastreviewed: 10/16/2018
-ms.openlocfilehash: 1cef0010464671982109b8dc4bc94e6925eaf825
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 1b9c7f00c8ec8408547620111634470d455334c8
+ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56210533"
+ms.lasthandoff: 03/27/2019
+ms.locfileid: "58499240"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Incorporación de servidores de hospedaje para el proveedor de recursos SQL
 
@@ -186,14 +186,19 @@ Las SKU no se pueden asignar a usuarios o grupos específicos.
 
 Las SKU pueden tardar hasta una hora en estar visibles en el portal. Los usuarios no pueden crear una base de datos hasta que se cree totalmente la SKU.
 
-Para editar una SKU, vaya a **All services** > **MySQL Adapter** > **SKUs** (Todos los servicios > Adaptador de MySQL > SKU). Seleccione la SKU que quiere modificar, realice los cambios necesarios y haga clic en **Guardar** para guardar los cambios. Para eliminar una SKU que ya no es necesaria, vaya a **All services** > **MySQL Adapter** > **SKUs** (Todos los servicios > Adaptador de MySQL > SKU). Haga clic en el nombre de la SKU y seleccione **Eliminar** para eliminarla.
+Para editar una SKU, vaya a **All services** > **MySQL Adapter** > **SKUs** (Todos los servicios > Adaptador de MySQL > SKU). Seleccione la SKU que quiere modificar, realice los cambios necesarios y haga clic en **Guardar** para guardar los cambios. 
 
-> [!TIP]
-> Puede editar o eliminar las cuotas del proveedor de recursos de MySQL en la misma ubicación.
+Para eliminar una SKU que ya no es necesaria, vaya a **All services** > **MySQL Adapter** > **SKUs** (Todos los servicios > Adaptador de MySQL > SKU). Haga clic en el nombre de la SKU y seleccione **Eliminar** para eliminarla.
+
+> [!IMPORTANT]
+> Las nuevas SKU pueden tardar hasta cuatro horas en estar disponibles en el portal del usuario.
 
 ## <a name="make-sql-databases-available-to-users"></a>Bases de datos SQL disponibles para los usuarios
 
 Cree planes y ofertas para poner las bases de datos SQL a disposición de los usuarios. Agregue el servicio **Microsoft.SqlAdapter** al plan y cree una cuota nueva.
+
+> [!IMPORTANT]
+> Pueden pasar hasta dos horas hasta que las nuevas cuotas estén disponibles en el portal del usuario o antes de que se aplique una cuota modificada.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

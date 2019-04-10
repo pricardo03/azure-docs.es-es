@@ -6,20 +6,19 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.custom: seodec18
-ms.openlocfilehash: b0e0f26abbf8eb5cbf1cf9ba2014204d773ae15d
-ms.sourcegitcommit: 5b869779fb99d51c1c288bc7122429a3d22a0363
-ms.translationtype: HT
+ms.date: 04/08/2019
+ms.openlocfilehash: 6fb93152263d253de983b17d25f02f4c68a172fd
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53187320"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361391"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Nivel de compatibilidad de los trabajos de Azure Stream Analytics
  
 El nivel de compatibilidad se refiere a los comportamientos específicos de la versión de un servicio de Azure Stream Analytics. Azure Stream Analytics es un servicio administrado, con actualizaciones regulares de características y mejoras de rendimiento. Normalmente, las actualizaciones estarán disponibles automáticamente para los usuarios finales. Sin embargo, algunas características nuevas pueden introducir cambios importantes, como cambios en el comportamiento de un trabajo existente, cambios en los procesos que consumen datos de estos trabajos, etc. Un nivel de compatibilidad se utiliza para representar un cambio introducido en Stream Analytics. Los cambios importantes siempre se introducen con un nuevo nivel de compatibilidad. 
 
-Un nivel de compatibilidad asegura que los trabajos existentes se ejecuten sin errores. Cuando se crea un nuevo trabajo de Stream Analytics, se recomienda crearlo con el nivel de compatibilidad más reciente que tenga disponible. 
+Nivel de compatibilidad garantiza que los trabajos existentes se ejecuten sin errores. Cuando se crea un nuevo trabajo de Stream Analytics, es una práctica recomendada para crearlo mediante el nivel de compatibilidad más reciente. 
  
 ## <a name="set-a-compatibility-level"></a>Establecer un nivel de compatibilidad 
 
@@ -32,41 +31,59 @@ Asegúrese de detener el trabajo antes de actualizar el nivel de compatibilidad.
  
 Cuando se actualiza el nivel de compatibilidad, el compilador de T-SQL valida el trabajo con la sintaxis que se corresponde con el nivel de compatibilidad seleccionado. 
 
-## <a name="major-changes-in-the-latest-compatibility-level-11"></a>Principales cambios del nivel de compatibilidad más reciente (1.1)
+## <a name="major-changes-in-the-latest-compatibility-level-12"></a>Cambios importantes en el nivel de compatibilidad más reciente (1.2)
 
-En el nivel de compatibilidad 1.1 se introdujeron los siguientes cambios principales:
+Se introducen los siguientes cambios principales en el nivel de compatibilidad 1.2:
 
-* **Formato XML de Service Bus**  
+### <a name="geospatial-functions"></a>Funciones geoespaciales 
 
-  * **Versiones anteriores:** Azure Stream Analytics usaba DataContractSerializer, por lo que el contenido del mensaje incluía etiquetas XML. Por ejemplo: 
-    
-    @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001 
+**Versiones anteriores:** Azure Stream Analytics usa los cálculos geográficos.
 
-  * **Versión actual:** El contenido del mensaje contiene directamente la secuencia sin ninguna etiqueta adicional. Por ejemplo: 
-  
-    { "SensorId":"1", "Temperature":64} 
- 
-* **Distinción entre mayúsculas y minúsculas persistente para nombres de campo**  
+**Versión actual:** Azure Stream Analytics permite calcular las coordenadas geográficas proyectado geométrica. No hay ningún cambio en la firma de las funciones geoespaciales. Sin embargo, su semántica es ligeramente diferente, lo que permite un cálculo más preciso que antes.
 
-  * **Versiones anteriores:** Los nombres de campo se cambiaban a minúsculas cuando los procesaba el motor de Azure Stream Analytics. 
+Azure Stream Analytics admite la indexación de datos de referencia geoespacial. Datos de referencia que contiene elementos geoespaciales se pueden indizar para un cálculo de combinación más rápido.
 
-  * **versión actual:** la distinción entre mayúsculas y minúsculas se mantiene para nombres de campo que procesa el motor de Azure Stream Analytics. 
+Las funciones geoespaciales actualizada traer la expresividad del formato de Well Known Text (WKT) geoespaciales completa. Puede especificar otros componentes geoespaciales que anteriormente no eran compatibles con GeoJson.
 
-    > [!NOTE] 
-    > La distinción entre mayúsculas y minúsculas persistente aún no está disponible para trabajos de Stream Analytics hospedados mediante un entorno de Edge. En consecuencia, todos los nombres de campo se convierten a minúsculas si el trabajo se hospeda en Edge. 
+Para obtener más información, consulte [actualiza a funciones geoespaciales en Azure Stream Analytics: en la nube y IoT Edge](https://azure.microsoft.com/blog/updates-to-geospatial-functions-in-azure-stream-analytics-cloud-and-iot-edge/).
 
-* **FloatNaNDeserializationDisabled**  
+### <a name="parallel-query-execution-for-input-sources-with-multiple-partitions"></a>Ejecución de consultas en paralelo para los orígenes de entrada con varias particiones 
 
-  * **Versiones anteriores:** El comando CREATE TABLE no filtraba eventos con NaN (por ejemplo, Infinity, -Infinity) en una columna de tipo FLOAT, porque están fuera del intervalo documentado para esos números.
+**Versiones anteriores:** Consultas de Azure Stream Analytics requerían el uso de la cláusula PARTITION BY para paralelizar el procesamiento de consultas entre particiones de origen de entrada.
 
-  * **Versión actual:** El comando CREATE TABLE le permite especificar un esquema seguro. El motor de Stream Analytics valida que los datos se ajustan a este esquema. Con este modelo, el comando puede filtrar eventos con valores NaN. 
+**Versión actual:** Si la lógica de la consulta se puede ejecutar en paralelo entre las particiones de origen de entrada, Azure Stream Analytics crea instancias de consulta independiente y ejecuta los cálculos en paralelo.
 
-* **Deshabilitación de la conversión automática a tipo básico para las cadenas de fecha y hora de JSON**  
+### <a name="native-bulk-api-integration-with-cosmosdb-output"></a>Integración nativa de API de forma masiva con la salida de CosmosDB
 
-  * **Versiones anteriores:** El analizador JSON convertía automáticamente los valores de cadena con información de fecha, hora y zona al tipo DateTime y, después, los convertía a UTC. Esto hacía que se perdiese la información de la zona horaria.
+**Versiones anteriores:** El comportamiento de upsert era *insertar o combinar*.
 
-  * **Versión actual:** Ya no existe la conversión automática de los valores de cadenas con información de fecha, hora y zona al tipo DateTime. Como resultado, se mantiene la información de zona horaria. 
+**Versión actual:** Integración nativa de API de forma masiva con la salida de CosmosDB maximiza el rendimiento y se controla con gran eficacia la limitación de solicitudes.
+
+Es el comportamiento de upsert *insertar o reemplazar*.
+
+### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset al escribir en la salida de SQL
+
+**Versiones anteriores:** [DateTimeOffset](https://docs.microsoft.com/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) tipos se ajustan a la hora UTC.
+
+**Versión actual:** Ya no se ajusta DateTimeOffset.
+
+### <a name="strict-validation-of-prefix-of-functions"></a>Validación estricta de prefijo de funciones
+
+**Versiones anteriores:** No se produjo ninguna validación estricta de prefijos de función.
+
+**Versión actual:** Azure Stream Analytics tiene una validación estricta de prefijos de función. Agregar un prefijo a una función integrada, produce un error. Por ejemplo,`myprefix.ABS(…)` no se admite.
+
+Agregar un prefijo a los agregados integrados también produce error. Por ejemplo, `myprefix.SUM(…)` no se admite.
+
+Con el prefijo "system" para los resultados de las funciones definidas por el usuario en el error.
+
+### <a name="disallow-array-and-object-as-key-properties-in-cosmos-db-output-adapter"></a>No permitir la matriz y objeto como propiedades de clave en el adaptador de salida de Cosmos DB
+
+**Versiones anteriores:** Se admiten los tipos de matriz y objeto como una propiedad de clave.
+
+**Versión actual:** Ya no se admiten los tipos de matriz y objeto como una propiedad de clave.
+
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Solución de problemas de las conexiones de entrada de Azure Stream Analytics](stream-analytics-troubleshoot-input.md)
-* [Hoja Estado de recursos de Stream Analytics](stream-analytics-resource-health.md)
+* [Solución de problemas de las entradas de Azure Stream Analytics](stream-analytics-troubleshoot-input.md)
+* [Estado de los recursos de análisis Stream](stream-analytics-resource-health.md)

@@ -16,12 +16,12 @@ ms.date: 02/12/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 09/17/2018
-ms.openlocfilehash: 4c9c4bce0b63bd6d45522e2e069d1ae884916e09
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: 17da540bd6077b8e045f125fd3cf13dc0e043000
+ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56172406"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58882046"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Incorporación de nodos de unidad de escalado adicionales en Azure Stack
 
@@ -63,7 +63,7 @@ Puede usar el portal de administración o PowerShell para agregar nuevos nodos. 
 
 1. Inicie sesión en el portal de administración de Azure Stack como operador de Azure Stack.
 2. Vaya a **+ Create a resource (Crear un recurso)** > **Capacidad** > **Nodo de la unidad de escalado**.
-   ![Nodo de la unidad de escalado:](media/azure-stack-add-scale-node/select-node1.png)
+   ![Nodo de la unidad de escalado](media/azure-stack-add-scale-node/select-node1.png)
 3. En el panel **Agregar nodo**, seleccione la *Región* y, a continuación, seleccione la *Unidad de escalado* a la que desea agregar el nodo. Especifique también la *DIRECCIÓN IP DE BMC* para el nodo de la unidad de escalado que va a agregar. Solo puede agregar un nodo a la vez.
    ![Incorporación de detalles de nodo](media/azure-stack-add-scale-node/select-node2.png)
  
@@ -75,7 +75,7 @@ Use el cmdlet **New-AzsScaleUnitNodeObject** para agregar un nodo.
 Antes de utilizar cualquiera de los siguientes scripts de PowerShell de ejemplo, reemplace los valores de *nombres de nodo* y *direcciones IP* por los valores de su entorno de Azure Stack.
 
   > [!Note]  
-  > Al asignar nombres a un nodo, debe mantener el nombre con menos de 15 caracteres de longitud. No puede usar tampoco un nombre que contenga un espacio o alguno de los siguientes caracteres: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`,` }`, `_`.
+  > Al asignar nombres a un nodo, debe mantener el nombre con menos de 15 caracteres de longitud. No puede usar tampoco un nombre que contenga un espacio o alguno de los siguientes caracteres: `\`, `/`, `:`, `*`, `?`, `"`, `<`, `>`, `|`, `\`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `&`, `(`, `)`, `{`,`}`, `_`.
 
 **Agregue un nodo:**
   ```powershell

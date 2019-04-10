@@ -1,19 +1,18 @@
 ---
 title: Comparación de opciones de almacenamiento para los clústeres de Azure HDInsight
 description: Proporciona información general sobre los tipos de almacenamiento y cómo funcionan con Azure HDInsight.
-services: hdinsight,storage
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 02/04/2019
-ms.openlocfilehash: fa08d2fb2185bd4b6cd0e2e9d20e1c44a4a35eae
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/08/2019
+ms.openlocfilehash: ac1a0e4eadc0b84fdd2a170c2e0f6e0a2f2af3a4
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101489"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361786"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Comparación de opciones de almacenamiento para los clústeres de Azure HDInsight
 
@@ -96,11 +95,11 @@ Azure Data Lake Storage Gen2 usa un nuevo esquema de identificador URI para acce
 
 El esquema de URI proporciona acceso cifrado SSL (con el prefijo `abfss://`) y acceso sin cifrar (con el prefijo `abfs://`). Use `abfss` siempre que sea posible, incluso cuando se acceda a datos que se encuentren en la misma región de Azure.
 
-`<FILE_SYSTEM_NAME>` identifica la ruta de acceso del sistema de archivos de Data Lake Storage Gen2.
+`<FILE_SYSTEM_NAME>` identifica la ruta de acceso del sistema de archivos Data Lake Storage Gen2.
 
-`<ACCOUNT_NAME>` identifica el nombre de la cuenta de Azure Storage. Se necesita el nombre completo de dominio (FQDN).
+`<ACCOUNT_NAME>` identifica el nombre de cuenta de almacenamiento de Azure. Se necesita el nombre completo de dominio (FQDN).
 
-`<PATH>` es el nombre de la ruta HDFS del archivo o el directorio.
+`<PATH>` es el nombre de ruta de acceso HDFS de archivo o directorio.
 
 Si no se especifican los valores de `<FILE_SYSTEM_NAME>` y `<ACCOUNT_NAME>`, se utiliza el sistema de archivos predeterminado. Para los archivos del sistema de archivos predeterminado, puede usar una ruta relativa o absoluta. Por ejemplo, se puede hacer referencia al archivo `hadoop-mapreduce-examples.jar` que se incluye con los clústeres de HDInsight mediante alguna de las rutas de acceso siguientes:
 
@@ -119,6 +118,8 @@ Para más información, vea [Uso del URI de Azure Data Lake Storage Gen2](../sto
 Azure Storage es una solución de almacenamiento sólida y de uso general, que se integra sin problemas con HDInsight. HDInsight puede usar un contenedor de blobs en Azure Storage como el sistema de archivos predeterminado para el clúster. Mediante una interfaz HDFS, el conjunto completo de componentes de HDInsight puede operar directamente en datos estructurados o no estructurados almacenados como blobs.
 
 Se recomienda utilizar contenedores de almacenamiento independiente para el almacenamiento predeterminado del clúster y sus datos empresariales, para aislar los registros de HDInsight y los archivos temporales de sus propios datos empresariales. También se recomienda eliminar el contenedor de blobs predeterminado, que contiene la aplicación y los registros del sistema, después de cada uso para reducir los costos de almacenamiento. Asegúrese de recuperar los registros antes de eliminar el contenedor.
+
+Si decide proteger la cuenta de almacenamiento con el **Firewalls y redes virtuales** restricciones en **redes seleccionadas**, asegúrese de habilitar la excepción **permitir confianza de Microsoft servicios...**  para que HDInsight puede acceder a su cuenta de almacenamiento.
 
 ### <a name="hdinsight-storage-architecture"></a>Arquitectura de almacenamiento de HDInsight
 
@@ -210,7 +211,7 @@ Los contenedores de datos de Data Lake Storage Gen1 son básicamente carpetas y 
 ## <a name="DataLakeStoreSecurity"></a>Seguridad de datos en Data Lake Storage Gen1
 Data Lake Storage Gen1 usa Azure Active Directory para la autenticación y listas de control de acceso (ACL) para administrar el acceso a los datos.
 
-| **Característica** | **Descripción** |
+| **Característica** | **DESCRIPCIÓN** |
 | --- | --- |
 | Authentication |Data Lake Storage Gen1 se integra con Azure Active Directory (Azure AD) para la administración de identidades y accesos para todos los datos almacenados en Data Lake Storage Gen1. Debido a la integración, Data Lake Storage Gen1 se beneficia de todas las características de Azure AD. Estas características incluyen la autenticación multifactor, el acceso condicional, el control de acceso basado en roles, la supervisión del uso de aplicaciones, la supervisión y las alertas de seguridad, etc. Igualmente, Data Lake Storage Gen1 es compatible con el protocolo OAuth 2.0 para la autenticación en la interfaz de REST. Consulte [Autenticación en Azure Data Lake Storage Gen1 con Azure Active Directory](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).|
 | Control de acceso |Data Lake Storage Gen1 proporciona control de acceso gracias a la compatibilidad con los permisos de estilo POSIX que expone el protocolo WebHDFS. Las listas de control de acceso se pueden habilitar en la carpeta raíz, en subcarpetas y en archivos individuales. Para obtener más información sobre cómo funcionan las ACL en el contexto de Data Lake Storage Gen1, consulte [Control de acceso en Data Lake Storage Gen1](../data-lake-store/data-lake-store-access-control.md). |
@@ -239,4 +240,4 @@ Para obtener más información sobre cómo acceder a los datos en Data Lake Stor
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Introducción a Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md)
-* [Introducción a Almacenamiento de Azure](../storage/common/storage-introduction.md)
+* [Introducción a Azure Storage](../storage/common/storage-introduction.md)
