@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 166a9daed40c03ed603d9ecaf4db2d49da0bf93d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: d399e83dbd1324827cc395cbf7834672baffa791
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58887060"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275851"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Tutorial: Integración de Azure Active Directory con Percolate
 
@@ -137,7 +137,7 @@ Para configurar el inicio de sesión único de Azure AD con Percolate, siga esto
 
     ![Configurar inicio de sesión único](./media/percolate-tutorial/configure02.png)
 
-     a. En el cuadro de texto **Dirección URL de inicio de sesión**, pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
+    a. En el cuadro de texto **Dirección URL de inicio de sesión**, pegue el valor de la **dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
     b. En el cuadro de texto **Entity ID** (Identificador de entidad), pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.
 
@@ -219,7 +219,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en Percolate, deben a
 
     ![Configurar inicio de sesión único](./media/percolate-tutorial/configure04.png)
 
-     a. En el cuadro de texto  **E-mail**  (Correo electrónico), escriba el correo electrónico del usuario; por ejemplo, brittasimon@contoso.com.
+    a. En el cuadro de texto  **E-mail**  (Correo electrónico), escriba el correo electrónico del usuario; por ejemplo, brittasimon@contoso.com.
 
     b. En el cuadro de texto  **Fullname**  (Nombre completo), escriba el nombre de un usuario, por ejemplo,  **Britta Simon**.
 
@@ -233,9 +233,9 @@ Al hacer clic en el icono de Percolate en el Panel de acceso, debería iniciar s
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [ Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
