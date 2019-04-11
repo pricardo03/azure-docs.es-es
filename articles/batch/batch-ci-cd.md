@@ -5,13 +5,14 @@ author: christianreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: conceptual
+ms.custom: fasttrack-new
 services: batch
-ms.openlocfilehash: 1e3b2d42ae390b9eb755e568b82fc1a90e0eae6a
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: MT
+ms.openlocfilehash: 5b7c44d3ea3394ff728adfb9d9fd72293138fb2e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58807052"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471331"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Utilice canalizaciones de Azure para compilar e implementar soluciones de HPC
 
@@ -505,5 +506,5 @@ az batch pool resize --pool-id <poolname> --target-dedicated-nodes 4
 
 Además de este artículo, hay dos tutoriales que usan ffmpeg, con .NET y Python. Consulte estos tutoriales para obtener más información sobre cómo interactuar con una cuenta de Batch a través de una aplicación sencilla.
 
-* [Ejecutar una carga de trabajo paralela con Azure Batch con la API de Python](tutorial-parallel-python.md)
-* [Ejecutar una carga de trabajo paralela con Azure Batch con la API de .NET](tutorial-parallel-dotnet.md)
+* [Ejecución de una carga de trabajo paralela con Azure Batch mediante Python API](tutorial-parallel-python.md)
+* [Ejecución de una carga de trabajo paralela con Azure Batch mediante la API de .NET](tutorial-parallel-dotnet.md)

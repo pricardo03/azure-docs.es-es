@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: 2e13f1f09fcdfb68a99e705511e3659f1632132e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 93d0f148c1fa3f13e79b28e19527251455a1b65c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895488"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470864"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Generación de perfiles de Azure Cloud Services con Application Insights
 
@@ -33,7 +33,7 @@ Application Insights Profiler se instala con la extensión de Azure Diagnostics.
 
 1. Agregue el [SDK de Application Insights a Azure Cloud Services](../../azure-monitor/app/cloudservices.md?toc=/azure/azure-monitor/toc.json).
 
-   >**Hay un error en el generador de perfiles que se incluye en la versión más reciente de WAD para servicios en la nube.** Para poder usar el generador de perfiles con un servicio en la nube, solo admite el SDK de AI hasta la versión 2.7.2. Si utiliza una versión más reciente del SDK de AI, tendrá que volver a 2.7.2 para poder usar el generador de perfiles. Si usa Visual Studio para cambiar la versión del SDK de App Insights, es posible que obtenga un error de la redirección de enlace en tiempo de ejecución. Esto es porque "newVersion" en el archivo web.config para Microsoft.ApplicationInsights debe establecerse en "2.7.2.0" después de degradar el SDK de AI, pero no se actualizan automáticamente.
+    **Se ha corregido el error en el generador de perfiles que se incluye en el WAD para servicios en la nube.** La versión más reciente de WAD (1.12.2.0) para servicios en la nube funciona con todas las versiones recientes del SDK de App Insights. Hosts de servicio en la nube actualizarán automáticamente en WAD, pero no es inmediato. Para forzar una actualización, puede volver a implementar su servicio o reiniciar el nodo.
 
 1. Realice un seguimiento de las solicitudes con Application Insights:
 
