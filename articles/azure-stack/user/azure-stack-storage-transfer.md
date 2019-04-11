@@ -14,12 +14,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.reviewer: xiaofmao
 ms.lastreviewed: 12/03/2018
-ms.openlocfilehash: 4e92f2aeec21ccef5a6a553b17e099d54de7266a
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4385e982b2a1da52ae55acf50c601108863c452a
+ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774344"
+ms.lasthandoff: 04/03/2019
+ms.locfileid: "58905960"
 ---
 # <a name="use-data-transfer-tools-for-azure-stack-storage"></a>Uso de herramientas de transferencia de datos en almacenamiento de Azure Stack
 
@@ -37,11 +37,11 @@ Los requisitos determinan cuál de las siguientes herramientas es la que más le
 
     Un shell de línea de comandos basado en tareas y un lenguaje de scripts diseñado especialmente para la administración del sistema.
 
-* [CLI de Azure](#azure-cli)
+* [Azure CLI](#azure-cli)
 
     Una herramienta multiplataforma de código abierto que proporciona un conjunto de comandos para trabajar con las plataformas Azure y Azure Stack.
 
-* [Explorador de Microsoft Azure Storage](#microsoft-azure-storage-explorer)
+* [Explorador de almacenamiento de Microsoft](#microsoft-azure-storage-explorer)
 
     Una aplicación independiente fácil de usar con una interfaz de usuario.
 
@@ -71,11 +71,11 @@ Hay dos versiones de la utilidad AzCopy: AzCopy en Windows y AzCopy en Linux.
 
 ### <a name="azcopy-command-examples-for-data-transfer"></a>Ejemplos del comando AzCopy para la transferencia de datos
 
-En los ejemplos siguientes se muestran varios escenarios habituales para copiar datos a los blobs de Azure Stack y desde ellos. Para más información, consulte [AzCopy en Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) y [AzCopy en Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux).
+En los ejemplos siguientes se muestran varios escenarios habituales para copiar datos a los blobs de Azure Stack y desde ellos. Para más información, consulte [AzCopy en Windows](../../storage/common/storage-use-azcopy.md) y [AzCopy en Linux](../../storage/common/storage-use-azcopy-linux.md).
 
 ### <a name="download-all-blobs-to-a-local-disk"></a>Descarga de todos los blobs en un disco local
 
-**Windows**
+** Windows**
 
 ```shell
 AzCopy.exe /source:https://myaccount.blob.local.azurestack.external/mycontainer /dest:C:\myfolder /sourcekey:<key> /S
@@ -93,7 +93,7 @@ azcopy \
 
 ### <a name="upload-single-file-to-virtual-directory"></a>Carga de un solo archivo en el directorio virtual
 
-**Windows**
+** Windows**
 
 ```shell
 AzCopy /Source:C:\myfolder /Dest:https://myaccount.blob.local.azurestack.external/mycontainer/vd /DestKey:key /Pattern:abc.txt
@@ -112,7 +112,7 @@ azcopy \
 
 No se admite la transferencia de datos asincrónica entre Azure Storage y Azure Stack. Debe especificar la transferencia con las opciones **/SyncCopy** o **--sync-copy**.
 
-**Windows**
+** Windows**
 
 ```shell
 Azcopy /Source:https://myaccount.blob.local.azurestack.external/mycontainer /Dest:https://myaccount2.blob.core.windows.net/mycontainer2 /SourceKey:AzSKey /DestKey:Azurekey /S /SyncCopy
@@ -156,7 +156,7 @@ En este ejemplo se supone que ha [instalado PowerShell para Azure Stack](azure-s
    > [!NOTE]
    > Este script se tiene que ejecutar en el directorio raíz de **AzureStack_Tools**.
 
-```PowerShell  
+```powershell  
 # begin
 
 $ARMEvnName = "AzureStackUser" # set AzureStackUser as your Azure Stack environment name
@@ -338,5 +338,5 @@ blobEndpoint myaccount.blob.local.azurestack.external
 
 * [Conexión del Explorador de Storage a una suscripción de Azure Stack](azure-stack-storage-connect-se.md)
 * [Introducción al Explorador de Storage](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
-* [Azure Stack Storage: Differences and considerations](azure-stack-acs-differences.md) (Azure Stack Storage: diferencias y consideraciones)
+* [Azure Stack Storage: Diferencias y consideraciones](azure-stack-acs-differences.md)
 * [Introducción a Microsoft Azure Storage](../../storage/common/storage-introduction.md)

@@ -16,12 +16,12 @@ ms.date: 03/11/2019
 ms.author: patricka
 ms.reviewer: fiseraci
 ms.lastreviewed: 03/11/2019
-ms.openlocfilehash: 3565bf4c4a19bcf1b136b4cbb781006658865a1c
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 58c16b8a102ea27499fc464c209d4ca1c0d4db33
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57767216"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264716"
 ---
 # <a name="manage-access-to-resources-with-azure-stack-role-based-access-control"></a>Administrar el acceso a recursos con el control de acceso basado en rol de Azure Stack
 
@@ -40,28 +40,6 @@ Azure Stack cuenta con tres roles básicos que puede aplicar a todos los tipos d
 * El **propietario** puede administrar todo, incluido el acceso a los recursos.
 * El **colaborador** puede administrar todo excepto el acceso a los recursos.
 * El **lector** puede ver todo, pero no puede realizar cambios.
-
-### <a name="resource-hierarchy-and-inheritance"></a>Jerarquía y herencia de recursos
-
-Azure Stack tiene la siguiente jerarquía de recursos:
-
-* Cada suscripción pertenece a un directorio.
-* Cada grupo de recursos pertenece a una suscripción.
-* Cada recurso pertenece a un grupo de recursos.
-
-El acceso que se concede en un ámbito principal se hereda en los ámbitos secundarios. Por ejemplo: 
-
-* Asigne el rol de lector a un grupo de Azure AD en el ámbito de la suscripción. Los miembros de ese grupo pueden ver todos los grupos de recursos y los recursos de la suscripción.
-* Asigne el rol de colaborador a una aplicación en el ámbito del grupo de recursos. La aplicación puede administrar todos los tipos de recursos de ese grupo de recursos, pero no otros grupos de recursos de la suscripción.
-
-### <a name="assigning-roles"></a>Asignación de roles
-
-Puede asignar más de un rol a un usuario y cada rol puede estar asociado con un ámbito diferente. Por ejemplo: 
-
-* Asigne a TestUser-A el rol Lector para Subscription-1.
-* Asigne a TestUser-A el rol Propietario para TestVM-1.
-
-En el artículo sobre [asignaciones de roles](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) de Azure, se proporciona información detallada sobre cómo ver, asignar y eliminar roles.
 
 ### <a name="resource-hierarchy-and-inheritance"></a>Jerarquía y herencia de recursos
 

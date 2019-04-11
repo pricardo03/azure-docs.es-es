@@ -99,7 +99,7 @@ En este artículo se muestran los países y las regiones que usa el método de e
 
         - Me(Montenegro)
 
-        - MK(ERY de Macedonia)
+        - MK(Macedonia del Norte)
 
         - MT(Malta)
 

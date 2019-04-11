@@ -17,12 +17,12 @@ ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f3fcbda160d84e41fd2244a4d58766ae3991e52
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: c7b3eee08c036862e6ce9f0c590a596f7b1d3fb0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56197664"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258698"
 ---
 # <a name="about-microsoft-identity-platform"></a>Acerca de la plataforma de identidad de Microsoft
 
@@ -38,7 +38,7 @@ Las aplicaciones que usan las bibliotecas ADAL y la MSAL más recientes realizar
 
 En el siguiente diagrama se muestra la experiencia de identidad de Microsoft en un alto nivel, incluida la experiencia de registro de aplicaciones, los SDK, los puntos de conexión y las identidades compatibles.
 
-![Plataforma de identidad de Microsoft actualmente](./media/about-microsoft-identity-platform/microsoft-identity-platform-preview.png)
+![Plataforma de identidad de Microsoft actualmente](./media/about-microsoft-identity-platform/about-microsoft-identity-platform.svg)
 
 La plataforma de identidad de Microsoft tiene dos puntos de conexión (v1.0 y v2.0) y dos conjuntos de bibliotecas de cliente para controlarlos. Al desarrollar una nueva aplicación, tenga en cuenta las ventajas y el estado actual de los puntos de conexión y las bibliotecas de autenticación. También debe tener en cuenta los siguientes aspectos:
 
@@ -63,4 +63,4 @@ La plataforma de identidad de Microsoft tiene dos puntos de conexión (v1.0 y v2
 Obtenga más información acerca de v1.0 y v2.0.
 
 * [Acerca de v1.0](v1-overview.md)
-* [Acerca de v2.0](v2-overview.md)
+* [Acerca de la versión 2.0](v2-overview.md)

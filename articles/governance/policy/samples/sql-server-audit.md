@@ -1,19 +1,18 @@
 ---
 title: 'Ejemplo: Auditar la configuración de auditoría de SQL Server'
 description: Esta definición de directiva de ejemplo audita la configuración de auditoría de SQL Server con auditIfNotExists.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 1e0731de5ce2a12fee6b203f245e42aa4bc67d6e
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: c4510a316760fa948aa39627c9a9c517437b1d77
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338179"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264098"
 ---
 # <a name="sample---audit-sql-server-audit-settings"></a>Ejemplo: Auditar la configuración de auditoría de SQL Server
 
