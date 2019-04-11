@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
-ms.openlocfilehash: f0f5a4ee5206201cca20e705011126e6cf472a1a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835459"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471093"
 ---
 # <a name="u-sql-programmability-guide"></a>Guía de programación de U-SQL
 
@@ -85,7 +85,7 @@ OUTPUT @rs1
 
 ### <a name="use-c-expressions-for-todays-date"></a>Uso de expresiones de C# para la fecha de hoy
 
-Para extraer la fecha de hoy, podemos usar la siguiente expresión de C#: `DateTime.Now.ToString("M/d/yyyy")`
+Para extraer la fecha de hoy, podemos usar la siguiente C# expresión: `DateTime.Now.ToString("M/d/yyyy")`
 
 Este es un ejemplo de cómo utilizar esta expresión en un script:
 
@@ -533,9 +533,9 @@ La interfaz `IFormatter` serializa y deserializa un gráfico de objetos con el t
 
 * **Serialize**: serializa un objeto o un grafo de objetos con el directorio raíz especificado en el flujo proporcionado.
 
-Instancia de `MyType`: instancia del tipo.  
-Escritor `IColumnWriter`/lector `IColumnReader`: flujo de la columna subyacente.  
-Contexto `ISerializationContext`: enumeración que define un conjunto de marcas que especifica el contexto de origen o destino para el flujo durante la serialización.
+`MyType` Instancia: instancia del tipo.  
+`IColumnWriter` sistema de escritura / `IColumnReader` lector: flujo de la columna subyacente.  
+`ISerializationContext` context: enumeración que define un conjunto de marcas que especifica el contexto de origen o destino para el flujo durante la serialización.
 
 * **Intermediate**: especifica que el contexto de origen o destino no es un almacén persistente.
 
@@ -1269,7 +1269,7 @@ public class MyOutputter : IOutputter
 
 * `Output` se llama para cada fila de entrada. Devuelve el conjunto de filas `IUnstructuredWriter output`.
 * La clase Constructor se utiliza para pasar parámetros al outputter definido por el usuario.
-* `Close` se usa para invalidar opcionalmente para liberar el estado costoso o saber cuándo se ha escrito la última fila.
+* `Close` se usa para invalidar opcionalmente para liberar el estado costoso o para determinar cuándo se escribió la última fila.
 
 El atributo **SqlUserDefinedOutputter** indica que el tipo se debe registrar como un outputter definido por el usuario. Esta clase no se puede heredar.
 
@@ -1601,7 +1601,7 @@ CROSS APPLYis used to pass parameters
 new MyScript.MyApplier(param1, param2) AS alias(output_param1 string, …);
 ```
 
-Consulte [U-SQL SELECT Selecting from CROSS APPLY and OUTER APPLY](https://msdn.microsoft.com/library/azure/mt621307.aspx) (U-SQL SELECT, selección de CROSS APPLY y OUTER APPLY) para más información sobre cómo utilizar aplicadores en una expresión SELECT.
+Consulte [U-SQL SELECT Selecting from CROSS APPLY and OUTER APPLY](/u-sql/statements-and-expressions/select/from/select-selecting-from-cross-apply-and-outer-apply) (U-SQL SELECT, selección de CROSS APPLY y OUTER APPLY) para más información sobre cómo utilizar aplicadores en una expresión SELECT.
 
 La definición de clase base de aplicador definida por el usuario es la siguiente:
 
@@ -1815,7 +1815,7 @@ Combine_Expression :=
     USING_Clause.
 ```
 
-Para más información, vea [COMBINE Expression (U-SQL)](https://msdn.microsoft.com/library/azure/mt621339.aspx) (Expresión COMBINE (U-SQL)).
+Para más información, vea [COMBINE Expression (U-SQL)](/u-sql/statements-and-expressions/combine-expression) (Expresión COMBINE (U-SQL)).
 
 Para definir un combinador definido por el usuario, es necesario crear la interfaz `ICombiner` con el atributo [`SqlUserDefinedCombiner`], que es opcional para la definición de dicho combinador.
 
@@ -1877,7 +1877,7 @@ Los conjuntos de filas de entrada se pasan como el tipo de interfaz `IRowset` **
 
 Para el almacenamiento en caché, se puede crear un tipo de estructura de memoria List\<T\> como resultado de la ejecución de la consulta LINQ y, más concretamente, List<`IRow`>. El tipo de datos anónimo también se puede utilizar durante la enumeración.
 
-Consulte [Introduction to LINQ Queries (C#)](https://msdn.microsoft.com/library/bb397906.aspx) (Introducción a las consultas de LINQ (C#)) para más información sobre las consultas LINQ e [Interfaz IEnumerable\<T\>](https://msdn.microsoft.com/library/9eekhta0(v=vs.110).aspx) para más información sobre la interfaz IEnumerable\<T\>.
+Consulte [Introduction to LINQ Queries (C#)](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries) (Introducción a las consultas de LINQ (C#)) para más información sobre las consultas LINQ e [Interfaz IEnumerable\<T\>](/dotnet/api/system.collections.generic.ienumerable-1) para más información sobre la interfaz IEnumerable\<T\>.
 
 Para obtener los valores de datos reales a partir de `IRowset` de entrada, utilizamos el método Get() de la interfaz `IRow`.
 

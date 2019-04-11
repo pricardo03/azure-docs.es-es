@@ -9,12 +9,12 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: 7a4aae87cd704cf94c89c308c0c056ae5b9a8b4d
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: fe28aa8b88f557d4bbcdabf1de1c4bc6491743ce
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51251009"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471416"
 ---
 # <a name="export-a-u-sql-database"></a>Exportación de una base de datos de U-SQL
 
@@ -37,7 +37,7 @@ Todas las cuentas de Data Lake Analytics para las que tiene permiso se muestran 
 
      Si la opción de menú **exportar** no está disponible, deberá [actualizar la herramienta a la última versión](https://aka.ms/adltoolsvs).
 
-### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>Paso 2: Configure los objetos que desea exportar
+### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>Paso 2: Configurar los objetos que desea exportar
 
 Si solo necesita una pequeña parte de una base de datos grande, puede configurar un subconjunto de objetos que desea exportar en el Asistente para exportación. 
 
@@ -45,7 +45,7 @@ La acción de exportación se realiza mediante la ejecución de un trabajo de U-
 
 ![Asistente para exportación de base de datos: selección de Exportar objetos](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard.png)
 
-### <a name="step-3-check-the-objects-list-and-other-configurations"></a>Paso 3: Comprobar la lista de objetos y otras configuraciones
+### <a name="step-3-check-the-objects-list-and-other-configurations"></a>Paso 3: Compruebe la lista de objetos y otras configuraciones
 
 En este paso, puede comprobar los objetos seleccionados en la casilla **Exportar lista de objetos**. Si hay errores, seleccione **Anterior** para volver atrás y configurar correctamente los objetos que desea exportar.
 
@@ -61,7 +61,7 @@ También puede configurar otras opciones para el destino de exportación. Las de
 
 ![Asistente para exportación de bases de datos: exportación de listas de objetos y otras configuraciones](./media/data-lake-analytics-data-lake-tools-export-database/export-database-wizard-configuration.png)
 
-### <a name="step-4-check-the-export-results"></a>Paso 4: Compruebe los resultados de la exportación
+### <a name="step-4-check-the-export-results"></a>Paso 4: Comprobar los resultados de la exportación
 
 Una vez finalizada la exportación, puede ver los resultados exportados en la ventana de registros del asistente. En el ejemplo siguiente se muestra cómo buscar scripts U-SQL y recursos de bases de datos exportados, incluidos ensamblados, archivos adicionales y datos de ejemplo:
 
@@ -84,7 +84,7 @@ Actualmente, si seleccionó **Esquema y datos** en el paso 3, la herramienta eje
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Información sobre las bases de datos de U-SQL](https://msdn.microsoft.com/library/azure/mt621299.aspx) 
+* [Obtenga información sobre las bases de datos de U-SQL](/u-sql/data-definition-language-ddl-statements) 
 * [Prueba y depuración de trabajos U-SQL mediante la ejecución local y el SDK de U-SQL para Azure Data Lake](data-lake-analytics-data-lake-tools-local-run.md)
 
 

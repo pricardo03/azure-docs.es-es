@@ -3,25 +3,25 @@ title: Copia de datos mediante la herramienta Copy Data de Azure | Microsoft Doc
 description: Cree una factoría de datos de Azure y, luego, use la herramienta Copy Data para copiar los datos de una ubicación de Azure Blob Storage a otra.
 services: data-factory
 documentationcenter: ''
-author: linda33wj
+author: dearandyxu
 manager: craigg
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: quickstart
 ms.date: 06/20/2018
-ms.author: jingwang
-ms.openlocfilehash: 6ff264c079ef5ee18258c3cd136cf441dc33e299
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
+ms.author: yexu
+ms.openlocfilehash: a77041b063f043c065df9a2955e9d07b5692f592
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "55992762"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256267"
 ---
 # <a name="quickstart-use-the-copy-data-tool-to-copy-data"></a>Inicio rápido: Uso de la herramienta Copy Data para copiar datos
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service that you are using:"]
-> * [Versión 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [versión 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versión actual](quickstart-create-data-factory-copy-data-tool.md)
 
 En esta guía de inicio rápido, usará Azure Portal para crear una factoría de datos. A continuación, usará la herramienta Copy Data para crear una canalización que copia datos de una carpeta de una instancia de Azure Blob Storage a otra carpeta. 
@@ -71,7 +71,7 @@ En esta guía de inicio rápido, usará Azure Portal para crear una factoría de
    ![Página de propiedades](./media/quickstart-create-data-factory-copy-data-tool/copy-data-tool-properties-page.png)
 1. En la página **Almacén de datos de origen**, realice los pasos siguientes:
 
-     a. Haga clic en **+ Crear nueva conexión** para agregar una conexión.
+    a. Haga clic en **+ Crear nueva conexión** para agregar una conexión.
 
     ![Página del almacén de datos de origen](./media/quickstart-create-data-factory-copy-data-tool/new-source-linked-service.png)
 
@@ -90,7 +90,7 @@ En esta guía de inicio rápido, usará Azure Portal para crear una factoría de
 
 1. En la página **Choose the input file or folder** (Elegir el archivo o la carpeta de entrada), complete los siguientes pasos:
 
-    a. Haga clic en **Examinar** para ir a la carpeta **adftutorial/input**, seleccione el archivo **emp.txt** y, finalmente, haga clic en **Elegir**. 
+   a. Haga clic en **Examinar** para ir a la carpeta **adftutorial/input**, seleccione el archivo **emp.txt** y, finalmente, haga clic en **Elegir**. 
 
    ![Página de elección del archivo o la carpeta de entrada](./media/quickstart-create-data-factory-copy-data-tool/configure-source-path.png)
 

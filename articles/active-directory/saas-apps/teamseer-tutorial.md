@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: d3f95001ff26fe21c29baf0c8721be914e8fdf73
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: ef11011ec37f72003dd6c238ce748d417bfcd505
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905144"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256624"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Tutorial: Integración de Azure Active Directory con TeamSeer
 
@@ -144,7 +144,7 @@ Para configurar el inicio de sesión único de Azure AD con TeamSeer, siga estos
 
     ![Configuración de SAML](./media/teamseer-tutorial/ic789637.png "Configuración de SAML")
 
-     a. En el cuadro de texto **URL**, pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
+    a. En el cuadro de texto **URL**, pegue el valor de **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
     b. Abra el certificado codificado en base 64 en el bloc de notas, copie su contenido en el portapapeles y péguelo en el cuadro de texto **IdP Public Certificate** (Certificado público del proveedor de identidades).
 
@@ -152,7 +152,7 @@ Para configurar el inicio de sesión único de Azure AD con TeamSeer, siga estos
 
     ![Configuración de SAML](./media/teamseer-tutorial/ic789638.png "Configuración de SAML")
 
-     a. En las **Direcciones de correo electrónico de prueba**, escriba la dirección de correo electrónico del usuario de prueba.
+    a. En las **Direcciones de correo electrónico de prueba**, escriba la dirección de correo electrónico del usuario de prueba.
   
     b. En el cuadro de texto **Emisor** , escriba la dirección URL de emisor del proveedor de servicios.
   
@@ -225,7 +225,7 @@ Para permitir que los usuarios de Azure AD inicien sesión en TeamSeer, deben ap
 
     ![Detalles del usuario](./media/teamseer-tutorial/ic789641.png "Detalles del usuario")
 
-     a. Escriba el **nombre**, **apellidos** y **nombre de usuario (dirección de correo electrónico)** de una cuenta válida de Azure AD que desee aprovisionar en los cuadros de texto correspondientes.
+    a. Escriba el **nombre**, **apellidos** y **nombre de usuario (dirección de correo electrónico)** de una cuenta válida de Azure AD que desee aprovisionar en los cuadros de texto correspondientes.
   
     b. Haga clic en **Next**.
 
@@ -242,8 +242,8 @@ Al hacer clic en el icono de TeamSeer en el Panel de acceso, debería iniciar se
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [ Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

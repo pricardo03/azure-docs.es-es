@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/12/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: fcf3fe85b6dd184b4f58060aab4fcf3ce146af13
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b8333ae7eb676fd38bf7d654cecdb4dd07ff7c03
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58015161"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279694"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Ejecución de un cuaderno de Databricks con la actividad Notebook de Databricks en Azure Data Factory
 
@@ -137,7 +137,7 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
 
 1.  En las propiedades de la ventana de actividad  **Notebook** de **Databricks**  de la parte inferior, realice los pasos siguientes:
 
-     a. Cambie a la pestaña  **Azure Databricks** .
+    a. Cambie a la pestaña  **Azure Databricks** .
 
     b. Seleccione  **AzureDatabricks\_LinkedService**  (que creó en el procedimiento anterior).
 
@@ -165,8 +165,8 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
            dbutils.widgets.text("input", "","")
            dbutils.widgets.get("input")
            y = getArgument("input")
-           print "Param -\'input':"
-           print y
+           print ("Param -\'input':")
+           print (y)
            ```
 
            ![Crear widgets para los parámetros](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image16.png)
@@ -175,7 +175,7 @@ En esta sección, va a crear un servicio vinculado de Databricks. Este servicio 
 
 1.  Vuelva a la **herramienta de creación de interfaz de usuario de Data Factory**. Vaya a la pestaña **Configuración** en la **actividad Notebook1**.
 
-     a.  **Agregue un parámetro** a la actividad Notebook. Utilice el mismo parámetro que se ha agregado antes a la **canalización**.
+    a.  **Agregue un parámetro** a la actividad Notebook. Utilice el mismo parámetro que se ha agregado antes a la **canalización**.
 
        ![Agregar un parámetro](media/transform-data-using-databricks-notebook/new-adf-parameters.png)
 

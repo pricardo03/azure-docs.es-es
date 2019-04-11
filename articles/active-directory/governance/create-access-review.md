@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 02/20/2019
+ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e25af938d09a254abd5d28ca3a5eecca2d3f8f1
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 804efa6e0a39e009e18bbb9dec5ad1638a163597
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576212"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471637"
 ---
 # <a name="create-an-access-review-of-groups-or-applications-in-azure-ad-access-reviews"></a>Creación de una revisión de acceso de los grupos o las revisiones de acceso de las aplicaciones de Azure AD
 
@@ -35,13 +35,13 @@ Este artículo describe cómo crear una o varias de las revisiones de acceso par
 
 ## <a name="create-one-or-more-access-reviews"></a>Crear una o varias revisiones de acceso
 
-1. Inicie sesión en el portal de Azure y abra el [página de revisiones de acceso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
+1. Inicie sesión en Azure portal y abra el [página de revisiones de acceso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/).
 
-1. Haga clic en **Controles**.
+1. En el menú izquierdo, haga clic en **las revisiones de acceso**.
 
 1. Haga clic en **Nueva revisión de acceso** para crear una nueva revisión de acceso.
 
-    ![Revisión de acceso: controles](./media/create-access-review/controls.png)
+    ![Revisión de acceso: controles](./media/create-access-review/access-reviews.png)
 
 1. Ponga un nombre a la revisión de acceso. Opcionalmente, asigne a la revisión una descripción. El nombre y la descripción se muestran a los revisores.
 
@@ -51,15 +51,15 @@ Este artículo describe cómo crear una o varias de las revisiones de acceso par
 
     ![Creación de una revisión de acceso: fechas de inicio y de finalización](./media/create-access-review/start-end-dates.png)
 
-1. Para que la revisión de acceso sea periódica, cambie el valor **Frecuencia** de **Una vez** a **Semanal**, **Mensual**, **Trimestral** o **Anual**, y utilice el cuadro de texto o el control deslizante **Duración** para definir el número de días que cada revisión de la serie periódica estará abierta para las aportaciones de los revisores. Por ejemplo, la duración máxima que puede establecer para una revisión mensual es 27 días, con el fin de evitar la superposición de revisiones.
+1. Para realizar la revisión de acceso periódica, cambie el **frecuencia** de **una vez** a **semanal**, **mensual**,  **Trimestral** o **anualmente**. Use la **duración** control deslizante o cuadro de texto para definir cuántos días cada revisión de la serie periódicas será abrir para la entrada de revisores. Por ejemplo, la duración máxima que puede establecer para una revisión mensual es 27 días, con el fin de evitar la superposición de revisiones.
 
 1. Use el valor **Fin** para especificar cómo finalizar la serie de revisión de acceso periódica. La serie puede terminar de tres formas: se ejecuta continuamente para iniciar revisiones indefinidamente, hasta una fecha concreta, o hasta que se haya completado un número definido de veces. Otro usuario administrador u otro administrador Global puede detener la serie después de la creación, cambie la fecha en **configuración**, de modo que termina en esa fecha.
 
-1. En la sección **Usuarios**, especifique los usuarios a los que aplica esa revisión de acceso. Las revisiones de acceso pueden ser de los miembros de un grupo o de los usuarios que se hayan asignado a una aplicación. Puede limitar aún más el ámbito de la revisión de acceso para revisar solo los usuarios invitados que sean miembros (o se hayan asignado a la aplicación), en lugar de revisar todos los usuarios miembros o que tengan acceso a la aplicación.
+1. En el **usuarios** sección, especifique los usuarios que se aplica la revisión de acceso. Las revisiones de acceso pueden ser de los miembros de un grupo o de los usuarios que se hayan asignado a una aplicación. Puede limitar aún más el ámbito de la revisión de acceso para revisar solo los usuarios invitados que sean miembros (o se hayan asignado a la aplicación), en lugar de revisar todos los usuarios miembros o que tengan acceso a la aplicación.
 
     ![Creación de una revisión de acceso: usuarios](./media/create-access-review/users.png)
 
-1. En el **grupos** , seleccione uno o varios grupos que le gustaría ver la pertenencia de.
+1. En el **grupo** , seleccione uno o varios grupos que le gustaría ver la pertenencia de.
 
     > [!NOTE]
     > Si selecciona más de un grupo, se creación varias revisiones de acceso. Por ejemplo, selección de cinco grupos creará cinco de las revisiones de acceso independientes.
@@ -112,7 +112,9 @@ Este artículo describe cómo crear una o varias de las revisiones de acceso par
 
 ## <a name="start-the-access-review"></a>Inicio de la revisión de acceso
 
-Una vez que haya especificado la configuración para una revisión de acceso, haga clic en **Iniciar**.
+Una vez que haya especificado la configuración para una revisión de acceso, haga clic en **Iniciar**. La revisión de acceso aparecerá en la lista con un indicador de su estado.
+
+![Lista de revisiones de acceso](./media/create-access-review/access-reviews-list.png)
 
 De forma predeterminada, Azure AD envía un correo electrónico a los revisores poco después de iniciar la revisión. Si decide no hacer que Azure AD envíe el correo electrónico, asegúrese de informar a los revisores de que hay una revisión de acceso esperando para que la lleven a cabo. Puede mostrarles las instrucciones sobre cómo [revisen el acceso a grupos o aplicaciones](perform-access-review.md). Si la revisión es para que los invitados que revisen su propio acceso, muéstreles las instrucciones sobre cómo [revisar el acceso por sí mismo a grupos o aplicaciones](review-your-access.md).
 
@@ -120,13 +122,15 @@ Si alguno de los revisores es un invitado, solo se notificará a los invitados p
 
 ## <a name="manage-the-access-review"></a>Administración de la revisión de acceso
 
-Puede seguir el progreso a medida que los revisores las realizan en el panel de Azure AD en el **las revisiones de acceso** sección. Los derechos de acceso no se cambian en el directorio hasta que [la revisión finaliza](complete-access-review.md).
+Puede seguir el progreso a medida que los revisores las realizan en el **Introducción** página de la revisión de acceso. Los derechos de acceso no se cambian en el directorio hasta que [la revisión finaliza](complete-access-review.md).
+
+![Progreso de revisiones de acceso](./media/create-access-review/overview-progress.png)
 
 Si se trata de una revisión de un solo uso, a continuación, una vez que el período de revisión de acceso o el administrador detenga la revisión de acceso, siga los pasos de [revisión de acceso de grupos o aplicaciones](complete-access-review.md) para ver los resultados y aplicarlos.  
 
-Para administrar una serie de revisiones de acceso, vaya a la revisión de acceso de **Controles** y verá los próximos eventos en Revisión programada; ahí podrá editar la fecha de finalización o agregar o quitar revisores según corresponda. 
+Para administrar una serie de acceso de las revisiones, vaya a la revisión de acceso, y se encontrar próximas repeticiones en las revisiones programada y editar la fecha de finalización o agregar revisores en consecuencia.
 
-Según las selecciones de la Configuración de finalización, la aplicación automática se ejecutará después de la fecha de finalización de la revisión o cuando se detenga manualmente la revisión. El estado de la revisión cambiará de Completado a estados intermedios como Aplicando y, por último, a Aplicado. Debería esperar ver a los usuarios denegados, si es que los hay, eliminados de la pertenencia al grupo o la asignación de aplicaciones en unos minutos.
+Según las selecciones realizadas en **configuración de finalización**, voluntad de aplicar automáticamente se ejecutará después de la fecha de finalización de la revisión o al detener manualmente la revisión. El estado de la revisión cambiará de **completado** a través de los estados intermedios, como **Applying** y, finalmente, al estado **aplicado**. Debería esperar ver a los usuarios denegados, si es que los hay, eliminados de la pertenencia al grupo o la asignación de aplicaciones en unos minutos.
 
 ## <a name="create-reviews-via-apis"></a>Creación de revisiones mediante API
 
