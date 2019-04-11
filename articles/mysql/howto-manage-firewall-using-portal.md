@@ -5,16 +5,18 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: b55f8d44d12fa503a17218db4a5166819024f1aa
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.date: 04/09/2018
+ms.openlocfilehash: 017266fd28fb31b4509957560a042abf74314453
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56872903"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469461"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-portal"></a>Creación y administración de reglas de firewall de Azure Database for MySQL mediante Azure Portal
-Las reglas de firewall de nivel de servidor permiten a los administradores acceder a un servidor de Azure Database for MySQL desde una dirección IP especificada o desde un intervalo de direcciones IP. 
+Las reglas de firewall de nivel de servidor pueden usarse para administrar el acceso a una base de datos de Azure Database for MySQL desde una dirección IP especificada o un intervalo de direcciones IP. 
+
+Reglas virtuales Network (VNet) también pueden usarse para proteger el acceso a su servidor. Obtenga más información sobre [reglas mediante el portal de Azure y los puntos de conexión de servicio creación y administración de red Virtual](howto-manage-vnet-using-portal.md).
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Creación de una regla de firewall de nivel a servidor en Azure Portal
 
@@ -57,4 +59,5 @@ Repita los pasos para administrar las reglas de firewall.
 
 ## <a name="next-steps"></a>Pasos siguientes
 - De modo similar, puede utilizar scripts para la [Creación y administración de reglas de firewall de Azure Database for MySQL mediante la CLI de Azure](howto-manage-firewall-using-cli.md).
-- Para obtener ayuda para la conexión a un servidor de Azure Database for MySQL, consulte [Bibliotecas de conexiones para Azure Database for MySQL](./concepts-connection-libraries.md).
+- Proteger aún más el acceso a su servidor [reglas mediante el portal de Azure y los puntos de conexión de servicio creación y administración de red Virtual](howto-manage-vnet-using-portal.md).
+- Obtener ayuda para conectarse a un servidor Azure Database for MySQL, consulte [bibliotecas de conexiones de Azure Database for MySQL](./concepts-connection-libraries.md).

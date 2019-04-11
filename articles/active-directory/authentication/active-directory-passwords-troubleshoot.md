@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f4f13a8b03f3ddba91fb4c4b69f550e1e88a491
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 5adb857e6032e46c31a86685913277ec3eb571be
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885084"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471059"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solución de problemas del autoservicio de restablecimiento de contraseñas
 
@@ -167,8 +167,8 @@ El punto de error más común es la configuración incorrecta del firewall o los
 
 En el caso de Azure AD Connect, versiones 1.1.443.0 y posteriores, se necesita acceso HTTPS saliente al siguiente:
 
-* passwordreset.microsoftonline.com
-* servicebus.windows.net
+* \*.passwordreset.microsoftonline.com
+* \*.servicebus.windows.net
 
 Para mayor granularidad, consulte la lista actualizada de [intervalos IP de centro de datos de Microsoft Azure Datacenter](https://www.microsoft.com/download/details.aspx?id=41653), que se actualiza todos los miércoles y que entra en vigor los lunes siguientes.
 

@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: jowargo
-ms.openlocfilehash: a86c3bd85f9d611787a41754f49ee2475ba33a9a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: c24fcd5f007b641bb594bb07348491f70c03ea41
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58175795"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469138"
 ---
 # <a name="export-and-import-azure-notification-hubs-registrations-in-bulk"></a>Exportar e importar registros de Azure Notification Hubs en masa
 Hay escenarios en los que se requiere para crear o modificar gran cantidad de registros en un centro de notificaciones. Algunos de estos escenarios son actualizaciones de etiqueta a la continuación de los cálculos por lotes, o migrar una implementación de inserción existente para usar Notification Hubs.
@@ -34,7 +34,7 @@ En esta sección se supone que tiene las siguientes entidades:
 
 - Un centro de notificaciones aprovisionado.
 - Un contenedor de blobs de Azure Storage.
-- Referencias a los paquetes de NuGet de Azure Service Bus y almacenamiento de Azure.
+- Las referencias a la [paquete NuGet de Azure Storage](https://www.nuget.org/packages/windowsazure.storage/) y [paquete NuGet de Notification Hubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/1.0.9).
 
 ### <a name="create-input-file-and-store-it-in-a-blob"></a>Crear archivo de entrada y almacenarlo en un blob
 Un archivo de entrada contiene una lista de registros que se serializan en XML, uno por fila. Mediante el SDK de Azure, en el ejemplo de código siguiente se muestra cómo serializar los registros y cargarlos en el contenedor de blobs.
@@ -132,7 +132,7 @@ Estos archivos contienen la lista de operaciones correctas e incorrectas del lot
 El siguiente código de ejemplo importa los registros en un centro de notificaciones.
 
 ```csharp
-using Microsoft.ServiceBus.Notifications;
+using Microsoft.Azure.NotificationHubs;
 using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System;
@@ -289,5 +289,5 @@ while(true){
 Para obtener más información sobre los registros, consulte los artículos siguientes:
 
 - [Administración de registros](notification-hubs-push-notification-registration-management.md)
-- [Etiquetas para los registros](notification-hubs-tags-segment-push-message.md)
+- [Etiquetas para registros](notification-hubs-tags-segment-push-message.md)
 - [Registros de plantilla](notification-hubs-templates-cross-platform-push-messages.md)

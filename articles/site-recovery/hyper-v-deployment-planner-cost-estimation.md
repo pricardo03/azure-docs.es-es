@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 11/27/2018
+ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 03f71e4e10b65d9f295e13cdd8bc6881622c523d
-ms.sourcegitcommit: 3ba9bb78e35c3c3c3c8991b64282f5001fd0a67b
-ms.translationtype: HT
+ms.openlocfilehash: e98ec71f0c21fe640666b9d34e170678ec23c1ff
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/15/2019
-ms.locfileid: "54320289"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359036"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Informe de estimación de costos mediante Azure Site Recovery Deployment Planner 
 
@@ -56,7 +56,7 @@ La primera sección muestra el costo total de la recuperación ante desastres po
 
 **Network** (Red): costo de ExpressRoute y VPN de sitio a sitio para satisfacer las necesidades de recuperación ante desastres. 
 
-**ASR license** (Licencia de ASR): costo de la licencia de Azure Site Recovery para todas las máquinas virtuales compatibles. Si ha insertado manualmente una máquina virtual en la tabla de análisis detallado del costo, el costo de la licencia de Site Recovery también está incluido para esa máquina virtual.
+**Licencia de Azure Site Recovery**: costo de la licencia de Azure Site Recovery para todas las máquinas virtuales compatibles. Si ha insertado manualmente una máquina virtual en la tabla de análisis detallado del costo, el costo de la licencia de Site Recovery también está incluido para esa máquina virtual.
 
 ### <a name="overall-dr-costs-by-states"></a>Overall DR cost by states (Costo total de la recuperación ante desastres por estado)
 El costo total de la recuperación ante desastres se clasifica según dos estados diferentes: replicación y simulacro de recuperación ante desastres.
@@ -107,21 +107,21 @@ Para agregar las máquinas virtuales manualmente:
 
 1. Rellene las columnas siguientes en función del tamaño aproximado de máquina virtual y del número de máquinas virtuales que coincidan con esta configuración: 
 
-     a. **Number of VMs** (Número de máquinas virtuales)
+     a. **Número de máquinas virtuales**
 
-    b. **IaaS size (Your selection)** (Tamaño de IaaS [su selección])
+    b. **Tamaño de IaaS (Your selection)**
 
-    c. **Storage type Standard/Premium** (Tipo de almacenamiento estándar/Premium)
+    c. **Tipo de almacenamiento estándar o Premium**
 
-    d. **VM total storage size (GB)** (Tamaño de almacenamiento total de máquinas virtuales [GB])
+    d. **VM total storage size (GB) [Tamaño de almacenamiento total de máquinas virtuales (GB)]**
 
-    e. **Number of DR drills in a year** (Número de simulacros de recuperación ante desastres en un año)
+    e. **Número de simulacros de recuperación ante desastres en un año**
 
-    f. **Each DR drill duration (Days)** (Duración de cada simulacro de recuperación ante desastres [días])
+    f. **Cada DR-Drill duration (días)**
 
-    g. **OS Type** (Tipo de SO)
+    g. **OS Type (Tipo de SO)**
 
-    h. **Data redundancy** (Redundancia de datos)
+    h. **Redundancia de datos**
 
     i. **Ventaja de uso híbrido de Azure**
 
@@ -157,7 +157,7 @@ Para agregar las máquinas virtuales manualmente:
 
 **Total DR-Drill cost (average)** (Costo total de simulacro de recuperación ante desastres [medio]): el costo de almacenamiento y proceso de simulacros de recuperación ante desastres.
 
-**ASR license cost** (Costo de licencia de ASR): el costo de licencia de Site Recovery.
+**Costos de licencia de Azure Site Recovery**: el costo de licencia de Site Recovery.
 
 ## <a name="supported-target-regions"></a>Regiones de destino admitidas
 Azure Site Recovery Deployment Planner proporciona una estimación de los costos para las siguientes regiones de Azure. Si su región no aparece en la lista, puede usar cualquiera de las siguientes cuyo precio sea más parecido al de la suya:

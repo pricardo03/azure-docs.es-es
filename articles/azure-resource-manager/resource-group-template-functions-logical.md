@@ -4,36 +4,33 @@ description: Describe las funciones que se pueden usar en una plantilla de Azure
 services: azure-resource-manager
 documentationcenter: na
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2018
+ms.date: 04/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: 109bd1c987c86721c6064fc0294913c85fa3a901
-ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.openlocfilehash: 9065c6bc71a153ae94ddc20d5b41a152094fc111
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56267876"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470158"
 ---
 # <a name="logical-functions-for-azure-resource-manager-templates"></a>Funciones lógicas para las plantillas de Azure Resource Manager
 
 Resource Manager proporciona varias funciones para realizar comparaciones en las plantillas.
 
-* [and](#and)
-* [bool](#bool)
+* [y](#and)
+* [booleano](#bool)
 * [if](#if)
 * [not](#not)
-* [or](#or)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+* [o](#or)
 
 ## <a name="and"></a>y
+
 `and(arg1, arg2, ...)`
 
 Comprueba si todos los valores de parámetros son verdaderos.
@@ -84,19 +81,8 @@ El resultado del ejemplo anterior es:
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
 ## <a name="bool"></a>booleano
+
 `bool(arg1)`
 
 Convierte el parámetro en un booleano.
@@ -149,19 +135,8 @@ La salida del ejemplo anterior con el valor predeterminado es:
 | trueInt | Bool | True |
 | falseInt | Bool | False |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/bool.json
-```
-
 ## <a name="if"></a>if
+
 `if(condition, trueValue, falseValue)`
 
 Devuelve un valor dependiendo de si una condición es verdadera o falsa.
@@ -170,7 +145,7 @@ Devuelve un valor dependiendo de si una condición es verdadera o falsa.
 
 | Parámetro | Obligatorio | Type | DESCRIPCIÓN |
 |:--- |:--- |:--- |:--- |
-| condition |Sí |boolean |Valor cuya veracidad se comprueba. |
+| condition |Sí |boolean |El valor que se comprobará si es true o false. |
 | trueValue |Sí | cadena, int, objeto o matriz |Valor que se devuelve cuando la condición es verdadera. |
 | falseValue |Sí | cadena, int, objeto o matriz |Valor que se devuelve cuando la condición es falsa. |
 
@@ -180,49 +155,7 @@ Devuelve el segundo parámetro si el primer parámetro es **True**; en caso cont
 
 ### <a name="remarks"></a>Comentarios
 
-Puede usar esta función para establecer una propiedad de recurso de forma condicional. El siguiente ejemplo no es una plantilla completa, pero en él se muestran las partes relevantes para establecer el conjunto de disponibilidad de forma condicional.
-
-```json
-{
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        ...
-        "availabilitySet": {
-            "type": "string",
-            "allowedValues": [
-                "yes",
-                "no"
-            ]
-        }
-    },
-    "variables": {
-        ...
-        "availabilitySetName": "availabilitySet1",
-        "availabilitySet": {
-            "id": "[resourceId('Microsoft.Compute/availabilitySets',variables('availabilitySetName'))]"
-        }
-    },
-    "resources": [
-        {
-            "condition": "[equals(parameters('availabilitySet'),'yes')]",
-            "type": "Microsoft.Compute/availabilitySets",
-            "name": "[variables('availabilitySetName')]",
-            ...
-        },
-        {
-            "apiVersion": "2016-03-30",
-            "type": "Microsoft.Compute/virtualMachines",
-            "properties": {
-                "availabilitySet": "[if(equals(parameters('availabilitySet'),'yes'), variables('availabilitySet'), json('null'))]",
-                ...
-            }
-        },
-        ...
-    ],
-    ...
-}
-```
+Cuando la condición es **True**, se evalúa solo el valor true. Cuando la condición es **False**, se evalúa solo el valor false. Con el **si** función, puede incluir las expresiones que solo son válidas condicionalmente. Por ejemplo, puede hacer referencia a un recurso que se encuentre en una condición, pero no en la otra condición. En la sección siguiente se muestra un ejemplo de evaluación de expresiones condicionalmente.
 
 ### <a name="examples"></a>Ejemplos
 
@@ -259,19 +192,56 @@ El resultado del ejemplo anterior es:
 | noOutput | string | no |
 | objectOutput | Objeto | { "test": "value1" } |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
+La siguiente [plantilla de ejemplo](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/conditionWithReference.json) se muestra cómo usar esta función con expresiones que solo son válidas condicionalmente.
 
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/if.json
+```json
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "vmName": {
+            "type": "string"
+        },
+        "location": {
+            "type": "string"
+        },
+        "logAnalytics": {
+            "type": "string",
+            "defaultValue": ""
+        }
+    },
+    "resources": [
+        {
+            "condition": "[greaterOrEquals(parameters('logAnalytics'), '0')]",
+            "name": "[concat(parameters('vmName'),'/omsOnboarding')]",
+            "type": "Microsoft.Compute/virtualMachines/extensions",
+            "location": "[parameters('location')]",
+            "apiVersion": "2017-03-30",
+            "properties": {
+                "publisher": "Microsoft.EnterpriseCloud.Monitoring",
+                "type": "MicrosoftMonitoringAgent",
+                "typeHandlerVersion": "1.0",
+                "autoUpgradeMinorVersion": true,
+                "settings": {
+                    "workspaceId": "[if(greaterOrEquals(parameters('logAnalytics'), '0'), reference(parameters('logAnalytics'), '2015-11-01-preview').customerId, json('null'))]"
+                },
+                "protectedSettings": {
+                    "workspaceKey": "[if(greaterOrEquals(parameters('logAnalytics'), '0'), listKeys(parameters('logAnalytics'), '2015-11-01-preview').primarySharedKey, json('null'))]"
+                }
+            }
+        }
+    ],
+    "outputs": {
+        "mgmtStatus": {
+            "type": "string",
+            "value": "[if(greaterOrEquals(parameters('logAnalytics'), '0'), 'Enabled monitoring for VM!', 'Nothing to enable')]"
+        }
+    }
+}
 ```
 
 ## <a name="not"></a>not
+
 `not(arg1)`
 
 Convierte el valor booleano en su valor opuesto.
@@ -320,18 +290,6 @@ El resultado del ejemplo anterior es:
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
 En la [plantilla de ejemplo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/not-equals.json) siguiente se usa **not** con [equals](resource-group-template-functions-comparison.md#equals).
 
 ```json
@@ -354,19 +312,8 @@ El resultado del ejemplo anterior es:
 | ---- | ---- | ----- |
 | checkNotEquals | Bool | True |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/not-equals.json
-```
-
 ## <a name="or"></a>o
+
 `or(arg1, arg2, ...)`
 
 Comprueba si algún valor de parámetro es verdadero.
@@ -417,21 +364,10 @@ El resultado del ejemplo anterior es:
 | orExampleOutput | Bool | True |
 | notExampleOutput | Bool | False |
 
-Para implementar esta plantilla de ejemplo con la CLI de Azure, use:
-
-```azurecli-interactive
-az group deployment create -g functionexamplegroup --template-uri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
-Para implementar esta plantilla de ejemplo con PowerShell, use:
-
-```powershell
-New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/functions/andornot.json
-```
-
 ## <a name="next-steps"></a>Pasos siguientes
+
 * Para obtener una descripción de las secciones de una plantilla de Azure Resource Manager, vea [Creación de plantillas de Azure Resource Manager](resource-group-authoring-templates.md).
 * Para combinar varias plantillas, vea [Uso de plantillas vinculadas con Azure Resource Manager](resource-group-linked-templates.md).
 * Para iterar una cantidad de veces específica al crear un tipo de recurso, vea [Creación de varias instancias de recursos en el Administrador de recursos de Azure](resource-group-create-multiple.md).
-* Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con la plantilla de Azure Resource Manager](resource-group-template-deploy.md).
+* Para saber cómo implementar la plantilla que creó, consulte [Implementación de una aplicación con una plantilla de Azure Resource Manager](resource-group-template-deploy.md).
 

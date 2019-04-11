@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 415b33dce42945c40aedd996d4dcfa5c6b987b44
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 2e103604af7aba2a0ef2e3d0e02a721ae4740c40
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336225"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469699"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy-preview"></a>Inicio de sesión único en SAML para aplicaciones locales con el Proxy de aplicación (versión preliminar)
 
@@ -35,13 +35,13 @@ SAML SSO con el Proxy de aplicación también funciona con la característica de
 
 Antes de poder proporcionar SSO para aplicaciones locales, asegúrese de que ha habilitado al Proxy de aplicación y tiene instalado un conector. Consulte [agregar una aplicación de forma local para el acceso remoto a través del Proxy de aplicación en Azure AD](application-proxy-add-on-premises-application.md) para obtener información sobre cómo.
 
-Cuando vas a través de este tutorial, tenga en cuenta lo siguiente:
+Tenga en cuenta lo siguiente cuando vas a través del tutorial:
 
 * Publique la aplicación según las instrucciones del tutorial. Asegúrese de seleccionar **Azure Active Directory** como el **autenticación previa** método de la aplicación (paso 4 [agregar una aplicación local a Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad
 )).
 * Copia el **dirección URL externa** para la aplicación.
 * Como práctica recomendada, use dominios personalizados siempre que sea posible para una experiencia de usuario optimizada. Obtenga más información sobre [trabajar con dominios personalizados en Azure AD Application Proxy](application-proxy-configure-custom-domain.md).
-* Agregue al menos un usuario a la aplicación y asegúrese de que la cuenta de prueba tenga acceso a la aplicación en el entorno local.
+* Agregue al menos un usuario a la aplicación y asegúrese de que la cuenta de prueba tenga acceso a la aplicación en el entorno local. Uso de la prueba de la cuenta de prueba si puede conectarse a la aplicación, visite la **dirección URL externa** validar el Proxy de aplicación se ha configurado correctamente. Para obtener más información, consulte [problemas de solución de problemas de Proxy de aplicación y mensajes de error](application-proxy-troubleshoot.md).
 
 ## <a name="set-up-saml-sso"></a>Configuración de SAML SSO
 
@@ -50,7 +50,8 @@ Cuando vas a través de este tutorial, tenga en cuenta lo siguiente:
 1. Seleccione **SAML** como el método de inicio de sesión único.
 1. En el **establecer seguridad de sesión único con SAML** página, edite el **configuración básica de SAML** datos y siga los pasos descritos en [configuración básica de SAML de ENTRAR](configure-single-sign-on-non-gallery-applications.md#saml-based-single-sign-on) configurar basado en SAML autenticación para la aplicación.
 
-   * Asegúrese de que el **dirección URL de respuesta** raíz coincide o es una ruta de acceso bajo la **dirección URL externa** para la aplicación en el entorno local que agregó para el acceso remoto a través del Proxy de aplicación en Azure AD.
+   * Asegúrese de que el **dirección URL de respuesta** coincide o es una ruta de acceso bajo la **dirección URL externa** para la aplicación en el entorno local que publica a través del Proxy de aplicación. Si la aplicación requiere otra **dirección URL de respuesta** para la configuración de SAML, agregue este elemento como el **primera** dirección URL en la lista y mantener la **dirección URL externa** como una dirección URL adicional, se ordenan después del primero.
+   * Asegúrese de que la aplicación también especifica el valor correcto **dirección URL de respuesta** o dirección URL del servicio de consumidor de aserción que se utilizará para recibir el token de autenticación.
 
      ![Escriba los datos de configuración básicas de SAML](./media/application-proxy-configure-single-sign-on-on-premises-apps/basic-saml-configuration.png)
 
@@ -62,7 +63,7 @@ Cuando vas a través de este tutorial, tenga en cuenta lo siguiente:
 Cuando haya completado todos los pasos, la aplicación debería estar en funcionamiento. Para probar la aplicación:
 
 1. Abra un explorador y vaya a la dirección URL externa que creó al publicar la aplicación. 
-1. Inicie sesión con la cuenta de prueba que asignó a la aplicación.
+1. Inicie sesión con la cuenta de prueba que asignó a la aplicación. Debe ser capaz de cargar la aplicación y tiene el inicio de sesión único en la aplicación.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

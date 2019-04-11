@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 48cf0f2e219d141a039f508f0ea948aa5c78b882
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 3c6c552a6605278d8ab31264f5d180206e0badac
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838279"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470702"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guía de solución de problemas de Azure Disk Encryption
 
@@ -49,6 +49,14 @@ Una vez la VM se haya reiniciado en el nuevo kernel, la nueva versión del kerne
 ```
 uname -a
 ```
+
+## <a name="update-the-azure-virtual-machine-agent-and-extension-versions"></a>Actualizar el agente de máquina Virtual de Azure y las versiones de extensión
+
+Operaciones de Azure Disk Encryption pueden producir un error en las imágenes de máquina virtual con las versiones no compatibles del agente de máquina Virtual de Azure. Para obtener más información, consulte [soporte de versión mínima para los agentes de máquina virtual en Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).  
+
+La versión correcta de la extensión del agente invitado Microsoft.Azure.Security.AzureDiskEncryption o Microsoft.Azure.Security.AzureDiskEncryptionForLinux también es necesaria. Las versiones de extensión se mantienen y actualizan automáticamente por la plataforma cuando se cumplen los requisitos previos del agente de máquina Virtual de Azure y se usa una versión compatible del agente de máquina virtual.
+
+La extensión Microsoft.OSTCExtensions.AzureDiskEncryptionForLinux está desusada y ya no se admite.  
 
 ## <a name="unable-to-encrypt-linux-disks"></a>No se pueden cifrar los discos de Linux
 
@@ -148,5 +156,5 @@ Para deshabilitar correctamente Azure Disk Encryption, iniciar desde un estado v
 
 En este documento, aprendió más acerca de algunos problemas comunes de Azure Disk Encryption y cómo solucionarlos. Para más información acerca de este servicio y su funcionalidad, consulte los artículos siguientes:
 
-- [Aplicación de cifrado de discos en Azure Security Center](../security-center/security-center-apply-disk-encryption.md)
-- [Cifrado de datos en reposo de Azure](azure-security-encryption-atrest.md)
+- [Aplicación del cifrado de discos en el Centro de seguridad de Azure](../security-center/security-center-apply-disk-encryption.md)
+- [Cifrado de datos de Azure en reposo](azure-security-encryption-atrest.md)

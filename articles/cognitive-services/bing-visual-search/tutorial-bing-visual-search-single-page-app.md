@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: article
-ms.date: 03/04/2019
+ms.date: 04/05/2019
 ms.author: aahi
-ms.openlocfilehash: e06fd7a4b2d072e5528643c2c8517d7545c36ef3
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.openlocfilehash: 084aad5540a2bd56d98e343639a45c16f786e599
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57338661"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469104"
 ---
-# <a name="create-a-visual-search-single-page-web-app"></a>Creación de una aplicación web de página única de Visual Search 
+# <a name="create-a-visual-search-single-page-web-app"></a>Creación de una aplicación web de página única de Visual Search
 
-La API de Bing Visual Search proporciona una experiencia similar a los detalles de la imagen se muestra en Bing.com/images. Visual Search permite especificar una imagen y obtener conclusiones sobre la imagen, como otras imágenes visualmente similares, orígenes de compras, páginas web que incluyen la imagen, etc. 
+Bing Visual Search API devuelve información de una imagen. Puede cargar una imagen o especificar la dirección URL a una imagen. Entre la información devuelta puede haber imágenes visualmente similares, orígenes de compra, páginas web que incluyen la imagen y mucho más. La información devuelta por Bing Visual Search API es similar a la que se muestra en Bing.com/images.
 
-En este artículo se explica cómo extender una aplicación web de página única para Bing Image Search API. Para ver ese tutorial u obtener el código fuente que se usa aquí, consulte [Tutorial: Create a single-page app for the Bing Image Search API](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md) (Crear una aplicación de página única para Bing Image Search API). 
+Este tutorial explica cómo extender una aplicación de una página web para Bing Image Search API. Para ver ese tutorial u obtener el código fuente que se usa aquí, consulte [Tutorial: Create a single-page app for the Bing Image Search API](../Bing-Image-Search/tutorial-bing-image-search-single-page-app.md) (Crear una aplicación de página única para Bing Image Search API).
 
 El código fuente completo para esta aplicación (después de extenderla para usar Bing Visual Search API) está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchApp.html).
 
@@ -31,7 +31,7 @@ El código fuente completo para esta aplicación (después de extenderla para us
 
 ## <a name="call-the-bing-visual-search-api-and-handle-the-response"></a>Llamar Bing Visual Search API y gestionar la respuesta
 
-Edite el tutorial de Bing Image Search y agregue el código siguiente al final del elemento `<script>` (y antes de la etiqueta `</script>` de cierre). El código siguiente gestiona una respuesta de Visual Search de la API, recorre en iteración los resultados y los muestra.
+Edite el tutorial de Bing Image Search y agregue el código siguiente al final del elemento `<script>` (y antes de la etiqueta `</script>` de cierre). El código siguiente controla una respuesta de búsqueda visual de la API, recorre en iteración los resultados y los muestra:
 
 ``` javascript
 function handleVisualSearchResponse(){
@@ -63,8 +63,7 @@ function handleVisualSearchResponse(){
 }
 ```
 
-El código siguiente envía una solicitud de búsqueda a la API mediante un escucha de eventos para llamar a `handleVisualSearchResponse()`.
-
+El código siguiente envía una solicitud de búsqueda a la API, mediante un agente de escucha de eventos para llamar a `handleVisualSearchResponse()`:
 
 ```javascript
 function bingVisualSearch(insightsToken){
@@ -83,8 +82,8 @@ function bingVisualSearch(insightsToken){
     let requestBody = startBoundary + newLine;
     requestBody += bodyHeader;
     requestBody += JSON.stringify(postBody) + newLine + newLine;
-    requestBody += endBoundary + newLine;       
-    
+    requestBody += endBoundary + newLine;
+
     let request = new XMLHttpRequest();
 
     try {
@@ -102,7 +101,7 @@ function bingVisualSearch(insightsToken){
 
 ## <a name="capture-insights-token"></a>Capturar el token de conclusiones
 
-Agregue el código siguiente en el objeto `searchItemsRenderer`. Este código agrega un vínculo **buscar similares** que llama a la función `bingVisualSearch` al hacer clic en él. La función recibe imageInsightsToken como un argumento.
+Agregue el código siguiente a la `searchItemsRenderer` objeto. Este código agrega un vínculo **buscar similares** que llama a la función `bingVisualSearch` al hacer clic en él. La función recibe el `imageInsightsToken` como argumento.
 
 ``` javascript
 html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + "\");'>find similar</a><br>");
@@ -110,7 +109,7 @@ html.push("<a href='javascript:bingVisualSearch(\"" + item.imageInsightsToken + 
 
 ## <a name="display-similar-images"></a>Mostrar imágenes similares
 
-Agregue el código HTML siguiente en la línea 601. Este código de marcado agrega un elemento que se usa para mostrar los resultados de la llamada a Bing Visual Search API.
+Agregue el código HTML siguiente en la línea 601. Este código de marcado agrega un elemento para mostrar los resultados de la llamada de API de Bing Visual Search:
 
 ``` html
 <div id="insights">
@@ -124,4 +123,4 @@ Con el nuevo código JavaScript y los elementos HTML implementados, los resultad
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Recorte y carga de una imagen](tutorial-visual-search-crop-area-results.md)
+> [Tutorial: Recortar una imagen con el SDK de Bing Visual Search para C#](tutorial-visual-search-crop-area-results.md)

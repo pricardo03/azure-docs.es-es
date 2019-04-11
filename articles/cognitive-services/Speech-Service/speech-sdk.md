@@ -8,19 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 2/20/2019
+ms.date: 04/08/2019
 ms.author: wolfma
-ms.custom: seodec18
-ms.openlocfilehash: bd42e8c5fe3a766f5c8a74784212712748a50549
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: bb28972469ca33a7fb33a50a8ce2e9bf326222b8
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010471"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425804"
 ---
 # <a name="about-the-speech-sdk"></a>Acerca del SDK de Voz
 
-El Kit de desarrollo de Software (SDK) de voz proporciona las aplicaciones accedan a las funciones de los servicios de voz, lo que facilita el desarrollo de software habilitadas para voz. Actualmente, el SDK proporciona acceso a **conversión de voz en texto**, **traducción de voz** y **reconocimiento de la intención**. Información general sobre las características y las plataformas admitidas puede encontrarse en la documentación de [página entrada](https://aka.ms/csspeech).
+El Kit de desarrollo de Software (SDK) de voz proporciona las aplicaciones accedan a las funciones de los servicios de voz, lo que facilita el desarrollo de software habilitadas para voz. Actualmente, los SDK proporcionan acceso a **texto a voz**, **texto a voz**, **traducción de voz**, y **reconocimiento de intenciones mediante**. Información general sobre las características y las plataformas admitidas puede encontrarse en la documentación de [página entrada](https://aka.ms/csspeech).
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 

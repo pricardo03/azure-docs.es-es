@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 03/13/2019
+ms.date: 04/09/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 22a95ce506a7f906604cc65d08a04b7f761bb4c2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 704aefd68f35ca20f72a2a0c46bf11912c139e65
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273590"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469495"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutorial: Creación y administración de presupuestos de Azure
 
@@ -63,9 +63,9 @@ Haga clic en **Agregar**.
 
 ![Presupuestos de Cost Management que se muestran en Azure Portal](./media/tutorial-acm-create-budgets/budgets01.png)
 
-En la ventana **Crear presupuesto**, escriba un nombre de presupuesto y el importe presupuestario. A continuación, elija una cuota mensual, trimestral o anual duración<sup>1</sup>. A continuación, seleccione una fecha de finalización. Los presupuestos requieren al menos un umbral de costos (% del presupuesto) y una dirección de correo electrónico correspondiente. De manera opcional, puede incluir hasta cinco umbrales y cinco direcciones de correo electrónico en un único presupuesto. Cuando se alcanza un umbral de presupuesto, las notificaciones por correo electrónico se reciben normalmente en menos de ocho horas. Para más información acerca de las notificaciones, consulte [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md) (Uso de alertas de costos).
+En la ventana **Crear presupuesto**, escriba un nombre de presupuesto y el importe presupuestario. A continuación, elija un período mensual, trimestral o anual. A continuación, seleccione una fecha de finalización. Los presupuestos requieren al menos un umbral de costos (% del presupuesto) y una dirección de correo electrónico correspondiente. De manera opcional, puede incluir hasta cinco umbrales y cinco direcciones de correo electrónico en un único presupuesto. Cuando se alcanza un umbral de presupuesto, las notificaciones por correo electrónico se reciben normalmente en menos de ocho horas. Para más información acerca de las notificaciones, consulte [Use cost alerts](cost-mgt-alerts-monitor-usage-spending.md) (Uso de alertas de costos).
 
-<sup>1</sup> si es un cliente de pago por uso, MSDN o Visual Studio el período de facturación de la factura para una suscripción no puede alinear con el mes natural. Para las suscripciones y grupos de recursos que pertenecen a este cubo, puede crear un presupuesto que se alinea a la factura o meses naturales. Para crear un presupuesto alineado en la factura, seleccione un período de restablecimiento de mes de facturación, facturación trimestre o año de facturación en tiempo de creación. Para crear un presupuesto alineado con el mes natural, seleccione un período de restablecimiento de mensual, trimestral o anualmente en el momento de creación.
+Si tiene una suscripción de pago por uso, MSDN o Visual Studio, el período de facturación de la factura no puede alinearse con el mes natural. Para esos tipos de suscripciones y grupos de recursos, puede crear un presupuesto que está alineado al período de facturación o meses naturales. Para crear un presupuesto alineado en el período de facturación, seleccione un período de restablecimiento de mes de facturación, facturación trimestre o año de facturación. Para crear un presupuesto alineado con el mes natural, seleccione un período de restablecimiento de mensual, trimestral o anualmente.
 
 Este es un ejemplo de creación de un presupuesto mensual para 4500 USD. Se genera una alerta por correo electrónico cuando se alcanza el 90 % del presupuesto.
 

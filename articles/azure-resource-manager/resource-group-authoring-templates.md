@@ -10,23 +10,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/11/2019
+ms.date: 04/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: f79518b26752d581d6360a3b770e8a5cba293fd7
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 264db79f5c934603004eb595930b44abc622efd5
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904940"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470974"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Nociones sobre la estructura y la sintaxis de las plantillas de Azure Resource Manager
 
 En este artículo se describe la estructura de una plantilla de Azure Resource Manager. Presenta las distintas secciones de una plantilla y las propiedades que están disponibles en esas secciones. La plantilla consta de JSON y expresiones que puede usar para generar valores para su implementación.
 
 En este artículo está destinado a usuarios que estén familiarizados con las plantillas de Resource Manager. Proporciona información detallada sobre la estructura y sintaxis de la plantilla. Si desea una introducción a la creación de una plantilla, consulte [crear la primera plantilla de Azure Resource Manager](resource-manager-create-first-template.md).
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="template-format"></a>Formato de plantilla
 
@@ -496,7 +493,7 @@ Defina recursos con la siguiente estructura:
 
 | Nombre del elemento | Obligatorio | DESCRIPCIÓN |
 |:--- |:--- |:--- |
-| condition | Sin  | Valor booleano que indica si el recurso se aprovisionará durante esta implementación. Si es `true`, el recurso se crea durante la implementación. Si es `false`, el recurso se omite para esta implementación. |
+| condition | Sin  | Valor booleano que indica si el recurso se aprovisionará durante esta implementación. Si es `true`, el recurso se crea durante la implementación. Si es `false`, el recurso se omite para esta implementación. Consulte [condición](#condition). |
 | apiVersion |Sí |Versión de la API de REST que debe usar para crear el recurso. Para determinar los valores disponibles, vea [referencia de plantilla](/azure/templates/). |
 | Tipo |Sí |Tipo de recurso. Este valor es una combinación del espacio de nombres del proveedor de recursos y el tipo de recurso (como **Microsoft.Storage/storageAccounts**). Para determinar los valores disponibles, vea [referencia de plantilla](/azure/templates/). |
 | Nombre |Sí |Nombre del recurso. El nombre debe cumplir las restricciones de componente URI definidas en RFC3986. Además, los servicios de Azure que exponen el nombre del recurso a partes externas validan el nombre para asegurarse de que no es un intento de suplantar otra identidad. |
@@ -533,6 +530,8 @@ Por lo general, este valor se usa cuando desea crear un nuevo recurso o usar uno
 ```
 
 Para una plantilla de ejemplo completo que usa el elemento `condition`, consulte [VM with a new or existing Virtual Network, Storage, and Public IP](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-new-or-existing-conditions) (Máquina virtual con una red virtual nueva o existente, almacenamiento y dirección IP pública).
+
+Si usa un [referencia](resource-group-template-functions-resource.md#reference) o [lista](resource-group-template-functions-resource.md#list) se puede evaluar la función con un recurso que se implementa de forma condicional, la función incluso si el recurso no está implementado. Obtiene un error si la función hace referencia a un recurso que no existe. Use la [si](resource-group-template-functions-logical.md#if) función para asegurarse de que la función se evalúa solo para las condiciones cuando se implementa el recurso. Consulte la [si función](resource-group-template-functions-logical.md#if) para una plantilla de ejemplo que usa si y la referencia con un recurso implementado de forma condicional.
 
 ### <a name="resource-names"></a>Nombres de recurso
 

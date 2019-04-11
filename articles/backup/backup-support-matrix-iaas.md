@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: raynew
-ms.openlocfilehash: f4034a3462d7221c16464e6a2cee9aad2105a6cd
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 974e640977fcf4d580575705d7fdf0faf632c31b
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649818"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361463"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Matriz de compatibilidad para copias de seguridad de máquinas virtuales de Azure
 Puede usar el [servicio Azure Backup](backup-overview.md) para realizar una copia de seguridad de máquinas locales y las cargas de trabajo y máquinas virtuales (VM). Este artículo resumen las opciones de soporte técnico y las limitaciones al realizar copias de seguridad de máquinas virtuales de Azure con Azure Backup.
@@ -28,7 +28,7 @@ Otras matrices de compatibilidad:
 
 A continuación, se muestra cómo puede realizar copias de seguridad y restauraciones de máquinas virtuales de Azure con el servicio Azure Backup.
 
-**Escenario** | **Copia de seguridad** | **Agent** |**Restauración**
+**Escenario** | **Copia de seguridad** | **Agente** |**Restauración**
 --- | --- | --- | ---
 copia de seguridad directa de máquinas virtuales de Azure  | Copia de seguridad de toda la máquina virtual.  | No se necesita ningún agente en la máquina virtual de Azure. Azure Backup instala y usa una extensión de la [agente de máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) que se está ejecutando en la máquina virtual. | Realice la restauración como sigue:<br/><br/> - **Creación de una máquina virtual básica**. Esto es útil si la máquina virtual no tiene ninguna configuración especial, como varias direcciones IP.<br/><br/> - **Restauración del disco de máquina virtual**. Restaure el disco. A continuación, adjuntarla a una máquina virtual existente o crear una nueva máquina virtual desde el disco mediante el uso de PowerShell.<br/><br/> - **Sustitución del disco de máquina virtual**. Si existe una máquina virtual y esta usa discos administrados (sin cifrar), puede restaurar un disco y usarlo para reemplazar un disco existente en la máquina virtual.<br/><br/> - **Restauración de archivos y carpetas específicos**. Puede restaurar archivos o carpetas desde una máquina virtual en lugar de en toda la máquina virtual.
 Copia de seguridad directa de máquinas virtuales de Azure (solo Windows)  | Copia de seguridad de archivos, carpetas o volúmenes específico. | Instalar el [agente Azure Recovery Services](backup-azure-file-folder-backup-faq.md).<br/><br/> Puede ejecutar al agente de MARS junto con la extensión de copia de seguridad del agente de máquina virtual de Azure para realizar copias de seguridad de la máquina virtual en el nivel de archivo o carpeta. | Restauración de archivos y carpetas específicos.
@@ -38,7 +38,7 @@ Más información sobre la copia de seguridad [mediante un servidor de copia de 
 
 ## <a name="supported-backup-actions"></a>Acciones de copia de seguridad admitidas
 
-**Acción** | **Soporte técnico**
+**.** | **Soporte técnico**
 --- | ---
 Habilitar copia de seguridad al crear una máquina virtual de Azure con Windows | Compatible para:  Windows Server 2019 (centro de datos/Datacenter Core), Windows Server 2016 (Core/centro de datos de centro de datos); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (versiones RTM y SP1)
 Habilitar copia de seguridad al crear una máquina virtual Linux | Compatible para:<br/><br/> - Ubuntu Server: 1710, 1704, 1604 (LTS), 1404 (LTS)<br/><br/> - Red Hat: RHEL 6.7, 6.8, 6.9, 7.2, 7.3, 7.4<br/><br/> - SUSE Linux Enterprise Server: 11 SP4, 12 SP2, 12 SP3<br/><br/> - Debian: 8, 9<br/><br/> - CentOS: 6.9, 7.3<br/><br/> - Oracle Linux: 6.7, 6.8, 6.9, 7.2, 7.3
@@ -53,13 +53,13 @@ Copias de seguridad por día (mediante el agente de MARS) | Tres copias de segur
 Copias de seguridad por día (mediante DPM/MABS) | Dos copias de seguridad programadas por día.
 Copia de seguridad mensual o anual   | No se admite cuando la copia de seguridad se realiza con la extensión de máquina virtual de Azure. Solo se admiten copias de seguridad diarias y semanales.<br/><br/> Puede configurar la directiva para conservar las copias de seguridad diarias y semanales durante el período de retención mensual o anual.
 Ajuste automático del reloj | No compatible.<br/><br/> Copia de seguridad de Azure no ajusta automáticamente los cambios del horario de verano, cuando la copia de seguridad de una máquina virtual.<br/><br/>  Modifique la directiva de forma manual según sea necesario.
-[Características de seguridad para copias de seguridad híbridas](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |  No se admite la deshabilitación de características de seguridad.
+[Características de seguridad para copia de seguridad híbrida](https://docs.microsoft.com/azure/backup/backup-azure-security-feature) |  No se admite la deshabilitación de características de seguridad.
 
 ## <a name="operating-system-support-windows"></a>Compatibilidad con sistema operativo (Windows)
 
 En la tabla siguiente se resume los sistemas operativos compatibles cuando la copia de seguridad de máquinas virtuales de Windows Azure.
 
-**Escenario** | **SO compatible**
+**Escenario** | **Sistemas operativos admitidos**
 --- | ---
 Copia de seguridad con la extensión del agente de máquina virtual de Azure | Cliente Windows: No compatible<br/><br/> Windows Server 2019 (centro de datos/Datacenter Core), Windows Server 2016 (Core/centro de datos de centro de datos); Windows Server 2012 R2 Datacenter; Windows Server 2008 R2 (versiones RTM y SP1)
 Copia de seguridad con el agente de MARS | Sistemas operativos [compatibles](backup-support-matrix-mars-agent.md#support-for-direct-backups).
@@ -69,7 +69,7 @@ Copia de seguridad con DPM/MABS | Sistemas operativos compatibles para copia de 
 
 Esto es lo que se admite si quiere hacer copias de seguridad de máquinas Linux.
 
-**Acción** | **Soporte técnico**
+**.** | **Soporte técnico**
 --- | ---
 Copia de seguridad de máquinas virtuales de Azure con Linux mediante el agente de máquina virtual de Azure para Linux | Copia de seguridad coherente con archivos.<br/><br/> Copia de seguridad coherente con la aplicación mediante [scripts personalizados](backup-azure-linux-app-consistent.md).<br/><br/> Durante la restauración, puede crear una nueva máquina virtual, restaurar un disco y usarlo para crear una máquina virtual, o restaurar un disco y úselo para reemplazar un disco en una máquina virtual existente. También puede restaurar archivos y carpetas individuales.
 Copia de seguridad de máquinas virtuales de Azure con Linux mediante el agente de MARS | No compatible.<br/><br/> El agente MARS solo puede instalarse en máquinas Windows.
@@ -87,7 +87,7 @@ Para las copias de seguridad de máquinas virtuales de Azure con Linux, Azure Ba
 
 ## <a name="backup-frequency-and-retention"></a>Frecuencia y retención de copias de seguridad
 
-**Configuración** | **Límites**
+**Configuración** | **límites**
 --- | ---
 Puntos de recuperación máximo por instancia protegida (máquina/carga de trabajo) | 9999.
 Tiempo de expiración máximo de un punto de recuperación | No hay límite.
@@ -157,8 +157,8 @@ Realizar copias de seguridad de la coherencia de las máquinas virtuales | No se
 
 **Componente** | **Soporte técnico**
 --- | ---
-Discos de datos de máquinas virtuales de Azure | Copia de seguridad de una máquina virtual con 16 discos de datos o menos.
-Tamaño del disco de datos | El disco individual puede tener hasta 4095 GB.<br/><br/> Si los almacenes se está ejecutando la versión más reciente de copia de seguridad de Azure (conocido como la restauración instantánea), los tamaños de disco de hasta 4 TB se admiten. [Más información](backup-instant-restore-capability.md).
+Discos de datos de máquinas virtuales de Azure | Copia de seguridad de una máquina virtual con 16 discos de datos o menos. <br/><br/> Compatibilidad con tamaños de disco de hasta 4 TB.
+Tamaño del disco de datos | El disco individual puede tener hasta 4095 GB.<br/><br/> Si los almacenes se está ejecutando la versión más reciente de copia de seguridad de Azure (conocido como la restauración instantánea), los tamaños de disco de hasta 4 TB se admiten. [Más información](backup-instant-restore-capability.md).  
 Tipo de almacenamiento | Premium HDD, SSD estándar, estándar SSD. <br/><br/> SSD estándar se admite si los almacenes se actualizan a la versión más reciente de copia de seguridad de máquina virtual de Azure (conocido como la restauración instantánea). [Más información](backup-instant-restore-capability.md).
 Discos administrados |  Se admite.
 Discos cifrados |  Se admite.<br/><br/> Máquinas virtuales de Azure habilitadas con Azure Disk Encryption pueden copia (con o sin la aplicación de Azure AD).<br/><br/> Las máquinas virtuales cifradas no se pueden recuperar a nivel de archivo o carpeta. Debe recuperar toda la máquina virtual.<br/><br/> Puede habilitar el cifrado en máquinas virtuales que ya estén protegidas con Azure Backup.
@@ -168,8 +168,11 @@ Agregar disco a una máquina virtual protegida |  Se admite.
 Cambiar tamaño de disco de una máquina virtual protegida |  Se admite.
 Almacenamiento compartido| No se recomienda la copia de seguridad de máquinas virtuales con CSV o servidor de archivos de escalabilidad horizontal. Es probable que los escritores de CSV cometan errores.
 
-## <a name="vm-network-support"></a>Compatibilidad con red de VM
+> [!NOTE]
+> Azure Backup no admite discos con bandas. No se recomienda cambiar el tamaño del disco de copia de seguridad de Azure.
 
+
+## <a name="vm-network-support"></a>Compatibilidad con red de VM
 
 **Componente** | **Soporte técnico**
 --- | ---
@@ -226,7 +229,7 @@ Copia de seguridad admite la compresión del tráfico de copia de seguridad, com
 - Las máquinas virtuales de Azure, la extensión de VM lee los datos directamente desde la cuenta de almacenamiento de Azure a través de la red de almacenamiento. No es necesario comprimir este tráfico.
 - Si usa DPM o MABS, puede ahorrar ancho de banda mediante la compresión de los datos antes de es una copia de seguridad para DPM/MABS.
 
-**Máquina** | **Comprimir a MABS/DPM (TCP)** | **Comprimir en el almacén (HTTPS)**
+**Máquina** | **Comprimir (TCP) de DPM/MABS** | **Comprimir en el almacén (HTTPS)**
 --- | --- | ---
 Máquinas Windows locales sin DPM/MABS | N/D | ![Sí][green]
 Máquinas virtuales de Azure | N/D | N/D

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 8e41145dd67c61b2e806740265a3f234401aefe1
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 9db84ee23a2b2b19d05e458ff38854076a530e38
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009842"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470847"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
 
@@ -466,6 +466,16 @@ Están disponibles las siguientes opciones de implementación de contenedor pers
 | **`--max`**  | Opcionalmente, establece el número máximo de instancias de la aplicación de función que se va a implementar. |
 | **`--min`**  | Opcionalmente, establece el número mínimo de instancias de la aplicación de función que se va a implementar. |
 | **`--config`** | Establece un archivo de configuración de implementación opcional. |
+
+## <a name="monitoring-functions"></a>Supervisión de funciones
+
+Es la manera recomendada para supervisar la ejecución de las funciones mediante la integración con Azure Application Insights. De forma predeterminada, cuando crea una aplicación de función en Azure Portal, esta integración se realiza automáticamente. Sin embargo, cuando se crea la aplicación de función mediante la CLI de Azure, no se realiza la integración de function app en Azure.
+
+Para habilitar Application Insights para la aplicación de función:
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+Para más información, consulte [Supervisión de Azure Functions](functions-monitoring.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

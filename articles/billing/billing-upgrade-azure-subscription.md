@@ -17,16 +17,16 @@ ms.workload: na
 ms.date: 03/14/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3e6cb875aa686d9e2d0ba7bf51563d3b51b1572a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d6af7106e991f0306ae2fef69129888219a9c0e
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094235"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469529"
 ---
 # <a name="upgrade-your-free-trial-or-azure-for-students-starter-subscription-to-pay-as-you-go"></a>Actualizar la evaluación gratuita o Azure para la suscripción de estudiantes: Starter a pago por uso
 
-Si tiene un [gratuita](https://azure.microsoft.com/free/), puede actualizar a un [pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) suscripción en el portal de Azure. Si tiene un [Azure para estudiantes: Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) suscripción, puede actualizar a [pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) en el centro de cuentas de Azure.
+Si tiene un [gratuita](https://azure.microsoft.com/free/) o un [Azure para estudiantes: Starter](https://azure.microsoft.com/offers/ms-azr-0144p/) suscripción, puede actualizar a [pago por uso](https://azure.microsoft.com/offers/ms-azr-0003p/) en Azure portal. Si tiene una suscripción de Azure para estudiantes: Starter y son aptos para una evaluación gratuita, puede actualizar a la versión de prueba gratuita.
 
 <a id="freetrial"></a>
 
@@ -35,9 +35,9 @@ Si tiene un [gratuita](https://azure.microsoft.com/free/), puede actualizar a un
 Cuando se actualiza desde una suscripción de prueba gratuita, se conserva el crédito restante durante los 30 días posteriores a la creación de la suscripción. También tendrá acceso a servicios gratuitos durante 12 meses.
 
 1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
-1. Buscar en **Management + facturación de costos.**
+1. Buscar en **las suscripciones.**
 
-    ![Captura de pantalla que muestra la búsqueda](./media/billing-upgrade-azure-subscription/search.png)
+    ![Captura de pantalla que muestra la búsqueda](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
 
 1. Seleccione su suscripción de evaluación gratuita.
 1. En la hoja de información general sobre la suscripción, haga clic en **actualizar suscripción** en la barra de comandos.
@@ -63,15 +63,24 @@ Si desea [transferir la suscripción](billing-subscription-transfer.md) tras la 
 
 ## <a name="upgrade-your-azure-for-students-starter-subscription-to-pay-as-you-go"></a>Actualizar su suscripción de Azure para estudiantes: Starter a pago por uso
 
-1. Inicie sesión en el [Centro de cuentas de Azure](https://account.windowsazure.com/subscriptions).
+Al seguir los pasos siguientes, se dará la opción de actualizar a una evaluación gratuita si usted es elegible.
+
+1. Inicie sesión en el [Portal de Azure](https://portal.azure.com)
+1. Buscar en **las suscripciones.**
+
+    ![Captura de pantalla que muestra la búsqueda](./media/billing-upgrade-azure-subscription/search-subscriptions-ibiza.png)
+
 1. Seleccione su suscripción de Azure para estudiantes: Starter.
-1. En **estado de la suscripción**, haga clic en **actualizar ahora**.
+1. En la hoja de información general sobre la suscripción, haga clic en **actualizar suscripción** en la barra de comandos.
 
-    ![Captura de pantalla que muestra la actualización de alumno](./media/billing-upgrade-azure-subscription/student-upgrade-button.png)
+    ![Captura de pantalla que muestra el botón de actualización para estudiantes](./media/billing-upgrade-azure-subscription/student-upgrade-ibiza.png)
 
+1. Si va a actualizar a pago por uso y aún no tiene un método de pago para su suscripción, se le pedirá que agregue uno.
+1. Es posible que deba escribir un número de teléfono para verificar tu identidad.
 1. Escriba un nombre para la suscripción.
+1. Si va a actualizar a pago por uso, elija un plan de soporte técnico de su suscripción. Para obtener más información acerca de los planes de soporte técnico, consulte [planes de soporte técnico de Azure](https://azure.microsoft.com/us/support/plans/).
 
-1. Haga clic en **actualizar ahora**.
+1. Haga clic en **Actualizar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 896553890252572e4b5524d047893953b78a4ba1
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 1da35b55a458ad73689f51c49e73855fd33ee45f
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010098"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470303"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Requisitos previos de Azure Disk Encryption
 
- Este artículo, Requisitos previos de Azure Disk Encryption, explica los elementos que deben estar implementados antes de usar Azure Disk Encryption. Azure Disk Encryption se integra con [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) para ayudar a administrar las claves de cifrado. Puede usar [Azure PowerShell](/powershell/azure/overview), la [CLI de Azure](/cli/azure/) o [Azure portal](https://portal.azure.com) para configurar Azure Disk Encryption.
+Este artículo, Requisitos previos de Azure Disk Encryption, explica los elementos que deben estar implementados antes de usar Azure Disk Encryption. Azure Disk Encryption se integra con [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) para ayudar a administrar las claves de cifrado. Puede usar [Azure PowerShell](/powershell/azure/overview), la [CLI de Azure](/cli/azure/) o [Azure portal](https://portal.azure.com) para configurar Azure Disk Encryption.
 
 Antes de habilitar Azure Disk Encryption en máquinas virtuales IaaS de Azure para los escenarios admitidos que se trataron en el artículo de [información general sobre Azure Disk Encryption](azure-security-disk-encryption-overview.md), asegúrese de cumplir los requisitos previos. 
 
@@ -29,10 +29,11 @@ Antes de habilitar Azure Disk Encryption en máquinas virtuales IaaS de Azure pa
 ## <a name="bkmk_OSs"></a> Sistemas operativos compatibles
 Azure Disk Encryption es compatible con los siguientes sistemas operativos:
 
-- Versiones de Windows Server: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 y más versiones de Windows se encuentra en la Galería de Azure.
-  - En el caso de Windows Server 2008 R2, debe tener .NET Framework 4.5 instalado para poder habilitar el cifrado en Azure. Instálelo desde Windows Update con la actualización opcional Microsoft .NET Framework 4.5.2 para sistemas basados en x64 con Windows Server 2008 R2 ([KB2901983](https://support.microsoft.com/kb/2901983)).    
+- Versiones de Windows Server: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016, Windows Server 2012 R2 Server Core y Windows Server 2016 Server core.
+En el caso de Windows Server 2008 R2, debe tener .NET Framework 4.5 instalado para poder habilitar el cifrado en Azure. Instalar desde Windows Update con la actualización opcional Microsoft .NET Framework 4.5.2 para sistemas basados en x64 64 de Windows Server 2008 R2 (KB2901983).
+- Núcleo de Windows Server 2012 R2 y Windows Server 2016 Core son compatibles con Azure Disk Encryption, una vez instalado el componente bdehdcfg en la máquina virtual.
 - Versiones de cliente Windows: Cliente Windows 8 y Windows 10.
-- Azure Disk Encryption solo se admite en distribuciones y versiones específicas del servidor Linux basadas en la Galería de Azure. Para la lista de versiones admitidas actualmente, consulte [Preguntas más frecuentes de Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport).
+- Azure Disk Encryption solo se admite en distribuciones y versiones específicas del servidor Linux basadas en la Galería de Azure. Para la lista de versiones admitidas actualmente, consulte [Preguntas más frecuentes de Azure Disk Encryption](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport). Hacer referencia a la [distribuciones de Linux aprobadas en Azure](../virtual-machines/linux/endorsed-distros.md) para obtener la lista de imágenes compatibles de Microsoft y el [distribuciones de Linux lo admite Azure Disk Encryption?](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) en el [Azure Preguntas más frecuentes de cifrado de disco](azure-security-disk-encryption-faq.md) para obtener la lista de versiones admitidas actualmente en función de las distribuciones aprobadas de imagen.
 - Azure Disk Encryption requiere que el almacén de claves y las máquinas virtuales residan en la misma región y suscripción de Azure. Si se configuran los recursos en regiones distintas, se producirá un error al habilitar la característica Azure Disk Encryption.
 
 ## <a name="bkmk_LinuxPrereq"></a> Requisitos previos adicionales para VM IaaS Linux 

@@ -1,7 +1,7 @@
 ---
 title: Referencia de configuración del acceso condicional de Azure Active Directory | Microsoft Docs
 description: Obtenga una visión general de la configuración admitida en una directiva de acceso condicional de Azure Active Directory.
-services: active-directory.
+services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f92001e9d2fd322e858440ef64991b9de856735
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: HT
+ms.openlocfilehash: 0e87a4c7ebafd8ddcfa54c87b189316b0ce98b0f
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273046"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359007"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referencia de configuración del acceso condicional de Azure Active Directory
 

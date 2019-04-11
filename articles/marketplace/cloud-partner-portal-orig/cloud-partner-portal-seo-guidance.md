@@ -1,5 +1,5 @@
 ---
-title: Guía para publicadores de SEO de Azure Marketplace | Microsoft Docs
+title: Guía de SEO de Marketplace de Azure | Microsoft Docs
 description: Se proporcionan instrucciones para maximizar la optimización de motor de búsqueda (SEO).
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
@@ -12,21 +12,23 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 04/09/2019
 ms.author: pbutlerm
-ms.openlocfilehash: cacc7c0b269e8006903961049caf3cd7e3bee449
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: da7b59400baa4c964dff71fa1f842fede9d68df1
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57834343"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469665"
 ---
-<a name="azure-marketplace-seo-publisher-guide"></a>Guía para publicadores de SEO de Azure Marketplace
-=======================================
+# <a name="azure-marketplace-seo-guidance"></a>Guía de SEO de Marketplace de Azure
 
-### <a name="general-explanation-of-algorithm"></a>Explicación general del algoritmo
+Este artículo explica cómo puede maximizar la detectabilidad de su oferta a través de la funcionalidad de búsqueda en el [Azure Marketplace](https://azuremarketplace.microsoft.com) y [AppSource](https://appsource.microsoft.com). 
 
-Marketplace usa Azure Search para potenciar las capacidades de búsqueda de la carpeta del sitio. El algoritmo se basa en la frecuencia de términos o frecuencia inversa de documento ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). Se utiliza el [analizador de Lucene](https://lucene.apache.org/core/) estándar.
+
+## <a name="general-explanation-of-algorithm"></a>Explicación general del algoritmo
+
+Catálogos de Microsoft usan Azure Search para potenciar las capacidades de búsqueda de la carpeta del sitio. El algoritmo se basa en la frecuencia de términos o frecuencia inversa de documento ([TF-IDF](https://en.wikipedia.org/wiki/Tf–idf)). Se utiliza el [analizador de Lucene](https://lucene.apache.org/core/) estándar.
 
 En general, todos los campos de texto, categorías y sectores se incluyen en la ponderación de la relevancia. Los términos especializados que usan con poca frecuencia las aplicaciones, pero que se usan con frecuencia en su aplicación, generarán una puntuación de coincidencia superior con la búsqueda. Por tanto, incluir términos como “VM” ofrecería pocas ventajas, mientras que “Azure Search” sería mucho más especializado.
 A continuación se muestran los campos más importantes que deben tenerse en cuenta.
@@ -42,7 +44,7 @@ A continuación se muestran los campos más importantes que deben tenerse en cue
 |  |  |  |
 
 
-### <a name="other-tips"></a>Otras sugerencias
+## <a name="other-tips"></a>Otras sugerencias
 
 -   Las sugerencias de búsqueda tienen una gran actividad de usuario. Da prioridad a las coincidencias con el nombre de la aplicación o del publicador. La descripción breve se convierte en el campo clave cuando el término de búsqueda no es una coincidencia exacta con el nombre del publicador o de la aplicación.
 -   No se incluyen los documentos disponibles para descargar en la ponderación de búsqueda.

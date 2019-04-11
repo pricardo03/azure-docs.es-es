@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 9751801449eebc5d07ca4bbb9b408d9679fef24e
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
-ms.translationtype: HT
+ms.openlocfilehash: 122a4b6af78a22f74d5057da75767077f8d9b978
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040997"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469631"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Desarrollo de operadores U-SQL definidos por el usuario (UDO)
 En este artículo se describe cómo desarrollar operadores definidos por el usuario para procesar datos en un trabajo de U-SQL.
@@ -118,11 +118,11 @@ En este artículo se describe cómo desarrollar operadores definidos por el usua
 11. Haga clic en **Enviar**. Los resultados del envío y el vínculo del trabajo están disponibles en la ventana de resultados cuando se completa el envío.
 12. Haga clic en el botón **Actualizar** para ver el estado del trabajo más reciente y actualizar la pantalla.
 
-**Para ver la salida**:
+**Para ver la salida**
 
 1. En el **Explorador de servidores**, expanda **Azure**, **Data Lake Analytics**, su cuenta de Data Lake Analytics y **Cuentas de almacenamiento**, haga clic con el botón derecho en el almacén predeterminado y, finalmente, haga clic en **Explorador**.
 2. Expanda Ejemplos, expanda Salidas y, finalmente, haga doble clic en **Drivers.csv**.
 
-## <a name="see-also"></a>Otras referencias
-* [Extensión de las expresiones U-SQL con código de usuario](https://msdn.microsoft.com/library/azure/mt621316.aspx)
-* [Uso de Data Lake Tools for Visual Studio para desarrollar aplicaciones de U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
+## <a name="see-also"></a>Vea también
+* [Extender las expresiones U-SQL con código de usuario](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
+* [Uso de herramientas de Data Lake para Visual Studio para desarrollar aplicaciones de U-SQL](data-lake-analytics-data-lake-tools-get-started.md)

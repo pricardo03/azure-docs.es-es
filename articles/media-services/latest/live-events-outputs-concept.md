@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/30/2019
 ms.author: juliako
-ms.openlocfilehash: 1d28701dd35b9d80fd52a1f102c53f2d59d63b09
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 00dab8381c26a6331dd325eacd4a550892bd3411
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762361"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469818"
 ---
 # <a name="live-events-and-live-outputs"></a>Eventos en directo y salidas en vivo
 
@@ -127,7 +127,7 @@ Cuando el **objeto LiveEvent** comienza a recibir la fuente de contribución, pu
 
 ## <a name="live-event-long-running-operations"></a>Operaciones de larga ejecución eventos en directo
 
-Para obtener más información, consulte [operaciones de larga ejecución](entities-overview.md#long-running-operations)
+Para obtener más información, consulte [operaciones de larga ejecución](media-services-apis-overview.md#long-running-operations)
 
 ## <a name="live-outputs"></a>Salidas en vivo
 
@@ -146,4 +146,4 @@ Para más información, consulte [Uso de una DVR en la nube](live-event-cloud-dv
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Tutorial de Live Streaming](stream-live-tutorial-with-api.md)
+[Tutorial de transmisión por secuencias en directo](stream-live-tutorial-with-api.md)

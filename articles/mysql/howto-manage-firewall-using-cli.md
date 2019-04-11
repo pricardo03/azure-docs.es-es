@@ -6,16 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: 870910654101b4d6689b51464f8a29aef41bf9cb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.date: 04/09/2018
+ms.openlocfilehash: dca7d09a5358f5e8b4025dc5e35e4465e21d77a2
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58103135"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470940"
 ---
 # <a name="create-and-manage-azure-database-for-mysql-firewall-rules-by-using-the-azure-cli"></a>Creación y administración de reglas de firewall de Azure Database for MySQL mediante la CLI de Azure
-Las reglas de firewall de nivel de servidor permiten a los administradores administrar el acceso a un servidor de Azure Database for MySQL desde una dirección IP o desde un intervalo de direcciones IP especificado. Con los comandos de la CLI de Azure adecuados, puede crear, actualizar, eliminar, enumerar y mostrar reglas de firewall para administrar el servidor. Para obtener información general sobre los firewalls de Azure Database for MySQL, consulte [Reglas de firewall de un servidor de Azure Database for MySQL](./concepts-firewall-rules.md).
+Las reglas de firewall de nivel de servidor pueden usarse para administrar el acceso a una base de datos de Azure Database for MySQL desde una dirección IP específica o un intervalo de direcciones IP. Con los comandos de la CLI de Azure adecuados, puede crear, actualizar, eliminar, enumerar y mostrar reglas de firewall para administrar el servidor. Para obtener información general de la base de datos de Azure para MySQL firewalls, consulte [-Azure Database for MySQL reglas de firewall de servidor](./concepts-firewall-rules.md).
+
+Reglas virtuales Network (VNet) también pueden usarse para proteger el acceso a su servidor. Obtenga más información sobre [reglas mediante la CLI de Azure y los puntos de conexión de servicio creación y administración de red Virtual](howto-manage-vnet-using-cli.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 * [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
@@ -31,7 +33,7 @@ Comandos:
 - **show**: muestre los detalles de una regla de firewall de servidor de Azure para MySQL.
 - **update**: actualice una regla de firewall de servidor de Azure para MySQL.
 
-## <a name="log-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Inicio de sesión en Azure y enumeración de los servidores de Azure Database for MySQL
+## <a name="sign-in-to-azure-and-list-your-azure-database-for-mysql-servers"></a>Inicie sesión en Azure y de lista de la base de datos de Azure para servidores de MySQL
 Conéctese de forma segura a la CLI de Azure con su cuenta de Azure mediante el comando **az login**.
 
 1. En la línea de comandos, ejecute el siguiente comando:
@@ -42,7 +44,7 @@ Conéctese de forma segura a la CLI de Azure con su cuenta de Azure mediante el 
 
 2. Use un explorador web para abrir la página [https://aka.ms/devicelogin](https://aka.ms/devicelogin) y escriba el código.
 
-3. En el mensaje, inicie sesión con sus credenciales de Azure.
+3. En el símbolo del sistema, inicie sesión con sus credenciales de Azure.
 
 4. Después de que se autorice el inicio de sesión, se imprimirá una lista de suscripciones en la consola. Copie el identificador de la suscripción deseada para establecer la suscripción actual que se va a usar. Use el comando [az account set](/cli/azure/account#az-account-set).
     ```azurecli-interactive
@@ -119,3 +121,4 @@ Cuando se realiza correctamente, no hay ninguna salida. En caso de error, se mue
 ## <a name="next-steps"></a>Pasos siguientes
 - Para más información, consulte [Reglas de firewall del servidor de Azure Database para MySQL](./concepts-firewall-rules.md).
 - [Creación y administración de reglas de firewall de Azure Database for MySQL mediante Azure Portal](./howto-manage-firewall-using-portal.md).
+- Proteger aún más el acceso a su servidor [reglas mediante la CLI de Azure y los puntos de conexión de servicio creación y administración de red Virtual](howto-manage-vnet-using-cli.md).

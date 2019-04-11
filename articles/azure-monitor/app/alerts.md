@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 3b6860c9a84384bfade099fb7c8c8c72281c3593
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8026576478b16b753ba960155c383ffec62c61ce
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257168"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469803"
 ---
 # <a name="set-alerts-in-application-insights"></a>Definición de alertas en Application Insights
 [Azure Application Insights][start] puede avisarle sobre los cambios en las métricas de rendimiento o de uso de la aplicación web. 
@@ -144,6 +144,24 @@ En esta sección, veremos cómo establecer una alerta de excepción basado en co
 10. Por último, agregue los detalles de alerta (nombre de la regla, la descripción, la gravedad de alerta). Cuando haya terminado, haga clic en **crear regla de alertas** en la parte inferior.
 
     ![En detalle de alertas, escriba el nombre de regla de alerta, escribir una descripción y elegir un nivel de gravedad](./media/alerts/9alertdetails.png)
+
+## <a name="how-to-unsubscribe-from-classic-alert-e-mail-notifications"></a>Cómo cancelar la suscripción a notificaciones de correo electrónico de alerta clásica
+
+En esta sección se aplica a **alertas de disponibilidad clásico**, **alertas de métricas de Application Insights**y a **alertas de anomalías de error clásico**.
+
+Recibe notificaciones de correo electrónico para estas alertas clásicas si se aplica cualquiera de las siguientes acciones:
+
+* La dirección de correo electrónico se muestra en el campo de los destinatarios de correo electrónico de notificación en la configuración de regla de alerta.
+
+* Se activa la opción para enviar notificaciones por correo electrónico a los usuarios que dispongan de determinados roles de la suscripción y se mantiene un rol correspondiente para esa suscripción de Azure.
+
+![Captura de pantalla de notificación de alerta](./media/alerts/alert-notification.png)
+
+Para controlar mejor la seguridad y privacidad, por lo general, se recomienda especificar explícitamente los destinatarios de notificación para las alertas clásicas en el **destinatarios de correo electrónico de notificación** campo. La opción para notificar a todos los usuarios que contienen determinados roles se proporciona por compatibilidad con versiones anteriores.
+
+Para cancelar la suscripción a notificaciones de correo electrónico generadas por una regla de alerta, quitar tu dirección de correo electrónico desde la **destinatarios de correo electrónico de notificación** campo.
+
+Si su dirección de correo electrónico no aparece explícitamente, se recomienda que deshabilite la opción para notificar automáticamente a todos los miembros de determinados roles y, en su lugar enumerar todos los correos electrónicos de usuario que necesiten recibir notificaciones de esa regla de alerta en la notificación por correo electrónico campo de destinatarios.
 
 ## <a name="who-receives-the-classic-alert-notifications"></a>¿Quién recibe las notificaciones de alerta (clásicas)?
 
