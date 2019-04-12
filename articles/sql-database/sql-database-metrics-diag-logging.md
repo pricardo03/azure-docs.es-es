@@ -1,10 +1,10 @@
 ---
 title: Métricas y registros de diagnóstico de Azure SQL Database | Microsoft Docs
-description: Aprenda a configurar Azure SQL Database para almacenar estadísticas de uso de recursos y ejecución de consultas.
+description: Obtenga información sobre cómo habilitar diagnósticos en Azure SQL Database para almacenar información sobre el uso de recursos y las estadísticas de ejecución de consulta.
 services: sql-database
 ms.service: sql-database
 ms.subservice: monitor
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: danimir
@@ -12,14 +12,16 @@ ms.author: danil
 ms.reviewer: jrasnik, carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: f023ab4fe55cf180ac1e3f0634856a528c911746
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: a2bd25f6dac4e73c0d8e3e951981f45e669b226a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426516"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490075"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas y registros de diagnóstico de Azure SQL Database
+
+En este tema, obtendrá información sobre cómo configurar el registro de telemetría de diagnósticos para Azure SQL Database mediante Azure portal, PowerShell, CLI de Azure, API de REST de Azure Monitor y plantilla de Azure Resource Manager. Estos diagnósticos se pueden usar para medir el uso de recursos y las estadísticas de ejecución de consulta. 
 
 Las bases de datos únicas, bases de datos agrupadas en grupos elásticos y bases de datos de instancia en una instancia administrada pueden transmitir métricas y registros de diagnóstico para facilitar la supervisión del rendimiento. Puede configurar una base de datos para optimizar el uso de recursos, los trabajos y sesiones, y la conectividad en uno de los siguientes recursos de Azure:
 

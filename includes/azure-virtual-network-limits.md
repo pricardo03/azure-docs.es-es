@@ -2,18 +2,18 @@
 title: archivo de inclusión
 description: archivo de inclusión
 services: networking
-author: jimdial
+author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 02/07/2019
-ms.author: jdial
+ms.date: 04/10/2019
+ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: c6c57390e0a2fba0c79d3198df0f5577eb813f88
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: ff6e08929d5ede86ba0632e7cfb38d81d21ca7ec
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57553945"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502658"
 ---
 <a name="virtual-networking-limits-classic"></a>Los límites siguientes se aplican solo a los recursos de redes administrados a través del modelo de implementación clásico por suscripción. Aprenda a [ver el uso de recursos actual comparado con los límites de su suscripción](../articles/networking/check-usage-against-limits.md).
 
@@ -44,7 +44,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | --- | --- |
 | Redes virtuales |1000 |
 | Subredes por red virtual |3000 |
-| Emparejamientos de redes virtuales por red virtual |100 |
+| Emparejamientos de redes virtuales por red virtual |500 |
 | Servidores DNS por red virtual |20 |
 | Direcciones IP privadas por red virtual |65,536 |
 | Direcciones IP privadas por interfaz de red |256 |
@@ -68,7 +68,7 @@ Los límites siguientes solo se aplican a los recursos de redes administrados a 
 | Recurso | Límite predeterminado | Límite máximo |
 | --- | --- | --- |
 | Direcciones IP públicas - dinámicas | 1000 por Basic. |Póngase en contacto con el servicio de soporte técnico. |
-| Direcciones IP públicas - estáticas | 200 para Basic. |Póngase en contacto con el servicio de soporte técnico. |
+| Direcciones IP públicas - estáticas | 1000 por Basic. |Póngase en contacto con el servicio de soporte técnico. |
 | Direcciones IP públicas - estáticas | 200 estándar.|Póngase en contacto con el servicio de soporte técnico. |
 | Tamaño de prefijo IP pública (versión preliminar) | /28 | /28 |
 

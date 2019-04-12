@@ -1,6 +1,6 @@
 ---
-title: Protección de cliente de OPC UA y aplicación de servidor de OPC UA con la administración de certificados de OPC UA de Azure IoT | Microsoft Docs
-description: Protección de cliente de OPC UA y aplicación de servidor de OPC UA con un nuevo par de claves y un certificado con el almacén de OPC.
+title: Proteger OPC UA de cliente y la aplicación de servidor de OPC UA con el almacén de OPC - Azure | Microsoft Docs
+description: Cliente OPC UA y OPC UA server aplicación seguro con un nuevo par de claves y un certificado con el almacén de OPC.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/26/2018
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: bfa6bdf6a54cb5e54087055988e9682565667105
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 5ba2dba02585598b3797dd1b490976ebe34b489e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759623"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495301"
 ---
-# <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>Protección de cliente de OPC UA y OPC UA aplicación de servidor 
-Azure IoT OPC UA administración de certificados, también conocido como almacén de OPC, es un microservicio que puede configurar, registro y administrar el ciclo de vida del certificado para aplicaciones de cliente y servidor de OPC UA en la nube. Este artículo muestra cómo proteger el cliente de OPC UA y aplicación de servidor de OPC UA con un nuevo par de claves y certificados con el almacén de OPC.
+# <a name="secure-opc-ua-client-and-opc-ua-server-application"></a>Proteger OPC UA de cliente y la aplicación de servidor de OPC UA 
+Almacén de OPC es un microservicio que puede configurar, registrar y administrar el ciclo de vida de certificado de servidor OPC UA y las aplicaciones cliente en la nube. Este artículo muestra cómo proteger un cliente OPC UA y un OPC UA de aplicación de servidor con un nuevo par de claves y un certificado con el almacén de OPC.
 
-En la siguiente configuración, el cliente de OPC está probando la conectividad con el PLC OPC. De forma predeterminada, la conectividad no es posible porque todavía no se ha aprovisionado ambos componentes con los certificados de la derecha. En este flujo de trabajo, no use los certificados autofirmados de componentes de OPC UA y firmarlos a través de OPC Vault. Vea la anterior [banco de pruebas](howto-opc-vault-deploy-existing-client-plc-communication.md). En su lugar, este banco de pruebas proporciona los componentes con un nuevo certificado, así como con una nueva clave privada que se generan en el almacén de OPC. Información general sobre la seguridad de OPC UA puede encontrarse en este [notas del producto](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf). Toda la información puede encontrarse en la especificación de OPC UA.
+En la siguiente configuración, el cliente OPC está probando la conectividad con el PLC OPC. De forma predeterminada, la conectividad no es posible porque todavía no se ha aprovisionado ambos componentes con los certificados de la derecha. En este flujo de trabajo, no use los certificados autofirmados de componentes de OPC UA y firmarlos a través de OPC Vault. Vea la anterior [banco de pruebas](howto-opc-vault-deploy-existing-client-plc-communication.md). En su lugar, este banco de pruebas proporciona los componentes con un nuevo certificado, así como con una nueva clave privada que se generan en el almacén de OPC. Información general sobre la seguridad de OPC UA puede encontrarse en este [notas del producto](https://opcfoundation.org/wp-content/uploads/2014/05/OPC-UA_Security_Model_for_Administrators_V1.00.pdf). Toda la información puede encontrarse en la especificación de OPC UA.
 
 Banco de pruebas: El siguiente entorno está configurado para las pruebas.
 
 Secuencias de comandos de OPC almacén:
-- Protección de cliente de OPC UA y aplicación de servidor de OPC UA con un nuevo par de claves y un certificado con el almacén de OPC.
+- Cliente OPC UA y OPC UA server aplicaciones seguras con un nuevo par de claves y un certificado con el almacén de OPC.
 
 > [!NOTE]
 > Para obtener más información, vea GitHub [repositorio](https://github.com/Azure-Samples/iot-edge-industrial-configs#testbeds).
@@ -67,7 +67,7 @@ Secuencias de comandos de OPC almacén:
 
     Reemplace las cadenas que se pasan como cadenas de Base64 de los valores de opción que recuperó los cambios desde el sitio Web.  
 
-1. Repita el proceso completo a partir de `Register New` para el cliente de OPC. Hay solo las siguientes diferencias que debe tener en cuenta:
+1. Repita el proceso completo a partir de `Register New` para el cliente OPC. Hay solo las siguientes diferencias que debe tener en cuenta:
     - Utilice la salida del registro el `opcclient`.
     - Seleccione `Client` como ApplicationType durante el registro.
     - Use `$env:_CLIENT_OPT` como nombre de la variable de PowerShell.
@@ -85,7 +85,7 @@ docker-compose -f connecttest.yml up
 
 **Comprobación**
 
-Compruebe que los dos componentes no han tenido un certificado existente de la aplicación. Compruebe la salida del registro. A continuación es el resultado de OPC PLC y cliente de OPC tiene una salida de registro similar.
+Compruebe que los dos componentes no han tenido un certificado existente de la aplicación. Compruebe la salida del registro. A continuación es el resultado de OPC PLC y cliente OPC tiene una salida de registro similar.
 
 ```
 opcplc-123456 | [13:40:08 INF] There is no existing application certificate.
@@ -107,7 +107,7 @@ opcplc-123456 | [13:40:09 INF] Rejected certificate store contains 0 certs
 ```
 Ahora el PLC OPC confiar en todos los clientes de OPC UA con certificados firmados por el almacén de OPC.
 
-Compruebe en el registro que se reconoce el formato de clave privada como PEM y que está instalado el nuevo certificado de aplicación. A continuación es la salida del registro de OPC PLC y cliente de OPC tiene una salida de registro similar. 
+Compruebe en el registro que se reconoce el formato de clave privada como PEM y que está instalado el nuevo certificado de aplicación. A continuación es la salida del registro de OPC PLC y cliente OPC tiene una salida de registro similar. 
 
 ```
 opcplc-123456 | [13:40:09 INF] The private key for the new certificate was passed in using PEM format.
@@ -118,7 +118,7 @@ opcplc-123456 | [13:40:09 INF] Activating the new application certificate with t
 
 El certificado de la aplicación y la clave privada están instalados en el almacén de certificados de la aplicación y utilizados por la aplicación de OPC UA.
 
-Compruebe que se puede establecer la conexión entre el cliente de OPC y OPC PLC correctamente y el cliente de OPC puede leer correctamente los datos de OPC PLC. Debería ver el siguiente resultado en el cliente de OPC y registrar la salida:
+Compruebe que se puede establecer la conexión entre el cliente OPC y OPC PLC correctamente y el cliente OPC puede leer correctamente los datos de OPC PLC. Debería ver el siguiente resultado en la salida del registro de cliente OPC:
 ```
 opcclient-123456 | [13:40:12 INF] Create secured session for endpoint URI 'opc.tcp://opcplc-123456:50000/' with timeout of 10000 ms.
 opcclient-123456 | [13:40:12 INF] Session successfully created with Id ns=3;i=941910499.
@@ -132,7 +132,7 @@ opcclient-123456 | [13:40:12 INF] Execute 'OpcClient.OpcTestAction' action on no
 opcclient-123456 | [13:40:12 INF] Action (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258') completed successfully
 opcclient-123456 | [13:40:12 INF] Value (ActionId: 000 ActionType: 'OpcTestAction', Endpoint: 'opc.tcp://opcplc-123456:50000/' Node 'i=2258'): 10/21/2018 13:40:12
 ```
-Si ve esta salida, el PLC OPC es ahora confiar en el cliente de OPC y viceversa, ya que ambos tienen ahora los certificados firmados por una entidad de certificación y ambos certificados de confianza que se han firmado por esta CA.
+Si ve esta salida, a continuación, el PLC OPC ahora confía en que el OPC cliente y viceversa, dado que ambas tienen ahora los certificados firmados por una entidad de certificación y ambos certificados de confianza que se han firmado por esta CA.
 
 ### <a name="a-testbed-for-opc-publisher"></a>Un banco de pruebas para el publicador de OPC ###
 
@@ -145,7 +145,7 @@ docker-compose -f testbed.yml up
 
 **Comprobación**
 - Compruebe que los datos se envían al centro de IOT configura estableciendo `_HUB_CS` mediante [Device Explorer](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer) o [iothub-explorer](https://github.com/Azure/iothub-explorer).
-- Cliente de prueba de OPC se va a usar las llamadas de método directo de IoTHub y llamadas a métodos OPC para configurar el publicador de OPC para publicar o cancelar la publicación nodos de OPC Testserver.
+- Cliente de prueba OPC se va a usar las llamadas de método directo de IoTHub y llamadas a métodos OPC para configurar el publicador de OPC para publicar o cancelar la publicación nodos desde el servidor de prueba OPC.
 - Ver la salida de mensajes de error.
 
 ## <a name="next-steps"></a>Pasos siguientes

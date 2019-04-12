@@ -9,19 +9,19 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 1ffeab91933bfcba9f3ffa0b557e849a1e6890f5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: dae74e730d6e175fa3e447150adce4caecd3d7a3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486162"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496495"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Esquema de configuración de Diagnósticos de Azure 1.2
 > [!NOTE]
 > Diagnósticos de Azure es el componente que se usa para recopilar contadores de rendimiento y otras estadísticas de Azure Virtual Machines, conjuntos de escalado de máquinas virtuales, Service Fabric y Cloud Services.  Esta página solo es pertinente si está usando uno de estos servicios.
 >
 
-Diagnósticos de Azure se usa con otros productos de diagnósticos de Microsoft, como Azure Monitor, Application Insights y Log Analytics.
+Diagnósticos de Azure se usan con otros productos de diagnósticos de Microsoft como Azure Monitor, que incluye Application Insights y Log Analytics.
 
 Este esquema define los valores posibles que puede usar para inicializar valores de configuración de diagnóstico cuando se inicia el monitor de diagnóstico.  
 
@@ -100,7 +100,7 @@ http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration
 |------------------|-----------------|  
 |**WadCfg**|Necesario. Opciones de configuración para los datos de telemetría que se van a recopilar.|  
 |**StorageAccount**|El nombre de la cuenta de Azure Storage en la que se van a almacenar los datos. También se puede especificar como un parámetro al ejecutar el cmdlet Set-AzureServiceDiagnosticsExtension.|  
-|**LocalResourceDirectory**|El directorio en la máquina virtual que va a utilizar Monitoring Agent para almacenar los datos del evento. Si no se establece, se usa el directorio predeterminado:<br /><br /> Para un rol de trabajo o web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Para una máquina virtual: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Los atributos necesarios son:<br /><br /> -                      **path**: el directorio del sistema que va a usar Diagnósticos de Azure.<br /><br /> -                      **expandEnvironment**: controla si se expanden las variables de entorno en el nombre de ruta de acceso.|  
+|**LocalResourceDirectory**|El directorio en la máquina virtual que va a utilizar Monitoring Agent para almacenar los datos del evento. Si no se establece, se usa el directorio predeterminado:<br /><br /> Para un rol de trabajo o web: `C:\Resources\<guid>\directory\<guid>.<RoleName.DiagnosticStore\`<br /><br /> Para una máquina Virtual: `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<WADVersion>\WAD<WADVersion>`<br /><br /> Los atributos necesarios son:<br /><br /> -                      **path**: el directorio del sistema que va a usar Diagnósticos de Azure.<br /><br /> -                      **expandEnvironment**: controla si se expanden las variables de entorno en el nombre de ruta de acceso.|  
 
 ## <a name="wadcfg-element"></a>Elemento WadCFG  
 Define las opciones de configuración para los datos de telemetría que se van a recopilar. En la tabla siguiente se describen los elementos secundarios:  
@@ -146,7 +146,7 @@ Define las opciones de configuración para los datos de telemetría que se van a
 
 |Nombre del elemento|DESCRIPCIÓN|  
 |------------------|-----------------|  
-|**Absolute**|La ruta de acceso absoluta al directorio que se va a supervisar. Los atributos siguientes son necesarios:<br /><br /> -                     **Path**: la ruta de acceso absoluta al directorio que se va a supervisar.<br /><br /> -                      **expandEnvironment**: configura si se expanden las variables de entorno en Path.|  
+|**Absoluto**|La ruta de acceso absoluta al directorio que se va a supervisar. Los atributos siguientes son necesarios:<br /><br /> -                     **Path**: la ruta de acceso absoluta al directorio que se va a supervisar.<br /><br /> -                      **expandEnvironment**: configura si se expanden las variables de entorno en Path.|  
 |**LocalResource**|La ruta de acceso relativa a un recurso local que se va a supervisar. Los atributos necesarios son:<br /><br /> -                     **Name**: el recurso local que contiene el directorio que se va a supervisar<br /><br /> -                     **relativePath**: la ruta de acceso relativa al nombre que contiene el directorio que se va a supervisar|  
 
 ## <a name="etwproviders-element"></a>Elemento EtwProviders  
@@ -192,7 +192,7 @@ Define las opciones de configuración para los datos de telemetría que se van a
 
 |Nombre del elemento|DESCRIPCIÓN|  
 |------------------|-----------------|  
-|**annotation**|Atributo necesario:<br /><br /> **displayName**: el nombre para mostrar para el contador<br /><br /> Atributo opcional:<br /><br /> **locale**: la configuración regional que se usará al mostrar el nombre del contador|  
+|**Anotación**|Atributo necesario:<br /><br /> **displayName**: el nombre para mostrar para el contador<br /><br /> Atributo opcional:<br /><br /> **locale**: la configuración regional que se usará al mostrar el nombre del contador|  
 
 ## <a name="windowseventlog-element"></a>Elemento WindowsEventLog  
  En la tabla siguiente se describen los elementos secundarios:  

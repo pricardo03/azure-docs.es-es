@@ -1,6 +1,6 @@
 ---
-title: Recopilar datos de Office 365 en Azure Sentinel Preview | Microsoft Docs
-description: Obtenga información sobre cómo recopilar datos de Office 365 en Azure Sentinel.
+title: Conecte los datos de Office 365 a la versión preliminar de Azure Sentinel | Microsoft Docs
+description: Obtenga información sobre cómo conectar los datos de Office 365 con Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: ad501958a5f88c821e48a3e21f69a960160b3c8e
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 77587b0b7506ef0ccadbeb6d1f010f5b6a72d93e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574865"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495197"
 ---
-# <a name="collect-data-from-office-365-logs"></a>Recopilar datos de los registros de Office 365
+# <a name="connect-data-from-office-365-logs"></a>Conectar los datos de los registros de Office 365
 
 > [!IMPORTANT]
 > Azure Sentinel se encuentra actualmente en versión preliminar pública.
@@ -33,11 +33,11 @@ Puede transmitir los registros de auditoría de [Office 365](https://docs.micros
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Debe ser un administrador global o administrador de seguridad en el inquilino
-- En el equipo, desde el que ha iniciado sesión en Azure Centinela para crear la conexión, make suretha puerto 4433 está abierto para el tráfico web.
+- En el equipo, desde el que ha iniciado sesión en Azure Centinela para crear la conexión, asegúrese de que el puerto 4433 está abierto para el tráfico web.
 
 ## <a name="connect-to-office-365"></a>Conectarse a Office 365
 
-1. En Azure Sentinel, seleccione **la recopilación de datos** y, a continuación, haga clic en el **Office 365** icono.
+1. En Azure Sentinel, seleccione **conectores de datos** y, a continuación, haga clic en el **Office 365** icono.
 
 2. Si no ya ha habilitado, en **conexión** utilizar el **habilitar** botón para habilitar la solución de Office 365. Si ya se ha habilitado, se identificarán en la pantalla de conexión que como ya se ha habilitado.
 1. Office 365 le permite transmitir datos de varios inquilinos para Azure Sentinel. Para cada inquilino que desea conectarse, agregue el inquilino en **conectan los inquilinos a Azure Sentinel**. 

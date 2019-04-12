@@ -1,5 +1,5 @@
 ---
-title: Uso de Azure AD v2.0 para el inicio de sesión de usuarios con ROPC | Microsoft Docs
+title: Plataforma de identidad de Microsoft de uso para iniciar sesión en los usuarios que utilizan ROPC | Azure
 description: Admita flujos de autenticación sin explorador mediante la concesión de credenciales de contraseña de propietario de recursos.
 services: active-directory
 documentationcenter: ''
@@ -11,25 +11,25 @@ ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 11/28/2018
+ms.topic: conceptual
+ms.date: 04/12/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df9073bbf9789875c373bb7093ab1878a20c399f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 8c1372263bfa3f684d30ad583bfb6a9d434c3cc2
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59274199"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499944"
 ---
-# <a name="azure-active-directory-v20-and-the-oauth-20-resource-owner-password-credential"></a>Azure Active Directory v2.0 y la credencial de contraseña de propietario de recursos OAuth 2.0
+# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credential"></a>Plataforma de identidad de Microsoft y las credenciales de contraseña de propietario de recurso de OAuth 2.0
 
-Azure Active Directory (Azure AD) admite la [concesión de credenciales de contraseña de propietario de recursos (ROPC)](https://tools.ietf.org/html/rfc6749#section-4.3), que permite que una aplicación inicie la sesión del usuario al controlar directamente su contraseña. El flujo de ROPC requiere un alto grado de confianza y exposición del usuario, y los desarrolladores solo deberían usar este flujo cuando no se puedan usar los otros flujos, más seguros.
+Admite la plataforma Microsoft identity el [conceder credenciales de contraseña de propietario de recursos (ROPC)](https://tools.ietf.org/html/rfc6749#section-4.3), que permite que una aplicación iniciar sesión en el usuario al controlar directamente la contraseña. El flujo de ROPC requiere un alto grado de confianza y exposición del usuario, y los desarrolladores solo deberían usar este flujo cuando no se puedan usar los otros flujos, más seguros.
 
-> [!Important]
-> * El punto de conexión de Azure AD v2.0 solo admite ROPC para inquilinos de Azure AD, no cuentas personales. Esto significa que debe usar un punto de conexión específico del inquilino (`https://login.microsoftonline.com/{TenantId_or_Name}`) o el punto de conexión `organizations`.
+> [!IMPORTANT]
+> * El punto de conexión de plataforma de identidad de Microsoft solo admite ROPC para inquilinos de Azure AD, las cuentas personales no. Esto significa que debe usar un punto de conexión específico del inquilino (`https://login.microsoftonline.com/{TenantId_or_Name}`) o el punto de conexión `organizations`.
 > * Las cuentas personales que se invitan a un inquilino de Azure AD no pueden usar ROPC.
 > * Las cuentas sin contraseña no pueden iniciar sesión a través de ROPC. En este escenario, se recomienda usar en su lugar un flujo distinto para la aplicación.
 > * Si los usuarios deben usar la autenticación multifactor (MFA) para iniciar sesión en la aplicación, se les bloqueará.
@@ -44,10 +44,17 @@ En el diagrama siguiente se muestra el flujo de ROPC.
 
 El flujo de ROPC es una solicitud única&mdash;envía la identificación del cliente y las credenciales del usuario al punto de distribución de emisión (IDP) y después, a cambio, recibe tokens. El cliente debe solicitar la dirección de correo electrónico (UPN) y la contraseña del usuario antes de hacerlo. Inmediatamente después de que una solicitud se realice correctamente, el cliente deberá liberar de manera segura las credenciales del usuario de la memoria. Nunca debe guardarlas.
 
+> [!TIP]
+> Pruebe a ejecutar esta solicitud en Postman
+> [![Ejecución en Postman](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
+
+
 ```
 // Line breaks and spaces are for legibility only.
 
-POST https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token?
+POST {tenant}/oauth2/v2.0/token
+Host: login.microsoftonline.com
+Content-Type: application/x-www-form-urlencoded
 
 client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &scope=user.read%20openid%20profile%20offline_access
@@ -96,11 +103,11 @@ Si el usuario no ha proporcionado la contraseña o el nombre de usuario adecuado
 
 | Error | DESCRIPCIÓN | Acción del cliente |
 |------ | ----------- | -------------|
-| `invalid_grant` | Error de autenticación | Las credenciales no eran las correctas o el cliente no tiene consentimiento para los ámbitos solicitados. Si no se conceden los ámbitos, se devolverá un suberror `consent_required`. Si esto ocurre, el cliente debería enviar el usuario a una solicitud interactiva mediante una vista web o un explorador. |
-| `invalid_request` | La solicitud se construyó de manera inadecuada. | El tipo de concesión no es compatible con los contextos de autenticación `/common` ni `/consumers`.  En su lugar, use `/organizations`. |
-| `invalid_client` | La aplicación no está correctamente configurada | Esto puede ocurrir si la propiedad `allowPublicClient` no está establecida en true en el [manifiesto de aplicación](reference-app-manifest.md). La propiedad `allowPublicClient` es necesaria porque la concesión de ROPC no tiene un URI de redireccionamiento. Azure AD no puede determinar si la aplicación es una aplicación cliente pública o una aplicación cliente confidencial, a menos que se establezca esta propiedad. Tenga en cuenta que el ROPC solo es compatible con las aplicaciones cliente públicas. |
+| `invalid_grant` | Error de autenticación | Las credenciales no eran las correctas o el cliente no tiene consentimiento para los ámbitos solicitados. Si no se conceden a los ámbitos, un `consent_required` , se devolverá el error. Si esto ocurre, el cliente debería enviar el usuario a una solicitud interactiva mediante una vista web o un explorador. |
+| `invalid_request` | La solicitud se construyó de manera inadecuada. | No se admite el tipo de concesión en el `/common` o `/consumers` contextos de autenticación.  En su lugar, use `/organizations`. |
+| `invalid_client` | La aplicación no está correctamente configurada | Esto puede ocurrir si el `allowPublicClient` propiedad no está establecida en true en el [manifiesto de aplicación](reference-app-manifest.md). La propiedad `allowPublicClient` es necesaria porque la concesión de ROPC no tiene un URI de redireccionamiento. Azure AD no puede determinar si la aplicación es una aplicación cliente pública o una aplicación cliente confidencial, a menos que se establezca esta propiedad. Tenga en cuenta que el ROPC solo es compatible con las aplicaciones cliente públicas. |
 
 ## <a name="learn-more"></a>Más información
 
 * Pruebe usted mismo ROPC con la [aplicación de consola de ejemplo](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2).
-* Para determinar si debe usar la versión 2.0 del punto de conexión, obtenga información sobre las [limitaciones de esta versión](active-directory-v2-limitations.md).
+* Para determinar si debe utilizar el punto de conexión v2.0, lea sobre [limitaciones de la plataforma de identidad de Microsoft](active-directory-v2-limitations.md).

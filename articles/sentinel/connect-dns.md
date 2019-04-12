@@ -1,6 +1,6 @@
 ---
-title: Recopilar datos DNS en la versión preliminar de Azure Sentinel | Microsoft Docs
-description: Obtenga información sobre cómo recopilar datos DNS en Azure Sentinel.
+title: Conecte los datos DNS en la versión preliminar de Azure Sentinel | Microsoft Docs
+description: Aprenda a conectar datos DNS en Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: a7f075b74876ec807d790f3ffbea5dad14163535
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: e34db2bdc78eb846cf4885b1ef083fd3b21e21b5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57530423"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489749"
 ---
 # <a name="connect-your-domain-name-server"></a>Conectar el servidor de nombres de dominio
 
 > [!IMPORTANT]
-> Sentinel Azure está actualmente en versión preliminar pública.
+> Azure Sentinel se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Puede conectar cualquier servidor de nombres de dominio (DNS) que se ejecuta en Windows Azure Sentinel. Esto se hace mediante la instalación de un agente en el equipo DNS. Los registros de uso de DNS, puede obtener información relacionada con las operaciones en la infraestructura DNS de su organización, el rendimiento y seguridad al recopilar, analizar, y correlacionar analíticos y los registros de auditoría y otros datos relacionados de los servidores DNS.
 
-Cuando se habilita la recopilación de registros DNS, puede:
+Cuando se habilita la conexión de registro DNS, puede:
 - Identificar a los clientes que intentan resolver nombres de dominio malintencionados
 - Identificar los registros de recursos obsoletos
 - Identificar los nombres de dominio consultados con más frecuencia y los clientes DNS participativos
@@ -38,11 +38,11 @@ Cuando se habilita la recopilación de registros DNS, puede:
 
 ## <a name="how-it-works"></a>Cómo funciona
 
-Colección de DNS se consigue instalando un agente en el equipo DNS. El agente extrae eventos de DNS y los pasa a Log Analytics.
+Conexión de DNS se consigue instalando un agente en el equipo DNS. El agente extrae eventos de DNS y los pasa a Log Analytics.
 
 ## <a name="connect-your-dns-appliance"></a>Conecte el dispositivo de DNS
 
-1. En el portal de Azure Sentinel, seleccione **la recopilación de datos** y elija el **DNS** icono.
+1. En el portal de Azure Sentinel, seleccione **conectores de datos** y elija el **DNS** icono.
 1. Si las máquinas DNS se encuentran en Azure:
     1. Haga clic en **descargar e instalar el agente para las máquinas virtuales de Windows**.
     1. En el **máquinas virtuales** lista, seleccione la máquina DNS que desea transmitir a Azure Sentinel. Asegúrese de que se trata de una máquina virtual de Windows.
@@ -61,6 +61,6 @@ Colección de DNS se consigue instalando un agente en el equipo DNS. El agente e
 En Log Analytics, busque el esquema **DnsEvents** y asegúrese de que hay eventos.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, ha aprendido cómo conectar dispositivos locales DNS con Azure Sentinel. Para obtener más información acerca de Centinela de Azure, consulte los artículos siguientes:
+En este documento, ha aprendido cómo conectar dispositivos locales DNS con Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Obtenga información sobre cómo [Obtenga visibilidad sobre sus datos y las posibles amenazas](quickstart-get-visibility.md).
 - Introducción a [detección de amenazas con Azure Sentinel](tutorial-detect-threats.md).

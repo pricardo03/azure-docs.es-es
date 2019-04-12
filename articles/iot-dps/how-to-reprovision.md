@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: c7163667ec370abf468b289cea231e86a4b5753f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 92680a453d93c8dc0189c6ae376449a8e7a22076
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046844"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499859"
 ---
 # <a name="how-to-reprovision-devices"></a>Reaprovisionamiento de dispositivos
 
@@ -27,7 +27,7 @@ Durante el ciclo de vida de una solución de IoT, es habitual mover los disposit
 
 * **Cuarentena**: Similar a un cambio de la solución. Un dispositivo que no funciona correctamente, que está en peligro o no actualizado se puede reasignar a un centro de IoT para actualizarse y volver a estar en condiciones. Una vez que el dispositivo está funcionando correctamente, se vuelve a migrar a su centro principal.
 
-Para una descripción más detallada del reaprovisionamiento, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](concepts-device-reprovision.md).
+Para más una descripción más detallada de restablecimiento del servicio, consulte [reaprovisionamiento conceptos de dispositivo de IoT Hub](concepts-device-reprovision.md).
 
 
 ## <a name="configure-the-enrollment-allocation-policy"></a>Configuración de la directiva de asignación de inscripciones
@@ -93,7 +93,7 @@ Si quiere ver un ejemplo de código para enviar solicitudes de aprovisionamiento
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre el reaprovisionamiento, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](concepts-device-reprovision.md). 
+- Para obtener más Reprovisioning, vea [reaprovisionamiento conceptos de dispositivo de IoT Hub](concepts-device-reprovision.md) 
 - Para obtener información más Desaprovisionamiento de usuarios, consulte [Desaprovisionamiento de dispositivos que automática aprovisionados](how-to-unprovision-devices.md) 
 
 

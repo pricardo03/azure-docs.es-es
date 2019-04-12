@@ -1,6 +1,6 @@
 ---
-title: Recopilar datos de Barracuda en versión preliminar de Azure Sentinel | Microsoft Docs
-description: Obtenga información sobre cómo recopilar datos de Barracuda en Centinela de Azure.
+title: Conecte los datos de Barracuda para la versión preliminar de Azure Sentinel | Microsoft Docs
+description: Obtenga información sobre cómo conectarse a datos Barracuda Centinela de Azure.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b4d1830e705e1813c8448787e587d720eaf5ddbd
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d8e92fd3918230b48449926dcbb7528d919fd96f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574725"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492845"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Conecte el dispositivo de Barracuda 
 
@@ -31,11 +31,10 @@ Conector de Firewall de aplicaciones Web (WAF) de Barracuda le permite conectar 
 
 
 > [!NOTE]
-> 
-> - Datos se almacenarán en la ubicación geográfica del área de trabajo en el que se ejecuta Azure Sentinel.
+> Datos se almacenarán en la ubicación geográfica del área de trabajo en el que se ejecuta Azure Sentinel.
 
 ## <a name="configure-and-connect-barracuda-waf"></a>Configurar y conectar Barracuda WAF
-Barracuda Web Application Firewall puede integrar y exportar registros directamente a [ASI] a través del servidor de OMS de Azure.
+Barracuda Web Application Firewall puede integrar y exportar registros directamente a Azure Sentinel a través del servidor de OMS de Azure.
 1. Vaya a [flujo de la configuración de Barracuda WAF](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/)y siga las instrucciones para configurar la conexión, mediante estos parámetros:
     - **Id. de área de trabajo**: copie el valor de su identificador de área de trabajo de la página del conector Azure Sentinel Barracuda.
     - **Clave principal**: copie el valor de la clave principal de la página del conector Azure Sentinel Barracuda.

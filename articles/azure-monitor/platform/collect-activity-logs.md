@@ -11,20 +11,20 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/26/2018
+ms.date: 04/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 48fb09b73a6169da392443f5fbf4f005e9640c3e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 4476bb0a5a343fd43ce5ed70cf0e493d0ccae0e9
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905994"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505641"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recopilar y analizar los registros de actividad de Azure en el área de trabajo de Log Analytics en Azure Monitor
 
 ![Símbolo de registros de actividad de Azure](./media/collect-activity-logs/activity-log-analytics.png)
 
-La solución Activity Log Analytics ayuda a analizar y buscar en el [registro de actividad de Azure](../../azure-monitor/platform/activity-logs-overview.md) de todas las suscripciones de Azure. El registro de actividad de Azure es un registro que proporciona información sobre las operaciones realizadas en los recursos de las suscripciones. Antes el registro de actividad se conocía como *Registros de auditoría* o *Registros operativos*, ya que notifica eventos de las suscripciones.
+La solución Activity Log Analytics ayuda a analizar y buscar en el [registro de actividad de Azure](activity-logs-overview.md) de todas las suscripciones de Azure. El registro de actividad de Azure es un registro que proporciona información sobre las operaciones realizadas en los recursos de las suscripciones. Antes el registro de actividad se conocía como *Registros de auditoría* o *Registros operativos*, ya que notifica eventos de las suscripciones.
 
 Con el registro de actividad se pueden determinar los interrogantes *qué*, *quién* y *cuándo* de las operaciones de escritura (PUT, POST, DELETE) realizadas para los recursos de la suscripción. También permite entender el estado de las operaciones y otras propiedades relevantes. El registro de actividad no incluye las operaciones de lectura (GET) ni las operaciones para los recursos que usan el modelo de implementación clásica.
 
@@ -52,28 +52,39 @@ A diferencia de la mayoría de soluciones de Azure Monitor, datos agentes no rec
 
 | Origen conectado | Compatible | DESCRIPCIÓN |
 | --- | --- | --- |
-| [Agentes de Windows](../../azure-monitor/platform/agent-windows.md) | Sin  | La solución no recopila información de los agentes de Windows. |
-| [Agentes de Linux](../../azure-monitor/learn/quick-collect-linux-computer.md) | Sin  | La solución no recopila información de los agentes de Linux. |
-| [Grupo de administración de SCOM](../../azure-monitor/platform/om-agents.md) | Sin  | La solución no recopila información de los agentes de un grupo de administración SCOM conectado. |
+| [Agentes de Windows](agent-windows.md) | Sin  | La solución no recopila información de los agentes de Windows. |
+| [Agentes de Linux](../learn/quick-collect-linux-computer.md) | Sin  | La solución no recopila información de los agentes de Linux. |
+| [Grupo de administración de System Center Operations Manager](om-agents.md) | Sin  | La solución no recopila información de agentes que informan a un grupo de administración de Operations Manager. |
 | [Cuenta de almacenamiento de Azure](collect-azure-metrics-logs.md) | Sin  | La solución no recopila información de Azure Storage. |
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-- Para acceder a la información del registro de actividad de Azure, debe tener una suscripción de Azure.
+Para acceder a la información del registro de actividad de Azure, debe tener una suscripción de Azure.
+
+La solución también requiere que se registran los siguientes dos proveedores de recursos en su suscripción:
+
+1. Microsoft.OperationalInsights
+2. Microsoft.OperationsManagement
+
+Para obtener información sobre cómo registrarse o comprobar que están registradas, consulte [tipos y proveedores de recursos de Azure](../../azure-resource-manager/resource-manager-supported-services.md)
 
 ## <a name="configuration"></a>Configuración
 
 Realice los pasos siguientes para configurar la solución Log Analytics para las áreas de trabajo.
 
-1. Habilite la solución Activity Log Analytics desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) o mediante el proceso descrito en [Add Log Analytics solutions from the Solutions Gallery (Agregar soluciones Log Analytics desde la Galería de soluciones)](../../azure-monitor/insights/solutions.md).
+1. Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
+
+2. Habilite la solución Activity Log Analytics desde [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActivityOMS?tab=Overview) o mediante el proceso descrito en [Add Log Analytics solutions from the Solutions Gallery (Agregar soluciones Log Analytics desde la Galería de soluciones)](../insights/solutions.md).
+
 2. Configure los registros de actividad para ir al área de trabajo de Log Analytics.
     1. En Azure Portal, seleccione el área de trabajo y haga clic en **Registro de actividad de Azure**.
     2. Haga clic en el nombre de cada suscripción.  
+        
         ![agregar suscripción](./media/collect-activity-logs/add-subscription.png)
+    
     3. En la hoja *SubscriptionName*, haga clic en **Conectar**.  
+    
         ![Conectar suscripción](./media/collect-activity-logs/subscription-connect.png)
-
-Inicie sesión en Azure Portal para conectar una suscripción de Azure al área de trabajo.  
 
 ## <a name="using-the-solution"></a>Uso de la solución
 
@@ -98,5 +109,5 @@ Los datos del registro de actividad solo aparecen *después* de haber configurad
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Cree una [alerta](../../azure-monitor/platform/alerts-metric.md) cuando se produzca una actividad determinada.
-- Use [Búsqueda de registros](../../azure-monitor/log-query/log-query-overview.md) para ver información detallada de los registros de actividad.
+- Cree una [alerta](../platform/alerts-metric.md) cuando se produzca una actividad determinada.
+- Use [Búsqueda de registros](../log-query/log-query-overview.md) para ver información detallada de los registros de actividad.

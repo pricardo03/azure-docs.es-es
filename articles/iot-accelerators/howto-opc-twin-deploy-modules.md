@@ -1,5 +1,5 @@
 ---
-title: Cómo implementar el módulo de administración de dispositivos de Azure IoT OPC UA desde cero | Microsoft Docs
+title: Cómo implementar el módulo gemelo de OPC para Azure desde cero | Microsoft Docs
 description: Cómo implementar a OPC gemelo desde cero.
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: fe1b141ecacbd1d96c217322e69709828a3bf36c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: f470beb79e69b5a4a3febeb6a433c48490b96cf7
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759602"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491363"
 ---
 # <a name="deploy-opc-twin-module-and-dependencies-from-scratch"></a>Implementar el módulo gemelo de OPC y las dependencias desde el principio
 
-El módulo gemelo del dispositivo de OPC se ejecuta en IoT Edge y proporciona varios servicios de borde para el dispositivo gemelo de OPC y servicios de registro. 
+El módulo gemelo de OPC se ejecuta en IoT Edge y proporciona varios servicios de borde para el dispositivo gemelo OPC y servicios de registro. 
 
 Hay varias opciones para implementar módulos en su [Azure IoT Edge](https://azure.microsoft.com/services/iot-edge/) puerta de enlace, entre ellos
 
@@ -109,7 +109,7 @@ La manera más fácil de implementar los módulos en un dispositivo de puerta de
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-1. Implementar la administración de dispositivos de OPC UA [dependencias](howto-opc-twin-deploy-dependencies.md) y obtenido resultante `.env` archivo. Tenga en cuenta la implementada `hub name` de la `PCS_IOTHUBREACT_HUB_NAME` variable resultante `.env` archivo.
+1. Implementar el gemelo OPC [dependencias](howto-opc-twin-deploy-dependencies.md) y obtenido resultante `.env` archivo. Tenga en cuenta la implementada `hub name` de la `PCS_IOTHUBREACT_HUB_NAME` variable resultante `.env` archivo.
 
 2. Registrar e iniciar un [Linux](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-linux) o [Windows](https://docs.microsoft.com/azure/iot-edge/how-to-install-iot-edge-windows) puerta de enlace de IoT Edge y anote su `device id`.
 
@@ -205,7 +205,7 @@ Para problemas lanzando y depurarla es útil para ejecutar los módulos de Edge 
 
 ### <a name="prerequisites"></a>Requisitos previos
 
-1. Implementar la administración de dispositivos de OPC UA [dependencias](howto-opc-twin-deploy-dependencies.md).
+1. Implementar el gemelo OPC [dependencias](howto-opc-twin-deploy-dependencies.md).
 
 2. Instalar [Docker CE (18.02.0+)](https://www.docker.com/community-edition) en [Windows](https://docs.docker.com/docker-for-windows/install/), [macOS](https://docs.docker.com/docker-for-mac/install/) o [Linux](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce).
 

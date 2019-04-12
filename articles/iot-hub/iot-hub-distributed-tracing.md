@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: fc6db4d02898ea0e8eed3cdf3d0b1a9788d943e9
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 302c382a7e19e9dcc4c979d31ddc0768655a1465
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439303"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501394"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Seguimiento de mensajes del dispositivo a la nube de Azure IoT con seguimiento distribuido (versión preliminar)
 
@@ -35,7 +35,7 @@ En este artículo, se usa el [SDK de dispositivo de IoT de Azure para C](./iot-h
 - La versión preliminar del seguimiento distribuido actualmente solo se admite para instancias de IoT hub creadas en las siguientes regiones:
 
   - **Europa del Norte**
-  - **Sudeste Asiático**
+  - **Sudeste asiático**
   - **Oeste de EE. UU. 2**
 
 - En este artículo se da por supuesto que está familiarizado con el envío de mensajes de telemetría a IoT hub. Asegúrese de que ha completado el [Inicio rápido: Envío de telemetría desde un dispositivo a un centro de IoT y su lectura con una aplicación de back-end (C)](./quickstart-send-telemetry-c.md).
@@ -98,7 +98,7 @@ Estas instrucciones sirven para generar el muestreo en Windows. Para otros entor
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive -b public-preview
     ```
 
-    Actualmente, el tamaño de este repositorio es de unos 220 MB. Esta operación puede tardar varios minutos en completarse.
+    Esta operación puede tardar varios minutos en completarse.
 
 1. Cree un subdirectorio `cmake` en el directorio raíz del repositorio de Git y vaya a esa carpeta.
 
@@ -242,7 +242,7 @@ Para actualizar la configuración de muestreo del seguimiento distribuido para v
 
 | Nombre del elemento | Obligatorio | Type | DESCRIPCIÓN |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | Sí | Entero | Actualmente se admiten dos valores de modo para activar o desactivar el muestreo. `1` significa activado y `2` desactivado. |
+| `sampling_mode` | Sí | Entero | Actualmente se admiten dos valores de modo para activar o desactivar el muestreo. `1` está activado y `2` está desactivada. |
 | `sampling_rate` | Sí | Entero | Este valor es un porcentaje. Solo se permiten valores de `0` a `100` (inclusive).  |
 
 ## <a name="query-and-visualize"></a>Consultar y visualizar
@@ -276,7 +276,7 @@ Para entender los diferentes tipos de registros, vea [Supervisión del mantenimi
 Para visualizar el flujo de mensajes de IoT, configure la aplicación de ejemplo Application Map. La aplicación de ejemplo envía los registros de seguimiento distribuidos a [Application Map](../application-insights/app-insights-app-map.md) mediante una función de Azure y un centro de eventos.
 
 > [!div class="button"]
-> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Obtener el ejemplo en GitHub</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Obtener el ejemplo en Github</a>
 
 La imagen siguiente muestra el seguimiento distribuido en App Map con tres puntos de conexión de enrutamiento:
 

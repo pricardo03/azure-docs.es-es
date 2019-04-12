@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 09/20/2018
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 92ae1e31a739486871ebff69740f31a495c7b780
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 29091add5cee0934064224c9cca8644b401bd5e4
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54471657"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493321"
 ---
 # <a name="azure-diagnostics-extension-configuration-schema-versions-and-history"></a>Historial y versiones del esquema de configuración de la extensión Azure Diagnostics
 Esta página es un índice de las versiones del esquema de la extensión Azure Diagnostics que se incluyen como parte de Microsoft Azure SDK.  
@@ -29,7 +29,7 @@ Esta página es un índice de las versiones del esquema de la extensión Azure D
 >
 > Esta página solo es pertinente si está usando uno de estos servicios.
 
-La extensión Azure Diagnostics se usa con otros productos de diagnósticos de Microsoft, como Azure Monitor, Application Insights y Log Analytics. Para más información, consulte el artículo de [información general de herramientas de supervisión de Microsoft](../../azure-monitor/overview.md).
+La extensión de diagnósticos de Azure se usa con otros productos de diagnósticos de Microsoft como Azure Monitor, que incluye Application Insights y Log Analytics. Para más información, consulte el artículo de [información general de herramientas de supervisión de Microsoft](../../azure-monitor/overview.md).
 
 ## <a name="azure-sdk-and-diagnostics-versions-shipping-chart"></a>Gráfico de envío de las versiones de Azure Diagnostics y de Azure SDK  
 
@@ -56,11 +56,11 @@ La extensión Azure Diagnostics se usa con otros productos de diagnósticos de M
 ## <a name="schemas-index"></a>Índice de esquemas  
 Las distintas versiones de Azure Diagnostics utilizan esquemas de configuración diferentes.
 
-[Esquema de configuración de Diagnósticos 1.0](diagnostics-extension-schema-1dot0.md)  
+[Esquema de configuración de diagnósticos 1.0](diagnostics-extension-schema-1dot0.md)  
 
-[Esquema de configuración de Diagnósticos 1.2](diagnostics-extension-schema-1dot2.md)  
+[Esquema de configuración de diagnósticos 1.2](diagnostics-extension-schema-1dot2.md)  
 
-[Esquema de configuración de Diagnósticos 1.3 y versiones posteriores](diagnostics-extension-schema-1dot3.md)  
+[Diagnostics 1.3 y posterior de esquema de configuración](diagnostics-extension-schema-1dot3.md)  
 
 ## <a name="version-history"></a>Historial de versiones
 
@@ -207,7 +207,7 @@ Por ejemplo, supongamos que activa esta casilla y la cadena de conexión de diag
 Si está actualizando su proyecto de Azure SDK 2.4 a Azure SDK 2.5 o versiones posteriores, debe tener en cuenta las siguientes diferencias de funcionalidad de diagnóstico.
 
 * **Las API de configuración están desusadas** : la configuración mediante programación del diagnóstico está disponible en Azure SDK 2.4 o versiones anteriores, pero está en desuso en Azure SDK 2.5 y versiones posteriores. Si la configuración de diagnóstico está definida actualmente en el código, deberá volver a definir esa configuración desde el principio en el proyecto migrado para que el diagnóstico siga funcionando. El archivo de configuración de diagnóstico de Azure SDK 2.4 es diagnostics.wadcfg y diagnostics.wadcfgx, para Azure SDK 2.5 y versiones posteriores.
-* **El diagnóstico para aplicaciones de servicio en la nube solo se puede configurar en el nivel de rol, no en el nivel de instancia.**
+* **Diagnóstico de aplicaciones de servicio en la nube solo puede configurarse en el nivel de rol, no en el nivel de instancia.**
 * **Cada vez que implementa la aplicación, se actualiza la configuración de diagnóstico** : esto puede provocar problemas de paridad si cambia la configuración de diagnóstico del Explorador de servidores y luego vuelve a implementar la aplicación.
 * **En Azure SDK 2.5 y versiones posteriores, los volcados de memoria se configuran en el archivo de configuración de diagnóstico, no en el código** : si tiene volcados de memoria configurados en el código, tendrá que transferir manualmente la configuración del código al archivo de configuración, porque los volcados de memoria no se transfieren durante la migración a Azure SDK 2.6.
 

@@ -1,6 +1,6 @@
 ---
-title: Recopilar datos de Azure AD en Azure Sentinel Preview | Microsoft Docs
-description: Obtenga información sobre cómo recopilar datos de Azure Active Directory en Azure Sentinel.
+title: Conecte los datos de Azure AD a la versión preliminar de Azure Sentinel | Microsoft Docs
+description: Obtenga información sobre cómo conectar los datos de Azure Active Directory a Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/30/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: b42fb982abb916503d530d5040641ba1dcce3c92
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: f29ae9a8fcaecfc345efae02084f31d133e67b5d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58575137"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494891"
 ---
-# <a name="collect-data-from-azure-active-directory"></a>Recopilar datos de Azure Active Directory
+# <a name="connect-data-from-azure-active-directory"></a>Conectar los datos de Azure Active Directory
 
 > [!IMPORTANT]
 > Azure Sentinel se encuentra actualmente en versión preliminar pública.
@@ -38,7 +38,7 @@ Sentinel Azure le permite recopilar datos de [Azure Active Directory](../active-
 
 ## <a name="connect-to-azure-ad"></a>Conectarse a Azure
 
-1. En Azure Sentinel, seleccione **la recopilación de datos** y, a continuación, haga clic en el **Azure Active Directory** icono.
+1. En Azure Sentinel, seleccione **conectores de datos** y, a continuación, haga clic en el **Azure Active Directory** icono.
 
 2. Junto a los registros que desea transmitir en Centinela de Azure, haga clic en **Connect**.
 

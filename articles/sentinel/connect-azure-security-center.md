@@ -1,6 +1,6 @@
 ---
-title: Recopilación de datos de Azure Security Center en versión preliminar de Azure Sentinel | Microsoft Docs
-description: Obtenga información sobre cómo recopilar datos de Azure Security Center en Azure Sentinel.
+title: Conectar los datos de Azure Security Center a la versión preliminar de Azure Sentinel | Microsoft Docs
+description: Obtenga información sobre cómo conectar los datos de Azure Security Center con Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,24 +12,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: f59c5f6a9f497a6420172996f9f327f16ffd26f9
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: bd6fe027da8c16157c7fce6c348e49c0a6b73ea3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242282"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490678"
 ---
-# <a name="collect-data-from-azure-security-center"></a>Recopilar datos de Azure Security Center
+# <a name="connect-data-from-azure-security-center"></a>Conectar los datos de Azure Security Center
 
 > [!IMPORTANT]
-> Sentinel Azure está actualmente en versión preliminar pública.
+> Azure Sentinel se encuentra actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 
 
-Sentinel Azure le permite recopilar las alertas de [Azure Security Center](../security-center/security-center-intro.md) y su transmisión a través de Azure Sentinel. 
+Sentinel Azure le permite conectarse a las alertas de [Azure Security Center](../security-center/security-center-intro.md) y su transmisión a través de Azure Sentinel. 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -42,7 +42,7 @@ Sentinel Azure le permite recopilar las alertas de [Azure Security Center](../se
 
 ## <a name="connect-to-azure-security-center"></a>Conectarse a Azure Security Center
 
-1. En Azure Sentinel, seleccione **la recopilación de datos** y, a continuación, haga clic en el **Azure Security Center** icono.
+1. En Azure Sentinel, seleccione **conectores de datos** y, a continuación, haga clic en el **Azure Security Center** icono.
 1. En la parte derecha, haga clic en **Connect** situada junto a cada suscripción cuyas alertas desea transmitir en Centinela de Azure. Asegúrese de actualizar cada suscripción al nivel estándar de Azure Security Center a las alertas de flujo Centinela de Azure.
 
 3. Haga clic en **Conectar**.
@@ -50,6 +50,6 @@ Sentinel Azure le permite recopilar las alertas de [Azure Security Center](../se
 4. Para usar el esquema correspondiente en Log Analytics para las alertas de Azure Security Center, busque **SecurityEvent**.
 
 ## <a name="next-steps"></a>Pasos siguientes
-En este documento, ha aprendido cómo conectar Azure Security Center con Azure Sentinel. Para obtener más información acerca de Centinela de Azure, consulte los artículos siguientes:
+En este documento, ha aprendido cómo conectar Azure Security Center con Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:
 - Obtenga información sobre cómo [Obtenga visibilidad sobre sus datos y las posibles amenazas](quickstart-get-visibility.md).
 - Introducción a [detección de amenazas con Azure Sentinel](tutorial-detect-threats.md).

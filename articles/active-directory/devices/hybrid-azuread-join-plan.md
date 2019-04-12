@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/03/2019
+ms.date: 04/10/2019
 ms.author: joflore
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fc0105fa2e56760554946b4e871a2dc3ff4d8bc
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 8827a51a23b2ea274d8096a154e630c9cecbba7c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518888"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489525"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instrucciones: Planeamiento de la implementación de la unión a Azure Active Directory híbrido
 
@@ -36,59 +36,45 @@ Al traer sus dispositivos a Azure AD, está maximizando la productividad de los 
 
 Si tiene un entorno local de Active Directory y quiere unir sus dispositivos unidos a un dominio a Azure AD, puede hacerlo configurando dispositivos híbridos unidos a Azure AD. En este artículo se proporcionan los pasos relacionados con la implementación de una unión a Azure AD híbrido en su entorno. 
 
-
 ## <a name="prerequisites"></a>Requisitos previos
 
 En este artículo se da por hecho que está familiarizado con la [introducción a la administración de dispositivos en Azure Active Directory](../device-management-introduction.md).
 
->[!NOTE]
->  El mínimo requerido funcional de dominio y los niveles funcionales del bosque de Windows 10 Azure AD híbrido es Windows Server 2008 R2. En versiones anteriores, el usuario puede no obtener un Token de actualización principal durante el inicio de sesión de Windows debido a problemas de LSA 
+> [!NOTE]
+> El mínimo requerido funcional de dominio y los niveles funcionales del bosque de Windows 10 Azure AD híbrido es Windows Server 2008 R2. En versiones anteriores, el usuario no puede obtener un Token de actualización principal durante el inicio de sesión de Windows debido a problemas de la LSA.
 
 ## <a name="plan-your-implementation"></a>Planeamiento de la implementación
 
 Para planear la implementación de Azure AD híbrido, debe familiarizarse con:
 
 |   |   |
-|---|---|
-|![Comprobar][1]|Revisión de los dispositivos compatibles|
-|![Comprobar][1]|Revisión de los aspectos que debe conocer|
-|![Comprobar][1]|Revisión del control de la unión de dispositivos a Azure AD híbrido|
-|![Comprobar][1]|Selección del escenario|
+| --- | --- |
+| ![Comprobar][1] | Revisión de los dispositivos compatibles |
+| ![Comprobar][1] | Revisión de los aspectos que debe conocer |
+| ![Comprobar][1] | Revisión del control de la unión de dispositivos a Azure AD híbrido |
+| ![Comprobar][1] | Selección del escenario |
 
-
- 
-
-## <a name="review-supported-devices"></a>Revisión de los dispositivos compatibles 
+## <a name="review-supported-devices"></a>Revisión de los dispositivos compatibles
 
 La unión a Azure AD híbrido admite una amplia variedad de dispositivos Windows. Dado que la configuración para los dispositivos que ejecutan versiones anteriores de Windows requiere pasos adicionales o diferentes, los dispositivos compatibles se agrupan en dos categorías:
 
-**Dispositivos Windows actuales**
+### <a name="windows-current-devices"></a>Dispositivos de Windows actuales
 
 - Windows 10
-    
 - Windows Server 2016
-
+- Windows Server 2019
 
 Para dispositivos que ejecutan el sistema operativo de escritorio de Windows, la versión admitida es la Actualización de aniversario de Windows 10 (versión 1607), o una versión posterior. Como procedimiento recomendado, actualice a la versión más reciente de Windows 10.
 
-
-
- **Dispositivos Windows de nivel inferior**
+### <a name="windows-down-level-devices"></a>Dispositivos de Windows de nivel inferior
 
 - Windows 8.1
- 
 - Windows 7
-
 - Windows Server 2012 R2
- 
-- Windows Server 2012 
- 
-- Windows Server 2008 R2 
-
+- Windows Server 2012
+- Windows Server 2008 R2
 
 Como primer paso del planeamiento, debe revisar el entorno y determinar si necesita admitir dispositivos Windows de nivel inferior.
-
-
 
 ## <a name="review-things-you-should-know"></a>Revisión de los aspectos que debe conocer
 
@@ -101,23 +87,20 @@ Si está confiando en una instantánea de máquina virtual (VM) para crear otras
 La unión de dispositivos de nivel inferior a Azure AD híbrido:
 
 - **Es** compatible en entornos no federados a través del [inicio de sesión único de conexión directa de Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
-
 - **No es** compatible cuando se usa la autenticación de paso a través de Azure AD sin inicio de sesión único de conexión directa.
-
 - **No es** compatible cuando se usa con credenciales móviles o perfil de usuario móvil o cuando se usa la infraestructura de escritorio virtual (VDI).
-
 
 No se admite el registro de Windows Server que ejecuta el rol de controlador de dominio (DC).
 
 Si su organización requiere acceso a Internet a través de un servidor proxy saliente autenticado, tiene que asegurarse de que los equipos de Windows 10 pueden autenticarse correctamente en el proxy de salida. Debido a que los equipos de Windows 10 ejecutan el registro de dispositivos utilizando el contexto del equipo, es necesario configurar la autenticación de proxy de salida utilizando el contexto del equipo.
 
-
 La unión a Azure AD híbrido es un proceso para registrar automáticamente los dispositivos unidos al dominio en el entorno local con Azure AD. Hay casos en los que es mejor que no todos los dispositivos se registren automáticamente. Si esto es así, consulte [Control de la unión de los dispositivos híbridos a Azure AD](hybrid-azuread-join-control.md).
 
-Si los dispositivos de Windows 10 unidos a un dominio ya están [registrados en Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) para el inquilino, se recomienda encarecidamente quitar ese estado antes de habilitar Unión a Azure AD híbrido. A partir de la versión Windows 10 1809, se han realizado los siguientes cambios para evitar este estado dual: 
- - Cualquier estado registrado en Azure AD existente se eliminará automáticamente cuando el dispositivo se una a Azure AD híbrido. 
- - Puede impedir que el dispositivo unido al dominio que se va a Azure AD registrada mediante la adición de esta clave del registro: HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = dword: 00000001.
- - Ahora está disponible para la versión de Windows 10 1803 con KB4489894 este cambio.
+Si los dispositivos de Windows 10 unidos a un dominio ya están [registrados en Azure AD](https://docs.microsoft.com/azure/active-directory/devices/overview#azure-ad-registered-devices) para el inquilino, se recomienda encarecidamente quitar ese estado antes de habilitar Unión a Azure AD híbrido. A partir de la versión Windows 10 1809, se han realizado los siguientes cambios para evitar este estado dual:
+
+- Cualquier estado registrado en Azure AD existente se eliminará automáticamente cuando el dispositivo se una a Azure AD híbrido.
+- Puede impedir que el dispositivo unido al dominio que se va a Azure AD registrada mediante la adición de esta clave del registro: HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = dword: 00000001.
+- Ahora está disponible para la versión de Windows 10 1803 con KB4489894 este cambio.
 
 No se admiten TPM compatible con FIPS para Azure AD híbrido. Si los dispositivos tienen TPM compatible con FIPS, debe deshabilitar antes de continuar con Azure AD híbrido. Microsoft no proporciona ninguna herramienta para deshabilitar el modo FIPS para TPM como depende del fabricante del TPM. Póngase en contacto con el hardware de OEM para obtener soporte técnico.
 
@@ -134,52 +117,39 @@ Puede configurar la unión a Azure AD híbrido para los escenarios siguientes:
 - Dominios administrados
 - Dominios federados  
 
-
-
 Si el entorno tiene dominios administrados, a unión a Azure AD híbrido admite:
 
 - Autenticación de paso a través (PTA)
-
 - Sincronización de hash de contraseña (PHS)
 
 Desde la versión 1.1.819.0, Azure AD Connect proporciona un asistente para configurar la unión a Azure AD híbrido. El asistente permite simplificar considerablemente el proceso de configuración. Para más información, consulte:
 
 - [Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios federados](hybrid-azuread-join-federated-domains.md)
-
-
 - [Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios administrados](hybrid-azuread-join-managed-domains.md)
 
-
  Si no le es posible instalar la versión requerida de Azure AD Connect, consulte la información sobre [cómo configurar manualmente el registro de dispositivos](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual). 
-
 
 ## <a name="on-premises-ad-upn-support-in-hybrid-azure-ad-join"></a>Compatibilidad del UPN de AD local en Unión a Azure AD híbrido
 
 A veces, los UPN de AD local podrían ser diferentes de los UPN de Azure AD. En tales casos, Unión a Azure AD híbrido para Windows 10 proporciona compatibilidad limitada para los UPN de AD local, según el tipo de [método de autenticación](https://docs.microsoft.com/azure/security/azure-ad-choose-authn), el tipo de dominio y la versión de Windows 10. Hay dos tipos de UPN de AD local que pueden existir en su entorno:
 
- - UPN enrutable: Un UPN enrutable tiene un dominio verificado válido, que está registrado en un registrador de dominios. Por ejemplo, si contoso.com es el dominio principal, en Azure AD, contoso.org es el dominio principal en la instancia local de AD que pertenece a Contoso y que está [verificado en Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
- 
- - UPN no enrutable: Un UPN no enrutable no tiene un dominio verificado. Es aplicable solo dentro de la red privada de su organización. Por ejemplo, si contoso.com es el dominio principal en Azure AD, contoso.local es el dominio principal en la instancia local de AD, pero no es un dominio verificable en Internet, y solo se usa dentro de la red de Contoso.
- 
+- UPN enrutable: Un UPN enrutable tiene un dominio verificado válido, que está registrado en un registrador de dominios. Por ejemplo, si contoso.com es el dominio principal, en Azure AD, contoso.org es el dominio principal en la instancia local de AD que pertenece a Contoso y que está [verificado en Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+- UPN no enrutable: Un UPN no enrutable no tiene un dominio verificado. Es aplicable solo dentro de la red privada de su organización. Por ejemplo, si contoso.com es el dominio principal en Azure AD, contoso.local es el dominio principal en la instancia local de AD, pero no es un dominio verificable en Internet, y solo se usa dentro de la red de Contoso.
+
 En la tabla siguiente se proporcionan detalles sobre la compatibilidad de estos UPN de AD local en Unión a Azure AD híbrido para Windows 10.
 
-|Tipo de UPN de AD local|Tipo de dominio|Versión de Windows 10|DESCRIPCIÓN|
-|-----|-----|-----|-----|
-|Enrutable|Federado |A partir de la versión 1703|Disponibilidad general|
-|Enrutable|Administrado|A partir de la versión 1709|Actualmente en versión preliminar privada. No admite SSPR de Azure AD |
-|No enrutable|Federado|A partir de la versión 1803|Disponibilidad general|
-|No enrutable|Administrado|No compatible||
-
-
+| Tipo de UPN de AD local | Tipo de dominio | Versión de Windows 10 | DESCRIPCIÓN |
+| ----- | ----- | ----- | ----- |
+| Enrutable | Federado | A partir de la versión 1703 | Disponibilidad general |
+| Enrutable | Administrado | A partir de la versión 1709 | Actualmente en versión preliminar privada. No admite SSPR de Azure AD |
+| No enrutable | Federado | A partir de la versión 1803 | Disponibilidad general |
+| No enrutable | Administrado | No compatible | |
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
 > [Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios federados](hybrid-azuread-join-federated-domains.md)
 > [Configuración de dispositivos híbridos unidos a Azure Active Directory para dominios administrados](hybrid-azuread-join-managed-domains.md)
-
-
-
 
 <!--Image references-->
 [1]: ./media/hybrid-azuread-join-plan/12.png

@@ -12,25 +12,31 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 32b566056de76d4e73b88c7ce37e148b4ecc3fd7
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 6159609f894f967e8ee372a0ee316eb900537aba
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56587878"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500845"
 ---
 # <a name="how-to-use-service-bus-queues-with-nodejs"></a>Uso de colas de Service Bus con Node.js
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-En este artículo se describe cómo usar las colas de Service Bus con Node.js. Los ejemplos están escritos en JavaScript y usan el módulo Node.js de Azure. Entre los escenarios proporcionados se incluyen los siguientes: **creación de colas**, **envío y recepción de mensajes** y **eliminación de colas**. Para obtener más información sobre las colas, consulte la sección [Pasos siguientes](#next-steps) .
+En este tutorial, aprenderá a crear aplicaciones de Node.js para enviar y recibir mensajes de una cola de Service Bus. Los ejemplos están escritos en JavaScript y usan el módulo Node.js de Azure. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Requisitos previos
+1. Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar su [ventajas de suscriptor MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener un [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Si no tiene una cola para que funcione con, siga los pasos de la [uso de Azure portal para crear una cola de Service Bus](service-bus-quickstart-portal.md) artículo para crear una cola.
+    1. Leer el breve **Introducción** de Service Bus **colas**. 
+    2. Creación de un Bus de servicio **espacio de nombres**. 
+    3. Obtener el **cadena de conexión**. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
+        > [!NOTE]
+        > Creará un **cola** en el espacio de nombres de Service Bus mediante Node.js en este tutorial. 
+ 
 
 ## <a name="create-a-nodejs-application"></a>Creación de una aplicación Node.js
 Cree una aplicación Node.js vacía. Para obtener instrucciones acerca de cómo crear una aplicación Node.js, consulte [Creación e implementación de una aplicación Node.js en un sitio web de Azure][Create and deploy a Node.js application to an Azure Website] o [Servicio en la nube Node.js][Node.js Cloud Service] (con Windows PowerShell).
@@ -114,7 +120,7 @@ Después de realizar el preprocesamiento en las opciones de solicitud, el métod
 function (returnObject, finalCallback, next)
 ```
 
-En esta devolución de llamada y después de procesar `returnObject` (la respuesta de la solicitud al servidor), la devolución de llamada tiene que invocar a `next`, si existe, para continuar procesando otros filtros, o bien simplemente invocar a `finalCallback`, que finaliza la invocación del servicio.
+En esta devolución de llamada y después de procesar el `returnObject` (la respuesta de la solicitud al servidor), la devolución de llamada debe invocar `next` si existe, para continuar procesando otros filtros, o invocar `finalCallback`, que finaliza la invocación de servicio .
 
 Con el SDK de Azure, se incluyen dos filtros que implementan la lógica de reintento para Node.js, `ExponentialRetryPolicyFilter` y `LinearRetryPolicyFilter`. El siguiente código crea un objeto `ServiceBusService` que usa `ExponentialRetryPolicyFilter`:
 

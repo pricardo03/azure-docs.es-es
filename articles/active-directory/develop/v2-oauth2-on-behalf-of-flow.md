@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4de33bb02a008d6b394055c64119ac2a4fbc4d9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d0c7c29bf3094c3d5fc99b9906ee4469a6643317
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276055"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501610"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Plataforma de identidad de Microsoft y flujo en nombre de OAuth 2.0
 
@@ -33,7 +33,7 @@ El flujo con derechos delegados (OBO) de OAuth 2.0 se usa en los casos en que un
 
 > [!NOTE]
 >
-> - El punto de conexión de plataforma de identidad de Microsoft no es compatible con todas las características y escenarios. Para determinar si debe utilizar el punto de conexión de plataforma de identidad de Microsoft, obtenga información sobre [limitaciones de la plataforma de identidad de Microsoft](active-directory-v2-limitations.md). En concreto, no se admiten las aplicaciones cliente conocidas para las aplicaciones con la cuenta de Microsoft (MSA) y los públicos de Azure AD. Por lo tanto, un patrón común de consentimiento para OBO no funcionará para los clientes que inician sesión en cuentas tanto personales como profesionales o educativas. Para más información sobre cómo controlar este paso del flujo, vea [Obtener consentimiento para la aplicación de nivel intermedio](#gaining-consent-for-the-middle-tier-application).
+> - El punto de conexión de plataforma de identidad de Microsoft no es compatible con todas las características y escenarios. Para determinar si debe utilizar el punto de conexión de plataforma de identidad de Microsoft, obtenga información sobre [limitaciones de la plataforma de identidad de Microsoft](active-directory-v2-limitations.md). En concreto, no se admiten las aplicaciones cliente conocidas para las aplicaciones con la cuenta de Microsoft (MSA) y públicos de Azure AD. Por lo tanto, un patrón común de consentimiento para OBO no funcionará para los clientes que inician sesión en cuentas tanto personales como profesionales o educativas. Para más información sobre cómo controlar este paso del flujo, vea [Obtener consentimiento para la aplicación de nivel intermedio](#gaining-consent-for-the-middle-tier-application).
 > - A partir de mayo de 2018, algún token `id_token` derivado del flujo implícito no se puede usar para el flujo OBO. Las aplicaciones de una sola página (SPA) deben pasar un token de **acceso** a un cliente confidencial de nivel intermedio para ejecutar flujos de OBO en su lugar. Para más información sobre los clientes que pueden realizar llamadas OBO, vea [Limitaciones](#client-limitations).
 
 ## <a name="protocol-diagram"></a>Diagrama de protocolo
@@ -55,7 +55,7 @@ Los pasos siguientes constituyen el flujo con derechos delegados y se explican c
 
 ## <a name="service-to-service-access-token-request"></a>Solicitud de token de acceso entre servicios
 
-Para solicitar un token de acceso, realice una solicitud HTTP POST al punto de conexión v2.0 específico del inquilino con los parámetros siguientes.
+Para solicitar un token de acceso, realice una solicitud HTTP POST para el extremo específico del inquilino Microsoft identity platform token con los siguientes parámetros.
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
@@ -191,13 +191,13 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJub25jZSI6IkFRQUJBQUFBQUFCbmZpRy1tQTZOVG
 
 ## <a name="gaining-consent-for-the-middle-tier-application"></a>Obtener consentimiento para la aplicación de nivel intermedio
 
-Dependiendo de la audiencia para su aplicación, puede considerar estrategias distintas para garantizar que el flujo OBO es correcto. En cualquier caso, el objetivo final es garantizar que se concede el consentimiento adecuado. La forma en que se realiza, sin embargo, depende de qué usuarios admite la aplicación. 
+Dependiendo de la audiencia para su aplicación, puede considerar estrategias distintas para garantizar que el flujo OBO es correcto. En cualquier caso, el objetivo final es garantizar que se concede el consentimiento adecuado. La forma en que se realiza, sin embargo, depende de qué usuarios admite la aplicación.
 
 ### <a name="consent-for-azure-ad-only-applications"></a>Consentimiento para aplicaciones que solo usan Azure AD
 
 #### <a name="default-and-combined-consent"></a>Consentimiento /.default y combinado
 
-Para las aplicaciones que solo necesitan iniciar sesión en cuentas profesionales o educativas, es suficiente con el enfoque tradicional "Aplicaciones cliente conocidas". La aplicación de nivel intermedio agrega el cliente a la lista de aplicaciones cliente conocidas en su manifiesto y, a continuación, el cliente puede desencadenar un flujo de consentimiento combinado tanto para sí mismo como para la aplicación de nivel intermedio. En el punto de conexión v2.0, esto se realiza mediante el [ámbito `/.default`](v2-permissions-and-consent.md#the-default-scope). Cuando se desencadena una pantalla de consentimiento con aplicaciones cliente conocidas y `/.default`, la pantalla de consentimiento mostrará los permisos para el cliente a la API de nivel intermedio y también solicitará los permisos requeridos por la API de nivel intermedio. El usuario da su consentimiento para ambas aplicaciones y, a continuación, el flujo OBO funcionará.
+Para las aplicaciones que solo necesitan iniciar sesión en cuentas profesionales o educativas, es suficiente con el enfoque tradicional "Aplicaciones cliente conocidas". La aplicación de nivel intermedio agrega el cliente a la lista de aplicaciones cliente conocidas en su manifiesto y, a continuación, el cliente puede desencadenar un flujo de consentimiento combinado tanto para sí mismo como para la aplicación de nivel intermedio. En el punto de conexión de plataforma de identidad de Microsoft, esto se realiza mediante el [ `/.default` ámbito](v2-permissions-and-consent.md#the-default-scope). Cuando se desencadena una pantalla de consentimiento con aplicaciones cliente conocidas y `/.default`, la pantalla de consentimiento mostrará los permisos para el cliente a la API de nivel intermedio y también solicitará los permisos requeridos por la API de nivel intermedio. El usuario da su consentimiento para ambas aplicaciones y, a continuación, el flujo OBO funcionará.
 
 En este momento, el sistema de cuentas personales de Microsoft no admite el consentimiento combinado y, por tanto, este enfoque no funciona para las aplicaciones que desean iniciar sesión específicamente en las cuentas personales. Las cuentas personales de Microsoft utilizadas como cuentas de invitado en un inquilino se controlan con el sistema de Azure AD y pueden admitir un consentimiento combinado.
 
@@ -211,7 +211,7 @@ Un administrador de inquilinos puede garantizar que las aplicaciones tienen perm
 
 ### <a name="consent-for-azure-ad--microsoft-account-applications"></a>Consentimiento para aplicaciones de cuentas de Microsoft + Azure AD
 
-Debido a las restricciones del modelo de permisos para las cuentas personales y a la ausencia de un inquilino regulador, los requisitos de consentimiento para las cuentas personales varían ligeramente con respecto a los de Azure AD. No existe ningún inquilino para el que dar consentimiento a nivel de inquilino ni existe la posibilidad de aplicar un consentimiento combinado. Por tanto, se presentan otras estrategias; tenga en cuenta, que estas funcionan para aplicaciones que solo necesitan admitir también cuentas de Azure AD.
+Debido a restricciones en el modelo de permisos para las cuentas personales y la falta de un inquilino de gobierno, los requisitos de consentimiento para las cuentas personales son un poco diferentes de Azure AD. No existe ningún inquilino para el que dar consentimiento a nivel de inquilino ni existe la posibilidad de aplicar un consentimiento combinado. Por tanto, se presentan otras estrategias; tenga en cuenta, que estas funcionan para aplicaciones que solo necesitan admitir también cuentas de Azure AD.
 
 #### <a name="use-of-a-single-application"></a>Uso de una sola aplicación
 
@@ -219,7 +219,7 @@ En algunos escenarios, solo puede haber un único emparejamiento entre el nivel 
 
 ## <a name="client-limitations"></a>Limitaciones del cliente
 
-Si un cliente usa el flujo implícito para obtener un id_token y ese cliente también incluye caracteres comodín en una dirección URL de respuesta, el id_token no se puede usar con un flujo OBO.  Sin embargo, los tokens de acceso adquiridos mediante del flujo de concesión implícita todavía pueden ser canjeados por un cliente confidencial, aunque el cliente iniciador tenga registrada una dirección URL de respuesta con caracteres comodín.
+Si un cliente usa el flujo implícito para obtener un id_token, y que el cliente también tiene los caracteres comodín en una dirección URL de respuesta, no se puede usar el id_token para un flujo delegada.  Sin embargo, los tokens de acceso adquiridos mediante del flujo de concesión implícita todavía pueden ser canjeados por un cliente confidencial, aunque el cliente iniciador tenga registrada una dirección URL de respuesta con caracteres comodín.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

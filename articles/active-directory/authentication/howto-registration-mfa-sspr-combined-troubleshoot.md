@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba77772352d3f6f6494abeddc7faf9f12e5f80c2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 40918493071fe0dd694c43e2b087a2bf7eb197d8
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262574"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489200"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>Solución de problemas de combina la información del registro de seguridad (versión preliminar)
 
@@ -154,7 +154,7 @@ En una ventana de PowerShell, ejecute el siguiente comando, que proporciona las 
 
 Para deshabilitar la experiencia de versión preliminar para los usuarios, siga estos pasos:
 
-1. Inicie sesión en Azure Portal como administrador global o administrador de usuarios.
+1. Inicie sesión como un usuario administrador en el portal de Azure.
 2. Vaya a **Azure Active Directory** > **configuración de usuario** > **administrar la configuración de características de vista previa del panel de acceso**.
 3. En **los usuarios pueden usar características de vista previa para registrar y administrar información de seguridad**, Establece el selector en **ninguno**y, a continuación, seleccione **guardar**.
 

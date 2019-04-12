@@ -1,5 +1,5 @@
 ---
-title: Cómo implementar el módulo de administración de dispositivos de Azure IoT OPC UA en un proyecto existente | Microsoft Docs
+title: Cómo implementar un módulo gemelo de OPC en un proyecto existente de Azure | Microsoft Docs
 description: Cómo implementar a OPC gemelo a un proyecto existente.
 author: dominicbetts
 ms.author: dobett
@@ -8,22 +8,22 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: dcf6acca344fe2a34fdc48fe89c5a1ee62b10b23
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6bdfeefc366734aa10dbaccec69bac8e0b41103f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59255893"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493253"
 ---
 # <a name="deploy-opc-twin-to-an-existing-project"></a>Implementar a OPC gemelo a un proyecto existente
 
-El módulo gemelo del dispositivo de OPC se ejecuta en IoT Edge y proporciona varios servicios de borde para el dispositivo gemelo de OPC y servicios de registro. 
+El módulo gemelo de OPC se ejecuta en IoT Edge y proporciona varios servicios de borde para el gemelo de OPC y servicios de registro. 
 
-El servicio de micro OPC dispositivo gemelo facilita la comunicación entre los operadores de fábrica y los dispositivos de servidor de OPC UA en la fábrica a través de un módulo gemelo IoT Edge de OPC. El servicio micro expone servicios de OPC UA (Examinar, lectura, escritura y ejecución) a través de su API de REST. 
+El servicio de micro OPC gemelo facilita la comunicación entre los operadores de fábrica y los dispositivos de servidor de OPC UA en la fábrica a través de un módulo gemelo IoT Edge de OPC. El servicio micro expone servicios de OPC UA (Examinar, lectura, escritura y ejecución) a través de su API de REST. 
 
-El servicio de registro del dispositivo OPC UA micro proporciona acceso a las aplicaciones registradas de OPC UA y sus puntos de conexión. Operadores y administradores pueden registrar y anular el registro de nuevas aplicaciones de OPC UA y examinar los existentes, incluidos sus puntos de conexión. Además de la aplicación y administración de extremos, el servicio de registro también cataloga módulos registrados de dispositivo gemelo IoT Edge de OPC. Le ofrece la API del servicio de control de la funcionalidad de módulo para edge, por ejemplo, iniciar o detener la detección de servidores (servicios de análisis) o activar nuevos gemelos de punto de conexión que se pueden acceder mediante el servicio micro gemelo OPC.
+El microservicio del registro de dispositivos de OPC UA proporciona acceso a las aplicaciones registradas de OPC UA y sus puntos de conexión. Operadores y administradores pueden registrar y anular el registro de nuevas aplicaciones de OPC UA y examinar los existentes, incluidos sus puntos de conexión. Además de la aplicación y administración de extremos, el servicio de registro también cataloga módulos registrados de OPC gemelo IoT Edge. Le ofrece la API del servicio de control de la funcionalidad de módulo para edge, por ejemplo, iniciar o detener la detección de servidores (servicios de análisis) o activar nuevos gemelos de punto de conexión que se pueden acceder mediante el servicio micro gemelo OPC.
 
-El núcleo del módulo es la identidad de Supervisor. El supervisor administra a gemelo de punto de conexión, que corresponde a los puntos de conexión de servidor de OPC UA que se activan mediante el registro de OPC UA API correspondiente. Este gemelos extremo traducen OPC UA JSON recibido del servicio micro gemelo OPC que se ejecutan en la nube en los mensajes binarios de OPC UA, que se envían a través de un canal seguro con estado al punto de conexión administrado. El supervisor también proporciona servicios de detección que envían eventos de detección de dispositivo para el servicio de incorporación de dispositivo de OPC UA para su procesamiento, donde estos eventos son el resultado de las actualizaciones en el registro de OPC UA.  Este artículo muestra cómo implementar el módulo gemelo de OPC en un proyecto existente. 
+El núcleo del módulo es la identidad de Supervisor. El supervisor administra a gemelo de punto de conexión, que corresponde a los puntos de conexión de servidor de OPC UA que se activan mediante el registro de OPC UA API correspondiente. Este gemelos extremo traducen OPC UA JSON recibido del servicio micro gemelo OPC que se ejecutan en la nube en los mensajes binarios de OPC UA, que se envían a través de un canal seguro con estado al punto de conexión administrado. El supervisor también proporciona servicios de detección que envían eventos de detección de dispositivo para el servicio de incorporación de dispositivos de OPC UA para su procesamiento, donde estos eventos son el resultado de las actualizaciones en el registro de OPC UA.  Este artículo muestra cómo implementar el módulo gemelo de OPC en un proyecto existente. 
 
 > [!NOTE]
 > Para obtener más información sobre los detalles de implementación e instrucciones, vea GitHub [repositorio](https://github.com/Azure/azure-iiot-opc-twin-module).
@@ -71,7 +71,7 @@ El script de implementación intenta registrar dos aplicaciones de AAD en Azure 
 2. Como alternativa, implementar a un inquilino AAD privado en otra suscripción, reinicie la secuencia de comandos y seleccione esta opción para usarlo.
 
 > [!WARNING]
-> NUNCA continúan sin autenticación.  Si decide hacerlo, cualquier usuario puede acceder a los puntos de conexión de administración de dispositivos de OPC desde Internet no autenticado.   Siempre puede elegir el [opción de implementación "local"](howto-opc-twin-deploy-dependencies.md) a comprar.
+> NUNCA continúan sin autenticación.  Si decide hacerlo, cualquier persona puede acceder a los puntos de conexión de OPC gemelo desde Internet no autenticado.   Siempre puede elegir el [opción de implementación "local"](howto-opc-twin-deploy-dependencies.md) a comprar.
 
 ## <a name="deploy-an-all-in-one-industrial-iot-services-demo"></a>Implementar una demostración de servicios IoT industrial de all-in-one
 

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 6a9b4fc5479dda58dd024cdf93cbdf4853f9c965
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
-ms.translationtype: HT
+ms.openlocfilehash: 38cbd32be30885837d2f98a9e1dd5d967b4938b4
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42144681"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489818"
 ---
 # <a name="device-authentication-using-x509-ca-certificates"></a>Autenticación de dispositivos mediante certificados de entidades de certificación X.509
 
@@ -40,7 +40,7 @@ Para un entorno de producción, se recomienda adquirir un certificado de entidad
 
 También puede crear un certificado autofirmado de entidad de certificación X.509 para experimentación o para usarla en redes de IoT cerradas.
 
-Independientemente de cómo obtenga el certificado de entidad de certificación X.509, asegúrese de que la clave privada correspondiente es secreta y está protegida en todo momento.  Esto es necesario para fomentar la confianza en la autenticación con la entidad de certificación X.509. 
+Independientemente de cómo obtenga el certificado de entidad de certificación X.509, asegúrese de que la clave privada correspondiente es secreta y está protegida en todo momento.  Esto es necesario para fomentar la confianza en la autenticación con la entidad de certificación X.509.
 
 Obtenga información sobre cómo [crear un certificado autofirmado de entidad de certificación](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md), que puede usar para experimentación a través de la descripción de esta característica.
 
@@ -49,6 +49,8 @@ Obtenga información sobre cómo [crear un certificado autofirmado de entidad de
 El propietario de un certificado de entidad de certificación X.509 puede firmar criptográficamente una entidad de certificación intermedia que a su vez puede firmar otra entidad de certificación intermedia, y así sucesivamente, hasta que la última entidad de certificación intermedia termina este proceso mediante la firma de un dispositivo. El resultado es una cadena de certificados en cascada conocida como una cadena de certificados de confianza. En la vida real esto se desarrolla como la delegación de confianza en los dispositivos de firma. Esta delegación es importante porque establece una cadena de custodia criptográficamente variable y evita el uso compartido de las claves de firma.
 
 ![img-generic-cert-chain-of-trust](./media/generic-cert-chain-of-trust.png)
+
+El certificado de dispositivo (también denominado un certificado de hoja) debe tener la *nombre de sujeto* establecido en el **Id. de dispositivo** que se usó al registrar el dispositivo de IoT en IoT Hub de Azure. Esta configuración es necesaria para la autenticación.
 
 Obtenga información aquí sobre cómo [crear una cadena de certificados](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) tal y como se hace cuando se firman los dispositivos.
 

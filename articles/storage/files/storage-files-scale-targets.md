@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 7/19/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 9cbb44fed8a9cc9e30e70e58f33fb943ee43b412
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 630ad1e0558fc089d79eee50175e497b771a0a8a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269170"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494976"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Objetivos de escalabilidad y rendimiento de Azure Files
 
@@ -76,9 +76,9 @@ Para ayudarle a planear la implementación de cada una de las fases, a continuac
 
 | Aprovisionamiento inicial que se realiza una sola vez  |  |
 |-|-|
-| Número de objetos | 10 millones de objetos |
-| Tamaño del conjunto de datos| ~4 TiB |
-| Tamaño de archivo medio | ~ 500 KiB (archivo más grande: 100 GiB) |
+| Número de objetos | 25 millones de objetos |
+| Tamaño del conjunto de datos| ~4.7 TiB |
+| Tamaño de archivo medio | ~ 200 KiB (archivo de mayor tamaño: 100 GiB) |
 | Rendimiento de carga | 20 objetos por segundo |
 | Rendimiento de descarga de espacio de nombres* | 400 objetos por segundo |
 

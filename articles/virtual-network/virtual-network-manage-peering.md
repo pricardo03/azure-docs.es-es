@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/21/2019
-ms.author: jdial;anavin
-ms.openlocfilehash: e0a5674d434d997d04bfd42ca0e0863c11046d69
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.date: 04/01/2019
+ms.author: anavin
+ms.openlocfilehash: fdc3a0030859e97cb81b8b9f6a66de1901b6eb3b
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882910"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491294"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Crear, cambiar o eliminar un emparejamiento de red virtual
 
@@ -113,7 +113,7 @@ Si quiere que las redes virtuales se comuniquen algunas veces pero no siempre, e
 - <a name="cross-region"></a>Puede emparejar redes virtuales de la misma región o de regiones diferentes. Emparejamiento de redes virtuales en diferentes regiones se conoce también como *emparejamiento de VNet Global*. 
 - Al crear un emparejamiento global, las redes virtuales emparejadas pueden existir en cualquier región de la nube pública de Azure o las regiones en la nube de China o regiones en la nube de Government. No se pueden emparejar entre nubes. Por ejemplo, no se pueden emparejar una red virtual en la nube pública de Azure a una red virtual en la nube de China de Azure.
 - Los recursos en una red virtual no pueden comunicarse con la dirección IP front-end de un equilibrador de carga interno básico en una red virtual emparejada globalmente. Compatibilidad con Load Balancer básico solo existe en la misma región. Compatibilidad con Load Balancer estándar existe para, el emparejamiento de VNet y emparejamiento de VNet Global.
-- Puede utilizar puertas de enlace remotas o permitir el tránsito de puerta de enlace en redes virtuales emparejadas globalmente en versión preliminar. La vista previa está disponible en todas las regiones de Azure, regiones de la nube de China y regiones de gobierno en la nube. No se requiere ninguna lista blanca. Puede probar en la vista previa a través de la CLI, PowerShell, plantillas o API. Portal no se admite en la vista previa.
+- Puede utilizar puertas de enlace remotas o permitir el tránsito de puerta de enlace en redes virtuales emparejadas globalmente y redes virtuales emparejadas localmente.
 - Las redes virtuales pueden estar en la misma suscripción o en suscripciones distintas. Cuando empareja redes virtuales en distintas suscripciones, ambas suscripciones pueden estar asociadas al mismo inquilino de Azure Active Directory o a uno diferente. Si no dispone de un inquilino de AD, puede [crearla](../active-directory/develop/quickstart-create-new-tenant.md?toc=%2fazure%2fvirtual-network%2ftoc.json-a-new-azure-ad-tenant). El soporte técnico para realizar emparejamientos entre redes virtuales de las suscripciones asociadas a diferentes inquilinos de Azure Active Directory no está disponible en el portal. Puede usar la CLI, PowerShell o plantillas.
 - Las redes virtuales que empareje deben tener espacios de direcciones IP que no se solapen.
 - Una vez que una red virtual se ha emparejado con otra red virtual, no se pueden agregar rangos de direcciones al espacio de direcciones de una red virtual ni pueden eliminarse de este. Para agregar o quitar rangos de direcciones, elimine el emparejamiento, agregue o quite los rangos de direcciones y, a continuación, vuelva a crear el emparejamiento. Para agregar rangos de direcciones a las redes virtuales o quitarlos, consulte [Manage virtual networks](manage-virtual-network.md) (Administrar redes virtuales).

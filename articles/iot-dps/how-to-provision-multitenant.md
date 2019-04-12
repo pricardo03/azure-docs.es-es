@@ -3,17 +3,17 @@ title: Cómo aprovisionar dispositivos para el multiinquilinato en Azure IoT Hub
 description: Cómo aprovisionar dispositivos para el multiinquilinato con su instancia de Device Provisioning Service
 author: wesmc7777
 ms.author: wesmc
-ms.date: 08/15/2018
+ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
-ms.openlocfilehash: ea071b704c58383ce52615bb1dfd88df8017ef7f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+manager: philmea
+ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544450"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500743"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Cómo aprovisionar para el multiinquilinato 
 
@@ -208,7 +208,7 @@ En esta sección, clonará el SDK de C para Azure IoT en cada máquina virtual. 
     git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
     ```
 
-    Actualmente, el tamaño de este repositorio es de unos 220 MB. Esta operación puede tardar varios minutos en completarse.
+    Esta operación puede tardar varios minutos en completarse.
 
 1. Para ambas máquinas virtuales, cree una carpeta **cmake** dentro del repositorio y cambie a esa carpeta.
 
@@ -420,7 +420,7 @@ Para eliminar el grupo de recursos por nombre:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Para más información sobre el reaprovisionamiento, consulte [Conceptos sobre el reaprovisionamiento de dispositivos de IoT Hub](concepts-device-reprovision.md). 
+- Para obtener más Reprovisioning, vea [reaprovisionamiento conceptos de dispositivo de IoT Hub](concepts-device-reprovision.md) 
 - Para obtener información más Desaprovisionamiento de usuarios, consulte [Desaprovisionamiento de dispositivos que automática aprovisionados](how-to-unprovision-devices.md) 
 
 

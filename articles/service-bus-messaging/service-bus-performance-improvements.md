@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/14/2018
 ms.author: aschhab
-ms.openlocfilehash: 37e2dcc13ed41911c8117dc1841a389c14e5867f
-ms.sourcegitcommit: 8115c7fa126ce9bf3e16415f275680f4486192c1
-ms.translationtype: HT
+ms.openlocfilehash: edd7a397598bcb5941f3ac1b29d385d6eac40f8d
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54848587"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501644"
 ---
 # <a name="best-practices-for-performance-improvements-using-service-bus-messaging"></a>Procedimientos recomendados para mejorar el rendimiento mediante la mensajería de Service Bus
 
@@ -127,6 +127,19 @@ La captura previa de los mensajes aumenta el rendimiento general de una cola o u
 El servidor comprueba la propiedad de período de vida (TTL) de un mensaje en el momento en que envía el mensaje al cliente. El cliente no comprueba la propiedad TTL del mensaje cuando lo recibe. En su lugar, se puede recibir el mensaje incluso si se ha superado el TTL del mensaje mientras el cliente lo almacenaba en caché.
 
 La captura previa no afecta al número de operaciones de mensajería facturables y solo está disponible para el protocolo de cliente de Service Bus. El protocolo HTTP no admite la captura previa. La captura previa está disponible para las operaciones de recepción sincrónicas y asincrónicas.
+
+## <a name="prefetching-and-receivebatch"></a>Captura previa y ReceiveBatch
+
+Aunque los conceptos de precarga juntos varios mensajes tienen una semántica similar a procesar los mensajes en un lote (ReceiveBatch), hay algunas diferencias menores que deben tenerse en cuenta al aprovechar juntas.
+
+La precarga es una configuración (o modo) en el cliente (QueueClient y SubscriptionClient) y ReceiveBatch es una operación (que tiene una semántica de solicitud-respuesta).
+
+Al usar juntas, tenga en cuenta los siguientes casos:
+
+* Captura previa debe ser mayor o igual que el número de mensajes que espera recibir de ReceiveBatch.
+* Captura previa puede alcanzar n/3 multiplicado por el número de mensajes procesados por segundo, donde n es la duración del bloqueo predeterminado.
+
+Hay algunos desafíos que se produzca un expansiva enfocar (es decir, mantener el número de capturas muy alto), ya que implica que el mensaje está bloqueado para un receptor en particular. La recomendación es intentar out captura previa de los valores entre los umbrales mencionados anteriormente y empíricamente identificar lo que cabe.
 
 ## <a name="multiple-queues"></a>Varias colas
 

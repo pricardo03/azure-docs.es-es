@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c9e6e289fbda3188449ecc71cbc90bed546512e1
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 6ab13e1ecd5f4825270f4b3a28251b959ad98f02
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471535"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495403"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Solución de problemas de activación o visualización de Application Insights Profiler
 
@@ -71,7 +71,7 @@ Para que Profiler funcione correctamente:
 
     |Configuración de aplicación    | Valor    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey automáticamente el recurso de Application Insights    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | clave de instrumentación para el recurso de Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
     |DiagnosticServices_EXTENSION_VERSION | ~3 |
 
@@ -83,7 +83,7 @@ Para que Profiler funcione correctamente:
    
       ![profiler-webjob]   
    
-   1. Para ver los detalles del WebJob, incluido el registro, seleccione el **ApplicationInsightsProfiler2** vínculo.  
+   1. Para ver los detalles del webjob, incluido el registro, seleccione el **ApplicationInsightsProfiler3** vínculo.  
      Se abre el panel **Continuous WebJob Details** (Detalles de WebJobs continuos).
 
       ![profiler-webjob-log]
@@ -92,7 +92,7 @@ Si no puede averiguar el motivo por el que Profiler no funciona, puede descargar
     
 ### <a name="manual-installation"></a>Instalación manual
 
-Cuando se configura Profiler, se realizan las siguientes actualizaciones en la configuración de la aplicación web. Si su entorno lo requiere, las actualizaciones se pueden aplicar manualmente. Un ejemplo podría ser la ejecución de su aplicación en un entorno de Web Apps para PowerApps. Para aplicar las actualizaciones manualmente, siga estos pasos:
+Cuando se configura Profiler, se realizan las siguientes actualizaciones en la configuración de la aplicación web. Si su entorno lo requiere, las actualizaciones se pueden aplicar manualmente. Un ejemplo podría ser la ejecución de su aplicación en un entorno de Web Apps para PowerApps. Para aplicar las actualizaciones manualmente:
 
 1. En el panel de **control de la aplicación web**, abra **Configuración**.
 
@@ -103,7 +103,7 @@ Cuando se configura Profiler, se realizan las siguientes actualizaciones en la c
 
     |Configuración de aplicación    | Valor    |
     |---------------|----------|
-    |APPINSIGHTS_INSTRUMENTATIONKEY         | iKey automáticamente el recurso de Application Insights    |
+    |APPINSIGHTS_INSTRUMENTATIONKEY         | clave de instrumentación para el recurso de Application Insights    |
     |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
     |DiagnosticServices_EXTENSION_VERSION | ~3 |
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 53140c7b02dd657036b76db0dd137bd770d97f4d
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 49b247338bbb1f20082fdef2a2bc291fb6183b10
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369537"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493066"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opciones de creación de informes para la administración de contraseñas de Azure AD
 
@@ -118,7 +118,7 @@ En la lista siguiente se explica en detalle esta actividad:
 En la lista siguiente se explica en detalle esta actividad:
 
 * **Descripción de la actividad**: indica que un administrador realizó un restablecimiento de contraseña en nombre de un usuario en Azure Portal.
-* **Actor de la actividad**: el administrador que ha realizado el restablecimiento de contraseña en nombre de otro administrador o usuario final. Debe ser un administrador global, administrador de contraseñas, administrador de usuarios o administrador del departamento de soporte técnico.
+* **Actor de la actividad**: el administrador que ha realizado el restablecimiento de contraseña en nombre de otro administrador o usuario final. Debe ser un administrador de contraseñas, el usuario administrador o el administrador del departamento de soporte técnico.
 * **Destino de la actividad**: usuario cuya contraseña se ha restablecido. Puede tratarse de un usuario final o de otro administrador.
 * **Estados de la actividad**:
   * _Correcto_: indica que un administrador ha restablecido correctamente la contraseña de un usuario.
@@ -176,16 +176,16 @@ En la lista siguiente se explica en detalle esta actividad:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [¿Cómo se realiza un lanzamiento correcto de SSPR?](howto-sspr-deployment.md)
+* [¿Cómo se puede completar una implementación correcta de SSPR?](howto-sspr-deployment.md)
 * [Restablecimiento o modificación de la contraseña](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Registro para el autoservicio de restablecimiento de contraseñas](../user-help/active-directory-passwords-reset-register.md).
-* [¿Tiene alguna pregunta acerca de las licencias?](concept-sspr-licensing.md)
-* [¿Qué datos usa SSPR y cuáles se deben rellenar en lugar de los usuarios?](howto-sspr-authenticationdata.md)
-* [¿Qué métodos de autenticación están disponibles para los usuarios?](concept-sspr-howitworks.md#authentication-methods)
+* [¿Tiene alguna pregunta licencias?](concept-sspr-licensing.md)
+* [¿Qué datos usa SSPR y qué datos se deben rellenar para los usuarios?](howto-sspr-authenticationdata.md)
+* [¿Métodos de autenticación que están disponibles para los usuarios?](concept-sspr-howitworks.md#authentication-methods)
 * [¿Cuáles son las opciones de directiva con SSPR?](concept-sspr-policy.md)
-* [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](howto-sspr-writeback.md)
-* [¿Cuáles son todas las opciones en SSPR y qué significan?](concept-sspr-howitworks.md)
-* [Creo que algo se ha roto. ¿Cómo se solucionan problemas en SSPR?](active-directory-passwords-troubleshoot.md)
-* [Tengo una pregunta que no se ha comentado en ningún otro sitio](active-directory-passwords-faq.md)
+* [¿Qué es la escritura diferida de contraseñas y por qué me importa sobre ella?](howto-sspr-writeback.md)
+* [¿Qué son todas las opciones en SSPR y qué significan?](concept-sspr-howitworks.md)
+* [Creo que algo se ha roto. ¿Cómo se puede solucionar SSPR?](active-directory-passwords-troubleshoot.md)
+* [Tengo una pregunta que no se ha comentado else](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Ejemplo de registros de auditoría de actividad de SSPR en Azure AD"

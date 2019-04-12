@@ -4,20 +4,20 @@ titlesuffix: Azure Virtual Network
 description: Aprenda a crear un emparejamiento de redes virtuales entre redes virtuales creadas mediante Resource Manager que existen en diferentes suscripciones de Azure.
 services: virtual-network
 documentationcenter: ''
-author: jimdial
+author: anavinahar
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
-ms.author: jdial;anavin
-ms.openlocfilehash: 2965f72a1f0532cd9e13d5fa03750cf4ed8bab99
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.date: 04/09/2019
+ms.author: anavin
+ms.openlocfilehash: ff8c866f62e8d795f04491cf249b7dae26c8269c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403475"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492301"
 ---
 # <a name="create-a-virtual-network-peering---resource-manager-different-subscriptions"></a>Crear un emparejamiento de redes virtuales: Resource Manager, suscripciones diferentes
 
@@ -29,7 +29,7 @@ Los pasos para crear un emparejamiento de redes virtuales cambian en función de
 |--------- |---------|
 |[Ambas mediante Resource Manager](tutorial-connect-virtual-networks-portal.md) |Iguales|
 |[Una mediante Resource Manager y la otra clásica](create-peering-different-deployment-models.md) |Iguales|
-|[Una mediante Resource Manager y la otra, clásico](create-peering-different-deployment-models-subscriptions.md) |Diferente|
+|[Una mediante Resource Manager y la otra clásica](create-peering-different-deployment-models-subscriptions.md) |Diferentes|
 
 No se puede crear un emparejamiento de redes virtuales entre dos redes virtuales implementadas mediante el modelo de implementación clásico. Si necesita conectar redes virtuales que se crearon a través del modelo de implementación clásica, puede usar una instancia de [Azure VPN Gateway](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para conectar las redes virtuales.
 
@@ -39,7 +39,9 @@ Puede usar [Azure Portal](#portal), Azure [PowerShell](#cli), la [interfaz de la
 
 ## <a name="portal"></a>Creación de emparejamiento: Azure Portal
 
-Si las redes virtuales que desea emparejar están en suscripciones que están asociadas a diferentes inquilinos de Azure Active Directory, siga los pasos de la sección de CLI y PowerShell de este artículo. El portal no admite el emparejamiento de redes virtuales que pertenecen a suscripciones de diferentes inquilinos de Active Directory.
+Si las redes virtuales que desea emparejar están en suscripciones que están asociadas a diferentes inquilinos de Azure Active Directory, siga los pasos de la sección de CLI y PowerShell de este artículo. El portal no admite el emparejamiento de redes virtuales que pertenecen a suscripciones de diferentes inquilinos de Active Directory. 
+
+Tenga en cuenta que Cloud Shell tiene limitaciones en la conmutación de suscripciones e inquilinos debido a que el emparejamiento de VNet o emparejamiento de VNet Global entre redes virtuales que pertenecen a suscripciones en distintos inquilinos de Active Directory de Azure no funcionará. Use PowerShell o CLI.
 
 Los pasos siguientes usan cuentas diferentes para cada suscripción. Si está usando una cuenta que tiene permisos para ambas suscripciones puede usar la misma cuenta para todos los pasos, y omitir los pasos para cerrar sesión en el portal y para asignar a otro usuario permisos para las redes virtuales.
 
@@ -312,7 +314,7 @@ Cuando haya terminado este tutorial, es posible que quiera eliminar los recursos
    ```
 
 2. Cierre sesión en Azure como UserA e inicie sesión como UserB.
-3. Ejecute el siguiente comando:
+3. Ejecute el comando siguiente:
 
    ```azurecli-interactive
    az group delete --name myResourceGroupB --yes
@@ -327,7 +329,7 @@ Cuando haya terminado este tutorial, es posible que quiera eliminar los recursos
    ```
 
 2. Cierre sesión en Azure como UserA e inicie sesión como UserB.
-3. Ejecute el siguiente comando:
+3. Ejecute el comando siguiente:
 
    ```powershell
    Remove-AzResourceGroup -Name myResourceGroupB -force

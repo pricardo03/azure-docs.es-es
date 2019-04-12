@@ -9,19 +9,19 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 36b9e6c97a10f7608a4faaef005ca4eeb1fc09c6
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55811535"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492726"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Esquema de configuración de Diagnósticos de Azure 1.0
 > [!NOTE]
 > Diagnósticos de Azure es el componente que se usa para recopilar contadores de rendimiento y otras estadísticas de Azure Virtual Machines, conjuntos de escalado de máquinas virtuales, Service Fabric y Cloud Services.  Esta página solo es pertinente si está usando uno de estos servicios.
 >
 
-Diagnósticos de Azure se usa con otros productos de diagnósticos de Microsoft, como Azure Monitor, Application Insights y Log Analytics.
+Diagnósticos de Azure se usan con otros productos de diagnósticos de Microsoft como Azure Monitor, que incluye Application Insights y Log Analytics.
 
 El archivo de configuración de Diagnósticos de Azure define los valores que se usan para inicializar el monitor de diagnóstico. Este se usa para inicializar la configuración de diagnóstico al iniciar el monitor de diagnóstico.  
 
@@ -152,7 +152,7 @@ Atributos:
 
 Atributos:  
 
-|Atributo|Type|Descripción|  
+|Atributo|Type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
 |**container**|string|El nombre del contenedor donde es se va a transferir el contenido del directorio.|  
 |**directoryQuotaInMB**|unsignedInt|Opcional. Especifica el tamaño máximo del directorio en megabytes.<br /><br /> El valor predeterminado es 0.|  
@@ -219,7 +219,7 @@ Atributos:
 
 |Atributo|Type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
-|**name**|string|Necesario. El nombre del recurso local que contiene el directorio que se va a supervisar.|  
+|**Nombre**|string|Necesario. El nombre del recurso local que contiene el directorio que se va a supervisar.|  
 |**relativePath**|string|Necesario. La ruta de acceso relativa al recurso local que se va a supervisar.|  
 
 ## <a name="performancecounters-element"></a>Elemento PerformanceCounters  
@@ -269,5 +269,5 @@ Atributos:
 
 |Atributo|Type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
-|**name**|string|Necesario. Expresión XPath que especifica el registro que se va a recopilar.|  
+|**Nombre**|string|Necesario. Expresión XPath que especifica el registro que se va a recopilar.|  
 

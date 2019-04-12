@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: hrasheed
-ms.openlocfilehash: 28f04f5ab3cf8310a6ee3828405910d34b31591b
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9631e4b82ceb14a98740491b98288d75dd23f9a3
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227695"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501015"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters-preview"></a>Escalado automático de clústeres de HDInsight de Azure (versión preliminar)
 
@@ -83,7 +83,7 @@ Para más información sobre cómo crear clústeres con plantillas de Resource M
 
 ### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>Habilitación y deshabilitación de escalabilidad automática para un clúster en ejecución
 
-Puede habilitar o deshabilitar el escalado automático para los clústeres de HDInsight creados después del 1 de enero de 2019 a través del portal de Azure.
+Solo puede habilitar o deshabilitar el escalado automático para los clústeres de HDInsight nuevos.
 
 ## <a name="monitoring"></a>Supervisión
 
@@ -108,8 +108,8 @@ Las métricas anteriores se comprueban cada 60 segundos. Escalado automático de
 
 Cuando se detectan las condiciones siguientes, el escalado automático emitirá una solicitud de escalado vertical:
 
-* El total de CPU pendiente es mayor que el total de CPU libre durante más de 1 minuto.
-* El total de memoria pendiente es mayor que el total de memoria libre durante más de 1 minuto.
+* Total pendiente de CPU es mayor que el total de CPU disponible para más de 3 minutos.
+* Total de memoria pendientes es mayor que el total de memoria libre para más de 3 minutos.
 
 Se calcula que un cierto número de nuevos nodos de trabajo se necesita para cumplir los requisitos de CPU y memoria actuales y, a continuación, emitir una solicitud de escalado que suma ese número de nuevos nodos de trabajo.
 
@@ -120,7 +120,7 @@ Cuando se detectan las condiciones siguientes, el escalado automático emitirá 
 * El total de CPU pendiente es menor que el total de CPU libre durante más de 10 minutos.
 * El total de memoria pendiente es menor que el total de memoria libre durante más de 10 minutos.
 
-En función del número de contenedores de a. M. por nodo y los requisitos de memoria y CPU actual, escalado automático emitirá una solicitud para quitar un cierto número de nodos, especificando los nodos que son posibles candidatas para eliminarse. De manera predeterminada, se eliminarán dos nodos en un ciclo.
+En función del número de contenedores de a. M. por nodo y los requisitos de memoria y CPU actual, escalado automático emitirá una solicitud para quitar un cierto número de nodos, especificando los nodos que son posibles candidatas para eliminarse. La reducción vertical desencadenará la retirada de los nodos y después de que los nodos se retiran completamente, se quitará.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

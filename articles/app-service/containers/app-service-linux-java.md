@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: 71632b3846a5dac39d7827c874367bd9802574f8
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: bab6510af98b153ecb61db8fc49b5124aae04598
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803533"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500471"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guía para desarrolladores de Java para App Service en Linux
 
@@ -69,43 +69,50 @@ Para obtener más información, consulte el apartado sobre el [streaming de regi
 
 ### <a name="app-logging"></a>Registro de aplicaciones
 
-Habilite el [registro de aplicaciones](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) a través de Azure Portal o la [CLI de Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar App Service para que escriba los flujos de salida y de error de la consola estándar en el sistema de archivos local o en Azure Blob Storage. El registro en el sistema de archivos local de App Service se deshabilita 12 horas después de su configuración. Si necesita una retención más prolongada, configure la aplicación para escribir la salida en un contenedor de Blob Storage.
+Habilite el [registro de aplicaciones](/azure/app-service/troubleshoot-diagnostic-logs#enablediag) a través de Azure Portal o la [CLI de Azure](/cli/azure/webapp/log#az-webapp-log-config) para configurar App Service para que escriba los flujos de salida y de error de la consola estándar en el sistema de archivos local o en Azure Blob Storage. El registro en el sistema de archivos local de App Service se deshabilita 12 horas después de su configuración. Si necesita una retención más prolongada, configure la aplicación para escribir la salida en un contenedor de Blob Storage. Los registros de aplicación de Java y Tomcat pueden encontrarse en el `/home/LogFiles/Application/` directory.
 
 Si la aplicación usa [Logback](https://logback.qos.ch/) o [Log4j](https://logging.apache.org/log4j) para el seguimiento, puede reenviar estos seguimientos para su revisión en Azure Application Insights mediante las instrucciones de configuración del marco de registro en [Exploración de los registros de seguimiento de Java en Application Insights](/azure/application-insights/app-insights-java-trace-logs).
+
+### <a name="troubleshooting-tools"></a>Herramientas de solución de problemas
+
+Las imágenes integradas de Java se basan en el [Alpine Linux](https://alpine-linux.readthedocs.io/en/latest/getting_started.html) del sistema operativo. Use la `apk` Administrador de paquetes para instalar cualquier solución de problemas de las herramientas o comandos.
 
 ## <a name="customization-and-tuning"></a>Personalización y optimización
 
 Azure App Service para Linux admite la optimización y la personalización de serie a través de Azure Portal y de la CLI de Azure. Revise los artículos siguientes para la configuración de aplicaciones web específicas que no son de Java:
 
 - [Configuración de App Service](/azure/app-service/web-sites-configure?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Configuración de un dominio personalizado](/azure/app-service/app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Habilitación de SSL](/azure/app-service/app-service-web-tutorial-custom-ssl?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Adición de una red CDN](/azure/cdn/cdn-add-to-web-app?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configurar un dominio personalizado](/azure/app-service/app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Habilitar SSL](/azure/app-service/app-service-web-tutorial-custom-ssl?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Agregar una red CDN](/azure/cdn/cdn-add-to-web-app?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configurar el sitio de Kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
 ### <a name="set-java-runtime-options"></a>Definición de las opciones de Java Runtime
 
-Para establecer la memoria asignada u otras opciones de entorno de ejecución de JVM en entornos Tomcat y Java SE, establezca JAVA_OPTS tal como se muestra a continuación como un [valor de la aplicación](/azure/app-service/web-sites-configure#app-settings). App Service Linux pasa esta configuración como una variable de entorno para Java Runtime cuando se inicia.
+Para establecer la memoria asignada u otras opciones de tiempo de ejecución JVM en entornos de Tomcat y de Java SE, cree un [configuración de la aplicación](/azure/app-service/web-sites-configure#app-settings) denominado `JAVA_OPTS` con las opciones. App Service Linux pasa esta configuración como una variable de entorno para Java Runtime cuando se inicia.
 
-En Azure Portal, en **Configuración de la aplicación** para la aplicación web, cree un nuevo valor de la aplicación denominado `JAVA_OPTS` que incluya valores de configuración adicionales, como `$JAVA_OPTS -Xms512m -Xmx1204m`.
+En Azure Portal, en **Configuración de la aplicación** para la aplicación web, cree un nuevo valor de la aplicación denominado `JAVA_OPTS` que incluya valores de configuración adicionales, como `-Xms512m -Xmx1204m`.
 
-Para definir la configuración de la aplicación desde el complemento de Maven de Azure App Service Linux, agregue etiquetas setting/value en la sección de complementos de Azure. En el ejemplo siguiente se establecen tamaños de montón de Java mínimo y máximo específicos:
+Para configurar la configuración de la aplicación desde el complemento Maven, agregue las etiquetas de configuración y valor en la sección de complemento de Azure. En el ejemplo siguiente se establecen tamaños de montón de Java mínimo y máximo específicos:
 
 ```xml
 <appSettings>
     <property>
         <name>JAVA_OPTS</name>
-        <value>$JAVA_OPTS -Xms512m -Xmx1204m</value>
+        <value>-Xms512m -Xmx1204m</value>
     </property>
 </appSettings>
 ```
 
 Los desarrolladores que ejecutan una sola aplicación con una ranura de implementación en su plan de App Service pueden usar las siguientes opciones:
 
-- Instancias B1 y S1: -Xms1024m -Xmx1024m
-- Instancias B2 y S2: -Xms3072m -Xmx3072m
-- Instancias B3 y S3: -Xms6144m -Xmx6144m
+- Instancias de S1 y B1: `-Xms1024m -Xmx1024m`
+- Instancias de B2 y S2: `-Xms3072m -Xmx3072m`
+- Instancias B3 y S3: `-Xms6144m -Xmx6144m`
 
 Cuando optimice la configuración del montón de la aplicación, revise los detalles de su plan de App Service y tenga en cuenta distintas necesidades de aplicaciones y ranuras de implementación para encontrar la asignación óptima de memoria.
+
+Si va a implementar una aplicación de JAR, debe denominarse `app.jar` para que la imagen integrada puede identificar correctamente la aplicación. (El complemento Maven realiza automáticamente este cambio de nombre). Si no desea cambiar el nombre de archivo JAR para `app.jar`, puede cargar un script de shell con el comando para ejecutar el archivo JAR. A continuación, pegue la ruta de acceso completa a esta secuencia de comandos en el [archivo de inicio](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#startup-file) cuadro de texto en la sección de configuración del Portal.
 
 ### <a name="turn-on-web-sockets"></a>Activación de sockets web
 
@@ -126,7 +133,7 @@ az webapp start -n ${WEBAPP_NAME} -g ${WEBAPP_RESOURCEGROUP_NAME}
 
 ### <a name="set-default-character-encoding"></a>Definición de la codificación de caracteres predeterminada
 
-En Azure Portal, en **Configuración de la aplicación** para la aplicación web, cree un nuevo valor de la aplicación denominado `JAVA_OPTS` con el valor `$JAVA_OPTS -Dfile.encoding=UTF-8`.
+En Azure Portal, en **Configuración de la aplicación** para la aplicación web, cree un nuevo valor de la aplicación denominado `JAVA_OPTS` con el valor `-Dfile.encoding=UTF-8`.
 
 También puede configurar el valor de la aplicación mediante el complemento de Maven de App Service. Agregue las etiquetas setting y value del valor en la configuración del complemento:
 
@@ -134,10 +141,14 @@ También puede configurar el valor de la aplicación mediante el complemento de 
 <appSettings>
     <property>
         <name>JAVA_OPTS</name>
-        <value>$JAVA_OPTS -Dfile.encoding=UTF-8</value>
+        <value>-Dfile.encoding=UTF-8</value>
     </property>
 </appSettings>
 ```
+
+### <a name="adjust-startup-timeout"></a>Ajustar el tiempo de espera de inicio
+
+Si la aplicación de Java es especialmente grande, debe aumentar el límite de tiempo de inicio. Para ello, cree una configuración de aplicación, `WEBSITES_CONTAINER_START_TIME_LIMIT` y establézcalo como el número de segundos que App Service debe esperar antes de agotar el tiempo. El valor máximo es `1800` segundos.
 
 ## <a name="secure-applications"></a>Aplicaciones seguras
 

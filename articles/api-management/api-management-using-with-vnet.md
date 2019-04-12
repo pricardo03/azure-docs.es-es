@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2019
 ms.author: apimpm
-ms.openlocfilehash: 78efcefa7df99dfa3386dcdf19aafa47d7b9fab1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 7cbd21ce9f8e5d9d3c03eb7c626ab41b8d28498d
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884521"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505675"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Usar Azure API Management con redes virtuales
 Azure Virtual Network (VNET) le permiten colocar cualquier recurso de Azure en una red que se pueda enrutar distinta de Internet y a la que controla el acceso. Después, estas redes se pueden conectar a sus redes locales mediante diversas tecnologías de VPN. Para más información sobre Azure Virtual Network, vea: [Información general sobre Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
@@ -59,7 +59,7 @@ Para seguir los pasos que se describen en este artículo, debe tener:
 
    * **Interno:** la puerta de enlace de API Management y el portal para desarrolladores solo son accesibles desde la red virtual con un equilibrador de carga interno. La puerta de enlace puede acceder a recursos dentro de la red virtual.
 
-     ![Emparejamiento privado][api-management-vnet-private]`
+     ![Emparejamiento privado][api-management-vnet-private]
 
      Ahora verá una lista de todas las regiones donde se aprovisiona el servicio Administración de API. Seleccione una VNET y la subred de cada región. La lista se rellena con redes virtuales de Resource Manager y clásicas disponibles en las suscripciones de Azure que se configuran en la región que va a configurar.
 
@@ -154,7 +154,7 @@ Cuando la instancia del servicio de API Management se hospeda en una red virtual
     
     > 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 13.64.39.16/32, 40.81.47.216/32, 51.145.179.78/32, 52.142.95.35/32, 40.90.185.46/32, 20.40.125.155/32
 
-  * Para otras API de administración de servicio de dependencias de tunelización, sus debe ser la manera de resolver el nombre de host y póngase en contacto con el punto de conexión. Estos incluyen
+  * Para otras dependencias del servicio API Management que se realiza la tunelización forzada, debe haber una manera de resolver el nombre de host y póngase en contacto con el punto de conexión. Estos incluyen
       - Las métricas y supervisión de estado
       - Diagnósticos de Azure portal
       - Retransmisión de SMTP

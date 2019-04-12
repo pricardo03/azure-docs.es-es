@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/07/2018
 ms.author: cephalin;sisirap
 ms.custom: seodec18
-ms.openlocfilehash: ef313ea631a963aa7893bf15e826e591c9d9cfc3
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 1bc8dc822622ee7b16b3e0a31e7b0b66ed7556e6
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58619805"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59488412"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>Implementación de una aplicación en Azure App Service con un archivo ZIP o WAR
 
@@ -31,7 +31,7 @@ Esta implementación del archivo ZIP usa el mismo servicio de Kudu que permite r
 - La opción de activar el proceso de compilación predeterminado, en el que se incluye la restauración del paquete.
 - La [personalización de la implementación](https://github.com/projectkudu/kudu/wiki/Configurable-settings#repository-and-deployment-related-settings), incluida la ejecución de scripts de implementación.  
 - Registros de implementación. 
-- Un límite de tamaño de archivo de 512 MB.
+- Un límite de tamaño de archivo de 2048 MB.
 
 Para obtener más información, consulte la [documentación de Kudu](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file).
 
@@ -118,5 +118,5 @@ Para ver escenarios de implementación más avanzados, pruebe [Implementación e
 
 ## <a name="more-resources"></a>Más recursos
 
-* [Kudu: realizar una implementación desde un archivo .zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
+* [Kudu: Implementación de un archivo zip](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file)
 * [Credenciales de implementación de Azure App Service](deploy-ftp.md)

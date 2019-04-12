@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumeet.mittal
-ms.openlocfilehash: 2d65d51ae8148e2e55d57d39e306ded0f75da687
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: b39f365c8b66f7cab074a20bc574803e12f93422
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58652593"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494181"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>Directivas de punto de conexión de servicio de redes virtuales (versión preliminar)
 
@@ -24,7 +24,7 @@ Las directivas de punto de conexión de servicio de la red virtual le permiten f
 
 Esta característica está disponible en __versión preliminar__ para los siguientes servicios y regiones de Azure:
 
-__Azure Storage__: WestCentralUS, WestUS2.
+__Azure Storage__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, CentralUS, EastUS2.
 
 Para las notificaciones más actualizadas para la versión preliminar, consulte la página [Actualizaciones de Azure Virtual Network](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -35,7 +35,7 @@ Para las notificaciones más actualizadas para la versión preliminar, consulte 
 
 Las directivas de puntos de conexión de servicio de redes virtuales proporcionan las ventajas siguientes:
 
-- __Seguridad mejorada para el tráfico de la red virtual a los servicios de Azure__
+- __Mejorar la seguridad para el tráfico de red Virtual a los servicios de Azure__
 
   [Las etiquetas de servicio de Azure para grupos de seguridad de red](https://aka.ms/servicetags) le permiten restringir el tráfico de salida de la red virtual a servicios de Azure específicos. Sin embargo, esto permite el tráfico a cualquier recurso de ese servicio de Azure. 
   

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 94465e95dbf5f2eb381c124349bf8fda6622a6c2
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: b84238e8a659358f2c065eb1533f0d21a5335d43
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58650298"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496886"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Supervise la actividad de suscripción con Azure Activity Log
 
@@ -48,7 +48,7 @@ El Registro de actividad contiene varias categorías de datos. Para obtener todo
 
 ## <a name="event-schema-per-category"></a>Esquema de eventos por categoría
 
-[Vea este artículo para comprender el esquema de eventos de Activity Log por categoría.](../../azure-monitor/platform/activity-log-schema.md)
+[Consulte este artículo para comprender el esquema de eventos de registro de actividad por categoría.](../../azure-monitor/platform/activity-log-schema.md)
 
 ## <a name="what-you-can-do-with-the-activity-log"></a>Qué se puede hacer con el registro de actividad
 
@@ -58,7 +58,7 @@ Estas son algunas de las cosas que puede hacer con el registro de actividad:
 
 
 * Verlo y realizar consultas en él en **Azure Portal**.
-* [Crear una alerta basada en un evento de Activity Log.](../../azure-monitor/platform/activity-log-alerts.md)
+* [Crear una alerta para un evento de registro de actividad.](../../azure-monitor/platform/activity-log-alerts.md)
 * [Stream para una **centro de eventos** ](../../azure-monitor/platform/activity-logs-stream-event-hubs.md) para la ingestión en un servicio de terceros o una solución de análisis personalizado como Power BI.
 * Analizarlo en Power BI con el [ **paquete de contenido de Power BI**](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Guardarlo en una **cuenta de almacenamiento** para archivarlo o inspeccionarlo manualmente](../../azure-monitor/platform/archive-activity-log.md). Puede especificar el tiempo de retención (en días) mediante el **perfil de registro**.
@@ -92,22 +92,14 @@ Para ampliar aún más las posibilidades, puede hacer clic en el icono **Registr
 Un **perfil de registro** controla cómo se exporta el registro de actividad. Con un perfil de registro, puede configurar:
 
 * Dónde se debería enviar el registro de actividad (cuenta de almacenamiento o Event Hubs)
-* Qué categorías de eventos (Escritura, Eliminación, Acción) se deberían enviar. *El significado de "categoría" en los eventos de registro de actividad y los perfiles de registro es distinto. En el perfil de registro, "Categoría" representa el tipo de operación (escritura, eliminación, acción). En un evento de registro de actividad, la propiedad de "categoría" representa el origen o el tipo de un evento (por ejemplo, Administration, ServiceHealth, Alert, etc.).*
+* Qué categorías de eventos (Escritura, Eliminación, Acción) se deberían enviar. *El significado de "categoría" en los perfiles de registro y eventos de registro de actividad es diferente. En el perfil de registro, "Categoría" representa el tipo de operación (escritura, eliminación, acción). En un evento de registro de actividad, la propiedad "categoría" representa el origen o el tipo de evento (por ejemplo, Administration, ServiceHealth, Alert etc.).*
 * Qué regiones (ubicaciones) se deben exportar. Asegúrese de que incluye "global", ya que muchos eventos en Activity Log son eventos globales.
 * El tiempo durante el que se debe conservar un registro de actividad en una cuenta de almacenamiento.
-    - Una retención de cero días significa que los registros se conservan de forma indefinida. De lo contrario, el valor puede ser cualquier número de días comprendido entre 1 y 2147483647.
+    - Una retención de cero días significa que los registros se conservan de forma indefinida. En caso contrario, el valor puede ser cualquier número de días comprendido entre 1 y 365.
     - Si se establecen directivas de retención, pero el almacenamiento de registros en una cuenta de almacenamiento está deshabilitado (por ejemplo, si solo se han seleccionado las opciones Event Hubs o Log Analytics), las directivas de retención no surten ningún efecto.
     - Las directivas de retención se aplican a diario, por lo que al final de un día (UTC) se eliminan los registros del día que quede fuera de la directiva de retención. Por ejemplo, si tuviera una directiva de retención de un día, se eliminarían los registros de anteayer al principio del día de hoy. El proceso de eliminación empieza a medianoche (UTC), pero tenga en cuenta que eliminar los registros de la cuenta de almacenamiento puede tardar hasta 24 horas.
 
 Puede usar una cuenta de almacenamiento o un espacio de nombres de centro de eventos que no esté en la misma suscripción que el que emite los registros. El usuario que configura los ajustes debe tener el acceso de RBAC adecuado a ambas suscripciones.
-
-> [!NOTE]
->  Actualmente no puede archivar datos en una cuenta de almacenamiento que está detrás de una red virtual protegida.
-
-> [!WARNING]
-> El formato de los datos de registro de la cuenta de almacenamiento ha cambiado a JSON Lines el 1 de noviembre de 2018. [Consulte este artículo para obtener una descripción de la repercusión y del modo de actualizar las herramientas para administrar el nuevo formato.](./../../azure-monitor/platform/diagnostic-logs-append-blobs.md)
->
->
 
 Estas opciones se pueden configurar a través de la opción de exportación en la hoja de registro de actividad en el portal. También pueden configurarse mediante programación [con la API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), los cmdlets de PowerShell o con la CLI. Una suscripción solo puede tener un perfil de registro.
 
@@ -191,5 +183,5 @@ az monitor log-profiles delete --name <profile name>
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Más información sobre el registro de actividad (antes, Registros de auditoría)](../../azure-resource-manager/resource-group-audit.md)
+* [Más información sobre el registro de actividad (anteriormente los registros de auditoría)](../../azure-resource-manager/resource-group-audit.md)
 * [Transmisión del registro de actividad de Azure a Event Hubs](../../azure-monitor/platform/activity-logs-stream-event-hubs.md)

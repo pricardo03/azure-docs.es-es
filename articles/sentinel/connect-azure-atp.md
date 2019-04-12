@@ -1,6 +1,6 @@
 ---
-title: Recopilar datos de ATP de Azure en versión preliminar de Azure Sentinel | Microsoft Docs
-description: Obtenga información sobre cómo recopilar datos de ATP de Azure en Azure Sentinel.
+title: Conecte los datos de ATP de Azure a la versión preliminar de Azure Sentinel | Microsoft Docs
+description: Obtenga información sobre cómo conectar los datos de ATP de Azure a Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/26/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5254e60b9b7c38e5f4534e90f8aabe938aef99b2
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 153b6cb44cbcf5ecca9a4941c6bef7a8721dc56c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58574950"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492658"
 ---
-# <a name="collect-data-from-azure-advanced-threat-protection-atp"></a>Recopilar datos desde Azure Advanced Threat Protection (ATP)
+# <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>Conectarse a datos desde Azure Advanced Threat Protection (ATP)
 
 > [!IMPORTANT]
 > Azure Sentinel se encuentra actualmente en versión preliminar pública.
@@ -42,7 +42,7 @@ Si está implementado ATP de Azure y consumir los datos, las alertas sospechosas
 
 
 
-1. En Azure Sentinel, seleccione **la recopilación de datos** y, a continuación, haga clic en el **ATP de Azure** icono.
+1. En Azure Sentinel, seleccione **conectores de datos** y, a continuación, haga clic en el **ATP de Azure** icono.
 
 2. Haga clic en **Conectar**.
 

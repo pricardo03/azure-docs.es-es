@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/28/2019
 ms.author: rkarlin
-ms.openlocfilehash: 4ed0be3178f9d5d014e9e50c11d555b586ced765
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 882d4e0592b74e8af30ff5bf110a41e403c3bf7d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58579332"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494037"
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Administrar problemas de Endpoint Protection con Azure Security Center
 Azure Security Center supervisa el estado de la protección antimalware y lo notifica en la hoja de problemas de Endpoint Protection. Security Center resalta problemas, como las amenazas detectadas y si hay una protección insuficiente, que pueden hacer vulnerables sus equipos y máquinas virtuales frente a amenazas antimalware. Si aplica la información descrita en **Problemas de Endpoint Protection**, puede identificar un plan para solucionar cualquier problema detectado.
@@ -47,7 +47,7 @@ En este ejemplo usaremos **Proceso**.  Veremos cómo instalar un antimalware en 
 
 ## <a name="install-antimalware-on-azure-vms"></a>Instalar un antimalware en máquinas virtuales de Azure
 
-1. Seleccione **Proceso** en el menú principal de Security Center o en **Información general**.
+1. Seleccione **proceso y aplicaciones** en el menú principal de Security Center o **Introducción**.
 
    ![Seleccionar Proceso][1]
 

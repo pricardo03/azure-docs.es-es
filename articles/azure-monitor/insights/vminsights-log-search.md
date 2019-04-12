@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2019
+ms.date: 04/10/2019
 ms.author: magoedte
-ms.openlocfilehash: 12f8b3d9dd461dc5d09d76245aa02f0e1cefc343
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: 8b6745a2b9afe8d3101585e3f7a13f2fc978c84a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58188975"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492095"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>Cómo consultar registros de Azure Monitor para VM (versión preliminar)
 Monitor para las máquinas virtuales de Azure recopila información de estado de mantenimiento y métricas de conexión, equipo y procesar los datos de inventario y rendimiento y la reenvía al área de trabajo de Log Analytics en Azure Monitor.  Estos datos están disponibles para [consulta](../../azure-monitor/log-query/log-query-overview.md) en Azure Monitor. Estos datos se pueden aplicar a escenarios que incluyen la planeación de la migración, el análisis de la capacidad, la detección y la solución de problemas de rendimiento a petición.
@@ -125,7 +125,12 @@ Todas las propiedades de RemoteIp de la tabla *VMConnection* se comparan con un 
 ### <a name="ports"></a>Puertos 
 Puertos en una máquina que activamente acepten el tráfico entrante o potencialmente podrían aceptar tráfico, pero están inactivas durante el período de tiempo de generación de informes, se escriben en la tabla VMBoundPort.  
 
-De forma predeterminada, los datos no se escriben en esta tabla. Para que los datos escritos en esta tabla, envíe un correo electrónico a vminsights@microsoft.com junto con el identificador de área de trabajo y la región del área de trabajo.   
+>[!NOTE]
+>Azure Monitor para las máquinas virtuales no admite recopilar y registrar datos de puerto en un área de trabajo de Log Analytics en las siguientes regiones:  
+>- Este de EE. UU  
+>- Europa occidental
+>
+> Recopilar estos datos está habilitada en el otro [regiones admitidas](vminsights-onboard.md#log-analytics) para Azure Monitor para las máquinas virtuales. 
 
 Todos los registros de VMBoundPort se identifican mediante los siguientes campos: 
 

@@ -12,30 +12,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 2c28ae3bf05a994293a8bf2af0675280d818fdde
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.openlocfilehash: 622b1f6f6a852251c07c5576ed10cd76adbf5231
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57242605"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500505"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Uso de colas de Service Bus con Python
 
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
-Este artículo describe cómo usar las colas de Service Bus. Los ejemplos están escritos en Python y usan el [paquete de Service Bus de Azure para Python][Python Azure Service Bus package]. Entre los escenarios proporcionados se incluyen los siguientes: **creación de colas, envío y recepción de mensajes** y **eliminación de colas**.
+En este tutorial, aprenderá a crear aplicaciones de Python para enviar y recibir mensajes de una cola de Service Bus. 
 
-[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+## <a name="prerequisites"></a>Requisitos previos
+1. Una suscripción de Azure. Para completar este tutorial, deberá tener una cuenta de Azure. Puede activar su [ventajas de suscriptor MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) o registrarse para obtener un [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+2. Siga los pasos de la [uso de Azure portal para crear una cola de Service Bus](service-bus-quickstart-portal.md) artículo.
+    1. Leer el breve **Introducción** de Service Bus **colas**. 
+    2. Creación de un Bus de servicio **espacio de nombres**. 
+    3. Obtener el **cadena de conexión**. 
 
-[!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
-
-> [!IMPORTANT]
-> Para instalar Python o el [paquete de Service Bus de Azure para Python][Python Azure Service Bus package], consulte la [Guía de instalación de Python](../python-how-to-install.md).
-> 
-> Consulte la documentación completa del SDK de Python de Bus de servicio [aquí](/python/api/overview/azure/servicebus?view=azure-python)
-
+        > [!NOTE]
+        > Creará un **cola** en el espacio de nombres de Service Bus con Python en este tutorial. 
+1. Instalar Python o el [paquete Python Azure Service Bus][Python Azure Service Bus package], consulte el [Guía de instalación de Python](../python-how-to-install.md). Consulte la documentación completa del SDK de Python de Bus de servicio [aquí](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="create-a-queue"></a>Creación de una cola
 El **ServiceBusClient** objeto le permite trabajar con colas. Agregue el siguiente código cerca de la parte superior de todo archivo Python en el que desee obtener acceso a Service Bus mediante programación:

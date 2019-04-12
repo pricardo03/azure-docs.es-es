@@ -1,6 +1,6 @@
 ---
-title: Recopilar datos de eventos de seguridad de Windows en Azure Sentinel Preview | Microsoft Docs
-description: Obtenga información sobre cómo recopilar datos de eventos de seguridad de Windows en Azure Sentinel.
+title: Conectarse a datos de eventos de seguridad de Windows a la versión preliminar de Azure Sentinel | Microsoft Docs
+description: Obtenga información sobre cómo conectarse a datos de eventos de seguridad de Windows Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 90bff4cd98046a42fa31d98ff00e76d7fc9ac307
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: d131d39a9d9770046fa3f9368250204e4d0b0162
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58576095"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491959"
 ---
 # <a name="connect-windows-security-events"></a>Conexión de eventos de seguridad de Windows 
 
@@ -42,7 +42,7 @@ Puede transmitir todos los eventos de seguridad de los servidores de Windows con
 
 Para integrar totalmente los eventos de seguridad de Windows con Azure centinela:
 
-1. En el portal de Azure Sentinel, seleccione **la recopilación de datos** y, a continuación, haga clic en el **eventos de seguridad de Windows** icono. 
+1. En el portal de Azure Sentinel, seleccione **conectores de datos** y, a continuación, haga clic en el **eventos de seguridad de Windows** icono. 
 1. Seleccione los tipos de datos que desea transmitir.
 1. Haga clic en **Update**(Actualizar).
 6. Para usar el esquema correspondiente en Log Analytics para los eventos de seguridad de Windows, busque **SecurityEvent**.

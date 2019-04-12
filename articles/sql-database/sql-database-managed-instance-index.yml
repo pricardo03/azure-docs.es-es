@@ -15,7 +15,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: null
   ms.topic: overview
-  ms.date: 01/03/2019
+  ms.date: 04/09/2019
   ms.author: jovanpop
 abstract:
   description: 'Una instancia administrada de Azure SQL Database es un totalmente administrado base de datos de motor de instancia de SQL Server hospedado en la nube de Azure. Esta es la mejor opción de PaaS para migrar su base de datos de SQL Server a la nube. Aprenda a crear y usar Instancias administradas con nuestros inicios rápidos, tutoriales y ejemplos.'
@@ -78,6 +78,7 @@ sections:
           - html: Las instancias administradas están protegidas con <a href="sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md">firewall integrado</a>.
           - html: '(Versión preliminar) <a href="https://medium.com/@jocapc/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266">Volver a crear quita bases de datos mediante PowerShell</a>'
           - html: 'Funcionalidad de restauración geográfica permite <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">restaurar la base de datos a otro centro de datos mediante PowerShell</a>.'
+          - html: '(Versión preliminar) <a href="https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-timezone">Zona de horaria configurar</a> durante la creación de instancias.'
   - title: Inicio rápido en 5 minutos
     items:
       - type: paragraph

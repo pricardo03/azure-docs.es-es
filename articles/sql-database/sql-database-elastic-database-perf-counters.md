@@ -1,10 +1,10 @@
 ---
-title: Contadores de rendimiento para Shard Map Manager
+title: Crear contadores de rendimiento para realizar un seguimiento del rendimiento del Administrador de mapa de particiones
 description: Clase ShardMapManager y contadores de rendimiento de enrutamiento dependiente de los datos
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: ''
+ms.custom: seoapril2019
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
@@ -12,18 +12,19 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
-ms.openlocfilehash: 2823f997a38e280bdbf19beb3a478a73ef1ae842
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: 5c6c923c86ea0c5968079188c87ec3988ec30142
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895183"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494925"
 ---
-# <a name="performance-counters-for-shard-map-manager"></a>Contadores de rendimiento para Shard Map Manager
+# <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Crear contadores de rendimiento para realizar un seguimiento del rendimiento del Administrador de mapa de particiones
+
+Contadores de rendimiento se utilizan para supervisar el rendimiento de [enrutamiento dependiente de datos](sql-database-elastic-scale-data-dependent-routing.md) operaciones. Dichos contadores son accesibles en el Monitor de rendimiento, en la categoría "Elastic Database: Administración de particiones".
 
 Puede capturar el rendimiento de una instancia de [Shard Map Manager](sql-database-elastic-scale-shard-map-management.md), en especial cuando se utiliza el [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md). Los contadores se crean con métodos de la clase Microsoft.Azure.SqlDatabase.ElasticScale.Client.  
 
-Los contadores se utilizan para supervisar el rendimiento de operaciones de [enrutamiento dependiente de los datos](sql-database-elastic-scale-data-dependent-routing.md) . Dichos contadores son accesibles en el Monitor de rendimiento, en la categoría "Elastic Database: Administración de particiones".
 
 **En la versión más reciente**: vaya a [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). Consulte también [Actualización de una aplicación para usar la biblioteca de cliente de base de datos elástica más reciente](sql-database-elastic-scale-upgrade-client-library.md).
 
@@ -65,9 +66,9 @@ Los contadores de rendimiento se actualizarán con todas las operaciones de cach
 * La creación de la categoría y los contadores de rendimiento debe realizarse una sola vez antes de la creación del objeto ShardMapManager. Cada ejecución del comando CreatePerformanceCategoryAndCounters() borra los contadores anteriores (se pierden los datos notificados por todas las instancias) y crea otros nuevos.  
 * Las instancias de contadores de rendimiento se crean por proceso. Cualquier bloqueo de la aplicación o eliminación de un mapa de particiones de la caché da lugar a la eliminación de las instancias de contadores de rendimiento.  
 
-### <a name="see-also"></a>Consulte también 
+### <a name="see-also"></a>Vea también
 
-[Información general de las características de Elastic Database](sql-database-elastic-scale-introduction.md)  
+[Introducción a las características de base de datos elásticas](sql-database-elastic-scale-introduction.md)  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

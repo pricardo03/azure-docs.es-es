@@ -1,29 +1,31 @@
 ---
-title: 'Machine Learning en la nube: términos y arquitectura'
+title: Arquitectura y conceptos clave
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre la arquitectura, la terminología y los conceptos que conforman el servicio Azure Machine Learning. También podrá informarse sobre el flujo de trabajo general que supone usar el servicio y sobre los servicios de Azure que usa Azure Machine Learning Service.
+description: Obtenga información sobre la arquitectura, los términos, conceptos y flujo de trabajo que componen el servicio Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
-ms.date: 12/04/2018
+ms.date: 04/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1cc1b1584fdeb24aaba07f33cc260532c75249a2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 83ca4d2bf767d338943c396330b36f3f8180e170
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269136"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489954"
 ---
 # <a name="how-azure-machine-learning-service-works-architecture-and-concepts"></a>Cómo funciona Azure Machine Learning Service: Arquitectura y conceptos
 
-En este artículo se describen la arquitectura y los conceptos de Azure Machine Learning Service. En el siguiente diagrama se muestran los componentes principales del servicio y se ilustra el flujo de trabajo general al usar el servicio:
+Obtenga información sobre la arquitectura, los conceptos y flujo de trabajo para el servicio Azure Machine Learning. En el siguiente diagrama se muestran los componentes principales del servicio y se ilustra el flujo de trabajo general al usar el servicio:
 
 [![Aarquitectura del servicio de Azure Machine Learning y flujo de trabajo](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
-Normalmente, el flujo de trabajo sigue estos pasos:
+## <a name="workflow"></a>Flujo de trabajo
+
+Por lo general, el flujo de trabajo de machine learning sigue esta secuencia:
 
 1. Los scripts de entrenamiento del aprendizaje automático se desarrollan en **Python**.
 1. Se crea y configura un **destino de proceso**.

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 04/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 413ed4a56afad5ced221ba957af9ddb007622b6a
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: d7ccf370ae2f3f9add2b73797e8938d4580d81dd
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59470056"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59493151"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Preguntas más frecuentes de Azure Disk Encryption para máquinas virtuales IaaS
 
@@ -37,11 +37,11 @@ Azure Disk Encryption está disponible en las máquinas virtuales de nivel está
 
 ## <a name="bkmk_LinuxOSSupport"></a>¿Qué distribuciones de Linux son compatibles con Azure Disk Encryption?
 
-Azure Disk Encryption es compatible con un subconjunto de [distribuciones de Linux aprobadas por Azure](../virtual-machines/linux/endorsed-distros.md), que es en sí mismo un subconjunto de todas las distribuciones posibles.
+Azure Disk Encryption es compatible con un subconjunto de la [distribuciones de Linux aprobadas por Azure](../virtual-machines/linux/endorsed-distros.md), que es en sí mismo un subconjunto de todos los servidores posibles las distribuciones de Linux.
 
  ![Diagrama de Venn de distribuciones de Linux server que admiten Azure Disk Encryption](./media/azure-security-disk-encryption-faq/ade-supported-distros.png)
 
-Las distribuciones no aprobadas por Azure no admiten el cifrado de disco de Azure y, de los usuarios que están aprobadas, solo las siguientes distribuciones de Linux server y versiones admiten Azure Disk Encryption:
+Las distribuciones de servidor de Linux que no están aprobadas por Azure no son compatibles con Azure Disk Encryption y, de los usuarios que están aprobadas, solo las siguientes distribuciones y versiones admiten Azure Disk Encryption:
 
 | Distribución de Linux | Versión | Tipo de volumen admitido para el cifrado|
 | --- | --- |--- |

@@ -10,15 +10,15 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
-ms.date: 04/09/2019
-ms.openlocfilehash: c9be129624c87ca0bff1e85a5d1c71425ef06b89
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.date: 04/10/2019
+ms.openlocfilehash: 23314e97051da95ab164baeab6e9d089f486351a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471913"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489697"
 ---
-# <a name="time-zone-in-azure-sql-database-managed-instance"></a>Zona horaria en instancia administrada de Azure SQL Database
+# <a name="time-zone-in-azure-sql-database-managed-instance-preview"></a>Zona horaria en instancia administrada de Azure SQL Database (versión preliminar)
 
 Si bien mediante la hora Universal coordinada (UTC) es una práctica recomendada para la capa de datos de soluciones en la nube, la instancia administrada de Azure SQL Database ofrece la posibilidad de zona horaria para satisfacer las necesidades de las aplicaciones existentes que almacenan valores de fecha y hora y fecha de llamada y funciones de tiempo con un contexto implícito de una zona horaria concreta.
 
@@ -72,7 +72,7 @@ Si no se especifica, se establecerá la zona horaria a UTC.
 
 ## <a name="checking-the-time-zone-of-instance"></a>Comprobación de la zona horaria de instancia
 
-[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timestamp-transact-sql) función devuelve un nombre para mostrar de la zona horaria de la instancia.
+[CURRENT_TIMEZONE](https://docs.microsoft.com/sql/t-sql/functions/current-timezone-transact-sql) función devuelve un nombre para mostrar de la zona horaria de la instancia.
 
 ## <a name="cross-feature-considerations"></a>Consideraciones de entre características
 

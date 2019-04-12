@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: pullabhk
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: aa97e60fe296190f3478d29bc80c70ea487e8955
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 15bb64917fa58ba2d13c6f372640957508ab29c1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258588"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494566"
 ---
 # <a name="monitoring-at-scale-using-azure-monitor"></a>Supervisión a escala mediante Azure Monitor
 
@@ -109,7 +109,7 @@ El aspecto clave es la condición desencadenadora de la alerta. Al hacer clic en
 
 ![LAAzureBackupAlertCondition](media/backup-azure-monitoring-laworkspace/la-azurebackup-alertlogic.png)
 
-Edite la consulta Kusto, si es necesario, seleccione el umbral adecuado (que decidirá cuando se desencadena la alerta), el período de la derecha (ventana de tiempo para el que se ejecuta la consulta) y la frecuencia. Para por ejemplo: Para por ejemplo: Si el umbral es mayor que 0, el período es de 5 minutos y la frecuencia es de 5 minutos, a continuación, la regla se traduce como "Ejecutar la consulta cada 5 minutos durante los últimos 5 minutos y si el número de resultados es mayor que 0, notificarme vía el grupo de acciones seleccionado"
+Edite la consulta Kusto, si es necesario, seleccione el umbral adecuado (que decidirá cuando se desencadena la alerta), el período de la derecha (ventana de tiempo para el que se ejecuta la consulta) y la frecuencia. Para por ejemplo: Si el umbral es mayor que 0, el período es de 5 minutos y la frecuencia es de 5 minutos, a continuación, la regla se traduce como "Ejecutar la consulta cada 5 minutos durante los últimos 5 minutos y si el número de resultados es mayor que 0, notificarme vía el grupo de acciones seleccionado"
 
 #### <a name="action-group-integration"></a>Integración de grupos de acción
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2018
 ms.author: malop;kumud
-ms.openlocfilehash: efce606f9c48668f569b0fb4fc45745adc6652c4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 6b100846ec08ca1bdda49d0d7bce9eb78ecf019b
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59262149"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501134"
 ---
 # <a name="security-groups"></a>Grupos de seguridad
 <a name="network-security-groups"></a>
@@ -80,6 +80,7 @@ Las reglas de seguridad aumentada permiten simplificar la definición de segurid
 * **AzureMonitor** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio AzureMonitor. Si especifica *AzureMonitor* como valor, el tráfico a AzureMonitor se permite o se deniega. 
 * **ServiceFabric** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio ServiceFabric. Si especifica *ServiceFabric* como valor, el tráfico a ServiceFabric se permite o se deniega. 
 * **AzureMachineLearning** (solo Resource Manager): esta etiqueta denota los prefijos de dirección del servicio AzureMachineLearning. Si especifica *AzureMachineLearning* como valor, el tráfico a AzureMachineLearning se permite o se deniega. 
+* **BatchNodeManagement** (solo Resource Manager): Esta etiqueta denota los prefijos de dirección del servicio Azure BatchNodeManagement. Si especifica *BatchNodeManagement* para el valor, el tráfico se permite o deniega desde el servicio Batch en nodos de proceso.
 
 > [!NOTE]
 > Las etiquetas de servicios de los servicios de Azure indican los prefijos de dirección de la nube específica que se va a usar. 

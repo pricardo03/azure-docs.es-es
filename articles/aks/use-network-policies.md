@@ -5,20 +5,20 @@ services: container-service
 author: iainfoulds
 ms.service: container-service
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 04/08/2019
 ms.author: iainfou
-ms.openlocfilehash: a20dfcd9e2ef12252235b74455964d115d9aef9b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29180d6c1bb5f0991a4f33c3b7c9418f84d8260c
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58181493"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59494772"
 ---
 # <a name="preview---secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Obtener una vista previa: proteger el tráfico entre pods mediante las directivas de redes en Azure Kubernetes Service (AKS)
 
 Al ejecutar aplicaciones modernas basadas en microservicios en Kubernetes, con frecuenta querrá controlar qué componentes pueden comunicarse entre sí. El principio de privilegio mínimo se debe aplicar a cómo el tráfico puede fluir entre pods en un clúster de Azure Kubernetes Service (AKS). Supongamos que es posible que desean bloquear el tráfico directamente a las aplicaciones de back-end. El *directiva de red* característica en Kubernetes le permite definir las reglas de tráfico de entrada y salida entre pods en un clúster.
 
-Calico, redes de código abierto y solución de seguridad de red fundada por Tigera, ofrece un motor de directiva de red que puede implementar las reglas de directiva de red de Kubernetes. Este artículo muestra cómo instalar el motor de directiva de red Calico y crear directivas de red de Kubernetes para controlar el flujo del tráfico entre pods en AKS.
+Este artículo muestra cómo instalar el motor de directiva de red y crear directivas de red de Kubernetes para controlar el flujo del tráfico entre pods en AKS. Esta funcionalidad actualmente está en su versión preliminar.
 
 > [!IMPORTANT]
 > Características de versión preliminar AKS son autoservicio y participación. Las versiones preliminares se proporcionan para recopilar comentarios y los errores de nuestra comunidad. Sin embargo, no se admiten por soporte técnico de Azure. Si crea un clúster, o agregar estas características para clústeres existentes, ese clúster no se admite hasta que la característica ya no está en versión preliminar y se aprueba para disponibilidad general (GA).
@@ -27,7 +27,7 @@ Calico, redes de código abierto y solución de seguridad de red fundada por Tig
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Es preciso que esté instalada y configurada la versión 2.0.56 de la CLI de Azure u otra versión posterior. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
+Necesita la CLI de Azure versión 2.0.61 o posterior instalado y configurado. Ejecute  `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, vea  [Instalación de la CLI de Azure][install-azure-cli].
 
 Para crear un clúster de AKS que puede usar la directiva de red, habilitar una marca de características en su suscripción. Para registrar la marca de característica *EnableNetworkPolicy*, use el comando [az feature register][az-feature-register] tal como se muestra en el ejemplo siguiente:
 
@@ -51,7 +51,35 @@ az provider register --namespace Microsoft.ContainerService
 
 Todos los pods en un clúster de AKS pueden enviar y recibir tráfico sin limitaciones, de forma predeterminada. Para mejorar la seguridad, puede definir reglas que controlen el flujo de tráfico. Aplicaciones de back-end a menudo solo se exponen a los servicios front-end necesarios, por ejemplo. O bien, los componentes de base de datos solo son accesibles para los niveles de aplicación que se conectan a ellos.
 
-Las directivas de red son recursos de Kubernetes que permiten controlar el flujo de tráfico entre pods. Puede permitir o denegar el tráfico en función de la configuración, como las etiquetas asignadas, espacio de nombres o puerto de tráfico. Las directivas de red se definen como los manifiestos de YAML. Estas directivas pueden incluirse como parte de un manifiesto más amplio que también crea una implementación o un servicio.
+Directiva de red es una especificación de Kubernetes que define las directivas de acceso para la comunicación entre Pods. Con las directivas de red, definir un conjunto ordenado de reglas para enviar y recibir tráfico y aplicarlos a una colección de pods que coinciden con uno o varios selectores de etiqueta.
+
+Estas reglas de directiva de red se definen como los manifiestos de YAML. Las directivas de redes pueden incluirse como parte de un manifiesto más amplio que también crea una implementación o un servicio.
+
+### <a name="network-policy-options-in-aks"></a>Opciones de directivas de redes en AKS
+
+Azure proporciona dos maneras de implementar la directiva de red. Elija una opción de directiva de red al crear un clúster de AKS. La opción de directiva no se puede cambiar después de crear el clúster:
+
+* Implementación de Azure, denominada *las directivas de red de Azure*.
+* *Las directivas de red calico*, una red de código abierto y una solución de seguridad de red fundada por [Tigera][tigera].
+
+Ambas implementaciones utilizan Linux *IPTables* para aplicar las directivas especificadas. Las directivas se traducen en conjuntos de pares IP permitidos y no permitidos. Estos pares, a continuación, se programan como las reglas de filtro de IPTable.
+
+Directiva de red sólo funciona con la opción Azure CNI (avanzado). Implementación es diferente para las dos opciones:
+
+* *Directivas de red de Azure* -la Azure CNI configura un puente en el host de máquina virtual de red entre nodos. Las reglas de filtrado se aplican cuando los paquetes que se pasan a través del puente.
+* *Las directivas de red calico* -la Azure CNI establece las rutas de kernel local para el tráfico entre nodos. Las directivas se aplican en la interfaz de red del pod.
+
+### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Diferencias entre las directivas de Azure y Calico y sus capacidades
+
+| Capacidad                               | Azure                      | Calico                      |
+|------------------------------------------|----------------------------|-----------------------------|
+| Plataformas compatibles                      | Linux                      | Linux                       |
+| Admite las opciones de red             | Azure CNI                  | Azure CNI                   |
+| Compatibilidad con la especificación de Kubernetes | Todos los tipos de directiva admitidos |  Todos los tipos de directiva admitidos |
+| Características adicionales                      | None                       | Extender el modelo de directiva que consta de la directiva de red Global, conjunto de red Global y el punto de conexión de Host. Para obtener más información sobre el uso de la `calicoctl` CLI para administrar estos extendidos de las características, consulte [referencia de usuario calicoctl][calicoctl]. |
+| Soporte técnico                                  | Compatible con el soporte técnico de Azure y el equipo de ingeniería | Soporte de la Comunidad calico. Para obtener más información sobre soporte técnico de pago adicional, consulte [opciones de soporte técnico de proyecto Calico][calico-support]. |
+
+## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Creación de un clúster de AKS y habilitación de la directiva de red
 
 Para ver las directivas de red en acción, vamos a crear y, a continuación, expanda una directiva que define el flujo de tráfico:
 
@@ -59,9 +87,7 @@ Para ver las directivas de red en acción, vamos a crear y, a continuación, exp
 * Permita el tráfico en función de las etiquetas de pod.
 * Permita el tráfico según el espacio de nombres.
 
-## <a name="create-an-aks-cluster-and-enable-network-policy"></a>Creación de un clúster de AKS y habilitación de la directiva de red
-
-Solo se puede habilitar la directiva de red cuando se crea el clúster. No se puede habilitar la directiva de red en un clúster de AKS existente. 
+En primer lugar, vamos a crear un clúster de AKS que admite la directiva de red. Solo se puede habilitar la característica de directiva de red cuando se crea el clúster. No se puede habilitar la directiva de red en un clúster de AKS existente.
 
 Para usar la directiva de red con un clúster de AKS, debe usar el [Azure CNI complemento] [ azure-cni] y definir su propia red virtual y subredes. Para obtener más información sobre cómo planear los rangos de subred requeridos, consulte la sección sobre cómo [configurar redes avanzadas][use-advanced-networking].
 
@@ -71,6 +97,7 @@ En el ejemplo siguiente se invoca el script:
 * Crea un Azure Active Directory (Azure AD) de la entidad de servicio para su uso con el clúster de AKS.
 * Asigna permisos de *colaborador* para la entidad de servicio de clúster de AKS en la red virtual.
 * Crea un clúster de AKS en la red virtual definida y habilita la directiva de red.
+    * El *azure* se usa la opción de directiva de red. Para usar Calico como la opción de directiva de red en su lugar, utilice el `--network-policy calico` parámetro.
 
 Proporcione su propia variable segura *SP_PASSWORD*. Puede reemplazar el *nombre_grupo_recursos* y *CLUSTER_NAME* variables:
 
@@ -122,7 +149,7 @@ az aks create \
     --vnet-subnet-id $SUBNET_ID \
     --service-principal $SP_ID \
     --client-secret $SP_PASSWORD \
-    --network-policy calico
+    --network-policy azure
 ```
 
 La operación de creación del clúster tarda unos minutos. Cuando el clúster esté listo, configure `kubectl` para conectarse al clúster de Kubernetes mediante la [az aks get-credentials] [ az-aks-get-credentials] comando. Con este comando se descargan las credenciales y se configura la CLI de Kubernetes para usarlas:
@@ -454,6 +481,9 @@ Para más información acerca de las directivas, consulte [las directivas de red
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 [aks-github]: https://github.com/azure/aks/issues]
+[tigera]: https://www.tigera.io/
+[calicoctl]: https://docs.projectcalico.org/v3.5/reference/calicoctl/
+[calico-support]: https://www.projectcalico.org/support
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

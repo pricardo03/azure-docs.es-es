@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/17/2018
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 6345eca674086801f8bb0f45476009f04a10f2e3
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: a11b291ab89dc9f8159e00e1f2304706f041068e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58214317"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503254"
 ---
 ## <a name="test-your-code"></a>Prueba del código
 
@@ -39,14 +39,13 @@ La primera vez que inicie sesión en su aplicación, también se le pedirá que 
 
 ### <a name="view-application-results"></a>Visualización de los resultados de la aplicación
 
-Después de iniciar sesión, verá la información del perfil de usuario que devuelve la llamada a Microsoft Graph API. Los resultados se muestran en el cuadro **API Call Results** (Resultados de la llamada a la API). La información básica sobre el token que se ha adquirido a través de la llamada a `AcquireTokenAsync` o a `AcquireTokenSilentAsync` debe estar visible en el cuadro **Información de token**. Los resultados contienen las siguientes propiedades:
+Después de iniciar sesión, verá la información del perfil de usuario que devuelve la llamada a Microsoft Graph API. Los resultados se muestran en el cuadro **API Call Results** (Resultados de la llamada a la API). La información básica sobre el token que se ha adquirido a través de la llamada a `AcquireTokenInteractive` o a `AcquireTokenSilent` debe estar visible en el cuadro **Información de token**. Los resultados contienen las siguientes propiedades:
 
 |Propiedad  |Formato  |DESCRIPCIÓN |
 |---------|---------|---------|
-|**Nombre** |Nombre completo del usuario |Nombre y apellidos del usuario.|
-|**Nombre de usuario** |<span>user@domain.com</span> |Nombre de usuario que se usa para identificar al usuario.|
-|**Expiración del token** |DateTime |Hora a la que expira el token. MSAL amplía la fecha de expiración al renovar el token según sea necesario.|
-|**Token de acceso** |string |Cadena de token que se envía a las solicitudes HTTP que requieran un *encabezado de autorización*.|
+
+|**Nombre de usuario**  | <span> user@domain.com </span> | El nombre de usuario que se usa para identificar al usuario. | | **Token expira** | Fecha y hora | La hora a la que expira el token. MSAL amplía la fecha de expiración al renovar el token según sea necesario. |
+
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Más información sobre los ámbitos y permisos delegados

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 04/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 2cceaf61129c6c756fadb3d41e825264fa23331f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3eed2bbb03334fed41bf0c74b1c287d9ca3f53eb
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278877"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59501474"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operaciones del proveedor de recursos de Azure Resource Manager
 
@@ -1107,7 +1107,7 @@ Lista de caras persistedFaceId y userData en una lista de caras de gran tamaño 
 Actualizar su persistedFaceId campo userData de una cara especificado en una lista de caras de gran tamaño. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/read | Recuperar largeFaceListId de la lista de caras de gran tamaño, el nombre, userData.
 Mostrar información de las listas de caras grande de largeFaceListId, nombre y userData. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Enviar una tarea de aprendizaje de lista de caras grandes. El entrenamiento es un paso fundamental que puede usar solo una lista de caras grandes entrenado |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/train/action | Enviar una tarea de aprendizaje de lista de caras grandes. El entrenamiento es un paso fundamental que puede usar solo una lista de caras grandes entrenado. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/training/read | Para comprobar el estado de entrenamiento de lista cara grande aún en curso o completado. LargeFaceList aprendizaje es una operación asincrónica |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largefacelists/write | Crear una lista de caras grande vacío con largeFaceListId especificado por el usuario, el nombre y una userData opcional.
 Actualizar la información de una lista de caras grandes, incluidos el nombre y userData. |
@@ -1123,7 +1123,7 @@ Mostrar información de todas las personas en el grupo de persona grandes especi
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/persons/write | Nombre de la actualización o userData de una persona. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/read | Recuperar la información de un grupo grande de persona, incluido su nombre y userData. Esta API devuelve información del grupo de persona grande
 Lista de todos los existentes grandes grupos de personas largePesonGroupId, nombre y userData. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Enviar una tarea de aprendizaje del grupo de persona grandes. El entrenamiento es un paso fundamental que se puede usar solo un grupo de persona capacitada de gran tamaño |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/train/action | Enviar una tarea de aprendizaje del grupo de persona grandes. El entrenamiento es un paso fundamental que puede utilizar solo un grupo de persona capacitada de gran tamaño. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/training/read | Para comprobar el estado de entrenamiento de grupo grande persona sigue en curso o completada. LargePersonGroup aprendizaje es una operación asincrónica |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/largepersongroups/write | Crear un nuevo grupo de persona grandes con largePersonGroupId especificado por el usuario, el nombre y userData opcional.
 Actualizar un grupo grande de persona existente nombre y userData. Las propiedades conservan sin cambios si no se encuentran en el cuerpo de la solicitud. |
@@ -1139,7 +1139,7 @@ Mostrar información de todas las personas en el grupo de la persona especificad
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/persons/write | Nombre de la actualización o userData de una persona. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/read | Recuperar datos del usuario y el nombre del grupo de persona. Para obtener información de la persona en este grupo de personas, use
 Lista de grupos de personas pesonGroupId, nombre y userData. |
-> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Enviar una tarea de aprendizaje del grupo de persona. El entrenamiento es un paso fundamental que puede usar sólo un grupo de persona capacitada |
+> | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/train/action | Enviar una tarea de aprendizaje del grupo de persona. El entrenamiento es un paso fundamental que puede utilizar solo un grupo de persona capacitada. |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/training/read | Para comprobar el estado de entrenamiento de grupo de persona sigue en curso o completada. Grupo de personas aprendizaje es una operación asincrónica que desencadenó |
 > | DataAction | Microsoft.CognitiveServices/accounts/Face/persongroups/write | Crear un nuevo grupo de persona con personGroupId especificado, el nombre y userData proporcionado por el usuario.
 Actualizar un grupo existente persona nombre y userData. Las propiedades conservan sin cambios si no se encuentran en el cuerpo de la solicitud. |

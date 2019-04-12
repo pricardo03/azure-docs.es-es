@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: be9bde90684b46adef509532eb7b0cc236c5efb1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 950d248d2525f053981c8642ee2d39021b9a0494
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58180609"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490366"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Tutorial del acelerador de soluciones de fábrica conectada
 
@@ -73,7 +73,7 @@ El módulo publicador de OPC se conecta a los servidores OPC UA de la estación 
 
 1. Convierte los datos del nodo en formato JSON.
 1. Cifra el archivo JSON.
-1. Envía el archivo JSON a IoT Hub como mensajes de agente de usuario OPC Pub/Sub.
+1. Envía el JSON a IoT Hub como OPC UA mensajes pub/sub.
 
 El módulo publicador de OPC solo necesita el puerto HTTPS saliente (443) y puede funcionar con la infraestructura empresarial existente.
 
@@ -230,7 +230,7 @@ La aplicación web implementada como parte del acelerador de soluciones incluye 
 Puede continuar la introducción a los aceleradores de soluciones de IoT con la lectura de los siguientes artículos:
 
 * [Permisos en el sitio azureiotsolutions.com][lnk-permissions]
-* [Implementación de una puerta de enlace en Windows o Linux para el acelerador de soluciones de fábrica conectada](iot-accelerators-connected-factory-gateway-deployment.md)
+* [Implementar una puerta de enlace en Windows o Linux para el Acelerador de solución de factoría conectada](iot-accelerators-connected-factory-gateway-deployment.md)
 * [Implementación de referencia de OPC Publisher](https://github.com/Azure/iot-edge-opc-publisher/blob/master/README.md).
 
 [connected-factory-logical]:media/iot-accelerators-connected-factory-sample-walkthrough/cf-logical-architecture.png

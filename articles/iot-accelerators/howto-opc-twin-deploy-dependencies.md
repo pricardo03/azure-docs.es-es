@@ -1,5 +1,5 @@
 ---
-title: Cómo implementar las dependencias en la nube de administración de dispositivos de OPC UA de Azure IoT | Microsoft Docs
+title: Cómo implementar las dependencias en la nube de OPC gemelo en Azure | Microsoft Docs
 description: Cómo implementar las dependencias de OPC gemelo Azure.
 author: dominicbetts
 ms.author: dobett
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: cdd89293328da47c8e338bb6fca8c7b93dd84f97
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: ae9f2b05bfc6ea6315022d04c8d267d916cf282e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759658"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491993"
 ---
 # <a name="deploying-dependencies-for-local-development"></a>Implementar dependencias para el desarrollo local
 
@@ -52,7 +52,7 @@ El script de implementación intenta registrar aplicaciones de AAD en Azure Acti
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha implementado correctamente los servicios de administración de dispositivos de OPC para un proyecto existente, aquí es el siguiente paso sugerido:
+Ahora que ha implementado correctamente Servicios de OPC gemelo a un proyecto existente, aquí es el siguiente paso sugerido:
 
 > [!div class="nextstepaction"]
-> [Obtenga información sobre cómo implementar módulos de administración de dispositivos de OPC](howto-opc-twin-deploy-modules.md)
+> [Obtenga información sobre cómo implementar módulos gemelos de OPC](howto-opc-twin-deploy-modules.md)

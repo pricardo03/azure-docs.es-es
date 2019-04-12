@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
-ms.openlocfilehash: 05b25a524894248152114ca9c756d4a0f8944ad8
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: d5e62bf1838c8f07068208019d28d7273c28bd63
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58199637"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492352"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configuración del tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual
 
@@ -37,9 +37,6 @@ En este documento se describen dos escenarios:
 1. Ambas redes virtuales usan el modelo de implementación de Resource Manager
 2. La red virtual de radio se implemente en modo clásico y la red virtual del concentrador con puerta de enlace, en modo de Resource Manager
 
-> [!IMPORTANT]  
-> Actualmente se admite el tránsito de puerta de enlace con el emparejamiento global de redes virtuales en versión preliminar. La vista previa está disponible en todas las regiones de Azure, regiones de la nube de China y regiones de gobierno en la nube, pero no en las nubes. No se requiere ninguna lista blanca. Puede probar en la vista previa a través de la CLI, PowerShell, plantillas o API. Portal no se admite en la vista previa. 
-
 ## <a name="requirements"></a>Requisitos
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -53,9 +50,9 @@ El ejemplo de este documento requiere los siguientes recursos para crearse:
 
 Para obtener instrucciones al respecto, consulte los siguientes documentos:
 
-1. [Creación de una puerta de enlace de VPN y una red virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-2. [Creación de un emparejamiento de red virtual con el mismo modelo de implementación](../virtual-network/tutorial-connect-virtual-networks-portal.md)
-3. [Creación de un emparejamiento de red virtual con distintos modelos de implementación](../virtual-network/create-peering-different-deployment-models.md)
+1. [Crear una puerta de enlace VPN en una red virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+2. [Emparejamiento de red virtual con el mismo modelo de implementación](../virtual-network/tutorial-connect-virtual-networks-portal.md)
+3. [Emparejamiento de red virtual con diferentes modelos de implementación](../virtual-network/create-peering-different-deployment-models.md)
 
 ## <a name="permissions"></a>Permisos
 

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/28/2018
+ms.date: 04/11/2018
 ms.author: genli
-ms.openlocfilehash: 7990a98e0e2d688456db054e3cdfa447e1ed1043
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630466"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492386"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solución de problemas: Problemas de conexión de punto a sitio de Azure
 
@@ -31,7 +31,7 @@ En este artículo se enumeran problemas comunes de conexión de punto a sitio qu
 
 Al intentar conectar a una red virtual de Azure mediante el cliente de VPN, aparece el mensaje de error siguiente:
 
-**No se encuentra un certificado que se puede usar con este protocolo de autenticación extendido. (Error 798)**
+**No se encontró un certificado que se puede usar con este protocolo de autenticación Extensible. (Error 798)**
 
 ### <a name="cause"></a>Causa
 
@@ -58,13 +58,42 @@ Para más información sobre cómo instalar el certificado de cliente, consulte 
 > [!NOTE]
 > Al importar el certificado de cliente, no seleccione la opción **Habilitar la protección de clave privada de alta seguridad**.
 
+## <a name="the-network-connection-between-your-computer-and-the-vpn-server-could-not-be-established-because-the-remote-server-is-not-responding"></a>No se pudo establecer la conexión de red entre el equipo y el servidor VPN porque el servidor remoto no responde
+
+### <a name="symptom"></a>Síntoma
+
+Cuando pruebe y conectarse a un gteway de red virtual de Azure con IKEv2 en Windows, obtendrá el mensaje de error siguiente:
+
+**No se pudo establecer la conexión de red entre el equipo y el servidor VPN porque el servidor remoto no responde**
+
+### <a name="cause"></a>Causa
+ 
+ El problema se produce si la versión de Windows no dispone de soporte técnico para la fragmentación de IKE
+ 
+### <a name="solution"></a>Solución
+
+IKEv2 se admite en Windows 10 y Server 2016. Sin embargo, para poder usar IKEv2, debe instalar las actualizaciones y establecer un valor de clave del Registro localmente. No se admiten las versiones de sistemas operativos anteriores a Windows 10 y solo pueden usar SSTP.
+
+Para preparar Windows 10 o Server 2016 para IKEv2:
+
+1. Instale la actualización.
+
+   | Versión del SO | Date | Número/vínculo |
+   |---|---|---|---|
+   | Windows Server 2016<br>Windows 10 Versión 1607 | 17 de enero de 2018 | [KB4057142](https://support.microsoft.com/help/4057142/windows-10-update-kb4057142) |
+   | Windows 10 Versión 1703 | 17 de enero de 2018 | [KB4057144](https://support.microsoft.com/help/4057144/windows-10-update-kb4057144) |
+   | Windows 10 Versión 1709 | 22 de marzo de 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
+   |  |  |  |  |
+
+2. Establezca el valor de clave del Registro. Cree o establezca la clave REG_DWORD “HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload” del Registro en 1.
+
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>Error de cliente de VPN: Mensaje recibido inesperado o con formato incorrecto.
 
 ### <a name="symptom"></a>Síntoma
 
 Al intentar conectar a una red virtual de Azure mediante el cliente de VPN, aparece el mensaje de error siguiente:
 
-**Mensaje recibido inesperado o con formato incorrecto. (Error 0x80090326)**
+**El mensaje recibido fue inesperado o con formato incorrecto. (Error 0x80090326)**
 
 ### <a name="cause"></a>Causa
 
@@ -87,7 +116,7 @@ Para solucionar este problema, siga estos pasos:
 
 Al intentar conectar a una red virtual de Azure mediante el cliente de VPN, aparece el mensaje de error siguiente:
 
-**Se ha procesado una cadena de certificados, pero termina en un certificado raíz en el que el proveedor de confianza no confía**
+**Una cadena de certificados ha procesado pero termina en un certificado raíz que no es de confianza para el proveedor de confianza.**
 
 ### <a name="solution"></a>Solución
 
@@ -107,7 +136,7 @@ Al intentar conectar a una red virtual de Azure mediante el cliente de VPN, apar
 
 Aparece el siguiente mensaje de error:
 
-**Error en la descarga del archivo. No se ha especificado el URI de destino.**
+**Error de descarga de archivos. No se ha especificado el URI de destino.**
 
 ### <a name="cause"></a>Causa 
 
@@ -156,7 +185,7 @@ Extraiga el paquete de configuración del cliente de VPN y busque el archivo .ce
 
 Al intentar guardar los cambios de la puerta de enlace de la VPN en Azure Portal, aparece el mensaje de error siguiente:
 
-**Error al guardar la puerta de enlace de red virtual&lt; *nombre de la puerta de enlace*&gt;. Los datos del certificado &lt;*identificador de certificado*&gt;** no son válidos.
+**No se pudo guardar la puerta de enlace de red virtual &lt; *nombre de la puerta de enlace*&gt;. Los datos del certificado &lt; *Id. de certificado* &gt; no es válido.**
 
 ### <a name="cause"></a>Causa 
 

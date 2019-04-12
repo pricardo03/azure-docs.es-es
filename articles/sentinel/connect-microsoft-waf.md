@@ -1,6 +1,6 @@
 ---
-title: Recopilación de datos de Microsoft web application firewall en la versión preliminar de Azure Sentinel | Microsoft Docs
-description: Obtenga información sobre cómo recopilar datos de Microsoft web application firewall en Azure Sentinel.
+title: Conectarse a datos de firewall de aplicación web de Microsoft a la versión preliminar de Azure Sentinel | Microsoft Docs
+description: Obtenga información sobre cómo conectarse a datos de firewall de aplicación web de Microsoft Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 3/6/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: 2238060acb60b1be0d06b81f62fb45a7f1c7a9b6
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 5316fa7e3aa4465349b762b99bec9171f821062f
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58580604"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491037"
 ---
-# <a name="collect-data-from-microsoft-web-application-firewall"></a>Recopilar datos de firewall de aplicaciones web de Microsoft
+# <a name="connect-data-from-microsoft-web-application-firewall"></a>Conectar los datos de firewall de aplicaciones web de Microsoft
 
 > [!IMPORTANT]
 > Azure Sentinel se encuentra actualmente en versión preliminar pública.
@@ -39,15 +39,15 @@ Puede transmitir los registros de firewall de aplicaciones de Azure Application 
 Si ya dispone de firewall de aplicaciones web de Microsoft, asegúrese de que tiene un recurso de puerta de enlace existente.
 Una vez que se implementa el firewall de aplicaciones web de Microsoft y obtención de datos, los datos de alerta fácilmente se pueden transmitir a Azure Sentinel.
     
-5. En el portal de Azure Sentinel, seleccione **conectores de datos**.
-5. En la página de conectores de datos, seleccione el **WAF** icono.
+1. En el portal de Azure Sentinel, seleccione **conectores de datos**.
+1. En la página de conectores de datos, seleccione el **WAF** icono.
 1. Vaya a [recurso de Application Gateway](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) y elija el WAF.
     1. Seleccione **configuración de diagnóstico**.
     1. Seleccione **+ Agregar configuración de diagnóstico** bajo la tabla.
     1. En el **configuración de diagnóstico** página, escriba un **nombre** y seleccione **enviar a Log Analytics**.
     1. En **el área de trabajo de Log Analytics** seleccione el área de trabajo Centinela de Azure.
     1. Seleccione los tipos de registro que desea analizar. Se recomienda: ApplicationGatewayAccessLog y ApplicationGatewayFirewallLog.
-6. Para usar el esquema correspondiente en Log Analytics para las alertas de firewall de aplicaciones de web de Microsoft, busque **AzureDiagnostics**.
+1. Para usar el esquema correspondiente en Log Analytics para las alertas de firewall de aplicaciones de web de Microsoft, busque **AzureDiagnostics**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, ha aprendido cómo conectar el firewall de aplicaciones web de Microsoft para Azure Sentinel. Para más información sobre Azure Sentinel, consulte los siguientes artículos:

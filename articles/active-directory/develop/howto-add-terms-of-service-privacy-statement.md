@@ -1,5 +1,5 @@
 ---
-title: Condiciones del servicio y declaración de privacidad de las aplicaciones de Azure AD | Microsoft Docs
+title: Condiciones de servicio y declaración de privacidad de aplicaciones | Azure
 description: Aprenda a configurar las condiciones del servicio y la declaración de privacidad de las aplicaciones registradas para usar Azure AD.
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,14 +17,14 @@ ms.author: celested
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a3687d0b50add3301fb8e15b9c70569554b91c04
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56193516"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500310"
 ---
-# <a name="terms-of-service-and-privacy-statement-for-registered-azure-active-directory-apps"></a>Condiciones del servicio y declaración de privacidad de las aplicaciones registradas de Azure Active Directory
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedimientos para: Configurar las condiciones de servicio y declaración de privacidad de una aplicación
 
 Los desarrolladores que crean y administran las aplicaciones que se integran con Azure Active Directory (Azure AD) y cuentas Microsoft deben incluir vínculos a las declaraciones del servicio y la declaración de privacidad de la aplicación. Las condiciones del servicio y la declaración de privacidad se exponen a los usuarios mediante la experiencia de consentimiento del usuario. Ayudan a los usuarios a saber que pueden confiar en la aplicación. Las condiciones del servicio y la declaración de privacidad son especialmente importantes para las aplicaciones multiinquilino orientadas al usuario: aplicaciones utilizadas por varios directorios o que están disponibles para cualquier cuenta Microsoft.
 
@@ -47,7 +47,7 @@ Antes de agregar vínculos a los documentos de las condiciones del servicio y de
 | Directrices     | DESCRIPCIÓN                           |
 |---------------|---------------------------------------|
 | Formato        | Dirección URL válida                             |
-| Esquemas válidos | HTTP y HTTPS</br>Se recomienda utilizar HTTPS |
+| Esquemas válidos | HTTP y HTTPS<br/>Se recomienda utilizar HTTPS |
 | Longitud máxima    | 2048 caracteres                       |
 
 Ejemplos: `https://myapp.com/terms-of-service` y `https://myapp.com/privacy-statement`
@@ -56,10 +56,10 @@ Ejemplos: `https://myapp.com/terms-of-service` y `https://myapp.com/privacy-stat
 
 Cuando las condiciones del servicio y la declaración de privacidad estén preparados, puede agregar vínculos a estos documentos en la aplicación mediante uno de estos métodos:
 
-* [Mediante Azure Portal](#registered-in-azure-portal)
-* [En el Portal de registro de aplicaciones o el Centro de desarrollo](#registered-in-app-reg-portal)
-* [Con JSON del objeto de aplicación](#app-object-json)
-* [Con la versión beta de la API REST MSGraph](#msgraph-beta-rest-api)
+* [A través del portal de Azure](#registered-in-azure-portal)
+* [En el Portal de registro de aplicación o el centro de desarrollo](#registered-in-app-reg-portal)
+* [Uso del objeto de aplicación JSON](#app-object-json)
+* [Uso de la versión beta de MSGraph API de REST](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>Si ha registrado su aplicación en Azure Portal
 
@@ -114,5 +114,5 @@ PATCH https://graph.microsoft.com/beta/applications/{application id}
 ```
 
 > [!NOTE]
-> * Tenga cuidado de no sobrescribir los valores previamente existentes que haya asignado a cualquiera de estos campos: `supportUrl`, `marketingUrl` y `logoUrl`
+> * Tenga cuidado de no sobrescribir los valores previamente existentes que haya asignado a cualquiera de estos campos: `supportUrl`, `marketingUrl`, y `logoUrl`
 > * La API REST de la versión beta de MSGraph solo funcionará al iniciar sesión con una cuenta de Azure AD. No se admiten cuentas Microsoft personales.

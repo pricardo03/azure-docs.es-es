@@ -1,5 +1,5 @@
 ---
-title: Cómo implementar el módulo de administración de certificados de Azure IoT OPC UA desde cero | Microsoft Docs
+title: Cómo implementar el módulo de OPC almacén desde el principio - Azure | Microsoft Docs
 description: Cómo implementar OPC almacén desde el principio.
 author: dominicbetts
 ms.author: dobett
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-industrialiot
 services: iot-industrialiot
 manager: philmea
-ms.openlocfilehash: a3a9d21b70f16482f05d27aa0df8d8865459aeb4
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: dedba42d7e4b8d603d97522cf0173f41efd20b3a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58759626"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496903"
 ---
-# <a name="deploy-opc-vault-from-scratch"></a>Implementar el almacén de OPC desde cero
+# <a name="deploy-opc-vault-from-scratch"></a>Implementación de OPC Vault desde cero
 
-Azure IoT OPC UA administración de certificados, también conocido como almacén de OPC, es un microservicio que puede configurar, registro y administrar el ciclo de vida del certificado para aplicaciones de cliente y servidor de OPC UA en la nube. Este artículo muestra cómo implementar OPC almacén desde el principio.
+Almacén de OPC es un microservicio que puede configurar, registrar y administrar el ciclo de vida de certificado de servidor OPC UA y las aplicaciones cliente en la nube. Este artículo muestra cómo implementar OPC almacén desde el principio.
 
 ## <a name="configuration-and-environment-variables"></a>Variables de entorno y configuración
 

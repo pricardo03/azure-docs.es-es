@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: d22fffcb792227b4d0805abd005d8c050cb97248
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: e82b9ae96ae43278e22da22702d3d899abadb1b5
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59006203"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505607"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparación y personalización de una imagen de disco duro virtual maestro
 
@@ -158,21 +158,20 @@ reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hide
 reg add HKLM\SOFTWARE\Policies\Microsoft\office\16.0\common\officeupdate /v hideenabledisableupdates /t REG_DWORD /d 1 /f
 ```
 
-Puede deshabilitar las actualizaciones automáticas de forma manual.
+### <a name="disable-automatic-updates"></a>Deshabilitar las actualizaciones automáticas
 
-Para deshabilitar las actualizaciones automáticas:
+Para deshabilitar las actualizaciones automáticas mediante Directiva de grupo local:
 
-1. Instalar Office 365, siga las instrucciones en [Software preparación e instalación](set-up-customize-master-image.md#software-preparation-and-installation).
-2. Instalar las aplicaciones adicionales siguiendo las instrucciones de [configurar contenedor de perfil de usuario (FSLogix)](set-up-customize-master-image.md#set-up-user-profile-container-fslogix), [configurar Windows Defender](set-up-customize-master-image.md#configure-windows-defender), y [otras aplicaciones y el registro configuración](set-up-customize-master-image.md#other-applications-and-registry-configuration).
-3. Deshabilitar el servicio de actualización automática de Windows en la máquina virtual local.
-4. Abra **Editor de directivas de grupo Local\\plantillas administrativas\\componentes de Windows\\Windows Update**.
-5. Haga clic en **Configurar actualización automática** y establézcalo en **deshabilitado**.
+1. Abra **Editor de directivas de grupo Local\\plantillas administrativas\\componentes de Windows\\Windows Update**.
+2. Haga clic en **Configurar actualización automática** y establézcalo en **deshabilitado**.
 
 También puede ejecutar el siguiente comando en un símbolo del sistema para deshabilitar las actualizaciones automáticas.
 
 ```batch
 reg add HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU /v NoAutoUpdate /t REG_DWORD /d 1 /f
 ```
+
+### <a name="specify-start-layout-for-windows-10-pcs-optional"></a>Especificar el diseño de inicio para equipos Windows 10 (opcional)
 
 Ejecute este comando para especificar un diseño de inicio para equipos Windows 10.
 
