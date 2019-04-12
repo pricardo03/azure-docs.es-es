@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: storage-backup-recovery
 ms.date: 03/04/2019
 ms.author: mayg
-ms.openlocfilehash: 75c97a7feb63a100d322610b7e6d2e5c57bebda2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2156ee6cf27ecfa32b19ad5bbef7549e99c3f7ef
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889699"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492862"
 ---
 # <a name="troubleshoot-errors-when-failing-over-vmware-vm-or-physical-machine-to-azure"></a>Solución de problemas cuando se conmuta por error una máquina física o una máquina virtual de VMware en Azure
 
@@ -76,10 +76,10 @@ Para cambiar manualmente el tipo de inicio de los controladores para el **sistem
 
 Si el botón **Conectar** de la máquina virtual conmutada por error de Azure no está disponible y no está conectado a Azure a través de una conexión VPN Express Route o de sitio a sitio, entonces:
 
-1. Vaya a la **Máquina virtual** > **Red**, y haga clic en el nombre de la interfaz de red necesaria.  ![network-interface](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
+1. Vaya a la **Máquina virtual** > **Red**, y haga clic en el nombre de la interfaz de red necesaria.  ![Interfaz de red](media/site-recovery-failover-to-azure-troubleshoot/network-interface.PNG)
 2. Navegue hasta **Configuraciones IP** y, después, haga clic en el campo de nombre de la configuración IP necesaria. ![IPConfigurations](media/site-recovery-failover-to-azure-troubleshoot/IpConfigurations.png)
-3. Para habilitar la dirección IP pública, haga clic en **Habilitar**. ![Habilitar IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
-4. Haga clic en **Configurar los valores obligatorios** > **Crear uno nuevo**. ![Cree uno nuevo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
+3. Para habilitar la dirección IP pública, haga clic en **Habilitar**. ![Habilitar la dirección IP](media/site-recovery-failover-to-azure-troubleshoot/Enable-Public-IP.png)
+4. Haga clic en **Configurar los valores obligatorios** > **Crear uno nuevo**. ![Crear nuevo](media/site-recovery-failover-to-azure-troubleshoot/Create-New-Public-IP.png)
 5. Escriba el nombre de la dirección pública, seleccione las opciones predeterminadas para **SKU**y **asignación** y, después, haga clic en **Aceptar**.
 6. Ahora, haga clic en **Guardar** para guardar los cambios.
 7. Cierre los paneles y navegue a la sección **Introducción** de la máquina virtual para conectar/RDP.
@@ -132,8 +132,10 @@ Se produce un error en el registro del destino maestro de recuperación de sitio
  
 Este error se indica mediante las siguientes cadenas en el registro de instalación: 
 
-RegisterHostStaticInfo detectó la excepción config/talwrapper.cpp(107) [entrada] CurlWrapper Post no se pudo: servidor: 10.38.229.221, puerto: 443, phpUrl: request_handler.php, seguro: ignoreCurlPartialError es true,: false con el error: [arroba curlwrapperlib/curlwrapper.cpp:processCurlResponse:231] no se pudo registrar la solicitud: (35): error de conexión SSL. 
- 
+```
+RegisterHostStaticInfo encountered exception config/talwrapper.cpp(107)[post] CurlWrapper Post failed : server : 10.38.229.221, port : 443, phpUrl : request_handler.php, secure : true, ignoreCurlPartialError : false with error: [at curlwrapperlib/curlwrapper.cpp:processCurlResponse:231]   failed to post request: (35) - SSL connect error. 
+```
+
 Para resolver el problema:
  
 1. En el servidor de configuración de máquina virtual, abra un símbolo del sistema y compruebe la configuración del proxy mediante los siguientes comandos:

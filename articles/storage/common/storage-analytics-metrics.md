@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 9b4bceba53658cb8ac3c73e75e0d19faf3fe3f0b
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: c15242b0c480e2da39897b850ab7b2a2fd05bf11
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58259761"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489296"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métricas de análisis de Azure Storage (clásico)
 
@@ -75,7 +75,7 @@ Siga estos pasos para habilitar las métricas en [Azure Portal](https://portal.a
 [Azure Portal](https://portal.azure.com) no permite actualmente configurar métricas por minuto en su cuenta de almacenamiento; debe habilitar las métricas por minuto con PowerShell o mediante programación.
 
 > [!NOTE]
->  Tenga en cuenta que el portal de Azure no permite actualmente configurar métricas por minuto en su cuenta de almacenamiento. Debe habilitar las métricas por minuto con PowerShell o mediante programación.  
+>  Tenga en cuenta que el portal de Azure no permite actualmente configurar métricas por minuto en su cuenta de almacenamiento. Debe habilitar las métricas por minuto con PowerShell o mediante programación.
 
 ## <a name="enable-storage-metrics-using-powershell"></a>Habilitar las métricas de almacenamiento con PowerShell  
 Puede usar PowerShell en el equipo local para configurar las métricas de almacenamiento en la cuenta de almacenamiento mediante el cmdlet de PowerShell de Azure **Get-AzureStorageServiceMetricsProperty** para recuperar la configuración actual y el cmdlet  **Set-AzureStorageServiceMetricsProperty** para cambiar la configuración actual.  
@@ -227,6 +227,6 @@ La capacidad usada por las tablas de métricas también es facturable. Puede usa
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Cómo supervisar una cuenta de almacenamiento](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
-* [Esquema de las tablas de métricas de Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
-* [Operaciones y mensajes de estado registrados por Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
+* [Esquema de tabla de métricas de Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
+* [Las operaciones y mensajes de estado registrados por Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
 * [Registro de Storage Analytics](storage-analytics-logging.md)

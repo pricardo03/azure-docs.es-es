@@ -15,7 +15,7 @@ ms.pm_owner: daviste;NumberByColors
 ms.author: daviste
 ms.openlocfilehash: bcd4ae5b7092aafc452c5af3d17fd22c263b5d35
 ms.sourcegitcommit: f715dcc29873aeae40110a1803294a122dfb4c6a
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/14/2019
 ms.locfileid: "56270154"
@@ -90,7 +90,7 @@ union app('app01').requests, app('app02').requests, requests
 
 Esta consulta combina solicitudes de tres aplicaciones distintas. Una aplicación llamada app01, una aplicación llamada app02 y las solicitudes del recurso local de Application Insights.
 
-Para extraer datos de un área de trabajo externa de Log Analytics, use el identificador de **áreas de trabajo**.
+Para extraer datos de un área de trabajo de Log Analytics externa, use el identificador de **áreas de trabajo**.
 
 Para obtener información acerca de las consultas entre recursos, consulte la [guía oficial](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search).
 

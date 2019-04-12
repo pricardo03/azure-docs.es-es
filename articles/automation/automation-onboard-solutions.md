@@ -45,7 +45,7 @@ La solución Change Tracking e Inventario permite realizar un [control de cambio
 
 1. En el menú izquierdo, seleccione **Cuentas de Automation** y, a continuación, seleccione la cuenta de automatización de la lista.
 1. Seleccione **Inventario** en **Administración de configuración**.
-1. Seleccione un área de trabajo existente de Log Analytics o cree una nueva. Haga clic en el botón **Habilitar**.
+1. Seleccione un área de trabajo de Log Analytics existente o cree una nueva. Haga clic en el botón **Habilitar**.
 
 ![Incorporación de la solución de actualización](media/automation-onboard-solutions/inventory-onboard.png)
 

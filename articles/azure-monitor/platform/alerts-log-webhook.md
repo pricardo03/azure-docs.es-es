@@ -82,7 +82,7 @@ En esta sección se muestra la carga de ejemplo de webhook para las alertas del 
 En ambos ejemplos se indica una carga ficticia con solo dos columnas y dos filas.
 
 #### <a name="log-alert-for-azure-log-analytics"></a>Alerta de registro de Azure Log-Analytics
-A continuación, se muestra una carga de ejemplo de una acción de webhook estándar *sin la opción JSON personalizada* cuando se usa en las alertas basadas en Log Analytics.
+A continuación, se muestra una carga de ejemplo de una acción de webhook estándar *sin la opción JSON personalizada* cuando se usa en las alertas basadas en análisis de registros.
 
 ```json
 {

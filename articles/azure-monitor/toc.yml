@@ -224,7 +224,7 @@ items:
           href: platform/diagnostic-logs-append-blobs.md
         - name: Invitado de máquina virtual a almacén de métricas
           href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
-        - name: Invitado de conjunto de escalado de máquinas virtuales a almacén de métricas
+        - name: Invitado de un conjunto de escalado de máquinas virtuales a almacén de métricas
           href: platform/collect-custom-metrics-guestos-resource-manager-vmss.md
         - name: Invitado de máquina virtual clásica a almacén de métricas
           href: platform/collect-custom-metrics-guestos-vm-classic.md
@@ -581,8 +581,8 @@ items:
           href: insights/network-performance-monitor.md
         - name: Supervisión del rendimiento
           href: insights/network-performance-monitor-performance-monitor.md
-        - name: Punto de conexión de servicio
-          href: insights/network-performance-monitor-service-endpoint.md
+        - name: Monitor de conectividad de servicio
+          href: insights/network-performance-monitor-service-connectivity.md
         - name: ExpressRoute
           href: insights/network-performance-monitor-expressroute.md
         - name: Precios
@@ -658,8 +658,9 @@ items:
   - name: Visualización de datos
     items:
     - name: Vistas
-      href: platform/view-designer.md
       items:
+      - name: Ver diseñador
+        href: platform/view-designer.md
       - name: Referencia de iconos
         href: platform/view-designer-tiles.md
       - name: Referencia de los elementos de visualización
@@ -1071,9 +1072,9 @@ items:
     href: https://stackoverflow.com/search?q=monitoring
   - name: Ejemplos de código
     href: https://azure.microsoft.com/resources/samples/?service=monitor
-ms.openlocfilehash: b2021ca33265e06f882f04f726a889ddae0fd91f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7605179d1d1129587114f1462639ad06dde6fcef
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261163"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491107"

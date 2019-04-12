@@ -23,7 +23,7 @@ ms.locfileid: "58662013"
 ---
 # <a name="performance-monitoring-with-azure-monitor-logs"></a>Supervisión de rendimiento con los registros de Azure Monitor
 
-En este artículo se describen los pasos para agregar el agente de Log Analytics como una extensión del conjunto de escalado de máquinas virtuales al clúster y conectarlo al área de trabajo de Azure Log Analytics existente. Esto permite recopilar datos de diagnóstico sobre los contenedores, las aplicaciones y la supervisión de rendimiento. Si lo agrega como una extensión al recurso del conjunto de escalado de máquinas virtuales, Azure Resource Manager garantiza la instalación en todos los nodos, incluso cuando se ajusta la escala del clúster.
+En este artículo se describen los pasos para agregar el Agente de Log Analytics como una extensión del conjunto de escalado de máquinas virtuales al clúster y conectarlo al área de trabajo de Azure Log Analytics existente. Esto permite recopilar datos de diagnóstico sobre los contenedores, las aplicaciones y la supervisión de rendimiento. Si lo agrega como una extensión al recurso del conjunto de escalado de máquinas virtuales, Azure Resource Manager garantiza la instalación en todos los nodos, incluso cuando se ajusta la escala del clúster.
 
 > [!NOTE]
 > En este artículo se da por supuesto que tiene un área de trabajo de Azure Log Analytics que ya ha configurado. Si no lo hace, diríjase a [configurar registros de Azure Monitor](service-fabric-diagnostics-oms-setup.md)

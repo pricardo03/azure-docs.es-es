@@ -44,7 +44,7 @@ Para obtener el identificador y la clave principal del área de trabajo de Log A
 
 ## <a name="create-container-group"></a>Creación de un grupo de contenedores
 
-Ahora que tiene el identificador del área de trabajo y la clave principal de Log Analytics, ya puede crear un grupo contenedor con el registro habilitado.
+Ahora que tiene el identificador y la clave principal del área de trabajo de Log Analytics, ya puede crear un grupo de contenedores con el registro habilitado.
 
 En los ejemplos siguientes se muestran dos maneras de crear un grupo de contenedores con un solo contenedor [fluentd][fluentd]: CLI de Azure y la CLI de Azure con una plantilla de YAML. El contenedor Fluentd genera varias líneas de salida en su configuración predeterminada. Dado que esta salida se envía a su área de trabajo de Log Analytics, sirve para mostrar la visualización y consulta de registros.
 

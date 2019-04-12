@@ -101,7 +101,7 @@ Puede ver y analizar los datos del registro de actividades con cualquiera de los
 
 Los [registros de Azure Monitor](../azure-monitor/insights/azure-networking-analytics.md) recopilan los archivos de contador y de registros de eventos. Incluye visualizaciones y eficaces funciones de búsqueda para analizar los registros.
 
-Para información sobre las consultas de ejemplo de Log Analytics de Azure Firewall, consulte [Ejemplos de Log Analytics en Azure Firewall](log-analytics-samples.md).
+Para ver consultas de ejemplo, consulte [Ejemplos de Log Analytics en Azure Firewall](log-analytics-samples.md).
 
 También puede conectarse a la cuenta de almacenamiento y recuperar las entradas del registro de JSON de los registros de acceso y rendimiento. Después de descargar los archivos JSON, se pueden convertir a CSV y consultarlos en Excel, PowerBI o cualquier otra herramienta de visualización de datos.
 

@@ -10,7 +10,7 @@ ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 194fba3296359f5f7d29a37425a938fe08f1332b
 ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/20/2019
 ms.locfileid: "56452889"
@@ -31,7 +31,7 @@ Alertas de Azure crea las reglas de búsqueda de registros para ejecutar automá
 
 Las reglas de búsqueda de registros se definen mediante los siguientes detalles:
 
-- **Consulta de registro**.  La consulta que se ejecuta cada vez que se activa la regla de alertas.  Los registros devueltos por esta consulta se usan para determinar si se desencadena una alerta. La consulta de Analytics puede ser para un área de trabajo específica de Log Analytics o una aplicación de Application Insights, e incluso puede abarcar [varios recursos de Log Analytics y de Application Insights](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) siempre que el usuario tenga derechos de acceso y de consulta a todos los recursos. 
+- **Consulta de registro**.  La consulta que se ejecuta cada vez que se activa la regla de alertas.  Los registros devueltos por esta consulta se usan para determinar si se desencadena una alerta. La consulta de Analytics puede ser para un área de trabajo de Log Analytics específica o una aplicación de Application Insights, e incluso puede abarcar [varios recursos de Log Analytics y de Application Insights](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights), siempre que el usuario tenga derechos de acceso y de consulta a todos los recursos. 
     > [!IMPORTANT]
     > Las alertas de registro **no** admiten el uso de [funciones](../log-query/functions.md) por motivos de seguridad. También admiten [consultas entre recursos](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) para alertas de registro de Application Insights y para alertas de registro de [Log Analytics que se configuran únicamente mediante scheduledQueryRules API](../../azure-monitor/platform/alerts-log-api-switch.md).
 

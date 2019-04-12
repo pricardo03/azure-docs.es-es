@@ -52,7 +52,7 @@ Para comenzar a importar datos de DSC de automatización de Azure en los registr
    Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
    ```
 
-1. Obtenga el valor de _ResourceId_ del espacio de trabajo de Log Analytics mediante la ejecución del siguiente comando de PowerShell: (si tiene más de un espacio de trabajo, elija el valor de _ResourceID_ del espacio de trabajo que desea configurar).
+1. Obtenga el valor de _ResourceId_ del área de trabajo de Log Analytics mediante la ejecución del siguiente comando de PowerShell: (si tiene más de un área de trabajo, elija el valor de _ResourceID_ del área de trabajo que desea configurar).
 
    ```powershell
    # Find the ResourceId for the Log Analytics workspace

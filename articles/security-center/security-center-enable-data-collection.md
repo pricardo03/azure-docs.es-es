@@ -104,7 +104,7 @@ Para usar el área de trabajo de Log Analytics existente, tiene que tener permis
 > Las soluciones habilitadas en el área de trabajo existente se aplicarán a las máquinas virtuales de Azure que están conectadas a él. Para las soluciones de pago, esto puede conllevar cargos adicionales. Por motivos de privacidad de datos, asegúrese de que el área de trabajo seleccionado está en la región geográfica adecuada.
 > Almacenar datos en log analytics puede incurrir en cargos adicionales por almacenamiento de datos, vea la página de precios para obtener más detalles.
 
-Para seleccionar un área de trabajo existente de Log Analytics:
+Para seleccionar un área de trabajo de Log Analytics existente:
 
 1. En **Configuración del área de trabajo predeterminada**, seleccione **Use another workspace** (Usar otra área de trabajo).
 

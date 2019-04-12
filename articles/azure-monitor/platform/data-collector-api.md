@@ -31,7 +31,7 @@ En este artículo se muestra cómo utilizar HTTP Data Collector API para enviar 
 ## <a name="concepts"></a>Conceptos
 Puede usar HTTP Data Collector API para enviar datos a un área de trabajo de Log Analytics en Azure Monitor desde cualquier cliente que pueda llamar a una API REST.  Podría tratarse de un runbook en Azure Automation que recopila datos de administración de Azure u otra nube, o podría ser un sistema de administración alternativo que usa Azure Monitor para consolidar y analizar los datos de registro.
 
-Todos los datos del área de trabajo Log Analytics se almacenan como un registro con un tipo de registro concreto.  Se da formato a los datos para enviarlos a la API del recopilador de datos HTTP como varios registros en JSON.  Al enviar los datos, se crea un registro individual en el repositorio para cada registro en la carga de solicitud.
+Todos los datos del área de trabajo de Log Analytics se almacenan como un registro con un tipo de registro concreto.  Se da formato a los datos para enviarlos a la API del recopilador de datos HTTP como varios registros en JSON.  Al enviar los datos, se crea un registro individual en el repositorio para cada registro en la carga de solicitud.
 
 
 ![Información general del recopilador de datos HTTP](media/data-collector-api/overview.png)

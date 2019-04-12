@@ -28,7 +28,7 @@ Puede usar el [cmdlets de PowerShell de Log Analytics](https://docs.microsoft.co
 * Recopilar eventos de Syslog en equipos Linux
 * Recopilar eventos de registros de eventos de Windows
 * Recopilar registros de eventos personalizados
-* Agregar al agente de Log Analytics a una máquina virtual de Azure
+* Adición del agente de Log Analytics a una máquina virtual de Azure
 * Configurar Log Analytics para indizar los datos recopilados mediante Diagnósticos de Azure
 
 Este artículo proporciona dos ejemplos de código que muestran algunas de las funciones que puede realizar desde PowerShell.  Puede consultar la [referencia de cmdlets de PowerShell de Log Analytics](https://docs.microsoft.com/powershell/module/az.operationalinsights/) para otras funciones.

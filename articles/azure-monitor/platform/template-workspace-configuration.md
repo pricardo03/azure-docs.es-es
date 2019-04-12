@@ -34,7 +34,7 @@ Puede usar [plantillas Azure Resource Manager](../../azure-resource-manager/reso
 * Recopilar contadores de rendimiento en equipos Linux y Windows
 * Recopilar eventos de Syslog en equipos Linux 
 * Recopilar eventos de registros de eventos de Windows
-* Agregar al agente de Log Analytics a una máquina virtual de Azure
+* Adición del agente de Log Analytics a una máquina virtual de Azure
 * Configurar Log Analytics para indizar los datos recopilados mediante Diagnósticos de Azure
 
 Este artículo contiene ejemplos de plantilla que ilustran algunas de las funciones que puede realizar con las plantillas.

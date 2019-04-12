@@ -15,7 +15,7 @@ ms.date: 02/28/2019
 ms.author: magoedte
 ms.openlocfilehash: fbc9e0f8e7dfda86b5c53e28aa3aa3b733bb9600
 ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/03/2019
 ms.locfileid: "58905762"
@@ -233,10 +233,10 @@ En esta sección, se describen los pasos necesarios para instalar al agente de L
     No events.  
     ```
 
-Siga este procedimiento si quiere usar secretos para proteger el identificador del área de trabajo y la clave principal de Log Analytics al usar el archivo yaml de daemon-set del agente de Log Analytics.
+Siga este procedimiento si quiere usar secretos para proteger el identificador y la clave principal del área de trabajo de Log Analytics al usar el archivo yaml de daemon-set del agente de Log Analytics.
 
-1. Inicie sesión en el nodo principal de OpenShift y copie el archivo yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) y el script de generación de secretos [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) de GitHub.  Este script genera el archivo yaml de secretos para el identificador del área de trabajo y la clave principal de Log Analytics para proteger su información secreta.  
-2. Ejecute los comandos siguientes para crear un proyecto de Azure Monitor y establecer la cuenta de usuario. El script de generación de secretos le pide el identificador del área de trabajo <WSID> y la clave principal <KEY> de Log Analytics y, al terminar, crea el archivo ocp-secret.yaml.  
+1. Inicie sesión en el nodo principal de OpenShift y copie el archivo yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) y el script de generación de secretos [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) de GitHub.  Este script genera el archivo yaml de secretos para el identificador y la clave principal del área de trabajo de Log Analytics para proteger su información secreta.  
+2. Ejecute los comandos siguientes para crear un proyecto de Azure Monitor y establecer la cuenta de usuario. El script de generación de secretos le pide el identificador <WSID> y la clave principal <KEY> del área de trabajo de Log Analytics y, al terminar, crea el archivo ocp-secret.yaml.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -320,7 +320,7 @@ Puede elegir crear DaemonSets de omsagent con o sin secretos.
     1. Copie el script y el archivo de plantilla secreto y asegúrese de que estén en el mismo directorio.
         - Script de generación de secretos: secret-gen.sh
         - Plantilla de secretos: secret-template.yaml
-    2. Ejecute el script, como en el ejemplo siguiente. El script pide el identificador del área de trabajo y la clave principal de Log Analytics y, una vez que los escribe, se crea un archivo yaml secreto para que pueda ejecutarlo.   
+    2. Ejecute el script, como en el ejemplo siguiente. El script pide el identificador y la clave principal del área de trabajo de Log Analytics y, una vez que los escribe, se crea un archivo yaml secreto para que pueda ejecutarlo.   
 
         ```
         #> sudo bash ./secret-gen.sh
@@ -404,7 +404,7 @@ En Windows Kubernetes, se usa un script para generar el archivo yaml de secretos
         - Script de generación de secretos: secret-gen.sh
         - Plantilla de secretos: secret-template.yaml
 
-    2. Ejecute el script, como en el ejemplo siguiente. El script pide el identificador del área de trabajo y la clave principal de Log Analytics y, una vez que los escribe, se crea un archivo yaml secreto para que pueda ejecutarlo.   
+    2. Ejecute el script, como en el ejemplo siguiente. El script pide el identificador y la clave principal del área de trabajo de Log Analytics y, una vez que los escribe, se crea un archivo yaml secreto para que pueda ejecutarlo.   
 
         ```
         #> sudo bash ./secret-gen.sh

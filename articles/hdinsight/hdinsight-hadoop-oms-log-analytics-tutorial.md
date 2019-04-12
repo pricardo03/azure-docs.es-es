@@ -28,7 +28,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Un área de trabajo de Log Analytics**. Esta área de trabajo se puede considerar como un entorno de los registros de Azure Monitor único con su propio repositorio de datos, orígenes de datos y soluciones. Para instrucciones, consulte [Crear un área de trabajo](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
+* **Un área de trabajo de Log Analytics**. Esta área de trabajo se puede considerar como un entorno de los registros de Azure Monitor único con su propio repositorio de datos, orígenes de datos y soluciones. Para más instrucciones, consulte [Creación de un área de trabajo de Log Analytics](../azure-monitor/learn/quick-collect-azurevm.md#create-a-workspace).
 
 * **Un clúster de HDInsight de Azure**. Actualmente, puede usar los registros de Azure Monitor con los siguientes tipos de clúster de HDInsight:
 

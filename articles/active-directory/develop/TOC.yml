@@ -286,11 +286,11 @@ items:
         href: quickstart-v2-uwp.md
       - name: Windows Desktop .NET
         href: quickstart-v2-windows-desktop.md
+    - name: Aplicaciones de demonio
+      items:
       - name: Consola de .NET Core (demonio)
         href: quickstart-v2-netcore-daemon.md
-    - name: De servicio a servicio
-      items:
-      - name: ASP .NET
+      - name: Aplicación web de demonio para ASP.NET
         href: https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2
   - name: Tutoriales
     items:
@@ -326,19 +326,20 @@ items:
         href: authentication-scenarios.md
       - name: Protocolos OAuth 2.0 y OpenID Connect
         href: active-directory-v2-protocols.md
-        items:
-        - name: OpenID Connect
-          href: v2-protocols-oidc.md
-        - name: Flujo de concesión implícita de OAuth 2.0
-          href: v2-oauth2-implicit-grant-flow.md
-        - name: Concesión de código de autenticación de OAuth 2.0
-          href: v2-oauth2-auth-code-flow.md
-        - name: Flujo en nombre de Oauth 2.0
-          href: v2-oauth2-on-behalf-of-flow.md
-        - name: Concesión de credenciales del cliente de OAuth 2.0
-          href: v2-oauth2-client-creds-grant-flow.md
-        - name: Concesión de credenciales de contraseña de propietario del recurso OAuth 2.0
-          href: v2-oauth-ropc.md
+      - name: OpenID Connect
+        href: v2-protocols-oidc.md
+      - name: Flujo de concesión implícita de OAuth 2.0
+        href: v2-oauth2-implicit-grant-flow.md
+      - name: Concesión de código de autenticación de OAuth 2.0
+        href: v2-oauth2-auth-code-flow.md
+      - name: Flujo en nombre de Oauth 2.0
+        href: v2-oauth2-on-behalf-of-flow.md
+      - name: Concesión de credenciales del cliente de OAuth 2.0
+        href: v2-oauth2-client-creds-grant-flow.md
+      - name: Flujo de código de dispositivo de OAuth 2.0
+        href: v2-oauth2-device-code.md
+      - name: Concesión de credenciales de contraseña de propietario del recurso OAuth 2.0
+        href: v2-oauth-ropc.md
       - name: Sustitución de claves de firmas
         href: active-directory-signing-key-rollover.md
       - name: Tokens de identificador
@@ -394,12 +395,10 @@ items:
         href: howto-add-app-roles-in-azure-ad-apps.md
       - name: Directrices de marca
         href: howto-add-branding-in-azure-ad-apps.md
+      - name: Dominio de editor
+        href: howto-configure-publisher-domain.md
       - name: Términos de servicio y declaración de privacidad
         href: howto-add-terms-of-service-privacy-statement.md
-      - name: Java
-        items:
-        - name: Protección de una aplicación web de Java
-          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory?toc=/java/azure/toc.json&bc=/java/azure/breadcrumb/toc.json
     - name: Trabajo con Visual Studio
       items:
       - name: Uso del servicio conectado Active Directory
@@ -419,8 +418,8 @@ items:
     - name: Bibliotecas de autenticación
       displayName: MSAL
       href: reference-v2-libraries.md
-    - name: API de Azure AD en Microsoft Graph
-      href: https://developer.microsoft.com/graph/docs/concepts/azuread-identity-access-management-concept-overview
+    - name: API de identidad y acceso en Microsoft Graph
+      href: https://docs.microsoft.com/graph/api/resources/azure-ad-overview?view=graph-rest-beta
     - name: Manifiesto de aplicación
       href: reference-app-manifest.md
     - name: Códigos de error de autenticación y autorización
@@ -436,6 +435,8 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=security-identity
   - name: Blog de Azure AD
     href: https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory
+  - name: Blog para desarrolladores de la plataforma de identidad de Microsoft
+    href: https://developer.microsoft.com/en-us/identity/blogs/
   - name: Probar Iniciar sesión con Microsoft
     href: https://azure.microsoft.com/develop/identity/signin/
   - name: Ayuda
@@ -443,9 +444,9 @@ items:
     href: developer-support-help-options.md
   - name: Identidades administradas de recursos de Azure
     href: https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview
-ms.openlocfilehash: 974758ddcaa4d855b395e982b6bc9a3b0b72e130
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9283d643717d4c516fb615a9ff5ec132a11e754c
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886614"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500437"

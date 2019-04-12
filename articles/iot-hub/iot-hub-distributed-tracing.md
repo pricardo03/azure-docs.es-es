@@ -60,7 +60,7 @@ En esta sección, configurará una instancia de IoT Hub para registrar atributos
 
     - **Archivar en una cuenta de almacenamiento**: configure una cuenta de almacenamiento para que contenga la información de registro.
     - **Transmisión a un centro de eventos**: configure un centro de eventos para que contenga la información de registro.
-    - **Enviar a Log Analytics**: configure un área de trabajo para que contenga la información de registro.
+    - **Enviar a Log Analytics**: Configure un área de trabajo de Log Analytics para que contenga la información de registro.
 
 1. En la sección **Registro**, seleccione las operaciones para las que desea la información de registro.
 

@@ -46,7 +46,7 @@ La integración con los registros de Azure Monitor ofrece agregación y filtrado
 Puede ver estos datos directamente en una sola VM desde la máquina virtual, o puede usar a Azure Monitor para ofrecer una vista agregada de las VM. Esta vista se basa en la perspectiva de la característica:
 
 * **Estado**: VM relacionadas con un grupo de recursos.
-* **Asignación** y **Rendimiento**: VM configuradas para informar a un área de trabajo específica de Log Analytics.
+* **Asignación** y **Rendimiento**: Máquinas virtuales configuradas para informar a un área de trabajo de Log Analytics específica.
 
 ![Perspectiva de conclusiones de la máquina virtual desde Azure Portal](./media/vminsights-overview/vminsights-azmon-directvm-01.png)
 

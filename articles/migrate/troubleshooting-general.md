@@ -129,7 +129,7 @@ Asegúrese de haber copiado y pegado la información correcta. Para solucionar p
 3. En la **principal** que aparece al iniciar la instalación, haga clic en **Siguiente**. En la página **Términos de licencia**, haga clic en **Acepto** para aceptar la licencia.
 4. En **Carpeta de destino**, mantenga o modifique la carpeta de instalación predeterminada y después haga clic en **Siguiente**.
 5. En **Opciones de instalación del agente**, seleccione **Azure Log Analytics** > **Siguiente**.
-6. Haga clic en **Agregar** para agregar un área de trabajo nueva de Log Analytics. Pegue el identificador de proyecto y la clave que copió. A continuación, haga clic en **Siguiente**.
+6. Haga clic en **Agregar** para agregar un área de trabajo de Log Analytics nueva. Pegue el identificador de proyecto y la clave que copió. A continuación, haga clic en **Siguiente**.
 7. Verifique que el agente puede conectarse al proyecto. Si no puede, verifique la configuración. Si el agente puede conectarse, pero el recopilador no, póngase en contacto con el servicio de soporte técnico.
 
 

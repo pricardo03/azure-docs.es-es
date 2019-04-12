@@ -92,7 +92,7 @@ Puede seleccionar un área de trabajo de Log Analytics existente para almacenar 
 - El área de trabajo debe estar asociada con la suscripción de Azure seleccionada.
 - Como mínimo, el usuario debe tener permisos de lectura para obtener acceso al área de trabajo.
 
-Para seleccionar un área de trabajo existente de Log Analytics:
+Para seleccionar un área de trabajo de Log Analytics existente:
 
 1. En **Security policy – Data Collection** (Directiva de seguridad: recopilación de datos), seleccione **Use another workspace** (Usar otro área de trabajo).
 

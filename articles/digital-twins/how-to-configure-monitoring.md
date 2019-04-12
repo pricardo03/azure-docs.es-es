@@ -50,7 +50,7 @@ Para el registro de actividad avanzada:
 
 1. La **información general de Activity Log Analytics** resume los datos de registro de actividad esenciales:
 
-    ![Información general de Activity Log Analytics][3]
+    ![Introducción al análisis de registros de actividad][3]
 
 >[!TIP]
 >Use los **registros de actividad** para obtener información rápida sobre los eventos a nivel de suscripción.

@@ -26,7 +26,7 @@ ms.locfileid: "58437312"
 ---
 # <a name="install-and-use-the-log-analytics-views-for-azure-active-directory"></a>Instalación y uso de las vistas de Log Analytics para Azure Active Directory
 
-Las vistas de Log Analytics para Azure Active Directory le ayuda a analizar y a buscar los registros de actividad de Azure AD en su inquilino de Azure AD. Los registros de actividad de Azure AD incluyen:
+Las vistas de Log Analytics para Azure Active Directory le ayudan a analizar y a buscar los registros de actividad de Azure AD en su inquilino de Azure AD. Los registros de actividad de Azure AD incluyen:
 
 * Registros de auditoría: el [informe de actividad de registros de auditoría](concept-audit-logs.md) le proporciona acceso al historial de todas las tareas llevadas a cabo en el inquilino.
 * Registros de inicio de sesión: Con el [informe de actividad de inicios de sesión](concept-sign-ins.md), puede determinar quién ha realizado las tareas notificadas en el informe de registros de auditoría.

@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
-ms.openlocfilehash: ae84313cd750e3d6c7eb9443ec59095dec9c632e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59265256"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490644"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detección y evaluación de un entorno grande de VMware
 
@@ -39,20 +39,11 @@ Azure Migrate necesita acceso a los servidores de VMware para detectar automáti
 - Detalles: El usuario se asigna en el nivel de centro de datos y tiene acceso a todos los objetos de este.
 - Para restringir el acceso, asigne el rol Sin acceso con Propagar a objetos secundarios a los objetos secundarios (hosts de vSphere, almacenes de datos, máquinas virtuales y redes).
 
-Si va a implementar en un entorno de inquilinos, esta es una manera de configurar esta opción:
+Si va a implementar en un entorno de varios inquilinos y le gustaría ámbito por carpeta de máquinas virtuales de un único inquilino, no se puede seleccionar la carpeta de la máquina virtual directamente al definir el ámbito de colección de Azure Migrate. Estos son instrucciones para la detección de ámbito por carpeta de máquinas virtuales:
 
-1. Cree un usuario por inquilino y use [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) para asignar permisos de solo lectura a todas las máquinas virtuales que pertenezcan a un inquilino determinado. A continuación, use esas credenciales para la detección. RBAC garantiza que el usuario correspondiente de vCenter solo tendrá acceso a las máquinas virtuales específicas del inquilino.
-2. Configure RBAC para los usuarios de otros inquilinos, como se describe en el ejemplo siguiente para el usuario n.º 1 y el usuario n.º 2:
-
-    - En **Nombre de usuario** y **Contraseña**, especifique las credenciales de la cuenta de solo lectura que el recopilador utilizará para detectar las máquinas virtuales.
-    - Centrodedatos1: asigne permisos de solo lectura al usuario n.º 1 y al usuario n.º 2. No propague esos permisos a todos los objetos secundarios, porque establecerá los permisos en las máquinas virtuales individuales.
-
-      - VM1 (inquilino n.º 1) (permiso de solo lectura al usuario n.º 1)
-      - VM2 (inquilino n.º 1) (permiso de solo lectura al usuario n.º 1)
-      - VM3 (inquilino n.º 2) (permiso de solo lectura al usuario n.º 2)
-      - VM4 (inquilino n.º 2) (permiso de solo lectura al usuario n.º 2)
-
-   - Si realiza la detección con las credenciales del usuario n.º 1, solo se detectarán VM1 y VM2.
+1. Cree un usuario por inquilino y asignar permisos de solo lectura a todas las máquinas virtuales que pertenecen a un inquilino determinado. 
+2. Conceda este acceso de usuario de solo lectura a todos los objetos de elemento primario donde se hospedan las máquinas virtuales. Todos los objetos primarios - host, la carpeta de hosts, el clúster, la carpeta de clústeres: en la jerarquía hasta el centro de datos son que se incluya. No es necesario propagar los permisos para todos los objetos secundarios.
+3. Use las credenciales para la detección de seleccionar el centro de datos como *ámbito de la colección*. El RBAC configurar garantiza que el usuario correspondiente de vCenter tendrán acceso a máquinas virtuales solo específico del inquilino.
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>Planificación de los proyectos de migración y las detecciones
 
@@ -97,7 +88,7 @@ Si tiene varias instancias de vCenter Server con menos de 1500 máquinas virtual
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Más de 1500 máquinas en una sola instancia de vCenter Server
 
-Si tiene más de 1500 máquinas virtuales en una sola instancia de vCenter Server, debe dividir la detección en varios proyectos de migración. Para dividir las detecciones, puede aprovechar el campo Ámbito en el dispositivo y especificar el host, el clúster, la carpeta o el centro de datos que quiere detectar. Por ejemplo, si tiene dos carpetas en vCenter Server, una con 1000 máquinas virtuales (Carpeta1) y otra con 800 (Carpeta2), puede usar el campo de ámbito para dividir las detecciones entre esas carpetas.
+Si tiene más de 1500 máquinas virtuales en una sola instancia de vCenter Server, debe dividir la detección en varios proyectos de migración. Para dividir las detecciones, puede aprovechar el campo de ámbito en el dispositivo y especifique el host, clúster, carpeta de hosts, la carpeta de clústeres o el centro de datos que desea detectar. Por ejemplo, si tiene dos carpetas en vCenter Server, una con 1000 máquinas virtuales (Carpeta1) y otra con 800 (Carpeta2), puede usar el campo de ámbito para dividir las detecciones entre esas carpetas.
 
 **Detección continua:** en este caso, tendrá que crear dos aplicaciones recopiladoras; para la primera, especifique el ámbito como Carpeta1 y conéctela al primer proyecto de migración. Puede iniciar en paralelo la detección de Carpeta2 mediante el segundo dispositivo de recopilador y conectarlo al segundo proyecto de migración.
 

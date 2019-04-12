@@ -16,7 +16,7 @@ ms.date: 11/28/2018
 ms.author: rkarlin
 ms.openlocfilehash: ece396a85a817df51f650fd1c513085efa3dedf5
 ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "57842139"
@@ -157,7 +157,7 @@ Si en algún momento desea deshabilitar la recopilación de datos, puede desacti
 
 Un área de trabajo es un recurso de Azure que actúa como contenedor de los datos. Tanto usted como otros miembros de la organización pueden usar varias áreas de trabajo para administrar diferentes conjuntos de datos, recopilados a partir de toda la infraestructura de TI o de algunos de sus componentes.
 
-Los datos recopilados por Microsoft Monitoring Agent (en nombre de Azure Security Center) se almacenarán en las áreas de trabajo existentes de Log Analytics asociadas con la suscripción de Azure o en unas nuevas áreas de trabajo, según la región geográfica de la máquina virtual.
+Los datos recopilados por Microsoft Monitoring Agent (en nombre de Azure Security Center) se almacenarán en las áreas de trabajo de Log Analytics existentes asociadas con la suscripción de Azure o en unas nuevas áreas de trabajo, según la región geográfica de la máquina virtual.
 
 En el portal de Azure, puede realizar una exploración para ver una lista de las áreas de trabajo de Log Analytics, incluidas las creadas por Azure Security Center. Se creará un grupo de recursos relacionado para las nuevas áreas de trabajo. Ambas siguen esta convención de nomenclatura:
 

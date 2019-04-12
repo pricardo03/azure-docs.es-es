@@ -1,6 +1,6 @@
 ---
 title: Eliminación de un área de trabajo de Azure Log Analytics | Microsoft Docs
-description: Obtenga información para eliminar el espacio de trabajo de Log Analytics si creó uno en una suscripción personal o reestructure el modelo de espacio de trabajo.
+description: Obtenga información para eliminar el área de trabajo de Log Analytics si creó uno en una suscripción personal o reestructure el modelo de área de trabajo.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -15,7 +15,7 @@ ms.date: 05/07/2018
 ms.author: magoedte
 ms.openlocfilehash: a6542838acba3143123dc90d96746179a2b4469b
 ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 02/11/2019
 ms.locfileid: "55989175"
