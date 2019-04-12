@@ -49,7 +49,7 @@ En primer lugar, es necesario crear un almacén de claves y conceder a la identi
 3. Busque el almacén de claves en la misma suscripción y el mismo grupo de recursos que la máquina virtual que creó anteriormente. 
 4. Seleccione **Directivas de acceso** y haga clic en **Agregar nueva**. 
 5. En Configurar a partir de plantilla, seleccione **Administración de secretos**. 
-6. Elija **Seleccionar la entidad de seguridad** y, en el campo de búsqueda, escriba el nombre de la máquina virtual que creó anteriormente.  Seleccione la máquina virtual de la lista de resultados y haga clic en **Seleccionar**. 
+6. Elija **Seleccionar la entidad de seguridad** y, en el campo de búsqueda, escriba el nombre de la máquina virtual que creó anteriormente.  Seleccione la máquina virtual de la lista de resultados y haga clic en **Seleccionar** . 
 7. Haga clic en **Aceptar** para terminar de agregar la nueva directiva de acceso, y en **Aceptar** para finalizar la selección de la directiva de acceso. 
 8. Haga clic en **Crear** para terminar de crear el almacén de claves. 
 
