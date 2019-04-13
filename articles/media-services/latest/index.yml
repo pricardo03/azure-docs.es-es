@@ -24,9 +24,9 @@ sections:
         className: cardImageOuter
         items:
           - title: Información sobre conceptos
-            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Carga y almacenamiento en la nube</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encoding</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">Supervisión</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Media Analytics</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Packaging</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Protección</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Streaming en directo</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Clientes de Player</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/storage-account-concept">Carga y almacenamiento en la nube</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/encoding-concept">Encoding</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/reacting-to-media-services-events">Supervisión</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/analyzing-video-audio-files-concept">Análisis multimedia</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/dynamic-packaging-overview">Empaquetado</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/content-protection-overview">Protección</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/live-streaming-overview">Streaming en directo</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/use-azure-media-player">Clientes de Player</a></p>'
           - title: Desarrollo con la versión v3 de la API
-            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Comenzar a desarrollar con SDK</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Desarrollo con REST</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/azure/media-services/latest/developers-guide">Comenzar a desarrollar con SDK</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/media-rest-apis-with-postman">Desarrollo con REST</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-java-howto">Conexión con Java</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-dotnet-howto">Conexión con .NET</a></p><p><a href="https://docs.microsoft.com/azure/media-services/latest/configure-connect-nodejs-howto">Conexión con Node.js</a></p>'
   - title: Inicio rápido en 5 minutos
     items:
       - type: paragraph
@@ -120,7 +120,7 @@ sections:
         style: unordered
         className: spaced noBullet
         items:
-          - html: '<a href="https://aka.ms/ams-v3-cli-ref">Azure CLI</a>'
+          - html: '<a href="https://aka.ms/ams-v3-cli-ref">CLI de Azure</a>'
           - html: '<a href="https://aka.ms/ams-v3-rest-ref">REST</a>'
           - html: '<a href="https://aka.ms/ams-v3-dotnet-ref">.NET</a>'
           - html: '<a href="https://aka.ms/ams-v3-java-ref">Java</a>'
