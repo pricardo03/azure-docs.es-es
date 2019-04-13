@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 4d7ecdcff356f27e17eca95a0d42290037d6b570
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.openlocfilehash: 7bb25aa1f77a49363fe2e08d1430282b9b33caae
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59426467"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549361"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -74,8 +74,8 @@ Todos los ejemplos de Azure Policy están en [Ejemplos de directivas](../samples
 
 El **modo** determina qué tipos de recurso se evaluarán para una directiva. Los modos admitidos son:
 
-- `all`: evaluar los grupos de recursos y todos los tipos de recursos
-- `indexed`: evalúe solo los tipos de recursos que admiten etiquetas y ubicación
+- `all`: evalúe los grupos de recursos y todos los tipos de recurso
+- `indexed`: evalúe solo los tipos de recurso que admitan las etiquetas y la ubicación
 
 Se recomienda que establezca **mode** en `all` en la mayoría de los casos. Todas las definiciones de directivas creadas a través del portal usan el modo `all`. Si usa PowerShell o la CLI de Azure, puede especificar el parámetro **mode** de forma manual. Si la definición de directiva no incluye un valor de **modo**, el valor predeterminado es `all` en Azure PowerShell y `null` en la CLI de Azure. Un modo `null` es lo mismo que usar `indexed` para la compatibilidad con versiones anteriores.
 
@@ -94,7 +94,7 @@ Los parámetros funcionan del mismo modo al crear las directivas. Con la inclusi
 Un parámetro tiene las siguientes propiedades que se usan en la definición de directiva:
 
 - **name**: El nombre del parámetro. Lo utiliza la función de la implementación `parameters` dentro de la regla de directiva. Para más información, consulte [Uso de un valor de parámetro](#using-a-parameter-value).
-- `type`: Determina si el parámetro es una **cadena**o una**matriz.
+- `type`: Determina si el parámetro es una **cadena** o una **matriz**.
 - `metadata`: Define las subpropiedades que usa principalmente Azure Portal para mostrar información intuitiva:
   - `description`: La explicación de para qué se usa el parámetro. Puede utilizarse para proporcionar ejemplos de valores aceptables.
   - `displayName`: El nombre descriptivo que se muestra en el portal para el parámetro.
@@ -262,7 +262,7 @@ Se admiten los siguientes campos:
 - alias de propiedad: para obtener una lista, vea [Alias](#aliases).
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]`, y `tags[tag.with.dots]` todavía aceptable maneras de declarar un campo de etiquetas.
+> `tags.<tagName>`, `tags[tagName]` y `tags[tag.with.dots]` son todavía formas aceptables de declarar un campo de etiquetas.
 > Sin embargo, las expresiones preferidas son las mencionadas anteriormente.
 
 #### <a name="use-tags-with-parameters"></a>Uso de etiquetas con parámetros
@@ -424,7 +424,7 @@ Se pueden usar todas las [funciones de plantillas de Resource Manager](../../../
 - resourceId()
 - variables()
 
-Además, la función `field` está disponible para las reglas de directiva. `field` se usa principalmente con **AuditIfNotExists** y **DeployIfNotExists** a campos de referencia en el recurso que se va a evaluar. Este uso se puede observar en el [ejemplo de DeployIfNotExists](effects.md#deployifnotexists-example).
+Además, la función `field` está disponible para las reglas de directiva. `field` se usa principalmente con **AuditIfNotExists** y **DeployIfNotExists** para hacer referencia a los campos del recurso que se van a evaluar. Este uso se puede observar en el [ejemplo de DeployIfNotExists](effects.md#deployifnotexists-example).
 
 #### <a name="policy-function-example"></a>Ejemplo de función de directiva
 
@@ -487,36 +487,7 @@ Algunos de los alias disponibles tienen una versión que aparece como un nombre 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
-El alias 'normal' representa el campo como un valor único. Este campo es para escenarios de comparación de coincidencia exacta cuando todo el conjunto de valores debe ser exactamente como se define, nada más y nada menos. Uso de **ipRules**, se podría validar un ejemplo que existe un conjunto exacto de reglas incluido el número de reglas y composición de cada regla. Esta regla de ejemplo comprueba de exactamente dos **192.168.1.1** y **10.0.4.1** con _acción_ de **permitir** en **ipRules** para aplicar la **effectType**:
-
-```json
-"policyRule": {
-    "if": {
-        "allOf": [
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "exists": "true"
-            },
-            {
-                "field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules",
-                "Equals": [
-                    {
-                        "action": "Allow",
-                        "value": "192.168.1.1"
-                    },
-                    {
-                        "action": "Allow",
-                        "value": "10.0.4.1"
-                    }
-                ]
-            }
-        ]
-    },
-    "then": {
-        "effect": "[parameters('effectType')]"
-    }
-}
-```
+El alias 'normal' representa el campo como un valor único. Este campo es para escenarios de comparación de coincidencia exacta cuando todo el conjunto de valores debe ser exactamente como se define, nada más y nada menos.
 
 El **[\*]** alias hace posible que se compara con el valor de cada elemento de la matriz y propiedades específicas de cada elemento. Este enfoque permite comparar propiedades de elemento de 'Si ninguno de', 'Si cualquiera de', o ' si todos los de ' escenarios. Mediante **ipRules [\*]**, un ejemplo sería validar que cada _acción_ es _Deny_, pero no preocuparse por qué la dirección IP ocuántasreglasexisten_valor_ es. Esta regla de ejemplo busca las coincidencias de **ipRules [\*] .value** a **10.0.4.1** y aplica la **effectType** solo si no encuentra al menos una coincidencia:
 

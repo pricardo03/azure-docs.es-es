@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 3/6/2019
 ms.author: victorh
-ms.openlocfilehash: 4410dd9e61fe5b585ca5b245dbf33dbf8c38e701
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 95b14a0028134e522206f3595bc3b9ebf9aaf396
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010233"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548735"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Escalabilidad automática y puerta de enlace de aplicaciones con redundancia de zona (versión preliminar pública)
 
@@ -31,7 +31,7 @@ Application Gateway y Firewall de aplicaciones web (WAF) ahora están disponible
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 > [!NOTE]
-> El escalado automático y la puerta de enlace de aplicaciones con redundancia de zona SKU ahora admite [sonda de estado predeterminada](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) para supervisar el estado de todos los recursos de su grupo de back-end y quitar cualquier recurso que se considerará en mal estado del grupo automáticamente. El quedará de sondeo de estado predeterminada se configura automáticamente para todos esos back-ends que no ha configurado ninguna configuración de sondeo personalizado. Para obtener más información, consulte [sondeos de estado de application gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
+> El escalado automático y la puerta de enlace de aplicaciones con redundancia de zona SKU ahora admite [sonda de estado predeterminada](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe) para supervisar el estado de todos los recursos de su grupo de back-end y resaltar los miembros de back-end que se consideran automáticamente Insalubre. El quedará de sondeo de estado predeterminada se configura automáticamente para todos esos back-ends que no ha configurado ninguna configuración de sondeo personalizado. Para obtener más información, consulte [sondeos de estado de application gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview).
 
 ## <a name="feature-comparison-between-v1-sku-and-v2-sku"></a>Comparación de características entre SKU v1 y v2 SKU
 
@@ -79,6 +79,6 @@ Durante la versión preliminar, no hay ningún cargo. Se le facturará por recur
 |Integración de Netwatcher|No se admite en la versión preliminar pública.|
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Creación de un escalado automático, la puerta de enlace de aplicaciones con redundancia de zona con una dirección IP virtual reservada con Azure PowerShell](tutorial-autoscale-ps.md)
+- [Creación de una puerta de enlace de aplicaciones con redundancia de zona, escalabilidad automática y una dirección IP virtual reservada con Azure PowerShell](tutorial-autoscale-ps.md)
 - Más información acerca de [Application Gateway](overview.md).
 - Más información acerca de [Azure Firewall](../firewall/overview.md).

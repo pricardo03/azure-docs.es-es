@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: 7b52d07db076b62845465ee9f22a3d794c8cdf76
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cd026c9be2b1519d473ba02811d9e1ee90fe7a3e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57839532"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526221"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Administrar un perfil de Azure Traffic Manager
 
@@ -32,7 +32,7 @@ Puede crear un perfil de Traffic Manager mediante el portal de Azure. Después d
 1. En un explorador, inicie sesión en [Azure Portal](https://portal.azure.com). Si aún no tiene cuenta, puede registrarse para obtener [una evaluación gratuita durante un mes](https://azure.microsoft.com/free/). 
 2. Haga clic en **Crear un recurso** > **Redes** > **Perfil del Traffic Manager** > **Crear**.
 4. En **Crear perfil de Traffic Manager**, complete los campos de la manera siguiente:
-    1. En **Nombre**, proporcione un nombre para el perfil. Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS <name>,trafficmanager.net que se usa para acceder al perfil de Traffic Manager.
+    1. En **Nombre**, proporcione un nombre para el perfil. Este nombre debe ser único en la zona trafficmanager.net y generará el nombre DNS `<name>`,trafficmanager.net que se usa para acceder al perfil de Traffic Manager.
     2. En **Método de enrutamiento**, seleccione el método de enrutamiento por **prioridad**.
     3. En **Suscripción**, seleccione la suscripción en la que desea crear este perfil.
     4. En **Grupo de recursos**, cree un grupo de recursos nuevo en el cual colocar este perfil.

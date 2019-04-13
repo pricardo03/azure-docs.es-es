@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/20/2016
 ms.author: jeconnoc
-ms.openlocfilehash: f0724fd6e5f08f3e09bcb147c12d1657235dc704
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: f597bc760a3f3825416912642ee66a53dfb91696
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916893"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525568"
 ---
 # <a name="trace-the-flow-of-a-cloud-services-application-with-azure-diagnostics"></a>Seguimiento del flujo en una aplicación de Cloud Services con Diagnósticos de Azure
 El seguimiento es una manera de supervisar la ejecución de la aplicación mientras se está ejecutando. Puede usar las clases [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace), [System.Diagnostics.Debug](/dotnet/api/system.diagnostics.debug) y [System.Diagnostics.TraceSource](/dotnet/api/system.diagnostics.tracesource) para registrar información sobre errores y ejecución de la aplicaciones en registros, archivos de texto u otros dispositivos para su análisis posterior. Para obtener más información acerca del seguimiento, consulte [Seguimiento e instrumentación de aplicaciones](/dotnet/framework/debug-trace-profile/tracing-and-instrumenting-applications).
@@ -69,7 +69,7 @@ Para más información sobre los agentes de escucha, vea [Agentes de escucha de 
 Después de completar los pasos para agregar el agente de escucha, puede agregar instrucciones de seguimiento al código.
 
 ### <a name="to-add-trace-statement-to-your-code"></a>Para agregar instrucciones de seguimiento al código
-1. Abra un archivo de origen para la aplicación. Por ejemplo, el archivo <RoleName>.cs para el rol de trabajo o el rol web.
+1. Abra un archivo de origen para la aplicación. Por ejemplo, el \<RoleName > archivo .cs para el rol de trabajador o web.
 2. Agregue la siguiente instrucción using si no se agregó ya:
     ```
         using System.Diagnostics;

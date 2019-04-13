@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e734ebb2032a5354e8701129b6a8ad913837bb52
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 8e8b3e647d6ef91d69a7b81ca6fdf36fc9d0f9c8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59010624"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523960"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Preguntas más frecuentes sobre diferentes API en Azure Cosmos DB
 
@@ -266,8 +266,8 @@ En cuanto a la API REST, hay una serie de opciones de puntos de conexión o cons
 | Métodos de REST | Opción de punto de conexión o consulta de REST | Direcciones URL de documento | Explicación |
 | ------------| ------------- | ---------- | ----------- |
 | GET, PUT | /?restype=service@comp=properties| [Establecer propiedades de Table service](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) y [Obtener propiedades de Table service](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | Este punto de conexión se usa para establecer reglas de CORS, de configuración del análisis de almacenamiento y de configuración del registro. CORS no se admite actualmente y el análisis y el registro se tratan de forma diferente en Azure Cosmos DB y en Azure Storage Tables |
-| OPCIONES | /<nombre-recurso-tabla> | [Solicitud de tabla preparatoria CORS](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Esto forma parte de CORS, el cual Azure Cosmos DB no admite actualmente. |
-| GET | /?restype=service@comp=stats | [Obtener estadísticas del servicio tabla](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Proporciona información sobre la rapidez con que los datos se están replicando datos entre los elementos principales y los secundarios. Esto no es necesario en Cosmos DB ya que la replicación es parte de las escrituras. |
+| OPCIONES | /\<table-resource-name> | [Solicitud de tabla preparatoria CORS](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Esto forma parte de CORS, el cual Azure Cosmos DB no admite actualmente. |
+| GET | /?restype=service@comp=stats | [Obtener estadísticas de Table service](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | Proporciona información sobre la rapidez con que los datos se están replicando datos entre los elementos principales y los secundarios. Esto no es necesario en Cosmos DB ya que la replicación es parte de las escrituras. |
 | GET, PUT | /mytable?comp=acl | [Obtener tabla ACL](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) y [Definir ACL de tabla](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | Así se obtienen y establecen las directivas de acceso almacenadas que se usan para administrar las firmas de acceso compartido (SAS). Aunque SAS se admite, las firmas se establecen y administran de manera diferente. |
 
 Además, Table API de Azure Cosmos DB solo es compatible con el formato JSON, no con ATOM.
@@ -293,7 +293,7 @@ Si alguna de estas diferencias supone un problema para el proyecto, póngase en 
 
 Puede proporcionar comentarios de alguna de las siguientes formas:
 
-* [Voz de los usuarios](https://feedback.azure.com/forums/263030-azure-cosmos-db)
+* [Voz del usuario](https://feedback.azure.com/forums/263030-azure-cosmos-db)
 * [Foro de MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurecosmosdb)
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-cosmosdb). Stack Overflow es la mejor opción para preguntas de programación. Asegúrese de que su pregunta es [relevante](https://stackoverflow.com/help/on-topic) y [proporcione tantos detalles como sea posible, formulando la pregunta de forma clara y responsable](https://stackoverflow.com/help/how-to-ask).
 
@@ -577,7 +577,7 @@ Se puede usar el paso de vista previa **executionProfile()** para realizar un an
 g.V('mary').out('knows').executionProfile()
 ```
 
-**Salida de ejemplo**
+**Salida del ejemplo**
 
 ```json
 [

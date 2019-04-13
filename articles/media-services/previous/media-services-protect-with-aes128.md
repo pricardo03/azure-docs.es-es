@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8516035705ad9dfb2ff37592f9381c4f905bb67f
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 6f76d6aed8dc5eed3dbf673b265c404f27b0536d
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802837"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526833"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Uso del cifrado dinámico AES-128 y el servicio de entrega de claves
 > [!div class="op_single_selector"]
@@ -141,7 +141,7 @@ Puede usar [Azure Media Services Player](https://amsplayer.azurewebsites.net/azu
 En el paso anterior, creó la URL que apunta a un archivo de manifiesto. El cliente debe extraer la información necesaria de los archivos de manifiesto de streaming para realizar una solicitud al servicio de entrega de claves.
 
 ### <a name="manifest-files"></a>Archivos de manifiesto
-El cliente debe extraer el valor de la URL (que también contiene el identificador de la clave de contenido) del archivo de manifiesto. Luego, el cliente intenta obtener la clave de cifrado del servicio de entrega de claves. El cliente también debe extraer el valor IV y usarlo para descifrar la secuencia. En el siguiente fragmento se muestra el elemento <Protection> del manifiesto de Smooth Streaming:
+El cliente debe extraer el valor de la URL (que también contiene el identificador de la clave de contenido) del archivo de manifiesto. Luego, el cliente intenta obtener la clave de cifrado del servicio de entrega de claves. El cliente también debe extraer el valor IV y usarlo para descifrar la secuencia. En el siguiente fragmento se muestra el elemento `<Protection>` del manifiesto de Smooth Streaming:
 
 ```xml
     <Protection>

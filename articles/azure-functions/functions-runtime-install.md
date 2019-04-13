@@ -10,14 +10,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: 1ad1d2c74be97afcb62f3f8e8161111f4938f645
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
-ms.translationtype: HT
+ms.openlocfilehash: aae6bc41f3c2fc2c5f8cf63d07f6b4d79bb3564a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093675"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547569"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Instalación de la versión preliminar 2 del Sistema en tiempo de ejecución de Azure Functions
+
+[!INCLUDE [intro](../../includes/functions-runtime-preview-note.md)]
 
 Si desea instalar la versión preliminar 2 del Sistema en tiempo de ejecución de Azure Functions, debe seguir estos pasos:
 
@@ -102,36 +104,37 @@ Para completar la instalación del Sistema en tiempo de ejecución de Azure Func
 
 Para crear la primera función en la versión preliminar del Sistema en tiempo de ejecución de Azure Functions, siga estos pasos:
 
-1. Por último, vaya al **portal del Sistema en tiempo de ejecución de Azure Functions** como https://<machinename>.<domain> Por ejemplo: https://mycomputer.mydomain.com
+1. Vaya a la **Portal de Azure Functions Runtime** como `https://<machinename>.<domain>` por ejemplo `https://mycomputer.mydomain.com`.
+
 1. Se le pedirá que **inicie sesión**. Si se implementó en un dominio, use el nombre de usuario y la contraseña de la cuenta de dominio, en caso contrario, utilice el nombre de usuario y la contraseña de la cuenta local y para iniciar sesión en el portal.
 
-![Inicio de sesión en el Portal de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][14]
+    ![Inicio de sesión en el Portal de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][14]
 
-1. Para crear aplicaciones de función, debe crear una suscripción.  En la esquina superior izquierda del portal, haga clic en la opción **+** junto a las suscripciones
+1. Para crear aplicaciones de función, debe crear una suscripción.  En la esquina superior izquierda del portal, haga clic en el **+** opción junto a las suscripciones.
 
-![Suscripciones del Portal de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][15]
+    ![Suscripciones del Portal de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][15]
 
 1. Elija **DefaultPlan**, escriba un nombre para la suscripción y haga clic en **Crear**.
 
-![Nombre y plan de suscripción del Portal de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][16]
+    ![Nombre y plan de suscripción del Portal de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][16]
 
 1. Todas las aplicaciones de función se muestran en el panel izquierdo del portal.  Para crear una aplicación de función, seleccione el encabezado **Instancias de Function App** y haga clic en la opción **+**.
 
 1. Escriba un nombre para la aplicación de función, seleccione la suscripción correcta, elija qué versión del Sistema en tiempo de ejecución de Azure Functions desea programar y haga clic en **Crear**
 
-![Nueva aplicación de función del Portal de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][17]
+    ![Nueva aplicación de función del Portal de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][17]
 
 1. La nueva aplicación de función aparece en el panel izquierdo del portal.  Seleccione las funciones y, luego, haga clic en **Nueva función** en la parte superior del panel central en el portal.
 
-![Plantillas de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][18]
+    ![Plantillas de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][18]
 
 1. Seleccione la función de desencadenador de temporizador. En el control flotante derecho, asigne el nombre de la función y cambie la programación a `*/5 * * * * *` (esta expresión CRON hace que la función de temporizador se ejecute cada cinco segundos). Haga clic en **Crear**.
 
-![Configuración de la función de temporizador de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][19]
+    ![Configuración de la función de temporizador de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][19]
 
 1. Ahora se ha creado la función.  Puede ver el registro de ejecución de la aplicación de función expandiendo el panel de **registro** de la parte inferior del portal.
 
-![Ejecución de la función de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][20]
+    ![Ejecución de la función de la versión preliminar del Sistema en tiempo de ejecución de Azure Functions][20]
 
 <!--Image references-->
 [1]: ./media/functions-runtime-install/AzureFunctionsRuntime_Installer1.png

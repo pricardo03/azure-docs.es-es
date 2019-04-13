@@ -8,14 +8,14 @@ ms.assetid: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 01/25/2019
+ms.date: 4/11/2019
 ms.author: jehollan
-ms.openlocfilehash: ca65b6a1691a870054682b36109f2bdc10d4ad98
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: d327146c4a1fa61e55bb904308038c1ce717123d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918712"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543769"
 ---
 # <a name="azure-functions-premium-plan-preview"></a>Plan de funciones Premium de Azure (versión preliminar)
 
@@ -42,7 +42,7 @@ Las siguientes características están disponibles para las aplicaciones de func
 
 Si no hay eventos y las ejecuciones se producen hoy mismo en el plan de consumo, la aplicación puede reducir verticalmente a cero instancias. Cuando se conectan nuevos eventos, una nueva instancia debe haberse especializado con la aplicación se ejecute en él.  Especializado nuevas instancias pueden tardar algún tiempo dependiendo de la aplicación.  Esta latencia adicional en la primera llamada a menudo se denomina inicio en frío de la aplicación.
 
-En el plan Premium, puede tener la aplicación previamente preparada en un número especificado de instancias.  Instancias previamente calienten también le permiten escalar previamente una aplicación antes de una carga elevada. Como la aplicación se escala horizontalmente, primero se escala en las instancias calienten previamente. Continuarán instancias adicionales para almacenar en búfer caliente inmediatamente en preparación para la siguiente operación de escalado y horizontal. Al tener un búfer de instancias calienten previamente, puede evitar eficazmente las latencias de arranque en frío.  Instancias previamente calienten es una característica del plan Premium y debe tener al menos una instancia en ejecución y disponible en todo momento el plan está activo.
+En el plan Premium, puede tener la aplicación previamente preparada en un número especificado de instancias, hasta el tamaño mínimo del plan.  Instancias previamente calienten también le permiten escalar previamente una aplicación antes de una carga elevada. Como la aplicación se escala horizontalmente, primero se escala en las instancias calienten previamente. Continuarán instancias adicionales para almacenar en búfer caliente inmediatamente en preparación para la siguiente operación de escalado y horizontal. Al tener un búfer de instancias calienten previamente, puede evitar eficazmente las latencias de arranque en frío.  Instancias previamente calienten es una característica del plan Premium y debe tener al menos una instancia en ejecución y disponible en todo momento el plan está activo.
 
 Puede configurar el número de instancias calienten previamente en Azure portal seleccionando **escalabilidad horizontal** en el **características de la plataforma** ficha.
 
@@ -69,6 +69,8 @@ Las instancias de proceso adicionales se agregan automáticamente para su aplica
 ### <a name="unbounded-run-duration"></a>Duración de la ejecución de unbounded
 
 Azure Functions en un plan de consumo se limitan a 10 minutos para una sola ejecución.  En el plan Premium, la duración de ejecución predeterminado es 30 minutos para evitar que las ejecuciones descontroladas. Sin embargo, puede [modificar la configuración de host.json](./functions-host-json.md#functiontimeout) para que sea ilimitado para las aplicaciones de plan Premium.
+
+En versión preliminar, la duración no se garantiza que más allá de 12 minutos y tendrá la mejor oportunidad de ejecutar más de 30 minutos si la aplicación no se escala más allá de su recuento mínimo de trabajo.
 
 ## <a name="plan-and-sku-settings"></a>Configuración de plan y SKU
 
@@ -106,7 +108,6 @@ A continuación se muestran las regiones admitidas actualmente para la versión 
 |Este de Australia|
 |Sudeste de Australia|
 |Centro de Canadá|
-|India Central|
 |Centro de EE. UU.|
 |Asia oriental|
 |Este de EE. UU. 2|

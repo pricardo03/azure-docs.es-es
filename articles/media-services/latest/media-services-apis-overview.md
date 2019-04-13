@@ -9,19 +9,48 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/08/2019
+ms.date: 04/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 18b72ceaee0ca0747a0bf2144d5f9ffddbee8b8c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 9d1fa5786dcde70d42363dbb9af7221ca5383e64
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492148"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546405"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desarrollo con Media Services API v3
 
 En este artículo se describe las reglas que se aplican a las entidades y las API cuando se desarrolla con Media Services v3.
+
+## <a name="accessing-the-azure-media-services-api"></a>Obtener acceso a la API de Azure Media Services
+
+Para obtener acceso a los recursos de Azure Media Services, debe usar la autenticación de entidad de servicio de Azure Active Directory (AD). La API de Azure Media Services requiere que el usuario o aplicación que realiza la API de REST de las solicitudes tienen acceso al recurso de la cuenta de Azure Media Services (normalmente el **colaborador** o **propietario** rol). Para obtener más información, consulte [control de acceso basado en roles para cuentas de Media Services](rbac-overview.md).
+
+En lugar de crear a una entidad de servicio, considere el uso de identidades administradas para los recursos de Azure para tener acceso a la API de Media Services mediante Azure Resource Manager. Para obtener más información acerca de las identidades administradas para los recursos de Azure, consulte [What ' s identidades administradas para los recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
+
+### <a name="azure-ad-service-principal"></a>Entidad de servicio de Azure AD 
+
+Si va a crear una aplicación de Azure AD y el servicio principal, la aplicación debe estar en su propio inquilino. Después de crear la aplicación, asigne a la aplicación **colaborador** o **propietario** rol el acceso a la cuenta de Media Services. 
+
+Si no estás seguro de que tenga los permisos para crear una aplicación de Azure AD, consulte [permisos necesarios](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
+
+En la siguiente ilustración, los números representan el flujo de las solicitudes en orden cronológico:
+
+![Aplicaciones de nivel intermedio](../previous/media/media-services-use-aad-auth-to-access-ams-api/media-services-principal-service-aad-app1.png)
+
+1. Una aplicación de nivel intermedio solicita un token de acceso de Azure AD que tiene los siguientes parámetros:  
+
+   * Punto de conexión de inquilino de Azure AD.
+   * URI del recurso de Media Services.
+   * URI del recurso de Media Services de REST.
+   * Valores de aplicación de Azure AD: el Id. de cliente y el secreto de cliente.
+   
+   Para obtener todos los valores necesarios, consulte [Access Azure Media Services API con la CLI de Azure](access-api-cli-how-to.md)
+
+2. El token de acceso de Azure AD se envía al nivel intermedio.
+4. El nivel intermedio envía una solicitud a la API de REST de Azure Media Services con el token de Azure AD.
+5. El nivel intermedio recibe los datos de Media Services.
 
 ## <a name="naming-conventions"></a>Convenciones de nomenclatura
 
@@ -30,17 +59,6 @@ Los nombres de recursos de Azure Media Services v3 (por ejemplo, recursos, traba
 Los nombres de recursos de Media Services no pueden incluir: '<', '>', '%', '&', ':', '&#92;', '?', '/', '*', '+', '.', el carácter de comilla simple o cualquier carácter de control. Todos los demás caracteres se permiten. La longitud máxima de un nombre de recurso es de 260 caracteres. 
 
 Para más información sobre la nomenclatura de Azure Resource Manager, consulte: [Requisitos de nomenclatura](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md#arguments-for-crud-on-resource) y [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).
-
-## <a name="v3-api-design-principles-and-rbac"></a>principios de diseño de API de V3 y RBAC
-
-Uno de los principales principios de diseño de la versión v3 de la API es hacerla más segura. las API de V3 no devuelven secretos o las credenciales en **obtener** o **lista** operaciones. Las claves se hacen siempre NULL, se vacían o se sanean de la respuesta. El usuario debe llamar a un método de acción independiente para obtener los secretos o las credenciales. El **lector** rol no puede llamar a las operaciones por lo que no puede llamar a operaciones como Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. Tener acciones independientes le permite establecer permisos de seguridad más granulares de RBAC en un rol personalizado si lo desea.
-
-Para más información, consulte:
-
-- [Definiciones de roles integrados](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)
-- [Utilice RBAC para administrar el acceso](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
-- [Control de acceso basado en roles para cuentas de Media Services](rbac-overview.md)
-- [Obtener la directiva de clave de contenido - .NET](get-content-key-policy-dotnet-howto.md).
 
 ## <a name="long-running-operations"></a>Operaciones de larga ejecución
 
@@ -71,4 +89,4 @@ Consulte [filtrado, ordenación, paginación de entidades de Azure Media Service
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Empiece a desarrollar con la API de Media Services v3, SDK y herramientas](developers-guide.md)
+[Empiece a desarrollar con API de Media Services v3 mediante los SDK y herramientas](developers-guide.md)

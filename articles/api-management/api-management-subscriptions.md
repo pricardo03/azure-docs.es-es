@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2018
 ms.author: apimpm
-ms.openlocfilehash: 1f7c2bde631e42ac94ce4c0394d13e369f6ea23f
-ms.sourcegitcommit: d61faf71620a6a55dda014a665155f2a5dcd3fa2
-ms.translationtype: HT
+ms.openlocfilehash: 6f577530c42952c6340a15110bcd37383a5fca57
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54049765"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526595"
 ---
 # <a name="subscriptions-in-azure-api-management"></a>Suscripciones en Azure API Management
 
@@ -50,9 +50,6 @@ Tradicionalmente, las suscripciones en API Management se han asociado siempre a 
 > En determinadas situaciones, es posible que los publicadores de API deseen publicar un producto de API para el público sin necesidad de suscripciones. Pueden anular la selección de la opción **Require subscription** (Requerir suscripción) en la página **Settings** (Configuración) del producto en Azure Portal. Como resultado, se puede tener acceso a todas las API del producto sin una clave de API.
 
 ### <a name="subscriptions-for-all-apis-or-an-individual-api"></a>Suscripciones para todas las API o una API individual
-
-> [!NOTE]
-> Actualmente, esta característica está disponible solo en el nivel de consumo de API Management.
 
 Cuando introdujimos el nivel de [consumo](https://aka.ms/apimconsumptionblog) de API Management, realizamos algunos cambios para optimizar la administración de claves:
 - En primer lugar, agregamos dos ámbitos más de suscripción: todas las API y una API individual. El ámbito de las suscripciones ya no se limita a un producto de API. Ahora es posible crear claves que concedan acceso a una API (o a todas las API de una instancia de API Management), sin necesidad de crear un producto y agregar las API a este primero. Además, cada instancia de API Management incluye ahora de una suscripción inmutable para todas las API. Esta suscripción facilita y agiliza la prueba y la depuración de las API de la consola de prueba.

@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a5548e7a5f60d9882fdfb4fb6eb777ab993e121
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: bede53ef2bc05750be21f831fc0cb790a001c6c5
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916009"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549344"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Opciones avanzadas de firma de certificados en el token SAML para aplicaciones previamente integradas en Azure Active Directory
 
@@ -49,7 +49,7 @@ Azure AD admite dos algoritmos de firmas o algoritmos de hash seguro (SHA), para
 
 * **SHA-1**. Este algoritmo es más antigua y se considera como menos seguro que SHA-256. Si la aplicación admite solo este algoritmo de firma, puede seleccionar esta opción en la lista desplegable **Algoritmo de firma**. Azure AD firma entonces la respuesta SAML con el algoritmo SHA-1.
 
-## <a name="change-the-certificate-signing-options-and-certificate-signing-algorithm"></a>Cambiar las opciones de firma de certificado y el algoritmo de firma de certificado
+## <a name="change-certificate-signing-options-and-signing-algorithm"></a>Cambiar opciones de firma y algoritmo de firma de certificado
 
 Para cambiar el certificado SAML de la aplicación opciones de firma y el algoritmo de firma, seleccione la aplicación en cuestión:
 
@@ -81,5 +81,5 @@ A continuación, cambie el opciones en el token SAML para esa aplicación de fir
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Configurar el inicio de sesión único para aplicaciones que no están en la Galería de aplicaciones de Azure Active Directory](configure-federated-single-sign-on-non-gallery-applications.md)
-* [Solución de problemas de basado en SAML sesión único](../develop/howto-v1-debug-saml-sso-issues.md)
+* [Configuración del inicio de sesión único en aplicaciones que no están en la galería de aplicaciones de Azure Active Directory](configure-federated-single-sign-on-non-gallery-applications.md)
+* [Solución de problemas del inicio de sesión único basado en SAML](../develop/howto-v1-debug-saml-sso-issues.md)

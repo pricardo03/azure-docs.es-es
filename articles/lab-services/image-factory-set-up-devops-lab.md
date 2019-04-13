@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: 62cb8222b592660f2e7ab32d438fd4073246ee50
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 5a3d6e51a71f6aab742fe042d6e6e281192319a4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58440039"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523025"
 ---
-# <a name="run-an-image-factory-from-azure-devops"></a>Ejecute un generador de imágenes de Azure DevOps
+# <a name="run-an-image-factory-from-azure-devops"></a>Ejecución de una fábrica de imágenes desde AzureDevOps
 En este artículo se trata todos los preparativos necesarios para ejecutar el generador de imágenes de DevOps de Azure (anteriormente Visual Studio Team Services).
 
 > [!NOTE]
@@ -44,12 +44,12 @@ Azure DevOps le permiten almacenar el código fuente, ejecute Azure PowerShell e
 
 Si tiene una cuenta existente de DevOps o un proyecto que le gustaría usar en su lugar, omita este paso.
 
-Para empezar, cree una cuenta gratuita de DevOps de Azure. Visite https://www.visualstudio.com/ y seleccione **empezar a trabajar de forma gratuita** justo debajo **Azure DevOps** (anteriormente VSTS). Deberá elegir un nombre de cuenta único y asegúrese de elegir si desea administrar código con Git. Una vez creado, guarde la dirección URL para el proyecto de equipo. Esta es una dirección URL de ejemplo: https://<accountname>.visualstudio.com/MyFirstProject.
+Para empezar, cree una cuenta gratuita de DevOps de Azure. Visite https://www.visualstudio.com/ y seleccione **empezar a trabajar de forma gratuita** justo debajo **Azure DevOps** (anteriormente VSTS). Deberá elegir un nombre de cuenta único y asegúrese de elegir si desea administrar código con Git. Una vez creado, guarde la dirección URL para el proyecto de equipo. Esta es una dirección URL de ejemplo: `https://<accountname>.visualstudio.com/MyFirstProject`.
 
 ## <a name="check-in-the-image-factory-to-git"></a>Compruebe en el generador de imágenes a Git
 Todos los PowerShell, plantillas y configuración para el generador de imágenes se encuentran en el [repositorio público de GitHub de DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory). La manera más rápida de obtener el código en el nuevo proyecto de equipo consiste en Importar un repositorio. Esto extrae en el repositorio de DevTest Labs completo (por lo que obtendrá docs adicionales y ejemplos). 
 
-1. Visite el proyecto de DevOps de Azure que creó en el paso anterior (dirección URL es similar a **https://<accountname>.visualstudio.com/MyFirstProject**).
+1. Visite el proyecto de DevOps de Azure que creó en el paso anterior (dirección URL es similar a **https:\//\<accountname >.visualstudio.com/MyFirstProject**).
 2. Seleccione **importar un repositorio**.
 3. Escriba el **dirección URL de clonación** para el repositorio de DevTest Labs: `https://github.com/Azure/azure-devtestlab`.
 4. Seleccione **Import** (Importar).

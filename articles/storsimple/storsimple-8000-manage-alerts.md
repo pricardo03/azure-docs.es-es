@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 38d403be1dc35b8ab4cd1b15fa259b5e6917197c
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: c3be0cdf2ef33c26dfa9d177e9b34f808b1b862a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58314457"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525539"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-view-and-manage-storsimple-alerts"></a>Uso del servicio StorSimple Device Manager para ver y administrar alertas de StorSimple
 
@@ -160,7 +160,7 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 | El dispositivo conmutó por error a <*nombre del dispositivo*>. |Otras causas/causas desconocidas. |Si ve un gran número de estas alertas, póngase en contacto con el soporte técnico de Microsoft. Después de resolver el problema, borre esta alerta de la página de alertas. |
 | Un servicio de dispositivo crítico indica un estado error. |Error del servicio de ruta de datos. |Para recibir asistencia, póngase en contacto con el servicio de soporte técnico de Microsoft. |
 | La dirección IP virtual de la interfaz de red <*DATA #*> indica un estado de error. |Otras causas/causas desconocidas. |A veces las condiciones temporales pueden causar estas alertas. Si es el caso, esta alerta se borrará automáticamente después de un tiempo. Si el problema persiste, póngase en contacto con el Soporte técnico de Microsoft. |
-| La dirección IP virtual de la interfaz de red <*DATA #*> indica un estado de error. |Nombre de la interfaz: <*DATA #*> La dirección IP <IP address> no se puede poner en línea porque se ha detectado una dirección IP duplicada en la red. |Asegúrese de que la dirección IP duplicada se quita de la red o vuelva a configurar la interfaz con una dirección IP diferente. |
+| La dirección IP virtual de la interfaz de red <*DATA #*> indica un estado de error. |Nombre de la interfaz: <*DATA #*> La dirección IP `<IP address>` no se puede poner en línea porque se ha detectado una dirección IP duplicada en la red. |Asegúrese de que la dirección IP duplicada se quita de la red o vuelva a configurar la interfaz con una dirección IP diferente. |
 
 ### <a name="disaster-recovery-alerts"></a>Alertas de recuperación ante desastres
 
@@ -200,8 +200,8 @@ Si se produce un error en la conectividad de la nube en el dispositivo de produc
 | Texto de la alerta | Evento | Más información / acciones recomendadas |
 |:--- |:--- |:--- |
 | No se han podido iniciar los servicios de StorSimple. |Error de ruta de datos |Si el persiste el problema, póngase en contacto con el Soporte técnico de Microsoft. |
-| Se ha detectado una dirección IP duplicada para 'Data0'. | |El sistema ha detectado un conflicto para la dirección IP '10.0.0.1'. El recurso de red 'Data0' en el dispositivo *<device1>* está sin conexión. Asegúrese de que ninguna otra entidad de esta red utilice esta dirección IP. Para solucionar los problemas de red, vaya a [Solución de problemas con el cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Para resolver este problema, póngase en contacto con el administrador de red. Si el persiste el problema, póngase en contacto con el Soporte técnico de Microsoft. |
-| La dirección IPv4 (o IPv6) para 'Data0' está sin conexión. | |El recurso de red 'Data0' con la dirección IP '10.0.0.1'. El prefijo de longitud '22' en el dispositivo *<device1>* está sin conexión. Asegúrese de que los puertos de conmutador a los que está conectada esta interfaz están operativos. Para solucionar los problemas de red, vaya a [Solución de problemas con el cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
+| Se ha detectado una dirección IP duplicada para 'Data0'. | |El sistema ha detectado un conflicto para la dirección IP '10.0.0.1'. El recurso de red 'Data0' en el dispositivo  *\<dispositivo1 >* está sin conexión. Asegúrese de que ninguna otra entidad de esta red utilice esta dirección IP. Para solucionar los problemas de red, vaya a [Solución de problemas con el cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). Para resolver este problema, póngase en contacto con el administrador de red. Si el persiste el problema, póngase en contacto con el Soporte técnico de Microsoft. |
+| La dirección IPv4 (o IPv6) para 'Data0' está sin conexión. | |El recurso de red 'Data0' con la dirección IP '10.0.0.1'. prefijo de longitud '22' en el dispositivo  *\<dispositivo1 >* está sin conexión. Asegúrese de que los puertos de conmutador a los que está conectada esta interfaz están operativos. Para solucionar los problemas de red, vaya a [Solución de problemas con el cmdlet Get-NetAdapter](storsimple-8000-troubleshoot-deployment.md#troubleshoot-with-the-get-netadapter-cmdlet). |
 | No se pudo conectar al servicio de autenticación. |Error de ruta de datos |La dirección URL que se usa para autenticar no está accesible. Asegúrese de que las reglas de firewall incluyen los patrones de dirección URL especificados para el dispositivo StorSimple. Para obtener más información sobre los patrones de dirección URL en Azure portal, vaya a https:\//aka.ms/ss-8000-network-reqs. Si usa Azure Government Cloud, vaya a los patrones de URL de https:\//aka.ms/ss8000-gov-network-reqs.|
 
 ### <a name="performance-alerts"></a>Alertas de rendimiento

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
-ms.openlocfilehash: 42fd28f2a18ecf81c7846abdc7b3159a275a9cd7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 8d4fc5fbdc3185c46f00d94537b197ec03f66755
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013542"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528176"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variables HTTP para el motor de reglas de Azure CDN
 Las variables HTTP proporcionan los medios para recuperar metadatos de respuesta y solicitudes HTTP. Estos metadatos pueden usarse después para alterar una solicitud o respuesta de forma dinámica. El uso de las variables HTTP se restringe a las siguientes características del motor de reglas:
@@ -38,7 +38,7 @@ En la tabla siguiente se describen las variables HTTP compatibles. Se devuelve u
 | ---- | -------- | ----------- | ------------ |
 | ASN (solicitante) | %{geo_asnum} | Indica el número de sistema autónomo (AS) del solicitante. <br /><br />**En desuso**: %{virt_dst_asnum}. <br />Esta variable ha quedado en desuso y se ha reemplazado por %{geo_asnum}. Aunque una regla que usa esta variable en desuso continuará funcionando, debe actualizarla para usar la nueva variable. | AS15133 |
 | Ciudad (solicitante) | %{geo_city} | Indica la ciudad del solicitante. | Los Ángeles |
-| Continente (solicitante) | %{geo_continent} | Indica el continente del solicitante mediante su abreviatura. <br />Los valores válidos son: <br />AF: África<br />COMO: Asia<br />UNIÓN EUROPEA: Europa<br />NA: Norteamérica<br />OC: Oceanía<br />SA: Sudamérica<br /><br />**En desuso**: %{virt_dst_continent}. <ber />Esta variable ha quedado en desuso y se ha reemplazado por %{geo_continent}. <br />Aunque una regla que usa esta variable en desuso continuará funcionando, debe actualizarla para usar la nueva variable.| N/D |
+| Continente (solicitante) | %{geo_continent} | Indica el continente del solicitante mediante su abreviatura. <br />Los valores válidos son: <br />AF: África<br />COMO: Asia<br />UNIÓN EUROPEA: Europa<br />NA: Norteamérica<br />OC: Oceanía<br />SA: Sudamérica<br /><br />**En desuso**: %{virt_dst_continent}. <br />Esta variable está desusada en favor de % {geo_continent}. <br />Aunque una regla que usa esta variable en desuso continuará funcionando, debe actualizarla para usar la nueva variable.| N/D |
 | Valor de la cookie | %{cookie_Cookie} | Devuelve el valor correspondiente a la clave de cookie identificada por el término Cookie. | Ejemplo de uso: <br />%{cookie__utma}<br /><br />Valor de ejemplo:<br />111662281.2.10.1222100123 |
 | País (solicitante) | %{geo_country} | Indica el país de origen del solicitante mediante su código de país. <br />**En desuso**: %{virt_dst_country}. <br /><br />Esta variable ha quedado en desuso y se ha reemplazado por %{geo_country}. Aunque una regla que usa esta variable en desuso continuará funcionando, debe actualizarla para usar la nueva variable. | US |
 | Área de mercado designada (solicitante) | %{geo_dma_code} |Indica el mercado de medios del solicitante mediante su código de región. <br /><br />Este campo solo es aplicable a las solicitudes que se originan en los Estados Unidos.| 745 |

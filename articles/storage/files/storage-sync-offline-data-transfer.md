@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/12/2019
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 3b286bbe2c246345bf6acd84a4fc0c400451c706
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 04b13c1e511f54c1fcf7b632d3a368fde16bf319
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57445354"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549046"
 ---
 # <a name="migrate-bulk-data-to-azure-file-sync"></a>Migrar datos de forma masiva a Azure File Sync
 Puede migrar datos de forma masiva a Azure File Sync de dos maneras:
@@ -36,13 +36,13 @@ Estas son las principales ventajas de usar una herramienta de transferencia como
 - Cuadro de datos y Azure File Sync no requieren ningún tiempo de inactividad. Cuando se usa para transferir datos a Azure Data Box, usa eficazmente el ancho de banda de red y conserva la fidelidad del archivo. También mantener su espacio de nombres actualizados cargando solo los archivos que cambian después de mover los datos en Azure.
 
 ## <a name="prerequisites-for-the-offline-data-transfer"></a>Requisitos previos para la transferencia de datos sin conexión
-Antes de comenzar a la transferencia de datos sin conexión:
+No se debe habilitar la sincronización en el servidor que se va a migrar antes de completar a la transferencia de datos sin conexión. Otras cosas a tener en cuenta antes de comenzar son los siguientes:
 
-- Migrar los datos de forma masiva a uno o varios recursos compartidos de archivos de Azure antes de habilitar la sincronización con Azure File Sync.
-- Si va a usar Data Box para la migración masiva, revise el [requisitos previos de implementación de Data Box](../../databox/data-box-deploy-ordered.md#prerequisites).
-- Planear la topología final de Azure File Sync. Para obtener más información, consulte [planear una implementación de Azure File Sync](storage-sync-files-planning.md).
-- Seleccione la cuenta de Azure Storage o cuentas que contendrán los recursos compartidos de archivos que desee sincronizar con. Migrar los datos de forma masiva a recursos compartidos de almacenamiento provisionales temporales que se encuentran en la misma cuenta de almacenamiento o las cuentas. Puede usar solo una acción final y un recurso compartido de almacenamiento provisional que se encuentran en la misma cuenta de almacenamiento.
-- Crear una nueva relación de sincronización con una ubicación de servidor. No se puede usar una relación de sincronización existente para migrar datos de forma masiva.
+- Si planea usar Data Box para la migración masiva, siga estos pasos: Revise [los requisitos previos de implementación de Data Box](../../databox/data-box-deploy-ordered.md#prerequisites).
+- Planear la topología de Azure File Sync final: [Planeamiento de una implementación de Azure Files Sync](storage-sync-files-planning.md)
+- Seleccione las cuentas de almacenamiento de Azure que contendrán los recursos compartidos de archivos con los que desea sincronizarlas. Asegúrese de que la migración masiva a recursos compartidos de almacenamiento provisionales temporales se realiza en las mismas cuentas de almacenamiento. La migración masiva solo puede habilitarse mediante un recurso compartido final de almacenamiento provisional que resida en la misma cuenta de almacenamiento.
+- Solo se puede usar una migración masiva cuando se crea una nueva relación de sincronización con una ubicación de servidor. No se puede habilitar una migración masiva con una relación de sincronización existente.
+
 
 ## <a name="process-for-offline-data-transfer"></a>Proceso de transferencia de datos sin conexión
 Aquí le mostramos cómo configurar Azure File Sync de forma que sea compatible con las herramientas de migración masiva, como Azure Data Box:
@@ -51,7 +51,7 @@ Aquí le mostramos cómo configurar Azure File Sync de forma que sea compatible 
 
 | Paso | Detalles |
 |---|---------------------------------------------------------------------------------------|
-| ![Paso 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Pida su Data Box](../../databox/data-box-deploy-ordered.md). Las ofertas de familia de Data Box [varios productos](https://azure.microsoft.com/services/storage/databox/data) para satisfacer sus necesidades. Cuando aparezca el cuadro de datos, siga su [documentación para copiar los datos](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) a esta ruta de acceso UNC en el cuadro de datos: *\\<DeviceIPAddres>\<StorageAccountName_AzFile>\<ShareName>*. En este caso, *ShareName* es el nombre del recurso compartido de almacenamiento provisional. Envíe el dispositivo Data Box a Azure. |
+| ![Paso 1](media/storage-sync-files-offline-data-transfer/bullet_1.png) | [Pida su Data Box](../../databox/data-box-deploy-ordered.md). Las ofertas de familia de Data Box [varios productos](https://azure.microsoft.com/services/storage/databox/data) para satisfacer sus necesidades. Cuando aparezca el cuadro de datos, siga su [documentación para copiar los datos](../../databox/data-box-deploy-copy-data.md#copy-data-to-data-box) a esta ruta de acceso UNC en el cuadro de datos:  *\\< DeviceIPAddres\>\<StorageAccountName_AzFile\> \<ShareName\>*. En este caso, *ShareName* es el nombre del recurso compartido de almacenamiento provisional. Envíe el dispositivo Data Box a Azure. |
 | ![Paso 2](media/storage-sync-files-offline-data-transfer/bullet_2.png) | Espere hasta que los archivos se muestran en los recursos compartidos de archivos de Azure que eligió como recursos compartidos de almacenamiento provisionales temporales. *No habilite la sincronización para estos recursos compartidos.* |
 | ![Paso 3](media/storage-sync-files-offline-data-transfer/bullet_3.png) | Cree un nuevo recurso compartido vacío para cada recurso compartido de archivos que Data Box se creó para usted. Este nuevo recurso compartido debe estar en la misma cuenta de almacenamiento que el recurso compartido de Data Box. [Creación de un recurso compartido de archivos de Azure](storage-how-to-create-file-share.md). |
 | ![Paso 4](media/storage-sync-files-offline-data-transfer/bullet_4.png) | [Crear un grupo de sincronización](storage-sync-files-deployment-guide.md#create-a-sync-group-and-a-cloud-endpoint) en un servicio de sincronización de almacenamiento. Referencia al recurso de compartido vacía como un punto de conexión en la nube. Repita este paso para cada recurso compartido de archivos de Data Box. [Configurar Azure File Sync](storage-sync-files-deployment-guide.md). |

@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 12/12/2018
 ms.custom: seodec18
-ms.openlocfilehash: bf010e33a5ef77fcfde2506bfef9760a09667a9d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 620dbd22613df37fdc3c20e34906684446b2251f
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56867259"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546018"
 ---
 # <a name="what-is-automated-machine-learning"></a>Descripción del aprendizaje automático
 
@@ -51,27 +51,14 @@ Durante el aprendizaje, el servicio de Azure Machine Learning crea una serie de 
 
 Puede inspeccionar la información de ejecución registrada, que contiene las métricas que se recopilan durante la ejecución. La ejecución de entrenamiento también genera un objeto serializado de Python (archivo `.pkl`) que contiene el modelo y el preprocesamiento de los datos.
 
-## <a name="model-explainability"></a>Explicación del modelo
-
-Un problema habitual del aprendizaje automático automatizado es la incapacidad de ver el proceso completo. Azure Machine Learning permite ver información detallada sobre los modelos para aumentar la transparencia sobre lo que se ejecuta en el back-end. Algunos modelos, como el de regresión lineal, se consideran bastante sencillos y, por tanto, fáciles de entender. Pero al agregar más características y usar modelos de aprendizaje automático más complicados, cada vez más resulta más difícil entenderlos. Hay dos aspectos clave para la transparencia en el aprendizaje automático:
-
-1. Reconocimiento de la canalización de aprendizaje automático y todos los pasos implicados, como la caracterización y el preprocesamiento de los datos, y los valores de hiperparámetros.
-1. Conocimiento de la relación entre las variables de entrada (también denominadas "funciones") y la salida del modelo.  Si se conoce la magnitud y la dirección del impacto de cada característica en el valor de predicción, es más fácil comprender mejor el modelo y explicarlo. Es lo que se conoce como importancia de las características.
-
-Puede habilitar la formación de petición post importancia de características global para la canalización de su elección, o habilitarlo para todas las canalizaciones como parte de entrenamiento de aprendizaje de máquina automatizadas. En industrias muy reguladas como banca y asistencia sanitaria, esto es fundamental para cumplir con las reglamentaciones y mejores prácticas.  Estos son algunos escenarios del mundo real para mostrar:
-
-1. Una empresa de fabricación con aprendizaje automático para predecir errores futuros instrumento, por lo que puede proactivamente realizan actividades de mantenimiento. Una vez que sepa que es un instrumento va a devolver errores, ¿qué es la causa más probable va a ser por lo que se puede realizar el mantenimiento preventivo rápidamente?
-1. Una institución financiera con machine learning para aplicaciones de tarjeta de crédito o préstamos de proceso. ¿Cómo saber si el modelo está haciendo lo correcto y, si un cliente le pregunta para obtener más detalles sobre por qué se ha rechazado su solicitud, cómo responderá a ellos?
-1. Un minorista en línea o un proveedor de software independientes con aprendizaje automático para predecir el abandono de clientes. ¿Cuáles son los colaboradores claves al cliente de renovación y cómo puede impedir a los clientes de recorren?
-
-Esta es una característica de vista previa y Continuaremos invirtiendo en proporcionar información más completa para ayudarle a comprender mejor los modelos de aprendizaje automático. Siga este [cuaderno de ejemplo](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/model-explanation/auto-ml-model-explanation.ipynb) para experimentar con explicaciones de modelos en Azure Machine Learning.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Vea ejemplos y aprenda cómo generar modelos mediante Automated Machine Learning:
-+ [Ejemplos: Uso de cuadernos de Jupyter para explorar Azure Machine Learning Service](samples-notebooks.md#automated-ml-setup)
 
 + [Tutorial: Automatically train a classification model with Azure Automated Machine Learning](tutorial-auto-train-models.md) (Tutorial: Entrenamiento automático de un modelo de clasificación con Azure Machine Learning automatizado)
+
++ [Ejemplos de Bloc de notas](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/)
 
 + [Entrenamiento de modelos con aprendizaje automático automatizado en la nube](how-to-auto-train-remote.md)
 

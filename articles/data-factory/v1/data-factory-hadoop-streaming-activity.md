@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: f4bdeee08e81c16dfdd03620eb1fc61251f90400
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.openlocfilehash: dd00c0a2998009ce6c39ca19abb25a2548682cee
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54025180"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523229"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Transformación de datos mediante Hadoop Streaming Activity en Azure Data Factory
 > [!div class="op_single_selector" title1="Transformation Activities"]
@@ -99,7 +99,7 @@ Tenga en cuenta los siguientes puntos:
 2. Establezca el tipo de la actividad en **HDInsightStreaming**.
 3. Para la propiedad **mapper** , especifique el nombre del ejecutable del asignador. En el ejemplo, cat.exe es el ejecutable del asignador.
 4. Para la propiedad **reducer** , especifique el nombre del ejecutable del reductor. En el ejemplo, wc.exe es el ejecutable del reductor.
-5. Para la propiedad **input** type, especifique el archivo de entrada (incluida la ubicación) para el asignador. En el ejemplo: "wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt": adfsample es el contenedor de blobs, example/data/Gutenberg es la carpeta y davinci.txt es el blob.
+5. Para la propiedad **input** type, especifique el archivo de entrada (incluida la ubicación) para el asignador. En el ejemplo: `wasb://adfsample@<account name>.blob.core.windows.net/example/data/gutenberg/davinci.txt`: adfsample es el contenedor de blobs, example/data/Gutenberg es la carpeta y davinci.txt es el blob.
 6. Para la propiedad **output** type, especifique el archivo de salida (incluida la ubicación) para el reductor. La salida del trabajo de streaming de Hadoop se escribirá en la ubicación especificada para esta propiedad.
 7. En la sección **filePaths** , especifique las rutas de acceso para los archivos ejecutables del asignador y del reductor. En el ejemplo: "adfsample/example/apps/wc.exe", adfsample es el contenedor de blobs, example/apps es la carpeta y wc.exe es el ejecutable.
 8. Para la propiedad **fileLinkedService** , especifique el servicio vinculado de Azure Storage que representa el almacenamiento de Azure que contiene los archivos especificados en la sección filePaths.
@@ -223,7 +223,7 @@ El clúster de HDInsight se rellena automáticamente con los programas de ejempl
     }
 }
 ```
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Actividad de Hive](data-factory-hive-activity.md)
 * [Actividad de Pig](data-factory-pig-activity.md)
 * [Actividad MapReduce](data-factory-map-reduce.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
 ms.author: magattus
-ms.openlocfilehash: f6efec64b4e6659b822b76e0fd7f9cc71a164094
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 248a51da76cdee06e55438a706c543c70dcf141e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917760"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526188"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Restricción del contenido de Azure CDN por país
 
@@ -47,8 +47,8 @@ Puede aplicar el filtrado geográfico a todos los archivos mediante una barra di
 Por ejemplo, todos los filtros siguientes de ruta de acceso a directorio son válidos:   
 */*                                 
 */Photos/*     
-*/ Estrasburgo /*     
-*/Photos/Strasbourg/City.png*
+*/Photos/Strasbourg/*     
+*/Photos/Strasbourg/city.png*
 
 ### <a name="define-the-type-of-action"></a>Definición del tipo de acción
 
@@ -59,8 +59,8 @@ En la lista **Acción**, seleccione **Permitir** o **Bloquear**:
 - **Bloque**: Los usuarios de los países especificados se deniegan el acceso a los recursos solicitados desde la ruta recursiva. Si no se han configurado otras opciones de filtrado de país para esa ubicación, a continuación, se permitirá acceso a todos los demás usuarios.
 
 Por ejemplo, una regla de filtrado geográfico para bloquear la ruta de acceso */Photos/Strasbourg/* filtra los siguientes archivos:     
-*http://<endpoint>.azureedge.net/Photos/Strasbourg/1000.jpg*
-*http://<endpoint>.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
+*http:\//\<punto de conexión >.azureedge.net/Photos/Strasbourg/1000.jpg*
+*http:\//\<punto de conexión >.azureedge.net/Photos/Strasbourg/Cathedral/1000.jpg*
 
 ### <a name="define-the-countries"></a>Definición de los países
 En la lista **Códigos de país**, seleccione los países para los que quiere bloquear o permitir la ruta de acceso. 

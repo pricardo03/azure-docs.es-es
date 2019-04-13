@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 manager: jeconnoc
 ms.date: 01/05/2019
 ms.topic: article
-ms.openlocfilehash: 3faa3b0a5cd919752f8b7e4969e3affd668c8077
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 339d4270dc1803879607663e9e2db4a86591ec76
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59360771"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523008"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Crear bucles que repiten las acciones del flujo de trabajo o procesan matrices en Azure Logic Apps
 
@@ -195,8 +195,8 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 
    | Propiedad | Valor | DESCRIPCIÓN |
    | -------- | ----- | ----------- |
-   | **NOMBRE** | Límite | El nombre de la variable | 
-   | **Type** | Entero | El tipo de datos de la variable | 
+   | **Nombre** | Límite | El nombre de la variable | 
+   | **Tipo** | Entero | El tipo de datos de la variable | 
    | **Valor** | 0 | El valor de inicio de la variable | 
    |||| 
 
@@ -236,7 +236,7 @@ A partir de las 8:00 a. m. cada día, esta aplicación lógica de ejemplo incr
 
       | Propiedad | Valor | DESCRIPCIÓN |
       | -------- | ----- | ----------- | 
-      | **Para** | *<email-address\@domain>* | La dirección de correo electrónico del destinatario. Para las pruebas, use su propia dirección de correo electrónico. | 
+      | **To** | *\<email-address\@domain>* | La dirección de correo electrónico del destinatario. Para las pruebas, use su propia dirección de correo electrónico. | 
       | **Asunto** | El valor actual de "Límite" es **Limit** | Especifique el asunto del correo electrónico. En este ejemplo, asegúrese de que incluye la variable **Limit**. | 
       | **Cuerpo** | <*email-content*> | Especifique el contenido del mensaje de correo electrónico que desea enviar. En este ejemplo, escriba cualquier texto que desee. | 
       |||| 
@@ -253,7 +253,7 @@ Un bucle "Until" tiene límites predeterminados que detienen la ejecución si se
 
 | Propiedad | Valor predeterminado | DESCRIPCIÓN | 
 | -------- | ------------- | ----------- | 
-| **Número** | 60 | Número máximo de bucles que se ejecutan antes de salir del bucle. El valor predeterminado es de 60 ciclos. | 
+| **Recuento** | 60 | Número máximo de bucles que se ejecutan antes de salir del bucle. El valor predeterminado es de 60 ciclos. | 
 | **Tiempo de espera** | PT1H | Cantidad máxima de tiempo que se ejecuta un bucle antes de salir del bucle. El valor predeterminado es una hora y se especifica en formato ISO 8601. <p>El valor de tiempo de espera se evalúa para cada ciclo del bucle. Si cualquier acción en el bucle tarda más que el límite de tiempo de expiración, el ciclo actual no se detiene. Pero el siguiente ciclo no se inicia porque no se cumple la condición del límite. | 
 |||| 
 
@@ -344,7 +344,7 @@ El bucle "Until" de este ejemplo llama a un punto de conexión HTTP, que crea un
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Ejecutar pasos según una condición (instrucciones condicionales)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Ejecutar pasos en función de diferentes valores (instrucciones switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Ejecución de pasos en función de una condición (instrucciones condicionales)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Realización de pasos en función de los diferentes valores (instrucciones switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
 * [Ejecución o combinación de pasos en paralelo (ramas)](../logic-apps/logic-apps-control-flow-branches.md)
-* [Ejecutar pasos según el estado de acciones agrupadas (ámbitos)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)
+* [Ejecución de pasos en función del estado de las acciones agrupadas (ámbitos)](../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md)

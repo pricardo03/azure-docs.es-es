@@ -6,18 +6,18 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 02/28/2018
-ms.openlocfilehash: 721950160974ef21f88791e64a41cfe0dd2b23ba
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
-ms.translationtype: HT
+ms.openlocfilehash: 503b7764ba7958a5448903b217b00e204ffcbf61
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53546766"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527411"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Conexión de aplicaciones a Azure Database for MySQL
 En este documento se enumeran todos los tipos de cadena de conexión que Azure Database for MySQL admite, junto con plantillas y ejemplos. Su cadena de conexión puede tener otros parámetros y configuraciones.
 
 - Para obtener el certificado, consulte [Configuración de SSL](./howto-configure-ssl.md).
-- {su_host} = <servername>.mysql.database.azure.com
+- {your_host} = \<servername>.mysql.database.azure.com
 - {su_usuario}@{nombredeservidor} = formato de userID para una autenticación correcta.  Si solo usa userID, se producirá un error en la autenticación.
 
 ## <a name="adonet"></a>ADO.NET

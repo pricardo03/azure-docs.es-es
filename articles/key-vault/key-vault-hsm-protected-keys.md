@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: barclayn
-ms.openlocfilehash: 71931194c88412467252d16c5333d7a77338378c
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: 70a33b0ec55705c6fb00671cc801415cd7459558
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630625"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522735"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Generación y transferencia de claves protegidas con HSM para Azure Key Vault
 
@@ -445,7 +445,7 @@ Cuando ejecute este comando, reemplace *contosokey* por el valor que especificó
 
 Se le pedirá que conecte sus tarjetas de administrador del espacio de seguridad.
 
-Cuando se complete el comando, verá **Result: SUCCESS** y la copia de la clave con menos permisos estará en el archivo denominado key_xferacId_<contosokey>.
+Cuando se complete el comando, verá **Result: ÉXITO** y la copia de la clave con permisos reducidos se encuentran en el archivo llamado key_xferacId_\<contosokey >.
 
 Puede inspeccionar ACLS mediante los comandos siguientes utilizando las herramientas de Thales:
 

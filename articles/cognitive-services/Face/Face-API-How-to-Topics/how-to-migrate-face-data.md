@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: lewlu
-ms.openlocfilehash: 95b339e8d7f2c5c63c30e002411152b50cece2a5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 30ceb0e396597530071c70c4448761d914acb4ac
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57448788"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548411"
 ---
 # <a name="migrate-your-face-data-to-a-different-face-subscription"></a>Migración de los datos de caras a una suscripción de Face distinta
 
@@ -79,7 +79,7 @@ var takeSnapshotResult = await FaceClientEastAsia.Snapshot.TakeAsync(
 ```
 
 > [!NOTE]
-> El proceso de tomar y aplicar instantáneas no interrumpirá ninguna llamada normal al objeto **PersonGroup** (o **FaceList**) de origen o destino. Sin embargo, no se recomienda hacer llamadas simultáneas que cambien el objeto de origen (por ejemplo, las [llamadas de administración de la lista de caras](https://docs.microsoft.com/rest/api/cognitiveservices/face/facelist) o la llamada a [grupo de personas: entrenamiento](https://docs.microsoft.com/rest/api/cognitiveservices/face/persongroup/train)), porque la operación de instantánea podría ejecutarse antes o después de esas operaciones o podría encontrar errores. 
+> El proceso de tomar y aplicar instantáneas no interrumpirá ninguna llamada normal al objeto **PersonGroup** (o **FaceList**) de origen o destino. Sin embargo, no se recomienda realizar llamadas simultáneas que cambian el objeto de origen ([llamadas de administración FaceList](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.facelistoperations?view=azure-dotnet) o ["Train" del grupo de personas](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.persongroupoperations?view=azure-dotnet) llamar, por ejemplo), ya que es posible que la operación de instantánea ejecutar antes o después de esas operaciones o pueden producirse errores.
 
 ## <a name="retrieve-the-snapshot-id"></a>Recuperación del identificador de la instantánea
 

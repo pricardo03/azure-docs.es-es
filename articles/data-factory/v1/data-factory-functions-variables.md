@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 5293c44a3e4494593e069ab45fbc38806c6999ee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 1d1c9ef5ba355f1944a362bf0e6f5d7ba91a700a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57976783"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523943"
 ---
 # <a name="azure-data-factory---functions-and-system-variables"></a>Azure Data Factory: funciones y variables del sistema
 > [!NOTE]
@@ -59,7 +59,7 @@ Puede usar las funciones de Data Factory junto con las variables del sistema con
 
 1. Especifique las consultas de selección de datos (consulte los artículos de conector mencionados en el artículo [Actividades de movimiento de datos](data-factory-data-movement-activities.md) .
    
-   La sintaxis para invocar una función de Data Factory es: **$$<function>** para las consultas de selección de datos y otras propiedades de la actividad y conjuntos de datos.  
+   La sintaxis para invocar una función de la factoría de datos es:  **$$ \<función >** para las consultas de selección de datos y otras propiedades de la actividad y conjuntos de datos.  
 2. Especifique las dependencias de entrada con funciones de factoría de datos en la colección de entradas de la actividad.
    
     $$ no es necesario para especificar expresiones de dependencia de entrada.     

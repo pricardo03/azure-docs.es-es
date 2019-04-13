@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/05/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 42ac75b6ed0d4489ccae014b9cfe3b08269c1218
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 2a160ab7447304dc6eb14f76a723df4e8a4d9f46
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57547425"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523110"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Los patrones mejoran la precisión de las predicciones
 Los patrones están diseñados para mejorar la precisión cuando varias expresiones son muy parecidas.  Un patrón permite lograr más precisión en una intención sin proporcionar muchas más expresiones. 
@@ -31,7 +31,7 @@ Piense en una aplicación de recursos humanos que informa sobre el organigrama e
 |¿Quién es el subalterno de Tom?|GetOrgChart|.30|
 |¿Quién es el subalterno de Tom?|GetOrgChart|.30|
 
-Si una aplicación tiene entre 10 y 20 expresiones con distintas longitudes de oraciones, diferente orden de palabras, e incluso diferentes palabras (sinónimos de "subalterno", "administrar", "informe"), LUIS puede devolver una puntuación de confianza baja. Crear un patrón para ayudar a LUIS a comprender la importancia de la orden de palabras. 
+Si una aplicación tiene entre 10 y 20 expresiones con distintas longitudes de oraciones, diferente orden de palabras, e incluso diferentes palabras (sinónimos de "subalterno", "administrar", "informe"), LUIS puede devolver una puntuación de confianza baja. Crear un patrón para ayudar a LUIS a comprender la importancia del orden de word. 
 
 Los patrones solucionan las situaciones siguientes: 
 
@@ -41,7 +41,7 @@ Los patrones solucionan las situaciones siguientes:
 ## <a name="patterns-are-not-a-guarantee-of-intent"></a>Los patrones no son una garantía de intención
 Los patrones emplean una combinación de tecnologías de predicción. Establecer una intención para una expresión de plantilla en un patrón no es una garantía de la predicción de la intención, pero es un buen indicio. 
 
-<a name="patterns-do-not-improve-entity-detection"/>
+<a name="patterns-do-not-improve-entity-detection"/></a>
 
 ## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>Patrones no mejoran la detección de la entidad ha aprendido la máquina
 
@@ -50,7 +50,7 @@ Un patrón está pensado principalmente para ayudar a la predicción de intencio
 No espere ver una predicción de entidad mejorada si contrae varias expresiones en un patrón único. Para que las entidades simples se activen, tendrá que agregar expresiones o usar entidades de la lista, de lo contrario no se activará el patrón.
 
 ## <a name="patterns-use-entity-roles"></a>Los patrones usan roles de entidad
-Si dos o más entidades de un patrón están relacionadas por el contexto, los patrones usan los [roles](luis-concept-roles.md) de entidad para extraer información contextual sobre las entidades. Esto es equivalente a los elementos secundarios de entidades jerárquicas, pero **solo** está disponible en los patrones. 
+Si dos o más entidades de un patrón están relacionadas por el contexto, los patrones usan los [roles](luis-concept-roles.md) de entidad para extraer información contextual sobre las entidades.  
 
 ## <a name="prediction-scores-with-and-without-patterns"></a>Puntuaciones de predicción con y sin patrones
 Dadas suficientes expresiones de ejemplo, LUIS podría aumentar la confianza de la predicción sin patrones. Los patrones aumentan la puntuación de confianza sin tener que proporcionar tantas expresiones.  
@@ -83,7 +83,7 @@ El **opcional** sintaxis con corchetes, pueden ser de dos niveles anidados. Por 
 |es un nuevo formulario|coincide con la palabra opcional externa y palabras que no es opcional en el patrón|
 |un nuevo formulario|sólo palabras coincidencias necesarias|
 
-El **agrupación** sintaxis con paréntesis, pueden ser de dos niveles anidados. Por ejemplo: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Esto permite que cualquiera de las tres entidades que se debe coincidir. 
+El **agrupación** sintaxis con paréntesis, pueden ser de dos niveles anidados. Por ejemplo: `(({Entity1.RoleName1} | {Entity1.RoleName2} ) | {Entity2} )`. Esta característica permite que cualquiera de las tres entidades que se debe coincidir. 
 
 Si Entity1 es una ubicación con funciones como origen (Seattle) y de destino (Cairo) y 2 de la entidad es un nombre conocido de creación de una entidad de la lista (RedWest-C), las declaraciones siguientes se asignarían a este patrón:
 
@@ -170,7 +170,7 @@ Marque texto opcional en la expresión mediante la sintaxis de corchetes de expr
 |Patrón con texto opcional|Significado|
 |--|--|
 |`[find] email about {subject} [from {person}]`|`find` y `from {person}` son opcionales|
-|' Puede ayudarme [?]|El signo de puntuación es opcional|
+|' Puede ayudarme [?] | El signo de puntuación es opcional|
 
 Signos de puntuación (`?`, `!`, `.`) se deben omitir y deberá omitir usando la sintaxis de corchete en patrones. 
 

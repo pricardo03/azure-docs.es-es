@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 18fc86e8d9b9622f11faad0f11dc57a83124a857
-ms.sourcegitcommit: 79038221c1d2172c0677e25a1e479e04f470c567
-ms.translationtype: HT
+ms.openlocfilehash: 7e697329e83b530157e490b04f5155d28d243bb6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/19/2019
-ms.locfileid: "56417523"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549495"
 ---
 # <a name="back-up-your-app-in-azure"></a>Realizar una copia de seguridad de la aplicación en Azure
 La característica Copia de seguridad y restauración de [Azure App Service](overview.md) le permite crear fácilmente las copias de seguridad de la aplicación manualmente o con base en una programación. Puede restaurar la aplicación a una instantánea de un estado anterior sobrescribiendo la aplicación existente o restaurando en otra aplicación. 
@@ -121,6 +121,9 @@ En ocasiones, no querrá realizar una copia de seguridad de todo el contenido de
 * No desea realizar copias de seguridad de los archivos de registro.
 
 Las copias de seguridad parciales permiten elegir exactamente de qué archivos desea realizar la copia de seguridad.
+
+> [!NOTE]
+> Bases de datos individuales en la copia de seguridad pueden ser el número máximo de 4GB, pero el tamaño máximo total de la copia de seguridad es 10GB
 
 ### <a name="exclude-files-from-your-backup"></a>Exclusión de los archivos de la copia de seguridad
 Suponga que tiene una aplicación que contiene archivos de registro e imágenes estáticas de los que se ha hecho una copia de seguridad una vez y nunca van a cambiar. En tales casos puede excluir las carpetas y los archivos para que no se almacenen en las futuras copias de seguridad. Para excluir archivos y carpetas de las copias de seguridad, cree un archivo `_backup.filter` en la carpeta `D:\home\site\wwwroot` de la aplicación. Especifique la lista de archivos y carpetas que desea excluir en este archivo. 

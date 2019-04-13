@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 6694865909a165842f994501befa404e1bc0a447
-ms.sourcegitcommit: efcd039e5e3de3149c9de7296c57566e0f88b106
-ms.translationtype: HT
+ms.openlocfilehash: b5ed614fdd378b36d8f95fc90ce7ff98d63ef31a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/10/2018
-ms.locfileid: "53164388"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526411"
 ---
 # <a name="troubleshoot-input-connections"></a>Solución de problemas de conexiones de entrada
 
@@ -39,7 +39,9 @@ Cuando un trabajo de Stream Analytics recibe un mensaje con formato incorrecto d
 ![Icono de entradas en Azure Stream Analytics](media/stream-analytics-malformed-events/stream-analytics-inputs-tile.png)
 
 Habilite los registros de diagnóstico para ver los detalles de la advertencia. Para los eventos de entrada con formato incorrecto, los registros de ejecución contienen una entrada con un mensaje similar al siguiente: 
-<code>Could not deserialize the input event(s) from resource <blob URI> as json.</code>
+```
+Could not deserialize the input event(s) from resource <blob URI> as json.
+```
 
 ### <a name="what-caused-the-deserialization-error"></a>El motivo del error de deserialización
 Puede realizar los pasos siguientes para analizar los eventos de entrada en detalle y así obtener una idea clara de qué produjo el error de deserialización. A continuación, puede corregir el origen del evento para generar eventos en el formato correcto y así evitar que el problema surja de nuevo.

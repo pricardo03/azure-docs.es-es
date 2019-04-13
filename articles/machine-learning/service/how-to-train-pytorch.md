@@ -11,12 +11,12 @@ author: mx-iao
 ms.reviewer: sgilley
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: a5ddc17f6200ba2d43d67fcd2e4bcc35c224e6cb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9ae7795381f036bb819ce24554d8cea94ceb5552
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004059"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548558"
 ---
 # <a name="train-pytorch-models-with-azure-machine-learning-service"></a>Entrenamiento de modelos de PyTorch con Azure Machine Learning Service
 
@@ -46,7 +46,7 @@ En este caso, se especifican los siguientes parámetros al constructor de PyTorc
 Parámetro | DESCRIPCIÓN
 --|--
 `source_directory` |  Directorio local que contiene todo el código necesario para el trabajo de aprendizaje. Esta carpeta se copia desde el equipo local al proceso remoto
-`script_params` |  Diccionario que especifica los argumentos de línea de comandos para el script de aprendizaje `entry_script`, en forma de pares <argumento de línea de comandos, valor>
+`script_params` |  Especificar los argumentos de línea de comandos para el script de entrenamiento de diccionario `entry_script`, en forma de < argumento de línea de comandos, valor > pares.  Para especificar una marca en detallado `script_params`, utilice `<command-line argument, "">`.
 `compute_target` |  El destino de proceso remoto que el script de entrenamiento ejecutará, en este caso, un clúster de Proceso de Azure Machine Learning ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)).
 `entry_script` |  Ruta del archivo (relativa al `source_directory`) del script de aprendizaje que se va a ejecutar en el proceso remoto. Este archivo y los archivos adicionales de los que depende deben encontrarse en esta carpeta
 `conda_packages` |  Lista de paquetes de Python para instalarse mediante Conda que necesita el script de aprendizaje. El constructor tiene otro parámetro llamado `pip_packages` que puede usar para todos los paquetes de PIP necesitados

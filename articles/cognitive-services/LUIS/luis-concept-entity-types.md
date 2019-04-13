@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/22/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 6e37466145af58a52a86a08a2a873e406c99b9e5
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 59a05e7a20f6b229b37977a75d22611c0d5c31d9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58895552"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528040"
 ---
 # <a name="entity-types-and-their-purposes-in-luis"></a>Tipos de entidad y sus propósitos en LUIS
 
@@ -24,7 +24,15 @@ Entidades extraen datos de la declaración. Tipos de entidad le predecible extra
 
 ## <a name="entity-compared-to-intent"></a>Comparación entre entidades e intenciones
 
-La entidad representa una palabra o frase dentro de la expresión que quiere extraer. Una expresión puede incluir varias o ninguna entidad. Una entidad representa una clase que incluye una colección de objetos parecidos (lugares, cosas, personas, eventos o conceptos). Las entidades describen información relevante para la intención y a veces son esenciales para que la aplicación lleve a cabo la tarea. Por ejemplo, una aplicación de búsqueda de noticias podría incluir entidades como "tema", "fuente", "palabra clave" o "fecha de publicación", que son datos clave para buscar noticias. En una aplicación de reserva de viajes, "ubicación", "fecha", "aerolínea", "clase de viaje" y "billetes" representan información clave para reservar vuelos (relevante para la intención "reservar vuelo").
+La entidad representa una palabra o frase dentro de la expresión que quiere extraer. Una expresión puede incluir varias o ninguna entidad. Una aplicación cliente que necesite la entidad para realizar su tarea o utilizarlo como una guía de varias opciones para presentar al usuario. 
+
+Una entidad:
+
+* Representa una clase incluida una colección de objetos similares (lugares, cosas, personas, eventos o conceptos). 
+* Describe la información pertinente a la intención
+
+
+Por ejemplo, una aplicación de búsqueda de noticias podría incluir entidades como "tema", "fuente", "palabra clave" o "fecha de publicación", que son datos clave para buscar noticias. En una aplicación de reserva de viajes, "ubicación", "fecha", "aerolínea", "clase de viaje" y "billetes" representan información clave para reservar vuelos (relevante para la intención "reservar vuelo").
 
 En comparación, la intención representa la predicción de toda la expresión. 
 
@@ -88,15 +96,15 @@ Una vez que se extrae la entidad, sus datos pueden representarse como una sola u
 
 |Con aprendizaje automático|Se puede marcar|Tutorial|Ejemplo<br>Response|Tipo de entidad|Propósito|
 |--|--|--|--|--|--|
-|✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Compuesto**](#composite-entity)|Agrupación de entidades, independientemente del tipo de entidad.|
-|✔|✔|[✔](luis-quickstart-intent-and-hier-entity.md)|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Jerárquico**](#hierarchical-entity)|Agrupación de entidades simples.|
-|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Enumerar**](#list-entity)|Lista de elementos y sus sinónimos extraída con coincidencia de texto exacta.|
+|✔|✔|[✔](luis-tutorial-composite-entity.md)|[✔](luis-concept-data-extraction.md#composite-entity-data)|[**Compuesta**](#composite-entity)|Agrupación de entidades, independientemente del tipo de entidad.|
+|✔|✔|-|[✔](luis-concept-data-extraction.md#hierarchical-entity-data)|[**Jerárquica**](#hierarchical-entity)|Agrupación de entidades simples.|
+|||[✔](luis-quickstart-intent-and-list-entity.md)|[✔](luis-concept-data-extraction.md#list-entity-data)|[**Lista**](#list-entity)|Lista de elementos y sus sinónimos extraída con coincidencia de texto exacta.|
 |Mixta||[✔](luis-tutorial-pattern.md)|[✔](luis-concept-data-extraction.md#patternany-entity-data)|[**Pattern.any**](#patternany-entity)|Entidad cuyo final es difícil de determinar.|
-|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Creados previamente**](#prebuilt-entity)|Entidad entrenada para extraer distintos tipos de datos.|
+|||[✔](luis-tutorial-prebuilt-intents-entities.md)|[✔](luis-concept-data-extraction.md#prebuilt-entity-data)|[**Creada previamente**](#prebuilt-entity)|Entidad entrenada para extraer distintos tipos de datos.|
 |||[✔](luis-quickstart-intents-regex-entity.md)|[✔](luis-concept-data-extraction.md#regular-expression-entity-data)|[**Expresión regular**](#regular-expression-entity)|Usa una expresión regular que coincide con el texto.|
 |✔|✔|[✔](luis-quickstart-primary-and-secondary-data.md)|[✔](luis-concept-data-extraction.md#simple-entity-data)|[**Simple**](#simple-entity)|Contiene un único concepto en una palabra o frase.|
 
-Solo es necesario marcar las entidades con aprendizaje automático en las expresiones de ejemplo de cada intención. Las entidades de aprendizaje automático funcionan mejor cuando se prueban con [consultas de punto de conexión](luis-concept-test.md#endpoint-testing) y con [expresiones de punto de conexión de revisión](luis-how-to-review-endpoint-utterances.md). 
+Solo entidades ha aprendido la máquina deben marcarse como las declaraciones de ejemplo. Las entidades de aprendizaje automático funcionan mejor cuando se prueban con [consultas de punto de conexión](luis-concept-test.md#endpoint-testing) y con [expresiones de punto de conexión de revisión](luis-how-to-review-endoint-utt.md). 
 
 Las entidades Pattern.Any deben marcarse en los ejemplos de la plantilla de [patrón](luis-how-to-model-intent-pattern.md), y no en los ejemplos de la intención del usuario. 
 
@@ -117,33 +125,19 @@ Esta entidad es la opción ideal cuando los datos:
 ![entidad compuesta](./media/luis-concept-entities/composite-entity.png)
 
 [Tutorial](luis-tutorial-composite-entity.md)<br>
-[Ejemplo de respuesta JSON para entidades](luis-concept-data-extraction.md#composite-entity-data)<br>
+[Respuesta JSON de ejemplo de entidad](luis-concept-data-extraction.md#composite-entity-data)<br>
 
 ## <a name="hierarchical-entity"></a>Entidad jerárquica
 
+**Entidades jerárquicas quedará obsoleto finalmente. Use [roles entidad](luis-concept-roles.md) para determinar los subtipos de entidad, en lugar de entidades jerárquicas.**
+
 Una entidad jerárquica es una categoría de entidades simples de aprendizaje contextual, denominadas entidades secundarias.
-
-Esta entidad es la opción ideal cuando los datos:
-
-* Son entidades simples.
-* Se relacionan entre sí en el contexto de la expresión.
-* Usan una selección de palabras específica para indicar cada entidad secundaria. Ejemplos de estas palabras incluyen: from/to, leaving/headed to, away from/toward.
-* Las entidades secundarias suelen estar en la misma expresión. 
-* Debe estar agrupadas y procesarse por la aplicación cliente como una unidad de información.
-
-No lo use si:
-
-* Necesita una entidad con coincidencias de texto exactas para entidades secundarias, independientemente del contexto. En su lugar, use una [entidad de lista](#list-entity). 
-* Necesita una entidad para una relación de elementos primarios y secundarios con otros tipos de entidades. Use la [entidad compuesta](#composite-entity).
 
 ![entidad jerárquica](./media/luis-concept-entities/hierarchical-entity.png)
 
-[Tutorial](luis-quickstart-intent-and-hier-entity.md)<br>
-[Ejemplo de respuesta JSON para entidades](luis-concept-data-extraction.md#hierarchical-entity-data)<br>
-
 ### <a name="roles-versus-hierarchical-entities"></a>Roles frente a entidades jerárquicas
 
-Los [roles](luis-concept-roles.md#roles-versus-hierarchical-entities) de un patrón resuelven el mismo problema que las entidades jerárquicas, pero se aplican a todos los tipos de entidad. Actualmente, los roles solo están disponibles en patrones. Los roles no están disponibles en las expresiones de ejemplo de las intenciones.  
+[Roles](luis-concept-roles.md) resolver el mismo problema como entidades jerárquicas, pero se aplican a todos los tipos de entidad.  
 
 ## <a name="list-entity"></a>Entidad de lista
 
@@ -158,7 +152,7 @@ La entidad es la opción ideal cuando los datos de texto:
 ![entidad de lista](./media/luis-concept-entities/list-entity.png)
 
 [Tutorial](luis-quickstart-intent-and-list-entity.md)<br>
-[Ejemplo de respuesta JSON para entidades](luis-concept-data-extraction.md#list-entity-data)
+[Respuesta JSON de ejemplo de entidad](luis-concept-data-extraction.md#list-entity-data)
 
 ## <a name="patternany-entity"></a>Entidad Pattern.any
 
@@ -168,7 +162,7 @@ La entidad es la opción ideal cuando:
 
 * El final de la entidad se puede confundir con el resto del texto de la expresión. 
 [Tutorial](luis-tutorial-pattern.md)<br>
-[Ejemplo de respuesta JSON para entidades](luis-concept-data-extraction.md#patternany-entity-data)
+[Respuesta JSON de ejemplo de entidad](luis-concept-data-extraction.md#patternany-entity-data)
 
 **Ejemplo**  
 Dada una aplicación cliente que busca libros en función del título, pattern.any extrae el título completo. `Was {BookTitle} written by an American this year[?]` es una expresión de plantilla que usa pattern.any para este libro. 
@@ -195,7 +189,7 @@ Las entidades precompiladas se pueden agregar y quitar en cualquier momento.
 ![Entidad creada previamente de número](./media/luis-concept-entities/number-entity.png)
 
 [Tutorial](luis-tutorial-prebuilt-intents-entities.md)<br>
-[Ejemplo de respuesta JSON para entidades](luis-concept-data-extraction.md#prebuilt-entity-data)
+[Respuesta JSON de ejemplo de entidad](luis-concept-data-extraction.md#prebuilt-entity-data)
 
 Algunas de estas entidades precompiladas se definen en el proyecto de código abierto [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text). Si su referencia cultural o entidad específica no se admite actualmente, colabore en el proyecto. 
 
@@ -243,7 +237,7 @@ La entidad es la opción ideal cuando:
 ![Entidad de expresión regular](./media/luis-concept-entities/regex-entity.png)
 
 [Tutorial](luis-quickstart-intents-regex-entity.md)<br>
-[Ejemplo de respuesta JSON para entidades](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
+[Respuesta JSON de ejemplo de entidad](luis-concept-data-extraction.md#regular-expression-entity-data)<br>
 
 ## <a name="simple-entity"></a>Entidad simple 
 
@@ -256,30 +250,21 @@ La entidad es la opción ideal cuando:
 ![entidad simple](./media/luis-concept-entities/simple-entity.png)
 
 [Tutorial](luis-quickstart-primary-and-secondary-data.md)<br/>
-[Ejemplo de respuesta de entidad](luis-concept-data-extraction.md#simple-entity-data)<br/>
+[Respuesta de ejemplo de entidad](luis-concept-data-extraction.md#simple-entity-data)<br/>
 
 ## <a name="entity-limits"></a>Límites de entidad
 
 Consulte los [límites](luis-boundaries.md#model-boundaries) para saber cuántas entidades de cada tipo puede agregar a un modelo.
 
-## <a name="composite-vs-hierarchical-entities"></a>Entidades compuestas frente a entidades jerárquicas
-
-Las entidades compuestas y las entidades jerárquicas tienen relaciones entre elementos primarios y secundarios, y se aprenden mediante el aprendizaje automático. Gracias al aprendizaje automático, LUIS puede comprender las entidades en función de otros contextos (organización de palabras). Las entidades compuestas son más flexibles porque admiten distintos tipos de entidad como elementos secundarios. Los elementos secundarios de una entidad jerárquica son solo entidades simples. 
-
-|Type|Propósito|Ejemplo|
-|--|--|--|
-|Jerárquico|Elementos primarios y secundarios de entidades simples|Location.Origin=Nueva York<br>Location.Destination=Londres|
-|Compuesto|Entidades de elementos primarios y secundarios: creada previamente, lista, simple y jerárquica| number=3<br>list=primera clase<br>prebuilt.datetimeV2=5 de marzo|
-
 ## <a name="if-you-need-more-than-the-maximum-number-of-entities"></a>Si necesita más del número máximo de entidades 
 
-Es posible que tenga que usar entidades jerárquicas y entidades compuestas. Las entidades jerárquicas reflejan la relación entre las entidades que comparten características o son miembros de una categoría. Todas las entidades secundarias son miembros de la categoría de su elemento primario. Por ejemplo, una entidad jerárquica denominada ClaseBilleteAvión podría tener las entidades secundarias ClaseEconómica y PrimeraClase. La jerarquía abarca un solo nivel de profundidad.  
+Es posible que deba usar entidades compuestas en combinación con los roles de la entidad.
 
-Las entidades compuestas representan partes de un total. Por ejemplo, una entidad compuesta denominada PedidoBilleteAvión podría tener las entidades secundarias Aerolínea, Destino, CiudadSalida, FechaSalida y ClaseBilleteAvión. Debe crear una entidad compuesta a partir de entidades simples existentes, elementos secundarios de entidades jerárquicas o entidades creadas previamente.  
+Las entidades compuestas representan partes de un total. Por ejemplo, una entidad compuesta denominada PedidoBilleteAvión podría tener las entidades secundarias Aerolínea, Destino, CiudadSalida, FechaSalida y ClaseBilleteAvión.
 
 LUIS también proporciona el tipo de entidad de lista que no es de aprendizaje automático, pero permite a la aplicación de LUIS especificar una lista fija de valores. Vea la referencia de [LUIS Boundaries](luis-boundaries.md) (Límites de LUIS) para revisar los límites del tipo de entidad de lista. 
 
-Si ha tenido en cuenta las entidades jerárquicas, compuestas y de lista, y aun así necesita más del límite, póngase en contacto con el soporte técnico. Para ello, recopile información detallada sobre el sistema, vaya al sitio web de [LUIS](luis-reference-regions.md#luis-website) y seleccione **Support** (Soporte). Si la suscripción a Azure incluye servicios de soporte técnico, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/). 
+Si se han considerado estas entidades y todavía necesita algo más que el límite, póngase en contacto con soporte técnico. Para ello, recopile información detallada sobre el sistema, vaya al sitio web de [LUIS](luis-reference-regions.md#luis-website) y seleccione **Support** (Soporte). Si la suscripción a Azure incluye servicios de soporte técnico, póngase en contacto con el [soporte técnico de Azure](https://azure.microsoft.com/support/options/). 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

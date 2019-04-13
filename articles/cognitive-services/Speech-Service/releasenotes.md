@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 4/5/2019
 ms.author: wolfma
 ms.custom: seodec18
-ms.openlocfilehash: d53019294a255e42c4cf66f59226c9234a5adf73
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: e40d9a2ac0e95ae72aed927f8a527eb1e092079d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359748"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549412"
 ---
 # <a name="release-notes"></a>Notas de la versión
 
@@ -28,16 +28,16 @@ Esta es una versión solo para JavaScript. No se agregó ninguna característica
 
 ## <a name="speech-sdk-140-2019-april-release"></a>Speech SDK 1.4.0: Versión de abril de 2019
 
-**Nuevas características** 
+**Nuevas características:** 
 
-* El SDK admite ahora el servicio de texto a voz como una versión beta. Se admite en Windows y Linux Desktop desde C++, C#y Java. Para obtener más información, consulte el [información general de texto a voz](text-to-speech.md#get-started-with-text-to-speech).
+* El SDK admite ahora el servicio de texto a voz como una versión beta. Se admite en Windows y Linux Desktop desde C++ y C#. Para obtener más información, consulte el [información general de texto a voz](text-to-speech.md#get-started-with-text-to-speech).
 * El SDK ahora admite archivos de audio MP3 y Opus/Ogg como archivos de flujo de entrada. Esta característica solo está disponible en Linux desde C++ y C# y está actualmente en versión beta (más detalles [aquí](how-to-use-compressed-audio-input-streams.md)).
 * Speech SDK para Java, .NET core, C++ y Objective-C gozan de soporte técnico de macOS. La compatibilidad de Objective-C para macOS está actualmente en versión beta.
 * iOS: El SDK de voz para iOS (Objective-C) ahora también se publica como un CocoaPod.
 * JavaScript: Compatibilidad con micrófono no predeterminada como un dispositivo de entrada.
 * JavaScript: Compatibilidad con servidores proxy para Node.js.
 
-**Ejemplos**
+**Muestras**
 
 * Se han agregado ejemplos para usar el SDK de voz con C++ y Objective-C en macOS.
 * Se han agregado ejemplos que muestran el uso del servicio de texto a voz.
@@ -48,7 +48,7 @@ Esta es una versión solo para JavaScript. No se agregó ninguna característica
 * Para obtener soporte técnico de desarrollo y depuración puede redirigir la información de registro y diagnóstico SDK en un archivo de registro (más detalles [aquí](how-to-use-logging.md)).
 * JavaScript: Mejorar el rendimiento de procesamiento de audio.
 
-**Corrección de errores**
+**Correcciones de errores**
 
 * Mac/iOS: Se corrigió un error que dieron lugar a una larga espera cuando no se pudo establecer una conexión con el servicio de voz.
 * Python: mejorar el control de errores para los argumentos de las devoluciones de llamada de Python.
@@ -71,7 +71,7 @@ Se trata de una versión de corrección de errores y sólo afecta a lo SDK nativ
 * El archivo `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (incluido en versiones anteriores) ya no es necesario. La funcionalidad está ahora integrada en el SDK de core.
 
 
-**Ejemplos**
+**Muestras**
 
 El siguiente contenido nuevo está disponible en nuestro [repositorio de ejemplo](https://aka.ms/csspeech/samples):
 
@@ -100,7 +100,7 @@ El siguiente contenido nuevo está disponible en nuestro [repositorio de ejemplo
 * Los archivos DLL de Windows contienen ahora un recurso de versión.
 * Si creas un reconocedor `FromEndpoint` puede agregar parámetros directamente a la dirección URL del extremo. Uso de `FromEndpoint` no se puede configurar el reconocimiento a través de las propiedades de configuración estándar.
 
-**Corrección de errores**
+**Correcciones de errores**
 
 * La contraseña de proxy y el nombre de usuario de proxy vacíos no se administraron correctamente. Con esta versión, si establece el nombre de usuario de proxy y la contraseña de proxy en una cadena vacía, no se enviarán al conectarse al proxy.
 * El identificador de sesión creado por el SDK no siempre es realmente aleatorio para algunos lenguajes o&nbsp; entornos. Inicialización del generador aleatorio agregada para corregir este problema.
@@ -141,7 +141,7 @@ Esta es una versión solo para JavaScript. No se agregó ninguna característica
 * Se mejoraron los informes de errores y la información. En algunos casos, los mensajes de error no se propagan totalmente.
 * Se actualizaron las dependencias de desarrollo en JavaScript para usar los módulos actualizados.
 
-**Corrección de errores**
+**Correcciones de errores**
 
 * Fugas de memoria fijas debido a un error de coincidencia de tipos en RecognizeAsync.
 * En algunos casos, se perdieron excepciones.
@@ -154,7 +154,7 @@ Esta es una versión solo para JavaScript. No se agregó ninguna característica
 * JavaScript: Se ha establecido el formato de salida predeterminado en "simple" en SpeechConfig.
 * JavaScript: Se ha quitado una incoherencia entre las propiedades del objeto de configuración en JavaScript y otros lenguajes.
 
-**Ejemplos**
+**Muestras**
 
 * Actualiza y se ha corregido varios ejemplos (por ejemplo salida voces de traducción, etcetera.).
 * Se han agregado ejemplos de Node.js en el [repositorio de ejemplo](https://aka.ms/csspeech/samples).
@@ -173,7 +173,7 @@ Esta es una versión solo para JavaScript. No se agregó ninguna característica
 * Control mejorado del silencio prolongado en medio de un archivo de audio.
 * Paquete NuGet: para proyectos de .NET Framework, evita la compilación con la configuración de AnyCPU.
 
-**Corrección de errores**
+**Correcciones de errores**
 
 * En los reconocedores se han encontrado varias excepciones corregidas. Además, las excepciones se detectan y convertir en evento cancelado.
 * Corrección de una fuga de memoria en la administración de propiedades.
@@ -186,7 +186,7 @@ Esta es una versión solo para JavaScript. No se agregó ninguna característica
 * Se corrigió un error que impide establecer el valor EndpointId (en algunos casos) en JavaScript.
 * Se cambió el orden de los parámetros en AddIntent en JavaScript y se agregó la firma de AddIntent en JavaScript.
 
-**Ejemplos**
+**Muestras**
 
 * Se ha agregado un ejemplo de C++ y C# sobre el uso de transmisiones de inserción y extracción en el [repositorio de ejemplos](https://aka.ms/csspeech/samples).
 
@@ -206,19 +206,19 @@ Se ha agregado un nuevo ejemplo de Javascript en nuestro [repositorio de ejemplo
 
 ## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>SDK de Voz 1.0.0 de Cognitive Services: Versión de septiembre de 2018
 
-**Nuevas características**
+**Nuevas características:**
 
 * Compatibilidad con Objective-C en iOS. Consulte la [Guía de inicio rápido de Objective-C para iOS](quickstart-objectivec-ios.md).
 * Se admite JavaScript en el explorador. Consulte la [Guía de inicio rápido de JavaScript](quickstart-js-browser.md).
 
-**Cambios drásticos**
+**Cambios importantes**
 
 * Con esta versión, se presentan una serie de cambios importantes.
   Consulte [esta página](https://aka.ms/csspeech/breakingchanges_1_0_0) para más información.
 
 ## <a name="cognitive-services-speech-sdk-060-2018-august-release"></a>SDK de Voz 0.6.0 de Cognitive Services: Versión de agosto de 2018
 
-**Nuevas características**
+**Nuevas características:**
 
 * Ahora, las aplicaciones de UWP creadas con SDK de Voz superan el Kit para la certificación de aplicaciones en Windows (WACK).
   Consulte la [Guía de inicio rápido de UWP](quickstart-csharp-uwp.md).
@@ -230,12 +230,12 @@ Se ha agregado un nuevo ejemplo de Javascript en nuestro [repositorio de ejemplo
 
 * Se expone más información detallada sobre los errores de conexión.
 
-**Cambios drásticos**
+**Cambios importantes**
 
 * En Java (Android), la función `SpeechFactory.configureNativePlatformBindingWithDefaultCertificate` ya no requiere un parámetro de ruta de acceso. Ahora, la ruta de acceso se detecta automáticamente en todas las plataformas compatibles.
 * En Java y C#, se ha quitado el descriptor de acceso get- de la propiedad `EndpointUrl`.
 
-**Corrección de errores**
+**Correcciones de errores**
 
 * En Java, se implementa ahora el resultado de la síntesis de audio en el reconocedor de traducción.
 * Se ha corregido un error que podía provocar subprocesos inactivos y un mayor número de sockets abiertos y sin usar.
@@ -244,7 +244,7 @@ Se ha agregado un nuevo ejemplo de Javascript en nuestro [repositorio de ejemplo
 
 ## <a name="cognitive-services-speech-sdk-050-2018-july-release"></a>SDK de Voz 0.5.0 de Cognitive Services: Versión de julio de 2018
 
-**Nuevas características**
+**Nuevas características:**
 
 * Compatibilidad con la plataforma Android (API 23: Android Marshmallow 6.0 o posterior). Consulte el [inicio rápido de Android](quickstart-java-android.md).
 * Compatibilidad con .NET Standard 2.0 en Windows. Consulte el [inicio rápido de .NET Core](quickstart-csharp-dotnetcore-windows.md).
@@ -255,11 +255,11 @@ Se ha agregado un nuevo ejemplo de Javascript en nuestro [repositorio de ejemplo
 
 **Cambios funcionales**
 
-* `StartContinuousRecognitionAsync()` es compatible con el reconocimiento de ejecución prolongada.
+* `StartContinuousRecognitionAsync()` admite reconocimiento de ejecución prolongada.
 * El resultado del reconocimiento contiene más campos. Tienen un desplazamiento desde el principio del audio y la duración (ambos en tics) del texto reconocido y valores adicionales que representan el estado de reconocimiento, por ejemplo, `InitialSilenceTimeout` e `InitialBabbleTimeout`.
 * Compatibilidad con AuthorizationToken para la creación de instancias de fábrica.
 
-**Cambios drásticos**
+**Cambios importantes**
 
 * Eventos de reconocimiento: el tipo de evento NoMatch se combina con el evento Error.
 * SpeechOutputFormat en C# se llama ahora OutputFormat para concordar con C++.
@@ -269,7 +269,7 @@ Se ha agregado un nuevo ejemplo de Javascript en nuestro [repositorio de ejemplo
    * En C++, los métodos `Read` y `GetFormat` ahora devuelven `size_t` en lugar de `int`.
 * C++: las instancias de secuencias de entrada de audio ahora solo se pueden pasar como un valor `shared_ptr`.
 
-**Corrección de errores**
+**Correcciones de errores**
 
 * Se han corregido los valores devueltos incorrectos cuando se agota el tiempo de espera de `RecognizeAsync()`.
 * Se ha eliminado la dependencia de las bibliotecas de Media Foundation en Windows. El SDK ahora usa las API de audio básicas.
@@ -295,7 +295,7 @@ Se ha agregado un nuevo ejemplo de Javascript en nuestro [repositorio de ejemplo
 
 - En C# se cambia de `SpeechRecognitionResult.RecognizedText` a `SpeechRecognitionResult.Text`.
 
-**Corrección de errores**
+**Correcciones de errores**
 
 - Se ha corregido un posible problema de devolución de llamada en la capa USP durante el apagado.
 

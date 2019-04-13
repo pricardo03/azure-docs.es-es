@@ -9,12 +9,12 @@ author: prashanthyv
 ms.author: prashanthyv
 manager: barbkess
 ms.date: 03/01/2019
-ms.openlocfilehash: 5ec5109aa8079b37015f66443b8ebac905ad2fcb
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 99b37a9b12c4b66e9b254156dfe4b59c7ab6594c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370574"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526279"
 ---
 # <a name="azure-key-vault-managed-storage-account---cli"></a>Cuenta de almacenamiento administrado por Azure Key Vault: CLI
 
@@ -109,7 +109,7 @@ También puede pedir a Key Vault que genere tokens de SAS (Firma de acceso compa
 Una vez completados los pasos enumerados anteriormente, puede ejecutar los comandos siguientes para solicitar a Key Vault que genere los tokens de SAS en su lugar. 
 
 Con los pasos siguientes se pueden conseguir las siguientes cosas:
-- Establecer una definición de SAS de cuenta llamada "<YourSASDefinitionName>" en una cuenta de almacenamiento que administra Key Vault "<YourStorageAccountName>"en el almacén "<VaultName>". 
+- Establece una definición de SAS con nombre de cuenta `<YourSASDefinitionName>` en una cuenta de almacenamiento administrado de KeyVault `<YourStorageAccountName>` en el almacén de `<VaultName>`. 
 - Crear un token de SAS de cuenta para los servicios de blobs, archivos, tablas y colas, para los tipos de recursos de servicio, contenedor y objeto, con todos los permisos, a través de https y con las fechas de inicio y finalización especificadas
 - Establecer en el almacén una definición de SAS de almacenamiento que administra Key Vault, con el identificador URI de la plantilla como el token de SAS que se creó anteriormente, del tipo de SAS "account" y válido durante N días
 - Recuperar el token de acceso real a partir del secreto de Key Vault que se corresponde con la definición de SAS

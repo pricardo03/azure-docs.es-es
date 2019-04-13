@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 73fcb2753fa7eb15f34b04ddc5bb0b55c4636623
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 51cdd43e62bd511da55978bbac3215200c3a8e01
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58847804"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528278"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Eliminación de un protector de Cifrado de datos transparente (TDE) con PowerShell
 
@@ -40,6 +40,12 @@ Los siguientes procedimientos deben realizarse únicamente en casos extremos o e
 Si alguna vez se sospecha que una clave está comprometida, de modo que un servicio o usuario ha tenido acceso no autorizado a la clave, lo mejor es eliminarla.
 
 Tenga en cuenta que cuando se elimina el protector de TDE en Key Vault, **se bloquean todas las conexiones a las bases de datos cifradas en el servidor y estas bases de datos quedarán sin conexión y se eliminarán en 24 horas**. Las copias de seguridad antiguas cifradas con la clave en peligro ya no son accesibles.
+
+Los siguientes pasos describen cómo comprobar las huellas digitales de Protector de TDE en archivos por registro Virtual (VLF) de una base de datos de uso. La huella digital del protector de TDE actual de la base de datos y el identificador de la base de datos puede encontrarse ejecutando: Seleccione [database_id],       [encryption_state], [encryptor_type], /*clave asimétrica significa que Azure Key VAULT, certificado significa claves administradas del servicio*/ [encryptor_thumbprint,] desde [sys]. [ dm_database_encryption_keys] 
+ 
+La consulta siguiente devuelve el VLF y el sistema de cifrado huellas digitales respectivas en uso. Cada huella digital diferente hace referencia a otra clave en Azure Key Vault (AKV): Seleccionar * desde sys.dm_db_log_info (database_id) 
+
+El comando de PowerShell Get-AzureRmSqlServerKeyVaultKey proporciona la huella digital del Protector de TDE usado en la consulta, para que pueda ver qué claves se deben mantener y qué claves se deben eliminar en Azure Key VAULT. Solo las claves que ya no usa la base de datos se pueden eliminar con seguridad de Azure Key Vault.
 
 Esta guía de procedimientos explica dos enfoques dependiendo del resultado deseado después de la respuesta al incidente:
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: ecaabe0cf2e9e55bf02f8e12244d55fc2bef830b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: d08715b1b3e0db4dfcf31bb4c020ab44ed3916e1
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359817"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549057"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Configuración de la asignación de red y el direccionamiento IP para redes virtuales
 
@@ -86,7 +86,7 @@ Distinto espacio de direcciones<br/><br/> La siguiente dirección IP disponible 
 **Red de destino** | **Detalles**
 --- | ---
 La red de destino es la red virtual de conmutación por error | - La dirección IP de destino es estática, pero no la misma dirección IP que se reserva para la conmutación por error.<br/><br/>  - La dirección IP asignada será la siguiente dirección disponible del final del intervalo de direcciones de subred.<br/><br/> Por ejemplo:  si la dirección IP de origen es la 10.0.0.19 y la red de conmutación por error usa el intervalo 10.0.0.0/24, la siguiente dirección IP asignada a la máquina virtual de destino es la 10.0.0.254.
-La red de destino no es la red virtual de conmutación por error | - La dirección IP de destino será estática con la misma dirección IP reservada para la conmutación por error.<br/><br/>  - Si la misma dirección IP ya está asignada, la dirección IP es la siguiente disponible en cada uno de los intervalos de subred.<br/><br/> Por ejemplo:  si la dirección IP estática de origen es la 10.0.0.19 y la conmutación por error está en una red que no es la red de conmutación por error, con el intervalo 10.0.0.0/24, la dirección IP estática de destino será la 10.0.0.0.19 si está disponible y, en caso contrario, será la 10.0.0.254.
+La red de destino no es la red virtual de conmutación por error | - La dirección IP de destino será estática con la misma dirección IP reservada para la conmutación por error.<br/><br/>  -Si ya se asigna la misma dirección IP, la dirección IP es lo siguiente al final del intervalo de subred.<br/><br/> Por ejemplo:  si la dirección IP estática de origen es la 10.0.0.19 y la conmutación por error está en una red que no es la red de conmutación por error, con el intervalo 10.0.0.0/24, la dirección IP estática de destino será la 10.0.0.0.19 si está disponible y, en caso contrario, será la 10.0.0.254.
 
 - La red virtual de conmutación por error es la red de destino que seleccionó al configurar la recuperación ante desastres.
 - Se recomienda que utilice siempre una red que no sea de producción para la conmutación por error de prueba.

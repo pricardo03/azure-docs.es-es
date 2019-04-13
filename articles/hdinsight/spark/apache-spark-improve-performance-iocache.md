@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.topic: conceptual
 ms.date: 10/15/2018
-ms.openlocfilehash: 204a3230c782279b0cad4194e97aa4014c940635
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.openlocfilehash: 5422f4796d2451b652222332799d8ad1a9fc4803
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608501"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525602"
 ---
 # <a name="improve-performance-of-apache-spark-workloads-using-azure-hdinsight-io-cache-preview"></a>Mejora del rendimiento de las cargas de trabajo de Apache Spark con la memoria caché de E/S de Azure HDInsight (versión preliminar)
 
@@ -78,4 +78,4 @@ Si esto no funciona, deshabilite la memoria caché de E/S.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Lea más acerca de la memoria caché de E/S, incluidas las pruebas comparativas de rendimiento, en esta entrada de blog: [Los trabajos de Apache Spark obtienen hasta 9 veces más velocidad con la memoria caché de E/S HDInsight](https://azure.microsoft.com/en-us/blog/apache-spark-speedup-with-hdinsight-io-cache/)
+- Lea más acerca de la memoria caché de E/S, incluidas las pruebas comparativas de rendimiento, en esta entrada de blog: [Los trabajos de Apache Spark obtienen hasta 9 veces más velocidad con la memoria caché de E/S HDInsight](https://azure.microsoft.com/blog/apache-spark-speedup-with-hdinsight-io-cache/)

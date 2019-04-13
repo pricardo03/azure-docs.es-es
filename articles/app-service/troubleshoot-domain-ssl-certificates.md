@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 8ae6c9d5238f2853a12c20edfd3dba6d3f529b2c
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c0584a69349c2785b5b6bce1d17c023c95b36151
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905824"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525388"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-app-service"></a>Solución de problemas de dominio y certificado SSL en Azure App Service
 
@@ -270,8 +270,8 @@ Este problema se produce por uno de los siguientes motivos:
     |Tipo de registro|Host|Apunta a|
     |------|------|-----|
     |Una |@|Dirección IP de la aplicación|
-    |TXT|@|<nombre-aplicación>.azurewebsites.net|
-    |CNAME|www|<nombre-aplicación>.azurewebsites.net|
+    |TXT|@|`<app-name>.azurewebsites.net`|
+    |CNAME|www|`<app-name>.azurewebsites.net`|
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
@@ -287,7 +287,7 @@ Sí, puede señalar el dominio a una máquina virtual. Para más información, c
 
 Dominios de App Service use GoDaddy para el registro de dominio y DNS de Azure para hospedar los dominios. 
 
-**Tengo la renovación automática habilitada, pero todavía recibe un aviso de renovación para mi dominio a través del correo electrónico. ¿Cuál debo hacer?**
+**Tengo la renovación automática habilitada, pero todavía recibe un aviso de renovación para mi dominio a través del correo electrónico. ¿qué debo hacer?**
 
 Si dispone de renovación automática está habilitada, no es necesario realizar ninguna acción. El correo electrónico de aviso se proporciona informar de que el dominio está a punto de expirar y renovar manualmente si la renovación automática no está habilitado.
 

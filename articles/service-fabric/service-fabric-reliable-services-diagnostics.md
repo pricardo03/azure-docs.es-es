@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 96fc58ca8456e9a2e539e432f0ed85f6edc1a54f
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f49176f944aa2abfa1d355ce0bd207d1b544c275
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58664122"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527057"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Funcionalidad de diagnóstico para Reliable Services con estado
 La clase StatefulServiceBase de Reliable Services con estado de Azure Service Fabric emite eventos [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) que pueden usarse para depurar el servicio, ofrecer información acerca de cómo funciona el tiempo de ejecución y ayudar a solucionar problemas.
@@ -106,7 +106,7 @@ El tiempo de ejecución de Reliable Services emite los siguientes eventos en la 
 | --- | --- |
 | Operaciones de inicio de transacción/s | El número de nuevas transacciones de escritura creadas por segundo.|
 | Operaciones de transacción/s | El número de operaciones de adición/actualización/eliminación realizadas en colecciones confiables por segundo.|
-| Prom. Latencia de vaciado (ms) | Número de bytes que el replicador de transacciones vacía en el disco por segundo |
+| Bytes de vaciado de registro/s | Número de bytes que el replicador de transacciones vacía en el disco por segundo |
 | Operaciones limitadas/s | Número de operaciones que el replicador de transacciones rechaza cada segundo por causas de limitación. |
 | Prom. ms de transacción/confirmación | Latencia de confirmación media por transacción en milisegundos |
 | Prom. Latencia de vaciado (ms) | Duración media de las operaciones de vaciado de disco iniciadas por el replicador de transacciones en milisegundos |

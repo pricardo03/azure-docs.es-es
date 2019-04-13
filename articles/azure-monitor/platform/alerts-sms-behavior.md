@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 225c86ee1a7f764f60b2da0b8e3be02aa5dd22e7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 74666149824627308b6c5b026e0c9ba7a7750ada
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58123307"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523620"
 ---
 # <a name="sms-alert-behavior-in-action-groups"></a>Comportamiento de las alertas por SMS en los grupos de acciones
 ## <a name="overview"></a>Información general ##
@@ -32,8 +32,8 @@ Un receptor de SMS, que se configura como parte de un grupo de acciones, recibir
 
 | RESPUESTA | DESCRIPCIÓN |
 | ----- | ----------- |
-| DISABLE <Action Group Short name> | Deshabilita SMS adicionales del grupo de acciones |
-| ENABLE <Action Group Short name> | Vuelve a habilitar los SMS en el grupo de acciones |
+| DISABLE `<Action Group Short name>` | Deshabilita SMS adicionales del grupo de acciones |
+| ENABLE `<Action Group Short name>` | Vuelve a habilitar los SMS en el grupo de acciones |
 | STOP | Deshabilita SMS adicionales de todos los grupos de acciones |
 | START | Vuelve a habilitar SMS en TODOS los grupos de acciones |
 | HELP | Se enviará una respuesta al usuario con un vínculo a este artículo. |

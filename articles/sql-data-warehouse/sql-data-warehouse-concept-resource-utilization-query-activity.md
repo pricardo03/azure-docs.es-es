@@ -7,21 +7,24 @@ manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 03/21/2019
+ms.date: 04/12/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: de5d8a3cd329e023b57d887a22db5459f13c7486
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: f80c1817d5c0ce79f2dc53f40a2cc4e00dd5c72b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59492794"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545563"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Supervisión del uso de recursos y la actividad consultas en Azure SQL Data Warehouse
 Azure SQL Data Warehouse ofrece una experiencia de supervisión enriquecida en Azure Portal que expone la información de la carga de trabajo del almacenamiento de datos. Azure Portal es la herramienta recomendada al supervisar el almacenamiento de datos, ya que proporciona períodos de retención configurables, alertas, recomendaciones, y gráficos y paneles personalizables para métricas y registros. El portal también le permite integrar con otros servicios de supervisión de Azure, como Operations Management Suite (OMS) y Azure Monitor (registros) para proporcionar una experiencia de supervisión integral para no solo el almacenamiento de datos, sino también los análisis de Azure de todos plataforma para una experiencia de supervisión integrada. Esta documentación describe las funcionalidades de supervisión disponibles para optimizar y administrar la plataforma Analytics con SQL Data Warehouse. 
 
 ## <a name="resource-utilization"></a>Uso de recursos 
 Las métricas siguientes están disponibles en Azure Portal para SQL Data Warehouse. Estas métricas se exponen a través de [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics).
+
+> [!NOTE]
+> Actualmente métricas de E/S y CPU de nivel de nodo no reflejan correctamente el uso de almacenamiento de datos. Estas métricas se quitarán en un futuro próximo, como el equipo de mejora de la supervisión y solución de problemas de experiencia de SQL Data Warehouse. 
 
 | Nombre de métrica                           | DESCRIPCIÓN     | Tipo de agregación |
 | --------------------------------------- | ---------------- | --------------------------------------- |
@@ -49,5 +52,5 @@ Métricas y registros se pueden exportar a Azure Monitor, específicamente el [r
 ## <a name="next-steps"></a>Pasos siguientes
 Las siguientes guías de procedimientos describen escenarios comunes y casos de uso mientras se supervisa y administra el almacenamiento de datos:
 
-- [Supervisar la carga de trabajo del almacén de datos con DMV](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)
+- [Supervisión de la carga de trabajo mediante DMV](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor)
 

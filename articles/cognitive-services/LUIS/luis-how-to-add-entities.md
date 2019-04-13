@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/11/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 784fe19d1ae40a7cdff3cc853726d4c62265e0f1
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 0044cbc9e6142989a57e79de5fd1e78e999bb5e1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106940"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522357"
 ---
 # <a name="create-entities-without-utterances"></a>Creación de entidades sin expresiones
 
-La entidad representa una palabra o frase dentro de la expresión que quiere extraer. Una entidad representa una clase que incluye una colección de objetos parecidos (lugares, cosas, personas, eventos o conceptos). Las entidades describen información relevante para la intención y a veces son esenciales para que la aplicación lleve a cabo la tarea. Puede crear entidades cuando se agrega una declaración para una intención o una distancia de (antes o después) agregar una declaración para una intención.
+La entidad representa una palabra o frase dentro de la expresión que quiere extraer. Una entidad representa una clase incluida una colección de objetos similares (lugares, cosas, personas, eventos o conceptos). Las entidades describen información relevante para la intención y a veces son esenciales para que la aplicación lleve a cabo la tarea. Puede crear entidades cuando se agrega una declaración para una intención o una distancia de (antes o después) agregar una declaración para una intención.
 
 Puede agregar, editar o eliminar entidades de la aplicación de LUIS a través de la **lista de entidades** en la página **Entidades**. LUIS ofrece dos tipos principales de entidades: [entidades precompiladas](luis-reference-prebuilt-entities.md) y [entidades del usuario personalizadas](luis-concept-entity-types.md#types-of-entities).
 
@@ -135,7 +135,7 @@ En la expresión `Where is Request relocation from employee new to the company o
 
 ## <a name="add-a-role-to-distinguish-different-contexts"></a>Agregue un rol para distinguir los diferentes contextos
 
-Un rol es un subtipo con nombre de una entidad basada en el contexto. Es comparable a una entidad [jerárquica](#add-hierarchical-entities), pero los roles solo se usan en [patrones](luis-how-to-model-intent-pattern.md). 
+Un rol es un subtipo con nombre en función del contexto. Está disponible en todas las entidades incluidas entidades creadas previamente y no ha aprendido la máquina. 
 
 Con el mismo ejemplo que la entidad jerárquica de las ciudades de origen y destino, la diferencia es que un rol se llama desde el origen en lugar de un elemento secundario jerárquico. 
 

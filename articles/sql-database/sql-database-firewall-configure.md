@@ -12,12 +12,12 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: f2ea9f784064a926a391ba0eadebd9fa5224a36d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 513836257a292069da709ad7a71e480f2b4d069d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57875193"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549736"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-ip-firewall-rules"></a>Reglas de firewall por IP de Azure SQL Database y SQL Data Warehouse
 
@@ -249,6 +249,7 @@ Tenga en cuenta los siguientes puntos cuando el acceso al servicio de Microsoft 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+- Confirme que su entorno de red corporativo permite la comunicación entrante de los intervalos de direcciones IP de Compute (incluidos los intervalos SQL) utilizada por los centros de datos de Microsoft Azure. Puede ser necesario a la lista de permitidos estas direcciones IP, consulte [intervalos de IP de centro de datos de Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653)  
 - Para consultar un inicio rápido sobre cómo crear una regla de firewall por IP de nivel de servidor, consulte [Creación de una instancia de Azure SQL Database](sql-database-single-database-get-started.md).
 - Si desea obtener ayuda para conectarse a Azure SQL Database desde aplicaciones de código abierto o de terceros, consulte [Ejemplos de código de inicio rápido de cliente para SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 - Para información sobre los puertos adicionales que puede necesitar abrir, vea la sección **SQL Database: fuera frente a dentro**: de la sección [Puertos más allá de 1433 para ADO.NET 4.5 y SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)

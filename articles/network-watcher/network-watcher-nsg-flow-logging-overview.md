@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 62b526950367987e26c1c67394bc0720ae895fa6
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 6e15149dec9fdbb7413745d36b3f6a158113b586
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983802"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547029"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introducción al registro de flujo de grupos de seguridad de red
 
@@ -92,6 +92,8 @@ El texto que sigue es un ejemplo de un registro de flujo. Como puede ver, hay va
 **Habilitar el registro de flujo de NSG en todos los NSG asociados a un recurso**: En Azure, el registro de flujo en Azure se configura en el recurso de NSG. Un flujo solo se asociará a una regla de NSG. En escenarios en los que se utilizan varios NSG, se recomienda que los registros de flujo de NSG estén habilitados en todos los NSG aplicados a la interfaz de red o subred de un recurso para garantizar que todo el tráfico se registre. Consulte [cómo se evalúa el tráfico](../virtual-network/security-overview.md#how-traffic-is-evaluated) para obtener más información sobre los grupos de seguridad de red. 
 
 **Costos del registro de flujo**: El registro de flujos de NSG se factura según el volumen de registros generados. Un volumen de tráfico elevado puede producir un volumen de registro de flujo elevado, con los costos asociados. Los precios del registro de flujos de NSG no incluyen los costos de almacenamiento subyacentes. Si se usa la característica de directiva de retención con el registro de flujo de NSG, es posible que se presente un gran volumen de operaciones de almacenamiento, con sus respectivos costos. Si no necesita la característica de directiva de retención, se recomienda que establezca este valor en 0. Consulte [precios de Network Watcher](https://azure.microsoft.com/en-us/pricing/details/network-watcher/) y [precios de Azure Storage](https://azure.microsoft.com/en-us/pricing/details/storage/) para obtener más detalles.
+
+**Iniciado sesión desde direcciones IP de internet a las máquinas virtuales sin direcciones IP públicas de flujos de entrada**: Las máquinas virtuales que no tienen una dirección IP pública asignada a través de una dirección IP pública asociada con la NIC como una dirección IP pública de nivel de instancia, o que forman parte de un grupo de back-end de equilibrador de carga básico, uso [predeterminado SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) y tiene una dirección IP asignada por Azure para facilitar la conectividad de salida. Como resultado, es posible que vea las entradas de registro de flujo para los flujos desde internet las direcciones IP, si el flujo está destinado a un puerto en el intervalo de puertos asignados para SNAT. Si bien Azure no permitirá que estos flujos a la máquina virtual, el intento se registra y aparece en el registro de flujos de Network Watcher por diseño. Se recomienda que el tráfico de internet entrante no deseado puede bloquearse explícitamente con NSG.
 
 ## <a name="sample-log-records"></a>Entradas de registro de ejemplo
 

@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 23120e45a1070f46ae4e1927a29bdab4c990d96f
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 51a812762659bcc67762b82e9c120772065aab53
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55860718"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549694"
 ---
 # <a name="schema-format"></a>Formato de esquema
 
@@ -43,14 +43,14 @@ A continuación se muestra una lista de los tipos de datos de atributos admitido
 
 | Type | DESCRIPCIÓN | Operaciones | Ejemplo |
 |------|-------------|------------|---------|
-| string | Cadena (1-1024 caracteres) | equals, starts_with | "hello world" |
-| Int32 | Entero de 32 bits con signo | equals, starts_with, is_between | 2016 |
-| Int64 | Entero de 64 bits con signo | equals, starts_with, is_between | 9876543210 |
-| Double | Valor de punto flotante de doble precisión | equals, starts_with, is_between | 1.602e-19 |
-| Date | Fecha (de 01-01-1400 a 31-12-9999) | equals, is_between | "2016-03-14" |
-| Guid | Identificador único global | equals | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
-| Blob | Datos comprimidos internamente no indexados | *None* | "Permitir que todas las personas y organizaciones del mundo puedan llegar aún más lejos" |
-| Composición | Composición de varios atributos secundarios| *N/D* | { "Name":"harry shum", "Affiliation":"microsoft" } |
+| `String` | Cadena (1-1024 caracteres) | equals, starts_with | "hello world" |
+| `Int32` | Entero de 32 bits con signo | equals, starts_with, is_between | 2016 |
+| `Int64` | Entero de 64 bits con signo | equals, starts_with, is_between | 9876543210 |
+| `Double` | Valor de punto flotante de doble precisión | equals, starts_with, is_between | 1.602e-19 |
+| `Date` | Fecha (de 01-01-1400 a 31-12-9999) | equals, is_between | "2016-03-14" |
+| `Guid` | Identificador único global | equals | "602DD052-CC47-4B23-A16A-26B52D30C05B" |
+| `Blob` | Datos comprimidos internamente no indexados | *None* | "Permitir que todas las personas y organizaciones del mundo puedan llegar aún más lejos" |
+| `Composite` | Composición de varios atributos secundarios| *N/D* | { "Name":"harry shum", "Affiliation":"microsoft" } |
 
 Los atributos de cadena se usan para representar valores de cadena que pueden formar parte de la consulta del usuario.  Estos atributos admiten la operación *equals* de coincidencias exactas, así como la operación *starts_with* para escenarios de finalización de consultas, como, por ejemplo, la coincidencia de "micros" con "microsoft".  En próximas versiones se admitirá la no distinción entre mayúsculas y minúsculas y la coincidencia aproximada para manejar los errores ortográficos.
 

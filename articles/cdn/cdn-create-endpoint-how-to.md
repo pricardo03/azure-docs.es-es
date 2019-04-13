@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: ba25bef75bc21eea2b0c3a57599a3b9ddd3164e0
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 296f1df9175f4595274a57ed936282abb73da18b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916825"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525116"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Creación de un punto de conexión de Azure CDN
 Este artículo describe toda la configuración para crear un punto de conexión de [Azure Content Delivery Network (CDN)](cdn-overview.md) en un perfil de CDN existente. Una vez haya creado un perfil y un punto de conexión, podrá iniciar la entrega de contenido a sus clientes. Una guía de inicio rápido sobre cómo crear un perfil y un punto de conexión, consulte [inicio rápido: Creación de un perfil y un punto de conexión de Azure CDN](cdn-create-new-endpoint.md).
@@ -44,7 +44,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azur
    
     ![Página Agregar punto de conexión](./media/cdn-create-endpoint-how-to/cdn-add-endpoint-page.png)
 
-3. En **Nombre**, escriba un nombre único para el nuevo punto de conexión de CDN. Este nombre se usa para obtener acceso a sus recursos almacenados en caché en el dominio _<endpointname>_.azureedge.net.
+3. En **Nombre**, escriba un nombre único para el nuevo punto de conexión de CDN. Este nombre se usa para tener acceso a los recursos almacenados en caché en el dominio  _\<nombrepuntoconexión >_. azureedge.net.
 
 4. En **Tipo de origen**, elija uno de los siguientes tipos de origen: 
    - **Almacenamiento** para Azure Storage
@@ -62,7 +62,7 @@ Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azur
    > Algunos tipos de orígenes, como Azure Storage y Aplicaciones web, requieren que el encabezado del host coincida con el dominio del origen. A menos que tenga un origen que requiera un encabezado de host diferente de su dominio, debe dejar el valor predeterminado.
    > 
     
-8. En **Protocolo** y **Puerto de origen**, especifique los protocolos y los puertos que se usan para acceder a sus recursos en el servidor de origen. Se debe seleccionar al menos un protocolo (HTTP o HTTPS). Use el dominio proporcionado por CDN (_<endpointname>_.azureedge.net) para acceder al contenido HTTPS. 
+8. En **Protocolo** y **Puerto de origen**, especifique los protocolos y los puertos que se usan para acceder a sus recursos en el servidor de origen. Se debe seleccionar al menos un protocolo (HTTP o HTTPS). Usar el dominio proporcionado CDN (_\<nombrepuntoconexión >_. azureedge.net) para tener acceso al contenido HTTPS. 
    
    > [!NOTE]
    > El valor de **Puerto de origen** solo determina el puerto que utiliza el punto de conexión para recuperar información del servidor de origen. El propio punto de conexión solo está disponible para los clientes finales en los puertos HTTP y HTTPS predeterminados (80 y 443), con independencia de cuál sea el **puerto de origen**.  
@@ -108,6 +108,6 @@ Para eliminar un punto de conexión cuando ya no sea necesario, selecciónelo y,
 Para más información acerca de los dominios personalizados, continúe con el tutorial para agregar un dominio personalizado al punto de conexión de CDN.
 
 > [!div class="nextstepaction"]
-> [Adición de un dominio personalizado](cdn-map-content-to-custom-domain.md)
+> [Agregar un dominio personalizado](cdn-map-content-to-custom-domain.md)
 
 

@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 11587d5a0520d42d554c13a525c3b57db82326aa
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.openlocfilehash: 5417f66696191cebadc2af9c6d634419a0eb8e5b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51229482"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526459"
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Depuración de código C# definido por el usuario para trabajos de U-SQL con errores
 
@@ -28,7 +28,7 @@ En el siguiente vídeo se demuestra la depuración de vértice con errores en la
 >
 
 > [!IMPORTANT]
-> Visual Studio requiere las siguientes dos actualizaciones para poder usar esta característica: [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) y [Universal C Runtime en Windows](https://www.microsoft.com/download/details.aspx?id=50410).
+> Visual Studio requiere las siguientes dos actualizaciones para usar esta característica: [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) y [en tiempo de ejecución de C Universal para Windows](https://www.microsoft.com/download/details.aspx?id=50410).
 >
 
 ## <a name="download-failed-vertex-to-local-machine"></a>Error al descargar el vértice en la máquina local
@@ -80,7 +80,7 @@ Si el código de usuario no se incluye en el archivo de código subyacente, o no
 
 2. Obtenga la ruta de la carpeta del proyecto **FailedVertexDebugHost**. 
 
-3. Haga clic con el botón derecho en el **proyecto de código fuente del ensamblado > Properties** (Propiedades), seleccione la pestaña **Build** (Compilar) a la izquierda y pegue la ruta de acceso que termina en \bin\debug en **Output > Output path** (Salida > Ruta de salida). La ruta de la salida final es como "<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\".
+3. Haga clic con el botón derecho en el **proyecto de código fuente del ensamblado > Properties** (Propiedades), seleccione la pestaña **Build** (Compilar) a la izquierda y pegue la ruta de acceso que termina en \bin\debug en **Output > Output path** (Salida > Ruta de salida). La ruta de acceso de salida final es como `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`.
 
     ![Depuración de U-SQL de Azure Data Lake Analytics: definición de la ruta de acceso de pdb](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
 

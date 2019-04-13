@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 1390d68a93dd3d80b5977bab6665553ea3f8b398
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f521fd11a2053cf8cf1ea0f9f91667fe475f0eee
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403081"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522442"
 ---
 # <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incrustación de un vídeo de streaming adaptativo MPEG-DASH en una aplicación HTML5 con DASH.js  
 
-## <a name="overview"></a>Introducción
+## <a name="overview"></a>Información general
 MPEG-DASH es una norma ISO para el streaming adaptable de contenido de vídeo, que ofrece ventajas significativas para los desarrolladores que desean ofrecer salida de streaming de vídeo adaptable de alta calidad. Con MPEG-DASH, la secuencia de vídeo se ajusta automáticamente a una definición inferior cuando la red está saturada. Esto reduce la probabilidad de que el usuario vea un vídeo "pausado" mientras el reproductor descarga los siguientes segundos para reproducirlos (también conocido como almacenamiento en búfer). A medida que la congestión de la red se reduce, el reproductor de vídeo volverá a su vez a una secuencia de mayor calidad. Esta capacidad para adaptar el ancho de banda necesario también produce una hora de inicio más rápida para el vídeo. Esto significa que los primeros segundos se pueden reproducir en un segmento de calidad inferior rápido para descargar y luego pasan a una calidad superior una vez se ha almacenado en búfer el contenido suficiente.
 
 Dash.js es un reproductor de vídeo MPEG-DASH de código abierto escrito en JavaScript. Su objetivo es proporcionar un reproductor sólido entre plataformas que se pueda reutilizar libremente en aplicaciones que requieren reproducción de vídeo. Ofrece reproducción MPEG-DASH en cualquier explorador que admita las extensiones de origen multimedia (MSE) W3C; en la actualidad es Chrome, Microsoft Edge e IE11 (otros exploradores han indicado su intención de ser compatibles con MSE). Para obtener más información sobre DASH.js, vea el repositorio de GitHub dash.js.
@@ -86,7 +86,7 @@ A continuación, cree una instancia de la clase principal del marco de dash.js, 
 
 Se llama a la función startup() de la clase MediaPlayer para asegurarse de que el reproductor está listo para reproducir vídeo. Entre otras cosas, esta función garantiza que se han cargado todas las clases necesarias (según se definen por el contexto). Cuando el reproductor esté listo, puede asociar el elemento de vídeo mediante la función attachView(). La función de inicio permite que MediaPlayer inserte la secuencia de vídeo en el elemento y también controlar la reproducción según sea necesario.
 
-Pase la dirección URL del archivo MPD a MediaPlayer para que conozca el vídeo que espera que reproducir. La función setupVideo() que acaba de crear se debe ejecutar una vez que la página se haya cargado completamente. Haga esto mediante el evento onload del elemento body. Cambie el elemento <body> a:
+Pase la dirección URL del archivo MPD a MediaPlayer para que conozca el vídeo que espera que reproducir. La función setupVideo() que acaba de crear se debe ejecutar una vez que la página se haya cargado completamente. Haga esto mediante el evento onload del elemento body. Cambie el elemento `<body>` a:
 
 ```html
     <body onload="setupVideo()">
@@ -109,7 +109,7 @@ Para reproducir un vídeo, dirija el explorador al archivo basicPlayback.html y 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Proporcionar comentarios
+## <a name="provide-feedback"></a>Envío de comentarios
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="see-also"></a>Vea también

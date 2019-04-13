@@ -9,14 +9,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.reviewer: sgilley
-ms.date: 2/14/2019
+ms.date: 04/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: 818b6e5994a4f5b9d21d511f0a31eab6e00033f7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7b479556543c6a9dff88643fdc587dec3f832f39
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012482"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548177"
 ---
 # <a name="train-models-with-azure-machine-learning-using-estimator"></a>Entrenamiento de modelos con Azure Machine Learning mediante un objeto Estimator
 
@@ -59,7 +59,7 @@ Este fragmento de código especifica los parámetros siguientes para el construc
 Parámetro | DESCRIPCIÓN
 --|--
 `source_directory`| Directorio local que contiene todo el código necesario para el trabajo de aprendizaje. Esta carpeta se copia desde el equipo local al proceso remoto 
-`script_params`| Diccionario que especifica los argumentos de línea de comandos para el script de aprendizaje `entry_script`, en forma de pares <argumento de línea de comandos, valor>
+`script_params`| Especificar los argumentos de línea de comandos para el script de entrenamiento de diccionario `entry_script`, en forma de < argumento de línea de comandos, valor > pares. Para especificar una marca en detallado `script_params`, utilice `<command-line argument, "">`.
 `compute_target`| El destino de proceso remoto en el que el script de entrenamiento se ejecutará, en este caso, un clúster de Proceso de Azure Machine Learning ([AmlCompute](how-to-set-up-training-targets.md#amlcompute)). (Tenga en cuenta que, aunque el clúster AmlCompute es el destino más usado, también es posible elegir otros tipos de destino, como máquinas virtuales de Azure o incluso el equipo local).
 `entry_script`| Ruta del archivo (relativa al `source_directory`) del script de aprendizaje que se va a ejecutar en el proceso remoto. Este archivo y los archivos adicionales de los que depende deben encontrarse en esta carpeta
 `conda_packages`| Lista de paquetes de Python para instalarse mediante Conda que necesita el script de aprendizaje.  

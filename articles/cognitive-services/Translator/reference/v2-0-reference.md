@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: b65182cac91f6ed3dc653d6d9e77f80e99346bb7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 961dd277034db7e5406e671233f26b4fd8fe5f26
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58918015"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527292"
 ---
 # <a name="translator-text-api-v20"></a>Translator Text API v2.0
 
@@ -45,8 +45,8 @@ Si quiere evitar obtener palabras soeces en la traducción, independientemente d
 |ProfanityAction    |. |Ejemplo de origen (japonés)  |Ejemplo de traducción (inglés)  |
 |:--|:--|:--|:--|
 |NoAction   |Predeterminada. Igual que si no se configura la opción. Las palabras soeces pasarán del origen al destino.        |彼はジャッカスです。     |Es un idiota.   |
-|Marcado     |Las palabras soeces aparecerán rodeados por etiquetas XML <profanity> y </profanity>.     |彼はジャッカスです。 |Es un <profanity>idiota</profanity>.    |
-|Eliminado    |Las palabras soeces se quitarán de la salida sin reemplazo.     |彼はジャッカスです。 |Es un.   |
+|Marked     |Palabras soeces aparecerá rodeadas por etiquetas XML \<blasfemias > y \</profanity >.       |彼はジャッカスです。 |Es un \<blasfemias > jackass\</profanity >.  |
+|Deleted    |Las palabras soeces se quitarán de la salida sin reemplazo.     |彼はジャッカスです。 |Es un.   |
 
     
 ## <a name="excluding-content-from-translation"></a>Contenido excluido de la traducción
@@ -241,7 +241,7 @@ Tipo de contenido de la respuesta: application/xml
 ## <a name="get-getlanguagesfortranslate"></a>GET /GetLanguagesForTranslate
 
 ### <a name="implementation-notes"></a>Notas de implementación
-Obtenga una lista de códigos de idioma que represente los idiomas que admite el servicio de traducción.  `Translate` y `TranslateArray` puede traducir entre cualquier dos de estos lenguajes.
+Obtenga una lista de códigos de idioma que represente los idiomas que admite el servicio de traducción.  `Translate` y `TranslateArray` puede traducir entre cualquier par de estos idiomas.
 
 El URI de solicitud es `https://api.microsofttranslator.com/V2/Http.svc/GetLanguagesForTranslate`.
 
@@ -327,7 +327,7 @@ Tipo de contenido de la respuesta: application/xml
 |text|(vacío)   |Necesario. Una cadena que contiene una o varias oraciones del idioma especificado que se va a reproducir para la secuencia con formato WAVE. El tamaño del texto que se va a reproducir no debe superar los 2000 caracteres.|query|string|
 |language|(vacío)   |Necesario. Una cadena que representa el código de idioma admitido en el que se va a reproducir el texto. El código debe estar presente en la lista de códigos devueltos por el método `GetLanguagesForSpeak`.|query|string|
 |formato|(vacío)|Opcional. Una cadena que especifica el Id. de content-type. Actualmente, `audio/wav` y `audio/mp3` están disponibles. El valor predeterminado es `audio/wav`.|query|string|
-|options|(vacío)    |<ul><li>Opcional. Una cadena que especifica propiedades de la voz sintetizada:<li>`MaxQuality` y `MinSize` están disponibles para especificar la calidad de las señales de audio. Con `MaxQuality`, puede obtener las voces con la máxima calidad y, con `MinSize`, puede obtener las voces con el tamaño más pequeño. El valor predeterminado es `MinSize`.</li><li>`female` y `male` están disponibles para especificar el género deseado de la voz. El valor predeterminado es `female`. Use la barra vertical <code>\|</code> para incluir varias opciones. Por ejemplo: `MaxQuality|Male`.</li></li></ul> |query|string|
+|options|(vacío)    |<ul><li>Opcional. Una cadena que especifica propiedades de la voz sintetizada:<li>`MaxQuality` y `MinSize` están disponibles para especificar la calidad de las señales de audio. Con `MaxQuality`, puede obtener las voces con la máxima calidad y, con `MinSize`, puede obtener las voces con el tamaño más pequeño. El valor predeterminado es `MinSize`.</li><li>`female` y `male` están disponibles para especificar el género de voz deseado. El valor predeterminado es `female`. Use la barra vertical <code>\|</code> para incluir varias opciones. Por ejemplo: `MaxQuality|Male`.</li></li></ul> |query|string|
 |Autorización|(vacío)|Es necesario si no se ha especificado el campo `appid` o el encabezado `Ocp-Apim-Subscription-Key`. Token de autorización: `"Bearer" + " " + "access_token"`.|encabezado|string|
 |Ocp-Apim-Subscription-Key|(vacío)  |Es necesario si no se ha especificado el campo `appid` o el encabezado `Authorization`.|encabezado|string|
 
@@ -597,7 +597,7 @@ El objeto `TranslateOptions` contiene los valores que se indican a continuación
 
 * `Category`: Una cadena que contiene la categoría (dominio) de la traducción. El valor predeterminado es "general".
 * `ContentType`: La única opción admitida, así como la predeterminada, es "text/plain".
-* `IncludeMultipleMTAlternatives`: una marca booleana para determinar si se deben devolver más de una de las alternativas desde el motor de MT. Los valores válidos son true y false (distingue mayúsculas de minúsculas). El valor predeterminado es false e incluye solo una alternativa. El establecimiento de la marca en true permite generar alternativas artificiales en la traducción, totalmente integradas con Collaborative Translation Framework (CTF). La característica permite la devolución de alternativas de oraciones que no tienen ninguna alternativa en CTF, agregando alternativas artificiales de la lista de las mejores opciones del descodificador.
+* `IncludeMultipleMTAlternatives`: una marca booleana para determinar si se debe devolver más de una alternativa del motor de traducción automática. Los valores válidos son true y false (distingue mayúsculas de minúsculas). El valor predeterminado es false e incluye solo una alternativa. El establecimiento de la marca en true permite generar alternativas artificiales en la traducción, totalmente integradas con Collaborative Translation Framework (CTF). La característica permite la devolución de alternativas de oraciones que no tienen ninguna alternativa en CTF, agregando alternativas artificiales de la lista de las mejores opciones del descodificador.
     - Clasificaciones: las clasificaciones se aplican como sigue: (1) La mejor traducción automática tiene una clasificación de 5. (2) Las alternativas de CTF reflejan la autoridad del revisor, de -10 a + 10. (3) Las alternativas de traducción (las mejores opciones) generadas automáticamente tienen una clasificación de 0 y un grado de coincidencia de 100.
     - Número de alternativas: el número de alternativas devueltas va hasta maxTranslations, pero puede ser menor.
     - Pares de idiomas: esta funcionalidad no está disponible para las traducciones entre chino simplificado y tradicional, ambas direcciones. Está disponible para el resto de pares de idiomas admitidos de Microsoft Translator.
@@ -706,7 +706,7 @@ El formato del cuerpo de la solicitud es el siguiente.
 * `Options`: Opcional. Un objeto de Opciones que contiene los valores que se indican a continuación. Son opcionales y los valores predeterminados son las opciones de configuración más comunes. Los elementos especificados deben incluirse en orden alfabético.
     - Categoría: Una cadena que contiene la categoría (dominio) de la traducción. El valor predeterminado es general.
     - `ContentType`: La única opción admitida, así como la predeterminada, es text/plain.
-    - `IncludeMultipleMTAlternatives`: una marca booleana para determinar si se deben devolver más de una de las alternativas desde el motor de MT. Los valores válidos son true y false (distingue mayúsculas de minúsculas). El valor predeterminado es false e incluye solo una alternativa. El establecimiento de la marca en true permite generar alternativas artificiales en la traducción, totalmente integradas con Collaborative Translation Framework (CTF). La característica permite la devolución de alternativas de oraciones que no tienen ninguna alternativa en CTF, agregando alternativas artificiales de la lista de las mejores opciones del descodificador.
+    - `IncludeMultipleMTAlternatives`: una marca booleana para determinar si se debe devolver más de una alternativa del motor de traducción automática. Los valores válidos son true y false (distingue mayúsculas de minúsculas). El valor predeterminado es false e incluye solo una alternativa. El establecimiento de la marca en true permite generar alternativas artificiales en la traducción, totalmente integradas con Collaborative Translation Framework (CTF). La característica permite la devolución de alternativas de oraciones que no tienen ninguna alternativa en CTF, agregando alternativas artificiales de la lista de las mejores opciones del descodificador.
         - Clasificaciones: las clasificaciones se aplican como sigue: (1) La mejor traducción automática tiene una clasificación de 5. (2) Las alternativas de CTF reflejan la autoridad del revisor, de -10 a + 10. (3) Las alternativas de traducción (las mejores opciones) generadas automáticamente tienen una clasificación de 0 y un grado de coincidencia de 100.
         - Número de alternativas: el número de alternativas devueltas va hasta maxTranslations, pero puede ser menor.
         - Pares de idiomas: esta funcionalidad no está disponible para las traducciones entre chino simplificado y tradicional, ambas direcciones. Está disponible para el resto de pares de idiomas admitidos de Microsoft Translator.
@@ -753,9 +753,9 @@ Cada elemento `GetTranslationsResponse` contiene los valores siguientes:
 * `From`: Si el método no especificó un idioma `From`, será el resultado de la detección automática de idioma. En caso contrario, será el idioma de origen indicado.
 * `State`: Estado del usuario para ayudar a poner en correlación la solicitud y la respuesta. Contiene el mismo valor tal como se indica en el parámetro `TranslateOptions`.
 
-`TranslationMatch` objeto consta de las siguientes acciones:
+Un objeto `TranslationMatch` consta de lo siguiente:
 * `Error`: Si se ha producido un error de una cadena de entrada específica, se almacena el código de error. En caso contrario, el campo está vacío.
-* `MatchDegree`: El sistema hace coincidir las oraciones según el almacén, incluidas las coincidencias inexactas.  `MatchDegree` indica cómo estrechamente el texto de entrada coincide con el texto original que se encuentra en el almacén. El valor no devuelto oscila entre 0 y 100, donde 0 equivale a ninguna similitud y 100 a una coincidencia exacta con distinción de mayúsculas y minúsculas.
+* `MatchDegree`: El sistema hace coincidir las oraciones según el almacén, incluidas las coincidencias inexactas.  `MatchDegree` indica el grado de coincidencia del texto de entrada con el texto original encontrado en el almacén. El valor no devuelto oscila entre 0 y 100, donde 0 equivale a ninguna similitud y 100 a una coincidencia exacta con distinción de mayúsculas y minúsculas.
 * `MatchedOriginalText`: El texto original del que se encontraron coincidencias para este resultado. Solo se devuelve si el texto original de la coincidencia era diferente del texto de entrada. Se utiliza para devolver el texto de origen de una coincidencia aproximada. No se devuelve para los resultados de Microsoft Translator.
 * `Rating`: Indica la autoridad de la persona que toma la decisión de calidad. Los resultados de la traducción automática tendrán una clasificación de 5. Las traducciones proporcionadas de forma anónima normalmente tendrán una clasificación de 1 a 4, mientras que las proporcionadas de forma autoritativa normalmente tendrán una clasificación de 6 a 10.
 * `Count`: El número de veces que se ha seleccionado esta traducción con esta clasificación. El valor será 0 para la respuesta traducida automáticamente.
@@ -787,7 +787,7 @@ Tipo de contenido de la respuesta: application/xml
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Migrate to v3 Translator Text API](../migrate-to-v3.md)
+> [Migración a v3 Translator Text API](../migrate-to-v3.md)
 
 
 

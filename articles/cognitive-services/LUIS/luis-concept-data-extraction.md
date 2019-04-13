@@ -1,7 +1,7 @@
 ---
 title: Extracción de datos
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Obtener información sobre qué tipo de datos se pueden extraer de Language Understanding (LUIS)
+description: Extraer datos de texto utterance (dictado) con las intenciones y entidades. Obtenga información sobre qué tipo de datos se puede extraer de Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/09/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 76f8fed8d185598d62eef5a412fda2c3fd1317bd
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 35f1521884de3a4a0971b6e1c00f92a9094a8550
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893986"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526296"
 ---
-# <a name="data-extraction-from-intents-and-entities"></a>Extracción de datos de intenciones y entidades
+# <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>Extraer datos de texto utterance (dictado) con las intenciones y entidades
 LUIS ofrece la capacidad de obtener información de expresiones de lenguaje natural de un usuario. La información se extrae de manera que pueda ser usada por un programa, una aplicación o un bot de chat para tomar medidas. En las secciones siguientes, obtendrá información sobre qué datos se devuelven de las intenciones y entidades con ejemplos de JSON.
 
 Los datos más difíciles de extraer son los datos de aprendizaje automático, porque no son una coincidencia de texto exacta. El proceso de extracción de datos de [entidades](luis-concept-entity-types.md) de aprendizaje automático debe formar parte del [ciclo de creación](luis-concept-app-iteration.md) hasta que esté seguro de que recibirá los datos que espera.
@@ -170,9 +170,11 @@ Los datos devueltos desde el punto de conexión incluyen el nombre de la entidad
 
 |Objeto de datos|Nombre de entidad|Valor|
 |--|--|--|
-|Entidad simple|"Customer"|"bob jones"|
+|Entidad simple|`Customer`|`bob jones`|
 
 ## <a name="hierarchical-entity-data"></a>Datos de entidad jerárquica
+
+**Entidades jerárquicas quedará obsoleto finalmente. Use [roles entidad](luis-concept-roles.md) para determinar los subtipos de entidad, en lugar de entidades jerárquicas.**
 
 Las entidades [jerárquicas](luis-concept-entity-types.md) son de aprendizaje automático y pueden incluir una palabra o frase. Los elementos secundarios se identifican mediante el contexto. Si quiere obtener una relación de elementos primarios y secundarios con coincidencia de texto exacta, use una entidad de [lista](#list-entity-data).
 
@@ -432,13 +434,18 @@ Obtener nombres de una expresión es difícil porque un nombre puede ser casi cu
 Las entidades [PersonName](luis-reference-prebuilt-person.md) y [GeographyV2](luis-reference-prebuilt-geographyV2.md) están disponibles en algunas [referencias culturales del idioma](luis-reference-prebuilt-entities.md). 
 
 ### <a name="names-of-people"></a>Nombres de personas
-Los nombres de personas pueden tener un pequeño formato en función del idioma y la referencia cultural. Use una entidad jerárquica con nombres y apellidos como elementos secundarios o una entidad simple con roles de nombres y apellidos. No olvide proporcionar ejemplos que usen el nombre y el apellido en diferentes partes de la expresión, en expresiones de distintas longitudes y expresiones en todas las intenciones, incluida la intención None. [Revise](luis-how-to-review-endpoint-utterances.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
+
+Los nombres de personas pueden tener un pequeño formato en función del idioma y la referencia cultural. Usar un precompiladas **[personName](luis-reference-prebuilt-person.md)** entidad o un **[entidad simple](luis-concept-entity-types.md#simple-entity)** con [roles](luis-concept-roles.md) de primera y Apellidos. 
+
+Si usa la entidad simple, asegúrese de que proporcionar ejemplos que usan el nombre y apellidos en distintas partes de la declaración, en las declaraciones de distintas longitudes y grabaciones de voz a través de todas las calidades incluidos ningún intento. [Revise](luis-how-to-review-endoint-utt.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
 
 ### <a name="names-of-places"></a>Nombres de lugares
-Los nombres de ubicaciones se establecen y conocen, por ejemplo, ciudades, condados, estados, provincias y países. Si en la aplicación se usa un conjunto conocido de ubicaciones, considere la posibilidad de usar una entidad de lista. Si necesita buscar todos los nombres de lugares, cree una entidad simple y proporcione una variedad de ejemplos. Agregue una lista de frases de nombres de lugares para reforzar el aspecto de los nombres de lugares en la aplicación. [Revise](luis-how-to-review-endpoint-utterances.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
+
+Los nombres de ubicaciones se establecen y conocen, por ejemplo, ciudades, condados, estados, provincias y países. Usar la entidad creada previamente **[geographyV2](luis-reference-prebuilt-geographyv2.md)** para extraer información de ubicación.
 
 ### <a name="new-and-emerging-names"></a>Nombres nuevos y emergentes
-Algunas aplicaciones necesitan poder encontrar nombres nuevos y emergentes, como productos o empresas. Estos tipos de nombres son el tipo de extracción de datos más difícil. Empiece con una entidad simple y agregue una lista de frases. [Revise](luis-how-to-review-endpoint-utterances.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
+
+Algunas aplicaciones necesitan poder encontrar nombres nuevos y emergentes, como productos o empresas. Estos tipos de nombres son el tipo más difícil de extracción de datos. Comenzar con un **[entidad simple](luis-concept-entity-types.md#simple-entity)** y agregue un [lista de frases](luis-concept-feature.md). [Revise](luis-how-to-review-endoint-utt.md) las expresiones del punto de conexión de forma regular para etiquetar los nombres que no se predijeron correctamente.
 
 ## <a name="pattern-roles-data"></a>Datos de roles de patrón
 Los roles son diferencias contextuales de entidades.

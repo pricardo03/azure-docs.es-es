@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d4866a6863143d2228c556a64c8e75c9f273076e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 720f984feb5675281510962d4ebee63f638d696d
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489508"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548893"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurar un entorno de desarrollo para Azure Machine Learning
 
@@ -87,7 +87,7 @@ Para usar DSVM como entorno de desarrollo, siga estos pasos:
 
     * Azure Portal:
 
-        * [Crear una máquina Virtual de ciencia de datos de Ubuntu](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
+        * [Crear una instancia de Data Science Virtual Machine de Ubuntu](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)
 
         * [Crear una instancia de Data Science Virtual Machine de Windows](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/provision-vm)
 
@@ -280,7 +280,7 @@ Funcionamiento de Azure Databricks con el servicio de Azure Machine Learning:
 ### <a name="set-up-your-databricks-cluster"></a>Configurar el clúster de Databricks
 
 Crear un [clúster Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal). Algunas opciones se aplican solo si instala el SDK para automatizada de machine learning en Databricks.
-**La operación de creación del clúster tardará unos minutos.**
+**Se tardará algunos minutos en crear el clúster.**
 
 Use estas opciones:
 
@@ -350,7 +350,7 @@ El archivo de configuración del área de trabajo es un archivo JSON que le indi
 }
 ```
 
-Este archivo JSON debe estar en la estructura de directorios que contiene los scripts de Python o las instancias de Jupyter Notebook. Puede estar en el mismo directorio, en un subdirectorio denominado *aml_config*, o en un directorio principal.
+Este archivo JSON debe estar en la estructura de directorios que contiene los scripts de Python o las instancias de Jupyter Notebook. Puede estar en el mismo directorio, un subdirectorio denominado *.azureml*, o en un directorio primario.
 
 Para utilizar este archivo desde el código, utilice `ws=Workspace.from_config()`. Este código carga la información del archivo y se conecta a su área de trabajo.
 
@@ -379,7 +379,7 @@ Hay tres formas de crear el archivo de configuración:
         print('Workspace not found')
     ```
 
-    Este código escribe el archivo de configuración en el archivo *aml_config/config.json*.
+    Este código escribe el archivo de configuración para el *.azureml/config.json* archivo.
 
 
 ## <a name="next-steps"></a>Pasos siguientes

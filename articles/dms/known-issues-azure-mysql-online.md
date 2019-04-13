@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 03/12/2019
-ms.openlocfilehash: e2b82c8a7bcdc1982ed4489e9422a4a0efd64f3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: cf5215ff5acaf08125cf280103ba8ff0123dc116
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58175106"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523824"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-mysql"></a>Problemas conocidos y limitaciones de migración con las migraciones en línea a Azure DB for MySQL
 
@@ -30,7 +30,7 @@ Los problemas conocidos y las limitaciones relacionadas con las migraciones en l
 - Migración de la misma versión. No se admite la migración de MySQL 5.6 a Azure Database for MySQL 5.7.
 - Habilite el registro binario en my.ini (Windows) o my.cnf (Unix).
     - Establezca Server_id en cualquier número mayor o igual a 1, por ejemplo, Server_id = 1 (solo para MySQL 5.6).
-    - Establezca log-bin = <path> (solo para MySQL 5.6).
+    - Establecer log-bin = \<ruta de acceso > (solo para MySQL 5.6)
     - Establezca binlog_format = row.
     - Expire_logs_days = 5 (recomendado - solo para MySQL 5.6).
 - El usuario debe tener el rol ReplicationAdmin.

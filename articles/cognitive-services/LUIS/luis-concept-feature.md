@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/04/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: fa0a8c4baa9458a3784babe1e342d768748f8a4d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
-ms.translationtype: HT
+ms.openlocfilehash: 7889f223b607912fd88c798b31ec028f97dfbbd6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55882461"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522860"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Características de lista de frases en la aplicación de LUIS
 
@@ -93,7 +93,7 @@ Aunque tanto una lista de frases como las entidades de lista pueden afectar a la
 ### <a name="use-a-phrase-list"></a>Usar una lista de frases
 Con una lista de frases, LUIS puede tener en cuenta el contexto y generalizar para identificar los elementos que son similares, pero no una coincidencia exacta, como elementos de una lista. Si es necesario que la aplicación de LUIS sea capaz de generalizar e identificar los elementos nuevos de una categoría, use una lista de frases. 
 
-Si quiere poder reconocer las instancias nuevas de una entidad, como un programador de reuniones que deba reconocer los nombres de los contactos nuevos, o bien una aplicación de inventario que deba reconocer los productos nuevos, use otro tipo de entidad de aprendizaje automático como una entidad simple o jerárquica. Después, cree una lista de frases de palabras y frases que permitan a LUIS buscar otras palabras similares a la entidad. Esta lista sirve de guía a LUIS para reconocer los ejemplos de la entidad mediante la adición de más importancia al valor de esas palabras. 
+Si desea ser capaz de reconocer nuevas instancias de una entidad, al igual que un programador de reunión que se debe reconocer los nombres de los nuevos contactos, o una aplicación de inventario que se debería reconocer nuevos productos, use otro tipo de entidad ha aprendido la máquina como una entidad sencilla. Después, cree una lista de frases de palabras y frases que permitan a LUIS buscar otras palabras similares a la entidad. Esta lista sirve de guía a LUIS para reconocer los ejemplos de la entidad mediante la adición de más importancia al valor de esas palabras. 
 
 Las listas de frases son similares al vocabulario específico de dominio que ayuda a mejorar la calidad de comprensión de las intenciones y entidades. Un uso común de una lista de frases es para nombres propios, como los nombres de ciudades. El nombre de una ciudad puede tener varias palabras incluidos guiones o apóstrofos.
  

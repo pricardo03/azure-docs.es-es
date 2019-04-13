@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: fe0fec082ace997a3bd66ca7c7575ce8dce3be1a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e67e41d5e423e07371fbce06066076ab809f60df
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885577"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545338"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalización de clústeres de HDInsight de Azure mediante el uso de las acciones de script
 
@@ -37,7 +37,7 @@ Si crea un clúster de HDInsight, un usuario con al menos acceso de Colaborador 
 
 Obtenga más información sobre cómo trabajar con la administración de acceso:
 
-* [Introducción a la administración de acceso en el Portal de Azure](../role-based-access-control/overview.md)
+* [Introducción a la administración de acceso en Azure Portal](../role-based-access-control/overview.md)
 * [Uso de asignaciones de roles para administrar el acceso a los recursos de la suscripción de Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="understand-script-actions"></a>Descripción de las acciones de script
@@ -152,7 +152,6 @@ HDInsight proporciona scripts para instalar los siguientes componentes en clúst
 | Instalación de Presto |`https://raw.githubusercontent.com/hdinsight/presto-hdinsight/master/installpresto.sh`. Consulte [Instalación y uso de Presto en clústeres de Hadoop para HDInsight](hdinsight-hadoop-install-presto.md). |
 | Instalación de Giraph |`https://hdiconfigactions.blob.core.windows.net/linuxgiraphconfigactionv01/giraph-installer-v01.sh`. Consulte [Instalación de Apache Giraph en clústeres de Hadoop en HDInsight](hdinsight-hadoop-giraph-install-linux.md). |
 | Carga previa de las bibliotecas de Hive |`https://hdiconfigactions.blob.core.windows.net/linuxsetupcustomhivelibsv01/setup-customhivelibs-v01.sh`. Consulte [Incorporación de bibliotecas personalizadas de Apache Hive al crear el clúster de HDInsight](hdinsight-hadoop-add-hive-libraries.md). |
-| Instalación o actualización de Mono | `https://hdiconfigactions.blob.core.windows.net/install-mono/install-mono.bash`. Vea [Instalación o actualización de Mono en HDInsight](hdinsight-hadoop-install-mono.md). |
 
 ## <a name="use-a-script-action-during-cluster-creation"></a>Uso de una acción de script durante la creación de un clúster
 
@@ -369,7 +368,7 @@ Si desea ver un ejemplo de uso del SDK de .NET para aplicar scripts a un clúste
 | `Remove-AzHDInsightPersistedScriptAction` |Disminuir de nivel una acción de script persistente a una acción ad hoc. |
 
 > [!IMPORTANT]  
-> `Remove-AzHDInsightPersistedScriptAction` no deshace las acciones realizadas por una secuencia de comandos. Este cmdlet solo quita la marca persistente.
+> `Remove-AzHDInsightPersistedScriptAction` no deshace las acciones realizadas por un script. Este cmdlet solo quita la marca persistente.
 
 El siguiente script de ejemplo muestra cómo utilizar los cmdlets para promover y luego disminuir de nivel un script.
 
@@ -387,7 +386,7 @@ El siguiente script de ejemplo muestra cómo utilizar los cmdlets para promover 
 | `azure hdinsight script-action persisted delete <clustername> <scriptname>` |Disminuir de nivel una acción de script persistente a una acción ad hoc. |
 
 > [!IMPORTANT]  
-> `azure hdinsight script-action persisted delete` no deshace las acciones realizadas por una secuencia de comandos. Este cmdlet solo quita la marca persistente.
+> `azure hdinsight script-action persisted delete` no deshace las acciones realizadas por un script. Este cmdlet solo quita la marca persistente.
 
 ### <a name="the-hdinsight-net-sdk"></a>El SDK de .NET para HDInsight
 
@@ -461,7 +460,7 @@ Si se produce un error al crear el clúster debido a un error de script, los reg
 
     * **Nodo de trabajo**: `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
 
-    * **Nodo zookeeper**: `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+    * **Nodo de Zookeeper**: `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
 * Todos los **stdout** y **stderr** del host correspondiente se cargan en la cuenta de almacenamiento. Hay un archivo **output-\*.txt** y **errors-\*.txt** para cada acción de script. El archivo **output-*.txt** contiene información sobre el identificador URI del script que se ejecutó en el host. El siguiente texto es un ejemplo de esta información:
 
@@ -517,8 +516,8 @@ Hay dos excepciones:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Desarrollar scripts de acción de script para HDInsight](hdinsight-hadoop-script-actions-linux.md)
-* [Instalar y usar Apache Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md)
-* [Agregar almacenamiento adicional a un clúster de HDInsight](hdinsight-hadoop-add-storage.md)
+* [Desarrollo de la acción de script con HDInsight](hdinsight-hadoop-script-actions-linux.md)
+* [Instalación y uso de Apache Giraph en clústeres de HDInsight](hdinsight-hadoop-giraph-install-linux.md)
+* [Adición de almacenamiento adicional a un clúster HDInsight](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Fases durante la creación del clúster"

@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: a5350befd8d0fb1582606554314d909f7fec04c5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: f5ff43102c42823891f2035c3f577e7def87fcb7
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272298"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528244"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Traslado de los recursos a un nuevo grupo de recursos o a una nueva suscripción
 
-En este artículo se explica cómo trasladar recursos de Azure a otra suscripción de Azure o a otro grupo de recursos en la misma suscripción. Puede usar Azure Portal, Azure PowerShell, la CLI de Azure o la API REST para trasladar recursos. Para realizar un tutorial, consulte [Tutorial: Traslado de recursos de Azure a otro grupo de recursos o a otra suscripción](./resource-manager-tutorial-move-resources.md).
+En este artículo se explica cómo trasladar recursos de Azure a otra suscripción de Azure o a otro grupo de recursos en la misma suscripción. Puede usar Azure Portal, Azure PowerShell, la CLI de Azure o la API REST para trasladar recursos.
 
 Tanto el grupo de origen como el grupo de destino se bloquean durante la operación de traslado. Las operaciones de escritura y eliminación están bloqueadas en los grupos de recursos hasta que se completa el movimiento. Este bloqueo significa que no puede agregar, actualizar ni eliminar recursos de los grupos de recursos, pero no que los recursos queden bloqueados. Por ejemplo, si mueve un servidor SQL Server y su base de datos a un nuevo grupo de recursos, una aplicación que utiliza la base de datos no experimenta ningún tiempo de inactividad. Todavía puede leer y escribir en la base de datos.
 
@@ -156,11 +156,11 @@ En la lista siguiente se proporciona un resumen general de servicios de Azure qu
 
 La sección proporciona descripciones de cómo tratar escenarios complicados para trasladar recursos. Las limitaciones son las siguientes:
 
-* [Limitaciones de Virtual Machines](#virtual-machines-limitations)
+* [Limitaciones de máquinas virtuales](#virtual-machines-limitations)
 * [Limitaciones de las redes virtuales](#virtual-networks-limitations)
-* [limitaciones de App Service](#app-service-limitations)
+* [Limitaciones de App Service](#app-service-limitations)
 * [Limitaciones de App Service Certificate](#app-service-certificate-limitations)
-* [limitaciones de la implementación clásica](#classic-deployment-limitations)
+* [Limitaciones de la implementación clásica](#classic-deployment-limitations)
 * [Limitaciones de Recovery Services](#recovery-services-limitations)
 * [Limitaciones de HDInsight](#hdinsight-limitations)
 
@@ -180,8 +180,8 @@ Para mover máquinas virtuales configuradas con la copia de seguridad de Azure, 
 * Busque un grupo de recursos con el patrón de nombres siguiente: `AzureBackupRG_<location of your VM>_1`, por ejemplo, AzureBackupRG_westus2_1
 * Si está en Azure Portal, active "Mostrar tipos ocultos"
 * Si se encuentra en PowerShell, use el cmdlet `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
-* Si en la CLI, utilice el `az resource list -g AzureBackupRG_<location of your VM>_1`
-* Encontrar el recurso con el tipo `Microsoft.Compute/restorePointCollections` que tiene el patrón de nomenclatura `AzureBackup_<name of your VM that you're trying to move>_###########`
+* Si está en la CLI, use `az resource list -g AzureBackupRG_<location of your VM>_1`
+* Busque el recurso con el tipo `Microsoft.Compute/restorePointCollections` que tiene el patrón de nombres `AzureBackup_<name of your VM that you're trying to move>_###########`
 * Elimine este recurso. Esta operación elimina solo los puntos de recuperación instantáneos, no los datos de copia de seguridad que se encuentran en el almacén.
 * Una vez completada la eliminación, podrá mover la máquina virtual. Puede trasladar el almacén y la máquina virtual a la suscripción de destino. Tras el traslado, puede continuar realizando las copias de seguridad sin pérdida de datos.
 * Para más información sobre cómo mover los almacenes de Recovery Services para realizar copias de seguridad, consulte [Limitaciones de Recovery Services](#recovery-services-limitations).

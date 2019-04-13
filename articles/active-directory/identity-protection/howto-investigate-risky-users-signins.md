@@ -17,12 +17,12 @@ ms.devlang: na
 ms.topic: article
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 743b078eac783365ae83e540a7dc05aba0ae8754
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 646119f223067fac5ee36574fb10273819251cce
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517609"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547063"
 ---
 # <a name="how-to-investigate-risky-users-and-sign-ins"></a>Instrucciones: Investigación sobre usuarios e inicios de sesión de riesgo 
 
@@ -151,7 +151,7 @@ El filtro **Estado** le permite seleccionar:
 
 ### <a name="download-risky-users-data"></a>Descargar los datos de los usuarios de riesgo
 
-Puede descargar los datos de los usuarios de riesgo si quiere trabajar con ellos fuera de Azure Portal. Si hace clic en Descargar, se crea un archivo CSV con los 5000 registros más recientes. 
+Puede descargar los datos de usuarios de riesgo si desea trabajar con ellos fuera del portal de Azure. Al hacer clic en descarga crea un archivo CSV de los registros de 2.500 más recientes. 
 
 ![Informe de usuarios de riesgo](./media/howto-investigate-risky-users-signins/07.png)
 
@@ -320,7 +320,7 @@ Los valores posibles son:
 
 ### <a name="download-risky-sign-ins-data"></a>Descargar los datos de inicios de sesión de riesgo
 
-Puede descargar los datos de los inicios de sesión de riesgo si quiere trabajar con ellos fuera de Azure Portal. Si hace clic en Descargar, se crea un archivo CSV con los 5000 registros más recientes. 
+Puede descargar los datos de inicios de sesión si desea trabajar con ellos fuera del portal de Azure. Al hacer clic en descarga crea un archivo CSV de los registros de 2.500 más recientes. 
 
 ![Informe de usuarios de riesgo](./media/howto-investigate-risky-users-signins/15.png)
 

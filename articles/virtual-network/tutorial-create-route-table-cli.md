@@ -17,12 +17,12 @@ ms.workload: infrastructure
 ms.date: 03/13/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: 08189522f4f73e996ed98f3996f87da8d93b5d2a
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: e3106a792f486a62986734e562c96b41dd8a75dc
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55895642"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524130"
 ---
 # <a name="route-network-traffic-with-a-route-table-using-the-azure-cli"></a>Enrutamiento del tráfico de red con una tabla de rutas mediante la CLI de Azure
 
@@ -208,7 +208,7 @@ Anote el valor de **publicIpAddress**. En un paso posterior, usaremos esta direc
 
 ## <a name="route-traffic-through-an-nva"></a>Enrutamiento del tráfico a través de una aplicación virtual de red
 
-Use el siguiente comando para crear una sesión de SSH con la máquina virtual *myVmPrivate*. Reemplace *<publicIpAddress>* con la dirección IP pública de la máquina virtual. En el ejemplo anterior, la dirección IP era *13.90.242.231*.
+Use el siguiente comando para crear una sesión de SSH con la máquina virtual *myVmPrivate*. Reemplace  *\<publicIpAddress >* con la dirección IP pública de la máquina virtual. En el ejemplo anterior, la dirección IP era *13.90.242.231*.
 
 ```bash 
 ssh azureuser@<publicIpAddress>

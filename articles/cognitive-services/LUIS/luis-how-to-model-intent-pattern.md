@@ -1,7 +1,7 @@
 ---
 title: Precisión de la adición de patrones
 titleSuffix: Language Understanding - Azure Cognitive Services
-description: Obtenga información sobre cómo agregar plantillas de patrón en aplicaciones de Language Understanding (LUIS) para mejorar la precisión de las predicciones.
+description: Agregar plantillas de patrón para mejorar la precisión de predicción en las aplicaciones de Language Understanding (LUIS).
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,17 +9,17 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 02/22/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 132f6eab86c02e28fe562a0c7d3357175e5813b8
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57195054"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521261"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Adición de patrones para mejorar la precisión de predicción
-Una vez que una aplicación de LUIS recibe grabaciones de voz de punto de conexión, utilice un [patrón](luis-concept-patterns.md) para mejorar la precisión de predicción para declaraciones que revelan ningún patrón en el orden de las palabras y opciones de word. Patrones de utilizar específico [sintaxis](luis-concept-patterns.md#pattern-syntax) para indicar la ubicación de: [entidades](luis-concept-entity-types.md), roles de entidad y un texto opcional.
+Una vez que una aplicación de LUIS recibe grabaciones de voz de punto de conexión, utilice un [patrón](luis-concept-patterns.md) para mejorar la precisión de predicción para declaraciones que revelan ningún patrón en el orden de las palabras y opciones de word. Patrones de utilizar específico [sintaxis](luis-concept-patterns.md#pattern-syntax) para indicar la ubicación de: [entidades](luis-concept-entity-types.md), entidad [roles](luis-concept-roles.md)y texto opcional.
 
 ## <a name="add-template-utterance-to-create-pattern"></a>Agregar expresiones de plantilla para crear el patrón
 1. Para abrir la aplicación, seleccione su nombre en la página **My Apps** (Mis aplicaciones) y, después, haga clic en **Patterns** (Patrones) en el panel de la izquierda, en **Improve app performance** (Mejorar el rendimiento de la aplicación).
@@ -34,7 +34,7 @@ Una vez que una aplicación de LUIS recibe grabaciones de voz de punto de conexi
 
     ![Captura de pantalla de la entidad del patrón](./media/luis-how-to-model-intent-pattern/patterns-3.png)
 
-    Si la entidad incluye un rol, indíquelo con un signo de dos puntos, `:`, después del nombre de la entidad, como en `{Location:Origin}`. La lista de roles para las entidades se muestra en una lista. Seleccione el rol y, después, presione Entrar. 
+    Si la entidad incluye un [rol](luis-concept-roles.md), indicar el rol con un signo de dos puntos, `:`, cuando el nombre de la entidad, como `{Location:Origin}`. La lista de roles para las entidades se muestra en una lista. Seleccione el rol y, después, presione Entrar. 
 
     ![Captura de pantalla de la entidad con el rol](./media/luis-how-to-model-intent-pattern/patterns-4.png)
 

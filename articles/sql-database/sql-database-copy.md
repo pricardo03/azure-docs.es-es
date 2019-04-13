@@ -8,16 +8,16 @@ ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
 author: CarlRabeler
-ms.author: carlrab
+ms.author: sahsan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: 2aeb756bda50597bf3e43c0c84391e0750bd8acb
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.date: 04/11/2019
+ms.openlocfilehash: 47aa88040b6010aeca4aeed696310505d1e17df9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486825"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549702"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Creación de una copia transaccionalmente coherente de una base de datos SQL de Azure
 
@@ -90,10 +90,16 @@ Este comando copia Base de datos1 del servidor1 en una nueva base de datos denom
     -- Execute on the master database of the target server (server2)
     -- Start copying from Server1 to Server2
     CREATE DATABASE Database2 AS COPY OF server1.Database1;
+    
+> [!IMPORTANT]
+> Los firewalls de ambos servidores deben configurarse para permitir la conexión de entrada desde la dirección IP del cliente emitiendo el comando de copia de T-SQL.
 
-## <a name="to-move-a-database-between-subscriptions"></a>Para mover una base de datos de una suscripción a otra
+### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copiar una base de datos SQL a otra suscripción
 
-En [Azure Portal](https://portal.azure.com), haga clic en **Servidores SQL Server** y, en la lista, seleccione el servidor que hospeda la base de datos. Haga clic en **Mover**y seleccione los recursos que va a mover y la suscripción a la que los va a mover.
+Puede usar el descrbed pasos en la sección anterior para copiar la base de datos en un servidor de base de datos SQL en una suscripción diferente. Asegúrese de que use un inicio de sesión que tiene el mismo nombre y contraseña como propietario de la base de datos de la base de datos de origen y es un miembro del rol dbmanager o el inicio de sesión de entidad de seguridad de nivel de servidor. 
+
+> [!NOTE]
+> El [portal Azure](https://portal.azure.com) no admite los copia a otra suscripción, dado que el Portal llama a la API de ARM y usa los certificados de suscripción para tener acceso a ambos servidores involucrados en la replicación geográfica.  
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>Supervisión del progreso de la operación de copia
 

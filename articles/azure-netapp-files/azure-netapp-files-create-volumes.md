@@ -11,15 +11,15 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: how-to-article
+ms.topic: conceptual
 ms.date: 3/17/2019
 ms.author: b-juche
-ms.openlocfilehash: c2dd8b636223e0484e36eed9fcc616dc6f19cf3a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 3c59fb6abe9c26e6886706dae360ff40787e8faa
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58877982"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549191"
 ---
 # <a name="create-a-volume-for-azure-netapp-files"></a>Creación de un volumen de Azure NetApp Files
 
@@ -46,15 +46,15 @@ Debe haber una subred delegada en Azure NetApp Files.
 
         El nombre debe ser único dentro de un grupo de recursos. Debe tener tres caracteres de longitud, como mínimo.  Puede usar cualquier carácter alfanumérico.
 
-    * **Grupo de capacidad**  
+    * **Grupo de capacidades**  
         Especifique el grupo de capacidad en la que desea que el volumen que se va a crear.
 
-    * **Quota**  
+    * **Cuota**  
         Especifique la cantidad de almacenamiento lógico que se asigna al volumen.  
 
         El campo **Cuota disponible** muestra la cantidad de espacio no utilizado en el grupo de capacidad elegido que puede usar para crear un nuevo volumen. El tamaño del volumen nuevo no debe superar la cuota disponible.  
 
-    * **Virtual network**  
+    * **Red virtual**  
         Especifique la red virtual de Azure (Vnet) desde la que desea tener acceso al volumen.  
 
         La red virtual que especifique debe tener una subred delegada en Azure NetApp Files. Solo puede tener acceso al servicio Azure NetApp Files desde la misma red virtual o desde una red virtual que se encuentre en la misma ubicación que el volumen mediante el emparejamiento de redes virtuales. También puede tener acceso al volumen de la red local a través de Express Route.   
@@ -96,7 +96,7 @@ Azure Files de NetApp admite volúmenes SMBv3. Deberá crear las conexiones de A
 
 2. En la ventana de unirse a Active Directory, proporcione la siguiente información:
 
-    * **DNS principal**   
+    * **El servidor DNS principal**   
         Se trata de la dirección IP de controlador de dominio para el preferido Active Directory Domain Services para su uso con Azure Files de NetApp. 
     * **DNS secundario**  
         Se trata de la dirección IP de controlador de dominio para el secundario Active Directory Domain Services para su uso con Azure Files de NetApp. 
@@ -141,15 +141,15 @@ Azure Files de NetApp admite volúmenes SMBv3. Deberá crear las conexiones de A
      
         El nombre de la ruta de acceso de archivo solo puede contener letras, números y guiones ("-"). El nombre debe tener entre 16 y 40 caracteres.  
 
-    * **Grupo de capacidad**  
+    * **Grupo de capacidades**  
         Especifique el grupo de capacidad en la que desea que el volumen que se va a crear.
 
-    * **Quota**  
+    * **Cuota**  
         Especifique la cantidad de almacenamiento lógico que se asigna al volumen.  
 
         El campo **Cuota disponible** muestra la cantidad de espacio no utilizado en el grupo de capacidad elegido que puede usar para crear un nuevo volumen. El tamaño del volumen nuevo no debe superar la cuota disponible.  
 
-    * **Virtual network**  
+    * **Red virtual**  
         Especifique la red virtual de Azure (Vnet) desde la que desea tener acceso al volumen.  
 
         La red virtual que especifique debe tener una subred delegada en Azure NetApp Files. Solo puede tener acceso al servicio Azure NetApp Files desde la misma red virtual o desde una red virtual que se encuentre en la misma ubicación que el volumen mediante el emparejamiento de redes virtuales. También puede tener acceso al volumen de la red local a través de Express Route.   
@@ -179,6 +179,6 @@ Azure Files de NetApp admite volúmenes SMBv3. Deberá crear las conexiones de A
 
 ## <a name="next-steps"></a>Pasos siguientes  
 
-* [Montaje o desmontaje de un volumen para máquinas virtuales Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
-* [Configuración de la directiva de exportación para un volumen NFS](azure-netapp-files-configure-export-policy.md)
-* [Obtenga información acerca de la integración de red virtual para servicios de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)
+* [Montar o desmontar un volumen para máquinas virtuales Windows o Linux](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Configurar la directiva de exportación para un volumen NFS](azure-netapp-files-configure-export-policy.md)
+* [Obtenga información sobre la integración de redes virtuales para los servicios de Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-for-azure-services)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f3eec1f846f1b74ab3e19bca022d4e009540d1a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 7cf8d5cb13b39d58920555ff9d99a4949e1bfc20
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280016"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521448"
 ---
 # <a name="combined-security-information-registration-preview"></a>Información del registro de seguridad combinados (versión preliminar)
 
@@ -25,6 +25,8 @@ Antes del registro combinado, los usuarios registrar los métodos de autenticaci
 ![Mi mostrando perfil registra información de seguridad de un usuario](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
 Antes de habilitar la nueva experiencia, revise esta documentación centrada en el administrador y la documentación centrada en usuario para asegurarse de que entiende la funcionalidad y el efecto de esta característica. Basar su formación en la documentación del usuario para preparar los usuarios para la nueva experiencia y ayudan a garantizar un lanzamiento satisfactorio.
+
+Azure AD combina información de seguridad, el registro no está actualmente disponible para las nubes nacionales, como Azure US Government, Azure Alemania o Azure China 21Vianet.
 
 |     |
 | --- |
@@ -137,6 +139,6 @@ Un usuario que previamente haya configurado al menos un método que puede usarse
 
 [Métodos disponibles para la autenticación multifactor y SSPR](concept-authentication-methods.md)
 
-[Configuración del autoservicio de restablecimiento de contraseña](howto-sspr-deployment.md)
+[Configuración del restablecimiento de contraseña de autoservicio](howto-sspr-deployment.md)
 
-[Configuración de Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
+[Configurar Azure Multi-factor Authentication](howto-mfa-getstarted.md)

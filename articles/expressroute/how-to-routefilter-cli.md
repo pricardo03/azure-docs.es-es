@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman
-ms.openlocfilehash: 94bdd4819d750f4c26c93a88cc6982a60583171c
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: cfd9f4c52d3ddddd944186a833cba48e6ca76182
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53079303"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527972"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-azure-cli"></a>Configuración de filtros de ruta para el emparejamiento de Microsoft: Azure CLI
 
@@ -109,7 +109,7 @@ Un filtro de ruta puede tener una única regla y la regla debe ser de tipo "Perm
 
 ### <a name="1-create-a-route-filter"></a>1. Creación de un filtro de ruta
 
-En primer lugar, cree el filtro de ruta. El comando 'az network route-filter create' solo crea un recurso de filtro de ruta. Después de crear el recurso, debe crear una regla y asociarla al objeto de filtro de ruta. Ejecute el comando siguiente para crear un recurso de filtro de ruta:
+En primer lugar, cree el filtro de ruta. El comando `az network route-filter create` solo crea un recurso de filtro de ruta. Después de crear el recurso, debe crear una regla y asociarla al objeto de filtro de ruta. Ejecute el comando siguiente para crear un recurso de filtro de ruta:
 
 ```azurecli-interactive
 az network route-filter create -n MyRouteFilter -g MyResourceGroup

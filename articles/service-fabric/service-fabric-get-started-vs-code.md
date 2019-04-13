@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: pepogors
-ms.openlocfilehash: a0405e6c699192839f72b290d0466ab5062ac584
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: f977a48338f784562ec84355aabb212e5a3dade4
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58670143"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543675"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric para Visual Studio Code
 
@@ -120,7 +120,7 @@ El **de Service Fabric: Quitar aplicación** comando quita una aplicación de Se
 2.  Consulte el clúster con Service Fabric Explorer para confirmar que la aplicación se ha quitado. Esto puede tardar algún tiempo, tenga paciencia.
 
 ### <a name="service-fabric-build-application"></a>Service Fabric: Crear aplicación
-El **de Service Fabric: Quitar aplicación** comando puede crear entornos Java o C# aplicaciones de Service Fabric. 
+El **de Service Fabric: Generar aplicación** comando puede crear entornos Java o C# aplicaciones de Service Fabric. 
 
 1.  Asegúrese de que está en la carpeta raíz de la aplicación antes de ejecutar este comando. El comando identifica el tipo de aplicación (C# o Java) y la compila como corresponda.
 2.  Seleccione el **de Service Fabric: Build Application**.

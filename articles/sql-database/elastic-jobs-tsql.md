@@ -12,12 +12,12 @@ author: jaredmoo
 ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 4f4032551efbf517ab47a64afc393cc57ace6bc1
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: 59e0e4cf82af9851dacf3ec030575ed392571331
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621505"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523773"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Use Transact-SQL (T-SQL) para crear y administrar trabajos de Elastic Database
 
@@ -193,7 +193,7 @@ En el ejemplo siguiente se crea un nuevo trabajo para recopilar datos de rendimi
 De forma predeterminada, el agente de trabajo buscará crear la tabla para almacenar los resultados devueltos. Como consecuencia, el inicio de sesión asociado con la credencial usada para la credencial de salida deberá tener permisos suficientes para realizar esta operación. Si desea crear manualmente la tabla antes de tiempo, debe tener las siguientes propiedades:
 1. Columnas con el nombre y los tipos de datos correctos para el conjunto de resultados.
 2. Columna adicional para internal_execution_id con el tipo de datos de uniqueidentifier.
-3. Un índice no agrupado denominado "IX_<TableName>_Internal_Execution_ID" en la columna internal_execution_id.
+3. Un índice no agrupado denominado `IX_<TableName>_Internal_Execution_ID` en la columna internal_execution_id.
 
 Conéctese a la [*base de datos de trabajo*](sql-database-job-automation-overview.md#job-database) y ejecute los siguientes comandos:
 

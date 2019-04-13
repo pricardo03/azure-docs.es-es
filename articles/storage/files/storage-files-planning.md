@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 609e774c36ab685d017f311a74c8680dbb9750c9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d4361fc37d01b351d20a273aa39f558e9b00faa4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283025"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525932"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -109,9 +109,9 @@ Todos los recursos compartidos se pueden ampliar hasta el rendimiento de e/s por
 >
 > Límite de ráfaga = 3 * la línea de base de e/s por segundo. (Hasta un máximo de 100 000 e/s por segundo).
 >
-> tasa de salida = 60 MiB/s + 0.06 GiB aprovisionado (hasta 6 GB/s)
+> tasa de salida = 60 MiB/s + 0,06 * aprovisionado GiB
 >
-> tasa de entrada = 40 MiB/s + 0,04 GiB aprovisionado (hasta 4 GiB)
+> tasa de entrada = 40 MiB/s + 0,04 * aprovisionado GiB
 
 Tamaño del recurso compartido puede aumentar a cualquier hora y una disminución en cualquier momento, pero se puede reducir una vez cada 24 horas desde el último incremento. Cambios de escala IOPS/rendimiento entrarán dentro de 24 horas después del cambio de tamaño.
 
@@ -128,9 +128,9 @@ En la tabla siguiente se muestra algunos ejemplos de estas fórmulas para los ta
 |10,240 *     | 10,240  | Hasta 30.720  | 675 | 450   |
 |33,792 *     | 33,792  | Hasta 100.000 | 2,088 | 1,392   |
 |51,200 *     | 51,200  | Hasta 100.000 | 3132 | 2,088   |
-|100,000 *    | 100 000 | Hasta 100.000 | 6,204 | 4,136   |
+|102,400 *    | 100 000 | Hasta 100.000 | 6,204 | 4,136   |
 
-Actualmente, los tamaños de recurso compartido de archivos hasta 5 TB están en versión preliminar pública, mientras que los tamaños hasta TiB 102 están en versión preliminar pública limitada para solicitar acceso a la versión preliminar pública limitada completa [esta encuesta.](https://aka.ms/azurefilesatscalesurvey)
+Actualmente, los tamaños de recurso compartido de archivos hasta 5 TB están en versión preliminar pública, mientras que los tamaños de hasta 100 TB están en versión preliminar pública limitada para solicitar acceso a la versión preliminar pública limitada completa [esta encuesta.](https://aka.ms/azurefilesatscalesurvey)
 
 ### <a name="bursting"></a>Creación de ráfagas
 
@@ -204,6 +204,6 @@ Existen muchas opciones sencillas para la transferencia masiva de datos desde un
 * **[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#upload-files-to-an-azure-file-share)**: AzCopy es una utilidad de línea de comandos diseñada para copiar datos a y desde Azure Files, así como Azure Blob Storage, mediante sencillos comandos con un rendimiento óptimo. AzCopy está disponible para Windows y Linux.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Planeamiento de una implementación de la sincronización de archivos de Azure](storage-sync-files-planning.md)
+* [Planeamiento de una implementación de Azure File Sync](storage-sync-files-planning.md)
 * [Implementación de Azure Files](storage-files-deployment-guide.md)
 * [Implementación de Azure File Sync](storage-sync-files-deployment-guide.md)

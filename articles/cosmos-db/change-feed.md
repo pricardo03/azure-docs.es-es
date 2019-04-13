@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: e21058d47f554ca4a057ab90433895800fb17dd9
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 85a1dad9feb15550cf27cf032802af5055fdf155
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56886730"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525643"
 ---
 # <a name="change-feed-in-azure-cosmos-db---overview"></a>Fuente de cambios en Azure Cosmos DB: introducción
 
@@ -58,7 +58,7 @@ Si la propiedad TTL (período de vida) se establece en -1 en un elemento, la fue
 
 ### <a name="change-feed-and-etag-lsn-or-ts"></a>Fuente de cambios y _etag, _lsn o _ts
 
-El formato _etag es interno y no debe depender de él, porque puede cambiar en cualquier momento. _ts es una modificación o una marca de tiempo de creación. Puede usar _ts para la comparación cronológica. _lsn es un identificador de lote que se agrega solo para la fuente de cambios y representa el identificador de transacción. Muchos elementos pueden tener el mismo _lsn. ETag en FeedResponse es diferente del formato _etag que se ve en un elemento. _etag es un identificador interno que se usa para el control de simultaneidad e indica la versión del elemento, mientras que ETag se usa para secuenciar la fuente.
+El formato _etag es interno y no debe depender de él, porque puede cambiar en cualquier momento. _ts es una modificación o una marca de tiempo de creación. Puede usar _ts para la comparación cronológica. _lsn es un identificador de lote que se agrega para solo; la fuente de cambios representa el identificador de transacción. Muchos elementos pueden tener el mismo _lsn. ETag en FeedResponse es diferente del formato _etag que se ve en un elemento. _etag es un identificador interno que se usa para el control de simultaneidad e indica la versión del elemento, mientras que ETag se usa para secuenciar la fuente.
 
 ## <a name="change-feed-use-cases-and-scenarios"></a>Casos de uso y escenarios de la fuente de cambios
 
@@ -84,7 +84,7 @@ Por ejemplo, con una fuente de cambios puede realizar las siguientes tareas de m
 
 Los siguientes son algunos de los escenarios en los que se puede implementar fácilmente la fuente de cambios:
 
-* En las aplicaciones web o móviles [sin servidor](https://azure.microsoft.com/en-us/solutions/serverless/), puede realizar el seguimiento de eventos tales como los cambios realizados en el perfil, preferencias o ubicación del cliente para desencadenar determinadas acciones como, por ejemplo, enviar notificaciones push a los dispositivos mediante [Azure Functions](change-feed-functions.md).
+* En las aplicaciones web o móviles [sin servidor](https://azure.microsoft.com/solutions/serverless/), puede realizar el seguimiento de eventos tales como los cambios realizados en el perfil, preferencias o ubicación del cliente para desencadenar determinadas acciones como, por ejemplo, enviar notificaciones push a los dispositivos mediante [Azure Functions](change-feed-functions.md).
 
 * Si usa Azure Cosmos DB para compilar un juego, puede usar la fuente de cambios para, por ejemplo, implementar marcadores en tiempo real basados en las puntuaciones de los juegos completados.
 

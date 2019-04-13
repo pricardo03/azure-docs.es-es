@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/01/2019
 ms.author: anavin
-ms.openlocfilehash: fdc3a0030859e97cb81b8b9f6a66de1901b6eb3b
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 6bccb1e75dc999bcb0e8c6d909abe7bffffcec8c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491294"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524057"
 ---
 # <a name="create-change-or-delete-a-virtual-network-peering"></a>Crear, cambiar o eliminar un emparejamiento de red virtual
 
@@ -50,7 +50,7 @@ Antes de crear un emparejamiento, familiarícese con los requisitos y las restri
 5. <a name="add-peering"></a>Escriba o seleccione valores para la siguiente configuración:
     - **Nombre:** el nombre del emparejamiento debe ser único dentro de la red virtual.
     - **Modelo de implementación de red virtual:** seleccione con qué modelo de implementación se implementó la red virtual con la que quiere realizar el emparejamiento.
-    - **Conozco mi Id. de recurso**: si tiene acceso de lectura a la red virtual con la que quiere realizar el emparejamiento, no active esta casilla. Si no tiene acceso de lectura a la red virtual o la suscripción con la que quiere realizar el emparejamiento, active esta casilla. Escriba el identificador de recurso completo de la red virtual con la que quiere realizar el emparejamiento en el cuadro **Id. de recurso** que aparece cuando se activa la casilla. El identificador de recurso que especifique debe ser para una red virtual que exista en la misma región de Azure, o en una [región](#requirements-and-constraints) [diferente admitida](https://azure.microsoft.com/regions), que esta red virtual. El identificador de recurso completo es similar a /subscriptions/<Id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>. Para obtener el identificador de recurso de una red virtual, vea las propiedades de la red virtual. Para obtener información sobre cómo ver las propiedades de una red virtual, consulte [Administración de redes virtuales](manage-virtual-network.md#view-virtual-networks-and-settings). Si la suscripción está asociada a un inquilino de Azure Active Directory que resulte ser diferente al de la suscripción que tiene la red virtual en la que está creando el emparejamiento, primero debe agregar un usuario de cada inquilino como [usuario invitado](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) en el inquilino opuesto.
+    - **Conozco mi Id. de recurso**: si tiene acceso de lectura a la red virtual con la que quiere realizar el emparejamiento, no active esta casilla. Si no tiene acceso de lectura a la red virtual o la suscripción con la que quiere realizar el emparejamiento, active esta casilla. Escriba el identificador de recurso completo de la red virtual con la que quiere realizar el emparejamiento en el cuadro **Id. de recurso** que aparece cuando se activa la casilla. El identificador de recurso que especifique debe ser para una red virtual que exista en la misma región de Azure, o en una [región](#requirements-and-constraints) [diferente admitida](https://azure.microsoft.com/regions), que esta red virtual. El recurso completo es similar a identificador `/subscriptions/<Id>/resourceGroups/<resource-group-name>/providers/Microsoft.Network/virtualNetworks/<virtual-network-name>`. Para obtener el identificador de recurso de una red virtual, vea las propiedades de la red virtual. Para obtener información sobre cómo ver las propiedades de una red virtual, consulte [Administración de redes virtuales](manage-virtual-network.md#view-virtual-networks-and-settings). Si la suscripción está asociada a un inquilino de Azure Active Directory que resulte ser diferente al de la suscripción que tiene la red virtual en la que está creando el emparejamiento, primero debe agregar un usuario de cada inquilino como [usuario invitado](../active-directory/b2b/add-users-administrator.md?toc=%2fazure%2fvirtual-network%2ftoc.json#add-guest-users-to-the-directory) en el inquilino opuesto.
     - **Subscription** (Suscripción): seleccione la [suscripción](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) de la red virtual con la que quiere realizar el emparejamiento. Se muestran una o varias suscripciones, en función del número de suscripciones al que tenga acceso de lectura su cuenta. Si ha activado la casilla **Id. de recurso**, esta opción no está disponible.
     - **Red virtual:** seleccione la red virtual con la que quiere realizar el emparejamiento. Puede seleccionar una red virtual creada a través de cualquier modelo de implementación de Azure. Si desea seleccionar una red virtual en otra región, debe seleccionar una red virtual en una [región admitida](#cross-region). Debe tener acceso de lectura a la red virtual para que sea visible en la lista. Si una red virtual aparece en gris, puede deberse a que el espacio de direcciones de la red virtual se superpone con el espacio de direcciones de esta red virtual. Si los espacios de direcciones de las redes virtuales se superponen, no se pueden emparejar. Si ha activado la casilla **Id. de recurso**, esta opción no está disponible.
     - **Permitir acceso a red virtual**: seleccione **Habilitado** (valor predeterminado) si quiere habilitar la comunicación entre las dos redes virtuales. Al habilitar la comunicación entre las redes virtuales, permite que los recursos conectados a cualquier red virtual se comuniquen entre sí con el mismo ancho de banda y latencia que si estuvieran conectados a la misma red virtual. Todas las comunicaciones entre los recursos de las dos redes virtuales se realizan a través de la red privada de Azure. La etiqueta de servicio **VirtualNetwork** para los grupos de seguridad de red abarca la red virtual y la red virtual emparejada. Para más información acerca de las etiquetas de servicio de los grupos de seguridad de red, consulte la [información general sobre los grupos de seguridad de red](security-overview.md#service-tags). Seleccione **Deshabilitado** si no quiere que el tráfico fluya a la red virtual emparejada. Por ejemplo, podría seleccionar **Deshabilitado** si ha emparejado una red virtual con otra red virtual pero quiere deshabilitar en ocasiones el flujo de tráfico entre ambas redes. Le resultará más cómoda la opción de habilitar y deshabilitar que eliminar y volver a crear emparejamientos. Si esta opción está deshabilitada, el tráfico no fluye entre las redes virtuales emparejadas.
@@ -84,7 +84,7 @@ Antes de cambiar un emparejamiento, familiarícese con los requisitos y las rest
 5. Cambie los valores pertinentes. Obtenga información sobre las opciones para cada configuración en [paso 5](#add-peering) de crear un emparejamiento.
 6. Seleccione **Guardar**.
 
-**Comandos:**
+**Comandos**
 
 - **CLI de Azure**: [az network vnet peering list](/cli/azure/network/vnet/peering) para mostrar los emparejamientos de una red virtual, [az network vnet peering show](/cli/azure/network/vnet/peering) para mostrar la configuración de un emparejamiento específico y [az network vnet peering update](/cli/azure/network/vnet/peering) para cambiar la configuración de emparejamiento.|
 - **PowerShell**: [Get-AzVirtualNetworkPeering](/powershell/module/az.network/get-azvirtualnetworkpeering) para recuperar la configuración de emparejamiento de vista y [conjunto AzVirtualNetworkPeering](/powershell/module/az.network/set-azvirtualnetworkpeering) para cambiar la configuración.
@@ -103,7 +103,7 @@ Si quiere que las redes virtuales se comuniquen algunas veces pero no siempre, e
 4. En el lado derecho del emparejamiento que quiere eliminar, seleccione **...**, **Eliminar** y, a continuación, seleccione **Sí** para eliminar el emparejamiento de la primera red virtual.
 5. Complete los pasos anteriores para eliminar el emparejamiento de la otra red virtual del emparejamiento.
 
-**Comandos:**
+**Comandos**
 
 - **CLI de Azure**: [az network vnet peering delete](/cli/azure/network/vnet/peering)
 - **PowerShell**: [Remove-AzVirtualNetworkPeering](/powershell/module/az.network/remove-azvirtualnetworkpeering)
@@ -156,10 +156,10 @@ Si su cuenta no está asignada a uno de los roles anteriores, se debe asignar a 
 
   |Modelo de implementación de Azure             | Subscription  |
   |---------                          |---------|
-  |Ambas mediante Resource Manager              |[Iguales](tutorial-connect-virtual-networks-portal.md)|
-  |                                   |[Diferentes](create-peering-different-subscriptions.md)|
-  |Una mediante Resource Manager y la otra clásica  |[Iguales](create-peering-different-deployment-models.md)|
-  |                                   |[Diferentes](create-peering-different-deployment-models-subscriptions.md)|
+  |Ambas mediante Resource Manager              |[La misma](tutorial-connect-virtual-networks-portal.md)|
+  |                                   |[Diferente](create-peering-different-subscriptions.md)|
+  |Una mediante Resource Manager y la otra clásica  |[La misma](create-peering-different-deployment-models.md)|
+  |                                   |[Diferente](create-peering-different-deployment-models-subscriptions.md)|
 
 - Aprenda a crear una [topología de red de concentrador y radio](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - Crear un emparejamiento de redes virtuales con scripts de ejemplo de [PowerShell](powershell-samples.md) o de la [CLI de Azure](cli-samples.md), o bien con [plantillas de Resource Manager](template-samples.md)

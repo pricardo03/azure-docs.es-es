@@ -3,17 +3,17 @@ title: Preguntas más frecuentes acerca de las redes en Azure Functions
 description: Respuestas a algunas de las preguntas y escenarios de redes con Azure Functions más comunes.
 services: functions
 author: alexkarcher-msft
-manager: jehollan
+manager: jeconnoc
 ms.service: azure-functions
 ms.topic: troubleshooting
-ms.date: 2/26/2019
-ms.author: alkarche
-ms.openlocfilehash: 7946b7f45ff3df9225a27b70ccfbdb895bfd03c4
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.date: 4/11/2019
+ms.author: alkarche, glenga
+ms.openlocfilehash: 126b9ccefedee1f5cefdac8a8666a58e7a4a1fef
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896491"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548657"
 ---
 # <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Preguntas más frecuentes acerca de las redes en Azure Functions
 
@@ -23,7 +23,7 @@ A continuación es una lista de preguntas más frecuentes de red. Para obtener u
 
 Implementación de una función en App Service Environment (ASE) es actualmente la única manera de tener una dirección IP entrante y saliente estática para la función. Para obtener más información sobre el uso de un ASE, comience con el artículo aquí: [Creación y uso de un ASE de ILB](../app-service/environment/create-ilb-ase.md).
 
-## <a name="how-do-i-restrict-internet-access-to-my-function"></a>¿Cómo se puede restringir acceso a Internet a mi función?
+## <a name="how-do-i-restrict-internet-access-to-my-function"></a>¿Cómo se puede restringir acceso a internet a mi función?
 
 Puede restringir el acceso a internet en un número de formas, enumeradas a continuación.
 
@@ -54,3 +54,13 @@ Solo puede desencadenar una función de un recurso en una red virtual mediante l
 Implementación en un entorno de App Service es la única forma de crear una aplicación de función que está totalmente dentro de una red virtual para obtener más información sobre el uso de un ASE de ILB, comience con el artículo aquí: [Creación y uso de un ASE de ILB](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
 
 Para escenarios donde solamente necesita unidireccional acceso a recursos de redes virtuales, o menos aislamiento de red completa, consulte el [funciones de información general de redes](functions-networking-options.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Para más información acerca de las redes y funciones: 
+
+* [Siga nuestra red virtual integración tutorial de introducción](./functions-create-vnet.md)
+* [Más información sobre las opciones de red de las funciones aquí](./functions-networking-options.md)
+* [Más información sobre la integración de la red virtual con App Service y Functions](../app-service/web-sites-integrate-with-vnet.md)
+* [Más información sobre las redes virtuales en Azure](../virtual-network/virtual-networks-overview.md)
+* [Habilitar más características de red y control con entornos de App Service](../app-service/environment/intro.md)

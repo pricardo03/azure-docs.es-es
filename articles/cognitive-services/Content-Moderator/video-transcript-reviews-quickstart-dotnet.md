@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 56cd608d337d817b849a0902569e9aeddeca80ab
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: a3d362f08765cc80b65659b406a2fac3af71f167
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758572"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524504"
 ---
 # <a name="create-video-transcript-reviews-using-net"></a>Creación de revisiones de transcripciones de vídeo con .NET
 
@@ -154,7 +154,7 @@ Cree una revisión del vídeo con **ContentModeratorClient.Reviews.CreateVideoRe
 **CreateVideoReviews** tiene los siguientes parámetros requeridos:
 1. Una cadena que contiene un tipo MIME, que debe ser "application/json". 
 1. El nombre del equipo de Content Moderator.
-1. Un objeto **IList<CreateVideoReviewsBodyItem>**. Cada objeto **CreateVideoReviewsBodyItem** representa una revisión del vídeo. Esta guía de inicio rápido crea una revisión a la vez.
+1. Un **IList\<CreateVideoReviewsBodyItem >** objeto. Cada objeto **CreateVideoReviewsBodyItem** representa una revisión del vídeo. Esta guía de inicio rápido crea una revisión a la vez.
 
 **CreateVideoReviewsBodyItem** tiene varias propiedades. Como mínimo, establezca las propiedades siguientes:
 - **Content**. La dirección URL del vídeo para revisar.
@@ -243,16 +243,16 @@ Además de agregar una transcripción a una revisión de vídeo, también agrega
 **AddVideoTranscriptModerationResult** tiene los siguientes parámetros requeridos:
 1. Una cadena que contiene un tipo MIME, que debe ser "application/json". 
 1. El nombre del equipo de Content Moderator.
-1. El identificador de revisión del vídeo devuelto por **CreateVideoReviews**.
-1. Un valor IList<TranscriptModerationBodyItem>. El elemento **TranscriptModerationBodyItem** tiene las siguientes propiedades:
-1. **Terms**. Un valor IList<TranscriptModerationBodyItemTermsItem>. El elemento **TranscriptModerationBodyItemTermsItem** tiene las siguientes propiedades:
+1. Identificador de revisión de vídeo que **CreateVideoReviews** devuelve.
+1. IList\<TranscriptModerationBodyItem >. El elemento **TranscriptModerationBodyItem** tiene las siguientes propiedades:
+1. **Terms**. IList\<TranscriptModerationBodyItemTermsItem >. El elemento **TranscriptModerationBodyItemTermsItem** tiene las siguientes propiedades:
 1. **Index**. Índice de base cero del término.
 1. **Term**. Una cadena que contiene el término.
 1. **Timestamp**. Una cadena que contiene, en segundos, el tiempo en la transcripción en el que se encuentran los términos.
 
 La transcripción debe tener el formato WebVTT. Para más información, consulte [WebVTT: The Web Video Text Tracks Format](https://www.w3.org/TR/webvtt1/).
 
-Agregue la siguiente definición de método al espacio de nombres VideoTranscriptReviews, clase Program. Este método envía una transcripción al método **ContentModeratorClient.TextModeration.ScreenText**. También convierte el resultado en un valor IList<TranscriptModerationBodyItem> y lo envía a **AddVideoTranscriptModerationResult**.
+Agregue la siguiente definición de método al espacio de nombres VideoTranscriptReviews, clase Program. Este método envía una transcripción al método **ContentModeratorClient.TextModeration.ScreenText**. También convierte el resultado en IList\<TranscriptModerationBodyItem > y los envía a **AddVideoTranscriptModerationResult**.
 
 ```csharp
 /// <summary>

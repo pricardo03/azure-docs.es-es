@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: wesmc
-ms.openlocfilehash: 928860cd9b6493200ed8a14b7654f6a6f32c45d5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 293901aca3fa1a94c9c6340d2e04f47914db0e07
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59259395"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524470"
 ---
 # <a name="connect-adafruit-feather-huzzah-esp8266-to-azure-iot-hub-in-the-cloud"></a>Conexión de Adafruit Feather HUZZAH ESP8266 a Azure IoT Hub en la nube
 
@@ -128,7 +128,7 @@ Si usa Ubuntu, asegúrese de que tiene los permisos para trabajar en el puerto U
    sudo usermod -a -G <group-owner-name> <username>
    ```
 
-   `<group-owner-name>` es el nombre del propietario de grupo que obtuvo en el paso anterior. `<username>` es el nombre de usuario de Ubuntu.
+   `<group-owner-name>` es el nombre del propietario del grupo que obtuvo en el paso anterior. `<username>` es el nombre de usuario de Ubuntu.
 
 3. Cierre la sesión de Ubuntu y luego vuelva a iniciar sesión para que aparezca el cambio.
 
@@ -220,7 +220,7 @@ La aplicación de ejemplo puede simular datos de humedad y temperatura en caso d
 
 ### <a name="deploy-the-sample-application-to-feather-huzzah-esp8266"></a>Implementación de la aplicación de ejemplo en Feather HUZZAH ESP8266
 
-1. En Visual Studio Code, haga clic en **<Select Serial Port>** en la barra de estado y, luego, en el puerto serie para Feather HUZZAH ESP8266.
+1. En el código de Visual Studio, haga clic en  **\<seleccionar puerto de serie >** en el estado, de barras y, a continuación, haga clic en el puerto serie para Feather HUZZAH ESP8266.
 
 2. Escriba `F1`, a continuación, escriba **Arduino** y seleccione **Arduino: Cargar** para compilar e implementar la aplicación de ejemplo en Feather HUZZAH ESP8266.
 

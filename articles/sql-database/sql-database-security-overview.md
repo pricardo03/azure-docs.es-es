@@ -11,13 +11,13 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: f9387d68139119c13d57ebb135e0c0f5b7bba8ec
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.date: 04/11/2019
+ms.openlocfilehash: de9eb8ff33dc6d99c386ee92118a2d737ba1e476
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59359054"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523705"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Información general sobre las funcionalidades de seguridad de Azure SQL Database
 
@@ -107,7 +107,7 @@ Como práctica recomendada, se recomienda que, en la conexión de la aplicación
 Por ejemplo, cuando se utiliza el controlador ADO.NET esto se logra a través de **Encrypt = True** y **TrustServerCertificate = False**. Si obtiene la cadena de conexión de Azure portal, tendrá la configuración correcta.
 
 > [!IMPORTANT]
-> Tenga en cuenta que algunos controladores no son de Microsoft no pueden usar TLS de forma predeterminada o se basan en una versión anterior de TLS (< 2.0) para poder funcionar. En este caso SQL Server permite conectarse a la base de datos. Sin embargo, recomendamos que evalúe los riesgos de seguridad de permitir que los controladores y aplicaciones para conectarse a SQL Database, especialmente si se almacenan datos confidenciales. 
+> Tenga en cuenta que algunos controladores no son de Microsoft no pueden usar TLS de forma predeterminada o se basan en una versión anterior de TLS (< 1.2) para poder funcionar. En este caso SQL Server permite conectarse a la base de datos. Sin embargo, recomendamos que evalúe los riesgos de seguridad de permitir que los controladores y aplicaciones para conectarse a SQL Database, especialmente si se almacenan datos confidenciales. 
 >
 > Para obtener más información acerca de TLS y conectividad, consulte [consideraciones de TLS](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 

@@ -4,22 +4,24 @@ description: Esta página proporciona información sobre las reglas y grupos de 
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 4/8/2019
+ms.date: 4/11/2019
 ms.author: victorh
-ms.openlocfilehash: 61ab41eed7703c82c2e5ef2a3b5412a9f56389ba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 0ad5cc76c0f4631fd60eea7d0a57e4740b6a9db3
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59279710"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523926"
 ---
-# <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Lista de reglas y grupos de reglas de CRS de firewall de aplicaciones web que se ofrecen
+# <a name="web-application-firewall-crs-rule-groups-and-rules"></a>Las reglas y grupos de reglas CRS de firewall de aplicaciones web
 
-El firewall de aplicaciones web de Application Gateway protege las aplicaciones web de las vulnerabilidades más habituales. Esto se realiza a través de reglas que se definen basándose en las versiones 2.2.9 o 3.0 de OWASP Core Rule Set. Estas reglas se pueden deshabilitar individualmente. En este artículo se incluyen las reglas y los conjuntos de reglas actuales que se ofrecen.
+El firewall de aplicaciones web de Application Gateway protege las aplicaciones web de las vulnerabilidades más habituales. Esto se realiza a través de las reglas que se definen en función de los conjuntos de reglas de núcleo OWASP 3.0 o 2.2.9. Estas reglas se pueden deshabilitar individualmente. En este artículo se incluyen las reglas y los conjuntos de reglas actuales que se ofrecen.
 
-Las tablas siguientes son los grupos de reglas y las reglas que están disponibles al utilizar Application Gateway con el firewall de aplicaciones web.  Cada tabla representa las reglas incluidas en un grupo de reglas para una versión específica de CRS.
+Los siguientes grupos de reglas y reglas están disponibles al usar Application Gateway con firewall de aplicaciones web.
 
-## <a name="owasp30"></a> OWASP_3.0
+# <a name="owasp-30tabowasp3"></a>[OWASP 3.0](#tab/owasp3)
+
+## <a name="owasp30"></a> Conjuntos de reglas
 
 ### <a name="General"></a> <p x-ms-format-detection="none">General</p>
 
@@ -50,7 +52,7 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 |---|---|
 |920100|Línea de solicitud HTTP no válida|
 |920130|Error al analizar el cuerpo de la solicitud|
-|920140|El cuerpo de la solicitud de varias partes no superó la validación estricta =     PE %@{REQBODY_PROCESSOR_ERROR}     BQ %@{MULTIPART_BOUNDARY_QUOTED}     BW %@{MULTIPART_BOUNDARY_WHITESPACE}     DB %@{MULTIPART_DATA_BEFORE}     DA %@{MULTIPART_DATA_AFTER}     HF %@{MULTIPART_HEADER_FOLDING}     LF %@{MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING}     IQ %@{MULTIPART_INVALID_QUOTING}     IH %@{MULTIPART_INVALID_HEADER_FOLDING}     FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
+|920140|Cuerpo de solicitud de varias partes no pudo validación estricta|
 |920160|El encabezado Content-Length HTTP no es numérico.|
 |920170|Solicitud GET o HEAD con contenido del cuerpo|
 |920180|Falta el encabezado Content-Length en la solicitud POST.|
@@ -216,7 +218,9 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 |943110|Posible ataque de fijación de sesión = Nombre del parámetro SessionID con origen de referencia fuera del dominio|
 |943120|Posible ataque de fijación de sesión = Nombre del parámetro SessionID con origen de referencia fuera del dominio|
 
-## <a name="owasp229"></a> OWASP_2.2.9
+# <a name="owasp-229tabowasp2"></a>[OWASP 2.2.9](#tab/owasp2)
+
+## <a name="owasp229"></a> Conjuntos de reglas
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 
@@ -225,7 +229,7 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 |960911|Línea de solicitud HTTP no válida|
 |981227|Error de Apache = URI no válido en la solicitud|
 |960912|Error al analizar el cuerpo de la solicitud|
-|960914|El cuerpo de la solicitud de varias partes no superó la validación estricta =     PE %@{REQBODY_PROCESSOR_ERROR}     BQ %@{MULTIPART_BOUNDARY_QUOTED}     BW %@{MULTIPART_BOUNDARY_WHITESPACE}     DB %@{MULTIPART_DATA_BEFORE}     DA %@{MULTIPART_DATA_AFTER}     HF %@{MULTIPART_HEADER_FOLDING}     LF %@{MULTIPART_LF_LINE}     SM %@{MULTIPART_SEMICOLON_MISSING}     IQ %@{MULTIPART_INVALID_QUOTING}     IH %@{MULTIPART_INVALID_HEADER_FOLDING}     FLE %@{MULTIPART_FILE_LIMIT_EXCEEDED}|
+|960914|Cuerpo de solicitud de varias partes no pudo validación estricta|
 |960915|El analizador de varias partes ha detectado un posible límite no coincidente.|
 |960016|El encabezado Content-Length HTTP no es numérico.|
 |960011|Solicitud GET o HEAD con contenido del cuerpo|
@@ -472,6 +476,8 @@ Las tablas siguientes son los grupos de reglas y las reglas que están disponibl
 |950921|Acceso a puerta trasera|
 |950922|Acceso a puerta trasera|
 
+---
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-Aprenda a deshabilitar las reglas de WAF visitando: [Personalización de las reglas de WAF](application-gateway-customize-waf-rules-portal.md)
+Obtenga información sobre cómo deshabilitar las reglas de WAF: [Personalización de las reglas de WAF](application-gateway-customize-waf-rules-portal.md)

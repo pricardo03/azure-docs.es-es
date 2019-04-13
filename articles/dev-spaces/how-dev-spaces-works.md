@@ -10,12 +10,12 @@ ms.date: 03/04/2019
 ms.topic: conceptual
 description: Describe los procesos que espacios de desarrollo de Azure power y cómo están configurados en el archivo de configuración azds.yaml
 keywords: azds.yaml, espacios de desarrollo de Azure, los espacios de desarrollo, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores
-ms.openlocfilehash: 0397a52e8cd838aafe44a35508f8a68caba4c94e
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 494dd3774ec47598a95c6e20de6283abc2e4ff94
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59489595"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544930"
 ---
 # <a name="how-azure-dev-spaces-works-and-is-configured"></a>Cómo funciona la espacios de desarrollo de Azure y está configurado
 
@@ -85,16 +85,18 @@ Preparar el clúster de AKS implica:
 * Habilitación de espacios de desarrollo de Azure en el clúster con `az aks use-dev-spaces`
 
 Para obtener más información sobre cómo crear y configurar un clúster de AKS para espacios de desarrollo de Azure, consulte uno de las guías de iniciación:
-* [Introducción a Azure Dev Spaces con Java](get-started-java.md)
-* [Introducción a Azure Dev Spaces con .NET Core y Visual Studio](get-started-netcore-visualstudio.md)
-* [Introducción a Azure Dev Spaces con .NET Core](get-started-netcore.md)
-* [Introducción a Azure Dev Spaces con Node.js](get-started-nodejs.md)
+* [Introducción a espacios de desarrollo de Azure con Java](get-started-java.md)
+* [Introducción a espacios de desarrollo de Azure con .NET Core y Visual Studio](get-started-netcore-visualstudio.md)
+* [Introducción a espacios de desarrollo de Azure con .NET Core](get-started-netcore.md)
+* [Introducción a espacios de desarrollo de Azure con Node.js](get-started-nodejs.md)
 
 Cuando se habilita espacios de desarrollo de Azure en el clúster de AKS, instala el controlador para el clúster. El controlador es un recurso de Azure independiente fuera de su clúster y hace lo siguiente a los recursos del clúster:
 
 * Crea o se designa un espacio de nombres de Kubernetes que se usará como un espacio de desarrollo.
 * Quita cualquier espacio de nombres de Kubernetes denominado *azds*, si existe y crea uno nuevo.
-* Implementa un objeto de inicializador de Kubernetes.
+* Implementa una configuración de webhook de Kubernetes.
+* Implementa un servidor de admisión de webhook.
+    
 
 También usa a la misma entidad de servicio que usa el clúster de AKS para realizar llamadas de servicio a otros componentes de espacios de desarrollo de Azure.
 
@@ -104,9 +106,9 @@ Para poder usar espacios de desarrollo de Azure, debe haber al menos un espacio 
 
 De forma predeterminada, el controlador crea un espacio de desarrollo denominado *predeterminada* actualizando existente *predeterminada* espacio de nombres de Kubernetes. Puede usar las herramientas de cliente para crear nuevos espacios de desarrollo y quitar los espacios de desarrollo existentes. Debido a una limitación en Kubernetes, el *predeterminada* no se puede quitar el espacio de desarrollo. El controlador también quita los espacios de nombres de Kubernetes existente denominado *azds* para evitar conflictos con el `azds` comando utilizado por las herramientas de cliente.
 
-El objeto de inicializador de Kubernetes se usa para insertar los pods con tres contenedores durante la implementación para la instrumentación: un contenedor devspaces proxy, un contenedor devspaces-proxy-init y un contenedor de compilación de devspaces. **Tres de estos contenedores se ejecutan con acceso a la raíz en el clúster de AKS.** También usan a la misma entidad de servicio que usa el clúster de AKS para realizar llamadas de servicio a otros componentes de espacios de desarrollo de Azure.
+El servidor de admisión de webhook de Kubernetes se usa para insertar los pods con tres contenedores durante la implementación para la instrumentación: un contenedor devspaces proxy, un contenedor devspaces-proxy-init y un contenedor de compilación de devspaces. **Tres de estos contenedores se ejecutan con acceso a la raíz en el clúster de AKS.** También usan a la misma entidad de servicio que usa el clúster de AKS para realizar llamadas de servicio a otros componentes de espacios de desarrollo de Azure.
 
-![Inicializador de Kubernetes de espacios de desarrollo de Azure](media/how-dev-spaces-works/kubernetes-initializer.svg)
+![Servidor de admisión de webhook de Azure Kubernetes de espacios de desarrollo](media/how-dev-spaces-works/kubernetes-webhook-admission-server.svg)
 
 El contenedor de devspaces proxy es un contenedor sidecar que controla todo el tráfico TCP dentro y fuera del contenedor de aplicación y le ayuda a realizar el enrutamiento. El contenedor devspaces proxy redirige los mensajes HTTP si se usan determinados espacios. Por ejemplo, puede ayudar a enrutar los mensajes HTTP entre aplicaciones en espacios primarios y secundarios. Todo el tráfico HTTP que no sean pasa a través de proxy devspaces sin modificar. El contenedor devspaces proxy también registra todos los mensajes HTTP entrantes y salientes y las envía al lado de cliente de herramientas como seguimientos. Estos seguimientos se pueden ver, a continuación, el desarrollador para inspeccionar el comportamiento de la aplicación.
 
@@ -117,7 +119,7 @@ El contenedor de compilación de devspaces es un contenedor de init y tiene el c
 > [!NOTE]
 > Espacios de desarrollo de Azure usa el mismo nodo para compilar el contenedor de la aplicación y ejecutarla. Como resultado, los espacios de desarrollo de Azure no es necesario un registro de contenedor externo para compilar y ejecutar la aplicación.
 
-El objeto de inicializador de Kubernetes realiza escuchas para cualquier nuevo pod que se crea en el clúster de AKS. Si se implementa ese pod en cualquier espacio de nombres con el *azds.io/space=true* etiqueta, inserta ese pod con los contenedores adicionales. El contenedor de compilación de devspaces solo se aplica si el contenedor de la aplicación se ejecuta con las herramientas de cliente.
+Escucha el servidor de admisión de webhook de Kubernetes para cualquier nuevo pod que se crea en el clúster de AKS. Si se implementa ese pod en cualquier espacio de nombres con el *azds.io/space=true* etiqueta, inserta ese pod con los contenedores adicionales. El contenedor de compilación de devspaces solo se aplica si el contenedor de la aplicación se ejecuta con las herramientas de cliente.
 
 Una vez que haya preparado el clúster de AKS, puede usar las herramientas de cliente para preparar y ejecutar el código en el espacio de desarrollo.
 
@@ -221,7 +223,7 @@ En un nivel más granular, aquí es lo que sucede al ejecutar `azds up`:
 1. Los archivos se sincronizan desde el equipo del usuario a un almacenamiento de archivos de Azure que es único para el clúster de AKS del usuario. El código fuente, el gráfico de Helm y los archivos de configuración se cargan. Obtener más detalles sobre el proceso de sincronización están disponibles en la sección siguiente.
 1. El controlador crea una solicitud para iniciar una nueva sesión. Esta solicitud contiene varias propiedades, incluido un identificador único, el nombre de espacio, ruta de acceso al código fuente y un indicador de depuración.
 1. El controlador de reemplaza el *$(tag)* marcador de posición en el gráfico de Helm con el identificador de sesión único e instala frente del gráfico para el servicio. Agregando que una referencia al identificador de sesión único para el gráfico de Helm permite al contenedor implementado en el clúster de AKS para esta sesión concreta para asociarse a la solicitud de sesión y la información asociada.
-1. Durante la instalación del gráfico de Helm, el objeto inicializador Kubernetes agrega contenedores adicionales al pod de la aplicación para la instrumentación y el acceso al código fuente de su proyecto. Los contenedores de devspaces-proxy-init y devspaces proxy se agregan para proporcionar el seguimiento de HTTP y el enrutamiento de espacio. El contenedor de compilación de devspaces se agrega para proporcionar el pod con acceso a la instancia de Docker y el código fuente del proyecto para crear el contenedor de la aplicación.
+1. Durante la instalación del gráfico de Helm, el servidor de admisión de webhook de Kubernetes agrega contenedores adicionales al pod de la aplicación para la instrumentación y el acceso al código fuente de su proyecto. Los contenedores de devspaces-proxy-init y devspaces proxy se agregan para proporcionar el seguimiento de HTTP y el enrutamiento de espacio. El contenedor de compilación de devspaces se agrega para proporcionar el pod con acceso a la instancia de Docker y el código fuente del proyecto para crear el contenedor de la aplicación.
 1. Cuando se inicia el pod de la aplicación, el contenedor de compilación de devspaces y el contenedor de devspaces-proxy-init se utilizan para crear el contenedor de la aplicación. A continuación, se inician los contenedores de devspaces proxy y el contenedor de aplicaciones.
 1. Una vez iniciado el contenedor de aplicaciones, la funcionalidad del lado cliente utiliza el Kubernetes *reenvío de puerto* funcionalidad para proporcionar acceso HTTP a la aplicación a través de http://localhost. El reenvío de puerto conecta el equipo de desarrollo para el servicio en el espacio de desarrollo.
 1. Cuando se hayan iniciado todos los contenedores en el pod, el servicio se está ejecutando. En este momento, la funcionalidad del lado cliente comienza a transmitir el seguimiento HTTP, stdout y stderr. Esta información se muestra la funcionalidad del lado cliente para el desarrollador.

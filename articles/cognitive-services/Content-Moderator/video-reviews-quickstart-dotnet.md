@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 47516f06f212dd0541da5f177401d479eb760cc0
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: e4dd7299907168bb50ac8ebdf90b381c0bac01f2
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758252"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527377"
 ---
 # <a name="create-video-reviews-using-net"></a>Creación de revisiones de vídeo con .NET
 
@@ -166,7 +166,7 @@ Cree una revisión del vídeo con **ContentModeratorClient.Reviews.CreateVideoRe
 **CreateVideoReviews** tiene los siguientes parámetros requeridos:
 1. Una cadena que contiene un tipo MIME, que debe ser "application/json". 
 1. El nombre del equipo de Content Moderator.
-1. Un objeto **IList<CreateVideoReviewsBodyItem>**. Cada objeto **CreateVideoReviewsBodyItem** representa una revisión del vídeo. Esta guía de inicio rápido crea una revisión a la vez.
+1. Un **IList\<CreateVideoReviewsBodyItem >** objeto. Cada objeto **CreateVideoReviewsBodyItem** representa una revisión del vídeo. Esta guía de inicio rápido crea una revisión a la vez.
 
 **CreateVideoReviewsBodyItem** tiene varias propiedades. Como mínimo, establezca las propiedades siguientes:
 - **Content**. La dirección URL del vídeo para revisar.
@@ -224,18 +224,18 @@ Agregue fotogramas de vídeo a una revisión de vídeo con **ContentModeratorCli
 1. Una cadena que contiene un tipo MIME, que debe ser "application/json".
 1. El nombre del equipo de Content Moderator.
 1. Identificador de revisión de vídeo que **CreateVideoReviews** devuelve.
-1. Un objeto **IList<VideoFrameBodyItem>**. Cada objeto **VideoFrameBodyItem** representa un fotograma de vídeo.
+1. Un **IList\<VideoFrameBodyItem >** objeto. Cada objeto **VideoFrameBodyItem** representa un fotograma de vídeo.
 
 **VideoFrameBodyItem** tiene las siguientes propiedades:
 - **Timestamp**. Cadena que contiene, en segundos, el tiempo en el vídeo a partir del cuál se tomó el fotograma de vídeo.
 - **FrameImage**. Dirección URL del fotograma de vídeo.
-- **Metadata**. Valor de IList<VideoFrameBodyItemMetadataItem>. **VideoFrameBodyItemMetadataItem** es simplemente un par de clave-valor. Las claves válidas son:
+- **Metadata**. IList\<VideoFrameBodyItemMetadataItem >. **VideoFrameBodyItemMetadataItem** es simplemente un par de clave-valor. Las claves válidas son:
 - **reviewRecommended**. Es True si se recomienda la revisión humana del fotograma de vídeo.
 - **adultScore**. Valor de 0 a 1 que clasifica la gravedad de contenido para adultos en el fotograma de vídeo.
 - **a**. Es True si el vídeo incluye contenido para adultos.
 - **racyScore**. Valor de 0 a 1 que clasifica la gravedad de contenido subido de tono en el fotograma de vídeo.
 - **r**. Es True si el fotograma de vídeo incluye contenido subido de tono.
-- **ReviewerResultTags**. Valor de IList<VideoFrameBodyItemReviewerResultTagsItem>. **VideoFrameBodyItemReviewerResultTagsItem** es simplemente un par de clave-valor. Una aplicación puede utilizar estas etiquetas para organizar los fotogramas de vídeo.
+- **ReviewerResultTags**. IList\<VideoFrameBodyItemReviewerResultTagsItem >. **VideoFrameBodyItemReviewerResultTagsItem** es simplemente un par de clave-valor. Una aplicación puede utilizar estas etiquetas para organizar los fotogramas de vídeo.
 
 > [!NOTE]
 > Esta guía de inicio rápido genera valores aleatorios para las propiedades **adultScore** y **racyScore**. En una aplicación de producción, estos valores se obtienen en el [servicio de moderación de vídeo](video-moderation-api.md), implementado como un servicio de Azure Media Services.

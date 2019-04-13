@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 42fde2804c04b2449068d649e1c660d02e72edb1
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: aadab68185347dc0a12e0802f675efe13ecea545
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56729362"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547151"
 ---
 # <a name="mapping-data-flow-schema-drift"></a>Desfase del esquema de Mapping Data Flow
 
@@ -26,7 +26,7 @@ Con el fin de protegerse contra el desfase de esquema, es importante disponer de
 * Definir parámetros de transformación que pueden funcionar con modelos de datos en lugar de con campos y valores codificados de forma rígida
 * Definir expresiones que comprenden los patrones para que coincidan con los campos de entrada, en lugar de utilizar campos con nombre
 
-En Data Flow de Azure Data Factory, esas funciones se exponen a través de este flujo de trabajo:
+## <a name="how-to-implement-schema-drift"></a>Cómo implementar la desviación en el esquema
 
 * Elija "Allow Schema Drift" (Permitir desfase de esquema) en la transformación de origen.
 
@@ -67,3 +67,10 @@ Puede probarlo con el ejemplo de flujo de datos de Azure Data Factory "Taxi Demo
 
 <img src="media/data-flow/taxidrift2.png" width="800">
 
+## <a name="access-new-columns-downstream"></a>Acceso a nuevas columnas de nivel inferior
+
+Al generar nuevas columnas con los patrones de columnas, puede acceder a esas columnas nuevo más tarde en sus transformaciones de flujo de datos mediante la función de la expresión "byName".
+
+## <a name="next-steps"></a>Pasos siguientes
+
+En el [lenguaje de expresiones de flujo de datos](data-flow-expression-functions.md) encontrará características adicionales para patrones de columnas y la desviación en el esquema incluido "byName" y "byPosition".

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: 1dac87ae07fac6a997cfd8e83c1e47ff39a91a83
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 0d3123b1e0238a1907b5ad3d487b92a7919ff181
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096697"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524266"
 ---
 # <a name="add-an-entity-to-example-utterances"></a>Incorporación de una entidad a expresiones de ejemplo 
 
@@ -91,6 +91,8 @@ Suponiendo que la declaración, `Does John Smith work in Seattle?`, una declarac
 
 ## <a name="add-hierarchical-entity"></a>Incorporación de entidad jerárquica
 
+**Entidades jerárquicas quedará obsoleto finalmente. Use [roles entidad](luis-concept-roles.md) para determinar los subtipos de entidad, en lugar de entidades jerárquicas.**
+
 Una entidad jerárquica es una categoría de entidades relacionadas conceptualmente y aprendidas contextualmente. En el ejemplo siguiente, la entidad contiene ubicaciones de origen y destino. 
 
 En la expresión `Move John Smith from Seattle to Cairo`, Seattle es la ubicación de origen y el Cairo es la ubicación de destino. Cada ubicación es contextualmente diferente y se aprende a partir del orden de palabras y elección de palabras en la expresión.
@@ -105,6 +107,12 @@ En la expresión `Move John Smith from Seattle to Cairo`, Seattle es la ubicaci�
 
     >[!CAUTION]
     >Los nombres de entidad secundaria deben ser únicos en todas las entidades en una sola aplicación. Dos entidades jerárquicas diferentes no pueden contener entidades secundarias con el mismo nombre. 
+
+## <a name="add-entitys-role-to-utterance"></a>Agregar rol de la entidad a utterance (dictado)
+
+Un rol es un subtipo de una entidad, determinado por el contexto de la declaración con nombre. Puede marcar una entidad dentro de una declaración como la entidad, o seleccione un rol dentro de esa entidad. Cualquier entidad puede tener funciones incluidas entidades personalizadas que se ha aprendido la máquina (entidades simples y compuestas entidades), no ha aprendido la máquina (entidades creadas previamente, las entidades de la expresión regular, las entidades de la lista). 
+
+Obtenga información sobre [cómo marcar una declaración con las funciones de la entidad](tutorial-entity-roles.md) de un tutorial práctico. 
 
 ## <a name="entity-status-predictions"></a>Predicciones de estado de entidad
 
@@ -151,11 +159,11 @@ Para quitar una etiqueta de entidad de una expresión de aprendizaje automático
 
 ### <a name="add-prebuilt-entity-label"></a>Adición de etiqueta de entidad precompilada
 
-Al agregar las entidades precompiladas a la aplicación de LUIS, no necesitará etiquetar expresiones con estas entidades. Para obtener más información sobre entidades precompiladas y cómo agregarlas, consulte la sección [Add entities](luis-how-to-add-entities.md#add-prebuilt-entity) (Agregar entidades).
+Al agregar las entidades precompiladas a la aplicación de LUIS, no necesitará etiquetar expresiones con estas entidades. Para obtener más información sobre entidades precompiladas y cómo agregarlas, consulte la sección [Add entities](luis-how-to-add-entities.md#add-a-prebuilt-entity-to-your-app) (Agregar entidades).
 
 ### <a name="add-regular-expression-entity-label"></a>Adición de la etiqueta de la entidad de expresiones regulares
 
-Al agregar las entidades de expresiones regulares a la aplicación de LUIS, no necesitará etiquetar expresiones con estas entidades. Para obtener más información sobre entidades de expresiones regulares y cómo agregarlas, consulte la sección [Add entities](luis-how-to-add-entities.md#add-regular-expression-entities) (Agregar entidades).
+Al agregar las entidades de expresiones regulares a la aplicación de LUIS, no necesitará etiquetar expresiones con estas entidades. Para obtener más información sobre entidades de expresiones regulares y cómo agregarlas, consulte la sección [Add entities](luis-how-to-add-entities.md#add-regular-expression-entities-for-highly-structured-concepts) (Agregar entidades).
 
 
 ### <a name="create-a-pattern-from-an-utterance"></a>Creación de un patrón a partir de una expresión

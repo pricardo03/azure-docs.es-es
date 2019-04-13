@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d67bd26dcb2ac0b3bf909e1ef3d5ca75a0882eb3
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 28e399eaf62731d7c38cea5f5a8cb8ebf876e686
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57840654"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522510"
 ---
 # <a name="create-hive-tables-and-load-data-from-azure-blob-storage"></a>Creación de tablas de Hive y carga de datos desde Azure Blob Storage
 
@@ -112,7 +112,7 @@ Si abre el contenedor predeterminado del clúster de Hadoop mediante herramienta
 ![Explorador de Azure Storage mostrando la salida de la consulta de Hive](./media/move-hive-tables/output-hive-results-3.png)
 
 ### <a name="hive-editor"></a> 2. Enviar consultas de Hive con el Editor de Hive
-También puede utilizar la consola de consultas (Editor de Hive) escribiendo una dirección URL del formulario *https://<Hadoop cluster name>.azurehdinsight.net/Home/HiveEditor* en un explorador web. Debe haber iniciado sesión para ver esta consola; así pues, tiene que escribir sus credenciales de Hadoop aquí.
+También puede usar la consola de consultas (Editor de Hive) escribiendo una dirección URL del formulario *https:\//\<el nombre del clúster de Hadoop >.azurehdinsight.net/Home/HiveEditor* en un explorador web. Debe haber iniciado sesión para ver esta consola; así pues, tiene que escribir sus credenciales de Hadoop aquí.
 
 ### <a name="ps"></a> 3. Enviar consultas de Hive con los comandos de Azure PowerShell
 Los usuarios pueden también usar PowerShell para enviar consultas de Hive. Para obtener instrucciones, consulte [Envío de trabajos de Hive mediante PowerShell](../../hdinsight/hadoop/apache-hadoop-use-hive-powershell.md).
@@ -149,7 +149,7 @@ Esta es la consulta de subárbol que carga datos en una tabla de subárbol.
 
     LOAD DATA INPATH '<path to blob data>' INTO TABLE <database name>.<table name>;
 
-* **\<ruta a los datos de blob\>**: si el archivo de blob que se va a cargar en la tabla de Hive se encuentra en el contenedor predeterminado del clúster Hadoop de HDInsight, *\<ruta a los datos de blob\>* tendrá el formato *"wasb:///<directory in this container>/<blob file name>"*. El archivo blob también puede estar en un contenedor adicional del clúster de Hadoop de HDInsight. En este caso, *\<ruta a los datos de blob\>* tendrá el formato *"wasb://<container name><storage account name>.blob.core.windows.net/<blob file name>"*.
+* **\<ruta a los datos de blob\>**: Si el archivo de blob que se cargará en la tabla de Hive se encuentra en el contenedor predeterminado del clúster de HDInsight Hadoop, el *\<ruta de acceso a datos blob\>* debe tener el formato *' wasb: / /\< directorio en este contenedor > /\<nombre de archivo de blob >'*. El archivo blob también puede estar en un contenedor adicional del clúster de Hadoop de HDInsight. En este caso, *\<ruta de acceso a datos blob\>* debe tener el formato *' wasb: / /\<nombre del contenedor >\<nombredecuentadealmacenamiento >.blob.core.windows.net/\<nombre de archivo de blob >'*.
 
   > [!NOTE]
   > Los datos blob que se van a cargar en la tabla de subárbol tienen que estar en el contenedor adicional o predeterminado de la cuenta de almacenamiento para el clúster de Hadoop. De lo contrario, la consulta *LOAD DATA* genera un error indicando que no puede obtener acceso a los datos.

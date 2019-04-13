@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: yagup;jdial
-ms.openlocfilehash: 7e90e42f768ceb333ac90f56249457ffa46ae461
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: cb61366a672a48cdc84e14f40d889e646e0e23b8
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491003"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545406"
 ---
 # <a name="traffic-analytics"></a>Análisis de tráfico
 
@@ -202,7 +202,7 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 
 ### <a name="find-traffic-hotspots"></a>Búsqueda de zonas activas de tráfico
 
-**Busca**
+**¿Qué buscar?**
 
 - ¿Qué hosts, subredes y máquinas virtuales envían o reciben la mayor parte del tráfico, recorren el máximo de tráfico malintencionado y bloquean flujos considerables?
     - Revise el gráfico de comparación para host, subred y máquina virtual. Conocer los hosts, las subredes y las máquinas virtuales que envían o reciben más tráfico puede ayudarlo a identificar cuáles son los hosts que procesan la mayor parte del tráfico y si la distribución del tráfico se realiza correctamente.
@@ -222,7 +222,7 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 
     ![Tendencias de los cinco hosts con mayor comunicación](media/traffic-analytics/top-five-most-talking-host-trend.png)
 
-**Busca**
+**¿Qué buscar?**
 
 - ¿Cuáles son los pares de hosts con más interlocuciones?
     - Comportamiento esperado del tipo comunicación entre front-end y back-end, o comportamiento irregular como tráfico de back-end a Internet.
@@ -238,7 +238,7 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 
     ![Tendencias y detalles de las cinco conversaciones principales](./media/traffic-analytics/top-five-chatty-conversation-details-and-trend.png)
 
-**Busca**
+**¿Qué buscar?**
 
 - ¿Qué protocolo de aplicación se usa con más frecuencia en su entorno, y qué pares de hosts interlocutores lo usan más frecuentemente?
     - ¿Se permiten estas aplicaciones en esta red?
@@ -252,7 +252,7 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 
     ![Detalles de los flujos del protocolo de aplicación para la búsqueda de registros](./media/traffic-analytics/flow-details-for-application-protocol-in-log-search.png)
 
-**Busca**
+**¿Qué buscar?**
 
 - Tendencias de uso de la capacidad de una puerta de enlace VPN en su entorno.
     - Cada SKU de VPN permite una determinada cantidad de ancho de banda. ¿Se usan poco las puertas de enlace de VPN?
@@ -268,7 +268,7 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 
 ### <a name="visualize-traffic-distribution-by-geography"></a>Visualización de la distribución del tráfico por geografía
 
-**Busca**
+**¿Qué buscar?**
 
 - La distribución del tráfico por centro de datos como, por ejemplo, los principales orígenes del tráfico a un centro de datos, las principales redes no autorizadas que conversan con el centro de datos y los principales protocolos de aplicaciones de conversación.
   - Si observa más carga en un centro de datos, puede planear una distribución del tráfico más eficaz.
@@ -290,7 +290,7 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 
 ### <a name="visualize-traffic-distribution-by-virtual-networks"></a>Visualización de la distribución del tráfico por redes virtuales
 
-**Busca**
+**¿Qué buscar?**
 
 - La distribución del tráfico por red virtual, la topología, los principales orígenes de tráfico a la red virtual, las principales redes no autorizadas que conversan con la red virtual y los principales protocolos de aplicaciones de conversación.
   - Saber qué red virtual está conversando con qué red virtual. Si no es una conversación esperada, esto se puede corregir.
@@ -310,7 +310,7 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 
     ![Detalles de flujos para la distribución del tráfico de red virtual en búsqueda de registros](./media/traffic-analytics/flow-details-for-virtual-network-traffic-distribution-in-log-search.png)
 
-**Busca**
+**¿Qué buscar?**
 
 - La distribución del tráfico por subred, la topología, los principales orígenes de tráfico a la subred, las principales redes no autorizadas que conversan con la subred y los principales protocolos de aplicaciones de conversación.
     - Sepa qué subred está conversando con qué subred. Si ve conversaciones inesperadas, puede corregir la configuración.
@@ -320,7 +320,7 @@ Algunas de las informaciones detalladas que puede obtener una vez que Análisis 
 
     ![Topología de subred que muestra la distribución de tráfico hacia una subred de red virtual en relación con los flujos](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png)
 
-**Busca**
+**¿Qué buscar?**
 
 La distribución del tráfico por Application Gateway y Load Balancer, la topología, los principales orígenes de tráfico, las principales redes no autorizadas que conversan con Application Gateway y Load Balancer y los principales protocolos de aplicaciones de conversación. 
     
@@ -331,7 +331,7 @@ La distribución del tráfico por Application Gateway y Load Balancer, la topolo
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Visualización de los puertos y máquinas virtuales que reciben tráfico desde Internet
 
-**Busca**
+**¿Qué buscar?**
 
 - ¿Qué puertos abiertos mantienen conversaciones a través de Internet?
   - Si se encuentran abiertos puertos inesperados, puede corregir la configuración:
@@ -340,7 +340,7 @@ La distribución del tráfico por Application Gateway y Load Balancer, la topolo
 
     ![Detalles de puertos y hosts de destino de Azure](./media/traffic-analytics/details-of-azure-destination-ports-and-hosts.png)
 
-**Busca**
+**¿Qué buscar?**
 
 ¿Tiene tráfico malintencionado en su entorno? ¿Desde dónde se origina? ¿Cuál es su destino?
 
@@ -349,7 +349,7 @@ La distribución del tráfico por Application Gateway y Load Balancer, la topolo
 
 ### <a name="visualize-the-trends-in-nsgnsg-rules-hits"></a>Visualización de las tendencias en las coincidencias del grupo de seguridad de red o de las reglas del grupo de seguridad de red
 
-**Busca**
+**¿Qué buscar?**
 
 - ¿Qué grupos de seguridad de red o reglas de grupo de seguridad de red tienen la mayor cantidad de coincidencias en el gráfico comparativo con la distribución de flujos?
 - ¿Cuáles son los pares de conversación de origen y destino principales por grupo de seguridad de red o reglas de grupo de seguridad de red?
@@ -369,3 +369,8 @@ La distribución del tráfico por Application Gateway y Load Balancer, la topolo
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
 Para obtener respuestas a las preguntas más frecuentes, consulte [Preguntas más frecuentes de Análisis de tráfico](traffic-analytics-faq.md).
+
+## <a name="next-steps"></a>Pasos siguientes
+
+- Para saber cómo habilitar los registros de flujo, consulte [Habilitación del registro de flujo de NSG](network-watcher-nsg-flow-logging-portal.md).
+- Para comprender el esquema y los detalles de análisis de tráfico de procesamiento, vea [esquema de análisis de tráfico](traffic-analytics-schema.md).

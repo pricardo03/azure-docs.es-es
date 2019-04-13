@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/10/2019
 ms.author: aljo
-ms.openlocfilehash: 97f75438cf6401b4e2d5043038c1ca32b7022e7c
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 46c9b37e9bb8613b34dea6705320f5689eeb51d8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501304"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526544"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Personalización de la configuración de un clúster de Service Fabric
 En este documento se describen las distintas configuraciones de tejido para el clúster de Service Fabric que puede personalizar. Para clústeres hospedados en Azure, puede personalizar la configuración en [Azure Portal](https://portal.azure.com) o mediante una plantilla de Azure Resource Manager. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster de Azure](service-fabric-cluster-config-upgrade-azure.md). En clústeres independientes, para personalizar la configuración debe actualizar el archivo *ClusterConfig.json* y realizar una actualización de la configuración en el clúster. Para más información, consulte el artículo sobre la [actualización de la configuración de un clúster independiente](service-fabric-cluster-config-upgrade-windows-server.md).
@@ -87,7 +87,7 @@ La siguiente es una lista de la configuración de Fabric que puede personalizar,
 |MaxDataMigrationTimeout |Tiempo en segundos, el valor predeterminado es 600. |Dinámica|Especifique el intervalo de tiempo en segundos. El tiempo de espera máximo para operaciones de recuperación de migración de datos después de que ha tenido lugar una actualización de Fabric. |
 |MaxOperationRetryDelay |Tiempo en segundos, el valor predeterminado es 5.|Dinámica| Especifique el intervalo de tiempo en segundos. El retraso máximo de reintentos internos cuando se producen errores. |
 |MaxOperationTimeout |Tiempo en segundos, el valor predeterminado es MaxValue. |Dinámica| Especifique el intervalo de tiempo en segundos. El tiempo de espera máximo global para procesar internamente las operaciones en ClusterManager. |
-|MaxTimeoutRetryBuffer | Tiempo en segundos, el valor predeterminado es 600. |Dinámica|Especifique el intervalo de tiempo en segundos. El tiempo de espera máximo de funcionamiento cuando se realizan reintentos internos debido a que el tiempo de espera es <Original Time out>  +  <MaxTimeoutRetryBuffer>. El tiempo de espera adicional se agrega en incrementos de MinOperationTimeout. |
+|MaxTimeoutRetryBuffer | Tiempo en segundos, el valor predeterminado es 600. |Dinámica|Especifique el intervalo de tiempo en segundos. El tiempo de espera máximo de funcionamiento cuando se realizan reintentos internos debido a tiempos de espera es `<Original Time out> + <MaxTimeoutRetryBuffer>`. El tiempo de espera adicional se agrega en incrementos de MinOperationTimeout. |
 |MinOperationTimeout | Tiempo en segundos, el valor predeterminado es 60. |Dinámica|Especifique el intervalo de tiempo en segundos. El tiempo de espera mínimo global para procesar internamente las operaciones en ClusterManager. |
 |MinReplicaSetSize |Int, el valor predeterminado es 3. |No permitida|MinReplicaSetSize para ClusterManager. |
 |PlacementConstraints | string, el valor predeterminado es "". |No permitida|PlacementConstraints para ClusterManager. |

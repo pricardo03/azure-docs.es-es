@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3e897a3fbc76a75e526e4d0706a2678cd29dfc2e
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 35d03a52125bd2646f86b96bcffe123d9fab7f64
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55477461"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545321"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>Fase de descripción de negocio del ciclo de vida del Proceso de ciencia de datos en equipo
 
@@ -46,7 +46,7 @@ En esta fase se abordan dos tareas principales:
 ### <a name="define-objectives"></a>Definición de objetivos
 1. Un objetivo fundamental de este paso consiste en identificar las principales variables empresariales que el análisis deberá predecir. Estas variables se denominan *objetivos del modelo* y las métricas asociadas a ellas se utilizan para determinar el éxito del proyecto. Dos ejemplos de estos destinos son la previsión de ventas o la probabilidad de que un pedido sea fraudulento.
 
-2. Para definir los objetivos del proyecto, plantee y ajuste preguntas "certeras" que sean pertinentes, específicas y sin ambigüedad alguna. La ciencia de datos es un proceso que utiliza nombres y números para responder a estas preguntas. Para obtener más información sobre cómo hacer preguntas difíciles, consulte el blog [How to do data science](https://blogs.technet.microsoft.com/machinelearning/2016/03/28/how-to-do-data-science/) (Realización de procesos de ciencia de datos). La ciencia de datos o el aprendizaje automático suelen utilizarse para responder a cinco tipos de preguntas:
+2. Para definir los objetivos del proyecto, plantee y ajuste preguntas "certeras" que sean pertinentes, específicas y sin ambigüedad alguna. La ciencia de datos es un proceso que utiliza nombres y números para responder a estas preguntas. La ciencia de datos o el aprendizaje automático suelen utilizarse para responder a cinco tipos de preguntas:
  
    * ¿Cuánto? o ¿cuántos? (regresión)
    * ¿Qué categoría? (clasificación)

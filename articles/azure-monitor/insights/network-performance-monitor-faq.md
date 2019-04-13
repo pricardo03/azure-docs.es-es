@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 285f29055d0ac9ba656ec828972ef15f4c0d36c7
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: d216a26dc01ae3a6946c57138bb124b41f50a151
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496971"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546256"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>Preguntas más frecuentes sobre la solución Network Performance Monitor.
 
@@ -40,7 +40,7 @@ A continuación se muestran los requisitos de plataforma para diversas funcional
 - La funcionalidad Supervisión de ExpressRoute de NPM solo admite el sistema operativo Windows Server (2008 SP1 o posterior).
 
 ### <a name="can-i-use-linux-machines-as-monitoring-nodes-in-npm"></a>¿Se pueden usar máquinas Linux como nodos de supervisión en NPM?
-La funcionalidad de supervisión de redes con nodos basados en Linux se encuentra actualmente en versión preliminar privada. Póngase en contacto con el administrador de cuentas para obtener más información. En cuanto nos indique el identificador de área de trabajo, seguiremos adelante y habilitaremos la funcionalidad. Los agentes de Linux solo ofrecen funcionalidad de supervisión con la funcionalidad Monitor de rendimiento de NPM y no está disponible para las funcionalidades Monitor de conectividad de servicio y Supervisión de ExpressRoute.
+La capacidad de supervisar las redes mediante los nodos basados en Linux está actualmente en versión preliminar. Póngase en contacto con el administrador de cuentas para obtener más información. En cuanto nos indique el identificador de área de trabajo, seguiremos adelante y habilitaremos la funcionalidad. Los agentes de Linux solo ofrecen funcionalidad de supervisión con la funcionalidad Monitor de rendimiento de NPM y no está disponible para las funcionalidades Monitor de conectividad de servicio y Supervisión de ExpressRoute.
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>¿Cuáles son los requisitos de tamaño de los nodos que se van a usar para la supervisión por parte de NPM?
 Para ejecutar la solución NPM en máquinas virtuales de nodo para supervisar redes, los nodos deben tener al menos 500 MB de memoria y un núcleo. No es necesario usar nodos independientes para ejecutar NPM. La solución pueda ejecutarse en nodos en los que haya otras cargas de trabajo en ejecución. La solución tiene capacidad para detener el proceso de supervisión en caso de utilice más del 5 % de CPU.

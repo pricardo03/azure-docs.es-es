@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/05/2019
 ms.author: bwren
-ms.openlocfilehash: 0a29e453c723ecc9ac378ee337365525587aaef2
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: c2babb5a86d69881b6a76c6dceae80a24a891f6c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57444130"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549310"
 ---
 # <a name="computer-groups-in-azure-monitor-log-queries"></a>Grupos de equipos en las consultas de registros de Azure Monitor
 Los grupos de equipos en Azure Monitor permiten limitar las [consultas de registros](../log-query/log-query-overview.md) a un conjunto concreto de equipos.  Cada grupo se rellena con equipos mediante una consulta que defina o a través de la importación de grupos de diferentes orígenes.  Cuando el grupo se incluye en una consulta de registros, los resultados se limitan a los registros que coinciden con los equipos del grupo.
@@ -127,15 +127,15 @@ En el área de trabajo de Log Analytics se crea un registro para cada pertenenci
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| Type |*ComputerGroup* |
-| SourceSystem |*SourceSystem* |
-| Equipo |Nombre del equipo miembro. |
-| Grupo |Nombre del grupo. |
-| GroupFullName |Ruta de acceso completa al grupo, incluidos el origen y el nombre de origen. |
-| GroupSource |Origen desde el que se ha recopilado el grupo. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
-| GroupSourceName |Nombre del origen desde el que se recopiló el grupo.  En el caso de Active Directory, es el nombre del dominio. |
-| ManagementGroupName |Nombre del grupo de administración de agentes SCOM.  En el caso de los otros agentes, es AOI-\<id. de área de trabajo\>. |
-| TimeGenerated |Fecha y hora en la que se creó o actualizó el grupo de equipos. |
+| `Type` |*ComputerGroup* |
+| `SourceSystem` |*SourceSystem* |
+| `Computer` |Nombre del equipo miembro. |
+| `Group` |Nombre del grupo. |
+| `GroupFullName` |Ruta de acceso completa al grupo, incluidos el origen y el nombre de origen. |
+| `GroupSource` |Origen desde el que se ha recopilado el grupo. <br><br>ActiveDirectory<br>WSUS<br>WSUSClientTargeting |
+| `GroupSourceName` |Nombre del origen desde el que se recopiló el grupo.  En el caso de Active Directory, es el nombre del dominio. |
+| `ManagementGroupName` |Nombre del grupo de administración de agentes SCOM.  En el caso de los otros agentes, es AOI-\<id. de área de trabajo\>. |
+| `TimeGenerated` |Fecha y hora en la que se creó o actualizó el grupo de equipos. |
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Obtenga información acerca de las [consultas de registros](../log-query/log-query-overview.md) para analizar los datos recopilados de soluciones y orígenes de datos.  

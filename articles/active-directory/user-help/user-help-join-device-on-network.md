@@ -13,12 +13,12 @@ ms.date: 08/03/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2ba6b2d33c3fb5d9fda6821718ac61513a958b7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: dfd38e775ba418fbe31cafa8df5f37b45c3b0643
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58369146"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524380"
 ---
 # <a name="join-your-work-device-to-your-organizations-network"></a>Una su dispositivo de trabajo a la red de su organización
 Una su dispositivo Windows 10 de trabajo a la red de su organización para poder tener acceso a recursos potencialmente restringidos.
@@ -62,7 +62,7 @@ Puede asegurarse de que se ha unido fijándose en su configuración.
 
     ![Cuentas en la pantalla Configuración](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Seleccione **Obtener acceso a trabajo o escuela** y asegúrese de que ve texto que dice algo como **Conectado al Azure AD de *<su_organización>*.**
+2. Seleccione **acceso profesional o educativo**y asegúrese de que se ve texto que dice algo parecido a, **conectado a  *\<your_organization >* Azure AD**.
 
     ![Pantalla Obtener acceso a trabajo o escuela con cuenta Contoso conectada](./media/user-help-join-device-on-network/join-device-oobe-verify.png)
 
@@ -107,7 +107,7 @@ Puede asegurarse de que se ha unido fijándose en su configuración.
 
     ![Cuentas en la pantalla Configuración](./media/user-help-join-device-on-network/join-device-settings-accounts.png)
 
-2. Seleccione **Obtener acceso a trabajo o escuela** y asegúrese de que ve texto que dice algo como **Conectado al Azure AD de *<su_organización>*.**
+2. Seleccione **acceso profesional o educativo**y asegúrese de que se ve texto que dice algo parecido a, **conectado a  *\<your_organization >* Azure AD**.
 
     ![Pantalla Obtener acceso a trabajo o escuela con cuenta Contoso conectada](./media/user-help-join-device-on-network/join-device-setup-verify.png)
 

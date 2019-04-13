@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: anzaman;cherylmc
-ms.openlocfilehash: 2013b3b96fddd32f01245655c1feb600bc426e2a
-ms.sourcegitcommit: 9fb6f44dbdaf9002ac4f411781bf1bd25c191e26
-ms.translationtype: HT
+ms.openlocfilehash: 556589aa7a0a577b9b1a010cf4811922ebc6de52
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/08/2018
-ms.locfileid: "53084148"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524895"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Creación y modificación de un circuito ExpressRoute mediante la CLI
 
@@ -56,7 +56,7 @@ az account set --subscription "<subscription ID>"
 
 ### <a name="2-get-the-list-of-supported-providers-locations-and-bandwidths"></a>2. Obtención de la lista de proveedores, ubicaciones y anchos de banda admitidos
 
-Para crear un circuito ExpressRoute, necesita la lista de proveedores de conectividad, ubicaciones y opciones de ancho de banda admitidas. El comando "az network express-route list-service-providers" de la CLI devuelve esta información que se usará en pasos posteriores:
+Para crear un circuito ExpressRoute, necesita la lista de proveedores de conectividad, ubicaciones y opciones de ancho de banda admitidas. El comando de CLI `az network express-route list-service-providers` devuelve esta información, que se usará en pasos posteriores:
 
 ```azurecli-interactive
 az network express-route list-service-providers
@@ -154,7 +154,7 @@ La respuesta contiene la clave del servicio.
 
 ### <a name="4-list-all-expressroute-circuits"></a>4. Lista de todos los circuitos ExpressRoute
 
-Para una lista de todos los circuitos ExpressRoute que creó, ejecute el comando "az network express-route list". Puede recuperar esta información en cualquier momento con este comando. Para mostrar todos los circuitos, realice la llamada sin parámetros.
+Para obtener una lista de todos los circuitos ExpressRoute que creó, ejecute el `az network express-route list` comando. Puede recuperar esta información en cualquier momento con este comando. Para mostrar todos los circuitos, realice la llamada sin parámetros.
 
 ```azurecli-interactive
 az network express-route list

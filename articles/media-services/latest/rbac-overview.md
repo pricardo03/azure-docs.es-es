@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 212d7f5352b58ee8f5b2c119bb1f5f828591f6bf
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: f72e98d8874a5a5dc94deb882affdf66388b13c9
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59490782"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548532"
 ---
 # <a name="role-based-access-control-rbac-for-media-services-accounts"></a>Control de acceso basado en roles (RBAC) para cuentas de Media Services
 
@@ -40,11 +40,11 @@ El [definiciones de roles integrados](https://docs.microsoft.com/azure/role-base
 
 Para obtener más información, consulte los siguientes artículos:
 
-- [Roles de administrador de suscripciones clásico de RBAC de Azure y de administrador de Azure AD](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+- [Roles de administrador de suscripciones clásico de Azure RBAC y roles de administrador de Azure AD](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 - [¿Qué es RBAC para recursos de Azure?](https://docs.microsoft.com/azure/role-based-access-control/overview)
 - [Utilice RBAC para administrar el acceso](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-rest)
-- [Obtener la directiva de clave de contenido mediante .NET de Media Services](get-content-key-policy-dotnet-howto.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Desarrollo con Media Services API v3](media-services-apis-overview.md)
+- [Desarrollo con Media Services API v3](media-services-apis-overview.md)
+- [Obtener la directiva de clave de contenido mediante .NET de Media Services](get-content-key-policy-dotnet-howto.md)

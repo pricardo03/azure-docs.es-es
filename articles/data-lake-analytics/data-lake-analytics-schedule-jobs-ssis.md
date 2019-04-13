@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/17/2018
-ms.openlocfilehash: 5393e202c7b5005552f164c9c6f55da92fc82572
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6894486118f69e682353142be04821e1d28440e5
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104444"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523178"
 ---
 # <a name="schedule-u-sql-jobs-using-sql-server-integration-services-ssis"></a>Programación de trabajos U-SQL mediante SQL Server Integration Services (SSIS)
 
@@ -93,7 +93,7 @@ En la vista de diseño del paquete SSIS, agregue una **tarea del sistema de arch
     
     Para crear esta conexión de archivos:
 
-   1. Elija **<New Connection...>** en la configuración FileConnection.
+   1. Elija  **\<nueva conexión... >** en FileConnection configuración.
    2. Establezca **Usage type** (Tipo de uso) en **Existing file** (Archivo existente) y establezca **File** (Archivo) en la ruta de acceso de archivo de cualquier archivo existente.
 
        ![Configuración del contenedor de bucles Foreach](./media/data-lake-analytics-schedule-jobs-ssis/configure-file-connection-for-foreach-loop-container.png)

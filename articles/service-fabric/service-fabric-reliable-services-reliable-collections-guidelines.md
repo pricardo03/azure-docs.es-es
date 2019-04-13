@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 12/10/2017
 ms.author: aljo
-ms.openlocfilehash: d4d0145ef07a6a89cbae1fe18d2cb7df88cdd113
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 810427c394c3912142e0a21cf1b5c29b81620afb
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58667113"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549048"
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Directrices y recomendaciones de Reliable Collections en Azure Service Fabric
 Esta sección proporciona directrices para el uso de Reliable State Manager y Reliable Collections. El objetivo es ayudar a los usuarios a evitar problemas comunes.
@@ -32,6 +32,7 @@ Las instrucciones se organizan como recomendaciones sencillas precedidas por los
 * No utilice una transacción una vez que se haya confirmado, anulado o eliminado.
 * No utilice una enumeración fuera del ámbito de transacción en que se creó.
 * No cree una transacción dentro de la instrucción `using` de otra transacción, ya que puede provocar interbloqueos.
+* No cree estado confiable con `IReliableStateManager.GetOrAddAsync` y use el estado de confianza en la misma transacción. Esto da como resultado una excepción InvalidOperationException.
 * Asegúrese de que la implementación de `IComparable<TKey>` es correcta. El sistema asume la dependencia de `IComparable<TKey>` para combinar los puntos de control y las filas.
 * Utilice el bloqueo de actualización al leer un elemento con la intención de actualizarlo para evitar que se produzca una clase determinada de interbloqueos.
 * Considere la posibilidad de mantener el número de colecciones confiables por partición inferior a 1000. Priorice las colecciones confiables con más elementos ante las colecciones confiables con menos.

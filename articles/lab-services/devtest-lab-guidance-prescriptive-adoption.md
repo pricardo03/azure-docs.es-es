@@ -10,27 +10,31 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/11/2019
+ms.date: 04/12/2019
 ms.author: spelluru
 ms.reviewer: christianreddington,anthdela,juselph
-ms.openlocfilehash: f16bdb8b89c2ce72c2a31a320d2dedbc4df09c81
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: 67bb81675dabd8aef28693a958a0ac39b1b441e7
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56242794"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549259"
 ---
 # <a name="set-up-azure-devtest-labs-infrastructure-in-your-enterprise"></a>Configuración de la infraestructura de Azure DevTest Labs en su empresa
-Las empresas están adoptando la nube con rapidez debido a sus ventajas de agilidad, flexibilidad y perspectiva economía. Un primer paso habitual en la nube es migrar las cargas de trabajo de desarrollo y pruebas. Hay un conjunto común de problemas al migrar estas cargas de trabajo, como los siguientes: 
+Las empresas están adoptando rápidamente en la nube debido a su [ventajas](/architecture/cloud-adoption/business-strategy/cloud-migration-business-case) que incluyen la agilidad, flexibilidad y ahorro. Un primer paso común para los clientes usar la nube es comenzar con cargas de trabajo de desarrollo y pruebas.  DevTest Labs proporciona [características](devtest-lab-concepts.md) que beneficiarse de la empresa y soporte técnico [escenarios de desarrollo y pruebas empresariales clave](devtest-lab-guidance-get-started.md).
 
-- Protección de recursos de desarrollo y pruebas
-- Separación clara entre desarrollo y pruebas y producción
-- División de recursos entre TI, aplicaciones y equipos de proyecto
-- Administración de costos
-- Permitir la configuración de autoservicio de la infraestructura de desarrollo y pruebas sin comprometer la seguridad
+Hay un conjunto común de problemas al migrar estas cargas de trabajo a la nube:
+
+- [Protección de recursos de desarrollo y pruebas](devtest-lab-guidance-governance-policy-compliance.md)
+- [Administrar y entender los costos](devtest-lab-guidance-governance-cost-ownership.md)
+- Habilitación de autoservicio para los desarrolladores sin poner en peligro la seguridad empresarial y cumplimiento
+- Automatizar y extender DevTest Labs para cubrir escenarios adicionales
+- [Escalar una solución basada en DevTest Labs a miles de recursos](devtest-lab-guidance-scale.md)
+- [Implementaciones a gran escala de DevTest Labs](devtest-lab-guidance-orchestrate-implementation.md)
+- [Introducción a una prueba de concepto](devtest-lab-guidance-orchestrate-implementation.md)
 
 ## <a name="intended-audience"></a>Destinatarios
-Este documento está destinado a los planificadores TI, arquitectos y administradores que son responsables de establecer y revisar las implementaciones generales y de controlar las prácticas operativas. Como resultado, este documento resalta el proceso general y los principios de diseño recomendados para promover un entorno de desarrollo seguro y estable, que en última instancia impulse la adopción de Azure DevTest Labs en una organización.
+La documentación de centrado en la empresa está destinada a los planeadores de TI, arquitectos y administradores que son responsables de establecer y revisar las implementaciones general y prácticas de las operaciones de supervisión. Como resultado, este documento resalta el proceso general y recomienda los principios de diseño para promover un entorno seguro y estable desarrollo/pruebas, que en última instancia impulsa la adopción de Azure DevTest Labs dentro de una organización.
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Introducción al uso de Azure DevTest Labs](devtest-lab-guidance-get-started.md)
+- [Arquitectura de referencia para la empresa](devtest-lab-reference-architecture.md)
