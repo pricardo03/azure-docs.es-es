@@ -14,26 +14,28 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 4a2c90accaafea0c17456f8e6c5eae41199b17ed
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: eef13c5a4e3757b0eafd77c0915717175c2dbd8c
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58105172"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545423"
 ---
-> [!NOTE]
-> Cada instancia de App Service Enviornment tiene una IP virtual (VIP) que puede usarse para ponerse en contacto con App Service Environment.
-> 
-> # <a name="create-an-external-app-service-environment"></a>Creación de una instancia externa de App Service Environment #
+# <a name="create-an-external-app-service-environment"></a>Creación de una instancia externa de App Service Environment
 
-Azure App Service Environment es una implementación de Azure App Service en una subred de Azure Virtual Network (VNet). Hay dos maneras de implementar una instancia de App Service Environment (ASE):
+Azure App Service Environment es una implementación de Azure App Service en una subred de Azure Virtual Network (VNet).
+
+> [!NOTE]
+> Cada entorno de App Service tiene una IP Virtual (VIP), que puede usarse para ponerse en contacto con el entorno de App Service.
+
+Hay dos maneras de implementar una instancia de App Service Environment (ASE):
 
 - Con una dirección VIP en una dirección IP externa, a la que se suele hacer referencia como instancia externa de ASE.
 - Con la dirección VIP en una dirección IP interna, llamada a menudo instancia de ASE con un ILB porque el punto de conexión interno es un equilibrador de carga interno (ILB).
 
 En este artículo se muestra cómo crear un ASE externo. Para obtener información general sobre la instancia de ASE, vea [Introducción a App Service Environment][Intro]. Para obtener información sobre cómo crear una instancia de ASE con un ILB, vea [Creación y uso de una instancia de ASE con un ILB][MakeILBASE].
 
-## <a name="before-you-create-your-ase"></a>Antes de crear su ASE ##
+## <a name="before-you-create-your-ase"></a>Antes de crear su ASE
 
 Después de crear la instancia de ASE, no puede cambiar los siguientes parámetros:
 
@@ -48,7 +50,7 @@ Después de crear la instancia de ASE, no puede cambiar los siguientes parámetr
 > Al seleccionar una VNet y especificar una subred, asegúrese de que es lo suficientemente grande para adaptarse al crecimiento futuro y a las necesidades de escalado. Se recomienda un tamaño de `/24` con doscientas cincuenta y seis direcciones.
 >
 
-## <a name="three-ways-to-create-an-ase"></a>Tres formas de crear un ASE ##
+## <a name="three-ways-to-create-an-ase"></a>Tres formas de crear un ASE
 
 Hay tres formas de crear una instancia de ASE:
 
@@ -58,7 +60,7 @@ Hay tres formas de crear una instancia de ASE:
 
 Una instancia externa de ASE tiene una dirección VIP pública, lo que significa que todo el tráfico HTTP/HTTPS dirigido a las aplicaciones de ASE visita una dirección IP a la que se puede acceder a través de Internet. Una instancia de ASE con un ILB tiene una dirección IP de la subred utilizada por el entorno de ASE. Las aplicaciones hospedadas en una instancia de ASE con un ILB no se exponen directamente a Internet.
 
-## <a name="create-an-ase-and-an-app-service-plan-together"></a>Creación de un ASE y de un plan de App Service juntos ##
+## <a name="create-an-ase-and-an-app-service-plan-together"></a>Creación de un ASE y de un plan de App Service juntos
 
 El plan de App Service es un contenedor de aplicaciones. Cuando se crea una aplicación en App Service, seleccione o cree un plan de App Service. Las instancias de App Service Environment contienen planes de App Service, y estos incluyen aplicaciones.
 
@@ -142,7 +144,7 @@ Para compilar una instancia de ASE al crear un plan de App Service:
 1. Seleccione **Crear** para crear la instancia de ASE. Con este proceso también se crea la aplicación y el plan de App Service. Tanto la instancia de ASE como el plan de App Service y la aplicación se encuentran en la misma suscripción y también en el mismo grupo de recursos. Si la instancia de ASE necesita un grupo de recursos independiente, o si necesita una instancia de ASE con un ILB, siga los pasos para crear un ASE por sí mismo.
 
 
-## <a name="create-an-ase-by-itself"></a>Creación de un ASE por sí mismo ##
+## <a name="create-an-ase-by-itself"></a>Creación de un ASE por sí mismo
 
 Si crea una instancia de ASE independiente, esta no contendrá nada. Aunque la instancia de ASE esté vacía, seguirá generando un cargo mensual para la infraestructura. Siga estos pasos para crear una instancia de ASE con un ILB o crear una instancia de ASE en su propio grupo de recursos. Después de crear la instancia de ASE, puede crear aplicaciones en ella con el método habitual. Seleccione la nueva instancia de ASE como ubicación.
 
@@ -170,7 +172,7 @@ Si crea una instancia de ASE independiente, esta no contendrá nada. Aunque la i
     
     * Si selecciona una red virtual existente, se crea una subred al crear la instancia de ASE. *No puede usar una subred creada previamente en el portal. Puede crear una instancia de ASE con una subred existente si usa una plantilla de Resource Manager.* Para crear una instancia de ASE a partir de una plantilla, vea [Creación de una instancia de App Service Environment a partir de una plantilla][MakeASEfromTemplate].
 
-## <a name="app-service-environment-v1"></a>App Service Environment v1 ##
+## <a name="app-service-environment-v1"></a>App Service Environment v1
 
 Todavía puede crear instancias de la primera versión de App Service Environment (ASEv1). Para iniciar ese proceso, busque **App Service Environment v1** en Marketplace. Cree la instancia de ASE de la misma forma que ha creado la instancia de ASE independiente. Cuando termine, la instancia de ASEv1 tendrá dos servidores front-end y dos trabajos. Con ASEv1 necesita administrar los servidores front-end y los trabajos. No se agregan de forma automática al crear los planes de App Service. Los front-end actúan como los puntos de conexión HTTP/HTTPS y envían tráfico a los trabajos. Los trabajos son roles que hospedan las aplicaciones. Puede ajustar la cantidad de servidores front-end y de trabajos después de crear la instancia de ASE. 
 

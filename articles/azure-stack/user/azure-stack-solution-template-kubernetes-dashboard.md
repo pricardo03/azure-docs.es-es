@@ -15,12 +15,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: waltero
 ms.lastreviewed: 02/27/2019
-ms.openlocfilehash: 4e9df0d413b964b4a14cf9ca48db8b7956b441f9
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: fa663cce10a39ef60a0efa5838b81b257fd02b46
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482596"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59255944"
 ---
 # <a name="access-the-kubernetes-dashboard-in-azure-stack"></a>Acceso al panel de Kubernetes en Azure Stack 
 
@@ -47,7 +47,7 @@ Kubernetes incluye un panel web que se puede usar para operaciones básicas de a
 ## <a name="overview-of-steps-to-enable-dashboard"></a>Información general de los pasos para habilitar el panel
 
 1.  Exporte los certificados de Kubernetes del nodo principal del clúster. 
-2.  Importe los certificados en Azure Stack en su equipo de administración.
+2.  Importe los certificados en la máquina de administración de Azure Stack.
 2.  Abra el panel web de Kubernetes. 
 
 ## <a name="export-certificate-from-the-master"></a>Exportación del certificado desde el nodo principal 
@@ -70,7 +70,7 @@ Puede recuperar la dirección URL para el panel desde el nodo principal del clú
     ```Bash   
     kubectl cluster-info 
     ``` 
-    Busque la dirección URL para el panel. Por ejemplo: `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
+    Busque la dirección URL para el panel. Por ejemplo:   `https://k8-1258.local.cloudapp.azurestack.external/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy`
 
 6.  Extraiga el certificado autofirmado y conviértalo al formato PFX. Ejecute el siguiente comando:
 
@@ -133,7 +133,7 @@ Puede usar el panel. Para más información sobre el panel de Kubernetes, vea la
 
 ## <a name="next-steps"></a>Pasos siguientes 
 
-[Implementación de Kubernetes en Azure Stack](azure-stack-solution-template-kubernetes-deploy.md).  
+[Implementación de Kubernetes en Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)  
 
 [Agregar un clúster de Kubernetes a Marketplace (para el operador de Azure Stack)](../azure-stack-solution-template-kubernetes-cluster-add.md)  
 

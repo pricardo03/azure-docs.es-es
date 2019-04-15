@@ -12,12 +12,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 6c01232c9bdb685fbc54e5ebe1e1f9fa83073dc2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e528b70e257c41f771a1bd3e5ec811c61eb512cc
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58107804"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526680"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unión de una instancia de Integration Runtime de SSIS de Azure a una red virtual
 Una su instancia de Integration Runtime para la integración de SSIS en Azure a una red virtual de Azure en los siguientes escenarios: 
@@ -135,9 +135,9 @@ Vea [este script de PowerShell](https://gallery.technet.microsoft.com/scriptcent
 
 ### <a name="resource-group"></a> Requisitos para el grupo de recursos
 -   La instancia de Integration Runtime para la integración de SSIS en Azure necesita crear determinados recursos de red en el mismo grupo de recursos de la red virtual. Entre estos recursos se incluyen los siguientes:
-    -   Una instancia de Azure Load Balancer, con el nombre *<Guid>-azurebatch-cloudserviceloadbalancer*.
-    -   Una dirección IP pública de Azure llamada *<Guid>-azurebatch-cloudservicepublicip*.
-    -   Un grupo de seguridad de red llamado *<Guid>-azurebatch-cloudservicenetworksecuritygroup*. 
+    -   Un equilibrador de carga con el nombre  *\<Guid > - azurebatch - cloudserviceloadbalancer*.
+    -   Una dirección IP Azure pública, con el nombre  *\<Guid > - azurebatch - cloudservicepublicip*.
+    -   Un grupo de seguridad de red trabajo, con el nombre  *\<Guid > - azurebatch - cloudservicenetworksecuritygroup*. 
 
 -   Asegúrese de que no tiene ningún bloqueo de recursos en el grupo de recursos ni en la suscripción a la que pertenece la red virtual. Si configura un bloqueo de solo lectura o un bloqueo de eliminación, se puede producir un error o un bloqueo al iniciar o detener la instancia de IR. 
 

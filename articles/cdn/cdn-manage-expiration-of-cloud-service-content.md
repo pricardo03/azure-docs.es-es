@@ -14,17 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/15/2018
 ms.author: magattus
-ms.openlocfilehash: 6e17b110cbfc293e19714399d5b2cdb753aa1ac4
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: c21ae227d74442be5701dd906180392b1e0fdf8b
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917964"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525677"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Administración de la expiración del contenido web en Azure CDN
 > [!div class="op_single_selector"]
 > * [Contenido web de Azure](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
+> * [Almacenamiento de blobs de Azure](cdn-manage-expiration-of-blob-content.md)
 > 
 
 Los archivos de servidores web de origen accesible públicamente se pueden almacenar en caché en Azure Content Delivery Network (CDN) hasta que transcurra su tiempo de vida (TTL). El período de vida viene determinado por el encabezado `Cache-Control` en la respuesta HTTP del servidor de origen. En este artículo se describe cómo establecer los encabezados `Cache-Control` para la característica Web Apps de Microsoft Azure App Service, Azure Cloud Services, las aplicaciones de ASP.NET y los sitios de Internet Information Services (IIS), ya que todos ellos se configuran de forma parecida. Puede establecer el encabezado `Cache-Control` mediante el uso de archivos de configuración o mediante programación. 
@@ -56,7 +56,7 @@ El método preferido para establecer el encabezado `Cache-Control` de un servido
    ![Página de caché de CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-caching-page.png)
 
 
-**Para establecer una web los encabezados Cache-Control del servidor mediante el uso de reglas de almacenamiento en caché globales:**
+**Para establecer encabezados Cache-Control de un servidor web con reglas de almacenamiento en caché globales:**
 
 1. En **Reglas de almacenamiento en caché globales**, establezca **Comportamiento del almacenamiento en caché de cadenas de consulta** en **Ignorar cadenas de consulta**, y establezca **Comportamiento de almacenamiento en caché** en **Invalidar**.
       
@@ -68,7 +68,7 @@ El método preferido para establecer el encabezado `Cache-Control` de un servido
 
 1. Seleccione **Guardar**.
 
-**Para establecer los encabezados Cache-Control del archivo de un servidor web mediante el uso de reglas de almacenamiento en caché personalizadas:**
+**Para establecer encabezados Cache-Control del archivo de servidor web con reglas de almacenamiento en caché personalizadas:**
 
 1. En **Reglas de almacenamiento en caché personalizadas**, cree dos condiciones de coincidencia:
 
@@ -106,7 +106,7 @@ En el archivo de configuración XML de ejemplo siguiente se muestra cómo establ
 </configuration>
 ```
 
-Para usar el atributo **cacheControlMaxAge**, debe establecer el valor del atributo **cacheControlMode** en `UseMaxAge`. Esta configuración hace que el encabezado HTTP y la directiva, `Cache-Control: max-age=<nnn>`, se agreguen a la respuesta. El formato del valor del intervalo de tiempo para el atributo **cacheControlMaxAge** es `<days>.<hours>:<min>:<sec>`. Su valor se convierte en segundos y se utiliza como el valor de la directiva `Cache-Control` `max-age`. Para más información sobre el elemento `<clientCache>`, consulte el elemento [Client Cache<clientCache>](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
+Para usar el atributo **cacheControlMaxAge**, debe establecer el valor del atributo **cacheControlMode** en `UseMaxAge`. Esta configuración hace que el encabezado HTTP y la directiva, `Cache-Control: max-age=<nnn>`, se agreguen a la respuesta. El formato del valor del intervalo de tiempo para el atributo **cacheControlMaxAge** es `<days>.<hours>:<min>:<sec>`. Su valor se convierte en segundos y se utiliza como el valor de la directiva `Cache-Control` `max-age`. Para obtener más información sobre la `<clientCache>` elemento, vea [memoria caché del cliente \<clientCache >](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache).  
 
 ## <a name="setting-cache-control-headers-programmatically"></a>Establecimiento de los encabezados Cache-Control mediante programación
 Para las aplicaciones de ASP.NET, puede controlar el comportamiento de almacenamiento en caché de CDN mediante programación al establecer la propiedad **HttpResponse.Cache** de la API de .NET. Para más información sobre la propiedad **HttpResponse.Cache**, consulte [Propiedad HttpResponse.Cache](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) y [Clase HttpCachePolicy](/dotnet/api/system.web.httpcachepolicy).  
@@ -131,7 +131,7 @@ Response.Cache.SetLastModified(DateTime.Now);
 Puede comprobar fácilmente la configuración de TTL de su contenido web. Con las [herramientas para desarrollador](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del explorador, compruebe que el contenido web incluye el encabezado de respuesta `Cache-Control`. Asimismo, también puede usar una herramienta como **wget**, [Postman](https://www.getpostman.com/) o [Fiddler](https://www.telerik.com/fiddler) para examinar los encabezados de respuesta.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Obtenga información sobre la **clientCache** elemento](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
-* [Lea la documentación de la **HttpResponse.Cache** propiedad](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) 
-* [Lea la documentación de la **clase HttpCachePolicy**](/dotnet/api/system.web.httpcachepolicy)  
-* [Obtenga información sobre los conceptos de almacenamiento en caché](cdn-how-caching-works.md)
+* [Obtener información sobre el elemento **clientCache**](https://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
+* [Lea la documentación de la propiedad **HttpResponse.Cache**](/dotnet/api/system.web.httpresponse.cache#System_Web_HttpResponse_Cache) 
+* [Consulte la documentación de la **clase HttpCachePolicy**](/dotnet/api/system.web.httpcachepolicy)  
+* [Obtenga información sobre conceptos del almacenamiento en caché](cdn-how-caching-works.md)

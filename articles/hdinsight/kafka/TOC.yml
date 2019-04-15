@@ -22,19 +22,16 @@ items:
     href: apache-kafka-quickstart-resource-manager-template.md
 - name: Tutoriales
   items:
-  - name: '1: Uso de los flujos estructurados de Apache Spark'
+  - name: Uso de los flujos estructurados de Apache Spark
     href: ../hdinsight-apache-kafka-spark-structured-streaming.md
     maintainContext: true
-  - name: 2 - Escritura o lectura desde Apache Kafka con Apache Storm
+  - name: Escritura o lectura desde Apache Kafka con Apache Storm
     href: ../hdinsight-apache-storm-with-kafka.md
     maintainContext: true
-  - name: 3 - Uso de Producer y Consumer API de Apache Kafka
+  - name: Uso de Producer y Consumer API de Apache Kafka
     href: apache-kafka-producer-consumer-api.md
-  - name: 4 - Desarrollo de una aplicación con Streams API de Apache Kafka
+  - name: Desarrollo de una aplicación con Streams API de Apache Kafka
     href: apache-kafka-streams-api.md
-  - name: Supervisión de la disponibilidad del clúster con los registros de Ambari y Azure Monitor
-    href: ../hdinsight-cluster-availability.md
-    maintainContext: true
 - name: Conceptos
   items:
   - name: Planificación de capacidad
@@ -159,6 +156,9 @@ items:
       - name: Uso de la API REST de Apache Ambari
         href: ../hdinsight-hadoop-manage-ambari-rest-api.md
         maintainContext: true
+      - name: Supervisión de la disponibilidad del clúster con los registros de Azure Monitor
+        href: ../hdinsight-cluster-availability.md
+        maintainContext: true
       maintainContext: true
     - name: Administración de registros de un clúster de HDInsight
       href: ../hdinsight-log-management.md
@@ -271,9 +271,9 @@ items:
   - name: Herramientas de Windows para HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 1bc035c80492c283364e5216184d2e943bacc3aa
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 4549b041bc9e754aca632826c8e1a2afc7622a82
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58668150"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565105"

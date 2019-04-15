@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: anwestg
 ms.reviewer: ''
-ms.openlocfilehash: 851673de4a711f5eb64228233ea7703ef86bfa7b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 192ac256f013498e57ecf7939d29796af073b948
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500209"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260568"
 ---
 # <a name="app-service-on-azure-stack-update-5-release-notes"></a>Notas de la versión de App Service en la actualización 5 de Azure Stack
 
@@ -72,12 +72,12 @@ La actualización 5 de Azure App Service en Azure Stack incluye las siguientes c
   - Se actualizó Kudu a la versión 79.20129.3767.
   
 - **Actualizaciones al sistema operativo subyacente de todos los roles**:
-  - [Actualización acumulativa 2019-02 para Windows Server 2016 en sistemas basados en x64 (KB4487006)](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006)
+  - [Actualización acumulativa 2019-02 para Windows Server 2016 en sistemas basados en x64 (KB4487006)](https://support.microsoft.com/help/4487006/windows-10-update-kb4487006)
 
 ### <a name="post-deployment-steps"></a>Pasos posteriores a la implementación
 
 > [!IMPORTANT]  
-> Si proporcionó el proveedor de recursos de App Service con una instancia de SQL Always On, DEBE [agregar las bases de datos appservice_hosting y appservice_metering a un grupo de disponibilidad](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database), así como sincronizar dichas bases de datos para evitar la pérdida de servicio en caso de producirse una conmutación por error de base de datos.
+> Si proporcionó el proveedor de recursos de App Service con una instancia de SQL Always On, DEBE [agregar las bases de datos appservice_hosting y appservice_metering a un grupo de disponibilidad](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/availability-group-add-a-database), así como sincronizar dichas bases de datos para evitar la pérdida de servicio en caso de producirse una conmutación por error de base de datos.
 
 ### <a name="post-update-steps"></a>Pasos posteriores a la actualización
 

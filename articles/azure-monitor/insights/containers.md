@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: magoedte
-ms.openlocfilehash: fbc9e0f8e7dfda86b5c53e28aa3aa3b733bb9600
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
-ms.translationtype: HT
+ms.openlocfilehash: 0a45c84b01cace7e14bd1a945617598c6295631e
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58905762"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524283"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Solución de supervisión de contenedores en Azure Monitor
 
@@ -128,7 +128,7 @@ Después de instalar Docker, use la siguientes opciones para el host de contened
 
 - Para obtener más información y conocer los pasos para instalar el agente de Log Analytics para Linux, consulte [Log Analytics agent overview](../../azure-monitor/platform/log-analytics-agent.md) (Información general sobre el agente de Log Analytics).
 
-**Para todos los hosts de contenedor Linux incluido CoreOS:**
+**Para todos los hosts de contenedores de Linux incluido CoreOS:**
 
 Inicie el contenedor que quiere supervisar. Modifique y use el ejemplo siguiente:
 
@@ -136,7 +136,7 @@ Inicie el contenedor que quiere supervisar. Modifique y use el ejemplo siguiente
 sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v /var/lib/docker/containers:/var/lib/docker/containers -e WSID="your workspace id" -e KEY="your key" -h=`hostname` -p 127.0.0.1:25225:25225 --name="omsagent" --restart=always microsoft/oms
 ```
 
-**Para todos los hosts de contenedor Linux en Azure Government incluido CoreOS:**
+**Para todos los hosts de contenedores de Linux para Azure Government incluido CoreOS:**
 
 Inicie el contenedor que quiere supervisar. Modifique y use el ejemplo siguiente:
 
@@ -236,7 +236,7 @@ En esta sección, se describen los pasos necesarios para instalar al agente de L
 Siga este procedimiento si quiere usar secretos para proteger el identificador y la clave principal del área de trabajo de Log Analytics al usar el archivo yaml de daemon-set del agente de Log Analytics.
 
 1. Inicie sesión en el nodo principal de OpenShift y copie el archivo yaml [ocp-ds-omsagent.yaml](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-ds-omsagent.yaml) y el script de generación de secretos [ocp-secretgen.sh](https://github.com/Microsoft/OMS-docker/blob/master/OpenShift/ocp-secretgen.sh) de GitHub.  Este script genera el archivo yaml de secretos para el identificador y la clave principal del área de trabajo de Log Analytics para proteger su información secreta.  
-2. Ejecute los comandos siguientes para crear un proyecto de Azure Monitor y establecer la cuenta de usuario. El script de generación de secretos le pide el identificador <WSID> y la clave principal <KEY> del área de trabajo de Log Analytics y, al terminar, crea el archivo ocp-secret.yaml.  
+2. Ejecute los comandos siguientes para crear un proyecto de Azure Monitor y establecer la cuenta de usuario. El script de generación de secretos le pide el identificador `<WSID>` y la clave principal `<KEY>` del área de trabajo de Log Analytics y, al terminar, crea el archivo ocp-secret.yaml.  
 
     ```
     oadm new-project omslogging --node-selector='zone=default'  
@@ -365,7 +365,7 @@ Puede elegir crear DaemonSets de omsagent con o sin secretos.
         KEY:    88 bytes
         ```
 
-    5. Crear el conjunto mediante la ejecución de demonio de omsagent ```sudo kubectl create -f omsagent-ds-secrets.yaml```
+    5. Ejecute ```sudo kubectl create -f omsagent-ds-secrets.yaml``` para crear el daemon-set de omsagent
 
 2. Compruebe que el DaemonSet del agente de Log Analytics esté ejecutándose, de forma similar a la siguiente:
 
@@ -409,7 +409,7 @@ En Windows Kubernetes, se usa un script para generar el archivo yaml de secretos
         ```
         #> sudo bash ./secret-gen.sh
         ```
-    3. Crear el conjunto mediante la ejecución de demonio de omsagent ```kubectl create -f omsagentsecret.yaml```
+    3. Ejecute ```kubectl create -f omsagentsecret.yaml``` para crear el daemon-set de omsagent
     4. Para comprobarlo, ejecute lo siguiente:
 
         ```
@@ -436,7 +436,7 @@ En Windows Kubernetes, se usa un script para generar el archivo yaml de secretos
         KEY:    88 bytes
         ```
 
-    5. Crear el conjunto mediante la ejecución de demonio de omsagent ```kubectl create -f ws-omsagent-de-secrets.yaml```
+    5. Ejecute ```kubectl create -f ws-omsagent-de-secrets.yaml``` para crear el daemon-set de omsagent
 
 2. Compruebe que el DaemonSet del agente de Log Analytics esté ejecutándose, de forma similar a la siguiente:
 
@@ -451,7 +451,7 @@ En Windows Kubernetes, se usa un script para generar el archivo yaml de secretos
 #### <a name="use-helm-to-deploy-log-analytics-agent-on-linux-kubernetes"></a>Usar Helm para implementar un agente de Log Analytics en Linux Kubernetes
 Para usar Helm con el fin de implementar el agente de Log Analytics en un entorno de Linux Kubernetes, siga este procedimiento.
 
-1. Crear el conjunto mediante la ejecución de demonio de omsagent ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms```
+1. Ejecute ```helm install --name omsagent --set omsagent.secret.wsid=<WSID>,omsagent.secret.key=<KEY> stable/msoms``` para crear el daemon-set de omsagent
 2. El resultado será similar al siguiente:
 
     ```
@@ -532,7 +532,7 @@ Los siguientes tipos de agente recopilan los datos cada tres minutos.
 
 - [Agente de Log Analytics para Linux](../../azure-monitor/learn/quick-collect-linux-computer.md)
 - [Agente de Windows](../../azure-monitor/platform/agent-windows.md)
-- [Extensión de máquina virtual de análisis de registro](../../azure-monitor/learn/quick-collect-azurevm.md)
+- [Extensión de VM de Log Analytics](../../azure-monitor/learn/quick-collect-azurevm.md)
 
 
 ### <a name="container-records"></a>Registros de contenedor
@@ -607,7 +607,7 @@ Log Analytics marca un contenedor como **Failed** (Error) si ha terminado con un
    ![contenedores con errores](./media/containers/containers-state-failed-select.png)  
 1. Ejecute la consulta y, a continuación, expanda una línea en los resultados para ver el identificador de la imagen.  
    ![contenedores con errores](./media/containers/containers-state-failed.png)  
-1. Escriba lo siguiente en la consulta de registro. `ContainerImageInventory | where ImageID == <ImageID>` Para ver los detalles acerca de la imagen como tamaño de la imagen y el número de imágenes detenidas y con errores.  
+1. Escriba lo siguiente en la consulta de registro. `ContainerImageInventory | where ImageID == <ImageID>` para ver detalles de la imagen como tamaño de la imagen y el número de imágenes detenidas y con error.  
    ![contenedores con errores](./media/containers/containers-failed04.png)
 
 ## <a name="query-logs-for-container-data"></a>Consultas de registros de datos del contenedor
@@ -625,8 +625,8 @@ Cuando está solucionando un error específico, puede resultar de ayuda ver dón
 
 
 ### <a name="to-query-logs-for-container-data"></a>Consultas de registros de datos del contenedor
-* Elija una imagen que sabe que ha tenido errores recientemente y busque los registros de errores de ella. Para empezar, busque un nombre de contenedor que esté ejecutando esa imagen con una búsqueda **ContainerInventory**. Por ejemplo, buscar `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
-    ![Busque contenedores de Ubuntu](./media/containers/search-ubuntu.png)
+* Elija una imagen que sabe que ha tenido errores recientemente y busque los registros de errores de ella. Para empezar, busque un nombre de contenedor que esté ejecutando esa imagen con una búsqueda **ContainerInventory**. Por ejemplo, busque `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`.  
+    ![Búsqueda de contenedores de Ubuntu](./media/containers/search-ubuntu.png)
 
   Expanda cualquier fila de los resultados para ver los detalles de ese contenedor.
 

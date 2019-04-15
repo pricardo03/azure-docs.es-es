@@ -23,7 +23,7 @@ items:
     href: quickstart-python.md
   - name: Creación de una aplicación Ruby
     href: quickstart-ruby.md
-  - name: Creación de una aplicación de Docker o Go
+  - name: Ejecución de contenedor personalizado
     href: quickstart-docker-go.md
   - name: Creación de una aplicación de varios contenedores
     href: quickstart-multi-container.md
@@ -48,7 +48,7 @@ items:
       href: tutorial-java-enterprise-postgresql-app.md
   - name: Aplicación de varios contenedores
     href: tutorial-multi-container-app.md
-  - name: Personalización de una imagen de Docker
+  - name: Ejecución de contenedor desde ACR
     href: tutorial-custom-docker-image.md
   - name: Asignación de un dominio personalizado
     href: ../app-service-web-tutorial-custom-domain.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
@@ -56,7 +56,7 @@ items:
     href: ../app-service-web-tutorial-custom-ssl.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Incorporación de CDN
     href: ../../cdn/cdn-add-to-web-app.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-  - name: usuarios
+  - name: Autenticación de usuarios
     href: tutorial-auth-aad.md
 - name: Ejemplos
   items:
@@ -72,10 +72,6 @@ items:
     href: ../overview-hosting-plans.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Entorno de App Service
     href: ../environment/intro.md
-  - name: Guía del desarrollador de Java
-    href: app-service-linux-java.md
-  - name: Guía de Java Enterprise
-    href: app-service-java-enterprise.md
   - name: Direcciones IP de entrada y salida
     href: ../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
   - name: Autenticación y autorización
@@ -88,10 +84,22 @@ items:
   items:
   - name: Configuración de la aplicación
     items:
-    - name: Imagen de Python
-      href: how-to-configure-python.md
     - name: Uso de la configuración de aplicaciones
       href: ../web-sites-configure.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
+    - name: Configuración de ASP.NET Core
+      href: configure-language-dotnetcore.md
+    - name: Configuración de Node.js
+      href: configure-language-nodejs.md
+    - name: Configurar PHP
+      href: configure-language-php.md
+    - name: Configuración de Java
+      href: configure-language-java.md
+    - name: Configurar Python
+      href: how-to-configure-python.md
+    - name: Configuración de Ruby
+      href: configure-language-ruby.md
+    - name: Configuración de contenedor personalizado
+      href: configure-custom-container.md
     - name: Servir contenido con Storage
       href: how-to-serve-content-from-azure-storage.md
   - name: Implementar en Azure
@@ -126,7 +134,7 @@ items:
     items:
     - name: Compra de un certificado SSL
       href: ../web-sites-purchase-ssl-web-site.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: usuarios
+    - name: Autenticación de usuarios
       items:
       - name: Autenticación mediante Azure Active Directory
         href: ../configure-authentication-provider-aad.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
@@ -158,8 +166,6 @@ items:
       href: ../web-sites-monitor.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
     - name: Habilitamiento de registros
       href: ../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-    - name: Integraciones de APM de Java
-      href: how-to-java-apm-monitoring.md
   - name: Administración de aplicaciones
     items:
     - name: Copia de seguridad de una aplicación
@@ -222,9 +228,9 @@ items:
         href: ../faq-open-source-technologies.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
       - name: Preguntas más frecuentes sobre la configuración y administración
         href: ../faq-configuration-and-management.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json
-ms.openlocfilehash: f29fa4901e2eb8e3a6bcabcc72e4dba37041186a
-ms.sourcegitcommit: 549070d281bb2b5bf282bc7d46f6feab337ef248
+ms.openlocfilehash: 250501832c3daaeee9935c2796e6da9df3483e35
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/21/2018
-ms.locfileid: "53719530"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544879"

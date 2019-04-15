@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.openlocfilehash: 31d9e2170461b9c4023bfe6b3e01fb1d7dda7fee
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: bee64909c7f3b295691ef1cb1840424aa7e3fe49
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895896"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549719"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Creación y administración de reglas de alerta de Log Analytics con la API de REST
 La API REST de alertas de Log Analytics le permite crear y administrar alertas en Log Analytics.  En este artículo encontrará información detallada sobre la API y varios ejemplos para realizar distintas operaciones.
@@ -94,9 +94,9 @@ Todas las acciones tienen las propiedades de la siguiente tabla.  Los distintos 
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| Type |Tipo de la acción.  Actualmente, los valores posibles son Alert y Webhook. |
-| NOMBRE |Nombre para mostrar de la alerta. |
-| Versión |Versión de API en uso.  Actualmente, siempre debe estar establecida en 1. |
+| `Type` |Tipo de la acción.  Actualmente, los valores posibles son Alert y Webhook. |
+| `Name` |Nombre para mostrar de la alerta. |
+| `Version` |Versión de API en uso.  Actualmente, siempre debe estar establecida en 1. |
 
 ### <a name="retrieving-actions"></a>Recuperar acciones
 
@@ -154,8 +154,8 @@ Los umbrales tienen las propiedades de la siguiente tabla.
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| Operador |Operador de la comparación de umbral. <br> gt = Mayor que <br>  lt = Menor que |
-| Valor |Valor del umbral. |
+| `Operator` |Operador de la comparación de umbral. <br> gt = Mayor que <br>  lt = Menor que |
+| `Value` |Valor del umbral. |
 
 Por ejemplo, en una consulta de evento con un valor de Intervalo de 15 minutos, un valor de Timespan de 30 minutos y un valor de Threshold mayor que 10, la consulta se ejecutaría cada 15 minutos y se desencadenaría una alerta si devolviera 10 eventos creados durante un intervalo de 30 minutos.
 
@@ -187,9 +187,9 @@ Log Analytics permite clasificar las alertas en categorías, para permitir una a
 
 |Nivel de gravedad de Log Analytics  |Nivel de gravedad de Alertas de Azure  |
 |---------|---------|
-|Crítico |Gravedad 0|
-|Warning (Advertencia) |Gravedad 1|
-|Informational (Informativa) | Gravedad 2|
+|`critical` |Gravedad 0|
+|`warning` |Gravedad 1|
+|`informational` | Gravedad 2|
 
 La siguiente es una respuesta de ejemplo de una acción con un solo umbral y gravedad. 
 
@@ -284,7 +284,7 @@ Use el método Put con un identificador de acción existente para modificar un g
 En el caso de las acciones predeterminadas, siga la plantilla y el formato estándar para las notificaciones. Pero los usuarios pueden personalizar algunas acciones, incluso si los controlan los grupos de acciones. Actualmente, es posible personalizar el asunto del correo electrónico y la carga del webhook.
 
 ##### <a name="customize-e-mail-subject-for-action-group"></a>Personalización del asunto del correo electrónico para el grupo de acciones
-De manera predeterminada, el asunto del correo electrónico para las alertas es: Notificación de alerta <AlertName> para <WorkspaceName>. Pero se puede personalizar, de modo que pueda especificar palabras o etiquetas, para permitirle emplear fácilmente reglas de filtro en la Bandeja de entrada. Los detalles del encabezado del correo electrónico personalizado se deben enviar junto con los detalles de ActionGroup, como se muestra en el ejemplo siguiente.
+De manera predeterminada, el asunto del correo electrónico para las alertas es: Notificación de alerta `<AlertName>` para `<WorkspaceName>`. Pero se puede personalizar, de modo que pueda especificar palabras o etiquetas, para permitirle emplear fácilmente reglas de filtro en la Bandeja de entrada. Los detalles del encabezado del correo electrónico personalizado se deben enviar junto con los detalles de ActionGroup, como se muestra en el ejemplo siguiente.
 
      "etag": "W/\"datetime'2017-12-13T10%3A52%3A21.1697364Z'\"",
       "properties": {

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/27/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
 ms.lastreviewed: 03/27/2019
-ms.openlocfilehash: 00eb4fc3eb0b2e7120208e6318bf35fc2cc6f188
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: cd07ff5beddf65c9788c9ba94802ba2d37172923
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649414"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360700"
 ---
 # <a name="azure-stack-1901-update"></a>Actualización 1901 de Azure Stack
 
@@ -223,7 +223,7 @@ Para más información sobre estas vulnerabilidades, haga clic en los vínculos 
 
 ## <a name="known-issues-with-the-update-process"></a>Problemas conocidos relacionados con el proceso de actualización
 
-- Cuando se ejecuta [Test-AzureStack](azure-stack-diagnostic-test.md), si se produce un error en la prueba de **AzsInfraRoleSummary** o **AzsPortalApiSummary**, se le pedirá que ejecute **Test-AzureStack** con la marca `-Repair`.  Si ejecuta este comando, se produce un error con el siguiente mensaje: `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`
+- Cuando se ejecuta [Test-AzureStack](azure-stack-diagnostic-test.md), si se produce un error en la prueba de **AzsInfraRoleSummary** o **AzsPortalApiSummary**, se le pedirá que ejecute **Test-AzureStack** con la marca `-Repair`.  Si ejecuta este comando, se produce un error con el siguiente mensaje de error:  `Unexpected exception getting Azure Stack health status. Cannot bind argument to parameter 'TestResult' because it is null.`
 
 - Al ejecutar [Test-AzureStack](azure-stack-diagnostic-test.md), se muestra un mensaje de advertencia desde el Controlador de administración de placa base (BMC). Puede omitir esta advertencia sin problemas.
 
@@ -315,6 +315,10 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>syslog
+
+- La configuración de syslog no persiste durante todo un ciclo de actualización, lo que hace que el cliente de syslog pierda su configuración y se dejen de reenviar los mensajes de syslog. Este problema se aplica a todas las versiones de Azure Stack desde la disponibilidad general del cliente de syslog (1809). Para solucionar este programa, vuelva a configurar el cliente de syslog después de aplicar una actualización de Azure Stack.
 
 ## <a name="download-the-update"></a>Descarga de la actualización
 

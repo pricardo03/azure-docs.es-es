@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/03/2019
+ms.date: 04/09/2019
 ms.author: sethm
 ms.reviewer: adepue
-ms.lastreviewed: 04/03/2019
-ms.openlocfilehash: 5971692b3e6447bc790b2e34cf84eae66979f7f5
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.lastreviewed: 04/05/2019
+ms.openlocfilehash: 93221b8cd30993c4bdfdc84b5d14ac432fa661d3
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862087"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59471297"
 ---
 # <a name="azure-stack-1902-update"></a>Actualización 1902 de Azure Stack
 
@@ -65,6 +65,8 @@ Las revisiones de Azure Stack solo son aplicables a los sistemas integrados de A
     Test-AzureStack -Include AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary, AzsHostingServiceCertificates
     ```
 
+  Si el parámetro `AzsControlPlane` se incluye cuando se ejecuta **Test-AzureStack**, verá el error siguiente en la salida de **Test-AzureStack**: **FAIL Azure Stack Control Plane Websites Summary** (ERROR Resumen de sitios web de plano de control de Azure Stack). Puede omitir sin problemas este error específico.
+
 - Cuando System Center Operations Manager (SCOM) administre Azure Stack, asegúrese de actualizar el [módulo de administración para Microsoft Azure Stack](https://www.microsoft.com/download/details.aspx?id=55184) a la versión 1.0.3.11 antes de aplicar la revisión 1902.
 
 - El formato del paquete para la actualización de Azure Stack ha cambiado de **.bin/.exe/.xml** a **.zip/.xml** a partir de la versión 1902. Los clientes con unidades de escalado de Azure Stack conectadas verán el mensaje **Actualización disponible** en el portal. Asimismo, los clientes que no están conectados ahora pueden, simplemente, descargar e importar el archivo ZIP con la extensión .xml correspondiente.
@@ -78,7 +80,7 @@ Las revisiones de Azure Stack solo son aplicables a los sistemas integrados de A
 - La compilación 1902 presenta una nueva interfaz de usuario en el portal de administrador de Azure Stack para crear planes, ofertas, cuotas y planes de complementos. Para obtener más información, incluidas las capturas de pantalla, consulte la documentación sobre [Crear planes, ofertas y cuotas](azure-stack-create-plan.md).
 
 <!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
-- Mejoras en la confiabilidad de la expansión de capacidad durante la adición del nodo al cambiar el estado de la unidad de escalado de "Expanding storage" (Ampliando el almacenamiento) al estado de ejecución.
+- Mejoras en la confiabilidad de la expansión de capacidad durante una operación de incorporación de nodo al cambiar el estado de la unidad de escalado de "Expanding storage" (Ampliando el almacenamiento) a "Running" (En ejecución).
 
 <!--
 1426197 3852583: Increase Global VM script mutex wait time to accommodate enclosed operation timeout    PNU
@@ -95,16 +97,14 @@ Las revisiones de Azure Stack solo son aplicables a los sistemas integrados de A
   ```  
   
 - Para mejorar la confiabilidad y disponibilidad generales de los servicios de infraestructura básicos durante el proceso de actualización, el proveedor de recursos de actualización nativo detectará e invocará, como parte del plan de acción de actualización, correcciones globales automáticas según sea necesario. Entre los flujos de trabajo de reparación global se incluyen los siguientes:
-    - Comprobar si hay máquinas virtuales de infraestructura en un estado que no es óptimo e intentar repararlas según sea necesario 
-    - Comprobar si hay problemas con el servicio SQL como parte del plan de control e intentar repararlos según sea necesario
-    - Comprobar el estado del servicio Equilibrador de carga de software (SLB) como parte de la Controladora de red (NC) e intentar repararlo según sea necesario
-    - Comprobar el estado del servicio de la Controladora de red (NC) e intentar repararlo según sea necesario
-    - Comprobar el estado de los nodos de Service Fabric del Servicio de consola de recuperación de emergencia (ERCS) y repararlos según sea necesario
-    - Comprobar el estado de los nodos de Service Fabric de XRP y repararlos según sea necesario
-    - Comprobar el estado de los nodos de Service Fabric de Almacenamiento coherente de Azure (ACS) y repararlos según sea necesario
 
-<!-- 1460884    Hotfix: Adding StorageController service permission to talk to ClusterOrchestrator  Add node -->
-- Mejoras en la confiabilidad de la expansión de capacidad durante la adición del nodo al cambiar el estado de la unidad de escalado de "Expanding storage" (Ampliando el almacenamiento) al estado de ejecución.    
+  - Comprobar si hay máquinas virtuales de infraestructura en un estado que no es óptimo e intentar repararlas según sea necesario.
+  - Comprobar si hay problemas con el servicio SQL como parte del plan de control e intentar repararlos según sea necesario.
+  - Comprobar el estado del servicio Equilibrador de carga de software (SLB) como parte de la Controladora de red (NC) e intentar repararlo según sea necesario.
+  - Comprobar el estado del servicio de la Controladora de red (NC) e intentar repararlo según sea necesario
+  - Comprobar el estado de los nodos de Service Fabric del Servicio de consola de recuperación de emergencia (ERCS) y repararlos según sea necesario.
+  - Comprobar el estado del rol de la infraestructura y repararlo según sea necesario.
+  - Comprobar el estado de los nodos de Service Fabric de Almacenamiento coherente de Azure (ACS) y repararlos según sea necesario.
 
 <!-- 
 1426690 [SOLNET] 3895478-Get-AzureStackLog_Output got terminated in the middle of network log   Diagnostics
@@ -198,6 +198,14 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
 <!-- 1663805 - IS ASDK --> 
 - No puede ver los permisos de la suscripción mediante los portales de Azure Stack. Como alternativa, use [PowerShell para comprobar los permisos](/powershell/module/azs.subscriptions.admin/get-azssubscriptionplan).
 
+<!-- Daniel 3/28 -->
+- En el portal de usuarios, cuando se desplaza a un blob en una cuenta de almacenamiento e intenta abrir la **directiva de acceso** desde el árbol de navegación, la ventana posterior no se puede cargar. Para solucionar este problema, los cmdlets de PowerShell siguientes permiten crear, recuperar, establecer y eliminar directivas de acceso, respectivamente:
+
+  - [New-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/new-azurestoragecontainerstoredaccesspolicy)
+  - [Get-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/get-azurestoragecontainerstoredaccesspolicy)
+  - [Set-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/set-azurestoragecontainerstoredaccesspolicy)
+  - [Remove-AzureStorageContainerStoredAccessPolicy](/powershell/module/azure.storage/remove-azurestoragecontainerstoredaccesspolicy)
+
 <!-- ### Health and monitoring -->
 
 ### <a name="compute"></a>Proceso
@@ -257,6 +265,10 @@ Los siguientes son problemas conocidos posteriores a la instalación de esta com
  
 <!-- #### Identity -->
 <!-- #### Marketplace -->
+
+### <a name="syslog"></a>syslog 
+
+- La configuración de syslog no persiste durante todo un ciclo de actualización, lo que hace que el cliente de syslog pierda su configuración y se dejen de reenviar los mensajes de syslog. Este problema se aplica a todas las versiones de Azure Stack desde la disponibilidad general del cliente de syslog (1809). Para solucionar este programa, vuelva a configurar el cliente de syslog después de aplicar una actualización de Azure Stack.
 
 ## <a name="download-the-update"></a>Descarga de la actualización
 
