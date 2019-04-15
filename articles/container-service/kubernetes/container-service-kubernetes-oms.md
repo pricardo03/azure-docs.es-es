@@ -95,7 +95,7 @@ Para proteger el identificador y la clave del área de trabajo de Log Analytics,
   - Script de generación de secretos: secret-gen.sh
   - Plantilla de secretos: secret-template.yaml
     - Archivo DaemonSet YAML: omsagent-ds-secrets.yaml
-- Ejecute el script. El script le pedirá el identificador del área de trabajo y la clave principal de Log Analytics. Especifique estos datos y el script creará un archivo de YAML con un secreto para que pueda ejecutarlo.
+- Ejecute el script. El script le pedirá el identificador y la clave principal del área de trabajo de Log Analytics. Especifique estos datos y el script creará un archivo de YAML con un secreto para que pueda ejecutarlo.
   ```
   #> sudo bash ./secret-gen.sh
   ```
