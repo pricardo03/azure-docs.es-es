@@ -71,7 +71,7 @@ En la tabla siguiente se proporciona la descripción de los elementos JSON espec
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Tipo |La propiedad type debe establecerse en: **AzureSqlDW** |Sí |
+| type |La propiedad type debe establecerse en: **AzureSqlDW** |Sí |
 | connectionString |Especifique la información necesaria para conectarse a la instancia de Azure SQL Data Warehouse para la propiedad connectionString. Solo se admite la autenticación básica. |Sí |
 
 > [!IMPORTANT]
@@ -99,7 +99,7 @@ Si el origen es de tipo **SqlDWSource**, estarán disponibles las propiedades si
 
 | Propiedad | DESCRIPCIÓN | Valores permitidos | Obligatorio |
 | --- | --- | --- | --- |
-| SqlReaderQuery |Utilice la consulta personalizada para leer los datos. |Cadena de consulta SQL. Por ejemplo: select * from MyTable. |Sin  |
+| sqlReaderQuery |Utilice la consulta personalizada para leer los datos. |Cadena de consulta SQL. Por ejemplo: select * from MyTable. |Sin  |
 | sqlReaderStoredProcedureName |Nombre del procedimiento almacenado que lee datos de la tabla de origen. |Nombre del procedimiento almacenado. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. |Sin  |
 | storedProcedureParameters |Parámetros del procedimiento almacenado. |Pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |Sin  |
 
@@ -318,18 +318,18 @@ Data Factory crea la tabla en el almacén de destino con el mismo nombre de tabl
 | Date | Date |
 | DateTime | DateTime |
 | DateTime2 | DateTime2 |
-| Hora | Hora |
+| Time | Time |
 | DateTimeOffset | DateTimeOffset |
 | SmallDateTime | SmallDateTime |
-| Texto | Varchar (hasta 8000) |
+| Text | Varchar (hasta 8000) |
 | NText | NVarChar (hasta 4000) |
-| Imagen | VarBinary (hasta 8000) |
+| Image | VarBinary (hasta 8000) |
 | UniqueIdentifier | UniqueIdentifier |
 | Char | Char |
 | NChar | NChar |
 | VarChar | VarChar (hasta 8000) |
 | NVarChar | NVarChar (hasta 4000) |
-| xml | Varchar (hasta 8000) |
+| Xml | Varchar (hasta 8000) |
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -347,16 +347,16 @@ La asignación es igual que la asignación de [tipo de datos de SQL Server para 
 | --- | --- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |boolean |
+| bit |Boolean |
 | char |String, Char[] |
-| fecha |DateTime |
-| DateTime |DateTime |
+| date |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
-| imagen |Byte[] |
+| image |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
@@ -370,13 +370,13 @@ La asignación es igual que la asignación de [tipo de datos de SQL Server para 
 | smallmoney |Decimal |
 | sql_variant |Object * |
 | text |String, Char[] |
-| Twitter en tiempo |TimeSpan |
-|  timestamp |Byte[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |xml |
+| xml |Xml |
 
 También puede asignar columnas del conjunto de datos de origen a las del conjunto de datos receptor en la definición de actividad de copia. Para más información, consulte [Mapping dataset columns in Azure Data Factory](data-factory-map-columns.md) (Asignación de columnas de conjunto de datos de Azure Data Factory).
 
