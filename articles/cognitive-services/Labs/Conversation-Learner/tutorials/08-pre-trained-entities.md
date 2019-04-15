@@ -10,12 +10,12 @@ ms.subservice: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f5b3234c45a9ee80bc5a2c2afe67046896270802
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: dade442cb04f79ef75e65d6eb29128b105e72b40
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58163793"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565417"
 ---
 # <a name="how-to-add-pre-trained-entities"></a>Adición de entidades previamente entrenadas
 En este tutorial se muestra cómo agregar entidades previamente entrenadas a un modelo de Conversation Learner.
@@ -62,7 +62,7 @@ Empiece en la página principal de la interfaz de usuario web.
 
 1. Seleccione **acciones** en el panel izquierdo, a continuación, **nueva acción**.
 2. Escriba **¿qué es la fecha?** para **respuesta del Bot...** . No pueden ser entidades previamente entrenadas **necesario entidades** tal como se reconocen de forma predeterminada para todas las grabaciones de voz.
-3. Escriba **builtin datetimev2** para **descalificación le da derecho al**.
+3. Escriba **builtin datetimev2** para **descalificación entidades**.
 4. Seleccione **Crear**.
 
 ![](../media/T08_action_create_2.png)

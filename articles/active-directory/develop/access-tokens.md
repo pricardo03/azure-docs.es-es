@@ -1,6 +1,6 @@
 ---
-title: Referencia de tokens de acceso de Azure Active Directory | Microsoft Docs
-description: Obtenga información sobre los tokens de acceso emitidos por los puntos de conexión de las versiones v1.0 y v2.0 de Azure AD.
+title: Referencia de tokens de acceso a la plataforma de identidad de Microsoft | Azure
+description: Obtenga información sobre los tokens de acceso emitidos por la versión 1.0 de Azure AD y los puntos de conexión de la plataforma (v2.0) de Microsoft identity.
 services: active-directory
 documentationcenter: ''
 author: CelesteDG
@@ -12,31 +12,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/15/2019
+ms.date: 04/13/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88c47e1090673eb0a56f12c2eaf790a0ac851c6b
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 07e140ef9f561625bb89498c6b6591734e8a9b10
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501151"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563766"
 ---
-# <a name="azure-active-directory-access-tokens"></a>Tokens de acceso de Azure Active Directory
+# <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acceso de plataforma de identidad de Microsoft
 
-Los tokens de acceso permiten a los clientes llamar a las API protegidas por Azure de forma segura. Los tokens de acceso a Azure Active Directory (Azure AD) son tokens [JWT](https://tools.ietf.org/html/rfc7519), objetos JSON codificados en Base64 y firmados por Azure. Los clientes deben tratar los tokens de acceso como cadenas opacas, ya que el contenido del token está destinado únicamente al recurso. Para fines de validación y depuración, los desarrolladores pueden decodificar los tokens JWT mediante un sitio como [jwt.ms](https://jwt.ms). El cliente puede obtener un token de acceso desde cualquier punto de conexión (v1.0 o v2.0) mediante una variedad de protocolos.
+Los tokens de acceso permiten a los clientes llamar a las API protegidas por Azure de forma segura. Los tokens de acceso de plataforma de Microsoft identity [Jwt](https://tools.ietf.org/html/rfc7519), objetos JSON firmados por Azure de codificada en Base64. Los clientes deben tratar los tokens de acceso como cadenas opacas, ya que el contenido del token está destinado únicamente al recurso. Para fines de validación y depuración, los desarrolladores pueden decodificar los tokens JWT mediante un sitio como [jwt.ms](https://jwt.ms). El cliente puede obtener un token de acceso desde el punto de conexión v1.0 o el extremo v2.0 mediante una variedad de protocolos.
 
-Cuando la solicitud del cliente un token de acceso, Azure AD también devuelve algunos metadatos sobre el token de acceso para el consumo de la aplicación. Esta información incluye la hora de expiración del token de acceso y los ámbitos para los que es válido. Estos datos permiten a la aplicación realizar un almacenamiento inteligente en caché de los tokens de acceso sin tener que analizar el mismo token de acceso.
+Cuando el cliente solicita un token de acceso, Azure AD también devuelve algunos metadatos sobre el token de acceso para el consumo de la aplicación. Esta información incluye la hora de expiración de lo token de acceso y los ámbitos para los que es válido. Estos datos permiten la aplicación realizar el almacenamiento en caché inteligente de los tokens de acceso sin tener que analizar el mismo token de acceso.
 
-Si la aplicación es un recurso (API web) al que los clientes pueden solicitar acceso, los tokens de acceso proporcionan información útil para su uso en la autenticación y autorización, como el usuario, cliente, emisor, permisos y mucho más. 
+Si la aplicación es un recurso (API web) al que los clientes pueden solicitar acceso, los tokens de acceso proporcionan información útil para su uso en la autenticación y autorización, como el usuario, cliente, emisor, permisos y mucho más.
 
 Consulte las secciones siguientes para saber cómo un recurso puede validar y utilizar las notificaciones dentro de un token de acceso.
 
-> [!Important]
+> [!IMPORTANT]
 > Los tokens de acceso se crean según la *audiencia* del token, lo que significa que la aplicación que posee los ámbitos en el token.  Se trata cómo la configuración de un recurso `accessTokenAcceptedVersion` en el [manifiesto de la aplicación](reference-app-manifest.md#manifest-reference) a `2` permite que un cliente llamar el punto de conexión v1.0 recibir un token de acceso de la versión 2.0.  De forma similar, se trata de por qué cambiar el token de acceso [notificaciones opcionales](active-directory-optional-claims.md) para su no cliente cambie el token de acceso recibido cuando se solicita un token para `user.read`, cuyo propietario sea el recurso de MS Graph.  
-> Para la misma razón, al probar la aplicación cliente con una cuenta personal (como hotmail.com o outlook.com), es posible que el cliente recibido el token de acceso es una cadena opaca. Esto se debe a que el recurso al que se accede ha solicitado vales MSA (cuenta de Microsoft) heredados que están cifrados y no puede entender el cliente.
+> Para la misma razón, al probar la aplicación cliente con una cuenta personal (como hotmail.com o outlook.com), es posible que el cliente recibido el token de acceso es una cadena opaca. Esto es porque el recurso que se obtiene acceso ha solicitado heredados vales (cuenta Microsoft) de MSA que están cifrados y no se entienden por el cliente.
 
 ## <a name="sample-tokens"></a>Tokens de ejemplo
 
@@ -68,7 +68,7 @@ Los tokens JWT se dividen en tres partes:
 
 Cada fragmento se separa por un punto (`.`) y se codifica por separado en Base64.
 
-Las notificaciones están presentes solo si existe un valor que las rellene. Por lo tanto, la aplicación no debería depender de la presencia de una notificación. Los ejemplos incluyen `pwd_exp` (no todos los inquilinos requieren que las contraseñas expiren) o `family_name` (los flujos de [credenciales de cliente](v1-oauth2-client-creds-grant-flow.md) representan las aplicaciones, que no tienen nombres). Las notificaciones utilizadas para la validación de los token de acceso siempre estarán presentes.
+Las notificaciones están presentes solo si existe un valor que las rellene. Por lo tanto, la aplicación no debe depender de una notificación que se está presente. Los ejemplos incluyen `pwd_exp` (no todos los inquilinos requieren que las contraseñas expiren) o `family_name` (los flujos de [credenciales de cliente](v1-oauth2-client-creds-grant-flow.md) representan las aplicaciones, que no tienen nombres). Las notificaciones utilizadas para la validación de los token de acceso siempre estarán presentes.
 
 > [!NOTE]
 > Algunas notificaciones se utilizan para ayudar a Azure AD a asegurar los tokens en caso de reutilización. En la descripción se indica que no están destinados al consumo público como "opacos". Estas notificaciones pueden o no aparecer en un token, y pueden agregarse otras nuevas sin previo aviso.
@@ -81,7 +81,7 @@ Las notificaciones están presentes solo si existe un valor que las rellene. Por
 | `nonce` | string | Un identificador único utilizado para proteger contra ataques de repetición de token. El recurso puede registrar este valor para protegerse contra las repeticiones. |
 | `alg` | string | Indica el algoritmo que se usó para firmar el token, por ejemplo, "RS256". |
 | `kid` | string | Especifica la huella digital de la clave pública que se utiliza para firmar este token. Se emite en ambos tokens de acceso de las versiones 1.0 y 2.0. |
-| `x5t` | string | Funciona igual (en uso y valor) que `kid`. `x5t` se genera una notificación heredada solo en los tokens de acceso de v1.0 para fines de compatibilidad. |
+| `x5t` | string | Funciona igual (en uso y valor) que `kid`. `x5t` es una notificación heredada emitida solo en los tokens de acceso de la versión 1.0 para fines de compatibilidad. |
 
 ### <a name="payload-claims"></a>Notificaciones de carga
 
@@ -95,29 +95,29 @@ Las notificaciones están presentes solo si existe un valor que las rellene. Por
 | `exp` | entero, una marca de tiempo de UNIX | La notificación "exp" (fecha de expiración) identifica la hora de expiración en la que o después de la que el token JWT no debe ser aceptado para su procesamiento. Es importante tener en cuenta que un recurso puede rechazar el token antes de esta hora, como cuando es necesario un cambio en la autenticación o se ha detectado una revocación del token. |
 | `acr` | Cadena, un 0 o un 1 | Notificación " Clase de contexto de autenticación". Un valor de "0" indica que la autenticación del usuario final no ha cumplido los requisitos de ISO/IEC 29115. |
 | `aio` | Cadena opaca | Una notificación interna usada por Azure AD para registrar los datos para la reutilización de tokens. Los recursos no deben usar esta notificación. |
-| `amr` | Matriz JSON de cadenas | Solo está presente en los tokens de la versión 1.0. Identifica cómo se autenticó el firmante del token. Consulte [la sección de notificaciones de amr](#the-amr-claim) para más información. |
+| `amr` | Matriz JSON de cadenas | Solo está presente en los tokens de la versión 1.0. Identifica cómo se autenticó el firmante del token. Para obtener más información, consulte [el amr reclamar la sección](#the-amr-claim). |
 | `appid` | Cadena, un identificador GUID | Solo está presente en los tokens de la versión 1.0. El identificador de aplicación del cliente mediante el token. La aplicación puede actuar por sí misma o en nombre de un usuario. Normalmente, el id. de aplicación representa un objeto de aplicación, pero también puede representar un objeto de entidad de servicio en Azure AD. |
 | `appidacr` | 0, 1 o 2 | Solo está presente en los tokens de la versión 1.0. Indica cómo se autenticó el cliente. Para un cliente público, el valor es 0. Si se usan el identificador y el secreto de cliente, el valor es 1. Si se usa un certificado de cliente para la autenticación, el valor es 2. |
 | `azp` | Cadena, un identificador GUID | Solo está presente en los tokens de la versión 2.0. El identificador de aplicación del cliente mediante el token. La aplicación puede actuar por sí misma o en nombre de un usuario. Normalmente, el id. de aplicación representa un objeto de aplicación, pero también puede representar un objeto de entidad de servicio en Azure AD. |
 | `azpacr` | 0, 1 o 2 | Solo está presente en los tokens de la versión 2.0. Indica cómo se autenticó el cliente. Para un cliente público, el valor es 0. Si se usan el identificador y el secreto de cliente, el valor es 1. Si se usa un certificado de cliente para la autenticación, el valor es 2. |
-| `groups` | Matriz JSON de identificadores GUID | Proporciona identificadores de objeto que representan la pertenencia al grupo del firmante. Estos valores son únicos (vea el id. de objeto) y se pueden usar de forma segura para administrar el acceso, por ejemplo, para exigir autorización para tener acceso a un recurso. Los grupos incluidos en la notificación de grupos se configuran por aplicación mediante la propiedad `groupMembershipClaims` del [manifiesto de aplicación](reference-app-manifest.md). Un valor null excluirá todos los grupos, un valor de "SecurityGroup" incluirá únicamente la pertenencia a grupos de seguridad de Active Directory y un valor de "All" incluirá grupos de seguridad y listas de distribución de Office 365. <br><br>Consulte la notificación `hasgroups` que aparece a continuación para más información sobre el uso de la notificación `groups` con la concesión implícita. <br>Para los demás flujos, si el número de grupos en los que el usuario está supera un límite (150 para SAML, 200 para JWT), se agregará una notificación de uso por encima del límite a los orígenes de notificaciones que apuntan al punto de conexión de Graph que contiene la lista de grupos del usuario. |
+| `groups` | Matriz JSON de identificadores GUID | Proporciona identificadores de objeto que representan la pertenencia al grupo del firmante. Estos valores son únicos (vea el id. de objeto) y se pueden usar de forma segura para administrar el acceso, por ejemplo, para exigir autorización para tener acceso a un recurso. Los grupos incluidos en la notificación de grupos se configuran por aplicación mediante la propiedad `groupMembershipClaims` del [manifiesto de aplicación](reference-app-manifest.md). Un valor null excluirá todos los grupos, un valor de "SecurityGroup" incluirá únicamente la pertenencia a grupos de seguridad de Active Directory y un valor de "All" incluirá grupos de seguridad y listas de distribución de Office 365. <br><br>Consulte la notificación `hasgroups` que aparece a continuación para más información sobre el uso de la notificación `groups` con la concesión implícita. <br>Para los demás flujos, si el número de grupos en el usuario supera un límite (150 para SAML, 200 para JWT), se agrega una notificación por encima del límite a los orígenes de notificaciones que apuntan al punto de conexión de Graph que contiene la lista de grupos del usuario. |
 | `hasgroups` | boolean | Si está presente, siempre es `true`, lo cual indica que el usuario está en al menos un grupo. Se usa en lugar de la notificación `groups` para métodos JWT en flujos de concesión implícita si las notificaciones completas de los grupos amplían el fragmento URI por encima de los límites de longitud de la URL (actualmente 6 o más grupos). Indica que el cliente debe utilizar Graph para determinar los grupos del usuario (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
-| `groups:src1` | Objeto JSON | Para las solicitudes de tokens que no tienen limitación de longitud (consulte `hasgroups` descrito anteriormente) pero que todavía son demasiado grandes para el token, se incluirá un enlace a la lista completa de grupos del usuario. Para métodos JWT como una notificación distribuida, para SAML como una nueva notificación en lugar de la notificación `groups`. <br><br>**Valor de JWT de ejemplo**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }` |
-| `preferred_username` | string | El nombre de usuario principal que representa al usuario. Puede ser una dirección de correo electrónico, un número de teléfono o un nombre de usuario genérico sin un formato especificado. Su valor es mutable y podría cambiar en el tiempo. Puesto que es mutable, este valor no debe usarse para tomar decisiones de autorización.  También se puede usar para las sugerencias de nombre de usuario. El ámbito `profile` es necesario para recibir esta notificación. |
-| `name` | string | Proporciona un valor en lenguaje natural que identifica al firmante del token. No se asegura que el valor sea único, es mutable y está diseñado para usarse solo con fines de visualización. El ámbito `profile` es necesario para recibir esta notificación. |
-| `oid` | Cadena, un identificador GUID | El identificador inmutable de un objeto en la plataforma de identidades Microsoft, en este caso, una cuenta de usuario. También se puede usar para realizar comprobaciones de autorización de forma segura y como clave en tablas de base de datos. Este identificador identifica de forma única el usuario entre aplicaciones: dos aplicaciones diferentes que inician sesión con el mismo usuario recibirán el mismo valor en la notificación `oid`. Por tanto, `oid` puede usarse al realizar consultas en Microsoft Online Services, como Microsoft Graph. Microsoft Graph devuelve este identificador como la propiedad `id` para una cuenta de usuario determinada. Dado que la notificación `oid` permite que varias aplicaciones pongan en correlación a los usuarios, se requiere el ámbito `profile` para recibir esta notificación. Tenga en cuenta que si un usuario existe en varios inquilinos, el usuario contendrá un identificador de objeto distinto en cada inquilino, se consideran cuentas diferentes, incluso si el usuario inicia sesión en todas las cuentas con las mismas credenciales. |
+| `groups:src1` | Objeto JSON | Las solicitudes de tokens que no son de longitud limitada (consulte `hasgroups` anteriormente) pero todavía es demasiado grande para el token, se incluye un vínculo a la lista de grupos completa para el usuario. Para métodos JWT como una notificación distribuida, para SAML como una nueva notificación en lugar de la notificación `groups`. <br><br>**Valor de JWT de ejemplo**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }` |
+| `preferred_username` | string | El nombre de usuario principal que representa al usuario. Puede ser una dirección de correo electrónico, un número de teléfono o un nombre de usuario genérico sin un formato especificado. Su valor es mutable y podría cambiar en el tiempo. Puesto que es mutable, este valor no debe usarse para tomar decisiones de autorización.  También se puede usar para las sugerencias de nombre de usuario. El `profile` ámbito se requiere para recibir esta notificación. |
+| `name` | string | Proporciona un valor en lenguaje natural que identifica al firmante del token. El valor no está garantizado que es único, es mutable y está diseñado para usarse solo con fines de visualización. El `profile` ámbito se requiere para recibir esta notificación. |
+| `oid` | Cadena, un identificador GUID | El identificador inmutable de un objeto en la plataforma de identidades Microsoft, en este caso, una cuenta de usuario. También puede usar para realizar comprobaciones de autorización como una clave en tablas de base de datos y de forma segura. Este identificador identifica de forma única el usuario entre aplicaciones: dos aplicaciones diferentes que inician sesión con el mismo usuario recibirán el mismo valor en la notificación `oid`. Por tanto, `oid` puede usarse al realizar consultas en Microsoft Online Services, como Microsoft Graph. Microsoft Graph devuelve este identificador como la propiedad `id` para una cuenta de usuario determinada. Dado que el `oid` permite que varias aplicaciones pongan en correlación los usuarios, el `profile` ámbito se requiere para recibir esta notificación. Si existe un único usuario en varios inquilinos, el usuario contendrá un identificador de objeto distinto en cada inquilino; se consideran cuentas diferentes, incluso si el usuario inicia sesión en todas las cuentas con las mismas credenciales. |
 | `rh` | Cadena opaca | Una notificación interna que Azure usa para volver a validar los tokens. Los recursos no deben usar esta notificación. |
 | `scp` | Cadena, una lista de ámbitos separada por espacios. | El conjunto de ámbitos expuestos por la aplicación para los cuales la aplicación cliente ha solicitado (y recibido) consentimiento. Su aplicación debe comprobar que estos ámbitos son válidos y están expuestos por la aplicación, y tomar decisiones de autorización basadas en el valor de estos ámbitos. Solo se incluye para los [tokens de usuario](#user-and-application-tokens). |
 | `roles` | Matriz de cadenas, una lista de permisos | El conjunto de permisos expuestos por la aplicación que la aplicación solicitante ha recibido permiso para llamar. Para [tokens de aplicación](#user-and-application-tokens), se utiliza durante la [credenciales de cliente](v1-oauth2-client-creds-grant-flow.md) flujo en lugar de ámbitos de usuario.  Para [los tokens de usuario](#user-and-application-tokens) se rellena con los roles que se ha asignado el usuario en la aplicación de destino. |
-| `sub` | Cadena, un identificador GUID | La entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar ni volver a usar. Se puede usar para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando el token se usa para acceder a un recurso, y se puede usar como clave en tablas de base de datos. Dado que el firmante siempre está presente en los tokens que emite Azure AD, se recomienda usar este valor en un sistema de autorización de propósito general. El asunto es, sin embargo, un identificador en pares (es único para un id. de aplicación determinado). Por lo tanto, si un usuario inicia sesión en dos aplicaciones diferentes con dos identificadores de cliente diferente, esas aplicaciones recibirán dos valores diferentes para la notificación de asunto. Esto puede ser o no deseable dependiendo de los requisitos de arquitectura y privacidad. |
-| `tid` | Cadena, un identificador GUID | Representa el inquilino de Azure AD de donde proviene el usuario. En el caso de las cuentas profesionales y educativas, el GUID es el identificador del inquilino inmutable de la organización a la que pertenece el usuario. En el caso de las cuentas personales, el valor es `9188040d-6c67-4c5b-b112-36a304b66dad`. El ámbito `profile` es necesario para recibir esta notificación. |
-| `unique_name` | string | Solo está presente en los tokens de la versión 1.0. Proporciona un valor en lenguaje natural que identifica al firmante del token. No se asegura que este valor sea único en un inquilino y se debe usar solo con fines de visualización. |
+| `sub` | Cadena, un identificador GUID | La entidad de seguridad sobre la que el token declara información como, por ejemplo, el usuario de una aplicación. Este valor es inmutable y no se puede reasignar ni volver a usar. También puede usar para realizar comprobaciones de autorización de forma segura, por ejemplo, cuando el token se usa para acceder a un recurso y puede utilizarse como clave en las tablas de base de datos. Dado que el firmante siempre está presente en los tokens que emite Azure AD, se recomienda usar este valor en un sistema de autorización de propósito general. El asunto es, sin embargo, un identificador en pares: es único para un identificador de aplicación determinado. Por lo tanto, si un usuario inicia sesión en dos aplicaciones diferentes con dos identificadores de cliente diferente, esas aplicaciones recibirán dos valores diferentes para la notificación de asunto. Esto puede ser o no deseable dependiendo de los requisitos de arquitectura y privacidad. |
+| `tid` | Cadena, un identificador GUID | Representa el inquilino de Azure AD de donde proviene el usuario. En el caso de las cuentas profesionales y educativas, el GUID es el identificador del inquilino inmutable de la organización a la que pertenece el usuario. En el caso de las cuentas personales, el valor es `9188040d-6c67-4c5b-b112-36a304b66dad`. El `profile` ámbito se requiere para recibir esta notificación. |
+| `unique_name` | string | Solo está presente en los tokens de la versión 1.0. Proporciona un valor en lenguaje natural que identifica al firmante del token. Este valor no está garantizado que sea único dentro de un inquilino y debe usarse solo con fines de visualización. |
 | `uti` | Cadena opaca | Una notificación interna que Azure usa para volver a validar los tokens. Los recursos no deben usar esta notificación. |
 | `ver` | Cadena, ya sea `1.0` o `2.0` | Indica la versión del token de acceso. |
 
 #### <a name="v10-basic-claims"></a>Notificaciones básicas de la versión 1.0
 
-Las siguientes notificaciones se incluirán en los tokens de la versión 1.0 si corresponde, pero no se incluyen en los tokens de la versión 2.0 de forma predeterminada. Si usa la versión 2.0 y necesita una de estas notificaciones, solicítelas mediante [notificaciones opcionales](active-directory-optional-claims.md).
+Las siguientes notificaciones se incluirán en los tokens de v1.0, si procede, pero no están incluidas en los tokens de v2.0 de forma predeterminada. Si usa la versión 2.0 y la necesidad de estas notificaciones, solicitarlos mediante [notificaciones opcionales](active-directory-optional-claims.md).
 
 | Notificación | Formato | DESCRIPCIÓN |
 |-----|--------|-------------|
@@ -125,7 +125,7 @@ Las siguientes notificaciones se incluirán en los tokens de la versión 1.0 si 
 | `onprem_sid`| Cadena, [en formato de GUID](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | En los casos en los que el usuario tiene una autenticación local, esta notificación proporciona el SID. Puede utilizar `onprem_sid` para la autorización en aplicaciones heredadas.|
 | `pwd_exp`| entero, una marca de tiempo de UNIX | Indica cuándo expira la contraseña del usuario. |
 | `pwd_url`| string | Una dirección URL a donde se envían los usuarios para restablecer la contraseña. |
-| `in_corp`|boolean | Indica si el cliente ha iniciado sesión desde la red corporativa. En caso contrario, la notificación no se incluye |
+| `in_corp`| boolean | Indica si el cliente ha iniciado sesión desde la red corporativa. Si no, no se incluye la notificación. |
 | `nickname`| string | Nombre adicional del usuario, aparte del nombre y del apellido.|
 | `family_name` | string | Proporciona el apellido del usuario según está definido en el objeto de usuario. |
 | `given_name` | string | Proporciona el nombre de pila o "dado" del usuario, tal como se establece en el objeto de usuario. |
@@ -133,25 +133,25 @@ Las siguientes notificaciones se incluirán en los tokens de la versión 1.0 si 
 
 #### <a name="the-amr-claim"></a>La notificación `amr`
 
-Las identidades de Microsoft pueden autenticarse de diversas maneras, que pueden ser pertinentes para la aplicación. La notificación `amr` es una matriz que puede contener varios elementos, como `["mfa", "rsa", "pwd"]`, para una autenticación que utiliza tanto una contraseña como la aplicación Autenticator.
+Pueden autenticar las identidades de Microsoft de maneras diferentes, que pueden ser pertinentes para la aplicación. La notificación `amr` es una matriz que puede contener varios elementos, como `["mfa", "rsa", "pwd"]`, para una autenticación que utiliza tanto una contraseña como la aplicación Autenticator.
 
 | Valor | DESCRIPCIÓN |
 |-----|-------------|
 | `pwd` | Autenticación de contraseña, ya sea la contraseña de un usuario de Microsoft o el secreto de cliente de una aplicación. |
-| `rsa` | La autenticación se basaba en la prueba de una clave RSA, por ejemplo con la [aplicación Microsoft Authenticator](https://aka.ms/AA2kvvu). Esto incluye si la autenticación la ha realizado un token JWT autofirmado con un certificado X509 de propiedad del servicio. |
+| `rsa` | La autenticación se basaba en la prueba de una clave RSA, por ejemplo con la [aplicación Microsoft Authenticator](https://aka.ms/AA2kvvu). Esto incluye si se ha realizado la autenticación mediante un JWT autofirmado con un servicio en la propiedad X509 certificado. |
 | `otp` | Código de acceso de un solo uso que utiliza un correo electrónico o un mensaje de texto. |
 | `fed` | Se ha utilizado una aserción de autenticación federada (por ejemplo, JWT o SAML). |
 | `wia` | Autenticación integrada de Windows |
 | `mfa` | Se utilizó la autenticación multifactor. Cuando esto esté presente, también se incluirán los otros métodos de autenticación. |
 | `ngcmfa` | Equivalente a `mfa`, que se utiliza para el aprovisionamiento de ciertos tipos de credenciales avanzadas. |
 | `wiaormfa`| El usuario utiliza una credencial MFA o Windows para autenticar. |
-| `none` | No se realizó ninguna autenticación. |
+| `none` | No se realiza ninguna autenticación. |
 
 ## <a name="validating-tokens"></a>Validación de los tokens
 
-Para validar un id_token o un access_token, la aplicación tiene que validar tanto la firma como las notificaciones del token. Para validar los tokens de acceso, la aplicación también debe validar el emisor, la audiencia y los tokens de firmas. Deben validarse con los valores del documento de detección de OpenID. Por ejemplo, se encuentra en la versión independiente del inquilino del documento [ https://login.microsoftonline.com/common/.well-known/openid-configuration ](https://login.microsoftonline.com/common/.well-known/openid-configuration). 
+Para validar un id_token o un access_token, la aplicación tiene que validar tanto la firma como las notificaciones del token. Para validar los tokens de acceso, la aplicación también debe validar el emisor, la audiencia y los tokens de firmas. Deben validarse con los valores del documento de detección de OpenID. Por ejemplo, se encuentra en la versión independiente del inquilino del documento [ https://login.microsoftonline.com/common/.well-known/openid-configuration ](https://login.microsoftonline.com/common/.well-known/openid-configuration).
 
-El middleware de Azure AD tiene funciones integradas para validar los tokens de acceso, y usted puede explorar nuestros [ejemplos](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) para buscar uno en el idioma de su elección. Para obtener más información sobre cómo validar explícitamente un token JWT, consulte el [ejemplo de una validación manual de JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation). 
+El middleware de Azure AD tiene funciones integradas para validar los tokens de acceso, y usted puede explorar nuestros [ejemplos](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) para buscar uno en el idioma de su elección. Para obtener más información sobre cómo validar explícitamente un token JWT, consulte el [ejemplo de una validación manual de JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).
 
 Proporcionamos bibliotecas y ejemplos de código que le muestran cómo controlar fácilmente la validación de token. La siguiente información se proporciona para aquellos que desean entender el proceso subyacente. También hay varias bibliotecas de código abierto de terceros para la validación de JWT; hay al menos una opción para casi cualquier plataforma e idioma. Para más información acerca de los ejemplos de código y las bibliotecas de autenticación de Azure AD, consulte las [bibliotecas de autenticación v1.0](active-directory-authentication-libraries.md) y las [bibliotecas de autenticación v2.0](reference-v2-libraries.md).
 
@@ -185,27 +185,27 @@ https://login.microsoftonline.com/common/v2.0/.well-known/openid-configuration
 
 Este documento de metadatos:
 
-* Es un objeto JSON que contiene varias piezas útiles de información, como la ubicación de los diferentes puntos de conexión necesarios para realizar la autenticación de OpenID Connect. 
-* Incluye un `jwks_uri`, que ofrece la ubicación del conjunto de claves públicas que se utilizan para firmar los tokens. El documento JSON que se encuentra en `jwks_uri` contiene toda la información de clave pública en uso en ese momento concreto. La aplicación puede usar la notificación `kid` en el encabezado de JWT para seleccionar la clave pública que se ha usado en este documento para firmar un determinado token. Después, puede realizar la validación de la firma mediante la clave pública correcta y el algoritmo indicado.
+* Es un objeto JSON que contiene varias piezas útiles de información, como la ubicación de los diferentes extremos necesarios para realizar la autenticación de OpenID Connect.
+* Incluye un `jwks_uri`, que ofrece la ubicación del conjunto de claves públicas que se utilizan para firmar los tokens. El documento JSON que se encuentra en `jwks_uri` contiene toda la información de clave pública en uso en ese momento concreto. La aplicación puede usar la notificación `kid` en el encabezado de JWT para seleccionar la clave pública que se ha usado en este documento para firmar un determinado token. A continuación, puede realizar la validación de firma con la clave pública correcta y el algoritmo indicado.
 
 > [!NOTE]
 > El punto de conexión de v1.0 devuelve las notificaciones `x5t` y `kid`, mientras que el punto de conexión de v2.0 responde solo con la notificación `kid`. De cara al futuro, le recomendamos que utilice la notificación `kid` para validar su token.
 
-La realización de la validación de la firma queda fuera del ámbito de este documento, pero hay muchas bibliotecas de código abierto disponibles para ayudarte a hacerlo si es necesario.  Sin embargo, la plataforma Microsoft Identity tiene una extensión al estándar - personalizado de las claves de firma de firma de tokens.  
+Realizar la validación de la firma queda fuera del ámbito de este documento, pero hay muchas bibliotecas de código abierto que le ayudarán a hacerlo si es necesario.  Sin embargo, la plataforma Microsoft Identity tiene una extensión al estándar - personalizado de las claves de firma de firma de tokens.  
 
-Si la aplicación tiene las claves de firma personalizadas como resultado de utilizar el [asignación de notificaciones](active-directory-claims-mapping.md) característica, debe anexar un `appid` que contiene el identificador de aplicación con el fin de obtener el parámetro de consulta un `jwks_uri` que apunta a la aplicación de la clave de firma información que se debe usar para la validación. Por ejemplo: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contiene un `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
+Si la aplicación tiene las claves de firma personalizadas como resultado de utilizar el [asignación de notificaciones](active-directory-claims-mapping.md) característica, debe anexar un `appid` que contiene el identificador de aplicación para obtener el parámetro de consulta un `jwks_uri` que apunta a la aplicación de firma de la información de clave, que debe usarse para la validación. Por ejemplo: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` contiene un `jwks_uri` de `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ### <a name="claims-based-authorization"></a>Autorización basada en notificaciones
 
 La lógica de negocio de la aplicación dictará este paso; a continuación se presentan algunos métodos de autorización comunes.
 
-* Marque la notificación `scp` o `roles` para comprobar que todos los ámbitos presentes coinciden con los expuestos por la API, y permita que el cliente realice la acción solicitada.
+* Compruebe el `scp` o `roles` comprobar que todos los ámbitos presentes coinciden con las expuestas por la API de notificación, y permiten al cliente realizar la acción solicitada.
 * Asegúrese de que el cliente que llama puede llamar a la API mediante la notificación `appid`.
-* Valide el estado de autenticación del cliente que llama mediante `appidacr` - no debería ser 0 si los clientes públicos no pueden llamar a la API.
-* Compare con una lista de notificaciones `nonce` anteriores para comprobar que el token no se está repitiendo.
+* Validar el estado de autenticación del cliente que realiza la llamada mediante `appidacr` -no debería ser 0 si los clientes públicos no pueden llamar a la API.
+* Comprobar con una lista de pasado `nonce` notificaciones para comprobar el token no se está reproduciendo.
 * Compruebe que `tid` coincide con un inquilino al que se le permite llamar a la API.
 * Utilice la notificación `acr` para comprobar que el usuario ha realizado la autenticación multifactor. Esto se debe aplicar con [acceso condicional](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
-* Si ha solicitado las notificaciones `roles` o `groups` en el token de acceso, compruebe que el usuario está en el grupo al que se permite realizar esta acción.
+* Si ha solicitado el `roles` o `groups` notificaciones del token de acceso, compruebe que el usuario está en el grupo que permiten llevar a cabo esta acción.
   * Para los tokens recuperados utilizando el flujo implícito, es probable que necesite consultar [Microsoft Graph](https://developer.microsoft.com/graph/) para estos datos, ya que a menudo son demasiado grandes para adaptarse al token.
 
 ## <a name="user-and-application-tokens"></a>Tokens de usuario y de aplicación
@@ -217,15 +217,15 @@ La aplicación puede recibir tokens en nombre de un usuario (el flujo habitual) 
 
 ## <a name="token-revocation"></a>Revocación de tokens
 
-Los tokens de actualización pueden ser invalidados o revocados en cualquier momento por varios motivos. Estos se dividen en dos categorías principales: tiempos de espera y revocaciones.
+Actualización de tokens se pueden invalidar o revocarse en cualquier momento por diferentes motivos. Estos se dividen en dos categorías principales: tiempos de espera y revocaciones.
 
 ### <a name="token-timeouts"></a>Tiempos de espera de token
 
-* MaxInactiveTime: si el token de actualización no se ha utilizado en el tiempo determinado por la MaxInactiveTime, el token de actualización ya no será válido. 
-* MaxSessionAge: si MaxAgeSessionMultiFactor o MaxAgeSessionSingleFactor se han establecido en un valor distinto de su valor predeterminado (Hasta que se revoca), la reautenticación será obligatoria después de que transcurra el tiempo establecido en el MaxAgeSession*. 
+* MaxInactiveTime: Si el token de actualización no se ha usado en el tiempo determinado por la MaxInactiveTime, el Token de actualización ya no serán válido.
+* MaxSessionAge: si MaxAgeSessionMultiFactor o MaxAgeSessionSingleFactor se han establecido en un valor distinto de su valor predeterminado (Hasta que se revoca), la reautenticación será obligatoria después de que transcurra el tiempo establecido en el MaxAgeSession*.
 * Ejemplos:
-  * El inquilino tiene un valor MaxInactiveTime de 5 días y el usuario se fue de vacaciones durante una semana, por lo que AAD no ha visto ninguna nueva solicitud de token de usuario en 7 días. La próxima vez que el usuario solicite un nuevo token, encontrará que su token de actualización se ha revocado, así que tendrá que escribir sus credenciales de nuevo.
-  * Una aplicación sensible tiene un MaxAgeSessionSingleFactor de 1 día. Si un usuario inicia sesión el lunes y el martes (una vez que hayan transcurrido 25 horas), se le pedirá que se autentique de nuevo.
+  * El inquilino tiene un valor MaxInactiveTime de cinco días y el usuario se fue de vacaciones durante una semana y, por lo que Azure AD no ha visto una nueva solicitud de token del usuario en 7 días. La próxima vez que el usuario solicita un nuevo token, encontrará su Token de actualización se ha revocado y deben escribir sus credenciales de nuevo.
+  * Una aplicación sensible tiene un MaxAgeSessionSingleFactor de 1 día. Si un usuario inicia sesión en el lunes y martes (una vez hayan transcurrido 25 horas), le pide autenticarse de nuevo.
 
 ### <a name="revocation"></a>Revocación
 
@@ -240,11 +240,11 @@ Los tokens de actualización pueden ser invalidados o revocados en cualquier mom
 | [Cierre de sesión único](v1-protocols-openid-connect-code.md#single-sign-out) en la web | Revocada | Permanece activa | Revocada | Permanece activa | Permanece activa |
 
 > [!NOTE]
-> Un inicio de sesión "no basado en contraseña" es aquel en el que el usuario no escribió una contraseña para obtenerlo. Por ejemplo, con la cara con Windows Hello, una clave de FIDO o un PIN. 
+> Un inicio de sesión "no basado en contraseña" es aquel en el que el usuario no escribió una contraseña para obtenerlo. Por ejemplo, con la cara con Windows Hello, una clave de FIDO o un PIN.
 >
 > Existe un problema conocido con el token de actualización principal de Windows. Si el PRT se obtiene a través de una contraseña y, luego, el usuario inicia sesión a través de Hello, no se cambia el origen del PRT y se revocará si el usuario cambia su contraseña.
 >
-> Los tokens de actualización no se invalidan ni revocan cuando se utilizan para capturar un token de acceso y un token de actualización nuevos.  
+> Tokens de actualización no son invalidados o revocados cuando se utiliza para capturar un nuevo token de acceso y el token de actualización.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
