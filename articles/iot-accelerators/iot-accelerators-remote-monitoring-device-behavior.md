@@ -10,7 +10,7 @@ ms.date: 01/29/2018
 ms.topic: conceptual
 ms.openlocfilehash: c2151a4b1eb2a853ed343f6720b4f53af5e5e449
 ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/22/2019
 ms.locfileid: "54449527"
@@ -23,13 +23,13 @@ El artículo [Descripción del esquema de modelo del dispositivo](iot-accelerato
 - Archivos JavaScript de **Método** que se ejecutan cuando la solución invoca un método en el dispositivo.
 
 > [!NOTE]
-> Los comportamientos del modelo del dispositivo son solo para dispositivos simulados que se hospedan en el servicio de simulación del dispositivo. Si quiere crear un dispositivo real, consulte [Conectar el dispositivo al acelerador de la solución Supervisión remota](iot-accelerators-connecting-devices.md).
+> Los comportamientos del modelo del dispositivo son solo para dispositivos simulados que se hospedan en el servicio de simulación del dispositivo. Si desea crear un dispositivo real, consulte [Conexión del dispositivo al acelerador de soluciones de supervisión remota](iot-accelerators-connecting-devices.md).
 
 En este artículo, aprenderá a:
 
 >[!div class="checklist"]
 > * Controlar el estado de un dispositivo simulado
-> * Definición de cómo responde un dispositivo simulado a la llamada a un método desde la solución Supervisión remota
+> * Definición de cómo responde un dispositivo simulado a la llamada a un método desde la solución de supervisión remota
 > * Depurar los scripts
 
 [!INCLUDE [iot-accelerators-device-behavior](../../includes/iot-accelerators-device-behavior.md)]
@@ -41,7 +41,7 @@ En este artículo se describe cómo definir el comportamiento de su propio model
 <!-- Repeat task list from intro -->
 >[!div class="checklist"]
 > * Controlar el estado de un dispositivo simulado
-> * Definición de cómo responde un dispositivo simulado a la llamada a un método desde la solución Supervisión remota
+> * Definición de cómo responde un dispositivo simulado a la llamada a un método desde la solución de supervisión remota
 > * Depurar los scripts
 
 Ahora que ha aprendido a especificar el comportamiento de un dispositivo simulado, el siguiente paso que se propone es aprender a [crear un dispositivo simulado](iot-accelerators-remote-monitoring-create-simulated-device.md).

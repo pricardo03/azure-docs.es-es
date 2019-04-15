@@ -61,7 +61,7 @@ Puede consultar información sobre el acelerador de soluciones de supervisión r
 
 ![Panel de soluciones](./media/quickstart-remote-monitoring-deploy/solutionpanel.png)
 
-Haga clic en **Aceptar** para aceptar la solicitud de permisos; el panel de la soluciones de supervisión remota se muestra en el explorador:
+Haga clic en **Aceptar** para aceptar la solicitud de permisos; el panel de la solución de supervisión remota se muestra en el explorador:
 
 [![Panel de soluciones](./media/quickstart-remote-monitoring-deploy/solutiondashboard-inline.png)](./media/quickstart-remote-monitoring-deploy/solutiondashboard-expanded.png#lightbox)
 

@@ -10,7 +10,7 @@ ms.date: 10/05/2018
 ms.topic: conceptual
 ms.openlocfilehash: ccb1a7ff6abbc68f42c7632a8ba7a392b2c48794
 ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/12/2018
 ms.locfileid: "49167433"
@@ -22,7 +22,7 @@ En este artículo se muestra cómo agregar un nuevo control flotante en una pagi
 - Cómo preparar un entorno de desarrollo local.
 - Cómo agregar un nuevo control flotante a una página de la interfaz de usuario web.
 
-El control flotante de ejemplo de este artículo se muestra en la página con la cuadrícula que el artículo de procedimientos [Adición de una cuadrícula personalizada a la interfaz de usuario web del acelerador de soluciones de Supervisión remota](iot-accelerators-remote-monitoring-customize-grid.md) muestra cómo agregar.
+El control flotante de ejemplo de este artículo se muestra en la página con la cuadrícula que el artículo de procedimientos [Adición de una cuadrícula personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-grid.md) muestra cómo agregar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

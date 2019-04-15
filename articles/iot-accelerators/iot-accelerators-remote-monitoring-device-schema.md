@@ -10,19 +10,19 @@ ms.date: 12/18/2018
 ms.topic: conceptual
 ms.openlocfilehash: 3c2bca45a7927689992cf44fb70199e246641760
 ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/22/2019
 ms.locfileid: "54445429"
 ---
 # <a name="understand-the-device-model-schema"></a>Descripción del esquema de modelo del dispositivo
 
-Puede usar dispositivos simulados en la solución Supervisión remota para probar su comportamiento. La solución Supervisión remota incluye un servicio de simulación de dispositivos para ejecutar dispositivos simulados. Al implementar la solución Supervisión remota, se aprovisiona automáticamente una colección de dispositivos simulados. Puede personalizar los dispositivos simulados existentes o crear los suyos propios.
+Puede usar dispositivos simulados en la solución de supervisión remota para probar su comportamiento. La solución de supervisión remota incluye un servicio de simulación de dispositivos para ejecutar dispositivos simulados. Al implementar la solución de supervisión remota, se aprovisiona automáticamente una colección de dispositivos simulados. Puede personalizar los dispositivos simulados existentes o crear los suyos propios.
 
 En este artículo se describe el esquema de modelo del dispositivo que especifica las características y el comportamiento de un dispositivo simulado. El modelo del dispositivo se almacena en un archivo JSON.
 
 > [!NOTE]
-> El esquema de este modelo de dispositivo es solo para dispositivos simulados que se hospedan en el servicio de simulación del dispositivo. Si desea crear un dispositivo real, consulte [Conexión del dispositivo al acelerador de la solución Supervisión remota](iot-accelerators-connecting-devices.md).
+> El esquema de este modelo de dispositivo es solo para dispositivos simulados que se hospedan en el servicio de simulación del dispositivo. Si desea crear un dispositivo real, consulte [Conexión del dispositivo al acelerador de soluciones de supervisión remota](iot-accelerators-connecting-devices.md).
 
 Los siguientes artículos están relacionadas con el artículo actual:
 

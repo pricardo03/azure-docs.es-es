@@ -102,7 +102,7 @@ También conviene [actualizar los datos](https://docs.microsoft.com/power-bi/ref
 
 En este artículo, ha aprendido cómo visualizar datos de supervisión remota con Power BI.
 
-Para obtener más información sobre cómo personalizar la solución Supervisión remota, consulte:
+Para obtener más información sobre cómo personalizar la solución de supervisión remota, consulte:
 
 * [Personalización de la interfaz de usuario de la solución de supervisión remota](iot-accelerators-remote-monitoring-customize.md)
 * [Guía de referencia para desarrolladores](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Developer-Reference-Guide)
