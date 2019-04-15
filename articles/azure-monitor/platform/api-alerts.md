@@ -34,9 +34,9 @@ Las programaciones tienen las propiedades de la siguiente tabla.
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| Intervalo |Frecuencia con que se realiza la búsqueda. Se mide en minutos. |
+| Interval |Frecuencia con que se realiza la búsqueda. Se mide en minutos. |
 | QueryTimeSpan |Intervalo de tiempo en el que se evalúan los criterios. Debe ser igual o mayor que Intervalo. Se mide en minutos. |
-| Versión |Versión de API en uso.  Actualmente, siempre debe estar establecida en 1. |
+| Version |Versión de API en uso.  Actualmente, siempre debe estar establecida en 1. |
 
 Por ejemplo, en una consulta de evento con un valor de Intervalo de 15 minutos y un valor de Timespan de 30 minutos, la consulta se ejecutaría cada 15 minutos y se desencadenaría una alerta si los criterios siguieran evaluándose como True durante un intervalo de 30 minutos.
 
@@ -94,9 +94,9 @@ Todas las acciones tienen las propiedades de la siguiente tabla.  Los distintos 
 
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
-| Type |Tipo de la acción.  Actualmente, los valores posibles son Alert y Webhook. |
-| NOMBRE |Nombre para mostrar de la alerta. |
-| Versión |Versión de API en uso.  Actualmente, siempre debe estar establecida en 1. |
+| `Type` |Tipo de la acción.  Actualmente, los valores posibles son Alert y Webhook. |
+| `Name` |Nombre para mostrar de la alerta. |
+| `Version` |Versión de API en uso.  Actualmente, siempre debe estar establecida en 1. |
 
 ### <a name="retrieving-actions"></a>Recuperar acciones
 
@@ -155,7 +155,7 @@ Los umbrales tienen las propiedades de la siguiente tabla.
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | Operador |Operador de la comparación de umbral. <br> gt = Mayor que <br>  lt = Menor que |
-| Valor |Valor del umbral. |
+| Value |Valor del umbral. |
 
 Por ejemplo, en una consulta de evento con un valor de Intervalo de 15 minutos, un valor de Timespan de 30 minutos y un valor de Threshold mayor que 10, la consulta se ejecutaría cada 15 minutos y se desencadenaría una alerta si devolviera 10 eventos creados durante un intervalo de 30 minutos.
 
@@ -187,9 +187,9 @@ Log Analytics permite clasificar las alertas en categorías, para permitir una a
 
 |Nivel de gravedad de Log Analytics  |Nivel de gravedad de Alertas de Azure  |
 |---------|---------|
-|Crítico |Gravedad 0|
-|Warning (Advertencia) |Gravedad 1|
-|Informational (Informativa) | Gravedad 2|
+|`critical` |Gravedad 0|
+|`warning` |Gravedad 1|
+|`informational` |Gravedad 2|
 
 La siguiente es una respuesta de ejemplo de una acción con un solo umbral y gravedad. 
 
@@ -360,8 +360,8 @@ Las notificaciones de correo electrónico envían correo a uno o más destinatar
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | Recipients |Lista de direcciones de correo electrónico. |
-| Asunto |Asunto del correo electrónico. |
-| Datos adjuntos |Actualmente no se admiten datos adjuntos, por lo que siempre aparecerá un valor "None". |
+| Subject |Asunto del correo electrónico. |
+| Attachment |Actualmente no se admiten datos adjuntos, por lo que siempre aparecerá un valor "None". |
 
 La siguiente es una respuesta de ejemplo de una acción de notificación de correo con un umbral.  
 
