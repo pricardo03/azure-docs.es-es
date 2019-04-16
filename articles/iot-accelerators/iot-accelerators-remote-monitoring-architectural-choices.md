@@ -10,14 +10,14 @@ ms.date: 11/20/2018
 ms.topic: conceptual
 ms.openlocfilehash: 1bd08596a30db7322a72b4269fddfe0b9df19119
 ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/23/2019
 ms.locfileid: "54464228"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Opciones de arquitectura de supervisión remota
 
-El acelerador de soluciones de Supervisión remota de Azure IoT es un acelerador de soluciones con licencia MIT y de código abierto. Para ayudar a acelerar el proceso de desarrollo de IoT, muestra escenarios comunes de IoT, como:
+El acelerador de soluciones de supervisión remota de Azure IoT es un acelerador de soluciones con licencia MIT y de código abierto. Para ayudar a acelerar el proceso de desarrollo de IoT, muestra escenarios comunes de IoT, como:
 
 - Conectividad de dispositivos
 - Administración de dispositivos
@@ -41,7 +41,7 @@ Puede implementar microservicios con más de una tecnología. Por ejemplo, puede
 
 ## <a name="technology-choices"></a>Opciones de tecnología
 
-En esta sección, se detallan las opciones de tecnología realizadas en la solución Supervisión remota para cada subsistema principal.
+En esta sección, se detallan las opciones de tecnología realizadas en la solución de supervisión remota para cada subsistema principal.
 
 ![Diagrama principal](./media/iot-accelerators-remote-monitoring-architectural-choices/subsystem.png)
 
@@ -61,12 +61,12 @@ Para el procesamiento de flujos, la solución de supervisión remota usa Azure S
 
 ### <a name="storage"></a>Storage
 
-Para el almacenamiento, el acelerador de soluciones de Supervisión remota usa tanto Azure Time Series Insights como Azure Cosmos DB. Azure Time Series Insights almacena los mensajes entrantes a través de IoT Hub desde los dispositivos conectados. El acelerador de soluciones usa Azure Cosmos DB con el resto del almacenamiento, como almacenamiento en frío, definiciones de reglas, alertas y valores de configuración.
+Para el almacenamiento, el acelerador de soluciones de supervisión remota usa tanto Azure Time Series Insights como Azure Cosmos DB. Azure Time Series Insights almacena los mensajes entrantes a través de IoT Hub desde los dispositivos conectados. El acelerador de soluciones usa Azure Cosmos DB con el resto del almacenamiento, como almacenamiento en frío, definiciones de reglas, alertas y valores de configuración.
 
 Azure Cosmos DB es la solución de almacenamiento intermedio de uso general recomendada para aplicaciones IoT. Sin embargo, las soluciones como Azure Time Series Insights y Azure Data Lake son adecuadas para muchos casos de uso. Con Azure Time Series Insights, puede obtener conclusiones más detalladas de los datos de los sensores de serie temporal mediante una detección de tendencias y anomalías. Esta característica le permite realizar análisis de causa principal y evitar costosos tiempos de inactividad.
 
 > [!NOTE]
-> Time Series Insights actualmente no está disponible en la nube de Azure China. Las nuevas implementaciones del acelerador de soluciones de Supervisión remota en la nube de Azure China usan Cosmos DB para todo el almacenamiento.
+> Time Series Insights actualmente no está disponible en la nube de Azure China. Las nuevas implementaciones del acelerador de soluciones de supervisión remota en la nube de Azure China usan Cosmos DB para todo el almacenamiento.
 
 ### <a name="business-integration"></a>Integración de negocios
 
@@ -84,6 +84,6 @@ Las alternativas a Docker incluyen el hospedaje de microservicios en servicios d
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Implemente la solución Supervisión remota [aquí](https://www.azureiotsolutions.com/).
+* Implemente la solución de supervisión remota [aquí](https://www.azureiotsolutions.com/).
 * Explore el código de GitHub en [C#](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/) y [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java/).  
 * Obtenga más información sobre la arquitectura de referencia de IoT [aquí](https://aka.ms/iotrefarchitecture).

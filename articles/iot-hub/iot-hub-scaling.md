@@ -8,23 +8,25 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: wesmc
-ms.openlocfilehash: 0d40bfa3a4215b671fcd01402a2cbceaea0cd75d
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0214fbbe1ecc0d0b6b20b740ec898f24cf5b58ec
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57536290"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571301"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Elección del nivel adecuado de IoT Hub para la solución
 
-Cada solución de IoT es diferente, por tanto Azure IoT Hub ofrece varias opciones en función del precio y la escala. El objetivo de este artículo es ayudarle a evaluar sus necesidades de IoT Hub. Para más información sobre los niveles de IoT Hub, consulte [Precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub). 
+Cada solución de IoT es diferente, por tanto Azure IoT Hub ofrece varias opciones en función del precio y la escala. El objetivo de este artículo es ayudarle a evaluar sus necesidades de IoT Hub. Para más información sobre los niveles de IoT Hub, consulte [Precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub).
 
 Para decidir qué nivel de IoT Hub es el adecuado para la solución, hágase dos preguntas:
 
 **¿Qué características voy a utilizar?**
+
 Azure IoT Hub ofrece dos niveles, Basic y Estándar, que se diferencian en el número de características que admiten. Si la solución de IoT se basa en la recopilación de datos de los dispositivos y en su análisis de forma centralizada, el nivel Basic es probablemente el más adecuado. Si desea utilizar configuraciones más avanzadas para controlar dispositivos IoT de forma remota o distribuir algunas de las cargas de trabajo en los mismos dispositivos, debería considerar el nivel Estándar. Para obtener un análisis detallado de las características que se incluyen en cada nivel, continúe a la sección sobre los [niveles Basic y Estándar](#basic-and-standard-tiers).
 
 **¿Qué cantidad de datos tiene previsto mover cada día?**
+
 Cada nivel del IoT Hub está disponible en tres tamaños, basados en la cantidad de datos que pueden tratar en un día determinado. Estos tamaños se identifican numéricamente como 1, 2 y 3. Por ejemplo, cada unidad de un centro de IoT de nivel 1 puede controlar 400 000 mensajes al día, mientras que una unidad de nivel 3 puede controlar 300 millones. Para más información acerca de las directrices de datos, vaya a la sección [Rendimiento de mensajes](#message-throughput).
 
 ## <a name="basic-and-standard-tiers"></a>Niveles Basic y Estándar
@@ -46,15 +48,13 @@ Solo se puede elegir un tipo de [edición](https://azure.microsoft.com/pricing/d
 | [Flujos de dispositivos (versión preliminar)](iot-hub-device-streams-overview.md) |   | Sí |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Sí |
 
-IoT Hub también ofrece un nivel gratis que está diseñado para pruebas y evaluación. Tiene todas las capacidades del nivel estándar, pero las concesiones de mensajería son limitadas. No puede actualizar desde el nivel gratis al plan Básico o Estándar. 
-
+IoT Hub también ofrece un nivel gratis que está diseñado para pruebas y evaluación. Tiene todas las capacidades del nivel estándar, pero las concesiones de mensajería son limitadas. No puede actualizar desde el nivel gratis al plan Básico o Estándar.
 
 ## <a name="partitions"></a>Particiones
 
-Azure IoT Hub contiene muchos componentes principales de [Azure Event Hubs](../event-hubs/event-hubs-features.md), incluidas las [particiones](../event-hubs/event-hubs-features.md#partitions). Los flujos de eventos de IoT Hub generalmente se rellenan con datos de telemetría entrantes que se notifican mediante varios dispositivos de IoT. La creación de particiones del flujo de eventos se usa para reducir las contenciones que se producen al leer y escribir simultáneamente en flujos de eventos. 
+Azure IoT Hub contiene muchos componentes principales de [Azure Event Hubs](../event-hubs/event-hubs-features.md), incluidas las [particiones](../event-hubs/event-hubs-features.md#partitions). Los flujos de eventos de IoT Hub generalmente se rellenan con datos de telemetría entrantes que se notifican mediante varios dispositivos de IoT. La creación de particiones del flujo de eventos se usa para reducir las contenciones que se producen al leer y escribir simultáneamente en flujos de eventos.
 
 El límite de particiones se elige cuando se crea la instancia de IoT Hub y no se puede cambiar. El límite máximo de particiones de nivel básico de IOT y IoT Hub de nivel estándar es 32. La mayoría de instancias de IoT Hub solo necesitan 4 particiones. Para más información para determinar el número de particiones, consulte esta pregunta frecuente sobre Event Hubs [¿Cuántas particiones necesito?](../event-hubs/event-hubs-faq.md#how-many-partitions-do-i-need)
-
 
 ## <a name="tier-upgrade"></a>Actualización del plan
 
@@ -62,10 +62,9 @@ Una vez creado el centro de IoT, puede actualizarlo desde el nivel Basic al nive
 
 La configuración de la partición permanecerá invariable cuando migre de un nivel básico a un nivel estándar.
 
-
 ## <a name="iot-hub-rest-apis"></a>API REST de IoT Hub
 
-La diferencia de funcionalidades admitidas entre los niveles Basic y Estándar de IoT Hub significa que algunas llamadas a la API no funcionan con centros de nivel Basic. En la tabla siguiente se muestran las API que están disponibles: 
+La diferencia de funcionalidades admitidas entre los niveles Basic y Estándar de IoT Hub significa que algunas llamadas a la API no funcionan con centros de nivel Basic. En la tabla siguiente se muestran las API que están disponibles:
 
 | API | Nivel Basic | Nivel gratis o estándar |
 | --- | ---------- | ------------- |
@@ -116,26 +115,24 @@ Como ejemplo de las funcionalidades de tráfico de cada nivel, los mensajes del 
 | B2, S2 |Hasta 16 MB/minuto por unidad<br/>(22,8 GB/día/unidad) |Promedio de 4167 mensajes/minuto por unidad<br/>(6 millones de mensajes/día por unidad) |
 | B3, S3 |Hasta 814 MB/minuto por unidad<br/>(1144,4 GB/día/unidad) |Promedio de 208.333 mensajes/minuto por unidad<br/>(300 millones de mensajes/día por unidad) |
 
-Además de esta información sobre la capacidad de procesamiento, vea [Cuotas y limitaciones de IoT Hub][IoT Hub quotas and throttles] y diseñe su solución en consecuencia.
+Además de esta información sobre la capacidad de procesamiento, vea [Cuotas y limitaciones de IoT Hub](iot-hub-devguide-quotas-throttling.md) y diseñe su solución en consecuencia.
 
 ### <a name="identity-registry-operation-throughput"></a>Capacidad de procesamiento para las operaciones de registro de identidad
+
 Las operaciones de registro de identidad de IoT Hub no deberían ser operaciones en tiempo de ejecución porque tienen que ver principalmente con el aprovisionamiento de dispositivos.
 
-Vea las cifras de rendimiento de ráfaga específicas en [Cuotas y limitaciones de IoT Hub][IoT Hub quotas and throttles].
+Vea las cifras de rendimiento de ráfaga específicas en [Cuotas y limitaciones de IoT Hub](iot-hub-devguide-quotas-throttling.md).
 
 ## <a name="auto-scale"></a>Escalado automático
+
 Si se está aproximando al límite de mensajes permitido por IoT Hub, puede usar estos [pasos para realizar un escalado automático](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) que aumente una unidad de IoT Hub en el mismo nivel.
 
 ## <a name="sharding"></a>Particionamiento
+
 Aunque un único Centro de IoT puede escalarse a millones de dispositivos, a veces la solución requiere características de rendimiento específicas que un único Centro de IoT no puede garantizar. En ese caso puede repartir los dispositivos en varios centros de IoT. Varios centros de IoT suavizan las ráfagas de tráfico y obtienen el rendimiento necesario o las velocidades de funcionamiento necesarias.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Para más información sobre las funcionalidades de IoT Hub y detalles de rendimiento, consulte [Precios de IoT Hub][lnk-pricing] o [Cuotas y limitación de IoT Hub][IoT Hub quotas and throttles].
+* Para obtener más información acerca de las capacidades de IoT Hub y detalles de rendimiento, consulte [precios de IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub) o [cuotas y limitaciones IoT Hub](iot-hub-devguide-quotas-throttling.md).
+
 * Para cambiar el nivel de IoT Hub, siga los pasos descritos en el artículo sobre cómo [actualizar IoT Hub](iot-hub-upgrade.md).
-
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[IoT Hub quotas and throttles]: iot-hub-devguide-quotas-throttling.md
-
-[lnk-devguide]: iot-hub-devguide.md
-[lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md

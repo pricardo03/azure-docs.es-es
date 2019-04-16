@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
-ms.openlocfilehash: 9f881071559eaba0f6b1c86e8827993d52470baf
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 0c4b8d1646ba851acc6a0e2d9a3b920634098846
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501969"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571178"
 ---
 # <a name="service-connectivity-monitor"></a>Monitor de conectividad de servicio
 
@@ -68,7 +68,7 @@ Comience a crear las pruebas para supervisar la conectividad de red con los punt
 5. En **Destino**, escriba la dirección IP, el FQDN o la dirección URL en que desea supervisar la conectividad de red.
 6. En **Número de puerto**, escriba el número de puerto del servicio de destino. 
 7. En **Frecuencia de prueba**, escriba un valor para la frecuencia con la que desea que se ejecute la prueba. 
-8. Seleccione los nodos desde los cuales quiere supervisar la conectividad de red con el servicio. 
+8. Seleccione los nodos desde los cuales quiere supervisar la conectividad de red con el servicio. Asegúrese de que el número de agentes agregadas por prueba es inferior a 150. Cualquier agente puede probar el número máximo de puntos de conexión de 150/agentes.
 
     >[!NOTE]
     > En el caso de los nodos basados en Windows Server, la funcionalidad usa solicitudes basadas en TCP para hacer las medidas en la red. En el caso de los nodos basados en el cliente Windows, la funcionalidad usa solicitudes basadas en ICMP para hacer las medidas en la red. En algunos casos, la aplicación de destino bloquea las solicitudes basadas en ICMP entrantes cuando los nodos se basan en clientes de Windows. La solución no puede realizar mediciones de red. Recomendamos usar los nodos basados en Windows Server en esos casos. 

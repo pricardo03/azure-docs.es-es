@@ -1,6 +1,6 @@
 ---
 title: Dispositivos simulados personalizados para la implementación de IoT - Azure | Microsoft Docs
-description: En esta guía práctica se muestra cómo implementar dispositivos simulados personalizados en el acelerador de soluciones Supervisión remota.
+description: En esta guía práctica se muestra cómo implementar dispositivos simulados personalizados en el acelerador de soluciones de supervisión remota.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -10,7 +10,7 @@ ms.date: 08/15/2018
 ms.topic: conceptual
 ms.openlocfilehash: 8491acfd28524ee3bbbd06c788afb668c40c98b9
 ms.sourcegitcommit: 9b6492fdcac18aa872ed771192a420d1d9551a33
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 01/22/2019
 ms.locfileid: "54450590"
@@ -131,7 +131,7 @@ En esta sección, debe configurar Docker para que cargue los archivos de modelo 
 
 ## <a name="run-simulation"></a>Ejecutar simulación
 
-Ya puede usar los modelos de dispositivo personalizado en la solución Supervisión remota:
+Ya puede usar los modelos de dispositivo personalizado en la solución de supervisión remota:
 
 1. Inicie el panel de Supervisión remota desde los [aceleradores de soluciones de Microsoft Azure IoT](https://www.azureiotsolutions.com/Accelerators#dashboard).
 
@@ -141,10 +141,10 @@ Ya puede usar los modelos de dispositivo personalizado en la solución Supervisi
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Si tiene previsto explorar más a fondo, deje implementado el acelerador de soluciones Supervisión remota.
+Si tiene previsto explorar más a fondo, deje implementado el acelerador de soluciones de supervisión remota.
 
 Si ya no necesita el acelerador de soluciones, elimínelo de la página [Soluciones aprovisionadas](https://www.azureiotsolutions.com/Accelerators#dashboard). Para ello, selecciónelo y, a continuación, haga clic en **Eliminar solución**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En esta guía se muestra cómo implementar modelos de dispositivos personalizados en el acelerador de soluciones de supervisión remota. El paso siguiente que se sugiere es aprender a [conectar un dispositivo real a la solución Supervisión remota](iot-accelerators-connecting-devices-node.md).
+En esta guía se muestra cómo implementar modelos de dispositivos personalizados en el acelerador de soluciones de supervisión remota. El paso siguiente que se sugiere es aprender a [conectar un dispositivo real a la solución de supervisión remota](iot-accelerators-connecting-devices-node.md).

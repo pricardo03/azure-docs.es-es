@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 04/19/2018
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: cc10c9be5bab3b84c8773d8a930473267db353ab
-ms.sourcegitcommit: c37122644eab1cc739d735077cf971edb6d428fe
-ms.translationtype: HT
+ms.openlocfilehash: f37a0c9e4c664ac9631a0a07fa6f114e62939845
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/14/2018
-ms.locfileid: "53411385"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522897"
 ---
 # <a name="how-to-configure-your-app-service-application-to-use-facebook-login"></a>Configuración de la aplicación de App Service para usar el inicio de sesión de Facebook
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
@@ -48,7 +48,7 @@ Para llevar a cabo el procedimiento descrito en este tema, debe tener una cuenta
    > El secreto de aplicación es una credencial de seguridad importante, No comparta este secreto con nadie ni lo distribuya en una aplicación cliente.
    > 
    > 
-9. La cuenta de Facebook que se utilizó para registrar la aplicación es un administrador de la aplicación. En este momento, solo los administradores pueden iniciar sesión en esta aplicación. Para autenticar otras cuentas de Facebook, haga clic en **App Review** (Revisión de aplicaciones) y habilite **Make <your-app-name> public** (Hacer pública <nombre-de-su-aplicación>) para habilitar el acceso público general mediante la autenticación de Facebook.
+9. La cuenta de Facebook que se utilizó para registrar la aplicación es un administrador de la aplicación. En este momento, solo los administradores pueden iniciar sesión en esta aplicación. Para autenticar otras cuentas de Facebook, haga clic en **revisión de la aplicación** y habilitar **realizar \<your-app-name > public** para habilitar el acceso público general mediante la autenticación de Facebook.
 
 ## <a name="secrets"></a>Agregar información de Facebook a la aplicación
 1. Vuelva al [Azure Portal]y vaya a la aplicación. Haga clic en **Configuración** > **Autenticación/autorización** y asegúrese de que **Autenticación de App Service** está **Activada**.

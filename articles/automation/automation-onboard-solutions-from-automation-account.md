@@ -5,16 +5,16 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/16/2018
+ms.date: 4/11/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 0f5d36dfbe614e35256231a91a9e15055e2e81cb
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 41f0607908cde94ca08a4c4dfce0a47032eefbb3
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57843630"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578448"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Incorporación de las soluciones Update Management, Change Tracking e Inventory
 
@@ -44,7 +44,7 @@ En la tabla siguiente se muestran las asignaciones admitidas:
 |EastUS<sup>1</sup>|EastUS2|
 |JapanEast|JapanEast|
 |SoutheastAsia|SoutheastAsia|
-|WestCentralUS|WestCentralUS|
+|WestCentralUS<sup>2</sup>|WestCentralUS<sup>2</sup>|
 |WestEurope|WestEurope|
 |UKSouth|UKSouth|
 |USGovVirginia|USGovVirginia|
@@ -52,8 +52,7 @@ En la tabla siguiente se muestran las asignaciones admitidas:
 
 <sup>1</sup> asignaciones EastUS2EUAP y EastUS para áreas de trabajo de Log Analytics para las cuentas de Automation no son una asignación exacta de una región a otra, pero es la asignación correcta.
 
-> [!NOTE]
-> Debido a la demanda, una región puede no estar disponible al crear el área de trabajo de la cuenta de Automation o Log Analytics.  Si es así, asegúrese de que usa una región en la tabla anterior que se pueden crear recursos en.
+<sup>2</sup> debido a restricciones de capacidad la región no está disponible al crear nuevos recursos. Esto incluye las cuentas de Automation y Log Analytics de áreas de trabajo. Sin embargo, recursos vinculados que ya existían en la región deben continuar funcionando.
 
 La solución Change Tracking e Inventario permite realizar un [control de cambios](automation-vm-change-tracking.md) e [inventario](automation-vm-inventory.md) en sus máquinas virtuales. En este paso, se habilita la solución en una máquina virtual.
 

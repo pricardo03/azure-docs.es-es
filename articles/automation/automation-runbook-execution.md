@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0445643d3aae0e4e072e7fa8e3a73dc8973e84a5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 38dd4d13aa45b69fc846ef9b6b2e1b56f56de573
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59268507"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544762"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Ejecución de un runbook en Azure Automation
 
@@ -46,7 +46,7 @@ Los runbooks de Azure Automation puede ejecutarse en un espacio aislado de Azure
 |Instalar el módulo que requiere el instalador|Hybrid Runbook Worker|Los módulos de recinto de seguridad deben ser que se puede copiar|
 |Uso de runbooks o módulos que requieren .NET Framework que no sea 4.7.2|Hybrid Runbook Worker|Los espacios aislados de Automation tienen .NET Framework 4.7.2, y no hay ninguna manera de actualizarlo|
 |Secuencias de comandos que requieren la elevación|Hybrid Runbook Worker|Los espacios aislados no permitir la elevación. Para resolver este problema, utilice un Hybrid Runbook Worker y puede desactivar UAC y usar `Invoke-Command` cuando ejecute el comando que requiere la elevación|
-|Secuencias de comandos que requieren acceso a WMI|Hybrid Runbook Worker|Trabajos que se ejecutan en espacios aislados de la nube [no tiene acceso a WMI](#device-and-application-characteristics)|
+|Secuencias de comandos que requieren acceso a WMI|Hybrid Runbook Worker|Trabajos que se ejecutan en espacios aislados en la nube [no tienen acceso a WMI](#device-and-application-characteristics)|
 
 ## <a name="runbook-behavior"></a>Comportamiento del runbook
 
@@ -192,7 +192,7 @@ Los runbooks que se ejecutan en espacios aislados de Azure no admiten los proces
 
 ### <a name="device-and-application-characteristics"></a>Características de dispositivos y aplicaciones
 
-Los trabajos de runbook que se ejecutan en espacios aislados de Azure no tiene acceso a las características de dispositivo o aplicación. La API más comunes que se usa para consultar métricas de rendimiento en Windows es WMI. Algunas de estas métricas comunes son el uso de CPU y memoria. Sin embargo, no importa lo que se usa la API. Trabajos que se ejecutan en la nube no tiene acceso la implementación de Microsoft de Web basada en Enterprise Management (WBEM), que se basa en el modelo de información común (CIM), que son los estándares del sector para definir características del dispositivo y la aplicación.
+Los trabajos de runbook que se ejecutan en espacios aislados de Azure no tiene acceso a las características de dispositivo o aplicación. La API más comunes que se usa para consultar métricas de rendimiento en Windows es WMI. Algunas de estas métricas comunes son el uso de CPU y memoria. Sin embargo, no importa lo que se usa la API. Trabajos que se ejecutan en la nube no tiene acceso a la implementación de Microsoft de Web Based Enterprise Management (WBEM), que está integrado en el modelo de información común (CIM), que son los estándares del sector para definir características del dispositivo y la aplicación.
 
 ## <a name="job-statuses"></a> Estados del trabajo
 

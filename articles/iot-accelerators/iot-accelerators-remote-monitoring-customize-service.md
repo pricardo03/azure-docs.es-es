@@ -1,6 +1,6 @@
 ---
 title: 'Adición de un servicio a la interfaz de usuario de la solución de supervisión remota: Azure | Microsoft Docs'
-description: En este artículo se muestra cómo agregar un nuevo servicio a la interfaz de usuario web del acelerador de soluciones de Supervisión remota.
+description: En este artículo se muestra cómo agregar un nuevo servicio a la interfaz de usuario web del acelerador de soluciones de supervisión remota.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -10,21 +10,21 @@ ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: e44aa8ade512a6005959e795cb1d4ad861da1338
 ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2018
 ms.locfileid: "49094542"
 ---
-# <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adición de un servicio personalizado a la interfaz de usuario web del acelerador de soluciones de Supervisión remota
+# <a name="add-a-custom-service-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adición de un servicio personalizado a la interfaz de usuario web del acelerador de soluciones de supervisión remota
 
-En este artículo se muestra cómo agregar un nuevo servicio a la interfaz de usuario web del acelerador de soluciones de Supervisión remota. El artículo describe:
+En este artículo se muestra cómo agregar un nuevo servicio a la interfaz de usuario web del acelerador de soluciones de supervisión remota. El artículo describe:
 
 - Cómo preparar un entorno de desarrollo local.
 - Cómo agregar un nuevo servicio a la interfaz de usuario web.
 
-El servicio de ejemplo de este artículo proporciona datos para una cuadrícula que el artículo de procedimientos [Add a custom grid to the Remote Monitoring solution accelerator web UI](iot-accelerators-remote-monitoring-customize-grid.md) (Agregar una cuadrícula personalizada a la interfaz de usuario web del acelerador de soluciones de Supervisión remota) muestra cómo agregar.
+El servicio de ejemplo de este artículo proporciona datos para una cuadrícula que el artículo de procedimientos [Add a custom grid to the Remote Monitoring solution accelerator web UI](iot-accelerators-remote-monitoring-customize-grid.md) (Agregar una cuadrícula personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota) muestra cómo agregar.
 
-En una aplicación React, un servicio normalmente interactúa con un servicio back-end. Algunos ejemplos del acelerador de soluciones de Supervisión remota incluyen servicios que interactúan con el Administrador de IoT Hub y los microservicios de configuración.
+En una aplicación React, un servicio normalmente interactúa con un servicio back-end. Algunos ejemplos del acelerador de soluciones de supervisión remota incluyen servicios que interactúan con el Administrador de IoT Hub y los microservicios de configuración.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -35,7 +35,7 @@ Para completar los pasos de esta guía necesita que el software siguiente esté 
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-Debe completar los pasos descritos en el artículo de procedimientos [Adición de una página personalizada a la interfaz de usuario web del acelerador de soluciones de Supervisión remota](iot-accelerators-remote-monitoring-customize-page.md) antes de continuar.
+Debe completar los pasos descritos en el artículo de procedimientos [Adición de una página personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-page.md) antes de continuar.
 
 ## <a name="add-a-service"></a>Agregar un servicio
 
@@ -116,6 +116,6 @@ const epics = [
 
 En este artículo, aprendió sobre los recursos que tiene a su disposición para ayudarlo a agregar o personalizar servicios en la interfaz de usuario web en el acelerador de la solución de supervisión remota.
 
-Ya ha definido un servicio, el paso siguiente consiste en [agregar una cuadrícula personalizada a la interfaz de usuario web del acelerador de soluciones de Supervisión remota](iot-accelerators-remote-monitoring-customize-grid.md) que muestra los datos que devuelve el servicio.
+Ya ha definido un servicio, el paso siguiente consiste en [agregar una cuadrícula personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-grid.md) que muestra los datos que devuelve el servicio.
 
 Para información más conceptual sobre el acelerador de la solución de supervisión remota, vea [Arquitectura de supervisión remota](iot-accelerators-remote-monitoring-sample-walkthrough.md).

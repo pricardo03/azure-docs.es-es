@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b247338bbb1f20082fdef2a2bc291fb6183b10
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 8bc2acaa24637c3297af8e91f01b67e5d30f2931
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493066"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577974"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opciones de creación de informes para la administración de contraseñas de Azure AD
 
@@ -50,15 +50,14 @@ En la experiencia de Azure Portal, se ha mejorado la visualización de la activi
 1. Vaya a [Azure Portal](https://portal.azure.com).
 2. Seleccione **Todos los servicios** en el panel izquierdo.
 3. Busque **Azure Active Directory** en la lista de servicios y selecciónelo.
-4. Seleccione **Usuarios y grupos**.
-5. Seleccione **Registros de auditoría** en el menú **Usuarios y grupos**. Se muestran todos los eventos de auditoría que se producen en todos los usuarios del directorio. Puede filtrar esta vista para ver también todos los eventos relacionados con contraseñas.
-6. Para filtrar esta vista y ver únicamente los eventos relacionados con el restablecimiento de contraseña, seleccione el botón **Filtrar** que se encuentra en la parte superior del panel.
-7. En el menú **Filtrar**, seleccione la lista desplegable **Categoría** y cámbiela al tipo de categoría **Self-service Password Management** (Administración de contraseñas de autoservicio).
-8. También puede filtrar la lista si elige la **actividad** específica que le interesa.
+4. Seleccione **usuarios** desde la sección administrar.
+5. Seleccione **los registros de auditoría** desde el **usuarios** hoja. Se muestran todos los eventos de auditoría que se producen en todos los usuarios del directorio. Puede filtrar esta vista para ver también todos los eventos relacionados con contraseñas.
+6. Desde el **filtro** menú en la parte superior del panel, seleccione el **servicio** desplegable lista y cámbielo a la **la administración de contraseñas autoservicio** tipo de servicio.
+7. También puede filtrar la lista si elige la **actividad** específica que le interesa.
 
 ### <a name="converged-registration-preview"></a>Registro convergido (versión preliminar)
 
-Si participa en la versión preliminar pública del registro convergido, la información relativa a la actividad del usuario en los registros de auditoría se encontrará en la categoría **Métodos de autenticación**.
+Si está participando en la versión preliminar pública de registro convergente, se encontrarán información relacionada con la actividad de usuario en los registros de auditoría en el servicio **métodos de autenticación**.
 
 ## <a name="description-of-the-report-columns-in-the-azure-portal"></a>Descripción de las columnas de informe en Azure Portal
 
@@ -176,16 +175,16 @@ En la lista siguiente se explica en detalle esta actividad:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [¿Cómo se puede completar una implementación correcta de SSPR?](howto-sspr-deployment.md)
+* [¿Cómo se realiza un lanzamiento correcto de SSPR?](howto-sspr-deployment.md)
 * [Restablecimiento o modificación de la contraseña](../user-help/active-directory-passwords-update-your-own-password.md).
 * [Registro para el autoservicio de restablecimiento de contraseñas](../user-help/active-directory-passwords-reset-register.md).
-* [¿Tiene alguna pregunta licencias?](concept-sspr-licensing.md)
-* [¿Qué datos usa SSPR y qué datos se deben rellenar para los usuarios?](howto-sspr-authenticationdata.md)
-* [¿Métodos de autenticación que están disponibles para los usuarios?](concept-sspr-howitworks.md#authentication-methods)
+* [¿Tiene alguna pregunta acerca de las licencias?](concept-sspr-licensing.md)
+* [¿Qué datos usa SSPR y cuáles se deben rellenar en lugar de los usuarios?](howto-sspr-authenticationdata.md)
+* [¿Qué métodos de autenticación están disponibles para los usuarios?](concept-sspr-howitworks.md#authentication-methods)
 * [¿Cuáles son las opciones de directiva con SSPR?](concept-sspr-policy.md)
-* [¿Qué es la escritura diferida de contraseñas y por qué me importa sobre ella?](howto-sspr-writeback.md)
-* [¿Qué son todas las opciones en SSPR y qué significan?](concept-sspr-howitworks.md)
-* [Creo que algo se ha roto. ¿Cómo se puede solucionar SSPR?](active-directory-passwords-troubleshoot.md)
-* [Tengo una pregunta que no se ha comentado else](active-directory-passwords-faq.md)
+* [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](howto-sspr-writeback.md)
+* [¿Cuáles son todas las opciones en SSPR y qué significan?](concept-sspr-howitworks.md)
+* [Creo que algo se ha roto. ¿Cómo se solucionan problemas en SSPR?](active-directory-passwords-troubleshoot.md)
+* [Tengo una pregunta que no se ha comentado en ningún otro sitio](active-directory-passwords-faq.md)
 
 [Reporting]: ./media/howto-sspr-reporting/sspr-reporting.png "Ejemplo de registros de auditoría de actividad de SSPR en Azure AD"

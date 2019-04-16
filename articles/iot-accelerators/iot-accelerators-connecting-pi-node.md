@@ -15,7 +15,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58109753"
 ---
-# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Conexión del dispositivo Raspberry Pi al acelerador de la solución Supervisión remota (Node.js)
+# <a name="connect-your-raspberry-pi-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Conexión del dispositivo Raspberry Pi al acelerador de soluciones de supervisión remota (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
@@ -103,7 +103,7 @@ Realice los pasos siguientes con la conexión `ssh` al dispositivo Raspberry Pi:
     var async = require('async');
     ```
 
-1. Agregue las siguientes declaraciones de variable después de las instrucciones `require` . Sustituya el valor del marcador de posición `{device connection string}` por el valor que ha anotado para el dispositivo que ha aprovisionado en la solución Supervisión remota:
+1. Agregue las siguientes declaraciones de variable después de las instrucciones `require` . Sustituya el valor del marcador de posición `{device connection string}` por el valor que ha anotado para el dispositivo que ha aprovisionado en la solución de supervisión remota:
 
     ```javascript
     var connectionString = '{device connection string}';

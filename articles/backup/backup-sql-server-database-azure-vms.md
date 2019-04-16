@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sachdevaswati
-ms.openlocfilehash: 1a596462eb42231a356ddc4fa67b6468b63cd97c
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.openlocfilehash: 5e4bd3647b557b260e65e3fb1ce297892f5d7d78
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849313"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578831"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Copia de seguridad de bases de datos de SQL Server en máquinas virtuales de Azure
 
@@ -113,7 +113,7 @@ Detecte las bases de datos que se ejecutan en la máquina virtual.
     - Azure Backup crea la cuenta de servicio **NT Service\AzureWLBackupPluginSvc** en la máquina virtual.
       - Todas las operaciones de copia de seguridad y restauración utilizan la cuenta de servicio.
       - **NT Service\AzureWLBackupPluginSvc** necesita permisos de administrador del sistema de SQL. Todas las máquinas virtuales de SQL Server creadas en Azure Marketplace llevan instalado **SqlIaaSExtension**. La extensión **AzureBackupWindowsWorkload** usa **SQLIaaSExtension** para obtener automáticamente los permisos necesarios.
-    - Si no ha creado la máquina virtual desde Marketplace, no tendrá instalado **SqlIaaSExtension** y la operación de detección no se podrá realizar; se muestra el mensaje de error **UserErrorSQLNoSysAdminMembership**. Siga las instrucciones que se indican en [#fix-sql-sysadmin-permissions] para corregir este problema.
+    - Si no ha creado la máquina virtual desde Marketplace, no tendrá instalado **SqlIaaSExtension** y la operación de detección no se podrá realizar; se muestra el mensaje de error **UserErrorSQLNoSysAdminMembership**. Siga el [instrucciones](backup-azure-sql-database.md#fix-sql-sysadmin-permissions) para corregir este problema.
 
         ![Seleccionar la máquina virtual y la base de datos](./media/backup-azure-sql-database/registration-errors.png)
 

@@ -25,7 +25,7 @@ Este artículo le guiará a través de algunos de los elementos clave de la solu
 * Planear cómo personalizar la solución para satisfacer sus propios requisitos específicos.
 * Diseñar una solución de IoT propia que utilice servicios de Azure.
 
-El código del acelerador de soluciones de Supervisión remota está disponible en GitHub:
+El código del acelerador de soluciones de supervisión remota está disponible en GitHub:
 
 * [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet)
 * [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java)
@@ -127,7 +127,7 @@ Los trabajos de ASA entregan los datos de telemetría de los dispositivos conect
 [Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) almacena los datos de telemetría de los dispositivos conectados al acelerador de soluciones. También permite visualizar y consultar la telemetría del dispositivo en la interfaz de usuario web de la solución.
 
 > [!NOTE]
-> Time Series Insights actualmente no está disponible en la nube de Azure China. Las nuevas implementaciones del acelerador de soluciones de Supervisión remota en la nube de Azure China usan Cosmos DB para todo el almacenamiento.
+> Time Series Insights actualmente no está disponible en la nube de Azure China. Las nuevas implementaciones del acelerador de soluciones de supervisión remota en la nube de Azure China usan Cosmos DB para todo el almacenamiento.
 
 ### <a name="configuration-microservice"></a>Microservicio de configuración
 

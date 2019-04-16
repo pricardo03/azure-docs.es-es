@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/10/2019
 ms.author: juergent
-ms.openlocfilehash: d47c64fb8b148e39eab09a33c3241ac7dd3ea537
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 3c1d0e252b5c658ab6da2b3932918f05ba651d52
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502134"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565808"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [2015553]:https://launchpad.support.sap.com/#/notes/2015553
@@ -65,7 +65,7 @@ Lea las siguientes notas SAP y documentación antes de acerca a una instalación
 | [2015553] | SAP on Microsoft Azure: Support Prerequisites (Nota de soporte técnico 2015553 de SAP en Microsoft Azure: requisitos previos de soporte técnico) |
 | [2178632] | Key Monitoring Metrics for SAP on Microsoft Azure (Métricas de supervisión clave para SAP en Microsoft Azure) |
 | [2191498] | SAP on Linux with Azure: Enhanced Monitoring (Virtualización en Windows: supervisión mejorada) |
-| [2243692] | Linux on Microsoft Azure (IaaS) VM: SAP license issues (Linux en máquinas virtuales de Microsoft Azure (IaaS): problemas de licencia de SAP) |
+| [2243692] | Linux on Microsoft Azure (IaaS) VM: SAP license issues (Linux y máquinas virtuales de Microsoft Azure (IaaS): problemas de licencia de SAP) |
 | [1984787] |SUSE LINUX Enterprise Server 12: Notas de instalación |
 | [1999351] |Troubleshooting Enhanced Azure Monitoring for SAP (Solución de problemas de la supervisión mejorada de Azure para SAP) |
 | [2233094] |DB6: Aplicaciones de SAP en Azure con IBM Db2 para Linux, UNIX y Windows - información adicional |
@@ -538,7 +538,7 @@ El estado original en un sistema SAP se documenta en la transacción de DBACOCKP
 
 
 > [!IMPORTANT] 
-> Antes de empezar la prueba, asegúrese de que Pacemaker no tiene ninguna acción con errores (estado de crm) y no hay ninguna restricción de ubicación (restos de pruebas de migración) y funciona la sincronización de HADR de IBM Db2. Póngase en contacto con el usuario db2 con\<sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
+> Antes de empezar la prueba, asegúrese de que Pacemaker no tiene ninguna acción con errores (estado de crm) y no hay ninguna restricción de ubicación (restos de pruebas de migración) y funciona la sincronización de HADR de IBM Db2. Póngase en contacto con el usuario db2\<sid > <pre><code>db2pd -hadr -db \<DBSID></code></pre>
 
 
 Migrar el nodo que ejecuta la base de datos principal de Db2 mediante la ejecución de comando siguiente:

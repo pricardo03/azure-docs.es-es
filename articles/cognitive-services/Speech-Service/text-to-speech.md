@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 597932ae9ad4dba76428fa6a4882c50f6ff98754
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2c5c2bc2b8dd1930efef9833bd442fcad5566e2a
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263118"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578791"
 ---
 # <a name="what-is-text-to-speech"></a>¿Qué es el texto a voz?
 
@@ -53,10 +53,7 @@ Esta tabla enumeran las características principales de texto a voz:
 | Crear y administrar las pruebas de fuente de voz. | Sin  | Sí\* |
 | Administrar suscripciones. | Sin  | Sí\* |
 
-\* *Estos servicios están disponibles mediante el punto de conexión cris.ai. Consulte [Swagger referencia](https://westus.cris.ai/swagger/ui/index).*
-
-> [!NOTE]
-> El punto de conexión de texto a voz implementa la limitación que limita las solicitudes a 25 cada 5 segundos. Cuando se produce la limitación, se le notificará a través de los encabezados del mensaje.
+\* *Estos servicios están disponibles mediante el punto de conexión cris.ai. Consulte [Swagger referencia](https://westus.cris.ai/swagger/ui/index). Estos entrenamiento de voz personalizados y la API de administración de implementan la limitación que limite las solicitudes a 25 cada 5 segundos, mientras que la propia API de síntesis de voz implementa la limitación permite alcanzar las 200 solicitudes por segundo es el más alto. Cuando se produce la limitación, se le notificará a través de los encabezados del mensaje.*
 
 ## <a name="get-started-with-text-to-speech"></a>Empezar a trabajar con texto a voz
 
@@ -66,17 +63,17 @@ Se ofrecen tutoriales rápidos diseñados para tener que ejecutar código en men
 
 | Guía de inicio rápido (SDK) | Plataforma | Referencia de API |
 |------------|----------|---------------|
-| [C#, .NET framework](quickstart-text-to-speech-dotnet-windows.md) |  Windows | [Examinar](https://aka.ms/csspeech/csharpref) |
-| [C++](quickstart-text-to-speech-cpp-windows.md) |  Windows | [Examinar](https://aka.ms/csspeech/cppref) |
-| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Examinar](https://aka.ms/csspeech/cppref) |
+| [C#, .NET framework](quickstart-text-to-speech-dotnet-windows.md) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](quickstart-text-to-speech-cpp-windows.md) |  Windows | [Browse](https://aka.ms/csspeech/cppref) |
+| [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
 
 ### <a name="rest-quickstarts"></a>Guías de inicio rápido REST
 
 | Guía de inicio rápido (REST) | Plataforma | Referencia de API |
 |------------|----------|---------------|
-| [C#, .NET Core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Examinar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Node.js](quickstart-nodejs-text-to-speech.md) | Ventana, macOS, Linux | [Examinar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
-| [Python](quickstart-python-text-to-speech.md) | Ventana, macOS, Linux | [Examinar](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [C#, .NET core](quickstart-dotnet-text-to-speech.md) | Windows, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Node.js](quickstart-nodejs-text-to-speech.md) | Ventana, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
+| [Python](quickstart-python-text-to-speech.md) | Ventana, macOS, Linux | [Browse](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis) |
 
 ## <a name="sample-code"></a>Código de ejemplo
 
@@ -87,13 +84,13 @@ Código de ejemplo de texto a voz está disponible en GitHub. Estos ejemplos tra
 
 ## <a name="reference-docs"></a>Documentos de referencia
 
-* [SDK de voz](speech-sdk-reference.md)
-* [SDK de dispositivos de voz](speech-devices-sdk.md)
-* [API REST: Voz a texto](rest-speech-to-text.md)
-* [API REST: Texto a voz](rest-text-to-speech.md)
-* [API REST: Personalización y transcripción de lote](https://westus.cris.ai/swagger/ui/index)
+* [Speech SDK](speech-sdk-reference.md)
+* [Speech Devices SDK](speech-devices-sdk.md)
+* [API REST: Speech-to-text](rest-speech-to-text.md) (API de REST: Voz a texto)
+* [API REST: Text-to-speech](rest-text-to-speech.md) (API de REST: Texto a voz)
+* [API REST: Batch transcription and customization](https://westus.cris.ai/swagger/ui/index) (API de REST: Transcripción y personalización de Azure Batch)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Obtener una suscripción de servicios de voz gratis](get-started.md)
-* [Crear fuentes de voz personalizados](how-to-customize-voice-font.md)
+* [Obtención de una suscripción de gratuita a servicios de Voz](get-started.md)
+* [Creación de fuentes de voz personalizadas](how-to-customize-voice-font.md)

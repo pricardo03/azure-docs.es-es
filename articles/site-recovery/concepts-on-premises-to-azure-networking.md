@@ -6,14 +6,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: 7f5d3ff6759cebca2f592e1cd4822ee85959ecb9
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 2e1cbb2446501d0afda29eba179e388b5a22e6a8
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361302"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565689"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Configuración del direccionamiento IP para la conexión a máquinas virtuales de Azure tras la conmutación por error
 
@@ -62,7 +62,7 @@ Para que Woodgrove pueda replicar sus máquinas virtuales en Azure y conservar l
 
 1. Cree una red virtual de Azure en la cual se crearán las máquinas virtuales de Azure después de la conmutación por error de las máquinas locales. Debe ser una extensión de la red local, para que las aplicaciones puedan conmutar por error sin problemas.
 2. Antes de la conmutación por error, en Site Recovery se asigna la misma dirección IP en las propiedades de la máquina. Después de la conmutación por error, Site Recovery asigna esta dirección a la máquina virtual de Azure.
-3. Una vez que se ejecuta la conmutación por error y que se crean las máquinas virtuales de Azure con la misma dirección IP, se conectan a la red mediante una [conexión de red virtual a red virtual](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md). Esta acción puede ejecutarse mediante scripts.
+3. Una vez que se ejecuta la conmutación por error y que se crean las máquinas virtuales de Azure con la misma dirección IP, se conectan a la red mediante una [conexión de red virtual a red virtual](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md). Esta acción puede ejecutarse mediante scripts.
 4. Se necesitan modificar rutas para reflejar que 192.168.1.0/24 ahora se movió a Azure.
 
 
@@ -84,4 +84,4 @@ Además de la conexión de red virtual a red virtual, después de la conmutació
 En esta [entrada de blog](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) se explica cómo configurar la infraestructura de red de Azure cuando no hay que conservar las direcciones IP después de la conmutación por error. Comienza con una descripción de la aplicación, se examina cómo configurar redes en local y en Azure y se concluye con información sobre la ejecución de las conmutaciones por error.
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Ejecución de la conmutación por error](site-recovery-failover.md)
+[Ejecución de una conmutación por error](site-recovery-failover.md)

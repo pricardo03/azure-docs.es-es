@@ -36,7 +36,7 @@ Si utiliza el dispositivo DevKit, encontrará recursos y ejemplos en el reposito
 
 ### <a name="is-the-new-microservices-architecture-available-for-all-the-three-solution-accelerators"></a>¿La nueva arquitectura de microservicios está disponible para los tres aceleradores de soluciones?
 
-Actualmente, solo la solución Supervisión remota usa la arquitectura de microservicios, ya que abarca el escenario más amplio.
+Actualmente, solo la solución de supervisión remota usa la arquitectura de microservicios, ya que abarca el escenario más amplio.
 
 ### <a name="what-advantages-does-the-new-open-sourced-microservices-based-architecture-provide-in-the-new-update"></a>¿Qué ventajas proporciona en la nueva actualización la nueva arquitectura basada en microservicios de código abierto?
 
@@ -90,7 +90,7 @@ Cincuenta. Puede crear un [vale de soporte de Azure](https://portal.azure.com/#b
 
 ### <a name="how-many-free-bing-maps-apis-can-i-provision-in-a-subscription"></a>¿Cuántas API de Mapas de Bing gratis se pueden aprovisionar en una suscripción?
 
-Dos. Solo puede crear dos planes de Mapas de Bing para empresa de nivel 1 de transacciones internas en una suscripción de Azure. La solución Supervisión remota se aprovisiona de forma predeterminada con el plan de nivel 1 de transacciones internas. Como consecuencia, solo se pueden aprovisionar un máximo de dos soluciones en una suscripción sin modificaciones.
+Dos. Solo puede crear dos planes de Mapas de Bing para empresa de nivel 1 de transacciones internas en una suscripción de Azure. La solución de supervisión remota se aprovisiona de forma predeterminada con el plan de nivel 1 de transacciones internas. Como consecuencia, solo se pueden aprovisionar un máximo de dos soluciones en una suscripción sin modificaciones.
 
 ### <a name="can-i-create-a-solution-accelerator-if-i-have-microsoft-azure-for-dreamspark"></a>¿Puedo crear un acelerador de soluciones si tengo Microsoft Azure para DreamSpark?
 

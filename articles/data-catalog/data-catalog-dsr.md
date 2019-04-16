@@ -4,21 +4,19 @@ description: En este artículo se enumeran las especificaciones de los orígenes
 services: data-catalog
 author: markingmyname
 ms.author: maghan
-ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.topic: conceptual
-ms.date: 01/18/2018
-ms.openlocfilehash: 56fa449bd665457ab1b98b67bb42ec52e0742c5f
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
-ms.translationtype: HT
+ms.date: 04/15/2019
+ms.openlocfilehash: d859fc92c4adbcd224d49601678804445a313ef7
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410194"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579400"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Orígenes de datos compatibles en Azure Data Catalog
 
 Pueden publicarse metadatos mediante una API pública o una herramienta de registro con un solo clic, o mediante la especificación manual de información directamente en el portal web de Azure Data Catalog. En la siguiente tabla se resumen todos los orígenes que admite el catálogo actualmente y las funcionalidades de publicación de cada uno de ellos. También se enumeran las herramientas de datos externas que cada origen puede iniciar desde nuestra experiencia "abierta" del portal. La segunda tabla contiene una especificación más técnica de las propiedades de conexión de cada propiedad de la conexión del origen de datos.
-
 
 ## <a name="list-of-supported-data-sources"></a>Lista de orígenes de datos que se admiten
 
@@ -32,7 +30,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
        <td><b>Notas</b></td>
     </tr>
     <tr>
-      <td>Directorio de Azure Data Lake Store</td>
+      <td>Directorio de Azure Data Lake Store (solo Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>
@@ -40,7 +38,7 @@ Pueden publicarse metadatos mediante una API pública o una herramienta de regis
       <td></td>
     </tr>
     <tr>
-      <td>Archivo de Azure Data Lake Store</td>
+      <td>Archivo de Azure Data Lake Store (solo Gen 1)</td>
       <td>✓</td>
       <td>✓</td>
       <td>✓</td>

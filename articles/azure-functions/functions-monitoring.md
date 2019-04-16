@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: glenga
-ms.openlocfilehash: 0e4c308e745cbf2ffbc18f64101043aff3ddde35
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 96656da078b79474dbf6576455a485d17868db49
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59495692"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565977"
 ---
 # <a name="monitor-azure-functions"></a>Monitor Azure Functions
 
@@ -99,7 +99,7 @@ Las siguientes áreas de Application Insights pueden ser útiles al evaluar el c
 
 | Tabulador | DESCRIPCIÓN |
 | ---- | ----------- |
-| **[Errores](../azure-monitor/app/asp-net-exceptions.md)** |  Crear gráficos y las alertas basadas en errores de funciones y excepciones de servidor. **Nombre de la operación** es el nombre de la función. Errores en las dependencias no se muestran a menos que implemente la telemetría personalizada para las dependencias. |
+| **[errores](../azure-monitor/app/asp-net-exceptions.md)** |  Crear gráficos y las alertas basadas en errores de funciones y excepciones de servidor. **Nombre de la operación** es el nombre de la función. Errores en las dependencias no se muestran a menos que implemente la telemetría personalizada para las dependencias. |
 | **[Rendimiento](../azure-monitor/app/performance-counters.md)** | Analizar problemas de rendimiento. |
 | **Servidores** | Ver la utilización de recursos y el rendimiento por servidor. Estos datos pueden ser útiles para la depuración de escenarios en los que las funciones están dificultando los recursos subyacentes. Los servidores se conocen como **Instancias de rol en la nube**. |
 | **[Métricas](../azure-monitor/app/metrics-explorer.md)** | Crear gráficos y las alertas que se basan en métricas. Las métricas incluyen el número de invocaciones de función, el tiempo de ejecución y las tasas de éxito. |
@@ -127,8 +127,8 @@ Se muestran las tablas que están disponibles en el **esquema** ficha a la izqui
 | Tabla | DESCRIPCIÓN |
 | ----- | ----------- |
 | **traces** | Registros creados por el tiempo de ejecución y por código de función. |
-| **Solicitudes** | Una solicitud para cada invocación de función. |
-| **excepciones** | Las excepciones producidas por el tiempo de ejecución. |
+| **requests** | Una solicitud para cada invocación de función. |
+| **exceptions** | Las excepciones producidas por el tiempo de ejecución. |
 | **customMetrics** | El recuento de invocaciones correctas y erróneas, tasa de éxito y duración. |
 | **customEvents** | Eventos registrados por el tiempo de ejecución, por ejemplo: solicitudes HTTP que desencadenan una función. |
 | **performanceCounters** | Información sobre el rendimiento de los servidores que ejecutan las funciones en. |
@@ -595,7 +595,9 @@ El `tagOverrides` conjuntos de parámetros la `operation_Id` al identificador de
 
 ## <a name="dependencies"></a>Dependencias
 
-Las dependencias que la función tiene a otros servicios no se muestran automáticamente. Puede escribir código personalizado para mostrar las dependencias. Para obtener ejemplos, vea el código de ejemplo en el [ C# sección telemetría personalizada](#log-custom-telemetry-in-c-functions). El código de ejemplo da como resultado un *mapa de aplicación* en Application Insights, similar a la siguiente imagen:
+Funciones v2 recopila automáticamente las dependencias de SQL, bus de servicio y las solicitudes HTTP.
+
+Puede escribir código personalizado para mostrar las dependencias. Para obtener ejemplos, vea el código de ejemplo en el [ C# sección telemetría personalizada](#log-custom-telemetry-in-c-functions). El código de ejemplo da como resultado un *mapa de aplicación* en Application Insights, similar a la siguiente imagen:
 
 ![Mapa de aplicación](./media/functions-monitoring/app-map.png)
 

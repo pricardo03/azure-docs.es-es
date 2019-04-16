@@ -16,12 +16,12 @@ ms.date: 01/30/2019
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 01/30/2019
-ms.openlocfilehash: 51ab999880dd3bfd453b0e6c2d20d8d6f9a0e093
-ms.sourcegitcommit: de32e8825542b91f02da9e5d899d29bcc2c37f28
+ms.openlocfilehash: d6d3cb99a55ae5eb8276391f22675a88e8b3d072
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/02/2019
-ms.locfileid: "55660126"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276446"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Requisitos de certificados de infraestructura de clave pública de Azure Stack
 
@@ -38,7 +38,7 @@ Azure Stack tiene una red de infraestructura pública que usa direcciones IP pú
 En la lista siguiente se describen los requisitos de certificados que son necesarios para implementar Azure Stack: 
 - Los certificados deben ser emitidos desde una entidad de certificación interna o pública. Si se usa una entidad de certificación pública, se debe incluir en la imagen del sistema operativo base como parte del programa de entidades de certificación raíz de confianza de Microsoft (Microsoft Trusted Root Certificate Program). Podrá encontrar la lista completa aquí: https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca 
 - La infraestructura de Azure Stack debe tener acceso de red a la ubicación de la lista de revocación de certificados (CRL) de la entidad de certificación publicada en el certificado. Esta lista de revocación de certificados debe ser un punto de conexión http
-- Al cambiar los certificados, deben estar emitidos por la misma entidad certificación interna utilizada para firmar los certificados proporcionados en la implementación o por cualquier entidad de certificación pública anterior.
+- Al cambiar los certificados en las compilaciones previas a 1903, deben estar emitidos por la misma entidad certificación interna utilizada para firmar los certificados proporcionados en la implementación o por cualquier entidad de certificación pública anterior. Para la compilación 1903 y posteriores, cualquier entidad de certificación pública o empresa puede emitir los certificados.
 - No se admite el uso de certificados autofirmados.
 - Para la implementación y la rotación, se puede usar un certificado único que abarque todos los espacios de nombres en los campos Nombre del firmante y Nombre alternativo del firmante (SAN) del certificado, O BIEN se pueden usar certificados individuales para cada uno de los espacios de nombres siguientes requeridos por los servicios de Azure Stack que se van a usar. Para ambos enfoques hay que usar caracteres comodín para los puntos de conexión donde sean necesarios, como **KeyVault** y **KeyVaultInternal**. 
 - El cifrado PFX del certificado debe ser 3DES. 
@@ -86,8 +86,8 @@ Si implementa Azure Stack con el modo de implementación de Azure AD, solo tiene
 
 |Carpeta de implementación|Nombres alternativos del firmante (SAN) y firmante del certificado requeridos|Ámbito (por región)|Nombre del subdominio|
 |-----|-----|-----|-----|
-|ADFS|adfs.*&lt;región>.&lt;fqdn>*<br>(Certificado SSL)|ADFS|*&lt;región>.&lt;fqdn>*|
-|Grafo|graph.*&lt;región>.&lt;fqdn>*<br>(Certificado SSL)|Grafo|*&lt;región>.&lt;fqdn>*|
+|ADFS|adfs.*&lt;región>.&lt;fqdn>*<br>(Certificado SSL)|ADFS|*&lt;region>.&lt;fqdn>*|
+|Grafo|graph.*&lt;región>.&lt;fqdn>*<br>(Certificado SSL)|Grafo|*&lt;region>.&lt;fqdn>*|
 |
 
 > [!IMPORTANT]

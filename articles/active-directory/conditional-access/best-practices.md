@@ -18,12 +18,12 @@ ms.date: 01/25/2019
 ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eafc379a65fda1ed64c6afee1427e704558b1ee6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 11d4d319fa31dd2493810dc7293d415554f79d94
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261551"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571127"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedimientos recomendados para el acceso condicional en Azure Active Directory
 
@@ -48,7 +48,7 @@ Para realizar un trabajo de directiva, debe configurar:
 
 | Qué           | Cómo                                  | Porqué |
 | :--            | :--                                  | :-- |
-| **Aplicaciones de nube** |Seleccione una o varias aplicaciones.  | El objetivo de la directiva de acceso condicional es permitirle que controle cómo los usuarios autorizados pueden acceder a las aplicaciones en la nube.|
+| **Aplicaciones en la nube** |Seleccione una o varias aplicaciones.  | El objetivo de la directiva de acceso condicional es permitirle que controle cómo los usuarios autorizados pueden acceder a las aplicaciones en la nube.|
 | **Usuarios y grupos** | Seleccione al menos un usuario o grupo que esté autorizado para acceder a las aplicaciones en la nube que haya seleccionado. | Una directiva de acceso condicional que no tiene usuarios ni grupos asignados nunca se desencadena. |
 | **Controles de acceso** | Seleccione al menos un control de acceso. | Si se cumplen las condiciones, el procesador de directivas debe saber qué hacer. |
 
@@ -109,7 +109,7 @@ En cada inicio de sesión, Azure Active Directory evalúa todas las directivas y
 
 ### <a name="does-conditional-access-work-with-exchange-activesync"></a>¿Funciona el acceso condicional con Exchange ActiveSync?
 
-Sí, se puede usar Exchange ActiveSync en una directiva de acceso condicional.
+Sí, puede usar Exchange ActiveSync en una directiva de acceso condicional con algunos [limitaciones](https://docs.microsoft.com/en-us/azure/active-directory/conditional-access/conditional-access-for-exo-and-spo#exchange-activesync). 
 
 ### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>¿Cómo se debe configurar el acceso condicional con aplicaciones de Office 365?
 
@@ -140,7 +140,7 @@ En su entorno, debería evitar las siguientes configuraciones:
 
 - **Requerir la directiva de protección de aplicaciones** : este bloque de la Directiva acceso también tiene la posibilidad de bloquear el acceso a todos los usuarios de su organización si no tiene una directiva de Intune. Si es un administrador y no una aplicación cliente que tiene una directiva de protección de aplicaciones de Intune, esta directiva le impide metiendo portales, como Intune y Azure.
 
-**Para todos los usuarios, todas las aplicaciones de nube, todas las plataformas de dispositivo:**
+**Para todos los usuarios, todas las aplicaciones en la nube, todas las plataformas de dispositivos:**
 
 - **Bloquear acceso**: esta configuración bloquea toda la organización, lo cual no es en absoluto una buena idea.
 
