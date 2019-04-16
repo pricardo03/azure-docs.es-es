@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: erhopf
 ms.custom: seodec18
-ms.openlocfilehash: 85c51320d2be1eac540f1d14910927c0fdccef64
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 2c5c2bc2b8dd1930efef9833bd442fcad5566e2a
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549512"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578791"
 ---
 # <a name="what-is-text-to-speech"></a>¿Qué es el texto a voz?
 
@@ -53,10 +53,7 @@ Esta tabla enumeran las características principales de texto a voz:
 | Crear y administrar las pruebas de fuente de voz. | Sin  | Sí\* |
 | Administrar suscripciones. | Sin  | Sí\* |
 
-\* *Estos servicios están disponibles mediante el punto de conexión cris.ai. Consulte [Swagger referencia](https://westus.cris.ai/swagger/ui/index).*
-
-> [!NOTE]
-> Los puntos de conexión de voz personalizados implementan la limitación que limita las solicitudes a 25 cada 5 segundos. Cuando se produce la limitación, se le notificará a través de los encabezados del mensaje.
+\* *Estos servicios están disponibles mediante el punto de conexión cris.ai. Consulte [Swagger referencia](https://westus.cris.ai/swagger/ui/index). Estos entrenamiento de voz personalizados y la API de administración de implementan la limitación que limite las solicitudes a 25 cada 5 segundos, mientras que la propia API de síntesis de voz implementa la limitación permite alcanzar las 200 solicitudes por segundo es el más alto. Cuando se produce la limitación, se le notificará a través de los encabezados del mensaje.*
 
 ## <a name="get-started-with-text-to-speech"></a>Empezar a trabajar con texto a voz
 
