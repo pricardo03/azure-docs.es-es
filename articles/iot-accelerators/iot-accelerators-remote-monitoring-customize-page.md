@@ -1,6 +1,6 @@
 ---
 title: 'Adición de una página a la interfaz de usuario de la solución de supervisión remota: Azure | Microsoft Docs'
-description: En este artículo se muestra cómo agregar una nueva página a la interfaz de usuario web del acelerador de soluciones de Supervisión remota.
+description: En este artículo se muestra cómo agregar una nueva página a la interfaz de usuario web del acelerador de soluciones de supervisión remota.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -10,14 +10,14 @@ ms.date: 10/02/2018
 ms.topic: conceptual
 ms.openlocfilehash: 95830cdffb232e16f9fbae51cfa11fbd18172c3c
 ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 10/11/2018
 ms.locfileid: "49094520"
 ---
-# <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adición de una página personalizada a la interfaz de usuario web del acelerador de soluciones de Supervisión remota
+# <a name="add-a-custom-page-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adición de una página personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota
 
-En este artículo se muestra cómo agregar una nueva página a la interfaz de usuario web del acelerador de soluciones de Supervisión remota. El artículo describe:
+En este artículo se muestra cómo agregar una nueva página a la interfaz de usuario web del acelerador de soluciones de supervisión remota. El artículo describe:
 
 - Cómo preparar un entorno de desarrollo local.
 - Cómo agregar una nueva página a la interfaz de usuario web.
@@ -33,7 +33,7 @@ Para completar los pasos de esta guía, necesita que el software siguiente esté
 
 ## <a name="prepare-a-local-development-environment-for-the-ui"></a>Preparación de un entorno de desarrollo local para la interfaz de usuario
 
-El código de la interfaz de usuario del acelerador de soluciones de Supervisión remota se implementa mediante el marco de trabajo de JavaScript [React](https://reactjs.org/). Puede encontrar el código fuente en el repositorio de GitHub [WebUI de supervisión remota](https://github.com/Azure/pcs-remote-monitoring-webui).
+El código de la interfaz de usuario del acelerador de soluciones de supervisión remota se implementa mediante el marco de trabajo de JavaScript [React](https://reactjs.org/). Puede encontrar el código fuente en el repositorio de GitHub [WebUI de supervisión remota](https://github.com/Azure/pcs-remote-monitoring-webui).
 
 Para realizar cambios en la interfaz de usuario y probarlos, puede ejecutarla en el equipo de desarrollo local. Opcionalmente, la copia local puede conectarse a una instancia implementada del acelerador de soluciones para poder interactuar con dispositivos reales o simulados.
 
@@ -150,7 +150,7 @@ Puede modificar el código mientras el sitio se ejecuta localmente y ve como la 
 
 ## <a name="optional-connect-to-deployed-instance"></a>[Opcional] Conectarse a la instancia implementada
 
-Si lo desea, puede conectar su copia local de ejecución de la interfaz de usuario web al acelerador de soluciones de Supervisión remota en la nube:
+Si lo desea, puede conectar su copia local de ejecución de la interfaz de usuario web al acelerador de soluciones de supervisión remota en la nube:
 
 1. Implemente una instancia **básica** del acelerador de la solución con la CLI **pcs**. Tome nota del nombre de la implementación y las credenciales proporcionadas para la máquina virtual. Para más información, vea [Implementación mediante la CLI](iot-accelerators-remote-monitoring-deploy-cli.md).
 
@@ -191,6 +191,6 @@ Si lo desea, puede conectar su copia local de ejecución de la interfaz de usuar
 
 En este artículo, aprendió sobre los recursos que tiene a su disposición para ayudarlo a personalizar la interfaz de usuario web en el acelerador de la solución de supervisión remota.
 
-Ya ha definido una página, el paso siguiente consiste en [agregar un servicio personalizado a la interfaz de usuario web del acelerador de soluciones de Supervisión remota](iot-accelerators-remote-monitoring-customize-service.md) que recupera los datos que se muestran en la interfaz de usuario.
+Ya ha definido una página, el paso siguiente consiste en [agregar un servicio personalizado a la interfaz de usuario web del acelerador de soluciones de supervisión remota](iot-accelerators-remote-monitoring-customize-service.md) que recupera los datos que se muestran en la interfaz de usuario.
 
-Para información más conceptual sobre el acelerador de soluciones de Supervisión remota, vea [Arquitectura de supervisión remota](iot-accelerators-remote-monitoring-sample-walkthrough.md).
+Para información más conceptual sobre el acelerador de soluciones de supervisión remota, vea [Arquitectura de supervisión remota](iot-accelerators-remote-monitoring-sample-walkthrough.md).

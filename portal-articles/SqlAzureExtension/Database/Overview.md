@@ -6,24 +6,24 @@ author: sewatson
 manager: lwelicki
 ms.service: sql-database
 ms.topic: article
-ms.date: 04/27/2017
-ms.author: sewatson
-ms.openlocfilehash: b41b4b7d302b0f3c528fa424627b4446a5e2c0ca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 04/09/2019
+ms.author: ninarn
+ms.openlocfilehash: 99f19971eafaa1ddad1f96b187e18b79810560a2
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23073935"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59545889"
 ---
 # <a name="sql-database-documentation"></a>Documentación de SQL Database
 
-Azure SQL Database es una base de datos relacional como servicio que usa el motor Microsoft SQL Server. SQL Database es una base de datos de alto rendimiento, confiable y segura que puede usar para compilar aplicaciones y sitios web controlados por datos en el lenguaje de programación que prefiera, sin necesidad de administrar la infraestructura. Aprenda a usar SQL Database con nuestros inicios rápidos, tutoriales y ejemplos.
+Azure SQL Database es un servicio de base de datos relacional (DBaaS) de uso general basado en la última versión estable del Motor de base de datos de Microsoft SQL Server. SQL Database es una base de datos en la nube de alto rendimiento, confiable y segura que puede usar para compilar aplicaciones y sitios web controlados por datos en el lenguaje de programación que prefiera, sin necesidad de administrar la infraestructura. Aprenda a usar SQL Database con nuestros inicios rápidos, tutoriales y ejemplos.
 
-## <a name="5-minute-quickstarts"></a>Inicios rápidos en 5 minutos
+## <a name="5-minute-quickstarts"></a>Inicio rápido en 5 minutos
 
-Aprenda a crear una base de datos SQL, a administrarla mediante SQL Management Studio y a desarrollar con ella en C#, Java, Python, Node.js y Ruby:
+Azure SQL Database le permite realizar fácilmente tareas básicas de administración mediante Azure Portal, la CLI de Azure y Azure PowerShell. Aprenda a realizar tareas básicas de administración con los siguientes ejemplos de inicio rápido:
 
-- [Azure Portal](/azure/sql-database/sql-database-get-started-portal)
+- [Azure Portal](/azure/sql-database/sql-database-single-database-get-started)
 - [Azure PowerShell](/azure/sql-database/sql-database-get-started-powershell)
 - [CLI de Azure](/azure/sql-database/sql-database-get-started-cli)
 
@@ -31,8 +31,9 @@ Aprenda a crear una base de datos SQL, a administrarla mediante SQL Management S
 
 Aprenda a crear, administrar y migrar bases de datos mediante SQL DB.
 
-- [Creación y diseño del esquema para una nueva base de datos SQL](/azure/sql-database/sql-database-design-first-database)
-- [Migración de una base de datos SQL Server existente para que use Azure SQL Database](/azure/sql-database/sql-database-migrate-your-sql-server-database)
+- Empiece a trabajar con [una base de datos única](/azure/sql-database/sql-database-single-database-quickstart-guide) con nuestra guía de inicio rápido.
+- Creación y diseño del esquema de una nueva base de datos única mediante [SSMS](/azure/sql-database/sql-database-design-first-database) o [.NET](/azure/sql-database/sql-database-design-first-database-csharp)
+- Migración de una base de datos existente a Azure mediante [Data Migration Assistant](/azure/dms/tutorial-sql-server-to-azure-sql) o [mediante la importación de un archivo de BACPAC](/azure/sql-database/sql-database-import)
 - [Protección de la base de datos de SQL Database](/azure/sql-database/sql-database-security-tutorial)
 - [Mejora del rendimiento de SQL Database](/azure/sql-database/sql-database-performance-tutorial)
 - [Implementación de una aplicación SaaS multiinquilino con SQL Database](/azure/sql-database/sql-database-multi-tenant-application)
@@ -41,7 +42,7 @@ Aprenda a crear, administrar y migrar bases de datos mediante SQL DB.
 
 - [Desarrollo con .NET](https://www.pluralsight.com/courses/developing-dotnet-microsoft-azure-getting-started?twoid=d6abac77-7dcc-4d33-9e03-f85e78989f02)
 
-## <a name="samples"></a>Muestras 
+## <a name="samples"></a>Ejemplos
 
 Busque scripts para administrar las tareas más habituales.
 

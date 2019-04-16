@@ -15,12 +15,12 @@ ms.date: 02/06/2019
 ms.author: jeffgilb
 ms.reviewer: thoroet
 ms.lastreviewed: 02/06/2019
-ms.openlocfilehash: 520319fb21dce3cf4f3cc1b36c52657cf9eb24e7
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 77dda80e538c8b742a96e7b7f81abe8650ee6b5d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904005"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257304"
 ---
 # <a name="integrate-external-monitoring-solution-with-azure-stack"></a>Integrar una solución de supervisión externa con Azure Stack
 
@@ -30,7 +30,7 @@ Para la supervisión externa de la infraestructura de Azure Stack, deberá super
 - Los equipos físicos pueden hacer que la información acerca del estado de mantenimiento y las alertas esté disponible a través de los controladores de administración de placa base (BMC).
 - Los dispositivos de red físicos pueden hacer que la información acerca del estado de mantenimiento y las alertas esté disponible a través del protocolo SNMP.
 
-Cada solución de Azure Stack se suministra con un host de ciclo de vida de hardware. Este host ejecuta el software de supervisión del fabricante del hardware OEM para los dispositivos de red y servidores físicos. Si quiere, puede omitir estas soluciones de supervisión e integrar directamente las soluciones de supervisión existentes en su centro de datos.
+Cada solución de Azure Stack se suministra con un host de ciclo de vida de hardware. Este host ejecuta el software de supervisión del fabricante del hardware OEM para los dispositivos de red y servidores físicos. Compruebe con el proveedor de OEM si sus soluciones de supervisión se pueden integrar con las soluciones de supervisión existente de su centro de datos.
 
 > [!IMPORTANT]
 > La solución de supervisión externa que use debe ser sin agente. No puede instalar agentes de terceros dentro de componentes de Azure Stack.
@@ -40,7 +40,7 @@ En el siguiente diagrama se muestra el flujo de tráfico entre un sistema integr
 ![Diagrama que muestra el tráfico entre Azure Stack y las soluciones de vales y de supervisión.](media/azure-stack-integrate-monitor/MonitoringIntegration.png)  
 
 > [!NOTE]
-> No se permite la integración de supervisión externa directamente con servidores físicos y dispositivos de red y la bloquean activamente las listas de control de acceso (ACL). 
+> No se permite la integración de supervisión externa directamente con servidores físicos y la bloquean activamente las listas de control de acceso (ACL).  Se admite la integración de supervisión externa directamente con dispositivos físicos de red. Consulte al proveedor de OEM cómo habilitar esta característica.
 
 En este artículo se explica cómo integrar Azure Stack con soluciones de supervisión externas, como System Center Operations Manager y Nagios. También se incluye cómo trabajar con alertas mediante programación con PowerShell o a través de llamadas a la API de REST.
 

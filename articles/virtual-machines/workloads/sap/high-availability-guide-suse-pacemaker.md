@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: f1b993cf45d987cb51f64359b331f3862d054774
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 62356ee35631373b5a5d38ed356bbb2fb489807b
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549906"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59577802"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Configuración de Pacemaker en SUSE Linux Enterprise Server en Azure
 
@@ -84,7 +84,7 @@ Ejecute los siguientes comandos en todas las **máquinas virtuales de destino iS
 
 Ejecute los siguientes comandos en todas las **máquinas virtuales de destino iSCSI** para crear los discos iSCSI para los clústeres utilizados por los sistemas SAP. En el ejemplo siguiente, se crean dispositivos SBD para varios clústeres. Se muestra cómo se podría usar un servidor de destino iSCSI para varios clústeres. Los dispositivos SBD se colocan en el disco del sistema operativo. Asegúrese de que dispone de suficiente espacio.
 
-**` nfs`** se usa para identificar el clúster NFS, **ascsnw1** se usa para identificar el clúster ASCS de **NW1**, **dbnw1** se usa para identificar el clúster de base de datos de **NW1** , **nfs 0** y **nfs 1** son los nombres de host de los nodos del clúster NFS **nw1-xscs-0** y **nw1-xscs-1**son los nombres de host de la **NW1** , los nodos de clúster de ASCS y **nw1-db-0** y **nw1-db-1** son los nombres de host de la base de datos de nodos del clúster. Sustitúyalos por los nombres de host de los nodos del clúster y el SID del sistema SAP.
+**`nfs`** se usa para identificar el clúster NFS, **ascsnw1** se usa para identificar el clúster ASCS de **NW1**, **dbnw1** se usa para identificar el clúster de base de datos de **NW1** , **nfs 0** y **nfs 1** son los nombres de host de los nodos del clúster NFS **nw1-xscs-0** y **nw1-xscs-1**son los nombres de host de la **NW1** , los nodos de clúster de ASCS y **nw1-db-0** y **nw1-db-1** son los nombres de host de la base de datos de nodos del clúster. Sustitúyalos por los nombres de host de los nodos del clúster y el SID del sistema SAP.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -302,7 +302,7 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    <b>SBD_WATCHDOG="yes"</b>
    </code></pre>
 
-   Crear el ` softdog` archivo de configuración
+   Crear el `softdog` archivo de configuración
 
    <pre><code>echo softdog | sudo tee /etc/modules-load.d/softdog.conf
    </code></pre>

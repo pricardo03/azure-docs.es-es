@@ -15,7 +15,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 03/18/2019
 ms.locfileid: "58093446"
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Conexión del dispositivo al acelerador de la solución Supervisión remota (Node.js)
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-nodejs"></a>Conexión del dispositivo al acelerador de soluciones de supervisión remota (Node.js)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
@@ -47,7 +47,7 @@ Asegúrese de que tiene instalada la versión 4.0.0 o posterior de [Node.js](htt
     var async = require('async');
     ```
 
-1. Agregue las siguientes declaraciones de variable después de las instrucciones `require` . Sustituya el valor del marcador de posición `{device connection string}` por el valor que ha anotado para el dispositivo que ha aprovisionado en la solución Supervisión remota:
+1. Agregue las siguientes declaraciones de variable después de las instrucciones `require` . Sustituya el valor del marcador de posición `{device connection string}` por el valor que ha anotado para el dispositivo que ha aprovisionado en la solución de supervisión remota:
 
     ```javascript
     var connectionString = '{device connection string}';

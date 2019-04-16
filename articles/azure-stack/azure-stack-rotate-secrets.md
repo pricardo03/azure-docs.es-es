@@ -15,12 +15,12 @@ ms.date: 12/18/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.lastreviewed: 12/18/2018
-ms.openlocfilehash: 54bc6bc105dab2831df6e48a64a6f766582a3fb9
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: 22656c66bf5caa275a32ddcaae323fc0ab2b1600
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58917567"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271737"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Cambio de secretos en Azure Stack
 
@@ -63,13 +63,13 @@ Azure Stack admite el cambio de secretos con certificados externos desde una nue
 
 |CA del certificado instalado|CA a la que cambiar|Compatible|Versiones compatibles de Azure Stack|
 |-----|-----|-----|-----|
-|De autofirmado|A empresarial|No compatible||
+|De autofirmado|A empresarial|Compatible|1903 y posteriores|
 |De autofirmado|A autofirmado|No compatible||
 |De autofirmado|A pública<sup>*</sup>|Compatible|1803 y posterior|
-|De empresarial|A empresarial|Compatible siempre y cuando los clientes usen la MISMA entidad de certificación empresarial utilizada en la implementación|1803 y posterior|
+|De empresarial|A empresarial| Se admite. Desde 1803-1903: compatible siempre y cuando los clientes usen la MISMA entidad de certificación empresarial utilizada en la implementación|1803 y posterior|
 |De empresarial|A autofirmado|No compatible||
 |De empresarial|A pública<sup>*</sup>|Compatible|1803 y posterior|
-|De pública<sup>*</sup>|A empresarial|No compatible|1803 y posterior|
+|De pública<sup>*</sup>|A empresarial|Compatible|1903 y posteriores|
 |De pública<sup>*</sup>|A autofirmado|No compatible||
 |De pública<sup>*</sup>|A pública<sup>*</sup>|Compatible|1803 y posterior|
 
@@ -300,11 +300,11 @@ El cmdlet **Start-SecretRotation** permite cambiar los secretos de la infraestru
 
 | Parámetro | Type | Obligatorio | Posición | Valor predeterminado | DESCRIPCIÓN |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | string  | False  | con nombre  | None  | La ruta de acceso del recurso compartido de archivos al directorio **\Certificates** que contiene todos los certificados del punto de conexión de la red externa. Solo se necesita al rotar secretos externos. El directorio final debe ser **\Certificates**. |
-| CertificatePassword | SecureString | False  | con nombre  | None  | La contraseña de todos los certificados que se proporcionan en -PfXFilesPath. Valor obligatorio si se proporciona PfxFilesPath al cambiar secretos externos. |
-| Interno | string | False | con nombre | None | La marca Internal se debe utilizar cada vez que un operador de Azure Stack quiera cambiar los secretos de infraestructura interna. |
-| PathAccessCredential | PSCredential | False  | con nombre  | None  | La credencial de PowerShell para el recurso compartido de archivos al directorio **\Certificates** que contiene todos los certificados del punto de conexión de la red externa. Solo se necesita al rotar secretos externos.  |
-| ReRun | SwitchParameter | False  | con nombre  | None  | ReRun se debe usar en cualquier momento en que se vuelva a intentar el cambio de secretos después de un intento fallido. |
+| `PfxFilesPath` | string  | False  | con nombre  | None  | La ruta de acceso del recurso compartido de archivos al directorio **\Certificates** que contiene todos los certificados del punto de conexión de la red externa. Solo se necesita al rotar secretos externos. El directorio final debe ser **\Certificates**. |
+| `CertificatePassword` | SecureString | False  | con nombre  | None  | La contraseña de todos los certificados que se proporcionan en -PfXFilesPath. Valor obligatorio si se proporciona PfxFilesPath al cambiar secretos externos. |
+| `Internal` | string | False | con nombre | None | La marca Internal se debe utilizar cada vez que un operador de Azure Stack quiera cambiar los secretos de infraestructura interna. |
+| `PathAccessCredential` | PSCredential | False  | con nombre  | None  | La credencial de PowerShell para el recurso compartido de archivos al directorio **\Certificates** que contiene todos los certificados del punto de conexión de la red externa. Solo se necesita al rotar secretos externos.  |
+| `ReRun` | SwitchParameter | False  | con nombre  | None  | ReRun se debe usar en cualquier momento en que se vuelva a intentar el cambio de secretos después de un intento fallido. |
 
 ### <a name="examples"></a>Ejemplos
 

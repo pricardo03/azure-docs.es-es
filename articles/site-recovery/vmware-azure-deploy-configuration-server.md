@@ -2,18 +2,18 @@
 title: Implementación del servidor de configuración para realizar la recuperación ante desastres de VMware con Azure Site Recovery | Microsoft Docs
 description: En este artículo se describe cómo implementar un servidor de configuración para realizar la recuperación ante desastres de VMware con Azure Site Recovery
 services: site-recovery
-author: mayurigupta13
+author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 03/06/2019
 ms.author: ramamill
-ms.openlocfilehash: fb558644f29cd7b84156f976f525a88080f101dc
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: c25ca8c27b84f34b025ec5abce00c8d8c70e5df6
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449211"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565131"
 ---
 # <a name="deploy-a-configuration-server"></a>Implementar un servidor de configuración
 
@@ -121,7 +121,7 @@ Si desea agregar una NIC adicional al servidor de configuración, hágalo antes 
 
 ### <a name="configure-settings"></a>Definición de la configuración
 
-1. En el Asistente para administración del servidor de configuración, seleccione **Setup connectivity** (Conectividad de configuración). En las listas desplegables, seleccione primero la NIC que utiliza el servidor de procesos integrados para detectar y forzar la instalación de mobility service en máquinas de origen y, a continuación, seleccione la NIC que utiliza el servidor de configuración para la conectividad con Azure. Después, seleccione **Guardar**. No se puede cambiar esta configuración después de configurarlo. Es absolutamente recomendable no cambiar la dirección IP de un servidor de configuración. Asegúrese de que la dirección IP asignada al servidor de configuración sea una dirección IP ESTÁTICA y no una dirección IP de DHCP.
+1. En el Asistente para administración del servidor de configuración, seleccione **Setup connectivity** (Conectividad de configuración). En las listas desplegables, seleccione primero la NIC que utiliza el servidor de procesos integrados para la detección y la instalación de inserción del servicio de movilidad en los equipos de origen y, a continuación, seleccione la NIC que usa el servidor de configuración para la conectividad con Azure. Después, seleccione **Guardar**. No se puede cambiar esta configuración después de configurarlo. Es absolutamente recomendable no cambiar la dirección IP de un servidor de configuración. Asegúrese de que la dirección IP asignada al servidor de configuración sea una dirección IP ESTÁTICA y no una dirección IP de DHCP.
 2. En **seleccionar servicios de recuperación del almacén**, inicie sesión en Microsoft Azure con las credenciales usadas en **paso 6** de "[servidor de configuración de registro con Azure Site Recovery Services](#register-the-configuration-server-with-azure-site-recovery-services)" .
 3. Después de iniciar sesión, seleccione su suscripción de Azure y el grupo de recursos correspondiente y el almacén.
 

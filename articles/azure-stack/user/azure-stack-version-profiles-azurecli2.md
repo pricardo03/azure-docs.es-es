@@ -14,12 +14,12 @@ ms.date: 03/07/2019
 ms.author: mabrigg
 ms.reviewer: sijuman
 ms.lastreviewed: 02/28/2019
-ms.openlocfilehash: 21167366ff3af2bb360c33eaae9d591020bf11a5
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: fa1731c9361be83949aa794ed8842681bd81d995
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58487590"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257576"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Uso de los perfiles de la versión de la API con la CLI de Azure en Azure Stack
 
@@ -99,7 +99,7 @@ Debería ver la versión de la CLI de Azure y otras bibliotecas dependientes ins
     python -m pip install --upgrade pip
     ```
 
-3. Instale el módulo **certifi**. [Certifi](https://pypi.org/project/certifi/) es un módulo y una colección de certificados raíz para validar la confiabilidad de los certificados SSL al verificar la identidad de los hosts TLS. Abra un símbolo del sistema cmd o un símbolo del sistema de PowerShell con privilegios elevados y escriba el siguiente comando:
+3. Instale el módulo **certifi**. [Certifi](https://pypi.org/project/certifi/) es un módulo y una colección de certificados raíz para validar la confiabilidad de los certificados SSL al comprobar la identidad de los hosts TLS. Abra un símbolo del sistema cmd o un símbolo del sistema de PowerShell con privilegios elevados y escriba el siguiente comando:
 
     ```powershell
     pip install certifi
@@ -139,7 +139,7 @@ Debería ver la versión de la CLI de Azure y otras bibliotecas dependientes ins
     sudo -H pip3 install --upgrade pip
     ```
 
-3. Instale el módulo **certifi**. [Certifi](https://pypi.org/project/certifi/) es un módulo y una colección de certificados raíz para validar la confiabilidad de los certificados SSL al verificar la identidad de los hosts TLS. Abra un símbolo del sistema cmd o un símbolo del sistema de PowerShell con privilegios elevados y escriba el siguiente comando:
+3. Instale el módulo **certifi**. [Certifi](https://pypi.org/project/certifi/) es un módulo y una colección de certificados raíz para validar la confiabilidad de los certificados SSL al comprobar la identidad de los hosts TLS. Abra un símbolo del sistema cmd o un símbolo del sistema de PowerShell con privilegios elevados y escriba el siguiente comando:
 
     ```bash
     pip3 install certifi

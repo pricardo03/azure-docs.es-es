@@ -36,7 +36,7 @@ Azure Monitor ofrece las siguientes soluciones para supervisar las redes:
 
 ## <a name="network-performance-monitor-npm"></a>Network Performance Monitor (NPM) (monitor de rendimiento de red)
 
-La Solución de administración [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) supervisa el mantenimiento, la disponibilidad y accesibilidad de las redes.  Se utiliza para supervisar la conectividad entre:
+La solución de administración [Network Performance Monitor](https://docs.microsoft.com/azure/networking/network-monitoring-overview) supervisa el mantenimiento, la disponibilidad y accesibilidad de las redes.  Se utiliza para supervisar la conectividad entre:
 
 * Nube pública y entorno local
 * Centros de datos y ubicaciones de usuario (sucursales)

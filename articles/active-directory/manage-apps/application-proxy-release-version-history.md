@@ -16,12 +16,12 @@ ms.date: 04/05/2019
 ms.subservice: manage-apps
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ab280b4647c0e8eb7083797ec00965cbaec6f8e
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: bf9ee43c6c6b332c05286da8e330812d7e0db6c2
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59502344"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578596"
 ---
 # <a name="azure-ad-application-proxy-version-release-history"></a>Proxy de aplicación de Azure AD ofrece estas ventajas: Historial de lanzamiento de versiones
 En este artículo se enumera las versiones y las características de Azure Active Directory (Azure AD) Application Proxy que se han publicado. El equipo de Azure AD actualiza periódicamente el Proxy de aplicación con nuevas características y funcionalidades. Los conectores del Proxy de aplicación se actualizan automáticamente cuando se lanza una nueva versión.
@@ -31,7 +31,7 @@ Presentamos una lista de los recursos relacionados:
 Recurso |  Detalles
 --------- | --------- |
 Cómo habilitar el Proxy de aplicación | Requisitos previos para habilitar el Proxy de aplicación, instalar y registrar un conector se describen en este [tutorial](application-proxy-add-on-premises-application.md).
-Descripción de los conectores del Proxy de aplicación de Azure AD | Obtenga más información sobre [administración del conector](application-proxy-connectors.md) y cómo los conectores de actualización automática.
+Descripción de los conectores del Proxy de aplicación de Azure AD | Obtenga más información sobre [administración del conector](application-proxy-connectors.md) y cómo los conectores [actualización automática](application-proxy-connectors.md#automatic-updates).
 Descargue el conector del Proxy de aplicación de Azure AD |  [Descargue la versión más reciente connector](https://download.msappproxy.net/subscription/d3c8b69d-6bf7-42be-a529-3fe9c2e70c90/connector/download).
 
 ## <a name="156120"></a>1.5.612.0

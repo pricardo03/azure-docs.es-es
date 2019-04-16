@@ -15,12 +15,12 @@ ms.date: 03/11/2019
 ms.author: mabrigg
 ms.lastreviewed: 03/11/2019
 ms.reviewer: jiahan
-ms.openlocfilehash: 4a8287d7ca4da380ad7c2b1e039ab3058ca07a96
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 416d75b254d0fbe14a0b39e5ae77d09a48e548f6
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57760280"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59271295"
 ---
 # <a name="manage-storage-infrastructure-for-azure-stack"></a>Administración de la infraestructura de almacenamiento para Azure Stack
 
@@ -32,7 +32,7 @@ En este artículo se describen el estado de mantenimiento y el estado operativo 
 
 ### <a name="drives"></a>Unidades
 
-Azure Stack, equipado con funcionalidades de almacenamiento definidas por software de Windows Server y con una combinación de Espacios de almacenamiento directo (S2D) y clústeres de conmutación por error de Windows Server, para proporcionar un servicio de almacenamiento de alto rendimiento, resistente y escalable.
+Con tecnología de software de Windows Server, Azure Stack define las funcionalidades de almacenamiento con una combinación de Espacios de almacenamiento directo (S2D) y clústeres de conmutación por error de Windows Server para proporcionar un servicio de almacenamiento de alto rendimiento, resistente y escalable.
 
 Los asociados del sistema integrado de Azure Stack ofrecen muchas variantes de la solución, incluida una amplia gama de flexibilidad de almacenamiento. Actualmente, puede seleccionar una combinación de tres tipos de unidades: NVMe (memoria rápida no volátil), SSD SATA o SAS (unidad de estado sólido), HDD (unidad de disco duro).
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
-ms.openlocfilehash: 3aa39568904cb0acc9b5b76ff7e07729bf99d6b1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: e89a4675f867e53c499bb82b239ddb9bec1aed6f
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278605"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521209"
 ---
 # <a name="using-the-azure-maps-services-module"></a>Con el módulo de servicios de Azure Maps
 
@@ -24,7 +24,7 @@ El SDK de Web de Azure Maps proporciona un módulo de servicios que es una bibli
 1. Cree un archivo HTML.
 2. Cargar en el módulo de servicios de Azure Maps. Esto se puede hacer mediante una de estas dos opciones.
 
-     a. Usar la versión CDN global hospedada del módulo de servicios de Azure Maps mediante la adición de una referencia de script a la <head> elemento del archivo:
+     a. Usar la versión CDN global hospedada del módulo de servicios de Azure Maps mediante la adición de una referencia de script a la `<head>` elemento del archivo:
     
     ```html
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
@@ -183,7 +183,7 @@ Más información sobre las clases y los métodos utilizados en este artículo:
 Consulte los siguientes artículos para obtener más ejemplos de código que usan el módulo de servicios:
 
 > [!div class="nextstepaction"]
-> [Presentación de los resultados de la búsqueda en el mapa](./map-search-location.md)
+> [Mostrar los resultados de búsqueda en el mapa](./map-search-location.md)
 
 > [!div class="nextstepaction"]
 > [Obtención de información de una coordenada](./map-get-information-from-coordinate.md)

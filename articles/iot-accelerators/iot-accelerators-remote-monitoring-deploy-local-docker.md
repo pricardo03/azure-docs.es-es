@@ -19,13 +19,13 @@ ms.locfileid: "57993047"
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-En este artículo, se explica cómo implementar el acelerador de la solución Supervisión remota en la máquina local para pruebas y desarrollo. Aprenderá a implementar los microservicios en contenedores locales de Docker. Una implementación local de microservicios utiliza los siguientes servicios en la nube: servicios de IoT Hub, Cosmos DB, Azure Streaming Analytics y Azure Time Series Insights en la nube.
+En este artículo, se explica cómo implementar el acelerador de soluciones de supervisión remota en la máquina local para pruebas y desarrollo. Aprenderá a implementar los microservicios en contenedores locales de Docker. Una implementación local de microservicios utiliza los siguientes servicios en la nube: servicios de IoT Hub, Cosmos DB, Azure Streaming Analytics y Azure Time Series Insights en la nube.
 
-Si quiere ejecutar el acelerador de soluciones de supervisión remota en un IDE del equipo local, consulte [Implementación local del acelerador de la solución Supervisión remota: Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md).
+Si quiere ejecutar el acelerador de soluciones de supervisión remota en un IDE del equipo local, consulte [Implementación local del acelerador de soluciones de supervisión remota: Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para implementar los servicios de Azure que usa el acelerador de la solución Supervisión remota, necesita una suscripción de Azure activa.
+Para implementar los servicios de Azure que usa el acelerador de soluciones de supervisión remota, necesita una suscripción de Azure activa.
 
 En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 

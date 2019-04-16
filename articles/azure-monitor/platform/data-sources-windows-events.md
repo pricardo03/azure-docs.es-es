@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: bwren
-ms.openlocfilehash: 1f55e03d9a925bf939d627f376d29edf27461e74
-ms.sourcegitcommit: e69fc381852ce8615ee318b5f77ae7c6123a744c
-ms.translationtype: HT
+ms.openlocfilehash: 8fcab1ead4ab6135e715dc173829178e43f8af2a
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/11/2019
-ms.locfileid: "56001126"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522717"
 ---
 # <a name="windows-event-log-data-sources-in-azure-monitor"></a>Orígenes de datos de registros de eventos de Windows en Azure Monitor
 Muchas aplicaciones escriben en el registro de eventos de Windows, por lo que constituye uno de los [orígenes de datos](agent-data-sources.md) más comunes para recopilar información mediante agentes de Windows.  Puede recopilar eventos de registros estándar, como el sistema y la aplicación, además de especificar cualquier registro personalizado creado por las aplicaciones que debe supervisar.
@@ -54,7 +54,7 @@ Los registros de eventos de Windows tienen un tipo **Event** y las propiedades q
 | EventLevelName |La gravedad del evento en formato de texto. |
 | EventLog |El nombre del registro de eventos desde el que se recopiló el evento. |
 | ParameterXml |Los valores de parámetro de evento en formato XML. |
-| ManagementGroupName |Nombre del grupo de administración de agentes de System Center Operations Manager.  En el caso de los otros agentes, este valor es AOI-<workspace ID>. |
+| ManagementGroupName |Nombre del grupo de administración de agentes de System Center Operations Manager.  Los otros agentes, este valor es `AOI-<workspace ID>` |
 | RenderedDescription |La descripción del evento con valores de parámetro. |
 | Origen |El origen del evento. |
 | SourceSystem |El tipo de agente desde el que se recopiló el evento. <br> OpsManager: agente de Windows, ya sea una conexión directa o administrado por Operations Manager <br>  Linux: todos los agentes de Linux.  <br>  AzureStorage: Diagnósticos de Azure |

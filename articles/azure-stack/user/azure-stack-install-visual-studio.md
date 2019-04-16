@@ -12,22 +12,22 @@ ms.workload: azure-vs
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/08/2019
 ms.author: sethm
 ms.reviewer: unknown
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 274240aab54f27f36734516026e9feebf64ae4b5
-ms.sourcegitcommit: 898b2936e3d6d3a8366cfcccc0fccfdb0fc781b4
+ms.openlocfilehash: da17d114c1ffb920fbaae85a6cdcbc35a66631a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/30/2019
-ms.locfileid: "55248119"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258001"
 ---
 # <a name="install-visual-studio-and-connect-to-azure-stack"></a>Instalar Visual Studio y conectarse a Azure Stack
 
 *Se aplica a: Sistemas integrados de Azure Stack y Kit de desarrollo de Azure Stack*
 
-Puede usar Visual Studio para escribir e implementar [plantillas](azure-stack-arm-templates.md) de Azure Resource Manager en Azure Stack. Los pasos de este artículo le guiarán por la instalación de Visual Studio en [Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), o en un equipo externo si planea realizar la instalación de Azure Stack a través de la [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
+Puede usar Visual Studio para escribir e implementar [plantillas](azure-stack-arm-templates.md) de Azure Resource Manager en Azure Stack. Los pasos de este artículo describen cómo instalar Visual Studio en [Azure Stack](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) o en un equipo externo si planea usar Azure Stack a través de [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
 ## <a name="install-visual-studio"></a>Instalación de Visual Studio
 
@@ -39,9 +39,9 @@ Puede usar Visual Studio para escribir e implementar [plantillas](azure-stack-ar
 
 4. Desinstale la versión de **Microsoft Azure PowerShell** que está instalada como parte de Azure SDK.
 
-    ![Captura de pantalla de los pasos de la instalación de WebPI](./media/azure-stack-install-visual-studio/image1.png) 
+    ![Captura de pantalla de los pasos de la instalación de WebPI](./media/azure-stack-install-visual-studio/image1.png)
 
-5. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) (Instalación de PowerShell para Azure Stack)
+5. [Instalación de PowerShell para Azure Stack](azure-stack-powershell-install.md)
 
 6. Una vez finalizada la instalación, reinicie el sistema operativo.
 
@@ -65,9 +65,7 @@ Después de iniciar sesión, puede [implementar plantillas](azure-stack-deploy-t
 
 3. Expanda **Entorno** en el **Panel de navegación** y seleccione **Cuentas**.
 
-4. Seleccione **Agregar** y especifique el punto de conexión de usuario de Azure Resource Manager.  
-  Para el Kit de desarrollo de Azure Stack, la dirección URL es `https://management.local.azurestack/external`.  
-  Para los sistemas integrados de Azure Stack, la dirección URL es `https://management.[Region}.[External FQDN]`.
+4. Seleccione **Agregar** y especifique el punto de conexión de usuario de Azure Resource Manager. Para el Kit de desarrollo de Azure Stack, la dirección URL es `https://management.local.azurestack/external`.  Para los sistemas integrados de Azure Stack, la dirección URL es `https://management.[Region}.[External FQDN]`.
 
     ![X](./media/azure-stack-install-visual-studio/image5.png)
 
@@ -79,7 +77,7 @@ Después de iniciar sesión, puede [implementar plantillas](azure-stack-deploy-t
 
 6. Seleccione **Cloud Explorer** en el menú **Ver**.
 
-1. Seleccione **Agregar cuenta** e inicie sesión con sus credenciales de AD FS.  
+7. Seleccione **Agregar cuenta** e inicie sesión con sus credenciales de AD FS.  
 
     ![Cloud Explorer](./media/azure-stack-install-visual-studio/image7.png)
 
@@ -87,9 +85,9 @@ Después de iniciar sesión, puede [implementar plantillas](azure-stack-deploy-t
 
     ![Cloud Explorer](./media/azure-stack-install-visual-studio/image8.png)
 
-8. Examinar los recursos existentes, grupos de recursos o implementar plantillas.
+8. Examine los recursos existentes, grupos de recursos o implemente plantillas.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
- - Obtenga más información sobre la [coexistencia](https://msdn.microsoft.com/library/ms246609.aspx) de Visual Studio con otras versiones de Visual Studio.
- - [Desarrollo de plantillas para Azure Stack](azure-stack-develop-templates.md).
+- Obtenga más información sobre la [coexistencia](/visualstudio/install/install-visual-studio-versions-side-by-side) de Visual Studio con otras versiones de Visual Studio.
+- [Desarrollo de plantillas para Azure Stack](azure-stack-develop-templates.md).

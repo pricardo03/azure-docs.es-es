@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 04/12/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87a416b6ff73fd658158276a02796aaae946bc20
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 95d19068e482722bf6cd01e44d27c2719bc419a3
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59491498"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59564538"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integración de la infraestructura existente de NPS con Azure Multi-Factor Authentication
 
@@ -59,8 +59,8 @@ Windows Server 2008 R2 SP1 o superior.
 
 Estas bibliotecas se instalan automáticamente con la extensión.
 
-- [Paquetes de Visual C++ Redistributable para Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
-- [Microsoft Azure módulo Active Directory para Windows PowerShell versión1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
+- [Paquetes redistribuibles de Visual C++ para Visual Studio 2013 (X64)](https://www.microsoft.com/download/details.aspx?id=40784)
+- [Módulo Microsoft Azure Active Directory para Windows PowerShell versión1.1.166.0](https://www.powershellgallery.com/packages/MSOnline/1.1.166.0)
 
 El módulo Microsoft Azure Active Directory para Windows PowerShell se instala, si todavía no está presente, a través de un script de configuración que se ejecuta como parte del proceso de instalación. No es necesario instalar este módulo con antelación si aún no está instalado.
 
@@ -78,6 +78,12 @@ El servidor NPT necesita poder comunicarse con las siguientes direcciones URL a 
 
 * https://adnotifications.windowsazure.com  
 * https://login.microsoftonline.com
+
+Además, se requiere conectividad a las direcciones URL siguientes para completar la [el programa de instalación del adaptador mediante el script de PowerShell proporcionado](#run-the-powershell-script)
+
+- https://login.microsoftonline.com
+- https://provisioningapi.microsoftonline.com
+- https://aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Preparación del entorno
 
@@ -142,6 +148,14 @@ Los usuarios también necesitan seguir estos pasos para inscribirse para poder a
 1. [Descargue la extensión de NPS](https://aka.ms/npsmfa) desde el Centro de descarga de Microsoft.
 2. Copie el archivo binario en el Servidor de directivas de redes que quiere configurar.
 3. Ejecute *setup.exe* y siga las instrucciones de instalación. Si se producen errores, compruebe que las dos bibliotecas de la sección de requisitos previos se han instalado correctamente.
+
+#### <a name="upgrade-the-nps-extension"></a>Actualizar la extensión de NPS
+
+Cuando se instala la actualización de una extensión NPS existente, para evitar un reinicio del servidor subyacente complete los pasos siguientes:
+
+1. Desinstale la versión existente
+1. Ejecute el nuevo instalador
+1. Reinicie el servicio servidor de directivas de red (IAS)
 
 ### <a name="run-the-powershell-script"></a>Ejecución del script de PowerShell
 
@@ -231,7 +245,7 @@ Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
 ```
 
-Una vez que ejecute este comando, vaya a la unidad C, ubique el archivo y haga doble clic en él. Vaya a los detalles y desplácese hacia abajo hasta llegar a la "huella digital" y compárela con la huella digital del certificado instalado en el servidor. Las huellas digitales del certificado deben coincidir.
+Una vez que ejecute este comando, vaya a la unidad C, busque el archivo y haga doble clic en él. Vaya a los detalles y desplácese hacia abajo hasta llegar a la "huella digital" y compárela con la huella digital del certificado instalado en el servidor. Las huellas digitales del certificado deben coincidir.
 
 Las marcas de tiempo válido-desde y válido-hasta, que se encuentran en un formato legible, se pueden utilizar para filtrar desajustes evidentes si el comando devuelve más de un certificado.
 
@@ -239,7 +253,7 @@ Las marcas de tiempo válido-desde y válido-hasta, que se encuentran en un form
 
 ### <a name="why-cant-i-sign-in"></a>¿Por qué no puedo iniciar sesión?
 
-Compruebe que la contraseña no ha expirado. La extensión NPS no admite el cambio de contraseñas como parte del flujo de trabajo del inicio de sesión. Póngase en contacto con el personal de TI de la organización para obtener más ayuda.
+Compruebe que la contraseña no ha expirado. La extensión NPS no admite el cambio de contraseñas como parte del flujo de trabajo del inicio de sesión. Para obtener más ayuda, póngase en contacto con el personal de TI de su organización.
 
 -------------------------------------------------------------
 
@@ -270,7 +284,7 @@ Compruebe que https://adnotifications.windowsazure.com es accesible desde el ser
 
 Si ha expirado el certificado de equipo anterior, y se ha generado un nuevo certificado, debe eliminar todos los certificados caducados. Tener los certificados caducados pueden causar problemas con la extensión de NPS iniciando.
 
-Para comprobar si tiene un certificado válido, compruebe Certificate Store la cuenta de equipo local con MMC y asegúrese de que el certificado no ha superado la fecha de expiración. Para generar un certificado válido recientemente, vuelva a ejecutar los pasos en la sección "[ejecutar el script de PowerShell](#run-the-powershell-script)"
+Para comprobar si tiene un certificado válido, compruebe Certificate Store la cuenta de equipo local con MMC y asegúrese de que el certificado no ha superado la fecha de expiración. Para generar un certificado válido recientemente, vuelva a ejecutar los pasos descritos en la sección "[ejecutar el script de PowerShell](#run-the-powershell-script)"
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>Administración de los protocolos TLS/SSL y conjuntos de cifrado
 

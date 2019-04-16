@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 26f147fde58a7f9c836bdacd6d66321f0fc5529a
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.openlocfilehash: d48349b802023d9a05bf14898440837b7793715d
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "58916428"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578282"
 ---
 # <a name="translator-text-api-30-dictionary-examples"></a>Translator Text API 3.0: Ejemplos de diccionario
 
@@ -56,8 +56,8 @@ Los encabezados de solicitud incluyen lo siguiente:
   <th width="20%">encabezados</th>
   <th>DESCRIPCIÓN</th>
   <tr>
-    <td>_Una autorización_<br/>_encabezado_</td>
-    <td>*Encabezado de solicitud obligatorio*.<br/>Consulte las [opciones disponibles para la autenticación](./v3-0-reference.md#authentication).</td>
+    <td>Encabezados de autenticación</td>
+    <td><em>Encabezado de solicitud obligatorio</em>.<br/>Consulte las <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opciones disponibles para la autenticación</a>.</td>
   </tr>
   <tr>
     <td>Content-Type</td>
@@ -79,7 +79,7 @@ El cuerpo de la solicitud es una matriz JSON. Cada elemento de la matriz es un o
 
   * `Text`: cadena que especifica el término que se va a buscar. Este debería ser el valor de un campo `normalizedText` que proceda de las traducciones inversas encontradas cuando se realizó una solicitud de una [búsqueda de diccionario](./v3-0-dictionary-lookup.md) anterior. También puede ser el valor del campo `normalizedSource`.
 
-  * `Translation`: cadena que especifica el texto traducido que previamente devolvió la operación ](./v3-0-dictionary-lookup.md)Búsqueda de diccionario. Este debería ser el valor del campo `normalizedTarget` en la lista `translations` de la respuesta [Búsqueda de diccionario ](./v3-0-dictionary-lookup.md). El servicio devolverá ejemplos para el par de palabras específico "fuente-objetivo".
+  * `Translation`: cadena que especifica el texto traducido que previamente devolvió la operación [Búsqueda de diccionario](./v3-0-dictionary-lookup.md). Este debería ser el valor del campo `normalizedTarget` en la lista `translations` de la respuesta [Búsqueda de diccionario ](./v3-0-dictionary-lookup.md). El servicio devolverá ejemplos para el par de palabras específico "fuente-objetivo".
 
 Ejemplo:
 
@@ -104,11 +104,11 @@ Una respuesta correcta es una matriz JSON con un resultado para cada cadena en l
   
   * `examples`: lista de ejemplos del par (término de origen y de destino). Cada elemento de la lista es un objeto que consta de las siguientes propiedades:
 
-    * `sourcePrefix`: cadena que se va a concatenar _antes`sourceTerm` del valor de  para formar un ejemplo completo. No agregue un carácter de espacio, ya que ya estará allí en el momento apropiado. Este valor puede ser una cadena vacía.
+    * `sourcePrefix`: cadena que se va a concatenar _antes_ del valor de `sourceTerm` para formar un ejemplo completo. No agregue un carácter de espacio, ya que ya estará allí en el momento apropiado. Este valor puede ser una cadena vacía.
 
     * `sourceTerm`: cadena equivalente al término real que se esta buscando. La cadena se agrega con `sourcePrefix` y `sourceSuffix` para formar el ejemplo completo. Su valor está separado, por lo que se puede marcar en una interfaz de usuario poniéndolo en negrita, por ejemplo.
 
-    * `sourceSuffix`: cadena que se va a concatenar _después`sourceTerm` del valor de  para formar un ejemplo completo. No agregue un carácter de espacio, ya que ya estará allí en el momento apropiado. Este valor puede ser una cadena vacía.
+    * `sourceSuffix`: cadena que se va a concatenar _después_ del valor de `sourceTerm` para formar un ejemplo completo. No agregue un carácter de espacio, ya que ya estará allí en el momento apropiado. Este valor puede ser una cadena vacía.
 
     * `targetPrefix`: cadena similar a `sourcePrefix` que se usa en el destino.
 
@@ -123,7 +123,7 @@ Una respuesta correcta es una matriz JSON con un resultado para cada cadena en l
 
 En este ejemplo se muestra cómo buscar ejemplos de la pareja formada por el término inglés `fly` y su traducción al español `volar`.
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"

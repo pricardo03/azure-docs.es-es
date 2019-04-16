@@ -93,7 +93,7 @@ sections:
       - type: paragraph
         text: 'Aprenda a desarrollar aplicaciones mediante Translator Text API:'
       - type: paragraph
-        text: '<a href="tutorial-wpf-translation-csharp.md">Escritura de una aplicación de WPF para Translator Text con C#</a>'
+        text: '<li><a href="tutorial-wpf-translation-csharp.md">Creación de una aplicación de WPF para Translator Text, en C#</a></li><li><a href="tutorial-build-flask-app-translation-synthesis.md">Creación de una aplicación de traducción de Flask, en Python</a></li>'
   - title: Referencia
     items:
       - type: paragraph

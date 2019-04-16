@@ -1,6 +1,6 @@
 ---
 title: Solución de problemas de las alertas del registro en Azure Monitor | Microsoft Docs
-description: Problemas comunes, errores y resolución para las reglas de alertas de registro en Azure.
+description: Common problemas, errores y resolución de las reglas de alerta de registro en Azure.
 author: msvijayn
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.subservice: alerts
-ms.openlocfilehash: aa42e8975432de8ca489cf9b1b6dd509c9fb01c1
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 0c7189f1d43a114532b30b0c1aabe6f7cd4402d8
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005293"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578720"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Solución de problemas de alertas de registro en Azure Monitor  
 
@@ -25,7 +25,6 @@ El término **alertas del registro** se describen las alertas que fire se basa e
 
 > [!NOTE]
 > En este artículo no se tienen en cuenta los casos en que Azure Portal muestra una regla de alertas desencadenada y una notificación realizada a través de grupos de acciones asociados. Para estos casos, consulte los detalles en el artículo sobre [grupos de acciones](../platform/action-groups.md).
-
 
 ## <a name="log-alert-didnt-fire"></a>No se activó la alerta de registro
 
@@ -92,9 +91,94 @@ Por ejemplo, si la regla de alertas de registro se configura para desencadenarse
 
 ### <a name="alert-query-output-misunderstood"></a>Salida de la consulta de alerta no comprendida
 
-La lógica de las alertas de registros se proporcionan en una consulta de Analytics. La consulta de Analytics puede usar varias funciones matemáticas y macrodatos.  El servicio de generación de alertas ejecuta la consulta a los intervalos especificados con los datos del período especificado. Este servicio realiza pequeños cambios en la consulta proporcionada en función del tipo de alerta elegido. Esto puede verse en la sección "Query to be executed" (Consulta que se va a ejecutar) de la pantalla *Configure signal logic* (Configurar lógica de señal), como se muestra a continuación: ![Consulta que se ejecutará](media/alert-log-troubleshoot/LogAlertPreview.png)
+La lógica de las alertas de registros se proporcionan en una consulta de Analytics. La consulta de Analytics puede usar varias funciones matemáticas y macrodatos.  El servicio de generación de alertas ejecuta la consulta a los intervalos especificados con los datos del período especificado. Este servicio realiza pequeños cambios en la consulta proporcionada en función del tipo de alerta elegido. Este cambio puede verse en la sección "Para ejecutar la consulta" en *configurar lógica de señal* pantalla, tal como se muestra a continuación: ![Query to be executed](media/alert-log-troubleshoot/LogAlertPreview.png)
 
 Lo que se muestra en el cuadro **Query to be executed** es lo que ejecuta el servicio de alertas de registros. La consulta indicada se puede ejecutar también como intervalo de tiempo a través del [portal de Analytics](../log-query/portals.md) o [Analytics API](https://docs.microsoft.com/rest/api/loganalytics/) si se desea saber cuál puede ser el resultado de la consulta de la alerta antes de crear la alerta.
+
+## <a name="log-alert-was-disabled"></a>Se deshabilitó la alerta del registro
+
+A continuación aparecen algunas de las razones debido a que [regla de alerta de registro en Azure Monitor](../platform/alerts-log.md) pueden deshabilitarse por Azure Monitor.
+
+### <a name="resource-on-which-alert-was-created-no-longer-exists"></a>Recursos en el que se creó alerta ya no existe
+
+Las reglas de alerta de registro creadas en Azure Monitor como destino un recurso específico, como un área de trabajo de Log Analytics de Azure, aplicación de Azure Application Insights y recursos de Azure. Y el servicio de alertas de registro, a continuación, ejecutará la consulta de analytics proporcionada en la regla para el destino especificado. Pero después de la creación de reglas, a menudo, vaya al eliminar de Azure o mover dentro de Azure: el destino de la regla de alerta. Como el destino de la regla de alerta de registro ya no es válido, se produce un error en la ejecución de la regla.
+
+En tales casos, Azure Monitor deshabilitará la alerta del registro y asegúrese de que los clientes no se facturan innecesariamente, cuando la propia regla no puede ejecutar continuamente por un período considerable como una semana. Los usuarios pueden averiguar la hora exacta a la que se deshabilitó la regla de alerta de registro por el Monitor de Azure a través de [Azure Activity Log](../../azure-resource-manager/resource-group-audit.md). En el registro de actividad de Azure cuando se deshabilita la regla de alerta de registro Azure, se agrega un evento en el registro de actividad de Azure.
+
+Un evento de ejemplo en el registro de actividad de Azure para deshabilitar la regla de alertas debido a su error continuo; se muestra a continuación.
+
+```json
+{
+    "caller": "Microsoft.Insights/ScheduledQueryRules",
+    "channels": "Operation",
+    "claims": {
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/spn": "Microsoft.Insights/ScheduledQueryRules"
+    },
+    "correlationId": "abcdefg-4d12-1234-4256-21233554aff",
+    "description": "Alert: test-bad-alerts is disabled by the System due to : Alert has been failing consistently with the same exception for the past week",
+    "eventDataId": "f123e07-bf45-1234-4565-123a123455b",
+    "eventName": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "category": {
+        "value": "Administrative",
+        "localizedValue": "Administrative"
+    },
+    "eventTimestamp": "2019-03-22T04:18:22.8569543Z",
+    "id": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.INSIGHTS/SCHEDULEDQUERYRULES/TEST-BAD-ALERTS",
+    "level": "Informational",
+    "operationId": "",
+    "operationName": {
+        "value": "Microsoft.Insights/ScheduledQueryRules/disable/action",
+        "localizedValue": "Microsoft.Insights/ScheduledQueryRules/disable/action"
+    },
+    "resourceGroupName": "<Resource Group>",
+    "resourceProviderName": {
+        "value": "MICROSOFT.INSIGHTS",
+        "localizedValue": "Microsoft Insights"
+    },
+    "resourceType": {
+        "value": "MICROSOFT.INSIGHTS/scheduledqueryrules",
+        "localizedValue": "MICROSOFT.INSIGHTS/scheduledqueryrules"
+    },
+    "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.INSIGHTS/SCHEDULEDQUERYRULES/TEST-BAD-ALERTS",
+    "status": {
+        "value": "Succeeded",
+        "localizedValue": "Succeeded"
+    },
+    "subStatus": {
+        "value": "",
+        "localizedValue": ""
+    },
+    "submissionTimestamp": "2019-03-22T04:18:22.8569543Z",
+    "subscriptionId": "<SubscriptionId>",
+    "properties": {
+        "resourceId": "/SUBSCRIPTIONS/<subscriptionId>/RESOURCEGROUPS/<ResourceGroup>/PROVIDERS/MICROSOFT.INSIGHTS/SCHEDULEDQUERYRULES/TEST-BAD-ALERTS",
+        "subscriptionId": "<SubscriptionId>",
+        "resourceGroup": "<ResourceGroup>",
+        "eventDataId": "12e12345-12dd-1234-8e3e-12345b7a1234",
+        "eventTimeStamp": "03/22/2019 04:18:22",
+        "issueStartTime": "03/22/2019 04:18:22",
+        "operationName": "Microsoft.Insights/ScheduledQueryRules/disable/action",
+        "status": "Succeeded",
+        "reason": "Alert has been failing consistently with the same exception for the past week"
+    },
+    "relatedEvents": []
+}
+```
+
+### <a name="query-used-in-log-alert-is-not-valid"></a>Consulta que se usa en la alerta del registro no es válido
+
+Cada regla de alerta de registro creado en Azure Monitor como parte de su configuración debe especificar una consulta de analytics que va a ejecutar periódicamente el servicio de alerta. Mientras que la consulta de analytics puede tener la sintaxis correcta en el momento de creación de reglas o actualización. Algunas veces durante un período de tiempo, la consulta se proporcionan en el registro de la regla de alerta puede desarrollar problemas de sintaxis y hacer que empecemos a suspender la ejecución de la regla. Algunas razones comunes por qué consulta de analytics proporcionada en una regla de alerta de registro puede desarrollar errores son:
+
+- Consulta que se escribe en [ejecutar en varios recursos](../log-query/cross-workspace-query.md) y uno o varios de los recursos especificados, ahora no existen.
+- No ha habido ningún flujo de datos para la plataforma de análisis, debido a que el [ejecución de la consulta da error](https://dev.loganalytics.io/documentation/Using-the-API/Errors) porque no hay ningún dato para la consulta proporcionada.
+- Los cambios en [lenguaje de consulta](https://docs.microsoft.com/azure/kusto/query/) han producido en los comandos y las funciones tienen un formato revisado. Por lo tanto, la consulta proporcionada anteriormente en la regla de alerta ya no es válida.
+
+El usuario deberá advertimos de este comportamiento en primer lugar a través de [Azure Advisor](../../advisor/advisor-overview.md). Se agregaría una recomendación para la regla de alerta de registro específico en Azure Advisor, en la categoría de alta disponibilidad con repercusión media y la descripción como "Reparación en la regla de alerta de registro para asegurarse de supervisión". Si después de siete días de la recomendación que proporciona en Azure Advisor no se rectifique la consulta de alerta en la regla de alerta de registro especificado. A continuación, Azure Monitor deshabilitará la alerta del registro y asegúrese de que los clientes no se facturan innecesariamente, cuando la propia regla no puede ejecutar continuamente por un período considerable como una semana.
+
+Los usuarios pueden averiguar la hora exacta a la que se deshabilitó la regla de alerta de registro por el Monitor de Azure a través de [Azure Activity Log](../../azure-resource-manager/resource-group-audit.md). En el registro de actividad de Azure, cuando está deshabilitada la regla de alerta de registro de Azure: se agrega un evento en el registro de actividad de Azure.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 01/19/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73e5b081e85726a1fc78d92996846faa18ce616a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d34bd9d7f80f72b3c6c0821ad48e6be1fd260be9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897629"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524640"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Tutorial: Configuración de Workday para el aprovisionamiento automático de usuarios
 
@@ -50,7 +50,7 @@ El flujo de trabajo de aprovisionamiento de usuarios de Workday compatible con e
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>¿Para quién es más adecuada esta solución de aprovisionamiento de usuarios?
 
-Esta solución de aprovisionamiento de usuarios de Workday se encuentra actualmente en versión preliminar pública y resulta adecuada para:
+Esta solución de aprovisionamiento de usuario de Workday es ideal para:
 
 * Organizaciones que desean una solución basada en la nube precompilada para el aprovisionamiento de usuarios de Workday
 
@@ -460,7 +460,7 @@ En esta sección configurará cómo fluyen los datos de los usuarios de Workday 
 
 2. En el campo **Ámbito de objeto de origen** puede seleccionar los conjuntos de usuarios de Workday que deben estar en el ámbito para el aprovisionamiento en AD; para ello, debe definir un conjunto de filtros basados en atributos. El ámbito predeterminado es "Todos los usuarios de Workday". Filtros de ejemplo:
 
-   * Ejemplo: ámbito de los usuarios que tengan los id. de trabajador comprendidos entre 1000000 y 2000000
+   * Ejemplo: Ámbito a los usuarios con el Id. de trabajador entre 1.000.000 y 2.000.000 (excepto 2000000)
 
       * Atributo: WorkerID
 

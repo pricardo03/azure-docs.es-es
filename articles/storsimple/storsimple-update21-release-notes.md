@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 78be340b4a47fed88f5e8c3f5741ae7024124bd5
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
-ms.translationtype: HT
+ms.openlocfilehash: 12d11cddf077d4d07732490255d44e89ddaf3217
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34057849"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527122"
 ---
 # <a name="storsimple-8000-series-update-22-release-notes"></a>Notas de la versión de la serie StorSimple 8000 Update 2.2
 
@@ -56,14 +56,14 @@ En las tablas siguientes se ofrece un resumen de los problemas corregidos en Upd
 | 4 |Creación de instantáneas |Se han producido problemas relacionados con la creación de instantáneas incrementales en escenarios con grandes volúmenes y una actividad de datos mínima o nula. Estos problemas se han corregido en esta versión. |Sí |Sí |
 | 5 |Autenticación de Openstack |Al usar OpenStack como el proveedor de servicios en la nube, el usuario se encontraba con un error poco frecuente relacionado con la autenticación que terminaba con el bloqueo del analizador JSON. Este error se ha corregido en esta versión. |Sí |Sin  |
 | 6 |Copia del lado del host |En versiones anteriores del software, se ha visto un error poco frecuente relacionado con la temporización de ODX al copiar los datos de un volumen a otro. El resultado sería una conmutación por error del controlador y el sistema podría entrar en modo de recuperación. Este error se ha corregido en esta versión. |Sí |Sin  |
-| 7 |Instrumental de administración de Windows (WMI) |En las versiones anteriores del software, había varias instancias de un error de proxy web con la excepción "<ManagementException> Error en la carga del proveedor". Este error se atribuye a una fuga de memoria WMI y se ha corregido. |Sí |Sin  |
+| 7 |Instrumental de administración de Windows (WMI) |En las versiones anteriores del software, había varias instancias de error de proxy web con la excepción "\<ManagementException > Error de carga del proveedor". Este error se atribuye a una fuga de memoria WMI y se ha corregido. |Sí |Sin  |
 | 8 |Actualizar |En determinados casos excepcionales, en las versiones anteriores del software, el usuario recibía un error "CisPowershellHcsscripterror" al intentar analizar o instalar actualizaciones. Este problema está corregido en esta versión. |Sí |Sí |
 | 9 |Paquete de soporte |En esta versión, se han realizado mejoras en la forma en que se recopila y carga el paquete de soporte. |Sí |Sí |
 
 ## <a name="known-issues-in-update-22"></a>Problemas conocidos de Update 2.2
 En la tabla siguiente se proporciona un resumen de los problemas conocidos de esta versión.
 
-| Nº | Característica | Problema | Comentarios / solución alternativa | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
+|  No. | Característica | Problema | Comentarios / solución alternativa | Se aplica a un dispositivo físico | Se aplica a un dispositivo virtual |
 | --- | --- | --- | --- | --- | --- |
 | 1 |Cuórum de disco |En raras ocasiones, si se desconecta la mayoría de los discos en el revestimiento de EBOD de un dispositivo 8600 y no se produce un cuórum de disco, el grupo de almacenamiento se desconectará. Seguirá desconectado incluso si se vuelven a conectar los discos. |Necesitará reiniciar el dispositivo. Si el problema persiste, póngase en contacto con el soporte técnico de Microsoft para conocer los pasos siguientes. |Sí |Sin  |
 | 2 |Identificador de controlador incorrecto |Cuando se realiza un reemplazo de controlador, el controlador 0 puede aparecer como controlador 1. Durante el reemplazo de controlador, cuando se carga la imagen desde el nodo del mismo nivel, el identificador de controlador puede mostrarse inicialmente como el identificador del controlador del mismo nivel. En raras ocasiones, este comportamiento también puede aparecer después del reinicio del sistema. |No se requiere ninguna acción del usuario. La situación se solucionará una vez completado el reemplazo del controlador. |Sí |Sin  |
@@ -73,7 +73,7 @@ En la tabla siguiente se proporciona un resumen de los problemas conocidos de es
 | 6 |Proxy web |Si la configuración de proxy web tiene HTTPS como protocolo especificado, la comunicación de dispositivo a servicio se verá afectada y el dispositivo se desconectará. También se generarán paquetes de compatibilidad en el proceso, que consumen muchos recursos en el dispositivo. |Asegúrese de que la dirección URL del proxy web tiene HTTP como protocolo especificado. Para obtener más información, vaya a [Configurar el proxy web para el dispositivo](storsimple-configure-web-proxy.md). |Sí |Sin  |
 | 7 |Proxy web |Si configura y habilita el proxy web en un dispositivo registrado, será necesario reiniciar el controlador activo en el dispositivo. | |Sí |Sin  |
 | 8 |Latencia alta de la nube y alta carga de trabajo de E/S |Cuando el dispositivo StorSimple encuentra una combinación de latencias muy altas de la nube (del orden de segundos) y alta carga de trabajo de E/S, los volúmenes del dispositivo pasan a un estado degradado y las operaciones de E/S pueden fallar con el error «el dispositivo no está listo». |Necesitará reiniciar los controladores de dispositivo de forma manual o realizar una conmutación por error del dispositivo para recuperarse de esta situación. |Sí |Sin  |
-| 9 |Azure PowerShell |Cuando se usa el cmdlet de StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** para seleccionar el primer objeto y crear un nuevo objeto **VolumeContainer**, el cmdlet devuelve todos los objetos. |Escriba el cmdlet entre paréntesis, como se indica a continuación: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait**. |Sí |Sí |
+| 9 |Azure PowerShell |Cuando se usa el cmdlet de StorSimple **Get-AzureStorSimpleStorageAccountCredential &#124; Select-Object -First 1 -Wait** para seleccionar el primer objeto y crear un nuevo objeto **VolumeContainer**, el cmdlet devuelve todos los objetos. |Encapsule el cmdlet entre paréntesis, como se indica a continuación: **(Get-Azure-StorSimpleStorageAccountCredential) &#124; Select-Object -First 1 -Wait** |Sí |Sí |
 | 10 |Migración |Cuando se pasan varios contenedores de volúmenes para la migración, el ETA de la copia de seguridad más reciente solo es preciso en el primer contenedor de volúmenes. Además, la migración paralela se iniciará después de que se hayan migrado las cuatro primeras copias de seguridad del primer contenedor de volúmenes. |Se recomienda migrar los contenedores de volúmenes de uno en uno. |Sí |Sin  |
 | 11 |Migración |Después de la restauración, los volúmenes no se agregan a la directiva de copia de seguridad ni al grupo de discos virtuales. |Para crear copias de seguridad, será preciso agregar estos volúmenes a una directiva de copia de seguridad. |Sí |Sí |
 | 12 |Migración |Una vez completada la migración, el dispositivo de las series 5000/7000 no debe tener acceso a los contenedores de datos migrados. |Cuando la migración finaliza y se envía, se recomienda eliminar los contenedores de datos migrados. |Sí |Sin  |

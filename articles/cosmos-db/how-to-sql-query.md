@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: mjbrown
-ms.openlocfilehash: 8e5c281a8a8b6c0b48f18bf247b451bf61a7e9dc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 04a88558e3aea33c6d99bd0e4f1354c4316f5529
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59263050"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579230"
 ---
 # <a name="sql-query-examples-for-azure-cosmos-db"></a>Ejemplos de consultas SQL para Azure Cosmos DB
 
@@ -442,7 +442,7 @@ En el ejemplo anterior se mostraba una sencilla consulta de igualdad. La API de 
 
 Puede usar los operadores binarios admitidos siguientes:  
 
-|**Tipo de operador**  | **Valores** |
+|**Nombre de operador**  | **Valores** |
 |---------|---------|
 |Aritméticos | +,-,*,/,% |
 |Bit a bit    | \|, &, ^, <<, >>, >>> (desplazamiento a la derecha con relleno de ceros) |
@@ -484,15 +484,15 @@ También puede utilizar referencias de propiedad en las consultas. Por ejemplo, 
 
 En la siguiente tabla se muestra el resultado de las comparaciones de igualdad en la API de SQL entre dos tipos JSON cualesquiera.
 
-| **Op** | **Undefined** | **Null** | **boolean** | **Number** | **string** | **Objeto** | **Matriz** |
+| **Op** | **Undefined** | **Null** | **Boolean** | **Number** | **String** | **Object** | **Array** |
 |---|---|---|---|---|---|---|---|
 | **Undefined** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **Null** | Undefined | **Aceptar** | Undefined | Undefined | Undefined | Undefined | Undefined |
-| **boolean** | Undefined | Undefined | **Aceptar** | Undefined | Undefined | Undefined | Undefined |
-| **Number** | Undefined | Undefined | Undefined | **Aceptar** | Undefined | Undefined | Undefined |
-| **string** | Undefined | Undefined | Undefined | Undefined | **Aceptar** | Undefined | Undefined |
-| **Objeto** | Undefined | Undefined | Undefined | Undefined | Undefined | **Aceptar** | Undefined |
-| **Matriz** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **Aceptar** |
+| **Null** | Undefined | **OK (CORRECTO)** | Undefined | Undefined | Undefined | Undefined | Undefined |
+| **Boolean** | Undefined | Undefined | **OK (CORRECTO)** | Undefined | Undefined | Undefined | Undefined |
+| **Number** | Undefined | Undefined | Undefined | **OK (CORRECTO)** | Undefined | Undefined | Undefined |
+| **String** | Undefined | Undefined | Undefined | Undefined | **OK (CORRECTO)** | Undefined | Undefined |
+| **Object** | Undefined | Undefined | Undefined | Undefined | Undefined | **OK (CORRECTO)** | Undefined |
+| **Array** | Undefined | Undefined | Undefined | Undefined | Undefined | Undefined | **OK (CORRECTO)** |
 
 Para los operadores de comparación como `>`, `>=`, `!=`, `<`, y `<=`, comparación entre los tipos o entre dos objetos o matrices genera `Undefined`.  
 
@@ -502,7 +502,7 @@ Si el resultado de la expresión escalar es `Undefined`, el elemento no se inclu
 
 Los operadores lógicos operan en valores booleanos. Las siguientes tablas muestran las tablas de verdad lógicas para estos operadores:
 
-**Operador OR**
+**operator OR**
 
 | OR | True | False | Undefined |
 | --- | --- | --- | --- |
@@ -510,7 +510,7 @@ Los operadores lógicos operan en valores booleanos. Las siguientes tablas muest
 | False |True |False |Undefined |
 | Undefined |True |Undefined |Undefined |
 
-**Y el operador**
+**operator AND**
 
 | Y | True | False | Undefined |
 | --- | --- | --- | --- |
@@ -518,7 +518,7 @@ Los operadores lógicos operan en valores booleanos. Las siguientes tablas muest
 | False |False |False |False |
 | Undefined |Undefined |False |Undefined |
 
-**Operador no**
+**operator NOT**
 
 | NO |  |
 | --- | --- |
@@ -1238,7 +1238,7 @@ El resultado es el siguiente:
 
 Las funciones de comprobación de tipos permiten comprobar el tipo de una expresión dentro de una consulta SQL. Puede usar las funciones de comprobación de tipos para determinar los tipos de propiedades de artículos sobre la marcha, cuando están variable o desconocido. Esta es una tabla de funciones de comprobación de tipos integradas admitidas:
 
-| **Uso** | **DESCRIPCIÓN** |
+| **Uso** | **Descripción** |
 |-----------|------------|
 | [IS_ARRAY (expr)](sql-api-query-reference.md#bk_is_array) | Devuelve un valor booleano que indica si el tipo del valor es una matriz. |
 | [IS_BOOL (expr)](sql-api-query-reference.md#bk_is_bool) | Devuelve un valor booleano que indica si el tipo del valor es un valor booleano. |
@@ -1714,7 +1714,7 @@ El ejemplo siguiente muestra combinaciones, expresadas a través de LINQ `Select
 
 El cliente de .NET se itera automáticamente a través de todas las páginas de resultados de la consulta en el `foreach` se bloquea, tal como se muestra en el ejemplo anterior. Las opciones de consulta introdujeron en la [API de REST](#RestAPI) sección también están disponibles en el SDK de .NET mediante el `FeedOptions` y `FeedResponse` clases en el `CreateDocumentQuery` método. Puede controlar el número de páginas mediante el `MaxItemCount` configuración.
 
-Puede controlar expresamente la paginación creando `IDocumentQueryable` mediante el objeto `IQueryable`; después, leyendo los` ResponseContinuationToken` valores y devolviéndolos como `RequestContinuationToken` en `FeedOptions`. Puede establecer `EnableScanInQuery` para habilitar los exámenes cuando la consulta no es compatible con la directiva de indexación configurada. Para los contenedores con particiones, puede usar `PartitionKey` para ejecutar la consulta en una sola partición, aunque Azure Cosmos DB puede extraer automáticamente esto a partir del texto de consulta. Puede usar `EnableCrossPartitionQuery` para ejecutar consultas en varias particiones.
+Puede controlar expresamente la paginación creando `IDocumentQueryable` mediante el `IQueryable` objeto, a continuación, leyendo el `ResponseContinuationToken` nuevo de valores y devolviéndolos como `RequestContinuationToken` en `FeedOptions`. Puede establecer `EnableScanInQuery` para habilitar los exámenes cuando la consulta no es compatible con la directiva de indexación configurada. Para los contenedores con particiones, puede usar `PartitionKey` para ejecutar la consulta en una sola partición, aunque Azure Cosmos DB puede extraer automáticamente esto a partir del texto de consulta. Puede usar `EnableCrossPartitionQuery` para ejecutar consultas en varias particiones.
 
 Para obtener más ejemplos de .NET con las consultas, vea el [ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet) en GitHub.
 
@@ -1915,7 +1915,7 @@ La sintaxis es `input.Select(x => f(x))`, donde `f` es una expresión escalar.
 
 **Seleccione el operador de ejemplo 1:**
 
-- **LINQ lambda expression**
+- **Expresión lambda de LINQ**
   
   ```csharp
       input.Select(family => family.parents[0].familyName);
@@ -1930,7 +1930,7 @@ La sintaxis es `input.Select(x => f(x))`, donde `f` es una expresión escalar.
   
 **Seleccione el operador de ejemplo 2:** 
 
-- **LINQ lambda expression**
+- **Expresión lambda de LINQ**
   
   ```csharp
       input.Select(family => family.children[0].grade + c); // c is an int variable
@@ -1945,7 +1945,7 @@ La sintaxis es `input.Select(x => f(x))`, donde `f` es una expresión escalar.
   
 **Seleccione el operador de ejemplo 3:**
 
-- **LINQ lambda expression**
+- **Expresión lambda de LINQ**
   
   ```csharp
     input.Select(family => new
@@ -1967,7 +1967,7 @@ La sintaxis es `input.Select(x => f(x))`, donde `f` es una expresión escalar.
 
 La sintaxis es `input.SelectMany(x => f(x))`, donde `f` es una expresión escalar que devuelve un tipo de contenedor.
 
-- **LINQ lambda expression**
+- **Expresión lambda de LINQ**
   
   ```csharp
       input.SelectMany(family => family.children);
@@ -1986,7 +1986,7 @@ La sintaxis es `input.Where(x => f(x))`, donde `f` es una expresión escalar que
 
 **En operador, el ejemplo 1:**
 
-- **LINQ lambda expression**
+- **Expresión lambda de LINQ**
   
   ```csharp
       input.Where(family=> family.parents[0].familyName == "Wakefield");
@@ -2002,7 +2002,7 @@ La sintaxis es `input.Where(x => f(x))`, donde `f` es una expresión escalar que
   
 **En operador, el ejemplo 2:**
 
-- **LINQ lambda expression**
+- **Expresión lambda de LINQ**
   
   ```csharp
       input.Where(
@@ -2029,7 +2029,7 @@ La sintaxis es `input(.|.SelectMany())(.Select()|.Where())*`. Una consulta conca
 
 **Concatenación, ejemplo 1:**
 
-- **LINQ lambda expression**
+- **Expresión lambda de LINQ**
   
   ```csharp
       input.Select(family=>family.parents[0])
@@ -2046,7 +2046,7 @@ La sintaxis es `input(.|.SelectMany())(.Select()|.Where())*`. Una consulta conca
 
 **Ejemplo 2 de concatenación:**
 
-- **LINQ lambda expression**
+- **Expresión lambda de LINQ**
   
   ```csharp
       input.Where(family => family.children[0].grade > 3)
@@ -2063,7 +2063,7 @@ La sintaxis es `input(.|.SelectMany())(.Select()|.Where())*`. Una consulta conca
 
 **Concatenación de ejemplo 3:**
 
-- **LINQ lambda expression**
+- **Expresión lambda de LINQ**
   
   ```csharp
       input.Select(family => new { grade=family.children[0].grade}).
@@ -2080,7 +2080,7 @@ La sintaxis es `input(.|.SelectMany())(.Select()|.Where())*`. Una consulta conca
 
 **Concatenación de ejemplo 4:**
 
-- **LINQ lambda expression**
+- **Expresión lambda de LINQ**
   
   ```csharp
       input.SelectMany(family => family.parents)
@@ -2103,7 +2103,7 @@ Una consulta anidada aplica la consulta interna a cada elemento del contenedor e
 
 **Ejemplo 1 de anidamiento:**
 
-- **LINQ lambda expression**
+- **Expresión lambda de LINQ**
   
   ```csharp
       input.SelectMany(family=>
@@ -2120,7 +2120,7 @@ Una consulta anidada aplica la consulta interna a cada elemento del contenedor e
 
 **Ejemplo 2 de anidamiento:**
 
-- **LINQ lambda expression**
+- **Expresión lambda de LINQ**
   
   ```csharp
       input.SelectMany(family =>
@@ -2138,7 +2138,7 @@ Una consulta anidada aplica la consulta interna a cada elemento del contenedor e
 
 **Ejemplo 3 de anidamiento:**
 
-- **LINQ lambda expression**
+- **Expresión lambda de LINQ**
   
   ```csharp
       input.SelectMany(family => family.children.Where(
@@ -2156,20 +2156,20 @@ Una consulta anidada aplica la consulta interna a cada elemento del contenedor e
 
 ## <a id="References"></a>Referencias
 
-- [Especificación de Cosmos DB SQL Azure](https://go.microsoft.com/fwlink/p/?LinkID=510612)
+- [Especificación de SQL de Azure Cosmos DB](https://go.microsoft.com/fwlink/p/?LinkID=510612)
 - [ANSI SQL 2011](https://www.iso.org/iso/iso_catalogue/catalogue_tc/catalogue_detail.htm?csnumber=53681)
 - [JSON](https://json.org/)
 - [Especificación de JavaScript](https://www.ecma-international.org/publications/standards/Ecma-262.htm) 
 - [LINQ](/previous-versions/dotnet/articles/bb308959(v=msdn.10)) 
 - Graefe, Goetz. [Técnicas de evaluación para grandes bases de datos de consulta](https://dl.acm.org/citation.cfm?id=152611). *Informática de encuestas ACM* 25, no. 2 (1993).
-- Graefe, G. "El marco de cascadas para optimizar la consulta." *IEEE Data Eng. Alcista.* 18, no. 3 (1995).
+- Graefe, G. "El marco de cascadas para optimizar la consulta." *ENG de datos de IEEE. Alcista.* 18, no. 3 (1995).
 - Lu, Ooi, Tan. "Procesamiento de consultas en sistemas de base de datos relacional paralela." *IEEE Computer Society presione* (1994).
 - Olston, Christopher, Benjamin Reed, Utkarsh Srivastava, Ravi Kumar y Andrew Tomkins. "Pig Latin: Un lenguaje no forma externa para el procesamiento de datos." *SIGMOD* (2008).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Introducción a Azure Cosmos DB][introduction]
-- [Ejemplos de Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
+- [Ejemplos de .NET de Azure Cosmos DB](https://github.com/Azure/azure-cosmosdb-dotnet)
 - [Niveles de coherencia de Azure Cosmos DB][consistency-levels]
 
 [1]: ./media/how-to-sql-query/sql-query1.png

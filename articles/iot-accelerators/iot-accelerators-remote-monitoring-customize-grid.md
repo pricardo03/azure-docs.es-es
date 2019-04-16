@@ -10,12 +10,12 @@ ms.date: 10/04/2018
 ms.topic: conceptual
 ms.openlocfilehash: a24cb7f39ccb8ea07d4dde2869dc7c924b91983a
 ms.sourcegitcommit: 345b96d564256bcd3115910e93220c4e4cf827b3
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 11/28/2018
 ms.locfileid: "52496444"
 ---
-# <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adición de una cuadrícula personalizada a la interfaz de usuario web del acelerador de soluciones de Supervisión remota
+# <a name="add-a-custom-grid-to-the-remote-monitoring-solution-accelerator-web-ui"></a>Adición de una cuadrícula personalizada a la interfaz de usuario web del acelerador de soluciones de supervisión remota
 
 En este artículo se muestra cómo agregar una nueva cuadrícula en una pagina de la interfaz de usuario web del acelerador de soluciones de supervisión remota. El artículo describe:
 

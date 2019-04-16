@@ -11,12 +11,12 @@ ms.date: 01/15/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 7fd4fd65b48c199527d9172b7cea89010c962f5b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: aaa72d3a29fee28ede336a2be350015bf3cbc9b4
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59261044"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565555"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creación y configuración de un entorno de ejecución de integración autohospedado
 El entorno de ejecución de integración (IR) es la infraestructura de proceso que Azure Data Factory usa para proporcionar funcionalidades de integración de datos en distintos entornos de red. Para más información acerca del entorno de ejecución de integración, consulte [Introducción al entorno de ejecución de integración](concepts-integration-runtime.md).
@@ -255,7 +255,7 @@ Si en su entorno de red corporativo se usa un servidor proxy para acceder a Inte
 
 ![Especificación del servidor proxy](media/create-self-hosted-integration-runtime/specify-proxy.png)
 
-El entorno de ejecución de integración autohospedado utiliza el servidor proxy para conectarse al servicio en la nube. Seleccione **Cambiar vínculo** durante la configuración inicial. Verá el cuadro de diálogo de configuración del proxy.
+Cuando se configura, el entorno integration runtime autohospedado utiliza el servidor proxy para conectarse al servicio de nube, de origen / destino (aquellas que usan HTTP y el protocolo HTTPS). Esto es Select **Cambiar vínculo** durante la instalación inicial. Verá el cuadro de diálogo de configuración del proxy.
 
 ![Establecimiento de proxy](media/create-self-hosted-integration-runtime/set-http-proxy.png)
 

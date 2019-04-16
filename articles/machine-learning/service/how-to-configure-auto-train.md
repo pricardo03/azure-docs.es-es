@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5aa9a60c624e1bfaa1570d02bfd1a421fcab3301
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 87e1e57a969fc5e65302dcce44231773f7e74b3a
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358293"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548840"
 ---
 # <a name="configure-automated-machine-learning-experiments"></a>Configuración de experimentos de aprendizaje automático automatizados
 
@@ -42,11 +42,11 @@ El aprendizaje automático automatizado admite los siguientes algoritmos durante
 clasificación | Regresión | Previsión de Series temporales
 |-- |-- |--
 [Regresión logística](https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression)| [Red elástica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)| [Red elástica](https://scikit-learn.org/stable/modules/linear_model.html#elastic-net)
-[Luz GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Luz GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Luz GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
+[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)|[Light GBM](https://lightgbm.readthedocs.io/en/latest/index.html)
 [Potenciación del gradiente](https://scikit-learn.org/stable/modules/ensemble.html#classification)|[Potenciación del gradiente](https://scikit-learn.org/stable/modules/ensemble.html#regression)|[Potenciación del gradiente](https://scikit-learn.org/stable/modules/ensemble.html#regression)
 [Árbol de decisión](https://scikit-learn.org/stable/modules/tree.html#decision-trees)|[Árbol de decisión](https://scikit-learn.org/stable/modules/tree.html#regression)|[Árbol de decisión](https://scikit-learn.org/stable/modules/tree.html#regression)
-[K vecinos más cercanos](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K vecinos más cercanos](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K vecinos más cercanos](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
-[Linear SVC](https://scikit-learn.org/stable/modules/svm.html#classification)|[LARS lazo](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[LARS lazo](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
+[K Vecinos más próximos](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Vecinos más próximos](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)|[K Vecinos más próximos](https://scikit-learn.org/stable/modules/neighbors.html#nearest-neighbors-regression)
+[SVC lineal](https://scikit-learn.org/stable/modules/svm.html#classification)|[Lazo LARS](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)|[Lazo LARS](https://scikit-learn.org/stable/modules/linear_model.html#lars-lasso)
 [Clasificación de vectores de soporte de C (SVC)](https://scikit-learn.org/stable/modules/svm.html#classification)|[Descenso de gradiente estocástico (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)|[Descenso de gradiente estocástico (SGD)](https://scikit-learn.org/stable/modules/sgd.html#regression)
 [Bosque aleatorio](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Bosque aleatorio](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)|[Bosque aleatorio](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Árboles extremadamente aleatorios](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Árboles extremadamente aleatorios](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)|[Árboles extremadamente aleatorios](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
@@ -110,7 +110,7 @@ En su objeto `AutoMLConfig`, especifique el parámetro `data_script` y proporcio
 automl_config = AutoMLConfig(****, data_script=project_folder + "/get_data.py", **** )
 ```
 
-`get_data` puede devolver la secuencia de comandos:
+El script `get_data` puede devolver:
 
 Clave | Type | Se excluye mutuamente con    | DESCRIPCIÓN
 ---|---|---|---
@@ -173,7 +173,7 @@ A continuación, determine dónde se va a entrenar el modelo. Un experimento de 
 *   La máquina local, como un escritorio local o un equipo portátil: generalmente, cuando haya un pequeño conjunto de datos y siga en la fase de exploración.
 *   Una máquina remota en la nube: [Azure Machine Learning Managed Compute](concept-azure-machine-learning-architecture.md#managed-and-unmanaged-compute-targets) es un servicio administrado que permite entrenar modelos de aprendizaje automático en clústeres de máquinas virtuales de Azure.
 
-Visite el [sitio de GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/automl) para obtener cuadernos de ejemplo con destinos de proceso locales y remotos.
+Visite el [sitio de GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning) para obtener cuadernos de ejemplo con destinos de proceso locales y remotos.
 
 <a name='configure-experiment'></a>
 
@@ -238,6 +238,9 @@ Si usa `preprocess=True`, los pasos de preprocesamiento de datos siguientes se r
     * Las características numéricas con muy pocos valores únicos se transforman en características de categorías.
     * En función de la cardinalidad de las características de categorías, realice la codificación de etiqueta o la codificación "one-hot" (hash).
 
+## <a name="ensemble-models"></a>Los modelos
+Aprendizaje conjunto mejora el rendimiento predictivo y los resultados de machine learning mediante la combinación de varios modelos en lugar de usar modelos de únicos. Cuando uso automatizada de aprendizaje automático, puede entrenar los modelos utilizando la [Caruana algoritmo de selección de conjunto con la inicialización de conjunto ordenada](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf). La iteración conjunto aparece como la última iteración de la ejecución.
+
 ## <a name="time-series-forecasting"></a>Previsión de Series temporales
 Tipo de tarea de previsión de tiempo serie tiene parámetros adicionales que se va a definir.
 1. time_column_name - se trata de un parámetro necesario que define el nombre de la columna de la serie de fecha y hora que contiene datos de entrenamiento. 
@@ -270,7 +273,6 @@ automl_config = AutoMLConfig(task='forecasting',
                              X=X_train,
                              y=y_train,
                              n_cross_validations=5,
-                             enable_ensembling=False,
                              path=project_folder,
                              verbosity=logging.INFO,
                              **time_series_settings)

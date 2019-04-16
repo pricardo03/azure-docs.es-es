@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 02/21/2019
 ms.author: tulasim
-ms.openlocfilehash: 462dfb2de8608eebd5609f7044bde03991fca3ca
-ms.sourcegitcommit: fdd6a2927976f99137bb0fcd571975ff42b2cac0
+ms.openlocfilehash: d14e2897183a97da5e84a76b699def529f1d167e
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56958055"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579417"
 ---
 # <a name="get-a-knowledge-answer-with-the-generateanswer-api-and-metadata"></a>Obtener una respuesta de conocimiento con la API de GenerateAnswer y metadatos
 
@@ -74,7 +74,7 @@ https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer?i
 |Encabezado|Content-Type|string|tipo de soporte del cuerpo enviado a la API. Valor predeterminado es: ''|
 |Encabezado|Autorización|string|su clave de punto de conexión (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Cuerpo de POST|Objeto JSON|JSON|La pregunta con la configuración|
-|Parámetro de cadena de consulta (opcional)|`isTest`|boolean|Si establece en true, devuelve los resultados desde `testkb` índice de búsqueda en lugar de índice publicado.|
+
 
 El cuerpo JSON tiene varias opciones:
 
@@ -83,6 +83,7 @@ El cuerpo JSON tiene varias opciones:
 |`question`|requerido|string|Una pregunta de usuario se envíen a la base de conocimiento.|
 |`top`|opcional|integer|número de resultados clasificados por orden de prioridad que se incluirá en la salida. El valor predeterminado es 1.|
 |`userId`|opcional|string|identificador único que identifica el usuario. Este identificador se registrará en los registros de chat.|
+|`isTest`|opcional|boolean|Si establece en true, devuelve los resultados desde `testkb` índice de búsqueda en lugar de índice publicado.|
 |`strictFilters`|opcional|string|si se especifica, indica a QnA Maker que solo devuelva las respuestas que tienen los metadatos especificados.|
 
 Un cuerpo JSON de ejemplo tiene el siguiente aspecto:
@@ -91,6 +92,7 @@ Un cuerpo JSON de ejemplo tiene el siguiente aspecto:
 {
     "question": "qna maker and luis",
     "top": 6,
+    "isTest": true,
     "strictFilters": [
     {
         "name": "category",

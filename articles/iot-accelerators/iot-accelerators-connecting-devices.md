@@ -15,7 +15,7 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 03/19/2019
 ms.locfileid: "58182904"
 ---
-# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Conectar el dispositivo al acelerador de la solución Supervisión remota (Windows)
+# <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-windows"></a>Conectar el dispositivo al acelerador de soluciones de supervisión remota (Windows)
 
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 

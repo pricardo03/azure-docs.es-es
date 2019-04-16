@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen
-ms.openlocfilehash: 0f63ed7d00f1ae3e30cdac76606559a4e9f49f04
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3b234ca37783fe557baf307f198de9636b06a382
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59288102"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579502"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Expresiones de estilo controlada por datos (Web SDK)
 
@@ -296,7 +296,7 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 Un `coalesce` expresión pasos a través de un conjunto de expresiones hasta que se obtiene el primer valor distinto de null y devuelve ese valor. 
 
-El pseudocódigo siguiente define la estructura de la ` coalesce` expresión. 
+El pseudocódigo siguiente define la estructura de la `coalesce` expresión. 
 
 ```javascript
 [
@@ -798,7 +798,7 @@ Consulte los siguientes artículos para obtener más ejemplos de código que imp
 > [Agregar formas](map-add-shape.md)
 
 > [!div class="nextstepaction"] 
-> [Adición de una capa de mapa térmico](map-add-heat-map-layer.md)
+> [Agregar una capa de mapa de calor](map-add-heat-map-layer.md)
 
 Más información sobre las opciones de capa que admiten expresiones:
 

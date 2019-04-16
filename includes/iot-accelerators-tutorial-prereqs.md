@@ -23,6 +23,6 @@ Si aún no ha implementado el acelerador de soluciones de supervisión remota, d
 
 ## <a name="navigate-to-the-dashboard"></a>Vaya al panel.
 
-Para ver el panel de la solución Supervisión remota en el explorador, vaya primero a [Aceleradores de soluciones de IoT de Microsoft Azure](https://www.azureiotsolutions.com/Accelerators#dashboard). Se le pedirá que inicie sesión con sus credenciales de suscripción de Azure.
+Para ver el panel de la solución de supervisión remota en el explorador, vaya primero a [Aceleradores de soluciones de IoT de Microsoft Azure](https://www.azureiotsolutions.com/Accelerators#dashboard). Se le pedirá que inicie sesión con sus credenciales de suscripción de Azure.
 
-A continuación, haga clic en **Iniciar** en el icono del acelerador de soluciones Supervisión remota que implementó en el [Inicio rápido](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md).
+A continuación, haga clic en **Iniciar** en el icono del acelerador de soluciones de supervisión remota que implementó en el [Inicio rápido](../articles/iot-accelerators/quickstart-remote-monitoring-deploy.md).

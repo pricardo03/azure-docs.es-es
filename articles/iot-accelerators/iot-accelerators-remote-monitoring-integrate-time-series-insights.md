@@ -19,10 +19,10 @@ ms.locfileid: "58085157"
 
 Azure Time Series Insights es un servicio de análisis, almacenamiento y visualización totalmente administrado que permite administrar los datos de serie temporal a escala de IoT en la nube. Puede usar Time Series Insights para almacenar y administrar datos de serie temporal, explorar y visualizar eventos al mismo tiempo, realizar análisis de la causa principal y comparar varios sitios y recursos.
 
-El acelerador de soluciones de Supervisión remota proporciona ahora la implementación e integración automáticas con Time Series Insights. En este tema de procedimientos obtendrá información sobre cómo configurar Time Series Insights para una solución de Supervisión remota existente que aún no incluya Time Series Insights.
+El acelerador de soluciones de supervisión remota proporciona ahora la implementación e integración automáticas con Time Series Insights. En este tema de procedimientos obtendrá información sobre cómo configurar Time Series Insights para una solución de Supervisión remota existente que aún no incluya Time Series Insights.
 
 > [!NOTE]
-> Time Series Insights actualmente no está disponible en la nube de Azure China. Las nuevas implementaciones del acelerador de soluciones de Supervisión remota en la nube de Azure China usan Cosmos DB para todo el almacenamiento.
+> Time Series Insights actualmente no está disponible en la nube de Azure China. Las nuevas implementaciones del acelerador de soluciones de supervisión remota en la nube de Azure China usan Cosmos DB para todo el almacenamiento.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

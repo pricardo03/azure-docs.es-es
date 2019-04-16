@@ -1,25 +1,25 @@
 ---
 title: Ejecución de Azure Site Recovery Deployment Planner para la recuperación ante desastres de VMware en Azure | Microsoft Docs
 description: En este artículo se describe cómo ejecutar Azure Site Recovery Deployment Planner para la recuperación ante desastres de VMware en Azure.
-author: nsoneji
-manager: garavd
+author: mayurigupta13
+manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 4/15/2019
 ms.author: mayg
-ms.openlocfilehash: a3aef06e6ee0d3989a4da8fdd93d27d28f2eede4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: 3a6c9e50804db573395984b8ba38838eb15b0792
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59527686"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565434"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-vmware-disaster-recovery-to-azure"></a>Ejecución de Azure Site Recovery Deployment Planner para la recuperación ante desastres de VMware en Azure
 Este artículo es la guía del usuario de Azure Site Recovery Deployment Planner para implementaciones de producción de VMware en Azure.
 
 
 ## <a name="modes-of-running-deployment-planner"></a>Modos de ejecutar Deployment Planner
-Puede ejecutar la herramienta de línea de comandos (ASRDeploymentPlanner.exe) en cualquiera de los cuatro modos siguientes:
+La herramienta de línea de comandos (ASRDeploymentPlanner.exe) se puede ejecutar en cualquiera de los tres modos siguientes:
 
 1.  [Generación de perfiles](#profile-vmware-vms)
 2.  [Generación de informes](#generate-report)
@@ -139,7 +139,7 @@ ASRDeploymentPlanner.exe -Operation StartProfiling -Virtualization VMware -Direc
 La herramienta genera un archivo de Microsoft Excel habilitado para macros (archivo XLSM) como la salida del informe, que resume todas las recomendaciones de implementación. El informe se denomina `DeploymentPlannerReport_<unique numeric identifier>.xlsm` y se coloca en el directorio especificado.
 
 >[!NOTE]
->El informe requiere el símbolo decimal configurado como "." para generar estimaciones de costos en el servidor donde ejecuta la herramienta Deployment Planner. En caso de que haya configurado "," como símbolo decimal en una máquina de Windows, vaya a "Cambiar los formatos de fecha, hora o número" en el Panel de control y vaya a "Configuración adicional" para cambiar el símbolo decimal a ".".
+>La generación de informes requiere un PC de Windows o Windows Server con Excel 2013 o versiones posteriores. El símbolo decimal en esta máquina debe configurarse como "." para generar las estimaciones de costos. En caso de que ha configurado "," como símbolo decimal, vaya a "Cambio de fecha, hora o formatos de número" en el Panel de Control y vaya a "Configuración adicional" que se cambie el símbolo decimal a".".
 
 Una vez que se completa la generación de perfiles, se puede ejecutar la herramienta en modo de generación de informes. La siguiente tabla contiene una lista de los parámetros obligatorios y opcionales de la herramienta que se ejecutan en modo de generación de informes.
 

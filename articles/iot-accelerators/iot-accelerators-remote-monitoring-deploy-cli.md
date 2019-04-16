@@ -1,6 +1,6 @@
 ---
-title: 'Implementación de la solución Supervisión remota mediante la CLI: Azure | Microsoft Docs'
-description: En esta guía paso a paso, se muestra cómo aprovisionar el acelerador de la solución Supervisión remota mediante la CLI.
+title: 'Implementación de la solución de supervisión remota mediante la CLI: Azure | Microsoft Docs'
+description: En esta guía paso a paso, se muestra cómo aprovisionar el acelerador de soluciones de supervisión remota mediante la CLI.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
@@ -15,13 +15,13 @@ ms.contentlocale: es-ES
 ms.lasthandoff: 04/01/2019
 ms.locfileid: "58793786"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementación del acelerador de la solución Supervisión remota mediante la CLI
+# <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Implementación del acelerador de soluciones de supervisión remota mediante la CLI
 
-En esta guía paso a paso, se explica cómo implementar el acelerador de la solución Supervisión remota. La solución se implementa mediante la CLI. También puede implementar la solución con la interfaz de usuario basada en web en azureiotsolutions.com, para obtener información sobre esta opción, consulte el [implementar el Acelerador de solución de supervisión remota](quickstart-remote-monitoring-deploy.md) Guía de inicio rápido.
+En esta guía paso a paso, se explica cómo implementar el acelerador de soluciones de supervisión remota. La solución se implementa mediante la CLI. También puede implementar la solución con la interfaz de usuario basada en web en azureiotsolutions.com, para obtener información sobre esta opción, consulte el [implementar el Acelerador de solución de supervisión remota](quickstart-remote-monitoring-deploy.md) Guía de inicio rápido.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para implementar el acelerador de la solución Supervisión remota, necesita una suscripción de Azure activa.
+Para implementar el acelerador de soluciones de supervisión remota, necesita una suscripción de Azure activa.
 
 En caso de no tener ninguna, puede crear una cuenta de evaluación gratuita en tan solo unos minutos. Para obtener más información, consulte [Evaluación gratuita de Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -54,7 +54,7 @@ Al implementar el acelerador de la solución, hay varias opciones que permiten c
 | SKU    | `basic`, `standard`, `local` | Una implementación _básica_ está destinada a pruebas y demostraciones. En este tipo de implementación, todos los microservicios se implementan en una única máquina virtual. Una implementación _estándar_ está destinada a producción. En este tipo de implementación, los microservicios se implementan en varias máquinas virtuales. Una implementación _local_ configura un contenedor de Docker para que ejecute los microservicios en la máquina local y usa los servicios de nube de Azure, como Storage y Cosmos DB. |
 | Tiempo de ejecución | `dotnet`, `java` | Selecciona la implementación del lenguaje de los microservicios. |
 
-Para obtener información sobre cómo usar la opción de implementación local, consulte el artículo sobre la [ejecución local de la solución Supervisión remota](iot-accelerators-remote-monitoring-deploy-local.md).
+Para obtener información sobre cómo usar la opción de implementación local, consulte el artículo sobre la [ejecución local de la solución de supervisión remota](iot-accelerators-remote-monitoring-deploy-local.md).
 
 ## <a name="basic-and-standard-deployments"></a>Implementaciones estándar y básica
 
@@ -111,7 +111,7 @@ Ejemplos de implementación:
 
 ### <a name="example-deploy-net-version"></a>Ejemplo: Implementación de la versión de .NET
 
-En el ejemplo siguiente, se muestra cómo implementar la versión de .NET básica del acelerador de la solución Supervisión remota:
+En el ejemplo siguiente, se muestra cómo implementar la versión de .NET básica del acelerador de soluciones de supervisión remota:
 
 ```cmd/sh
 pcs -t remotemonitoring -s basic -r dotnet
@@ -119,7 +119,7 @@ pcs -t remotemonitoring -s basic -r dotnet
 
 ### <a name="example-deploy-java-version"></a>Ejemplo: Implementación de la versión de Java
 
-En el ejemplo siguiente, se muestra cómo implementar la versión de Java estándar del acelerador de la solución Supervisión remota:
+En el ejemplo siguiente, se muestra cómo implementar la versión de Java estándar del acelerador de soluciones de supervisión remota:
 
 ```cmd/sh
 pcs -t remotemonitoring -s standard -r java

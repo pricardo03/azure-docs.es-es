@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/18/2019
+ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 45224b1b0ec4a4b3c93393c178f1f03baa58e10b
-ms.sourcegitcommit: f331186a967d21c302a128299f60402e89035a8d
+ms.openlocfilehash: ff5c8c4d3f6a0c87afae67404a5a39d4fe3757d9
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58189145"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571102"
 ---
 # <a name="virtual-network-tap"></a>Virtual Network TAP
 
@@ -36,17 +36,18 @@ Azure Virtual Network TAP (punto de acceso del terminal) permite transmitir en s
 - [Big Monitoring Fabric de Big Switch](https://www.bigswitch.com/products/big-monitoring-fabric/public-cloud/microsoft-azure)
 - [GigaSECURE de Gigamon](https://blog.gigamon.com/2018/09/13/why-microsofts-new-vtap-service-works-even-better-with-gigasecure-for-azure)
 - [CloudLens de Ixia](https://www.ixiacom.com/cloudlens/cloudlens-azure)
+- [Prisms de Nubeva](https://www.nubeva.com/azurevtap)
 
 ### <a name="security-analytics-networkapplication-performance-management"></a>Análisis de seguridad, administración del rendimiento de red o de la aplicación
 
 - [Seguridad activo](https://awakesecurity.com/technology-partners/microsoft-azure/)
 - [En la nube de Cisco Stealthwatch](https://blogs.cisco.com/security/cisco-stealthwatch-cloud-and-microsoft-azure-reliable-cloud-infrastructure-meets-comprehensive-cloud-security)
+- [Darktrace](https://www.darktrace.com/en/azure/)
 - [Reveal(x) de ExtraHop](https://www.extrahop.com/company/tech-partners/microsoft/)
 - [Cybersecurity de Fidelis](https://www.fidelissecurity.com/technology-partners/microsoft-azure )
 - [Flowmon](https://www.flowmon.com/blog/azure-vtap)
 - [NetFort LANGuardian](https://www.netfort.com/languardian/solutions/visibility-in-azure-network-tap/)
 - [vSTREAM de Netscout]( https://www.netscout.com/technology-partners/microsoft/azure-vtap)
-- [Prisms de Nubeva](https://www.nubeva.com/azurevtap)
 - [NetWitness® Platform de RSA](https://www.rsa.com/azure)
 - [Cognito de Vectra](https://vectra.ai/microsoftazure)
 
@@ -56,7 +57,7 @@ En la siguiente imagen se muestra cómo funciona Virtual Network TAP. Puede agre
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Antes de crear un Virtual Network TAP, debe haber recibido un correo electrónico de confirmación de su inscripción a la versión preliminar y debe haber creado una o más máquinas virtuales usando el modelo de implementación de [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) y una solución de un partner para agregar el tráfico de TAP en la región WestCentralUS. Si no tiene ninguna solución de partner en la red virtual, consulte [soluciones de partners](#virtual-network-tap-partner-solutions) para implementar una. Puede usar el mismo recurso de Virtual Red TAP para agregar tráfico de diferentes interfaces de red en la misma suscripción o en suscripciones distintas. Si las interfaces de red supervisadas se encuentran en suscripciones distintas, ambas suscripciones deben estar asociadas al mismo inquilino de Azure Active Directory. Además, las interfaces de red supervisadas y el punto de conexión de destino para agregar tráfico del TAP pueden estar en redes virtuales emparejadas en la misma región. Si usa este modelo de implementación, asegúrese de que el [emparejamiento de redes virtuales](virtual-network-peering-overview.md) está habilitada antes de configurar Virtual Network TAP.
+Antes de crear un TAP de red virtual, debe haber recibido un correo electrónico de confirmación que están inscritos en la vista previa y tiene uno o más máquinas virtuales creados mediante [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) modelo de implementación y un socio comercial solución para la agregación de la derivación de tráfico en la misma región de azure. Si no tiene ninguna solución de partner en la red virtual, consulte [soluciones de partners](#virtual-network-tap-partner-solutions) para implementar una. Puede usar el mismo recurso de Virtual Red TAP para agregar tráfico de diferentes interfaces de red en la misma suscripción o en suscripciones distintas. Si las interfaces de red supervisadas se encuentran en suscripciones distintas, ambas suscripciones deben estar asociadas al mismo inquilino de Azure Active Directory. Además, las interfaces de red supervisadas y el punto de conexión de destino para agregar tráfico del TAP pueden estar en redes virtuales emparejadas en la misma región. Si usa este modelo de implementación, asegúrese de que el [emparejamiento de redes virtuales](virtual-network-peering-overview.md) está habilitada antes de configurar Virtual Network TAP.
 
 ## <a name="permissions"></a>Permisos
 
