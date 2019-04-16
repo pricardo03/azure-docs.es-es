@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/11/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 311fdb0b0a2e587e7cf8581f967ed0248de85f6d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 4563bb0de688a8328796badffc8a133a33f64fcc
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59291695"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566553"
 ---
 ## <a name="benefits-of-managed-disks"></a>Ventajas de los discos administrados
 
@@ -31,7 +31,7 @@ Con discos administrados, puede crear hasta 50 000 **discos** de máquina virtu
 
 Los discos administrados se integran con conjuntos de disponibilidad para garantizar que los discos de [máquinas virtuales de un conjunto de disponibilidad](../articles/virtual-machines/windows/manage-availability.md#use-managed-disks-for-vms-in-an-availability-set) están suficientemente aislados entre sí para evitar un único punto de error. Los discos se colocan automáticamente en diferentes unidades de escalado de almacenamiento (marcas). Si se produce un error en una marca debido a un error de hardware o software, solo dejarán de funcionar las instancias de máquina virtual con discos de dichas marcas. Por ejemplo, suponga que tiene una aplicación que se ejecuta en cinco máquinas virtuales y estas están en un conjunto de disponibilidad. No todos los discos de dichas máquinas virtuales se almacenarán en la misma marca, por lo que, si se produce un error en una, no se detiene la ejecución de las restantes instancias de la aplicación.
 
-## <a name="integration-with-availability-zones"></a>Integración con las zonas de disponibilidad
+### <a name="integration-with-availability-zones"></a>Integración con las zonas de disponibilidad
 
 Admite discos de Managed [zonas de disponibilidad](../articles/availability-zones/az-overview.md), que es una oferta de alta disponibilidad que protege sus aplicaciones frente a errores de centro de datos. Las zonas de disponibilidad son ubicaciones físicas exclusivas dentro de una región de Azure. Cada zona de disponibilidad consta de uno o varios centros de datos equipados con alimentación, refrigeración y redes independientes. Para garantizar la resistencia, hay tres zonas independientes como mínimo en todas las regiones habilitadas. Con las zonas de disponibilidad, Azure ofrece el mejor Acuerdo de Nivel de Servicio del sector de tiempo de actividad de máquina virtual, con un 99,99 %.
 
@@ -69,8 +69,8 @@ Una instantánea de disco administrado es una copia completa de solo lectura de 
 
 Para más información sobre cómo crear instantáneas con discos administrados, consulte los siguientes recursos:
 
-* [Crear copia del VHD almacenado como un disco administrado mediante instantáneas en Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
-* [Crear copia del VHD almacenado como un disco administrado mediante instantáneas en Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
+* [Creación de una copia del disco duro virtual que se almacene como un disco administrado mediante instantáneas en Windows](../articles/virtual-machines/windows/snapshot-copy-managed-disk.md)
+* [Creación de una copia del disco duro virtual que se almacene como un disco administrado mediante instantáneas en Linux](../articles/virtual-machines/linux/snapshot-copy-managed-disk.md)
 
 ### <a name="images"></a>Imágenes
 
@@ -78,8 +78,8 @@ Los discos administrados también admiten la creación de una imagen personaliza
 
 Para más información sobre la creación de imágenes, consulte los artículos siguientes:
 
-* [Captura de una imagen administrada de una VM generalizada en Azure](../articles/virtual-machines/windows/capture-image-resource.md)
-* [Procedimiento para generalizar y capturar una máquina virtual de Linux mediante la CLI de Azure](../articles/virtual-machines/linux/capture-image.md)
+* [How to capture a managed image of a generalized VM in Azure](../articles/virtual-machines/windows/capture-image-resource.md) (Captura de una imagen administrada de una máquina virtual generalizada en Azure)
+* [How to generalize and capture a Linux virtual machine using the Azure CLI 2.0](../articles/virtual-machines/linux/capture-image.md) (Procedimiento de generalización y captura de una máquina virtual Linux con la CLI de Azure 2.0)
 
 #### <a name="images-versus-snapshots"></a>Imágenes frente a instantáneas
 

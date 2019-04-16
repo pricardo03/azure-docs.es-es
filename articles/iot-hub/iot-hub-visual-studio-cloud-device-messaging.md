@@ -7,16 +7,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/07/2018
 ms.author: xshi
-ms.openlocfilehash: bc955db4e851c1f59012dc1375170850e1b0604c
-ms.sourcegitcommit: 30d23a9d270e10bb87b6bfc13e789b9de300dc6b
-ms.translationtype: HT
+ms.openlocfilehash: ab3c02d7207bca70a90df8aa08c73c1484cd635d
+ms.sourcegitcommit: e89b9a75e3710559a9d2c705801c306c4e3de16c
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/08/2019
-ms.locfileid: "54109510"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59571318"
 ---
 # <a name="use-cloud-explorer-for-visual-studio-to-send-and-receive-messages-between-your-device-and-iot-hub"></a>Uso de Cloud Explorer para Visual Studio para enviar y recibir mensajes entre el dispositivo e IoT Hub
 
-![Diagrama integral](media/iot-hub-get-started-e2e-diagram/2.png)
+![Diagrama integral](./media/iot-hub-visual-studio-cloud-device-messaging/e-to-e-diagram.png)
 
 [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) es una extensión útil de Visual Studio que le permite ver los recursos de Azure, inspeccionar sus propiedades y realizar acciones de desarrollador clave desde dentro de Visual Studio. Este artículo se centra en cómo usar Cloud Explorer para enviar y recibir mensajes entre el dispositivo y su instancia de IoT Hub.
 
@@ -35,7 +35,7 @@ Aprenderá a usar Cloud Explorer para Visual Studio para supervisar los mensajes
 
 - Una suscripción de Azure activa.
 - Una instancia de Azure IoT Hub en su suscripción.
-- Microsoft Visual Studio 2017 Update 8 o superior
+- Microsoft Visual Studio 2017 Update 8 o posterior
 - El componente Cloud Explorer desde el Instalador de Visual Studio (se selecciona de forma predeterminada con la carga de trabajo de Azure)
 
 ## <a name="update-cloud-explorer-to-latest-version"></a>Actualización de Cloud Explorer a la versión más reciente
@@ -48,10 +48,14 @@ El componente Cloud Explorer desde el Instalador de Visual Studio solo admite la
 
     ![Hacer clic en Administración de cuentas](media/iot-hub-visual-studio-cloud-device-messaging/click-account-management.png)
 
-1. Haga clic en **Manage Accounts** (Administrar cuentas) en Cloud Explorer.
-1. Haga clic en **Add an account...** (Agregar una cuenta...) en la nueva ventana para iniciar sesión en Azure por primera vez.
-1. Después de iniciar sesión, se muestra la lista de suscripciones de Azure. Seleccione las suscripciones de Azure que quiere ver y haga clic en **Apply** (Aplicar).
-1. Expanda **su suscripción** > **IoT Hubs** > **su instancia de IoT Hub**; la lista de dispositivos se mostrará en su nodo de IoT Hub.
+
+2. Haga clic en **Manage Accounts** (Administrar cuentas) en Cloud Explorer.
+
+3. Haga clic en **Add an account...** (Agregar una cuenta...) en la nueva ventana para iniciar sesión en Azure por primera vez.
+
+4. Después de iniciar sesión, se muestra la lista de suscripciones de Azure. Seleccione las suscripciones de Azure que quiere ver y haga clic en **Apply** (Aplicar).
+
+5. Expanda **su suscripción** > **IoT Hubs** > **su instancia de IoT Hub**; la lista de dispositivos se mostrará en su nodo de IoT Hub.
 
     ![Lista de dispositivos](media/iot-hub-visual-studio-cloud-device-messaging/device-list.png)
 
@@ -63,11 +67,11 @@ Para supervisar los mensajes que se envían desde el dispositivo a IoT Hub, siga
 
     ![Iniciar la supervisión del mensaje de D2C](media/iot-hub-visual-studio-cloud-device-messaging/start-monitoring-d2c-message.png)
 
-1. Los valores supervisados se mostrarán en el panel de salida de **IoT Hub**.
+2. Los valores supervisados se mostrarán en el panel de salida de **IoT Hub**.
 
     ![Resultado de supervisión del mensaje de D2C](media/iot-hub-visual-studio-cloud-device-messaging/monitor-d2c-message-result.png)
 
-1. Para detener la supervisión, haga clic con el botón derecho en cualquier instancia de IoT Hub o en cualquier dispositivo y seleccione **Stop Monitoring D2C Message** (Detener la supervisión del mensaje de D2C).
+3. Para detener la supervisión, haga clic con el botón derecho en cualquier instancia de IoT Hub o en cualquier dispositivo y seleccione **Stop Monitoring D2C Message** (Detener la supervisión del mensaje de D2C).
 
 ## <a name="send-cloud-to-device-messages"></a>Envío de mensajes de nube a dispositivo
 
@@ -77,8 +81,9 @@ Para enviar un mensaje desde IoT Hub al dispositivo, siga estos pasos:
 
     ![Enviar mensaje de C2D](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message.png)
 
-1. Escriba el mensaje en el cuadro de entrada.
-1. Los resultados se mostrarán en el panel de salida de **IoT Hub**.
+2. Escriba el mensaje en el cuadro de entrada.
+
+3. Los resultados se mostrarán en el panel de salida de **IoT Hub**.
 
     ![Resultado de enviar mensaje de C2D](media/iot-hub-visual-studio-cloud-device-messaging/send-c2d-message-result.png)
 

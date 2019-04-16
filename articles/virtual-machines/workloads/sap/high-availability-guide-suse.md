@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/15/2019
 ms.author: sedusch
-ms.openlocfilehash: 9809584a3abe1d0cdde2cd6ccf90b48432d27c11
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 90ec7cf4964440d39b3f69eb9ae9708eaafe3748
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007851"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579043"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server para SAP Applications
 
@@ -95,7 +95,8 @@ El servidor NFS, SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS y la b
   * Se conecta a interfaces de red principales de todas las máquinas que deben ser parte del clúster (A)SCS/ERS
 * Puerto de sondeo
   * Puerto 620<strong>&lt;nr&gt;</strong>
-* Reglas de equilibrio de carga
+* Carga 
+* las reglas de equilibrio
   * 32<strong>&lt;nr&gt;</strong> TCP
   * 36<strong>&lt;nr&gt;</strong> TCP
   * 39<strong>&lt;nr&gt;</strong> TCP
@@ -132,7 +133,8 @@ Azure Marketplace contiene una imagen de SUSE Linux Enterprise Server para SAP A
 
 Para implementar todos los recursos necesarios, puede usar una de las plantillas de inicio rápido de GitHub. La plantilla implementa las máquinas virtuales, el equilibrador de carga, el conjunto de disponibilidad, etc. Siga estos pasos para implementar la plantilla:
 
-1. Abra la [plantilla ASCS/SCS de varios SID][template-multisid-xscs] o la [plantilla convergente][template-converged] en Azure Portal. La plantilla ASCS/SCS solo crea las reglas de equilibrio de carga para las instancias ASCS/SCS y ERS (solo Linux) de SAP NetWeaver, mientras que la plantilla convergente también crea las reglas de equilibrio de carga para una base de datos (por ejemplo, Microsoft SQL Server o SAP HANA). Si tiene previsto instalar un sistema basado en SAP NetWeaver y desea instalar la base de datos en las mismas máquinas, use la [plantilla convergente][template-converged].
+1. Abra el [plantilla de varios SID de ASCS/SCS] [ template-multisid-xscs] o el [plantilla convergente] [ template-converged] en el portal de Azure. 
+   La plantilla ASCS/SCS solo crea las reglas de equilibrio de carga para las instancias ERS (solo Linux) y SAP NetWeaver ASCS/SCS, mientras que la plantilla combinada también crea las reglas de equilibrio de carga para una base de datos (por ejemplo Microsoft SQL Server o SAP HANA). Si tiene previsto instalar un sistema basado en SAP NetWeaver y desea instalar la base de datos en las mismas máquinas, use la [plantilla convergente][template-converged].
 1. Escriba los siguientes parámetros:
    1. Prefijo de recurso (solo la plantilla de varios ASCS/SCS de varios SID)  
       Escriba el prefijo que desea usar. El valor se usa como prefijo de los recursos que se implementan.
@@ -144,7 +146,7 @@ Para implementar todos los recursos necesarios, puede usar una de las plantillas
       Seleccione una de las distribuciones de Linux. En este ejemplo, seleccione SLES 12 BYOS
    6. Tipo de base de datos  
       Seleccione HANA
-   7. Tamaño del sistema SAP  
+   7. Tamaño del sistema SAP.  
       La cantidad de SAPS que proporciona el sistema nuevo. Si no está seguro de cuántos SAP necesita el sistema, consulte con el integrador de sistemas o el asociado tecnológico de SAP
    8. Disponibilidad del sistema  
       Seleccione alta disponibilidad
@@ -530,6 +532,8 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 
 1. **[1]** Cree los recursos de clúster de SAP
 
+Si usa la arquitectura de servidor 1 de puesta en cola (ENSA1), defina los recursos como sigue:
+
    <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
@@ -556,7 +560,37 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    sudo crm configure property maintenance-mode="false"
    </code></pre>
 
+  SAP ha introducido soporte técnico para el servidor 2, incluida la replicación, a partir de SAP NW 7.52 de puesta en cola. A partir de ABAP plataforma 1809, poner en cola el servidor 2 está instalado de forma predeterminada. Consulte SAP nota [2630416](https://launchpad.support.sap.com/#/notes/2630416) para la compatibilidad con el servidor 2 de puesta en cola.
+Si usa la arquitectura de servidor 2 de puesta en cola ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), definir los recursos como sigue:
+
+<pre><code>sudo crm configure property maintenance-mode="true"
+   
+   sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>NW1</b>_ASCS<b>00</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000
+   
+   sudo crm configure primitive rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
+    operations \$id=rsc_sap_<b>NW1</b>_ERS<b>02</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>" AUTOMATIC_RECOVER=false IS_ERS=true 
+   
+   sudo crm configure modgroup g-<b>NW1</b>_ASCS add rsc_sap_<b>NW1</b>_ASCS<b>00</b>
+   sudo crm configure modgroup g-<b>NW1</b>_ERS add rsc_sap_<b>NW1</b>_ERS<b>02</b>
+   
+   sudo crm configure colocation col_sap_<b>NW1</b>_no_both -5000: g-<b>NW1</b>_ERS g-<b>NW1</b>_ASCS
+   sudo crm configure order ord_sap_<b>NW1</b>_first_start_ascs Optional: rsc_sap_<b>NW1</b>_ASCS<b>00</b>:start rsc_sap_<b>NW1</b>_ERS<b>02</b>:stop symmetrical=false
+   
+   sudo crm node online <b>nw1-cl-0</b>
+   sudo crm configure property maintenance-mode="false"
+   </code></pre>
+
+  Si está actualizando desde una versión anterior y cambiar a poner en cola el servidor 2, consulte la nota de sap [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
+
    Asegúrese de que el estado del clúster sea el correcto y que se iniciaron todos los recursos. No es importante en qué nodo se ejecutan los recursos.
+
 
    <pre><code>sudo crm_mon -r
    
@@ -958,7 +992,7 @@ Las siguientes pruebas son una copia de los casos de prueba de las guías de pro
         rsc_sap_NW1_ERS02  (ocf::heartbeat:SAPInstance):   Started nw1-cl-0
    </code></pre>
 
-   Cree un bloqueo de puesta en cola; por ejemplo, edite un usuario en la transacción su01. Ejecute los comandos siguientes como \<sapsid>adm en el nodo donde se ejecuta la instancia de ASCS. Los comandos detendrán la instancia de ASCS y la volverán a iniciar. Está previsto que el bloqueo de puesta en cola se pierda en esta prueba.
+   Cree un bloqueo de puesta en cola; por ejemplo, edite un usuario en la transacción su01. Ejecute los comandos siguientes como \<sapsid>adm en el nodo donde se ejecuta la instancia de ASCS. Los comandos detendrán la instancia de ASCS y la volverán a iniciar. Si usa la arquitectura de servidor 1 de puesta en cola, se espera el bloqueo de puesta en cola se perderá en esta prueba. Si usa la arquitectura de servidor 2 de puesta en cola, se conservarán la puesta en cola. 
 
    <pre><code>nw1-cl-1:nw1adm 54> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>

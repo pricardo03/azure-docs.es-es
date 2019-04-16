@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 0a29c15be6cfb73bb768e74cd9141e660b598f06
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.openlocfilehash: c68bae87440bddf704d18b575aeb1f4ba4760bbb
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/15/2019
-ms.locfileid: "59565672"
+ms.locfileid: "59578250"
 ---
 # <a name="how-to-change-the-licensing-model-for-a-sql-server-virtual-machine-in-azure"></a>Modificación del modelo de licencia para una máquina virtual de SQL Server en Azure
 En este artículo se describe cómo cambiar el modelo de licencia para una máquina virtual con SQL Server en Azure mediante el nuevo proveedor de recursos de VM con SQL, **Microsoft.SqlVirtualMachine**. Hay dos modelos para una máquina virtual (VM) que hospeda SQL Server - pago por uso, de licencia y traiga su propia licencia (BYOL). Y ahora, mediante Azure portal, CLI de Azure o PowerShell se puede modificar qué modelo de licencia que usa la máquina virtual de SQL Server. 
@@ -44,7 +44,7 @@ El cambio entre los dos modelos de licencia no genera **ningún tiempo de inacti
  - Actualmente, la capacidad de convertir el modelo de licencia solo está disponible cuando se inicia con una imagen de VM con SQL Server de pago por uso. Si inicia con una imagen de traiga su propia licencia desde el portal, no podrá convertir esa imagen al modo pago por uso.
  - Cambiar el modelo de licencias solo se admite para las máquinas virtuales implementadas mediante el modelo de Resource Manager. No se admiten las máquinas virtuales implementadas mediante el modelo clásico. 
  - Cambiar el modelo de licencias está habilitada solo para las instalaciones de la nube pública.
- - Cambiar el modelo de licencias solo se admite en máquinas virtuales que tengan una sola NIC (interfaz de red). En las máquinas virtuales que tienen más de una NIC, primero debe quitar una de las NIC (mediante el uso de Azure portal) antes de intentar el procedimiento. En caso contrario, se producirá un error similar al siguiente: ` The virtual machine '\<vmname\>' has more than one NIC associated.` Aunque es posible que pueda volver a agregar la NIC a la máquina virtual después de cambiar el modo de licencia, las operaciones realizadas a través de la hoja de configuración de SQL, como aplicación automática de revisiones y la copia de seguridad, ya no se considerará compatible.
+ - Cambiar el modelo de licencias solo se admite en máquinas virtuales que tengan una sola NIC (interfaz de red). En las máquinas virtuales que tienen más de una NIC, primero debe quitar una de las NIC (mediante el uso de Azure portal) antes de intentar el procedimiento. En caso contrario, se producirá un error similar al siguiente: `The virtual machine '\<vmname\>' has more than one NIC associated.` Aunque es posible que pueda volver a agregar la NIC a la máquina virtual después de cambiar el modo de licencia, las operaciones realizadas a través de la hoja de configuración de SQL, como aplicación automática de revisiones y la copia de seguridad, ya no se considerará compatible.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

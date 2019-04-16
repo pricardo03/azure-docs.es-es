@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 6b109f347ee7a917b57acfc56ab4418755295bc5
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 78a8b5e7a1c5512f81315519210bc7759dd15342
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58896515"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578482"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Instalar TmaxSoft OpenFrame en Azure
 
@@ -945,7 +945,7 @@ ProSort es una utilidad que se usan en transacciones por lotes para ordenar los 
      export PATH
      ```
 
-6. Para ejecutar el perfil de bash, en el símbolo del sistema, escriba: ` . .bash_profile`
+6. Para ejecutar el perfil de bash, en el símbolo del sistema, escriba: `. .bash_profile`
 
 7. Cree el archivo de configuración. Por ejemplo: 
 
@@ -1055,7 +1055,7 @@ OFCOBOL es el compilador OpenFrame que interpreta los programas de COBOL del gra
      0 NonFatalErrors 
      0 FatalError
      ```
-10. Use el `ofcob --version ` comando y revise el número de versión para comprobar la instalación. Por ejemplo: 
+10. Use el `ofcob --version` comando y revise el número de versión para comprobar la instalación. Por ejemplo: 
 
      ```
      [oframe7@ofdemo ~]$ ofcob --version 
@@ -1342,7 +1342,7 @@ Antes de instalar JEUS, instale el paquete de Apache Ant, que proporciona las bi
      [oframe7\@ofdemo setup]\$ vi domain-config-template.properties
      ```
 
-7. Cambio `jeus.password=jeusadmin nodename=Tmaxsoft` a `jeus.password=tmax1234 nodename=ofdemo`
+7. Cambie `jeus.password=jeusadmin nodename=Tmaxsoft` a `jeus.password=tmax1234 nodename=ofdemo`.
 
 8. Ejecute el `ant install` comando para compilar JEUS.
 9.  Actualizar el .bash\_archivo de perfil con las variables JEUS tal como se muestra:
@@ -1476,6 +1476,6 @@ Esto completa la instalación de los componentes OpenFrame.
 
 Si está considerando una migración de mainframes, está disponible para ayudarle a nuestro ecosistema de asociados de expansión. Para más información sobre cómo elegir una solución de asociados, consulte [Platform Modernization Alliance](https://www.platformmodernization.org/pages/mainframe.aspx).
 
--   [Introducción a Azure](https://docs.microsoft.com/azure/)
+-   [Comience a usar Azure](https://docs.microsoft.com/azure/)
 -   [Documentación de Host Integration Server (HIS)](https://docs.microsoft.com/host-integration-server/)
 -   [Guía del centro de datos Virtual de Azure mediante Lift-and-Shift](https://blogs.msdn.microsoft.com/azurecat/2018/03/12/new-whitepaper-azure-virtual-datacenter-lift-and-shift-guide/)

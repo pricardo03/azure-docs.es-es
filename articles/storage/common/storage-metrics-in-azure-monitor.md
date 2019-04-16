@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: e9d11f7426a70d058daa75466b977e47e6e33ee8
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.openlocfilehash: 426dd265f4d608b8dd3c9ab746479ea103419562
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505777"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579349"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas de Azure Storage en Azure Monitor
 
@@ -393,7 +393,7 @@ Azure Storage admite los siguientes dimensiones para las métricas en Azure Moni
 | Nombre de dimensión | DESCRIPCIÓN |
 | ------------------- | ----------------- |
 | BlobType | Solo el tipo de blob de las métricas de Blob. Los valores que se admiten son **BlockBlob** y **PageBlob**. Anexar Blob se incluye en BlockBlob. |
-| ResponseType | Tipo de respuesta de la transacción. Los valores disponibles son: <br/><br/> <li>ServerOtherError: todos los errores del servidor, excepto los descritos. </li> <li> ServerBusyError: solicitud autenticada que devolvió un código de estado HTTP 503. </li> <li> ServerTimeoutError: solicitud autenticada que ha superado el tiempo de espera y que devolvió un código de estado HTTP 500. El tiempo de espera se superó debido a un error del servidor. </li> <li> AuthorizationError: solicitud autenticada errónea debido a un acceso no autorizado de los datos o a un error de autorización. </li> <li> NetworkError: solicitud autenticada errónea debido a errores de red. Normalmente se produce cuando un cliente cierra prematuramente una conexión antes de que se haya superado el tiempo de expiración. </li> <li>    ClientThrottlingError: error de limitación del lado cliente. </li> <li> ClientTimeoutError: solicitud autenticada que ha superado el tiempo de espera y que devolvió un código de estado HTTP 500. Si el tiempo de expiración de la red del cliente o el tiempo de expiración de la solicitud se establece en un valor menor de lo que espera el servicio de almacenamiento, es un tiempo de expiración esperado. De lo contrario, se notifica como un error ServerTimeoutError. </li> <li> ClientOtherError: todos los errores del lado cliente, excepto los descritos. </li> <li> Correcto: Solicitud correcta. </li> <li> SuccessWithThrottling: Solicitud correcta cuando un cliente SMB limita en el primer intento, pero se ejecuta correctamente después de reintentos.|
+| ResponseType | Tipo de respuesta de la transacción. Los valores disponibles son: <br/><br/> <li>ServerOtherError: todos los errores del servidor, excepto los descritos. </li> <li> ServerBusyError: solicitud autenticada que devolvió un código de estado HTTP 503. </li> <li> ServerTimeoutError: solicitud autenticada que ha superado el tiempo de espera y que devolvió un código de estado HTTP 500. El tiempo de espera se superó debido a un error del servidor. </li> <li> AuthorizationError: solicitud autenticada errónea debido a un acceso no autorizado de los datos o a un error de autorización. </li> <li> NetworkError: solicitud autenticada errónea debido a errores de red. Normalmente se produce cuando un cliente cierra prematuramente una conexión antes de que se haya superado el tiempo de expiración. </li> <li>    ClientThrottlingError: error de limitación del lado cliente. </li> <li> ClientTimeoutError: solicitud autenticada que ha superado el tiempo de espera y que devolvió un código de estado HTTP 500. Si el tiempo de expiración de la red del cliente o el tiempo de expiración de la solicitud se establece en un valor menor de lo que espera el servicio de almacenamiento, es un tiempo de expiración esperado. De lo contrario, se notifica como un error ServerTimeoutError. </li> <li> ClientOtherError: todos los errores del lado cliente, excepto los descritos. </li> <li> Correcto: Solicitud correcta.|
 | GeoType | Transacción de clúster principal o secundario. Los valores disponibles incluyen Principal y Secundario. Se aplica al Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) al leer objetos de un inquilino secundario. |
 | ApiName | El nombre de la operación. Por ejemplo:  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Para ver los nombres de todas las operaciones, consulte este [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
 | Authentication | Tipos de autenticación que se usan en las transacciones. Los valores disponibles son: <br/> <li>AccountKey: la transacción se autentica con la clave de la cuenta de almacenamiento.</li> <li>SAS: la transacción se autentica con firmas de acceso compartido.</li> <li>OAuth: la transacción se autentica con tokens de acceso de OAuth.</li> <li>Anonymous: la transacción se solicita de forma anónima. No incluye las solicitudes preparatorias.</li> <li>AnonymousPreflight: la transacción es una solicitud preparatoria.</li> |
@@ -406,15 +406,15 @@ Las métricas heredades están disponibles en paralelo con las métricas de Azur
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
-**¿Admite la cuenta de almacenamiento clásico nuevas métricas?**
+**¿Es compatible la nueva métrica con la cuenta de almacenamiento clásica?**
 
 No, la métrica nueva de Azure Monitor solo admite cuentas de almacenamiento de Azure Resource Manager. Si desea usar la métricas en cuentas de almacenamiento, es preciso que realice la migración a una cuenta de almacenamiento de Azure Resource Manager. Consulte [Migración a Azure Resource Manager](https://docs.microsoft.com/azure/virtual-machines/windows/migration-classic-resource-manager-overview).
 
-**¿Azure Storage admite métricas para Managed Disks o discos no administrados?**
+**¿Admite Azure Storage métricas de discos administrados o no administrados?**
 
 No, Azure Compute admite las métricas en discos. Consulte el [artículo](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/) para más información.
 
-**¿Cómo asignar y migrar las métricas clásicas con nuevas métricas?**
+**¿Cómo asignar y migrar métricas clásicas con nuevas métricas?**
 
 Puede encontrar asignaciones detalladas entre métricas clásicas y nuevas métricas en [Migración de las métricas de Azure Storage](./storage-metrics-migration.md).
 

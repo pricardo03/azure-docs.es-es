@@ -10,18 +10,25 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 04/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1abf3fd5ca678f878e36e3df3f8da0c0e0b5f852
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.openlocfilehash: e58205e847dbfdae8a114221f9bd56102555eeef
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528142"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579162"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notas de la versión del servicio Azure Machine Learning
 
 En este artículo obtendrá información acerca de las versiones del servicio Azure Machine Learning.  Para obtener una descripción completa de cada SDK, consulte los documentos de referencia de:
 + El [**SDK principal de Azure Machine Learning para Python**](https://aka.ms/aml-sdk)
 + El [**SDK de preparación de datos de Azure Machine Learning**](https://aka.ms/data-prep-sdk)
+
+## <a name="2019-04-15"></a>2019-04-15
+
+### <a name="azure-portal"></a>Azure Portal
+  + Ahora puede volver a enviar un Script existente que se ejecute en un clúster de cálculo remoto existente. 
+  + Ahora puede ejecutar una canalización publicada con los nuevos parámetros en la ficha de canalizaciones. 
+  + Detalles de ejecución ahora es compatible con un nuevo Visor del archivo de instantánea. Puede ver una instantánea del directorio cuando envía una ejecución específica. También puede descargar el Bloc de notas que se envió para iniciar la ejecución.
 
 ## <a name="2019-04-08"></a>2019-04-08
 
@@ -49,6 +56,7 @@ En este artículo obtendrá información acerca de las versiones del servicio Az
   + Detección del tipo de columna ahora es compatible con las columnas de tipo Long.
   + Se ha corregido un error donde se muestran algunos valores de fecha como marcas de tiempo en lugar de objetos de fecha y hora de Python.
   + Se ha corregido un error donde se muestran algunos recuentos de tipo como dobles en lugar de enteros.
+
   
 ## <a name="2019-03-25"></a>2019-03-25
 
