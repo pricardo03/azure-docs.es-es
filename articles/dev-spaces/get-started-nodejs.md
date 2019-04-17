@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
-ms.openlocfilehash: 063ea2392dcaa705436bfbd7ba5d429bb096651e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: dc84844738e501a30f73104a76ff80bf00adff24
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891042"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425829"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Introducción a Azure Dev Spaces con Node.js
 
@@ -25,17 +25,10 @@ En esta guía, aprenderá a:
 - Desarrollar y probar de forma productiva el código en un entorno de equipo.
 
 > [!Note]
-> **Si se queda bloqueado** en cualquier momento, consulte la sección [Solución de problemas](troubleshooting.md) o publique un comentario en esta página.
-
-Ahora está preparado para crear un entorno de desarrollo basado en Kubernetes en Azure.
+> **Si se queda bloqueado** en cualquier momento, consulte la sección [Solución de problemas](troubleshooting.md).
 
 ## <a name="install-the-azure-cli"></a>Instalación de la CLI de Azure
-Azure Dev Spaces requiere una configuración mínima de la máquina local. La mayor parte de la configuración del espacio de desarrollo se almacena en la nube y se puede compartir con otros usuarios. El equipo local puede ejecutar Windows, Mac o Linux. Para Linux, se admiten las siguientes distribuciones: Ubuntu (18.04, 16.04 y 14.04), Debian 8 y 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2 y SLES 12.
-
-Para comenzar, descargue y ejecute la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). 
-
-> [!IMPORTANT]
-> Si ya tiene instalada la CLI de Azure, asegúrese de que usa la versión 2.0.43, o cualquier versión superior.
+Azure Dev Spaces requiere una configuración mínima de la máquina local. La mayor parte de la configuración del espacio de desarrollo se almacena en la nube y se puede compartir con otros usuarios. Para comenzar, descargue y ejecute la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### <a name="sign-in-to-azure-cli"></a>Inicio de sesión en la CLI de Azure
 Inicie sesión en Azure. Escriba el siguiente comando en una ventana de terminal:
@@ -167,7 +160,7 @@ Con Azure Dev Spaces no se trata solo de conseguir que el código se ejecute en 
 Abra la aplicación web en un dispositivo móvil mediante la dirección URL pública para webfrontend. Se recomienda que copie y envíe la dirección URL desde el escritorio al dispositivo para no tener que escribir la dirección larga. Cuando la aplicación web se cargue en el dispositivo móvil, notará que la interfaz de usuario no se muestra correctamente en un dispositivo pequeño.
 
 Para solucionar este problema, va a agregar una etiqueta META `viewport`:
-1. Abra el archivo `./public/index.html`.
+1. Abra el archivo `./public/index.html`
 1. Agregue la etiqueta META `viewport` al elemento existente `head`:
 
     ```html
@@ -272,10 +265,10 @@ En esta configuración, el contenedor está configurado para iniciar *nodemon*. 
 1. Edite el mensaje de saludo de nuevo en `server.js` y guarde el archivo.
 1. Actualice el explorador o haga clic en el botón *Say It Again* (Repetir) para que los cambios surtan efecto.
 
-**Ahora tiene un método para iterar rápidamente el código y depurarlo directamente en Kubernetes.** A continuación, verá cómo puede crear y llamar a un segundo contenedor.
+**Ya tiene un método para iterar rápidamente el código y depurarlo directamente en Kubernetes.** A continuación, verá cómo puede crear y llamar a un segundo contenedor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Aprenda sobre el desarrollo de varios servicios](multi-service-nodejs.md)
+> [Más información acerca del desarrollo de varios servicios](multi-service-nodejs.md)
 

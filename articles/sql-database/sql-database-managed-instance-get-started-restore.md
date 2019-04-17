@@ -9,25 +9,25 @@ ms.devlang: ''
 ms.topic: quickstart
 author: srdan-bozovic-msft
 ms.author: srbozovi
-ms.reviewer: carlrab, bonova
+ms.reviewer: sstein, carlrab, bonova
 manager: craigg
 ms.date: 12/14/2018
-ms.openlocfilehash: e2aa9edcd53aa3881b07e31fcf2312d5173a3a6e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5cf9046a26edae3e6076ee1effe32930f15f4569
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903522"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59356845"
 ---
-# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Inicio rápido: Restauración de una base de datos en una instancia administrada 
+# <a name="quickstart-restore-a-database-to-a-managed-instance"></a>Inicio rápido: Restauración de una base de datos en una instancia administrada
 
-En este inicio rápido, usará SQL Server Management Studio (SSMS) para restaurar una base de datos (el archivo de copia de seguridad de Wide World Importers - Standard) de Azure Blob Storage en una [instancia administrada](sql-database-managed-instance.md) de Azure SQL Database. 
+En este inicio rápido, usará SQL Server Management Studio (SSMS) para restaurar una base de datos (el archivo de copia de seguridad de Wide World Importers - Standard) de Azure Blob Storage en una [instancia administrada](sql-database-managed-instance.md) de Azure SQL Database.
 
 > [!VIDEO https://www.youtube.com/embed/RxWYojo_Y3Q]
 
 > [!NOTE]
-> - Para más información sobre la migración con Azure Database Migration Service (DMS), consulte [Migración de Instancia administrada mediante DMS](../dms/tutorial-sql-server-to-managed-instance.md). 
-> - Para más información sobre los diversos métodos de migración, consulte [Migración de una instancia de SQL Server a Instancia administrada de Azure SQL Database](sql-database-managed-instance-migrate.md).
+> Para más información sobre la migración con Azure Database Migration Service (DMS), consulte [Migración de Instancia administrada mediante DMS](../dms/tutorial-sql-server-to-managed-instance.md).
+> Para más información sobre los diversos métodos de migración, consulte [Migración de una instancia de SQL Server a Instancia administrada de Azure SQL Database](sql-database-managed-instance-migrate.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -51,9 +51,9 @@ En SSMS, siga estos pasos para restaurar la base de datos Wide World Importers e
 3. Ejecute el siguiente script de SQL, que usa una cuenta de almacenamiento configurada previamente y la clave SAS para [crear una credencial](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) en la instancia administrada.
 
    ```sql
-   CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases] 
+   CREATE CREDENTIAL [https://mitutorials.blob.core.windows.net/databases]
    WITH IDENTITY = 'SHARED ACCESS SIGNATURE'
-   , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D' 
+   , SECRET = 'sv=2017-11-09&ss=bfqt&srt=sco&sp=rwdlacup&se=2028-09-06T02:52:55Z&st=2018-09-04T18:52:55Z&spr=https&sig=WOTiM%2FS4GVF%2FEEs9DGQR9Im0W%2BwndxW2CQ7%2B5fHd7Is%3D'
    ```
 
     ![crear credencial](./media/sql-database-managed-instance-get-started-restore/credential.png)
@@ -61,7 +61,7 @@ En SSMS, siga estos pasos para restaurar la base de datos Wide World Importers e
 4. Para comprobar sus credenciales, ejecute el siguiente script, que usa una dirección URL de [contenedor](https://azure.microsoft.com/services/container-instances/) para obtener una lista de archivos de copia de seguridad.
 
    ```sql
-   RESTORE FILELISTONLY FROM URL = 
+   RESTORE FILELISTONLY FROM URL =
       'https://mitutorials.blob.core.windows.net/databases/WideWorldImporters-Standard.bak'
    ```
 
@@ -80,13 +80,13 @@ En SSMS, siga estos pasos para restaurar la base de datos Wide World Importers e
 
    ```sql
    SELECT session_id as SPID, command, a.text AS Query, start_time, percent_complete
-      , dateadd(second,estimated_completion_time/1000, getdate()) as estimated_completion_time 
-   FROM sys.dm_exec_requests r 
-   CROSS APPLY sys.dm_exec_sql_text(r.sql_handle) a 
+      , dateadd(second,estimated_completion_time/1000, getdate()) as estimated_completion_time
+   FROM sys.dm_exec_requests r
+   CROSS APPLY sys.dm_exec_sql_text(r.sql_handle) a
    WHERE r.command in ('BACKUP DATABASE','RESTORE DATABASE')
    ```
 
-7. Cuando se completa la restauración, se puede ver en el Explorador de objetos. 
+7. Cuando se completa la restauración, se puede ver en el Explorador de objetos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

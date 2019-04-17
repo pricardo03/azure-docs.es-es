@@ -9,12 +9,12 @@ ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/20/2019
-ms.openlocfilehash: 6bb170a5f3353288ab9c393e01b7a0902361913b
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
+ms.openlocfilehash: 1194407122123797c2564c96ac452b9582b017a4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287016"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264954"
 ---
 # <a name="quickstart-3---query-an-azure-search-index-in-c"></a>Inicio rápido: 3 - Consulta de un índice de Azure Search en C#
 
@@ -34,7 +34,7 @@ Obtener una clave de consulta usada para tener acceso de solo lectura a los docu
 ## <a name="create-a-client"></a>Creación de un cliente
 Cree una instancia de la clase `SearchIndexClient` para que pueda darle una clave de consulta para obtener acceso de solo lectura (en lugar de los derechos de acceso de escritura conferidos el `SearchServiceClient` usado en la lección anterior).
 
-Esta clase tiene varios constructores. El que desea tiene el nombre del servicio de búsqueda, el nombre del índice y un objeto [`SearchCredentials`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials?view=azure-dotnet) como parámetros. `SearchCredentials` incluye su clave de API.
+Esta clase tiene varios constructores. El que desea tiene el nombre del servicio de búsqueda, el nombre del índice y un objeto [`SearchCredentials`](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchcredentials?view=azure-dotnet) como parámetros. `SearchCredentials` encapsula su clave de API.
 
 El código siguiente crea una nueva instancia de `SearchIndexClient` para el índice "hotels" mediante los valores del nombre de servicio de búsqueda y la clave de API que se almacenan en el archivo de configuración de la aplicación (`appsettings.json` en el caso de la [aplicación de ejemplo](https://aka.ms/search-dotnet-howto)):
 

@@ -1,19 +1,18 @@
 ---
-title: 'Inicio rápido: Visualización de datos mediante una consulta SQL en Power BI'
+title: 'Inicio rápido: Visualización de datos desde Azure Data Explorer con una consulta de SQL en Power BI'
 description: 'En esta guía de inicio rápido aprenderá a usar una de las tres opciones de visualización de datos de Power BI: una consulta SQL en un clúster de Azure Data Explorer.'
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: f41bd1dcd354d75788569f5c1f24a50c604b5737
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4a3a688adaae8fe66c336617cdd0a4807f16ec68
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756354"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045514"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Inicio rápido: Visualización de datos mediante el conector de Azure Data Explorer para Power BI
 
@@ -52,8 +51,8 @@ Normalmente se utiliza el lenguaje de consulta nativo con Azure Data Explorer, p
     **Configuración** | **Valor** | **Descripción del campo**
     |---|---|---|
     | Server | *help.kusto.windows.net* | La dirección URL para el clúster de ayuda (sin *https://*). Para otros clústeres, la dirección URL tiene el formato *\<NombreClúster\>\<Región\>.kusto.windows.net*. |
-    | Base de datos | *Muestras* | La base de datos de ejemplo que se hospeda en el clúster al que se va a conectar. |
-    | Modo Conectividad de datos | *Importaciónación* | Determina si Power BI importa los datos o se conecta directamente al origen de datos. Puede usar cualquiera de las opciones con este conector. |
+    | Base de datos | *Ejemplos* | La base de datos de ejemplo que se hospeda en el clúster al que se va a conectar. |
+    | Modo Conectividad de datos | *Importar* | Determina si Power BI importa los datos o se conecta directamente al origen de datos. Puede usar cualquiera de las opciones con este conector. |
     | Tiempo de espera del comando | Déjelo en blanco | El tiempo que la consulta se puede estar ejecutando antes de lanzar un error de tiempo de expiración. |
     | Instrucción SQL | Copie la consulta que aparece después de esta tabla | La instrucción SQL que Azure Data Explorer traduce en una consulta nativa. |
     | Otras opciones | Deje los valores predeterminados | Las opciones no se aplican a los clústeres de Azure Data Explorer. |

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 48bea302f2f8e878275e6a7c222d703e0f31f239
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
-ms.translationtype: HT
+ms.openlocfilehash: ca4d5912d75dd7b33737f61737a209284b7a5a47
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44492869"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616159"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>Procedimiento de conmutación por error de recuperación ante desastres
 
@@ -71,7 +71,7 @@ Diríjase al paso 4.
 
    En lo que respecta a las operaciones, se realizan los pasos siguientes:
 
-   a. Se detiene la replicación de instantáneas del volumen de producción en los volúmenes de recuperación ante desastres. Esto podría haber ocurrido ya si una interrupción en el sitio de producción es el motivo que necesita para realizar una recuperación ante desastres.
+    a. Se detiene la replicación de instantáneas del volumen de producción en los volúmenes de recuperación ante desastres. Esto podría haber ocurrido ya si una interrupción en el sitio de producción es el motivo que necesita para realizar una recuperación ante desastres.
    
    b. El nombre de la instantánea de almacenamiento o la instantánea con el identificador de copia de seguridad que eligió se restaura en los volúmenes de recuperación ante desastres.
    
@@ -87,7 +87,7 @@ La secuencia de pasos siguiente implica la recuperación de la instancia de prod
 1. Cambie la ubicación de copia de seguridad a **/hana/logbackups** con SAP HANA Studio.
    ![Cambiar la ubicación de copia de seguridad para la recuperación de DR](./media/hana-overview-high-availability-disaster-recovery/change_backup_location_dr1.png)
 
-1. SAP HANA examina las ubicaciones del archivo de copia de seguridad y sugiere la copia de seguridad del registro de transacciones más reciente para restaurar. El examen puede tardar unos minutos hasta que aparezca una pantalla similar a la siguiente: ![Lista de copias de seguridad del registro de transacciones para DR](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
+1. SAP HANA examina las ubicaciones del archivo de copia de seguridad y sugiere la copia de seguridad del registro de transacciones más reciente para restaurar. El examen puede tardar unos minutos hasta que una pantalla similar a aparece lo siguiente: ![Lista de copias de seguridad de registro de transacciones para recuperación de DR](./media/hana-overview-high-availability-disaster-recovery/backup_list_dr2.PNG)
 
 1. Ajuste algunas de las configuraciones predeterminadas:
 
@@ -104,7 +104,7 @@ Debería aparecer una ventana de progreso, como la que se muestra aquí. Recuerd
 
 ![Progreso de la restauración](./media/hana-overview-high-availability-disaster-recovery/restore_progress_dr5.PNG)
 
-Si la restauración deja de responder en la pantalla **Finish** (Finalizar) y no se muestra la pantalla de progreso, confirme que todas las instancias de SAP HANA de los nodos de trabajo se están ejecutando. Si es necesario, inicie manualmente las instancias de SAP HANA.
+Si parece que la restauración deja de responder en el **finalizar** y no muestra la pantalla de progreso, confirme que todas las instancias de SAP HANA en los nodos de trabajo se está ejecutando. Si es necesario, inicie manualmente las instancias de SAP HANA.
 
 
 ## <a name="failback-from-a-dr-to-a-production-site"></a>Conmutación por recuperación desde un sitio de recuperación ante desastres a uno de producción

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
-ms.openlocfilehash: f95420397a502af8e939c8a53fe5635b82dc0f39
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: a0b5dd169d29dc392274ab5589931f37beb04e9b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893652"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273607"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-on24-virtual-environment-saml-connection"></a>Tutorial: integración de Azure Active Directory con ON24 Virtual Environment SAML Connection
 
@@ -28,7 +28,7 @@ En este tutorial, obtendrá información sobre cómo integrar ON24 Virtual Envir
 La integración de ON24 Virtual Environment SAML Connection con Azure AD proporciona las siguientes ventajas:
 
 * Puede controlar en Azure AD quién tiene acceso a ON24 Virtual Environment SAML Connection.
-* Se pueden permitir que los usuarios a ser automáticamente iniciado sesión en conexión de SAML de entorno Virtual de ON24 (Single Sign-On) con sus cuentas de Azure AD.
+* Puede permitir que los usuarios inicien sesión automáticamente en ON24 Virtual Environment SAML Connection (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -39,13 +39,13 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para configurar la integración de Azure AD con ON24 Virtual Environment SAML Connection, se necesitan los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Suscripción habilitada para inicio de sesión único en conexión de SAML de entorno Virtual ON24
+* Una suscripción habilitada para el inicio de sesión único de ON24 Virtual Environment SAML Connection
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Admite la conexión de SAML de entorno Virtual ON24 **SP** y **IDP** SSO iniciado por
+* ON24 Virtual Environment SAML Connection admite el inicio de sesión único iniciado por **SP** e **IDP**.
 
 ## <a name="adding-on24-virtual-environment-saml-connection-from-the-gallery"></a>Adición de ON24 Virtual Environment SAML Connection desde la galería
 
@@ -67,27 +67,27 @@ Para configurar la integración de ON24 Virtual Environment SAML Connection en A
 
 4. En el cuadro de búsqueda, escriba **ON24 Virtual Environment SAML Connection**, seleccione **ON24 Virtual Environment SAML Connection** en el panel de resultados y, a continuación, haga clic en el botón **Agregar** para agregar la aplicación.
 
-     ![Conexión de SAML de entorno Virtual de ON24 en la lista de resultados](common/search-new-app.png)
+     ![ON24 Virtual Environment SAML Connection en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único en Azure AD con ON24 entorno SAML conexión Virtual en función de usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, debe establecerse una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de conexión de SAML de entorno Virtual ON24.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con ON24 Virtual Environment SAML Connection con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de ON24 Virtual Environment SAML Connection.
 
 Para configurar y probar el inicio de sesión único de Azure AD con ON24 Virtual Environment SAML Connection, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configurar ON24 Virtual entorno SAML conexión Single Sign-On](#configure-on24-virtual-environment-saml-connection-single-sign-on)**  : para configurar las opciones de inicio de sesión único en el lado de la aplicación.
+2. **[Configuración del inicio de sesión único de ON24 Virtual Environment SAML Connection](#configure-on24-virtual-environment-saml-connection-single-sign-on)**: para configurar el inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Crear usuario de prueba de conexión de SAML de entorno Virtual ON24](#create-on24-virtual-environment-saml-connection-test-user)**  : para tener un homólogo de Britta Simon en ON24 entorno SAML conexión Virtual que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba de ON24 Virtual Environment SAML Connection](#create-on24-virtual-environment-saml-connection-test-user)**: para tener un homólogo de Britta Simon en ON24 Virtual Environment SAML Connection que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único en Azure AD con conexión de SAML de entorno Virtual ON24, realice los pasos siguientes:
+Para configurar el inicio de sesión único de Azure AD con ON24 Virtual Environment SAML Connection, realice los pasos siguientes:
 
 1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **ON24 Virtual Environment SAML Connection**, seleccione **Inicio de sesión único**.
 
@@ -103,7 +103,7 @@ Para configurar el inicio de sesión único en Azure AD con conexión de SAML de
 
 4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por **IDP** siga estos pasos:
 
-    ![Información de inicio de sesión único de ON24 Virtual entorno SAML conexión dominio y direcciones URL](common/idp-relay.png)
+    ![Información sobre dominio y direcciones URL de inicio de sesión único de ON24 Virtual Environment SAML Connection](common/idp-relay.png)
 
      a. En el cuadro de texto **Identificador**, escriba una dirección URL:
 
@@ -151,18 +151,18 @@ Para configurar el inicio de sesión único en Azure AD con conexión de SAML de
 
 5.  Si desea configurar la aplicación en modo iniciado por **SP**, realice el siguientes paso:
 
-    ![Información de inicio de sesión único de ON24 Virtual entorno SAML conexión dominio y direcciones URL](common/both-signonurl.png)
+    ![Información sobre dominio y direcciones URL de inicio de sesión único de ON24 Virtual Environment SAML Connection](common/both-signonurl.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://vshow.on24.com/vshow/<INSTANCENAME>`
 
     > [!NOTE]
-    > Estos valores no son reales. Actualícelos con la dirección URL de estado de la retransmisión y el inicio de sesión real. Póngase en contacto con [equipo de soporte técnico de conexión de entorno Virtual de ON24 SAML](https://www.on24.com/contact-us/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Estos valores no son reales. Actualice estos valores con el estado de la retransmisión y la dirección URL de inicio de sesión reales. Póngase en contacto con el [equipo de soporte técnico de ON24 Virtual Environment SAML Connection](https://www.on24.com/contact-us/) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 4. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-6. En el **configurar conexión de SAML de entorno Virtual ON24** sección, copie la dirección URL adecuadas según sus necesidades.
+6. En la sección **Set up ON24 Virtual Environment SAML Connection** (Configurar ON24 Virtual Environment SAML Connection), copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -172,9 +172,9 @@ Para configurar el inicio de sesión único en Azure AD con conexión de SAML de
 
     c. URL de cierre de sesión
 
-### <a name="configure-on24-virtual-environment-saml-connection-single-sign-on"></a>Configurar ON24 entorno Virtual SAML conexión Single Sign-On
+### <a name="configure-on24-virtual-environment-saml-connection-single-sign-on"></a>Configuración del inicio de sesión único de ON24 Virtual Environment SAML Connection
 
-Para configurar el inicio de sesión único en **conexión de SAML de entorno Virtual ON24** , es preciso enviar los datos descargados **XML de metadatos de federación** y adecuado copiado las direcciones URL de Azure portal para [ Equipo de soporte técnico de conexión de SAML de entorno Virtual ON24](https://www.on24.com/about-us/support/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **ON24 Virtual Environment SAML Connection**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL adecuadas que copió de Azure Portal al [equipo de soporte técnico de ON24 Virtual Environment SAML Connection](https://www.on24.com/about-us/support/). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -194,7 +194,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el **nombre de usuario** tipo de campo **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -205,13 +205,13 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a ON24 Virtual Environment SAML Connection.
 
-1. En el portal de Azure, seleccione **aplicaciones empresariales**, seleccione **todas las aplicaciones**, a continuación, seleccione **ON24 conexión de SAML de entorno Virtual**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, luego, **ON24 Virtual Environment SAML Connection**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
 2. En la lista de aplicaciones, seleccione **ON24 Virtual Environment SAML Connection**.
 
-    ![El vínculo de conexión de SAML de entorno Virtual ON24 en la lista de aplicaciones](common/all-applications.png)
+    ![Vínculo de ON24 Virtual Environment SAML en la lista de aplicaciones](common/all-applications.png)
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
@@ -227,7 +227,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-on24-virtual-environment-saml-connection-test-user"></a>Crear usuario de prueba de conexión de SAML de entorno Virtual ON24
+### <a name="create-on24-virtual-environment-saml-connection-test-user"></a>Creación de un usuario de prueba de ON24 Virtual Environment SAML Connection
 
 En esta sección, creará un usuario llamado Britta Simon en ON24 Virtual Environment SAML Connection. Póngase en contacto con el  [equipo de soporte técnico de conexión de ON24 Virtual Environment SAML Connection](https://www.on24.com/about-us/support/) para agregar usuarios en la plataforma de ON24 Virtual Environment SAML Connection. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
@@ -235,13 +235,13 @@ En esta sección, creará un usuario llamado Britta Simon en ON24 Virtual Enviro
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de conexión de SAML de entorno Virtual ON24 en el Panel de acceso, debe iniciar sesión automáticamente la ON24 entorno SAML conexión Virtual para la que configurar inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de ON24 Virtual Environment SAML Connection en el Panel de acceso, debe iniciar sesión automáticamente en la aplicación ON24 Virtual Environment SAML Connection para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

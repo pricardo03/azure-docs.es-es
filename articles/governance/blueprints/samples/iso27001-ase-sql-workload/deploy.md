@@ -1,75 +1,74 @@
 ---
-title: 'Ejemplo: plano de carga de trabajo de ISO 27001 ASE/SQL: pasos de implementación'
-description: Implemente los pasos del ejemplo de plano técnico de carga de trabajo de ISO 27001 App Service entorno/SQL Database.
-services: blueprints
+title: 'Ejemplo: plano técnico de cargas de trabajo de ASE o SQL según la norma ISO 27001 (pasos de implementación)'
+description: Pasos de la implementación del ejemplo de plano técnico de cargas de trabajo de App Service Environment y SQL Database según la norma ISO 27001.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
-ms.topic: conceptual
+ms.topic: sample
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 4ed51ee5f8cbdc50fa65a189d8f468bd7713a74b
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
-ms.translationtype: MT
+ms.openlocfilehash: 78f608aedd53aa1071eaf88864f5a63f8f9e6072
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804163"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281206"
 ---
-# <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implementar el ejemplo de plano técnico de carga de trabajo de ISO 27001 App Service entorno/SQL Database
+# <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implementación del ejemplo de plano técnico de cargas de trabajo de App Service Environment y SQL Database según la norma ISO 27001
 
-Para implementar el ejemplo de plano técnico de carga de trabajo de Azure planos ISO 27001 App Service entorno/SQL Database, deben seguir los pasos siguientes:
+Para implementar el ejemplo de plano técnico para cargas de trabajo de App Service Environment y SQL Database según la norma ISO 27001 para Azure Blueprints, es preciso seguir estos pasos:
 
 > [!div class="checklist"]
-> - Implementar el [servicios compartidos de ISO 27001](../iso27001-shared/index.md) ejemplo plano técnico
-> - Crear una nueva instancia de blueprint del ejemplo
+> - Implementar el ejemplo de plano técnico de [servicios compartidos según la norma ISO 27001](../iso27001-shared/index.md)
+> - Crear un plano técnico a partir del ejemplo
 > - Marcar la copia del ejemplo como **publicada**
 > - Asignar la copia del plano técnico a una suscripción existente
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free) antes de empezar.
 
-## <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implementar el ejemplo de plano técnico de servicios compartidos de ISO 27001
+## <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implementación del ejemplo de plano técnico de servicios compartidos según la norma ISO 27001
 
-Antes de que se puede implementar este ejemplo de la instancia de blueprint, el [servicios compartidos de ISO 27001](../iso27001-shared/index.md) ejemplo blueprint debe implementarse en la suscripción de destino. Sin una implementación correcta de la muestra de plano técnico de servicios compartidos de ISO 27001, este ejemplo de plano técnico le faltará dependencias de infraestructura y producirá un error durante la implementación.
+Para poder implementar este ejemplo de plano técnico, es preciso implementar el ejemplo de plano técnico de [servicios compartidos según la norma ISO 27001](../iso27001-shared/index.md) en la suscripción de destino. Sin una implementación correcta de este último implementación correcta del muestra de plano técnico de servicios compartidos según la norma ISO 27001, al primero le faltarán dependencias de la infraestructura y se producirán error durante la implementación.
 
 > [!IMPORTANT]
-> En este ejemplo de plano técnico se debe asignar en la misma suscripción que la [servicios compartidos de ISO 27001](../iso27001-shared/index.md) ejemplo de la instancia de blueprint.
+> Este ejemplo de plano técnico debe estar asignado a la misma suscripción que el ejemplo de plano técnico de [servicios compartidos según la norma ISO 27001](../iso27001-shared/index.md).
 
-## <a name="create-blueprint-from-sample"></a>Crear plano técnico de ejemplo
+## <a name="create-blueprint-from-sample"></a>Creación de un plano técnico a partir del ejemplo
 
-En primer lugar, puede implementar el ejemplo de la instancia de blueprint mediante la creación de una nueva instancia de blueprint en su entorno mediante el ejemplo como un inicio.
+En primer lugar, implemente el ejemplo de plano técnico mediante la creación de un plano técnico en su entorno tomando el ejemplo como punto de partida.
 
-1. Seleccione **todos los servicios** y busque y seleccione **directiva** en el panel izquierdo. En el **directiva** página, seleccione **planos**.
+1. Seleccione **Todos los servicios**, busque la opción **Directiva** en el panel izquierdo y selecciónela. En la página **Directiva**, seleccione **Planos técnicos**.
 
 1. En la página **Introducción** de la izquierda, seleccione el botón **Crear** en _Creación de un plano técnico_.
 
-1. Buscar el **ISO 27001: Carga de trabajo SQL/ASE** ejemplo blueprint en _otros ejemplos_ y seleccione **usar este ejemplo**.
+1. Busque el ejemplo de plano técnico de **carga de trabajo de ASE/SQL según la norma ISO 27001** en _Otros ejemplos_ y seleccione **Usar este ejemplo**.
 
 1. Escriba los _conceptos básicos_ del ejemplo de plano técnico:
 
-   - **Nombre del plano técnico**: Proporcione un nombre para la copia de la muestra de plano técnico de carga de trabajo ISO 27001 ASE/SQL.
-   - **Ubicación de definición**: Use los puntos suspensivos y seleccione el grupo de administración para guardar la copia de la muestra.
+   - **Nombre del plano técnico**: especifique un nombre para su copia del ejemplo de plano técnico de la carga de trabajo de ASE/SQL según la norma ISO 27001.
+   - **Ubicación de definición**: use los puntos suspensivos y seleccione el grupo de administración donde guardar la copia del ejemplo.
 
 1. Seleccione la pestaña _Artefactos_ en la parte superior de la página **Siguiente: Artefactos** en la parte inferior de la página.
 
-1. Revise la lista de artefactos que componen el ejemplo de plano técnico. Muchos de los artefactos tienen parámetros que definirá más tarde. Seleccione **Guardar borrador** cuando haya terminado de revisar el ejemplo de plano técnico.
+1. Revise la lista de artefactos que componen el ejemplo de plano técnico. Muchos de los artefactos tienen parámetros que se definirán más tarde. Seleccione **Guardar borrador** cuando haya terminado de revisar el ejemplo de plano técnico.
 
 ## <a name="publish-the-sample-copy"></a>Publicación de la copia de ejemplo
 
-La copia del ejemplo de plano técnico ahora se ha creado en el entorno. Se crea en el modo **Borrador** y debe **publicarse** antes de que se pueda asignar e implementar. La copia de la muestra de plano técnico se puede personalizar para su entorno y necesidades, pero esa modificación puede mover fuera de la norma ISO 27001.
+La copia del ejemplo de plano técnico ahora se ha creado en el entorno. Se crea en el modo **Borrador** y debe **publicarse** antes de que se pueda asignar e implementar. La copia del ejemplo de plano técnico se puede personalizar para adecuarla a su entorno y necesidades, pero esa modificación puede apartarla de la norma ISO 27001.
 
-1. Seleccione **todos los servicios** y busque y seleccione **directiva** en el panel izquierdo. En el **directiva** página, seleccione **planos**.
+1. Seleccione **Todos los servicios**, busque la opción **Directiva** en el panel izquierdo y selecciónela. En la página **Directiva**, seleccione **Planos técnicos**.
 
-1. Seleccione la página **Definiciones del plano técnico** de la izquierda. Use los filtros para buscar su copia de la muestra de plano técnico y, a continuación, selecciónelo.
+1. Seleccione la página **Definiciones del plano técnico** de la izquierda. Use los filtros para buscar su copia del ejemplo de plano técnico y, a continuación, selecciónela.
 
-1. Seleccione **Publicar plano técnico** en la parte superior de la página. En la nueva página a la derecha, proporcione un **versión** para la copia de la muestra de la instancia de blueprint. Esta propiedad es útil si realiza una modificación posteriormente. Proporcionar **cambiar notas** como "primera versión publicada del ejemplo ISO 27001 de plano técnico". A continuación, seleccione **Publicar** en la parte inferior de la página.
+1. Seleccione **Publicar plano técnico** en la parte superior de la página. En la nueva página de la derecha, especifique una **versión** para la copia del ejemplo de plano técnico. Esta propiedad es útil si realiza una modificación posteriormente. Escriba **Notas de cambios** como "Primera versión publicada del ejemplo de plano técnico según la norma ISO 27001". A continuación, seleccione **Publicar** en la parte inferior de la página.
 
 ## <a name="assign-the-sample-copy"></a>Asignación de la copia de ejemplo
 
 Una vez que la copia del ejemplo de plano técnico se haya **publicado** correctamente, se podrá asignar a una suscripción dentro del grupo de administración donde se guardó. En este paso se proporcionan los parámetros para hacer que cada implementación de la copia del ejemplo de plano técnico sea única.
 
-1. Seleccione **todos los servicios** y busque y seleccione **directiva** en el panel izquierdo. En el **directiva** página, seleccione **planos**.
+1. Seleccione **Todos los servicios**, busque la opción **Directiva** en el panel izquierdo y selecciónela. En la página **Directiva**, seleccione **Planos técnicos**.
 
-1. Seleccione la página **Definiciones del plano técnico** de la izquierda. Use los filtros para buscar su copia de la muestra de plano técnico y, a continuación, selecciónelo.
+1. Seleccione la página **Definiciones del plano técnico** de la izquierda. Use los filtros para buscar su copia del ejemplo de plano técnico y, a continuación, selecciónela.
 
 1. Seleccione **Asignar plano técnico** en la parte superior de la página de definición del plano técnico.
 
@@ -78,84 +77,84 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
    - Aspectos básicos
 
      - **Suscripciones**: seleccione una o varias de las suscripciones que están en el grupo de administración donde guardó la copia del ejemplo de plano técnico. Si selecciona más de una suscripción, se creará una asignación para cada una mediante los parámetros especificados.
-     - **Nombre de asignación**: El nombre se rellena automáticamente según el nombre de la instancia de blueprint.
-       Cambiar según sea necesario o déjelo tal cual.
+     - **Nombre de asignación**: el nombre se rellena de antemano de forma automática en función del nombre del plano técnico.
+       Cámbielo si fuera necesario o déjelo tal cual.
      - **Ubicación**: seleccione una región para la identidad administrada en la que se va a crear. Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado. Para más información, consulte [Identidades administradas para recursos de Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
-     - **Versión de definición del plano técnico**: Elegir un **publicada** versión de la copia de la muestra de la instancia de blueprint.
+     - **Versión de definición del plano técnico**: Elija una versión **publicada** de la copia del ejemplo de plano técnico.
 
    - Asignación de bloqueo
 
-     Seleccione el bloqueo de plano técnico para su entorno. Para más información, consulte [Bloqueo de recursos en planos técnicos](../../concepts/resource-locking.md).
+     Seleccione el valor de bloqueo de plano técnico para el entorno. Para más información, consulte [Bloqueo de recursos en planos técnicos](../../concepts/resource-locking.md).
 
    - Identidad administrada
 
-     Deje el valor predeterminado _asignado por el sistema_ administra la opción de identidad.
+     Deje la opción predeterminada de identidad administrada _asignada por el sistema_.
 
    - Parámetros de plano técnico
 
-     Los parámetros definidos en esta sección se usan por muchos de los artefactos de la definición del plano técnico para proporcionar coherencia.
+     Muchos de los artefactos de la definición de plano técnico usan los parámetros definidos en esta sección para proporcionar coherencia.
 
      - **Nombre de la organización**: Escriba un nombre corto para su organización. Esta propiedad se utiliza principalmente para asignar nombres a los recursos.
-     - **Compartido Id. de suscripción del servicio**: Id. de suscripción donde el [servicios compartidos de ISO 27001](../iso27001-shared/index.md) muestra de plano técnico se asigna.
-     - **Prefijo de dirección de subred predeterminada**: La notación CIDR para la subred de red virtual predeterminada.
-       Valor predeterminado es _10.1.0.0/16_.
-     - **Ubicación de la carga de trabajo**: Determina qué ubicación se implementan los artefactos en. No todos los servicios están disponibles en todas las ubicaciones. Artefactos de implementación de estos servicios ofrecen una opción de parámetro para la ubicación para implementar ese artefacto que desea.
+     - **Id. de suscripción de servicios compartidos**: identificador de la suscripción en la que se asigna el ejemplo de plano técnico de [servicios compartidos según la norma ISO 27001](../iso27001-shared/index.md).
+     - **Prefijo de la dirección de la subred predeterminada**: la notación CIDR de la subred predeterminada de la red virtual.
+       El valor predeterminado es _10.1.0.0/16_.
+     - **Ubicación de la carga de trabajo**: determina en qué ubicación se implementan los artefactos. No todos los servicios están disponibles en todas las ubicaciones. Los artefactos que implementan tales servicios proporcionan una opción de parámetro para la ubicación en la que se va a implementar ese artefacto.
 
    - Parámetros de artefacto
 
-     Los parámetros definidos en esta sección se aplican al artefacto en el que se define. Estos parámetros son [parámetros dinámicos](../../concepts/parameters.md#dynamic-parameters), ya que se definen durante la asignación del plano técnico. Para obtener una lista completa o los parámetros de artefactos y sus descripciones, consulte [tabla de parámetros de artefacto](#artifact-parameters-table).
+     Los parámetros definidos en esta sección se aplican al artefacto en el que se define. Estos parámetros son [parámetros dinámicos](../../concepts/parameters.md#dynamic-parameters), ya que se definen durante la asignación del plano técnico. Para obtener una lista completa de los parámetros de los artefactos y sus descripciones, consulte la [tabla de parámetros de los artefactos](#artifact-parameters-table).
 
-1. Una vez que se hayan especificado todos los parámetros, seleccione **Asignar** en la parte inferior de la página. Se crea la asignación del plano técnico y comience la implementación del artefacto. La implementación tarda aproximadamente una hora. Para comprobar el estado de implementación, abra la asignación del plano técnico.
+1. Una vez que se hayan especificado todos los parámetros, seleccione **Asignar** en la parte inferior de la página. Se crea la asignación del plano técnico y comienza la implementación del artefacto. La implementación tarda aproximadamente una hora. Para comprobar el estado de implementación, abra la asignación del plano técnico.
 
 > [!WARNING]
-> El servicio de plano técnico de Azure y los ejemplos de plano técnico integrados son **libre de costo**. Recursos de Azure son [el precio por producto](https://azure.microsoft.com/pricing/). Use la [Calculadora de precios](https://azure.microsoft.com/pricing/calculator/) para estimar el costo de la ejecución de los recursos implementados por este ejemplo de la instancia de blueprint.
+> El servicio Azure Blueprints y los ejemplos de plano técnico incorporados son **gratuitos**. El precio de los recursos de Azure se [calcula por producto](https://azure.microsoft.com/pricing/). Use la [calculadora de precios](https://azure.microsoft.com/pricing/calculator/) para estimar el costo de la ejecución de los recursos implementados en este ejemplo de plano técnico.
 
-## <a name="artifact-parameters-table"></a>Tabla de parámetros de artefacto
+## <a name="artifact-parameters-table"></a>Tabla de parámetros de los artefactos
 
-En la tabla siguiente proporciona una lista de la instancia de blueprint los parámetros de artefactos:
+En la tabla siguiente se proporciona una lista de los parámetros del artefacto de plano técnico:
 
 |Nombre del artefacto|Tipo de artefacto|Nombre de parámetro|DESCRIPCIÓN|
 |-|-|-|-|
-|Grupo de recursos de log Analytics|Grupos de recursos|NOMBRE|**Bloqueado** -concatena el **nombreDeOrganización** con `-workload-log-rg` para que sea el grupo de recursos único.|
-|Grupo de recursos de log Analytics|Grupos de recursos|Ubicación|**Bloqueado** -utiliza el parámetro de plano técnico.|
-|Plantilla de Log Analytics|Plantilla de Resource Manager|Nivel de servicio|Establece el nivel del área de trabajo de Log Analytics. Valor predeterminado es _PerNode_.|
-|Plantilla de Log Analytics|Plantilla de Resource Manager|Retención del registro en días|Retención de datos en días. Valor predeterminado es _365_.|
-|Plantilla de Log Analytics|Plantilla de Resource Manager|Ubicación|Región que se usa para crear el área de trabajo de Log Analytics. Valor predeterminado es _oeste de EE.UU. 2_.|
-|Grupo de recursos de red|Grupos de recursos|NOMBRE|**Bloqueado** -concatena el **nombreDeOrganización** con `-workload-net-rg` para que sea el grupo de recursos único.|
-|Grupo de recursos de red|Grupos de recursos|Ubicación|**Bloqueado** -utiliza el parámetro de plano técnico.|
-|Plantilla del grupo de seguridad de red|Plantilla de Resource Manager|Retención del registro en días|Retención de datos en días. Valor predeterminado es _365_.|
-|Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|IP privada de Azure Firewall|Configura la dirección IP privada de la [firewall de Azure](../../../../firewall/overview.md). Debe ser parte de la notación CIDR definida en _ISO 27001: Servicios compartidos_ parámetro artefacto **prefijo de dirección de subred de Firewall de Azure**. Valor predeterminado es _10.0.4.4_.|
-|Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Id. de suscripción de servicios compartidos|Valor que se usa para habilitar el emparejamiento de VNET entre una carga de trabajo y servicios compartidos.|
-|Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Prefijo de dirección de Virtual Network|La notación CIDR para la red virtual. Valor predeterminado es _10.1.0.0/16_.|
-|Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Prefijo de dirección de subred predeterminado|La notación CIDR para la subred de red virtual predeterminada. Valor predeterminado es _10.1.0.0/16_.|
-|Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Dirección IP de ADDS|Dirección IP de la primera máquina virtual se agrega. Este valor se utiliza como DNS VNET personalizado.|
-|Grupo de recursos de Key Vault|Grupos de recursos|NOMBRE|**Bloqueado** -concatena el **nombreDeOrganización** con `-workload-kv-rg` para que sea el grupo de recursos único.|
-|Grupo de recursos de Key Vault|Grupos de recursos|Ubicación|**Bloqueado** -utiliza el parámetro de plano técnico.|
-|Plantilla de Key Vault|Plantilla de Resource Manager|Id. de objeto de AAD|El identificador de objeto AAD de la cuenta que requiere acceso a la instancia de Key Vault. No tiene valor predeterminado de valor y no puede dejarse en blanco. Para buscar este valor desde el portal de Azure, busque y seleccione "Usuarios" en _servicios_. Use la _nombre_ cuadro Filtrar por el nombre de cuenta y seleccione esa cuenta. En el _perfil de usuario_ , seleccione el icono "Haga clic para copiar" junto a la _Id. de objeto_.|
-|Plantilla de Key Vault|Plantilla de Resource Manager|Retención del registro en días|Retención de datos en días. Valor predeterminado es _365_.|
-|Plantilla de Key Vault|Plantilla de Resource Manager|SKU de Key Vault|Especifica la SKU del almacén de claves que se crea. Valor predeterminado es _Premium_.|
-|Plantilla de Key Vault|Plantilla de Resource Manager|Nombre de usuario administrador de Azure SQL Server|El nombre de usuario utilizado para tener acceso a Azure SQL Server. Debe coincidir con el mismo valor de propiedad en **plantilla de Azure SQL Database**. Valor predeterminado es _usuario de administrador de sql_.|
-|Grupo de recursos de Azure SQL Database|Grupos de recursos|NOMBRE|**Bloqueado** -concatena el **nombreDeOrganización** con `-workload-azsql-rg` para que sea el grupo de recursos único.|
-|Grupo de recursos de Azure SQL Database|Grupos de recursos|Ubicación|**Bloqueado** -utiliza el parámetro de plano técnico.|
-|Plantilla de Azure SQL Database|Plantilla de Resource Manager|Nombre de usuario administrador de Azure SQL Server|Nombre de usuario para el servidor SQL Azure. Debe coincidir con el mismo valor de propiedad en **plantilla de Key Vault**. Valor predeterminado es _usuario de administrador de sql_.|
-|Plantilla de Azure SQL Database|Plantilla de Resource Manager|Contraseña de administrador de Azure SQL Server (identificador de recurso de Key Vault)|El identificador de recurso del almacén de claves. Use "/ subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" y reemplace `{subscriptionId}` con el identificador de suscripción y `{orgName}` con el  **Nombre de la organización** parámetro del plano.|
-|Plantilla de Azure SQL Database|Plantilla de Resource Manager|Contraseña de administrador de Azure SQL Server (nombre de secreto de Key Vault)|Nombre de usuario SQL de administrador del servidor. Debe coincidir con el valor en **plantilla de Key Vault** propiedad **nombre de usuario de administrador de Azure SQL Server**.|
-|Plantilla de Azure SQL Database|Plantilla de Resource Manager|Retención del registro en días|Retención de datos en días. Valor predeterminado es _365_.|
-|Plantilla de Azure SQL Database|Plantilla de Resource Manager|Id. de objeto de administrador AAD|Id. de objeto AAD del usuario que se asignará como un administrador de Active Directory. No tiene valor predeterminado de valor y no puede dejarse en blanco. Para buscar este valor desde el portal de Azure, busque y seleccione "Usuarios" en _servicios_. Use la _nombre_ cuadro Filtrar por el nombre de cuenta y seleccione esa cuenta. En el _perfil de usuario_ , seleccione el icono "Haga clic para copiar" junto a la _Id. de objeto_.|
-|Plantilla de Azure SQL Database|Plantilla de Resource Manager|Inicio de sesión de administrador AAD|Actualmente, no se puede establecer las cuentas de Microsoft (como live.com o outlook.com) como administrador. Solo los usuarios y grupos de seguridad de su organización pueden establecerse como administrador. No tiene valor predeterminado de valor y no puede dejarse en blanco. Para buscar este valor desde el portal de Azure, busque y seleccione "Usuarios" en _servicios_. Use la _nombre_ cuadro Filtrar por el nombre de cuenta y seleccione esa cuenta. En el _perfil de usuario_ página, copie el _nombre de usuario_.|
-|Grupo de recursos de App Service Environment|Grupos de recursos|NOMBRE|**Bloqueado** -concatena el **nombreDeOrganización** con `-workload-ase-rg` para que sea el grupo de recursos único.|
-|Grupo de recursos de App Service Environment|Grupos de recursos|Ubicación|**Bloqueado** -utiliza el parámetro de plano técnico.|
-|Plantilla de App Service Environment|Plantilla de Resource Manager|Nombre de dominio|Nombre de Active Directory creado por el ejemplo. Valor predeterminado es _contoso.com_.|
-|Plantilla de App Service Environment|Plantilla de Resource Manager|Ubicación de ASE|Ubicación de App Service Environment. Valor predeterminado es _oeste de EE.UU. 2_.|
-|Plantilla de App Service Environment|Plantilla de Resource Manager|Retención del registro de Application Gateway en días|Retención de datos en días. Valor predeterminado es _365_.|
+|Grupo de recursos de Log Analytics|Grupos de recursos|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-workload-log-rg` para que el grupo de recursos sea único.|
+|Grupo de recursos de Log Analytics|Grupos de recursos|Ubicación|**Bloqueado**: utiliza el parámetro del plano técnico.|
+|Plantilla de Log Analytics|Plantilla de Resource Manager|Nivel de servicio|Establece el nivel de servicio del área de trabajo de Log Analytics. El valor predeterminado es _PerNode_.|
+|Plantilla de Log Analytics|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
+|Plantilla de Log Analytics|Plantilla de Resource Manager|Ubicación|Región que se usa para crear el área de trabajo de Log Analytics. El valor predeterminado es _Oeste de EE. UU. 2_.|
+|Grupo de recursos de red|Grupos de recursos|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-workload-net-rg` para que el grupo de recursos sea único.|
+|Grupo de recursos de red|Grupos de recursos|Ubicación|**Bloqueado**: utiliza el parámetro del plano técnico.|
+|Plantilla del grupo de seguridad de red|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
+|Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|IP privada del firewall de Azure|Configura la dirección IP privada del [firewall de Azure](../../../../firewall/overview.md). Debe formar parte de la notación CIDR definida en el parámetro **Prefijo de la dirección de subred de Azure Firewall** del artefacto de _ISO 27001: servicios compartidos_. El valor predeterminado es: _10.0.4.4_.|
+|Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Identificador de suscripción de servicios compartidos|Valor utilizado para habilitar el emparejamiento de VNET entre una carga de trabajo y los servicios compartidos.|
+|Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Prefijo de dirección de Virtual Network|La notación CIDR de la red virtual. El valor predeterminado es _10.1.0.0/16_.|
+|Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Prefijo de la dirección de la subred predeterminada|La notación CIDR de la subred predeterminada de la red virtual. El valor predeterminado es _10.1.0.0/16_.|
+|Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Dirección IP de AD DS|Dirección IP de la primera máquina virtual de AD DS. Este valor se utiliza como DNS de red virtual personalizado.|
+|Grupo de recursos de Key Vault|Grupos de recursos|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-workload-kv-rg` para que el grupo de recursos sea único.|
+|Grupo de recursos de Key Vault|Grupos de recursos|Ubicación|**Bloqueado**: utiliza el parámetro del plano técnico.|
+|Plantilla de Key Vault|Plantilla de Resource Manager|Identificador de objeto de AAD|El identificador de objeto de AAD de la cuenta que requiere acceso a la instancia de Key Vault. No hay ningún valor predeterminado y no se puede dejar en blanco. Para buscar este valor en Azure Portal, busque y seleccione "Usuarios" en _Servicios_. Use el cuadro _Nombre_ para filtrar por el nombre de cuenta y seleccione esa cuenta. En la página _Perfil de usuario_, seleccione el icono "Haga clic para copiar" que está situado junto al _identificador de objeto_.|
+|Plantilla de Key Vault|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
+|Plantilla de Key Vault|Plantilla de Resource Manager|SKU de Key Vault|Especifica la SKU de Key Vault que se crea. El valor predeterminado es _Premium_.|
+|Plantilla de Key Vault|Plantilla de Resource Manager|Nombre de usuario de administrador de Azure SQL Server|Nombre de usuario que se utiliza para acceder a Azure SQL Server. Debe coincidir con el mismo valor de propiedad de **plantilla de Azure SQL Database**. El valor predeterminado es _sql-admin-user_.|
+|Grupo de recursos de Azure SQL Database|Grupos de recursos|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-workload-azsql-rg` para que el grupo de recursos sea único.|
+|Grupo de recursos de Azure SQL Database|Grupos de recursos|Ubicación|**Bloqueado**: utiliza el parámetro del plano técnico.|
+|Plantilla de Azure SQL Database|Plantilla de Resource Manager|Nombre de usuario de administrador de Azure SQL Server|Nombre de usuario de Azure SQL Server. Debe coincidir con el mismo valor de propiedad de la **plantilla de Key Vault**. El valor predeterminado es _sql-admin-user_.|
+|Plantilla de Azure SQL Database|Plantilla de Resource Manager|Contraseña del administrador de Azure SQL Server (identificador de recurso de Key Vault)|Identificador de recurso de Key Vault. Use "/subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" y sustituya `{subscriptionId}` por el identificador de la suscripción y `{orgName}` por el parámetro del plano técnico de **nombre de la organización**.|
+|Plantilla de Azure SQL Database|Plantilla de Resource Manager|Contraseña del administrador de Azure SQL Server (nombre del secreto de Key Vault)|Nombre de usuario del administrador de Azure SQL Server. El valor debe coincidir con el del **nombre de usuario del administrador de Azure SQL Server** de la propiedad **plantilla de Key Vault**.|
+|Plantilla de Azure SQL Database|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
+|Plantilla de Azure SQL Database|Plantilla de Resource Manager|Identificador de objeto de administrador de AAD|Identificador de objeto de AAD del usuario que se asignará como administrador de Active Directory. No hay ningún valor predeterminado y no se puede dejar en blanco. Para buscar este valor en Azure Portal, busque y seleccione "Usuarios" en _Servicios_. Use el cuadro _Nombre_ para filtrar por el nombre de cuenta y seleccione esa cuenta. En la página _Perfil de usuario_, seleccione el icono "Haga clic para copiar" que está situado junto al _identificador de objeto_.|
+|Plantilla de Azure SQL Database|Plantilla de Resource Manager|Inicio de sesión de administrador de AAD|Actualmente no es posible establecer cuentas Microsoft (como live.com o outlook.com) como administrador. Solo los usuarios y grupos de seguridad de su organización pueden establecerse como administrador. No hay ningún valor predeterminado y no se puede dejar en blanco. Para buscar este valor en Azure Portal, busque y seleccione "Usuarios" en _Servicios_. Use el cuadro _Nombre_ para filtrar por el nombre de cuenta y seleccione esa cuenta. En la página _Perfil de usuario_, copie el valor de _Nombre de usuario_.|
+|Grupo de recursos de App Service Environment|Grupos de recursos|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-workload-ase-rg` para que el grupo de recursos sea único.|
+|Grupo de recursos de App Service Environment|Grupos de recursos|Ubicación|**Bloqueado**: utiliza el parámetro del plano técnico.|
+|Plantilla de App Service Environment|Plantilla de Resource Manager|Nombre de dominio|Nombre de la instancia de Active Directory creada por el ejemplo. El valor predeterminado es _contoso.com_.|
+|Plantilla de App Service Environment|Plantilla de Resource Manager|Ubicación de ASE|Ubicación de App Service Environment. El valor predeterminado es _Oeste de EE. UU. 2_.|
+|Plantilla de App Service Environment|Plantilla de Resource Manager|Retención del registro de Application Gateway, en días|Retención de datos, en días. El valor predeterminado es _365_.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora que ha revisado los pasos para implementar el ejemplo de plano técnico de carga de trabajo de ISO 27001 App Service entorno/SQL Database, visite los siguientes artículos para obtener información sobre la arquitectura y la asignación de controles:
+Ahora que ha revisado los pasos para implementar el ejemplo de plano técnico de cargas de trabajo de App Service Environment y SQL Database según la norma ISO 27001, lea los siguientes artículos para obtener información sobre la arquitectura y la asignación de controles:
 
 > [!div class="nextstepaction"]
-> [Plano de carga de trabajo de ISO 27001 App Service entorno/SQL Database: información general sobre](./index.md)
-> [plano de la carga de trabajo de ISO 27001 App Service entorno/SQL Database: asignación de controles](./control-mapping.md)
+> [Plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con la norma ISO 27001: introducción](./index.md)
+> [Plano técnico para cargas de trabajo de App Service Environment y SQL Database compatibles con la norma ISO 27001: asignación de controles](./control-mapping.md)
 
 Artículos adicionales sobre planos técnicos y cómo utilizarlos:
 

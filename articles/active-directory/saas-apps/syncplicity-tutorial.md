@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 11ac9d859ec76c782f762dfc6f424d70ea487665
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 041f1e9706c7d815dad1a33104e7dd15b2cc3893
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360235"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270241"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-syncplicity"></a>Tutorial: Integración de Azure Active Directory con Syncplicity
 
@@ -206,7 +206,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 Para que los usuarios de AAD puedan iniciar sesión, deben aprovisionarse a Syncplicity. En esta sección se describe cómo crear cuentas de usuario de AAD en Syncplicity.
 
-**Para aprovisionar cuentas de usuario en Syncplicity, realice los siguientes pasos:**
+**Para aprovisionar cuentas de usuario a Syncplicity, realice los siguientes pasos:**
 
 1. Inicie sesión en su inquilino de **Syncplicity** (por ejemplo, `https://company.Syncplicity.com`).
 
@@ -243,8 +243,8 @@ Al hacer clic en el icono de Syncplicity en el panel de acceso y debería inicia
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

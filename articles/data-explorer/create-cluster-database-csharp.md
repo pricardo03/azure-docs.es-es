@@ -1,19 +1,18 @@
 ---
 title: 'Inicio rápido: Creación de un clúster y una base de datos de Azure Data Explorer mediante C#'
 description: Aprenda a crear un clúster y una base de datos de Azure Data Explorer mediante C#
-services: data-explorer
 author: oflipman
 ms.author: oflipman
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 03/25/2019
-ms.openlocfilehash: c2a11422398b3cdb99c9f71accddfcd78237c64c
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 1489048619fa8d650b30659a00ae7679c8d5109d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58417911"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050703"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Creación de un clúster y una base de datos de Azure Data Explorer mediante C#
 

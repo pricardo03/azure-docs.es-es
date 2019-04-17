@@ -9,12 +9,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
-ms.openlocfilehash: a72e02cf7cc85113fe4fb660fdc5e5f0b5f22019
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 4c759462d603a35e738f76a505abd04b832afc3f
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57903154"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426348"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core"></a>Introducción a Azure Dev Spaces con .NET Core
 
@@ -25,17 +25,10 @@ En esta guía, aprenderá a:
 - Desarrollar y probar de forma productiva el código en un entorno de equipo.
 
 > [!Note]
-> **Si se queda bloqueado** en cualquier momento, consulte la sección [Solución de problemas](troubleshooting.md) o publique un comentario en esta página.
-
-Ya está preparado para crear un espacio de desarrollo basado en Kubernetes en Azure.
+> **Si se queda bloqueado** en cualquier momento, consulte la sección [Solución de problemas](troubleshooting.md).
 
 ## <a name="install-the-azure-cli"></a>Instalación de la CLI de Azure
-Azure Dev Spaces requiere una configuración mínima de la máquina local. La mayor parte de la configuración del espacio de desarrollo se almacena en la nube y se puede compartir con otros usuarios. El equipo local puede ejecutar Windows, Mac o Linux. Para Linux, se admiten las siguientes distribuciones: Ubuntu (18.04, 16.04 y 14.04), Debian 8 y 9, RHEL 7, Fedora 26+, CentOS 7, openSUSE 42.2 y SLES 12.
-
-Para comenzar, descargue y ejecute la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). 
-
-> [!IMPORTANT]
-> Si ya tiene instalada la CLI de Azure, asegúrese de que usa la versión 2.0.43, o cualquier versión superior.
+Azure Dev Spaces requiere una configuración mínima de la máquina local. La mayor parte de la configuración del espacio de desarrollo se almacena en la nube y se puede compartir con otros usuarios. Para comenzar, descargue y ejecute la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ### <a name="sign-in-to-azure-cli"></a>Inicio de sesión en la CLI de Azure
 Inicie sesión en Azure. Escriba el siguiente comando en una ventana de terminal:
@@ -152,7 +145,7 @@ Abra esta dirección URL en una ventana del explorador y verá la aplicación we
 ### <a name="update-a-content-file"></a>Actualización de un archivo de contenido
 Con Azure Dev Spaces no se trata solo de conseguir que el código se ejecute en Kubernetes, sino de permitirle ver rápida e iterativamente que los cambios de código surtan efecto en un entorno de Kubernetes en la nube.
 
-1. Busque el archivo `./Views/Home/Index.cshtml` y realice una edición en el código HTML. Por ejemplo, cambie la línea 70 que dice `<h2>Application uses</h2>` a algo como: `<h2>Hello k8s in Azure!</h2>`
+1. Busque el archivo `./Views/Home/Index.cshtml` y realice una edición en el código HTML. Por ejemplo, cambie la línea 70, que dice `<h2>Application uses</h2>`, a algo como: `<h2>Hello k8s in Azure!</h2>`
 1. Guarde el archivo. Momentos después, en la ventana de terminal verá un mensaje que indica que se ha actualizado un archivo en el contenedor en ejecución.
 1. Regrese al explorador y actualice la página. Debería ver la página web que muestra el código HTML actualizado.
 
@@ -231,11 +224,11 @@ Guarde el archivo y, en el **panel de acciones de depuración**, haga clic en el
 
 En lugar de volver a crear e implementar una nueva imagen de contenedor cada vez que se realizan modificaciones en el código, lo que a menudo lleva un tiempo considerable, Azure Dev Spaces volverá a compilar el código de manera incremental dentro del contenedor existente para proporcionar un bucle de modificación/depuración más rápido.
 
-Actualice la aplicación web en el explorador y vaya a la página Acerca de. Debería ver aparecer el mensaje personalizado en la interfaz de usuario.
+Actualice la aplicación web en el explorador y vaya a la página Acerca de. Verá que aparece el mensaje personalizado en la interfaz de usuario.
 
-**Ahora tiene un método para iterar rápidamente el código y depurarlo directamente en Kubernetes.** A continuación, verá cómo puede crear y llamar a un segundo contenedor.
+**Ya tiene un método para iterar rápidamente el código y depurarlo directamente en Kubernetes.** A continuación, verá cómo puede crear y llamar a un segundo contenedor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Aprenda sobre el desarrollo de varios servicios](multi-service-netcore.md)
+> [Más información acerca del desarrollo de varios servicios](multi-service-netcore.md)

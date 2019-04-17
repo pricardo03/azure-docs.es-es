@@ -9,22 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/07/2018
+ms.date: 04/08/2018
 ms.author: diberry
-ms.openlocfilehash: 6f775ffaf53019cc50bc38c294b4d5f40c8eca90
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9d6173ee25f28aa884513d126c06a8a7c722098d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076758"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273845"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Integración del servicio Voz con la aplicación de Language Understanding
 [Speech Service](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) le permite usar una única solicitud para recibir audio y devolver objetos JSON de predicción de LUIS. En este artículo, descarga y usa un proyecto de C# en Visual Studio para decir una expresión a un micrófono y recibir información de predicción de LUIS. El proyecto utiliza el paquete [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) de Voz, que ya se incluye como referencia. 
 
 En este artículo, necesita una cuenta de sitio web de [LUIS][LUIS] gratuita para importar la aplicación.
 
-## <a name="create-luis-endpoint-key"></a>Creación de clave de punto de conexión de LUIS
-En Azure Portal, [cree](luis-how-to-azure-subscription.md) una clave de **Language Understanding** (LUIS). 
+## <a name="create-luis-endpoint-key"></a>Creación de la clave de punto de conexión de LUIS
+En Azure Portal, [cree](luis-how-to-azure-subscription.md) una clave de **Cognitive Service** (LUIS) para la aplicación LUIS.  
 
 ## <a name="import-human-resources-luis-app"></a>Importación de aplicación Human Resources de LUIS
 Las intenciones y expresiones de este artículo proceden de la aplicación Human Resources de LUIS disponible en el repositorio de GitHub [Azure-Samples](https://github.com/Azure-Samples/cognitive-services-language-understanding). Descargue el archivo [HumanResources.json](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/HumanResources.json), guárdelo con la extensión `.json` e [impórtelo](luis-how-to-start-new-app.md#import-new-app) en LUIS. 
@@ -66,7 +66,7 @@ En este artículo se usa el dispositivo de audio en el equipo. Pueden ser unos a
 
 El SDK de Voz ya está incluido como referencia. 
 
-[![Captura de pantalla de Visual Studio 2017 que muestra el paquete NuGet Microsoft.CognitiveServices.Speech](./media/luis-tutorial-speech-to-intent/nuget-package.png "Screenshot of Visual Studio 2017 displaying Microsoft.CognitiveServices.Speech NuGet package")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![SCaptura de pantalla de Visual Studio 2017 que muestra el paquete NuGet Microsoft.CognitiveServices.Speech(./media/luis-tutorial-speech-to-intent/nuget-package.png "Screenshot of Visual Studio 2017 displaying Microsoft.CognitiveServices.Speech NuGet package")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>Modificación del código de C#
 Abra el archivo `Program.cs` y cambie las variables siguientes:
@@ -74,7 +74,7 @@ Abra el archivo `Program.cs` y cambie las variables siguientes:
 |Nombre de la variable|Propósito|
 |--|--|
 |LUIS_assigned_endpoint_key|Corresponde al valor de clave de suscripción asignado de la dirección URL del punto de conexión de la página Publicar.|
-|LUIS_endpoint_key_region|Corresponde al primer subdominio de la dirección URL del punto de conexión, por ejemplo `westus`.|
+|LUIS_endpoint_key_region|Corresponde al primer subdominio de la dirección URL del punto de conexión, por ejemplo `westus`|
 |LUIS_app_ID|Corresponde a la ruta de la dirección URL del punto de conexión que aparece después de **apps/**.|
 
 El archivo `Program.cs` ya tiene las intenciones de Human Resources asignadas.

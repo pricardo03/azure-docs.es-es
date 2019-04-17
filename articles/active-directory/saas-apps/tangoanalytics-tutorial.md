@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 7a701e71b164a13f8c7136d88b83dddf626b1913
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: 7252fcd0ce3e12c411729002e9594d1a75a49885
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58359570"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258539"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tango-analytics"></a>Tutorial: Integración de Azure Active Directory con Tango Analytics
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con Tango Analytics, nec
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Tango Analytics](common/idp-intiated.png)
 
-     a. En el cuadro de texto **Identificador**, escriba el valor: `TACORE_SSO`
+     a. En el cuadro de texto **Identificador**, escriba el valor `TACORE_SSO`
 
     b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://mts.tangoanalytics.com/saml2/sp/acs/post`
 
@@ -193,8 +193,8 @@ Al hacer clic en el icono de Tango Analytics en el panel de acceso, debería ini
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

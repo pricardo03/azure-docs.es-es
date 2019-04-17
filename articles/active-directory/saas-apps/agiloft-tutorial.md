@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97419dac33688d24159b35f00f1e9bffbd587497
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2aed12b085557eda4210be9c067f5cdad4cd2d1b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57886395"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261775"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-agiloft"></a>Tutorial: Integración de Azure Active Directory con Agiloft
 
@@ -167,13 +167,13 @@ Para configurar el inicio de sesión único de Azure AD con Agiloft, realice los
 
     ![Configuración de Agiloft](./media/agiloft-tutorial/setup4.png)
 
-     a. En el cuadro de texto  **IdP Entity Id / Issuer**  (Identificador o emisor de la entidad de IdP), pegue el valor de  **Azure Ad Identifier** (Identificador de Azure AD) que copió de Azure Portal.
+     a. En el cuadro de texto **IdP Entity Id / Issuer** (Identificador de la entidad de IdP/Emisor), pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.
 
-    b. En el cuadro de texto  **IdP Login URL**  (Dirección URL de inicio de sesión de IdP), pegue el valor de  **Login URL** (Dirección URL de inicio de sesión) que copió de Azure Portal.
+    b. En el cuadro de texto **IdP Login URL** (URL de inicio de sesión del IdP), pegue el valor de la **Dirección URL de inicio de sesión** que ha copiado de Azure Portal.
 
-    c. En el cuadro de texto  **IdP Logout URL**  (Dirección URL de cierre de sesión de IdP), pegue el valor de  **Logout URL** (Dirección URL de cierre de sesión) que copió de Azure Portal.
+    c. En el cuadro de texto **IdP logout URL** (Dirección URL de cierre de sesión de IdP), pegue el valor de **Dirección URL de cierre de sesión** que ha copiado de Azure Portal.
 
-    d. Abra el **certificado codificado en base 64** descargado de Azure Portal en el Bloc de notas, copie su contenido en el Portapapeles y luego pegue el contenido en el cuadro de texto  **IdP Provided X.509 certificate contents** (Contenido del certificado X.509 proporcionado por el IdP).
+    d. Abra el **certificado codificado en base 64** descargado de Azure Portal en el Bloc de notas, copie su contenido en el Portapapeles y luego pegue el contenido en el cuadro de texto **IdP Provided X.509 certificate contents** (Contenido del certificado X.509 proporcionado por el IdP).
 
     e. Haga clic en **Finalizar**
 
@@ -195,7 +195,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

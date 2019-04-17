@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1a104da9ecb28d2109e82056995ef7a8048eafe2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: d02ec23e7e6ce936fdbcce63d1394e3a8681c65b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838755"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268643"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Tutorial: integración de Azure Active Directory con Silverback
 
@@ -28,7 +28,7 @@ En este tutorial, obtendrá información sobre cómo integrar Silverback con Azu
 La integración de Silverback con Azure AD le proporciona las siguientes ventajas:
 
 * Puede controlar en Azure AD quién tiene acceso a Silverback.
-* Se pueden permitir que los usuarios a ser automáticamente inicien sesión en Silverback (Single Sign-On) con sus cuentas de Azure AD.
+* Puede permitir que los usuarios inicien sesión automáticamente en Silverback (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -39,13 +39,13 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para configurar la integración de Azure AD con Silverback, se necesitan los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Suscripción habilitada para inicio de sesión único en SilverBack
+* Una suscripción habilitada para el inicio de sesión único en Silverback
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Admite SilverBack **SP** SSO iniciado por
+* Silverback admite el inicio de sesión único iniciado por **SP**.
 
 ## <a name="adding-silverback-from-the-gallery"></a>Agregar Silverback desde la galería
 
@@ -71,25 +71,25 @@ Para configurar la integración de Silverback en Azure AD, será preciso que agr
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único en Azure AD con Silverback en función de usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, debe establecerse una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Silverback.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Silverback con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Silverback.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Silverback, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configurar el inicio de sesión único Silverback](#configure-silverback-single-sign-on)**  : para configurar las opciones de inicio de sesión único en el lado de la aplicación.
+2. **[Configuración del inicio de sesión único de Silverback](#configure-silverback-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Crear usuario de prueba Silverback](#create-silverback-test-user)**  : para tener un homólogo de Britta Simon en Silverback que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba de Silverback](#create-silverback-test-user)**: para tener un homólogo de Britta Simon en Silverback que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único en Azure AD con Silverback, realice los pasos siguientes:
+Para configurar el inicio de sesión único de Azure AD con Silverback, siga estos pasos:
 
-1. En el [portal Azure](https://portal.azure.com/), en el **Silverback** página de integración de aplicaciones, seleccione **inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Silverback**, seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único en Azure AD con Silverback, realice 
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Silverback](common/sp-identifier-reply.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YOURSILVERBACKURL>.com/ssp`
+     a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YOURSILVERBACKURL>.com/ssp`
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `<YOURSILVERBACKURL>.com`
 
@@ -118,9 +118,9 @@ Para configurar el inicio de sesión único en Azure AD con Silverback, realice 
 
     ![Vínculo de descarga del certificado](common/copy-metadataurl.png)
 
-### <a name="configure-silverback-single-sign-on"></a>Configurar el inicio de sesión único Silverback
+### <a name="configure-silverback-single-sign-on"></a>Configuración del inicio de sesión único de Silverback
 
-1. En un explorador web diferente, inicie sesión en su servidor Silverback como administrador.
+1. En un explorador web diferente, inicie sesión en el servidor de Silverback como administrador.
 
 2. Navigate to **Admin** > **Authentication Provider** (Administrador > Proveedor de autenticación).
 
@@ -175,7 +175,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Silverback.
 
-1. En el portal de Azure, seleccione **aplicaciones empresariales**, seleccione **todas las aplicaciones**, a continuación, seleccione **Silverback**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones**, **Silverback**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -197,7 +197,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-silverback-test-user"></a>Crear usuario de prueba Silverback
+### <a name="create-silverback-test-user"></a>Creación de un usuario de prueba de Silverback
 
 Para permitir que los usuarios de Azure AD inicien sesión en Silverback, tienen que aprovisionarse en Silverback. En el caso de Silverback, el aprovisionamiento es una tarea manual.
 
@@ -232,13 +232,13 @@ Para permitir que los usuarios de Azure AD inicien sesión en Silverback, tienen
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Silverback en el Panel de acceso, debe iniciar sesión automáticamente el Silverback que configure para inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de Silverback en el panel de acceso y debería iniciar sesión automáticamente en la versión de Silverback para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

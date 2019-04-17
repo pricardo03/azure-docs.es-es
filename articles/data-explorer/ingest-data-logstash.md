@@ -1,19 +1,18 @@
 ---
 title: 'Inicio rápido: Ingesta de datos de Logstash en Azure Data Explorer'
 description: En este inicio rápido aprenderá a ingerir (cargar) datos en Azure Data Explorer desde Logstash.
-services: data-explorer
 author: tamirkamara
 ms.author: takamara
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 1/14/2019
-ms.openlocfilehash: a5b4917e0d73378b908739a8fc8c0744c70dd1e9
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 01/14/2019
+ms.openlocfilehash: e0d81454e6036d09bb74af6f522063a1aed5fffe
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58754666"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046417"
 ---
 # <a name="quickstart-ingest-data-from-logstash-to-azure-data-explorer"></a>Inicio rápido: Ingesta de datos de Logstash en Azure Data Explorer
 
@@ -112,7 +111,7 @@ output {
 | **path** | El complemento de Logstash escribe eventos en archivos temporales antes de enviarlos a Azure Data Explorer. Este parámetro incluye una ruta de acceso en la que se deben escribir los archivos y una expresión de tiempo para la rotación de archivos desencadenará una carga en el servicio Azure Data Explorer.|
 | **ingest_url** | El punto de conexión de Kusto para las comunicaciones relacionadas con la ingesta.|
 | **app_id**,  **app_key** y **app_tenant**| Credenciales necesarias para conectarse a Azure Data Explorer. Asegúrese de usar una aplicación con privilegios de ingesta. |
-| **database**| Nombre de la base de datos en la que se colocan los eventos. |
+| **Base de datos**| Nombre de la base de datos en la que se colocan los eventos. |
 | **table** | Nombre de la tabla de destino en la que se colocan los eventos. |
 | **mapping** | La asignación se usa para asignar a una cadena json de eventos entrantes el formato de fila correcto (define la propiedad que va en cada columna). |
 

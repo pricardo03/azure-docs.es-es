@@ -1,19 +1,18 @@
 ---
 title: 'Inicio rápido: Creación de un clúster y una base de datos de Azure Data Explorer'
 description: En esta guía de inicio rápido, aprenderá a crear un clúster y la base de datos del Explorador de datos de Azure, y a ingerir (cargar) datos.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 3/25/2019
-ms.openlocfilehash: aa98fb8f9569282e9636d5cb593523b9642395e1
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 03/25/2019
+ms.openlocfilehash: 41a15a29798953cb32029b7c4d1167020074e49f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758624"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046043"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Inicio rápido: Creación de un clúster y una base de datos de Azure Data Explorer
 
@@ -55,7 +54,7 @@ Creará un clúster de Azure Data Explorer con un conjunto definido de recursos 
     | Subscription | Su suscripción | Seleccione la suscripción de Azure que quiere usar para el servidor.|
     | Grupos de recursos | *test-resource-group* | Use un grupo de recursos existente o cree uno. |
     | Nombre del clúster | Un nombre de clúster único | Elija un nombre único que identifique el clúster. Por ejemplo, *mydataexplorercluster*. El nombre de dominio *[region].kusto.windows.net* se anexa al nombre del clúster que proporcione. El nombre solo puede contener letras minúsculas y números. Debe contener entre 3 y 22 caracteres.
-    | Ubicación | *Oeste de EE. UU.* | Seleccione *Oeste de EE. UU.* para esta guía de inicio rápido. En un sistema de producción, seleccione la región que mejor se adapte a sus necesidades.
+    | Ubicación | *Oeste de EE. UU.* | Seleccione *Oeste de EE. UU.* para esta guía de inicio rápido. En un sistema de producción, seleccione la región que mejor se adapte a sus necesidades.
     | Especificaciones de Compute | *D13_v2* | Seleccione la especificación de precio más bajo para esta guía de inicio rápido. En un sistema de producción, seleccione la especificación que mejor se adapte a sus necesidades.
     | | |
 
@@ -123,6 +122,6 @@ Si tiene previsto seguir nuestros tutoriales e inicios rápidos, conserve los re
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Inicio rápido: Ingesta de datos del centro de eventos a Azure Data Explorer](ingest-data-event-hub.md).
+> [Inicio rápido: Ingesta de datos del centro de eventos a Azure Data Explorer](ingest-data-event-hub.md)
 
 

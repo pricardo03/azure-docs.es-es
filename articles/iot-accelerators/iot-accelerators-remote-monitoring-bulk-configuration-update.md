@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
 ms.author: adugar
-ms.openlocfilehash: 640eb8800f9593aef510d99713595bdd0c844263
-ms.sourcegitcommit: cd0a1514bb5300d69c626ef9984049e9d62c7237
+ms.openlocfilehash: 8a5c74c76662a089675fcbdcd8d5a7ea54b58fd1
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/30/2018
-ms.locfileid: "52683434"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009674"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>Tutorial: Administración de los dispositivos conectados de forma masiva
 
@@ -89,7 +89,7 @@ La extensión de VS Code [Azure IoT Workbench](https://marketplace.visualstudio.
 
 1. Asegúrese de que IoT DevKit no está conectado al equipo. Inicie VS Code y luego conecte el DevKit al equipo.
 
-1. Presione **F1** para abrir la paleta de comandos y escriba y seleccione **IoT Workbench: Examples** (IoT Workbench: Ejemplos). A continuación, seleccione **IoT DevKit** como placa.
+1. Presione **F1** para abrir la paleta de comandos y escriba y seleccione **IoT Workbench: Examples** (IoT Workbench: ejemplos). A continuación, seleccione **IoT DevKit** como placa.
 
 1. Busque **Firmware OTA** y haga clic en **Abrir ejemplo**. Se abre una nueva ventana de VS Code y muestra la carpeta del proyecto **firmware_ota**:
 
@@ -103,7 +103,7 @@ La versión inicial del firmware del dispositivo es 1.0.0. El nuevo firmware deb
 
     ![Cambio de la versión de firmware](media/iot-accelerators-remote-monitoring-bulk-configuration-update/version-1-0-1.png)
 
-1. Abra la paleta de comandos y escriba y seleccione **IoT Workbench: Device** (IoT Workbench: Dispositivo). A continuación, seleccione **Device Compile** (Compilación del dispositivo) para compilar el código:
+1. Abra la paleta de comandos y escriba y seleccione **IoT Workbench: Device** (IoT Workbench: dispositivo). A continuación, seleccione **Device Compile** (Compilación del dispositivo) para compilar el código:
 
     ![Compilación del dispositivo](media/iot-accelerators-remote-monitoring-bulk-configuration-update/iot-workbench-device-compile.png)
 
@@ -111,7 +111,7 @@ La versión inicial del firmware del dispositivo es 1.0.0. El nuevo firmware deb
 
 ### <a name="generate-the-crc-value-and-calculate-the-firmware-file-size"></a>Generación del valor CRC y cálculo del tamaño de archivo del firmware
 
-1. Abra la paleta de comandos y escriba y seleccione **IoT Workbench: Device** (IoT Workbench: Dispositivo). A continuación, seleccione **Generate CRC** (Generar CRC).
+1. Abra la paleta de comandos y escriba y seleccione **IoT Workbench: Device** (IoT Workbench: dispositivo). A continuación, seleccione **Generate CRC** (Generar CRC).
 
     ![Generación de CRC](media/iot-accelerators-remote-monitoring-bulk-configuration-update/iot-workbench-device-crc.png)
 
@@ -139,19 +139,19 @@ Use su cuenta de almacenamiento de Azure para hospedar el nuevo archivo de firmw
 
     ![Versión 1.0.0](media/iot-accelerators-remote-monitoring-bulk-configuration-update/version-1-0-1.png)
 
-1. Abra la paleta de comandos y escriba y seleccione **IoT Workbench: Device** (IoT Workbench: Dispositivo). A continuación, seleccione **Device Upload** (Carga del dispositivo):
+1. Abra la paleta de comandos y escriba y seleccione **IoT Workbench: Device** (IoT Workbench: dispositivo). A continuación, seleccione **Device Upload** (Carga del dispositivo):
 
     ![Carga del dispositivo](media/iot-accelerators-remote-monitoring-bulk-configuration-update/device-upload.png)
 
 1. VS Code comprueba y carga el código en el dispositivo IoT DevKit.
 
-1. Cuando la carga finaliza, el dispositivo de IoT DevKit se reinicia. Cuando se completa el reinicio, se muestra la pantalla de IoT DevKit **FW versión: 1.0.0**, que indica que se está comprobando si hay firmware nuevo:
+1. Cuando la carga finaliza, el dispositivo de IoT DevKit se reinicia. Cuando finaliza el reinicio, la pantalla de IoT DevKit muestra **FW version: 1.0.0**, y que está buscando nuevo firmware:
 
     ![ota-1](media/iot-accelerators-remote-monitoring-bulk-configuration-update/ota-1.jpg)
 
 ## <a name="create-a-device-configuration"></a>Creación de la configuración de dispositivos
 
-La configuración de los dispositivos especifica el estado deseado de estos. Normalmente, un desarrollador [crea la configuración](../iot-hub/iot-hub-auto-device-config.md#create-a-configuration) en la página **IoT device configuration** (Configuración del dispositivo IoT) de Azure Portal. La configuración de un dispositivo es un documento JSON que especifica el estado deseado de los dispositivos y un conjunto de métricas.
+La configuración de los dispositivos especifica el estado deseado de estos. Normalmente, un desarrollador [crea la configuración](../iot-hub/iot-hub-automatic-device-management.md#create-a-configuration) en la página **IoT device configuration** (Configuración del dispositivo IoT) de Azure Portal. La configuración de un dispositivo es un documento JSON que especifica el estado deseado de los dispositivos y un conjunto de métricas.
 
 Guarde la configuración siguiente como un archivo denominado **firmware-update.json** en la máquina local. Reemplace los marcadores de posición `YOURSTRORAGEACCOUNTNAME`, `YOURCHECKSUM` y `YOURPACKAGESIZE` por los valores que anotó anteriormente:
 

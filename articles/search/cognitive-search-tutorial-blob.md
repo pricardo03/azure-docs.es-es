@@ -1,21 +1,21 @@
 ---
-title: 'Tutorial para llamar a Cognitive Services APIs en una canalización de indexación: Azure Search'
-description: En este tutorial se analiza un ejemplo de procesamiento de IA de imágenes, extracción de datos y lenguaje natural en la indexación de Azure Search para la extracción y transformación de datos.
+title: 'Tutorial: Llamada a Cognitive Services API en una canalización de indexación de Azure Search'
+description: Aquí se analiza un ejemplo de procesamiento de IA de imágenes, extracción de datos y lenguaje natural en la indexación de Azure Search para la extracción y transformación de datos en blobs de JSON.
 manager: pablocas
 author: luiscabrer
 services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: luisca
 ms.custom: seodec2018
-ms.openlocfilehash: f60b9002f939cbf4c3a0ecfb78b358598713ea1c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 5fbcef1d8bc19df251a4d33cafa2fa7b5a7d9431
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881637"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261928"
 ---
 # <a name="tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline-preview"></a>Tutorial: Llamada a Cognitive Services APIs en una canalización de indexación de Azure Search (versión preliminar)
 
@@ -32,60 +32,44 @@ En este tutorial, se realizan llamadas a la API de REST para llevar a cabo las s
 
 La salida es un índice que permite realizar búsquedas de texto completo en Azure Search. Puede mejorar el índice con otras funciones estándares, como [sinónimos](search-synonyms.md), [perfiles de puntuación](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [analizadores](search-analyzers.md) y [filtros](search-filters.md).
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+Este tutorial se ejecuta en el servicio Gratis, pero el número de transacciones gratuitas está limitado a 20 documentos por día. Si desea ejecutar este tutorial más de una vez en el mismo día, use un conjunto de archivos más pequeño para que pueda realizar más ejecuciones.
 
 > [!NOTE]
-> A partir del 21 de diciembre de 2018, podrá asociar un recurso de Cognitive Services con un conjunto de aptitudes de Azure Search. Esto nos permitirá empezar a cobrar por la ejecución del conjunto de aptitudes. En esta fecha, también empezaremos a cobrar por la extracción de imágenes como parte de la fase de descifrado de documentos. La extracción de texto de documentos continuará ofreciéndose sin costo adicional.
+> A medida que expande el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de inteligencia artificial, tendrá que asociar un recurso facturable de Cognitive Services. Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Search. No hay ningún cargo por la extracción de texto de documentos.
 >
-> La ejecución de aptitudes integradas se cobrará a los [precios de pago por uso existentes de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). La extracción de imágenes se cobrará al precio de la versión preliminar, tal y como se describe en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). [Más información](cognitive-search-attach-cognitive-services.md).
+> La ejecución de aptitudes integradas se cobra a los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. La extracción de imágenes se cobra al precio de la versión preliminar, tal y como se describe en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). [Más información](cognitive-search-attach-cognitive-services.md).
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-¿Es nuevo en Cognitive Search? Lea ["What is cognitive search?"](cognitive-search-concept-intro.md) (¿Qué es Cognitive Search?) para familiarizarse, o bien pruebe el [inicio rápido del portal](cognitive-search-quickstart-blob.md) para obtener una introducción práctica a conceptos importantes.
+[Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial.
 
-Para realizar llamadas de REST a Azure Search, use PowerShell o una herramienta de prueba web, como Telerik Fiddler o Postman, para formular solicitudes HTTP. Si estas herramientas son nuevas para usted, consulte [Exploración de las API de REST de Azure Search mediante Fiddler o Postman](search-fiddler.md).
+La [aplicación de escritorio Postman](https://www.getpostman.com/) se usa para hacer llamadas REST a Azure Search.
 
-Use [Azure Portal](https://portal.azure.com/) para crear servicios usados en un flujo de trabajo de extremo a extremo. 
+### <a name="get-an-azure-search-api-key-and-endpoint"></a>Obtención de una clave api y un punto de conexión de Azure Search
 
-### <a name="set-up-azure-search"></a>Configuración de Azure Search
+Las llamadas de REST requieren la dirección URL del servicio y una clave de acceso en cada solicitud. Con ambos se crea un servicio de búsqueda, por lo que si ha agregado Azure Search a su suscripción, siga estos pasos para obtener la información necesaria:
 
-En primer lugar, regístrese en el servicio Azure Search. 
+1. En Azure Portal, en la página **Introducción** del servicio de búsqueda, obtenga la dirección URL. Un punto de conexión de ejemplo podría ser similar a `https://my-service-name.search.windows.net`.
 
-1. Vaya a [Azure Portal](https://portal.azure.com) e inicie sesión con su cuenta de Azure.
+2. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
 
-1. Haga clic en **Crear un recurso**, busque Azure Search y haga clic en **Crear**. Consulte [Creación de un servicio Azure Search en el portal](search-create-service-portal.md) si está configurando un servicio de búsqueda por primera vez.
+![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
 
-   ![Panel del portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Creación de un servicio Azure Search en el portal")
+Todas las solicitudes requieren una clave de API en cada solicitud enviada al servicio. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
-1. En Grupo de recursos, cree un grupo de recursos en el que se incluirán todos los recursos que cree en este tutorial. De este modo, será más fácil limpiar los recursos tras finalizar el tutorial.
-
-1. En Ubicación, elija una región cercana a los datos y a otras aplicaciones en la nube.
-
-1. En la opción Plan de tarifa, puede crear un servicio **Gratis** para completar tutoriales y guías de inicio rápido. Si quiere realizar una investigación detallada con sus propios datos, cree un [servicio de pago](https://azure.microsoft.com/pricing/details/search/) como **Básico** o **Estándar**. 
-
-   El servicio gratuito se limita a 3 índices, un tamaño máximo de blob de 16 MB y 2 minutos de indexación, lo que es insuficiente para usar todas las funcionalidades de Cognitive Search. Para revisar los límites de los distintos planes, consulte [Límites de servicio](search-limits-quotas-capacity.md).
-
-   ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service1.png "Página de definición del servicio en el portal")
-   ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Página de definición del servicio en el portal")
-
- 
-1. Ancle el servicio al panel para acceder rápidamente a la información del servicio.
-
-   ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Página de definición del servicio en el portal")
-
-1. Una vez creado el servicio, recopile la información siguiente: La **dirección URL** de la página de información general y **api-key** (ya sea principal o secundaria) de la página Claves.
-
-   ![Información del punto de conexión y la clave en el portal](./media/cognitive-search-tutorial-blob/create-search-collect-info.png "Información del punto de conexión y la clave en el portal")
-
-### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configuración del servicio Blob de Azure y carga de datos de ejemplo
+### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurar el servicio de Azure Blob y cargar los datos de ejemplo
 
 La canalización de enriquecimiento extrae los orígenes de datos de Azure. Los datos de origen deben proceder de un tipo de origen de datos compatible de un [indexador de Azure Search](search-indexer-overview.md). Tenga en cuenta que Azure Table Storage no es compatible con Cognitive Search. Para realizar este ejercicio, usaremos Blob Storage para mostrar varios tipos de contenido.
 
-1. [Descargue los datos de ejemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4). Los datos de ejemplo están formados por un pequeño conjunto de archivos de tipos diferentes. 
+1. [Descargue los datos de ejemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) que están formados por un pequeño conjunto de archivos de diferentes tipos. 
 
-1. Regístrese en Azure Blob Storage, cree una cuenta de almacenamiento, inicie sesión en el Explorador de Storage y cree un contenedor llamado `basicdemo`. Consulte en la [guía de inicio rápido del Explorador de Azure Storage](../storage/blobs/storage-quickstart-blobs-storage-explorer.md) las instrucciones de todos los pasos.
+1. [Regístrese en Azure Blob Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), cree una cuenta de almacenamiento, abra las páginas de servicios de blob y cree un contenedor. Cree la cuenta de almacenamiento en la misma región que Azure Search.
 
-1. Use el Explorador de Azure Storage y, en el contenedor que creó, haga clic en `basicdemo` **Cargar** para cargar los archivos de ejemplo.
+1. En el contenedor que creó, haga clic en **Cargar** para cargar los archivos de ejemplo que descargó en un paso anterior.
+
+   ![Archivos de origen en Azure Blob Storage](./media/cognitive-search-quickstart-blob/sample-data.png)
 
 1. Una vez cargados los archivos de ejemplo, obtenga el nombre del contenedor y una cadena de conexión de Blob Storage. Para hacerlo puede navegar a la cuenta de almacenamiento en Azure Portal. Vaya a **Claves de acceso** y copie el valor del campo **Cadena de conexión**.
 
@@ -438,7 +422,7 @@ api-key: [api-key]
 Content-Type: application/json
 ```
 
-Repita el proceso para otros campos: contenido, idioma, frases clave y organizaciones del ejercicio. Puede devolver varios campos a través de `$select` con una lista delimitada por comas.
+Repita el proceso para otros campos: contenido, languageCode, keyPhrases y organizaciones del ejercicio. Puede devolver varios campos a través de `$select` con una lista delimitada por comas.
 
 Puede usar GET o POST, según la longitud y la complejidad de la cadena de consulta. Para más información, consulte la [Realización de una consulta al índice de Azure Search con la API de REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 

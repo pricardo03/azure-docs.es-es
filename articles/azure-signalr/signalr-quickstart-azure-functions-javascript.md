@@ -7,12 +7,12 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: c66323a430e86053627577b40f66b3f4be11c74f
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 0ca73ed314b254f9f73833bb2c4311f03f62508f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535655"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264206"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>Guía de inicio rápido: Creación de un salón de chat con Azure Functions y SignalR Service mediante JavaScript
 
@@ -50,7 +50,7 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
 
     ![Creación de una instancia del servicio SignalR](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-keys.png)
 
-1. En el editor de código, abra la carpeta *chat/src/javascript* en el repositorio clonado.
+1. En el editor de código, abra la carpeta *src/chat/javascript* en el repositorio clonado.
 
 1. Cambie el nombre de *local.settings.sample.json* a *local.settings.json*.
 
@@ -61,7 +61,7 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
     - **negotiate**: usa el enlace de entrada *SignalRConnectionInfo* para generar y devolver información de conexión válida.
     - **messages**: recibe un mensaje de chat en el cuerpo de la solicitud y usa el enlace de salida *SignalR* para difundir el mensaje a todas las aplicaciones cliente conectadas.
 
-1. En el terminal, asegúrese de que se encuentra en la carpeta *chat/src/javascript*. Use Azure Functions Core Tools para instalar las extensiones necesarias para ejecutar la aplicación.
+1. En el terminal, asegúrese de que se encuentra en la carpeta *src/chat/javascript*. Use Azure Functions Core Tools para instalar las extensiones necesarias para ejecutar la aplicación.
 
     ```bash
     func extensions install

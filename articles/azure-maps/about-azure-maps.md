@@ -9,18 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 023f5ed43453d7fb20dec5d91651230aa8fb4370
-ms.sourcegitcommit: dd1a9f38c69954f15ff5c166e456fda37ae1cdf2
+ms.openlocfilehash: 944a111ac0c31e755b3991f9ea101ba652c676d3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57571310"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268779"
 ---
 # <a name="what-is-azure-maps"></a>¿Qué es Azure Maps?
 
-Azure Maps es una colección de servicios geoespaciales desanclada por los datos de asignación más recientes disponibles que proporciona contexto geográfico preciso tanto a las aplicaciones web como a las aplicaciones para dispositivos móviles. Azure Maps consta de varias API REST para representar **mapas** con varios estilos e imágenes de satélite, **buscar** direcciones, lugares y puntos de interés en todo el mundo; realizar un **enrutamiento** punto a punto, multipunto, optimización multipunto, isocrono, vehículo comercial, con capa de tráfico y enrutamiento de matrices; ver el mejor flujo e incidentes del tráfico; establecer la ubicación del usuario mediante la **geolocalización** y convertir la ubicación en **zonas horarias**, así como capturar la hora en una ubicación. Además, Azure Maps ofrece servicios de **geovalla**, asignación de almacenamiento de **datos** (hospedaje de información de ubicación en Azure) y **operaciones espaciales** que proporciona inteligencia de ubicación a través del análisis geoespacial. Los servicios de Azure Maps están disponibles directamente como API REST o mediante nuestras sólidas **Web SDK** o **Android SDK**. Estas herramientas permiten a los desarrolladores desarrollar y escalar rápidamente soluciones que integran información acerca de la ubicación en las soluciones de Azure desde la nube de Azure. Regístrese hoy mismo para obtener su [cuenta de Azure Maps](https://azure.microsoft.com/services/azure-maps/) y empezar a realizar desarrollos.
+Azure Maps es una colección de servicios geoespaciales desanclada por los datos de asignación más recientes disponibles que proporciona contexto geográfico preciso tanto a las aplicaciones web como a las aplicaciones para dispositivos móviles. Azure Maps consta de varias API REST para representar **mapas** con varios estilos e imágenes de satélite, **buscar** direcciones, lugares y puntos de interés en todo el mundo; realizar un **enrutamiento** punto a punto, multipunto, optimización multipunto, isocrono, vehículo comercial, con capa de tráfico y enrutamiento de matrices; ver el mejor flujo e incidentes del tráfico del sector; establecer la ubicación del usuario mediante la **geolocalización** y convertir la ubicación en **zonas horarias**, así como capturar la hora en una ubicación. Además, Azure Maps ofrece servicios de **geovalla**, asignación de almacenamiento de **datos** (hospedaje de información de ubicación en Azure) y **operaciones espaciales** que proporciona inteligencia de ubicación a través del análisis geoespacial. Los servicios de Azure Maps están disponibles directamente como API REST o mediante nuestras sólidas **Web SDK** o **Android SDK**. Estas herramientas permiten a los desarrolladores desarrollar y escalar rápidamente soluciones que integran información acerca de la ubicación en las soluciones de Azure desde la nube de Azure. Regístrese hoy mismo para obtener su [cuenta de Azure Maps](https://azure.microsoft.com/services/azure-maps/) y empezar a realizar desarrollos.
 
 En el siguiente vídeo se explica Azure Maps en profundidad:
+
+<br/>
 
 <iframe src="https://channel9.msdn.com/Shows/Internet-of-Things-Show/Azure-Maps/player?format=ny" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
 
@@ -95,7 +97,7 @@ Para más información sobre este servicio, visite la página de las [Timezone A
 Traffic Service es un conjunto de servicios web diseñados para los desarrolladores, para la creación de aplicaciones web y móviles que requieren tráfico. El servicio proporciona dos tipos de datos:
 
 * Traffic Flow: velocidades observadas en tiempo real y tiempos de desplazamiento de todas las principales carreteras de la red.
-* Traffic Incidents: una vista exacta sobre los atascos y las incidencias de tráfico de toda la red de carreteras.
+* Traffic Incidents: una vista actualizada sobre los atascos y las incidencias de tráfico de toda la red de carreteras.
 
 ![Tráfico de Azure Maps](media/about-azure-maps/Introduction_Traffic.png)
 
@@ -121,7 +123,7 @@ Azure Maps usa un esquema de autenticación basado en claves. Su cuenta incluye 
 
 ## <a name="supported-regions"></a>Regiones admitidas
 
-La API de Azure Maps está actualmente disponible en todos los países, excepto en:
+La API de Azure Maps está actualmente disponible en todos los países excepto en las siguientes regiones:
 
 * Argentina
 * China
@@ -139,7 +141,7 @@ Para más información sobre las nuevas características de Azure Maps:
 > [!div class="nextstepaction"]
 > [Enrutamiento de matrices, isocronas, búsqueda de IP, etc.](https://azure.microsoft.com/blog/route-matrix-isochrones-ip-lookup-and-more-added-to-azure-maps/)
 
-Pruebe una aplicación de ejemplo que demuestra el servicio para continuar:
+Pruebe una aplicación de ejemplo que muestre el uso de Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Iniciar un mapa de búsqueda interactiva de demostración](quick-demo-map-app.md)
+> [Inicio rápido: Creación de una aplicación web](quick-demo-map-app.md)

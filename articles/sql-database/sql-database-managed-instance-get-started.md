@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: quickstart
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: Carlrab
+ms.reviewer: sstein, carlrab
 manager: craigg
-ms.date: 03/13/2019
-ms.openlocfilehash: 6aa8f362f067a4e3e391f435ee849f96abdf752f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/09/2019
+ms.openlocfilehash: a6abaf9b444ca9b3f14093dde1239d9158dfd3ff
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57997503"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59469648"
 ---
 # <a name="quickstart-create-an-azure-sql-database-managed-instance"></a>Inicio rápido: Creación de una Instancia administrada de Azure SQL Database
 
@@ -44,13 +44,14 @@ En los pasos siguientes se muestra cómo crear una Instancia administrada.
 
    | Configuración| Valor sugerido | DESCRIPCIÓN |
    | ------ | --------------- | ----------- |
-   | **Suscripción** | Su suscripción | Una suscripción en la que tiene permiso para crear recursos. |
+   | **Subscription** | Su suscripción | Una suscripción en la que tiene permiso para crear recursos. |
    |**Nombre de la instancia administrada**|Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura para los recursos de Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    |**Inicio de sesión de administrador de la instancia administrada**|Cualquier nombre de usuario válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura para los recursos de Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). No utilice "serveradmin", ya es un rol de nivel de servidor reservado.|
    |**Contraseña**|Cualquier contraseña válida|La contraseña debe tener al menos 16 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).|
-   |**Intercalación**|La intercalación que desea usar para una instancia administrada|Si va a migrar bases de datos desde SQL Server, compruebe la intercalación de origen mediante `SELECT SERVERPROPERTY(N'Collation')` y use ese valor. Para información sobre las intercalaciones, consulte [Intercalaciones de nivel de servidor](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
+   |**Zona horaria**|La zona horaria que debe observar su instancia administrada|Para más información, consulte las [zonas horarias](sql-database-managed-instance-timezone.md)|
+   |**Collation**|La intercalación que desea usar para una instancia administrada|Si va a migrar bases de datos desde SQL Server, compruebe la intercalación de origen mediante `SELECT SERVERPROPERTY(N'Collation')` y use ese valor. Para información sobre las intercalaciones, consulte [Intercalaciones de nivel de servidor](https://docs.microsoft.com/sql/relational-databases/collations/set-or-change-the-server-collation).|
    |**Ubicación**|La ubicación en la que quiere crear la Instancia administrada|Para obtener información sobre las regiones, consulte [Regiones de Azure](https://azure.microsoft.com/regions/).|
-   |**Red virtual**|Seleccione **Crear una nueva red virtual** o una subred y red virtual válidas.| Si hay una red o subred que aparece como no disponible, se debe [modificar para cumplir con los requisitos de la red](sql-database-managed-instance-configure-vnet-subnet.md) antes de seleccionarla como destino de la nueva instancia administrada. Para información acerca los requisitos necesarios para configurar el entorno de red de una instancia administrada, consulte [Arquitectura de conectividad de la Instancia administrada de Azure SQL Database](sql-database-managed-instance-connectivity-architecture.md). |
+   |**Virtual network**|Seleccione **Crear una nueva red virtual** o una subred y red virtual válidas.| Si hay una red o subred que aparece como no disponible, se debe [modificar para cumplir con los requisitos de la red](sql-database-managed-instance-configure-vnet-subnet.md) antes de seleccionarla como destino de la nueva instancia administrada. Para información acerca los requisitos necesarios para configurar el entorno de red de una instancia administrada, consulte [Arquitectura de conectividad de la Instancia administrada de Azure SQL Database](sql-database-managed-instance-connectivity-architecture.md). |
    |**Grupos de recursos**|Un grupo de recursos nuevo o existente.|Para conocer cuáles son los nombres de grupo de recursos válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura).|
 
    ![Formulario de la instancia administrada](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)

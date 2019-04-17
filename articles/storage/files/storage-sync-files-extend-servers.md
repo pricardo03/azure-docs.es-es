@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/23/2018
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 0372f34d5e58361d460465a9ddf4b6eed79a49f0
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
+ms.openlocfilehash: 9d7162eca3c2979b1dd333bdaf95c7c43e875b9d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55474826"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049156"
 ---
 # <a name="tutorial-extend-windows-file-servers-with-azure-file-sync"></a>Tutorial: Extensión de servidores de archivos de Windows con Azure File Sync
 
@@ -28,6 +28,8 @@ En este artículo se demuestran los pasos básicos para ampliar la capacidad de 
 > * Creación de un punto de conexión de servidor
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
+
+[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
@@ -181,7 +183,7 @@ A continuación, en la máquina virtual con Windows Server 2016 Datacenter, ins
 1. Ejecute el siguiente comando:
 
    ```powershell
-   Install-Module -Name AzureRm
+   Install-Module -Name Az
    ```
 
    > [!NOTE]
@@ -200,7 +202,7 @@ A continuación, en la máquina virtual con Windows Server 2016 Datacenter, ins
 
 1. Responda **Sí** o **Sí a todo** para continuar con la instalación.
 
-El módulo `AzureRM` es un módulo acumulativo para los cmdlets de Azure PowerShell. Al instalarlo, se descargan todos los módulos disponibles de Azure Resource Manager y hace que sus cmdlets estén disponibles para su uso.
+El módulo `Az` es un módulo acumulativo para los cmdlets de Azure PowerShell. Al instalarlo, se descargan todos los módulos disponibles de Azure Resource Manager y hace que sus cmdlets estén disponibles para su uso.
 
 Ya ha configurado el entorno para el tutorial y está listo para implementar el servicio de sincronización de almacenamiento.
 
@@ -218,8 +220,8 @@ Para implementar Azure File Sync, en primer lugar coloque un recurso del **servi
 
    | Valor | DESCRIPCIÓN |
    | ----- | ----- |
-   | **Nombre** | Un nombre único (por suscripción) para el servicio de sincronización de almacenamiento.<br><br>Use _afssyncservice02_ para este tutorial. |
-   | **Suscripción** | La suscripción de Azure que utiliza para este tutorial. |
+   | **NOMBRE** | Un nombre único (por suscripción) para el servicio de sincronización de almacenamiento.<br><br>Use _afssyncservice02_ para este tutorial. |
+   | **Subscription** | La suscripción de Azure que utiliza para este tutorial. |
    | **Grupos de recursos** | el grupo de recursos que contiene el servicio de sincronización de almacenamiento.<br><br>Use _afsresgroup101918_ para este tutorial. |
    | **Ubicación** | Este de EE. UU |
 
@@ -284,7 +286,7 @@ Un grupo de sincronización define la topología de sincronización de un conjun
    | Valor | DESCRIPCIÓN |
    | ----- | ----- |
    | **Nombre del grupo de sincronización** | Este nombre debe ser único dentro del servicio de sincronización de almacenamiento, pero puede ser cualquier nombre que considere lógico. Use *afssyncgroup* para este tutorial.|
-   | **Suscripción** | La suscripción en la que se ha implementado el servicio de sincronización de almacenamiento de este tutorial. |
+   | **Subscription** | La suscripción en la que se ha implementado el servicio de sincronización de almacenamiento de este tutorial. |
    | **Cuenta de almacenamiento** | Elija **Seleccionar cuenta de almacenamiento**. En el panel que aparece, seleccione la cuenta de almacenamiento que tiene el recurso compartido de archivos de Azure que ha creado. Use *afsstoracct101918* para este tutorial. |
    | **Recurso compartido de archivos de Azure** | El nombre del recurso compartido de archivos de Azure que ha creado. Use *afsfileshare* para este tutorial. |
 
@@ -306,7 +308,7 @@ Un punto de conexión del servidor representa una ubicación concreta en un serv
    | ----- | ----- |
    | Valor | DESCRIPCIÓN |
    | **Servidor registrado** | El nombre del servidor que ha creado. Use *afsvm101918* para este tutorial. |
-   | **Path** | La ruta de acceso del servidor de Windows Server a la unidad que ha creado. Use *f:\filestosync* en este tutorial. |
+   | **Ruta de acceso** | La ruta de acceso del servidor de Windows Server a la unidad que ha creado. Use *f:\filestosync* en este tutorial. |
    | **Nube por niveles** | Déjelo deshabilitado para este tutorial. |
    | **Espacio disponible del volumen** | Déjelo en blanco para este tutorial. |
 
@@ -325,4 +327,4 @@ Los archivos ya están sincronizados entre el recurso compartido de archivos de 
 En este tutorial, ha aprendido los pasos básicos necesarios para ampliar la capacidad de almacenamiento de un servidor con Windows Server mediante Azure File Sync. Para obtener una visión más completa del planeamiento de una implementación de Azure File Sync, consulte:
 
 > [!div class="nextstepaction"]
-> [Planeamiento de una implementación de Azure Files Sync](./storage-sync-files-planning.md)
+> [Planeamiento de una implementación de Azure File Sync](./storage-sync-files-planning.md)

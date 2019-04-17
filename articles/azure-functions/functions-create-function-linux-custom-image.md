@@ -11,12 +11,12 @@ ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 92811110ef44676de487bca1ad2022cb63315c75
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: 03e1ec58b0ef3ad50a04f82ced7d20119ab3ef5b
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418064"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470073"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Creación de una función en Linux con una imagen personalizada
 
@@ -67,7 +67,7 @@ Cuando se le solicite, elija un runtime de trabajo en los siguientes lenguajes:
 
 * `dotnet`: crea un proyecto de biblioteca de clases .NET (.csproj).
 * `node`: crea un proyecto JavaScript.
-* `python`: crea un proyecto de Python.
+* `python`: crea un proyecto Python.
 
 [!INCLUDE [functions-python-preview-note](../../includes/functions-python-preview-note.md)]
 
@@ -255,6 +255,16 @@ AzureWebJobsStorage=$storageConnectionString
 Ahora puede probar cómo se ejecutan las funciones en Linux en Azure.
 
 [!INCLUDE [functions-test-function-code](../../includes/functions-test-function-code.md)]
+
+## <a name="enable-application-insights"></a>Habilitación de Application Insights
+
+La forma recomendada de supervisar la ejecución de las funciones es mediante la aplicación de función con Azure Application Insights. De forma predeterminada, cuando crea una aplicación de función en Azure Portal, esta integración se realiza automáticamente. Sin embargo, al crear la aplicación de función mediante la CLI de Azure, no se lleva a cabo su integración en Azure.
+
+Para habilitar Application Insights para la aplicación de función:
+
+[!INCLUDE [functions-connect-new-app-insights.md](../../includes/functions-connect-new-app-insights.md)]
+
+Para más información, consulte [Supervisión de Azure Functions](functions-monitoring.md).
 
 ## <a name="enable-continuous-deployment"></a>Habilitación de la implementación continua
 

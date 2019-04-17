@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: fmegen
-ms.openlocfilehash: 83d6c430d0973d4b45fcfc40bbb93ae283d1133d
-ms.sourcegitcommit: 6cab3c44aaccbcc86ed5a2011761fa52aa5ee5fa
+ms.openlocfilehash: fe565d63e72b5ec2798dde03ba4f4bd9ff4f48a7
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56447589"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009406"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Inicio rápido: Reconocimiento de voz con el SDK de Voz para Java
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-En este artículo creará una aplicación de consola Java mediante el [SDK de Voz](speech-sdk.md). Transcribirá la conversión de voz en texto en tiempo real desde el micrófono de su PC. La aplicación se crea con el paquete Maven del SDK de Voz y el IDE de Java de Eclipse (v4.8) en Windows de 64 bits o Ubuntu Linux 16.04/18.04 de 64 bits. Se ejecuta en un entorno de tiempo de ejecución de Java 8 (JRE) de 64 bits.
+En este artículo creará una aplicación de consola Java mediante el [SDK de Voz](speech-sdk.md). Transcribirá la conversión de voz en texto en tiempo real desde el micrófono de su PC. La aplicación se crea con el paquete Maven del SDK de Voz y el IDE de Java de Eclipse (v4.8) en Windows de 64 bits, Ubuntu Linux 16.04/18.04 de 64 bits o en macOS 10.13 o posterior. Se ejecuta en un entorno de tiempo de ejecución de Java 8 (JRE) de 64 bits.
 
 > [!NOTE]
 > Para el SDK de dispositivos de Voz y el dispositivo Roobo, consulte [SDK de dispositivos de voz](speech-devices-sdk.md).
@@ -30,7 +30,7 @@ En este artículo creará una aplicación de consola Java mediante el [SDK de Vo
 
 Esta guía de inicio rápido requiere:
 
-* Sistema operativo: Windows (64 bits) o Ubuntu Linux 16.04/18.04 (64 bits)
+* Sistema operativo: Windows (64 bits), Ubuntu Linux 16.04/18.04 (64 bits) o macOS 10.13 o superior
 * [IDE de Java de Eclipse](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) o [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Una clave de suscripción de Azure para el servicio Voz. [Obtenga una gratis](get-started.md).
@@ -42,7 +42,7 @@ sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
-Si está ejecutando Windows (64 bits) asegúrese de que ha instalado Microsoft Visual C++ Redistributable para la plataforma.
+Si está ejecutando Windows (64 bits), asegúrese de que ha instalado Microsoft Visual C++ Redistributable para su plataforma.
 * [Descarga de Microsoft Visual C++ Redistributable para Visual Studio 2017](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 
@@ -84,6 +84,6 @@ Se pueden encontrar ejemplos adicionales, por ejemplo, cómo leer voz de un arch
 
 ## <a name="see-also"></a>Otras referencias
 
-- [Inicio rápido: Conversión de voz, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
+- [Inicio rápido: Conversión de voz: Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
 - [Personalización de modelos acústicos](how-to-customize-acoustic-models.md)
 - [Personalización de modelos de lenguaje](how-to-customize-language-model.md)

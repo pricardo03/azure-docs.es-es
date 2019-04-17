@@ -9,15 +9,15 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/11/2019
+ms.date: 04/15/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 9d1fa5786dcde70d42363dbb9af7221ca5383e64
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: ed10354047060825b4368e02160d4655e33bc8f6
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59546405"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617403"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Desarrollo con Media Services API v3
 
@@ -25,7 +25,8 @@ En este artículo se describe las reglas que se aplican a las entidades y las AP
 
 ## <a name="accessing-the-azure-media-services-api"></a>Obtener acceso a la API de Azure Media Services
 
-Para obtener acceso a los recursos de Azure Media Services, debe usar la autenticación de entidad de servicio de Azure Active Directory (AD). La API de Azure Media Services requiere que el usuario o aplicación que realiza la API de REST de las solicitudes tienen acceso al recurso de la cuenta de Azure Media Services (normalmente el **colaborador** o **propietario** rol). Para obtener más información, consulte [control de acceso basado en roles para cuentas de Media Services](rbac-overview.md).
+Para obtener acceso a los recursos de Azure Media Services, puede usar la autenticación de entidad de servicio de Azure Active Directory (AD).
+La API de Media Services requiere que el usuario o aplicación que realiza la API de REST solicita tiene acceso al recurso de la cuenta de Media Services y usar un **colaborador** o **propietario** rol. Se puede tener acceso a la API con la **lector** , pero solo para el rol **obtener** o **lista**   operaciones estará disponibles. Para obtener más información, consulte [control de acceso basado en roles para cuentas de Media Services](rbac-overview.md).
 
 En lugar de crear a una entidad de servicio, considere el uso de identidades administradas para los recursos de Azure para tener acceso a la API de Media Services mediante Azure Resource Manager. Para obtener más información acerca de las identidades administradas para los recursos de Azure, consulte [What ' s identidades administradas para los recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 

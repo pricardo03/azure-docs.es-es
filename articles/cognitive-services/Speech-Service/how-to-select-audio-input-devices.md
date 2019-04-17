@@ -10,16 +10,17 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: e8e2bd34ebb5b789bb3e9ba4a419ab424d3fdf5a
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 97a3f00bcb5b1a0fb3f499657044b9d83f5b08d7
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550694"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59010386"
 ---
 # <a name="select-an-audio-input-device-with-the-speech-sdk"></a>Selección de un dispositivo de entrada de audio con el SDK de Voz
 
-La versión 1.3.0 del SDK de Voz presenta una API para seleccionar la entrada de audio. En este artículo se describe cómo obtener los identificadores de los dispositivos de audio conectados a un sistema.
+La versión 1.3.0 del SDK de Voz presenta una API para seleccionar la entrada de audio.
+En este artículo se describe cómo obtener los identificadores de los dispositivos de audio conectados a un sistema.
 El SDK de Voz puede usar estos posteriormente configurando el dispositivo de audio mediante el objeto `AudioConfig`:
 
 ```C++
@@ -42,8 +43,11 @@ audioConfig = AudioConfiguration.FromMicrophoneInput("<device id>");
 audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
 ```
 
-> [!NOTE]
-> Esta función no está aún disponible en JavaScript.
+```JavaScript
+audioConfig = AudioConfiguration.fromMicrophoneInput("<device id>");
+```
+>[!Note]
+> El uso del micrófono no está disponible para JavaScript cuando se ejecuta en Node.js.
 
 ## <a name="audio-device-ids-on-windows-for-desktop-applications"></a>Id. de dispositivos de audio en Windows para aplicaciones de escritorio
 
@@ -367,6 +371,10 @@ Por ejemplo, la instrucción
 ```
 
 permite el uso de un auricular Bluetooth para una aplicación habilitada para voz.
+
+## <a name="audio-device-ids-in-javascript"></a>Identificadores de dispositivos de audio en JavaScript
+
+En JavaScript, el método [MediaDevices.enumerateDevices()](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices) puede usarse para enumerar los dispositivos multimedia y buscar un identificador de dispositivo para pasar a `fromMicrophone(...)`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

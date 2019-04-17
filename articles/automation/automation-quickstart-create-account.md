@@ -4,17 +4,17 @@ description: Información sobre cómo crear una cuenta de Azure Automation y eje
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 01/15/2019
+ms.date: 04/04/2019
 ms.topic: quickstart
 ms.service: automation
 ms.subservice: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 5fd29c47f87dc65d67961224d1e2c103871d4b06
-ms.sourcegitcommit: a8948ddcbaaa22bccbb6f187b20720eba7a17edc
+ms.openlocfilehash: 7f7905a4b09e685ad98a1663333aa32bc1d7ae90
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56592458"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009519"
 ---
 # <a name="create-an-azure-automation-account"></a>Creación de una cuenta de Azure Automation
 
@@ -32,7 +32,7 @@ Inicie sesión en Azure en https://portal.azure.com
 
 1. Seleccione **Herramientas de administración** y, a continuación, **Automation**.
 
-1. Escriba la información de la cuenta. En **Crear cuenta de ejecución de Azure**, elija **Sí** para que los artefactos destinados a simplificar la autenticación en Azure se habiliten automáticamente. Es importante tener en cuenta que al crear una cuenta de Automation, el nombre no se podrá cambiar una vez que se elige. *Los nombres de la cuenta de Automation son únicos en cada región y grupo de recursos. Los nombres de las cuentas de Automation que se han eliminado es posible que no estén disponibles de inmediato.* Una cuenta de Automation puede administrar los recursos de todas las regiones y suscripciones de un inquilino determinado. Cuando haya terminado, haga clic en **Crear** para iniciar la implementación de la cuenta de Automation.
+1. Escriba la información de la cuenta. En **Crear cuenta de ejecución de Azure**, elija **Sí** para que los artefactos destinados a simplificar la autenticación en Azure se habiliten automáticamente. Es importante tener en cuenta que al crear una cuenta de Automation, el nombre no se podrá cambiar una vez que se elige. *Los nombres de la cuenta de Automation son únicos en cada región y grupo de recursos. Puede que los nombres de las cuentas de Automation que se han eliminado no estén disponibles de inmediato.* Una cuenta de Automation puede administrar los recursos de todas las regiones y suscripciones de un inquilino determinado. Cuando haya terminado, haga clic en **Crear** para iniciar la implementación de la cuenta de Automation.
 
     ![Escriba la información sobre su cuenta de Automation en la página](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
@@ -60,10 +60,6 @@ Ejecute uno de los runbooks de tutorial.
     ![Página del trabajo de runbook](./media/automation-quickstart-create-account/automation-tutorial-script-job.png)
 
 1. Cuando **Estado del trabajo** cambie a **En ejecución**, haga clic en **Salida** o **Todos los registros** para ver la salida del trabajo de runbook. Para este runbook de tutorial, la salida es una lista de sus recursos de Azure.
-
-## <a name="clean-up-resources"></a>Limpieza de recursos
-
-Cuando ya no los necesite, elimine el grupo de recursos, la cuenta de Automation y todos los recursos relacionados. Para ello, seleccione el grupo de recursos de la cuenta de Automation y haga clic en **Eliminar**.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

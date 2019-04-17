@@ -8,14 +8,14 @@ manager: rosh
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 2/27/2019
+ms.date: 4/02/2019
 ms.author: rosh
-ms.openlocfilehash: 6b7685f837cabf7ec659311c54f8c168981e4777
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 8c350b5c2d945ed48566f549ab85844fc14625dc
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544723"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049293"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-ruby"></a>Inicio rápido: Obtención de conclusiones de imágenes mediante la API de REST Bing Visual Search y Ruby
 
@@ -32,7 +32,7 @@ Para ejecutar este inicio rápido:
 
 ## <a name="project-and-required-modules"></a>Proyecto y módulos necesarios
 
-Cree un proyecto de Ruby en su IDE o en el editor. Importe `net/http`, `uri` y `json` para controlar el texto JSON de los resultados. Se usa la biblioteca `base64` para codificar la cadena del nombre de archivo. 
+Cree un proyecto de Ruby en su IDE o en el editor. Importe `net/http`, `uri` y `json` para controlar el texto JSON de los resultados. Se usa la biblioteca `base64` para codificar la cadena del nombre de archivo: 
 
 ```
 require 'net/https'
@@ -63,7 +63,7 @@ end
 
 ## <a name="form-data-for-post-request"></a>Datos de formulario para solicitudes POST
 
-Los datos de imagen para POST presentan límites iniciales y finales.  Las siguientes funciones determinan los límites.
+Los datos de imagen para POST presentan límites iniciales y finales. Las siguientes funciones determinan los límites:
 
 ```
 def BuildFormDataStart(batNum, fileName)
@@ -74,10 +74,9 @@ end
 def BuildFormDataEnd(batNum)
     return "\r\n\r\n" + "--batch_" + batNum + "--" + "\r\n"
 end
-
 ```
 
-A continuación, construya el identificador URI del punto de conexión y una matriz para que contenga el cuerpo de POST.  Use la función anterior para cargar el límite inicial en la matriz. Lea el archivo de imagen en la matriz. A continuación, lea el límite final en la matriz. 
+A continuación, construya el identificador URI del punto de conexión y una matriz para que contenga el cuerpo de POST.  Use la función anterior para cargar el límite inicial en la matriz. Lea el archivo de imagen en la matriz. A continuación, lea el límite final en la matriz:
 
 ```
 uri = URI(uri + path)
@@ -91,12 +90,11 @@ post_body << BuildFormDataStart(batchNumber, fileName)
 post_body << File.read(fileName) #Base64.encode64(File.read(fileName))
 
 post_body << BuildFormDataEnd(batchNumber)
-
 ```
 
 ## <a name="create-the-http-request"></a>Creación de la solicitud HTTP
 
-Establezca el encabezado `Ocp-Apim-Subscription-Key`.  Cree la solicitud.  A continuación, asigne el encabezado y el tipo de contenido.  Una el cuerpo de POST creado anteriormente a la solicitud.
+Establezca el encabezado `Ocp-Apim-Subscription-Key`.  Cree la solicitud. A continuación, asigne el encabezado y el tipo de contenido. Una a la solicitud el cuerpo de POST creado anteriormente:
 
 ```
 header = {'Ocp-Apim-Subscription-Key': accessKey}
@@ -110,7 +108,7 @@ request.body = post_body.join
 
 ## <a name="request-and-response"></a>Solicitud y respuesta
 
-Ruby envía la solicitud y obtiene la respuesta con la siguiente línea de código.
+Ruby envía la solicitud y obtiene la respuesta con la siguiente línea de código:
 
 ```
 response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
@@ -121,7 +119,7 @@ end
 
 ## <a name="print-the-results"></a>Impresión de resultados
 
-Imprima los encabezados de la respuesta. A continuación, use la biblioteca JSON para aplicar formato al resultado.
+Imprima los encabezados de la respuesta y use la biblioteca JSON para dar formato a la salida:
 
 ```
 puts "\nRelevant Headers:\n\n"
@@ -138,7 +136,7 @@ puts JSON::pretty_generate(JSON(response.body))
 
 ## <a name="results"></a>Results
 
-El siguiente JSON es un segmento de la salida.
+El siguiente JSON es un segmento de la salida:
 
 ```
 Relevant Headers:
@@ -286,5 +284,5 @@ JSON Response:
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Información general sobre Bing Visual Search](../overview.md)
-> [Creación de una aplicación web de Custom Search](../tutorial-bing-visual-search-single-page-app.md)
+> [Introducción a Bing Visual Search](../overview.md)
+> [Creación de una aplicación web de página única de Visual Search](../tutorial-bing-visual-search-single-page-app.md)

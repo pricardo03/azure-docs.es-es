@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 23c74c0b1d4c311cd57a02cbac9498f3acb16992
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.openlocfilehash: 6c9b257ab88b3564253b0f48d953094f84a1d71d
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578125"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051446"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Inicio rápido: Creación de una aplicación ASP.NET Core con Azure App Configuration
 
@@ -87,7 +87,7 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 
     Este comando debe ejecutarse en el mismo directorio que el archivo *.csproj*.
 
-        dotnet user-secrets set ConnectionStrings:AppConfig "Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>"
+        dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
 
     Secret Manager solo se utiliza para probar la aplicación web localmente. Cuando la aplicación se implementa, por ejemplo, en [Azure App Service](https://azure.microsoft.com/services/app-service/web), se usa un valor de la aplicación, por ejemplo, **Cadenas de conexión** en App Service. Use esta opción en lugar de almacenar la cadena de conexión con Secret Manager.
 
@@ -191,4 +191,4 @@ Agregue la [herramienta Secret Manager](https://docs.microsoft.com/aspnet/core/s
 En este inicio rápido, ha creado un almacén de configuración de aplicaciones y lo ha usado con una aplicación web de ASP.NET Core a través del [proveedor de App Configuration](https://go.microsoft.com/fwlink/?linkid=2074664). Para más información acerca del uso de App Configuration, continúe con el siguiente tutorial, ya que en él se muestra cómo realizar la autenticación.
 
 > [!div class="nextstepaction"]
-> [Integración de Managed Identities for Azure Resources](./integrate-azure-managed-service-identity.md)
+> [Integración de identidades administradas para recursos de Azure](./integrate-azure-managed-service-identity.md)

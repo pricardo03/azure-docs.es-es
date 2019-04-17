@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
-ms.date: 5/16/2018
+ms.date: 4/02/2019
 ms.author: scottwhi
-ms.openlocfilehash: 873da64592c2c2e925d8731d4b1154db95bed31d
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 7ec37b4c3bdeb924b3e35dbcb5d07a478611f631
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55863234"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047133"
 ---
-# <a name="quickstart-your-first-bing-visual-search-query-in-python"></a>Inicio rápido: Su primera consulta de Bing Visual Search en Python
+# <a name="quickstart-get-image-insights-using-the-bing-visual-search-rest-api-and-python"></a>Inicio rápido: Obtención de conclusiones de imágenes mediante la API REST Bing Visual Search y Python
 
-Use este inicio rápido para realizar la primera llamada a Bing Visual Search API y ver los resultados de búsqueda. Esta sencilla aplicación de JavaScript carga una imagen en la API y muestra la información que se devuelve sobre ella. Si bien esta aplicación está escrita en Java, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
+Use este inicio rápido para realizar la primera llamada a Bing Visual Search API y ver los resultados. Esta aplicación de Python carga una imagen en la API y muestra la información que se devuelve. Si bien esta aplicación está escrita en Python, la API es un servicio web RESTful compatible con la mayoría de los lenguajes de programación.
 
-Al cargar una imagen local, los datos del formulario POST deben incluir el encabezado Content-Disposition. Asimismo, el parámetro `name` se debe establecer en "imagen" y el parámetro `filename` se puede establecer en cualquier cadena. El contenido del formulario es el binario de la imagen. Recuerde que el tamaño de imagen máximo que puede cargar es de 1 MB.
+Al cargar una imagen local, los datos del formulario deben incluir el encabezado `Content-Disposition`. Debe establecer su parámetro `name` en "image", y puede establecer el parámetro `filename` en cualquier cadena. El contenido del formulario incluye los datos binarios de la imagen. El tamaño de imagen máximo que puede cargar es de 1 MB.
 
 ```
 --boundary_1234-abcd
@@ -36,18 +36,17 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 * [Python 3.x](https://www.python.org/)
 
-
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 ## <a name="initialize-the-application"></a>Inicialización de la aplicación
 
-1. Cree un archivo de Python en el IDE o editor que prefiera y agregue las siguientes instrucciones de importación.
+1. Cree un archivo de Python en el IDE o editor que prefiera y agregue las siguientes instrucciones `import`:
 
     ```python
     import requests, json
     ```
 
-2. Cree variables para la clave de suscripción, el punto de conexión y la ruta de acceso a la imagen que está cargando.
+2. Cree variables para la clave de suscripción, el punto de conexión y la ruta de acceso a la imagen que está cargando:
 
     ```python
 
@@ -56,13 +55,13 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
     imagePath = 'your-image-path'
     ```
 
-3. Cree un objeto de diccionario para almacenar la información de encabezado de las solicitudes. Enlace la clave de suscripción a la cadena `Ocp-Apim-Subscription-Key`, como se muestra a continuación.
+3. Cree un objeto de diccionario para almacenar la información de encabezado de la solicitud. Enlace la clave de suscripción a la cadena `Ocp-Apim-Subscription-Key`, como se muestra a continuación:
 
     ```python
     HEADERS = {'Ocp-Apim-Subscription-Key': SUBSCRIPTION_KEY}
     ```
 
-4. Cree otro diccionario para almacenar la imagen, que se abrirá y cargará cuando envíe la solicitud. 
+4. Cree otro diccionario para almacenar la imagen, que se abrirá y cargará cuando envíe la solicitud:
 
     ```python
     file = {'image' : ('myfile', open(imagePath, 'rb'))}
@@ -70,7 +69,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 ## <a name="parse-the-json-response"></a>Procese la respuesta JSON.
 
-1. Cree un método denominado `print_json()` para realizar en la respuesta de API e imprima el JSON.
+1. Cree un método denominado `print_json()` para ejecutar en la respuesta de API e imprima el código JSON.
 
     ```python
     def print_json(obj):
@@ -80,7 +79,7 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 
 ## <a name="send-the-request"></a>Envío de la solicitud
 
-1. Use `requests.post()` para enviar una solicitud a Bing Visual Search API. Incluya la cadena para la información de archivo, encabezado y punto de conexión. Imprima `response.json()` con `print_json()`
+1. Use `requests.post()` para enviar una solicitud a Bing Visual Search API. Incluya la cadena para la información de archivo, encabezado y punto de conexión. Imprima `response.json()` con `print_json()`:
 
     ```python
     try:
@@ -95,4 +94,4 @@ Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Creación de una página web de Custom Search](../tutorial-bing-visual-search-single-page-app.md)
+> [Creación de una aplicación web de página única de Visual Search](../tutorial-bing-visual-search-single-page-app.md)

@@ -6,15 +6,15 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 01/17/2019
+ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8d3bc70b467cabfc5d45c51b79b43d2942d558ae
-ms.sourcegitcommit: b4755b3262c5b7d546e598c0a034a7c0d1e261ec
+ms.openlocfilehash: c48acf7e9074ac3c5a7d19765a9524a411fa26c8
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/24/2019
-ms.locfileid: "54885734"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264036"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Creación de un servicio Azure Search en el portal
 
@@ -22,7 +22,7 @@ Azure Search es un recurso independiente que se usa para agregar una experiencia
 
 En este artículo, aprenderá a crear un recurso de Azure Search en [Azure Portal](https://portal.azure.com/).
 
-[![GIF animado](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
+[![AGIF animado(./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 ¿Prefiere PowerShell? Use la [plantilla de servicio](https://azure.microsoft.com/resources/templates/101-azure-search-create/) de Azure Resource Manager. Para obtener ayuda para empezar, consulte [Administración de Azure Search con PowerShell](search-manage-powershell.md).
 
@@ -71,7 +71,7 @@ Si no combina recursos en un solo grupo o si los grupos de recursos existentes s
 
 En cuanto servicio de Azure, Azure Search se puede hospedar en centros de datos de todo el mundo. Los [precios pueden variar](https://azure.microsoft.com/pricing/details/search/) según la región geográfica.
 
-Si planea usar búsqueda cognitiva, elija una [región con disponibilidad de características](cognitive-search-quickstart-blob.md#supported-regions).
+Si está indexando contenido ubicado en un servicio de Azure (Azure Storage, Azure Cosmos DB, Azure SQL Database), cree el servicio Azure Search en la misma región que los datos para evitar cargos por ancho de banda. No hay ningún cargo por datos salientes si los servicios están en la misma región.
 
 ## <a name="select-a-pricing-tier-sku"></a>Selección de un plan de tarifa (SKU)
 

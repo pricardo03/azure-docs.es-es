@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 04/01/2019
+ms.date: 04/08/2019
 ms.author: alkohli
-ms.openlocfilehash: b104f2578938997ff12778d65f08cca226d9a445
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 27200406f0866697100e1cf9b32c199203ad600d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58892337"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258783"
 ---
 # <a name="what-is-azure-data-box-disk"></a>¿Qué es Azure Data Box Disk?
 
@@ -54,7 +54,7 @@ A. Para cinco discos de 8 TB cada uno (7 TB de capacidad usable), la capacidad m
 A.  Para ver dónde están disponibles actualmente las instancias de Data Box Disk, vaya a [Disponibilidad en regiones](data-box-disk-overview.md#region-availability).  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>P: ¿En qué regiones puedo almacenar datos con los discos de Data Box?
-A. Data Box Disk se admite en todas las regiones de Estados Unidos, Canadá, Australia, Europa Occidental y Europa del Norte. Solo se admiten las regiones con nube pública de Azure. Azure Government u otras nubes soberanas no se admiten.
+A. Data Box Disk se admite en todas las regiones de Estados Unidos, Canadá, Australia, Oeste de Europa y Norte de Europa, Corea y Japón. Solo se admiten las regiones con nube pública de Azure. Azure Government u otras nubes soberanas no se admiten.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>P: ¿Con quién debo ponerme en contacto si surge algún problemas con los discos de Data Box?
 A. Si surge algún problema con Data Box Disk, póngase en contacto con el [Soporte técnico de Microsoft](https://docs.microsoft.com/azure/databox/data-box-disk-contact-microsoft-support).
@@ -132,8 +132,8 @@ El conjunto de herramientas está disponible para Windows y Linux. Puede descarg
 - [Descargar conjunto de herramientas de Data Box Disk para Windows](https://aka.ms/databoxdisktoolswin) 
 - [Descargar conjunto de herramientas de Data Box Disk para Linux](https://aka.ms/databoxdisktoolslinux)
  
-  ### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>P: ¿Puedo usar Data Box Disk para transferir datos a Azure Files y, a continuación, usar los datos con Azure File Sync? 
-  A. Azure Files es compatible con Data Box Disk, pero no funcionará bien con Azure File Sync. Los metadatos no se conservan si los datos del archivo se utilizan con Azure File Sync.
+### <a name="q-can-i-use-data-box-disk-to-transfer-data-to-azure-files-and-then-use-the-data-with-azure-file-sync"></a>P: ¿Puedo usar Data Box Disk para transferir datos a Azure Files y, a continuación, usar los datos con Azure File Sync? 
+A. Azure Files es compatible con Data Box Disk, pero no funcionará bien con Azure File Sync. Los metadatos no se conservan si los datos del archivo se utilizan con Azure File Sync.
 
 
 ## <a name="verify-and-upload"></a>Comprobación y carga
@@ -166,7 +166,7 @@ A. Puede clonar el pedido anterior. La clonación crea el mismo pedido que antes
 A. Sí. Sus datos se cargaron en Azure, pero si no ve ningún disco administrado con los grupos de recursos especificados, probablemente se deba a que los datos no eran válidos. Si los blobs en páginas, blobs en bloques, Azure Files y discos administrados no eran válidos, estos irían a las siguientes carpetas:
  - Los blobs en páginas irían a un contenedor de blobs en bloques que empieza por *databoxdisk-invalid-pb-*.
  - Azure Files iría a un contenedor de blobs en bloques que empieza por *databoxdisk-invalid-af-*.
- - Los discos administrados irían a un contenedor de blobs en bloques que empieza por *databoxdisk-invalid-md-*.
+ - Los discos administrados irían a un contenedor de blob en bloques que empieza por *databoxdisk-invalid-md-*.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

@@ -16,18 +16,21 @@ ms.workload: media
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: 774ddfa435cb23a8bf5d179fb0f7a0baf9dfca75
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4f9911259cc4da02429971ef6bddfa62080a9fe6
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755897"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59044413"
 ---
 # <a name="start-developing-with-media-services-v3-api-using-sdkstools"></a>Empiece a desarrollar con la API de Media Services v3, SDK y herramientas
 
 Como desarrollador, puede usar la [API de REST](https://aka.ms/ams-v3-rest-ref) de Media Services o bibliotecas de cliente que le permitan interactuar con la API de REST para crear, administrar y mantener fácilmente flujos de trabajo multimedia personalizados. La API de [Media Services v3](https://aka.ms/ams-v3-rest-sdk) se basa en la especificación OpenAPI (anteriormente conocida como Swagger).
 
 En este tema se proporcionan vínculos a los SDK, las herramientas y la documentación. También se proporciona información útil para distintos entornos de desarrollo.
+
+> [!NOTE]
+> No se garantiza que los SDK de Azure Media Services v3 sean seguros para subprocesos. Al desarrollar una aplicación multiproceso, debe agregar su propia lógica de sincronización de subprocesos para proteger el cliente o usar un nuevo objeto AzureMediaServicesClient por subproceso. También debe tener cuidado con los problemas de subprocesos múltiples introducidos por objetos opcionales que proporciona el código al cliente (por ejemplo, una instancia de HttpClient en .NET).
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -37,7 +40,7 @@ Para empezar a desarrollar con Media Services, necesita:
 - [Información sobre conceptos fundamentales](concepts-overview.md)
 - [Creación de una cuenta de Media Services: CLI](create-account-cli-how-to.md)
 
-## <a name="start-developing-with-sdks"></a>Comenzar a desarrollar con los SDK
+## <a name="start-developing-with-sdks"></a>Comenzar a desarrollar con SDK
 
 ### <a name="net"></a>.NET
 

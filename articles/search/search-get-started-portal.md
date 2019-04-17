@@ -1,23 +1,29 @@
 ---
-title: Tutorial de inicio rápido de consulta e indexación con Azure portal - Azure Search
-description: Obtenga información sobre cómo crear y consultar el primer índice en Azure Search con datos de ejemplo integrados y el Asistente para la importación de datos en Azure Portal.
+title: 'Inicio rápido: Creación, carga y consulta de un índice en Azure Portal: Azure Search'
+description: Para crear y consultar el primer índice en Azure Search utilice los datos de ejemplo integrados y el Asistente para la importación de datos en Azure Portal.
 author: HeidiSteen
 manager: cgronlun
 tags: azure-portal
 services: search
 ms.service: search
 ms.topic: tutorial
-ms.date: 02/13/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 85fc8a42f5220aa8f05495aa260d05ce009884f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58137834"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282668"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Inicio rápido: Uso de herramientas integradas el portal para la importación, indexación y consultas de Azure Search
+> [!div class="op_single_selector"]
+> * [Portal](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [postman](search-fiddler.md)
+> * [C#](search-create-index-dotnet.md)
+>*
 
 Para un rápido avance en los conceptos de Azure Search, prueba las herramientas integradas en Azure Portal. Los asistentes y editores no ofrecen una paridad completa con las API REST y .NET, pero puede empezar a trabajar rápidamente con una introducción sin código, que permite escribir consultas interesantes en datos de ejemplo en cuestión de minutos.
 
@@ -222,7 +228,7 @@ El proceso de resaltado de referencias se refiere al formato en el texto que coi
 
 ### <a name="fuzzy-search"></a> Probar la búsqueda aproximada
 
-De forma predeterminada, los términos de consulta mal escritos, como *samamish* en referencia a la meseta de Samammish de la zona de Seattle, no devuelven coincidencias en una búsqueda normal. El siguiente ejemplo no devuelve resultados.
+De forma predeterminada, los términos de consulta mal escritos, como *samamish* en referencia a la meseta de Sammamish de la zona de Seattle, no devuelven coincidencias en una búsqueda normal. El siguiente ejemplo no devuelve resultados.
 
 #### <a name="example-misspelled-term-unhandled-searchsamamish"></a>Ejemplo (término mal escrito, no controlado): `search=samamish`
 
@@ -266,6 +272,6 @@ Si este tutorial fue el primer uso que hizo del servicio Azure Search, elimine e
 
 Puede explorar más sobre Azure Search mediante las herramientas de programación:
 
-* [Creación de un índice con el SDK de .NET](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
-* [Creación de un índice con las API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Creación de un índice con Postman o Fiddler y las API REST de Azure Search](search-fiddler.md)
+* [Creación de un índice mediante el SDK de .NET](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+* [Creación de un índice mediante las API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
+* [Creación de un índice mediante Postman o Fiddler y las API REST de Azure Search](search-fiddler.md)

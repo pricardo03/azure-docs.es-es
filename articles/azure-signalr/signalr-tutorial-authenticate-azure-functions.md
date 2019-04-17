@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: c18597fde157e0308138348432d63d56446931b7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 28fb3295ef02d508ef04299398a61ea59828df35
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58012563"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278843"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>Tutorial: autenticación de Azure SignalR Service con Azure Functions
 
@@ -348,7 +348,7 @@ Hasta ahora, la aplicación de chat funciona de forma anónima. En Azure, deber�
 
 Cuando se envía un mensaje, la aplicación puede decidir enviarlo a todos los clientes conectados, o solo a aquellos clientes que se han a autenticado en un determinado usuario.
 
-1. En VS Code, abra **SignalRInfo/function.json**.
+1. En VS Code, abra **negotiate/function.json**.
 
 1. Inserte una [expresión de enlace](https://docs.microsoft.com/azure/azure-functions/functions-triggers-bindings) en la propiedad *userId* del enlace *SignalRConnectionInfo*: `{headers.x-ms-client-principal-name}`. Esto establece el valor en el nombre de usuario del usuario autenticado. El atributo tendrá ahora un aspecto similar al siguiente.
 

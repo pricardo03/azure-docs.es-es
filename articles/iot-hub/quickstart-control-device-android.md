@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/15/2019
 ms.author: wesmc
-ms.openlocfilehash: b7a46fab296fa8d585f1ae70dcf278e6686cca64
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: e3b0c0703cb46087db38121055117b50f97ad03f
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520605"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59006574"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>Guía de inicio rápido: Control de un dispositivo conectado a IoT Hub (Android)
 
@@ -35,13 +35,17 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-
 * Android Studio desde https://developer.android.com/studio/. Para más información relativa a la instalación de Android Studio, consulte [android-installation](https://developer.android.com/studio/install).
 
 * En el ejemplo de este artículo se usa Android SDK 27.
 
-* Esta guía de inicio rápido requiere dos aplicaciones de ejemplo: la [aplicación de Android de ejemplo del SDK de dispositivo](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) y la [aplicación de Android de ejemplo del SDK de servicio](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample). Ambos ejemplos forman parte del repositorio azure-iot-samples-java de GitHub. Descargue o clone el repositorio [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java).
+* Ejecute el siguiente comando para agregar la extensión IoT de Microsoft Azure para la CLI de Azure a la instancia de Cloud Shell. La extensión IOT agrega comandos específicos de IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) a la CLI de Azure.
 
+   ```azurecli-interactive
+   az extension add --name azure-cli-iot-ext
+   ```
+
+* Esta guía de inicio rápido requiere dos aplicaciones de ejemplo: la [aplicación de Android de ejemplo del SDK de dispositivo](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) y la [aplicación de Android de ejemplo del SDK de servicio](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample). Ambos ejemplos forman parte del repositorio azure-iot-samples-java de GitHub. Descargue o clone el repositorio [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java).
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
 
@@ -55,14 +59,13 @@ Si ha completado la anterior [Guía de inicio rápido: Envío de datos de teleme
 
 Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta guía de inicio rápido, usará Azure Cloud Shell para registrar un dispositivo simulado.
 
-1. Ejecute los siguientes comandos en Azure Cloud Shell para agregar la extensión de la CLI de IoT Hub y para crear la identidad del dispositivo.
+1. Ejecute los siguientes comandos en Azure Cloud Shell para crear la identidad del dispositivo.
 
    **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
    **MyAndroidDevice**: este valor es el nombre que se da al dispositivo registrado. Use MyAndroidDevice como se muestra a continuación. Si elige otro nombre para el dispositivo, puede que tenga que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create \
       --hub-name YourIoTHubName --device-id MyAndroidDevice
     ```
@@ -203,4 +206,4 @@ En esta guía de inicio rápido, ha llamado a un método directo en un dispositi
 Para obtener información sobre cómo redirigir mensajes del dispositivo a la nube a diferentes destinos en la nube, continúe con el siguiente tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Enrutar datos de telemetría a distintos puntos de conexión para procesamiento](tutorial-routing.md)
+> [Tutorial: Enrutamiento de datos de telemetría a distintos puntos de conexión para su procesamiento](tutorial-routing.md)

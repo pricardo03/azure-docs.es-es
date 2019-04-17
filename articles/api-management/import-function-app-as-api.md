@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: e86bd797774448d8e4821ff02d358d420a099442
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
+ms.openlocfilehash: fe6a008a6cbd2ca4e8aedeeca6d96cc00f6b29d1
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55810786"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046060"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importación de una instancia de Azure Function App como API en Azure API Management
 
@@ -69,7 +69,7 @@ Siga estos pasos para crear una API desde una instancia de Azure Function App.
     ![Agregar desde Function App](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
-    > Solo se pueden importar funciones que se basen en desencadenador HTTP y que tengan la configuración del nivel de autorización establecida en *Anónimo* o *Función*.
+    > Solo se pueden importar funciones que se basen en desencadenador HTTP y que tengan la configuración del nivel de autorización establecida en *Anónimo* o *Función*. En este momento, no se admiten aplicaciones de función de Linux.
 
 7. Cambie a la vista **Completa** y asigne el **Producto** a la nueva API. Si es necesario, edite otros campos que se rellenan automáticamente.
 
@@ -111,11 +111,14 @@ Siga estos pasos para anexar Azure Function App a una API existente.
 
     ![Anexar desde Function App](./media/import-function-app-as-api/append-04.png)
 
-## <a name="function-app-import-keys"></a> Clave de host generada de Azure Function App
+## <a name="authorization"></a>Autorización
 
 La importación de una instancia de Azure Function App genera automáticamente:
-* una tecla del host en Function App con el nombre apim-{*nombre de instancia del servicio Azure API Management*},
-* el valor con nombre dentro de la instancia de Azure API Management con el nombre {*nombre de la instancia de Azure Function App*}-clave, que contiene la clave de host creada.
+
+* una clave de host en la aplicación de función con el nombre apim-{*nombre de instancia del servicio Azure API Management*}.
+* un valor con nombre dentro de la instancia de Azure API Management con el nombre {*nombre de la instancia de Azure Function App*}-key, que contiene la clave de host creada.
+
+En el caso de las API creadas después del 4 de abril de 2019, la clave de host se pasa en las solicitudes HTTP desde API Management a la aplicación de función en un encabezado. Las API más antiguas pasan la clave de host como [un parámetro de consulta](../azure-functions/functions-bindings-http-webhook.md#api-key-authorization). Se puede cambiar este comportamiento mediante la `PATCH Backend` [llamada API REST](https://docs.microsoft.com/rest/api/apimanagement/backend/update#backendcredentialscontract) en la entidad de *back-end* asociada con la aplicación de función.
 
 > [!WARNING]
 > Si se quita o se cambia el valor de la clave de host de Azure Function App o el valor con nombre de Azure API Management, se interrumpirá la comunicación entre los servicios. Los valores no se sincronizan automáticamente.

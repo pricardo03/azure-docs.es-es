@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 1a3e01b7275b7d8329a9fc3bfc90e20398fdf38b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 0d5c697f8c6c2365539ce5147ad5bafff1e6c396
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57845110"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282201"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-origami"></a>Tutorial: Integración de Azure Active Directory con Origami
 
@@ -28,7 +28,7 @@ En este tutorial, obtendrá información sobre cómo integrar Origami con Azure 
 Integrar Origami con Azure AD le proporciona las siguientes ventajas:
 
 * Puede controlar en Azure AD quién tiene acceso a Origami.
-* Se pueden permitir que los usuarios a ser automáticamente iniciado sesión en Origami (Single Sign-On) con sus cuentas de Azure AD.
+* Puede permitir que los usuarios inicien sesión automáticamente en Origami (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -39,19 +39,19 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para configurar la integración de Azure AD con Origami, necesita los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Suscripción habilitada para inicio de sesión único en Origami
+* Una suscripción habilitada para el inicio de sesión único en Origami
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Es compatible con Origami **SP** SSO iniciado por
+* Origami admite SSO iniciado por **SP**
 
 ## <a name="adding-origami-from-the-gallery"></a>Incorporación de Origami desde la galería
 
 Para configurar la integración de Origami en Azure AD, deberá agregar Origami desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Origami desde la galería, realice los pasos siguientes:**
+**Para agregar Origami desde la galería, siga estos pasos:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -65,31 +65,31 @@ Para configurar la integración de Origami en Azure AD, deberá agregar Origami 
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Origami**, seleccione **Origami** panel de resultados, a continuación, haga clic en **agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Origami**, seleccione **Origami** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
      ![Origami en la lista de resultados](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará el inicio de sesión único en Azure AD con Origami en función de usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, debe establecerse una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Origami.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Origami con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Origami.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Origami, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configurar inicio de sesión único en Origami](#configure-origami-single-sign-on)**  : para configurar las opciones de inicio de sesión único en el lado de la aplicación.
+2. **[Configuración del inicio de sesión único de Origami](#configure-origami-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Crear usuario de prueba de Origami](#create-origami-test-user)**  : para tener un homólogo de Britta Simon en Origami que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba de Origami](#create-origami-test-user)**: el objetivo es tener un homólogo de Britta Simon en Origami que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único en Azure AD con Origami, realice los pasos siguientes:
+Para configurar el inicio de sesión único de Azure AD con Origami, siga estos pasos:
 
-1. En el [portal Azure](https://portal.azure.com/), en el **Origami** página de integración de aplicaciones, seleccione **inicio de sesión único**.
+1. En [Azure Portal](https://portal.azure.com/), en la página de integración de la aplicación **Origami**, haga clic en **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
@@ -103,7 +103,7 @@ Para configurar el inicio de sesión único en Azure AD con Origami, realice los
 
 4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    ![Información de inicio de sesión único de Origami dominio y direcciones URL](common/sp-signonurl.png)
+    ![Información sobre dominio y direcciones URL de inicio de sesión único de Origami](common/sp-signonurl.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://live.origamirisk.com/origami/account/login?account=<companyname>`
 
@@ -114,7 +114,7 @@ Para configurar el inicio de sesión único en Azure AD con Origami, realice los
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-6. En el **configurar Origami** sección, copie la dirección URL adecuadas según sus necesidades.
+6. En la sección **Set up Origami** (Configurar Origami), copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -124,7 +124,7 @@ Para configurar el inicio de sesión único en Azure AD con Origami, realice los
 
     c. URL de cierre de sesión
 
-### <a name="configure-origami-single-sign-on"></a>Configurar inicio de sesión único en Origami
+### <a name="configure-origami-single-sign-on"></a>Configuración del inicio de sesión único en Origami
 
 1. Inicie sesión en la cuenta de Origami con derechos de administrador.
 
@@ -138,9 +138,9 @@ Para configurar el inicio de sesión único en Azure AD con Origami, realice los
 
      a. Seleccione **Enable Single Sign On**(Habilitar el inicio de sesión único).
 
-    b. En el **Sign-in URL del proveedor de identidades de página** cuadro de texto, pegue el valor de **dirección URL de inicio de sesión**, que ha copiado de Azure portal.
+    b. En el cuadro de texto **Identity Provider’s Sign-On URL** (Dirección URL de la página de inicio de sesión del proveedor de identidades), pegue el valor de **Dirección URL de inicio de sesión**  que ha copiado de Azure Portal.
 
-    c. En el **dirección URL de página de cierre de sesión del proveedor de identidades** cuadro de texto, pegue el valor de **Logout URL**, que ha copiado de Azure portal.
+    c. En el cuadro de texto **Identity Provider’s Single Sign-out URL** (Dirección URL de la página de cierre de sesión del proveedor de identidades), pegue el valor de **Dirección URL de cierre de sesión**  que ha copiado de Azure Portal.
 
     d. Haga clic en **Browse** (Examinar) para cargar el certificado que ha descargado de Azure Portal.
 
@@ -175,13 +175,13 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Origami.
 
-1. En el portal de Azure, seleccione **aplicaciones empresariales**, seleccione **todas las aplicaciones**, a continuación, seleccione **Origami**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y luego **Origami**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
 2. En la lista de aplicaciones, seleccione **Origami**.
 
-    ![El vínculo de Origami en la lista de aplicaciones](common/all-applications.png)
+    ![Vínculo a Origami en la lista de aplicaciones](common/all-applications.png)
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
@@ -197,7 +197,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-origami-test-user"></a>Crear usuario de prueba de Origami
+### <a name="create-origami-test-user"></a>Creación de un usuario de prueba en Origami
 
 En esta sección, creará un usuario llamado Britta Simon en Origami. 
 
@@ -219,7 +219,7 @@ En esta sección, creará un usuario llamado Britta Simon en Origami.
    
     ![Configurar inicio de sesión único](./media/origami-tutorial/tutorial_origami_56.png)
 
-     a. En el **nombre de usuario** cuadro de texto, escriba el correo electrónico del usuario, como **brittasimon\@contoso.com**.
+     a. En el cuadro de texto **User Name** (Nombre de usuario), escriba el correo electrónico del usuario; por ejemplo, **brittasimon\@contoso.com**.
 
     b. En el cuadro de texto **Password** (Contraseña), escriba una contraseña.
 
@@ -241,13 +241,13 @@ En esta sección, creará un usuario llamado Britta Simon en Origami.
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Origami en el Panel de acceso, debe iniciar sesión automáticamente el que configure para inicio de sesión único de Origami. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de Origami en el Panel de acceso y debería iniciar sesión automáticamente en la versión de Origami para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

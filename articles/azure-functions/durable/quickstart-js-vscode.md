@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
-ms.openlocfilehash: 4ee1c9edf8cb10cae1a8a6e1c15f9bcf6e9a8ff8
-ms.sourcegitcommit: a408b0e5551893e485fa78cd7aa91956197b5018
+ms.openlocfilehash: eade9f4e2a956a6542b69e93b0102169ddd32ccf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/17/2019
-ms.locfileid: "54359466"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281240"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Creación de su primera función durable en JavaScript
 
@@ -110,7 +110,9 @@ Ya hemos agregado todos los componentes necesarios para iniciar una orquestació
 
 Azure Functions Core Tools le permite ejecutar un proyecto de Azure Functions en el equipo de desarrollo local. Se le solicita que instale estas herramientas la primera vez que inicie una función de Visual Studio Code.  
 
-1. En un equipo Windows, inicie el Emulador de Azure Storage y asegúrese de que la propiedad **AzureWebJobsStorage** de local.settings.json está establecida en `UseDevelopmentStorage=true`. En un equipo Mac o Linux, debe establecer la propiedad **AzureWebJobsStorage** en la cadena de conexión de una cuenta de Azure Storage existente. Más adelante en este artículo creará una cuenta de almacenamiento.
+1. En un equipo Windows, inicie el Emulador de Azure Storage y asegúrese de que la propiedad **AzureWebJobsStorage** de local.settings.json está establecida en `UseDevelopmentStorage=true`. 
+
+    En el caso de Storage Emulator 5.8, asegúrese de que la propiedad **AzureWebJobsSecretStorageType** de local.settings.json está establecida en `files`. En un equipo Mac o Linux, debe establecer la propiedad **AzureWebJobsStorage** en la cadena de conexión de una cuenta de Azure Storage existente. Más adelante en este artículo creará una cuenta de almacenamiento.
 
 2. Para probar la función, establezca un punto de interrupción en el código de la función y presione F5 para iniciar el proyecto de la aplicación de función. La salida de Core Tools aparece en el panel **Terminal**. Si se trata de la primera vez que usa Durable Functions, se instalará la extensión Durable Functions y es posible que la compilación tarde unos segundos.
 
@@ -125,7 +127,29 @@ Azure Functions Core Tools le permite ejecutar un proyecto de Azure Functions en
 
 5. Mediante una herramienta como [Postman](https://www.getpostman.com/) o [cURL](https://curl.haxx.se/), envíe una petición HTTP POST al punto de conexión de la dirección URL.
 
-6. Para detener la depuración, presione Mayús + F1 en VS Code.
+   La respuesta es el resultado inicial de la función HTTP que informa de que la orquestación durable se ha iniciado correctamente. No es aún el resultado final de la orquestación. La respuesta incluye algunas direcciones URL útiles. De momento, vamos a consultar el estado de la orquestación.
+
+6. Copie el valor de la URL para `statusQueryGetUri` y péguelo en la barra de direcciones del explorador y ejecute la solicitud. Como alternativa también puede usar Postman para emitir la solicitud GET.
+
+   La solicitud consultará la instancia de orquestación sobre el estado. Debe obtener una respuesta eventual que muestre que la instancia se ha completado, e incluye las salidas o resultados de la función durable. Su aspecto es similar a: 
+
+    ```json
+    {
+        "instanceId": "d495cb0ac10d4e13b22729c37e335190",
+        "runtimeStatus": "Completed",
+        "input": null,
+        "customStatus": null,
+        "output": [
+            "Hello Tokyo!",
+            "Hello Seattle!",
+            "Hello London!"
+        ],
+        "createdTime": "2018-11-08T07:07:40Z",
+        "lastUpdatedTime": "2018-11-08T07:07:52Z"
+    }
+    ```
+
+7. Para detener la depuración, presione **Mayús + F5** en VS Code.
 
 Después de comprobar que la función se ejecuta correctamente en el equipo local es el momento de publicar el proyecto en Azure.
 
@@ -146,4 +170,4 @@ Después de comprobar que la función se ejecuta correctamente en el equipo loca
 Ha usado Visual Studio Code para crear y publicar una aplicación de función durable con JavaScript.
 
 > [!div class="nextstepaction"]
-> [Más información sobre los patrones comunes de funciones durables](durable-functions-concepts.md)
+> [Más información acerca de los patrones comunes de funciones durables](durable-functions-concepts.md)

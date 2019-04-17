@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
-ms.openlocfilehash: 2520f05c83cb5b727c8cdae1602b39320de4b99d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ee0be31b10c86651fa36577ad0dffccc3dc7bf59
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58094929"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009278"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en Objective-C para iOS mediante el SDK de Voz
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-En este artículo, obtendrá información sobre cómo crear una aplicación iOS en Objective-C mediante el SDK de Voz de Cognitive Services para transcribir en texto un archivo de audio con la voz grabada.
+En este artículo, aprenderá a crear una aplicación iOS en Objective-C mediante el SDK de Voz de Cognitive Services para transcribir voz a texto desde el micrófono o desde un archivo con audio grabado.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -29,16 +29,16 @@ Antes de comenzar, presentamos una lista de requisitos previos:
 
 * Una [clave de suscripción](get-started.md) para Speech Service
 * Una máquina macOS con [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) o posterior
-* El destino se establece en la versión de iOS 11.4 o posterior
+* El destino establecido en la versión de iOS 9.3 o posterior
 
 ## <a name="get-the-speech-sdk-for-ios"></a>Obtención del SDK de Voz para iOS
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versión actual del SDK de Speech de Cognitive Services es `1.3.1`.
+La versión actual del SDK de Speech de Cognitive Services es `1.4.0`.
 
-En la actualidad, el SDK de Voz de Cognitive Services para iOS y Mac se distribuye como marco de Cocoa.
-Se puede descargar desde https://aka.ms/csspeech/iosbinary. Descargue el archivo en el directorio principal.
+En la actualidad, el SDK de Voz de Cognitive Services para iOS se distribuye como marco de Cocoa.
+Se puede descargar [aquí](https://aka.ms/csspeech/iosbinary). Descargue el archivo en el directorio principal.
 
 ## <a name="create-an-xcode-project"></a>Creación de un proyecto de Xcode
 
@@ -58,7 +58,7 @@ En los cuadros de diálogo que aparecen después, realice las selecciones siguie
     1. Deshabilite la creación de un repositorio de Git para este proyecto de ejemplo.
     1. Ajuste las rutas de acceso para el SDK en *Configuración del proyecto*.
         1. En la pestaña **General**, en el encabezado **Binarios incrustados**, agregue la biblioteca del SDK como un marco de trabajo: **Add embedded binaries (Agregar archivos binarios incrustado)s** > **Add other... (Agregar otro...)** > Vaya a su directorio y elija el archivo `MicrosoftCognitiveServicesSpeech.framework`. Como resultado, se agrega automáticamente la biblioteca del SDK al encabezado **Linked Framework and Libraries** (Marcos y bibliotecas vinculados).
-        ![Marco de trabajo agregado](media/sdk/qs-objectivec-framework.png)
+        ![Marco agregado](media/sdk/qs-objectivec-framework.png)
         1. Vaya a la pestaña **Configuración de compilación** y active la configuración **Todos**.
         1. Agregue el directorio `$(SRCROOT)/..` a *Rutas de búsqueda de marco* bajo el encabezado **Rutas de búsqueda**.
         ![Opción Ruta de búsqueda de marco](media/sdk/qs-objectivec-framework-search-paths.png)
@@ -103,3 +103,4 @@ Reemplace el código XML generado automáticamente por este código:
 
 > [!div class="nextstepaction"]
 > [Exploración de ejemplos de Objective-C en GitHub](https://aka.ms/csspeech/samples)
+

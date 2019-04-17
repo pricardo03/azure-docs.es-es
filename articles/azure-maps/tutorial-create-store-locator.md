@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 6e43c607c2dc67054bde7689d50e495a59e6b659
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 61fdaec79e563ba4d87e73b22aba52a5c3f8251b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540863"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59270810"
 ---
 # <a name="create-a-store-locator-by-using-azure-maps"></a>Creación de un localizador de almacén mediante Azure Maps
 
@@ -132,14 +132,14 @@ Para crear la interfaz de usuario, agregue código a *index.html*:
 1. Agregue referencias a los archivos CSS y JavaScript de control web de Azure Maps:
 
     ```HTML
-    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=2" type="text/css">
-    <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=2"></script>
+    <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.css" type="text/css">
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas.min.js"></script>
     ```
 
 1. Agregue una referencia al módulo de servicios de Azure Maps. El módulo es una biblioteca de JavaScript que contiene los servicios REST de Azure Maps y facilita su uso en JavaScript. Resulta útil para activar la funcionalidad de búsqueda.
 
     ```HTML
-    <script src="https://atlas.microsoft.com/sdk/js/atlas-service.js?api-version=2"></script>
+    <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/2/atlas-service.min.js"></script>
     ```
 
 1. Agregue referencias a *index.js* e *index.css*:
@@ -454,7 +454,7 @@ Llegados a este punto, todo está configurado en la interfaz de usuario. Ahora, 
         //Wait until the map resources are ready.
         map.events.add('ready', function() {
 
-        //Add your post-map load functionality.
+            //Add your post-map load functionality.
 
         });
     }
@@ -516,7 +516,7 @@ Llegados a este punto, todo está configurado en la interfaz de usuario. Ahora, 
     window.onload = initialize;
     ```
 
-1. En el agente de escucha de eventos `load` del mapa, agregue un control de zoom y un marcador de HTML para mostrar el centro de una zona de búsqueda.
+1. En el agente de escucha de eventos `ready` del mapa, agregue un control de zoom y un marcador de HTML para mostrar el centro de una zona de búsqueda.
 
     ```JavaScript
     //Add a zoom control to the map.
@@ -533,7 +533,7 @@ Llegados a este punto, todo está configurado en la interfaz de usuario. Ahora, 
     map.markers.add(centerMarker);
     ```
 
-1. En el agente de escucha de eventos `load` del mapa, agregue un origen de datos. A continuación, realice una llamada para cargar y analizar el conjunto de datos. Habilite la agrupación en clústeres en el origen de datos. La agrupación en clústeres en el origen de datos agrupa los puntos superpuestos en un clúster. El clúster se separa en puntos individuales cuando el usuario acerca el mapa. Como resultado, la experiencia del usuario es más fluida y se mejora el rendimiento.
+1. En el agente de escucha de eventos `ready` del mapa, agregue un origen de datos. A continuación, realice una llamada para cargar y analizar el conjunto de datos. Habilite la agrupación en clústeres en el origen de datos. La agrupación en clústeres en el origen de datos agrupa los puntos superpuestos en un clúster. El clúster se separa en puntos individuales cuando el usuario acerca el mapa. Como resultado, la experiencia del usuario es más fluida y se mejora el rendimiento.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.
@@ -548,7 +548,7 @@ Llegados a este punto, todo está configurado en la interfaz de usuario. Ahora, 
     loadStoreData();
     ```
 
-1. Después de cargar el conjunto de datos en el agente de escucha de eventos `load` del mapa, defina un conjunto de capas para representar los datos. Se usa una capa de burbuja para representar los puntos de datos en clúster. Se usa una capa de símbolo para representar el número de puntos en cada clúster por encima de la capa de burbuja. Una segunda capa de símbolo representa un icono personalizado para ubicaciones individuales en el mapa.
+1. Después de cargar el conjunto de datos en el agente de escucha de eventos `ready` del mapa, defina un conjunto de capas para representar los datos. Se usa una capa de burbuja para representar los puntos de datos en clúster. Se usa una capa de símbolo para representar el número de puntos en cada clúster por encima de la capa de burbuja. Una segunda capa de símbolo representa un icono personalizado para ubicaciones individuales en el mapa.
 
    Agregue los eventos `mouseover` y `mouseout` a las capas de burbuja e icono para que el cursor del mouse cambie cuando el usuario lo mantenga sobre un clúster o un icono en el mapa. Agregue un evento `click` a la capa de burbuja del clúster. Este evento `click` acerca el mapa dos niveles y lo centra sobre un clúster cuando el usuario selecciona cualquiera de ellos. Agregue un evento `click` a la capa de icono. Este evento `click` muestra una ventana emergente con los detalles de una cafetería cuando un usuario selecciona un icono de ubicación. Agregue un evento al mapa para supervisar el momento en que el mapa termina de moverse. Cuando se active este evento, actualice los elementos del panel de lista.  
 
@@ -970,3 +970,6 @@ Para ver más ejemplos de código y una experiencia interactiva de codificación
 
 > [!div class="nextstepaction"]
 > [Uso del control de mapa](how-to-use-map-control.md)
+
+> [!div class="nextstepaction"]
+> [Uso de expresiones de estilo controladas por datos](data-driven-style-expressions-web-sdk.md)

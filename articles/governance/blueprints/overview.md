@@ -1,20 +1,18 @@
 ---
 title: Introducción a Azure Blueprint
 description: Conozca el modo en que el servicio Azure Blueprints permite crear, definir e implementar artefactos en el entorno de Azure.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 02/08/2019
 ms.topic: overview
 ms.service: blueprints
 manager: carmonm
-ms.custom: mvc
-ms.openlocfilehash: 29c58abb3a69da0886d512767cbc301621943f07
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 960b8145e5f53c6c37820604fd634ccf5fd77c6b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802582"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259429"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Introducción al servicio Azure Blueprints
 
@@ -44,7 +42,7 @@ No hay que elegir entre una plantilla de Resource Manager y un plano técnico. C
 
 Un plano técnico es un paquete o contenedor para crear conjuntos muy específicos de estándares, patrones y requisitos relacionados con la implementación de los servicios en la nube de Azure, la seguridad y el diseño que se pueden reutilizar para garantizar la coherencia y el cumplimiento normativo.
 
-Una [directiva](../policy/overview.md) es un sistema de denegación explícita y permisos predeterminados que se centra en las propiedades de recursos durante su implementación y para los recursos ya existentes. Admite el gobierno en la nube al validar que los recursos de una suscripción cumplen los requisitos y estándares.
+Una [directiva](../policy/overview.md) es un sistema de denegación explícita y permisos predeterminados que se centra en las propiedades de recursos durante su implementación y para los recursos ya existentes. Admite la gobernanza de la nube al validar que los recursos de una suscripción cumplen los requisitos y estándares.
 
 La inclusión de una directiva en un plano técnico permite la creación del diseño o el patrón correcto durante la asignación del plano técnico. La inclusión de la directiva garantiza que solo se pueden realizar en el entorno cambios aprobados o esperados para proteger el cumplimiento continuo en el ámbito del plano técnico.
 
@@ -87,9 +85,9 @@ Cada **versión** **publicada** de un plano técnico se puede asignar a una susc
 
 Para poder utilizar planos técnicos, se le deben conceder permisos mediante el [control de acceso basado en rol](../../role-based-access-control/overview.md) (RBAC). Para crear planos técnicos, su cuenta necesita los siguientes permisos:
 
-- `Microsoft.Blueprint/blueprints/write`: para crear una definición de plano técnico
-- `Microsoft.Blueprint/blueprints/artifacts/write`: para crear artefactos en una definición de plano técnico
-- `Microsoft.Blueprint/blueprints/versions/write`: para publicar un plano técnico
+- `Microsoft.Blueprint/blueprints/write` - Creación de una definición de plano técnico
+- `Microsoft.Blueprint/blueprints/artifacts/write` - Creación de artefactos en una definición de plano técnico
+- `Microsoft.Blueprint/blueprints/versions/write` - Publicación de un plano técnico
 
 Para eliminar planos técnicos, su cuenta necesita los siguientes permisos:
 
@@ -102,8 +100,8 @@ Para eliminar planos técnicos, su cuenta necesita los siguientes permisos:
 
 Para asignar o cancelar la asignación de un plano técnico, la cuenta necesita los siguientes permisos:
 
-- `Microsoft.Blueprint/blueprintAssignments/write`: para asignar un plano técnico
-- `Microsoft.Blueprint/blueprintAssignments/delete`: para cancelar la asignación de un plano técnico
+- `Microsoft.Blueprint/blueprintAssignments/write` - Asignación de un plano técnico
+- `Microsoft.Blueprint/blueprintAssignments/delete` - Cancelación de la asignación de un plano técnico
 
 > [!NOTE]
 > Como las asignaciones de planos técnicos se crean en una suscripción, los permisos de asignación y de cancelación de la asignación deben concederse o heredarse en el ámbito de una suscripción.
@@ -122,4 +120,4 @@ La siguiente introducción sobre Azure Blueprints es de Azure Fridays. Para desc
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Creación de un plano técnico: portal](create-blueprint-portal.md)
-- [Creación de un plano técnico: API REST](create-blueprint-rest-api.md)
+- [Creación de un plano técnico: API de REST](create-blueprint-rest-api.md)

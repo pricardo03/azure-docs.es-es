@@ -1,20 +1,18 @@
 ---
 title: 'Inicio rápido: Ingesta de blobs de Azure en Azure Data Explorer'
 description: En este inicio rápido, aprenderá a enviar datos de la cuenta de almacenamiento a Azure Data Explorer mediante una suscripción de Event Grid.
-services: data-explorer
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 1/30/2019
-Customer intent: As a database administrator, I want Azure Data Explorer to track my blob storage and ingest new blobs.
-ms.openlocfilehash: 8efe8b95b09fa8b4de16c08345699cee88e11285
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 01/30/2019
+ms.openlocfilehash: 19db47610449ced45fa61610bbe964042e815c7a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756435"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051859"
 ---
 # <a name="quickstart-ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Inicio rápido: Ingesta de blobs en Azure Data Explorer mediante la suscripción a las notificaciones de Event Grid
 
@@ -45,8 +43,8 @@ En este inicio rápido, obtendrá información sobre cómo configurar una suscri
     | Tipo de tema | *Cuenta de almacenamiento* | Tipo de tema de la cuadrícula de eventos. |
     | Recurso de tema | *gridteststorage* | El nombre de la cuenta de almacenamiento. |
     | Suscribirse a todos los tipos de evento | *clear* | No recibir notificaciones de los eventos. |
-    | Tipos de evento definidos | *Blob created* | Eventos específicos de los que recibir notificaciones. |
-    | Tipo de punto de conexión | *Event Hubs* | Tipo de punto de conexión al que enviar los eventos. |
+    | Tipos de evento definidos | *Blob creado* | Eventos específicos de los que recibir notificaciones. |
+    | Tipo de punto de conexión | *Centros de eventos* | Tipo de punto de conexión al que enviar los eventos. |
     | Punto de conexión | *test-hub* | El centro de eventos que creó. |
     | | |
 

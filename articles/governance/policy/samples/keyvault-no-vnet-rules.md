@@ -1,19 +1,18 @@
 ---
 title: 'Ejemplo: auditoría de Key Vault sin puntos de conexión de red virtual'
 description: Esta definición de directiva de ejemplo audita los almacenes de Key Vault para detectar instancias que no tienen ningún punto de conexión de servicio de red virtual.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: f2f6e5c60553a55fd1a65e45cd38aef0b883020e
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: bc5ce4a6a2e52ed8d21de8db8da1f815293b61f7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58802265"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59276378"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Ejemplo: almacenes de Key Vault sin ningún punto de conexión de red virtual
 
@@ -23,7 +22,7 @@ Puede implementar esta directiva de ejemplo mediante:
 
 - [Azure Portal](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
-- [CLI de Azure](#azure-cli)
+- [Azure CLI](#azure-cli)
 - [API DE REST](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
@@ -181,8 +180,8 @@ Hay varias herramientas que se pueden usar para interactuar con la API REST de R
 
 | Servicio | Grupo | Operación | Notas |
 |---|---|---|---|
-| Administración de recursos | Definiciones de directiva | [Creación](/rest/api/resources/policydefinitions/createorupdate) | Crea una nueva definición de directiva de Azure en una suscripción. Alternativa: [Creación de un grupo de administración](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
-| Administración de recursos | Asignaciones de directiva | [Creación](/rest/api/resources/policyassignments/create) | Crea una nueva asignación de directiva de Azure. En este ejemplo, se proporciona una definición, pero también puede tomar una iniciativa. |
+| Administración de recursos | Definiciones de directiva | [Crear](/rest/api/resources/policydefinitions/createorupdate) | Crea una nueva definición de directiva de Azure en una suscripción. Alternativa: [Creación de un grupo de administración](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
+| Administración de recursos | Asignaciones de directiva | [Crear](/rest/api/resources/policyassignments/create) | Crea una nueva asignación de directiva de Azure. En este ejemplo, se proporciona una definición, pero también puede tomar una iniciativa. |
 | Administración de recursos | Asignaciones de directiva | [Eliminar](/rest/api/resources/policyassignments/delete) | Elimina una asignación de directiva de Azure existente. |
 | Administración de recursos | Definiciones de directiva | [Eliminar](/rest/api/resources/policydefinitions/delete) | Elimina una definición de directiva de Azure existente. Alternativa: [Eliminación de un grupo de administración](/rest/api/resources/policydefinitions/deleteatmanagementgroup) |
 

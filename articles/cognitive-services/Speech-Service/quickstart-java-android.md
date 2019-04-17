@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: wolfma
-ms.openlocfilehash: 9458f052258993ee598ddfbca262faf8f6cb4ab9
-ms.sourcegitcommit: aa3be9ed0b92a0ac5a29c83095a7b20dd0693463
+ms.openlocfilehash: 690656449fdb86c200a8978f0e17db562e4abbca
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58258554"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009185"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en Java para Android mediante el SDK de Voz
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 En este artículo, aprenderá a desarrollar una aplicación Java en Android mediante el SDK de Voz de Cognitive Services para convertir voz en texto.
-La aplicación se basa en el paquete de Maven del SDK de Voz de Microsoft Cognitive Services, versión 1.3.1 y en Android Studio 3.1.
+La aplicación se basa en el paquete de Maven del SDK de Voz, versión 1.4.0, y en Android Studio 3.3.
 El SDK de Voz es compatible actualmente con dispositivos Android que tienen procesadores ARM de 32 o 64 bits o Intel x86 o x64.
 
 > [!NOTE]
@@ -38,27 +38,19 @@ Necesita una clave de suscripción de servicios de voz para completar este inici
 
     ![Captura de pantalla de la ventana Welcome (Bienvenida) de Android Studio](media/sdk/qs-java-android-01-start-new-android-studio-project.png)
 
-1. Se muestra el asistente **Create New Project** (Crear nuevo proyecto). En la pantalla **Create Android Project** (Crear proyecto Android), escriba **Quickstart** como **nombre de la aplicación**, **samples.speech.cognitiveservices.microsoft.com** como **dominio de empresa** y elija un directorio para el proyecto. Deje las casillas de verificación de C++ y Kotlin desactivadas y, a continuación, seleccione **Next** (Siguiente).
+1. Aparece el asistente **Choose your project** (Elija su proyecto); seleccione **Phone and Tablet** (Teléfono y tableta) y **Empty Activity** (Actividad vacía) en el cuadro de selección de actividad. Seleccione **Next** (Siguiente).
 
-   ![Captura de pantalla del asistente Create New Project (Crear nuevo proyecto).](media/sdk/qs-java-android-02-create-android-project.png)
+   ![Captura de pantalla del asistente para la elección del proyecto](media/sdk/qs-java-android-02-target-android-devices.png)
 
-1. En la ventana **Target Android Devices** (Dispositivos Android de destino), seleccione solo **Phone and Tablet** (Teléfono y tablet). En la lista desplegable de debajo, elija **API 23: Android 6.0 (Marshmallow)** y seleccione **Siguiente**.
+1. En la pantalla **Configure your project** (Configure su proyecto), escriba **Inicio rápido** como **nombre**, **samples.speech.cognitiveservices.microsoft.com** como **nombre del paquete** y elija un directorio de proyecto. En **Minimum API level** (Nivel de API mínimo), seleccione **API 23: Android 6.0 (Marshmallow)**, deje el resto de casillas desactivadas y seleccione **Finish** (Finalizar).
 
-   ![Captura de pantalla del asistente Create New Project (Crear nuevo proyecto).](media/sdk/qs-java-android-03-target-android-devices.png)
-
-1. En la pantalla **Add an Activity to Mobile** (Agregar una actividad al móvil), seleccione **Empty Activity** (Actividad vacía) y haga clic en **Next** (Siguiente).
-
-   ![Captura de pantalla del asistente Create New Project (Crear nuevo proyecto).](media/sdk/qs-java-android-04-add-an-activity-to-mobile.png)
-
-1. En la pantalla **Configure Activity** (Configurar actividad), use **MainActivity** como nombre de la actividad y **activity\_main** como nombre de diseño. Seleccione ambas casillas de verificación y elija **Finish** (Finalizar).
-
-   ![Captura de pantalla del asistente Create New Project (Crear nuevo proyecto).](media/sdk/qs-java-android-05-configure-activity.png)
+   ![Captura de pantalla del asistente para configurar el proyecto](media/sdk/qs-java-android-03-create-android-project.png)
 
 Android Studio tardará unos minutos en preparar el nuevo proyecto de Android. A continuación, configure el proyecto para obtener información del SDK de Voz y para usar Java 8.
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-La versión actual del SDK de Speech de Cognitive Services es `1.3.1`.
+La versión actual del SDK de Speech de Cognitive Services es `1.4.0`.
 
 El SDK de Voz para Android está empaquetado como una [biblioteca de Android (AAR)](https://developer.android.com/studio/projects/android-library), que incluye las bibliotecas necesarias, así como los permisos necesarios de Android.
 Se hospeda en un repositorio de Maven en https:\//csspeechstorage.blob.core.windows.net/maven/.
@@ -73,7 +65,7 @@ Configure el proyecto para usar el SDK de Voz. Abra la ventana de la estructura 
 
    ![Captura de pantalla de la ventana Project Structure (Estructura de proyecto)](media/sdk/qs-java-android-07-add-module-dependency.png)
 
-1. En la ventana que aparece, escriba el nombre y la versión de nuestro SDK de Voz para Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.3.1`. Después seleccione **Aceptar**.
+1. En la ventana que aparece, escriba el nombre y la versión de nuestro SDK de Voz para Android, `com.microsoft.cognitiveservices.speech:client-sdk:1.4.0`. Después seleccione **Aceptar**.
    El SDK de Voz se agregará a la lista de dependencias, como se muestra a continuación:
 
    ![Captura de pantalla de la ventana Project Structure (Estructura de proyecto)](media/sdk/qs-java-android-08-dependency-added-1.0.0.png)
@@ -100,16 +92,9 @@ Se creará una interfaz de usuario básica para la aplicación. Edite el diseño
 
 El texto y la representación gráfica de la interfaz de usuario ahora deben tener este aspecto:
 
-<table>
-<tr>
-<td valign="top">
 ![](media/sdk/qs-java-android-11-gui.png)
-</td>
-<td valign="top">
+
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/res/layout/activity_main.xml)]
-</td>
-</tr>
-</table>
 
 ## <a name="add-sample-code"></a>Incorporación de código de ejemplo
 

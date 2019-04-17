@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 02/06/2018
 ms.author: tamram
-ms.openlocfilehash: b219e1e1e083355f662919fe332725bd9162d390
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: f16c4438dfb2feb70dece0b95f8afc701c5a3d66
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55885456"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009315"
 ---
 # <a name="quickstart-use-net-to-create-a-queue-in-azure-storage"></a>Inicio rápido: Uso de .NET para crear una cola de Azure Storage
 
@@ -163,7 +163,7 @@ else
 {
     Console.WriteLine(
         "A connection string has not been defined in the system environment variables. " +
-        "Add a environment variable named 'storageconnectionstring' with your storage " +
+        "Add an environment variable named 'storageconnectionstring' with your storage " +
         "connection string as a value.");
 }
 ```
@@ -269,6 +269,6 @@ Consulte estos recursos adicionales para el desarrollo de .NET con Azure Queues:
 En este inicio rápido, ha aprendido a agregar mensajes a una cola, a inspeccionar los mensajes de una cola y a quitar de la cola y a procesar los mensajes mediante. NET. 
 
 > [!div class="nextstepaction"]
-> [Comunicación entre las aplicaciones con Azure Queue storage](https://docs.microsoft.com/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
+> [Comunicación entre las aplicaciones con Azure Queue Storage](https://docs.microsoft.com/learn/modules/communicate-between-apps-with-azure-queue-storage/index)
 
 - Para más información sobre .NET Core, consulte [Get started with .NET in 10 minutes](https://www.microsoft.com/net/learn/get-started/) (Introducción a .NET en 10 minutos).

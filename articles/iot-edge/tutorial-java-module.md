@@ -1,24 +1,24 @@
 ---
-title: 'Tutorial: Creación del módulo personalizado de Java: Azure IoT Edge | Microsoft Docs'
+title: 'Tutorial del módulo personalizado de Java: Azure IoT Edge | Microsoft Docs'
 description: En este tutorial se muestra la creación de un módulo IoT Edge con código Java y su implementación en un dispositivo perimetral.
 services: iot-edge
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 9a541f42670b3ccf83331e3e2e9069289bb9b4b3
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: f654f33fe03b29a3aa93386d49e8f5a43cffc9c8
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58224080"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470311"
 ---
 # <a name="tutorial-develop-a-java-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutorial: Desarrollo de un módulo IoT Edge con Java en el dispositivo simulado
 
-Los módulos Azure IoT Edge se pueden usar para implementar código que, a su vez, implementa una lógica de negocios directamente en los dispositivos IoT Edge. En este tutorial, se detallan los pasos para crear e implementar un módulo de IoT Edge que filtra los datos de sensor. Utilizará el dispositivo de IoT Edge simulado que creó en las guías de inicio rápido para implementar Azure IoT Edge en un dispositivo simulado con [Windows](quickstart.md) o [Linux](quickstart-linux.md). En este tutorial, aprenderá a:    
+Los módulos Azure IoT Edge se pueden usar para implementar código que, a su vez, implementa una lógica de negocios directamente en los dispositivos IoT Edge. En este tutorial, se detallan los pasos para crear e implementar un módulo de IoT Edge que filtra los datos de sensor. Utilizará el dispositivo IoT Edge simulado que creó en el inicio rápido Implementación de Azure IoT Edge en un dispositivo simulado en [Linux](quickstart-linux.md). En este tutorial, aprenderá a:    
 
 > [!div class="checklist"]
 > * Use Visual Studio Code para crear un módulo de Java de IoT Edge basado en el paquete de plantillas de Maven de Azure IoT Edge y el SDK de dispositivo de Java de Azure IoT.
@@ -36,8 +36,8 @@ El módulo IoT Edge que creó en este tutorial filtra lo datos sobre la temperat
 
 Un dispositivo de Azure IoT Edge:
 
-* Para configurar un dispositivo IoT Edge, siga los pasos descritos en los artículos de inicio rápido para [Linux](quickstart-linux.md) o [Windows](quickstart.md).
-* En el caso de IoT Edge en dispositivos Windows, la versión 1.0.5 no es compatible con los módulos de Java. Para más información, consulte las [notas de la versión 1.0.5](https://github.com/Azure/azure-iotedge/releases/tag/1.0.5). Para obtener instrucciones sobre cómo instalar una versión específica, consulte [Actualización del demonio de seguridad y el entorno de ejecución de IoT Edge](how-to-update-iot-edge.md).
+* Puede usar una máquina de Azure como dispositivo de IoT Edge; para ello, siga los pasos que se indican en el artículo de inicio rápido para [Linux](quickstart-linux.md). 
+* Los módulos Java de IoT Edge no admiten contenedores Windows. 
 
 Recursos en la nube:
 
@@ -50,7 +50,7 @@ Recursos de desarrollo:
 * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) para Visual Studio Code. 
 * [Java SE Development Kit 10](https://aka.ms/azure-jdks) y [establecer la `JAVA_HOME`variable de entorno](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) para que apunte a la instalación de JDK.
 * [Maven](https://maven.apache.org/)
-* [Docker CE](https://docs.docker.com/install/)
+* [CE de Docker](https://docs.docker.com/install/)
    * Si está desarrollando en un dispositivo Windows, asegúrese de que Docker esté [configurado para usar contenedores de Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers). 
 
 
@@ -146,8 +146,9 @@ El archivo del entorno almacena las credenciales del registro de contenedor y la
 7. Reemplace el método execute de **MessageCallbackMqtt** por el código siguiente. Se llama a este método cada vez que el módulo recibe un mensaje MQTT del centro de IoT Edge. Filtra los mensajes que informan de temperaturas por debajo del umbral de temperatura que se establecen mediante el módulo gemelo.
 
     ```java
+    protected static class MessageCallbackMqtt implements MessageCallback {
         private int counter = 0;
-       @Override
+        @Override
         public IotHubMessageResult execute(Message msg, Object context) {
             this.counter += 1;
  
@@ -173,6 +174,7 @@ El archivo del entorno almacena las credenciales del registro de contenedor y la
             }
             return IotHubMessageResult.COMPLETE;
         }
+    }
     ```
 
 8. Agregue las dos clases internas estáticas siguientes a la clase **App**. Estas clases actualizan la variable tempThreshold cuando cambia la propiedad deseada en el módulo gemelo. Todos los módulos tienen su propio módulo gemelo, que le permite configurar el código que se ejecuta dentro de un módulo directamente desde la nube.
@@ -218,9 +220,9 @@ El archivo del entorno almacena las credenciales del registro de contenedor y la
 
 11. Guarde el archivo App.java.
 
-12. En el explorador de VS Code, abra el archivo **deployment.template.json** en el área de trabajo de la solución de IoT Edge. Este archivo le indica al agente de IoT Edge qué módulos implementar, en este caso **tempSensor** y **JavaModule**, y a IoT Edge Hub cómo enrutar los mensajes entre ellos. La extensión de Visual Studio Code rellena de forma automática la mayor parte de la información que necesita en la plantilla de implementación, aunque comprueba que todo sea correcto para la solución: 
+12. En el explorador de VS Code, abra el archivo **deployment.template.json** en el área de trabajo de la solución de IoT Edge. Este archivo le indica al agente de IoT Edge qué módulos implementar y al centro de IoT Edge cómo enrutar los mensajes entre ellos. En este caso, los dos módulos son **tempSensor** y **JavaModule**. La extensión de Visual Studio Code rellena de forma automática la mayor parte de la información que necesita en la plantilla de implementación, aunque comprueba que todo sea correcto para la solución: 
 
-   1. La plataforma predeterminada de la instancia de IoT Edge está establecida en **amd64** en la barra de estado de VS Code, lo que significa que **JavaModule** está establecido en la versión Linux amd64 de la imagen. Cambie la plataforma predeterminada en la barra de estado de **amd64** a **arm32v7** o **windows-amd64** si esa es la arquitectura del dispositivo de IoT Edge. 
+   1. La plataforma predeterminada de la instancia de IoT Edge está establecida en **amd64** en la barra de estado de VS Code, lo que significa que **JavaModule** está establecido en la versión Linux amd64 de la imagen. Cambie la plataforma predeterminada en la barra de estado de **amd64** a **arm32v7** si esa es la arquitectura del dispositivo de IoT Edge. 
 
       ![Actualización de la plataforma de imagen del módulo](./media/tutorial-java-module/image-platform.png)
 
@@ -264,8 +266,9 @@ Puede ver la dirección de la imagen de contenedor completa con la etiqueta en e
 >[!TIP]
 >Si recibe un error al intentar compilar e insertar su módulo, realice las siguientes comprobaciones:
 >* ¿Ha iniciado sesión en Docker en Visual Studio Code con las credenciales de su registro de contenedor? Estas credenciales son diferentes a las que se utilizan para iniciar sesión en Azure Portal.
->* ¿Es el repositorio de contenedor correcto? Abra **Módulos** > **cmodule** > **module.json** y busque el campo **repositorio**. El repositorio de imágenes será similar a **\<nombre del Registro\>.azurecr.io/javamodule**. 
->* ¿Va a compilar el mismo tipo de contenedores que está ejecutando la máquina de desarrollo? Visual Studio Code establece de forma predeterminada contenedores de Linux amd64. Si la máquina de desarrollo ejecuta contenedores de Windows o de Linux arm32v7, actualice la plataforma en la barra de estado azul en la parte inferior de la ventana de VS Code para que coincida con la plataforma del contenedor.
+>* ¿Es el repositorio de contenedor correcto? Abra **módulos** > **JavaModule** > **module.json** y busque el campo **repositorio**. El repositorio de imágenes será similar a **\<nombre del Registro\>.azurecr.io/javamodule**. 
+>* ¿Va a compilar el mismo tipo de contenedores que está ejecutando la máquina de desarrollo? Visual Studio Code establece de forma predeterminada contenedores de Linux amd64. Si la máquina de desarrollo ejecuta contenedores de Linux arm32v7, actualice la plataforma en la barra de estado azul en la parte inferior de la ventana de VS Code para que coincida con la plataforma del contenedor.
+>* Los módulos Java de IoT Edge no admiten contenedores Windows.
 
 ## <a name="deploy-and-run-the-solution"></a>Implementación y ejecución de la solución
 

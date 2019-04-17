@@ -1,5 +1,5 @@
 ---
-title: Creación de un índice de Azure Search en C#
+title: 'Inicio rápido: Creación de un índice en una aplicación de consola de C#: Azure Search'
 description: Obtenga información sobre cómo crear un índice de búsqueda de texto completo en C# con el SDK de Azure Search para .NET.
 author: heidisteen
 manager: cgronlun
@@ -9,15 +9,21 @@ services: search
 ms.service: search
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 03/22/2019
-ms.openlocfilehash: a5861faaf26962d34d1c356e29dce1be40f8716b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.date: 04/08/2019
+ms.openlocfilehash: 83842893e0ffc6bb954832cd65b6312b59bbcaa3
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370591"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269051"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Inicio rápido: 1 - Creación de un índice de Azure Search en C#
+> [!div class="op_single_selector"]
+> * [C#](search-create-index-dotnet.md)
+> * [Portal](search-get-started-portal.md)
+> * [PowerShell](search-howto-dotnet-sdk.md)
+> * [postman](search-fiddler.md)
+>*
 
 Este artículo le guía por el proceso de creación de un [índice de Azure Search](search-what-is-an-index.md) mediante C# y el [SDK de .NET](https://aka.ms/search-sdk). Esta es la primera lección de un ejercicio que consta de tres partes para crear, cargar y consultar un índice. Para la creación de índices es preciso realizar estas tareas:
 
@@ -28,43 +34,51 @@ Este artículo le guía por el proceso de creación de un [índice de Azure Sear
 
 ## <a name="prerequisites"></a>Requisitos previos
 
+En este inicio rápido se usan los siguientes servicios, herramientas y datos. 
+
 [Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido.
 
 [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/), cualquier edición. Se han probado código de ejemplo e instrucciones en la edición Community Edition gratuita.
 
-Obtenga un punto de conexión de dirección URL y la clave de API de administrador del servicio de búsqueda. Con ambos se crea un servicio de búsqueda, por lo que si ha agregado Azure Search a su suscripción, siga estos pasos para obtener la información necesaria:
+[DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) proporciona la solución de ejemplo, una aplicación de consola de .NET Core escrita en C#, que se encuentra en el repositorio de GitHub de ejemplos de Azure. Descargue y extraiga la solución. De forma predeterminada, las soluciones son de solo lectura. Haga clic con el botón derecho en la solución y borre el atributo de solo lectura para que se puedan modificar los archivos. Los datos se incluyen en la solución.
 
-  1. En Azure Portal, en la página **Introducción** del servicio de búsqueda, obtenga la dirección URL. Un punto de conexión de ejemplo podría ser similar a `https://mydemo.search.windows.net`.
+## <a name="get-a-key-and-url"></a>Obtención de una clave y una dirección URL
 
-  2. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
+Las llamadas al servicio requieren un punto de conexión de URL y una clave de acceso en cada solicitud. Con ambos se crea un servicio de búsqueda, por lo que si ha agregado Azure Search a su suscripción, siga estos pasos para obtener la información necesaria:
 
-  ![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
+1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y en la página **Introducción** del servicio de búsqueda, obtenga la dirección URL. Un punto de conexión de ejemplo podría ser similar a `https://mydemo.search.windows.net`.
+
+2. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
+
+![Obtención de una clave de acceso y un punto de conexión HTTP](media/search-fiddler/get-url-key.png "Get an HTTP endpoint and access key")
 
 Todas las solicitudes requieren una clave de API en cada solicitud enviada al servicio. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
-## <a name="1---open-the-project"></a>1 - Abra el proyecto
+## <a name="1---configure-and-build"></a>1: Configuración y compilación
 
-Descargue el código de ejemplo [DotNetHowTo](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) de GitHub. 
+1. Abra el archivo **DotNetHowTo.sln** en Visual Studio.
 
-En el archivo appsettings.json, reemplace el contenido predeterminado por el ejemplo siguiente y, después, especifique el nombre del servicio y la clave de API de administrador del servicio. En el caso del nombre del servicio, basta con el propio nombre. Por ejemplo, si la dirección URL es https://mydemo.search.windows.net, agregue `mydemo` al archivo JSON.
+1. En el archivo appsettings.json, reemplace el contenido predeterminado por el ejemplo siguiente y, después, especifique el nombre del servicio y la clave de API de administrador del servicio. 
 
 
-```json
-{
-    "SearchServiceName": "Put your search service name here",
-    "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
-}
-```
+   ```json
+   {
+       "SearchServiceName": "Put your search service name here (not the full URL)",
+       "SearchServiceAdminApiKey": "Put your primary or secondary API key here",
+    }
+   ```
 
-Una vez que se establezcan dichos valores, puede usar F5 para compilar la solución para ejecutar la aplicación de consola. En los restantes pasos de este ejercicio y de los siguientes se explora el funcionamiento de este código. 
+  En el caso del nombre del servicio, basta con el propio nombre. Por ejemplo, si la dirección URL es https://mydemo.search.windows.net, agregue `mydemo` al archivo JSON.
 
-Como alternativa, puede consultar [Uso de Azure Search desde una aplicación .NET ](search-howto-dotnet-sdk.md) para obtener una cobertura más detallada de los comportamientos del SDK. 
+1. Presione F5 para compilar la solución y ejecute la aplicación de consola. En los restantes pasos de este ejercicio y de los siguientes se explora el funcionamiento de este código. 
+
+Como alternativa, puede consultar [Uso de Azure Search desde una aplicación .NET](search-howto-dotnet-sdk.md) para obtener una cobertura más detallada de los comportamientos del SDK. 
 
 <a name="CreateSearchServiceClient"></a>
 
 ## <a name="2---create-a-client"></a>2 - Cree un cliente
 
-Para empezar a usar el SDK de .NET de Azure Search, cree una instancia de la clase `SearchServiceClient` . Esta clase tiene varios constructores. El que desea tiene el nombre del servicio de búsqueda y un objeto `SearchCredentials` como parámetros. `SearchCredentials` incluye su clave de API.
+Para empezar a usar el SDK de .NET de Azure Search, cree una instancia de la clase `SearchServiceClient` . Esta clase tiene varios constructores. El que desea tiene el nombre del servicio de búsqueda y un objeto `SearchCredentials` como parámetros. `SearchCredentials` encapsula su clave de API.
 
 El siguiente código se puede encontrar en el archivo Program.cs. Crea un nuevo `SearchServiceClient` con valores para el nombre de servicio de búsqueda y la clave de API que se almacenan en el archivo de configuración de la aplicación (appsettings.json).
 

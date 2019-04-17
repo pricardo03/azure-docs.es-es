@@ -9,16 +9,18 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 7f6baec8fee2b046949e2d88b5fff7bb5db9b40b
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662421"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045840"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2: Visualización de los mensajes enrutados
 
 [!INCLUDE [iot-hub-include-routing-intro](../../includes/iot-hub-include-routing-intro.md)]
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="rules-for-routing-the-messages"></a>Reglas de enrutamiento de los mensajes
 
@@ -280,22 +282,22 @@ az group delete --name $resourceGroup
 
 ### <a name="use-powershell-to-clean-up-resources"></a>Uso de PowerShell para quitar recursos
 
-Para quitar el grupo de recursos, use el comando [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup). `$resourceGroup` se estableció en **ContosoResources** al principio de este tutorial.
+Para quitar el grupo de recursos, use el comando [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup). `$resourceGroup` se estableció en **ContosoResources** al principio de este tutorial.
 
 ```azurepowershell-interactive
-Remove-AzureRmResourceGroup -Name $resourceGroup
+Remove-AzResourceGroup -Name $resourceGroup
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 En este tutorial de dos partes ha aprendido a utilizar el enrutamiento de mensajes para enrutar los mensajes de IoT Hub a diferentes destinos mediante la realización de las siguientes tareas.  
 
-**Parte I: Creación de recursos, configuración del enrutamiento de mensajes**
+**Parte I: Creación de recursos y configuración del enrutamiento de mensajes**
 > [!div class="checklist"]
 > * Cree los recursos: una instancia de IoT Hub, una cuenta de almacenamiento, una cola de Service Bus y un dispositivo simulado.
 > * Configure los puntos de conexión y las rutas de los mensajes en IoT Hub para la cuenta de almacenamiento y la cola de Service Bus.
 
-**Parte II: Envío de mensajes al centro, visualización de los resultados del enrutamiento**
+**Parte II: Envío de mensajes al centro y visualización de los resultados del enrutamiento**
 > [!div class="checklist"]
 > * Crear una aplicación lógica que se desencadena y se envía un correo electrónico cuando se agrega un mensaje a la cola de Service Bus.
 > * Descargar y ejecutar una aplicación que simule que un dispositivo IoT envía mensajes al centro para las diferentes opciones de enrutamiento.

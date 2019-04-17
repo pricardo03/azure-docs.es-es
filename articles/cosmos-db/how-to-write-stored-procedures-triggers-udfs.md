@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
-ms.openlocfilehash: 9f890a8468eaa22fbfce326fc16afe545fd515d6
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339319"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268431"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Escritura de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF) en Azure Cosmos DB
 
@@ -279,7 +279,7 @@ function updateMetadataCallback(err, items, responseOptions) {
 }
 ```
 
-Es importante tener en cuenta la ejecución transaccional de los desencadenadores en Azure Cosmos DB. Este desencadenador posterior se ejecuta como parte de la misma transacción que sirve para crear el elemento de Azure Cosmos DB. Por lo tanto, si obtiene una excepción durante la ejecución del desencadenador posterior, por ejemplo, en caso de que no pueda actualizar el elemento de metadatos, la transacción entera producirá un error y se revertirá. Por lo tanto, se crea el elemento de Azure Cosmos DB y se devuelve una excepción.
+Es importante tener en cuenta la ejecución transaccional de los desencadenadores en Azure Cosmos DB. El desencadenador posterior se ejecuta como parte de la misma transacción para el propio elemento subyacente. Una excepción durante la ejecución del desencadenador posterior producirá un error de toda la transacción. Todo lo que esté confirmado se revertirá y se devolverá una excepción.
 
 Para obtener ejemplos de cómo registrar y llamar a un desencadenador previo, vea los artículos sobre [desencadenadores previos](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) y [desencadenadores posteriores](how-to-use-stored-procedures-triggers-udfs.md#post-triggers). 
 
@@ -318,10 +318,10 @@ Para obtener ejemplos de cómo registrar y utilizar una función definida por el
 
 Aprenda más conceptos y cómo escribir o utilizar procedimientos almacenados, desencadenadores y funciones definidas por el usuario en Azure Cosmos DB:
 
-* [How to register and use stored procedures, triggers, and user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md) (Registro y uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario en Azure Cosmos DB)
+* [Registro y uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario en Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
 
-* [How to write stored procedures and triggers using Javascript Query API in Azure Cosmos DB](how-to-write-javascript-query-api.md) (Escritura de procedimientos almacenados y desencadenadores con la API de consulta de Javascript en Azure Cosmos DB)
+* [How to write stored procedures and triggers using Javascript Query API in Azure Cosmos DB (Escritura de procedimientos almacenados y desencadenadores con la API de consulta de Javascript en Azure Cosmos DB)](how-to-write-javascript-query-api.md)
 
-* [Working with Azure Cosmos DB stored procedures, triggers, and user-defined functions in Azure Cosmos DB](stored-procedures-triggers-udfs.md) (Trabajo con procedimientos almacenados, desencadenadores y funciones definidas por el usuario de Azure Cosmos DB en Azure Cosmos DB)
+* [Working with Azure Cosmos DB stored procedures, triggers, and user-defined functions in Azure Cosmos DB (Trabajo con procedimientos almacenados, desencadenadores y funciones definidas por el usuario de Azure Cosmos DB en Azure Cosmos DB)](stored-procedures-triggers-udfs.md)
 
-* [Working with JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md) (Trabajo con la API de consulta integrada del lenguaje JavaScript en Azure Cosmos DB)
+* [Trabajo con la API de consulta integrada en lenguaje JavaScript en Azure Cosmos DB](javascript-query-api.md)

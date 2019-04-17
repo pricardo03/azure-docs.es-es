@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: d34b40195a5f8effb794f3fbefc7949740509e27
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: cc2bbd0c1220a37de640bde6294eb096b25e5398
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835670"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59258205"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-orgchart-now"></a>Tutorial: Integración de Azure Active Directory con OrgChart Now
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a integrar OrgChart Now con Azure Active Directory 
 La integración de OrgChart Now con Azure AD le proporciona las siguientes ventajas:
 
 * Puede controlar en Azure AD quién tiene acceso a OrgChart Now.
-* Se pueden permitir que los usuarios a ser automáticamente iniciado sesión en OrgChart Now (Single Sign-On) con sus cuentas de Azure AD.
+* Puede permitir que los usuarios inicien sesión automáticamente en OrgChart Now (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -39,19 +39,19 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para configurar la integración de Azure AD con OrgChart Now, se necesitan los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Suscripción habilitada para inicio de sesión único en OrgChart Now
+* Una suscripción habilitada para inicio de sesión único en OrgChart Now
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* OrgChart Now admite **SP** y **IDP** SSO iniciado por
+* OrgChart Now admite el inicio de sesión único iniciado por **SP** e **IDP**
 
 ## <a name="adding-orgchart-now-from-the-gallery"></a>Adición de OrgChart Now desde la galería
 
 Para configurar la integración de OrgChart Now en Azure AD, deberá agregar OrgChart Now de la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar OrgChart Now desde la galería, realice los pasos siguientes:**
+**Para agregar OrgChart Now desde la galería, siga estos pasos:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -71,25 +71,25 @@ Para configurar la integración de OrgChart Now en Azure AD, deberá agregar Org
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, podrá configurar y prueba de inicio de sesión único en Azure AD con OrgChart Now con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, debe establecerse una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de OrgChart Now.
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con OrgChart Now con un usuario de prueba denominado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de OrgChart Now.
 
 Para configurar y probar el inicio de sesión único de Azure AD con OrgChart Now, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configurar OrgChart ahora Single Sign-On](#configure-orgchart-now-single-sign-on)**  : para configurar las opciones de inicio de sesión único en el lado de la aplicación.
+2. **[Configuración del inicio de sesión único en OrgChart Now](#configure-orgchart-now-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Crear usuario de prueba de OrgChart Now](#create-orgchart-now-test-user)**  : para tener un homólogo de Britta Simon en OrgChart Now que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación del usuario de prueba en OrgChart Now](#create-orgchart-now-test-user)**: para tener un homólogo de Britta Simon en OrgChart Now vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único en Azure AD con OrgChart Now, realice los pasos siguientes:
+Para configurar el inicio de sesión único de Azure AD con OrgChart Now, siga estos pasos:
 
-1. En el [portal Azure](https://portal.azure.com/), en el **OrgChart Now** página de integración de aplicaciones, seleccione **inicio de sesión único**.
+1. En la página de integración de la aplicación [OrgChart Now](https://portal.azure.com/) de **Azure Portal**, seleccione **Inicio de sesión único**.
 
     ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
@@ -114,13 +114,13 @@ Para configurar el inicio de sesión único en Azure AD con OrgChart Now, realic
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://sso2.orgchartnow.com/Shibboleth.sso/Login?entityID=<YourEntityID>&target=https://sso2.orgchartnow.com`
 
     > [!NOTE]
-    > `<YourEntityID>` es el **identificador de Azure AD** copió el **configurar OrgChart Now** sección, se describe más adelante en el tutorial.
+    > `<YourEntityID>` es el **identificador de Azure AD** que se copió de la sección **Set up OrgChart Now** (Configurar OrgChart Now) que se describe más adelante en el tutorial.
 
 6. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-7. En el **configurar OrgChart Now** sección, copie la dirección URL adecuadas según sus necesidades.
+7. En la sección **Set up OrgChart Now** (Configurar OrgChart Now), copie las direcciones URL que necesite.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -130,9 +130,9 @@ Para configurar el inicio de sesión único en Azure AD con OrgChart Now, realic
 
     c. URL de cierre de sesión
 
-### <a name="configure-orgchart-now-single-sign-on"></a>Configurar inicio de sesión único en OrgChart Now:
+### <a name="configure-orgchart-now-single-sign-on"></a>Configuración del inicio de sesión único en OrgChart Now
 
-Para configurar el inicio de sesión único en **OrgChart Now** , es preciso enviar los datos descargados **XML de metadatos de federación** y caso de direcciones URL copiadas desde Azure portal para [equipo de soporte técnico de OrgChart Now ](mailto:ocnsupport@officeworksoftware.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **OrgChart Now**, es preciso enviar el **XML de metadatos de federación** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de OrgChart Now](mailto:ocnsupport@officeworksoftware.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
@@ -163,7 +163,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a OrgChart Now.
 
-1. En el portal de Azure, seleccione **aplicaciones empresariales**, seleccione **todas las aplicaciones**, a continuación, seleccione **OrgChart Now**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **OrgChart Now**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
@@ -185,7 +185,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-orgchart-now-test-user"></a>Crear usuario de prueba de OrgChart Now
+### <a name="create-orgchart-now-test-user"></a>Creación del usuario de prueba en OrgChart Now
 
 Para permitir que los usuarios de Azure AD inicien sesión en OrgChart Now, deben aprovisionarse en OrgChart Now. 
 
@@ -219,9 +219,9 @@ Para permitir que los usuarios de Azure AD inicien sesión en OrgChart Now, debe
 
     ![OrgChart Now: administrar](./media/orgchartnow-tutorial/tutorial_orgchartnow_manageusers.png)
 
-    * En el **Id. de usuario** cuadro de texto, escriba el identificador de usuario como **brittasimon\@contoso.com**.
+    * En el cuadro de texto **User ID** (Id. de usuario), escriba el identificador de usuario, por ejemplo, **brittasimon\@contoso.com**.
 
-    * En **dirección de correo electrónico** texto, escriba el correo electrónico del usuario, como **brittasimon\@contoso.com**.
+    * En el cuadro de texto **Email Address** (Dirección de correo electrónico), escriba el correo electrónico del usuario; por ejemplo, **brittasimon\@contoso.com**.
 
     * Haga clic en **Agregar**.
 
@@ -229,13 +229,13 @@ Para permitir que los usuarios de Azure AD inicien sesión en OrgChart Now, debe
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de OrgChart Now en el Panel de acceso, debe iniciar sesión automáticamente el que configure para inicio de sesión único de OrgChart Now. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de OrgChart Now en el panel de acceso, debería iniciar sesión automáticamente en la versión de OrgChart Now para la que configurara el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

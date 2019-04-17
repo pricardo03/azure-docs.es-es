@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: a3990bfac9199fadeff0573d7547d7e5bc551ece
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2f190ccbead9e6349543d04e2419f458888fba2c
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57838619"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59008754"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-framework-windows"></a>Inicio rápido: Reconocimiento de voz con el SDK de Voz para .NET Framework (Windows)
 
@@ -25,7 +25,7 @@ Use esta guía para crear una aplicación de consola de conversión de voz en te
 
 Para ver una demostración rápida (sin compilar el proyecto de Visual Studio personalmente como se muestra a continuación):
 
-Obtenga el [SDK de Voz de Cognitive Services](https://github.com/Azure-Samples/cognitive-services-speech-sdk) de Github.
+Obtenga los [ejemplos más recientes del SDK de Voz de Cognitive Services](https://github.com/Azure-Samples/cognitive-services-speech-sdk) de GitHub.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

@@ -7,19 +7,19 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: c4622293f05be5f4595136a5bbf194116fb2887c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: fd49cc6810f4a3a479748180ddb0c44aedf04e89
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081107"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59275562"
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Compatibilidad de Azure Cosmos DB con grafos Gremlin
-Azure Cosmos DB admite un lenguaje de recorrido de grafos de [Apache Tinkerpop](https://tinkerpop.apache.org), [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que es una instancia de Gremlin API para crear entidades gráficas y realizar operaciones de consulta de grafos. Puede usar el lenguaje Gremlin para crear entidades de grafo (vértices y aristas), modificar las propiedades de las entidades, realizar consultas y recorridos, y eliminar entidades. 
+Azure Cosmos DB admite el lenguaje de recorrido de grafo de [Apache Tinkerpop](https://tinkerpop.apache.org) conocido como [Gremlin](https://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps). Puede usar el lenguaje Gremlin para crear entidades de grafo (vértices y aristas), modificar las propiedades de las entidades, realizar consultas y recorridos, y eliminar entidades. 
 
-Azure Cosmos DB aporta características empresariales a las bases de datos de grafos, Esto incluye distribución global, escalado independiente del almacenamiento y el rendimiento, latencias predecibles inferiores a 10 milisegundos, indexación automática, SLA y disponibilidad de lectura para cuentas de base de datos que abarcan dos o más regiones de Azure. Dado que Azure Cosmos DB admite TinkerPop/Gremlin, puede migrar fácilmente aplicaciones escritas con otra base de datos de grafos sin tener que hacer cambios en el código. Además, gracias a la compatibilidad con Gremlin, Azure Cosmos DB se integra perfectamente entornos de análisis habilitados para TinkerPop, tales como [Apache Spark GraphX](https://spark.apache.org/graphx/). 
+Azure Cosmos DB aporta características empresariales a las bases de datos de grafos, Estas características incluyen distribución global, escalado independiente del almacenamiento y el rendimiento, latencias predecibles inferiores a 10 milisegundos, indexación automática, SLA y disponibilidad de lectura para cuentas de base de datos que abarcan dos o más regiones de Azure. Dado que Azure Cosmos DB admite TinkerPop/Gremlin, puede migrar fácilmente aplicaciones escritas con otra base de datos de grafos compatible. Además, gracias a la compatibilidad con Gremlin, Azure Cosmos DB se integra perfectamente entornos de análisis habilitados para TinkerPop, tales como [Apache Spark GraphX](https://spark.apache.org/graphx/). 
 
-En este artículo se proporciona un tutorial rápido de Gremlin y se enumeran las características y los pasos de Gremlin que se admiten en Gremlin API.
+En este artículo se proporciona un tutorial rápido de Gremlin y se enumeran las características de Gremlin que se admiten en Gremlin API.
 
 ## <a name="gremlin-by-example"></a>Gremlin con ejemplos
 Vamos a usar un grafo de ejemplo para entender cómo se expresan las consultas en Gremlin. La siguiente ilustración muestra una aplicación empresarial que administra datos de usuarios, intereses y dispositivos en forma de grafo.  
@@ -59,7 +59,7 @@ La consulta siguiente devuelve los vértices "persona" en orden descendente de s
 :> g.V().hasLabel('person').order().by('firstName', decr)
 ```
 
-En el lugar donde brillan los grafos es donde se necesita responder preguntas como "¿Qué sistemas operativos usan los amigos de Thomas?". Puede ejecutar este recorrido de Gremlin simple para obtener esa información en el grafo:
+En el lugar donde brillan los grafos es donde se necesita responder preguntas como "¿Qué sistemas operativos usan los amigos de Thomas?". Puede ejecutar este recorrido de Gremlin para obtener esa información del grafo:
 
 ```
 :> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
@@ -123,31 +123,31 @@ Por ejemplo, el fragmento de código siguiente muestra una representación de Gr
   }
 ```
 
-Las propiedades utilizadas por GraphSON para los vértices son las siguientes:
+A continuación, se describen las propiedades utilizadas por GraphSON para los vértices:
 
-| Propiedad | DESCRIPCIÓN |
-| --- | --- |
-| id | Identificador del vértice. Debe ser único (en combinación con el valor de _partition, si corresponde). |
-| label | Etiqueta del vértice. Es opcional y se utiliza para describir el tipo de entidad. |
-| Tipo | Se usa para distinguir los vértices de los documentos que no son grafos. |
-| propiedades | Contenedor de propiedades definidas por el usuario asociadas con el vértice. Cada propiedad puede tener varios valores. |
-| _partition (configurable) | Clave de partición del vértice. Se puede usar para escalar horizontalmente grafos en varios servidores. |
-| outE | Contiene una lista de las aristas de un vértice. Almacenar la información de proximidad con los vértices permite ejecutar recorridos rápidamente. Las aristas se agrupan en función de sus etiquetas. |
+| Propiedad | DESCRIPCIÓN | 
+| --- | --- | --- |
+| `id` | Identificador del vértice. Debe ser único (en combinación con el valor de `_partition`, si corresponde). Si no se especifica ningún valor se suministrarán automáticamente con un GUID | 
+| `label` | Etiqueta del vértice. Se utiliza para describir el tipo de entidad. |
+| `type` | Se usa para distinguir los vértices de los documentos que no son grafos. |
+| `properties` | Contenedor de propiedades definidas por el usuario asociadas con el vértice. Cada propiedad puede tener varios valores. |
+| `_partition` | Clave de partición del vértice. Se una para la [creación de particiones de grafos](graph-partitioning.md). |
+| `outE` | Esta propiedad contiene una lista de las aristas de un vértice. Almacenar la información de proximidad con los vértices permite ejecutar recorridos rápidamente. Las aristas se agrupan en función de sus etiquetas. |
 
 La arista contiene la siguiente información para ayudar a la navegación a otras partes del grafo.
 
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |
-| id | Identificador de la arista. Debe ser único (en combinación con el valor de _partition, si corresponde). |
-| label | Etiqueta de la arista. Esta propiedad es opcional y se usa para describir el tipo de relación. |
-| inV | Contiene una lista de vértices para una línea. Almacenar la información de proximidad con la línea permite ejecutar recorridos rápidamente. Los vértices se agrupan en función de sus etiquetas. |
-| propiedades | Contenedor de propiedades definidas por el usuario asociadas con la arista. Cada propiedad puede tener varios valores. |
+| `id` | Identificador de la arista. Debe ser único (en combinación con el valor de `_partition`, si corresponde). |
+| `label` | Etiqueta de la arista. Esta propiedad es opcional y se usa para describir el tipo de relación. |
+| `inV` | Esta propiedad contiene una lista de vértices para una línea. Almacenar la información de proximidad con la línea permite ejecutar recorridos rápidamente. Los vértices se agrupan en función de sus etiquetas. |
+| `properties` | Contenedor de propiedades definidas por el usuario asociadas con la arista. Cada propiedad puede tener varios valores. |
 
 Cada propiedad puede almacenar varios valores dentro de una matriz. 
 
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |
-| value | Valor de la propiedad.
+| `value` | Valor de la propiedad.
 
 ## <a name="gremlin-steps"></a>Pasos de Gremlin
 Ahora, echemos un vistazo a los pasos de Gremlin que Azure Cosmos DB admite. Para una referencia completa de Gremlin, consulte la [referencia de TinkerPop](https://tinkerpop.apache.org/docs/current/reference).
@@ -156,14 +156,15 @@ Ahora, echemos un vistazo a los pasos de Gremlin que Azure Cosmos DB admite. Par
 | --- | --- | --- |
 | `addE` | Agrega una arista entre dos vértices. | [Paso addE](https://tinkerpop.apache.org/docs/current/reference/#addedge-step) |
 | `addV` | Agrega un vértice al grafo. | [Paso addV](https://tinkerpop.apache.org/docs/current/reference/#addvertex-step) |
-| `and` | Garantiza que todos los recorridos devuelven un valor. | [y un paso](https://tinkerpop.apache.org/docs/current/reference/#and-step). |
-| `as` | Modulador de pasos para asignar una variable a la salida de un paso. | [paso as](https://tinkerpop.apache.org/docs/current/reference/#as-step) |
-| `by` | Modulador de pasos que se usa con `group` y `order`. | [paso by](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
+| `and` | Garantiza que todos los recorridos devuelven un valor. | [y un paso.](https://tinkerpop.apache.org/docs/current/reference/#and-step) |
+| `as` | Modulador de pasos para asignar una variable a la salida de un paso. | [Paso as](https://tinkerpop.apache.org/docs/current/reference/#as-step) |
+| `by` | Modulador de pasos que se usa con `group` y `order` | [con el paso by](https://tinkerpop.apache.org/docs/current/reference/#by-step) |
 | `coalesce` | Devuelve el primer recorrido que devuelve un resultado. | [paso coalesce](https://tinkerpop.apache.org/docs/current/reference/#coalesce-step) |
-| `constant` | Devuelve un valor constante. Se usa con `coalesce`.| [paso constant](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
+| `constant` | Devuelve un valor constante. Se usa con `coalesce`| [paso constant](https://tinkerpop.apache.org/docs/current/reference/#constant-step) |
 | `count` | Devuelve el número del recorrido. | [paso count](https://tinkerpop.apache.org/docs/current/reference/#count-step) |
 | `dedup` | Devuelve los valores sin duplicados. | [paso dedup](https://tinkerpop.apache.org/docs/current/reference/#dedup-step) |
 | `drop` | Quita los valores (vértice/arista). | [paso drop](https://tinkerpop.apache.org/docs/current/reference/#drop-step) |
+| `executionProfile` | Crea una descripción de todas las operaciones generadas por el paso de Gremlin ejecutado | [paso executionProfile](graph-execution-profile.md) |
 | `fold` | Actúa como una barrera que calcula el agregado de los resultados.| [paso fold](https://tinkerpop.apache.org/docs/current/reference/#fold-step) |
 | `group` | Agrupa los valores en función de las etiquetas especificadas.| [paso group](https://tinkerpop.apache.org/docs/current/reference/#group-step) |
 | `has` | Se utiliza para filtrar las propiedades, los vértices y las aristas. Admite las variantes `hasLabel`, `hasId`, `hasNot` y `has`. | [paso has](https://tinkerpop.apache.org/docs/current/reference/#has-step) |

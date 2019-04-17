@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/25/2019
 ms.author: v-krghan
 ms.custom: include file
-ms.openlocfilehash: 81590a4d686d85482bee38c4391b8ac24b25658e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 79fcadc75876af39d65dcfce88dac6802d55efd4
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58114065"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59630570"
 ---
 ## <a name="download-the-source-code"></a>Descarga del código fuente
 
@@ -60,7 +60,7 @@ Si aún no ha creado los recursos de Azure necesarios, siga estos pasos:
 
      El script crea el grupo de recursos en Azure con el nombre de la solución. Este grupo de recursos contiene los recursos de Azure que usa el acelerador de soluciones. Puede eliminar este grupo de recursos cuando ya no necesite los recursos correspondientes.
 
-     El script también agrega un conjunto de variables de entorno con un prefijo **PCS** en el equipo local. Al iniciar los contenedores de Docker o los proyectos de microservicios localmente, leen los valores de configuración de estas variables de entorno.
+     El script también agrega un conjunto de variables de entorno con un prefijo **PCS** en el equipo local. Estas variables de entorno proporcionan los detalles de supervisión remota poder leer desde un recurso de Azure Key Vault. Este recurso de Key Vault es que la supervisión remota leerán sus valores de configuración de.
 
      > [!TIP]
      > Cuando se completa el script, también guarda las variables de entorno en un archivo denominado  **\<la carpeta principal\>\\.pcs\\\<nombre de la solución\>.env**. Puede usarlos para las implementaciones del acelerador de soluciones futuras. Tenga en cuenta que cualquier variable de entorno establecida en el equipo local invalida los valores del archivo **services\\scripts\\local\\.env** al ejecutar **docker-compose**.
@@ -69,4 +69,12 @@ Si aún no ha creado los recursos de Azure necesarios, siga estos pasos:
 
 ### <a name="use-existing-azure-resources"></a>Usar recursos de Azure existentes
 
-Si ya ha creado los recursos de Azure necesarios, cree las variables de entorno correspondientes en el equipo local. Pueden guardarse en el archivo  **\<carpeta principal\>\\.pcs\\\<nombre de la solución\>.env** de la implementación. Tenga en cuenta que las variables de entorno establecidas en el equipo local invalidan los valores del archivo **services\\scripts\\local\\.env** al ejecutar **docker-compose**.
+Si ya ha creado los recursos de Azure necesarios, cree las variables de entorno correspondientes en el equipo local.
+Establezca las variables de entorno para lo siguiente:
+* **PCS_KEYVAULT_NAME** -nombre del recurso de Azure Key Vault
+* **PCS_AAD_APPID** -AAD el Id. de aplicación
+* **PCS_AAD_APPSECRET** -secreto de AAD de la aplicación
+
+Se leerán los valores de configuración de este recurso de Azure Key Vault. Estas variables de entorno pueden guardarse en el  **\<la carpeta principal\>\\.pcs\\\<nombre de la solución\>.env** archivos de la implementación. Tenga en cuenta que las variables de entorno establecidas en el equipo local invalidan los valores del archivo **services\\scripts\\local\\.env** al ejecutar **docker-compose**.
+
+Parte de la configuración necesaria para el microservicio se almacena en una instancia de **Key Vault** que se creó en la implementación inicial. Las variables correspondientes en el almacén de claves deben modificarse según sea necesario.

@@ -8,13 +8,13 @@ ms.author: stevenry
 ms.date: 11/21/2018
 ms.topic: tutorial
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
-keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, malla de servicio, enrutamiento de malla de servicio, kubectl, k8s '
-ms.openlocfilehash: ff2031395eb14cc1b9d8fda2150523c37fdcab69
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, service mesh, enrutamiento de service mesh, kubectl, k8s '
+ms.openlocfilehash: 575a14416835337d9aad45c4328f3119288f04c8
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57870954"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359202"
 ---
 # <a name="multi-service-development-with-azure-dev-spaces"></a>Desarrollo de varios servicios con Azure Dev Spaces
 
@@ -110,4 +110,4 @@ Ahora tiene una aplicación de varios contenedores donde cada uno se puede desar
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Más información sobre el desarrollo en Dev Spaces](team-development-netcore.md)
+> [Más información acerca del desarrollo en Dev Spaces](team-development-netcore.md)

@@ -6,15 +6,15 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 01/06/2019
+ms.date: 04/04/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 1fa9eaa5f4ba399622e0b8889ab722e4a4e130a0
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 7f501bf8496d1293a45c15908d4f2b21b6ed01d2
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57770483"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045412"
 ---
 # <a name="what-is-azure-event-grid"></a>¿Qué es Azure Event Grid?
 
@@ -116,11 +116,11 @@ Azure Event Grid usa un modelo de precios de pago por evento, por lo que solo se
 
 * [Enrutamiento de los eventos de Storage Blob](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
   Permite responder a los eventos de Storage Blob mediante Event Grid.
-* [Crear eventos personalizados y suscribirse a ellos](custom-event-quickstart.md)  
+* [Creación de eventos personalizados y suscripción a ellos](custom-event-quickstart.md)  
   Para comenzar de inmediato y empezar a enviar sus propios eventos personalizados a cualquier punto de conexión con el inicio rápido de Azure Event Grid.
 * [Uso de Logic Apps como controlador de eventos](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   Tutorial sobre la creación de una aplicación con Logic Apps para reaccionar ante eventos enviados por Event Grid.
-* [Transmisión de macrodatos a un almacén de datos](event-grid-event-hubs-integration.md)  
+* [Transmitir macrodatos a un almacenamiento de datos](event-grid-event-hubs-integration.md)  
   Tutorial en el que se usa Azure Functions para transmitir datos desde Event Hubs al SQL Data Warehouse.
-* [Referencia de la API de REST de Event Grid](/rest/api/eventgrid)  
+* [Referencia de la API REST de Event Grid](/rest/api/eventgrid)  
   Proporciona contenido de referencia para la administración de suscripciones a eventos, el enrutamiento y el filtrado.

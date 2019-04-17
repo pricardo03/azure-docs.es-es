@@ -8,17 +8,17 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: quickstart
-author: CarlRabeler
-ms.author: carlrab
+author: stevestein
+ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 20d6ccca448d53da54835aad1d6dd85702c7390f
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 8901855ad68a5edb4710853dcde9311216fa2d61
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446935"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357119"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Inicio rápido: Uso de Visual Studio Code para conectar y consultar una instancia de Azure SQL Database
 
@@ -46,11 +46,11 @@ ms.locfileid: "58446935"
 
 Asegúrese de haber instalado la versión más reciente de [Visual Studio Code](https://code.visualstudio.com/Download) y de haber cargado la [extensión mssql](https://aka.ms/mssql-marketplace). Para instrucciones sobre cómo instalar la extensión mssql, consulte [Instalación de VS Code](https://docs.microsoft.com/sql/linux/sql-server-linux-develop-use-vscode#install-and-start-visual-studio-code) y [mssql para Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql).
 
-## <a name="configure-visual-studio-code"></a>Configuración deVisual Studio Code 
+## <a name="configure-visual-studio-code"></a>Configuración deVisual Studio Code
 
-### <a name="mac-os"></a>**Mac OS**
+### **<a name="mac-os"></a>Mac OS**
 
-En el caso de macOS, debe instalar OpenSSL, que es un requisito previo para .NET Core que la extensión mssql utiliza. Abra el terminal y escriba los siguientes comandos para instalar **brew** y **OpenSSL**. 
+En el caso de macOS, debe instalar OpenSSL, que es un requisito previo para .NET Core que la extensión mssql utiliza. Abra el terminal y escriba los siguientes comandos para instalar **brew** y **OpenSSL**.
 
 ```bash
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -61,11 +61,11 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
-### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
+### **<a name="linux-ubuntu"></a>Linux (Ubuntu)**
 
 No se necesita ninguna configuración especial.
 
-### <a name="windows"></a>**Windows**
+### **<a name="windows"></a> Windows**
 
 No se necesita ninguna configuración especial.
 
@@ -83,13 +83,13 @@ Obtención de la información de conexión necesaria para conectarse a Azure SQL
 
 En Visual Studio Code, establezca el modo de lenguaje en **SQL** para habilitar los comandos de mssql y T-SQL IntelliSense.
 
-1. Abra una nueva ventana de Visual Studio Code. 
+1. Abra una nueva ventana de Visual Studio Code.
 
-2. Presione **CTRL**+**N**. Se abre un nuevo archivo de texto sin formato. 
+2. Presione **CTRL**+**N**. Se abre un nuevo archivo de texto sin formato.
 
 3. Seleccione **Texto sin formato** en la esquina inferior derecha de la barra de estado.
 
-4. En el menú desplegable **Seleccionar modo de lenguaje** que se abre, seleccione **SQL**. 
+4. En el menú desplegable **Seleccionar modo de lenguaje** que se abre, seleccione **SQL**.
 
 ## <a name="connect-to-your-database"></a>Conectarse a la base de datos
 
@@ -97,7 +97,6 @@ Use Visual Studio Code para establecer una conexión con el servidor de Azure SQ
 
 > [!IMPORTANT]
 > Antes de continuar, asegúrese de tener preparados el servidor y la información de inicio de sesión. Cuando comience a escribir la información de perfil de conexión, si cambia el foco de Visual Studio Code, tendrá que reiniciar la creación del perfil.
->
 
 1. En Visual Studio Code, presione **Ctrl+Mayús+P** (o **F1**) para abrir la paleta de comandos.
 
@@ -105,17 +104,17 @@ Use Visual Studio Code para establecer una conexión con el servidor de Azure SQ
 
 3. Seleccione **Crear perfil de conexión**.
 
-4. Siga las indicaciones y especifique las propiedades de conexión del perfil nuevo. Después de especificar cada valor, elija **Entrar** para continuar. 
+4. Siga las indicaciones y especifique las propiedades de conexión del perfil nuevo. Después de especificar cada valor, elija **Entrar** para continuar.
 
    | Propiedad       | Valor sugerido | DESCRIPCIÓN |
-   | ------------ | ------------------ | ------------------------------------------------- | 
-   | **Nombre del servidor** | Nombre completo del servidor | Algo similar a: **mynewserver20170313.database.windows.net**. |
+   | ------------ | ------------------ | ------------------------------------------------- |
+   | **Nombre de servidor** | Nombre completo del servidor | Algo similar a: **mynewserver20170313.database.windows.net**. |
    | **Nombre de la base de datos** | mySampleDatabase | La base de datos a la que hay que conectarse. |
-   | **Autenticación** | Inicio de sesión SQL| Este tutorial usa Autenticación de SQL. |
+   | **Authentication** | Inicio de sesión SQL| Este tutorial usa Autenticación de SQL. |
    | **Nombre de usuario** | Nombre de usuario | El nombre de usuario de la cuenta de administrador del servidor que se usó para crear el servidor. |
-   | **Contraseña (Inicio de sesión de SQL)** | Contraseña | La contraseña de la cuenta de administrador del servidor que se usó para crear el servidor. |
-   | **¿Guardar la contraseña?** | Sí o no | Seleccione **Sí** si no quiere escribir la contraseña cada vez que inicie sesión. |
-   | **Escribir un nombre para este perfil** | Un nombre de perfil, como **mySampleProfile** | Un perfil guardado acelera la conexión en los inicios de sesión posteriores. | 
+   | **Contraseña (inicio de sesión de SQL)** | Contraseña | La contraseña de la cuenta de administrador del servidor que se usó para crear el servidor. |
+   | **¿Desea guardar la contraseña?** | Sí o no | Seleccione **Sí** si no quiere escribir la contraseña cada vez que inicie sesión. |
+   | **Escribir un nombre para este perfil** | Un nombre de perfil, como **mySampleProfile** | Un perfil guardado acelera la conexión en los inicios de sesión posteriores. |
 
    Si se realiza correctamente, aparece una notificación que indica que se creó y conectó el perfil.
 
@@ -144,22 +143,22 @@ Ejecute la siguiente instrucción Transact-SQL [INSERT](https://msdn.microsoft.c
 
    ```sql
    INSERT INTO [SalesLT].[Product]
-           ( [Name]
-           , [ProductNumber]
-           , [Color]
-           , [ProductCategoryID]
-           , [StandardCost]
-           , [ListPrice]
-           , [SellStartDate]
-           )
+        ( [Name]
+        , [ProductNumber]
+        , [Color]
+        , [ProductCategoryID]
+        , [StandardCost]
+        , [ListPrice]
+        , [SellStartDate]
+        )
      VALUES
-           ('myNewProduct'
-           ,123456789
-           ,'NewColor'
-           ,1
-           ,100
-           ,100
-           ,GETDATE() );
+        ('myNewProduct'
+        ,123456789
+        ,'NewColor'
+        ,1
+         ,100
+         ,100
+         ,GETDATE() );
    ```
 
 2. Presione **Ctrl**+**Mayús**+**E** para insertar una fila nueva en la tabla `Product`.

@@ -1,19 +1,18 @@
 ---
 title: 'Inicio rápido: Ingesta de datos de Kafka en Azure Data Explorer'
 description: En esta guía de inicio rápido, aprenderá a ingerir (cargar) datos en Azure Data Explorer desde Kafka.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/19/2018
-ms.openlocfilehash: 5c7d533cbd8a69b8fd9dcc704e7b83b0e476e499
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 180053aa2146d8ab80df832044ac3ee4d45970da
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756637"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59047116"
 ---
 # <a name="quickstart-ingest-data-from-kafka-into-azure-data-explorer"></a>Inicio rápido: Ingesta de datos de Kafka en Azure Data Explorer
  
@@ -23,7 +22,7 @@ El Explorador de datos de Azure es un servicio de exploración de datos altament
  
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar. 
  
-* [Base de datos y clúster de prueba](create-cluster-database-portal.md)
+* [Una base de datos y un clúster de prueba](create-cluster-database-portal.md)
  
 * [Una aplicación de ejemplo](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/kafka) que genera datos y los envía a Kafka
 

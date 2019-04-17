@@ -16,12 +16,12 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 198968d0d8abfc42b977e41b5f59e3aebac66bcc
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
+ms.openlocfilehash: 0699bc284233f259fc345b9b2b97b9dda8820454
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56107912"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491942"
 ---
 # <a name="scale-a-web-app-manually-using-powershell"></a>Escalado de una aplicación web manualmente mediante PowerShell
 
@@ -40,7 +40,7 @@ Si es necesario, instale Azure PowerShell con la instrucción que se encuentra e
 Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos, la aplicación web y todos los recursos relacionados.
 
 ```powershell
-Remove-AzResourceGroup -Name myResourceGroup -Force
+Remove-AzResourceGroup -Name $ResourceGroupName -Force
 ```
 
 ## <a name="script-explanation"></a>Explicación del script

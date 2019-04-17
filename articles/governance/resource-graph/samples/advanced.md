@@ -1,7 +1,6 @@
 ---
 title: Ejemplos de consultas avanzadas
 description: Use Azure Resource Graph para ejecutar consultas avanzadas, como la capacidad de VMSS, la enumeración de todas las etiquetas usadas, y la coincidencia de las máquinas virtuales con expresiones regulares.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
@@ -9,12 +8,12 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 9cb43cfdf930b14449f5c7130df275ef0b8d6484
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9a243dd236a8c499602a9070a7dd61e69541d58d
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842624"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59256828"
 ---
 # <a name="advanced-resource-graph-queries"></a>Consultas avanzadas de Resource Graph
 
@@ -76,12 +75,12 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 Esta consulta busca las máquinas virtuales que coincidan con una [expresión regular](/dotnet/standard/base-types/regular-expression-language-quick-reference) (conocida como _regex_).
 **matches regex \@** nos permite definir regex para coincidir, que es `^Contoso(.*)[0-9]+$`. Esa definición de regex se explica como:
 
-- `^` - La coincidencia debe empezar al principio de la cadena.
-- `Contoso`: la cadena distingue mayúsculas de minúsculas.
-- `(.*)`: una coincidencia de subexpresión:
+- `^` - La coincidencia debe comenzar al principio de la cadena.
+- `Contoso` - La cadena distingue mayúsculas de minúsculas.
+- `(.*)` - Una coincidencia de subexpresión:
   - `.` - Coincide con cualquier carácter individual (excepto saltos de línea).
   - `*` - Coincide con el elemento anterior cero o más veces.
-- `[0-9]` - Coincidencia de grupo caracteres para los números del 0 al 9.
+- `[0-9]` - Coincidencia de grupo de caracteres para los números del 0 al 9.
 - `+` - Coincide con el elemento anterior una o más veces.
 - `$` - La coincidencia del elemento anterior se debe producir al final de la cadena.
 

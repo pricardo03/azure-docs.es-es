@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: a1357e92b868f85556fc4d665eb475abd095fece
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: 46192d32e70e371325abeafd4da26fa29e491b13
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399999"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278486"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>Tutorial: Instalación de Azure Data Box Edge
 
@@ -90,7 +90,9 @@ El dispositivo debe instalarse en un bastidor estándar de 19 pulgadas. Use el s
 
 - Antes de comenzar, lea las instrucciones de seguridad en el folleto sobre la seguridad, el entorno y las normativas. Este folleto se envió junto con el dispositivo.
 - Comience la instalación de los raíles en el espacio asignado más próximo a la parte inferior del armario del bastidor.
-- Para la configuración de montaje del raíl mecanizado, necesitará los siguientes ocho tornillos: 10-32, 12-24, M5 o M6. El diámetro de los cabezales de los tornillos debe ser inferior a 10 mm (0,4 pulgadas).
+- Para la configuración de montaje del raíl con herramientas:
+    -  deberá suministrar ocho tornillos: #10-32, #12-24, #M5 o #M6. El diámetro de los cabezales de los tornillos debe ser inferior a 10 mm (0,4 pulgadas).
+    -  Necesita un destornillador de punta plana.
 
 ### <a name="identify-the-rail-kit-contents"></a>Identificación del contenido del kit de raíl
 
@@ -102,6 +104,9 @@ Ubique los componentes de instalación de ensamblaje del kit de raíl:
 
 ### <a name="install-and-remove-tool-less-rails-square-hole-or-round-hole-racks"></a>Instalación y retirada de los raíles no mecanizados (bastidores de agujeros cuadrados y redondos)
 
+> [!TIP]
+> Esta opción es sin herramientas, ya no requiere herramientas para instalar y quitar los raíles en los orificios cuadrados o redondos lisos de los bastidores.
+
 1. Coloque las piezas del extremo de los raíles izquierdo y derecho con la etiqueta **FRONT** orientadas hacia dentro y fijadas en los agujeros anteriores de las pestañas del bastidor en vertical.
 2. Alinee cada pieza del extremo en los agujeros inferiores y superiores de los espacios en U preferidos.
 3. Ajuste el extremo posterior del raíl hasta que quede fijado en la pestaña del bastidor en vertical y el pestillo haga clic. Repita estos pasos para colocar y fijar la pieza del extremo anterior en la pestaña del bastidor en vertical.
@@ -110,6 +115,9 @@ Ubique los componentes de instalación de ensamblaje del kit de raíl:
 ![Instalación y retirada de los raíles no mecanizados](./media/data-box-edge-deploy-install/installing-removing-tool-less-rails.png)
 
 ### <a name="install-and-remove-tooled-rails-threaded-hole-racks"></a>Instalación y retirada de raíles mecanizados (bastidores con agujeros a rosca)
+
+> [!TIP]
+> Esta opción tiene herramientas porque requiere una herramienta (_un destornillador de punta plana_) para instalar y quitar los raíles en los orificios redondos con rosca de los bastidores.
 
 1. Quite las fijaciones de los soportes de montaje anterior y posterior con un destornillador plano.
 2. Tire de los submódulos de pestillo del raíl y gírelos para sacarlos de los soportes de montaje.
@@ -152,7 +160,7 @@ NOTA:  Si su sistema no dispone de pestillo de golpe, fíjelo con tornillos tal 
 
 1. Ubique los soportes del CMA externos en los laterales interiores de las pestañas de los bastidores.
 2. Agrupe los cables con cuidado, bien extendidos a partir de los conectores del sistema de los laterales izquierdo y derecho.
-3. Enrosque las correas anchas con cierre de velcro en las ranuras mecanizadas de los soportes del CMA externos de cada lateral del sistema para fijar los cables.
+3. Enrosque cintas de velcro en las ranuras de los soportes del CMA externos de cada lateral del sistema para fijar los mazos de cables.
 
 
 ![Orientación de los cables](./media/data-box-edge-deploy-install/routing-cables.png)

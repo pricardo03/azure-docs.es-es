@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/25/2019
+ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: f3effc900b79ddb7beac6a3aaf2eee0a264f7b4d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: eb8ba7f23de99d333693430d806a8d887c55a678
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59280866"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608203"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Inicio rápido: Inicio de sesión y establecimiento de un identificador de usuario
 
@@ -33,6 +33,9 @@ Aunque siempre puede ver Azure Notebooks sin iniciar sesión, sí que deberá in
 1. Cuando se le solicite, escriba la dirección de correo electrónico de la cuenta de Microsoft o de una cuenta profesional o educativa, y seleccione **Siguiente**. Los tipos de cuentas se describen en [Su cuenta de usuario de Azure Notebooks](azure-notebooks-user-account.md). Si no tiene una cuenta de Microsoft, o quiere crear una para usarla específicamente con Azure Notebooks, seleccione **Crear una**:
 
     ![Comando Crear cuenta de Microsoft en el símbolo del sistema de inicio de sesión](media/accounts/create-new-microsoft-account.png)
+
+    > [!Tip]
+    > Si intenta crear una nueva cuenta con una dirección de correo electrónico que ya tiene una cuenta asociada con él, es posible que vea el mensaje "no se puede iniciar sesión aquí con un trabajo o una dirección de correo electrónico escolar. Utilizar un correo electrónico personal, como Gmail o Yahoo!, u obtenga un nuevo correo electrónico de Outlook." En ese caso, intente iniciar sesión con la dirección de correo electrónico de trabajo sin necesidad de crear una nueva cuenta.
 
 1. Escriba la contraseña cuando se le solicite.
 

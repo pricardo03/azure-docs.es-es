@@ -8,12 +8,12 @@ ms.date: 01/31/2019
 ms.topic: tutorial
 ms.service: backup
 manager: carmonm
-ms.openlocfilehash: 91a0e1fd66861f8747c6c6da21f2c54ed40bd200
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: 139ce3fd81c14f9bf97e45c8aebb83d2fb1bbe10
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55492817"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426620"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Preguntas acerca de la copia de seguridad de archivos de Azure
 En este artículo se ofrecen respuestas a preguntas habituales acerca de la copia de seguridad de archivos de Azure. En algunas de las respuestas, hay vínculos a artículos que tienen información completa. También se pueden publicar preguntas sobre el servicio Azure Backup en el [foro de debate](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -38,9 +38,9 @@ Al intentar realizar una copia de seguridad, si selecciono una cuenta de almacen
 Sí. Sin embargo, deberá [detener la protección](backup-azure-files.md#stop-protecting-an-azure-file-share) desde el almacén conectado, y [anular el registro](troubleshoot-azure-files.md#configuring-backup) de esta cuenta de almacenamiento y, a continuación, protegerla desde un almacén distinto.
 
 ### <a name="in-which-geos-can-i-back-up-azure-file-shares-br"></a>¿En qué zonas geográficas se puede realizar una copia de seguridad de los recursos compartidos de archivos de Azure? <br/>
-La copia de seguridad de recursos compartidos de archivos de Azure se encuentra actualmente en versión preliminar y solo está disponible en las siguientes zonas geográficas: 
-- Este de Australia (AE) 
-- Sudeste de Australia (ASE) 
+La copia de seguridad de recursos compartidos de archivos de Azure se encuentra actualmente en versión preliminar y solo está disponible en las siguientes zonas geográficas:
+- Este de Australia (AE)
+- Sudeste de Australia (ASE)
 - Sur de Brasil (BRS)
 - Centro de Canadá (CNC)
 - Este de Canadá (CE)
@@ -50,17 +50,17 @@ La copia de seguridad de recursos compartidos de archivos de Azure se encuentra 
 - Este de EE. UU. 2 (EUS2)
 - Este de Japón (JPE)
 - Oeste de Japón (JPE)
-- India central (INC) 
+- India central (INC)
 - India del Sur (INS)
 - Centro de Corea del Sur (KRC)
 - Sur de Corea del Sur (KRS)
-- Centro-norte de EE. UU. (NCUS) 
-- Europa del Norte (NE) 
-- Centro-sur de EE. UU. (SCUS) 
+- Centro-norte de EE. UU. (NCUS)
+- Europa del Norte (NE)
+- Centro-sur de EE. UU. (SCUS)
 - Asia Suroriental (SEA)
-- Sur de Reino Unido (UKS) 
-- Oeste de Reino Unido (UKW) 
-- Europa Occidental (WE) 
+- Sur de Reino Unido (UKS)
+- Oeste de Reino Unido (UKW)
+- Europa Occidental (WE)
 - Oeste de EE. UU. (WUS)
 - Centro-oeste de EE. UU. (WCUS)
 - Oeste de EE. UU. 2 (WUS 2)
@@ -82,7 +82,7 @@ No. Todos los recursos compartidos de archivos de una cuenta de almacenamiento s
 En cualquier momento dado, puede tener hasta 200 instantáneas de un recurso compartido de archivos. El límite incluye las instantáneas que toma Azure Backup como se define en la directiva. Si las copias de seguridad empiezan a generar errores después de alcanzar el límite, elimine los puntos de restauración a petición para que las próximas copias de seguridad sean correctas.
 
 ### <a name="after-enabling-virtual-networks-on-my-storage-account-the-backup-of-file-shares-in-the-account-started-failing-why"></a>Después de habilitar las redes virtuales en mi cuenta de almacenamiento, la copia de seguridad de los recursos compartidos de archivos de la cuenta comienzan a generar errores. ¿Por qué?
-La copia de seguridad de recursos compartidos de archivos de Azure no admite cuentas de almacenamiento que tengan habilitadas las redes virtuales. Deshabilite las redes virtuales en las cuentas de almacenamiento para poder realizar copias de seguridad correctas. 
+La copia de seguridad de recursos compartidos de archivos de Azure no admite cuentas de almacenamiento que tengan habilitadas las redes virtuales. Deshabilite las redes virtuales en las cuentas de almacenamiento para poder realizar copias de seguridad correctas.
 
 ## <a name="restore"></a>Restauración
 
@@ -91,6 +91,10 @@ Cuando se elimina un recurso compartido de archivos de Azure, se muestra la list
 
 ### <a name="can-i-restore-from-backups-if-i-stopped-protection-on-an-azure-file-share-br"></a>¿Puedo restaurar las copias de seguridad si detuve la protección en un recurso compartido de archivos de Azure? <br/>
 Sí. Si ha elegido **Retener datos de copia de seguridad** cuando detuvo la protección, puede restaurarlas desde todos los puntos de restauración existentes.
+
+### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>¿Qué ocurre si se cancela un trabajo de restauración en curso?
+Si se cancela un trabajo de restauración en curso, el proceso de restauración se detiene y todos los archivos restaurados antes de la cancelación permanecen en el destino configurado (ubicación original o alternativa) sin las reversiones. 
+
 
 ## <a name="manage-backup"></a>Administración de copias de seguridad
 
@@ -108,6 +112,6 @@ Cuando se aplica una nueva directiva en los recursos compartidos de archivos, se
 
 ## <a name="see-also"></a>Otras referencias
 Esta información es solo sobre la copia de seguridad de archivos de Azure. Para más información sobre otras áreas de Azure Backup, consulte algunas de estas otras preguntas frecuentes acerca de las copias de seguridad:
--  [Preguntas más frecuentes sobre el almacén de Recovery Services](backup-azure-backup-faq.md)
--  [Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure](backup-azure-vm-backup-faq.md)
+-  [Preguntas más frecuentes acerca del almacén de Recovery Services](backup-azure-backup-faq.md)
+-  [Preguntas más frecuentes acerca de la copia de seguridad de máquinas virtuales de Azure](backup-azure-vm-backup-faq.md)
 -  [Preguntas más frecuentes sobre Azure Backup Agent](backup-azure-file-folder-backup-faq.md)

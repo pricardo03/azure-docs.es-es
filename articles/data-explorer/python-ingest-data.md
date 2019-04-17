@@ -1,19 +1,18 @@
 ---
 title: 'Guía de inicio rápido: Ingesta de datos mediante la biblioteca de Python de Azure Data Explorer'
 description: En esta guía de inicio rápido, obtendrá información sobre cómo ingerir (cargar) datos en el Explorador de datos de Azure con Python.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/16/2018
-ms.openlocfilehash: 309e391412a0e2c698173f02eb9fd00d576ead09
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: fdeae2c6b598feee0abc57c80ea32f2108504330
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58757708"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59046468"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-python-library"></a>Guía de inicio rápido: Ingesta de datos mediante la biblioteca de Python de Azure Data Explorer
 
@@ -25,7 +24,7 @@ Esta guía de inicio rápido también está disponible como un [Azure Notebook](
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
-* [Base de datos y clúster de prueba](create-cluster-database-portal.md)
+* [Un clúster y una base de datos](create-cluster-database-portal.md)
 
 * [Python](https://www.python.org/downloads/) instalado en el equipo de desarrollo
 

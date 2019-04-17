@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 143c36df623085eb4f07363d9c9ebd64d4f5a144
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ef510ca88f1b305125c7840932641c8a2359d8c9
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58104767"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59045248"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Inicio rápido: Uso de Azure PowerShell para crear una cola de Service Bus
 Microsoft Azure Service Bus es un agente de mensajes de integración empresarial que proporciona mensajería segura y una absoluta confiabilidad. Un escenario típico de Service Bus implica normalmente el desacoplamiento de dos o más aplicaciones, servicios o procesos, y la transferencia de los cambios de estado o de datos. Estos escenarios pueden implicar la programación de varios trabajos por lotes en otras aplicaciones o servicios, o desencadenar la realización de pedidos. Por ejemplo, una empresa minorista puede enviar los datos de un punto de ventas a un área de operaciones o centro de distribución regional para indicar las actualizaciones de reposición y de inventario. En este escenario, la aplicación cliente envía y recibe mensajes de una cola de Service Bus.
@@ -25,6 +25,8 @@ Microsoft Azure Service Bus es un agente de mensajes de integración empresarial
 Esta guía de inicio rápido describe cómo enviar y recibir mensajes de una cola de Service Bus, cómo usar PowerShell para crear un espacio de nombres de mensajería y una cola dentro de este, y cómo obtener las credenciales de autorización de ese espacio de nombres. El procedimiento muestra después cómo enviar y recibir mensajes de esta cola mediante la [biblioteca de .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita][] antes de empezar.
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -40,20 +42,20 @@ Para esta guía de inicio rápido es necesario ejecutar la versión más recient
 1. En primer lugar, instale el módulo de PowerShell de Service Bus, si no lo ha hecho anteriormente:
 
    ```azurepowershell-interactive
-   Install-Module AzureRM.ServiceBus
+   Install-Module Az.ServiceBus
    ```
 
 2. Ejecute el siguiente comando para iniciar sesión en Azure:
 
    ```azurepowershell-interactive
-   Login-AzureRmAccount
+   Login-AzAccount
    ```
 
 3. Emita los comandos siguientes para establecer el contexto de la suscripción actual o ver la suscripción que está activa actualmente:
 
    ```azurepowershell-interactive
-   Select-AzureRmSubscription -SubscriptionName "MyAzureSubName" 
-   Get-AzureRmContext
+   Select-AzSubscription -SubscriptionName "MyAzureSubName" 
+   Get-AzContext
    ```
 
 ## <a name="provision-resources"></a>Aprovisionamiento de recursos
@@ -62,19 +64,19 @@ En el símbolo del sistema de PowerShell, emita los comandos siguientes para apr
 
 ```azurepowershell-interactive
 # Create a resource group 
-New-AzureRmResourceGroup –Name my-resourcegroup –Location eastus
+New-AzResourceGroup –Name my-resourcegroup –Location eastus
 
 # Create a Messaging namespace
-New-AzureRmServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location eastus
+New-AzServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location eastus
 
 # Create a queue 
-New-AzureRmServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
+New-AzServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
 
 # Get primary connection string (required in next step)
-Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
 ```
 
-Después de la ejecución del cmdlet `Get-AzureRmServiceBusKey`, copie y pegue la cadena de conexión y el nombre de cola que ha seleccionado en una ubicación temporal como, por ejemplo, el Bloc de notas. Esta información la necesitará en el siguiente paso.
+Después de la ejecución del cmdlet `Get-AzServiceBusKey`, copie y pegue la cadena de conexión y el nombre de cola que ha seleccionado en una ubicación temporal como, por ejemplo, el Bloc de notas. Esta información la necesitará en el siguiente paso.
 
 ## <a name="send-and-receive-messages"></a>Envío y recepción de mensajes
 
@@ -90,10 +92,10 @@ Para ejecutar el código, haga lo siguiente:
 
 3. Vaya a la carpeta de ejemplos `azure-service-bus\samples\DotNet\GettingStarted\BasicSendReceiveQuickStart\BasicSendReceiveQuickStart`.
 
-4. Si aún no lo ha hecho, obtenga la cadena de conexión mediante el siguiente cmdlet de PowerShell. No olvide reemplazar `my-resourcegroup`  y  `namespace-name` por sus valores específicos: 
+4. Si aún no lo ha hecho, obtenga la cadena de conexión mediante el siguiente cmdlet de PowerShell. No olvide reemplazar `my-resourcegroup` y `namespace-name` por sus valores específicos: 
 
    ```azurepowershell-interactive
-   Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+   Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 
 5. En el símbolo del sistema de PowerShell, escriba el siguiente comando:
@@ -119,7 +121,7 @@ Para ejecutar el código, haga lo siguiente:
 Ejecute el siguiente comando para quitar el grupo de recursos, el espacio de nombres y todos los recursos relacionados:
 
 ```powershell-interactive
-Remove-AzureRmResourceGroup -Name my-resourcegroup
+Remove-AzResourceGroup -Name my-resourcegroup
 ```
 
 ## <a name="understand-the-sample-code"></a>Descripción del código de ejemplo
@@ -263,4 +265,4 @@ En este artículo, ha creado un espacio de nombres de Service Bus y otros recurs
 > [Actualización del inventario mediante Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)
 
 [cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Instalación y configuración de Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps
+[Instalación y configuración de Azure PowerShell]: /powershell/azure/install-Az-ps

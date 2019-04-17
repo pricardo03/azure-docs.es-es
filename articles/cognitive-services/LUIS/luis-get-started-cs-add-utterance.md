@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2018
+ms.date: 04/08/2019
 ms.author: diberry
-ms.openlocfilehash: dd60897d19ef4de7369b2b127c88e778363a387f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e9f8d274d81cdefbf9dfb41708cd537b2d60471a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852285"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273471"
 ---
 # <a name="quickstart-change-model-using-c"></a>Inicio rápido: Cambio del modelo con C#
 
@@ -37,13 +37,13 @@ ms.locfileid: "57852285"
 
 ## <a name="create-quickstart-code"></a>Creación de código de inicio rápido 
 
-En Visual Studio, cree una nueva aplicación **Consola de escritorio clásico de Windows** mediante .NET Framework. 
+En Visual Studio, cree una nueva aplicación **Consola de escritorio clásico de Windows** mediante .NET Framework. Asigne el nombre al proyecto `ConsoleApp1`.
 
 ![Tipo de proyecto de Visual Studio](./media/luis-quickstart-cs-add-utterance/vs-project-type.png)
 
 ### <a name="add-the-systemweb-dependency"></a>Adición de la dependencia de System.Web
 
-El proyecto de Visual Studio necesita **System.Web**. En el Explorador de soluciones, haga clic con el botón derecho en **Referencias** y seleccione **Agregar referencia...**
+El proyecto de Visual Studio necesita **System.Web**. En el Explorador de soluciones, haga clic con el botón derecho en **Referencias** y seleccione **Agregar referencia** en la sección de ensamblados.
 
 ![Adición de la referencia a System.web](./media/luis-quickstart-cs-add-utterance/system.web.png)
 
@@ -64,7 +64,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp3
+namespace ConsoleApp1
 {
     class Program
     {
@@ -75,7 +75,7 @@ namespace ConsoleApp3
 }
 ```
 
-Agregue las dependencias.
+Actualice las dependencias para que sean:
 
    [!code-csharp[Add the dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/csharp/ConsoleApp1/Program.cs?range=1-11 "Add the dependencies")]
 
@@ -115,7 +115,7 @@ Para administrar los argumentos de línea de comandos, agregue el código princi
 
 ### <a name="copy-utterancesjson-to-output-directory"></a>Copia de utterances.json en el directorio de salida
 
-En el Explorador de soluciones, haga clic con el botón derecho en `utterances.json` y seleccione **Propiedades**. En la ventana Propiedades, marque **Acción de compilación** para `Content` y **Copiar en el directorio de salida** para `Copy Always`.  
+En el Explorador de soluciones, agregue `utterances.json` haciendo clic con el botón derecho en el nombre del proyecto del Explorador de soluciones. Después, seleccione **Agregar** y, finalmente, **Elemento existente**. Seleccione el archivo `utterances.json`. Esto agrega el archivo al proyecto. A continuación, debe agregarse a la dirección de salida. Haga clic con el botón derecho en `utterances.json` y seleccione **Propiedades**. En la ventana Propiedades, marque **Acción de compilación** para `Content` y **Copiar en el directorio de salida** para `Copy Always`.  
 
 ![Marcado del archivo JSON como contenido](./media/luis-quickstart-cs-add-utterance/content-properties.png)
 
@@ -128,7 +128,7 @@ Compile el código en Visual Studio.
 En el directorio /bin/Debug del proyecto, ejecute la aplicación desde una línea de comandos. 
 
 ```console
-ConsoleApp\bin\Debug> ConsoleApp1.exe --add utterances.json --train --status
+ConsoleApp1.exe --add utterances.json --train --status
 ```
 
 Esta línea de comandos muestra el resultado de llamar a la API de adición de expresiones. 

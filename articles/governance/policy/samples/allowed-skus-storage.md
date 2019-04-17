@@ -1,19 +1,18 @@
 ---
 title: 'Ejemplo: SKU permitidas para cuentas de almacenamiento y máquinas virtuales'
 description: La definición de directiva de ejemplo requiere que las cuentas de almacenamiento y las máquinas virtuales usen las SKU aprobadas.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 7488231363b0cbf96e25da28751065012754212e
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 088dd8414c93b609326e7cd72828426dcb00fc28
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58803789"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59274576"
 ---
 # <a name="sample---allowed-skus-for-storage-accounts-and-virtual-machines"></a>Ejemplo: SKU permitidas para cuentas de almacenamiento y máquinas virtuales
 
@@ -29,7 +28,7 @@ Puede implementar esta plantilla mediante [Azure Portal](#deploy-with-the-portal
 
 ## <a name="deploy-with-the-portal"></a>Implementación con el portal
 
-[![Implementación del ejemplo de directiva en Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
+[![DImplementación del ejemplo de directiva en Azure](https://azuredeploy.net/deploybutton.png)](https://aka.ms/getpolicy)
 
 ## <a name="deploy-with-powershell"></a>Implementación con PowerShell
 

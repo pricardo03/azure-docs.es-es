@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 77e7ed6b39f18f05323562865097dd0760240abf
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 6be6021ef828202ad37a8af4eba942e6898963ca
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446369"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59259990"
 ---
 # <a name="azure-powershell-samples-for-azure-sql-database"></a>Ejemplos de Azure PowerShell para Azure SQL Database
 
@@ -52,7 +52,7 @@ En la tabla siguiente se incluyen vínculos a scripts de Azure PowerShell para A
 | [Importación de una base de datos desde un archivo bacpac](scripts/sql-database-import-from-bacpac-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Este script de PowerShell importa una base de datos a un servidor SQL de Azure desde un archivo bacpac. |
 | **Sincronización de datos entre bases de datos**||
 | [Sincronización de datos entre bases de datos SQL](scripts/sql-database-sync-data-between-sql-databases.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell configura la sincronización de datos para realizar la sincronización entre varias bases de datos Azure SQL. |
-| [Sincronización de datos entre la base de datos SQL Database y SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell configura la sincronización de datos entre una base de datos SQL de Azure y una base de datos SQL Server local. |
+| [Sincronización de datos entre una base de datos SQL Database y una instancia de SQL Server local](scripts/sql-database-sync-data-between-azure-onprem.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell configura la sincronización de datos entre una base de datos SQL de Azure y una base de datos SQL Server local. |
 | [Actualización del esquema de sincronización de SQL Data Sync](scripts/sql-database-sync-update-schema.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Este script de PowerShell agrega o quita elementos del esquema de sincronización de Data Sync. |
 |||
 
@@ -72,3 +72,7 @@ En la tabla siguiente se incluyen vínculos a ejemplos de scripts de Azure Power
 |||
 
 Obtenga más información sobre la [API de Instancia administrada de Azure PowerShell](sql-database-managed-instance-create-manage.md#powershell-create-and-manage-managed-instances).
+
+## <a name="additional-resources"></a>Recursos adicionales
+
+Los ejemplos que se enumeran en esta página, utilizan los [cmdlets de Azure SQL Database](/powershell/module/az.sql/) para crear y administrar recursos de SQL Azure. Otros cmdlets para ejecutar consultas y realizar varias tareas de base de datos se encuentran en el módulo [sqlserver](/powershell/module/sqlserver/). Para más información, consulte el artículo sobre [SQL Server PowerShell](/sql/powershell/sql-server-powershell/).

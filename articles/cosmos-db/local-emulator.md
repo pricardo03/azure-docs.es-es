@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 author: deborahc
 ms.author: dech
-ms.openlocfilehash: 0adb24458f718511c7134fc3bf36dd0b03173e30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 3d535c71480693d0424c6697776a1ddbf37b47c5
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58011513"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470923"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Uso del emulador de Azure Cosmos para desarrollo y pruebas locales
 
@@ -122,7 +122,7 @@ DocumentClient client = new DocumentClient(
 
 ### <a name="azure-cosmos-dbs-api-for-mongodb"></a>API de Azure Cosmos DB para MongoDB
 
-Si va a utilizar [Azure Cosmos DB para MongoDB](mongodb-introduction.md), use la siguiente cadena de conexión:
+Si va a utilizar [API de Azure Cosmos DB para MongoDB](mongodb-introduction.md), use la siguiente cadena de conexión:
 
 ```bash
 mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true
@@ -236,7 +236,7 @@ Desde la ubicación de instalación, puede usar la línea de comandos para inici
 
 Para ver la lista de opciones, escriba `CosmosDB.Emulator.exe /?` en el símbolo del sistema.
 
-|**Opción** | **Descripción** | **Comando**| **Argumentos**|
+|**Opción** | **DESCRIPCIÓN** | **Get-Help**| **Argumentos**|
 |---|---|---|---|
 |[Sin argumentos] | Inicia el emulador de Azure Cosmos con la configuración predeterminada. |CosmosDB.Emulator.exe| |
 |[Ayuda] |Muestra la lista de argumentos de la línea de comandos admitidos.|CosmosDB.Emulator.exe /? | |
@@ -313,7 +313,7 @@ Este es un resumen de los comandos de control del emulador desde PowerShell:
 
 `Get-CosmosDbEmulatorStatus`
 
-**Comentarios:**
+**Comentarios**
 
 Devuelve uno de estos valores de ServiceControllerStatus: ServiceControllerStatus.StartPending, ServiceControllerStatus.Running o ServiceControllerStatus.Stopped.
 
@@ -323,7 +323,7 @@ Devuelve uno de estos valores de ServiceControllerStatus: ServiceControllerStatu
 
 `Start-CosmosDbEmulator [-DataPath <string>] [-DefaultPartitionCount <uint16>] [-DirectPort <uint16[]>] [-MongoPort <uint16>] [-NoUI] [-NoWait] [-PartitionCount <uint16>] [-Port <uint16>] [<CommonParameters>]`
 
-**Comentarios:**
+**Comentarios**
 
 Inicia el emulador. De forma predeterminada, el comando espera hasta que el emulador está listo para aceptar solicitudes. Utilice la opción -NoWait, si desea que el cmdlet realice la devolución en cuanto inicie el emulador.
 
@@ -333,7 +333,7 @@ Inicia el emulador. De forma predeterminada, el comando espera hasta que el emul
 
  `Stop-CosmosDbEmulator [-NoWait]`
 
-**Comentarios:**
+**Comentarios**
 
 Detiene el emulador. De forma predeterminada, este comando espera hasta que el emulador esté completamente apagado. Utilice la opción -NoWait, si desea que el cmdlet realice la devolución en cuanto el emulador comience el apagado.
 
@@ -343,7 +343,7 @@ Detiene el emulador. De forma predeterminada, este comando espera hasta que el e
 
 `Uninstall-CosmosDbEmulator [-RemoveData]`
 
-**Comentarios:**
+**Comentarios**
 
 Desinstala el emulador y, opcionalmente, quita todo el contenido de $env: LOCALAPPDATA\CosmosDbEmulator.
 El cmdlet garantiza que el emulador se detiene antes de desinstalarlo.

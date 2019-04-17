@@ -1,7 +1,6 @@
 ---
 title: Creación de un plano técnico en Azure Portal
 description: Utilice los planos técnicos de Azure Blueprints para crear, definir e implementar artefactos mediante Azure Portal.
-services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/11/2019
@@ -9,16 +8,16 @@ ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: 0b27514dfa34963901fb94be37d8fe330a3c65ce
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 598df72bf9c37b8687e2122813609e165ae8c2fa
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804401"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59260670"
 ---
-# <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Definición y asignación de un plano técnico de Azure Blueprint en Azure Portal
+# <a name="define-and-assign-a-blueprint-in-the-portal"></a>Definición y asignación de un plano técnico en Azure Portal
 
-Entender cómo crear y asignar planos técnicos permite la definición de patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Resource Manager, directivas, seguridad y mucho más. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprint para realizar algunas de las tareas más comunes relacionadas con la creación, asignación y administración de directivas en toda la organización, como, por ejemplo:
+Cuando aprenda a crear y asignar planos técnicos podrá definir patrones comunes para desarrollar configuraciones reutilizables y de implementación rápida basadas en plantillas de Azure Resource Manager, directivas, seguridad y mucho más. En este tutorial, aprenderá a usar planos técnicos de Azure Blueprints para realizar algunas de las tareas más comunes relacionadas con la creación, publicación y asignación de planos técnicos en toda la organización. Estas tareas incluyen:
 
 > [!div class="checklist"]
 > - Creación de un nuevo plano técnico y adición de varios artefactos compatibles
@@ -32,37 +31,73 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="create-a-blueprint"></a>Creación de un plano técnico
 
-El primer paso para definir un patrón estándar de cumplimiento es elaborar un plano técnico a partir de los recursos disponibles. En este ejemplo, cree un nuevo plano técnico llamado MyBlueprint para configurar las asignaciones de roles y directivas para la suscripción, agregue un nuevo grupo de recursos y cree una plantilla de Resource Manager y una asignación de roles en el nuevo grupo de recursos.
+El primer paso para definir un patrón estándar de cumplimiento es elaborar un plano técnico a partir de los recursos disponibles. En este ejemplo, va a crear un plano técnico llamado **MyBlueprint** para configurar las asignaciones de roles y de directivas de la suscripción. A continuación, agregará un nuevo grupo de recursos, y creará una plantilla de Resource Manager y una asignación de roles en el grupo de recursos.
 
 1. Seleccione **Todos los servicios** en el panel izquierdo. Busque y seleccione **Planos técnicos**.
 
-1. Seleccione **Definiciones del plano técnico** de la página de la izquierda y haga clic en el botón **+ Crear plano técnico** en la parte superior de la página.
+1. Seleccione primero **Definiciones del plano técnico** en la página de la izquierda y luego el botón **+ Crear plano técnico** en la parte superior de la página.
 
-   - También, puede hacer clic en **Crear** en la página **Introducción** para ir directamente a la creación de un plano técnico.
+   También, puede seleccionar **Crear** en la página **Introducción** para ir directamente a la creación de un plano técnico.
 
    ![Creación de un plano técnico desde la página Definiciones de plano técnico](./media/create-blueprint-portal/create-blueprint-button.png)
 
-1. Proporcione un **Nombre del plano técnico** como "MyBlueprint" (letras y números, hasta 48 caracteres, pero sin espacios ni caracteres especiales) para el plano técnico, pero deje **Descripción del plano técnico** en blanco por ahora. En el cuadro **Ubicación de definición**, haga clic en el botón de puntos suspensivos de la derecha, seleccione el [grupo de administración](../management-groups/overview.md) o la suscripción donde desea guardar el plano técnico y haga clic en **Seleccionar**.
+1. Proporcione un **Nombre del plano técnico** como **MyBlueprint**. (Puede usar hasta 48 letras y números, pero sin incluir espacios ni caracteres especiales). De momento deje **Descripción del plano técnico** en blanco. 
+   
+1. En el cuadro **Ubicación de definición**, seleccione el botón de puntos suspensivos de la derecha, seleccione el [grupo de administración](../management-groups/overview.md) o la suscripción en la que quiera guardar el plano técnico y haga clic en **Seleccionar**.
 
-1. Compruebe que la información es correcta (los campos **Nombre del plano técnico** y **Ubicación de definición** no se pueden cambiar posteriormente) y haga clic en **Siguiente: Artefactos** en la parte inferior de la página o en la pestaña **Artefactos** en la parte superior de la página.
+1. Compruebe que la información es correcta. Los campos **Nombre del plano técnico** y **Ubicación de definición** no se puede cambiar más adelante. Después, seleccione **Siguiente: Artefactos** en la parte inferior de la página o en la pestaña **Artefactos** en la parte superior de la página.
 
-1. Agregue una asignación de roles a la suscripción: haga clic en la fila **+ Agregar artefacto...** en **Suscripción** y se abrirá la ventana "Agregar artefacto" en el lado derecho del explorador. Seleccione "Asignación de roles" para _Tipo de artefacto_. En _Rol_, seleccione Colaborador y deje el campo _Agregar usuario, aplicación o grupo_ con la casilla que indica un **parámetro dinámico**. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
+1. Agregue una asignación de roles a nivel de suscripción: 
 
-   ![Artefacto de plano técnico: asignación de roles](./media/create-blueprint-portal/add-role-assignment.png)
+    a. Seleccione la fila **+ Agregar artefacto** en **Suscripción**. Se abre la ventana **Agregar artefacto** en el lado derecho del explorador. 
+   
+   b. Seleccione **Asignación de roles** para **Tipo de artefacto**. 
+   
+   c. En **Rol**, seleccione **Colaborador**. Deje el cuadro **Agregar usuario, aplicación o grupo** con la casilla de verificación que indica un parámetro dinámico. 
+   
+   d. Seleccione **Agregar** para agregar este artefacto al plano técnico.
+
+   ![Asignación de roles para un artefacto de plano técnico](./media/create-blueprint-portal/add-role-assignment.png)
 
    > [!NOTE]
-   > La mayoría de los _artefactos_ admiten parámetros. Un parámetro que se asigna a un valor durante la creación del plano técnico es un **parámetro estático**. Si el parámetro se asigna durante la asignación del plano técnico, es un **parámetro dinámico**. Para más información, consulte el artículo sobre los [parámetros de un plano técnico](./concepts/parameters.md).
+   > La mayoría de los artefactos admiten parámetros. Un parámetro al que se asigna un valor durante la creación del plano técnico es un *parámetro estático*. Si la asignación del parámetro se realiza durante la asignación del plano técnico, es un *parámetro dinámico*. Para más información, consulte el artículo sobre los [parámetros de un plano técnico](./concepts/parameters.md).
 
-1. Agregue la asignación de directivas a la suscripción: Haga clic en la fila **+ Agregar artefacto...** de debajo del artefacto de asignación de roles. Seleccione "Asignación de directiva" para _Tipo de artefacto_. Cambie _Tipo_ a Integrado y en _Buscar_ escriba "etiqueta". Haga clic fuera de _Búsqueda_ para que se produzca el filtrado. Seleccione la opción Aplicar una etiqueta y su valor predeterminado a los grupos de recursos haciendo clic en ella. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
+1. Agregue una asignación de directiva a nivel de suscripción: 
 
-1. Haga clic en la fila de la asignación de directiva Aplicar una etiqueta y su valor predeterminado a los grupos de recursos. Se abre la ventana para proporcionar parámetros al artefacto como parte de la definición del plano técnico y permite establecer los parámetros para todas las asignaciones (**parámetros estáticos**) basados en este plano técnico en lugar de durante la asignación (**parámetros dinámicos**). Este ejemplo usa **parámetros dinámicos** durante la asignación del plano técnico, así que deje los valores predeterminados y haga clic en **Cancelar**.
+    a. Seleccione la fila **+ Agregar artefacto** debajo del artefacto de asignación de roles. 
+   
+   b. Seleccione **Asignación de directiva** para **Tipo de artefacto**. 
+   
+   c. Cambie **Tipo** a **Integrado**. En **Búsqueda**, escriba **Etiqueta**. 
+   
+   d. Haga clic fuera de **Búsqueda** para que se produzca el filtrado. Seleccione **Aplicar una etiqueta y su valor predeterminado a los grupos de recursos**. 
+   
+   e. Seleccione **Agregar** para agregar este artefacto al plano técnico.
 
-1. Agregue un grupo de recursos a la suscripción: haga clic en la fila **+ Agregar artefacto...** en **Suscripción**. Seleccione "Grupo de recursos" para _Tipo de artefacto_. Deje los campos _Nombre para mostrar del artefacto_, _Nombre del grupo de recursos_ y _Ubicación_ en blanco, pero asegúrese de que la casilla esté activada en cada propiedad de parámetro para hacerlos **parámetros dinámicos**. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
+1. Seleccione la fila de la asignación de directiva **Aplicar una etiqueta y su valor predeterminado a los grupos de recursos**. 
 
-1. Agregue la plantilla en el grupo de recursos: Haga clic en la fila **+ Agregar artefacto...** bajo la entrada **ResourceGroup**. Seleccione "Plantilla de Azure Resource Manager" para _Tipo de artefacto_, establezca _Nombre para mostrar del artefacto_ en "Cuenta de almacenamiento" y deje _Descripción_ en blanco. En la pestaña **Plantilla** en el cuadro del editor, pegue la siguiente plantilla de Resource Manager. Después de pegar la plantilla, seleccione la pestaña **Parámetros** y observe que se detectan los parámetros de plantilla **storageAccountType** y **location**. Los parámetros se detectaron y se rellenaron automáticamente, pero se configuraron como **parámetro dinámico**. Quite la marca de la casilla **storageAccountType** y observe que el menú desplegable solo contiene los valores incluidos en la plantilla de Resource Manager en **allowedValues**. Active la casilla para volver a establecer un **parámetro dinámico**. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
+1. La ventana para proporcionar parámetros al artefacto como parte de la definición del plano técnico se abre y permite establecer los parámetros para todas las asignaciones (parámetros estáticos) basadas en este plano técnico, en lugar de durante la asignación (parámetros dinámicos). Este ejemplo usa parámetros dinámicos durante la asignación del plano técnico, así que deje los valores predeterminados y seleccione **Cancelar**.
 
+1. Agregue un grupo de recursos en el nivel de suscripción: 
+
+    a. Seleccione la fila **+ Agregar artefacto** en **Suscripción**. 
+   
+   b. Seleccione **Grupo de recursos** para **Tipo de artefacto**. 
+   
+   c. Deje los cuadros **Nombre para mostrar del artefacto**, **Nombre del grupo de recursos** y **Ubicación** en blanco, pero asegúrese de que la casilla esté activada en cada propiedad de parámetro para hacerlos parámetros dinámicos. 
+   
+   d. Seleccione **Agregar** para agregar este artefacto al plano técnico.
+
+1. Agregue una plantilla en el grupo de recursos: 
+
+    a. Seleccione la fila **+ Agregar artefacto** directamente bajo la entrada **ResourceGroup**. 
+   
+   b. Seleccione **Plantilla de Azure Resource Manager** para **Tipo de artefacto**, establezca **Nombre para mostrar del artefacto** en **StorageAccount** y deje **Descripción** en blanco. 
+   
+   c. En la pestaña **Plantilla** en el cuadro del editor, pegue la siguiente plantilla de Resource Manager. Después de pegar la plantilla, seleccione la pestaña **Parámetros** y observe que se han detectado los parámetros de plantilla **storageAccountType** y **location**. Los parámetros se detectaron y se rellenaron automáticamente, pero se configuraron como parámetro dinámico. 
+   
    > [!IMPORTANT]
-   > Si importa la plantilla, asegúrese de que el archivo es JSON solo y no incluye HTML. Cuando se apunte a una dirección URL en GitHub, asegúrese de que ha hecho clic en **RAW** para obtener el archivo JSON puro y no el que está encapsulado con HTML para mostrarse en GitHub. Si la plantilla importada no tiene formato JSON puro, se producirá un error.
+   > Si importa la plantilla, asegúrese de que el archivo es JSON solo y no incluye HTML. Cuando apunte a una dirección URL en GitHub, asegúrese de que ha seleccionado **RAW** para obtener el archivo JSON puro y no el que está encapsulado con HTML para mostrarse en GitHub. Si la plantilla importada no tiene formato JSON puro, se producirá un error.
 
    ```json
    {
@@ -113,112 +148,126 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
    }
    ```
 
-   ![Artefacto de plano técnico: plantilla de Resource Manager](./media/create-blueprint-portal/add-resource-manager-template.png)
+   d. Quite la marca de la casilla **storageAccountType** y observe que la lista desplegable solo contiene los valores incluidos en la plantilla de Resource Manager en **allowedValues**. Seleccione la casilla para volver a establecer un parámetro dinámico. 
+   
+   e. Seleccione **Agregar** para agregar este artefacto al plano técnico.
 
-1. El plano técnico completado debería tener una apariencia similar a esta. Observe que cada artefacto tiene '_x_ de _y_ parámetros rellenados bajo la columna _Parámetros_. Los **parámetros dinámicos** se establecen durante cada asignación del plano técnico.
+   ![Plantilla de Resource Manager para el artefacto de plano técnico](./media/create-blueprint-portal/add-resource-manager-template.png)
+
+1. El plano técnico completado debería tener una apariencia similar a esta. Observe que cada artefacto tiene **_x_ de _y_ parámetros rellenados** en la columna **Parámetros**. Los parámetros dinámicos se establecen durante cada asignación del plano técnico.
 
    ![Definición de plano técnico completada](./media/create-blueprint-portal/completed-blueprint.png)
 
-1. Ahora que se han agregado todos los artefactos planeados, haga clic en **Guardar borrador** en la parte inferior de la página.
+1. Ahora que se han agregado todos los artefactos planeados, seleccione **Guardar borrador** en la parte inferior de la página.
 
 ## <a name="edit-a-blueprint"></a>Edición de un plano técnico
 
-En [Crear un plano técnico](#create-a-blueprint), no se proporcionó una descripción ni la asignación de roles que se agregó al nuevo grupo de recursos. Ambas cuestiones se pueden solucionar siguiendo estos pasos:
+En [Crear un plano técnico](#create-a-blueprint), no proporcionó una descripción ni la asignación de roles al nuevo grupo de recursos. Puede cambiar ambas cosas siguiendo estos pasos:
 
 1. Seleccione **Definiciones del plano técnico** en la página de la izquierda.
 
 1. En la lista de planos técnicos, haga clic con el botón derecho en el que creó anteriormente y seleccione **Editar plano técnico**.
 
-1. En **Descripción del plano técnico**, proporcione información sobre el plano técnico y los artefactos que lo componen. En este caso, escriba un texto similar al siguiente: "Este plano técnico establece la directiva de etiquetas y la asignación de roles en la suscripción, crea un grupo de recursos e implementa una plantilla de recursos y una asignación de roles a ese grupo de recursos".
+1. En **Descripción del plano técnico**, proporcione información sobre el plano técnico y los artefactos que lo componen. En este caso, escriba un texto similar al siguiente: **Este plano técnico establece la directiva de etiquetas y la asignación de roles en la suscripción, crea un grupo de recursos e implementa una plantilla de recursos y una asignación de roles a ese grupo de recursos.**
 
-1. Haga clic en **Siguiente: Artefactos** en la parte inferior de la página o en la pestaña **Artefactos** en la parte superior de la página.
+1. Seleccione **Siguiente: Artefactos** en la parte inferior de la página o en la pestaña **Artefactos** en la parte superior de la página.
 
-1. Agregue la asignación de roles en el grupo de recursos: haga clic en la fila **+ Agregar artefacto...** directamente bajo **Grupo de recursos**. Seleccione "Asignación de roles" para _Tipo de artefacto_. En _Rol_, seleccione "Propietario" y quite la marca del campo _Agregar usuario, aplicación o grupo_, y busque y seleccione un usuario, una aplicación o un grupo que agregar. Este artefacto utiliza un **parámetro estático** que se establece igual en cada asignación de este plano técnico. Haga clic en **Agregar** para agregar este artefacto al plano técnico.
+1. Agregue la asignación de roles en el grupo de recursos: 
 
-   ![Artefacto de plano técnico: asignación de roles n. º 2](./media/create-blueprint-portal/add-role-assignment-2.png)
+    a. Seleccione la fila **+ Agregar artefacto** directamente bajo la entrada **ResourceGroup**. 
+   
+   b. Seleccione **Asignación de roles** para **Tipo de artefacto**. 
+   
+   c. En **Rol**, seleccione **Propietario**y desactive la casilla situada en el cuadro **Agregar usuario, aplicación o grupo**. 
+   
+   d. Busque y seleccione un usuario, aplicación o grupo para agregar. Este artefacto utiliza un parámetro estático que se establece igual en cada asignación de este plano técnico. 
+   
+   e. Seleccione **Agregar** para agregar este artefacto al plano técnico.
 
-1. El plano técnico completado debería tener una apariencia similar a esta. Observe que la nueva asignación de roles agregada muestra **1 de 1 parámetros rellenadas**, lo que significa que es un **parámetro estático**.
+   ![Segunda asignación de roles para un artefacto de plano técnico](./media/create-blueprint-portal/add-role-assignment-2.png)
 
-   ![Definición de plano técnico n. º 2 completada](./media/create-blueprint-portal/completed-blueprint-2.png)
+1. El plano técnico completado debería tener una apariencia similar a esta. Observe que la asignación de roles recién agregada muestra **1 de 1 parámetros rellenados**. Esto significa que se trata de un parámetro estático.
 
-1. Haga clic en **Guardar borrador** ahora que se ha actualizado.
+   ![Segunda definición para el plano técnico completado](./media/create-blueprint-portal/completed-blueprint-2.png)
+
+1. Seleccione **Guardar borrador** ahora que se ha actualizado.
 
 ## <a name="publish-a-blueprint"></a>Publicación de un plano técnico
 
 Ahora que todos los artefactos planeados se han agregado al plano técnico, es momento de publicarlo.
-La publicación lo hace disponible para ser asignado a una suscripción.
+La publicación hace que el plano técnico esté disponible para asignarse a una suscripción.
 
 1. Seleccione **Definiciones del plano técnico** en la página de la izquierda.
 
 1. En la lista de planos técnicos, haga clic con el botón derecho en el que creó anteriormente y seleccione **Publicar plano técnico**.
 
-1. En el cuadro de diálogo que se abre, proporcione una **versión** (letras, números y guiones con una longitud máxima de 20 caracteres) como "v1" y **Notas de cambio** (opcional) como "Primera publicación".
+1. En el panel que se abre, proporcione una **versión** (letras, números y guiones con una longitud máxima de 20 caracteres) como **v1**. De forma opcional, puede añadir texto en **Notas de cambios** como **Primera publicación**.
 
-1. Haga clic en **Publicar** en la parte inferior de la página.
+1. Seleccione **Publicar** en la parte inferior de la página.
 
 ## <a name="assign-a-blueprint"></a>Asignación de un plano técnico
 
-Una vez que se publica un plano técnico, se puede asignar a una suscripción. Asigne el plano técnico creado a una de las suscripciones de la jerarquía del grupo de administración. Si el proyecto se guarda en una suscripción, solo se puede asignar a dicha suscripción.
+Una vez que se publica un plano técnico, se puede asignar a una suscripción. Asigne el plano técnico que ha creado a una de las suscripciones de la jerarquía de su grupo de administración. Si el proyecto se guarda en una suscripción, solo se puede asignar a dicha suscripción.
 
 1. Seleccione **Definiciones del plano técnico** en la página de la izquierda.
 
 1. En la lista de planos técnicos, haga clic con el botón derecho en el que creó anteriormente (o seleccione los puntos suspensivos) y seleccione **Asignar plano técnico**.
 
-1. En la página **Asignar plano técnico**, seleccione las suscripciones en las que desee implementar este plano técnico en el menú desplegable **Subscripción**.
+1. En la página **Asignar plano técnico**, en la lista desplegable **Suscripción**, seleccione las suscripciones en las que desee implementar este plano técnico.
 
-   - Si no hay ofertas de Enterprise admitidas desde la [facturación de Azure](../../billing/index.md), un vínculo **Crear** se activa en el cuadro **Suscripción**.
+   Si no hay ofertas de Enterprise admitidas desde la [facturación de Azure](../../billing/index.md), un vínculo **Crear** se activa en el cuadro **Suscripción**. Siga estos pasos:
 
-     1. Seleccione el vínculo **Crear** para crear una suscripción en lugar de seleccionar las existentes.
+    a. Seleccione el vínculo **Crear nuevo** para crear una nueva suscripción en lugar de seleccionar entre las existentes.
 
-        ![Asignación del plano: creación de la suscripción](./media/create-blueprint-portal/assignment-create-subscription.png)
+   b. Proporcione un **Nombre para mostrar** para la nueva suscripción.
 
-     1. Proporcione un **Nombre para mostrar** para la nueva suscripción.
+   c. Seleccione la **Oferta** disponible de la lista desplegable.
 
-     1. Seleccione la **Oferta** disponible de la lista desplegable.
+   d. Use el botón de puntos suspensivos para seleccionar el [grupo de administración](../management-groups/index.md) del que la suscripción será un elemento secundario.
 
-     1. Use el botón de puntos suspensivos para seleccionar el [grupo de administración](../management-groups/index.md) del cual la suscripción será un elemento secundario.
+   e. En la parte inferior de la página, seleccione **Crear**.
 
-     1. En la parte inferior de la página, seleccione **Crear**.
+   ![Creación de una suscripción para una suscripción de asignación de plano técnico](./media/create-blueprint-portal/assignment-create-subscription.png)
 
-     > [!IMPORTANT]
-     > La nueva suscripción se crea inmediatamente al seleccionar **Crear**.
+   > [!IMPORTANT]
+   > La nueva suscripción se crea inmediatamente al seleccionar **Crear**.
 
    > [!NOTE]
-   > Se creará una asignación para cada suscripción que se seleccione, permitiendo cambios en una sola asignación de suscripción en un momento posterior sin forzar cambios en el resto de las suscripciones seleccionadas.
+   > Se crea una asignación para cada suscripción que seleccione. Puede realizar cambios en una sola asignación de suscripción en un momento posterior sin forzar cambios en el resto de las suscripciones seleccionadas.
 
 1. En **Nombre asignado**, proporcione un nombre único para esta asignación.
 
 1. En **Ubicación**, seleccione una región donde crear la identidad administrada y el objeto de implementación de suscripción. Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado. Para más información, consulte [Identidades administradas para recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
-1. Deje el menú desplegable **Blueprint definition version** (Versión de definición del plano técnico) de versiones **publicadas** en la entrada "v1" (de forma predeterminada, es la versión **publicada** más reciente).
+1. Deje la selección de la lista desplegable **Versión de definición de Blueprint** de versiones **Publicadas** en la entrada **v1**. (El valor predeterminado es la versión publicada más recientemente).
 
 1. En **Asignación de bloqueo**, deje el valor predeterminado de **No bloquear**. Para más información, consulte [Bloqueo de recursos en planos técnicos](./concepts/resource-locking.md).
 
-   ![Asignación - Bloqueo e identidades administradas](./media/create-blueprint-portal/assignment-locking-mi.png)
+   ![Bloqueo e identidades administradas para la asignación](./media/create-blueprint-portal/assignment-locking-mi.png)
 
 1. En **Identidad administrada**, deje el valor predeterminado de **Asignado por el sistema**.
 
 1. Para la asignación de roles a nivel de suscripción **[Nombre de aplicación o grupo de usuarios]: Colaborador**, busque y seleccione un usuario, aplicación o grupo.
 
-1. Para la asignación de directivas de nivel de suscripción, establezca el **nombre de etiqueta** en CostCenter y el **valor de etiqueta** en ContosoIT.
+1. Para la asignación de directivas de nivel de suscripción, establezca el **Nombre de etiqueta** en **CostCenter** y el **Valor de etiqueta** en **ContosoIT**.
 
-1. Para "ResourceGroup", proporcione un **nombre** de StorageAccount y la **ubicación** de "Este de EE. UU. 2" en la lista desplegable.
+1. Para **ResourceGroup**, proporcione un **Nombre** de **StorageAccount** y una **Ubicación** **Este de EE. UU. 2** en la lista desplegable.
 
    > [!NOTE]
-   > Por cada artefacto que se ha agregado en el grupo de recursos durante la definición del plano técnico, se aplica una sangría a ese artefacto para alinearlo con el grupo de recursos o con el objeto con el que se implementará. Los artefactos que no toman parámetros o que no tienen parámetros para definirse en la asignación solo se mostrarán para obtener información contextual.
+   > Por cada artefacto que ha agregado en el grupo de recursos durante la definición del plano técnico, se aplica una sangría a ese artefacto para alinearlo con el grupo de recursos o con el objeto con el que lo implementará. Los artefactos que no toman parámetros o que no tienen parámetros para definirse en la asignación solo se mostrarán para proporcionar información contextual.
 
-1. En la plantilla de Azure Resource Manager "StorageAccount", seleccione "Standard_GRS" para el parámetro **storageAccountType**.
+1. En la plantilla de Azure Resource Manager **StorageAccount**, seleccione **Standard_GRS** para el parámetro **storageAccountType**.
 
-1. Consulte el cuadro de información en la parte inferior de la página y, a continuación, haga clic en **Asignar**.
+1. Consulte el cuadro de información en la parte inferior de la página y seleccione **Asignar**.
 
 ## <a name="track-deployment-of-a-blueprint"></a>Realización del seguimiento de la implementación de un plano técnico
 
 Cuando se ha asignado un plano técnico a una o varias suscripciones, suceden dos cosas:
 
-- El plano técnico se agrega a la página **Planos técnicos asignados** por suscripción asignada.
+- El plano técnico se agrega a la página **Planos técnicos asignados** para cada suscripción.
 - Comienza el proceso de implementación de todos los artefactos definidos por el plano técnico.
 
-Ahora que el plano técnico se ha asignado a una suscripción, compruebe el progreso de la implementación.
+Ahora que el plano técnico se ha asignado a una suscripción, compruebe el progreso de la implementación:
 
 1. Seleccione **Planos técnicos asignados** en la página de la izquierda.
 
@@ -226,15 +275,15 @@ Ahora que el plano técnico se ha asignado a una suscripción, compruebe el prog
 
    ![Visualización de detalles de asignación de la página Planos técnicos asignados](./media/create-blueprint-portal/view-assignment-details.png)
 
-1. En la página **Asignación de plano técnico**, compruebe que todos los artefactos se han implementado correctamente y que no ha habido ningún error durante el proceso. Si se han producido errores, consulte la [solución de problemas de planos técnicos](./troubleshoot/general.md) para conocer los pasos necesarios para determinar el motivo del error.
+1. En la página **Asignación de plano técnico**, asegúrese de que todos los artefactos se implementaron correctamente y que no ha habido ningún error durante el proceso. Si se han producido errores, consulte la [solución de problemas de planos técnicos](./troubleshoot/general.md) para conocer los pasos necesarios que le permitan determinar el motivo del error.
 
 ## <a name="unassign-a-blueprint"></a>Cancelación de la asignación de un plano técnico
 
-Si ya no es necesario, puede eliminar una asignación de plano técnico de una suscripción. Es posible que el plano técnico haya sido reemplazado por un plano más reciente con patrones, directivas y diseños actualizados. Cuando se quita un plano técnico, se omiten los artefactos que se asignaron como parte de ese plano técnico. Para eliminar una asignación de plano técnico, siga estos pasos:
+Si ya no necesita una asignación de plano técnico, puede eliminarla de una suscripción. Es posible que el plano técnico haya sido reemplazado por otro plano más reciente con patrones, directivas y diseños actualizados. Cuando se quita un plano técnico, se omiten los artefactos que se asignaron como parte de ese plano técnico. Para eliminar una asignación de plano técnico, siga estos pasos:
 
 1. Seleccione **Planos técnicos asignados** en la página de la izquierda.
 
-1. En la lista de planos técnicos, seleccione el plano técnico cuya asignación se va a cancelar y haga clic en el botón **Cancelar la asignación del plano técnico** situado en la parte superior de la página.
+1. En la lista de planos técnicos, seleccione el plano técnico cuya asignación desea cancelar. Después, seleccione el botón **Cancelar la asignación de plano técnico** en la parte superior de la página.
 
 1. Lea el mensaje de confirmación y haga clic en **Aceptar**.
 
@@ -242,14 +291,14 @@ Si ya no es necesario, puede eliminar una asignación de plano técnico de una s
 
 1. Seleccione **Definiciones del plano técnico** en la página de la izquierda.
 
-1. Haga clic con el botón derecho en el plano técnico que desea eliminar y seleccione **Eliminar plano técnico**; después, haga clic en **Sí** en el cuadro de diálogo de confirmación.
+1. Haga clic con el botón derecho en el plano técnico que desea eliminar y, a continuación, seleccione **Eliminar plano técnico**. A continuación, seleccione **Sí** en el cuadro de diálogo de confirmación.
 
 > [!NOTE]
-> En la eliminación de un plano técnico en este método también se eliminarán todas las **versiones publicadas** del plano técnico seleccionado. Para eliminar una única versión, abra el plano técnico, haga clic en la pestaña **Versiones publicadas**, seleccione y haga clic en la versión que desea eliminar y, después, haga clic en **Eliminar esta versión**. Además, un plano técnico con asignaciones no se puede eliminar hasta que se hayan eliminado todas las asignaciones de planos técnicos.
+> La eliminación de un plano técnico con este método también elimina todas las versiones publicadas del plano técnico seleccionado. Para eliminar una única versión, abra el plano técnico, haga clic en la pestaña **Versiones publicadas**, seleccione la versión que desea eliminar y, después, seleccione **Eliminar esta versión**. No puede eliminar un plano técnico hasta que haya eliminado todas las asignaciones de plano técnico de esa definición de plano técnico.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Más información sobre el [ciclo de vida del plano técnico](./concepts/lifecycle.md)
+- Información acerca del [ciclo de vida del plano técnico](./concepts/lifecycle.md).
 - Descubra cómo utilizar [parámetros estáticos y dinámicos](./concepts/parameters.md).
 - Aprenda a personalizar el [orden de secuenciación de planos técnicos](./concepts/sequencing-order.md).
 - Averigüe cómo usar el [bloqueo de recursos de planos técnicos](./concepts/resource-locking.md).

@@ -1,19 +1,18 @@
 ---
-title: 'Inicio rápido: Visualización de datos mediante una consulta importada en Power BI'
+title: 'Inicio rápido: Visualización de datos desde Azure Data Explorer con una consulta importada en Power BI '
 description: 'En esta guía de inicio rápido aprenderá a usar una de las tres opciones de visualización de datos de Power BI: importación de una consulta de Azure Data Explorer.'
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
-ms.openlocfilehash: 3251ae9f39ea38eac6887df3072257e1e8e88306
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: d14de1f25cc432cb2a9fed2149bd0870aa3ce16a
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58756103"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050602"
 ---
 # <a name="quickstart-visualize-data-using-a-query-imported-into-power-bi"></a>Inicio rápido: Visualización de datos mediante una consulta importada en Power BI
 

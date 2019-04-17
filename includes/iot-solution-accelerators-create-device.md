@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/28/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 5eb3c08792b760bf66e443f79762d91210706c92
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
-ms.translationtype: HT
+ms.openlocfilehash: cda08d44cba9e59af853b1705f538ec199ec4d3a
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435119"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59630567"
 ---
 En el primer escenario, debe agregar un tipo de telemetría nuevo al dispositivo **Refrigerador** existente de Contoso.
 
@@ -98,13 +98,11 @@ Descargue y descomprima el [microservicio de simulación de dispositivo](https:/
 
 Abra la carpeta **remote-monitoring-services-dotnet-master\storage-adapter** en Visual Studio Code. Haga clic en cualquiera de los botones **Restaurar** para corregir cualquier dependencia sin resolver.
 
-Abra el archivo **.vscode/launch.json** y asigne su cadena de conexión de Cosmos DB a la variable de entorno **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING**.
-
-<!-- Open the **WebService/appsettings.ini** file and assign your Cosmos DB connection string to the **documentdb_connstring** configuration setting.-->
+Abra el **storage-adapter/WebService/appsettings.ini** de archivos y asignar la cadena de conexión de Cosmos DB a la **documentDBConnectionString** variable.
 
 Para ejecutar el microservicio localmente, haga clic en **Depurar > Iniciar depuración**.
 
-La ventana **Terminal** en Visual Studio Code muestra el resultado del microservicio en ejecución, que incluye una dirección URL para comprobar el estado del servicio web: [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status). Cuando vaya a esta dirección, el estado debería ser "OK: activo y correcto".
+La ventana **Terminal** en Visual Studio Code muestra el resultado del microservicio en ejecución, que incluye una dirección URL para comprobar el estado del servicio web: [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status). Al navegar a esta dirección, el estado debe ser "Aceptar: Activo y correcto".
 
 Deje el microservicio del adaptador de almacenamiento ejecutándose en esta instancia de Visual Studio Code mientras completa los siguientes pasos.
 
@@ -417,11 +415,7 @@ En esta sección, probará los tipos de dispositivo que creó en las secciones a
 
 Abra la carpeta **device-simulation-dotnet-master** que descargó de GitHub en una nueva instancia de Visual Studio Code. Haga clic en cualquiera de los botones **Restaurar** para corregir cualquier dependencia sin resolver.
 
-Abra el archivo **.vscode/launch.json** y asigne su cadena de conexión de IoT Hub a la variable de entorno **PCS_IOTHUB_CONNSTRING**. En el mismo archivo, agregue la variable de entorno **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** y asigne la cadena de conexión de la base de datos de Cosmos DB.
-
-Abra el archivo **WebService/Properties/launchSettings.json** y asigne su cadena de conexión de IoT Hub a la variable de entorno **PCS_IOTHUB_CONNSTRING**.
-
-Abra el archivo **WebService/appsettings.ini** y modifique la configuración del siguiente modo:
+Abra el **WebService/appsettings.ini** de archivos y asignar la cadena de conexión de Cosmos DB a la **documentdb_connstring** variable y también puede modificar la configuración del siguiente modo:
 
 ```ini
 device_models_folder = C:\temp\devicemodels\

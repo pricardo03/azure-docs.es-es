@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/12/2019
-ms.openlocfilehash: 88ec8b93e2429fd394eb3a8d10460a2a80d9e56f
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: 34e5876df36a48b0ca70979346afdd89b674a813
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58349491"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359494"
 ---
 # <a name="use-powershell-to-monitor-and-scale-a-single-sql-database"></a>Uso de PowerShell para supervisar y escalar una sola base de datos SQL
 
@@ -33,15 +33,14 @@ Si decide instalar y usar PowerShell de manera local, en este tutorial se requie
 
 [!code-powershell-interactive[main](../../../powershell_scripts/sql-database/monitor-and-scale-database/monitor-and-scale-database.ps1?highlight=15-16 "Monitor and scale single database")]
 
-> [!TIP]
+> [!NOTE]
 > Para obtener una lista completa de las métricas, consulte [Métricas compatibles](../../azure-monitor/platform/metrics-supported.md#microsoftsqlserversdatabases).
-
 > [!TIP]
 > Use [Get-AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) para obtener el estado de las operaciones de base de datos y utilice [Stop-AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity) para cancelar una operación de actualización de la base de datos.
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
-Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos y todos los recursos asociados.
+Use el siguiente comando para quitar el grupo de recursos y todos los recursos que tenga asociados.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname

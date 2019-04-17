@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: b3ec0616a7f022a104a20589f3281262b2717e35
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b99132cceb8981a93a8f1c10ccc488d5806f7254
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014122"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050984"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Tutorial: Configuración de HTTPS en un dominio personalizado de Front Door
 
@@ -40,6 +40,9 @@ En este tutorial, aprenderá a:
 > - Usar su propio certificado, es decir, un certificado SSL personalizado
 > - Validar el dominio
 > - Deshabilitar el protocolo HTTPS en su dominio personalizado
+
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -86,11 +89,11 @@ Puede usar su propio certificado para habilitar la característica HTTPS. Este p
 
 Registre la entidad de servicio para Azure Front Door Service como una aplicación en Azure Active Directory mediante PowerShell.
 
-1. Si es necesario, instale [Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM/6.0.0) en PowerShell en la máquina local.
+1. Si es necesario, instale [Azure PowerShell](/powershell/azure/install-az-ps) en PowerShell en la máquina local.
 
 2. En PowerShell, ejecute el siguiente comando:
 
-     `New-AzureRmADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
+     `New-AzADServicePrincipal -ApplicationId "ad0e1c7e-6d38-4ba4-9efd-0bc77ba9f037"`              
 
 #### <a name="grant-azure-front-door-service-access-to-your-key-vault"></a>Concesión a Azure Front Door Service de acceso al almacén de claves
  

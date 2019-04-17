@@ -11,13 +11,13 @@ author: dphansen
 ms.author: davidph
 ms.reviewer: ''
 manager: cgronlun
-ms.date: 03/01/2019
-ms.openlocfilehash: e15cf93514f921223fea37aa480730bba46dd195
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/04/2019
+ms.openlocfilehash: f5d43794ba80e4791c8bf24ad404069a8329518e
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57864956"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59051230"
 ---
 # <a name="quickstart-use-machine-learning-services-with-r-in-azure-sql-database-preview"></a>Inicio rápido: Uso de Machine Learning Services (con R) en Azure SQL Database (versión preliminar)
 
@@ -98,12 +98,13 @@ El siguiente ejercicio se centra en el primer modelo de interacción: cómo pasa
     b <- 2
     c <- a/b
     d <- a*b
-    print(c, d)'
+    print(c(c, d))
+    '
     ```
 
 2. Suponiendo que todo está configurado correctamente, se calcula el resultado correcto y la función de R `print` devuelve el resultado a la ventana de **mensajes**.
 
-    **Resultados**
+    **Results**
 
     ```text
     STDOUT message(s) from external script: 
@@ -138,7 +139,7 @@ Por ahora, veamos solo las variables de entrada y salida predeterminadas de sp_e
     SELECT * FROM RTestData
     ```
 
-    **Resultados**
+    **Results**
 
     ![Contenido de la tabla RTestData](./media/sql-database-connect-query-r/select-rtestdata.png)
 
@@ -154,7 +155,7 @@ Por ahora, veamos solo las variables de entrada y salida predeterminadas de sp_e
     WITH RESULT SETS (([NewColName] INT NOT NULL));
     ```
 
-    **Resultados**
+    **Results**
 
     ![Salida del script de R que devuelve datos de una tabla](./media/sql-database-connect-query-r/r-output-rtestdata.png)
 
@@ -191,7 +192,7 @@ Por ahora, veamos solo las variables de entrada y salida predeterminadas de sp_e
     WITH RESULT SETS (([Col1] CHAR(20) NOT NULL));
     ```
 
-    **Resultados**
+    **Results**
 
     ![Resultados de la consulta con @script como entrada](./media/sql-database-connect-query-r/r-data-generated-output.png)
 
@@ -210,7 +211,7 @@ Si desea ver qué versión de R está instalada en la base de datos SQL, haga lo
 
 2. La función `print` de R devuelve la versión en la ventana de **mensajes**. En el siguiente ejemplo de salida, puede ver que SQL Database en este caso tiene instalada la versión 3.4.4 de R.
 
-    **Resultados**
+    **Results**
 
     ```text
     STDOUT message(s) from external script:
@@ -247,7 +248,7 @@ Microsoft proporciona una serie de paquetes de R preinstalados con Machine Learn
 
 2. La salida es de `installed.packages()` en R y se devuelve como un conjunto de resultados.
 
-    **Resultados**
+    **Results**
 
     ![Paquetes instalados de R](./media/sql-database-connect-query-r/r-installed-packages.png)
 
@@ -358,7 +359,7 @@ Puede entrenar un modelo con R y guardarlo en una tabla de la base de datos SQL.
     VALUES ('latest model', @model)
     ```
 
-    **Resultados**
+    **Results**
 
     ![Modelo entrenado con salida adicional](./media/sql-database-connect-query-r/r-train-model-with-additional-output.png)
 
@@ -413,7 +414,7 @@ Utilice el modelo que creó en la sección anterior para puntuar las prediccione
 
    + Los nombres de columna utilizados en el script de R no necesariamente se pasan a la salida del procedimiento almacenado. Aquí hemos usado la instrucción WITH RESULTS para definir algunos nombres de columna nuevos.
 
-     **Resultados**
+     **Results**
 
      ![Resultado establecido para predecir la distancia de frenado](./media/sql-database-connect-query-r/r-predict-stopping-distance-resultset.png)
 
@@ -472,7 +473,7 @@ Si necesita usar un paquete que no esté ya instalado en la base de datos SQL, p
     View(r)
     ```
 
-    **Resultados**
+    **Results**
 
     ![Contenido de la tabla RTestData](./media/sql-database-connect-query-r/r-verify-package-install.png)
 
@@ -496,7 +497,7 @@ Si necesita usar un paquete que no esté ya instalado en la base de datos SQL, p
 
     Verá el siguiente resultado en la pestaña de mensajes.
 
-    **Resultados**
+    **Results**
 
     ```text
     STDOUT message(s) from external script:
@@ -519,8 +520,8 @@ Si necesita usar un paquete que no esté ya instalado en la base de datos SQL, p
 
 Para más información sobre Machine Learning Services, consulte los siguientes artículos. Aunque algunos de estos artículos son para SQL Server, la mayor parte de la información también se aplica a Machine Learning Services (con R) en Azure SQL Database.
 
-- [Machine Learning Services (con R) en Azure SQL Database](sql-database-machine-learning-services-overview.md)
+- [Azure SQL Database Machine Learning Services (con R)](sql-database-machine-learning-services-overview.md)
 - [SQL Server Machine Learning Services](https://docs.microsoft.com/sql/advanced-analytics/what-is-sql-server-machine-learning)
-- [Tutorial: Información de los análisis en bases de datos con R en SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
+- [Tutorial: Información de los análisis de bases de datos con R en SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-r-for-sql-developers)
 - [Tutorial completo de ciencia de datos para R y SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough)
-- [Tutorial: Uso de funciones RevoScaleR R con datos de SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)
+- [Tutorial: Uso de funciones de RevoScaleR R con datos de SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/deepdive-data-science-deep-dive-using-the-revoscaler-packages)

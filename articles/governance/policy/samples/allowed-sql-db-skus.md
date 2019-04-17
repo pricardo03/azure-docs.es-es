@@ -1,19 +1,18 @@
 ---
 title: 'Ejemplo: SKU permitidas de SQL DB'
 description: Esta definición de directiva de ejemplo requiere que las bases de datos de SQL Database usen una SKU aprobada.
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 08991dbab2041854ca8748f4736c9cd30b3ead22
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 193048baac8ffcc5212b3e1d9772148f8c55aacd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58805778"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59262982"
 ---
 # <a name="sample---allowed-sql-database-skus"></a>Ejemplo: SKU permitidas de SQL Database
 
@@ -29,7 +28,7 @@ Puede implementar esta plantilla mediante [Azure Portal](#deploy-with-the-portal
 
 ## <a name="deploy-with-the-portal"></a>Implementación con el portal
 
-[![Implementación del ejemplo de directiva en Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FSQL%2Fsql-db-skus%2Fazurepolicy.json)
+[![DImplementación del ejemplo de directiva en Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FSQL%2Fsql-db-skus%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Implementación con PowerShell
 

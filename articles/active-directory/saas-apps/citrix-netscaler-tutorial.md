@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: ca5fec00d264bb50c75338d36ec793946f495bff
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 6d434295a6a46ee5b7089608cbf788ff91589fb7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58229263"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281682"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-netscaler"></a>Tutorial: Integración de Azure Active Directory con Citrix Netscaler
 
@@ -53,7 +53,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 Para configurar la integración de Citrix Netscaler en Azure AD, deberá agregar Citrix Netscaler desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Citrix Netscaler desde la galería, realice los siguientes pasos:**
+**Para agregar Citrix Netscaler desde la galería, siga estos pasos:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -111,7 +111,7 @@ Para configurar el inicio de sesión único de Azure AD con Citrix Netscaler, re
     
     b. En el cuadro de texto **Identificador (id. de entidad)**, escriba una dirección URL con el siguiente patrón: `https://<<Your FQDN>>`
 
-    c. En el cuadro de texto **URL de respuesta (URL del Servicio de consumidor de aserciones)**, escriba una URL con el siguiente patrón: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`.
+    c. En el cuadro de texto **URL de respuesta (URL del Servicio de consumidor de aserciones)**, escriba una URL con el siguiente patrón: `https://<<Your FQDN>>/CitrixAuthService/AuthService.asmx`
     
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con la dirección URL y el identificador reales de inicio de sesión. Póngase en contacto con el [equipo de soporte técnico de Citrix Netscaler](https://www.citrix.com/contact/technical-support.html) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
@@ -383,9 +383,9 @@ Al hacer clic en el icono de Citrix Netscaler en el panel de acceso, debería in
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

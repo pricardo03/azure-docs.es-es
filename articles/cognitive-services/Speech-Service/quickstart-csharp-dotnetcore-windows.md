@@ -1,7 +1,7 @@
 ---
-title: 'Inicio rápido: Reconocimiento de voz, C# (.NET Core en Windows): servicios de Voz'
+title: 'Inicio rápido: Reconocimiento de voz, C# (.NET Core): servicios de Voz'
 titleSuffix: Azure Cognitive Services
-description: Aprenda a reconocer la voz en C# con .NET Core para Windows mediante el SDK de Voz
+description: Aprenda a reconocer la voz en C# con .NET Core para Windows o macOS mediante el SDK de Voz
 services: cognitive-services
 author: wolfma61
 manager: nitinme
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 12/13/2018
 ms.author: wolfma
-ms.openlocfilehash: 13d5d5b57c4c52b213f3c369244348b00a49332b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 938efe79d4f9f0b9003fcf83196df80d71d16e75
+ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57895628"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59009434"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-net-core"></a>Inicio rápido: Reconocimiento de voz con el SDK de Voz para .NET Core
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-En este artículo, creará una aplicación de consola de C# para .NET Core en Windows mediante el [SDK de Voz](speech-sdk.md) de Cognitive Services. Transcribe de voz a texto en tiempo real desde el micrófono de su PC. La aplicación se compila con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017 (cualquier edición).
+En este artículo, creará una aplicación de consola de C# para .NET Core en Windows o macOS mediante el [SDK de Voz](speech-sdk.md) de Cognitive Services. Transcribirá la conversión de voz en texto en tiempo real desde el micrófono de su PC. La aplicación se compila con el [paquete NuGet del SDK de Voz](https://aka.ms/csspeech/nuget) y Microsoft Visual Studio 2017 (cualquier edición).
 
 > [!NOTE]
 > .NET Core es una plataforma de .NET multiplataforma de código abierto que implementa la especificación [.NET Standard](https://docs.microsoft.com/dotnet/standard/net-standard).
@@ -68,7 +68,7 @@ Esta guía de inicio rápido requiere:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Se pueden encontrar ejemplos adicionales, por ejemplo, cómo leer voz desde un archivo de audio, en GitHub.
+Se pueden encontrar ejemplos adicionales, por ejemplo, cómo leer voz de un archivo de audio, en GitHub.
 
 > [!div class="nextstepaction"]
 > [Exploración de ejemplos de C# en GitHub](https://aka.ms/csspeech/samples)

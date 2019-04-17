@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: e4fcc261a2952224870d5f1a0db4b9ddb666034e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 9d3c2c646cc713b4590a85def9813ca102198229
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57850350"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59277143"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shuccho-navi"></a>Tutorial: integración de Azure Active Directory con Shuccho Navi
 
@@ -28,7 +28,7 @@ En este tutorial, aprenderá a integrar Shuccho Navi con Azure Active Directory 
 La integración de Shuccho Navi con Azure AD proporciona las siguientes ventajas:
 
 * Puede controlar en Azure AD quién tiene acceso a Shuccho Navi.
-* Se pueden permitir que los usuarios a ser automáticamente iniciado sesión en Shuccho Navi (Single Sign-On) con sus cuentas de Azure AD.
+* Puede permitir que los usuarios inicien sesión automáticamente en Shuccho Navi (inicio de sesión único) con sus cuentas de Azure AD.
 * Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
 Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -39,19 +39,19 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 Para configurar la integración de Azure AD con Shuccho Navi, se necesitan los siguientes elementos:
 
 * Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/)
-* Suscripción habilitada para inicio de sesión único en Shuccho Navi
+* Una suscripción de Shuccho Navi habilitada para el inicio de sesión único
 
 ## <a name="scenario-description"></a>Descripción del escenario
 
 En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
-* Admite Shuccho Navi **SP** SSO iniciado por
+* Shuccho Navi admite SSO iniciado por **SP**
 
 ## <a name="adding-shuccho-navi-from-the-gallery"></a>Adición de Shuccho Navi desde la galería
 
 Para configurar la integración de Shuccho Navi en Azure AD, será preciso que agregue Shuccho Navi desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Shuccho Navi desde la galería, siga los pasos a continuación:**
+**Para agregar Shuccho Navi desde la galería, siga estos pasos:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -71,23 +71,23 @@ Para configurar la integración de Shuccho Navi en Azure AD, será preciso que a
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-En esta sección, configurará y probará inicio de sesión único en Azure AD con Shuccho Navi con un usuario de prueba llamado **Britta Simon**.
-Para que el inicio de sesión único funcione, debe establecerse una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Shuccho Navi.
+En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con Shuccho Navi utilizando una usuaria de prueba llamada **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de Shuccho Navi.
 
 Para configurar y probar el inicio de sesión único de Azure AD con Shuccho Navi, es preciso completar los siguientes bloques de creación:
 
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
-2. **[Configurar Shuccho navegación Single Sign-On](#configure-shuccho-navi-single-sign-on)**  : para configurar las opciones de inicio de sesión único en el lado de la aplicación.
+2. **[Configuración del inicio de sesión único de Shuccho Navi](#configure-shuccho-navi-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
 4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-5. **[Crear usuario de prueba Shuccho Navi](#create-shuccho-navi-test-user)**  : para tener un homólogo de Britta Simon en Shuccho Navi que esté vinculado a la representación del usuario en Azure AD.
+5. **[Creación de un usuario de prueba de Shuccho Navi](#create-shuccho-navi-test-user)**: para tener un homólogo de Britta Simon en Shuccho Navi que esté vinculado a la representación del usuario en Azure AD.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-Para configurar el inicio de sesión único en Azure AD con Shuccho Navi, realice los pasos siguientes:
+Para configurar el inicio de sesión único de Azure AD con Shuccho Navi, siga estos pasos:
 
 1. En la página de integración de la aplicación [Shuccho Navi](https://portal.azure.com/) de **Azure Portal**, haga clic en **Inicio de sesión único**.
 
@@ -103,18 +103,18 @@ Para configurar el inicio de sesión único en Azure AD con Shuccho Navi, realic
 
 4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    ![Información de inicio de sesión único de Shuccho navegación dominio y direcciones URL](common/sp-signonurl.png)
+    ![Información de dominio y direcciones URL de inicio de sesión único de Shuccho Navi](common/sp-signonurl.png)
 
     En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://naviauth.nta.co.jp/saml/login?ENTP_CD=<Your company code>`
 
     > [!NOTE]
-    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con [equipo de soporte técnico de navegación Shuccho](mailto:sys_ntabtm@nta.co.jp) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico para clientes de Shuccho Navi](mailto:sys_ntabtm@nta.co.jp) para obtener el valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
 5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **XML de metadatos de federación** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
     ![Vínculo de descarga del certificado](common/metadataxml.png)
 
-6. En el **configurar Shuccho Navi** sección, copie la dirección URL adecuadas según sus necesidades.
+6. En la sección **Set up Shuccho Navi** (Configurar Shuccho Navi), copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -124,9 +124,9 @@ Para configurar el inicio de sesión único en Azure AD con Shuccho Navi, realic
 
     c. URL de cierre de sesión
 
-### <a name="configure-shuccho-navi-single-sign-on"></a>Configurar el inicio de sesión único de navegación Shuccho
+### <a name="configure-shuccho-navi-single-sign-on"></a>Configuración del el inicio de sesión único en Shuccho Navi
 
-Para configurar el inicio de sesión único en **Shuccho Navi** , es preciso enviar los datos descargados **Metadata XML** y caso de direcciones URL copiadas desde Azure portal para [equipo de soporte técnico Shuccho Navi](mailto:sys_ntabtm@nta.co.jp). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
+Para configurar el inicio de sesión único en **Shuccho Navi**, es preciso enviar el **XML de metadatos** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de Shuccho Navi](mailto:sys_ntabtm@nta.co.jp). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
 
@@ -146,7 +146,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el **nombre de usuario** tipo de campo **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -157,13 +157,13 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a Shuccho Navi.
 
-1. En el portal de Azure, seleccione **aplicaciones empresariales**, seleccione **todas las aplicaciones**, a continuación, seleccione **Shuccho Navi**.
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y **Shuccho Navi**.
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
 2. En la lista de aplicaciones, seleccione **Shuccho Navi**.
 
-    ![El vínculo Shuccho Navi en la lista de aplicaciones](common/all-applications.png)
+    ![Vínculo a Shuccho Navi en la lista de aplicaciones](common/all-applications.png)
 
 3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
@@ -179,7 +179,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-### <a name="create-shuccho-navi-test-user"></a>Crear usuario de prueba Shuccho Navi
+### <a name="create-shuccho-navi-test-user"></a>Creación de un usuario de prueba en Shuccho Navi
 
 En esta sección, creará un usuario llamado Britta Simon en Shuccho Navi. Trabaje con el  [equipo de soporte técnico de Shuccho Navi](mailto:sys_ntabtm@nta.co.jp) para agregar usuarios a la plataforma de Shuccho Navi. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
@@ -187,12 +187,12 @@ En esta sección, creará un usuario llamado Britta Simon en Shuccho Navi. Traba
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de Shuccho Navi en el Panel de acceso, debe iniciar sesión automáticamente el Shuccho Navi que configure para inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Al hacer clic en el icono de Shuccho Navi en el panel de acceso y debería iniciar sesión automáticamente en la versión de Shuccho Navi para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [Lista de tutoriales acerca de cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a las aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)

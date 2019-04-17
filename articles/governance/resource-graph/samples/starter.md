@@ -1,20 +1,19 @@
 ---
 title: Ejemplos de consultas de inicio
 description: Use Azure Resource Graph para ejecutar consultas de inicio, como el recuento de recursos, el pedido de recursos o las consultas por una etiqueta específica.
-services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 01/23/2019
+ms.date: 04/04/2019
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
-ms.openlocfilehash: fd945b5fd9f26cc65c5b049406831228a3d5f327
-ms.sourcegitcommit: fcb674cc4e43ac5e4583e0098d06af7b398bd9a9
+ms.openlocfilehash: 2ba48e2a21bdee0c5698bdfa314dd3bf462c1c7e
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/18/2019
-ms.locfileid: "56338723"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59267776"
 ---
 # <a name="starter-resource-graph-queries"></a>Consultas de inicio de Resource Graph
 
@@ -167,20 +166,22 @@ Search-AzGraph -Query "where type contains 'storage' | distinct type"
 ## <a name="list-publicip"></a>List all public IP addresses
 
 De forma similar a la consulta anterior, encontrará todos los tipos que contienen la palabra **publicIPAddresses**.
-Esta consulta se expande en ese patrón para excluir resultados donde **properties.ipAddress** es nulo para devolver solo **properties.ipAddress**y para `limit` los resultados a los 100 primeros. Es posible que sea necesario escapar las comillas según su shell elegido.
+Esta consulta se expande en ese patrón para incluir solo los resultados donde **properties.ipAddress**
+`isnotempty` es nulo para devolver solo **properties.ipAddress** y para `limit` los resultados a los primeros.
+100. Es posible que sea necesario escapar las comillas según su shell elegido.
 
 ```Query
-where type contains 'publicIPAddresses' and properties.ipAddress != ''
+where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
 | project properties.ipAddress
 | limit 100
 ```
 
 ```azurecli-interactive
-az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
+az graph query -q "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
+Search-AzGraph -Query "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | project properties.ipAddress | limit 100"
 ```
 
 ## <a name="count-resources-by-ip"></a>Count resources that have IP addresses configured by subscription
@@ -188,16 +189,16 @@ Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ip
 Con la consulta de ejemplo anterior y agregando `summarize` y `count()`, podemos obtener una lista por suscripción de recursos con direcciones IP configuradas.
 
 ```Query
-where type contains 'publicIPAddresses' and properties.ipAddress != ''
+where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress)
 | summarize count () by subscriptionId
 ```
 
 ```azurecli-interactive
-az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
+az graph query -q "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
 ```azurepowershell-interactive
-Search-AzGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
+Search-AzGraph -Query "where type contains 'publicIPAddresses' and isnotempty(properties.ipAddress) | summarize count () by subscriptionId"
 ```
 
 ## <a name="list-tag"></a>List resources with a specific tag value

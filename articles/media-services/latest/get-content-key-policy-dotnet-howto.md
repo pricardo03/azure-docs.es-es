@@ -10,20 +10,18 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: seodec18
-ms.date: 04/09/2019
+ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 49cc2b8c151053377f8f1da0792f10a06695b332
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 58b6f49f4bbbd93fefb9b616f92baf7ef30f7deb
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59496325"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615836"
 ---
 # <a name="get-a-signing-key-from-the-existing-policy"></a>Obtención de una clave de firma de la directiva existente
 
-Uno de los principales principios de diseño de la versión v3 de la API es hacerla más segura. las API de V3 no devuelven secretos o las credenciales en **obtener** o **lista** operaciones. Las claves se hacen siempre NULL, se vacían o se sanean de la respuesta. El usuario debe llamar a un método de acción independiente para obtener los secretos o las credenciales. El **lector** rol no puede llamar a las operaciones por lo que no puede llamar a operaciones como Asset.ListContainerSas, StreamingLocator.ListContentKeys, ContentKeyPolicies.GetPolicyPropertiesWithSecrets. Tener acciones independientes le permite establecer permisos de seguridad más granulares de RBAC en un rol personalizado si lo desea.
-
-Para obtener más información, consulte [cuentas RBAC y Media Services](rbac-overview.md)
+Uno de los principales principios de diseño de la versión v3 de la API es hacerla más segura. las API de V3 no devuelven secretos o las credenciales en **obtener** o **lista** operaciones. Ver una explicación detallada aquí: Para obtener más información, consulte [cuentas RBAC y Media Services](rbac-overview.md)
 
 En el ejemplo de este artículo se muestra cómo usar .NET para obtener una clave de firma a partir de la directiva existente. 
  

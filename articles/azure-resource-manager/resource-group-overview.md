@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/04/2019
+ms.date: 04/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 115b1fcd1b1e878a9b4a7efdf6f24d7391945619
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.openlocfilehash: 0ad1d12a4a2ca3a293546f2bac85210bb9152269
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57409863"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59269306"
 ---
 # <a name="azure-resource-manager-overview"></a>Información general del Administrador de recursos de Azure
 
@@ -53,7 +53,7 @@ Administrador de recursos ofrece varias ventajas:
 
 ## <a name="understand-management-scope"></a>Información sobre el ámbito de administración
 
-Azure proporciona cuatro niveles de ámbito administración: grupo de administración, suscripciones, grupos de recursos y recursos. Los [grupos de administración](../governance/management-groups/index.md) están en versión preliminar. En la imagen siguiente se muestra un ejemplo de estos niveles:
+Azure proporciona cuatro niveles de ámbito administración: [grupos de administración](../governance/management-groups/index.md), suscripciones, [grupos de recursos](#resource-groups) y recursos. En la imagen siguiente se muestra un ejemplo de estos niveles:
 
 ![Ámbito](./media/resource-group-overview/scope-levels.png)
 
@@ -84,6 +84,8 @@ Hay algunos factores importantes que se deben tener en cuenta al definir el grup
 * Un recurso puede interactuar con los recursos de otros grupos. Esta interacción es común cuando ambos recursos están relacionados, pero no comparten el mismo ciclo de vida (por ejemplo, aplicaciones web que se conectan a una base de datos).
 
 Al crear un grupo de recursos, es preciso proporcionar una ubicación para dicho grupo de recursos. Pero puede preguntarse: "¿Por qué necesita un grupo de recursos una ubicación? Y si los recursos pueden tener ubicaciones distintas de las del grupo de recursos, ¿por qué es importante la ubicación de este?" Los grupos de recursos almacenan metadatos acerca de los recursos. Por consiguiente, al especificar la ubicación del grupo de recursos, se especifica el lugar en que se almacenan dichos metadatos. Por motivos de compatibilidad, es posible que sea preciso asegurarse de que los datos se almacenan en una región concreta.
+
+Si la región del grupo de recursos no está disponible temporalmente, no puede actualizar los recursos del grupo de recursos porque los metadatos no están disponibles. Los recursos de otras regiones seguirán funcionando según lo previsto, pero no podrá actualizarlos. Para minimizar el riesgo, busque el grupo de recursos y los recursos en la misma región.
 
 ## <a name="resource-providers"></a>Proveedores de recursos
 
@@ -165,7 +167,7 @@ Después de definir la plantilla, está listo para implementar los recursos en A
 
 * [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](resource-group-template-deploy.md)
 * [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](resource-group-template-deploy-cli.md)
-* [Implementación de recursos con las plantillas de Resource Manager y Azure Portal](resource-group-template-deploy-portal.md)
+* [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](resource-group-template-deploy-portal.md)
 * [Implementación de recursos con las plantillas de Resource Manager y la API de REST de Resource Manager](resource-group-template-deploy-rest.md)
 
 ## <a name="safe-deployment-practices"></a>Procedimientos de implementación seguros

@@ -1,19 +1,18 @@
 ---
 title: 'Ejemplo: Auditar si Network Watcher no está habilitado para la región'
 description: Esta definición de directiva de ejemplo audita si Network Watcher no está habilitado en una región especificada
-services: azure-policy
 author: DCtheGeek
 manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 841f1ad3e22c40e05489bb590caee64ec50466b8
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 7614b000f69eb74c83084aec0849a2741c82cd5a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58800948"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59268269"
 ---
 # <a name="sample---audit-if-network-watcher-is-not-enabled-for-region"></a>Ejemplo: Auditar si Network Watcher no está habilitado para la región
 
@@ -29,7 +28,7 @@ Puede implementar esta plantilla mediante [Azure Portal](#deploy-with-the-portal
 
 ## <a name="deploy-with-the-portal"></a>Implementación con el portal
 
-[![Implementación del ejemplo de directiva en Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Faudit-network-watcher-existence%2Fazurepolicy.json)
+[![DImplementación del ejemplo de directiva en Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?feature.customportal=false&microsoft_azure_policy=true&microsoft_azure_policy_policyinsights=true&feature.microsoft_azure_security_policy=true&microsoft_azure_marketplace_policy=true#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FNetwork%2Faudit-network-watcher-existence%2Fazurepolicy.json)
 
 ## <a name="deploy-with-powershell"></a>Implementación con PowerShell
 

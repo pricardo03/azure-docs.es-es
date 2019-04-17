@@ -1,19 +1,18 @@
 ---
 title: 'Inicio rápido: Ingesta de datos del centro de eventos a Azure Data Explorer'
 description: En esta guía de inicio rápido obtendrá información sobre cómo ingerir (cargar) datos en el Explorador de datos de Azure desde el centro de eventos.
-services: data-explorer
 author: orspod
 ms.author: orspodek
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
-ms.date: 02/2/2018
-ms.openlocfilehash: fcc4a50cb57e15021a3be1266d660c33501dbe82
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.date: 02/02/2018
+ms.openlocfilehash: 52bdbe6d34fb631cd4b2205dfad25399fe0e43fb
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758674"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59048394"
 ---
 # <a name="quickstart-ingest-data-from-event-hub-into-azure-data-explorer"></a>Inicio rápido: Ingesta de datos del centro de eventos a Azure Data Explorer
 
@@ -23,7 +22,7 @@ El Explorador de datos de Azure es un servicio de exploración de datos altament
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
-* [Base de datos y clúster de prueba](create-cluster-database-portal.md)
+* [Una base de datos y un clúster de prueba](create-cluster-database-portal.md)
 
 * [Una aplicación de ejemplo](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) que genera los datos y los envía a un centro de eventos. Descargue la aplicación de ejemplo en el sistema.
 
@@ -39,7 +38,7 @@ En esta guía de inicio rápido generará datos de ejemplo y los enviará a un c
 
 1. Con el fin de crear un centro de eventos, use el botón siguiente para iniciar la implementación. Haga clic con el botón derecho y seleccione **Abrir en una ventana nueva** para seguir el resto de los pasos de este artículo.
 
-    [![Implementación en Azure](media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![DImplementación en Azure(media/ingest-data-event-hub/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
     El botón **Deploy to Azure** (Implementar en Azure) le lleva a Azure Portal para rellenar un formulario de implementación.
 
@@ -59,7 +58,7 @@ En esta guía de inicio rápido generará datos de ejemplo y los enviará a un c
     |---|---|---|
     | Subscription | Su suscripción | Seleccione la suscripción de Azure que quiere usar para el centro de eventos.|
     | Grupos de recursos | *test-hub-rg* | Cree un nuevo grupo de recursos. |
-    | Ubicación | *Oeste de EE. UU.* | Seleccione *Oeste de EE. UU.* para esta guía de inicio rápido. En un sistema de producción, seleccione la región que mejor se adapte a sus necesidades. Cree el espacio de nombres del centro de eventos en la misma ubicación que el clúster de Kusto para mejorar el rendimiento (más importante para espacios de nombres de centro de eventos con alto rendimiento).
+    | Ubicación | *Oeste de EE. UU.* | Seleccione *Oeste de EE. UU.* para esta guía de inicio rápido. En un sistema de producción, seleccione la región que mejor se adapte a sus necesidades. Cree el espacio de nombres del centro de eventos en la misma ubicación que el clúster de Kusto para mejorar el rendimiento (más importante para espacios de nombres de centro de eventos con alto rendimiento).
     | Nombre del espacio de nombres | Nombre único del espacio de nombres | Elija un nombre único que identifique el espacio de nombres. Por ejemplo, *mytestnamespace*. El nombre de dominio *servicebus.windows.net* se anexa al nombre que proporcione. El nombre solo puede contener letras, números y guiones. El nombre debe comenzar y terminar con una letra o un número. El valor debe tener entre 6 y 50 caracteres.
     | Nombre del centro de eventos | *test-hub* | El centro de eventos se encuentra bajo el espacio de nombres, que proporciona un contenedor de ámbito único. El nombre del centro de eventos tiene que ser único dentro del espacio de nombres. |
     | Nombre del grupo de consumidores | *test-group* | Los grupos de consumidores permiten consumir varias aplicaciones y que cada una tenga una vista independiente del flujo de eventos. |

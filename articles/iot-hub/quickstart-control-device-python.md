@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/26/2019
-ms.openlocfilehash: ce3bf98a5f31f18c6759b202d53d8a1ced46296e
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 58b4acb3ebfc1ff22c04dafb3063f197d2866311
+ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519670"
+ms.lasthandoff: 04/04/2019
+ms.locfileid: "59005845"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Inicio rápido: Control de un dispositivo conectado a un centro de IoT (Python)
 
@@ -51,6 +51,12 @@ python --version
 python3 --version
 ```
 
+Ejecute el siguiente comando para agregar la extensión IoT de Microsoft Azure para la CLI de Azure a la instancia de Cloud Shell. La extensión IOT agrega comandos específicos de IoT Hub, IoT Edge e IoT Device Provisioning Service (DPS) a la CLI de Azure.
+
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
+
 Si aún no lo ha hecho, descargue el proyecto de Python de muestra desde https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip y extraiga el archivo ZIP.
 
 ## <a name="create-an-iot-hub"></a>Crear un centro de IoT
@@ -65,14 +71,13 @@ Si ha completado la anterior [Guía de inicio rápido: Envío de telemetría des
 
 Debe registrar un dispositivo con IoT Hub antes de poder conectarlo. En esta guía de inicio rápido, usará Azure Cloud Shell para registrar un dispositivo simulado.
 
-1. Ejecute los siguientes comandos en Azure Cloud Shell para agregar la extensión de la CLI de IoT Hub y para crear la identidad del dispositivo. 
+1. Ejecute los siguientes comandos en Azure Cloud Shell para crear la identidad del dispositivo.
 
     **YourIoTHubName**: reemplace este marcador de posición por el nombre elegido para el centro de IoT.
 
     **MyPythonDevice**: nombre que se da al dispositivo registrado. Use MyPythonDevice como se muestra. Si elige otro nombre para el dispositivo, tendrá que usarlo en todo el artículo y actualizar el nombre del dispositivo en las aplicaciones de ejemplo antes de ejecutarlas.
 
     ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyPythonDevice
     ```
 
@@ -173,4 +178,4 @@ En este inicio rápido, ha llamado a un método directo en un dispositivo desde 
 Para obtener información sobre cómo redirigir mensajes del dispositivo a la nube a diferentes destinos en la nube, continúe con el siguiente tutorial.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Enrutar datos de telemetría a distintos puntos de conexión para procesamiento](tutorial-routing.md)
+> [Tutorial: Enrutamiento de datos de telemetría a distintos puntos de conexión para su procesamiento](tutorial-routing.md)

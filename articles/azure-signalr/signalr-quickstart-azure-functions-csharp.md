@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
-ms.openlocfilehash: e3a437d44c557d2ec53182d4f6178cbea3e54eba
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: df1b2cdd265b9cf48801174d1f0cd9936eae5f8b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57544987"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265005"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-c"></a>Guía de inicio rápido: Creación de un salón de chat con Azure Functions y SignalR Service mediante C\#
 
@@ -36,7 +36,7 @@ Inicie sesión en Azure Portal en <https://portal.azure.com/> con su cuenta de A
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Configuración y ejecución de la aplicación Azure Function
 
-1. Inicie Visual Studio u otro editor de código y abra la solución en la carpeta *chat\src\csharp* del repositorio clonado.
+1. Inicie Visual Studio u otro editor de código y abra la solución en la carpeta *src/chat/csharp* del repositorio clonado.
 
 1. En el explorador que se muestra al abrir Azure Portal, confirme que la instancia del servicio SignalR que implementó anteriormente se ha creado correctamente buscando su nombre en el cuadro de búsqueda de la parte superior del portal. Seleccione la instancia para abrirla.
 

@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 10/23/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cbcab0d287f344d308e3ed51ae47087afae7f9e
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: d70dfceb0101c4f6dbd76f3c6b34d85e5255aa72
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449264"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261469"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>¿Qué es Managed Identities for Azure Resources?
 
@@ -50,11 +50,20 @@ Hay dos tipos de identidades administradas:
 - Las **identidades administradas asignadas por el sistema** se habilitan directamente en las instancias de servicio de Azure. Cuando se habilita la identidad, Azure crea una identidad para la instancia del servicio en el inquilino de Azure AD de confianza de la suscripción de la instancia. Una vez creada la identidad, las credenciales se aprovisionan en la instancia. El ciclo de vida de una identidad administrada asignada por el sistema está vinculado directamente a la instancia de servicio de Azure en que está habilitada. Si se elimina la instancia, Azure limpia automáticamente las credenciales y la identidad en Azure AD.
 - Las **identidades administrada asignadas por el usuario** se crean como recursos de Azure independientes. Mediante un proceso de creación, Azure crea una identidad en el inquilino de Azure AD de confianza para la suscripción que se utiliza. Una vez creada la identidad, esta puede asignarse a una o varias instancias de servicio de Azure. El ciclo de vida de una identidad asignada por el usuario no se administra junto con el ciclo de vida de las instancias de servicio de Azure a las que se asigna.
 
-El código puede usar una identidad administrada para solicitar tokens de acceso de los servicios que admiten la autenticación de Azure AD. Azure se encarga de rotar las credenciales que usa la instancia del servicio.
+Internamente, las identidades administradas son entidades de servicio de un tipo especial, que se bloquean para que solo puedan usarse con recursos de Azure. Cuando se elimina la identidad administrada, se quita automáticamente la entidad de servicio correspondiente. 
+
+El código puede usar una identidad administrada para solicitar tokens de acceso de los servicios que admiten la autenticación de Azure AD. Azure se encarga de rotar las credenciales que usa la instancia del servicio. 
 
 En el diagrama siguiente se muestra cómo funcionan las identidades de servicio administradas con máquinas virtuales (VM) de Azure:
 
 ![Identidades de Managed Service Identity y máquinas virtuales de Azure](media/overview/msi-vm-vmextension-imds-example.png)
+
+|  Propiedad    | Identidad administrada asignada por el sistema | Identidad administrada asignada por el usuario |
+|------|----------------------------------|--------------------------------|
+| Creación |  Se crea como parte de un recurso de Azure (por ejemplo, una máquina virtual de Azure o Azure App Service) | Se crea como un recurso de Azure independiente |
+| Ciclo de vida | Se comparte el ciclo de vida con el recurso de Azure con el que se creó la identidad administrada. <br/> Si se elimina el recurso primario, se elimina también la identidad administrada. | Ciclo de vida independiente. <br/> Se debe eliminar explícitamente. |
+| Uso compartido de recursos de Azure | No se puede compartir. <br/> Solo se puede asociar con un único recurso de Azure. | Se puede compartir <br/> La misma identidad administrada asignada por el usuario se puede asociar con más de un recurso de Azure. |
+| Casos de uso comunes | Cargas de trabajo contenidas en un único recurso de Azure <br/> Cargas de trabajo para las que necesita identidades independientes. <br/> Por ejemplo, una aplicación que se ejecuta en una sola máquina virtual | Cargas de trabajo que se ejecutan en varios recursos y que pueden compartir una única identidad. <br/> Cargas de trabajo que necesitan autorización previa para un recurso seguro como parte de un flujo de aprovisionamiento. <br/> Cargas de trabajo donde los recursos se reciclan con frecuencia, pero los permisos deben permanecer coherentes. <br/> Por ejemplo, una carga de trabajo en la que varias máquinas virtuales tienen que acceder al mismo recurso | 
 
 ### <a name="how-a-system-assigned-managed-identity-works-with-an-azure-vm"></a>Funcionamiento de una identidad administrada asignada por el sistema con una máquina virtual de Azure
 
@@ -86,7 +95,7 @@ En el diagrama siguiente se muestra cómo funcionan las identidades de servicio 
    > [!Note]
    > También puede realizar este paso antes del paso 3.
 
-5. El código que se ejecuta en la máquina virtual puede solicitar un token del punto de conexión de identidad de Azure Instance Metadata Service, accesible únicamente desde dentro de la máquina virtual: `http://169.254.169.254/metadata/identity/oauth2/token`.
+5. El código que se ejecuta en la máquina virtual puede solicitar un token del punto de conexión de identidad de Azure Instance Metadata Service, accesible únicamente desde dentro de la máquina virtual: `http://169.254.169.254/metadata/identity/oauth2/token`
     - El parámetro del recurso especifica el servicio al que se va a enviar el token. Para autenticarse en Azure Resource Manager, use `resource=https://management.azure.com/`.
     - El parámetro de identificador de cliente especifica la identidad para la que se solicita el token. Este valor es necesario para eliminar la ambigüedad cuando hay varias identidades asignadas por el usuario en la misma máquina virtual.
     - El parámetro de versión de API especifica la versión de Azure Instance Metadata Service. Use `api-version=2018-02-01` o superior.

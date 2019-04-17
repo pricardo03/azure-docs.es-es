@@ -6,25 +6,25 @@ documentationcenter: ''
 author: kraigb
 manager: douge
 ms.assetid: 9cea5a8e-c52d-4bdc-9e4a-cecdc1ad02c1
-ms.service: azure
+ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 01/11/2019
+ms.date: 04/05/2019
 ms.author: kraigb
-ms.openlocfilehash: 9916b75a15098acbafc1cb1f6d44d948cf6de851
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: 4840a9839fe1f2a31470d4a67b3755b82077fd90
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57777726"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280118"
 ---
 # <a name="overview-of-azure-notebooks"></a>Introducción a Azure Notebooks
 
 Azure Notebooks es un servicio hospedado gratuito para desarrollar y ejecutar cuadernos de Jupyter Notebook en la nube sin necesidad de instalación. [Jupyter](https://jupyter.org/) (anteriormente IPython) es un proyecto de código abierto que le permite combinar fácilmente texto Markdown, código ejecutable y datos, gráficos y visualizaciones persistentes en un único lienzo que se puede compartir, el *cuaderno* (imagen cortesía de jupyter.org):
 
-[![Ejemplos de Jupyter Notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![EEjemplos de cuaderno de Jupyter Notebook](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Debido a esta potente combinación de código, gráficos y texto explicativo, el uso de Jupyter se ha extendido en escenarios como la instrucción de ciencia de datos, la limpieza y transformación de datos, la simulación numérica, el modelado estadístico y el desarrollo de modelos de aprendizaje automático.
 
@@ -58,6 +58,8 @@ En resumen, Azure Notebooks le ayuda a realizar su trabajo de forma más eficaz 
 Azure Notebooks es un servicio gratuito, pero cada proyecto está limitado a 4 GB de memoria y 1 GB de datos para evitar el uso abusivo. Los usuarios legítimos que superan estos límites ven un desafío Captcha para continuar ejecutando cuadernos.
 
 Para liberar todos los límites, inicie sesión en Azure Notebooks con una cuenta con Azure Active Directory (por ejemplo, una cuenta corporativa). Si esa cuenta está asociada a una suscripción de Azure, puede conectarse a cualquier instancia de Azure Data Science Virtual Machine de esa suscripción. Para más información, consulte [Administración y configuración de proyectos: nivel de proceso](configure-manage-azure-notebooks-projects.md#compute-tier).
+
+Se garantiza que los servidores de cuadernos existen durante un máximo de 8 horas. En la mayoría de los casos, el contenedor no está sujeto a esta limitación y su ejecución no se detiene después de dicho intervalo, pero de vez en cuando es posible que las sesiones de larga duración se cierren para preservar la estabilidad del sistema.
 
 ## <a name="available-kernels-and-environments"></a>Entornos y kernels disponibles
 
@@ -113,7 +115,7 @@ Para plantear sus preguntas sobre Azure Notebooks, registre un problema en el [r
   
   - [Creación y clonación de proyectos](create-clone-jupyter-notebooks.md)
   - [Configuración y administración de proyectos](configure-manage-azure-notebooks-projects.md)
-  - [Instalación de paquetes en un cuaderno](install-packages-jupyter-notebook.md)
+  - [Instalación de paquetes de un cuaderno](install-packages-jupyter-notebook.md)
   - [Presentación](present-jupyter-notebooks-slideshow.md)
   - [Uso de archivos de datos](work-with-project-data-files.md)
   - [Acceso a recursos de datos](access-data-resources-jupyter-notebooks.md)

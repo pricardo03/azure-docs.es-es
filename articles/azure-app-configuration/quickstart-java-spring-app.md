@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Spring
 ms.workload: tbd
 ms.date: 01/08/2019
 ms.author: yidon
-ms.openlocfilehash: fec72a4fac6baa3869928c0203aeb29e53ce5ea4
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: 6df44531e8879783bba6b49a0db44f87af71fb5f
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648476"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59050516"
 ---
 # <a name="quickstart-create-a-java-spring-app-with-app-configuration"></a>Inicio rápido: Creación de una aplicación de Java Spring con App Configuration
 
@@ -46,7 +46,7 @@ Para completar este inicio rápido, instale una instancia de [Java Development K
     | Configuración | Valor sugerido | DESCRIPCIÓN |
     |---|---|---|
     | **Nombre del recurso** | Nombre único globalmente | Escriba un nombre de recurso único para usarlo en el recurso del almacén de configuración de aplicaciones. El nombre debe ser una cadena de entre 1 y 63 caracteres y solo puede contener números, letras y el carácter `-`. El nombre no puede comenzar ni terminar por el carácter `-` y no se pueden usar varios caracteres `-` consecutivos.  |
-    | **Suscripción** | Su suscripción | Seleccione la suscripción de Azure que desee usar para probar App Configuration. Si su cuenta solo dispone de una suscripción, esta se seleccionará automáticamente y la lista desplegable **Suscripción** no aparecerá. |
+    | **Subscription** | Su suscripción | Seleccione la suscripción de Azure que desee usar para probar App Configuration. Si su cuenta solo dispone de una suscripción, esta se seleccionará automáticamente y la lista desplegable **Suscripción** no aparecerá. |
     | **Grupos de recursos** | *AppConfigTestResources* | Seleccione o cree un grupo de recursos para el recurso del almacén de configuración de aplicaciones. Este grupo es útil para organizar los distintos recursos que quiera eliminar al mismo tiempo mediante la eliminación del grupo de recursos. Para más información, consulte [Administración de los recursos de Azure a través del Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
     | **Ubicación** | *Centro de EE. UU.* | Use **Ubicación** para especificar la ubicación geográfica en la que se hospeda el recurso SignalR. Para optimizar el rendimiento, cree el recurso en la misma región que los demás componentes de la aplicación. |
 
@@ -54,11 +54,7 @@ Para completar este inicio rápido, instale una instancia de [Java Development K
 
 4. Seleccione **Crear**. La implementación puede tardar unos minutos en finalizar.
 
-5. Una vez finalizada la implementación, seleccione **Configuración** > **Claves de acceso**. Anote la cadena de conexión de la clave principal de solo lectura o de la clave principal de lectura y escritura. Usará esta cadena de conexión más adelante para configurar la aplicación y que se comunique con el almacén de configuración de aplicaciones recién creado. La cadena de conexión de dispositivo tiene el siguiente formato:
-
-        Endpoint=<your_endpoint>;Id=<your_id>;Secret=<your_secret>
-
-    Use toda la cadena en la aplicación.
+5. Una vez finalizada la implementación, seleccione **Configuración** > **Claves de acceso**. Anote la cadena de conexión de la clave principal de solo lectura o de la clave principal de lectura y escritura. Usará esta cadena de conexión más adelante para configurar la aplicación y que se comunique con el almacén de configuración de aplicaciones recién creado.
 
 6. Haga clic en **Explorador de pares clave-valor** > **+ Crear** para agregar los siguientes pares clave-valor:
 
@@ -176,4 +172,4 @@ En este inicio rápido, ha creado un almacén de configuración de aplicaciones 
 Para más información acerca del uso de App Configuration, continúe con el siguiente tutorial, ya que en él se muestra cómo realizar la autenticación.
 
 > [!div class="nextstepaction"]
-> [Integración de Managed Identities for Azure Resources](./integrate-azure-managed-service-identity.md)
+> [Integración de identidades administradas para recursos de Azure](./integrate-azure-managed-service-identity.md)

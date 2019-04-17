@@ -1,44 +1,26 @@
 ---
-title: 'Creación de una instancia de Azure Application Gateway: CLI de Azure clásica | Microsoft Docs'
+title: Crear una puerta de enlace de la aplicación de Azure - CLI clásica de Azure
 description: Aprenda a crear una instancia de Application Gateway mediante la CLI de Azure clásica en Resource Manager
 services: application-gateway
-documentationcenter: na
 author: vhorne
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: c2f6516e-3805-49ac-826e-776b909a9104
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 07/31/2017
+ms.topic: conceptual
+ms.date: 4/15/2019
 ms.author: victorh
-ms.openlocfilehash: e834b1633f17ecec74ae17e962de445ad8d6dccd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 7107f45253c4f13b3378489726bf5034e104fa30
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974432"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608479"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Creación de una puerta de enlace de aplicaciones mediante la CLI de Azure
 
-> [!div class="op_single_selector"]
-> * [Azure Portal](application-gateway-create-gateway-portal.md)
-> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-gateway-arm.md)
-> * [Azure Classic PowerShell](application-gateway-create-gateway.md)
-> * [Plantilla de Azure Resource Manager](application-gateway-create-gateway-arm-template.md)
-> * [CLI de Azure clásica](application-gateway-create-gateway-cli.md)
-> * [CLI de Azure](application-gateway-create-gateway-cli.md)
-> 
-> 
+Azure Application Gateway es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. Application gateway tiene las siguientes características de entrega de aplicaciones: Equilibrio de carga HTTP, afinidad de sesión basada en cookies y descarga de capa de Sockets seguros (SSL), sondeos de estado personalizados y compatibilidad con sitios múltiples.
 
-Azure Application Gateway es un equilibrador de carga de nivel 7. Proporciona conmutación por error, solicitudes HTTP de enrutamiento de rendimiento entre distintos servidores, independientemente de que se encuentren en la nube o en una implementación local. Puerta de enlace de aplicaciones tiene las siguientes características de entrega de aplicaciones: equilibrio de carga HTTP, afinidad de sesiones basada en cookies, descarga SSL (capa de sockets seguros), sondeos personalizados sobre el estado y compatibilidad con sitios múltiples.
+## <a name="prerequisite-install-the-azure-cli"></a>Requisito previo: Instalación de la CLI de Azure
 
-## <a name="prerequisite-install-the-azure-cli"></a>Requisito previo: instalar la CLI de Azure
-
-Para seguir los pasos de este artículo, es preciso [instalar la CLI de Azure](../xplat-cli-install.md) y tiene que [iniciar sesión en Azure](/cli/azure/authenticate-azure-cli). 
+Para llevar a cabo los pasos de este artículo, deberá [instalar la CLI de Azure](../xplat-cli-install.md) y deberá [inicie sesión en Azure](/cli/azure/authenticate-azure-cli). 
 
 > [!NOTE]
 > Si no tiene una cuenta de Azure, necesitará una. Regístrese para [obtener una prueba gratuita aquí](../active-directory/fundamentals/sign-up-organization.md).
@@ -60,15 +42,15 @@ En este escenario:
 
 Azure Application Gateway requiere su propia subred. Al crear una red virtual, asegúrese de dejar suficiente espacio de direcciones para que tenga varias subredes. Una vez que se implementa una puerta de enlace de aplicaciones en una subred adicional solo se pueden agregar a ella puertas de enlace de aplicaciones adicionales.
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Abra el **símbolo del sistema de Microsoft Azure**e inicie sesión. 
+Abra el **Microsoft Azure Command Prompt**e inicie sesión.
 
 ```azurecli-interactive
-azure login
+az login
 ```
 
-Una vez que haya escrito el ejemplo anterior, se proporciona un código. Navegue a https://aka.ms/devicelogin en un explorador para continuar el proceso de inicio de sesión.
+Una vez que haya escrito el ejemplo anterior, se proporciona un código. Vaya a https://aka.ms/devicelogin en un explorador para continuar el inicio de sesión en proceso.
 
 ![cmd que muestra el inicio de sesión de dispositivos][1]
 
@@ -122,7 +104,7 @@ azure network vnet subnet create \
 
 ## <a name="create-the-application-gateway"></a>Creación de la puerta de enlace de aplicaciones
 
-Una vez que se crean la red virtual y la subred, los requisitos previos de la puerta de enlace de aplicaciones están completos. Además, para el paso siguiente son necesarios un certificado .pfx exportado previamente y la contraseña para el certificado. La direcciones IP que se usan para el back-end son las direcciones IP para el servidor back-end. Estos valores pueden ser direcciones IP privadas de la red virtual, direcciones IP públicas o nombres de dominio completos de los servidores back-end.
+Una vez que se crean la red virtual y la subred, los requisitos previos de la puerta de enlace de aplicaciones están completos. Además un certificado .pfx exportado previamente y la contraseña para el certificado se requieren en el paso siguiente: Las direcciones IP usadas para el back-end son las direcciones IP del servidor back-end. Estos valores pueden ser direcciones IP privadas de la red virtual, direcciones IP públicas o nombres de dominio completos de los servidores back-end.
 
 ```azurecli-interactive
 azure network application-gateway create \

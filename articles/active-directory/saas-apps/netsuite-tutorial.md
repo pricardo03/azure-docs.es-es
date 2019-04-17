@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73bb37607af681fcd505706ae99b308024be2c2d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ab329574ef425e8133ac746c185050efcc8bc15a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887432"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59261452"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-netsuite"></a>Tutorial: Integración de Azure Active Directory con NetSuite
 
@@ -173,19 +173,19 @@ Para configurar el inicio de sesión único de Azure AD con NetSuite, realice lo
 
 1. Abra una nueva pestaña en el explorador e inicie sesión en el sitio de la empresa NetSuite como administrador.
 
-2. En la barra de herramientas de la parte superior de la página, haga clic en  **Setup** (Configuración), vaya a  **Company**  (Empresa) y haga clic en  **Enable Features** (Habilitar características).
+2. En la barra de herramientas de la parte superior de la página, haga clic en **Setup** (Configuración), vaya a **Company** (Empresa) y haga clic en **Enable Features** (Habilitar características).
 
     ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-setupsaml.png)
 
-3. En la barra de herramientas de la parte central de la página, haga clic en  **SuiteCloud**.
+3. En la barra de herramientas de la parte central de la página, haga clic en **SuiteCloud**.
 
     ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-suitecloud.png)
 
-4. En la sección  **Manage Authentication**  (Administrar autenticación), seleccione  **SAML SINGLE SIGN-ON**  (INICIO DE SESIÓN ÚNICO DE SAMLS) para habilitar la opción de inicio de sesión único de SAML en NetSuite.
+4. En la sección **Manage Authentication** (Administrar autenticación=, seleccione **SAML SINGLE SIGN-ON** (INICIO DE SESIÓN ÚNICO DE SAMLS) para habilitar la opción de inicio de sesión único de SAML en NetSuite.
 
     ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-ticksaml.png)
 
-5. En la barra de herramientas de la parte superior de la página, haga clic en  **Setup** (Configuración).
+5. En la barra de herramientas de la parte superior de la página, haga clic en **Setup** (Configuración).
 
     ![Configurar inicio de sesión único](./media/NetSuite-tutorial/ns-setup.png)
 
@@ -279,7 +279,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
@@ -330,5 +330,5 @@ Al hacer clic en el icono de NetSuite en el panel de acceso y debería iniciar s
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Configuración del aprovisionamiento de usuarios](NetSuite-provisioning-tutorial.md)
+- [Configurar aprovisionamiento de usuarios](NetSuite-provisioning-tutorial.md)
 

@@ -1,21 +1,21 @@
 ---
 title: Aprenda a administrar cuentas de base de datos en Azure Cosmos DB
 description: Aprenda a administrar cuentas de base de datos en Azure Cosmos DB
-author: christopheranderson
+author: rimman
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 10/17/2018
-ms.author: chrande
-ms.openlocfilehash: 6efa0bab6327022bfe4a1f6d94a6a135cd1f91f3
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.date: 04/08/2019
+ms.author: rimman
+ms.openlocfilehash: b2b5e58ca480aa3abaa0766319977b8d1160ebeb
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58849074"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59283008"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Administración de una cuenta de Azure Cosmos
 
-Este artículo describe cómo administrar la cuenta de Azure Cosmos DB. Aprenderá a configurar el hospedaje múltiple, agregar o quitar una región, configurar varias regiones de escritura y configurar las prioridades de la conmutación por error. 
+En este artículo se describe cómo administrar una cuenta de Azure Cosmos. Aprenderá a configurar el hospedaje múltiple, agregar o quitar una región, configurar varias regiones de escritura y configurar las prioridades de la conmutación por error. 
 
 ## <a name="create-a-database-account"></a>Creación de una cuenta de base de datos
 
@@ -99,9 +99,9 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
 ### <a id="add-remove-regions-via-portal"></a>Azure Portal
 
-1. Vaya a la cuenta de Azure Cosmos DB y abra el menú **Replicar datos globalmente**.
+1. Vaya a la cuenta de Azure Cosmos y abra el menú **Replicar datos globalmente**.
 
-2. Para agregar regiones, seleccione los hexágonos en el mapa con la etiqueta **+** que corresponde a la región deseada. Para agregar una región, seleccione la opción **+ Agregar región** y elija una región en el menú desplegable.
+2. Para agregar regiones, seleccione los hexágonos del mapa con la etiqueta **+** correspondientes a la región (o regiones) deseada. Otra forma de agregar una región es seleccionar la opción **+ Agregar región** y elegir una región en el menú desplegable.
 
 3. Para quitar regiones, desactive una o varias regiones del mapa; para ello, seleccione los hexágonos azules con marcas de verificación. O seleccione el icono de "Papelera" (🗑) junto a la región en el lado derecho.
 
@@ -109,20 +109,20 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {'masterKey': self.ac
 
    ![Menú Agregar o eliminar regiones](./media/how-to-manage-database-account/add-region.png)
 
-En el modo de escritura de una sola región, no puede eliminar la región de escritura. Debe realizar la conmutación por error a otra región antes de poder eliminar la región de escritura actual.
+En el modo de escritura de región individual, no puede quitar la región de escritura. Debe realizar la conmutación por error a otra región antes de poder eliminar la región de escritura actual.
 
 En el modo de escritura de varias regiones, puede agregar o quitar cualquier región, siempre que tenga al menos una región.
 
 ### <a id="add-remove-regions-via-cli"></a>Azure CLI
 
 ```bash
-# Given an account created with 1 region like so
+# Create an account with 1 region
 az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations eastus=0
 
-# Add a new region by adding another region to the list
+# Add a region
 az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations eastus=0 westus=1
 
-# Remove a region by removing a region from the list
+# Remove a region
 az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations westus=0
 ```
 
@@ -142,7 +142,7 @@ az cosmosdb create --name <Azure Cosmos account name> --resource-group <Resource
 
 ### <a id="configure-multiple-write-regions-arm"></a>plantilla de Resource Manager
 
-El siguiente código JSON es un ejemplo de plantilla de Azure Resource Manager. Puede usarlo para implementar una cuenta de Azure Cosmos DB con una directiva de coherencia de obsolescencia limitada. El intervalo de obsolescencia máxima se establece en 5 segundos. El número máximo de solicitudes obsoletas toleradas se establece en 100. Para obtener información sobre el formato y la sintaxis de una plantilla de Resource Manager, consulte [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+El siguiente código JSON es un ejemplo de plantilla de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Puede usarlo para implementar una cuenta de Azure Cosmos con un [nivel de coherencia de obsolescencia limitada](consistency-levels.md). El intervalo de obsolescencia máxima se establece en 5 segundos. El número máximo de solicitudes de obsolescencia toleradas se establece en 100. Para obtener información sobre el formato y la sintaxis de una plantilla de Resource Manager, consulte [Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
 
 ```json
 {
@@ -197,11 +197,11 @@ El siguiente código JSON es un ejemplo de plantilla de Azure Resource Manager. 
 ```
 
 
-## <a id="manual-failover"></a>Habilitación de la conmutación por error manual de la cuenta de Azure Cosmos DB
+## <a id="manual-failover"></a>Habilitación de la conmutación por error manual en una cuenta de Azure Cosmos
 
 ### <a id="enable-manual-failover-via-portal"></a>Azure Portal
 
-1. Vaya a la cuenta de Azure Cosmos DB y abra el menú **Replicar datos globalmente**.
+1. Vaya a la cuenta de Azure Cosmos y abra el menú **Replicar datos globalmente**.
 
 2. En la parte superior del menú, seleccione **Conmutación por error manual**.
 
@@ -216,7 +216,7 @@ El siguiente código JSON es un ejemplo de plantilla de Azure Resource Manager. 
 ### <a id="enable-manual-failover-via-cli"></a>Azure CLI
 
 ```bash
-# Given your account currently has regions with priority like so: eastus=0 westus=1
+# Given your account currently has regions with priority: eastus=0 westus=1
 # Change the priority order to trigger a failover of the write region
 az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --locations westus=0 eastus=1
 ```
@@ -252,11 +252,11 @@ az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource
 az cosmosdb update --name <Azure Cosmos account name> --resource-group <Resource Group name> --enable-automatic-failover false
 ```
 
-## <a name="set-failover-priorities-for-your-azure-cosmos-db-account"></a>Establecimiento de las prioridades de la conmutación por error para la cuenta de Azure Cosmos DB
+## <a name="set-failover-priorities-for-your-azure-cosmos-account"></a>Establecimiento de las prioridades de conmutación por error para la cuenta de Azure Cosmos
 
 ### <a id="set-failover-priorities-via-portal"></a>Azure Portal
 
-1. En la cuenta de Azure Cosmos DB, abra el panel **Replicar datos globalmente**. 
+1. En la cuenta de Azure Cosmos, abra el panel **Replicar datos globalmente**. 
 
 2. En la parte superior del panel, seleccione **Conmutación automática por error**.
 
@@ -281,8 +281,13 @@ az cosmosdb failover-priority-change --name <Azure Cosmos account name> --resour
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Obtenga información sobre cómo administrar los conflictos de datos y los niveles de coherencia en Azure Cosmos DB. Consulte los artículos siguientes:
+Lea los siguientes artículos:
 
 * [Administración de la coherencia](how-to-manage-consistency.md)
 * [Administración de conflictos entre regiones](how-to-manage-conflicts.md)
+* [Distribución global en segundo plano](global-dist-under-the-hood.md)
+* [Configuración de una arquitectura multimaestro en las aplicaciones](how-to-multi-master.md)
+* [Configuración de los clientes para el hospedaje múltiple](how-to-manage-database-account.md#configure-clients-for-multi-homing)
+* [Incorporación o eliminación de regiones de una cuenta de Azure Cosmos DB](how-to-manage-database-account.md#addremove-regions-from-your-database-account)
+* [Creación de una directiva de resolución de conflictos personalizada](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy)
 

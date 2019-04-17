@@ -9,12 +9,12 @@ ms.date: 09/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 21dcf522f00f1991ecb2a92d6dc0925baadbdcc6
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 845fc32d527158258304a92c6855017c9d8c0492
+ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58081277"
+ms.lasthandoff: 04/05/2019
+ms.locfileid: "59049564"
 ---
 # <a name="tutorial-update-inventory-using-powershell-and-topicssubscriptions"></a>Tutorial: Actualización del inventario mediante PowerShell y temas/suscripciones
 
@@ -36,6 +36,9 @@ Un ejemplo de este escenario es una actualización del surtido de inventario de 
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita][] antes de empezar.
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, asegúrese de que tiene instalados los siguientes elementos:
@@ -54,20 +57,20 @@ Use los siguientes comandos para iniciar sesión en Azure. Estos pasos no son ne
 1. Instale el módulo de PowerShell de Service Bus:
 
    ```azurepowershell-interactive
-   Install-Module AzureRM.ServiceBus
+   Install-Module Az.ServiceBus
    ```
 
 2. Ejecute el siguiente comandos para iniciar sesión en Azure:
 
    ```azurepowershell-interactive
-   Login-AzureRmAccount
+   Login-AzAccount
    ```
 
 4. Establezca el contexto de suscripción actual, o vea la suscripción actualmente activa:
 
    ```azurepowershell-interactive
-   Select-AzureRmSubscription -SubscriptionName "MyAzureSubName" 
-   Get-AzureRmContext
+   Select-AzSubscription -SubscriptionName "MyAzureSubName" 
+   Get-AzContext
    ```
 
 ## <a name="provision-resources"></a>Aprovisionamiento de recursos
@@ -76,19 +79,19 @@ Después de iniciar sesión en Azure, use los siguientes comandos para aprovisio
 
 ```azurepowershell-interactive
 # Create a resource group 
-New-AzureRmResourceGroup –Name my-resourcegroup –Location westus2
+New-AzResourceGroup –Name my-resourcegroup –Location westus2
 
 # Create a Messaging namespace
-New-AzureRmServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location westus2
+New-AzServiceBusNamespace -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Location westus2
 
 # Create a queue 
-New-AzureRmServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
+New-AzServiceBusQueue -ResourceGroupName my-resourcegroup -NamespaceName namespace-name -Name queue-name -EnablePartitioning $False
 
 # Get primary connection string (required in next step)
-Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
 ```
 
-Después de la ejecución del cmdlet `Get-AzureRmServiceBusKey`, copie y pegue la cadena de conexión y el nombre de cola que ha seleccionado en una ubicación temporal, por ejemplo, en el Bloc de notas. Esta información la necesitará en el siguiente paso.
+Después de la ejecución del cmdlet `Get-AzServiceBusKey`, copie y pegue la cadena de conexión y el nombre de cola que ha seleccionado en una ubicación temporal, por ejemplo, en el Bloc de notas. Esta información la necesitará en el siguiente paso.
 
 ## <a name="send-and-receive-messages"></a>Envío y recepción de mensajes
 
@@ -109,7 +112,7 @@ Para ejecutar el código, haga lo siguiente:
 4. Si aún no lo ha hecho, obtenga la cadena de conexión mediante el siguiente cmdlet de PowerShell. No olvide reemplazar `my-resourcegroup` y `namespace-name` por los valores específicos: 
 
    ```azurepowershell-interactive
-   Get-AzureRmServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
+   Get-AzServiceBusKey -ResourceGroupName my-resourcegroup -Namespace namespace-name -Name RootManageSharedAccessKey
    ```
 5. En el símbolo del sistema de PowerShell, escriba el siguiente comando:
 
@@ -131,7 +134,7 @@ Para ejecutar el código, haga lo siguiente:
 Ejecute el siguiente comando para quitar el grupo de recursos, el espacio de nombres y todos los recursos relacionados:
 
 ```powershell-interactive
-Remove-AzureRmResourceGroup -Name my-resourcegroup
+Remove-AzResourceGroup -Name my-resourcegroup
 ```
 
 ## <a name="understand-the-sample-code"></a>Descripción del código de ejemplo
@@ -286,4 +289,4 @@ Avance hasta el siguiente tutorial para aprender más acerca del uso de las func
 > [Actualización del inventario mediante PowerShell y temas/suscripciones](service-bus-tutorial-topics-subscriptions-cli.md)
 
 [cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
-[Instalación y configuración de Azure PowerShell]: /powershell/azure/azurerm/install-azurerm-ps
+[Instalación y configuración de Azure PowerShell]: /powershell/azure/install-Az-ps

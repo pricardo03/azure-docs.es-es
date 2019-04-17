@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: dekapur
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8a910f35bf25f889150ea3e89f4fa653f3a9ac14
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.openlocfilehash: 825f667029aeb1d75bfdaf52b1084ff5133b5774
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58336327"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59527343"
 ---
 # <a name="tutorial-deploy-an-application-to-service-fabric-mesh-using-a-template"></a>Tutorial: Implementar una aplicación en Service Fabric Mesh mediante una plantilla
 
@@ -351,8 +351,8 @@ En el archivo de parámetros, actualice los siguientes valores de los parámetro
 |registryPassword|La contraseña que ha obtenido anteriormente en [Recuperar las credenciales del registro](#retrieve-credentials-for-the-registry). Este parámetro en la plantilla es una cadena segura y no se mostrará en el estado de implementación ni en los comandos `az mesh service show`.|
 |registryUserName|El nombre de usuario que ha obtenido en [Recuperar las credenciales del registro](#retrieve-credentials-for-the-registry).|
 |registryServer|El nombre de servidor de registro que ha obtenido en [Recuperar las credenciales del registro](#retrieve-credentials-for-the-registry).|
-|frontEndImage|La imagen de contenedor para el servicio front-end.  Por ejemplo, "<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709".|
-|serviceImage|La imagen de contenedor para el servicio back-end.  Por ejemplo, "<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709".|
+|frontEndImage|La imagen de contenedor para el servicio front-end.  Por ejemplo, `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-webfrontend:1.0-nanoserver-1709`.|
+|serviceImage|La imagen de contenedor para el servicio back-end.  Por ejemplo, `<myregistry>.azurecr.io/seabreeze/azure-mesh-todo-service:1.0-nanoserver-1709`.|
 
 Para implementar la aplicación, ejecute lo siguiente:
 

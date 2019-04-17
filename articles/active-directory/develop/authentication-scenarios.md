@@ -1,6 +1,6 @@
 ---
-title: Autenticación en Azure Active Directory
-description: Obtenga información acerca de la autenticación en Azure Active Directory (Azure AD), el modelo de aplicaciones, la API, el aprovisionamiento y los escenarios de autenticación más comunes que admite Azure AD.
+title: Autenticación en la plataforma de identidad de Microsoft | Azure
+description: Obtenga información acerca de la autenticación en la plataforma de identidad de Microsoft, el modelo de aplicaciones, la API, el aprovisionamiento y los escenarios de autenticación más comunes que admite esta plataforma.
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 04/05/2019
 ms.author: celested
 ms.reviewer: saeeda, sureshja, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 172bc96857c6aa0ab19fd4f1a13870dd493100bf
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: b1d54347b9a3ccc72cfd5b88400d699d93132fbf
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58295715"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266331"
 ---
 # <a name="what-is-authentication"></a>¿Qué es la autenticación?
 
@@ -31,24 +31,24 @@ La *autenticación*es acto de solicitar a un usuario credenciales legítimas, lo
 
 La *autorización* es el acto de conceder un permiso a la entidad de seguridad autenticada para hacer algo. Especifica a qué datos puede acceder y qué puede hacer con ellos. A veces, la autorización se abrevia como AuthZ.
 
-Azure Active Directory (Azure AD) simplifica la autenticación para los desarrolladores de aplicaciones, ya que ofrece la identidad como servicio, con compatibilidad con protocolos estándares del sector, como OAuth 2.0 y OpenID Connect, además de bibliotecas de código abierto para distintas plataformas para poder empezar a programar rápidamente.
+La plataforma de identidad de Microsoft simplifica la autenticación para los desarrolladores de aplicaciones, ya que ofrece la identidad como servicio, con compatibilidad con protocolos estándares del sector, como OAuth 2.0 y OpenID Connect, además de bibliotecas de código abierto para distintas plataformas para poder empezar a programar rápidamente.
 
-Hay dos casos de uso principales en el modelo de programación de Azure AD:
+Hay dos casos de uso principales en el modelo de programación de la plataforma de identidad de Microsoft:
 
 * Durante un flujo de concesión de autorización de OAuth 2.0: cuando el propietario del recurso autoriza a la aplicación cliente, lo que permite al cliente acceder a los recursos del propietario del recurso.
 * Durante el acceso a los recursos por el cliente: cuando lo implementa el servidor de recursos, mediante el uso de los valores de notificación presentes en el token de acceso para tomar decisiones de control de acceso basadas en ellos.
 
-## <a name="authentication-basics-in-azure-active-directory"></a>Conceptos básicos de autenticación en Azure Active Directory
+## <a name="authentication-basics-in-microsoft-identity-platform"></a>Aspectos básicos de la autenticación en la plataforma de identidad de Microsoft
 
 Veamos el escenario más básico en el que es necesario identificarse: un usuario de un explorador web debe autenticarse en una aplicación web. El siguiente diagrama muestra este escenario:
 
-![Información general de inicio de sesión en la aplicación web](./media/authentication-scenarios/basics_of_auth_in_aad.png)
+![Información general de inicio de sesión en la aplicación web](./media/authentication-scenarios/auth-basics-microsoft-identity-platform.svg)
 
 Esto es lo que necesita saber sobre los distintos componentes que se muestran en el diagrama:
 
-* Azure AD es el proveedor de identidades. El proveedor de identidades es el responsable de comprobar la identidad de los usuarios y las aplicaciones que existen en el directorio de una organización y de emitir tokens de seguridad tras la autenticación correcta de dichos usuarios y aplicaciones.
-* Cualquier aplicación que necesite externalizar la autenticación a Azure AD se debe registrar en Azure AD. Azure AD registra la aplicación y la identifica de forma única en el directorio.
-* Los desarrolladores pueden usar las bibliotecas de autenticación de código abierto de Azure AD para facilitar la autenticación, ya que administran los detalles de los protocolos para el usuario. Para más información, consulte las [bibliotecas de autenticación v2.0](reference-v2-libraries.md) y las [bibliotecas de autenticación v1.0](active-directory-authentication-libraries.md) de Azure AD.
+* La plataforma de identidad de Microsoft es el proveedor de identidades. El proveedor de identidades es el responsable de comprobar la identidad de los usuarios y las aplicaciones que existen en el directorio de una organización y de emitir tokens de seguridad tras la autenticación correcta de dichos usuarios y aplicaciones.
+* Cualquier aplicación que necesite externalizar la autenticación a la plataforma de identidad de Microsoft se debe registrar en Azure Active Directory (Azure AD). Azure AD registra la aplicación y la identifica de forma única en el directorio.
+* Los desarrolladores pueden usar las bibliotecas de autenticación de código abierto de la plataforma de identidad de Microsoft para facilitar la autenticación, ya que administran los detalles de los protocolos para el usuario. Para más información, consulte las [bibliotecas de autenticación v2.0](reference-v2-libraries.md) y las [bibliotecas de autenticación v1.0](active-directory-authentication-libraries.md) de la plataforma de identidad de Microsoft.
 * Una vez autenticado el usuario, la aplicación debe validar el token de seguridad de este para garantizar que la autenticación se realizó correctamente. Puede encontrar guías de inicio rápido, tutoriales y ejemplos de código en una variedad de lenguajes y marcos que muestran lo que debe hacer la aplicación.
   * Para crear rápidamente una aplicación y agregar funcionalidad similar a obtener tokens, actualizar tokens, iniciar la sesión de un usuario, mostrar información de usuario y mucho más, vea la sección **Inicios rápidos** de la documentación.
   * Para obtener procedimientos detallados basados en un escenario para tareas de autenticación principales para desarrolladores, como obtener tokens de acceso y usarlos en las llamadas a Microsoft Graph API y otras API, implementar el inicio de sesión con Microsoft con una aplicación tradicional basada en explorador web mediante OpenID Connect y más, consulte la sección **Tutoriales** de la documentación.
@@ -60,28 +60,28 @@ En el escenario de ejemplo anterior, puede clasificar las aplicaciones según es
 * Aplicaciones que necesitan acceso seguro a recursos
 * Aplicaciones que desempeñan el rol del propio recurso
 
-Ahora que ya tiene información general sobre los conceptos básicos, siga leyendo para comprender la API y el modelo de aplicaciones de identidad, el funcionamiento del aprovisionamiento en Azure AD y enlaces a información detallada sobre los escenarios comunes que admite Azure AD.
+Ahora que ya tiene información general sobre los conceptos básicos, siga leyendo para comprender la API y el modelo de aplicaciones de identidad, el funcionamiento del aprovisionamiento en la plataforma de identidad de Microsoft y vínculos a información detallada sobre los escenarios comunes que admite esta plataforma.
 
 ## <a name="application-model"></a>Modelo de aplicación
 
-Azure AD representa aplicaciones siguiendo un modelo específico que se ha diseñado para satisfacer dos funciones principales:
+La plataforma de identidad de Microsoft representa las aplicaciones que siguen un modelo específico que se ha diseñado para satisfacer dos funciones principales:
 
-* **Identificar la aplicación de acuerdo con los protocolos de autenticación que admite**: esto implica enumerar todos los identificadores, direcciones URL, secretos e información relacionada necesaria en el momento de la autenticación. Aquí, Azure AD:
+* **Identificar la aplicación de acuerdo con los protocolos de autenticación que admite**: esto implica enumerar todos los identificadores, direcciones URL, secretos e información relacionada necesaria en el momento de la autenticación. Aquí, la plataforma de identidad de Microsoft:
 
     * Contiene todos los datos necesarios para admitir la autenticación en tiempo de ejecución.
     * Contiene todos los datos para decidir qué podría necesitar una aplicación para acceder y si una solicitud determinada se debería completar y en qué circunstancias.
     * Proporciona la infraestructura para implementar el aprovisionamiento de la aplicación dentro del inquilino del desarrollador de la aplicación y en cualquier otro inquilino de Azure AD.
 
-* **Controlar el consentimiento del usuario en el momento de solicitud del token y facilitar el aprovisionamiento dinámico de aplicaciones en varios inquilinos**. Este caso, Azure AD:
+* **Controlar el consentimiento del usuario en el momento de solicitud del token y facilitar el aprovisionamiento dinámico de aplicaciones en varios inquilinos**. En este caso, la plataforma de identidad de Microsoft:
 
     * Permite a los usuarios y administradores conceder o denegar el consentimiento dinámicamente para que la aplicación acceda a recursos en su nombre.
     * Permite a los administradores decidir qué pueden hacer las aplicaciones en última instancia, qué usuarios pueden utilizar aplicaciones específicas y cómo se accede a los recursos de directorio.
 
-En Azure AD, un **objeto de aplicación** describe una aplicación como entidad abstracta. Los desarrolladores trabajan con aplicaciones. Durante la implementación, Azure AD usa un objeto de aplicación determinado como plano técnico para crear una **entidad de servicio**, que representa una instancia concreta de una aplicación en un directorio o inquilino. Es la entidad de servicio la que define lo que la aplicación realmente puede hacer en un directorio de destino específico, quién la puede usar, a qué recursos tiene acceso, etc. Azure AD crea una entidad de servicio desde un objeto de aplicación a través del **consentimiento**.
+En la plataforma de identidad de Microsoft, un **objeto de aplicación** describe una aplicación como entidad abstracta. Los desarrolladores trabajan con aplicaciones. Durante la implementación, la plataforma de identidad de Microsoft usa un objeto de aplicación determinado como plano técnico para crear una **entidad de servicio** que representa una instancia concreta de una aplicación en un directorio o inquilino. Es la entidad de servicio la que define lo que la aplicación realmente puede hacer en un directorio de destino específico, quién la puede usar, a qué recursos tiene acceso, etc. La plataforma de identidad de Microsoft crea una entidad de servicio desde un objeto de aplicación a través del **consentimiento**.
 
-En el siguiente diagrama se muestra un flujo de aprovisionamiento de Azure AD basado en el consentimiento.  En él, existen dos inquilinos (A y B), el inquilino A es propietario de la aplicación y el inquilino B crea una instancia de la aplicación mediante una entidad de servicio.  
+En el siguiente diagrama se muestra un flujo de aprovisionamiento de la plataforma de identidad de Microsoft basado en el consentimiento.  En él, existen dos inquilinos (A y B), el inquilino A es propietario de la aplicación y el inquilino B crea una instancia de la aplicación mediante una entidad de servicio.  
 
-![Flujo de aprovisionamiento simplificado basado en el consentimiento](./media/authentication-scenarios/simplified-provisioning-flow-consent.png)
+![Flujo de aprovisionamiento simplificado basado en el consentimiento](./media/authentication-scenarios/simplified-provisioning-flow-consent-driven.svg)
 
 En este flujo de aprovisionamiento:
 
@@ -90,15 +90,15 @@ En este flujo de aprovisionamiento:
 | 1 | Un usuario del inquilino B intenta iniciar sesión con la aplicación |
 | 2 | Se adquieren y verifican las credenciales de usuario |
 | 3 | El usuario debe dar su consentimiento para que la aplicación tenga acceso al inquilino B |
-| 4 | Azure AD usa el objeto de aplicación de A como plano técnico para crear una entidad de servicio en el inquilino B |
+| 4 | La plataforma de identidad de Microsoft usa el objeto de aplicación de A como plano técnico para crear una entidad de servicio en el inquilino B |
 | 5 | El usuario recibe el token solicitado |
 |   |   |
 
-Puede repetir este proceso tantas veces como quiera para otros inquilinos (C, D, etc.). El inquilino A conserva el plano técnico de la aplicación (objeto de aplicación). Los usuarios y administradores del resto de inquilinos en que se concede consentimiento a la aplicación conservan el control sobre lo que puede hacer la aplicación a través del objeto de la entidad de servicio correspondiente de cada inquilino. Para más información, consulte [Objetos de aplicación y de entidad de servicio en Azure AD](app-objects-and-service-principals.md).
+Puede repetir este proceso tantas veces como quiera para otros inquilinos (C, D, etc.). El inquilino A conserva el plano técnico de la aplicación (objeto de aplicación). Los usuarios y administradores del resto de inquilinos en que se concede consentimiento a la aplicación conservan el control sobre lo que puede hacer la aplicación a través del objeto de la entidad de servicio correspondiente de cada inquilino. Para más información, consulte [Objetos de aplicación y de entidad de servicio en la plataforma de identidad de Microsoft](app-objects-and-service-principals.md).
 
-## <a name="claims-in-azure-ad-security-tokens"></a>Notificaciones de tokens de seguridad de Azure AD
+## <a name="claims-in-microsoft-identity-platform-security-tokens"></a>Notificaciones en tokens de seguridad de la plataforma de identidad de Microsoft
 
-Los tokens de seguridad (tokens de identificación y acceso) que emite Azure AD contienen notificaciones o aserciones de información sobre el usuario que se ha autenticado. Las aplicaciones pueden usar notificaciones para varias tareas, como:
+Los tokens de seguridad (tokens de identificación y acceso) que emite la plataforma de identidad de Microsoft contienen notificaciones o aserciones de información sobre el usuario que se ha autenticado. Las aplicaciones pueden usar notificaciones para varias tareas, como:
 
 * Validar el token
 * Identificar el inquilino del directorio del firmante
@@ -107,7 +107,7 @@ Los tokens de seguridad (tokens de identificación y acceso) que emite Azure AD 
 
 Las notificaciones presentes en cualquier token de seguridad dependen del tipo de token, el tipo de credencial que se usa para autenticar al usuario y la configuración de la aplicación.
 
-En la tabla siguiente se proporciona una breve descripción de cada tipo de notificación que Azure AD emite. Para obtener más información, consulte los [tokens de acceso](access-tokens.md) y [tokens de identificador](id-tokens.md) que emite Azure AD.
+En la tabla siguiente se proporciona una breve descripción de cada tipo de notificación que emite la plataforma de identidad de Microsoft. Para más información, consulte los [tokens de acceso](access-tokens.md) y [tokens de identificador](id-tokens.md) que emite la plataforma de identidad de Microsoft.
 
 | Notificación | DESCRIPCIÓN |
 | --- | --- |
@@ -134,4 +134,4 @@ En la tabla siguiente se proporciona una breve descripción de cada tipo de noti
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* Más información sobre los [tipos de aplicaciones y escenarios que se admiten en Azure Active Directory](app-types.md)
+* Más información sobre los [tipos de aplicaciones y escenarios que se admiten en la plataforma de identidad de Microsoft](app-types.md)
