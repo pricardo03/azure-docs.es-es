@@ -1,7 +1,7 @@
 ---
 title: Crear, publicar, responder en QnA Maker
 titleSuffix: Azure Cognitive Services
-description: Este tutorial basado en portal le guía mediante la creación y publicación de una base de conocimiento mediante programación y de la posterior respuesta a una pregunta desde dicha base de conocimiento.
+description: Cree una nueva base de conocimiento con preguntas y respuestas de una página pública de preguntas más frecuentes basada en web. Guarde, entrene y publique la base de conocimiento. Una vez publicada la base de conocimiento, envíe una pregunta y reciba una respuesta con un comando CURL. A continuación, cree un bot y pruébelo con la misma pregunta.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,18 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 12/17/2018
+ms.date: 04/08/2019
 ms.author: diberry
-ms.openlocfilehash: 6f79614e4b1ec660d2ec5c8aee40924908cf8f5c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 299dd61055503f0b5a11cbe97e137e4760edadda
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58884132"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59266960"
 ---
-# <a name="tutorial-create-a-knowledge-base-then-answer-question-via-the-qna-maker-portal"></a>Tutorial: Creación de una base de conocimiento y posterior respuesta a una pregunta mediante el portal de QnA Maker
+# <a name="tutorial-from-qna-maker-portal-create-a-knowledge-base"></a>Tutorial: Creación de una base de conocimiento desde el portal de QnA Maker
 
-Este tutorial le guía mediante la creación y publicación de una base de conocimiento y de la posterior respuesta a una pregunta desde dicha base de conocimiento.
+Cree una nueva base de conocimiento con preguntas y respuestas de una página pública de preguntas más frecuentes basada en web. Guarde, entrene y publique la base de conocimiento. Una vez publicada la base de conocimiento, envíe una pregunta y reciba una respuesta con un comando cURL. A continuación, cree un bot y pruébelo con la misma pregunta. 
 
 En este tutorial, aprenderá a: 
 
@@ -29,6 +29,7 @@ En este tutorial, aprenderá a:
 > * Revisar, guardar y entrenar la base de conocimiento
 > * Publicación de una base de conocimiento
 > * Use Curl para consultar la base de conocimiento
+> * Creación de un bot
 > 
 > [!NOTE]
 > La versión basada en programación de este tutorial está disponible con una solución completa en el repositorio [**Azure-Samples/cognitive-services-qnamaker-csharp** de GitHub](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
@@ -99,6 +100,8 @@ Una vez publicada la base de conocimiento, se muestra el punto de conexión
 
 ![Configuración del punto de conexión de la página de publicación](../media/qnamaker-tutorial-create-publish-query-in-portal/publish-2.png)
 
+No cierre esta página **Publicar** ya que la usará para crear un bot más adelante en el tutorial. 
+
 ## <a name="use-curl-to-query-for-an-faq-answer"></a>Uso de curl para consultar una respuesta a preguntas más frecuentes
 
 1. Seleccione la pestaña **Curl**. 
@@ -109,7 +112,7 @@ Una vez publicada la base de conocimiento, se muestra el punto de conexión
 
 1. Reemplace `<Your question>` por `How large can my KB be?`. Es muy parecida a la pregunta, `How large a knowledge base can I create?`, pero no es exactamente igual. QnA Maker aplica el procesamiento de lenguaje natural para determinar si las dos preguntas son iguales.     
 
-1. Ejecute el comando CURL y recibir la respuesta de JSON, que incluye la puntuación y la respuesta. 
+1. Ejecute el comando CURL y reciba la respuesta JSON, que incluye la puntuación y la respuesta. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -133,11 +136,11 @@ Una vez publicada la base de conocimiento, se muestra el punto de conexión
 
     QnA Maker está más o menos seguro con la puntuación de 42,81 %.  
 
-## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Use curl para consulta una respuesta de la charla
+## <a name="use-curl-to-query-for-a-chit-chat-answer"></a>Use CURL para consultar una respuesta de charla
 
-1. En el terminal con Curl habilitado, reemplace `How large can my KB be?` por una instrucción de fin de conversación de bot desde el usuario, como `Thank you`.   
+1. En el terminal con CURL habilitado, reemplace `How large can my KB be?` por una instrucción de fin de conversación de bot desde el usuario, como `Thank you`.   
 
-1. Ejecute el comando CURL y recibir la respuesta de JSON, que incluye la puntuación y la respuesta. 
+1. Ejecute el comando CURL y reciba la respuesta JSON, que incluye la puntuación y la respuesta. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -173,13 +176,13 @@ Una vez publicada la base de conocimiento, se muestra el punto de conexión
 
     Dado que la pregunta de `Thank you` coincidía exactamente con una pregunta de charla, QnA Maker está completamente seguro con la puntuación de 100. QnA Maker también ha devuelto todas las preguntas relacionadas, así como la propiedad metadata que contiene la información de la etiqueta de metadatos de charla.  
 
-## <a name="use-curl-to-query-for-the-default-answer"></a>Uso de curl para consultar la respuesta predeterminada
+## <a name="use-curl-to-query-for-the-default-answer"></a>Uso de CURL para consultar la respuesta predeterminada
 
 Cualquier pregunta de cuya respuesta QnA Maker no esté seguro recibe la respuesta predeterminada. Esta opción se configura en Azure Portal. 
 
 1. En el terminal habilitado con Curl, reemplace `Thank you` por `x`. 
 
-1. Ejecute el comando CURL y recibir la respuesta de JSON, que incluye la puntuación y la respuesta. 
+1. Ejecute el comando CURL y reciba la respuesta JSON, que incluye la puntuación y la respuesta. 
 
     ```TXT
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
@@ -197,7 +200,17 @@ Cualquier pregunta de cuya respuesta QnA Maker no esté seguro recibe la respues
     }
     ```
     
-    QnA Maker devuelve una puntuación de 0, lo que significa que no tiene ninguna confianza, pero también devuelve la respuesta predeterminada. 
+    QnA Maker devuelve una puntuación de `0`, lo que significa que no tiene ninguna confianza, pero también devuelve la respuesta predeterminada. 
+
+## <a name="create-a-knowledge-base-bot"></a>Creación de un bot de base de conocimientos
+
+Para más información, consulte [Create a chat bot with this knowledge base](create-qna-bot.md) (Creación de un bot de chat con esta base de conocimiento).
+
+## <a name="clean-up-resources"></a>Limpieza de recursos
+
+Cuando haya terminado con el bot de base de conocimientos, elimine el grupo de recursos, `my-tutorial-rg`, para eliminar todos los recursos de Azure creados en el proceso del bot.
+
+Cuando haya terminado con la base de conocimiento, en el portal de QnA Maker, seleccione **My knowledge bases** (Mis bases de conocimientos), después, seleccione la base de conocimiento, **My Tutorial kb** y, a continuación, seleccione el icono de eliminación situado en el extremo derecho de esa fila.  
 
 ## <a name="next-steps"></a>Pasos siguientes
 
@@ -208,4 +221,4 @@ Más información acerca de las [personalidades](../Concepts/best-practices.md#c
 Para más información acerca de la respuesta predeterminada, consulte [No se encontraron coincidencias](../Concepts/confidence-score.md#no-match-found). 
 
 > [!div class="nextstepaction"]
-> [Conceptos de bases de conocimientos](../Concepts/knowledge-base.md)
+> [Create a chat bot with this knowledge base (Creación de un bot de chat con esta base de conocimiento)](create-qna-bot.md)

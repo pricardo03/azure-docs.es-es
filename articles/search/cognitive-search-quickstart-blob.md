@@ -1,26 +1,26 @@
 ---
-title: Creación de una canalización de Cognitive Search para la indexación con inteligencia artificial en Azure portal - Azure Search
-description: Ejemplo de aptitudes de extracción de datos, lenguaje natural y procesamiento de imágenes en Azure Portal utilizando datos de ejemplo.
+title: 'Inicio rápido: Creación de un índice basado en inteligencia artificial en Azure Portal: Azure Search'
+description: Aptitudes de extracción de datos, lenguaje natural y procesamiento de imágenes en un portal de indexación de datos de Azure Search mediante Azure Portal y datos de ejemplo.
 manager: cgronlun
 author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: quickstart
-ms.date: 03/17/2019
+ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: f00df841f81ea5c7aa1fd53309b00487602e5143
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: 161d3ff3e00f7e9e979527533f6b8ac365c41490
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200638"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59265022"
 ---
-# <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Guía de inicio rápido: Creación de una canalización de Cognitive Search mediante aptitudes y datos de ejemplo
+# <a name="quickstart-create-an-ai-indexing-pipeline-using-cognitive-skills-and-sample-data"></a>Inicio rápido: Creación de una canalización de indexación basada en inteligencia artificial mediante aptitudes cognitivas y datos de ejemplo
 
-Cognitive Search (versión preliminar) agrega las aptitudes de extracción de datos, procesamiento de lenguaje natural (NLP) y procesamiento de imágenes a una canalización de indexación de Azure Search, lo que hace que el contenido no apto para la búsqueda o no estructurado sea más fácil de buscar. 
+Azure Search se integra con [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) lo cual permite agregar aptitudes de extracción de contenido, procesamiento de lenguaje natural (NLP) y procesamiento de imágenes a una canalización de indexación de Azure Search, lo que hace que el contenido no apto para la búsqueda o no estructurado sea más fácil de buscar. 
 
-Una canalización de Cognitive Search integra [recursos de Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) (tales como [OCR](cognitive-search-skill-ocr.md), [detección de idioma](cognitive-search-skill-language-detection.md) y [reconocimiento de entidades](cognitive-search-skill-entity-recognition.md)) en un proceso de indexación. Los algoritmos de inteligencia artificial de Cognitive Services sirven para buscar patrones, funciones y características en los datos de origen, lo que devuelve estructuras y contenido textual que pueden utilizarse en soluciones de búsqueda de texto completo basadas en Azure Search.
+Muchos recursos de Cognitive Services como [OCR](cognitive-search-skill-ocr.md), [detección de idioma](cognitive-search-skill-language-detection.md) o [reconocimiento de entidades](cognitive-search-skill-entity-recognition.md), por citar solo algunos, se pueden asociar a un proceso de indexación. Los algoritmos de inteligencia artificial de Cognitive Services sirven para buscar patrones, funciones y características en los datos de origen, lo que devuelve estructuras y contenido textual que pueden utilizarse en soluciones de búsqueda de texto completo basadas en Azure Search.
 
 En este artículo de inicio rápido, cree su primera la canalización de enriquecimiento en [Azure Portal](https://portal.azure.com) antes de escribir una sola línea de código:
 
@@ -30,63 +30,28 @@ En este artículo de inicio rápido, cree su primera la canalización de enrique
 > * Ejecute el asistente (una aptitud de la entidad detecta personas, ubicaciones y organizaciones).
 > * Use el [**Explorador de búsqueda**](search-explorer.md) para consultar los datos enriquecidos.
 
-## <a name="supported-regions"></a> Regiones admitidas
+Este inicio rápido se ejecuta en el servicio Gratis, pero el número de transacciones gratuitas está limitado a 20 documentos por día. Si desea ejecutar este inicio rápido más de una vez en el mismo día, use un conjunto de archivos más pequeño para que pueda realizar más ejecuciones.
 
-La indexación enriquecida con inteligencia artificial mediante Cognitive Services está disponible en todas las regiones de Azure Search.
+> [!NOTE]
+> A medida que expande el ámbito aumentando la frecuencia de procesamiento, agregando más documentos o agregando más algoritmos de inteligencia artificial, tendrá que asociar un recurso facturable de Cognitive Services. Los cargos se acumulan cuando se llama a las API de Cognitive Services y para la extracción de imágenes como parte de la fase de descifrado de documentos en Azure Search. No hay ningún cargo por la extracción de texto de documentos.
+>
+> La ejecución de aptitudes integradas se cobra a los [precios de pago por uso de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/) existentes. La extracción de imágenes se cobra al precio de la versión preliminar, tal y como se describe en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). [Más información](cognitive-search-attach-cognitive-services.md).
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-> [!NOTE]
-> A partir del 21 de diciembre de 2018, podrá asociar un recurso de Cognitive Services con un conjunto de aptitudes de Azure Search. Esto nos permitirá empezar a cobrar por la ejecución del conjunto de aptitudes. En esta fecha, también empezaremos a cobrar por la extracción de imágenes como parte de la fase de descifrado de documentos. La extracción de texto de documentos continuará ofreciéndose sin costo adicional.
->
-> La ejecución de aptitudes integradas se cobrará a los [precios de pago por uso existentes de Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/). La extracción de imágenes se cobrará al precio de la versión preliminar, tal y como se describe en la [página de precios de Azure Search](https://go.microsoft.com/fwlink/?linkid=2042400). [Más información](cognitive-search-attach-cognitive-services.md).
-
 ## <a name="prerequisites"></a>Requisitos previos
 
-["What is cognitive search?"](cognitive-search-concept-intro.md) (¿Qué es Cognitive Search?) presenta la arquitectura de enriquecimiento y los componentes. 
+[Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido.
 
-Los servicios de Azure se utilizan exclusivamente en este escenario. Crear los servicios que necesita forma parte de la preparación.
+[Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) proporciona inteligencia artificial. Este inicio rápido incluye pasos para agregar estos recursos en línea, al especificar la canalización. No es necesario configurar las cuentas de antemano.
 
-+ [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) proporciona los datos de origen.
-+ [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/) aporta la inteligencia artificial (puede crear estos recursos en línea, al especificar la canalización).
-+ [Azure Search](https://azure.microsoft.com/services/search/) ofrece una experiencia de búsqueda de texto libre enriquecida y la canalización de indexación enriquecida para su uso en aplicaciones personalizadas.
-
-### <a name="set-up-azure-search"></a>Configurar Azure Search
-
-En primer lugar, regístrese en el servicio Azure Search. 
-
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) con su cuenta de Azure.
-
-1. Haga clic en **Crear un recurso**, busque Azure Search y haga clic en **Crear**. Consulte [Creación de un servicio Azure Search en el portal](search-create-service-portal.md) si está configurando un servicio de búsqueda por primera vez y necesita más ayuda.
-
-   ![Panel del portal](./media/cognitive-search-tutorial-blob/create-search-service-full-portal.png "Creación de un servicio Azure Search en el portal")
-
-1. En Grupo de recursos, cree un grupo de recursos en el que se incluirán todos los recursos que cree en este artículo de inicio rápido. De este modo, será más fácil borrar los recursos tras finalizar los pasos de la guía.
-
-1. Como Ubicación, elija una de las [regiones admitidas](#supported-regions) para Cognitive Search.
-
-1. En la opción Plan de tarifa, puede crear un servicio **Gratis** para completar tutoriales y guías de inicio rápido. Si quiere realizar una investigación detallada con sus propios datos, cree un [servicio de pago](https://azure.microsoft.com/pricing/details/search/) como **Básico** o **Estándar**. 
-
-   El servicio gratuito se limita a 3 índices, un tamaño máximo de blob de 16 MB y 2 minutos de indexación, lo que es insuficiente para usar todas las funcionalidades de Cognitive Search. Para revisar los límites de los distintos planes, consulte [Límites de servicio](search-limits-quotas-capacity.md).
-
-   ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service2.png "Página de definición del servicio en el portal")
-
-   > [!NOTE]
-   > Cognitive Search está disponible en la versión preliminar pública. Actualmente, la ejecución del conjunto de aptitudes está disponible en todos los planes, incluido el gratuito. Podrá realizar una cantidad limitada de enriquecimientos sin tener que asociar un recurso de Cognitive Services pagado. [Más información](cognitive-search-attach-cognitive-services.md).
-
-1. Ancle el servicio al panel para acceder rápidamente a la información del servicio.
-
-   ![Página de definición del servicio en el portal](./media/cognitive-search-tutorial-blob/create-search-service3.png "Página de definición del servicio en el portal")
+Se requieren servicios de Azure que proporcionen las entradas para la canalización de indexación. Puede usar cualquier origen de datos compatible con [indexadores de Azure Search](search-indexer-overview.md) excepto Azure Table Storage, que no se admite para la indexación de inteligencia artificial. Este inicio rápido usa [Azure Blob Storage](https://azure.microsoft.com/services/storage/blobs/) como un contenedor para los archivos de datos de origen. 
 
 ### <a name="set-up-azure-blob-service-and-load-sample-data"></a>Configurar el servicio de Azure Blob y cargar los datos de ejemplo
 
-La canalización de enriquecimiento extrae contenido de los orígenes de datos de Azure que admiten los [indexadores de Azure Search](search-indexer-overview.md). Tenga en cuenta que Azure Table Storage no es compatible con Cognitive Search. Para realizar este ejercicio, usaremos Blob Storage para mostrar varios tipos de contenido.
-
 1. [Descargue los datos de ejemplo](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) que están formados por un pequeño conjunto de archivos de diferentes tipos. 
 
-1. Regístrese en Azure Blob Storage, cree una cuenta de almacenamiento, abra las páginas de servicios de blob y cree un contenedor. 
-
-1. En el contenedor, establezca el nivel de acceso público en **Container (anonymous read access for containers and blobs)** (Contenedor [acceso anónimo de lectura para contenedores y blobs]). Para más información, consulte la [sección sobre la creación de un contenedor](../storage/blobs/storage-unstructured-search.md#create-a-container) del tutorial *Búsqueda de datos no estructurados*.
+1. [Regístrese en Azure Blob Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal), cree una cuenta de almacenamiento, abra las páginas de servicios de blob y cree un contenedor.  Cree la cuenta de almacenamiento en la misma región que Azure Search.
 
 1. En el contenedor que creó, haga clic en **Cargar** para cargar los archivos de ejemplo que descargó en un paso anterior.
 

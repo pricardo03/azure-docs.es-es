@@ -15,18 +15,21 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a206b6027054522a2bbbe1cc847adf9bb7f765e
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: 06fa483a34efa3a9486e04d894a3139d17b157b4
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58447651"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59273964"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Tutorial: Uso de una identidad asignada por el sistema de una máquina virtual Linux para acceder a Azure Storage con las credenciales de SAS
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 En este tutorial, se explica cómo usar las identidades administradas asignadas por el sistema de una máquina virtual Linux para obtener las credenciales de Firma de acceso compartido (SAS) del almacenamiento. En concreto, una [credencial SAS de servicio](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+
+> [!NOTE]
+> La clave SAS generada en este tutorial no se restringirá ni limitará a la máquina virtual.  
 
 Una credencial SAS de servicio permite conceder acceso limitado a los objetos de una cuenta de almacenamiento, durante un período de tiempo limitado y con un servicio específico (en nuestro caso, el servicio blob), sin exponer una clave de acceso a la cuenta. Puede usar una credencial SAS de la forma habitual al realizar operaciones de almacenamiento, por ejemplo, al usar el SDK de Storage. En este tutorial, mostramos cómo cargar y descargar un blob mediante la CLI de Azure Storage. Aprenderá a:
 
@@ -228,4 +231,4 @@ Respuesta:
 En este tutorial, ha aprendido a utilizar una identidad administrada asignada por el sistema de una máquina virtual Linux para acceder a Azure Storage utilizando las credenciales de SAS.  Para obtener más información sobre SAS de Azure Storage, vea:
 
 > [!div class="nextstepaction"]
->[Uso de Firmas de acceso compartido (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+>[Uso de firmas de acceso compartido (SAS)](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)

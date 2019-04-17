@@ -2,41 +2,41 @@
 title: Cómo administrar la conectividad y la mensajería confiable mediante los SDK de dispositivo de Azure IoT Hub
 description: Obtenga información sobre cómo mejorar la conectividad de dispositivos y la mensajería al usar los SDK de dispositivo de Azure IoT Hub
 services: iot-hub
-keywords: ''
 author: yzhong94
 ms.author: yizhon
 ms.date: 07/07/2018
 ms.topic: article
 ms.service: iot-hub
-documentationcenter: ''
-manager: timlt
-ms.devlang: na
-ms.custom: mvc
-ms.openlocfilehash: 72a30e86047dc79f8014ce4c6a38e5e370e1aab5
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 9180c27e64f26c05e6e16007b74f9aa8a98bcfe5
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58074937"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608833"
 ---
 # <a name="manage-connectivity-and-reliable-messaging-by-using-azure-iot-hub-device-sdks"></a>Administrar la conectividad y la mensajería confiable mediante los SDK de dispositivo de Azure IoT Hub
 
 En este artículo se proporciona orientación de alto nivel para ayudarle a diseñar aplicaciones más resistentes para sus dispositivos. Igualmente muestra cómo aprovechar las ventajas de la conectividad y las características de mensajería confiable en el SDK de dispositivo IoT de Azure. El objetivo de esta guía es ayudarle a administrar los siguientes escenarios:
 
-- Corregir una conexión de red descartada.
-- Cambiar entre distintas conexiones de red.
-- Volver a conectar debido a errores de conexión transitorios del servicio.
+* Corregir una conexión de red descartada.
+
+* Cambiar entre distintas conexiones de red.
+
+* Volver a conectar debido a errores de conexión transitorios del servicio.
 
 Los detalles de implementación pueden variar según el lenguaje. Para obtener más información, consulte la documentación de la API o el SDK específico:
 
-- [SDK de C/Python/iOS](https://github.com/azure/azure-iot-sdk-c)
-- [SDK de .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
-- [SDK de Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
-- [SDK de Node](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
+* [SDK de C/Python/iOS](https://github.com/azure/azure-iot-sdk-c)
+
+* [SDK de .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
+
+* [SDK de Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
+
+* [SDK de Node](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
 ## <a name="designing-for-resiliency"></a>Diseño para lograr resistencia
 
-A menudo, los dispositivos IoT se basan en conexiones de red no continuas o inestables, como GSM o las conexiones por satélite. Los errores suceden cuando los dispositivos interactúan con los servicios basados en la nube debido a la disponibilidad intermitente del servicio y los errores transitorios o de nivel de infraestructura. Una aplicación que se ejecuta en un dispositivo debe administrar los mecanismos de conexión y reconexión, así como la lógica de reintentos para enviar o recibir mensajes. Además, los requisitos de la estrategia de reintento dependen en gran medida del escenario, el contexto y las capacidades de IoT del dispositivo.
+A menudo, los dispositivos IoT se basan en conexiones de red no continuas o inestables, como GSM o las conexiones por satélite. Los errores suceden cuando los dispositivos interactúan con los servicios basados en la nube debido a la disponibilidad intermitente del servicio y los errores transitorios o de nivel de infraestructura. Una aplicación que se ejecuta en un dispositivo tiene que administrar los mecanismos de conexión, reconexión y la lógica de reintento para enviar y recibir mensajes. Además, los requisitos de la estrategia de reintento dependen en gran medida del escenario, el contexto y las capacidades de IoT del dispositivo.
 
 El objetivo de los SDK de los dispositivos Azure IoT Hub es simplificar la conexión y la comunicación de la nube a los dispositivos y de los dispositivos a la nube. Estos SDK proporcionan una manera sólida de conectarse a Azure IoT Hub y un conjunto completo de opciones para enviar y recibir mensajes. Los desarrolladores también pueden modificar la implementación existente para personalizar mejor la estrategia de reintento adecuada para un escenario determinado.
 
@@ -44,14 +44,17 @@ Las características pertinentes del SDK que admiten la conectividad y la mensaj
 
 ## <a name="connection-and-retry"></a>Conexión y reintento
 
-En esta sección se proporciona información general de los patrones de reconexión y reintento disponibles al administrar las conexiones. Además detalla la guía de implementación para usar una directiva de reintentos diferente en la aplicación del dispositivo y enumera las API relevantes de los SDK del dispositivo.
+Esta sección proporciona información general de los patrones de reconexión e inténtelo de nuevo disponibles al administrar las conexiones. Además detalla la guía de implementación para usar una directiva de reintentos diferente en la aplicación del dispositivo y enumera las API relevantes de los SDK del dispositivo.
 
 ### <a name="error-patterns"></a>Patrones de error
+
 Los errores de conexión pueden producirse en muchos niveles:
 
-- Errores de red: un socket desconectado y errores de resolución de nombres.
-- Errores a nivel de protocolo para el transporte de HTTP, AMQP y MQTT: vínculos desasociados o sesiones expiradas.
-- Errores a nivel de aplicación que se generan a partir de errores locales: credenciales no válidas o un comportamiento de servicio, como exceder una cuota o una limitación.
+* Errores de red: un socket desconectado y errores de resolución de nombres.
+
+* Errores a nivel de protocolo para el transporte de HTTP, AMQP y MQTT: vínculos desasociados o sesiones expiradas.
+
+* Errores a nivel de aplicación que se generan a partir de errores locales: credenciales no válidas o un comportamiento de servicio, como exceder una cuota o una limitación.
 
 Los SDK de dispositivo detectan errores en los tres niveles. Los errores relacionados con el sistema operativo y los errores de hardware no se detectan ni se controlan mediante los SDK de dispositivo. El SDK se basa en [la guía para controlar errores transitorios](/azure/architecture/best-practices/transient-faults#general-guidelines) del Centro de arquitectura de Azure.
 
@@ -60,17 +63,23 @@ Los SDK de dispositivo detectan errores en los tres niveles. Los errores relacio
 Los pasos siguientes describen el proceso de reintento cuando se detectan errores de conexión:
 
 1. El SDK detecta el error y el error asociado en la red, el protocolo o la aplicación.
-1. El SDK usa el filtro de error para determinar el tipo de error y decidir si es necesario un reintento.
-1. Si el SDK identifica un **error irrecuperable**, operaciones como la conexión, el envío y la recepción se detienen. El SDK notifica al usuario. Un error de autenticación y un error de punto de conexión incorrecta son ejemplos de errores irrecuperables.
-1. Si el SDK identifica un **error recuperable**, vuelve a intentar el proceso según la directiva de reintentos especificada hasta que transcurra el tiempo de espera definido.  Tenga en cuenta que el SDK usa de manera predeterminada la directiva de reintentos **Retroceso exponencial con vibración**.
-1. Cuando el tiempo de espera definido expira, el SDK deja de tratar de conectarse o de enviar el contenido. Notifica al usuario.
-1. El SDK permite que el usuario adjunte una devolución de llamada para recibir los cambios de estado de la conexión.
+
+2. El SDK usa el filtro de error para determinar el tipo de error y decidir si es necesario un reintento.
+
+3. Si el SDK identifica un **error irrecuperable**, operaciones como la conexión, el envío y la recepción se detienen. El SDK notifica al usuario. Un error de autenticación y un error de punto de conexión incorrecta son ejemplos de errores irrecuperables.
+
+4. Si el SDK identifica un **error recuperable**, vuelve a intentar el proceso según la directiva de reintentos especificada hasta que transcurra el tiempo de espera definido.  Tenga en cuenta que el SDK usa de manera predeterminada la directiva de reintentos **Retroceso exponencial con vibración**.
+5. Cuando el tiempo de espera definido expira, el SDK deja de tratar de conectarse o de enviar el contenido. Notifica al usuario.
+
+6. El SDK permite que el usuario adjunte una devolución de llamada para recibir los cambios de estado de la conexión.
 
 Los SDK proporcionan tres directivas de reintentos:
 
-- **Retroceso exponencial con vibración**: esta directiva de reintentos predeterminada tiende a ser agresiva al principio y se ralentiza poco a poco hasta que se alcanza un retraso máximo. El diseño se basa en la [guía de reintentos de Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific). 
-- **Reintento personalizado**: para algunos idiomas del SDK, puede diseñar una directiva de reintentos personalizada que sea más adecuada para su escenario y luego agregarla en RetryPolicy. La opción de reintento personalizado no está disponible en el SDK de C.
-- **Sin reintentos**: puede establecer la directiva de reintentos en "sin reintentos" para deshabilitar la lógica de reintentos. El SDK intenta conectarse una vez y envía un mensaje una vez, suponiendo que se establece la conexión. Esta directiva se usa normalmente en escenarios con problemas de ancho de banda o de costos. Si elige esta opción, tenga en cuenta que los mensajes que no se envíen se perderán y no se podrán recuperar.
+* **Retroceso exponencial con vibración**: esta directiva de reintentos predeterminada tiende a ser agresiva al principio y se ralentiza poco a poco hasta que se alcanza un retraso máximo. El diseño se basa en la [guía de reintentos de Azure Architecture Center](https://docs.microsoft.com/azure/architecture/best-practices/retry-service-specific). 
+
+* **Reintento personalizado**: para algunos idiomas del SDK, puede diseñar una directiva de reintentos personalizada que sea más adecuada para su escenario y luego agregarla en RetryPolicy. La opción de reintento personalizado no está disponible en el SDK de C.
+
+* **Sin reintentos**: puede establecer la directiva de reintentos en "sin reintentos" para deshabilitar la lógica de reintentos. El SDK intenta conectarse una vez y envía un mensaje una vez, suponiendo que se establece la conexión. Esta directiva se usa normalmente en escenarios con problemas de ancho de banda o de costos. Si elige esta opción, tenga en cuenta que los mensajes que no se envíen se perderán y no se podrán recuperar.
 
 ### <a name="retry-policy-apis"></a>API de directiva de reintentos
 
@@ -99,8 +108,8 @@ Si el servicio responde con un error de limitación, es que la directiva de rein
 
    ```csharp
    # throttled retry policy
-   RetryPolicy retryPolicy = new ExponentialBackoff(RetryCount, TimeSpan.FromSeconds(10), TimeSpan.FromSeconds(60), TimeSpan.FromSeconds(5));
-   SetRetryPolicy(retryPolicy);
+   RetryPolicy retryPolicy = new ExponentialBackoff(RetryCount, TimeSpan.FromSeconds(10), 
+     TimeSpan.FromSeconds(60), TimeSpan.FromSeconds(5)); SetRetryPolicy(retryPolicy);
    ```
 
 El mecanismo de reintentos se detendrá después de `DefaultOperationTimeoutInMilliseconds`, valor que actualmente está establecido en 4 minutos.
@@ -109,14 +118,22 @@ El mecanismo de reintentos se detendrá después de `DefaultOperationTimeoutInMi
 
 Para obtener ejemplos de código en otros lenguajes, revise los siguientes documentos para la implementación. El repositorio contiene ejemplos que muestran el uso de las API de la directiva de reintentos.
 
-- [SDK de C/Python/iOS](https://github.com/azure/azure-iot-sdk-c)
-- [SDK de .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
-- [SDK de Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
-- [SDK de Node](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
+* [SDK de C/Python/iOS](https://github.com/azure/azure-iot-sdk-c)
+
+* [SDK de .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/devdoc/requirements/retrypolicy.md)
+
+* [SDK de Java](https://github.com/Azure/azure-iot-sdk-java/blob/master/device/iot-device-client/devdoc/requirement_docs/com/microsoft/azure/iothub/retryPolicy.md)
+
+* [SDK de Node](https://github.com/Azure/azure-iot-sdk-node/wiki/Connectivity-and-Retries#types-of-errors-and-how-to-detect-them)
 
 ## <a name="next-steps"></a>Pasos siguientes
-- [Uso de los SDK de dispositivos y servicios](./iot-hub-devguide-sdks.md)
-- [Uso del SDK de dispositivo IoT para C](./iot-hub-device-sdk-c-intro.md)
-- [Desarrollo para dispositivos restringidos](./iot-hub-devguide-develop-for-constrained-devices.md)
-- [Desarrollo para dispositivos móviles](./iot-hub-how-to-develop-for-mobile-devices.md)
-- [Solución de problemas de desconexión de dispositivos](iot-hub-troubleshoot-connectivity.md)
+
+* [Uso de los SDK de dispositivos y servicios](./iot-hub-devguide-sdks.md)
+
+* [Uso del SDK de dispositivo IoT para C](./iot-hub-device-sdk-c-intro.md)
+
+* [Desarrollo para dispositivos restringidos](./iot-hub-devguide-develop-for-constrained-devices.md)
+
+* [Desarrollo para dispositivos móviles](./iot-hub-how-to-develop-for-mobile-devices.md)
+
+* [Solución de problemas de desconexión de dispositivos](iot-hub-troubleshoot-connectivity.md)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b85284a5c2c3017e7ccc0a7e06a712e41c2a9561
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: a6e1095cc2c5937fa5de762f91a9830161b8d2a5
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57215598"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59362125"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Tutorial: Realización de una implementación piloto del autoservicio de restablecimiento de contraseñas en Azure AD
 
@@ -43,7 +43,7 @@ Es importante que cualquier prueba del autoservicio de restablecimiento de contr
    * Haga clic en **Guardar**
 1. En la página **Métodos de autenticación**
    * Establezca el valor de **Número de métodos requeridos para el restablecimiento** en **1**.
-   * Elija qué **Métodos disponibles para los usuarios** desea permitir en la organización. En este tutorial, active las casillas para habilitar **Correo electrónico** y **Código de la aplicación móvil (vista previa)**.
+   * Elija qué **Métodos disponibles para los usuarios** desea permitir en la organización. En este tutorial, seleccione las casillas para habilitar **Correo electrónico**, **Teléfono móvil**, **Teléfono del trabajo**, **Notificación de la aplicación móvil (vista previa)**  y  **Código de aplicación móvil (versión preliminar)**.
    * Haga clic en **Guardar**
 1. En la página **Registro**
    * Seleccione **Sí** en **Exigir a los usuarios que se registren al iniciar sesión**.
@@ -60,7 +60,7 @@ El autoservicio de restablecimiento de contraseñas está ahora configurado para
 
 ## <a name="test-sspr-as-a-user"></a>Prueba de SSPR como un usuario
 
-Pruebe el autoservicio de restablecimiento de contraseñas con un usuario de prueba sin privilegios de administrador que sea miembro del grupo piloto. **Tenga en cuenta que, si usa una cuenta que tenga roles de administrador asignados, los métodos de autenticación y su número pueden ser diferentes de los que haya seleccionado, ya que Microsoft administra la directiva del administrador.**
+Pruebe el autoservicio de restablecimiento de contraseñas con un usuario de prueba sin privilegios de administrador que sea miembro del grupo piloto. **Tenga en cuenta que si usa una cuenta que tenga roles de administrador asignados, los métodos de autenticación y su número pueden ser diferentes de los que haya seleccionado, ya que Microsoft administra la directiva del administrador.**
 
 1. Abra una nueva ventana del explorador en modo de incógnito o InPrivate.
 1. Con un usuario de prueba, regístrese en el autoservicio de restablecimiento de contraseñas mediante el portal de registro que se encuentra en [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup).
@@ -81,4 +81,4 @@ Si decide que ya no desea utilizar la funcionalidad que se ha configurado como p
 En este tutorial, ha habilitado el autoservicio de restablecimiento de contraseñas en Azure AD. Continúe con el siguiente tutorial para ver cómo se puede integrar una infraestructura de Active Directory Domain Services local en la experiencia de autoservicio de restablecimiento de contraseñas.
 
 > [!div class="nextstepaction"]
-> [Habilitación de la escritura diferida local de SSPR](tutorial-enable-writeback.md)
+> [Habilitación de la integración de la escritura diferida local de SSPR](tutorial-enable-writeback.md)

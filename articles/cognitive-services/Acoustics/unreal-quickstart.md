@@ -10,19 +10,19 @@ ms.subservice: acoustics
 ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: 1575c4f4a1c96a84823f76e8e98e76de3c2ace86
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 691f49e9be8aabe9a3e229bfd3b35ab183f9fed9
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313029"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492420"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Inicio rápido de Project Acoustics en Unreal o Wwise
 En este inicio rápido, experimentará con los controles de diseño de Project Acoustics con el contenido de ejemplo proporcionado para Unreal Engine y Wwise.
 
 Requisitos de software:
-* [Unreal Engine 4.21](https://www.unrealengine.com/)
-* [Wwise 2018.1.6](https://www.audiokinetic.com/products/wwise/)
+* [Unreal Engine](https://www.unrealengine.com/) 4.21
+* [AudioKinetic Wwise](https://www.audiokinetic.com/products/wwise/) 2018.1.6
 
 ## <a name="download-the-sample-package"></a>Descarga del paquete de ejemplo
 Descargue el [paquete de ejemplo Project Acoustics Unreal + Wwise](https://www.microsoft.com/download/details.aspx?id=58090). El paquete de ejemplo contiene un proyecto de Unreal Engine, el proyecto de Wwise para ese proyecto de Unreal y el complemento Wwise para Project Acoustics.
@@ -50,7 +50,7 @@ El complemento Unreal de Project Acoustics requiere la exposición de comportami
 
     ![Captura de pantalla de una ventana del Explorador de Windows que muestra el proyecto de revisión del script de Wwise](media/patch-wwise-script.png)
 
-* Si no tiene instalado el SDK de DirectX, deberá convertir en comentario la línea que contiene DXSDK_DIR en `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`.
+* Si no tiene instalado el SDK de DirectX, deberá convertir en comentario la línea que contiene DXSDK_DIR en `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
 
     ![Captura de pantalla del editor de código que muestra DXSDK convertido en comentario](media/directx-sdk-comment.png)
 

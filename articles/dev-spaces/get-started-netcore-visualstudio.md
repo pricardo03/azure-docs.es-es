@@ -11,12 +11,12 @@ ms.date: 07/09/2018
 ms.topic: tutorial
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, contenedores, Helm, malla de servicio, enrutamiento de malla de servicio, kubectl, k8s
-ms.openlocfilehash: 9b5f5d41a35b608ecec5e9ab2161a6c122e7aa82
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e94134a0c7c3b44a2e4734fe1e91a19f3e26851c
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894162"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59425770"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-net-core-and-visual-studio"></a>Introducción a Azure Dev Spaces con .NET Core y Visual Studio
 
@@ -28,7 +28,7 @@ En esta guía, aprenderá a:
 - Desarrollar y probar de forma productiva el código en un entorno de equipo.
 
 > [!Note]
-> **Si se queda bloqueado** en cualquier momento, consulte la sección [Solución de problemas](troubleshooting.md) o publique un comentario en esta página.
+> **Si se queda bloqueado** en cualquier momento, consulte la sección [Solución de problemas](troubleshooting.md).
 
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Creación de un clúster de Kubernetes habilitado para Azure Dev Spaces
@@ -128,7 +128,7 @@ Haga clic en el vínculo **Acerca de** en la parte superior de la página para d
 Con Azure Dev Spaces no se trata solo de conseguir que el código se ejecute en Kubernetes, sino de permitirle ver rápida e iterativamente que los cambios de código surtan efecto en un entorno de Kubernetes en la nube.
 
 ### <a name="update-a-content-file"></a>Actualización de un archivo de contenido
-1. Busque el archivo `./Views/Home/Index.cshtml` y realice una edición en el código HTML. Por ejemplo, cambie la línea 70 que dice `<h2>Application uses</h2>` a algo como: `<h2>Hello k8s in Azure!</h2>`
+1. Busque el archivo `./Views/Home/Index.cshtml` y realice una edición en el código HTML. Por ejemplo, cambie la línea 70, que dice `<h2>Application uses</h2>`, a algo como: `<h2>Hello k8s in Azure!</h2>`
 1. Guarde el archivo.
 1. Regrese al explorador y actualice la página. Debería ver la página web que muestra el código HTML actualizado.
 
@@ -149,4 +149,4 @@ Actualice la aplicación web en el explorador y vaya a la página Acerca de. Ver
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Aprenda sobre el desarrollo de varios servicios](multi-service-netcore-visualstudio.md)
+> [Más información acerca del desarrollo de varios servicios](multi-service-netcore-visualstudio.md)

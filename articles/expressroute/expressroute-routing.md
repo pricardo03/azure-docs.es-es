@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/11/2019
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: d3d4bbb0b9007ef61c96f980b9f3c3ee19dd11b5
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 9a4b99e311a65435595c9cb0455b0411b7c09324
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57539129"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617689"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisitos de enrutamiento de ExpressRoute
 Para conectarse a los servicios en la nube de Microsoft mediante ExpressRoute, es preciso configurar y administrar el enrutamiento. Algunos proveedores de conectividad ofrecen la configuración y administración de enrutamiento como un servicio administrado. Consulte a su proveedor de conectividad para saber si ofrece este servicio. Si no es así, debe cumplir los siguientes requisitos:
@@ -154,47 +154,47 @@ Consulte la página [Partners de ExpressRoute de Azure y ubicaciones de empareja
 
 Puede comprar más de un circuito ExpressRoute por región geopolítica. Tener varias conexiones ofrece importantes ventajas para la alta disponibilidad debido a la redundancia geográfica. En los casos en que tenga varios circuitos de ExpressRoute, recibirá el mismo conjunto de prefijos anunciados de Microsoft en las rutas de acceso de la emparejamiento y emparejamiento público de Microsoft. Esto significa que tendrá varias rutas de acceso desde su red a Microsoft. Puede provocar que se tomen decisiones de enrutamiento en la red que no sean óptimas. Como consecuencia, puede sufrir una conectividad con los diferentes servicios que tampoco sea óptima. Puede confiar en los valores de la comunidad para tomar decisiones de enrutamiento adecuadas para ofrecer un [enrutamiento óptimo a los usuarios](expressroute-optimize-routing.md).
 
-| **Región de Microsoft Azure** | **Valor de comunidad de BGP** |
-| --- | --- |
+| **Región de Microsoft Azure** | **Comunidad de BGP regional** | **Comunidad de BGP de almacenamiento** | **Comunidad de BGP de SQL** | 
+| --- | --- | --- | --- |
 | **Norteamérica** | |
-| Este de EE. UU | 12076:51004 |
-| Este de EE. UU. 2 | 12076:51005 |
-| Oeste de EE. UU. | 12076:51006 |
-| Oeste de EE. UU. 2 | 12076:51026 |
-| Centro occidental de EE.UU. | 12076:51027 |
-| Centro-Norte de EE. UU | 12076:51007 |
-| Centro-Sur de EE. UU | 12076:51008 |
-| Centro de EE. UU. | 12076:51009 |
-| Centro de Canadá | 12076:51020 |
-| Este de Canadá | 12076:51021 |
+| Este de EE. UU | 12076:51004 | 12076:52004 | 12076:53004 |
+| Este de EE. UU. 2 | 12076:51005 | 12076:52005 | 12076:53005 |
+| Oeste de EE. UU. | 12076:51006 | 12076:52006 | 12076:53006 |
+| Oeste de EE. UU. 2 | 12076:51026 | 12076:52026 | 12076:53026 |
+| Centro occidental de EE.UU. | 12076:51027 | 12076:52027 | 12076:53027 |
+| Centro-Norte de EE. UU | 12076:51007 | 12076:52007 | 12076:53007 |
+| Centro-Sur de EE. UU | 12076:51008 | 12076:52008 | 12076:53008 |
+| Centro de EE. UU. | 12076:51009 | 12076:52009 | 12076:53009 |
+| Centro de Canadá | 12076:51020 | 12076:52020 | 12076:53020 |
+| Este de Canadá | 12076:51021 | 12076:52021 | 12076:53021 |
 | **Sudamérica** | |
-| Sur de Brasil | 12076:51014 |
+| Sur de Brasil | 12076:51014 | 12076:52014 | 12076:53014 |
 | **Europa** | |
-| Europa del Norte | 12076:51003 |
-| Europa occidental | 12076:51002 |
-| Sur de Reino Unido 2 | 12076:51024 |
-| Oeste de Reino Unido | 12076:51025 |
-| Centro de Francia | 12076:51030 |
-| Sur de Francia | 12076:51031 |
+| Europa del Norte | 12076:51003 | 12076:52003 | 12076:53003 |
+| Europa occidental | 12076:51002 | 12076:52002 | 12076:53002 |
+| Sur de Reino Unido 2 | 12076:51024 | 12076:52024 | 12076:53024 |
+| Oeste de Reino Unido | 12076:51025 | 12076:52025 | 12076:53025 |
+| Centro de Francia | 12076:51030 | 12076:52030 | 12076:53030 |
+| Sur de Francia | 12076:51031 | 12076:52031 | 12076:53031 |
 | **Asia Pacífico** | |
-| Asia oriental | 12076:51010 |
-| Sudeste asiático | 12076:51011 |
+| Asia oriental | 12076:51010 | 12076:52010 | 12076:53010 |
+| Sudeste asiático | 12076:51011 | 12076:52011 | 12076:53011 |
 | **Japón** | |
-| Este de Japón | 12076:51012 |
-| Oeste de Japón | 12076:51013 |
+| Este de Japón | 12076:51012 | 12076:52012 | 12076:53012 |
+| Oeste de Japón | 12076:51013 | 12076:52013 | 12076:53013 |
 | **Australia** | |
-| Este de Australia | 12076:51015 |
-| Sudeste de Australia | 12076:51016 |
+| Este de Australia | 12076:51015 | 12076:52015 | 12076:53015 |
+| Sudeste de Australia | 12076:51016 | 12076:52016 | 12076:53016 |
 | **Australia Government** | |
-| Centro de Australia | 12076:51032 |
-| Centro de Australia 2 | 12076:51033 |
+| Centro de Australia | 12076:51032 | 12076:52032 | 12076:53032 |
+| Centro de Australia 2 | 12076:51033 | 12076:52033 | 12076:53033 |
 | **India** | |
-| Sur de India | 12076:51019 |
-| India occidental | 12076:51018 |
-| India central | 12076:51017 |
+| Sur de India | 12076:51019 | 12076:52019 | 12076:53019 |
+| India occidental | 12076:51018 | 12076:52018 | 12076:53018 |
+| India central | 12076:51017 | 12076:52017 | 12076:53017 |
 | **Corea** | |
-| Corea del Sur | 12076:51028 |
-| Corea Central | 12076:51029 |
+| Corea del Sur | 12076:51028 | 12076:52028 | 12076:53028 |
+| Corea Central | 12076:51029 | 12076:52029 | 12076:53029 |
 
 
 Todas las rutas anunciadas de Microsoft se etiquetarán con el valor de la comunidad adecuado. 

@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 298f4d8cb62ce1d71ed8922483115606f8876d79
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.openlocfilehash: cb8a97a29a14ecd5601495048bcbe1aff748d892
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648563"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617139"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>SDK de Java de Azure Cosmos DB para API de SQL: Notas de la versión y recursos
 > [!div class="op_single_selector"]
@@ -127,7 +127,7 @@ El SDK de Java de API de SQL admite las operaciones sincrónicas. En caso de que
 * Compatibilidad agregada para cambiar la fuente.
 * Compatibilidad agregada para la recopilación de la información de cuota mediante RequestOptions.setPopulateQuotaInfo.
 * Compatibilidad agregada para el registro de scripts de procedimiento almacenados mediante RequestOptions.setScriptLoggingEnabled.
-* Se ha corregido un error en el que una consulta en modo DirectHttps puede bloquearse cuando se producen errores de limitación.
+* Se ha corregido un error donde la consulta en modo DirectHttps puede dejar de responder cuando se producen errores de limitación.
 * Se ha corregido un error en modo de sesión de coherencia.
 * Se ha corregido un error que puede causar una excepción NullReferenceException en HttpContext cuando la tasa de solicitudes es alta.
 * Rendimiento mejorado del modo DirectHttps.

@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: mayg
-ms.openlocfilehash: 895b53d4091f04f324b28a148c7937159997fa84
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 90388d570d027aea3c897f7306a1714fd7e847b3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59272774"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618106"
 ---
 # <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Integración de Azure ExpressRoute con la recuperación ante desastres en máquinas virtuales de Azure
 
@@ -93,7 +93,7 @@ Normalmente, las implementaciones empresariales tienen cargas de trabajo reparti
 - **vNet de concentrador**. Hay una vNet de concentrador que es la **vNet de concentrador de origen**: 10.10.10.0/24.
   - Esta red virtual de concentrador actúa como equipo selector.
   - Todas las comunicaciones a través de las subredes pasan por este concentrador.
-    - ****Subredes de vNet de concentrador**. La vNet de concentrador tiene dos subredes:
+    - **Subredes de red virtual de concentrador**. La vNet de concentrador tiene dos subredes:
     - **Subred de NVA**: 10.10.10.0/25. Esta subred contiene una aplicación virtual de red (10.10.10.10).
     - **Subred de puerta de enlace**: 10.10.10.128/25. Esta subred contiene una puerta de enlace de ExpressRoute conectada a una conexión de ExpressRoute que se enruta al sitio local a través de un dominio de enrutamiento de emparejamiento privado.
 - El centro de datos local tiene una conexión de circuito ExpressRoute a través de un servidor perimetral asociado en Hong Kong.
@@ -104,7 +104,7 @@ Normalmente, las implementaciones empresariales tienen cargas de trabajo reparti
 
 #### <a name="spoke-to-hub"></a>De radio al centro
 
-**Dirección** | **Configuración** | **Estado**
+**Dirección** | **Configuración** | **State**
 --- | --- | ---
 De radio al centro | Permitir dirección de red virtual | habilitado
 De radio al centro | Permitir tráfico reenviado | habilitado
@@ -115,7 +115,7 @@ De radio al centro | Usar puertas de enlace remotas | habilitado
 
 #### <a name="hub-to-spoke"></a>De centro a radio
 
-**Dirección** | **Configuración** | **Estado**
+**Dirección** | **Configuración** | **State**
 --- | --- | ---
 De centro a radio | Permitir dirección de red virtual | habilitado
 De centro a radio | Permitir tráfico reenviado | habilitado

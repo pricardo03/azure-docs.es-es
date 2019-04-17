@@ -14,22 +14,20 @@ ms.workload: infrastructure-services
 ms.date: 12/21/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 43a5f3be9b176cf25e643d6a5231669922300b98
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: c533f4671411412f223fb1c67f1b310ee19bcf23
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485941"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547562"
 ---
 # <a name="quickstart-create-a-sql-server-windows-virtual-machine-with-azure-powershell"></a>Inicio rápido: Creación de una máquina virtual Windows de SQL Server con Azure PowerShell
 
 Esta guía de inicio rápido le ayuda a crear una máquina virtual de SQL Server con Azure PowerShell.
 
 > [!TIP]
-> Esta guía de inicio rápido describe una manera de aprovisionar y conectarse a una máquina virtual de SQL rápidamente. Para más información sobre otras opciones de Azure PowerShell para crear máquinas virtuales de SQL, consulte la [guía de aprovisionamiento de máquinas virtuales de SQL Server con Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
-
-> [!TIP]
-> Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](virtual-machines-windows-sql-server-iaas-faq.md).
+> - Esta guía de inicio rápido describe una manera de aprovisionar y conectarse a una máquina virtual de SQL rápidamente. Para más información sobre otras opciones de Azure PowerShell para crear máquinas virtuales de SQL, consulte la [guía de aprovisionamiento de máquinas virtuales de SQL Server con Azure PowerShell](virtual-machines-windows-ps-sql-create.md).
+> - Si tiene alguna pregunta sobre las máquinas virtuales de SQL Server, consulte las [Preguntas más frecuentes](virtual-machines-windows-sql-server-iaas-faq.md).
 
 ## <a id="subscription"></a> Obtener una suscripción de Azure
 

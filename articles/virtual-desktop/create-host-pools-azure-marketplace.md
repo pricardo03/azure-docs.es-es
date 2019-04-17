@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 03/21/2019
+ms.date: 04/05/2019
 ms.author: helohr
-ms.openlocfilehash: cc404c84bf855ab6e49d13207f40b9faa32cdbb2
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.openlocfilehash: f539a71fccca116ee031781df855ec55158eb63a
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58399868"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59257457"
 ---
 # <a name="tutorial-create-a-host-pool-with-azure-marketplace"></a>Tutorial: Creación de un grupo host con Azure Marketplace
 
@@ -116,6 +116,9 @@ Estos son los clientes compatibles actualmente:
 
 - [Cliente de Escritorio remoto para Windows 7 y Windows 10](connect-windows-7-and-10.md)
 - [Cliente web de Windows Virtual Desktop](connect-web.md)
+
+>[!IMPORTANT]
+>Para ayudar a proteger su entorno de Windows Virtual Desktop en Azure, se recomienda no abrir el puerto de entrada 3389 en las máquinas virtuales. Windows Virtual Desktop no requiere un puerto de entrada abierto 3389 para que los usuarios accedan a máquinas virtuales del grupo host. Si debe abrir el puerto 3389 para solucionar problemas, se recomienda usar [acceso de máquina virtual Just-in-Time](https://docs.microsoft.com/en-us/azure/security-center/security-center-just-in-time).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

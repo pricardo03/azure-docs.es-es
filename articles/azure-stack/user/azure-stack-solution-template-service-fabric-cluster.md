@@ -15,12 +15,12 @@ ms.date: 01/25/2019
 ms.author: mabrigg
 ms.reviewer: shnatara
 ms.lastreviewed: 01/25/2019
-ms.openlocfilehash: 8041e7e02b117b8938f0f7c18da2d57c31dddb34
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 0a24228f1437fbb23c11070b3e99cea60489c071
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482271"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59264998"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Implementación de un clúster de Service Fabric en Azure Stack
 
@@ -46,7 +46,7 @@ Se necesitan los siguientes requisitos para implementar el clúster de Service F
 
 1. **Los siguientes elementos deben estar disponibles en Marketplace de Azure Stack:**
     - **Windows Server 2016**: la plantilla usa la imagen de Windows Server 2016 para crear el clúster.  
-    - **Extensión de Script del cliente**: extensión de máquina virtual de Microsoft.  
+    - **Extensión de script personalizada**: extensión de máquina virtual de Microsoft.  
     - **Configuración de estado deseado de PowerShell**: extensión de máquina virtual de Microsoft.
 
 
@@ -229,4 +229,4 @@ Puede acceder al clúster de Service Fabric mediante el uso de Service Fabric Ex
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Implementación de Kubernetes en Azure Stack](azure-stack-solution-template-kubernetes-deploy.md).
+[Implementación de Kubernetes en Azure Stack](azure-stack-solution-template-kubernetes-deploy.md)

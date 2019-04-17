@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 92fc63ed45b6f1ea377138744d19137645c916e7
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 910c593c9277efeaf72dadc52740b1c918381e19
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57882733"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524776"
 ---
 # <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Generación de una aplicación de la Tienda Windows de Smooth Streaming  
 
@@ -60,41 +60,42 @@ Para obtener más información acerca del desarrollo de la aplicación de la Tie
 3. Modificación del archivo de código subyacente
 4. Compilación y prueba de la aplicación
 
-**Para crear un proyecto de Tienda Windows**
+### <a name="to-create-a-windows-store-project"></a>Para crear un proyecto de Windows Store
 
 1. Ejecute Visual Studio; se admiten las versiones 2012 a 2015.
-2. En el menú **ARCHIVO**, haga clic en **Nuevo** y en **Proyecto**.
-3. En el diálogo Nuevo proyecto, escriba o seleccione los valores siguientes:
+1. En el menú **ARCHIVO**, haga clic en **Nuevo** y en **Proyecto**.
+1. En el diálogo Nuevo proyecto, escriba o seleccione los valores siguientes:
 
-| NOMBRE | Valor |
-| --- | --- |
-| Grupo de plantillas |Instalado/Plantillas/Visual C#/Tienda Windows |
-| Plantilla |Aplicación vacía (XAML) |
-| NOMBRE |SSPlayer |
-| Ubicación |C:\SSTutorials |
-| Nombre de la solución |SSPlayer |
-| Crear directorio para la solución |(seleccionado) |
+    | NOMBRE | Valor |
+    | --- | --- |
+    | Grupo de plantillas |Instalado/Plantillas/Visual C#/Tienda Windows |
+    | Plantilla |Aplicación vacía (XAML) |
+    | NOMBRE |SSPlayer |
+    | Ubicación |C:\SSTutorials |
+    | Nombre de la solución |SSPlayer |
+    | Crear directorio para la solución |(seleccionado) |
 
 1. Haga clic en **OK**.
 
-**Para agregar una referencia al SDK de cliente Smooth Streaming**
+### <a name="to-add-a-reference-to-the-smooth-streaming-client-sdk"></a>Para agregar una referencia para el SDK de cliente Smooth Streaming
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en **SSPlayer** y haga clic en **Agregar referencia**.
-2. Escriba o seleccione los valores siguientes:
+1. Escriba o seleccione los valores siguientes:
 
-| NOMBRE | Valor |
-| --- | --- |
-| Grupo de referencia |Windows/Extensiones |
-| Referencia |Seleccione el SDK de cliente Smooth Streaming de Microsoft para Windows 8 y el paquete en tiempo de ejecución de Microsoft Visual C++ |
+    | NOMBRE | Valor |
+    | --- | --- |
+    | Grupo de referencia |Windows/Extensiones |
+    | Referencia |Seleccione el SDK de cliente Smooth Streaming de Microsoft para Windows 8 y el paquete en tiempo de ejecución de Microsoft Visual C++ |
 
 1. Haga clic en **OK**. 
 
 Después de agregar las referencias, debe seleccionar la plataforma de destino (x64 o x86), ya que en ninguna configuración de la plataforma de la CPU funciona la incorporación de las referencias.  En el Explorador de soluciones, verá una marca de advertencia amarilla en estas referencias agregadas.
 
-**Para diseñar la interfaz de usuario del reproductor**
+### <a name="to-design-the-player-user-interface"></a>Para diseñar la interfaz de usuario del Reproductor
 
 1. En el Explorador de soluciones, haga doble clic en **MainPage.xaml** para abrirlo en la vista de diseño.
 2. Busque las etiquetas **&lt;Grid&gt;** y **&lt;/Grid&gt;** del archivo XAML y pegue el código siguiente entre ellas:
+
    ```xml
          <Grid.RowDefinitions>
 
@@ -146,7 +147,7 @@ El control MediaElement no admite contenido Smooth Streaming directamente. Para 
 
 En este archivo XAML, algunos controladores de eventos están asociados a los controles.  Debe definir dichos controladores de eventos.
 
-**Para modificar el archivo de código subyacente**
+### <a name="to-modify-the-code-behind-file"></a>Para modificar el archivo de código subyacente
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en **MainPage.xaml** y haga clic en **Ver código**.
 2. En la parte superior del archivo, agregue las siguientes instrucciones using:
@@ -210,7 +211,7 @@ El archivo de código subyacente finalizado tendrá un aspecto similar al siguie
 
 ![Vista del código en Visual Studio de la aplicación de Tienda Windows de Smooth Streaming][CodeViewPic]
 
-**Para compilar y probar la aplicación**
+### <a name="to-compile-and-test-the-application"></a>Para compilar y probar la aplicación
 
 1. En el menú **COMPILAR**, haga clic en **Administrador de configuración**.
 2. Cambie **Plataforma de soluciones activa** para que coincida con la plataforma de desarrollo.
@@ -238,7 +239,7 @@ Esta lección contiene los procedimientos siguientes:
 5. Incorporación de código relacionado con la barra deslizante
 6. Compilación y prueba de la aplicación
 
-**Para registrar el controlador de esquema de bytes de Smooth Streaming y pasar el conjunto de propiedades**
+### <a name="to-register-the-smooth-streaming-byte-stream-handler-and-pass-the-propertyset"></a>Para registrar el controlador de flujo de bytes de Smooth Streaming y pasar el conjunto de propiedades
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en **MainPage.xaml** y haga clic en **Ver código**.
 2. Al principio del archivo, agregue las siguientes instrucciones using:
@@ -283,7 +284,7 @@ Esta lección contiene los procedimientos siguientes:
    ```
 6. Presione **CTRL+S** para guardar el archivo.
 
-**Para agregar el controlador de eventos de nivel de administrador de orígenes adaptativo**
+### <a name="to-add-the-adaptive-source-manager-level-event-handler"></a>Para agregar el controlador de eventos de nivel de administrador de origen adaptativo
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en **MainPage.xaml** y haga clic en **Ver código**.
 2. Dentro de la clase **MainPage** , agregue el siguiente miembro de datos:
@@ -311,7 +312,7 @@ Esta lección contiene los procedimientos siguientes:
    ```
 5. Presione **CTRL+S** para guardar el archivo.
 
-**Para incorporar los controladores de eventos de nivel de origen adaptativo**
+### <a name="to-add-adaptive-source-level-event-handlers"></a>Para agregar controladores de eventos en el nivel de origen adaptativo
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en **MainPage.xaml** y haga clic en **Ver código**.
 2. Dentro de la clase **MainPage** , agregue el siguiente miembro de datos:
@@ -362,7 +363,7 @@ Esta lección contiene los procedimientos siguientes:
 
 También están disponibles los mismos eventos en el nivel de administrador de origen adaptativo, que se pueden usar para administrar la funcionalidad común a todos los elementos multimedia de la aplicación. Cada AdaptiveSource incluye sus propios eventos y todos los eventos AdaptiveSource se aplicarán en cascada debajo de AdaptiveSourceManager.
 
-**Para agregar controladores de eventos de elementos multimedia**
+### <a name="to-add-media-element-event-handlers"></a>Para agregar controladores de eventos del elemento multimedia
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en **MainPage.xaml** y haga clic en **Ver código**.
 2. Al final de la clase **MainPage** , agregue los siguientes controladores de eventos:
@@ -398,7 +399,7 @@ También están disponibles los mismos eventos en el nivel de administrador de o
    ```
 4. Presione **CTRL+S** para guardar el archivo.
 
-**Para agregar código relacionado con la barra deslizante**
+### <a name="to-add-slider-bar-related-code"></a>Para agregar el control deslizante código relacionado
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en **MainPage.xaml** y haga clic en **Ver código**.
 2. Al principio del archivo, agregue las siguientes instrucciones using:
@@ -531,7 +532,7 @@ También están disponibles los mismos eventos en el nivel de administrador de o
    ```
 8. Presione **CTRL+S** para guardar el archivo.
 
-**Para compilar y probar la aplicación**
+### <a name="to-compile-and-test-the-application"></a>Para compilar y probar la aplicación
 
 1. Presione **F6** para compilar el proyecto. 
 2. Presione **F5** para ejecutar la aplicación.
@@ -548,7 +549,7 @@ Smooth Streaming es capaz de transmitir contenido con pistas de audio de varios 
 2. Modificación del archivo de código subyacente
 3. Compilación y prueba de la aplicación
 
-**Para modificar el archivo XAML**
+### <a name="to-modify-the-xaml-file"></a>Para modificar el archivo XAML
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en **MainPage.xaml** y haga clic en **Diseñador de vistas**.
 2. Busque &lt;Grid.RowDefinitions&gt; y modifique RowDefinitions para que tenga el aspecto siguiente:
@@ -591,7 +592,7 @@ Smooth Streaming es capaz de transmitir contenido con pistas de audio de varios 
    ```
 4. Presione **CTRL+S** para guardar los cambios.
 
-**Para modificar el archivo de código subyacente**
+### <a name="to-modify-the-code-behind-file"></a>Para modificar el archivo de código subyacente
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en **MainPage.xaml** y haga clic en **Ver código**.
 2. Dentro del espacio de nombres SSPlayer, agregue la nueva clase:
@@ -807,7 +808,8 @@ Smooth Streaming es capaz de transmitir contenido con pistas de audio de varios 
             changeStreams(selectedStreams);
         }
    ```
-   **Para compilar y probar la aplicación**
+
+### <a name="to-compile-and-test-the-application"></a>Para compilar y probar la aplicación
 
 1. Presione **F6** para compilar el proyecto. 
 2. Presione **F5** para ejecutar la aplicación.
@@ -818,13 +820,14 @@ Smooth Streaming es capaz de transmitir contenido con pistas de audio de varios 
 Ha completado la lección 3.  En esta lección ha agregado la funcionalidad para elegir secuencias.
 
 ## <a name="lesson-4-select-smooth-streaming-tracks"></a>Lección 4: Selección de pistas de Smooth Streaming
+
 Una presentación de Smooth Streaming puede contener varios archivos de vídeo codificados con diferentes niveles de calidad (velocidad de bits) y resoluciones. En esta lección habilitará a los usuarios para que puedan seleccionar las pistas. Esta lección contiene los procedimientos siguientes:
 
 1. Modificación del archivo XAML
 2. Modificación del archivo de código subyacente
 3. Compilación y prueba de la aplicación
 
-**Para modificar el archivo XAML**
+### <a name="to-modify-the-xaml-file"></a>Para modificar el archivo XAML
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en **MainPage.xaml** y haga clic en **Diseñador de vistas**.
 2. Busque la etiqueta &lt;Grid&gt; cuyo nombre es **gridStreamAndBitrateSelection** y anexe el código siguiente al final de la etiqueta:
@@ -846,7 +849,7 @@ Una presentación de Smooth Streaming puede contener varios archivos de vídeo c
    ```
 3. Presione **CTRL+S** para guardar los cambios.
 
-**Para modificar el archivo de código subyacente**
+### <a name="to-modify-the-code-behind-file"></a>Para modificar el archivo de código subyacente
 
 1. En el Explorador de soluciones, haga clic con el botón derecho en **MainPage.xaml** y haga clic en **Ver código**.
 2. Dentro del espacio de nombres SSPlayer, agregue la nueva clase:
@@ -1009,7 +1012,8 @@ Una presentación de Smooth Streaming puede contener varios archivos de vídeo c
             changeStreams(selectedStreams);
          }
    ```
-   **Para compilar y probar la aplicación**
+   
+### <a name="to-compile-and-test-the-application"></a>Para compilar y probar la aplicación
 
 1. Presione **F6** para compilar el proyecto. 
 2. Presione **F5** para ejecutar la aplicación.
@@ -1020,6 +1024,7 @@ Una presentación de Smooth Streaming puede contener varios archivos de vídeo c
 Ha completado la lección 4.  En esta lección ha agregado la funcionalidad para elegir pistas.
 
 ## <a name="media-services-learning-paths"></a>Rutas de aprendizaje de Media Services
+
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Envío de comentarios

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: tutorial
-ms.date: 07/10/2018
+ms.date: 04/03/2019
 ms.author: scottwhi
-ms.openlocfilehash: 919690dcef69bd6c142a692e992bfff45b995605
-ms.sourcegitcommit: 90cec6cccf303ad4767a343ce00befba020a10f6
+ms.openlocfilehash: 0963c61027358c2c8e971533052631de28994b57
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55858577"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491090"
 ---
-# <a name="tutorial-uploading-images-to-the-bing-visual-search-api"></a>Tutorial: Carga de imágenes en Bing Visual Search API
+# <a name="tutorial-upload-images-to-the-bing-visual-search-api"></a>Tutorial: Carga de imágenes en Bing Visual Search API
 
-Bing Visual Search API le permite buscar en Web imágenes similares a las que carga. Use este tutorial para crear una aplicación web que pueda enviar una imagen a la API y mostrar las conclusiones que devuelve dentro de la página web. Tenga en cuenta que esta aplicación no cumple todos los [requisitos de visualización y uso de Bing](./use-and-display-requirements.md) para la utilización de la API.
+Bing Visual Search API le permite buscar en Web imágenes similares a las que carga. Use este tutorial para crear una aplicación web que pueda enviar una imagen a la API y mostrar las conclusiones que devuelve dentro de la página web. Tenga en cuenta que esta aplicación no cumple todos los [requisitos de visualización y uso de Bing](../bing-web-search/use-display-requirements.md) para la utilización de la API.
 
 El código fuente completo de este ejemplo está disponible en [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/Bing-Visual-Search/BingVisualSearchUploadImage.html) con anotaciones y control de errores adicionales.
 
@@ -30,13 +30,13 @@ En la aplicación del tutorial se muestra cómo:
 > * Mostrar los resultados de búsqueda de imágenes en una aplicación web
 > * Explorar las distintas conclusiones proporcionadas por la API
 
-## <a name="prerequisites"></a>Requisitos previos 
+## <a name="prerequisites"></a>Requisitos previos
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]
 
 ## <a name="create-and-structure-the-webpage"></a>Creación y estructuración de la página web
 
-Cree una página HTML que envíe una imagen a Bing y obtenga de vuelta conclusiones y las muestre. En el editor o IDE que prefiera, cree un archivo llamado `uploaddemo.html`. Agregue la siguiente estructura HTML básica al archivo.
+Crear una página HTML que envíe una imagen a Bing Visual Search API, recibe la información y la muestre. En el editor o entorno de desarrollo integrado que prefiera, cree un archivo llamado"uploaddemo.html". Agregue la siguiente estructura HTML básica al archivo:
 
 ```html
 <!DOCTYPE html>
@@ -47,18 +47,18 @@ Cree una página HTML que envíe una imagen a Bing y obtenga de vuelta conclusio
 
     <body>
     </body>
-</html>      
+</html>
 ```
 
-Divida la página en una sección de solicitud, donde el usuario proporciona toda la información necesaria para realizar la solicitud, y una sección de respuesta donde se muestran las conclusiones. Agregue las siguientes etiquetas `<div>` a `<body>`. La etiqueta `<hr>` separa visualmente la sección de solicitud de la sección de respuesta.
+Divida la página en una sección de solicitud, donde el usuario especifica toda la información necesaria para la solicitud, y una sección de respuesta donde se muestra la información. Agregue las siguientes etiquetas `<div>` a `<body>`. La etiqueta `<hr>` separa visualmente ambas secciones:
 
 ```html
 <div id="requestSection"></div>
-<hr />      
+<hr />
 <div id="responseSection"></div>
 ```
 
-Agregue una etiqueta `<script>` a la etiqueta `<head>` para que contenga el código JavaScript de la aplicación.
+Agregue una etiqueta `<script>` a la etiqueta `<head>` para que contenga el código JavaScript de la aplicación:
 
 ```html
 <script>
@@ -67,12 +67,11 @@ Agregue una etiqueta `<script>` a la etiqueta `<head>` para que contenga el cód
 
 ## <a name="get-the-upload-file"></a>Obtención del archivo de carga
 
-Para permitir que el usuario seleccione una imagen para cargar, la aplicación usa la etiqueta `<input>` con el atributo de tipo establecido en `file`. La interfaz de usuario necesita dejar claro que la aplicación usa Bing para obtener los resultados de búsqueda. 
+Para permitir que el usuario seleccione una imagen para cargar, la aplicación usa la etiqueta `<input>` con el atributo de tipo establecido en `file`. La interfaz de usuario necesita dejar claro que la aplicación usa Bing para obtener los resultados de búsqueda.
 
-Agregue la siguiente etiqueta `<div>` al elemento div de requestSection. La entrada del archivo acepta un archivo único de cualquier tipo de imagen (por ejemplo, .jpg, .gif, .png). El evento `onchange` especifica el controlador que se llama cuando el usuario selecciona un archivo.
+Agregue las líneas de código con `<div>` a `requestSection` `<div>`. La entrada del archivo acepta un archivo único de cualquier tipo de imagen (por ejemplo, .jpg, .gif, .png). El evento `onchange` especifica el controlador que se llama cuando el usuario selecciona un archivo.
 
-La etiqueta `<output>` se usa para mostrar una miniatura de la imagen seleccionada.
-
+La etiqueta `<output>` se usa para mostrar una miniatura de la imagen seleccionada:
 
 ```html
 <div>
@@ -84,9 +83,9 @@ La etiqueta `<output>` se usa para mostrar una miniatura de la imagen selecciona
 </div>
 ```
 
-## <a name="create-a-file-handler"></a>Creación de un identificador de archivos 
+## <a name="create-a-file-handler"></a>Creación de un identificador de archivos
 
-Cree una función de controlador que pueda leer en la imagen que quiere cargar. Al recorrer en iteración los archivos en el objeto `FileList`, el controlador debe asegurarse de que el archivo seleccionado es un archivo de imagen y que su tamaño es de 1 MB o menos. Si la imagen es mayor, debe reducir su tamaño antes de cargarla. Finalmente, el controlador mostrará una miniatura de la imagen.
+Cree una función de controlador que pueda leer en la imagen que quiere cargar. Al recorrer en iteración los archivos en el objeto `FileList`, el controlador debe asegurarse de que el archivo seleccionado es un archivo de imagen y que su tamaño es de 1 MB o menos. Si la imagen es mayor, debe reducir su tamaño para cargarla. Por último, el controlador muestra una miniatura de la imagen:
 
 ```javascript
 function handleFileSelect(selector) {
@@ -136,7 +135,7 @@ function handleFileSelect(selector) {
 
 ## <a name="add-and-store-a-subscription-key"></a>Incorporación y almacenamiento de una clave de suscripción
 
-La aplicación necesita una clave de suscripción para realizar llamadas a Bing Visual Search API. En este tutorial, la proporcionará en la interfaz de usuario. Agregue la siguiente etiqueta `<input>` (con el atributo de tipo establecido en texto) al elemento `<body>` justo debajo de la etiqueta `<output>` del archivo.
+La aplicación requiere una clave de suscripción para realizar llamadas a Bing Visual Search API. En este tutorial, la proporcionará en la interfaz de usuario. Agregue la siguiente etiqueta `<input>` (con el atributo de tipo establecido en texto) al elemento `<body>` inmediatamente debajo de la etiqueta `<output>` del archivo:
 
 ```html
     <div>
@@ -146,9 +145,9 @@ La aplicación necesita una clave de suscripción para realizar llamadas a Bing 
     </div>
 ```
 
-Con la imagen y la clave de suscripción, puede realizar la llamada a Bing Visual Search para obtener conclusiones sobre la imagen. En este tutorial, la llamada usará el mercado predeterminado (`en-us`) y el valor de búsqueda segura (`moderate`).
+Con la imagen y la clave de suscripción, puede realizar la llamada a Bing Visual Search para obtener conclusiones sobre la imagen. En este tutorial, la llamada usa el mercado predeterminado (`en-us`) y el valor de búsqueda segura (`moderate`).
 
-Esta aplicación tiene una opción para cambiar estos valores. Agregue la siguiente etiqueta `<div>` debajo del elemento div de la clave de suscripción. La aplicación usa una etiqueta `<select>` para proporcionar una lista desplegable de valores de búsqueda segura y mercado. Ambas listas muestran el valor predeterminado.
+Esta aplicación tiene una opción para cambiar estos valores. Agregue el siguiente `<div>` debajo del elemento `<div>` de la clave de suscripción. La aplicación usa una etiqueta `<select>` para proporcionar una lista desplegable de valores de búsqueda segura y mercado. Ambas listas muestran el valor predeterminado.
 
 ```html
 <div>
@@ -210,9 +209,9 @@ Esta aplicación tiene una opción para cambiar estos valores. Agregue la siguie
 </div>
 ```
 
-## <a name="add-search-options-to-the-webpage"></a>Incorporación de opciones de búsqueda a la página web 
+## <a name="add-search-options-to-the-webpage"></a>Incorporación de opciones de búsqueda a la página web
 
-La aplicación oculta las listas en un elemento div contraíble que está controlado por el vínculo de opciones de consulta. Al hacer clic en el vínculo Opciones de consulta, el elemento div se expande para que se puedan ver y modificar las opciones de consulta. Si hace clic de nuevo en el vínculo Opciones de consulta, el div se contrae y queda oculto. A continuación se muestra el controlador onclick del vínculo Opciones de consulta. El controlador ve si la etiqueta div está expandida o contraída. Agregue este controlador a la sección `<script>`. Todos los elementos div contraíbles en la demostración utilizan el controlador.
+La aplicación oculta las listas en un elemento `<div>` contraíble que está controlado por el vínculo de opciones de consulta. Al hacer clic en dicho vínculo, el elemento `<div>` se expande para que se puedan ver y modificar las opciones de consulta. Si hace clic en el vínculo por segunda vez, el elemento `<div>` se contrae y queda oculto. El siguiente fragmento de código muestra el controlador `onclick` del vínculo de opciones de consulta. Este controla si el elemento `<div>` está expandido o contraído. Agregue este controlador a la sección `<script>`. El controlador lo usan todas las secciones `<div>` de la demostración.
 
 ```javascript
 // Contains the toggle state of divs.
@@ -234,26 +233,26 @@ function expandCollapse(divToToggle) {
 }
 ```
 
-## <a name="call-the-onclick-handler"></a>Llamada al controlador onclick
+## <a name="call-the-onclick-handler"></a>Llamada al controlador `onclick`
 
-Agregue el siguiente botón `"Get insights"` debajo del elemento div de opciones en el cuerpo. El botón le permite iniciar la llamada. Cuando el usuario hace clic en el botón, cambia el cursor a un cursor de espera giratorio y se llama al controlador onclick.
+Agregue el siguiente botón `"Get insights"` debajo de la sección `<div>` de opciones del cuerpo. El botón le permite iniciar la llamada. La hacer clic en el botón, el cursor pasa a ser a un cursor de espera giratorio y se llama al controlador `onclick`.
 
 ```html
 <p><input type="button" id="query" value="Get insights" onclick="document.body.style.cursor='wait'; handleQuery()" /></p>
 ```
 
-Agregue el controlador onclick del botón, `handleQuery()` a la etiqueta `<script>`. 
+Agregue el controlador `onclick` del botón, `handleQuery()` a la etiqueta `<script>`.
 
 ## <a name="handle-the-query"></a>Gestión de la consulta
 
-El controlador `handleQuery()` garantiza que la clave de suscripción está presente, que tiene 32 caracteres y que se ha seleccionado una imagen. También borra cualquier información de una consulta anterior. Después, llama a la función `sendRequest()` para realizar la llamada.
+El controlador `handleQuery()` garantiza que la clave de suscripción está presente y que tiene 32 caracteres, y que se ha seleccionado una imagen. También borra cualquier información de una consulta anterior. Después, llama a la función `sendRequest()` para realizar la llamada.
 
 ```javascript
 function handleQuery() {
     var subscriptionKey = document.getElementById('key').value;
 
     // Make sure user provided a subscription key and image.
-    // For this demo, the user provides the key but typically you'd 
+    // For this demo, the user provides the key but typically you'd
     // get it from secured storage.
     if (subscriptionKey.length !== 32) {
         alert("Subscription key length is not valid. Enter a valid key.");
@@ -285,7 +284,7 @@ function handleQuery() {
 
 ## <a name="send-the-search-request"></a>Envío de la solicitud de búsqueda
 
-La función `sendRequest()` da formato a la dirección URL del punto de conexión, establece el encabezado Ocp-Apim-Subscription-Key en la clave de suscripción, anexa el binario de la imagen que se va a cargar, especifica el controlador de respuesta y hace la llamada. 
+La función `sendRequest()` da formato a la dirección URL del punto de conexión, establece el encabezado `Ocp-Apim-Subscription-Key` en la clave de suscripción, anexa el binario de la imagen que se va a cargar, especifica el controlador de respuesta y realiza la llamada:
 
 ```javascript
 function sendRequest(file, key) {
@@ -307,7 +306,7 @@ function sendRequest(file, key) {
 
 ## <a name="get-and-handle-the-api-response"></a>Obtención y gestión de la respuesta de API
 
-La función `handleResponse()` gestiona la respuesta de la llamada a Bing Visual Search. Si la llamada se realiza correctamente, analiza la respuesta JSON en las etiquetas individuales, que contienen la información. A continuación, agrega los resultados de búsqueda a la página. La aplicación crea entonces un elemento div contraíble para cada etiqueta a fin de administrar cuántos datos se muestran. Agregue el controlador a la sección `<script>`.
+La función `handleResponse()` gestiona la respuesta de la llamada a Bing Visual Search. Si la llamada se realiza correctamente, analiza la respuesta JSON en las etiquetas individuales, que contienen la información. A continuación, agrega los resultados de búsqueda a la página. Luego, la aplicación crea una sección `<div>` contraíble para cada etiqueta, con el fin de administrar la cantidad de datos que se muestran. Agregue el controlador a la sección `<script>`.
 
 ```javascript
 function handleResponse() {
@@ -323,7 +322,7 @@ function handleResponse() {
     document.getElementById('responseSection').appendChild(h4);
     buildTagSections(tags);
 
-    document.body.style.cursor = 'default'; // reset the wait curor set by query insights button
+    document.body.style.cursor = 'default'; // reset the wait cursor set by query insights button
 }
 ```
 
@@ -337,7 +336,7 @@ function parseResponse(json) {
 
     for (var i =0; i < json.tags.length; i++) {
         var tag = json.tags[i];
-        
+
         if (tag.displayName === '') {
             dict['Default'] = JSON.stringify(tag);
         }
@@ -352,7 +351,7 @@ function parseResponse(json) {
 
 ### <a name="build-a-tag-section"></a>Compilación de una sección de etiqueta
 
-La función `buildTagSections()` recorre en iteración las etiquetas JSON analizadas y llama a la función `buildDiv()` para crear un elemento div para cada etiqueta. Cada etiqueta se muestra como un vínculo. Cuando se hace clic en el vínculo, la etiqueta se expande y muestra las conclusiones asociadas con ella. Al hacer clic de nuevo en el vínculo, la sección se contraerá.
+La función `buildTagSections()` recorre en iteración las etiquetas JSON analizadas y llama a la función `buildDiv()` para crear un elemento `<div>` para cada etiqueta. Cada etiqueta se muestra como un vínculo. Cuando se hace clic en el vínculo, la etiqueta se expande y muestra las conclusiones asociadas con ella. Al hacer clic de nuevo en el vínculo, la sección se contrae.
 
 ```javascript
 function buildTagSections(tags) {
@@ -391,11 +390,11 @@ function buildDiv(tags, tag) {
 
 ## <a name="display-the-search-results-in-the-webpage"></a>Visualización de los resultados de búsqueda en la página web
 
-La función `buildDiv()` llama a la función addDivContent para compilar el contenido del elemento div contraíble de cada etiqueta.
+La función `buildDiv()` llama a la función `addDivContent` para compilar el contenido del elemento `<div>` contraíble de cada etiqueta.
 
-El contenido de la etiqueta incluye el JSON de la respuesta para la etiqueta. Inicialmente, solo se muestran los primeros 100 caracteres del JSON, pero puede hacer clic en la cadena JSON para mostrar todo el JSON. Si vuelve a hacer clic en ella, la cadena JSON se contrae hasta 100 caracteres.
+El contenido de la etiqueta incluye el JSON de la respuesta para la etiqueta. Inicialmente, solo se muestran los 100 primeros caracteres del JSON, pero puede hacer clic en la cadena JSON para mostrar todo el JSON. Si vuelve a hacer clic en ella, la cadena JSON se contrae hasta 100 caracteres.
 
-Después, agregue los tipos de acciones que se encuentran en la etiqueta. Para cada tipo de acción, llame a las funciones adecuadas para agregar sus conclusiones.
+Después, agregue los tipos de acciones que se encuentran en la etiqueta. Para cada tipo de acción, llame a las funciones adecuadas para agregar su información:
 
 ```javascript
 function addDivContent(div, tag, json) {
@@ -472,21 +471,21 @@ function addDivContent(div, tag, json) {
 
 ## <a name="display-insights-for-different-actions"></a>Visualización de conclusiones para distintas acciones
 
-Las siguientes funciones muestran conclusiones para distintas acciones. Las funciones proporcionan una imagen en la que se puede hacer clic o un vínculo en el que se puede hacer clic que le envía a una página web con más información sobre la imagen. Esta página está hospedada en Bing.com o en el sitio web original de la imagen. No todos los datos de las conclusiones se muestran en esta aplicación. Para ver todos los campos disponibles para una conclusión, consulte la [referencia de Bing Visual Search](https://aka.ms/bingvisualsearchreferencedoc).
+Las siguientes funciones muestran conclusiones para distintas acciones. Las funciones proporcionan una imagen en la que se puede hacer clic o un vínculo en el que se puede hacer clic que le envía a una página web con más información sobre la imagen. Esta página está hospedada en Bing.com o en el sitio web original de la imagen. No todos los datos de las conclusiones se muestran en esta aplicación. Para ver todos los campos disponibles para una conclusión, consulte la referencia [Images - Visual Search](https://aka.ms/bingvisualsearchreferencedoc) (Imágenes: Visual Search).
 
 > [!NOTE]
-> Hay una cantidad mínima de información de conclusiones que debe mostrar en la página. Consulte los [requisitos de visualización y uso de Bing](./use-and-display-requirements.md) para más información.
+> Hay una cantidad mínima de información de conclusiones que debe mostrar en la página. Para más información, consulte [Requisitos de uso y visualización de Bing Search API](../bing-web-search/use-display-requirements.md).
 
 ### <a name="relatedimages-insights"></a>Conclusiones de RelatedImages
 
-La función `addRelatedImages()` crea un título para cada uno de los sitios web que hospedan la imagen relacionada, para lo cual recorre en iteración la lista de acciones `RelatedImages` y anexa una etiqueta `<img>` al elemento `<div>` exterior de cada una.
+La función `addRelatedImages()` crea un título para cada uno de los sitios web que hospedan la imagen relacionada, para lo que recorre en iteración la lista de acciones `RelatedImages` y anexa una etiqueta `<img>` al elemento `<div>` exterior de cada una de ellas:
 
 ```javascript
     function addRelatedImages(div, images) {
         var length = (images.length > 10) ? 10 : images.length;
 
-        // Set the title to the website that hosts the image. The title displays 
-        // when the user hovers over the image. 
+        // Set the title to the website that hosts the image. The title displays
+        // when the user hovers over the image.
 
         // Make the image clickable. If the user clicks the image, they're taken
         // to the image in Bing.com.
@@ -510,7 +509,7 @@ La función `addRelatedImages()` crea un título para cada uno de los sitios web
 
 ### <a name="pagesincluding-insights"></a>Conclusiones de PagesIncluding
 
-La función `addPagesIncluding()` crea un vínculo para cada uno de los sitios web que hospedan la imagen cargada, para lo cual recorre en iteración la lista de acciones `PagesIncluding` y anexa una etiqueta `<img>` al elemento `<div>` exterior de cada una.
+La función `addPagesIncluding()` crea un vínculo para cada uno de los sitios web que hospedan la imagen cargada, para lo cual recorre en iteración la lista de acciones `PagesIncluding` y anexa una etiqueta `<img>` al elemento `<div>` exterior de cada una de ellas:
 
 ```javascript
 
@@ -534,7 +533,7 @@ La función `addPagesIncluding()` crea un vínculo para cada uno de los sitios w
 
 ### <a name="relatedsearches-insights"></a>Conclusiones de RelatedSearches
 
-La función `addRelatedSearches()` crea un vínculo para el sitio web que hospeda la imagen, para lo cual recorre en iteración la lista de acciones `RelatedSearches` y anexa una etiqueta `<img>` al elemento `<div>` exterior de cada una.
+La función `addRelatedSearches()` crea un vínculo para el sitio web que hospeda la imagen, para lo cual recorre en iteración la lista de acciones `RelatedSearches` y anexa una etiqueta `<img>` al elemento `<div>` exterior de cada una de ellas:
 
 ```javascript
 
@@ -567,11 +566,11 @@ La función `addRelatedSearches()` crea un vínculo para el sitio web que hosped
 
 ### <a name="recipes-insights"></a>Conclusiones de Recipes
 
-La función `addRecipes()` crea un vínculo para cada una de las recetas devueltas, para lo cual recorre en iteración la lista de acciones `Recipes` y anexa una etiqueta `<img>` al elemento `<div>` exterior de cada una.
+La función `addRecipes()` crea un vínculo para cada una de las recetas devueltas, para lo cual recorre en iteración la lista de acciones `Recipes` y anexa una etiqueta `<img>` al elemento `<div>` exterior de cada una de ellas:
 
 ```javascript
     // Display links to the first 10 recipes. Include the recipe's rating,
-    // if available. 
+    // if available.
     // TODO: Add 'more' link in case the user wants to see all of them.
     function addRecipes(div, recipes) {
         var length = (recipes.length > 10) ? 10 : recipes.length;
@@ -599,7 +598,7 @@ La función `addRecipes()` crea un vínculo para cada una de las recetas devuelt
 
 ### <a name="shopping-insights"></a>Conclusiones de Shopping
 
-La función `addShopping()` crea un vínculo para cada uno de los resultados de compra devueltos, para lo cual recorre en iteración la lista de acciones `RelatedImages` y anexa una etiqueta `<img>` al elemento `<div>` exterior de cada una.
+La función `addShopping()` crea un vínculo con los resultados de la compra devuelta, para lo que recorre en iteración la lista de acciones `RelatedImages` y anexa una etiqueta `<img>` al elemento `<div>` exterior de cada una:
 
 ```javascript
     // Display links for the first 10 shopping offers.
@@ -628,11 +627,11 @@ La función `addShopping()` crea un vínculo para cada uno de los resultados de 
 
 ### <a name="products-insights"></a>Conclusiones de Products
 
-La función `addProducts()` crea un vínculo con los resultados de los productos devueltos, para lo cual recorre en iteración la lista de acciones `Products` y anexa una etiqueta `<img>` al elemento `<div>` exterior de cada una.
+La función `addProducts()` crea un vínculo con los resultados de los productos devueltos, para lo que recorre en iteración la lista de acciones `Products` y anexa una etiqueta `<img>` al elemento `<div>` exterior de cada una:
 
 ```javascript
 
-    // Display the first 10 related products. Display a clickable image of the 
+    // Display the first 10 related products. Display a clickable image of the
     // product that takes the user to Bing.com search results for the product.
     // If there are any offers associated with the product, provide links to the offers.
     // TODO: Add 'more' link in case the user wants to see all of them.
@@ -692,7 +691,7 @@ La función `addProducts()` crea un vínculo con los resultados de los productos
 
 ### <a name="textresult-insights"></a>Conclusiones de TextResult
 
-La función `addTextResult()` mostrará cualquier texto que se haya reconocido en la imagen.
+La función `addTextResult()` muestra cualquier texto que se haya reconocido en la imagen:
 
 ```javascript
 
@@ -703,7 +702,7 @@ La función `addTextResult()` mostrará cualquier texto que se haya reconocido e
     }
 ```
 
-La función `addEntity()` mostrará un vínculo que lleva al usuario a Bing.com, donde puede obtener detalles sobre el tipo de entidad de la imagen, si se detecta alguno.
+La función `addEntity()` muestra un vínculo que lleva al usuario a Bing.com, donde puede obtener detalles sobre el tipo de entidad de la imagen, si se ha detectado alguno:
 
 ```javascript
     // If the image is of a person, the tag might include an entity
@@ -719,7 +718,7 @@ La función `addEntity()` mostrará un vínculo que lleva al usuario a Bing.com,
     }
 ```
 
-La función `addImageWithWebSearchUrl()` mostrará una imagen en la que se puede hacer clic del elemento div que lleva al usuario a los resultados de búsqueda en Bing.com. 
+La función `addImageWithWebSearchUrl()` muestra una imagen en la que se puede hacer clic del elemento `<div>` que lleva al usuario a los resultados de búsqueda en Bing.com:
 
 ```javascript
     function addImageWithWebSearchUrl(div, image, action) {
@@ -738,11 +737,11 @@ La función `addImageWithWebSearchUrl()` mostrará una imagen en la que se puede
 
 ## <a name="add-a-css-style"></a>Incorporación de un estilo CSS
 
-Agregue la siguiente sección `<style>` a la etiqueta `<head>` para organizar el diseño de la página web.
+Agregue la siguiente sección `<style>` a la etiqueta `<head>` para organizar el diseño de la página web:
 
 ```html
         <style>
-            
+
             .thumb {
                 height: 75px;
                 border: 1px solid #000;
@@ -773,4 +772,5 @@ Agregue la siguiente sección `<style>` a la etiqueta `<head>` para organizar el
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Tutorial: Búsqueda de imágenes similares de búsquedas anteriores mediante ImageInsightsToken](./tutorial-visual-search-insights-token.md).
+>[!div class="nextstepaction"]
+> [Tutorial: Búsqueda de imágenes similares de búsquedas anteriores mediante ImageInsightsToken](./tutorial-visual-search-insights-token.md)
