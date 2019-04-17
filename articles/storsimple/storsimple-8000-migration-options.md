@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/10/2019
+ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: e8a5ae4a4ee9cfd5c39e8e399784ec65f2ee2660
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 78508c1227c0b278041b86c3fdd698c6ad27c132
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500913"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608224"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>Opciones para migrar datos desde la serie 5000-7000 de StorSimple 
 
 > [!IMPORTANT]
-> El 31 de julio de 2019, finalizará el estado de compatibilidad de la serie StorSimple 5000/7000. Se recomienda que los clientes de la serie StorSimple 5000/7000 migren a una de las alternativas descritas en el documento.
+> 9 de julio de 2019 la serie StorSimple 5000/7000 finalizará el estado de compatibilidad (EOS). Se recomienda que los clientes de la serie StorSimple 5000/7000 migren a una de las alternativas descritas en el documento.
 
 La serie 5000-7000 de StorSimple alcanzará el [fin del soporte técnico](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series) en julio de 2019. Los clientes que ejecutan la serie 5000-7000 de StorSimple tienen una opción para actualizar a otros servicios híbridos de primera entidad de Azure. En este artículo se describen las opciones híbridas de Azure disponibles para migrar datos. 
 
@@ -114,7 +114,7 @@ A. El costo de migración varía según la opción que elija. Mientras la migrac
 
 De forma similar, cuando se usa Azure File Sync, pueden aplicarse tarifas de suscripción para el servicio. En cada caso, los clientes también tendrán que pagar los costos de almacenamiento en curso. Consulte la siguiente información para obtener una estimación: 
 - [Precios de StorSimple](https://azure.microsoft.com/pricing/details/storsimple/)  
-- [AFS precios]( https://azure.microsoft.com/pricing/details/storage/files/)
+- [Precios de AFS]( https://azure.microsoft.com/pricing/details/storage/files/)
 
 ### <a name="q--how-long-does-it-take-to-complete-a-migration"></a>P:  ¿Cuánto tiempo se tarda en completar una migración?
 
@@ -127,4 +127,4 @@ A. La fecha final del soporte técnico para la serie 8000 de StorSimple está pu
 
 ## <a name="next-steps"></a>Pasos siguientes
  - [Migración de datos del dispositivo de la serie 5000-7000 de StorSimple a la serie 8000](storsimple-8000-migrate-from-5000-7000.md)
- - [Migrar datos de una serie 5000-7000 de StorSimple a Azure File Sync](storsimple-5000-7000-afs-migration.md)
+ - [Migrate data from a StorSimple 5000-7000 series to Azure File Sync](storsimple-5000-7000-afs-migration.md) (Migración de datos de la serie 5000-7000 de StorSimple a Azure File Sync)

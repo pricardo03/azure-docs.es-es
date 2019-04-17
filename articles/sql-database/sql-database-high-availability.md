@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: carlrab, sashan
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: b58c3cc677291c11b93cff439bd669c58735f31e
-ms.sourcegitcommit: e51e940e1a0d4f6c3439ebe6674a7d0e92cdc152
-ms.translationtype: HT
+ms.openlocfilehash: fd6e383c2631a47daa7bf469c5bec59959453252
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/08/2019
-ms.locfileid: "55892837"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616856"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Alta disponibilidad y Azure SQL Database
 
@@ -43,7 +43,7 @@ En la siguiente imagen se muestran cuatro nodos en el modelo de arquitectura est
 En el modelo de disponibilidad estándar hay dos capas:
 
 - Una capa de proceso sin estado que ejecuta el proceso `sqlserver.exe` y que solo contiene datos en caché y transitorios (por ejemplo, caché de planes, grupo de búferes o grupo de almacenes de columnas). Este nodo sin estado de SQL Server lo opera Azure Service Fabric, que inicializa el proceso, controla el estado del nodo y realiza la conmutación por error en otro lugar si es necesario.
-- Una capa de datos con estado con archivos de base de datos (.mdf o .ldf) que se almacenan en Azure Blob Storage. Azure Blob Storage garantiza que no se pierdan los datos de ningún registro que se encuentre en un archivo de base de datos. Azure Blob Storage tiene redundancia o disponibilidad de datos integrada que garantiza la conservación de los registros de una página o archivo de registro aunque se bloquee el proceso de SQL Server.
+- Una capa de datos con estado con archivos de base de datos (.mdf o .ldf) que se almacenan en Azure Blob Storage. Azure Blob Storage garantiza que no se pierdan los datos de ningún registro que se encuentre en un archivo de base de datos. Almacenamiento de blobs de Azure tiene disponibilidad y redundancia de datos integrada que garantiza que cada registro en el archivo de registro o página en el archivo de datos se conservarán incluso si se bloquea el proceso de SQL Server.
 
 Siempre que se actualice un sistema operativo o un motor de base de dato, si se produce un error en la infraestructura subyacente o, si se detecta algún problema crítico en el proceso de SQL Server, Azure Service Fabric moverá el proceso sin estado de SQL Server a otro nodo de proceso sin estado. Hay un conjunto de nodos adicionales que esperan ejecutar un nuevo servicio de proceso en caso de que se produzca una conmutación por error, para minimizar el tiempo de conmutación por error. Esto no afecta a los datos de Azure Blob Storage, y los archivos de registro o de datos se anexan al proceso de SQL Server inicializado recientemente. Este proceso garantiza una disponibilidad del 99,99 %, pero podría afectar al rendimiento de grandes cargas de trabajo que se ejecutan debido al tiempo de transición y al hecho de que el nuevo nodo de SQL Server se inicia con la caché inactiva.
 

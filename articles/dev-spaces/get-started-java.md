@@ -10,12 +10,12 @@ ms.topic: tutorial
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
 manager: mmontwil
-ms.openlocfilehash: 49f3f50cd33d2b3fea1e784fcfc70044c568ba31
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b69a793d1d860bf2f2a4d52a92d4bea5cf903c0c
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57842420"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426314"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Introducción a Azure Dev Spaces con Java
 
@@ -26,15 +26,10 @@ En esta guía, aprenderá a:
 - Desarrollar y probar de forma productiva el código en un entorno de equipo.
 
 > [!Note]
-> **Si se queda bloqueado** en cualquier momento, consulte la sección [Solución de problemas](troubleshooting.md) o publique un comentario en esta página.
-
-Ya está preparado para crear un espacio de desarrollo basado en Kubernetes en Azure.
+> **Si se queda bloqueado** en cualquier momento, consulte la sección [Solución de problemas](troubleshooting.md).
 
 ## <a name="install-the-azure-cli"></a>Instalación de la CLI de Azure
 Azure Dev Spaces requiere una configuración mínima de la máquina local. La mayor parte de la configuración del espacio de desarrollo se almacena en la nube y se puede compartir con otros usuarios. Para comenzar, descargue y ejecute la [CLI de Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
-
-> [!IMPORTANT]
-> Si ya tiene instalada la CLI de Azure, asegúrese de que usa la versión 2.0.43, o cualquier versión superior.
 
 ### <a name="sign-in-to-azure-cli"></a>Inicio de sesión en la CLI de Azure
 Inicie sesión en Azure. Escriba el siguiente comando en una ventana de terminal:
@@ -153,7 +148,7 @@ Abra esta dirección URL en una ventana del explorador y verá la aplicación we
 > Con Azure Dev Spaces no se trata solo de conseguir que el código se ejecute en Kubernetes, sino de permitirle ver rápida e iterativamente que los cambios de código surtan efecto en un entorno de Kubernetes en la nube.
 
 1. En la ventana de terminal, presione `Ctrl+C` (para detener `azds up`).
-1. Abra el archivo de código denominado `src/main/java/com/ms/sample/webfrontend/Application.java` y edite el mensaje de saludo: `return "Hello from webfrontend in Azure!";`.
+1. Abra el archivo de código denominado `src/main/java/com/ms/sample/webfrontend/Application.java` y edite el mensaje de saludo: `return "Hello from webfrontend in Azure!";`
 1. Guarde el archivo.
 1. Ejecute `azds up` en la ventana de terminal.
 
@@ -220,9 +215,9 @@ En lugar de volver a crear e implementar una nueva imagen de contenedor cada vez
 
 Actualice la aplicación web en el explorador. Verá que aparece el mensaje personalizado en la interfaz de usuario.
 
-**Ahora tiene un método para iterar rápidamente el código y depurarlo directamente en Kubernetes.** A continuación, verá cómo puede crear y llamar a un segundo contenedor.
+**Ya tiene un método para iterar rápidamente el código y depurarlo directamente en Kubernetes.** A continuación, verá cómo puede crear y llamar a un segundo contenedor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Aprenda sobre el desarrollo de varios servicios](multi-service-java.md)
+> [Más información acerca del desarrollo de varios servicios](multi-service-java.md)

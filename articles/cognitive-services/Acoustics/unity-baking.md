@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: kegodin
-ms.openlocfilehash: f44b6f9ed42770fe830346de08058e33ed68a249
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 8875674b0f9c621a573dda591b4dc2b6f018a83c
+ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58309649"
+ms.lasthandoff: 04/10/2019
+ms.locfileid: "59470345"
 ---
 # <a name="project-acoustics-unity-bake-tutorial"></a>Tutorial de simulación mediante "bake" de Project Acoustics con Unity
 Este tutorial describe la simulación acústica mediante "bake" de Project Acoustics con Unity.
@@ -137,7 +137,7 @@ El nombre de la escena se usa para conectar la escena a los archivos que almacen
 
 1. El botón de la pestaña **Probes** (Sondeos), se usa para abrir esta página.
 2. Una breve descripción de lo que debe hacer al usar esta página.
-3. Use esto para elegir una resolución de simulación gruesa o fina. Gruesa es más rápido, pero tiene algunos inconvenientes. Consulte [Selección de resolución gruesa frente a fina](#Coarse-vs-Fine-Resolution) a continuación para más detalles.
+3. Use esto para elegir una resolución de simulación gruesa o fina. Gruesa es más rápido, pero tiene algunos inconvenientes. Para más información, consulte [Resolución de simulación mediante "bake"](bake-resolution.md).
 4. Elija la ubicación donde se deben colocar los archivos de datos acústicos con este campo. Haga clic en el botón "..." para usar un selector de carpetas. El valor predeterminado es **Assets/AcousticsData**. También se creará una subcarpeta **Editor** en esta ubicación. Para más información acerca de los archivos de datos, consulte más abajo la sección de [Archivos de datos](#Data-Files).
 5. El nombre de los archivos de datos para esta escena llevará el prefijo proporcionado aquí. El valor predeterminado es "Acoustics_ [nombre de la escena]".
 6. Una vez se hayan calculado los sondeos, se deshabilitarán los controles anteriores. Haga clic en el botón **Clear** (Borrar) para borrar los cálculos y habilitar los controles de modo que pueda realizar otro cálculo con otros valores.
@@ -145,21 +145,7 @@ El nombre de la escena se usa para conectar la escena a los archivos que almacen
 
 En esta versión de Project Acoustics, los sondeos no se pueden colocar manualmente y se deben colocar a través del proceso automatizado proporcionado en la pestaña **Probes** (Sondeos).
 
-### <a name="Coarse-vs-Fine-Resolution"></a>Selección de resolución gruesa frente a fina
-
-La única diferencia entre la configuración de resolución gruesa y la fina es la frecuencia con la que se realiza la simulación. La fina usa una frecuencia el doble de alta que la gruesa.
-Aunque puede parecer simple, tiene varias implicaciones en la simulación acústica:
-
-* La longitud de onda de la gruesa es el doble de larga que la fina y, por lo tanto, los vóxeles son el doble de grandes.
-* El tiempo de simulación está directamente relacionado con el tamaño de vóxel, lo que hace que la simulación mediante "bake" gruesa sea 16 veces más rápida que la simulación mediante "bake" fina.
-* Los portales (por ejemplo, puertas o ventanas) más pequeños que el tamaño de vóxel no se pueden simular. La configuración gruesa puede hacer que algunos de estos portales más pequeños no se simulen; por lo tanto, no pasarán sonidos en tiempo de ejecución. Para ver si sucede esto, puede visualizar los vóxeles.
-* La frecuencia de simulación inferior da como resultado menos difracción en torno a los bordes y esquinas.
-* Los orígenes del sonido no se pueden ubicar dentro de vóxeles "rellenos", que son vóxeles que contienen la geometría, ya que el resultado sería ningún sonido. Es más difícil localizar los orígenes de sonido para que no estén dentro de vóxeles más grandes de la configuración gruesa que utilizar la configuración fina.
-* Los vóxeles más grandes se meten más en los portales, como se muestra a continuación. La primera imagen se creó con la configuración gruesa, mientras que la segunda es la misma entrada con resolución fina. Como indican las marcas de color rojo, hay mucha menos intrusión en la entrada cuando se usa la configuración fina. La línea azul es la entrada, como se define en la geometría, mientras que la línea roja es el portal acústico efectivo definido por el tamaño de vóxel. La evolución esta intrusión en una situación determinada dependerá completamente de cómo los vóxeles se alineen con la geometría del portal, que viene determinado por el tamaño y las ubicaciones de los objetos en la escena.
-
-![Captura de pantalla de vóxeles gruesos en la entrada](media/coarse-voxel-doorway.png)
-
-![Captura de pantalla de vóxeles finos en la entrada](media/fine-voxel-doorway.png)
+Para más información acerca de la diferencia entre baja y alta resolución, consulte [Resolución de simulación mediante "bake"](bake-resolution.md).
 
 ## <a name="bake-your-scene-using-azure-batch"></a>Simulación mediante "bake" de una escena con Azure Batch
 Se puede simular mediante "bake" la escena con un clúster de proceso en la nube usando el servicio Azure Batch. El complemento de Project Acoustics para Unitiy se conecta directamente a Azure Batch para crear instancias, administrar y anular un clúster de Azure Batch para cada simulación mediante "bake". En la pestaña **Bake**, escriba sus credenciales de Azure, seleccione un tamaño y tipo de máquina del clúster y haga clic en **Bake**.
@@ -210,7 +196,7 @@ Por ejemplo, en las pruebas realizadas en una máquina de 8 núcleos con Intel X
 Instale y configure Docker en el equipo en el que se va a procesar la simulación:
 1. Instale el [conjunto de herramientas de Docker](https://www.docker.com/products/docker-desktop).
 2. Inicie la configuración de Docker, vaya a las opciones "Avanzadas" y configure los recursos para tener al menos 8 GB de RAM. Cuantas más CPU pueda asignar a Docker, más rápidamente se completará la elaboración. ![Captura de pantalla de configuración de Docker de ejemplo](media/docker-settings.png)
-3. Vaya a "Unidades compartidas" y active el uso compartido de la unidad que se usa para el procesamiento.![Captura de pantalla de opciones de unidad compartida de Docker](media/docker-shared-drives.png)
+3. Vaya a "Unidades compartidas" y active el uso compartido de la unidad que se usa para el procesamiento.![Captura de pantalla de las opciones de las unidades compartidas de Docker](media/docker-shared-drives.png)
 
 ### <a name="run-local-bake"></a>Ejecución de la elaboración local
 1. Haga clic en el botón "Prepare Local Bake" (Preparar la simulación mediante "bake" local) en la pestaña **Bake** y seleccione una carpeta para guardar los archivos de entrada y los scripts de ejecución. Después, puede ejecutar la elaboración en cualquier equipo, siempre que cumpla los requisitos mínimos de hardware y tenga Docker instalado si copia la carpeta en ese equipo.

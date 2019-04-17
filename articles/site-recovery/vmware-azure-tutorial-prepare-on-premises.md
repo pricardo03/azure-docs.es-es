@@ -6,35 +6,37 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2018
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 883e4cbc33ebbef0328bb1de47025e99e670f7cd
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 1095a80ba05aa3e0ae6dfcd526db7ffd18fb9d4d
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311050"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59359372"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores de VMware locales para la recuperación ante desastres en Azure
 
-[Azure Site Recovery](site-recovery-overview.md) contribuye a la estrategia de recuperación ante desastres y continuidad empresarial (BCDR) al mantener sus aplicaciones empresariales al día y disponibles durante interrupciones planeadas y no planeadas. Azure Site Recovery administra y coordina la recuperación ante desastres de máquinas locales y máquinas virtuales de Azure, lo que incluye la replicación, la conmutación por error y la recuperación.
+En este artículo se describe cómo preparar servidores de VMware locales para la recuperación ante desastres en Azure mediante el servicio [Azure Site Recovery](site-recovery-overview.md). 
 
-- Este es el segundo tutorial de una serie que muestra cómo configurar la recuperación ante desastres en Azure para máquinas virtuales locales de VMware. En el primer tutorial, se [configuraron los componentes de Azure](tutorial-prepare-azure.md) necesarios para la recuperación ante desastres de VMware.
+Este es el segundo tutorial de una serie que muestra cómo configurar la recuperación ante desastres en Azure para máquinas virtuales locales de VMware. En el primer tutorial, se [configuraron los componentes de Azure](tutorial-prepare-azure.md) necesarios para la recuperación ante desastres de VMware.
 
 
-> [!NOTE]
-> Los tutoriales están diseñados para mostrarle la ruta de implementación más sencilla para un escenario. Usan opciones predeterminadas siempre que es posible y no muestran todos los valores y las rutas de acceso posibles. Para instrucciones detalladas, consulte la sección del **procedimiento** para el escenario correspondiente.
-
-En este artículo, se indica cómo preparar el entorno local de VMware cuando desea replicar máquinas virtuales de VMware en Azure mediante Azure Site Recovery. Aprenderá a:
+En este artículo, aprenderá a:
 
 > [!div class="checklist"]
-> * Preparar una cuenta en el servidor vCenter o en el host ESXi de vSphere para automatizar la detección de máquinas virtuales
-> * Preparar una cuenta para la instalación automática de Mobility Service en máquinas virtuales de VMware
-> * Revisar los requisitos del servidor de VMware y de las máquinas virtuales
-> * Preparación para la conexión a las máquinas virtuales de Azure después de la conmutación por error
+> * Preparar una cuenta en el servidor vCenter o en el host ESXi de vSphere para automatizar la detección de VM.
+> * Preparar una cuenta para la instalación automática de Mobility Service en máquinas virtuales de VMware.
+> * Revisar los requisitos y el soporte técnico del servidor de VMware y de las máquinas virtuales.
+> * Preparar la conexión con las máquinas virtuales de Azure después de la conmutación por error.
 
+> [!NOTE]
+> Los tutoriales muestran la ruta de implementación más sencilla para un escenario. Usan opciones predeterminadas siempre que es posible y no muestran todos los valores y las rutas de acceso posibles. Para obtener instrucciones detalladas, consulte el artículo de la sección de procedimientos de la tabla de contenido de Site Recovery.
 
+## <a name="before-you-start"></a>Antes de comenzar
+
+Asegúrese de que ha preparado Azure como se describe en el [primer tutorial de esta serie](tutorial-prepare-azure.md).
 
 ## <a name="prepare-an-account-for-automatic-discovery"></a>Preparación de una cuenta de detección automática
 
@@ -51,7 +53,7 @@ Cree la cuenta como se indica a continuación:
 
 ### <a name="vmware-account-permissions"></a>Permisos de cuenta de VMware
 
-**Task** | **Rol o permisos** | **Detalles**
+**Tarea** | **Rol/permisos** | **Detalles**
 --- | --- | ---
 **Detección de máquina virtual** | Al menos un usuario de solo lectura<br/><br/> Objeto de centro de datos  –> Propagar al objeto secundario, rol = solo lectura | El usuario se asigna en el nivel de centro de datos y tiene acceso a todos los objetos de este.<br/><br/> Para restringir el acceso, asigne el rol **Sin acceso** con **Propagate to child object** (Propagar a objeto secundario) a los objetos secundarios (hosts de vSphere, almacenes de datos, máquinas virtuales y redes).
 **Replicación completa, conmutación por error, conmutación por recuperación** |  Cree un rol (Azure_Site_Recovery) con los permisos necesarios y, después, asígnelo a un grupo o usuario de VMware.<br/><br/> Objeto de centro de datos –> Propagar a objeto secundario, rol = Azure_Site_Recovery<br/><br/> Almacén de datos -> Asignar espacio, examinar almacén de datos, operaciones de archivo de bajo nivel, quitar archivo, actualizar archivos de máquina virtual<br/><br/> Red -> Asignación de red<br/><br/> Recursos-> Asignar máquina virtual al grupo de recursos, migrar apagado de máquina virtual, migrar máquinas virtuales encendidas<br/><br/> Tareas -> Crear tarea, actualizar tarea<br/><br/> Máquina virtual -> Configuración<br/><br/> Máquina virtual -> Interactuar -> Responder a pregunta, conexión de dispositivos, configurar soporte de CD, Configurar soporte de disquete, apagar, encender, instalación de herramientas de VMware<br/><br/> Máquina virtual -> Inventario -> Crear, registrar, anular registro<br/><br/> Máquina virtual -> Aprovisionamiento -> Permitir descarga de máquina virtual, permitir carga de archivos de máquina virtual<br/><br/> Máquina virtual -> Instantáneas -> Quitar instantáneas | El usuario se asigna en el nivel de centro de datos y tiene acceso a todos los objetos de este.<br/><br/> Para restringir el acceso, asigne el rol **Sin acceso** con **Propagate to child object** (Propagar a objeto secundario) a los objetos secundarios (hosts de vSphere, almacenes de datos, máquinas virtuales y redes).
@@ -107,13 +109,13 @@ Para conectarse a máquinas virtuales Linux mediante SSH después de la conmutac
 
 
 ## <a name="failback-requirements"></a>Requisitos de conmutación por recuperación
-Si va a conmutar por recuperación en su entorno local, también deberá asegurarse de [cumplir ciertos requisitos previos](vmware-azure-reprotect.md##before-you-begin). Sin embargo, **no se requiere empezar con la habilitación de la recuperación ante desastres** de las máquinas virtuales y también se puede realizar después de la conmutación por error a Azure.
+Si planea realizar la conmutación por recuperación a su sitio local, hay varios [requisitos previos para la conmutación por recuperación](vmware-azure-reprotect.md##before-you-begin). Puede prepararlos ahora, pero no es necesario. Puede prepararlos después de realizar la conmutación por error a Azure.
 
-## <a name="useful-links"></a>Vínculos útiles
 
-Si va a replicar varias máquinas virtuales, debe planear la capacidad y la implementación antes de empezar. [Más información](site-recovery-deployment-planner.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
+Configuración de la recuperación ante desastres. Si va a replicar varias máquinas virtuales, planee la capacidad.
 > [!div class="nextstepaction"]
-> [Configurar la recuperación ante desastres en Azure para máquinas virtuales de VMware](vmware-azure-tutorial.md)
+> [Configuración de la recuperación ante desastres en Azure para máquinas virtuales de VMware](vmware-azure-tutorial.md)
+> [Realización del planeamiento de la capacidad](site-recovery-deployment-planner.md).

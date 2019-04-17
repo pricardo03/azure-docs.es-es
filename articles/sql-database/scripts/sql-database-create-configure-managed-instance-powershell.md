@@ -7,21 +7,21 @@ ms.subservice: managed-instance
 ms.custom: ''
 ms.devlang: PowerShell
 ms.topic: sample
-author: CarlRabeler
-ms.author: carlrab
-ms.reviewer: ''
+author: stevestein
+ms.author: sstein
+ms.reviewer: carlrab
 manager: craigg
 ms.date: 03/25/2019
-ms.openlocfilehash: 955f13376ac899f66b0ec4e1ed99166164508fbe
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
+ms.openlocfilehash: c85b967615e866635cb4dd93be5ddeb78a8c7129
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58449818"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357006"
 ---
 # <a name="use-powershell-to-create-an-azure-sql-database-managed-instance"></a>Use PowerShell para crear una instancia administrada de Azure SQL Database
 
-En este ejemplo de script de PowerShell se crea una instancia administrada de Azure SQL Database en una subred dedicada de una red virtual nueva. También se configura una tabla de rutas y un grupo de seguridad de red para la red virtual. Una vez que el script se ha ejecutado correctamente, se puede acceder a la instancia administrada desde dentro de la red virtual o desde un entorno local. Para conocer tutoriales de inicio rápido en los que se muestre cómo realizar esta tarea, consulte [Configuración de una máquina virtual de Azure para la conexión a una Instancia administrada de Azure SQL Database](../sql-database-managed-instance-configure-vm.md) y [Configuración de una conexión de punto a sitio en una Instancia administrada de Azure SQL Database desde un entorno local](../sql-database-managed-instance-configure-p2s.md).
+En este ejemplo de script de PowerShell se crea una instancia administrada de Azure SQL Database en una subred dedicada de una red virtual nueva. También se configura una tabla de rutas y un grupo de seguridad de red para la red virtual. Una vez que el script se ha ejecutado correctamente, se puede acceder a la instancia administrada desde dentro de la red virtual o desde un entorno local. Consulte [Configuración de una máquina virtual de Azure para la conexión a una Instancia administrada de Azure SQL Database](../sql-database-managed-instance-configure-vm.md) y [Configuración de una conexión de punto a sitio en una Instancia administrada de Azure SQL Database desde un entorno local](../sql-database-managed-instance-configure-p2s.md).
 
 > [!IMPORTANT]
 > Para conocer las limitaciones, consulte las [regiones admitidas](../sql-database-managed-instance-resource-limits.md#supported-regions) y los [tipos de suscripción admitidos](../sql-database-managed-instance-resource-limits.md#supported-subscription-types).
@@ -36,7 +36,7 @@ Si decide instalar y usar PowerShell de manera local, en este tutorial se requie
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
-Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos y todos los recursos asociados.
+Use el siguiente comando para quitar el grupo de recursos y todos los recursos que tenga asociados.
 
 ```powershell
 Remove-AzResourceGroup -ResourceGroupName $resourcegroupname
@@ -48,7 +48,7 @@ Este script usa los siguientes comandos. Cada comando de la tabla crea un víncu
 
 | Get-Help | Notas |
 |---|---|
-| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos. 
+| [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Crea un grupo de recursos en el que se almacenan todos los recursos.
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | Crea una red virtual |
 | [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/Add-AzVirtualNetworkSubnetConfig) | Agrega una configuración de subred a una red virtual |
 | [Get-AzVirtualNetwork](/powershell/module/az.network/Get-AzVirtualNetwork) | Obtiene una red virtual en un grupo de recursos |

@@ -10,27 +10,22 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8bb601ac5c1ed8e9ca6d2027fe1b774a938e1f0a
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: ade0444110dbb23e762a869dc79805872c0f0bf0
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58362322"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59281138"
 ---
 # <a name="quickstart-use-your-own-notebook-server-to-get-started-with-azure-machine-learning"></a>Inicio rápido: Uso de su propio servidor de cuadernos para empezar a trabajar con Azure Machine Learning
 
-En este artículo, usará su propio servidor de cuadernos para ejecutar el código registrado en el [área de trabajo de Azure Machine Learning Service](concept-azure-machine-learning-architecture.md). El área de trabajo se encuentra en la nube y es el bloque fundamental que se utiliza para experimentar, entrenar e implementar modelos de aprendizaje automático con Machine Learning.
+Use su propio servidor de cuadernos para ejecutar el código que registra valores en el [área de trabajo de Azure Machine Learning Service](concept-azure-machine-learning-architecture.md). El área de trabajo se encuentra en la nube y es el bloque fundamental que se utiliza para experimentar, entrenar e implementar modelos de aprendizaje automático con Machine Learning.
 
-Este inicio rápido usa su propio entorno de Python y el servidor de Jupyter Notebook. Para empezar a trabajar rápidamente sin necesidad de instalación, consulte [Inicio rápido: Uso de un servidor de cuadernos basado en la nube para empezar a trabajar con Azure Machine Learning](quickstart-run-cloud-notebook.md) 
+Este inicio rápido usa su propio entorno de Python y el servidor de Jupyter Notebook. Para empezar a trabajar rápidamente sin necesidad de instalar el SDK, consulte [Inicio rápido: Uso de un servidor de cuadernos basado en la nube para empezar a trabajar con Azure Machine Learning](quickstart-run-cloud-notebook.md) 
 
 Vea una versión en vídeo de este artículo de inicio rápido:
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2G9N6]
-
-En esta guía de inicio rápido:
-
-* Escribir código que registra valores dentro del área de trabajo.
-* Verá los valores registrados en el área de trabajo.
 
 Si no tiene una suscripción a Azure, cree una cuenta gratuita antes de empezar. Pruebe hoy mismo la [versión gratuita o de pago de Azure Machine Learning Service](https://aka.ms/AMLFree).
 
@@ -61,7 +56,7 @@ Cuando finaliza la ejecución, puede ver la ejecución del experimento en Azure 
 print(run.get_portal_url())
 ```
 
-Use el vínculo para ver los valores registrados en Azure Portal en el explorador.
+Este código devuelve un vínculo que se puede usar para ver los valores de Azure Portal en el explorador.
 
 ![Valores registrados en Azure Portal](./media/quickstart-run-local-notebook/logged-values.png)
 

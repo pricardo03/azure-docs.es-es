@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2018
+ms.date: 4/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f927d1deb3da6269159e1f3f24a17c4675dc7568
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.openlocfilehash: ae83cea866367fa6a6596caa683d0287bea96c29
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56184897"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616219"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solución de problemas de autenticación de paso a través de Azure Active Directory
 
@@ -71,6 +71,9 @@ Vaya a **Azure Active Directory** -> **Inicios de sesión** en el [centro de adm
 | 80007 | El agente de autenticación no puede conectarse a Active Directory. | Compruebe si Active Directory es accesible desde el agente de autenticación.
 | 80010 | El agente de autenticación no puede descifrar la contraseña. | Si el problema se puede reproducir habitualmente, instale y registre un nuevo agente de autenticación. Después, desinstale el actual. 
 | 80011 | El agente de autenticación no puede recuperar la clave de descifrado. | Si el problema se puede reproducir habitualmente, instale y registre un nuevo agente de autenticación. Después, desinstale el actual.
+
+>[!IMPORTANT]
+>Los agentes de autenticación de paso a través autenticar usuarios de Azure AD mediante la validación de sus nombres de usuario y contraseñas en Active Directory mediante una llamada a la [Win32 LogonUser API](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Como resultado, si ha establecido la configuración de "Inicio de sesión para" en Active Directory para limitar el acceso de inicio de sesión de estación de trabajo, tendrá que agregar los servidores que hospedan a los agentes de autenticación de paso a través a la lista de "Inicio de sesión para" servidores así. Si no lo bloqueará su los usuarios inicien sesión en Azure AD.
 
 ## <a name="authentication-agent-installation-issues"></a>Problemas de instalación del agente de autenticación
 

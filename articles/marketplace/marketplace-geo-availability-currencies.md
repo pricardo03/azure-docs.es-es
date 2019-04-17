@@ -9,12 +9,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
-ms.openlocfilehash: 96ec1f3ecdca6437e1d25eca433d385573f6c659
-ms.sourcegitcommit: c712cb5c80bed4b5801be214788770b66bf7a009
+ms.openlocfilehash: 29e64a02cd4af3e1679283ffddb4afab065f8747
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57220783"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59609139"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Disponibilidad geográfica y soporte técnico de moneda
 
@@ -98,7 +98,7 @@ Se pueden adquirir ofertas de Azure Marketplace en 141 geografías tal como se d
 | Lituania                           | LT        | EUR          |
 | Luxemburgo                          | LU        | EUR          |
 | RAE de Macao                           | MO        | USD          |
-| Macedonia del Norte                      | MK        | USD          |
+| Macedonia del Norte                     | MK        | USD          |
 | Malasia                            | MY        | USD          |
 | Malta                               | MT        | EUR          |
 | Mauricio                           | MU        | USD          |

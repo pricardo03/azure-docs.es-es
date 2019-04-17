@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: sample
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: ''
+ms.reviewer: sstein
 manager: craigg
 ms.date: 02/04/2019
-ms.openlocfilehash: 58513b77315badc52acbc0c5116343461b44fa08
-ms.sourcegitcommit: de81b3fe220562a25c1aa74ff3aa9bdc214ddd65
+ms.openlocfilehash: 1e2f55d334d432544ffc185e5c68dfe4325b2b09
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56232969"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59356822"
 ---
 # <a name="azure-resource-manager-templates-for-azure-sql-database"></a>Plantillas de Azure Resource Manager para Azure SQL Database
 
@@ -33,7 +33,7 @@ En la tabla siguiente se incluyen vínculos a plantillas de Azure Resource Manag
 | [Servidor lógico](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-logical-server) | Esta plantilla de Azure Resource Manager crea un servidor lógico para Azure SQL Database. |
 | [Grupo elástico](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-elastic-pool-create) | Esta plantilla permite implementar un grupo de bases de datos elásticas nuevo con su nuevo servidor con SQL Server y sus nuevas bases de datos SQL asociados para asignárselo. |
 | [Grupos de conmutación por error](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-with-failover-group) | Esta plantilla crea dos servidores lógicos de Azure SQL, una base de datos SQL y un grupo de conmutación por error.|
-| [Advanced Threat Protection](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-advanced-threat-protection-server-policy) | Esta plantilla le permite implementar un servidor lógico de Azure SQL con el servicio Advanced Threat Protection habilitado y una instancia de Azure SQL Database opcional. SQL Advanced Threat Protection es un paquete unificado de funcionalidades avanzadas de seguridad de SQL.|
+| [Protección contra amenazas avanzada](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-advanced-threat-protection-server-policy) | Esta plantilla le permite implementar un servidor lógico de Azure SQL con el servicio Advanced Threat Protection habilitado y una instancia de Azure SQL Database opcional. SQL Advanced Threat Protection es un paquete unificado de funcionalidades avanzadas de seguridad de SQL.|
 | [Detección de amenazas](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-threat-detection-db-policy-multiple-databases) | Esta plantilla permite implementar un servidor lógico de SQL Azure y un conjunto de bases de datos de Azure SQL Databases con Detección de amenazas habilitado, con una dirección de correo electrónico para las alertas de cada base de datos. Detección de amenazas forma parte de la oferta de Advanced Threat Protection (ATP) de SQL y proporciona una capa de seguridad que responda a amenazas potenciales a través de las bases de datos SQL y servidores con SQL Server.|
 | [Auditoría a Azure Blob Storage](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-blob-storage) | Esta plantilla le permite implementar un servidor lógico de Azure SQL con la auditoría habilitada para escribir los registros de auditoría en un almacenamiento de blobs. La auditoría de Azure SQL Database y realiza un seguimiento de eventos de base de datos y los escribe en un registro de auditoría que se puede colocar en su cuenta de Azure Storage, en el área de trabajo de OMS o en Event Hubs.|
 | [Auditoría a Azure Event Hub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub) | Esta plantilla le permite implementar un servidor con Azure SQL Server con la auditoría habilitada para escribir los registros de auditoría en centro de eventos existente. Para enviar eventos de auditoría al centro de eventos, establezca la configuración con auditoría `Enabled` `State` y establecer `IsAzureMonitorTargetEnabled` como `true`. Configure también los valores de diagnóstico con la categoría de registros de diagnóstico `SQLSecurityAuditEvents` en la base de datos `master` (para la auditoría de nivel de servidor). La auditoría de Azure SQL Database y SQL Data Warehouse realiza un seguimiento de eventos de base de datos y los escribe en un registro de auditoría que se puede colocar en su cuenta de Azure Storage, área de trabajo de OMS o Event Hubs.|
@@ -50,7 +50,6 @@ En la tabla siguiente se incluyen vínculos a plantillas de Azure Resource Manag
 | |  |
 |---|---|
 | [Instancia administrada en una red virtual nueva](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet) | Esta plantilla de Azure Resource Manager crea una red virtual de Azure configurada y una instancia administrada en la red virtual. |
-| [Entorno de red para Instancia administrada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | Esta implementación creará una red virtual de Azure con dos subredes: una que se dedicará a las instancias administradas y otra en la que se pueden colocar otros recursos (por ejemplo, máquinas virtuales, entornos de App Service, etc.). Esta plantilla creará un entorno de red configurado correctamente en el que puede implementar instancias administradas. |
+| [Entorno de red de Instancia administrada](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-managed-instance-azure-environment) | Esta implementación creará una red virtual de Azure con dos subredes: una que se dedicará a las instancias administradas y otra en la que se pueden colocar otros recursos (por ejemplo, máquinas virtuales, entornos de App Service, etc.). Esta plantilla creará un entorno de red configurado correctamente en el que puede implementar instancias administradas. |
 | [Instancia administrada con conexión P2S](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-point-to-site-vpn) | Esta implementación creará una red virtual de Azure con dos subredes, `ManagedInstance` y `GatewaySubnet`. Instancia administrada se implementará en la subred ManagedInstance. Se creará una puerta de enlace de red virtual en la subred `GatewaySubnet` y se configurará para la conexión VPN de punto a sitio. |
 | [Instancia administrada con máquina virtual](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sqlmi-new-vnet-w-jumpbox) | Esta implementación creará una red virtual de Azure con dos subredes, `ManagedInstance` y `Management`. Instancia administrada se implementará en la subred `ManagedInstance`. La máquina virtual con la versión más reciente de SQL Server Management Studio (SSMS) se implementarán en la subred `Management`. |
-

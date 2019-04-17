@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 03/19/2019
 ms.author: aljo
 ms.custom: mvc
-ms.openlocfilehash: 40e372b779d06656b111ad3d7de435b99c401dc3
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: fa9b091beacbc98c6939ec0454bd04da2b7561e7
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58669510"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59278707"
 ---
 # <a name="tutorial-scale-a-service-fabric-cluster-in-azure"></a>Tutorial: Escalado de un clúster de Service Fabric en Azure
 
@@ -41,12 +41,15 @@ En esta serie de tutoriales, se aprende a:
 > * [Actualización del entorno en tiempo de ejecución de un clúster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Eliminación de un clúster](service-fabric-tutorial-delete-cluster.md)
 
+
+[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 ## <a name="prerequisites"></a>Requisitos previos
 
 Antes de empezar este tutorial:
 
 * Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* Instale la [versión 4.1 o superior del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/azurerm/install-azurerm-ps) o la [CLI de Azure](/cli/azure/install-azure-cli).
+* Instale [Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps) o la [CLI de Azure](/cli/azure/install-azure-cli).
 * Creación de un [clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro en Azure
 
 ## <a name="important-considerations-and-guidelines"></a>Consideraciones e instrucciones importantes
@@ -72,7 +75,7 @@ Para más información, consulte la [guía de capacidad del clúster](service-fa
 
 ## <a name="export-the-template-for-the-resource-group"></a>Exportación de la plantilla para el grupo de recursos
 
-Después de crear un [clúster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro y configurar el grupo de recursos correctamente, exporte la plantilla de Resource Manager para el grupo de recursos. Exportar la plantilla le permite automatizar las futuras implementaciones del clúster y sus recursos porque la plantilla contiene toda la infraestructura completa.  Para más información sobre la exportación de plantillas, consulte [Administrar grupos de recursos de Azure Resource Manager mediante Azure Portal](/azure/azure-resource-manager/manage-resource-groups-portal).
+Después de crear un [clúster Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) seguro y configurar el grupo de recursos correctamente, exporte la plantilla de Resource Manager para el grupo de recursos. La exportación de la plantilla permite automatizar las futuras implementaciones del clúster y sus recursos, ya que la plantilla contiene la infraestructura completa.  Para más información sobre la exportación de plantillas, consulte [Administrar grupos de recursos de Azure Resource Manager mediante Azure Portal](/azure/azure-resource-manager/manage-resource-groups-portal).
 
 1. En [Azure Portal](https://portal.azure.com), vaya al grupo de recursos que contiene el clúster (**sfclustertutorialgroup**, si está siguiendo este tutorial). 
 
@@ -98,7 +101,7 @@ Si va a escalar verticalmente, al quitar nodos de un tipo de nodo de [nivel de d
 Guarde los cambios realizados en los archivos *template.json* y *parameters.json*.  Para implementar la plantilla actualizada, ejecute el comando siguiente:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ChangingInstanceCount"
 ```
 O bien, el siguiente comando de la CLI de Azure:
 ```azure-cli
@@ -804,7 +807,7 @@ En el archivo *parameters.json*, agregue los siguientes valores y parámetros nu
 Guarde los cambios realizados en los archivos *template.json* y *parameters.json*.  Para implementar la plantilla actualizada, ejecute el comando siguiente:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "AddingNodeType"
 ```
 O bien, el siguiente comando de la CLI de Azure:
 ```azure-cli
@@ -812,19 +815,19 @@ az group deployment create --resource-group sfclustertutorialgroup --template-fi
 ```
 
 ## <a name="remove-a-node-type-from-the-cluster"></a>Eliminación de un tipo de nodo del clúster
-Después de crear un clúster de Service Fabric, puede escalarlo horizontalmente quitando un tipo de nodo (conjunto de escalado de máquinas virtuales) junto con todos sus nodos. Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster. Según se escala el clúster, las aplicaciones se escalan automáticamente.
+Después de crear un clúster de Service Fabric, para escalarlo horizontalmente no tiene más que quitar un tipo de nodo (conjunto de escalado de máquinas virtuales) y todos sus nodos. Puede escalar el clúster en cualquier momento, incluso con cargas de trabajo en ejecución en el clúster. Según se escala el clúster, las aplicaciones se escalan automáticamente.
 
 > [!WARNING]
-> No le recomendamos usar Remove-AzureRmServiceFabricNodeType para quitar un tipo de nodo de un clúster de producción de forma frecuente. Se trata de un comando muy peligroso, ya que elimina el recurso del conjunto de escalado de máquinas virtuales que hay detrás del tipo de nodo. 
+> No es aconsejable usar Remove-AzServiceFabricNodeType para quitar un tipo de nodo de un clúster de producción de forma frecuente. Se trata de un comando muy peligroso, ya que elimina el recurso del conjunto de escalado de máquinas virtuales que hay detrás del tipo de nodo. 
 
-Para quitar el tipo de nodo, ejecute el cmdlet [Remove-AzureRmServiceFabricNodeType](/powershell/module/azurerm.servicefabric/remove-azurermservicefabricnodetype).  El tipo de nodo debe ser de [nivel de durabilidad] Silver o Gold [durability] El cmdlet elimina el conjunto de escalado asociado con el tipo de nodo y tarda algún tiempo en completarse.  A continuación, ejecute el cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) en cada uno de los nodos que se van a quitar, lo que elimina el estado de nodo y quita los nodos del clúster. Si hay servicios en los nodos, los servicios primero se moverán a otro nodo. Si el administrador de clústeres no puede encontrar un nodo para la réplica o servicio, la operación se retrasará o bloqueará.
+Para quitar el tipo de nodo, ejecute el cmdlet [Remove-AzServiceFabricNodeType](/powershell/module/az.servicefabric/remove-azservicefabricnodetype).  El tipo de nodo debe ser de [nivel de durabilidad] Silver o Gold [durability] El cmdlet elimina el conjunto de escalado asociado con el tipo de nodo y tarda algún tiempo en completarse.  A continuación, ejecute el cmdlet [Remove-ServiceFabricNodeState](/powershell/module/servicefabric/remove-servicefabricnodestate?view=azureservicefabricps) en cada uno de los nodos que se van a quitar, lo que elimina el estado de nodo y quita los nodos del clúster. Si hay servicios en los nodos, los servicios primero se moverán a otro nodo. Si el administrador de clústeres no puede encontrar un nodo para la réplica o servicio, la operación se retrasará o bloqueará.
 
 ```powershell
 $groupname = "sfclustertutorialgroup"
 $nodetype = "nt4vm"
 $clustername = "mysfcluster123"
 
-Remove-AzureRmServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
+Remove-AzServiceFabricNodeType -Name $clustername  -NodeType $nodetype -ResourceGroupName $groupname
 
 Connect-ServiceFabricCluster -ConnectionEndpoint mysfcluster123.eastus.cloudapp.azure.com:19000 `
           -KeepAliveIntervalInSec 10 `
@@ -861,7 +864,7 @@ La SKU de VM para los tres tipos de nodos se establece en el parámetro *vmImage
 Guarde los cambios realizados en los archivos *template.json* y *parameters.json*.  Para implementar la plantilla actualizada, ejecute el comando siguiente:
 
 ```powershell
-New-AzureRmResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
+New-AzResourceGroupDeployment -ResourceGroupName sfclustertutorialgroup -TemplateFile c:\temp\template.json -TemplateParameterFile c:\temp\parameters.json -Name "ScaleUpNodeType"
 ```
 O bien, el siguiente comando de la CLI de Azure:
 ```azure-cli
@@ -879,7 +882,19 @@ En este tutorial aprendió lo siguiente:
 
 Luego, pase al siguiente tutorial para aprender a actualizar el sistema de tiempo de ejecución de un clúster.
 > [!div class="nextstepaction"]
-> [Actualización del sistema de tiempo de ejecución de un clúster](service-fabric-tutorial-upgrade-cluster.md)
+> [Actualización del entorno en tiempo de ejecución de un clúster](service-fabric-tutorial-upgrade-cluster.md)
+
+[durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
+[reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster
+[template]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.json
+[parameters]:https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/7-VM-Windows-3-NodeTypes-Secure-NSG/AzureDeploy.Parameters.json
+reducción horizontal))
+> * Agregar y quitar tipos de nodos (escalado horizontal y reducción horizontal)
+> * Aumentar los recursos de nodo (escalabilidad vertical)
+
+Luego, pase al siguiente tutorial para aprender a actualizar el sistema de tiempo de ejecución de un clúster.
+> [!div class="nextstepaction"]
+> [Actualización del entorno en tiempo de ejecución de un clúster](service-fabric-tutorial-upgrade-cluster.md)
 
 [durability]: service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster
 [reliability]: service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster

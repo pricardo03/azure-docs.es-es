@@ -10,12 +10,12 @@ ms.subservice: acoustics
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: michem
-ms.openlocfilehash: 544de5a3ac48c12d75f05a1c9adb56f48bb540f4
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 48a1c4350b438761aa2e2d8c7e57a872c86ca292
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311577"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492760"
 ---
 # <a name="project-acoustics-unreal-bake-tutorial"></a>Tutorial de simulación mediante "bake" de Project Acoustics con Unreal
 En este documento se describe el proceso de enviar una simulación acústica mediante "bake" con la extensión del editor Unreal.
@@ -40,6 +40,8 @@ La pestaña de objetos es la primera pestaña que se muestra al abrir Acoustics 
 
 Seleccione uno o más objetos en World Outliner, o utilice la sección **Bulk Selection** (Selección masiva) para ayudar a seleccionar todos los objetos de una categoría específica. Una vez seleccionados los objetos, utilice la sección de **etiquetado** para aplicar la etiqueta deseada a los objetos seleccionados.
 
+Si alguno no tiene las etiquetas **AcousticsGeometry** ni **AcousticsNavigation**, se omitirá en la simulación. Solo se admiten mallas estáticas, mallas de navegación y paisajes. El resto de elementos que se etiqueten se omitirán.
+
 ### <a name="for-reference-the-objects-tab-parts"></a>Como referencia: Partes de la pestaña Objects (Objetos)
 
 ![Captura de pantalla de la pestaña Objects (Objetos) de Acoustics en Unreal](media/unreal-objects-tab-details.png)
@@ -63,9 +65,23 @@ No incluya elementos que no afecten a la acústica, como las mallas de colisión
 
 La transformación de un objeto en el momento del cálculo del sondeo (a través de la pestaña Probes [Sondeo] siguiente) se corrige en los resultados de la simulación acústica mediante "bake". Si se mueve alguno de los objetos marcados en la escena se deberá rehacer el cálculo de sondeo y volver a elaborar la escena.
 
-## <a name="create-or-tag-a-navigation-mesh"></a>Creación o etiquetado de una malla de navegación
+### <a name="create-or-tag-a-navigation-mesh"></a>Creación o etiquetado de una malla de navegación
 
-Una malla de navegación se usa para colocar puntos de sondeo para la simulación. Puede usar el [volumen de límites de malla de navegación](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html) de Unreal o bien puede especificar su propia malla de navegación. Debe etiquetar al menos un objeto como **Acoustics Navigation** (Navegación de Acoustics).
+Una malla de navegación se usa para colocar puntos de sondeo para la simulación. Puede usar el [volumen de límites de malla de navegación](https://api.unrealengine.com/INT/Engine/AI/BehaviorTrees/QuickStart/2/index.html) de Unreal o bien puede especificar su propia malla de navegación. Debe etiquetar al menos un objeto como **Acoustics Navigation** (Navegación de Acoustics). Si usa la malla de navegación de Unreal, asegúrese de que la ha compilado antes.
+
+### <a name="acoustics-volumes"></a>Volúmenes de Acoustics ###
+
+Con los **volúmenes de Acoustics** se puede realizar una posterior personalización avanzada en las zonas de navegación. Los **volúmenes de Acoustics** son actores que se pueden agregar a la escena y que permiten seleccionar las áreas que se van a incluir y omitir en la malla de navegación. El actor expone una propiedad que se puede conmutar entre "Include" (Incluir) y "Exclude" (Excluir). Los volúmenes de inclusión garantizan que solo se tienen en cuenta las zonas de la malla de navegación que están dentro de ellos, mientras que los volúmenes de exclusión marcan dichas zonas para que se omitan. Los volúmenes de exclusión se aplican siempre después de los volúmenes de inclusión. Asegúrese de etiquetar los **volúmenes de Acoustics** como **Acoustics Navigation** (Navegación de Acoustics) a través del proceso habitual en la pestaña Objects (Objectos). Estos actores ***no*** se etiquetan automáticamente.
+
+![Captura de pantalla de las propiedades de volumen de Acoustics en Unreal](media/unreal-acoustics-volume-properties.png)
+
+Los volúmenes de exclusión están diseñados principalmente para proporcionar un mayor control sobre dónde no colocar sondeos para reforzar el uso de recursos.
+
+![Captura de pantalla de las volumen de exclusión de Acoustics en Unreal](media/unreal-acoustics-volume-exclude.png)
+
+Los volúmenes de inclusión son útiles para crear secciones manuales de una escena, por ejemplo si se desea dividir la escena en varias zonas acústicas. Por ejemplo, si tiene una escena de gran tamaño, de muchos kilómetros cuadrados, y tiene dos zonas de interés en las que desea realizar una simulación acústica mediante "bake". Puede dibujar dos grandes volúmenes "Include" en la escena y generar archivos ACE para ambos a la vez. Luego, en el juego, puede usar los volúmenes del desencadenador combinados con llamadas del plano técnico para cargar el archivo ACE adecuado cuando el reproductor se acerca a cada icono.
+
+Los **volúmenes de Acoustics** solo restringen la navegación, ***no*** la geometría. Todos los sondeos que se encuentren dentro de un **volumen de Acoustics** de inclusión extraerán toda la geometría necesaria fuera del volumen al realizar simulaciones de onda. Por consiguiente, no debería haber discontinuidades en la oclusión ni otras acústicas debidas a que el reproductor pase de una sección a otra.
 
 ## <a name="select-acoustic-materials"></a>Selección de materiales acústicos
 
@@ -87,6 +103,7 @@ El tiempo de reverberación de un material determinado en una habitación está 
 4. Se muestra el material acústico al que se ha asignado el material de la escena. Haga clic en un menú desplegable para volver a asignar un material de la escena a un material acústico diferente.
 5. Muestra el coeficiente de absorción acústica del material seleccionado en la columna anterior. Un valor de cero significa totalmente reflectante (ninguna absorción), mientras que un valor de 1 significa totalmente absorbente (sin reflexión). Al cambiar este valor, se actualizará el material de Acoustics (paso 4) a **Custom** (Personalizado).
 
+Si realiza cambios en los materiales de la escena, deberá cambiar de pestaña en el complemento de Project Acoustics para verlos reflejados en la pestaña **Materials** (Materiales).
 
 ## <a name="calculate-and-review-listener-probe-locations"></a>Calculo y revisión de las ubicaciones de sondeo del oyente
 
@@ -98,7 +115,7 @@ Después de asignar los materiales, cambie a la pestaña **Probes** (Sondeos).
 
 1. El botón de la pestaña **Probes** (Sondeos), se usa para abrir esta página.
 2. Una breve descripción de lo que debe hacer al usar esta página.
-3. Use esto para elegir una resolución de simulación gruesa o fina. Gruesa es más rápido, pero tiene algunos inconvenientes. Consulte [Resolución gruesa frente a fina](#Coarse-vs-Fine-Resolution) a continuación para ver los detalles.
+3. Use esto para elegir una resolución de simulación gruesa o fina. Gruesa es más rápido, pero tiene algunos inconvenientes. Para más información, consulte [Resolución de simulación mediante "bake"](bake-resolution.md).
 4. Elija la ubicación donde se deben colocar los archivos de datos acústicos con este campo. Haga clic en el botón "..." para usar un selector de carpetas. Para más información sobre los archivos de datos, consulte [Archivos de datos](#Data-Files) más abajo.
 5. El nombre de los archivos de datos para esta escena llevará el prefijo proporcionado aquí. El valor predeterminado es "[NombreNivel]_AcousticsData".
 6. Haga clic en el botón **Calculate** (Calcular) para voxelizar la escena y calcular las ubicaciones de puntos de sondeo. Esto se realiza localmente en el equipo y debe hacerse antes de una elaboración. Cuando se hayan calculado los sondeos, se deshabilitarán los controles anteriores y este botón cambiará a **Clear** (Borrar). Haga clic en el botón **Clear** (Borrar) para borrar los cálculos y habilitar los controles de modo que pueda realizar otro cálculo con otros valores.
@@ -145,23 +162,9 @@ Los puntos de sondeo son sinónimos de ubicaciones posibles del jugador (escucha
 
 Es importante comprobar que existen puntos de sondeo en cualquier lugar del escenario en el que se espera que el jugador se desplace. Los puntos de sondeo los coloca en la malla de navegación el motor de Project Acoustics y no se pueden mover ni modificar, así que asegúrese de que la malla de navegación cubra todas las posibles ubicaciones de los jugadores inspeccionando los puntos de sondeo.
 
-![Captura de pantalla de vista previa de sondeos de Acoustics en el editor de Unreal](media/unreal-probes-preview.png)
+![Captura de pantalla de la versión preliminar de los sondeos de Acoustics en Unreal](media/unreal-probes-preview.png)
 
-### <a name="Coarse-vs-Fine-Resolution"></a>Resolución gruesa frente a fina
-
-La única diferencia entre la configuración de resolución gruesa y la fina es la frecuencia con la que se realiza la simulación. La fina usa una frecuencia el doble de alta que la gruesa.
-Aunque puede parecer simple, tiene varias implicaciones en la simulación acústica:
-
-* La longitud de onda de la gruesa es el doble de larga que la fina y, por lo tanto, los vóxeles son el doble de grandes.
-* El tiempo de simulación está directamente relacionado con el tamaño de vóxel, lo que hace que la simulación mediante "bake" gruesa sea 16 veces más rápida que la simulación mediante "bake" fina.
-* Los portales (por ejemplo, puertas o ventanas) más pequeños que el tamaño de vóxel no se pueden simular. La configuración gruesa puede hacer que algunos de estos portales más pequeños no se simulen; por lo tanto, no pasarán sonidos en tiempo de ejecución. Para ver si sucede esto, puede visualizar los vóxeles.
-* La frecuencia de simulación inferior da como resultado menos difracción en torno a los bordes y esquinas.
-* Los orígenes del sonido no se pueden ubicar dentro de vóxeles "rellenos", que son vóxeles que contienen la geometría, ya que el resultado sería ningún sonido. Es más difícil situar los orígenes de sonido si no están dentro de vóxeles más grandes de la configuración gruesa que cuando se usa la configuración fina.
-* Los vóxeles más grandes se meten más en los portales, como se muestra a continuación. La primera imagen se creó con la configuración gruesa, mientras que la segunda es la misma entrada con resolución fina. Como indican las marcas de color rojo, hay mucha menos intrusión en la entrada cuando se usa la configuración fina. La línea azul es la entrada, como se define en la geometría, mientras que la línea roja es el portal acústico efectivo definido por el tamaño de vóxel. La evolución esta intrusión en una situación determinada dependerá completamente de cómo los vóxeles se alineen con la geometría del portal, que viene determinado por el tamaño y las ubicaciones de los objetos en la escena.
-
-![Captura de pantalla de vóxeles gruesos rellenando una entrada en Unreal](media/unreal-coarse-bake.png)
-
-![Captura de pantalla de vóxeles finos en una entrada en Unreal](media/unreal-fine-bake.png)
+Para más información acerca de la diferencia entre baja y alta resolución, consulte [Resolución de simulación mediante "bake"](bake-resolution.md).
 
 ## <a name="bake-your-level-using-azure-batch"></a>Simular mediante "bake" el nivel con Azure Batch
 

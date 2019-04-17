@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/015/2019
 ms.author: radeltch
-ms.openlocfilehash: 02a97852a8dc659071c3484126b921d6f7106562
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 18bbeef833e1c82999e87451d279c0d3464af509
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662377"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617774"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>Alta disponibilidad para SAP NetWeaver en máquinas virtuales de Azure en SUSE Linux Enterprise Server con Azure Files de NetApp para las aplicaciones de SAP
 
@@ -166,14 +166,11 @@ Al considerar los archivos de NetApp de Azure de la arquitectura de alta disponi
 
 - El grupo de capacidad mínima es de 4 TB. El tamaño del grupo de capacidad debe estar en múltiplos de 4 TB.
 - El volumen mínimo es 100 GB
-- Todas las máquinas virtuales, donde se van a montar los volúmenes de Azure Files de NetApp y archivos de NetApp Azure debe estar en la misma red Virtual de Azure. [Emparejamiento de redes virtuales](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) no es compatible aún con Azure Files de NetApp.
+- Todas las máquinas virtuales, donde se montará volúmenes de Azure Files de NetApp, y los archivos de NetApp Azure deben estar en la misma red Virtual de Azure o en [emparejar redes virtuales](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview) en la misma región. Ahora se admite el acceso de los archivos de NetApp Azure a través de emparejamiento de VNET en la misma región. Aún no se admite el acceso de NetApp Azure a través del emparejamiento global.
 - La red virtual seleccionada debe tener una subred, delega a Azure Files de NetApp.
 - Azure Files de NetApp actualmente admite solo NFSv3 
 - Azure Files de NetApp ofrece [Exportar directiva](https://docs.microsoft.com/en-gb/azure/azure-netapp-files/azure-netapp-files-configure-export-policy): puede controlar los clientes permitidos, el tipo de acceso (lectura y escritura, de solo lectura, etcetera.). 
 - La característica archivos de NetApp Azure aún no está consciente de la zona. Actualmente no se implementa la característica de Azure Files de NetApp en todas las zonas de disponibilidad en una región de Azure. Tenga en cuenta las posibles implicaciones de latencia en algunas regiones de Azure. 
-
-   > [!NOTE]
-   > Tenga en cuenta que los archivos de NetApp Azure no admite aún emparejamiento de redes virtuales. Implementar las máquinas virtuales y los volúmenes de Azure Files de NetApp en la misma red virtual.
 
 ## <a name="deploy-linux-vms-manually-via-azure-portal"></a>Implementar máquinas virtuales Linux manualmente mediante el portal de Azure
 
@@ -574,6 +571,8 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
 
 9. **[1]** Cree los recursos de clúster de SAP
 
+Si usa la arquitectura de servidor 1 de puesta en cola (ENSA1), defina los recursos como sigue:
+
    <pre><code>sudo crm configure property maintenance-mode="true"
    
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
@@ -599,6 +598,35 @@ Los elementos siguientes tienen el prefijo **[A]**: aplicable a todos los nodos,
    sudo crm node online <b>anftstsapcl1</b>
    sudo crm configure property maintenance-mode="false"
    </code></pre>
+
+   SAP ha introducido soporte técnico para el servidor 2, incluida la replicación, a partir de SAP NW 7.52 de puesta en cola. A partir de ABAP plataforma 1809, poner en cola el servidor 2 está instalado de forma predeterminada. Consulte SAP nota [2630416](https://launchpad.support.sap.com/#/notes/2630416) para la compatibilidad con el servidor 2 de puesta en cola.
+Si usa la arquitectura de servidor 2 de puesta en cola ([ENSA2](https://help.sap.com/viewer/cff8531bc1d9416d91bb6781e628d4e0/1709%20001/en-US/6d655c383abf4c129b0e5c8683e7ecd8.html)), definir los recursos como sigue:
+
+   <pre><code>sudo crm configure property maintenance-mode="true"
+   
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ASCS<b>00</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b>" \
+    AUTOMATIC_RECOVER=false \
+    meta resource-stickiness=5000
+   
+   sudo crm configure primitive rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
+    operations \$id=rsc_sap_<b>QAS</b>_ERS<b>01</b>-operations \
+    op monitor interval=11 timeout=60 on_fail=restart \
+    params InstanceName=<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b>" AUTOMATIC_RECOVER=false IS_ERS=true
+   
+   sudo crm configure modgroup g-<b>QAS</b>_ASCS add rsc_sap_<b>QAS</b>_ASCS<b>00</b>
+   sudo crm configure modgroup g-<b>QAS</b>_ERS add rsc_sap_<b>QAS</b>_ERS<b>01</b>
+   
+   sudo crm configure colocation col_sap_<b>QAS</b>_no_both -5000: g-<b>QAS</b>_ERS g-<b>QAS</b>_ASCS
+   sudo crm configure order ord_sap_<b>QAS</b>_first_start_ascs Optional: rsc_sap_<b>QAS</b>_ASCS<b>00</b>:start rsc_sap_<b>QAS</b>_ERS<b>01</b>:stop symmetrical=false
+   
+   sudo crm node online <b>anftstsapcl1</b>
+   sudo crm configure property maintenance-mode="false"
+   </code></pre>
+
+   Si está actualizando desde una versión anterior y cambiar a poner en cola el servidor 2, consulte la nota de sap [2641019](https://launchpad.support.sap.com/#/notes/2641019). 
 
    Asegúrese de que el estado del clúster sea el correcto y que se iniciaron todos los recursos. No es importante en qué nodo se ejecutan los recursos.
 
@@ -1051,7 +1079,7 @@ Las siguientes pruebas son una copia de los casos de prueba en el [mejor las gu�
         rsc_sap_QAS_ERS01  (ocf::heartbeat:SAPInstance):   Started anftstsapcl1
    </code></pre>
 
-   Cree un bloqueo de puesta en cola; por ejemplo, edite un usuario en la transacción su01. Ejecute los siguientes comandos como < sapsid\>adm en el nodo donde se está ejecutando la instancia de ASCS. Los comandos detendrán la instancia de ASCS y la volverán a iniciar. Está previsto que el bloqueo de puesta en cola se pierda en esta prueba.
+   Cree un bloqueo de puesta en cola; por ejemplo, edite un usuario en la transacción su01. Ejecute los siguientes comandos como < sapsid\>adm en el nodo donde se está ejecutando la instancia de ASCS. Los comandos detendrán la instancia de ASCS y la volverán a iniciar. Si usa la arquitectura de servidor 1 de puesta en cola, se espera el bloqueo de puesta en cola se perderá en esta prueba. Si usa la arquitectura de servidor 2 de puesta en cola, se conservarán la puesta en cola. 
 
    <pre><code>anftstsapcl2:qasadm 51> sapcontrol -nr 00 -function StopWait 600 2
    </code></pre>
@@ -1066,7 +1094,7 @@ Las siguientes pruebas son una copia de los casos de prueba en el [mejor las gu�
    <pre><code>anftstsapcl2:qasadm 52> sapcontrol -nr 00 -function StartWait 600 2
    </code></pre>
 
-   El bloqueo de puesta en cola de la transacción su01 se perderá y el back-end se habrá restablecido. Estado del recurso después de la prueba:
+   El bloqueo de puesta en cola de transacciones su01 debería perderse, si usa la arquitectura de replicación 1 servidor de puesta en cola y el back-end debe ha restablecido. Estado del recurso después de la prueba:
 
    <pre><code>
     Resource Group: g-QAS_ASCS

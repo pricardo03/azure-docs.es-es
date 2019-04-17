@@ -5,58 +5,45 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 31d08c0dac63662568bf55a021e85ec414c61e52
-ms.sourcegitcommit: 223604d8b6ef20a8c115ff877981ce22ada6155a
+ms.openlocfilehash: fc15db91b8f4cc6dbdecd0e7321abdbf81744f08
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58360374"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59357975"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migración de máquinas locales a Azure
 
-Además de utilizar el servicio [Azure Site Recovery](site-recovery-overview.md) para administrar y coordinar la recuperación ante desastres de máquinas locales y máquinas virtuales de Azure para garantizar la continuidad empresarial y la recuperación ante desastres (BCDR), también puede usar Site Recovery para administrar la migración de máquinas locales a Azure.
+
+En este artículo se describe cómo migrar máquinas locales a Azure mediante [Azure Site Recovery](site-recovery-overview.md). Por lo general, Azure Site Recovery se usa para administrar y orquestar la recuperación ante desastres de máquinas locales y máquinas virtuales de Azure. Sin embargo, también se puede usar para la migración. La migración utiliza los mismos pasos que la recuperación ante desastres, salvo una excepción. En la migración, la conmutación por error de las maquinas desde el sitio local es el último paso. A diferencia de la recuperación ante desastres, en los escenarios de migración no se puede realizar la conmutación por recuperación en un entorno local.
 
 
-En este tutorial se muestra cómo migrar máquinas virtuales locales y servidores físicos a Azure. En este tutorial, aprenderá a:
+En este tutorial se muestra cómo migrar máquinas virtuales locales y servidores físicos a Azure. Aprenderá a:
 
 > [!div class="checklist"]
-> * Selección de un objetivo de replicación
-> * Configure el entorno de origen y destino
+> * Configurar los entornos de origen y destino para la migración
 > * Configurar una directiva de replicación
 > * Habilitar replicación
 > * Ejecute una migración de prueba para asegurarse de que todo funciona de la forma esperada
 > * Ejecutar una conmutación por error única en Azure
 
-Este es el tercer tutorial de una serie. En este tutorial se da por hecho que ya ha realizado las tareas de los tutoriales anteriores:
-
-1. [Preparación de Azure](tutorial-prepare-azure.md)
-2. Prepare los servidores de [VMware](vmware-azure-tutorial-prepare-on-premises.md) o [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) locales.
-
-Antes de empezar, le recomendamos que revise las arquitecturas del escenario de recuperación ante desastres de [VMware](vmware-azure-architecture.md) o [Hyper-V](hyper-v-azure-architecture.md).
 
 > [!TIP]
-> ¿Desea participar en nuestra nueva experiencia sin agente para migrar máquinas virtuales de VMware a Azure? [Más información](https://aka.ms/migrateVMs-signup).
-
-## <a name="prerequisites"></a>Requisitos previos
-
-No se admiten dispositivos que se hayan exportado con controladores paravirtualizados.
+> El servicio Azure Migrate ahora ofrece una versión preliminar para obtener una experiencia nueva sin agente para migrar máquinas virtuales de VMware a Azure. [Más información](https://aka.ms/migrateVMs-signup).
 
 
-## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
+## <a name="before-you-start"></a>Antes de comenzar
 
-1. Inicie sesión en [Azure Portal](https://portal.azure.com) > **Recovery Services**.
-2. Seleccione **Crear un recurso** > **Herramientas de administración** > **Backup and Site Recovery**.
-3. En el apartado **Nombre**, especifique el nombre descriptivo **ContosoVMVault**. Si tiene más de una suscripción, seleccione la apropiada.
-4. Cree un grupo de recursos denominado **ContosoRG**.
-5. Especifique una región de Azure. Para comprobar las regiones admitidas, consulte la disponibilidad geográfica en [Detalles de precios de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-6. Para acceder rápidamente al almacén desde el panel, haga clic en **Anclar al panel** y, después, en **Crear**.
+Tenga en cuenta que no se admiten los dispositivos exportados por controladores paravirtualizados.
 
-   ![Almacén nuevo](./media/migrate-tutorial-on-premises-azure/onprem-to-azure-vault.png)
 
-El nuevo almacén se agrega al **Panel**, en **Todos los recursos**, y en la página principal **Almacenes de Recovery Services**.
+## <a name="prepare-azure-and-on-premises"></a>Preparación de Azure y del entorno local
+
+1. Prepare Azure como se describe en [este artículo](tutorial-prepare-azure.md). Aunque en dicho artículo se describen los pasos necesarios para preparar una recuperación ante desastres, dichos pasos también son válidos para la migración.
+2. Prepare los servidores de [VMware](vmware-azure-tutorial-prepare-on-premises.md) o [Hyper-V](hyper-v-prepare-on-premises-tutorial.md) locales. Si va a migrar equipos físicos, no es necesario preparar nada. Solo hay que comprobar la [matriz de compatibilidad](vmware-physical-azure-support-matrix.md).
 
 
 ## <a name="select-a-replication-goal"></a>Selección de un objetivo de replicación
@@ -72,9 +59,11 @@ Seleccione aquello que desea replicar y la ubicación donde se va a realizar la 
 
 ## <a name="set-up-the-source-environment"></a>Configuración del entorno de origen
 
-- [Configure](vmware-azure-tutorial.md#set-up-the-source-environment) el entorno de origen para las máquinas virtuales de VMware.
-- [Configure](physical-azure-disaster-recovery.md#set-up-the-source-environment) el entorno de origen para los servidores físicos.
-- [Configure](hyper-v-azure-tutorial.md#set-up-the-source-environment) el entorno de origen para las máquinas virtuales de Hyper-V.
+**Escenario** | **Detalles**
+--- | --- 
+VMware | Configuración del [entorno de origen](vmware-azure-set-up-source.md) y del [servidor de configuración](vmware-azure-deploy-configuration-server.md).
+Máquina física | [Configure](physical-azure-set-up-source.md) el entorno de origen y el servidor de configuración.
+Hyper-V | Configuración del [entorno de origen](hyper-v-azure-tutorial.md#set-up-the-source-environment)<br/><br/> Configure el [entorno de origen](hyper-v-vmm-azure-tutorial.md#set-up-the-source-environment) para Hyper-V implementado con System Center VMM.
 
 ## <a name="set-up-the-target-environment"></a>Configuración del entorno de destino
 
@@ -82,20 +71,26 @@ Seleccione y compruebe los recursos de destino.
 
 1. Haga clic en **Preparar infraestructura** > **Destino** y seleccione la suscripción de Azure que quiere usar.
 2. Especifique el modelo de implementación de Resource Manager.
-3. Site Recovery comprueba que tiene una o más redes y cuentas de Azure Storage compatibles.
+3. Site Recovery comprueba los recursos de Azure.
+    - Si va a migrar máquinas virtuales de VMware o servidores físicos, Site Recovery comprueba que dispone de una red de Azure en el que se encontrarán las máquinas virtuales de Azure cuando se creen después de la conmutación por error.
+    - Si va a migrar máquinas virtuales de Hyper-V, Site Recovery comprueba que tiene una red y una cuenta de Azure Storage compatibles.
+4. Si va a migrar máquinas virtuales de Hyper-V administradas por System Center VMM, configure la [asignación de red](hyper-v-vmm-azure-tutorial.md#configure-network-mapping).
 
 ## <a name="set-up-a-replication-policy"></a>Configurar una directiva de replicación
 
-- [Configure una directiva de replicación](vmware-azure-tutorial.md#create-a-replication-policy) para las máquinas virtuales de VMware.
-- [Configure una directiva de replicación](physical-azure-disaster-recovery.md#create-a-replication-policy) para los servidores físicos.
-- [Configure una directiva de replicación](hyper-v-azure-tutorial.md#set-up-a-replication-policy) para las máquinas virtuales de Hyper-VM.
-
+**Escenario** | **Detalles**
+--- | --- 
+VMware | Configure una [directiva de replicación](vmware-azure-set-up-replication.md) para las máquinas virtuales de VMware.
+Máquina física | Configure una [directiva de replicación](physical-azure-disaster-recovery.md#create-a-replication-policy) para los equipos físicos.
+Hyper-V | Configuración de una [directiva de replicación](hyper-v-azure-tutorial.md#set-up-a-replication-policy)<br/><br/> Configure una [directiva de replicación](hyper-v-vmm-azure-tutorial.md#set-up-a-replication-policy) para Hyper-V implementado con System Center VMM.
 
 ## <a name="enable-replication"></a>Habilitar replicación
 
-- [Habilite la replicación](vmware-azure-tutorial.md#enable-replication) para las máquinas virtuales de VMware.
-- [Habilite la replicación](physical-azure-disaster-recovery.md#enable-replication) de los servidores físicos.
-- Habilite la replicación de las máquinas virtuales de Hyper-V [con](hyper-v-vmm-azure-tutorial.md#enable-replication) o [sin VMM](hyper-v-azure-tutorial.md#enable-replication).
+**Escenario** | **Detalles**
+--- | --- 
+VMware | [Habilite la replicación](vmware-azure-enable-replication.md) para las máquinas virtuales de VMware.
+Máquina física | [Habilite la replicación](physical-azure-disaster-recovery.md#enable-replication) de los equipos físicos.
+Hyper-V | [Habilitar replicación](hyper-v-azure-tutorial.md#enable-replication)<br/><br/> [Habilite la replicación](hyper-v-vmm-azure-tutorial.md#enable-replication) para Hyper-V implementado con System Center VMM.
 
 
 ## <a name="run-a-test-migration"></a>Ejecutar una migración de prueba
@@ -160,8 +155,13 @@ Algunos pasos se pueden automatizar como parte del proceso de migración con la 
 - Actualice la documentación interna para mostrar la nueva ubicación y la dirección IP las máquinas virtuales de Azure.
 
 
+
+
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial se migran máquinas virtuales locales a máquinas virtuales de Azure. Ahora, puede [configurar la recuperación ante desastres](azure-to-azure-replicate-after-migration.md) para las máquinas virtuales de Azure en una región secundaria de Azure.
+En este tutorial se migran máquinas virtuales locales a máquinas virtuales de Azure. Now
+
+> [!div class="nextstepaction"]
+> [Configure la recuperación ante desastres](azure-to-azure-replicate-after-migration.md) en una región secundaria de Azure para las máquinas virtuales de Azure.
 
   

@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: 918e4016f638555bfe2dbaeaa849e963e352c78e
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: e48aaa03463bb968ec366b27308ca908aab30d99
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203520"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503145"
 ---
 ## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>Prueba de consultas de Microsoft Graph API desde la aplicación iOS
 
@@ -36,7 +36,8 @@ La primera vez que inicie sesión en la aplicación, también se le pedirá que 
 ![Consentimiento para el acceso a la aplicación](media/active-directory-develop-guidedsetup-ios-test/iosconsentscreen.png)
 
 ### <a name="view-application-results"></a>Visualización de los resultados de la aplicación
-Una vez iniciada la sesión, podrá ver la información del perfil de usuario que devolvió la llamada a Microsoft Graph API en la sección **Registro**. 
+
+Una vez iniciada la sesión, podrá ver la información del perfil de usuario que devolvió la llamada a Microsoft Graph API en la sección **Registro**.
 
 <!--start-collapse-->
 ### <a name="more-information-about-scopes-and-delegated-permissions"></a>Más información sobre los ámbitos y permisos delegados

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/19/2018
+ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80b8db3bb2e7a21011508f30492bf99c7ecca583
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7f5e2443a285e065426e3dba0312ef6420097ef1
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58096867"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617227"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Información de seguridad detallada sobre la autenticación de paso a través de Azure Active Directory
 
@@ -136,7 +136,7 @@ La autenticación de paso a través administra una solicitud de inicio de sesió
 4. El usuario escribe su nombre de usuario en la página **Inicio de sesión del usuario** y después selecciona el botón **Siguiente**.
 5. El usuario escribe su contraseña en la página **Inicio de sesión de usuario** y después selecciona el botón **Inicio de sesión**.
 6. El nombre de usuario y la contraseña se envían al STS de Azure AD en una solicitud POST HTTPS.
-7. El STS de Azure AD recupera las claves públicas de todos los agentes de autenticación registrados en el inquilino de la instancia de Azure SQL Database y las usa para cifrar la contraseña. 
+7. El STS de Azure AD recupera las claves públicas de todos los agentes de autenticación registrados en el inquilino de la instancia de Azure SQL Database y las usa para cifrar la contraseña.
     - Genera "N" valores de contraseñas cifradas para "N" agentes de autenticación registrados en el inquilino.
 8. El STS de Azure AD coloca la solicitud de validación de contraseña (que se compone del nombre de usuario y los valores de las contraseñas cifradas) en la cola de Service Bus específica del inquilino.
 9. Puesto que los agentes de autenticación inicializados están conectados de forma persistente a la cola de Service Bus, uno de los agentes de autenticación disponibles recupera la solicitud de validación de contraseña.
@@ -145,6 +145,9 @@ La autenticación de paso a través administra una solicitud de inicio de sesió
     - Se trata de la misma API que usa Servicios de federación de Active Directory (AD FS) para que los usuarios inicien sesión en un escenario de inicio de sesión federado.
     - Esta API se basa en el proceso de resolución estándar de Windows Server para buscar el controlador de dominio.
 12. El agente de autenticación recibe un resultado de Active Directory como, por ejemplo: correcto, nombre de usuario o contraseña incorrectos o contraseña expirada.
+
+   > [!NOTE]
+   > Si el agente de autenticación se produce un error durante el proceso de inicio de sesión, se quita la solicitud de inicio de sesión completamente. No hay ninguna entrega de solicitudes de inicio de sesión de un agente de autenticación a otro agente de autenticación local. Estos agentes solo se comunican con la nube y no entre sí.
 13. El agente de autenticación reenvía el resultado al servicio STS de Azure AD por un canal HTTPS saliente autenticado mutuamente a través del puerto 443. La autenticación mutua usa el mismo certificado emitido anteriormente al agente de autenticación durante el registro.
 14. STS de Azure AD verifica que este resultado se pone en correlación con la solicitud de inicio de sesión específica del inquilino.
 15. STS de Azure AD continúa con el procedimiento de inicio de sesión según la configuración. Por ejemplo, si la validación de contraseña es correcta, el usuario podría tener que someterse a Multi-Factor Authentication o se le podría redirigir de nuevo a la aplicación.
@@ -181,7 +184,7 @@ Para renovar la confianza de un agente de autenticación con Azure AD:
 
 ## <a name="auto-update-of-the-authentication-agents"></a>Actualización automática de los agentes de autenticación
 
-La aplicación del actualizador actualiza automáticamente el agente de autenticación cuando se lanza una nueva versión. Esta aplicación no controla las solicitudes de validación de contraseña del inquilino. 
+La aplicación del actualizador actualiza automáticamente el agente de autenticación cuando se lanza una nueva versión (con correcciones de errores o mejoras de rendimiento). La aplicación actualizadora no controla las solicitudes de validación de contraseña para el inquilino.
 
 Azure AD hospeda la nueva versión del software como un **paquete de Windows Installer (MSI)** firmado. El archivo MSI se firma mediante [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) con SHA256 como algoritmo de resumen. 
 
@@ -203,7 +206,7 @@ Para actualizar automáticamente un agente de autenticación:
     - Reinicia el servicio del agente de autenticación.
 
 >[!NOTE]
->Si tiene varios agentes de autenticación registrados en el inquilino, Azure AD no renueva sus certificados ni los actualiza al mismo tiempo. En su lugar, Azure AD lo hace gradualmente para garantizar la alta disponibilidad de las solicitudes de inicio de sesión.
+>Si tiene varios agentes de autenticación registrados en el inquilino, Azure AD no renueva sus certificados ni los actualiza al mismo tiempo. En su lugar, Azure AD hace una en un momento para garantizar la alta disponibilidad de las solicitudes de inicio de sesión.
 >
 
 

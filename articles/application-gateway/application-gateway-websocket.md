@@ -1,18 +1,18 @@
 ---
 title: Compatibilidad de WebSocket en Application Gateway | Microsoft Docs
 description: En esta página se proporciona información general sobre la compatibilidad de Application Gateway con WebSocket.
-author: amsriva
+author: vhorne
 ms.author: amsriva
 ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 03/18/2019
-ms.openlocfilehash: bae4b3d955076679a5640717ac6f5446e3951fb9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 54c34690e678f07d6309a1877b0ca5d0a0b274f5
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58168126"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606912"
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Introducción a la compatibilidad de WebSocket en Application Gateway
 
@@ -32,7 +32,7 @@ Para establecer una conexión de WebSocket, un protocolo de enlace específica b
 
 ### <a name="listener-configuration-element"></a>Elemento de configuración de agente de escucha
 
-Una escucha HTTP existente se puede utilizar para admitir tráfico de WebSocket. A continuación, se muestra un fragmento de código de un elemento httpListeners de un archivo de plantilla de ejemplo. Necesitaría los agentes de escucha de HTTP y HTTPS para admitir WebSocket y proteger el tráfico procedente de este protocolo. De forma similar, puede usar el [portal](application-gateway-create-gateway-portal.md) o [PowerShell](application-gateway-create-gateway-arm.md) para crear una puerta de enlace de aplicaciones con agentes de escucha en el puerto 80 o 443, con el fin de permitir el tráfico de WebSocket.
+Una escucha HTTP existente se puede utilizar para admitir tráfico de WebSocket. A continuación, se muestra un fragmento de código de un elemento httpListeners de un archivo de plantilla de ejemplo. Necesitaría los agentes de escucha de HTTP y HTTPS para admitir WebSocket y proteger el tráfico procedente de este protocolo. De forma similar puede usar el portal o Azure PowerShell para crear una puerta de enlace de aplicaciones con agentes de escucha en el puerto 80 o 443 para admitir el tráfico de WebSocket.
 
 ```json
 "httpListeners": [
@@ -123,5 +123,4 @@ Otro de los motivos es que el sondeo del estado del back-end de la puerta de enl
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Cuando haya terminado de leer la información sobre compatibilidad con WebSocket, vaya al artículo sobre [cómo crear una puerta de enlace de aplicaciones](application-gateway-create-gateway.md) para empezar a trabajar con una aplicación web con WebSocket habilitado.
-
+Cuando haya terminado de leer la información sobre compatibilidad con WebSocket, vaya al artículo sobre [cómo crear una puerta de enlace de aplicaciones](quick-create-powershell.md) para empezar a trabajar con una aplicación web con WebSocket habilitado.

@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/07/2018
-ms.openlocfilehash: d802fade0ff9c5b4bc329c7451144d8c782f8d3c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 261b55f722fdc3c1e8f4b45debc664f49db3f898
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097947"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523552"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analizar los datos de llamadas de teléfono con Stream Analytics y visualizar los resultados en un panel de Power BI
 
@@ -96,7 +96,7 @@ Antes de iniciar la aplicación TelcoGenerator, debe configurarla para enviar da
 1. Extraiga el contenido del archivo [TelcoGenerator.zip](https://download.microsoft.com/download/8/B/D/8BD50991-8D54-4F59-AB83-3354B69C8A7E/TelcoGenerator.zip).
 2. Abra el archivo `TelcoGenerator\TelcoGenerator\telcodatagen.exe.config` en un editor de texto de su elección (como hay más de un archivo de configuración, asegúrese de abrir el correcto).
 
-3. Actualice el elemento <appSettings> en el archivo de configuración con los detalles siguientes:
+3. Actualice el elemento `<appSettings>` en el archivo de configuración con los detalles siguientes:
 
    * Como valor de la clave *EventHubName* use el valor de EntityPath en la cadena de conexión.
    * Como valor de la clave *Microsoft.ServiceBus.ConnectionString* use la cadena de conexión sin el valor de EntityPath.

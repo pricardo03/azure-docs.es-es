@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: celested
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c769d241f54d5d86ef4954609eec555d8aab947a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: f8787008b396c2dd8ce1c006a40fee1e32e8100d
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57858004"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617385"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-a-non-gallery-application"></a>Problema en la configuración del inicio de sesión único con contraseña para una aplicación ajena a la galería
 
@@ -142,7 +142,7 @@ Compruebe lo siguiente si se produce alguno de estos problemas:
 
 -   Intente realizar el proceso de captura manual de nuevo, asegurándose de que los marcadores rojos se encuentren sobre los campos correctos.
 
--   Si el proceso de captura manual parece no responder o la página de inicio de sesión no hace nada (caso 3 anterior), intente realizar el proceso de captura manual de nuevo. Sin embargo, esta vez, tras completar el proceso, presione el botón **F12** para abrir la consola del desarrollador del explorador. Una vez allí, abra la **consola** y escriba **window.location="&lt;escriba la dirección URL de inicio de sesión especificada al configurar la aplicación&gt;"** y, a continuación, presione **Entrar**. De este modo, se forzará una redirección de página que finalizará el proceso de captura y almacenará los campos que se han capturado.
+-   Si el proceso de captura manual parece dejar de responder o la página de inicio de sesión no hace nada (caso 3 anterior), el proceso de captura manual vuelva a intentarlo. Sin embargo, esta vez, tras completar el proceso, presione el botón **F12** para abrir la consola del desarrollador del explorador. Una vez allí, abra la **consola** y escriba **window.location="&lt;escriba la dirección URL de inicio de sesión especificada al configurar la aplicación&gt;"** y, a continuación, presione **Entrar**. De este modo, se forzará una redirección de página que finalizará el proceso de captura y almacenará los campos que se han capturado.
 
 Si ninguno de estos métodos funciona, el soporte técnico puede ayudarle. Abra un caso de soporte técnico en el que explique todo lo que ha intentado, además de proporcionar la información recopilada en las secciones [Visualización de los detalles de una notificación del portal](#i-cannot-manually-detect-sign-in-fields-for-my-application) y [Obtención de ayuda mediante el envío de detalles de la notificación a un ingeniero de soporte técnico](#how-to-get-help-by-sending-notification-details-to-a-support-engineer) (si corresponde).
 

@@ -3,17 +3,17 @@ title: Personalización de las vistas del operador en Azure IoT Central | Micros
 description: Como generador, personalice las vistas del operador en la aplicación de Azure IoT Central.
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 01/29/2018
+ms.date: 03/26/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 86c9a7794146edc4106d8ec30106e1c27556248f
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: dc3543af0a10c83d8ca212957a6345c8a70cd58b
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57769683"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59279948"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view-new-ui-design"></a>Tutorial: Personalización de la vista del operador en Azure IoT Central (nuevo diseño de la interfaz de usuario)
 
@@ -160,5 +160,5 @@ En este tutorial aprendió a personalizar la vista de la aplicación para el ope
 
 Una vez que ha aprendido cómo personalizar la vista del operador de la aplicación, los pasos siguientes sugeridos son:
 
-* [Supervisión de los dispositivos (como operador)](tutorial-monitor-devices.md)
-* [Incorporación de un dispositivo nuevo a la aplicación (como operador y como desarrollador de aplicaciones)](tutorial-add-device.md)
+* [Supervisión de dispositivos (como operador)](tutorial-monitor-devices.md)
+* [Incorporación de un dispositivo nuevo a una aplicación (como operador y como desarrollador de aplicaciones)](tutorial-add-device.md)

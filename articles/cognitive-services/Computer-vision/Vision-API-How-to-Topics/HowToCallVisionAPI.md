@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 03/21/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 4d9ec05b2495ec54657405c00e7dd42ee10911b1
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.openlocfilehash: e6ebd4ff465565be49d98162cd9ca67c194593a4
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350919"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563377"
 ---
 # <a name="example-how-to-call-the-computer-vision-api"></a>Ejemplo: Cómo llamar a Computer Vision API
 
@@ -167,13 +167,13 @@ Este es un ejemplo:
 
 Campo | Type | Contenido
 ------|------|------|
-Etiquetas  | objeto | Objeto de nivel superior de la matriz de etiquetas
-tags[].Name | string    | Palabra clave del clasificador de etiquetas
-tags[].Score    | número    | Puntuación de confianza, entre 0 y 1
-description  | objeto   | Objeto de nivel superior de la descripción
-description.tags[] |    string  | Lista de etiquetas.  Si la confianza es insuficiente para poder producir un título, las etiquetas quizá sean la única información disponible para el llamador.
-description.captions[].text | string    | Una frase que describe la imagen
-description.captions[].confidence   | número    | Confianza para la frase
+Etiquetas  | `object` | Objeto de nivel superior de la matriz de etiquetas
+tags[].Name | `string`  | Palabra clave del clasificador de etiquetas
+tags[].Score    | `number`  | Puntuación de confianza, entre 0 y 1
+description  | `object` | Objeto de nivel superior de la descripción
+description.tags[] |    `string`    | Lista de etiquetas.  Si la confianza es insuficiente para poder producir un título, las etiquetas quizá sean la única información disponible para el llamador.
+description.captions[].text | `string`  | Una frase que describe la imagen
+description.captions[].confidence   | `number`  | Confianza para la frase
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Recuperar y describir la salida JSON de modelos específicos del dominio
 
@@ -229,10 +229,10 @@ El campo de categorías es una lista de una o varias de las [86 categorías](../
 
 Campo   | Type  | Contenido
 ------|------|------|
-Categorías | objeto | Objeto de nivel superior
-categories[].name    | string   | Nombre de la taxonomía de 86 categorías
-categories[].score  | número    | Puntuación de confianza, entre 0 y 1
-categories[].detail  | ¿objeto?      | Objeto de detalle opcional
+Categorías | `object`   | Objeto de nivel superior
+categories[].name    | `string` | Nombre de la taxonomía de 86 categorías
+categories[].score  | `number`  | Puntuación de confianza, entre 0 y 1
+categories[].detail  | `object?`      | Objeto de detalle opcional
 
 Tenga en cuenta que si varias categorías coinciden (por ejemplo, el clasificador de 86 categorías devuelve una puntuación para people_ and people_young si model=celebrities), los detalles están conectados a la coincidencia de nivel más general (people_ en dicho ejemplo).
 

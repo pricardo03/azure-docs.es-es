@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 65badda86fa29dc68f2eef1e9c0883dc8b40107a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 25540d1f26fa6021ef05108f9743e77a6184f3b3
+ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852906"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59426331"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-github"></a>Tutorial: Integración de Azure Active Directory con GitHub
 
@@ -53,7 +53,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 Para configurar la integración de GitHub en Azure AD, debe agregar GitHub desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar GitHub desde la galería, realice los pasos siguientes:**
+**Para agregar GitHub desde la galería, siga estos pasos:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -67,7 +67,7 @@ Para configurar la integración de GitHub en Azure AD, debe agregar GitHub desde
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **GitHub**, seleccione **GitHub** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **GitHub**, seleccione **GitHub.com** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
      ![GitHub en la lista de resultados](common/search-new-app.png)
 
@@ -222,7 +222,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 El objetivo de esta sección es crear un usuario de prueba llamado Britta Simon en GitHub. GitHub admite el aprovisionamiento automático de usuarios, que está habilitado de forma predeterminada. [Aquí](github-provisioning-tutorial.md) puede encontrar más información sobre cómo configurar el aprovisionamiento automático de usuarios.
 
-**Para crear un usuario manualmente, siga los pasos siguientes:**
+**Para crear un usuario manualmente, siga estos pasos:**
 
 1. Inicie sesión en el sitio de la empresa de GitHub como administrador.
 

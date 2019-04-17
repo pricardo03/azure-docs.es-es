@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 9b88a6f3f7e17cfc549b30d1f0d80d4cdf1c3e2d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 8795c9ab0a4dbb76327d0ead48ed33fb0cff9e86
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58919350"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59528549"
 ---
 ## <a name="test-your-code"></a>Prueba del código
 
@@ -29,7 +29,7 @@ Cuando esté listo para realizar la prueba, use una cuenta profesional o educati
 
 ![Iniciar sesión con Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin.png)
 <br/><br/>
-![Iniciar sesión en su cuenta de Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
+![Iniciar sesión en la cuenta de Microsoft](media/active-directory-develop-guidedsetup-aspnetwebapp-test/aspnetbrowsersignin2.png)
 
 #### <a name="view-application-results"></a>Visualización de los resultados de la aplicación
 
@@ -45,7 +45,7 @@ Una vez en la vista del controlador, verá una tabla que contiene las propiedade
 
 |Propiedad |Valor |DESCRIPCIÓN |
 |---|---|---|
-|**NOMBRE** |Nombre completo del usuario | Nombre y apellidos del usuario.
+|**Nombre** |Nombre completo del usuario | Nombre y apellidos del usuario.
 |**Nombre de usuario** |usuario<span>@domain.com</span> | Nombre de usuario que se usa para identificar al usuario.
 |**Asunto** |Asunto |Cadena que identifica al usuario de forma exclusiva en la web.|
 |**Id. de inquilino** |Guid | **Guid** que representa de forma única la organización de Azure AD del usuario.|
@@ -96,5 +96,3 @@ Puede restringir el acceso de inicio de sesión únicamente a aquellas cuentas d
 #### <a name="option-3-use-a-custom-method-to-validate-issuers"></a>Opción 3: Usar un método personalizado para validar emisores
 
 Puede implementar un método personalizado para validar los emisores con el parámetro **IssuerValidator**. Para más información acerca de cómo usar este parámetro, puede encontrar más detalles en la [clase TokenValidationParameters](/previous-versions/visualstudio/dn464192(v=vs.114)).
-
-[!INCLUDE [Help and support](./active-directory-develop-help-support-include.md)]

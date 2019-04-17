@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 3/27/2019
+ms.date: 4/15/2019
 ms.author: barclayn
-ms.openlocfilehash: 19e2fb7736457884d29a142e997338e3c7ef72e7
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: d432dc25a1995a2f0348c7626a051f46ffbf418b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540829"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608875"
 ---
 # <a name="frequently-asked-questions-faq"></a>Preguntas más frecuentes
 
@@ -155,6 +155,10 @@ Sí. Cada dispositivo HSM está totalmente dedicado a un solo cliente y nadie m�
 
 Microsoft no tiene ningún control administrativo ni criptográfico sobre el módulo HSM. Microsoft tiene acceso de nivel de supervisión a través de la conexión de puerto serie para recuperar datos de telemetría básicos, como el mantenimiento de los componentes y la temperatura. Esto permite a Microsoft proporcionar una notificación proactiva de los problemas de mantenimiento. Si es necesario, el cliente puede deshabilitar esta cuenta.
 
+### <a name="q-what-is-the-tenantadmin-account-microsoft-uses-i-am-used-to-the-admin-user-being-admin-on-safenet-hsms"></a>P: ¿Qué es la cuenta "inquilino" Microsoft utiliza, estoy acostumbrado al usuario de administrador que se va a "admin" en los HSM de SafeNet?
+
+El dispositivo HSM se suministra con un usuario predeterminado del Administrador con su contraseña habitual. Microsoft no deseaba tener las contraseñas predeterminadas en uso mientras cualquier dispositivo está en un grupo que espera que se aprovisione por los clientes. Esto no cumpliría los requisitos de seguridad estrictos. Por este motivo, hemos establecido una contraseña segura que se descarta en el momento del aprovisionamiento. Además, en el momento del aprovisionamiento se cree un nuevo usuario en el rol de administrador denominado "inquilino". Este usuario tiene la contraseña predeterminada y los clientes cambiar esto como la primera acción cuando se inicia sesión en el dispositivo recién aprovisionado. Este proceso garantiza altos niveles de seguridad y mantiene nuestra promesa de control administrativo de forma exclusiva para nuestros clientes. Debe tenerse en cuenta que el usuario "inquilino" puede utilizarse para restablecer la contraseña de usuario de administrador si un cliente prefiere utilizar esa cuenta. 
+
 ### <a name="q-can-microsoft-or-anyone-at-microsoft-access-keys-in-my-dedicated-hsm"></a>P: ¿Puede Microsoft o alguien de Microsoft acceder a las claves del módulo Dedicated HSM?
 
  No. Microsoft no tiene acceso a las claves almacenadas en un módulo HSM dedicado asignado a un cliente.
@@ -201,7 +205,7 @@ Sí. Deben cumplir los requisitos de alta disponibilidad de SafeNet Luna Network
 
 ### <a name="q-what-is-the-sla-for-dedicated-hsm-service"></a>P: ¿Cuál es el Acuerdo de Nivel de Servicio de Dedicated HSM?
 
-No hay ningún garantizar el tiempo de actividad específico proporcionado para el servicio HSM dedicados. Microsoft garantizará el acceso de nivel de red al dispositivo y, por lo tanto, se aplican los SLA estándar de redes de Azure.
+No hay ninguna garantía de tiempo de actividad específico proporcionada para el servicio HSM dedicados. Microsoft garantizará el acceso de nivel de red al dispositivo y, por lo tanto, se aplican los SLA estándar de redes de Azure.
 
 ### <a name="q-how-are-the-hsms-used-in-azure-dedicated-hsm-protected"></a>P: ¿Cómo se protegen los módulos HSM utilizados en Azure Dedicated HSM?
 
@@ -217,7 +221,7 @@ Se recomienda usar un dispositivo HSM local de respaldo para realizar la copia d
 
 ### <a name="q-how-do-i-get-support-for-dedicated-hsm"></a>P: ¿Cómo puedo obtener soporte técnico para Dedicated HSM?
 
-Se proporciona soporte técnico de Microsoft y Gemalto.  Si tiene un problema con el hardware o acceso a la red, presente una solicitud de soporte técnico con Microsoft y si tiene un problema con el desarrollo de software, configuración y de aplicaciones de HSM póngase rasie solicitar un soporte técnico con Gemalto. Si tiene un problema indeterminado, generar un withg de solicitud de soporte técnico de Microsoft y, a continuación, puede exponerse a Gemalto como requerido. 
+Se proporciona soporte técnico de Microsoft y Gemalto.  Si tiene un problema con el acceso de red o de hardware, se producirá una solicitud de soporte técnico con Microsoft y, si tiene un problema con la configuración de HSM, software y desarrollo de aplicaciones, presente una solicitud de soporte técnico con Gemalto. Si tiene un problema indeterminado, presente una solicitud de soporte técnico con Microsoft y, a continuación, puede exponerse a Gemalto como requerido. 
 
 ### <a name="q-how-do-i-get-the-client-software-documentation-and-access-to-integration-guidance-for-the-safenet-luna-7-hsm"></a>P: ¿Cómo se puede obtener el cliente de software, documentación y acceso a la Guía de integración para el HSM de SafeNet Luna 7?
 

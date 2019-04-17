@@ -10,25 +10,25 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: mvc
-ms.date: 01/28/2019
+ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 1b872c5c2ff0f581300a843650d7434c7c526c84
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 8374e4c49012a2c49de41001be0fdb30f9151332
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545626"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617842"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Acceso a la API de Azure Media Services con la CLI de Azure
  
-Debe usar la autenticación de la entidad de servicio de Azure AD para conectarse a la API de Azure Media Services. La aplicación debe solicitar un token de Azure AD que tenga los parámetros siguientes:
+Para usar la autenticación de entidad de servicio de Azure AD para conectarse a la API de Azure Media Services, la aplicación debe solicitar un token de Azure AD que tiene los siguientes parámetros:
 
 * Punto de conexión de inquilino de Azure AD
 * URI del recurso de Media Services
 * URI del recurso de Media Services de REST
 * Valores de aplicación de Azure AD: el identificador de cliente y el secreto de cliente
 
-Para obtener más información, consulte [desarrollar con las API de Media Services v3](media-services-apis-overview.md).
+Para obtener una explicación detallada, consulte [las API de acceso a Media Services v3](media-services-apis-overview.md#accessing-the-azure-media-services-api).
 
 En este artículo se muestra cómo usar la CLI de Azure para crear una entidad de servicio y una aplicación de Azure AD y obtener los valores necesarios para acceder a los recursos de Azure Media Services.
 

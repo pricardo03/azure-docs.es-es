@@ -5,18 +5,20 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.author: danlep
-ms.openlocfilehash: 2ea85b2b04600708381423e16408ba34b1e27566
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: c311eea80c604366196a0725e4f9982bb43f8b5d
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904906"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59606895"
 ---
-# <a name="set-environment-variables"></a>Establecimiento de variables de entorno
+# <a name="set-environment-variables-in-container-instances"></a>Establecer variables de entorno en las instancias de contenedor
 
-El establecimiento de variables de entorno en las instancias de contenedor le permite proporcionar configuración dinámica de la aplicación o el script ejecutados por el contenedor. Para establecer las variables de entorno en un contenedor, debe especificarlas al crear una instancia del contenedor. Se pueden establecer variables de entorno cuando se inicia un contenedor con la [CLI de Azure](#azure-cli-example), [Azure PowerShell](#azure-powershell-example) y [Azure Portal](#azure-portal-example).
+El establecimiento de variables de entorno en las instancias de contenedor le permite proporcionar configuración dinámica de la aplicación o el script ejecutados por el contenedor. Esto es casi lo mismo que el argumento de línea de comandos `--env` para `docker run`. 
+
+Para establecer las variables de entorno en un contenedor, debe especificarlas al crear una instancia del contenedor. En este artículo se muestra ejemplos de cómo configurar variables de entorno cuando se inicia un contenedor con el [CLI de Azure](#azure-cli-example), [Azure PowerShell](#azure-powershell-example)y el [portal Azure](#azure-portal-example). 
 
 Por ejemplo, si ejecuta Microsoft [aci-wordcount] [ aci-wordcount] imagen de contenedor, puede modificar su comportamiento mediante la especificación de las variables de entorno siguientes:
 
@@ -143,7 +145,7 @@ Azure:\
 
 Para establecer las variables de entorno cuando inicia un contenedor en Azure Portal, especifíquelas en la página **Configuración** cuando crea el contenedor.
 
-Cuando se implementa con el portal, está actualmente limitado a tres variables y debe escribir en este formato: `"variableName":"value"`
+Cuando se implementa con el portal, actualmente está limitado a tres variables y debe especificarla con este formato: `"variableName":"value"`.
 
 Para ver un ejemplo, iniciar la [aci-wordcount] [ aci-wordcount] contenedor con el *NumWords* y *MinLength* variables.
 
@@ -241,7 +243,7 @@ my-secret-value
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Los escenarios basados en tareas, como el procesamiento por lotes de un gran conjunto de datos con varios contenedores, pueden aprovechar las variables de entorno personalizadas en tiempo de ejecución. Para más información sobre cómo ejecutar contenedores basados en tareas, consulte [Ejecución de tareas en contenedores en Azure Container Instances](container-instances-restart-policy.md).
+Los escenarios basados en tareas, como el procesamiento por lotes de un gran conjunto de datos con varios contenedores, pueden aprovechar las variables de entorno personalizadas en tiempo de ejecución. Para obtener más información sobre la ejecución de contenedores basados en tareas, consulte [ejecutar tareas en contenedores con las directivas de reinicio](container-instances-restart-policy.md).
 
 <!-- IMAGES -->
 [portal-env-vars-01]: ./media/container-instances-environment-variables/portal-env-vars-01.png

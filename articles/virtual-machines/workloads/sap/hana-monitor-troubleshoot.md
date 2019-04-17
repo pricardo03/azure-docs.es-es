@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 392dd39e2b3b0e26e7b0ba645bf5a70231167ad5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 71970a74817665c97a9522fbc9a68dd3834252b9
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58014399"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616363"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Supervisión y solución de problemas en el lado HANA
 
@@ -108,7 +108,7 @@ Hacer referencia a la [solución de problemas de HANA de SAP: Problemas de conec
 
 ## <a name="storage"></a>Almacenamiento
 
-Desde la perspectiva del usuario final, una aplicación (o el sistema en su conjunto) se ejecuta lentamente, deja de responder o incluso puede parecer que se cuelga si hay problemas de rendimiento de E/S. En la pestaña **Volúmenes** de SAP HANA Studio, puede ver los volúmenes conectados y los utilizados por cada servicio.
+Desde la perspectiva del usuario final, una aplicación (o el sistema como un todo) se ejecuta lentamente, deja de responder o incluso puede parecer que deja de responder si hay problemas con el rendimiento de E/S. En la pestaña **Volúmenes** de SAP HANA Studio, puede ver los volúmenes conectados y los utilizados por cada servicio.
 
 ![En la pestaña Volúmenes de SAP HANA Studio, puede ver los volúmenes conectados y los utilizados por cada servicio](./media/troubleshooting-monitoring/image5-volumes-tab-a.png)
 

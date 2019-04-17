@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 08/22/2017
 ms.author: ramkris
-ms.openlocfilehash: 4d6d26bd142a62d57b55caa290a2a94a3988737d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a915792ad5cd1352c666f8224345c54e278ab899
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58008710"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526884"
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-sql-api"></a>Compilación de una aplicación web de Java mediante Azure Cosmos DB y la API de SQL
 
@@ -71,7 +71,7 @@ Para crear la aplicación JSP:
    
     ![Creación de un nuevo archivo JSP - Tutorial de aplicación web de Java](./media/sql-api-java-application/image11.png)
 5. En el cuadro de diálogo **Select JSP Template** (Seleccionar plantilla JSP), para cumplir con el objetivo de este tutorial, seleccione **New JSP File (html)** (Nuevo archivo JSP [html]) y haga clic en **Finish** (Finalizar).
-6. Cuando el archivo index.jsp se abra en Eclipse, agregue texto para mostrar **Hola a todos** dentro del elemento existente. dentro del elemento <body> existente. El contenido actualizado <body> debe ser similar al código siguiente:
+6. Cuando el archivo index.jsp se abra en Eclipse, agregue texto para mostrar **Hola a todos** dentro del elemento existente. dentro del elemento `<body>` existente. El contenido actualizado `<body>` debe ser similar al código siguiente:
    
         <body>
             <% out.println("Hello World!"); %>
@@ -99,8 +99,13 @@ Para ello, deberá convertir su proyecto en un proyecto Maven realizando los pas
    ![Instalación del SDK de la aplicación Java en SQL](./media/sql-api-java-application/image13.png)
      
    * O bien, agregue el XML de dependencia para identificador de grupo y un identificador de artefacto directamente al archivo pom.xml mediante un editor de texto:
-     
-        <dependency><groupId>com.microsoft.azure</groupId><artifactId>azure-documentdb</artifactId><version>1.9.1</version></dependency>
+        ```xml
+        <dependency>
+            <groupId>com.microsoft.azure</groupId>
+            <artifactId>azure-documentdb</artifactId>
+            <version>1.9.1</version>
+        </dependency>
+        ```
 6. Haga clic en **Aceptar** y Maven instalará el SDK de Java para SQL.
 7. Guarde el archivo pom.xml.
 

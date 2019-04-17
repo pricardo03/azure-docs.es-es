@@ -5,46 +5,49 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 8bdb711d39f514375362235388943ec42451b312
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 6e826bd965281d60cb6d73f325fbc5a7a06da234
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58315579"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59358486"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparación de los recursos de Azure para la recuperación ante desastres de máquinas locales
 
- [Azure Site Recovery](site-recovery-overview.md) contribuye a la estrategia de recuperación ante desastres y continuidad empresarial (BCDR) al mantener sus aplicaciones empresariales al día y disponibles durante interrupciones planeadas y no planeadas. Azure Site Recovery administra y coordina la recuperación ante desastres de máquinas locales y máquinas virtuales de Azure, lo que incluye la replicación, la conmutación por error y la recuperación.
+En este artículo se describe cómo preparar los recursos y componentes de Azure para que pueda configurar la recuperación ante desastres de máquinas virtuales de VMware, máquinas virtuales de Hyper-V o servidores físicos Windows/Linux en Azure, mediante el servicio [Azure Site Recovery](site-recovery-overview.md).
 
-Este artículo es el primer tutorial de una serie que muestra cómo configurar la recuperación ante desastres para máquinas virtuales locales. Es importante conocer si va a proteger máquinas virtuales locales de VMware, máquinas virtuales de Hyper-V o servidores físicos.
+Este artículo es el primer tutorial de una serie que muestra cómo configurar la recuperación ante desastres para máquinas virtuales locales. 
 
-> [!NOTE]
-> Los tutoriales están diseñados para mostrarle la ruta de implementación más sencilla para un escenario. Usan opciones predeterminadas siempre que es posible y no muestran todos los valores y las rutas de acceso posibles. Para instrucciones detalladas, consulte la sección del **procedimiento** para el escenario correspondiente.
 
-En este artículo se muestra cómo preparar los componentes de Azure cuando se desean replicar máquinas virtuales locales (Hyper-V o VMware) o servidores físicos de Windows/Linux en Azure. En este tutorial, aprenderá a:
+En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
-> * Compruebe que la cuenta de Azure tiene permisos de replicación.
+> * Comprobar que la cuenta de Azure tiene permisos de replicación.
 > * Cree un almacén de Recovery Services. Un almacén contiene metadatos e información de configuración de las máquinas virtuales y otros componentes de replicación.
-> * Configure una red de Azure. Cuando se crean máquinas virtuales de Azure después de la conmutación por error, se unen a esta red de Azure.
+> * Configurar una red virtual de Azure Virtual Network. Cuando se crean máquinas virtuales de Azure después de la conmutación por error, se unen a esta red.
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar.
+> [!NOTE]
+> Los tutoriales muestran la ruta de implementación más sencilla para un escenario. Usan opciones predeterminadas siempre que es posible y no muestran todos los valores y las rutas de acceso posibles. Para obtener instrucciones detalladas, consulte el artículo de la sección de procedimientos de la tabla de contenido de Site Recovery.
 
-## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="before-you-start"></a>Antes de comenzar
 
-Inicie sesión en el [Azure Portal](https://portal.azure.com).
+- Revise la arquitectura de recuperación ante desastres de [VMware](vmware-azure-architecture.md), [Hyper-V](hyper-v-azure-architecture.md) y el [servidor físico](physical-azure-architecture.md).
+- Lea las preguntas habituales de [VMware](vmware-azure-common-questions.md) y Hyper-V(hyper-v-azure-common-questions.md)
+
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/pricing/free-trial/) antes de empezar. Luego, inicie sesión en el [Portal de Azure](https://portal.azure.com).
+
 
 ## <a name="verify-account-permissions"></a>Comprobar los permisos de la cuenta
 
-Si acaba de crear su cuenta de Azure gratis, ya es el administrador de la suscripción. Si no es el administrador de la suscripción, solicite al administrador que le asigne los permisos que necesita. Para habilitar la replicación de una nueva máquina virtual, debe tener permiso para:
+Si acaba de crear una cuenta de Azure gratis, es el administrador de la suscripción y tiene los permisos que necesita. Si no es el administrador de la suscripción, solicite al administrador que le asigne los permisos que necesita. Para habilitar la replicación de una nueva máquina virtual, debe tener permiso para:
 
 - Crear una máquina virtual en el grupo de recursos seleccionado.
 - Crear una máquina virtual en la red virtual seleccionada.
-- Escribir en la cuenta de almacenamiento.
-- Escribir en el disco administrado.
+- Escribir en una cuenta de Azure Storage.
+- Escribir en un disco administrado de Azure.
 
 Para completar estas tareas su cuenta debe tener asignado el rol integrado de colaborador de la máquina virtual. Además, para administrar las operaciones de Site Recovery en un almacén, su cuenta debe tener asignado el rol integrado de colaborador de Site Recovery.
 
@@ -64,30 +67,29 @@ Para completar estas tareas su cuenta debe tener asignado el rol integrado de co
 
 ## <a name="set-up-an-azure-network"></a>Configurar una red de Azure
 
-Cuando se crean máquinas virtuales de Azure desde discos administrados después de la conmutación por error, se unen a esta red.
+Las máquinas locales se replican en los discos administrados de Azure. Cuando se produce la conmutación por error, se crean máquinas virtuales de Azure a partir de estos discos administrados y se unen a la red de Azure que especifique en este procedimiento.
 
 1. En [Azure Portal](https://portal.azure.com), seleccione **Crear un recurso** > **Redes** > **Red virtual**.
-2. Vamos a dejar **Resource Manager** seleccionado como modelo de implementación.
+2. Deje **Resource Manager** seleccionado como modelo de implementación.
 3. En **Nombre**, escriba un nombre de red. El nombre debe ser único dentro del grupo de recursos de Azure. Se va a usar **ContosoASRnet** en este tutorial.
 4. Especifique el grupo de recursos en el que se creará la red. Se va a usar el grupo de recursos existente **contosoRG**.
-5. En **Intervalo de direcciones**, escriba el intervalo de direcciones de red **10.0.0.0/24**. En esta red no se va a usar una subred.
+5. En **Intervalo de direcciones**, escriba el intervalo de la red. Usamos **10.0.0.0/24** y no usamos subred.
 6. En **Suscripción**, seleccione la suscripción en la que se creará la red.
-7. En **Ubicación**, seleccione **Europa Occidental**. La red virtual de Azure debe estar en la misma región que el almacén de Recovery Services.
+7. En **Ubicación**, seleccione la región que en que se creó el almacén de Recovery Services. En este tutorial es **Oeste de Europa**.  La red debe estar en la misma región que el almacén.
 8. Se van a dejar las opciones predeterminadas de protección básica contra DDoS, con ningún punto de conexión de servicio en la red.
 9. Haga clic en **Create**(Crear).
 
    ![Creación de una red virtual](media/tutorial-prepare-azure/create-network.png)
 
-   La red virtual tarda unos segundos en crearse. Una vez creada, se ve en el panel de Azure Portal.
+La red virtual tarda unos segundos en crearse. Una vez creada, se ve en el panel de Azure Portal.
 
-## <a name="useful-links"></a>Vínculos útiles
-
-- [Más información](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) sobre las redes de Azure.
-- [Más información](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) sobre discos administrados.
 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-> [!div class="nextstepaction"]
-> [Preparar la infraestructura de VMware local para la recuperación ante desastres en Azure](tutorial-prepare-on-premises-vmware.md)
+- Para la recuperación ante desastres de VMware, [prepare la infraestructura de VMware local](tutorial-prepare-on-premises-vmware.md).
+- Para la recuperación ante desastres de Hyper-V, [prepare los servidores de Hiper-V locales](hyper-v-prepare-on-premises-tutorial.md).
+- Para la recuperación ante desastres de servidores físicos, [configure el servidor de configuración y el entorno del origen](physical-azure-disaster-recovery.md)
+- [Más información](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) sobre las redes de Azure.
+- [Más información](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) sobre discos administrados.
