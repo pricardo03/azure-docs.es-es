@@ -1,17 +1,17 @@
 ---
 title: Introducción a Azure Cosmos DB
 description: Información acerca de Azure Cosmos DB. Esta base de datos de varios modelos y distribución global se ha creado con latencia baja, escalabilidad elástica y alta disponibilidad, y ofrece compatibilidad nativa con datos de NoSQL.
-author: SnehaGunda
+author: rimman
 ms.service: cosmos-db
 ms.topic: overview
-ms.date: 03/18/2019
-ms.author: sngun
-ms.openlocfilehash: eec94217cc62f74a5075412aafcf85bf67346bf4
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.date: 04/08/2019
+ms.author: rimman
+ms.openlocfilehash: a965db4334e88d032f767bd7b855dea6f3ff174f
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294372"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280951"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenido a Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Mediante Cosmos DB se pueden crear aplicaciones de escala planetaria con una gra
 
 ### <a name="precisely-defined-multiple-consistency-choices"></a>Varias opciones de coherencia definidas con precisión
 
-Cuando compile aplicaciones distribuidas globalmente en Cosmos DB, ya no es preciso que haga [concesiones extremas entre coherencia, disponibilidad, latencia y rendimiento](consistency-levels-tradeoffs.md). El protocolo de replicación de la arquitectura multimaestro de Cosmos DB se ha diseñado meticulosamente para ofrecer [cinco opciones de coherencia bien definidas](consistency-levels.md) ( - segura *,* obsolescencia limitada *,* sesión *,* prefijo coherente*y*eventual *) para disponer de un modelo de programación intuitivo con baja latencia y alta disponibilidad para aplicaciones distribuidas globalmente.
+Cuando compile aplicaciones distribuidas globalmente en Cosmos DB, ya no es preciso que haga [concesiones extremas entre coherencia, disponibilidad, latencia y rendimiento](consistency-levels-tradeoffs.md). El protocolo de replicación de la arquitectura multimaestro de Cosmos DB se ha diseñado meticulosamente para ofrecer [cinco opciones de coherencia bien definidas](consistency-levels.md) ( - *segura*, *obsolescencia limitada*, *sesión*, *prefijo coherente* y *eventual*) para disponer de un modelo de programación intuitivo con baja latencia y alta disponibilidad para aplicaciones distribuidas globalmente.
 
 ### <a name="no-schema-or-index-management"></a>Sin administración de índices o esquemas
 
@@ -99,7 +99,7 @@ Comience a usar Azure Cosmos DB con una de nuestras guías rápidas:
 
 * [Introducción a SQL API de Azure Cosmos DB](create-sql-api-dotnet.md)
 * [Introducción a la API de Azure Cosmos DB para MongoDB](create-mongodb-nodejs.md)
-* [Introducción a la API Cassandra de Azure Cosmos DB](create-cassandra-dotnet.md)
+* [Introducción a Cassandra API de Azure Cosmos DB](create-cassandra-dotnet.md)
 * [Introducción a Gremlin API de Azure Cosmos DB](create-graph-dotnet.md)
 * [Introducción a Table API de Azure Cosmos DB](create-table-dotnet.md)
 

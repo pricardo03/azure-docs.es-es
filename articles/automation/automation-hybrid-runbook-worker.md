@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 785cf5159615b4a81740e853f2b513f0e6d74aec
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 55dff6cf073612e3e5473da3a5f1bf722b2ccdbd
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545848"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608561"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Automatización de recursos en los centros de datos o nube con Hybrid Runbook Worker
 
@@ -27,6 +27,9 @@ En la imagen siguiente se muestra esta funcionalidad:
 Cada Trabajo híbrido de runbook es miembro de un grupo de Trabajos híbridos de runbook que especifica cuando instala el agente. Un grupo puede incluir solo un agente, pero puede instalar varios agentes en un grupo para contar con alta disponibilidad.
 
 Cuando se inicia un runbook en Hybrid Runbook Worker, se especifica el grupo en el que se ejecuta. Cada rol de trabajo del grupo sondea Azure Automation para ver si hay trabajos disponibles. Si un trabajo está disponible, el primer rol trabajo en obtener el trabajo lo toma. El tiempo de procesamiento de la cola de trabajos depende de la carga y del perfil de hardware de Hybrid Worker. No se puede especificar un trabajo determinado. Las instancias de Hybrid Runbook Worker no comparten muchos de los límites que tienen los espacios aislados de Azure. No tienen los mismos límites de espacio en disco, memoria o sockets de red. Las instancias de Hybrid Runbook Worker solo se ven limitadas por los recursos de Hybrid Runbook Worker propiamente dicho. Además, las instancias de Hybrid Runbook Worker no comparten el límite de tiempo de 180 minutos de [distribución equilibrada](automation-runbook-execution.md#fair-share) que comparten los espacios aislados de Azure. Para conocer mejor los límites de servicio de espacios aislados de Azure y las instancias de Hybrid Runbook Worker, vea la página [límites](../azure-subscription-service-limits.md#automation-limits) del trabajo.
+
+> [!NOTE]
+> Hybrid Runbook Worker no se admiten en Azure China.
 
 ## <a name="install-a-hybrid-runbook-worker"></a>Instalación de una instancia de Hybrid Runbook Worker
 

@@ -17,12 +17,12 @@ ms.date: 04/01/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6de55cb9f1f89c9c3cd809294890f63134a26d8
-ms.sourcegitcommit: ad3e63af10cd2b24bf4ebb9cc630b998290af467
+ms.openlocfilehash: 3cf4ec48942cbe345b12d2a358afc3dadbe63a96
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58793176"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59360123"
 ---
 # <a name="quickstart-call-the-microsoft-graph-api-from-a-universal-windows-platform-uwp-application"></a>Inicio rápido: Llamar a Microsoft Graph API desde una aplicación de la Plataforma universal de Windows (UWP)
 
@@ -86,9 +86,9 @@ En esta guía de inicio rápido hay código de ejemplo que muestra cómo una apl
 
 > [!div renderon="docs"]
 > Donde:
-> - `Enter_the_Application_Id_here`: es el identificador de aplicación de la aplicación que registró.
-> - `Enter_the_Tenant_Info_Here`: es una de las opciones siguientes:
->   - Si la aplicación admite **Solo mi organización**, reemplace este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, contoso.microsoft.com)
+> - `Enter_the_Application_Id_here` : es el identificador de aplicación de la aplicación que registró.
+> - `Enter_the_Tenant_Info_Here` : es una de las opciones siguientes:
+>   - Si la aplicación admite **Solo mi organización**, reemplace este valor por el de **Identificador de inquilino** o el de **Nombre de inquilino** (por ejemplo, contoso.onmicrosoft.com)
 >   - Si la aplicación admite **Cuentas en cualquier directorio organizativo**, reemplace este valor por `organizations`
 >   - Si la aplicación admite **Todos los usuarios de cuentas Microsoft**, reemplace este valor por `common`
 >
@@ -167,4 +167,4 @@ authResult = await App.PublicClientApp.AcquireTokenSilentAsync(scopes, accounts.
 Visite el tutorial de escritorio de Windows para acceder a una guía completa paso a paso sobre la creación de aplicaciones y nuevas características, que incluye una explicación completa de esta guía de inicio rápido.
 
 > [!div class="nextstepaction"]
-> [UWP: Tutorial de Graph API de llamada](tutorial-v2-windows-uwp.md)
+> [UWP: Llamada al tutorial de Graph API](tutorial-v2-windows-uwp.md)

@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 04/08/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 40c7e00ad5271457904fc3273fdb633b0c7a8016
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7339c975bf979907bd1f9bbb46546b58ef7ae6e5
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58085072"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282362"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>Tutorial: Importación de archivos BACPAC de SQL con plantillas de Azure Resource Manager
 
@@ -53,13 +53,13 @@ Un archivo BACPAC se comparte en una [cuenta de Azure Storage](https://armtutori
 
 ## <a name="open-a-quickstart-template"></a>Abra una plantilla de inicio rápido.
 
-Las plantillas de inicio rápido de Azure consisten en un repositorio de plantillas de Resource Manager. En lugar de crear una plantilla desde cero, puede buscar una plantilla de ejemplo y personalizarla. La plantilla que se usa en este tutorial se denomina [Deploy an Azure SQL Server with Threat Detection](https://azure.microsoft.com/resources/templates/201-sql-threat-detection-server-policy-optional-db/) (Implementación de una instancia de Azure SQL Server con detección de amenazas).
+La plantilla que se usa en este tutorial se almacena en una [cuenta de Azure Storage](https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json). 
 
 1. En Visual Studio Code, seleccione **Archivo**>**Abrir archivo**.
 2. En **Nombre de archivo**, pegue el código URL siguiente:
 
     ```url
-    https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-sql-threat-detection-server-policy-optional-db/azuredeploy.json
+    https://armtutorials.blob.core.windows.net/createsql/azuredeploy.json
     ```
 3. Seleccione **Abrir** para abrir el archivo.
 
@@ -175,4 +175,4 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 En este tutorial, ha implementado una instancia de SQL Server y una instancia de SQL Database, y ha importado un archivo BACPAC. El archivo BACPAC se almacena en una cuenta de almacenamiento de Azure. Cualquier persona con la dirección URL puede acceder al archivo. Para obtener información sobre cómo proteger el archivo BACPAC (artefacto), consulte
 
 > [!div class="nextstepaction"]
-> [Proteger los artefactos](./resource-manager-tutorial-secure-artifacts.md)
+> [Protección de los artefactos](./resource-manager-tutorial-secure-artifacts.md)

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/10/2017
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 67f87729dbfb792b88f28a772f15e233f0fa60dc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 928c6316ea964472faadc82213c4c1ff81c3e038
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452120"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608255"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: Disponibilidad de región y residencia de datos
 La disponibilidad en regiones y residencia de datos son dos conceptos muy diferentes que se aplican de forma diferente a Azure AD B2C del resto de Azure. En este artículo se explican las diferencias entre estos dos conceptos y se compara cómo se aplican a Azure frente a Azure AD B2C.
@@ -45,7 +45,7 @@ Los datos residen en Estados Unidos para los países o regiones siguientes:
 
 Los datos residen en Europa para los países o regiones siguientes:
 
-> Alemania, Arabia Saudí, Argelia, Austria, Azerbaiyán, Bahréin, Bélgica, Belarús, Bulgaria, Croacia, Chipre, Dinamarca, Egipto, Emiratos Árabes Unidos Eslovaquia, Eslovenia, España, Estonia, Finlandia, Francia, Grecia, Hungría, Irlanda, Islandia, Israel, Italia, Jordania, Kazajistán, Kenia, Kuwait, Letonia, Líbano, Liechtenstein, Lituania, Luxemburgo, República de Macedonia, Malta, Marruecos, Montenegro, Nigeria, Noruega, Omán, Países Bajos, Pakistán, Polonia, Portugal, Qatar, Reino Unido, República Checa, Rumanía, Rusia, Serbia, Sudáfrica, Suecia, Suiza, Túnez, Turquía y Ucrania.
+> Argelia, Austria, Azerbaiyán, Bahréin, Belarús, Bélgica, Bulgaria, Croacia, Chipre, República Checa, Dinamarca, Egipto, Estonia, Finlandia, Francia, Alemania, Grecia, Hungría, Islandia, Irlanda, Israel, Italia, Jordania, Kazajistán, Kenia, Kuwait, Letonia, Líbano, Liechtenstein, Lituania, Luxemburgo, Macedonia del Norte, Malta, Montenegro, Marruecos, países bajos, Nigeria, Noruega, Omán, Pakistán, Polonia, Portugal, Qatar, Rumanía, Rusia, Arabia Saudí, Serbia, Eslovaquia, Eslovenia, Sudáfrica, España, Suecia, Suiza, Túnez, Turquía, Ucrania, Emiratos Árabes Unidos y Reino Unido.
 
 Los países o regiones restantes están a punto de agregarse a la lista.  De momento, todavía puede usar Azure AD B2C escogiendo cualquiera de los países o regiones anteriores.
 

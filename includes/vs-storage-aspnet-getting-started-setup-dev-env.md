@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 634143f56bc9134f240ff42b7b5989605c8bffde
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
-ms.translationtype: HT
+ms.openlocfilehash: a7c696870e22e1692ca5ed778e47f8e4cc00615a
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979201"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59610142"
 ---
 ## <a name="set-up-the-development-environment"></a>Configuración del entorno de desarrollo
 
@@ -37,7 +37,7 @@ En esta sección se explica cómo configurar el entorno de desarrollo. Se incluy
 
 1. En el **Explorador de soluciones**, haga clic con el botón derecho en el proyecto.
 
-2. En el menú contextual, seleccione **Agregar** > **Servicio conectado**.
+1. En el menú contextual, seleccione **Agregar** > **Servicio conectado**.
 
 1. En el cuadro de diálogo **Servicios conectados**, seleccione **Almacenamiento en la nube con Azure Storage**.
 
@@ -45,8 +45,9 @@ En esta sección se explica cómo configurar el entorno de desarrollo. Se incluy
 
 1. En el cuadro de diálogo **Azure Storage**, seleccione la cuenta de Azure Storage que se usará en este tutorial. Para crear una nueva cuenta de Azure Storage, seleccione **Crear una nueva cuenta de almacenamiento** y rellene el formulario. Después de seleccionar una cuenta de almacenamiento existente o de crear una nueva, seleccione **Agregar**. Visual Studio instala el paquete NuGet de Azure Storage y una cadena de conexión de almacenamiento a **Web.config**.
 
+1. En **el Explorador de soluciones**, haga doble clic en **dependencias**, elija **administrar paquetes de NuGet**y agregue una referencia de paquete de NuGet para la versión más reciente de Microsoft.Azure.ConfigurationManager.
+
 > [!TIP]
 > Para aprender a crear una cuenta de almacenamiento con [Azure Portal](https://portal.azure.com), consulte [Crear una cuenta de almacenamiento](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 >
 > También se puede crear una cuenta de Azure Storage mediante [Azure PowerShell](../articles/storage/common/storage-powershell-guide-full.md), la [CLI de Azure](../articles/storage/common/storage-azure-cli.md) o [Azure Cloud Shell](../articles/cloud-shell/overview.md).
-

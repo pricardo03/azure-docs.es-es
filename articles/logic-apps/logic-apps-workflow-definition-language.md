@@ -1,29 +1,28 @@
 ---
-title: 'Referencia de esquema del lenguaje de definición de flujo de trabajo: Azure Logic Apps | Microsoft Docs'
-description: Escritura de definiciones de flujo de trabajo personalizadas para Azure Logic Apps con el lenguaje de definición de flujo de trabajo
+title: Referencia de esquema de lenguaje de definición de flujo de trabajo - Azure Logic Apps
+description: Guía de referencia de esquema del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: klam, LADocs
 ms.topic: reference
 ms.date: 04/30/2018
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: d2de2a25d67da230d539156c851cca34335a01c2
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: d80ffa862546f56e93a338a7a1db031e2cb55990
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58620843"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616808"
 ---
 # <a name="schema-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Referencia de esquema del lenguaje de definición de flujo de trabajo en Azure Logic Apps
 
-Cuando se crea un flujo de trabajo de aplicación lógica con [Azure Logic Apps](../logic-apps/logic-apps-overview.md), la definición subyacente del flujo de trabajo describe la lógica real que se ejecuta para la aplicación lógica. Esta descripción sigue una estructura que se define y valida mediante el esquema de lenguaje de definición de flujo de trabajo, que usa la [notación de objetos JavaScript (JSON)](https://www.json.org/).
+Cuando se crea una aplicación lógica en [Azure Logic Apps](../logic-apps/logic-apps-overview.md), la aplicación lógica tiene una definición de flujo de trabajo subyacente que describe la lógica real que se ejecuta en la aplicación lógica. Esa definición de flujo de trabajo usa [JSON](https://www.json.org/) y sigue una estructura que se valida el esquema del lenguaje de definición de flujo de trabajo. Esta referencia proporciona información general acerca de esta estructura y cómo el esquema define los elementos en la definición de flujo de trabajo.
 
 ## <a name="workflow-definition-structure"></a>Estructura de definición de flujo de trabajo
 
-Una definición de flujo de trabajo tiene al menos un desencadenador que crea una instancia de la aplicación lógica, además de una o varias acciones que ejecuta dicha aplicación.
+Una definición de flujo de trabajo siempre incluye un desencadenador para crear instancias de la aplicación lógica, además de una o varias acciones que se ejecutan tras el desencadenador se activa.
 
 Esta es la estructura de alto nivel de una definición de flujo de trabajo:
 
@@ -51,7 +50,7 @@ Esta es la estructura de alto nivel de una definición de flujo de trabajo:
 
 ## <a name="parameters"></a>Parámetros
 
-En la sección `parameters`, defina todos los parámetros de flujo de trabajo que usa su aplicación lógica en la implementación para aceptar entradas. Tanto las declaraciones de parámetros como los valores de parámetros son necesarios en la implementación. Antes de poder usar estos parámetros en otras secciones del flujo de trabajo, asegúrese de declarar todos los parámetros en las siguientes secciones. 
+En la `parameters` sección, defina todos los parámetros de flujo de trabajo que usa la definición de flujo de trabajo en la implementación para aceptar entradas. Tanto las declaraciones de parámetros como los valores de parámetros son necesarios en la implementación. Antes de poder usar estos parámetros en otras secciones del flujo de trabajo, asegúrese de declarar todos los parámetros en las siguientes secciones. 
 
 Esta es la estructura general de una definición de parámetro:
 
@@ -75,7 +74,7 @@ Esta es la estructura general de una definición de parámetro:
 | Tipo | Sí | int, float, string, securestring, bool, array, JSON object, secureobject <p><p>**Nota**: Con todas las contraseñas, claves y secretos, use los tipos `securestring` y `secureobject` porque la operación `GET` no los devuelve. Para obtener más información acerca de cómo proteger los parámetros, vea [proteger la aplicación lógica](../logic-apps/logic-apps-securing-a-logic-app.md#secure-action-parameters) | El tipo del parámetro. |
 | defaultValue | Sí | Igual que `type`. | El valor de parámetro predeterminado cuando no se especifica ningún valor al crear una instancia del flujo de trabajo. |
 | allowedValues | Sin  | Igual que `type`. | Una matriz con valores que puede aceptar el parámetro. |
-| metadata | Sin  | Objeto JSON | Cualquier otro detalle del parámetro, por ejemplo, el nombre o una descripción legible de la aplicación lógica, o los datos de tiempo de diseño que usa Visual Studio u otras herramientas. |
+| metadata | Sin  | Objeto JSON | Cualquier otro detalle del parámetro, por ejemplo, el nombre o una descripción legible de la aplicación lógica o flujo o los datos de tiempo de diseño usados por Visual Studio u otras herramientas |
 ||||
 
 ## <a name="triggers-and-actions"></a>Desencadenadores y acciones
@@ -107,7 +106,7 @@ Esta es la estructura general de una definición de salida:
 | value | Sí | Igual que `type`. | El valor devuelto de salida. |
 |||||
 
-Para obtener la salida de una ejecución de flujo de trabajo, revise el historial y los detalles de ejecución de la aplicación lógica en Azure Portal o use la [API REST de flujo de trabajo](https://docs.microsoft.com/rest/api/logic/workflows). También puede pasar la salida a sistemas externos, por ejemplo, a Power BI, para crear paneles.
+Para obtener el resultado de ejecutar un flujo de trabajo, revise el historial de ejecución y los detalles en el portal de Azure de la aplicación lógica o usar el [API de REST de flujo de trabajo](https://docs.microsoft.com/rest/api/logic/workflows). También puede pasar la salida a sistemas externos, por ejemplo, a Power BI, para crear paneles.
 
 <a name="expressions"></a>
 
@@ -216,7 +215,7 @@ En [expresiones](#expressions) y [funciones](#functions), los operadores realiza
 
 ## <a name="functions"></a>Functions
 
-Algunas expresiones obtienen sus valores de las acciones en tiempo de ejecución que puede que no existan aún cuando comienza a ejecutarse una aplicación lógica. Para trabajar con estos valores o hacer referencia a ellos mediante expresiones, puede usar [*funciones*](../logic-apps/workflow-definition-language-functions-reference.md) proporcionadas por el lenguaje de definición de flujo de trabajo.
+Algunas expresiones obtienen sus valores de acciones en tiempo de ejecución que no podrían existir aún cuando la definición de flujo de trabajo empieza a ejecutarse. Para trabajar con estos valores o hacer referencia a ellos mediante expresiones, puede usar [*funciones*](../logic-apps/workflow-definition-language-functions-reference.md) proporcionadas por el lenguaje de definición de flujo de trabajo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

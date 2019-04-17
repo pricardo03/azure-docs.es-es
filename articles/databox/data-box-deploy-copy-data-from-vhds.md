@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 02/27/2019
 ms.author: alkohli
-ms.openlocfilehash: 1358751c71dfba39574807c9b232957227980f5d
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ec2013a793f766221a66912d6de9d8da8b8106dd
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57887517"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59282566"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>Tutorial: Uso de Data Box para importar datos como discos administrados en Azure
 
@@ -46,7 +46,7 @@ En función de los grupos de recursos especificados, Data Box crea un recurso co
 - `mydbmdrg1_MDisk`
 - `mydbmdrg2_MDisk`
 
-Dentro de cada recurso compartido, se crean las cuatro carpetas siguientes que corresponden a contenedores de la cuenta de almacenamiento.
+En cada uno de los recursos compartidos, se crean las tres carpetas siguientes, que corresponden a contenedores de la cuenta de almacenamiento.
 
 - SSD Premium
 - HDD estándar
@@ -179,5 +179,5 @@ En este tutorial, ha obtenido información acerca de varios temas relacionados c
 En el siguiente tutorial aprenderá a enviar su dispositivo Data Box a Microsoft.
 
 > [!div class="nextstepaction"]
-> [Envío de un dispositivo Data Box a Microsoft](./data-box-deploy-picked-up.md)
+> [Envío de Azure Data Box a Microsoft](./data-box-deploy-picked-up.md)
 

@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 40c749adee08e66319bed88f26c3c898428a41ad
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.openlocfilehash: 1c77d0ea9e67c8d69f3f632cace164d8a0c4d921
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54474360"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617604"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts de Azure Event Grid
 
@@ -40,7 +40,7 @@ Para información sobre la implementación de cualquiera de los orígenes de Eve
 
 En el tema de Event Grid se proporciona un punto de conexión al que el origen envía los eventos. El publicador crea el tema de Event Grid y decide si un origen de evento necesita un tema o más de un tema. Un tema se usa para una colección de eventos relacionados. Para responder a determinados tipos de eventos, los suscriptores deciden los temas a los que se suscriben.
 
-Los temas del sistema son temas integrados que ofrecen los servicios de Azure. No ve los temas del sistema en la suscripción de Azure porque el publicador posee los temas, pero puede suscribirse a ellos. Para suscribirse, proporciona información sobre el recurso del que quiere recibir eventos. Siempre y cuando tenga acceso al recurso, puede suscribirse a sus eventos.
+Los temas del sistema son temas integrados que ofrecen los servicios de Azure. No ve los temas del sistema en la suscripción de Azure porque el publicador posee los temas, pero puede suscribirse a ellos. Para suscribirse, proporciona información sobre el recurso del que quiere recibir eventos. Siempre que tengan acceso al recurso, puede suscribirse a sus eventos.
 
 Los temas personalizados son temas de terceros y de aplicación. Cuando cree un tema personalizado, o se le asigne acceso al mismo, verá ese tema personalizado en su suscripción.
 

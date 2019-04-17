@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/04/2018
+ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: b8e5c5b14ecdbc63daf200b7d11e755822cd063b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 311f4d612c9deab23e7537b0c53ff3932c312cd4
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257015"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59608017"
 ---
 # <a name="your-user-account-for-azure-notebooks"></a>Su cuenta de usuario de Azure Notebooks
 
@@ -41,6 +41,9 @@ Las cuentas de Microsoft se usan para iniciar sesión en cualquier número de pr
 Si no está seguro, seleccione el comando **Crear una** en el símbolo del sistema de la cuenta. Puede crear una nueva cuenta de Microsoft con cualquier dirección de correo electrónico de cualquier proveedor.
 
 ![Comando para crear una nueva cuenta de Microsoft](media/accounts/create-new-microsoft-account.png)
+
+> [!Note]
+> Si intenta crear una nueva cuenta con una dirección de correo electrónico que ya tiene una cuenta asociada con él, es posible que vea el mensaje "no se puede iniciar sesión aquí con un trabajo o una dirección de correo electrónico escolar. Utilizar un correo electrónico personal, como Gmail o Yahoo!, u obtenga un nuevo correo electrónico de Outlook." En ese caso, intente iniciar sesión con la dirección de correo electrónico de trabajo sin necesidad de crear una nueva cuenta.
 
 Para cuentas de menores, el acceso a Azure Notebooks se bloquea por defecto. Al iniciar sesión con una cuenta de un menor, se muestra el error siguiente:
 
@@ -71,4 +74,4 @@ Para dar su consentimiento como administrador, use la [página de consentimiento
 ## <a name="next-steps"></a>Pasos siguientes  
 
 > [!div class="nextstepaction"]
-> [Editar su perfil e identificador de usuario](azure-notebooks-user-profile.md)
+> [Editar el perfil y el identificador de usuario](azure-notebooks-user-profile.md)

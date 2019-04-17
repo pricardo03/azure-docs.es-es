@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 635f519239ad00df8672472bcb6c54e6b8a59927
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 7d46e2047debe5546c6d36f245ae076cec6f73a3
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58001708"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618131"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Inicio rápido: instalación manual de una única instancia de SAP HANA en máquinas virtuales de Azure
 ## <a name="introduction"></a>Introducción
@@ -269,7 +269,7 @@ Antes de iniciar la instalación de SAP, asegúrese de que incluir los nombres d
 
 ### <a name="the-etcfstab-file"></a>El archivo /etc/fstab
 
-Resulta útil agregar el parámetro **nofail** al archivo fstab. De esta manera, si algo fuera mal con los discos, la máquina virtual no se bloquearía en el proceso de arranque. Pero recuerde que es posible que no haya más espacio en disco disponible y que los procesos llenen el sistema de archivos raíz. Si falta /hana, SAP HANA no se iniciará.
+Resulta útil agregar el parámetro **nofail** al archivo fstab. De este modo, si algo va mal con los discos, la máquina virtual no deja de responder en el proceso de arranque. Pero recuerde que es posible que no haya más espacio en disco disponible y que los procesos llenen el sistema de archivos raíz. Si falta /hana, SAP HANA no se iniciará.
 
 ![Adición del parámetro nofail al archivo fstab](./media/hana-get-started/image000c.jpg)
 

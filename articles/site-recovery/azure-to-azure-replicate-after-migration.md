@@ -5,19 +5,19 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/18/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 76119c912ac6ad1447bfcff1f4c98e60f34b072f
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 019c6ec776277a9102cb95cd685bbae0fc660d66
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58317143"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59615921"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configuración de la recuperación ante desastres de máquinas virtuales de Azure tras la migración a Azure 
 
 
-Use este artículo si ha [migrar máquinas locales a máquinas virtuales de Azure](tutorial-migrate-on-premises-to-azure.md) utilizando el [Site Recovery](site-recovery-overview.md) service y ahora desea obtener las máquinas virtuales configurada para la recuperación ante desastres en una región secundaria de Azure. El artículo describe cómo asegurarse de que está instalado el agente de máquina virtual de Azure en las máquinas virtuales migradas y cómo quitar el servicio Site Recovery Mobility que ya no se necesita después de la migración.
+Siga este artículo si ha [migrar máquinas locales a máquinas virtuales de Azure](tutorial-migrate-on-premises-to-azure.md) utilizando el [Site Recovery](site-recovery-overview.md) service y ahora desea obtener las máquinas virtuales configurada para la recuperación ante desastres en una región secundaria de Azure. El artículo describe cómo asegurarse de que está instalado el agente de máquina virtual de Azure en las máquinas virtuales migradas y cómo quitar el servicio Site Recovery Mobility que ya no se necesita después de la migración.
 
 
 
@@ -77,7 +77,7 @@ Instalar el [VM Linux de Azure](../virtual-machines/extensions/agent-linux.md) a
         ```
     - En Linux, inicie sesión como un usuario raíz. En un terminal, vaya a **/user/local/ASR** y ejecute el siguiente comando:
         ```
-        uninstall.sh -Y
+        ./uninstall.sh -Y
         ```
 2. Reinicie la máquina virtual antes de configurar la replicación.
 

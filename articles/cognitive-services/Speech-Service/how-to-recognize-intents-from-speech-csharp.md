@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
-ms.openlocfilehash: a9b3d8a2670a0b4e6bed2d5e9a9b64e597adcb16
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
+ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855731"
+ms.lasthandoff: 04/08/2019
+ms.locfileid: "59280543"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutorial: Reconocimiento de intenciones a partir de contenido de voz mediante el SDK de Voz para C#
 
@@ -131,9 +131,9 @@ Después, cree un reconocedor de intenciones mediante `new IntentRecognizer(conf
 
 Ahora importe el modelo desde la aplicación LUIS mediante `LanguageUnderstandingModel.FromAppId()` y agregue las intenciones de LUIS que desee reconocer mediante el método `AddIntent()` del reconocedor. Estos dos pasos mejoran la precisión del reconocimiento de voz al indicar palabras que el usuario probablemente utilizará en sus solicitudes. No es necesario agregar todas las intenciones de la aplicación si no necesita reconocerlas todas en la aplicación.
 
-La adición de intenciones requiere tres argumentos: el modelo LUIS (que se acaba de crear y se llama `model`), el nombre de la intención y una identificación de la intención. La diferencia entre el identificador y el nombre es como sigue.
+La adición de intenciones requiere tres argumentos: el modelo LUIS (que se ha creado y se llama `model`), el nombre de la intención y un identificador de la intención. La diferencia entre el identificador y el nombre es como sigue.
 
-|Argumento `AddIntent()`|Propósito|
+|`AddIntent()` Argumento|Propósito|
 |--------|-------|
 |intentName |El nombre de la intención, tal como se define en la aplicación LUIS. Debe coincidir exactamente con el nombre de la intención de LUIS.|
 |intentID    |Identificador asignado a una intención reconocida por el SDK de Voz. Puede ser el que quiera; no necesita corresponderse con el nombre de la intención tal y como se define en la aplicación LUIS. Si se controlan varias intenciones con el mismo código, por ejemplo, se puede utilizar el mismo identificador para ellos.|
@@ -144,6 +144,8 @@ La aplicación de automatización de dispositivos del hogar de LUIS tiene dos pr
 recognizer.AddIntent(model, "HomeAutomation.TurnOff", "off");
 recognizer.AddIntent(model, "HomeAutomation.TurnOn", "on");
 ```
+
+En lugar de agregar intenciones individuales, puede usar el método `AddAllIntents` para agregar todas las intenciones de un modelo al reconocedor.
 
 ## <a name="start-recognition"></a>Inicio del reconocimiento
 

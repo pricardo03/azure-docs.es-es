@@ -12,22 +12,22 @@ ms.author: jrasnick
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 3493a248f557e93b770cf6c48ace84754791f3cd
-ms.sourcegitcommit: f8c592ebaad4a5fc45710dadc0e5c4480d122d6f
+ms.openlocfilehash: eeb932123e57dcb10fce3baf9670d8c1ae961fb8
+ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58621964"
+ms.lasthandoff: 04/09/2019
+ms.locfileid: "59361591"
 ---
 # <a name="use-cli-to-monitor-and-scale-a-single-sql-database"></a>Uso de la CLI para supervisar y escalar una instancia de SQL Database
 
-Este ejemplo de script de la CLI de Azure escala una sola instancia de Azure SQL Database a un tamaño de proceso distinto después de consultar la información del tamaño de la base de datos. 
+Este ejemplo de script de la CLI de Azure escala una sola instancia de Azure SQL Database a un tamaño de proceso distinto después de consultar la información del tamaño de la base de datos.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli). 
+Si decide instalar y usar la CLI localmente, para este artículo es preciso que ejecute la versión 2.0 o posterior de la CLI de Azure. Ejecute `az --version` para encontrar la versión. Si necesita instalarla o actualizarla, consulte [Instalación de la CLI de Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="sample-script"></a>Script de ejemplo
 
@@ -38,7 +38,7 @@ Si decide instalar y usar la CLI localmente, para este artículo es preciso que 
 
 ## <a name="clean-up-deployment"></a>Limpieza de la implementación
 
-Después de ejecutar el script de ejemplo, se puede usar el comando siguiente para quitar el grupo de recursos y todos los recursos asociados.
+Use el siguiente comando para quitar el grupo de recursos y todos los recursos que tenga asociados.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup
