@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/21/2019
+ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3b2df5b24a12f3d2ea5d8a03721c08f8d2a742ad
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 81602f1a30fb753d7a8fcfccace581cd8c7b2f0c
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58539999"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607099"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Integración del control de código fuente en Azure Automation
 
@@ -47,7 +47,7 @@ En la página **Resumen del control de código fuente**, rellene la información
 
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
-|Nombre del control de código fuente     | Nombre descriptivo del control de código fuente.        |
+|Nombre del control de código fuente     | Un nombre descriptivo para el control de código fuente. *Este nombre debe contener solo letras y números.*        |
 |Tipo de control de código fuente     | Tipo del control de código fuente. Las opciones disponibles son la siguientes:</br> GitHub</br>Repositorios de Azure (Git)</br> Azure Repos (TFVC)        |
 |Repositorio     | Nombre del propietario del repositorio o proyecto. Se devuelven los 200 primeros repositorios. Para buscar un repositorio, escriba el nombre del campo y haga clic en **Search en GitHub**.|
 |Rama     | Rama de la que se van a extraer los archivos de código fuente. Destino de bifurcación no está disponible para el tipo de control de código fuente TFVC.          |

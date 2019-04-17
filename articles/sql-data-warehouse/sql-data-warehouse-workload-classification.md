@@ -10,19 +10,19 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: c27856da0a5131f2c0e8dfd4d929b577a0a68421
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 888a64de29178834fc47199a033eb6bc62858e57
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520149"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617757"
 ---
 # <a name="sql-data-warehouse-workload-classification-preview"></a>Clasificación de carga de trabajo de SQL Data Warehouse (versión preliminar)
 
 En este artículo se explica el proceso de clasificación de la carga de trabajo de SQL Data Warehouse de asignación de una clase de recursos y la importancia a las solicitudes entrantes.
 
 > [!Note]
-> La clasificación de la carga de trabajo está disponible en SQL Data Warehouse Gen2.
+> Clasificación de la carga de trabajo está disponible para vista previa en SQL Data Warehouse Gen2. Clasificación de la administración de cargas de trabajo y la importancia de vista previa es para las compilaciones con una fecha de lanzamiento de 9 de abril de 2019 o posterior.  Los usuarios deben evitar usar compilaciones anteriores a esta fecha para pruebas de carga de trabajo administración.  Para determinar si la compilación es capaz de administración de cargas de trabajo, ejecutar select @@version cuando se conecta a la instancia de SQL Data Warehouse.
 
 ## <a name="classification"></a>clasificación
 
