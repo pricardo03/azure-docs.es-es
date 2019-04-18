@@ -1,6 +1,6 @@
 ---
-title: Guía de inicio rápido de Azure AD v2 para Android | Microsoft Docs
-description: Obtenga información sobre cómo las aplicaciones de Android pueden llamar a una API que requiere tokens de acceso del punto de conexión de Azure Active Directory v2.0
+title: Inicio rápido de la Plataforma de identidad de Microsoft para Android | Azure
+description: Aprenda la forma en que las aplicaciones de Android pueden llamar a una API que requiera tokens de acceso mediante el punto de conexión de la Plataforma de identidad de Microsoft.
 services: active-directory
 documentationcenter: dev-center-name
 author: danieldobalian
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/01/2019
+ms.date: 04/11/2019
 ms.author: dadobali
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd78e6acd801f3b973cc45609b72f86b257f4d43
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: f1f174229da565627c0e5791f53031b338880cb3
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862767"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59495318"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-android-app"></a>Inicio rápido: Inicie sesión de los usuarios y llame a Microsoft Graph API desde una aplicación de Android
 
@@ -30,7 +30,7 @@ ms.locfileid: "58862767"
 
 En esta guía de inicio rápido hay código de ejemplo que muestra cómo una aplicación de Android puede iniciar sesión en cuentas personales, de trabajo y educativas, obtener un token de acceso y llamar a Microsoft Graph API.
 
-![Muestra cómo funciona la aplicación de ejemplo generada por este inicio rápido.](media/quickstart-v2-android/android-intro-updated.png)
+![Muestra cómo funciona la aplicación de ejemplo generada por este inicio rápido.](media/quickstart-v2-android/android-intro.svg)
 
 > [!NOTE]
 > **Requisitos previos**
@@ -47,7 +47,7 @@ En esta guía de inicio rápido hay código de ejemplo que muestra cómo una apl
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo
 > #### <a name="step-1-register-your-application"></a>Paso 1: Registrar su aplicación
 > Registro de aplicaciones
-> 1. Vaya a [Azure Portal: registro de aplicaciones (versión preliminar)](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs).
+> 1. Vaya al nuevo panel de [Azure Portal: Registros de aplicaciones](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AndroidQuickstartPage/sourceType/docs).
 > 1. Escriba un nombre para la aplicación y seleccione **Registrar**.
 > 1. Siga las instrucciones para descargar y configurar automáticamente la nueva aplicación con un solo clic.
 >
@@ -58,7 +58,8 @@ En esta guía de inicio rápido hay código de ejemplo que muestra cómo una apl
 >
 > 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
 > 1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
-> 1. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory** y, a continuación, seleccione **Registros de aplicaciones (versión preliminar)** > **Nuevo registro**.
+> 1. Vaya a la página [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) de la plataforma de identidad de Microsoft para desarrolladores.
+> 1. Seleccione **Nuevo registro**.
 > 1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
 >      - En la sección **Nombre**, escriba un nombre significativo para la aplicación, que se mostrará a los usuarios de la aplicación, por ejemplo, `Android-Quickstart`.
 >      - Presione el botón `Register`.
@@ -145,7 +146,7 @@ Lea las secciones siguientes para obtener más información acerca de esta guía
 
 ### <a name="msal"></a>MSAL
 
-MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) es la biblioteca que se usa para iniciar la sesión de los usuarios y solicitar tokens de acceso a una API protegida por Microsoft Azure Active Directory (Azure AD). Puede usar Gradle para instalarla si agrega lo siguiente en la sección **Dependencies** (Dependencias) de **Gradle Scripts** > **build.gradle (Module: app)**:
+MSAL ([com.microsoft.identity.client](https://javadoc.io/doc/com.microsoft.identity.client/msal)) es la biblioteca que se usa para iniciar la sesión de los usuarios y solicitar tokens de acceso a una API protegida por la Plataforma de identidad de Microsoft. Puede usar Gradle para instalarla si agrega lo siguiente en la sección **Dependencies** (Dependencias) de **Gradle Scripts** > **build.gradle (Module: app)**:
 
 ```gradle  
 implementation 'com.android.volley:volley:1.1.1'
@@ -178,7 +179,7 @@ MSAL tiene dos métodos para adquirir tokens: `acquireToken` y `acquireTokenSile
 
 #### <a name="getting-a-user-token-interactively"></a>Obtención de un token de usuario interactivamente
 
-En algunas situaciones, es necesario forzar a los usuarios a que interactúen con el punto de conexión de Azure AD v2.0, lo que cambia de contexto al explorador del sistema, ya sea para validar las credenciales del usuario o para obtener su consentimiento. Estos son algunos ejemplos:
+En algunas situaciones, es necesario forzar a los usuarios a que interactúen con el punto de conexión de la Plataforma de identidad de Microsoft, lo que cambia de contexto al explorador del sistema, ya sea para validar las credenciales del usuario o para obtener su consentimiento. Estos son algunos ejemplos:
 
 * La primera vez que los usuarios inician sesión en la aplicación
 * Cuando los usuarios deben volver a escribir sus credenciales porque la contraseña expiró

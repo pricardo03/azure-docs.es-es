@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/10/2019
 ms.author: carlrab
 ms.openlocfilehash: 9b961436c81282381f963d16c6c6dd5f289d1259
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495112"
 ---
 # <a name="sql-database-release-notes"></a>Notas de la base de datos SQL
@@ -26,7 +26,7 @@ En este artículo se enumera las nuevas características y mejoras en el servici
 | Característica | Detalles |
 | ---| --- |
 | Trabajos de base de datos elástica | Para obtener información, consulte [crear, configurar y administrar trabajos elásticos](elastic-jobs-overview.md) |
-| Transacciones elásticas | [Introducción sobre las transacciones de base de datos elástica con Base de datos SQL de Azure](sql-database-elastic-transactions-overview.md) |
+| Transacciones elásticas | [Transacciones distribuidas en bases de datos en la nube](sql-database-elastic-transactions-overview.md) |
 | Consultas elásticas | Para obtener información, consulte [información general de la consulta elástica](sql-database-elastic-query-overview.md) |
 | Replicación con las instancias administradas |Para obtener información, consulte [configurar la replicación en una base de datos de instancia administrada de Azure SQL Database](replication-with-sql-database-managed-instance.md)|
 | Intercalación de la instancia con instancias administradas |Para obtener información, consulte [usar PowerShell con la plantilla de Azure Resource Manager para crear una instancia administrada en Azure SQL Database](./scripts/sql-managed-instance-create-powershell-azure-resource-manager-template.md)|

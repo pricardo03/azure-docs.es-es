@@ -18,10 +18,10 @@ ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 253a5e247dbbea5fc7e0e556d8619328b43bff58
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501066"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>Procedimientos para: Proporcionar notificaciones opcionales para la aplicación de Azure AD
@@ -78,7 +78,7 @@ El conjunto de notificaciones opcionales disponibles de forma predeterminada par
 
 Estas notificaciones son siempre se incluye en los tokens de Azure AD v1.0, pero no se incluye en los tokens de v2.0, a menos que se solicita. Estas notificaciones solo son aplicables para los Jwt (tokens de identificador y Tokens de acceso). 
 
-**Tabla 3: Notificaciones opcionales exclusivas de V2.0**
+**Tabla 3: Notificaciones opcionales exclusivas de la versión 2.0**
 
 | Notificación de JWT     | NOMBRE                            | DESCRIPCIÓN                                | Notas |
 |---------------|---------------------------------|-------------|-------|
@@ -98,13 +98,13 @@ Estas notificaciones son siempre se incluye en los tokens de Azure AD v1.0, pero
 
 Algunas notificaciones opcionales se pueden configurar para cambiar la manera de devolver la notificación. Estas propiedades adicionales se usan principalmente para ayudarle a migrar aplicaciones locales con diferentes expectativas de datos (por ejemplo, `include_externally_authenticated_upn_without_hash` le ayudará con los clientes que no pueden admitir almohadillas [`#`] en el UPN).
 
-**Tabla 4: Valores de configuración de notificaciones opcionales**
+**Tabla 4: Valores para configurar las notificaciones opcionales**
 
 | Nombre de propiedad  | Nombre de la propiedad adicional | DESCRIPCIÓN |
 |----------------|--------------------------|-------------|
 | `upn`          |                          | Puede usarse en respuestas SAML y JWT y para los token v1.0 y v2.0. |
-|                | `include_externally_authenticated_upn`  | Incluye el nombre principal de usuario invitado tal como se almacenó en el inquilino de recursos. Por ejemplo, `foo_hometenant.com#EXT#@resourcetenant.com` |             
-|                | `include_externally_authenticated_upn_without_hash` | Igual que anteriormente, salvo que marca el hash (`#`) se reemplazan por caracteres de subrayado (`_`), por ejemplo `foo_hometenant.com_EXT_@resourcetenant.com` |
+|                | `include_externally_authenticated_upn`  | Incluye el nombre principal de usuario invitado tal como se almacenó en el inquilino de recursos. Por ejemplo: `foo_hometenant.com#EXT#@resourcetenant.com` |             
+|                | `include_externally_authenticated_upn_without_hash` | Igual que antes, excepto que las almohadillas (`#`) se reemplazan con guiones bajos (`_`); por ejemplo, `foo_hometenant.com_EXT_@resourcetenant.com`. |
 
 #### <a name="additional-properties-example"></a>Ejemplo de propiedades adicionales
 
@@ -196,7 +196,7 @@ Para los atributos de extensión, utilice el nombre completo de la extensión (c
 
 En el JWT, estas notificaciones se emitirán con el siguiente formato de nombre: `extn.<attributename>`.
 
-En los tokens SAML, estas notificaciones se emitirán con el formato URI siguiente: `http://schemas.microsoft.com/identity/claims/extn.<attributename>`
+En los tokens SAML, estas notificaciones se emitirán con el siguiente formato de identificador uniforme de recursos: `http://schemas.microsoft.com/identity/claims/extn.<attributename>`.
 
 ## <a name="optional-claims-example"></a>Ejemplo de notificaciones opcionales
 

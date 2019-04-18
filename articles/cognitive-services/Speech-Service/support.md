@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
 ms.openlocfilehash: bf0916f197ff5bf1a9531fde98fe8cefc8d7727f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358040"
 ---
 # <a name="support-and-help-options"></a>Opciones de ayuda y soporte técnico
@@ -56,7 +56,7 @@ Donde *{Your Search Terms}* son sus palabras clave de búsqueda.
 Los clientes de Azure pueden crear y administrar las solicitudes de soporte técnico en Azure Portal.
 
 * [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-* [Portal de Azure para el gobierno de Estados Unidos](https://portal.azure.us)
+* [Azure Portal para el gobierno de los Estados Unidos](https://portal.azure.us)
 
 ## <a name="post-a-question-to-stack-overflow"></a>Publique una pregunta en Stack Overflow
 
@@ -74,23 +74,23 @@ Si no encuentra una respuesta a su problema a través de la búsqueda, envíe un
 
 > [!TIP]
 > Las siguientes publicaciones de Stack Overflow contienen sugerencias sobre cómo formular preguntas y agregar código fuente. Seguir estas directrices puede ayudarle a aumentar las posibilidades de que los miembros de la comunidad evalúen y respondan a su pregunta rápidamente:  
-> * [¿Cómo puedo formular una buena pregunta?](https://stackoverflow.com/help/how-to-ask)
-> * [Creación de un número mínimo, completo y comprobable ejemplo](https://stackoverflow.com/help/mcve)
+> * [Cómo se puede formular una buena pregunta](https://stackoverflow.com/help/how-to-ask)
+> * [Cómo crear un ejemplo mínimo, completo y comprobable](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>Creación de un problema de GitHub
 
 A menudo se envían ejemplos como código abierto. Para preguntas y problemas, cree un *problema* en el repositorio de GitHub correspondiente. También puede enviar una solicitud de incorporación de cambios. La lista siguiente contiene vínculos a los repositorios de ejemplos:
 
-* [SDK de voz](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
+* [Speech SDK](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
 * [SDK de dispositivos](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
 
 Puede crear un informe de errores, solicitar una característica o formular una pregunta general y compartir procedimientos recomendados. Para los informes de errores, siga la plantilla proporcionada:
 
-**Describe el error**
+**Describa el error**
 
 Proporcione una descripción clara y concisa de lo que es el error.
 
-**Para reproducir**
+**Pasos de reproducción**
 
 Pasos para reproducir el comportamiento:
 1. ...
@@ -100,11 +100,11 @@ Pasos para reproducir el comportamiento:
 
 Proporcione una descripción clara y concisa de lo que esperaba que sucediera.
 
-**Versión de Cognitive Services Speech SDK**
+**Versión del SDK de Voz de Cognitive Services**
 
 ¿Qué versión del SDK está usando?
 
-**Lenguaje de programación, sistema operativo y plataforma**
+**Plataforma, sistema operativo y lenguaje de programación**
 
  - SO: sea específico; por ejemplo, Windows, Linux, Android, iOS, etc.
  - Hardware: x64, x86, ARM, etc.

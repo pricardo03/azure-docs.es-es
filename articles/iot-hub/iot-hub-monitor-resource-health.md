@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 02/27/2019
 ms.author: kgremban
 ms.openlocfilehash: 6dea1add1e329cfc894068732898a856a69c9b4c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274049"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Supervisión del mantenimiento de Azure IoT Hub y diagnóstico de problemas rápidamente
@@ -502,5 +502,5 @@ Para obtener más información acerca de cómo interpretar los datos de estado, 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Comprender las métricas de IoT Hub](iot-hub-metrics.md)
-* [Supervisión remota y notificaciones de IoT con Azure Logic Apps conectando IoT Hub y el buzón de correo](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
+* [Descripción de las métricas de IoT Hub](iot-hub-metrics.md)
+* [Supervisión remota de IoT y notificaciones con Azure Logic Apps conectando IoT hub y el buzón de correo](iot-hub-monitoring-notifications-with-azure-logic-apps.md)

@@ -9,10 +9,10 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.openlocfilehash: 9dbb7905c2a0fed65ede610577e0fa11a1deef92
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276242"
 ---
 # <a name="support-additional-protocols-for-iot-hub"></a>Compatibilidad con protocolos adicionales para centro de IoT Hub
@@ -35,9 +35,9 @@ Para mayor flexibilidad, la puerta de enlace de protocolos de Azure IoT y la imp
 
 Para más información sobre la puerta de enlace de protocolos de IoT de Azure y cómo usarlo e implementarlo como parte de su solución de IoT, vea:
 
-* [Repositorio de puerta de enlace de protocolo de Azure IoT en GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
+* [Repositorio de puerta de enlace de protocolos de IoT de Azure en GitHub](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md)
 
-* [Guía para desarrolladores de puerta de enlace de protocolo de IoT de Azure](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
+* [Guía para desarrolladores de puerta de enlace de protocolos de IoT de Azure](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/docs/DeveloperGuide.md)
 
 Para más información acerca de planificación de la implementación de IoT Hub, consulte:
 
@@ -45,4 +45,4 @@ Para más información acerca de planificación de la implementación de IoT Hub
 
 * [El escalado, alta disponibilidad y recuperación ante desastres](iot-hub-scaling.md)
 
-* [Guía del desarrollador de IoT Hub](iot-hub-devguide.md)
+* [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md)

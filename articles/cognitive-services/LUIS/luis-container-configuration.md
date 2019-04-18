@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: e93a81f2c081daa58a37b1e2823d7bf0cc5a6361
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: e05998f74223ead6bb4e94b86469e51791e0263f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58883123"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678571"
 ---
 # <a name="configure-language-understanding-docker-containers"></a>Configuración de los contenedores de Docker de Language Understanding 
 
@@ -29,24 +29,24 @@ Este contenedor tiene las siguientes opciones de configuración:
 |Obligatorio|Configuración|Propósito|
 |--|--|--|
 |Sí|[ApiKey](#apikey-setting)|Se usa para realizar un seguimiento de la información de facturación.|
-|Sin |[ApplicationInsights](#applicationinsights-setting)|Le permite agregar compatibilidad con los datos de telemetría de [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) al contenedor.|
+|Sin |[Application Insights](#applicationinsights-setting)|Le permite agregar compatibilidad con los datos de telemetría de [Azure Application Insights](https://docs.microsoft.com/azure/application-insights) al contenedor.|
 |Sí|[Facturación](#billing-setting)|Especifica el URI del punto de conexión del recurso de servicio en Azure.|
 |Sí|[Eula](#eula-setting)| Indica que ha aceptado la licencia del contenedor.|
 |Sin |[Fluentd](#fluentd-settings)|Escribe el registro y, opcionalmente, los datos de métricas en un servidor de Fluentd.|
-|Sin |[Http Proxy](#http-proxy-credentials-settings)|Configure un proxy HTTP para hacer solicitudes salientes.|
-|Sin |[Registro](#logging-settings)|Proporciona compatibilidad con el registro de ASP.NET Core al contenedor. |
-|Sí|[Monta](#mount-settings)|Leer y escribir datos desde el equipo host al contenedor y del contenedor al equipo host.|
+|Sin |[Proxy Http](#http-proxy-credentials-settings)|Configure un proxy HTTP para hacer solicitudes salientes.|
+|Sin |[Logging](#logging-settings)|Proporciona compatibilidad con el registro de ASP.NET Core al contenedor. |
+|Sí|[Mounts](#mount-settings)|Leer y escribir datos desde el equipo host al contenedor y del contenedor al equipo host.|
 
 > [!IMPORTANT]
 > Las opciones [`ApiKey`](#apikey-setting), [`Billing`](#billing-setting) y [`Eula`](#eula-setting) se usan en conjunto y debe proporcionar valores válidos para las tres; en caso contrario, no se inicia el contenedor. Para obtener más información sobre el uso de estas opciones de configuración para crear instancias de un contenedor, consulte [Facturación](luis-container-howto.md#billing).
 
 ## <a name="apikey-setting"></a>Opción de configuración ApiKey
 
-La opción de configuración `ApiKey` especifica la clave de recurso de Azure usada para realizar un seguimiento de la información de facturación del contenedor. Debe especificar un valor para ApiKey que debe ser una clave válida para el recurso de _Language Understanding_ especificado para la opción de configuración [`Billing`](#billing-setting).
+La opción de configuración `ApiKey` especifica la clave de recurso de Azure usada para realizar un seguimiento de la información de facturación del contenedor. Debe especificar un valor para la ApiKey y el valor debe ser una clave válida para el _Cognitive Services_ recurso especificado para el [ `Billing` ](#billing-setting) opción de configuración.
 
 Este valor se puede encontrar en los siguientes lugares:
 
-* Azure Portal: en la Administración de recursos de **Language Understanding**, en **Claves**
+* Azure Portal: **Cognitivas Services** administración de recursos, en **claves**
 * Portal de LUIS: en la página de configuración **Claves y puntos de conexión**. 
 
 No utilice la clave de inicio ni la clave de creación. 
@@ -57,12 +57,15 @@ No utilice la clave de inicio ni la clave de creación.
 
 ## <a name="billing-setting"></a>Opción de configuración Billing
 
-La opción de configuración `Billing` especifica el identificador URI del punto de conexión del recurso de _Language Understanding_ de Azure que se utiliza para medir la información de facturación del contenedor. Debe especificar un valor para esta opción de configuración y el valor debe ser un identificador URI de punto de conexión válido para un recurso de _Language Understanding_ de Azure. El contenedor informa sobre el uso cada 10 a 15 minutos.
+El `Billing` configuración especifica el URI del extremo de la _Cognitive Services_ recursos en Azure se usan para medir la información de facturación para el contenedor. Debe especificar un valor para esta opción de configuración y el valor debe ser un URI de extremo válido para un _Cognitive Services_ recursos en Azure. El contenedor informa sobre el uso cada 10 a 15 minutos.
 
 Este valor se puede encontrar en los siguientes lugares:
 
-* Azure Portal: **Comprensión de lenguaje** información general, con la etiqueta `Endpoint`
+* Azure Portal: **Cognitivas Services** información general, con la etiqueta `Endpoint`
 * Portal de LUIS: en la página de configuración **Claves y puntos de conexión**, como parte del identificador URI del punto de conexión.
+
+No olvide incluir el `luis/v2.0` enrutamiento en la dirección URL como se muestra en la tabla siguiente:
+
 
 |Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
 |--|------|-----------|-------------|
@@ -109,16 +112,18 @@ Los ejemplos siguientes usan las opciones de configuración para ilustrar cómo 
 * **Carácter de continuación de línea**: Los comandos de Docker de las secciones siguientes usan la barra diagonal inversa, `\`, como un carácter de continuación de línea. Puede quitarla o reemplazarla en función de los requisitos del sistema operativo del host. 
 * **Orden de los argumentos**: No cambie el orden de los argumentos a menos que esté muy familiarizado con los contenedores de Docker.
 
+No olvide incluir el `luis/v2.0` enrutamiento en la dirección URL como se muestra en la tabla siguiente.
+
 Reemplace {_argument_name_} por sus propios valores:
 
 | Marcador de posición | Valor | Formato o ejemplo |
 |-------------|-------|---|
 |{ENDPOINT_KEY} | Clave del punto de conexión de la aplicación de LUIS entrenada. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
-|{BILLING_ENDPOINT} | El valor del punto de conexión de facturación está disponible en Azure Portal, en la página de información general de Language Understanding.|https://westus.api.cognitive.microsoft.com/luis/v2.0|
+|{BILLING_ENDPOINT} | El valor de punto de conexión de facturación está disponible en Azure `Cognitive Services` página de información general. |https://westus.api.cognitive.microsoft.com/luis/v2.0|
 
 > [!IMPORTANT]
 > Para poder ejecutar el contenedor, las opciones `Eula`, `Billing` y `ApiKey` deben estar especificadas; de lo contrario, el contenedor no se iniciará.  Para obtener más información, vea [Facturación](luis-container-howto.md#billing).
-> El valor de ApiKey es la **clave** de la página de claves y puntos de conexión del portal de LUIS y también está disponible en la página de claves del recurso de Azure Language Understanding. 
+> El valor de ApiKey es el **clave** desde las claves y los puntos de conexión de página en el portal de LUIS y también está disponible en Azure `Cognitive Services` página claves de recursos. 
 
 ### <a name="basic-example"></a>Ejemplo básico
 

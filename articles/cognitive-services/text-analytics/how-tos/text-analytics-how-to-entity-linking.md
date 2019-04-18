@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 02/13/2019
 ms.author: aahi
 ms.openlocfilehash: dfbb31ce9f61ee28fef046120474a6a170906512
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59505582"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Cómo usar el reconocimiento de entidades con nombre en Text Analytics (versión preliminar)
@@ -96,7 +96,7 @@ Se pueden encontrar detalles sobre la definición de la solicitud en [How to cal
 
 + Cree una solicitud **POST**. Revise la documentación de la API para esta solicitud: [Entity Linking API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Establezca el punto de conexión HTTP para la extracción de la entidad. Debe incluir el `/entities` recursos: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ Establezca el punto de conexión HTTP para la extracción de la entidad. Debe incluir el recurso `/entities`: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 + Establezca un encabezado de solicitud para incluir la clave de acceso para las operaciones de Text Analytics. Para obtener más información, consulte [How to find endpoints and access keys](text-analytics-how-to-access-key.md) (Cómo buscar puntos de conexión y claves de acceso).
 
@@ -287,9 +287,9 @@ En este artículo, ha aprendido los conceptos y el flujo de trabajo de vinculaci
 
 ## <a name="see-also"></a>Vea también 
 
- [Introducción a Text Analytics](../overview.md)  
- [Preguntas más frecuentes](../text-analytics-resource-faq.md)</br>
- [Página de producto de análisis de texto](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Información general de Text Analytics](../overview.md)  
+ [Preguntas más frecuentes (P+F)](../text-analytics-resource-faq.md)</br>
+ [Página del producto de Text Analytics](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Pasos siguientes
 

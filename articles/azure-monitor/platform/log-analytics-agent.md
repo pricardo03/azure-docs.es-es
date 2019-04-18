@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/10/2019
 ms.author: magoedte
 ms.openlocfilehash: 5f9a225e8a256dd55feadf97f0a7b9f922487a6f
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492811"
 ---
 # <a name="collect-log-data-with-the-azure-log-analytics-agent"></a>Recopilación de datos de registro con el agente de Azure Log Analytics
@@ -105,8 +105,7 @@ Con el agente de Linux, el servidor proxy se especifica durante o [después de l
 |proxyhost | Dirección o nombre de dominio completo (FQDN) del servidor proxy o la puerta de enlace de Log Analytics |
 |puerto | Número de puerto opcional para el servidor proxy o la puerta de enlace de Log Analytics |
 
-Por ejemplo: 
-`https://user01:password@proxy01.contoso.com:30443`
+Por ejemplo: `https://user01:password@proxy01.contoso.com:30443`
 
 > [!NOTE]
 > Si usa caracteres especiales como "\@" en la contraseña, recibirá un error de conexión de proxy porque el valor no se analiza correctamente.  Para solucionar este problema, codifique la contraseña en la dirección URL con una herramienta como [URLDecode](https://www.urldecoder.org/).  
@@ -119,7 +118,7 @@ La conexión de máquinas en la suscripción de Azure o el entorno híbrido dire
 |MV de Azure| - Extensión de máquinas virtuales de Log Analytics para [Windows](../../virtual-machines/extensions/oms-windows.md) o [Linux](../../virtual-machines/extensions/oms-linux.md) mediante la CLI de Azure o con una plantilla de Azure Resource Manager<br>- [Manualmente desde Azure Portal](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json). | La extensión instala el agente de Log Analytics en máquinas virtuales de Azure y las inscribe en un área de trabajo de Azure Monitor existente.|
 | Equipo híbrido con Windows|- [Instalación manual](agent-windows.md)<br>- [DSC de Azure Automation](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Plantilla de Resource Manager con Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Instale el agente de Microsoft Monitoring desde la línea de comandos o mediante un método automatizado, como DSC de Azure Automation, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications), o con una plantilla de Azure Resource Manager si implementó Microsoft Azure Stack en su centro de datos.| 
 | Equipo híbrido con Linux| [Instalación manual](../../azure-monitor/learn/quick-collect-linux-computer.md)|Instale al agente para Linux llamando a un script contenedor hospedado en GitHub. | 
-| System Center Operations Manager|[Integración de Operations Manager con Log Analytics](../../azure-monitor/platform/om-agents.md) | Configurar la integración entre Operations Manager y Log Analytics para reenviar datos procedentes de equipos Linux y Windows que informan a un grupo de administración.|  
+| System Center Operations Manager|[Integrar Operations Manager con Log Analytics](../../azure-monitor/platform/om-agents.md) | Configurar la integración entre Operations Manager y Log Analytics para reenviar datos procedentes de equipos Linux y Windows que informan a un grupo de administración.|  
 
 ## <a name="next-steps"></a>Pasos siguientes
 

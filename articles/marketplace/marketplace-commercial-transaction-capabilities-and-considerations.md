@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: yijenj
-ms.openlocfilehash: dba2582b29d1fc81a39387f5297852245233b708
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 3c07f7ac2b6407a3edf53fd5d3a4b402714fefbb
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56731096"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678911"
 ---
 # <a name="azure-marketplace-commercial-transaction-capabilities-and-considerations"></a>Azure Marketplace: ‎Funcionalidades y consideraciones sobre transacciones comerciales
 
@@ -44,7 +44,7 @@ Además de las opciones de publicación de listas y pruebas, la opción de publi
 
 ## <a name="transact-general-overview"></a>Información general sobre las transacciones
 
-Al usar la opción de publicación de transacción, Microsoft permite la venta e implementación de software de terceros para la suscripción a Azure del cliente. El publicador debe tener en cuenta la facturación de los honorarios de infraestructura de Azure y los precios de las licencias de software propias del publicador al seleccionar un modelo de facturación y un tipo de oferta en Azure Marketplace. 
+Cuando se usa la opción de publicación de transacción, Microsoft habilita la venta de software de terceros y la implementación de algunos tipos de oferta de suscripción de Azure del cliente. El publicador debe tener en cuenta la facturación de los honorarios de infraestructura de Azure y los precios de las licencias de software propias del publicador al seleccionar un modelo de facturación y un tipo de oferta en Azure Marketplace.
 
 La opción de publicación de transacción en Azure Marketplace se admite actualmente para los siguientes tipos de oferta: máquinas virtuales, aplicaciones de Azure o aplicaciones SaaS.
 
@@ -58,7 +58,7 @@ Para las máquinas virtuales y aplicaciones de Azure, los precios de uso de la i
 
 **Para aplicaciones SaaS**
 
-Para aplicaciones SaaS, el publicador debe tener en cuenta los precios de uso de la infraestructura de Azure y los precios de licencias de software como elemento único de costo.  Se representa como un honorario plano mensual para el cliente. El asociado administra y factura directamente el uso de la infraestructura de Azure.  El cliente no ve los honorarios de uso de infraestructura reales.  En general, los publicadores optan por agrupar los honorarios de uso de la infraestructura de Azure en los precios de las licencias de software.  Los precios de las licencias de software no se basan en mediciones ni en consumo.
+Para aplicaciones SaaS, el publicador debe tener en cuenta los precios de uso de la infraestructura de Azure y los precios de licencias de software como elemento único de costo.  Se representa como una cuota fija para el cliente. El asociado administra y factura directamente el uso de la infraestructura de Azure.  El cliente no ve los honorarios de uso de infraestructura reales.  En general, los publicadores optan por agrupar los honorarios de uso de la infraestructura de Azure en los precios de las licencias de software.  Los precios de las licencias de software no se basan en mediciones ni en consumo.
 
 ## <a name="transact-billing-models"></a>Modelos de facturación de las transacciones
 

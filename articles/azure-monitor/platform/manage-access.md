@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: magoedte
 ms.openlocfilehash: 27db27d79a05f24461e63242c0395cfd81315432
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276419"
 ---
 # <a name="manage-log-data-and-workspaces-in-azure-monitor"></a>Administrar datos de registro y las áreas de trabajo en Azure Monitor
@@ -35,9 +35,9 @@ Para crear un área de trabajo de Log Analytics, necesita:
 
 Consulte los artículos siguientes para obtener más información sobre cómo crear un área de trabajo:
 
-- [Creación de un área de trabajo de Log Analytics en Azure Portal](../learn/quick-create-workspace.md)
-- [Creación de un área de trabajo de Log Analytics con la CLI de Azure 2.0](../learn/quick-create-workspace-cli.md)
-- [Creación de un área de trabajo de Log Analytics con Azure PowerShell](../learn/quick-create-workspace-posh.md)
+- [Crear un área de trabajo de Log Analytics en Azure portal](../learn/quick-create-workspace.md)
+- [Crear un área de trabajo de Log Analytics con la CLI de Azure 2.0](../learn/quick-create-workspace-cli.md)
+- [Crear un área de trabajo de Log Analytics con Azure PowerShell](../learn/quick-create-workspace-posh.md)
 
 ## <a name="determine-the-number-of-workspaces-you-need"></a>Determinación del número de áreas de trabajo necesarias
 Un área de trabajo de Log Analytics es un recurso de Azure y un contenedor donde los datos se recopilan, se agregan, se analizan y se presentan en Azure Monitor. Puede tener varias áreas de trabajo por suscripción de Azure y puede tener acceso a más de un área de trabajo, con la posibilidad de realizar fácilmente consultas entre ellas. En esta sección se describe cuándo puede resultar útil la creación de más de un área de trabajo.

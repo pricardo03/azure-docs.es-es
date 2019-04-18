@@ -14,10 +14,10 @@ ms.workload: infrastructure-services
 ms.date: 04/05/2019
 ms.author: magoedte
 ms.openlocfilehash: 90c236347380bb5d5e51db56d0f431d2659a7258
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288717"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Crear informes interactivos con libros de Azure Monitor
@@ -118,9 +118,9 @@ Cada sección tiene su propia configuración avanzada, que es accesibles a trav�
 |         |          |
 | ---------------- |:-----|
 | **Ancho personalizado**    | Convierte un elemento en un tamaño arbitrario, por lo que puede ajustar muchos elementos en una sola línea que le permiten organizar mejor los gráficos y las tablas en informes interactivos enriquecidos.  |
-| **Visible condicionalmente** | Especifique esta opción para ocultar los pasos en función de un parámetro cuando está en modo de lectura. |
-| **Un parámetro de exportación**| Permitir que una fila seleccionada en la cuadrícula o gráfico para hacer que los pasos posteriores a cambiar los valores o se hacen visibles.  |
-| **Mostrar consulta cuando no se está editando** | Muestra la consulta por encima del gráfico o tabla incluso cuando está en modo de lectura.
+| **Conditionally visible** (Visible condicionalmente) | Especifique esta opción para ocultar los pasos en función de un parámetro cuando está en modo de lectura. |
+| **Export a parameter** (Exportar un parámetro)| Permitir que una fila seleccionada en la cuadrícula o gráfico para hacer que los pasos posteriores a cambiar los valores o se hacen visibles.  |
+| **Mostrar la consulta cuando no se está editando** | Muestra la consulta por encima del gráfico o tabla incluso cuando está en modo de lectura.
 | **Mostrar el botón Abrir en Analytics cuando no se esté editando** | Agrega el icono azul de análisis a la esquina derecha del gráfico para permitir el acceso de un solo clic.|
 
 La mayoría de estas opciones de configuración son bastante intuitivas, pero para comprender la opción **Exportar un parámetro** le recomendamos que examine un libro que use esta funcionalidad.
@@ -167,7 +167,7 @@ Hay cuatro tipos diferentes de parámetros, que se admiten actualmente:
 |                  |      |
 | ---------------- |:-----|
 | **Texto**    | Permite al usuario editar un cuadro de texto y, opcionalmente, puede proporcionar una consulta para rellenar el valor predeterminado. |
-| **Desplegable** | Permite al usuario elegir entre un conjunto de valores. |
+| **Lista desplegable** | Permite al usuario elegir entre un conjunto de valores. |
 | **Selector de intervalo de tiempo**| Permite al usuario elegir entre un conjunto predefinido de valores de intervalo de tiempo o seleccionar un intervalo de tiempo personalizado.|
 | **Selector de recursos** | Permite al usuario elegir entre los recursos seleccionados para el libro.|
 

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
-ms.openlocfilehash: dbdd0165e276e5c82f8d4c15ef70d3a541d76bc0
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: f59f281b1bf7fa2851ab7759a0167b5d39ef44c1
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58522203"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678996"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Usar el aprendizaje activo para mejorar la base de conocimiento
 
@@ -156,7 +156,7 @@ La aplicación cliente muestra todas las preguntas con una opción para que el u
 
 Una vez que el usuario selecciona una de las preguntas existentes, la aplicación cliente envía la elección del usuario como comentarios mediante la API de QnA Maker "Train". Estos comentarios completa la activa el bucle de comentarios de aprendizaje. 
 
-Use la [Azure Bot C# ejemplo](https://github.com/Microsoft/BotBuilder-Samples/tree/master/experimental/csharp_dotnetcore/qnamaker-activelearning-bot) para ver el aprendizaje activo en un escenario de extremo a otro.
+Use la [ejemplo Azure Bot](https://aka.ms/activelearningsamplebot) para ver el aprendizaje activo en un escenario de extremo a otro.
 
 ## <a name="train-api"></a>API de "Train"
 

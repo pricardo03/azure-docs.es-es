@@ -13,10 +13,10 @@ ms.date: 04/05/2019
 ms.author: sethm
 ms.custom: ''
 ms.openlocfilehash: 3c50502a8b873503ee937914fac5f2d92cb23a2b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59288387"
 ---
 # <a name="experimental-preset-for-content-aware-encoding"></a>Valor preestablecido de codificación compatible con el contenido de experimental
@@ -33,21 +33,21 @@ El valor preestablecido de codificación compatible con contenido experimental a
 
 ![Curva de distorsión de la velocidad (RD) mediante PSNR](media/cae-experimental/msrv1.png)
 
-**Ilustración 1: Curva de distorsión de la velocidad (RD) con la métrica de PSNR para el origen de gran complejidad**
+**Figura 1: Curva de distorsión de la velocidad (RD) con la métrica de PSNR para el origen de gran complejidad**
 
 ![Curva de distorsión de la velocidad (RD) mediante VMAF](media/cae-experimental/msrv2.png)
 
-**Ilustración 2: Curva de distorsión de la velocidad (RD) con la métrica de VMAF para el origen de gran complejidad**
+**Figura 2: Curva de distorsión de la velocidad (RD) con la métrica de VMAF para el origen de gran complejidad**
 
 El valor predeterminado está optimizado actualmente para el alta complejidad, los vídeos de origen de alta calidad (películas, programas de TV). Trabajo está en curso para adaptarse al contenido de la complejidad baja (por ejemplo, presentaciones de PowerPoint), así como los vídeos de calidad más deficiente. Este valor preestablecido también usa el mismo conjunto de soluciones, como el Streaming adaptable preestablecido. Microsoft está trabajando en los métodos para seleccionar el conjunto mínimo de resoluciones en función del contenido. Son los siguientes resultados en otra categoría de contenido de origen, donde el codificador fue capaz de determinar que la entrada fue de baja calidad (muchos artefactos de compresión debido a la velocidad de bits baja). Tenga en cuenta que, con la instancia experimental, valor predeterminado, el codificador decidido generar solo una capa de salida: en una velocidad de bits lo suficientemente baja para que la mayoría de los clientes podrán reproducir la secuencia sin estancamiento.
 
 ![Curva de escritorio remoto mediante PSNR](media/cae-experimental/msrv3.png)
 
-**Ilustración 3: Curva de escritorio remoto mediante PSNR para la entrada de baja calidad (a 1080p)**
+**Figura 3: Curva de escritorio remoto mediante PSNR para la entrada de baja calidad (a 1080p)**
 
 ![Curva de escritorio remoto mediante VMAF](media/cae-experimental/msrv4.png)
 
-**Ilustración 4: Curva de escritorio remoto mediante VMAF para la entrada de baja calidad (a 1080p)**
+**Ilustración 4: Curva de escritorio remoto mediante VMAF para la entrada de baja calidad (a 1080p)**
 
 ## <a name="use-the-experimental-preset"></a>Utilice el valor preestablecido experimental
 

@@ -11,12 +11,12 @@ ms.author: mathoma
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 01/25/2019
-ms.openlocfilehash: 6d962a40fe0e1a7658c0d5ac30c7fd04bfb7fb0f
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: bb88da48f8961969176fd67bf6e5fa346655aeac
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55475455"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677823"
 ---
 # <a name="accelerated-database-recovery-preview"></a>Recuperación de base de datos acelerada (versión preliminar)
 
@@ -42,11 +42,11 @@ La recuperación de bases de datos de SQL Server sigue el modelo de recuperació
 
 - **Fase de análisis**
 
-  Análisis hacia delante del registro de transacciones desde el principio del último punto de comprobación correcto (o el LSN de página más antiguo) hasta el final para determinar el estado de cada transacción en el momento en que SQL Server se ha detenido.
+  Reenviar el examen del registro de transacciones desde el principio del último punto de comprobación correcta (o el LSN de la página desfasada más antigua) hasta el final, para determinar el estado de cada transacción al tiempo que se ha detenido.
 
 - **Fase de puesta al día**
 
-  Análisis hacia delante del registro de transacciones desde la transacción más antigua sin confirmar hasta el final para actualizar la base de datos al estado que tenía en el momento del bloqueo al poner al día todas las operaciones.
+  Reenvío del examen del registro de transacciones de la transacción más antigua sin confirmar hasta el final, para actualizar la base de datos al estado que tenía en el momento del bloqueo rehacer todas las operaciones confirmadas.
 
 - **Fase de reversión**
 
@@ -56,13 +56,13 @@ En función de este diseño, el tiempo que tarda el motor de base de datos SQL e
 
 Además, la cancelación o la reversión de una transacción grande en función de este diseño puede tardar mucho porque usa la misma fase de recuperación de reversión descrita anteriormente.
 
-Además, el motor de base de datos SQL no puede truncar el registro de transacciones si hay transacciones de ejecución prolongada, ya que sus entradas de registro correspondientes son necesarias para los procesos de recuperación y reversión. Como resultado de este diseño del motor de base de datos SQL, algunos clientes se enfrentan al problema de que el tamaño del registro de transacciones crece mucho y consume cantidades enormes de espacio del registro.
+Además, el motor de base de datos SQL no puede truncar el registro de transacciones si hay transacciones de ejecución prolongada, ya que sus entradas de registro correspondientes son necesarias para los procesos de recuperación y reversión. Como resultado de este diseño del motor de base de datos SQL, algunos clientes enfrentan el problema que el tamaño del registro de transacciones crece mucho y consume gran cantidad de espacio en disco.
 
 ## <a name="the-accelerated-database-recovery-process"></a>El proceso de recuperación de base de datos acelerada
 
 ADR aborda los problemas anteriores al rediseñar por completo el proceso de recuperación del motor de base de datos SQL para:
 
-- Que sea constante o instantáneo al evitar el análisis del registro desde o hacia el principio de la transacción activa más antigua. Con ADR, el registro de transacciones solo se procesa desde el último punto de comprobación correcto (o un número de secuencia de registro (LSN) de página desfasada más antiguo). Como resultado, el tiempo de recuperación no se ve afectado por las transacciones de ejecución prolongada.
+- Que sea constante o instantáneo al evitar el análisis del registro desde o hacia el principio de la transacción activa más antigua. Con el ADR, solo se procesa el registro de transacciones desde el último punto de comprobación correcta (o número de secuencia de registro (LSN) de página desfasada más antigua). Como resultado, el tiempo de recuperación no se ve afectado por las transacciones de ejecución prolongada.
 - Minimizar el espacio de registro de transacciones necesario, ya que ya no es necesario procesar el registro de toda la transacción. Como resultado, se puede truncar el registro de transacciones de forma agresiva a medida que se producen los puntos de comprobación y las copias de seguridad.
 
 En general, ADR consigue la recuperación rápida de bases de datos al controlar las versiones de todas las modificaciones de bases de datos físicas y deshacer únicamente las operaciones lógicas, que están limitadas y se pueden deshacer casi al instante. Cualquier transacción que estuviera activa en el momento de un bloqueo se marca como anulada y, por lo tanto, las consultas de usuario simultáneas pueden pasar por alto las versiones generadas por estas transacciones.
@@ -73,16 +73,19 @@ El proceso de recuperación ADR tiene las mismas tres fases que el proceso de re
 
 - **Fase de análisis**
 
-  El proceso sigue siendo el mismo que hoy en día con la adición de que se reconstruye sLog y se copian las entradas del registro de las operaciones sin control de versiones.
+  El proceso sigue siendo el mismo que hoy en día con la adición de reconstruir sLog y copiar entradas de registro para las operaciones sin control de versiones.
+  
 - **Fase de puesta al día**
 
   Se divide en dos fases
   - Fase 1
 
       Puesta al día desde sLog (transacción sin confirmar más antigua hasta el último punto de comprobación). La puesta al día es una operación rápida, ya que solo es necesario procesar algunos registros de sLog.
+      
   - Fase 2
 
      La puesta al día desde el registro de transacciones se inicia desde el último punto de comprobación (en lugar de la transacción sin confirmar más antigua)
+     
 - **Fase de reversión**
 
    La fase de reversión con ADR termina casi instantáneamente al usar sLog para deshacer las operaciones sin control de versiones y el almacén de versiones persistente (PVS) con reversión lógica para realizar la reversión basada en la versión del nivel de fila.
@@ -97,7 +100,7 @@ Los cuatro componentes clave de ADR son:
 
 - **Reversión lógica**
 
-  La reversión lógica es el proceso asincrónico responsable de realizar la reversión basada en la versión de nivel de fila: lo que proporciona una reversión de transacción instantánea y deshace todas las operaciones con control de versiones.
+  Reversión lógica es el proceso asincrónico responsable de realizar deshacer basado en la versión de nivel de fila: proporcionando una reversión de transacción de instantánea y deshacer para todas las operaciones con control de versiones.
 
   - Realiza un seguimiento de todas las transacciones anuladas
   - Realiza la reversión mediante PVS de todas las transacciones de usuario

@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: ade5d55833f1d63a8d70b6eedb3c3e4bdffe590b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276497"
 ---
 # <a name="programmatically-create-policies-and-view-compliance-data"></a>Creación de directivas mediante programación y visualización de datos de cumplimiento
@@ -95,12 +95,12 @@ El primer paso hacia una mejor visibilidad de los recursos es crear y asignar di
    Reemplace _ContosoRG_ por el nombre del grupo de recursos que desee.
 
    El **ámbito** parámetro en `New-AzPolicyAssignment` funciona con el grupo de administración, suscripción, grupo de recursos o un único recurso. El parámetro utiliza una ruta de acceso de recurso completo, que devuelve la propiedad **ResourceId** en `Get-AzResourceGroup`. El patrón de **Scope** para cada contenedor es como sigue. Reemplace `{rName}`, `{rgName}`, `{subId}` y `{mgName}` por el nombre del recurso, el nombre del grupo de recursos, el identificador de suscripción y el nombre del grupo de administración, respectivamente.
-   `{rType}` se reemplazaría por el **tipo de recurso** del recurso, como `Microsoft.Compute/virtualMachines` para una máquina virtual.
+   `{rType}` se reemplazaría por el **tipo de recurso** del recurso como, por ejemplo, `Microsoft.Compute/virtualMachines` para una máquina virtual.
 
-   - Recurso: `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - Grupo de recursos: `/subscriptions/{subId}/resourceGroups/{rgName}`
-   - Suscripción: `/subscriptions/{subId}/`
-   - Grupo de administración: `/providers/Microsoft.Management/managementGroups/{mgName}`
+   - Recurso `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Grupo de recursos `/subscriptions/{subId}/resourceGroups/{rgName}`
+   - Suscripción `/subscriptions/{subId}/`
+   - Grupo de administración `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Para más información acerca de cómo administrar las directivas de recursos mediante el módulo de PowerShell de Azure Resource Manager, consulte [Az.Resources](/powershell/module/az.resources/#policies).
 
@@ -223,12 +223,12 @@ Use el procedimiento siguiente para crear una definición de directiva:
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   El parámetro **--scope** de `az policy assignment create` funciona con un grupo de administración, una suscripción, un grupo de recursos o un único recurso. El parámetro utiliza una ruta de acceso de recurso completa. El patrón de **Scope** para cada contenedor es el siguiente. Reemplace `{rName}`, `{rgName}`, `{subId}` y `{mgName}` por el nombre del recurso, el nombre del grupo de recursos, el identificador de suscripción y el nombre del grupo de administración, respectivamente. `{rType}` se reemplazaría por el **tipo de recurso** del recurso, como `Microsoft.Compute/virtualMachines` para una máquina virtual.
+   El parámetro **--scope** de `az policy assignment create` funciona con un grupo de administración, una suscripción, un grupo de recursos o un único recurso. El parámetro utiliza una ruta de acceso de recurso completa. El patrón de **Scope** para cada contenedor es el siguiente. Reemplace `{rName}`, `{rgName}`, `{subId}` y `{mgName}` por el nombre del recurso, el nombre del grupo de recursos, el identificador de suscripción y el nombre del grupo de administración, respectivamente. `{rType}` se reemplazaría por el **tipo de recurso** del recurso como, por ejemplo, `Microsoft.Compute/virtualMachines` para una máquina virtual.
 
-   - Recurso: `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
-   - Grupo de recursos: `/subscriptions/{subID}/resourceGroups/{rgName}`
-   - Suscripción: `/subscriptions/{subID}`
-   - Grupo de administración: `/providers/Microsoft.Management/managementGroups/{mgName}`
+   - Recurso `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Grupo de recursos `/subscriptions/{subID}/resourceGroups/{rgName}`
+   - Suscripción `/subscriptions/{subID}`
+   - Grupo de administración `/providers/Microsoft.Management/managementGroups/{mgName}`
 
 Puede obtener el identificador de definición de directiva si usa PowerShell con el comando siguiente:
 
@@ -249,7 +249,7 @@ Para más información acerca de cómo administrar las directivas de recursos co
 Revise los artículos siguientes para más información sobre los comandos y las consultas en este artículo.
 
 - [Recursos de la API de REST de Azure](/rest/api/resources/)
-- [Módulos de PowerShell de Azure](/powershell/module/az.resources/#policies)
+- [Módulos de Azure PowerShell](/powershell/module/az.resources/#policies)
 - [Comandos de directiva de la CLI de Azure](/cli/azure/policy?view=azure-cli-latest)
-- [Proveedor de recursos de Insights referencia de API de REST de directiva](/rest/api/policy-insights)
+- [Referencia de API de REST de proveedor de recursos de Policy Insights](/rest/api/policy-insights)
 - [Organización de los recursos con grupos de administración de Azure](../../management-groups/overview.md)

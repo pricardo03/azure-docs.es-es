@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358112"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Planeamiento de Azure Multi-factor Authentication en la nube
@@ -315,5 +315,5 @@ Buscar soluciones para problemas comunes con Azure MFA en la [artículo de soluc
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [¿Qué son los métodos de autenticación?](concept-authentication-methods.md)
-* [Habilitar el registro convergente para el restablecimiento de contraseña de autoservicio de Azure Multi-factor Authentication y Azure AD](concept-registration-mfa-sspr-converged.md)
+* [Habilitación del registro convergente para el restablecimiento de contraseña de autoservicio de Azure Multi-Factor Authentication y Azure AD](concept-registration-mfa-sspr-converged.md)
 * ¿Por qué se solicitó o no a un usuario que realizará MFA? Consulte la sección [Informe de inicios de sesión de Azure AD en los informes del documento Azure Multi-factor Authentication](howto-mfa-reporting.md#azure-ad-sign-ins-report).

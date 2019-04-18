@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.topic: article
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: e96abfbdbd9394d27fbffbcb64aa9cbfabbbcb69
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 29814cb8aef09a8ead30d6daa615554dd55135dd
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57835442"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678588"
 ---
 # <a name="programming-guide-for-azure-event-hubs"></a>Guía de programación de Azure Event Hubs
 En este artículo se describen algunos escenarios comunes para escribir código mediante Azure Event Hubs. En él se presupone un conocimiento previo de Event Hubs. Para obtener una visión general conceptual de Event Hubs, consulte la [Información general de Azure Event Hubs](event-hubs-what-is-event-hubs.md).
@@ -110,7 +110,7 @@ Para usar la clase [EventProcessorHost][], puede implementar [IEventProcessor](/
 Para iniciar el procesamiento de eventos, cree una instancia de [EventProcessorHost][], proporcionando los parámetros adecuados para el centro de eventos. Por ejemplo: 
 
 > [!NOTE]
-> EventProcessorHost y sus clases relacionadas se muestran en el **Microsoft.Azure.EventHubs.Processor** paquete. Agregar el paquete al proyecto de Visual Studio siguiendo las instrucciones de [en este artículo](event-hubs-dotnet-framework-getstarted-receive-eph.md#add-the-event-hubs-nuget-package) o emitiendo el comando siguiente en el [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) ventana:`Install-Package Microsoft.Azure.EventHubs.Processor`.
+> EventProcessorHost y sus clases relacionadas se muestran en el **Microsoft.Azure.EventHubs.Processor** paquete. Agregar el paquete al proyecto de Visual Studio siguiendo las instrucciones de [en este artículo](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) o emitiendo el comando siguiente en el [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) ventana:`Install-Package Microsoft.Azure.EventHubs.Processor`.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

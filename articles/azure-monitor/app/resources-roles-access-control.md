@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.author: mbullwin
 ms.openlocfilehash: 0f348e3e7dc2812bf354d1f8ec86330b0742439a
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361878"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Recursos, roles y control de acceso en Application Insights
@@ -85,7 +85,7 @@ Cuando corresponda, tendrá un vínculo a la documentación de referencia oficia
 | --- | --- |
 | [Propietario](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner) |Puede cambiar cualquier cosa, incluido el acceso de usuario. |
 | [Colaborador](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#contributor) |Puede editar cualquier cosa, incluidos todos los recursos. |
-| [colaborador de componentes de Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Puede editar alertas, pruebas web y recursos de Application Insights. |
+| [Colaborador de componentes de Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-component-contributor) |Puede editar alertas, pruebas web y recursos de Application Insights. |
 | [Lector](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) |Puede ver, pero no puede cambiar nada. |
 | [Depurador de instantáneas de Application Insights](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#application-insights-snapshot-debugger) | Concede permiso al usuario para usar las características de Application Insights Snapshot Debugger. Tenga en cuenta que este rol no se incluye en los roles de propietario ni colaborador. |
 | Colaborador para la administración de versiones de implementación de servicios de Azure | Rol de colaborador para servicios que se implementan a través de implementación de servicios de Azure. |
@@ -115,7 +115,7 @@ Si el usuario de su elección no está en el directorio, puede invitar a cualqui
 
 ## <a name="related-content"></a>Contenido relacionado
 
-* [Control de acceso de Azure basado en roles](../../role-based-access-control/role-assignments-portal.md)
+* [Control de acceso basado en rol de Azure](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="powershell-query-to-determine-role-membership"></a>Consulta de PowerShell para determinar la pertenencia a roles
 

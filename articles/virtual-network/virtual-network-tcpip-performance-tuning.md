@@ -29,10 +29,10 @@ ms.author:
 - btalb
 - prachank
 ms.openlocfilehash: 1e8605a41cbe610c971b891309b2149d221b8b27
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426450"
 ---
 # <a name="tcpip-performance-tuning-for-azure-vms"></a>TCP/IP optimizar el rendimiento de las máquinas virtuales de Azure
@@ -140,7 +140,7 @@ Latencia de red se rige por la velocidad de la luz en una red de fibra óptica. 
 
 | | | | |
 |-|-|-|-|
-|**Enrutar**|**Distancia**|**Tiempo unidireccional**|**RTT**|
+|**Route**|**distancia**|**Tiempo unidireccional**|**RTT**|
 |Nueva York a San Francisco|4,148 km|21 ms|42 ms|
 |Nueva York a Londres|5,585 km|28 ms|56 ms|
 |Nueva York a Sydney|15,993 km|80 ms|160 ms|

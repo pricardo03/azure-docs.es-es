@@ -10,10 +10,10 @@ ms.date: 05/15/2017
 ms.author: robb
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: ac2b79d670b803573a359dfc9f8738f972f2d9b5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492726"
 ---
 # <a name="azure-diagnostics-10-configuration-schema"></a>Esquema de configuración de Diagnósticos de Azure 1.0
@@ -219,7 +219,7 @@ Atributos:
 
 |Atributo|Type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
-|**Nombre**|string|Necesario. El nombre del recurso local que contiene el directorio que se va a supervisar.|  
+|**name**|string|Necesario. El nombre del recurso local que contiene el directorio que se va a supervisar.|  
 |**relativePath**|string|Necesario. La ruta de acceso relativa al recurso local que se va a supervisar.|  
 
 ## <a name="performancecounters-element"></a>Elemento PerformanceCounters  
@@ -269,5 +269,5 @@ Atributos:
 
 |Atributo|Type|DESCRIPCIÓN|  
 |---------------|----------|-----------------|  
-|**Nombre**|string|Necesario. Expresión XPath que especifica el registro que se va a recopilar.|  
+|**name**|string|Necesario. Expresión XPath que especifica el registro que se va a recopilar.|  
 

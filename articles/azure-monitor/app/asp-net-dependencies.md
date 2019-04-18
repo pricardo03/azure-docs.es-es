@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: mbullwin
 ms.openlocfilehash: c77b5810164aef7508f717a0f75d90cf6cba2089
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273114"
 ---
 # <a name="set-up-application-insights-dependency-tracking"></a>Configurar Application Insights: Seguimiento de dependencias
@@ -71,7 +71,7 @@ La hoja Rendimiento muestra la duración de las llamadas de dependencia que real
 Los **número de errores** se muestran en la hoja **Errores**. Un error es cualquier código de retorno que no está en el intervalo 200-399, o bien uno desconocido.
 
 > [!NOTE]
-> **¿100% de errores?** Probablemente, esto signifique que está obteniendo datos de dependencias parciales. Tiene que [configurar la supervisión de dependencias adecuada a su plataforma](#set-up-dependency-monitoring).
+> **¿El porcentaje de errores es 100?** Probablemente, esto signifique que está obteniendo datos de dependencias parciales. Tiene que [configurar la supervisión de dependencias adecuada a su plataforma](#set-up-dependency-monitoring).
 >
 >
 
@@ -154,7 +154,7 @@ Si desea desactivar el módulo de seguimiento de dependencia estándar, quite la
 ## <a name="troubleshooting"></a>solución de problemas
 *La marca de éxito de dependencia siempre muestra true o false.*
 
-*Consulta SQL que no se muestra en su totalidad.*
+*La consulta SQL no se muestra en su totalidad.*
 
 Consulte la tabla siguiente y asegúrese de que ha elegido la configuración correcta para habilitar la supervisión de las dependencias de la aplicación.
 

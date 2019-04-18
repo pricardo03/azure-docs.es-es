@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: jowargo
 ms.openlocfilehash: 4af86025e714c65d0ae225b271a2d0970bb96ee8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281648"
 ---
 # <a name="azure-notification-hubs---diagnose-dropped-notifications"></a>Diagnóstico de Azure Notification Hubs: notificaciones descartadas
@@ -76,7 +76,7 @@ Si carga involuntariamente diferentes tipos de certificados en el mismo centro, 
 
 ## <a name="application-issues"></a>Problemas de la aplicación
 
-**Las etiquetas y expresiones de etiqueta**
+**Etiquetas y expresiones de etiqueta**
 
 Si usa etiquetas o expresiones de etiqueta para segmentar su audiencia, es posible que cuando envía la notificación no se encuentre ningún destino en función de las etiquetas o expresiones de etiqueta que especifica en su llamada de envío.
 
@@ -84,7 +84,7 @@ Revise los registros para asegurarse de que haya etiquetas coincidentes cuando e
 
 Por ejemplo, si todos los registros con Notification Hubs se hicieron utilizando la etiqueta "Politics" y envía una notificación con la etiqueta "Sports", la notificación no se envía a ningún dispositivo. Un caso complejo podría incluir expresiones de etiqueta donde solo se registró con "Etiqueta A" O "Etiqueta B" pero, cuando envía notificaciones, los destinatarios son "Etiqueta A && Etiqueta B". En la sección de sugerencias de autodiagnóstico, más adelante en el artículo, le mostramos cómo revisar los registros y etiquetas.
 
-**Problemas de plantilla**
+**Problemas de plantillas**
 
 Si utiliza plantillas, asegúrese de seguir las directrices descritas en [Plantillas].
 
@@ -111,7 +111,7 @@ Como los servicios de notificaciones de plataforma son bastante sólidos, las no
 
 Si un servicio de notificaciones push intenta entregar una notificación pero el dispositivo está sin conexión, el servicio de notificaciones push almacena la notificación durante un período de tiempo limitado. La notificación se entrega al dispositivo cuando este está disponible.
 
-Para cada aplicación, se almacena solo una notificación reciente. Si se envían varias notificaciones mientras el dispositivo está sin conexión, cada nueva notificación provoca que se descarte la anterior. Mantener solo la notificación más reciente se conoce como *fusionar notificaciones* en APN, y *contraer* en GCM (que usa una clave de contracción). Si el dispositivo permanece sin conexión durante un período de tiempo prolongado, todas las notificaciones que se estaban almacenando para el dispositivo se descartan. Para obtener más información, consulte [información general de APN] y [los mensajes de FCM sobre].
+Para cada aplicación, se almacena solo una notificación reciente. Si se envían varias notificaciones mientras el dispositivo está sin conexión, cada nueva notificación provoca que se descarte la anterior. Mantener solo la notificación más reciente se conoce como *fusionar notificaciones* en APN, y *contraer* en GCM (que usa una clave de contracción). Si el dispositivo permanece sin conexión durante un período de tiempo prolongado, todas las notificaciones que se estaban almacenando para el dispositivo se descartan. Para obtener más información, consulte [información general de APN] y [Acerca de los mensajes de FCM].
 
 Con Azure Notification Hubs, puede pasar una clave de fusión a través de un encabezado HTTP mediante el uso de SendNotification API genérica. Por ejemplo, para el SDK de .NET, debería usar `SendNotificationAsync`. SendNotification API también toma los encabezados HTTP que se pasan tal cual al servicio de notificaciones push respectivo.
 
@@ -121,7 +121,7 @@ Estas son las rutas de acceso para diagnosticar la causa raíz de las notificaci
 
 ### <a name="verify-credentials"></a>Comprobar las credenciales
 
-**Portal de desarrollador de servicios de notificaciones de inserción**
+**Portal para desarrolladores del servicio de notificaciones push**
 
 Compruebe las credenciales en el portal para desarrolladores de los servicios de notificaciones push respectivos (APN, FCM, servicio de notificaciones de Windows, etc.). Para más información, consulte [Introducción a Azure Notification Hubs].
 
@@ -180,9 +180,9 @@ También puede enviar notificaciones de prueba desde Visual Studio.
 
 Para más información acerca del uso de Notification Hubs con el Explorador de servidores de Visual Studio, consulte estos artículos:
 
-* [Ver registros de dispositivos para notification hubs]
-* [Profundización: Visual Studio 2013 Update 2 RC y Azure SDK 2.3]
-* [Anuncio de versión de Visual Studio 2013 Update 3 y Azure SDK 2.4]
+* [Cómo ver los registros de dispositivo de los centros de notificaciones]
+* [En profundidad: Visual Studio 2013 Update 2 RC y Azure SDK 2.3] (Análisis a fondo: Visual Studio 2013 Update 2 RC y Azure SDK 2.3)
+* [Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4] (Anuncio del lanzamiento de Visual Studio 2013 Update 3 y Azure SDK 2.4)
 
 ### <a name="debug-failed-notifications-and-review-notification-outcome"></a>Depuración de las notificaciones incorrectas y revisión del resultado de la notificación
 
@@ -200,7 +200,7 @@ Para usar la propiedad `EnableTestSend` con la llamada a REST, anexe un parámet
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
 ```
 
-**Ejemplo (SDK de .NET)**
+**Ejemplo (SDK para .NET)**
 
 Este es un ejemplo de uso de .NET SDK para enviar una notificación emergente nativa (notificación del sistema):
 
@@ -281,15 +281,15 @@ Para obtener más información sobre el acceso mediante programación, vea [acce
 [10]: ./media/notification-hubs-diagnosing/VSTestNotification.png
 
 <!-- LINKS -->
-[Descripción general de Notification Hubs]: notification-hubs-push-notification-overview.md
+[Introducción a Notification Hubs]: notification-hubs-push-notification-overview.md
 [Introducción a Azure Notification Hubs]: notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md
 [Plantillas]: https://msdn.microsoft.com/library/dn530748.aspx
 [APNs overview]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [Acerca de los mensajes de FCM]: https://firebase.google.com/docs/cloud-messaging/concept-options
 [Export and modify registrations in bulk]: https://msdn.microsoft.com/library/dn790624.aspx
 [Service Bus Explorer code]: https://code.msdn.microsoft.com/windowsazure/Service-Bus-Explorer-f2abca5a
-[Ver registros de dispositivos para notification hubs]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
-[Profundización: Visual Studio 2013 Update 2 RC y Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs
-[Anuncio de versión de Visual Studio 2013 Update 3 y Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/
+[Cómo ver los registros de dispositivo de los centros de notificaciones]: https://msdn.microsoft.com/library/windows/apps/xaml/dn792122.aspx
+[En profundidad: Visual Studio 2013 Update 2 RC y Azure SDK 2.3]: https://azure.microsoft.com/blog/2014/04/09/deep-dive-visual-studio-2013-update-2-rc-and-azure-sdk-2-3/#NotificationHubs (Análisis a fondo: Visual Studio 2013 Update 2 RC y Azure SDK 2.3)
+[Announcing release of Visual Studio 2013 Update 3 and Azure SDK 2.4]: https://azure.microsoft.com/blog/2014/08/04/announcing-release-of-visual-studio-2013-update-3-and-azure-sdk-2-4/ (Anuncio del lanzamiento de Visual Studio 2013 Update 3 y Azure SDK 2.4)
 [EnableTestSend]: https://docs.microsoft.com/dotnet/api/microsoft.azure.notificationhubs.notificationhubclient.enabletestsend?view=azure-dotnet
 [Acceso de telemetría mediante programación]: https://msdn.microsoft.com/library/azure/dn458823.aspx

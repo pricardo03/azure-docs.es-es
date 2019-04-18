@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.openlocfilehash: dead1fae9bc3287ed0fc80c6120914e965ef96dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493032"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-azure-monitor"></a>Guía de referencia a elementos de visualización del Diseñador de vistas en Azure Monitor
@@ -34,13 +34,13 @@ En la tabla siguiente se describen los tipos de icono disponibles del Diseñador
 | Tipo de vista | DESCRIPCIÓN |
 |:--- |:--- |
 | [Lista de consultas](#list-of-queries-part) |Muestra una lista de consultas de registro. Puede seleccionar cada una de las consultas para mostrar los resultados. |
-| [Número y lista](#number-and-list-part) |El encabezado muestra un solo número que se muestra un recuento de registros de una consulta de registro. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período. |
-| [Dos números y lista](#two-numbers-and-list-part) |El encabezado presenta dos números que muestran recuentos de registros de consultas de registro independientes. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período. |
-| [Anillo y lista](#donut-and-list-part) |El encabezado muestra un solo número que resume una columna de valor de una consulta de registro. El anillo muestra gráficamente los resultados de los tres registros principales. |
-| [Dos escalas de tiempo y lista](#two-timelines-and-list-part) |El encabezado presenta los resultados de dos consultas de registro en un período como gráficos de columnas con una llamada que muestra un solo número que resume una columna de valor de una consulta de registro. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período. |
+| [Number and list](#number-and-list-part) (Número y lista) |El encabezado muestra un solo número que se muestra un recuento de registros de una consulta de registro. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período. |
+| [Two numbers and list](#two-numbers-and-list-part) (Dos números y lista) |El encabezado presenta dos números que muestran recuentos de registros de consultas de registro independientes. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período. |
+| [Donut and list](#donut-and-list-part) (Anillo y lista) |El encabezado muestra un solo número que resume una columna de valor de una consulta de registro. El anillo muestra gráficamente los resultados de los tres registros principales. |
+| [Two timelines and list](#two-timelines-and-list-part) (Dos escalas de tiempo y lista) |El encabezado presenta los resultados de dos consultas de registro en un período como gráficos de columnas con una llamada que muestra un solo número que resume una columna de valor de una consulta de registro. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período. |
 | [Información](#information-part) |El encabezado muestra texto estático y un vínculo opcional. La lista muestra uno o varios elementos con texto y título estáticos. |
-| [Gráfico de líneas, llamada y lista](#line-chart-callout-and-list-part) |El encabezado muestra un gráfico de líneas con varias series de una consulta de registro en un período y una llamada con un valor resumido. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período. |
-| [Lista y gráfico de líneas](#line-chart-and-list-part) |El encabezado muestra un gráfico de líneas con varias series de una consulta de registro en un período. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período. |
+| [Line chart, callout, and list](#line-chart-callout-and-list-part) (Gráfico de líneas, llamada y lista) |El encabezado muestra un gráfico de líneas con varias series de una consulta de registro en un período y una llamada con un valor resumido. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período. |
+| [Line chart and list](#line-chart-and-list-part) (Gráfico de líneas y lista) |El encabezado muestra un gráfico de líneas con varias series de una consulta de registro en un período. La lista muestra los diez primeros resultados de una consulta con un gráfico que indica el valor relativo de una columna numérica o cómo cambia en un período. |
 | [Elemento Stack of line charts (Pila de gráficos de líneas)](#stack-of-line-charts-part) |Muestra tres gráficos de líneas independientes con varias series de una consulta de registro en un período. |
 
 Las siguientes secciones describen los tipos de icono y sus propiedades en detalle.
@@ -80,17 +80,17 @@ El encabezado muestra un solo número que se muestra un recuento de registros de
 | Leyenda |Texto que se muestra en la parte superior del encabezado. |
 | Consultar |Consulta que se ejecuta en el encabezado. Se muestra el número de los registros devueltos por la consulta. |
 | Navegación a través de un clic | Acción realizada al hacer clic en el encabezado.  Para más información, consulte [Configuración común](#click-through-navigation). |
-| **Enumerar** | |
+| **Lista** | |
 | Consultar |Consulta que se ejecuta en la lista. Se muestran las dos primeras propiedades de los diez primeros registros en los resultados. La primera propiedad es un valor de texto y la segunda, un valor numérico. Las barras se crean automáticamente en función del valor relativo de la columna numérica.<br><br>Use el comando `Sort` de la consulta para ordenar los registros de la lista. Para ejecutar la consulta y que se devuelvan todos los registros puede seleccionar **See all** (Ver todo). |
 | Hide graph (Ocultar gráfico) |Seleccione este vínculo para deshabilitar el gráfico a la derecha de la columna numérica. |
 | Enable sparklines (Habilitar los minigráficos) |Seleccione este vínculo para mostrar un minigráfico en lugar de la barra horizontal. Para más información, consulte [Configuración común](#sparklines). |
 | Color |Color de las barras o los minigráficos. |
 | Name and Value Separator (Separador de nombre y valor) |Delimitador de carácter único para analizar la propiedad text en varios valores. Para más información, consulte [Configuración común](#sparklines). |
 | Navegación a través de un clic | Acción realizada al hacer clic en un elemento de la lista.  Para más información, consulte [Configuración común](#click-through-navigation). |
-| **Enumerar** |**> Los títulos de columna** |
+| **Lista** |**> Títulos de columna** |
 | NOMBRE |Texto que se muestra en la parte superior de la primera columna. |
 | Valor |Texto que se muestra en la parte superior de la segunda columna. |
-| **Enumerar** |**> Umbrales** |
+| **Lista** |**&gt; Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione este vínculo para habilitar los umbrales. Para más información, consulte [Configuración común](#thresholds). |
 
 ## <a name="two-numbers-and-list-part"></a>Elemento Two numbers and list (Dos números y lista)
@@ -110,7 +110,7 @@ El encabezado tiene dos números que se muestran un recuento de registros de con
 | **Título** | |
 | Leyenda |Texto que se muestra en la parte superior del encabezado. |
 | Consultar |Consulta que se ejecuta en el encabezado. Se muestra el número de los registros devueltos por la consulta. |
-| **Enumerar** | |
+| **Lista** | |
 | Consultar |Consulta que se ejecuta en la lista. Se muestran las dos primeras propiedades de los diez primeros registros en los resultados. La primera propiedad es un valor de texto y la segunda, un valor numérico. Las barras se crean automáticamente en función del valor relativo de la columna numérica.<br><br>Use el comando `Sort` de la consulta para ordenar los registros de la lista. Para ejecutar la consulta y que se devuelvan todos los registros puede seleccionar **See all** (Ver todo). |
 | Hide graph (Ocultar gráfico) |Seleccione este vínculo para deshabilitar el gráfico a la derecha de la columna numérica. |
 | Enable sparklines (Habilitar los minigráficos) |Seleccione este vínculo para mostrar un minigráfico en lugar de la barra horizontal. Para más información, consulte [Configuración común](#sparklines). |
@@ -118,10 +118,10 @@ El encabezado tiene dos números que se muestran un recuento de registros de con
 | Operación |Operación que se realiza en el minigráfico. Para más información, consulte [Configuración común](#sparklines). |
 | Name and Value Separator (Separador de nombre y valor) |Delimitador de carácter único para analizar la propiedad text en varios valores. Para más información, consulte [Configuración común](#sparklines). |
 | Navegación a través de un clic | Acción realizada al hacer clic en un elemento de la lista.  Para más información, consulte [Configuración común](#click-through-navigation). |
-| **Enumerar** |**> Los títulos de columna** |
+| **Lista** |**> Títulos de columna** |
 | NOMBRE |Texto que se muestra en la parte superior de la primera columna. |
 | Valor |Texto que se muestra en la parte superior de la segunda columna. |
-| **Enumerar** |**> Umbrales** |
+| **Lista** |**&gt; Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione este vínculo para habilitar los umbrales. Para más información, consulte [Configuración común](#thresholds). |
 
 ## <a name="donut-and-list-part"></a>Elemento Donut and list (Anillo y lista)
@@ -142,16 +142,16 @@ El encabezado muestra un solo número que resume una columna de valor de una con
 | **Anillo** | |
 | Consultar |Consulta que se ejecuta en el anillo. La primera propiedad es un valor de texto y la segunda, un valor numérico. |
 | Navegación a través de un clic | Acción realizada al hacer clic en el encabezado.  Para más información, consulte [Configuración común](#click-through-navigation). |
-| **Anillo** |**> Center** |
+| **Anillo** |**&gt; Centro** |
 | Texto |Texto que se muestra en la parte inferior del valor dentro del anillo. |
 | Operación |Operación que se va a realizar en la propiedad value para resumirla en un solo valor.<ul><li>Suma: suma los valores de todos los registros.</li><li>Porcentaje: proporción de los registros devueltos por los valores de **Valores de resultado usados en la operación del centro** con respecto al número total de registros en la consulta.</li></ul> |
 | Valores de resultado usados en la operación central |También puede seleccionar el signo más (+) para agregar uno o varios valores. Los resultados de la consulta se limitan a los registros con los valores de propiedad especificados. Si no se agrega ningún valor, se incluirán todos los registros en la consulta. |
-| **Opciones adicionales** |**> Colores** |
+| **Opciones adicionales** |**&gt; Colores** |
 | Color 1<br>Color 2<br>Color 3 |Seleccione el color de cada uno de los valores que aparecen en el anillo. |
 | **Opciones adicionales** |**> Asignación de color avanzada** |
 | Valor de campo |Escriba el nombre de un campo para que se muestre como otro color distinto si está incluido en el anillo. |
 | Color |Seleccione el color del campo único. |
-| **Enumerar** | |
+| **Lista** | |
 | Consultar |Consulta que se ejecuta en la lista. Se muestra el número de los registros devueltos por la consulta. |
 | Hide graph (Ocultar gráfico) |Seleccione este vínculo para deshabilitar el gráfico a la derecha de la columna numérica. |
 | Enable sparklines (Habilitar los minigráficos) |Seleccione este vínculo para mostrar un minigráfico en lugar de la barra horizontal. Para más información, consulte [Configuración común](#sparklines). |
@@ -159,10 +159,10 @@ El encabezado muestra un solo número que resume una columna de valor de una con
 | Operación |Operación que se realiza en el minigráfico. Para más información, consulte [Configuración común](#sparklines). |
 | Name and Value Separator (Separador de nombre y valor) |Delimitador de carácter único para analizar la propiedad text en varios valores. Para más información, consulte [Configuración común](#sparklines). |
 | Navegación a través de un clic | Acción realizada al hacer clic en un elemento de la lista.  Para más información, consulte [Configuración común](#click-through-navigation). |
-| **Enumerar** |**> Los títulos de columna** |
+| **Lista** |**> Títulos de columna** |
 | NOMBRE |Texto que se muestra en la parte superior de la primera columna. |
 | Valor |Texto que se muestra en la parte superior de la segunda columna. |
-| **Enumerar** |**> Umbrales** |
+| **Lista** |**&gt; Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione este vínculo para habilitar los umbrales. Para más información, consulte [Configuración común](#thresholds). |
 
 ## <a name="two-timelines-and-list-part"></a>Elemento Two timelines and list (Dos escalas de tiempo y lista)
@@ -184,17 +184,17 @@ El encabezado presenta los resultados de dos consultas de registro en un períod
 | Color |Color que se utiliza para las columnas de la serie. |
 | Consultar |Consulta que se ejecuta en la primera serie. El número de los registros en cada intervalo de tiempo se representa mediante las columnas de gráfico. |
 | Operación |Operación que se va a realizar en la propiedad value para resumirla en un solo valor en la llamada.<ul><li>Suma: suma de los valores de todos los registros.</li><li>Promedio: promedio de los valores de todos los registros.</li><li>Último ejemplo: valor del último intervalo incluido en el gráfico.</li><li>Primer ejemplo: valor del primer intervalo incluido en el gráfico.</li><li>Recuento: número de todos los registros devueltos por la consulta.</li></ul> |
-| **Enumerar** | |
+| **Lista** | |
 | Consultar |Consulta que se ejecuta en la lista. Se muestra el número de los registros devueltos por la consulta. |
 | Hide graph (Ocultar gráfico) |Seleccione este vínculo para deshabilitar el gráfico a la derecha de la columna numérica. |
 | Enable sparklines (Habilitar los minigráficos) |Seleccione este vínculo para mostrar un minigráfico en lugar de la barra horizontal. Para más información, consulte [Configuración común](#sparklines). |
 | Color |Color de las barras o los minigráficos. |
 | Operación |Operación que se realiza en el minigráfico. Para más información, consulte [Configuración común](#sparklines). |
 | Navegación a través de un clic | Acción realizada al hacer clic en un elemento de la lista.  Para más información, consulte [Configuración común](#click-through-navigation). |
-| **Enumerar** |**> Los títulos de columna** |
+| **Lista** |**> Títulos de columna** |
 | NOMBRE |Texto que se muestra en la parte superior de la primera columna. |
 | Valor |Texto que se muestra en la parte superior de la segunda columna. |
-| **Enumerar** |**> Umbrales** |
+| **Lista** |**&gt; Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione este vínculo para habilitar los umbrales. Para más información, consulte [Configuración común](#thresholds). |
 
 ## <a name="information-part"></a>Elemento Información
@@ -211,7 +211,7 @@ El encabezado muestra texto estático y un vínculo opcional. La lista muestra u
 | **Encabezado** | |
 | Imagen |Archivo de imagen que se muestra en el encabezado. |
 | Etiqueta |Texto que se muestra en el encabezado. |
-| **Encabezado** |**> Vínculo** |
+| **Encabezado** |**&gt; Vínculo** |
 | Etiqueta |Texto del vínculo. |
 | URL |Dirección URL del vínculo. |
 | **Elementos de información** | |
@@ -236,15 +236,15 @@ El encabezado muestra un gráfico de líneas con varias series de una consulta d
 | **Gráfico de líneas** | |
 | Consultar |Consulta que se ejecuta en el gráfico de líneas. La primera propiedad es un valor de texto y la segunda, un valor numérico. Normalmente, esta consulta usa la palabra clave *measure* para resumir los resultados. Si la consulta utiliza la palabra clave *interval*, el eje X del gráfico emplea este intervalo de tiempo. Si la consulta no incluye la palabra clave *interval*, el eje X emplea intervalos horarios. |
 | Navegación a través de un clic | Acción realizada al hacer clic en el encabezado.  Para más información, consulte [Configuración común](#click-through-navigation). |
-| **Gráfico de líneas** |**> Llamada** |
+| **Gráfico de líneas** |**&gt; Llamada** |
 | Título de la llamada |Texto que se muestra en la parte superior del valor de la llamada. |
 | Nombre de la serie |Valor de propiedad de la serie que se va a utilizar para el valor de la llamada. Si no se proporciona ninguna serie, se utilizarán todos los registros de la consulta. |
 | Operación |Operación que se va a realizar en la propiedad value para resumirla en un solo valor en la llamada.<ul><li>Promedio: promedio de los valores de todos los registros.</li><li>Recuento: número de todos los registros devueltos por la consulta.</li><li>Último ejemplo: valor del último intervalo incluido en el gráfico.</li><li>Máx.: valor máximo de los intervalos incluidos en el gráfico.</li><li>Mín.: valor mínimo de los intervalos incluidos en el gráfico.</li><li>Suma: suma de los valores de todos los registros.</li></ul> |
-| **Gráfico de líneas** |**> Eje y** |
+| **Gráfico de líneas** |**> Eje Y** |
 | Usar escala logarítmica |Seleccione este vínculo para usar una escala logarítmica en el eje Y. |
 | Unidades |Especifica las unidades de los valores que devuelve la consulta. Esta información se utiliza para mostrar etiquetas de gráfico que indican los tipos de valores y, de manera opcional, para convertirlos. El tipo *Unidad* especifica la categoría de la unidad y define los valores disponibles del tipo *Unidad actual*. Si selecciona un valor en *Convertir a*, los valores numéricos se convertirán del tipo *Unidad actual* al tipo *Convertir a*. |
 | Etiqueta personalizada |Texto que se muestra en el eje Y junto a la etiqueta del tipo *Unidad*. Si no se especifica ninguna etiqueta, solo se mostrará el tipo *Unidad*. |
-| **Enumerar** | |
+| **Lista** | |
 | Consultar |Consulta que se ejecuta en la lista. Se muestra el número de los registros devueltos por la consulta. |
 | Hide graph (Ocultar gráfico) |Seleccione este vínculo para deshabilitar el gráfico a la derecha de la columna numérica. |
 | Enable sparklines (Habilitar los minigráficos) |Seleccione este vínculo para mostrar un minigráfico en lugar de la barra horizontal. Para más información, consulte [Configuración común](#sparklines). |
@@ -252,10 +252,10 @@ El encabezado muestra un gráfico de líneas con varias series de una consulta d
 | Operación |Operación que se realiza en el minigráfico. Para más información, consulte [Configuración común](#sparklines). |
 | Name and Value Separator (Separador de nombre y valor) |Delimitador de carácter único para analizar la propiedad text en varios valores. Para más información, consulte [Configuración común](#sparklines). |
 | Navegación a través de un clic | Acción realizada al hacer clic en un elemento de la lista.  Para más información, consulte [Configuración común](#click-through-navigation). |
-| **Enumerar** |**> Los títulos de columna** |
+| **Lista** |**> Títulos de columna** |
 | NOMBRE |Texto que se muestra en la parte superior de la primera columna. |
 | Valor |Texto que se muestra en la parte superior de la segunda columna. |
-| **Enumerar** |**> Umbrales** |
+| **Lista** |**&gt; Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione este vínculo para habilitar los umbrales. Para más información, consulte [Configuración común](#thresholds). |
 
 ## <a name="line-chart-and-list-part"></a>Elemento Line chart and list (Gráfico de líneas y lista)
@@ -276,11 +276,11 @@ El encabezado muestra un gráfico de líneas con varias series de una consulta d
 | **Gráfico de líneas** | |
 | Consultar |Consulta que se ejecuta en el gráfico de líneas. La primera propiedad es un valor de texto y la segunda, un valor numérico. Normalmente, esta consulta usa la palabra clave *measure* para resumir los resultados. Si la consulta utiliza la palabra clave *interval*, el eje X del gráfico emplea este intervalo de tiempo. Si la consulta no incluye la palabra clave *interval*, el eje X emplea intervalos horarios. |
 | Navegación a través de un clic | Acción realizada al hacer clic en el encabezado.  Para más información, consulte [Configuración común](#click-through-navigation). |
-| **Gráfico de líneas** |**> Eje y** |
+| **Gráfico de líneas** |**> Eje Y** |
 | Usar escala logarítmica |Seleccione este vínculo para usar una escala logarítmica en el eje Y. |
 | Unidades |Especifica las unidades de los valores que devuelve la consulta. Esta información se utiliza para mostrar etiquetas de gráfico que indican los tipos de valores y, de manera opcional, para convertirlos. El tipo *Unidad* especifica la categoría de la unidad y define los valores disponibles del tipo *Unidad actual*. Si selecciona un valor en *Convertir a*, los valores numéricos se convertirán del tipo *Unidad actual* al tipo *Convertir a*. |
 | Etiqueta personalizada |Texto que se muestra en el eje Y junto a la etiqueta del tipo *Unidad*. Si no se especifica ninguna etiqueta, solo se mostrará el tipo *Unidad*. |
-| **Enumerar** | |
+| **Lista** | |
 | Consultar |Consulta que se ejecuta en la lista. Se muestra el número de los registros devueltos por la consulta. |
 | Hide graph (Ocultar gráfico) |Seleccione este vínculo para deshabilitar el gráfico a la derecha de la columna numérica. |
 | Enable sparklines (Habilitar los minigráficos) |Seleccione este vínculo para mostrar un minigráfico en lugar de la barra horizontal. Para más información, consulte [Configuración común](#sparklines). |
@@ -288,10 +288,10 @@ El encabezado muestra un gráfico de líneas con varias series de una consulta d
 | Operación |Operación que se realiza en el minigráfico. Para más información, consulte [Configuración común](#sparklines). |
 | Name and Value Separator (Separador de nombre y valor) |Delimitador de carácter único para analizar la propiedad text en varios valores. Para más información, consulte [Configuración común](#sparklines). |
 | Navegación a través de un clic | Acción realizada al hacer clic en un elemento de la lista.  Para más información, consulte [Configuración común](#click-through-navigation). |
-| **Enumerar** |**> Los títulos de columna** |
+| **Lista** |**> Títulos de columna** |
 | NOMBRE |Texto que se muestra en la parte superior de la primera columna. |
 | Valor |Texto que se muestra en la parte superior de la segunda columna. |
-| **Enumerar** |**> Umbrales** |
+| **Lista** |**&gt; Umbrales** |
 | Enable Thresholds (Habilitar umbrales) |Seleccione este vínculo para habilitar los umbrales. Para más información, consulte [Configuración común](#thresholds). |
 
 ## <a name="stack-of-line-charts-part"></a>Elemento Stack of line charts (Pila de gráficos de líneas)
@@ -305,13 +305,13 @@ La pila del gráfico de líneas muestra tres gráficos de líneas independientes
 | Título de grupo |Texto que se muestra en la parte superior del icono. |
 | Nuevo grupo |Seleccione este vínculo para crear un grupo en la vista empezando por la actual. |
 | Icono |Archivo de imagen que se muestra junto a los resultados en el encabezado. |
-| **Gráfico 1<br>Gráfico 2<br>Gráfico 3** |**> Encabezado** |
+| **Gráfico 1<br>Gráfico 2<br>Gráfico 3** |**&gt; Encabezado** |
 | Título |Texto que se muestra en la parte superior del gráfico. |
 | Subtítulo |Texto que se muestra bajo el título en la parte superior del gráfico. |
 | **Gráfico 1<br>Gráfico 2<br>Gráfico 3** |**Gráfico de líneas** |
 | Consultar |Consulta que se ejecuta en el gráfico de líneas. La primera propiedad es un valor de texto y la segunda, un valor numérico. Normalmente, esta consulta usa la palabra clave *measure* para resumir los resultados. Si la consulta utiliza la palabra clave *interval*, el eje X del gráfico emplea este intervalo de tiempo. Si la consulta no incluye la palabra clave *interval*, el eje X emplea intervalos horarios. |
 | Navegación a través de un clic | Acción realizada al hacer clic en el encabezado.  Para más información, consulte [Configuración común](#click-through-navigation). |
-| **Gráfico** |**> Eje y** |
+| **Gráfico** |**> Eje Y** |
 | Usar escala logarítmica |Seleccione este vínculo para usar una escala logarítmica en el eje Y. |
 | Unidades |Especifica las unidades de los valores que devuelve la consulta. Esta información se utiliza para mostrar etiquetas de gráfico que indican los tipos de valores y, de manera opcional, para convertirlos. El tipo *Unidad* especifica la categoría de la unidad y define los valores disponibles del tipo *Unidad actual*. Si selecciona un valor en *Convertir a*, los valores numéricos se convertirán del tipo *Unidad actual* al tipo *Convertir a*. |
 | Etiqueta personalizada |Texto que se muestra en el eje Y junto a la etiqueta del tipo *Unidad*. Si no se especifica ninguna etiqueta, solo se mostrará el tipo *Unidad*. |

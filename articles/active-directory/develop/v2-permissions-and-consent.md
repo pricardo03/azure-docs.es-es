@@ -19,10 +19,10 @@ ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 87103b1052b5d9168928193eacc78a935e68067f
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59501256"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Permisos y consentimiento en el punto de conexión de plataforma de identidad de Microsoft
@@ -39,7 +39,7 @@ Las aplicaciones que se integran con la plataforma de identidad de Microsoft sig
 La plataforma de identidad de Microsoft implementa el protocolo de autorización [OAuth 2.0](active-directory-v2-protocols.md). OAuth 2.0 es un método a través del cual una aplicación de terceros puede acceder a recursos hospedados en Web en nombre de un usuario. Cualquier recurso hospedado en web que se integre con la plataforma de identidad de Microsoft tiene un identificador de recursos o *URI de identificador de aplicación*. Por ejemplo, algunos de los recursos de Microsoft hospedados en la web incluyen:
 
 * Microsoft Graph: `https://graph.microsoft.com`
-* API de correo electrónico de Office 365: `https://outlook.office.com`
+* Office 365 Mail API: `https://outlook.office.com`
 * Azure AD Graph: `https://graph.windows.net`
 
 > [!NOTE]
@@ -57,7 +57,7 @@ En OAuth 2.0, estos tipos de permisos se denominan *ámbitos*. También conocen 
 
 * Leer el calendario de un usuario mediante `Calendars.Read`
 * Escribir en el calendario de un usuario mediante `Calendars.ReadWrite`
-* Enviar correo electrónico con un usuario por `Mail.Send`
+* Enviar correo electrónico con un usuario mediante `Mail.Send`
 
 Normalmente, una aplicación solicita estos permisos especificando los ámbitos en las solicitudes a la plataforma Microsoft identity autorizan un extremo. Sin embargo, ciertos permisos con privilegios elevados solo pueden se concede mediante el consentimiento del administrador y solicita/conceder mediante el [punto de conexión de consentimiento de administrador](v2-permissions-and-consent.md#admin-restricted-permissions). Siga leyendo para obtener más información.
 
@@ -140,9 +140,9 @@ Además, las aplicaciones deben usar el punto de conexión de consentimiento del
 
 Algunos permisos de privilegios elevados del ecosistema de Microsoft se pueden establecer en *restringido para los administradores*. Algunos ejemplos de estos tipos de permisos son los siguientes:
 
-* Leer los perfiles completos de todos los usuarios mediante el uso `User.Read.All`
-* Escribir datos en el directorio de la organización mediante el uso de `Directory.ReadWrite.All`
-* Leer todos los grupos en el directorio de la organización mediante `Groups.Read.All`
+* Leer los perfiles completos de todos los usuarios con `User.Read.All`
+* Escribir datos en el directorio de una organización mediante `Directory.ReadWrite.All`
+* Leer todos los grupos de seguridad del directorio de una organización con: `Groups.Read.All`
 
 Aunque un usuario consumidor podría conceder acceso de la aplicación a este tipo de datos, los usuarios de la organización tienen la restricción de no conceder acceso al mismo conjunto de datos confidenciales de la empresa. Si la aplicación solicita acceso a uno de estos permisos desde un usuario de la organización, el usuario recibe un mensaje de error que dice que no están autorizados para dar su consentimiento a permisos de la aplicación.
 
@@ -285,7 +285,7 @@ No existe ningún consentimiento para el usuario entre el cliente y Microsoft Gr
 
 #### <a name="example-3-the-user-has-consented-and-the-client-requests-additional-scopes"></a>Ejemplo 3: El usuario ha dado su consentimiento y el cliente solicita ámbitos adicionales
 
-El usuario ya ha dado su consentimiento a `mail.read` para el cliente. El cliente se ha registrado en el ámbito `contacts.read` en su registro. Cuando el cliente realiza una solicitud para un token con `scope=https://graph.microsoft.com/.default` y solicita el consentimiento mediante `prompt=consent`, el usuario verá una pantalla de consentimiento para todos los permisos registrados por la aplicación. `contacts.read` estará presente en la pantalla de consentimiento, pero `mail.read` no lo hará. El token devuelto será para Microsoft Graph y contendrá `mail.read` y `contacts.read`.
+El usuario ya ha dado su consentimiento a `mail.read` para el cliente. El cliente se ha registrado en el ámbito `contacts.read` en su registro. Cuando el cliente realiza una solicitud para un token con `scope=https://graph.microsoft.com/.default` y solicita el consentimiento mediante `prompt=consent`, el usuario verá una pantalla de consentimiento para todos los permisos registrados por la aplicación. `contacts.read` aparecerá en la pantalla de consentimiento, pero `mail.read` no se mostrará. El token devuelto será para Microsoft Graph y contendrá `mail.read` y `contacts.read`.
 
 ### <a name="using-the-default-scope-with-the-client"></a>Uso del ámbito /.default con el cliente
 

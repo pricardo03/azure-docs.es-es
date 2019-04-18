@@ -18,10 +18,10 @@ ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 97728fa70f0c5f58510e0e68d27a379b20887703
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500310"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedimientos para: Configurar las condiciones de servicio y declaración de privacidad de una aplicación
@@ -56,10 +56,10 @@ Ejemplos: `https://myapp.com/terms-of-service` y `https://myapp.com/privacy-stat
 
 Cuando las condiciones del servicio y la declaración de privacidad estén preparados, puede agregar vínculos a estos documentos en la aplicación mediante uno de estos métodos:
 
-* [A través del portal de Azure](#registered-in-azure-portal)
-* [En el Portal de registro de aplicación o el centro de desarrollo](#registered-in-app-reg-portal)
-* [Uso del objeto de aplicación JSON](#app-object-json)
-* [Uso de la versión beta de MSGraph API de REST](#msgraph-beta-rest-api)
+* [Mediante Azure Portal](#registered-in-azure-portal)
+* [En el Portal de registro de aplicaciones o el Centro de desarrollo](#registered-in-app-reg-portal)
+* [Con JSON del objeto de aplicación](#app-object-json)
+* [Con la versión beta de la API REST MSGraph](#msgraph-beta-rest-api)
 
 ### <a name="registered-in-azure-portal"></a>Si ha registrado su aplicación en Azure Portal
 
@@ -114,5 +114,5 @@ PATCH https://graph.microsoft.com/beta/applications/{application id}
 ```
 
 > [!NOTE]
-> * Tenga cuidado de no sobrescribir los valores previamente existentes que haya asignado a cualquiera de estos campos: `supportUrl`, `marketingUrl`, y `logoUrl`
+> * Tenga cuidado de no sobrescribir los valores previamente existentes que haya asignado a cualquiera de estos campos: `supportUrl`, `marketingUrl` y `logoUrl`
 > * La API REST de la versión beta de MSGraph solo funcionará al iniciar sesión con una cuenta de Azure AD. No se admiten cuentas Microsoft personales.

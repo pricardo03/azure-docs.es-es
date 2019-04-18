@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: 5c6c923c86ea0c5968079188c87ec3988ec30142
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494925"
 ---
 # <a name="create-performance-counters-to-track-performance-of-shard-map-manager"></a>Crear contadores de rendimiento para realizar un seguimiento del rendimiento del Administrador de mapa de particiones
@@ -66,9 +66,9 @@ Los contadores de rendimiento se actualizarán con todas las operaciones de cach
 * La creación de la categoría y los contadores de rendimiento debe realizarse una sola vez antes de la creación del objeto ShardMapManager. Cada ejecución del comando CreatePerformanceCategoryAndCounters() borra los contadores anteriores (se pierden los datos notificados por todas las instancias) y crea otros nuevos.  
 * Las instancias de contadores de rendimiento se crean por proceso. Cualquier bloqueo de la aplicación o eliminación de un mapa de particiones de la caché da lugar a la eliminación de las instancias de contadores de rendimiento.  
 
-### <a name="see-also"></a>Vea también
+### <a name="see-also"></a>Consulte también 
 
-[Introducción a las características de base de datos elásticas](sql-database-elastic-scale-introduction.md)  
+[Información general de las características de Elastic Database](sql-database-elastic-scale-introduction.md)  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

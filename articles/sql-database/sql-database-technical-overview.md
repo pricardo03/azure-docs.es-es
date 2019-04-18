@@ -14,10 +14,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/08/2019
 ms.openlocfilehash: ecfd0cbc3eaaae64a956568a506252fdbeddcac2
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59358334"
 ---
 # <a name="what-is-azure-sql-database-service"></a>¿Qué es el servicio de Azure SQL Database
@@ -254,10 +254,10 @@ Los clientes de SQL Database tendrán asociados los siguientes derechos con la V
 - Consulte la [página de precios](https://azure.microsoft.com/pricing/details/sql-database/), para ver comparativas y calculadoras de los costos tanto de las bases de datos únicas como de los grupos elásticos.
 - Consulte estas guías de inicio rápido para comenzar:
 
-  - [Crear una base de datos SQL en Azure portal](sql-database-single-database-get-started.md)  
+  - [Creación de una base de datos SQL en Azure Portal](sql-database-single-database-get-started.md)  
   - [Creación de una base de datos SQL con la CLI de Azure](sql-database-get-started-cli.md)
-  - [Crear una base de datos SQL con PowerShell](sql-database-get-started-powershell.md)
+  - [Creación de una base de datos SQL con PowerShell](sql-database-get-started-powershell.md)
 
 - Para obtener ejemplos de la CLI de Azure y de PowerShell, consulte:
-  - [Ejemplos CLI de Azure para SQL Database](sql-database-cli-samples.md)
+  - [Ejemplos de la CLI de Azure para SQL Database](sql-database-cli-samples.md)
   - [Ejemplos de Azure PowerShell para SQL Database](sql-database-powershell-samples.md)

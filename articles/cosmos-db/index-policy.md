@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: rimman
 ms.openlocfilehash: 6998db1679e67f8ac4bf7c81ea9373c66a9618ee
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278571"
 ---
 # <a name="index-policy-in-azure-cosmos-db"></a>Directiva de indexación en Azure Cosmos DB
@@ -70,7 +70,7 @@ Los siguientes son los casos de uso más común cuando desea actualizar una dire
 
 Obtenga más información acerca de la indexación en los siguientes artículos:
 
-* [Introducción a la indización](index-overview.md)
-* [Tipos de índice](index-types.md)
+* [Introducción a la indexación](index-overview.md)
+* [Tipos del índice](index-types.md)
 * [Rutas de acceso del índice](index-paths.md)
 * [Cómo administrar la directiva de indexación](how-to-manage-indexing-policy.md)

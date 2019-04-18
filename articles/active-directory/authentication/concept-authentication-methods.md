@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e0c9af1a9ad8b816809f661d368133997f55329d
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360640"
 ---
 # <a name="what-are-authentication-methods"></a>¿Qué son los métodos de autenticación?
@@ -236,10 +236,10 @@ Si su organización está federada para SSO con Azure AD y que va a usar Azure M
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Habilitar contraseña de autoservicio de restablecimiento de su organización](quickstart-sspr.md)
+[Habilitar el autoservicio de restablecimiento de contraseña para la organización](quickstart-sspr.md)
 
-[Habilitar autenticación multifactor de Azure para su organización](howto-mfa-getstarted.md)
+[Habilitar Azure Multi-Factor Authentication para la organización](howto-mfa-getstarted.md)
 
 [Habilitar el registro combinado en el inquilino](howto-registration-mfa-sspr-combined.md)
 
-[Documentación de configuración de método de autenticación del usuario final](https://aka.ms/securityinfoguide)
+[Documentación de configuración del método de autenticación de usuario final](https://aka.ms/securityinfoguide)

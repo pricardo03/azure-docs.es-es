@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 73d42c693fae6b538136d1e8c93094a0ea9e2077
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59494874"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Configuración de roles de recurso de Azure en PIM
@@ -62,15 +62,15 @@ Puede elegir uno de estas opciones de duración de asignación tipo **Apto**:
 
 | | |
 | --- | --- |
-| **Allow permanent eligible assignment (Permitir la asignación apta permanente)** | Los administradores de recursos pueden asignar una pertenencia elegible permanente. |
-| **Asignación apta después del punto de expirar** | Los administradores de recursos pueden requerir que todas las asignaciones elegibles tengan una fecha de inicio y finalización especificada. |
+| **Permitir asignación elegible permanente** | Los administradores de recursos pueden asignar una pertenencia elegible permanente. |
+| **Hacer que las asignaciones elegibles expiren después de** | Los administradores de recursos pueden requerir que todas las asignaciones elegibles tengan una fecha de inicio y finalización especificada. |
 
 Además, puede elegir una de estas opciones de duración de asignación tipo **Activo**:
 
 | | |
 | --- | --- |
-| **Allow permanent active assignment (Permitir la asignación activa permanente)** | Los administradores de recursos pueden asignar una pertenencia activa permanente. |
-| **Asignaciones activas después de expirar** | Los administradores de recursos pueden requerir que todas las asignaciones activas tengan una fecha de inicio y finalización especificada. |
+| **Permitir asignaciones activas permanentes** | Los administradores de recursos pueden asignar una pertenencia activa permanente. |
+| **Hacer que las asignaciones activas expiren después de** | Los administradores de recursos pueden requerir que todas las asignaciones activas tengan una fecha de inicio y finalización especificada. |
 
 > [!NOTE] 
 > Los administradores de recursos pueden renovar todas las asignaciones que tienen una fecha de finalización específica. Asimismo, los miembros pueden iniciar solicitudes de autoservicio para [extender o renovar las asignaciones](pim-resource-roles-renew-extend.md).

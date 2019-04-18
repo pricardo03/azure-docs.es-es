@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/05/2019
 ms.author: hrasheed
 ms.openlocfilehash: 4fe47feff6ac3a58ba4db8c700a3e34b2cdc0df9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274696"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>Procedimientos recomendados de infraestructura para migrar clústeres locales de Apache Hadoop a Azure HDInsight
@@ -43,7 +43,7 @@ También puede usar la interfaz de usuario de Apache Ambari o la API REST de Amb
 
 Pueden agregarse aplicaciones o componentes que estaban disponibles en clústeres locales, pero no forman parte de los clústeres de HDInsight en un nodo perimetral o en una máquina virtual en la misma subred que el clúster de HDInsight. Una aplicación de Hadoop de terceros que no esté disponible en Azure HDInsight puede instalarse con la opción "Aplicaciones" del clúster de HDInsight. Las aplicaciones de Hadoop personalizadas pueden instalarse en un clúster de HDInsight mediante "acciones de script". En la tabla siguiente se enumeran algunas de las aplicaciones habituales y sus opciones de integración de HDInsight:
 
-|**Application**|**Integración**
+|**Aplicación**|**Integración**
 |---|---|
 |Flujo de aire|Nodo perimetral IaaS o HDInsight
 |Alluxio|IaaS  
@@ -97,8 +97,8 @@ Las acciones de script también pueden publicarse en Azure Marketplace como una 
 
 Para más información, consulte los siguientes artículos.
 
-- [Instalar aplicaciones de terceros Apache Hadoop en HDInsight](../hdinsight-apps-install-applications.md)
-- [Personalización de clústeres de HDInsight mediante acciones de scripts](../hdinsight-hadoop-customize-cluster-linux.md)
+- [Instalación de aplicaciones de Apache Hadoop de terceros en HDInsight](../hdinsight-apps-install-applications.md)
+- [Personalización de clústeres de HDInsight basados en Linux mediante acciones de script](../hdinsight-hadoop-customize-cluster-linux.md)
 - [Publicación de una aplicación de HDInsight en Azure Marketplace](../hdinsight-apps-publish-applications.md)
 
 ## <a name="customize-hdinsight-configs-using-bootstrap"></a>Personalización de las configuraciones de HDInsight con Bootstrap
@@ -168,7 +168,7 @@ HDInsight puede agregarse a una instancia nueva o existente de Azure Virtual Net
 
 Para más información, consulte los siguientes artículos.
 
-- [Virtual-networks-Introducción a Azure](../../virtual-network/virtual-networks-overview.md)
+- [¿Qué es Azure Virtual Network?](../../virtual-network/virtual-networks-overview.md)
 - [Extender Azure HDInsight mediante una instancia de Azure Virtual Network](../hdinsight-extend-hadoop-virtual-network.md)
 
 ## <a name="securely-connect-to-azure-services-with-azure-virtual-network-service-endpoints"></a>Conexión de forma segura a servicios de Azure con los puntos de conexión del servicio Azure Virtual Network
@@ -177,8 +177,8 @@ HDInsight admite [puntos de conexión de servicio de red virtual](../../virtual-
 
 Para más información, consulte los siguientes artículos.
 
-- [Puntos de conexión del servicio Virtual Network](../../virtual-network/virtual-network-service-endpoints-overview.md)
-- [Mejorar la seguridad de HDInsight con los puntos de conexión de servicio](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/)
+- [Puntos de conexión del servicio de redes virtuales](../../virtual-network/virtual-network-service-endpoints-overview.md)
+- [Enhance HDInsight security with service endpoints](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/) (Mejora de la seguridad de HDInsight con puntos de conexión de servicio)
 
 ## <a name="connect-hdinsight-to-the-on-premises-network"></a>Conexión de HDInsight a la red local
 
@@ -194,4 +194,4 @@ Para obtener más información, consulte el artículo [Conexión de HDInsight a 
 
 Lea el siguiente artículo de esta serie:
 
-- [Prácticas recomendadas de almacenamiento local para la migración de HDInsight Hadoop de Azure](apache-hadoop-on-premises-migration-best-practices-storage.md)
+- [Storage best practices for on-premises to Azure HDInsight Hadoop migration](apache-hadoop-on-premises-migration-best-practices-storage.md) (Procedimientos recomendados de almacenamiento para la migración local a Azure HDInsight Hadoop)

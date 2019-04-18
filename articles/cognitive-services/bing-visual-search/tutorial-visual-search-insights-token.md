@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: rosh
 ms.openlocfilehash: 39a95e877c766eb8f491c166edeb9d96f21db7dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59493952"
 ---
 # <a name="find-similar-images-from-previous-searches-using-imageinsightstoken"></a>Búsqueda de imágenes similares de búsquedas anteriores mediante ImageInsightsToken
@@ -144,4 +144,4 @@ Como se mostró anteriormente, los tipos `TopicResults` y `ImageResults` contien
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Creación de una aplicación web de página única de Visual Search](tutorial-bing-visual-search-single-page-app.md)
+> [Crear una aplicación web de una página de búsqueda Visual](tutorial-bing-visual-search-single-page-app.md)

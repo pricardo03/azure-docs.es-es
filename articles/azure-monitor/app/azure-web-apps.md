@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: mbullwin
 ms.openlocfilehash: 25f620cb36c2bfb548ecf08c33dc04b37118a256
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489629"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Supervisar el rendimiento de Azure App Service
@@ -118,7 +118,7 @@ Si por algún motivo desea deshabilitar la supervisión de cliente:
 * Seleccione **configuración** > **configuración de la aplicación**
    * En la configuración de la aplicación, agregue un nuevo **nombre de la configuración de aplicación** y **valor**:
 
-     name: `APPINSIGHTS_JAVASCRIPT_ENABLED`
+     Nombre: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Valor: `false`
 

@@ -13,10 +13,10 @@ ms.reviewer: sashan, moslake, carlrab
 manager: craigg
 ms.date: 02/07/2019
 ms.openlocfilehash: edba858f9be3350034ff48ea16d3c9137254bb97
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357937"
 ---
 # <a name="vcore-service-tiers-azure-hybrid-benefit-and-migration"></a>Niveles de servicio de núcleo virtual, ventaja híbrida de Azure y migración
@@ -37,7 +37,7 @@ El modelo de núcleo virtual ofrece tres niveles de servicio: De uso General, Hi
 
 La tabla siguiente le ayudará a comprender las diferencias entre estos tres niveles:
 
-||**Uso general**|**Crítico para la empresa**|**A gran escala (versión preliminar)**|
+||**Uso general**|**Crítico para la empresa**|**Hiperescala (versión preliminar)**|
 |---|---|---|---|
 |Más adecuado para|La mayoría de las cargas de trabajo empresariales. Ofrece opciones de proceso y almacenamiento equilibradas y escalables orientadas al presupuesto.|Aplicaciones empresariales con elevados requisitos de E/S. Ofrece la máxima resistencia a errores mediante varias réplicas aisladas.|La mayoría de las cargas de trabajo de una empresa que tengan requisitos de almacenamiento y un escalado de lectura que sean altamente escalables.|
 |Proceso|Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: De 1 a 80 núcleos virtuales|Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: De 1 a 80 núcleos virtuales|Gen4: De 1 a 24 núcleos virtuales<br/>Gen5: De 1 a 80 núcleos virtuales|
@@ -78,15 +78,15 @@ Con la Ventaja híbrida de Azure, puede elegir pagar solo por la infraestructura
 
   - [az sql db create](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)
   - [az sql db update](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-update)
-  - [creación de instancia administrada de sql AZ](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
-  - [actualización de AZ sql para mi](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
+  - [az sql mi create](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-create)
+  - [az sql mi update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update)
 
 - Para establecer o actualizar el tipo de licencia mediante la API REST:
 
-  - [Las bases de datos - crear o actualizar](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
-  - [Bases de datos - Update](https://docs.microsoft.com/rest/api/sql/databases/update)
-  - [Instancias - administradas crear o actualizar](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
-  - [Actualizar las instancias administradas:](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
+  - [Databases - Create Or Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)
+  - [Databases - Update](https://docs.microsoft.com/rest/api/sql/databases/update)
+  - [Managed Instances - Create Or Update](https://docs.microsoft.com/rest/api/sql/managedinstances/createorupdate)
+  - [Managed Instances - Update](https://docs.microsoft.com/rest/api/sql/managedinstances/update)
 
 ## <a name="migration-from-dtu-model-to-vcore-model"></a>Migración del modelo DTU al modelo con núcleo virtual
 

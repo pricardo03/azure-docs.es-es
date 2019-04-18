@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: rezas
 ms.openlocfilehash: 5c879b050fad0ac8c6467ffa29d9aee398f57aa2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276867"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Comunicación con la instancia de IoT Hub mediante el protocolo MQTT
@@ -150,11 +150,11 @@ A continuación, implemente el cliente en un script de Python. Reemplace los mar
 
 * `<local path to digicert.cer>` es la ruta de acceso a un archivo local que contiene el certificado raíz de DigiCert Baltimore. Puede crear este archivo copiando la información de certificado de [certs.c](https://github.com/Azure/azure-iot-sdk-c/blob/master/certs/certs.c) en el SDK de Azure IoT para C. Incluya las líneas `-----BEGIN CERTIFICATE-----` y `-----END CERTIFICATE-----`, quite las marcas `"` al principio y al final de cada línea, y quite los caracteres `\r\n` al final de cada línea.
 
-* `<device id from device registry>` es el identificador de un dispositivo que agregó a IoT hub.
+* `<device id from device registry>` es la identidad de un dispositivo que agregó a IoT Hub.
 
-* `<generated SAS token>` es un token SAS para el dispositivo que creó como se describió anteriormente en este artículo.
+* `<generated SAS token>` es un token de SAS para el dispositivo que se creó como se describió anteriormente en este artículo.
 
-* `<iot hub name>` el nombre de IoT hub.
+* `<iot hub name>` el nombre de IoT Hub.
 
 ```python
 from paho.mqtt import client as mqtt
@@ -216,7 +216,7 @@ Para recibir mensajes de IoT Hub, un dispositivo debe suscribirse usando `device
 
 El dispositivo no recibe ningún mensaje desde IoT Hub hasta que se suscribe correctamente al punto de conexión específico del dispositivo, representado por el filtro del tema `devices/{device_id}/messages/devicebound/#`. Después de que se haya establecido una suscripción, el dispositivo recibe solo los mensajes de la nube al dispositivo que se enviaron a este después de la hora de la suscripción. Si el dispositivo se conecta con la marca **CleanSession** establecida en **0**, la suscripción se conserva entre distintas sesiones. En este caso, la próxima vez que el dispositivo se conecte con **CleanSession 0**, este recibirá los mensajes pendientes que se le han enviado mientras estaba desconectado. Si el dispositivo usa la marca **CleanSession** establecida en **1**, no recibe los mensajes de IoT Hub hasta que se suscribe al punto de conexión del dispositivo.
 
-IoT Hub entrega los mensajes con el **Nombre del tema** `devices/{device_id}/messages/devicebound/`, o `devices/{device_id}/messages/devicebound/{property_bag}` si hay propiedades de mensaje. `{property_bag}` contiene los pares de clave-valor con codificación url de propiedades de mensaje. Las propiedades de la aplicación y del sistema configuradas por el usuario (como **messageId** o **correlationId**) son las únicas que se incluyen en el paquete de propiedades. Los nombres de propiedad del sistema tienen el prefijo **$**; las propiedades de aplicaciones utilizan el nombre de propiedad original sin prefijo.
+IoT Hub entrega los mensajes con el **Nombre del tema** `devices/{device_id}/messages/devicebound/`, o `devices/{device_id}/messages/devicebound/{property_bag}` si hay propiedades de mensaje. `{property_bag}` contiene pares clave-valor con codificación URL de propiedades del mensaje. Las propiedades de la aplicación y del sistema configuradas por el usuario (como **messageId** o **correlationId**) son las únicas que se incluyen en el paquete de propiedades. Los nombres de propiedad del sistema tienen el prefijo **$**; las propiedades de aplicaciones utilizan el nombre de propiedad original sin prefijo.
 
 Cuando una aplicación de dispositivo se suscribe a un tema con **QoS 2**, IoT Hub concede el QoS de nivel 1 (el máximo) en el paquete **SUBACK**. Después de eso, IoT Hub envía mensajes al dispositivo con QoS 1.
 
@@ -337,11 +337,11 @@ Para obtener más información sobre el protocolo MQTT, consulte el [documentaci
 Para más información acerca de planificación de la implementación de IoT Hub, consulte:
 
 * [Catálogo de dispositivos de Azure Certified for IoT](https://catalog.azureiotsolutions.com/)
-* [Compatibilidad con otros protocolos](iot-hub-protocol-gateway.md)
+* [Compatibilidad con protocolos adicionales](iot-hub-protocol-gateway.md)
 * [Comparar con Event Hubs](iot-hub-compare-event-hubs.md)
-* [Escala, alta disponibilidad y recuperación ante desastres](iot-hub-scaling.md)
+* [Escalado, alta disponibilidad y recuperación ante desastres](iot-hub-scaling.md)
 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
-* [Guía del desarrollador de IoT Hub](iot-hub-devguide.md)
-* [Implementar AI en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md)
+* [Implementación de IA en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

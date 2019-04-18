@@ -106,7 +106,7 @@ sections:
         style: ordered
         items:
           - html: Creación de una aplicación mediante <a href="/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase">.NET con Azure SQL DB</a> o <a href="/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app">Node.js con MongoDB</a>
-          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Asignación de un dominio personalizado existente a una aplicación </a>
+          - html: <a href="/azure/app-service/app-service-web-tutorial-custom-domain">Asignación de un dominio personalizado existente a la aplicación </a>
           - html: <a href="/azure/app-service/app-service-web-tutorial-custom-SSL">Enlace de un certificado SSL existente a la aplicación</a>
           - html: <a href="/azure/app-service/app-service-web-tutorial-content-delivery-network">Incorporación de una CDN a la aplicación</a>
   - title: Desarrollo de aptitudes con Microsoft Learn
@@ -147,7 +147,7 @@ sections:
         className: spaced noBullet
         items:
           - html: <a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a>
-          - html: <a href="/cli/azure/appservice">Azure CLI</a>
+          - html: <a href="/cli/azure/appservice">CLI de Azure</a>
   - title: Referencia
     items:
       - type: list
@@ -155,7 +155,7 @@ sections:
         className: cardsD
         items:
           - title: Línea de comandos
-            html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">Azure CLI</a></p>
+            html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/appservice">CLI de Azure</a></p>
           - title: Languages
             html: <p><a href="/dotnet/api">.NET</a></p><p><a href="/java/api/">Java</a></p>
           - title: REST

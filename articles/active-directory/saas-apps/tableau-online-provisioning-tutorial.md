@@ -17,10 +17,10 @@ ms.date: 03/27/2019
 ms.author: v-wingf-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: f732eebd410a6b52a21a46925a29bf4676f7c8cb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270793"
 ---
 # <a name="tutorial-configure-tableau-online-for-automatic-user-provisioning"></a>Tutorial: configuración de Tableau Online para el aprovisionamiento automático de usuarios
@@ -44,7 +44,7 @@ En el escenario que se describe en este tutorial se supone que ya cuenta con los
 ## <a name="adding-tableau-online-from-the-gallery"></a>Incorporación de Tableau Online desde la galería
 Antes de configurar Tableau Online para el aprovisionamiento automático de usuarios con Azure AD, es preciso agregar Tableau Online desde la galería de aplicaciones de Azure AD a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Tableau Online desde la Galería de aplicaciones de Azure AD, realice los pasos siguientes:**
+**Para agregar Tableau Online desde la galería de aplicaciones de Azure AD, siga estos pasos:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -58,7 +58,7 @@ Antes de configurar Tableau Online para el aprovisionamiento automático de usua
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Tableau Online**, seleccione **Tableau Online** panel de resultados, a continuación, haga clic en **agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Tableau Online**, seleccione **Tableau Online** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
     ![Tableau Online en la lista de resultados](common/search-new-app.png)
 
@@ -91,7 +91,7 @@ Esta sección le guía por los pasos necesarios para configurar el servicio de a
 
 2. En la lista de aplicaciones, seleccione **Tableau Online**.
 
-    ![El vínculo de Tableau Online en la lista de aplicaciones](common/all-applications.png)
+    ![Vínculo a Tableau Online en la lista de aplicaciones](common/all-applications.png)
 
 3. Seleccione la pestaña **Aprovisionamiento**.
 
@@ -170,12 +170,12 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Administración de aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Obtenga información sobre cómo revisar los registros y obtener informes sobre la actividad de aprovisionamiento](../manage-apps/check-status-user-account-provisioning.md)
+* [Aprenda a revisar los registros y a obtener informes sobre la actividad de aprovisionamiento](../manage-apps/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/tableau-online-provisioning-tutorial/tutorial_general_01.png

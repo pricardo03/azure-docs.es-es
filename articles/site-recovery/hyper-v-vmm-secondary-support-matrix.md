@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: raynew
 ms.openlocfilehash: 60ca12e5b362a37eb9f85c9a0d1fc23ca99e9edc
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360797"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matriz de compatibilidad para la recuperación ante desastres de máquinas virtuales de Hyper-V a un sitio secundario
@@ -70,7 +70,7 @@ VM invitada: múltiples NIC | Sí
 
 ### <a name="host-storage"></a>Almacenamiento de host
 
-**Almacenamiento (host)** | **Compatible**
+**Storage (host)** | **Compatible**
 --- | --- 
 NFS | N/D
 SMB 3.0 |  Sí
@@ -99,7 +99,7 @@ Varias rutas (MPIO) | Sí
 
 ## <a name="vaults"></a>Almacenes
 
-**.** | **Compatible**
+**Acción** | **Compatible**
 --- | --- 
 Migrar los almacenes entre los grupos de recursos (dentro de las suscripciones o entre ellas) |  Sin 
 Migrar el almacenamiento, la red y las VM de Azure entre los grupos de recursos (dentro de las suscripciones o entre ellas) | Sin 
@@ -116,5 +116,5 @@ El proveedor coordina las comunicaciones entre servidores VMM.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Replicación de máquinas virtuales de Hyper-V en nubes VMM en un sitio secundario](tutorial-vmm-to-vmm.md)
+[Replicar las máquinas virtuales de Hyper-V en nubes VMM en una nube secundaria](tutorial-vmm-to-vmm.md)
 

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: juliako
 ms.openlocfilehash: 8f8a1434af768180e34afcaacd6e92ab402ad8cd
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361242"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Conectarse a la API de Media Services v3 - .NET
@@ -225,17 +225,17 @@ namespace ConsoleApp1
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Tutorial: Cargar, codificar y transmitir vídeos - .NET](stream-files-tutorial-with-api.md) 
-- [Tutorial: Stream en vivo con Media Services v3 - .NET](stream-live-tutorial-with-api.md)
-- [Tutorial: Análisis de vídeos con Media Services v3 - .NET](analyze-videos-tutorial-with-api.md)
-- [Crear una entrada de trabajo desde un archivo local - .NET](job-input-from-local-file-how-to.md)
-- [Crear una entrada de trabajo desde una dirección URL HTTPS - .NET](job-input-from-http-how-to.md)
-- [Codificar con una transformación personalizada - .NET](customize-encoder-presets-how-to.md)
-- [Usar cifrado dinámico AES-128 y el servicio de entrega de claves - .NET](protect-with-aes128.md)
-- [Usar DRM dinámica cifrado y la licencia de servicio de entrega - .NET](protect-with-drm.md)
-- [Obtener una clave de firma de la directiva existente - .NET](get-content-key-policy-dotnet-howto.md)
-- [Crear filtros con Media Services: .NET](filters-dynamic-manifest-dotnet-howto.md)
-- [Ejemplos de vídeo bajo demanda de Azure Functions v2 con Media Services v3 de avanzada](https://aka.ms/ams3functions)
+- [Tutorial: Carga, codificación y streaming de vídeos: .NET](stream-files-tutorial-with-api.md) 
+- [Tutorial: Streaming en vivo con Media Services v3: .NET](stream-live-tutorial-with-api.md)
+- [Tutorial: Análisis de vídeos con Media Services v3: .NET](analyze-videos-tutorial-with-api.md)
+- [Creación de una entrada de trabajo a partir de un archivo local: .NET](job-input-from-local-file-how-to.md)
+- [Creación de una entrada de trabajo a partir de una dirección URL de HTTPS: .NET](job-input-from-http-how-to.md)
+- [Codificación con una transformación personalizada: .NET](customize-encoder-presets-how-to.md)
+- [Uso del cifrado dinámico AES-128 y el servicio de entrega de claves: .NET](protect-with-aes128.md)
+- [Uso del cifrado dinámico de DRM y el servicio de entrega de licencias: .NET](protect-with-drm.md)
+- [Obtención de una clave de firma de la directiva existente: .NET](get-content-key-policy-dotnet-howto.md)
+- [Creación de filtros con Media Services: .NET](filters-dynamic-manifest-dotnet-howto.md)
+- [Ejemplos avanzados de vídeo bajo demanda de Azure Functions v2 con Media Services v3](https://aka.ms/ams3functions)
 
 ## <a name="see-also"></a>Vea también
 

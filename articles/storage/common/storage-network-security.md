@@ -9,10 +9,10 @@ ms.date: 03/21/2019
 ms.author: cbrooks
 ms.subservice: common
 ms.openlocfilehash: 6d6ca1fe1256f1571079027ebd299492bfa62f41
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280747"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configuración de redes virtuales y firewalls de Azure Storage
@@ -362,7 +362,7 @@ Si habilita la excepción **Permitir que los servicios de Microsoft de confianza
 
 ### <a name="storage-analytics-data-access"></a>Acceso a datos de análisis de almacenamiento
 
-En algunos casos, se requiere acceso para leer registros de diagnóstico y métricas desde fuera del límite de red. Puede conceder excepciones a las reglas de red para permitir acceso de lectura a las tablas de métricas, a archivos de registro de cuentas de almacenamiento o a ambos. [Más información sobre cómo trabajar con análisis de almacenamiento.](/azure/storage/storage-analytics)
+En algunos casos, se requiere acceso para leer registros de diagnóstico y métricas desde fuera del límite de red. Puede conceder excepciones a las reglas de red para permitir acceso de lectura a las tablas de métricas, a archivos de registro de cuentas de almacenamiento o a ambos. [Obtenga más información sobre cómo trabajar con analíticas de almacenamiento](/azure/storage/storage-analytics).
 
 ### <a name="managing-exceptions"></a>Administración de excepciones
 

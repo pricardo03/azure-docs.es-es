@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 7db9c6400ac7d235153a59965e34e30d9b809a81
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359693"
 ---
 # <a name="how-to-use-azure-sql-database"></a>Cómo usar Azure SQL Database
@@ -25,7 +25,7 @@ En esta sección puede encontrar varias guías, scripts y explicaciones que pued
 
 ## <a name="load-data"></a>Carga de datos
 
-- [Copiar una base de datos única o agrupados dentro de Azure](sql-database-copy.md)
+- [Copia de una base de datos única o agrupada en Azure](sql-database-copy.md)
 - [Importación de una base de datos desde un archivo BACPAC](sql-database-import.md)
 - [Exportación de una base de datos a un archivo BACPAC](sql-database-export.md)
 - [Carga de datos con BCP](sql-database-load-from-csv-with-bcp.md)
@@ -52,13 +52,13 @@ En esta sección puede encontrar varias guías, scripts y explicaciones que pued
 ### <a name="extended-events"></a>Eventos extendidos
 
 - [Eventos extendidos](sql-database-xevent-db-diff-from-svr.md)
-- [Store los eventos extendidos en el archivo de eventos](sql-database-xevent-code-event-file.md)
-- [Store los eventos extendidos en el búfer de anillo](sql-database-xevent-code-ring-buffer.md)
+- [Almacenar eventos extendidos en el archivo de evento](sql-database-xevent-code-event-file.md)
+- [Almacenar eventos extendidos en el búfer en anillo](sql-database-xevent-code-ring-buffer.md)
 
 ## <a name="configure-features"></a>Configuración de características
 
 - [Configuración de la autenticación de Azure AD](sql-database-aad-authentication-configure.md)
-- [Configure el acceso condicional](sql-database-conditional-access.md)
+- [Configuración del acceso condicional](sql-database-conditional-access.md)
 - [Multi-factor Authentication para AAD](sql-database-ssms-mfa-authentication.md)
 - [Configuración de Multi-factor Authentication](sql-database-ssms-mfa-authentication-configure.md)
 - [Configuración temporal de la directiva de retención](sql-database-temporal-tables-retention-policy.md)
@@ -66,18 +66,18 @@ En esta sección puede encontrar varias guías, scripts y explicaciones que pued
 - [Rotación de claves BYOK de TDE](transparent-data-encryption-byok-azure-sql-key-rotation.md)
 - [Eliminación del protector de TDE](transparent-data-encryption-byok-azure-sql-remove-tde-protector.md)
 - [Configuración de OLTP en memoria](sql-database-in-memory-oltp-migration.md)
-- [Configurar Azure Automation](sql-database-manage-automation.md)
+- [Configuración de Azure Automation](sql-database-manage-automation.md)
 
 ## <a name="develop-applications"></a>Desarrollo de aplicaciones
 
 - [Conectividad](sql-database-libraries.md)
 - [Uso de Spark Connector](sql-database-spark-connector.md)
 - [Autenticación de aplicaciones](sql-database-client-id-keys.md)
-- [mensajes de error](sql-database-develop-error-messages.md)
-- [Usar lotes para mejorar el rendimiento](sql-database-use-batching-to-improve-performance.md)
+- [Mensajes de error](sql-database-develop-error-messages.md)
+- [Uso del procesamiento por lotes para mejorar el rendimiento](sql-database-use-batching-to-improve-performance.md)
 - [Guía de conectividad](sql-database-connectivity-issues.md)
 - [Alias DNS](dns-alias-overview.md)
-- [Configurar PowerShell alias DNS](dns-alias-powershell.md)
+- [Configuración de PowerShell con alias DNS](dns-alias-powershell.md)
 - [Puertos: ADO.NET](sql-database-develop-direct-route-ports-adonet-v12.md)
 - [C y C ++](sql-database-develop-cplusplus-simple.md)
 - [Excel](sql-database-connect-excel.md)

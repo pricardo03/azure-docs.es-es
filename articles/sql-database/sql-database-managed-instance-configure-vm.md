@@ -13,10 +13,10 @@ ms.reviewer: sstein, carlrab, srbozovi, bonova
 manager: craigg
 ms.date: 02/18/2019
 ms.openlocfilehash: 59088ad53e923f1303c0e800df9c25f70e63812f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360488"
 ---
 # <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Guía de inicio rápido: Configurar una máquina virtual de Azure para la conexión a una Instancia administrada de Azure SQL Database
@@ -45,9 +45,9 @@ En los pasos siguientes se crea una nueva subred en la red virtual de Instancia 
 
 3. Rellene el formulario con la información de esta tabla:
 
-   | Configuración| Valor sugerido | DESCRIPCIÓN |
+   | Configuración| Valor sugerido | Descripción |
    | ---------------- | ----------------- | ----------- |
-   | **NOMBRE** | Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   | **Nombre** | Cualquier nombre válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    | **Intervalo de direcciones (bloque CIDR)** | Un intervalo válido | El valor predeterminado es adecuado para este inicio rápido.|
    | **Grupo de seguridad de red** | None | El valor predeterminado es adecuado para este inicio rápido.|
    | **Tabla de rutas** | None | El valor predeterminado es adecuado para este inicio rápido.|
@@ -76,18 +76,18 @@ La forma más fácil de crear una máquina virtual cliente con todas las herrami
 
    | Configuración| Valor sugerido | DESCRIPCIÓN |
    | ---------------- | ----------------- | ----------- |
-   | **Subscription** | Una suscripción válida | Debe ser una suscripción en la que tiene permiso para crear recursos. |
+   | **Suscripción** | Una suscripción válida | Debe ser una suscripción en la que tiene permiso para crear recursos. |
    | **Grupo de recursos** |Grupo de recursos que especificó en el inicio rápido [Crear Instancia administrada](sql-database-managed-instance-get-started.md).|Este grupo de recursos debe ser el grupo de recursos donde existe la red virtual.|
    | **Ubicación** | Ubicación del grupo de recursos | Este valor se rellena según el grupo de recursos seleccionado. |
    | **Nombre de la máquina virtual**  | Cualquier nombre válido | Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
-   |**Nombre de usuario de administrador**|Cualquier nombre de usuario válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). No utilice "serveradmin", ya es un rol de nivel de servidor reservado.<br>Use este nombre de usuario cada vez que [se conecte a la máquina virtual](#connect-to-virtual-machine).|
+   |**Nombre de usuario administrador**|Cualquier nombre de usuario válido|Para conocer cuáles son los nombres válidos, consulte el artículo [Convenciones de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). No utilice "serveradmin", ya es un rol de nivel de servidor reservado.<br>Use este nombre de usuario cada vez que [se conecte a la máquina virtual](#connect-to-virtual-machine).|
    |**Contraseña**|Cualquier contraseña válida|La contraseña debe tener al menos 12 caracteres de largo y cumplir con los [requisitos de complejidad definidos](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).<br>Use esta contraseña cada vez que [se conecte a la máquina virtual](#connect-to-virtual-machine).|
-   | **Tamaño de la máquina virtual** | Cualquier tamaño válido | El valor predeterminado de esta plantilla de **Standard_B2s** es suficiente para esta guía de inicio rápido. |
+   | **Tamaño de máquina virtual** | Cualquier tamaño válido | El valor predeterminado de esta plantilla de **Standard_B2s** es suficiente para esta guía de inicio rápido. |
    | **Ubicación**|[resourceGroup().location].| No cambie este valor. |
-   | **El nombre de la red virtual**|La red virtual en la que creó la instancia administrada.|
+   | **Nombre de la red virtual**|La red virtual en la que creó la instancia administrada.|
    | **Nombre de subred**|El nombre de la subred que creó en el procedimiento anterior| No elija la subred en la que creó la Instancia administrada.|
    | **Ubicación de artefactos** | [deployment().properties.templateLink.uri] | No cambie este valor. |
-   | **token de Sas de ubicación de artefactos** | déjelo en blanco | No cambie este valor. |
+   | **Token de Sas de ubicación de artefactos** | déjelo en blanco | No cambie este valor. |
 
    ![crear máquina virtual cliente](./media/sql-database-managed-instance-configure-vm/create-client-sql-vm.png)
 

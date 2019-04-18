@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 04/11/2018
 ms.author: genli
 ms.openlocfilehash: 174bc4895bbad4546392581c2c769aac762d6106
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492386"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Solución de problemas: Problemas de conexión de punto a sitio de Azure
@@ -31,7 +31,7 @@ En este artículo se enumeran problemas comunes de conexión de punto a sitio qu
 
 Al intentar conectar a una red virtual de Azure mediante el cliente de VPN, aparece el mensaje de error siguiente:
 
-**No se encontró un certificado que se puede usar con este protocolo de autenticación Extensible. (Error 798)**
+**No se encuentra un certificado que se puede usar con este protocolo de autenticación extendido. (Error 798)**
 
 ### <a name="cause"></a>Causa
 
@@ -93,7 +93,7 @@ Para preparar Windows 10 o Server 2016 para IKEv2:
 
 Al intentar conectar a una red virtual de Azure mediante el cliente de VPN, aparece el mensaje de error siguiente:
 
-**El mensaje recibido fue inesperado o con formato incorrecto. (Error 0x80090326)**
+**Mensaje recibido inesperado o con formato incorrecto. (Error 0x80090326)**
 
 ### <a name="cause"></a>Causa
 
@@ -116,7 +116,7 @@ Para solucionar este problema, siga estos pasos:
 
 Al intentar conectar a una red virtual de Azure mediante el cliente de VPN, aparece el mensaje de error siguiente:
 
-**Una cadena de certificados ha procesado pero termina en un certificado raíz que no es de confianza para el proveedor de confianza.**
+**Se ha procesado una cadena de certificados, pero termina en un certificado raíz en el que el proveedor de confianza no confía**
 
 ### <a name="solution"></a>Solución
 
@@ -136,7 +136,7 @@ Al intentar conectar a una red virtual de Azure mediante el cliente de VPN, apar
 
 Aparece el siguiente mensaje de error:
 
-**Error de descarga de archivos. No se ha especificado el URI de destino.**
+**Error en la descarga del archivo. No se ha especificado el URI de destino.**
 
 ### <a name="cause"></a>Causa 
 
@@ -185,7 +185,7 @@ Extraiga el paquete de configuración del cliente de VPN y busque el archivo .ce
 
 Al intentar guardar los cambios de la puerta de enlace de la VPN en Azure Portal, aparece el mensaje de error siguiente:
 
-**No se pudo guardar la puerta de enlace de red virtual &lt; *nombre de la puerta de enlace*&gt;. Los datos del certificado &lt; *Id. de certificado* &gt; no es válido.**
+**Error al guardar la puerta de enlace de red virtual&lt; *nombre de la puerta de enlace*&gt;. Los datos del certificado &lt;*identificador de certificado*&gt;** no son válidos.
 
 ### <a name="cause"></a>Causa 
 

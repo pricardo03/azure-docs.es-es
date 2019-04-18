@@ -4,15 +4,15 @@ description: En este artículo se describe la forma de crear y usar bases de dat
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/31/2019
+ms.date: 04/17/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: f3bec1b279c07e62e246ebfa933b3942e38406de
-ms.sourcegitcommit: 09bb15a76ceaad58517c8fa3b53e1d8fec5f3db7
+ms.openlocfilehash: 8eaca83b7ea89737a63fe56a18505c8df7e93fdc
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58762912"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678809"
 ---
 # <a name="work-with-databases-containers-and-items"></a>Uso de bases de datos, contenedores y elementos
 
@@ -61,7 +61,7 @@ Puede establecer [período de vida (TTL)](time-to-live.md) en los elementos sele
 
 Mediante el uso de [fuente de cambios](change-feed.md), puede suscribirse en el registro de operaciones que se administra para cada una de las particiones lógicas de su contenedor. La fuente de cambios le proporciona el registro de todas las actualizaciones realizadas en el contenedor junto con las imágenes de antes y después de los elementos. Consulte [cómo compilar aplicaciones reactivas con fuente de cambios](serverless-computing-database.md). También puede configurar la duración de retención para la fuente de cambio mediante el uso de la directiva en el contenedor de fuente de cambios. 
 
-Puede registrar [procedimientos almacenados, desencadenadores, funciones definidas por el usuario (UDF)](stored-procedures-triggers-udfs.md) y [mezcla procedimientos](how-to-manage-conflicts.md#create-a-custom-conflict-resolution-policy-with-a-stored-procedure) con el contenedor de Azure Cosmos. 
+Puede registrar [procedimientos almacenados, desencadenadores, funciones definidas por el usuario (UDF)](stored-procedures-triggers-udfs.md) y [mezcla procedimientos](how-to-manage-conflicts.md) con el contenedor de Azure Cosmos. 
 
 Puede especificar un [restricción unique key](unique-keys.md) en el contenedor de Azure Cosmos. Al crear una directiva de clave única, garantiza la exclusividad de uno o varios valores por clave de partición lógica. Una vez creado un contenedor con una directiva de clave única, este impide la creación de cualquier elemento nuevo o actualizado con valores que dupliquen los valores que haya especificado la restricción de clave única. Para obtener más información, consulte [Unique key constraints](unique-keys.md) (Restricciones de clave única).
 
@@ -117,7 +117,7 @@ Cada elemento de Azure Cosmos tiene las siguientes propiedades que define el sis
 |_etag | Generado por el sistema | Etiqueta de entidad que se usa para el control de simultaneidad optimista | Sí | No | No | No | Sin  |
 |_ts | Generado por el sistema | La marca de tiempo de la última actualización del elemento | Sí | No | No | No | Sin  |
 |_self | Generado por el sistema | URI direccionable del elemento | Sí | No | No | No | Sin  |
-|id | Es posible usar el | Nombre único que define el usuario en una partición lógica. Si el usuario no especifica el id., el sistema generará automáticamente uno. | Sí | Sí | Sí | Sí | Sí |
+|id | Es posible usar el | Nombre único que define el usuario en una partición lógica. Si el usuario no especifica el identificador, el sistema generará automáticamente uno. | Sí | Sí | Sí | Sí | Sí |
 |Propiedades arbitrarias que define el usuario | Definidas por el usuario | Las propiedades que define el usuario se presentan en la representación de la API nativa (JSON, BSON, CQL, etc.). | Sí | Sí | Sí | Sí | Sí |
 
 ### <a name="operations-on-items"></a>Operaciones en elementos

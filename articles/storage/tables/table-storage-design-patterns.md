@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: tamram
 ms.subservice: tables
 ms.openlocfilehash: a428abd95f955a16d03c4ab86f05644f6db65da5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59271635"
 ---
 # <a name="table-design-patterns"></a>Patrones de diseño de tabla
@@ -197,7 +197,7 @@ Para habilitar la búsqueda por apellido con la estructura de entidad mostrada a
 * Cree entidades de índice en la misma partición que las entidades employee.  
 * Cree entidades de índice en una tabla o una partición independiente.  
 
-<u>Opción #1: Uso de Blob Storage</u>  
+<u>Opción n.º 1: Uso de Blob Storage</u>  
 
 Para la primera opción, creará un blob para cada apellido único y, en cada almacén de blobs, una lista de valores **PartitionKey** (departamento) y **RowKey** (identificador de empleado) para los empleados que tienen ese apellido. Al agregar o eliminar a un empleado debe asegurarse de que el contenido del blob relevante es coherente con las entidades employee.  
 
@@ -362,7 +362,7 @@ Utilice este patrón cuando necesite tener acceso a entidades en orden inverso d
 ### <a name="related-patterns-and-guidance"></a>Orientación y patrones relacionados
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:  
 
-* [Anteponer / anexar antipatrón](#prepend-append-anti-pattern)  
+* [Anteponer/anexar antipatrón](#prepend-append-anti-pattern)  
 * [Recuperación de entidades](#retrieving-entities)  
 
 ## <a name="high-volume-delete-pattern"></a>Patrón de eliminación de gran volumen
@@ -513,7 +513,7 @@ Evite el antipatrón anteponer/anexar cuando es posible que el volumen de transa
 Los patrones y las directrices siguientes también pueden ser importantes a la hora de implementar este patrón:  
 
 * [Patrón de clave compuesta](#compound-key-pattern)  
-* [Patrón final del registro](#log-tail-pattern)  
+* [Patrón de cola de registro](#log-tail-pattern)  
 * [Modificación de entidades](#modifying-entities)  
 
 ## <a name="log-data-anti-pattern"></a>Antipatrón de datos de registro

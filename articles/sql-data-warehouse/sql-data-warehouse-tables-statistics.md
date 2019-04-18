@@ -12,10 +12,10 @@ ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: seoapril2019
 ms.openlocfilehash: 62007624bdf2b5f1b9c387bcc51d58c020860913
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279778"
 ---
 # <a name="table-statistics-in-azure-sql-data-warehouse"></a>Estadísticas de tabla en Azure SQL Data Warehouse
@@ -77,8 +77,8 @@ Las siguientes son recomendaciones para actualizar las estadísticas:
 
 |||
 |-|-|
-| **Frecuencia de las actualizaciones de estadísticas**  | Conservadora: Diario </br> Después de cargar o transformar los datos |
-| **muestreo** |  Menor que 1 millones de filas, use el muestreo predeterminado (20 por ciento). </br> Con más de 1 millones de filas, use el muestreo de dos por ciento. |
+| **Frecuencia de actualizaciones de estadísticas**  | Conservadora: Diario </br> Después de cargar o transformar los datos |
+| **Muestreo** |  Menor que 1 millones de filas, use el muestreo predeterminado (20 por ciento). </br> Con más de 1 millones de filas, use el muestreo de dos por ciento. |
 
 Una de las primeras preguntas que se deben formular para la solución de problemas de una consulta es **"¿Están actualizadas las estadísticas?"**
 

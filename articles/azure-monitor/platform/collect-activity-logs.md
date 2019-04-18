@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/11/2019
 ms.author: magoedte
 ms.openlocfilehash: 4476bb0a5a343fd43ce5ed70cf0e493d0ccae0e9
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59505641"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Recopilar y analizar los registros de actividad de Azure en el área de trabajo de Log Analytics en Azure Monitor
@@ -54,8 +54,8 @@ A diferencia de la mayoría de soluciones de Azure Monitor, datos agentes no rec
 | --- | --- | --- |
 | [Agentes de Windows](agent-windows.md) | Sin  | La solución no recopila información de los agentes de Windows. |
 | [Agentes de Linux](../learn/quick-collect-linux-computer.md) | Sin  | La solución no recopila información de los agentes de Linux. |
-| [Grupo de administración de System Center Operations Manager](om-agents.md) | Sin  | La solución no recopila información de agentes que informan a un grupo de administración de Operations Manager. |
-| [Cuenta de almacenamiento de Azure](collect-azure-metrics-logs.md) | Sin  | La solución no recopila información de Azure Storage. |
+| [Grupo de administración de System Center Operations](om-agents.md) | Sin  | La solución no recopila información de agentes que informan a un grupo de administración de Operations Manager. |
+| [Cuenta de Almacenamiento de Azure](collect-azure-metrics-logs.md) | Sin  | La solución no recopila información de Azure Storage. |
 
 ## <a name="prerequisites"></a>Requisitos previos
 

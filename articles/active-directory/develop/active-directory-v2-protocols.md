@@ -19,10 +19,10 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: dad05221376fa5871aadf6d89dcb15dff55a6dfa
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490729"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Protocolos de plataforma de identidad de Microsoft
@@ -86,8 +86,8 @@ Más detalles sobre los diferentes tipos de tokens que se usan en el extremo de 
 
 Si está listo para ver algunas solicitudes de ejemplo, comience con uno de los siguiente tutoriales. Cada uno de ellos corresponde a un escenario de autenticación determinado. Si necesita ayuda para determinar cuál es el flujo correcto para usted, consulte [los tipos de aplicaciones que puede compilar con la plataforma Microsoft identity](v2-app-types.md).
 
-* [Compilar aplicaciones móviles y nativas con OAuth 2.0](v2-oauth2-auth-code-flow.md)
-* [Crear aplicaciones web con OpenID Connect](v2-protocols-oidc.md)
-* [Compilar aplicaciones de una página con el flujo implícito de OAuth 2.0](v2-oauth2-implicit-grant-flow.md)
-* [Compilar los demonios o procesos de servidor con el flujo de credenciales de cliente de OAuth 2.0](v2-oauth2-client-creds-grant-flow.md)
-* [Obtención de tokens en una API web con el flujo de on-behalf-of de OAuth 2.0](v2-oauth2-on-behalf-of-flow.md)
+* [Creación de aplicaciones móviles y nativas con OAuth 2.0](v2-oauth2-auth-code-flow.md)
+* [Creación de aplicaciones web con OpenID Connect](v2-protocols-oidc.md)
+* [Creación de aplicaciones de una sola página con el flujo implícito de OAuth 2.0](v2-oauth2-implicit-grant-flow.md)
+* [Creación de demonios o procesos del lado servidor con el flujo de credenciales de cliente de OAuth 2.0](v2-oauth2-client-creds-grant-flow.md)
+* [Obtención de tokens en una API web con el flujo "en nombre de" de OAuth 2.0](v2-oauth2-on-behalf-of-flow.md)

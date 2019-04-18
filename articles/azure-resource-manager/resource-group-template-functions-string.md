@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/08/2019
 ms.author: tomfitz
 ms.openlocfilehash: bf9faa34c1f0923761ce583c22ba4084d7bd42a8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278792"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Funciones de cadena para las plantillas de Azure Resource Manager
@@ -33,8 +33,8 @@ El Administrador de recursos ofrece las siguientes funciones para trabajar con c
 * [empty](#empty)
 * [endsWith](#endswith)
 * [first](#first)
-* [formato](#format)
-* [GUID](#guid)
+* [format](#format)
+* [guid](#guid)
 * [indexOf](#indexof)
 * [last](#last)
 * [lastIndexOf](#lastindexof)
@@ -45,7 +45,7 @@ El Administrador de recursos ofrece las siguientes funciones para trabajar con c
 * [skip](#skip)
 * [split](#split)
 * [startsWith](#startswith)
-* [string](#string)
+* [cadena](#string)
 * [substring](#substring)
 * [take](#take)
 * [toLower](#tolower)

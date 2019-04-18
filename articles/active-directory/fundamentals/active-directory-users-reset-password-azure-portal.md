@@ -15,10 +15,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4db6554e86cef61f2fc8e7a466919d2ce723f0e5
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492709"
 ---
 # <a name="reset-a-users-password-using-azure-active-directory"></a>Restablecimiento de la contraseña de un usuario con Azure Active Directory
@@ -54,12 +54,12 @@ Como administrador, puede restablecer la contraseña de un usuario si se olvida 
 
 Después de restablecer la contraseña del usuario, puede realizar los siguientes procesos básicos:
 
-- [Agregar o eliminar usuarios](add-users-azure-active-directory.md)
+- [Adición o eliminación de usuarios](add-users-azure-active-directory.md)
 
 - [Asignación de roles a usuarios](active-directory-users-assign-role-azure-portal.md)
 
 - [Adiciones o cambios a la información del perfil](active-directory-users-profile-azure-portal.md)
 
-- [Creación de un grupo básico y adición de miembros](active-directory-groups-create-azure-portal.md)
+- [Creación de un grupo básico e incorporación de miembros](active-directory-groups-create-azure-portal.md)
 
 O bien, puede realizar otros escenarios de usuario complejos, como asignar delegados, usar directivas y compartir cuentas de usuario. Para obtener más información acerca de otras acciones disponibles, consulte la [documentación de administración de usuarios en Azure Active Directory](../users-groups-roles/index.yml).

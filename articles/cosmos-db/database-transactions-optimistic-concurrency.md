@@ -8,10 +8,10 @@ ms.date: 04/08/2019
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: 568f47aacf39793d4c2da46798682abc002ca33b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279518"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transacciones y control de simultaneidad optimista
@@ -20,7 +20,7 @@ Las transacciones entre bases de datos proporcionan un modelo de programación s
 
 El motor de base de datos en Azure Cosmos DB es totalmente compatible con transacciones ACID (atomicidad, coherencia, aislamiento, durabilidad) con aislamiento de instantáneas. Todas las operaciones de base de datos dentro del ámbito de un contenedor [partición lógica](partition-data.md) se ejecuta de manera transaccional dentro del motor de base de datos que se hospeda la réplica de la partición. Estas operaciones incluyen operaciones de escritura (actualización de uno o varios elementos de la partición lógica) y operaciones de lectura. La siguiente tabla muestra los diferentes tipos de operaciones y transacciones:
 
-| **Operación**  | **Tipo de operación** | **Único o transacción de varios elementos** |
+| **operación**  | **Tipo de operación** | **Transacción de uno o varios elementos** |
 |---------|---------|---------|
 | Inserción (sin necesidad de un desencadenador previo o posterior) | Escritura | Transacción de un elemento único |
 | Inserción (con un desencadenador previo o posterior) | Escritura y lectura | Transacción de varios elementos |
@@ -61,7 +61,7 @@ El elemento `_etag` cambia el valor de cada vez que se actualiza el elemento. Pa
 
 Puede encontrar más información sobre las transacciones entre bases de datos y el control de simultaneidad optimista en los siguientes artículos:
 
-- [Trabajar con bases de datos, contenedores y artículos de Azure Cosmos.](databases-containers-items.md)
+- [Uso de bases de datos, contenedores y elementos de Azure Cosmos](databases-containers-items.md)
 - [Niveles de coherencia](consistency-levels.md)
 - [Tipos de conflicto y directivas de resolución de conflictos](conflict-resolution-policies.md)
 - [Procedimientos almacenados, desencadenadores y funciones definidas por el usuario](stored-procedures-triggers-udfs.md)

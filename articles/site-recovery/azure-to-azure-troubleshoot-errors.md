@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/08/2019
 ms.author: sujayt
 ms.openlocfilehash: c7c91a2cf9a25d0a5a4aeed6621e89f9c7cc18f0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269629"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-issues"></a>Solución de problemas de replicación de máquinas virtuales de Azure a Azure
@@ -27,7 +27,7 @@ En este artículo se describen los problemas comunes de Azure Site Recovery al r
 ## <a name="azure-resource-quota-issues-error-code-150097"></a>Problemas de cuota de recursos de Azure (código de error 150097)
 La suscripción debe estar habilitada para crear máquinas virtuales de Azure en la región de destino que se va a utilizar como región de recuperación ante desastres. Además, la suscripción debe tener habilitada suficiente cuota para crear máquinas virtuales de un tamaño específico. De forma predeterminada, Site Recovery adopta el mismo tamaño en la máquina virtual de destino que en la de origen. Si el tamaño coincidente no está disponible, se selecciona automáticamente el tamaño más aproximado posible. Si no hay ningún tamaño coincidente que admita la configuración de la máquina virtual de origen, aparece este mensaje de error:
 
-**Código de error** | **Causas posibles** | **Recomendación**
+**Código de error** | **Causas posibles:** | **Recomendación**
 --- | --- | ---
 150097<br></br>**Mensaje**: No se pudo habilitar la replicación para la máquina virtual VmName. | -El identificador de suscripción no puede habilitarse para crear ninguna máquina virtual en la ubicación de la región de destino.</br></br>-El identificador de suscripción no puede habilitarse o no tiene cuota suficiente para crear tamaños de máquina virtual específicos en la ubicación de la región de destino.</br></br>-No se encuentra un tamaño adecuado de máquina virtual de destino que coincida con el número de tarjetas NIC de la máquina virtual de origen (2) para el id. de suscripción en la ubicación de la región de destino.| Para habilitar la creación de máquinas virtuales con el tamaño adecuado en la ubicación de destino de la suscripción, póngase en contacto con el [soporte de facturación de Azure](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request). Una vez habilitada, vuelva a intentar la operación con error.
 
@@ -45,7 +45,7 @@ Si los certificados raíz de confianza más recientes no están presentes en la 
 151066<br></br>**Mensaje**: Error de configuración de Site Recovery. | Los certificados raíz de confianza necesarios usados para la autorización y la autenticación no están presentes en la máquina. | -En máquinas virtuales que ejecutan el sistema operativo Windows, asegúrese de que los certificados raíz de confianza estén presentes en la máquina. Para más información, consulte [Configurar raíces de confianza y certificados no permitidos](https://technet.microsoft.com/library/dn265983.aspx).<br></br>-En máquinas virtuales que ejecutan el sistema operativo Linux, siga las instrucciones relativas a los certificados raíz de confianza publicados por el distribuidor de versiones de dicho sistema operativo.
 
 ### <a name="fix-the-problem"></a>Corrección del problema
-** Windows**
+**Windows**
 
 Instale las actualizaciones de Windows más recientes en la máquina virtual para que todos los certificados raíz de confianza están presentes en la máquina. Si se encuentra en un entorno desconectado, siga el proceso de actualización estándar de Windows en su organización para obtener los certificados. Si los certificados necesarios no están presentes en la máquina virtual, las llamadas al servicio de Site Recovery darán error por razones de seguridad.
 
@@ -197,7 +197,7 @@ Para que la replicación de Site Recovery funcione, la máquina virtual debe dis
      - ``C:\ProgramData\Microsoft Azure Site Recovery\Config`` en ***Windows***
   3. ProxyInfo.conf debe tener la configuración de proxy en el siguiente formato INI.</br>
                 *[proxy]*</br>
-                *Dirección =http://1.2.3.4*</br>
+                *Address=http://1.2.3.4*</br>
                 *Port=567*</br>
   4. El agente de Mobility Service de ASR solo admite ***servidores proxy no autenticados***.
 
@@ -209,7 +209,7 @@ Para incluir en la lista de permitidos [las direcciones URL necesarias](azure-to
 
 Se debe inicializar un nuevo disco asociado a la máquina virtual.
 
-**Código de error** | **Causas posibles** | **Recomendaciones**
+**Código de error** | **Causas posibles:** | **Recomendaciones**
 --- | --- | ---
 150039<br></br>**Mensaje**: El disco de datos (DiskName) (DiskUri) con el número de unidad lógica (LUN) (LUNValue) no se ha asignado a un disco correspondiente que se notifica desde la máquina virtual como que tiene el mismo valor de LUN. | -Un nuevo disco de datos se asoció a la máquina virtual, pero no se ha inicializado.</br></br>-El disco de datos dentro de la máquina virtual no está notificando correctamente el valor LUN con el que el disco se asoció a la máquina virtual.| Asegúrese de que se inicializan los discos de datos y, a continuación, vuelva a intentar la operación.</br></br>Para Windows: [adjunte e inicialice un disco nuevo](https://docs.microsoft.com/azure/virtual-machines/windows/attach-managed-disk-portal).</br></br>Para Linux: [inicialice un nuevo disco de datos en Linux](https://docs.microsoft.com/azure/virtual-machines/linux/add-disk).
 
@@ -224,13 +224,13 @@ Si el problema persiste, póngase en contacto con el soporte técnico.
 
 ## <a name="unable-to-see-the-azure-vm-for-selection-in-enable-replication"></a>No se puede ver la máquina virtual de Azure para seleccionarla en "Habilitar la replicación"
 
- **Causa 1:  Grupo de recursos y Máquina Virtual de origen están en otra ubicación** <br>
+ **Causa 1:  el grupo de recursos y la máquina virtual de origen están en ubicaciones distintas** <br>
 Actualmente Azure Site Recovery requiere que la región de origen de las máquinas virtuales y el grupo de recursos estén en la misma ubicación. Si no es así, no podrá encontrar la máquina virtual durante el momento de la protección.
 
-**Causa 2: Grupo de recursos no forma parte de la suscripción seleccionada** <br>
+**Causa 2: el grupo de recursos no forma parte de la suscripción seleccionada** <br>
 Es posible que no pueda encontrar el grupo de recursos en el momento de la protección si no forma parte de la suscripción especificada. Asegúrese de que el grupo de recursos pertenece a la suscripción que se usa.
 
- **Causa 3: Configuración obsoleta** <br>
+ **Causa 3: configuración obsoleta** <br>
 Si no ve la VM que quiere habilitar para la replicación, podría deberse a que se dejó una configuración obsoleta de Site Recovery en la VM de Azure. Esta situación podría darse en los siguientes casos:
 
 - Habilitó la replicación para la máquina virtual de Azure mediante Site Recovery y luego eliminó el almacén de Site Recovery sin deshabilitar explícitamente la replicación en la máquina virtual.
@@ -245,9 +245,9 @@ Si no ve la VM que quiere habilitar para la replicación, podría deberse a que 
 Puede usar el artículo sobre cómo [quitar el script de configuración de ASR obsoleto](https://gallery.technet.microsoft.com/Azure-Recovery-ASR-script-3a93f412) y quitar la configuración de Site Recovery obsoleta en la máquina virtual de Azure. Debería poder ver la VM después de quitar la configuración obsoleta.
 
 ## <a name="unable-to-select-virtual-machine-for-protection"></a>No se puede seleccionar la máquina virtual para la protección
- **Causa 1:  Máquina virtual tiene algunos extensión instalada en un estado con errores o no responde** <br>
+ **Causa 1:  la máquina virtual tiene alguna extensión instalada en estado Con errores o No responde** <br>
  Vaya a Máquinas virtuales > Configuración > Extensiones y compruebe si hay alguna extensión en un estado con errores. Desinstale la extensión con errores y vuelva a intentar proteger la máquina virtual.<br>
- **Causa 2:  [Estado de aprovisionamiento de la máquina virtual no es válido](#vms-provisioning-state-is-not-valid-error-code-150019)**
+ **Causa 2:  [el estado de aprovisionamiento de la máquina virtual no es válido](#vms-provisioning-state-is-not-valid-error-code-150019)**
 
 ## <a name="vms-provisioning-state-is-not-valid-error-code-150019"></a>El estado de aprovisionamiento de la máquina virtual no es válido (código de error 150019)
 
@@ -266,12 +266,12 @@ Para habilitar la replicación en la máquina virtual, el estado de aprovisionam
 
 ## <a name="unable-to-select-target-virtual-network---network-selection-tab-is-grayed-out"></a>No se puede seleccionar la red virtual de destino: pestaña selección de red atenuada.
 
-**Causa 1: Si la máquina virtual está conectada a una red que ya está asignada a una red de destino' '.**
+**Causa 1: si la máquina virtual está conectada a una red que ya está asignada a una "red de destino".**
 - Si la máquina virtual de origen forma parte de una red virtual y otra máquina virtual de la misma red virtual ya está asignada a una red del grupo de recursos de destino, se deshabilitará la lista desplegable de selección de red de manera predeterminada.
 
 ![Network_Selection_greyed_out](./media/site-recovery-azure-to-azure-troubleshoot/unabletoselectnw.png)
 
-**Causa 2: Si anteriormente había protegido la máquina virtual mediante Azure Site Recovery y deshabilitar la replicación.**
+**Causa 2: si ha protegido previamente la máquina virtual mediante Azure Site Recovery y deshabilitado la replicación.**
  - Deshabilitar la replicación de una máquina virtual no elimina la asignación de red. Debe eliminarse desde el almacén de Recovery Services donde está protegida. </br>
  Vaya al almacén de Recovery Services > Site Recovery Infrastructure (Infraestructura de Site Recovery) > Asignaciones de red. </br>
  ![Delete_NW_Mapping](./media/site-recovery-azure-to-azure-troubleshoot/delete_nw_mapping.png)
@@ -282,7 +282,7 @@ Para habilitar la replicación en la máquina virtual, el estado de aprovisionam
 
 ## <a name="comvolume-shadow-copy-service-error-error-code-151025"></a>Error del servicio de instantáneas de volumen/COM+ (código de error 151025)
 
-**Código de error** | **Causas posibles** | **Recomendaciones**
+**Código de error** | **Causas posibles:** | **Recomendaciones**
 --- | --- | ---
 151025<br></br>**Mensaje**: no se pudo instalar la extensión de Site Recovery | - Servicio de "aplicación del sistema COM+" deshabilitado.</br></br>- Servicio de instantáneas de volumen desactivado.| Establezca los servicios de aplicación del sistema COM+ y de instantáneas de volumen en modo de inicio automático o manual.
 
@@ -294,13 +294,13 @@ Puede abrir la consola de los servicios y asegurarse de que la aplicación del s
 ## <a name="unsupported-managed-disk-size-error-code-150172"></a>Tamaño del disco administrado no compatible (código de error 150172)
 
 
-**Código de error** | **Causas posibles** | **Recomendaciones**
+**Código de error** | **Causas posibles:** | **Recomendaciones**
 --- | --- | ---
 150172<br></br>**Mensaje**: Protection couldn't be enabled for the virtual machine as it has (DiskName) with size (DiskSize) that is lesser than the minimum supported size 1024 GB [No se pudo habilitar la protección para la máquina virtual, ya que tiene un disco (DiskName) con un tamaño (DiskSize), que es menor que el tamaño mínimo admitido de 1024 MB]. | -El tamaño del disco es menor que el tamaño admitido de 1024 MB| Asegúrese de que los tamaños de disco están dentro del intervalo de tamaño admitido y reintente la operación.
 
 ## <a name="enable-protection-failed-as-device-name-mentioned-in-the-grub-configuration-instead-of-uuid-error-code-151126"></a>No se pudo habilitar la protección debido a que el nombre del dispositivo se menciona en la configuración de GRUB en lugar del UUID (código de error 151126)
 
-**Posible causa:** </br>
+**Causa posible:** </br>
 Los archivos de configuración de GRUB ("/boot/grub/menu.lst", "/boot/grub/grub.cfg", "/boot/grub2/grub.cfg" o "/etc/default/grub") pueden contener el valor de los parámetros **root** y **resume** como nombres reales del dispositivo, en lugar del UUID. Site Recovery exige el enfoque de UUID, ya que el nombre de los dispositivos puede cambiar al reiniciar la VM, debido a que la VM puede no mostrar el mismo nombre tras la conmutación por error, lo que puede generar problemas. Por ejemplo:  </br>
 
 
@@ -313,7 +313,7 @@ Los archivos de configuración de GRUB ("/boot/grub/menu.lst", "/boot/grub/grub.
 
 Si observa la cadena en negrita anterior, GRUB tiene nombres de dispositivos reales para los parámetros "root" y "resume", en lugar del UUID.
 
-**Cómo corregir:**<br>
+**Solución:**<br>
 Los nombres de dispositivo se deben reemplazar con el UUID correspondiente.<br>
 
 

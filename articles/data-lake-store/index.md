@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 24d6f41e2415d9a8a6113135bf11c98b1e19f1f7
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904668"
 ---
 # <a name="azure-data-lake-storage-gen1-documentation"></a>Documentación de Azure Data Lake Storage Gen1
@@ -182,7 +182,7 @@ Aprenda cómo usar Azure Data Lake Storage Gen1 (anteriormente conocido como Azu
                     <div class="cardText">
                         <h3>Línea de comandos</h3>
                         <p><a href="/powershell/module/az.datalakestore/">PowerShell</a></p>
-                        <p><a href="/cli/azure/dls">Azure CLI</a></p>
+                        <p><a href="/cli/azure/dls">CLI de Azure</a></p>
                     </div>
                 </div>
             </div>

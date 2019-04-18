@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
 ms.openlocfilehash: 20c05bddddce4c7748e29551fe78d3e5609b2fa5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275902"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introducción a los certificados de Key Vault
@@ -82,7 +82,7 @@ Nota: Este proceso, con el paso 3.1, es una operación que no tendrá que repeti
       -   Información de renovación - > p. ej. 90 días hasta la expiración  
 
   - La creación de certificados suele ser un proceso asincrónico e implica el sondeo de estado de la operación de creación del certificado en el almacén de claves.  
-[Obtener operación de certificado](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
+[Operación de obtención de certificado](/rest/api/keyvault/getcertificateoperation/getcertificateoperation)  
       -   Estado: completado, erróneo con la información del error, o cancelado  
       -   Si la creación se retrasa, se puede iniciar una operación de cancelación. Puede que la cancelación se lleve a cabo o no.  
 

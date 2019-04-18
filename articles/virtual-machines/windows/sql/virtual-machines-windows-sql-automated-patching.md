@@ -17,10 +17,10 @@ ms.date: 03/07/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: 348979a53bff76c85e6d1531bd16cd695145e21b
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425992"
 ---
 # <a name="automated-patching-for-sql-server-in-azure-virtual-machines-resource-manager"></a>Automated Patching para SQL Server en Azure Virtual Machines (Resource Manager)
@@ -68,7 +68,7 @@ En la siguiente tabla se describen las opciones que pueden configurarse para Apl
 | --- | --- | --- |
 | **Aplicación de revisiones automatizada** |Habilitar/deshabilitar (deshabilitado) |Habilita o deshabilita Aplicación de revisión automatizada para una máquina virtual de Azure. |
 | **Programación de mantenimiento** |Cada día, el lunes, el martes, el miércoles, el jueves, el viernes, el sábado, el domingo |La programación para descargar e instalar actualizaciones de Windows, SQL Server y Microsoft para la máquina virtual. |
-| **Hora de inicio del mantenimiento** |0-24 |La hora de inicio local para actualizar la máquina virtual. |
+| **Hora de inicio de mantenimiento** |0-24 |La hora de inicio local para actualizar la máquina virtual. |
 | **Duración de la ventana de mantenimiento** |30-180 |El número de minutos permitido para completar la descarga y la instalación de actualizaciones. |
 | **Categoría de la revisión** |Importante | La categoría de las actualizaciones de Windows para descargar e instalar.|
 
@@ -115,7 +115,7 @@ Según este ejemplo, la siguiente tabla describe el efecto práctico en la máqu
 
 | Parámetro | Efecto |
 | --- | --- |
-| **DíaSemana** |Las revisiones instaladas cada jueves. |
+| **DayOfWeek** |Las revisiones instaladas cada jueves. |
 | **MaintenanceWindowStartingHour** |Inicia las actualizaciones a las 11:00 a.m. |
 | **MaintenanceWindowsDuration** |Las revisiones deben instalarse en un plazo de 120 minutos. Según la hora de inicio, deben haberse completado a las 1:00 p.m. |
 | **PatchCategory** |La única configuración posible para este parámetro es **Importante**. De este modo, se instalan las actualizaciones de Windows marcadas como importantes; no se instala ninguna actualización de SQL Server que no se incluya en esta categoría. |

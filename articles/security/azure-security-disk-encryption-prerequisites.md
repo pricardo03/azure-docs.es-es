@@ -8,10 +8,10 @@ ms.author: mbaldwin
 ms.date: 03/25/2019
 ms.custom: seodec18
 ms.openlocfilehash: 1da35b55a458ad73689f51c49e73855fd33ee45f
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496257"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Requisitos previos de Azure Disk Encryption
@@ -302,8 +302,8 @@ Antes de usar el script de PowerShell, debe estar familiarizado con los requisit
  
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
-> [Habilitar Azure Disk Encryption para Windows](azure-security-disk-encryption-windows.md)
+> [Habilitación de Azure Disk Encryption para Windows](azure-security-disk-encryption-windows.md)
 
 > [!div class="nextstepaction"]
-> [Habilitar Azure Disk Encryption para Linux](azure-security-disk-encryption-linux.md)
+> [Habilitación de Azure Disk Encryption para Linux](azure-security-disk-encryption-linux.md)
 

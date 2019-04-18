@@ -10,15 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 03/14/2019
+ms.date: 03/15/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 11f7bb69ed408adf87d62a4af1aa4bd87e70bd6d
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.openlocfilehash: 89aa5006882680205816e7e5d1e7e55b9c4b2ab0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59009202"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678554"
 ---
 # <a name="application-map-triage-distributed-applications"></a>Mapa de aplicación: Evaluación de prioridades de las aplicaciones distribuidas
 
@@ -90,9 +90,9 @@ Para ver las alertas activas y las reglas subyacentes que provocan el desencaden
 
 ![Captura de pantalla de la experiencia con Analytics](media/app-map/alerts-view.png)
 
-## <a name="set-cloudrolename"></a>Establecimiento de cloud_RoleName
+## <a name="set-cloud-role-name"></a>Nombre del conjunto de roles en la nube
 
-El mapa de la aplicación usa la propiedad `cloud_RoleName` para identificar los componentes en el mapa. El SDK de Application Insights agrega de forma automática la propiedad `cloud_RoleName` a los componentes emitidos por telemetría. Por ejemplo, el SDK agregará un nombre de sitio web o un nombre de rol de servicio a la propiedad `cloud_RoleName`. Pero hay casos en los que le interesará reemplazar el valor predeterminado. Para reemplazar cloud_RoleName y cambiar lo que se muestra en el mapa de aplicación:
+Mapa de aplicación usa el **nombre de rol en la nube** propiedad para identificar los componentes en el mapa. El SDK de Application Insights agrega automáticamente la propiedad de nombre de rol en la nube a la telemetría que se generen los componentes. Por ejemplo, el SDK agregará un nombre de rol de servicio o sitio web a la propiedad de nombre de rol en la nube. Pero hay casos en los que le interesará reemplazar el valor predeterminado. Para invalidar el nombre de rol en la nube y cambiar lo que se muestra en el mapa de aplicación:
 
 ### <a name="net"></a>.NET
 
@@ -171,9 +171,9 @@ Si usa Spring Boot con el iniciador de Spring Boot de Application Insights, el �
 
 `spring.application.name=<name-of-app>`
 
-El iniciador de Spring Boot asignará de forma automática cloudRoleName al valor proporcionado para la propiedad spring.application.name.
+El iniciador de Spring Boot asignará automáticamente el nombre de rol en la nube para el valor proporcionado para la propiedad spring.application.name.
 
-Para obtener más información sobre la correlación de Java y cómo configurar cloudRoleName para aplicaciones que no sean de SpringBoot, consulte esta [sección](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) sobre la correlación.
+Para obtener más información sobre Java correlación y cómo configurar el rol en la nube nombre para la extracción de las aplicaciones que no sean SpringBoot este [sección](https://docs.microsoft.com/azure/application-insights/application-insights-correlation#role-name) sobre la correlación.
 
 ### <a name="clientbrowser-side-javascript"></a>JavaScript del lado cliente o explorador
 
@@ -186,15 +186,15 @@ appInsights.context.addTelemetryInitializer((envelope) => {
 });
 ```
 
-### <a name="understanding-cloudrolename-within-the-context-of-the-application-map"></a>Descripción de Cloud.RoleName dentro del contexto de la asignación de aplicaciones
+### <a name="understanding-cloud-role-name-within-the-context-of-the-application-map"></a>Nombre de rol en la nube de comprensión dentro del contexto de la asignación de aplicaciones
 
-Lo concerniente a la forma en que pensar en Cloud.RoleName puede ser útil ver un mapa de aplicación tiene varios Cloud.RoleNames presente:
+En cuanto a cómo pensar sobre **nombre de rol en la nube**, puede ser útil ver un mapa de aplicación que tiene varios nombres de rol en la nube que presente:
 
 ![Captura de pantalla de mapa de aplicación](media/app-map/cloud-rolename.png)
 
-En el mapa de aplicación encima de cada uno de los nombres de los cuadros verdes son Cloud.RoleName/role valores para los distintos aspectos de esta aplicación distribuida. Por lo que para esta aplicación, sus roles constan de: `Authentication`, `acmefrontend`, `Inventory Management`, un `Payment Processing Worker Role`. 
+En el mapa de aplicación encima de cada uno de los nombres de los cuadros verdes es nube valores de nombre de rol para los distintos aspectos de esta aplicación distribuida. Por lo que para esta aplicación, sus roles constan de: `Authentication`, `acmefrontend`, `Inventory Management`, un `Payment Processing Worker Role`. 
 
-En el caso de esta aplicación cada de ellas `Cloud.RoleNames` también representa un único recurso de Application Insights diferente con sus propias claves de instrumentación. Puesto que el propietario de esta aplicación tiene acceso a cada uno de los cuatro recursos de Application Insights dispares, mapa de aplicación es capaz de unir un mapa de las relaciones subyacentes.
+En el caso de esta aplicación de cada uno de esos nombres de rol en la nube también representa un único recurso de Application Insights diferente con sus propias claves de instrumentación. Puesto que el propietario de esta aplicación tiene acceso a cada uno de los cuatro recursos de Application Insights dispares, mapa de aplicación es capaz de unir un mapa de las relaciones subyacentes.
 
 Para el [definiciones oficiales](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/39a5ef23d834777eefdd72149de705a016eb06b0/Schema/PublicSchema/ContextTagKeys.bond#L93):
 
@@ -208,15 +208,17 @@ Para el [definiciones oficiales](https://github.com/Microsoft/ApplicationInsight
     715: string      CloudRoleInstance = "ai.cloud.roleInstance";
 ```
 
-Como alternativa, Cloud.RoleInstance puede ser muy útil en escenarios donde Cloud.RoleName indica el problema está en algún lugar en el front-end web, pero puede que esté trabajando el front-end web entre varios servidores con equilibrio de carga lo permitirle profundizar en un nivel más profundo a través de las consultas de Kusto y saber si el problema está afectando al todas web front-end servidores o instancias, o simplemente uno puede ser muy importante.
+Como alternativa, **instancia de rol en la nube** puede ser muy útil en escenarios donde **nombre de rol en la nube** indica el problema en algún lugar en el front-end web, pero podría estar ejecutándose el front-end a través de web varios con equilibrio de carga servidores tan permitirle profundizar en un nivel más profundo a través de las consultas de Kusto y saber si el problema afecta a todas las web front-end servidores o instancias, o solo uno puede ser muy importante.
 
-Un escenario donde desea invalidar el valor de Cloud.RoleInstance podría ser si la aplicación se ejecuta en un entorno en contenedor que simplemente saber el servidor individual podría no ser suficiente información para localizar un problema determinado.
+Un escenario donde desea invalidar el valor de la instancia de rol en la nube podría ser si la aplicación se ejecuta en un entorno en contenedor que simplemente saber el servidor individual podría no ser suficiente información para localizar un problema determinado.
 
-Para obtener más información sobre cómo invalidar la propiedad cloud_RoleName con inicializadores de telemetría, vea [Agregar propiedades: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
+Para obtener más información acerca de cómo invalidar la propiedad de nombre de rol en la nube con los inicializadores de telemetría, consulte [agregar propiedades: ITelemetryInitializer](api-filtering-sampling.md#add-properties-itelemetryinitializer).
 
 ## <a name="troubleshooting"></a>solución de problemas
 
 Si tiene dificultades para conseguir que el mapa de aplicación funcione según lo esperado, siga estos pasos:
+
+### <a name="general"></a>General
 
 1. Asegúrese de que usa un SDK oficialmente compatible. Es posible que los SDK no compatibles o de la comunidad no admitan la correlación.
 
@@ -226,9 +228,23 @@ Si tiene dificultades para conseguir que el mapa de aplicación funcione según 
 
 3. Si usa Azure Functions con C#, actualice a [Functions V2](https://docs.microsoft.com/azure/azure-functions/functions-versions).
 
-4. Confirme que [cloud_RoleName](#set-cloud_rolename) está configurado correctamente.
+4. Confirmar [nombre de rol en la nube](#set-cloud-role-name) está configurado correctamente.
 
 5. Si falta una dependencia, asegúrese de que se encuentra en la lista de [dependencias recopiladas automáticamente](https://docs.microsoft.com/azure/application-insights/auto-collect-dependencies). De lo contrario, todavía puede realizar su seguimiento de forma manual con una [llamada de seguimiento de dependencia](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackdependency).
+
+### <a name="too-many-nodes-on-the-map"></a>Hay demasiados nodos del mapa
+
+Mapa de aplicación construye un nodo de aplicación para cada nombre de rol en la nube único presente en los datos de telemetría de solicitud y un nodo de dependencia para cada combinación única de tipo de destino y nombre de rol en la nube en la telemetría de dependencia. Si hay más de 10.000 nodos en los datos de telemetría, el mapa de aplicación no podrá capturar todos los nodos y vínculos, por lo que la asignación sea incompleta. Si esto ocurre, aparecerá un mensaje de advertencia al ver el mapa.
+
+Además, el mapa de aplicación solo admite hasta 1000 nodos sin agrupar independientes representados a la vez. Mapa de aplicación reduce la complejidad visual agrupando las dependencias que tengan el mismo tipo y los autores de llamadas, pero si los datos de telemetría tiene demasiados nombres de rol en la nube único o demasiados tipos de dependencia, esa agrupación será suficiente y la asignación no se puede representar.
+
+Para solucionar este problema, deberá cambiar la instrumentación para establecer correctamente el nombre de rol en la nube, tipo de dependencia y los campos de destino de dependencia.
+
+* Destino de dependencia debe representar el nombre lógico de una dependencia. En muchos casos, es equivalente al servidor o el nombre de recurso de la dependencia. Por ejemplo, en el caso de las dependencias HTTP se establece en el nombre de host. No debe contener los identificadores únicos o parámetros que cambian de una solicitud a otro.
+
+* Tipo de dependencia debe representar el tipo lógico de una dependencia. Por ejemplo, HTTP, SQL o Azure Blob son tipos de dependencia típica. No debe contener los identificadores únicos.
+
+* El propósito de nombre de rol en la nube se describe en el [por encima de la sección](https://docs.microsoft.com/azure/azure-monitor/app/app-map#set-cloud-role-name).
 
 ## <a name="portal-feedback"></a>Comentarios del portal
 
@@ -238,4 +254,4 @@ Para proporcionar comentarios, use la opción de comentarios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Correlación de descripción](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)
+* [Descripción de la correlación](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)

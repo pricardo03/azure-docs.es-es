@@ -1,5 +1,5 @@
 ---
-title: Guía de inicio rápido de la aplicación web de ASP.NET Core para Azure AD v2.0 | Microsoft Docs
+title: Inicio rápido de la Plataforma de identidad de Microsoft para aplicaciones web ASP.NET Core | Azure
 description: Aprenda a implementar el inicio de sesión de Microsoft en una aplicación web de ASP.NET Core mediante OpenID Connect.
 services: active-directory
 documentationcenter: dev-center-name
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/03/2019
+ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5dfa78177974499badc29b7e83556b6a91db7979
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.openlocfilehash: 1150e68167ad4e932acce744cdd5eba88e49a8c4
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
-ms.locfileid: "59005654"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579468"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-core-web-app"></a>Inicio rápido: Adición del inicio de sesión con Microsoft a una aplicación web de ASP.NET Core
 
@@ -30,7 +30,7 @@ ms.locfileid: "59005654"
 
 En esta guía de inicio rápido, obtendrá información sobre cómo una aplicación web ASP.NET Core puede iniciar sesión en cuentas personales (hotmail.com, outlook.com y otras), profesionales y educativas desde cualquier instancia de Azure Active Directory (Azure AD).
 
-![Muestra cómo funciona la aplicación de ejemplo generada por este inicio rápido.](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro-updated.png)
+![Muestra cómo funciona la aplicación de ejemplo generada por este inicio rápido.](media/quickstart-v2-aspnet-core-webapp/aspnetcorewebapp-intro.svg)
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registro y descarga de la aplicación de inicio rápido
@@ -55,9 +55,9 @@ En esta guía de inicio rápido, obtendrá información sobre cómo una aplicaci
 > 1. Seleccione **Nuevo registro**.
 > 1. Cuando aparece la página **Registrar una aplicación**, escriba la información de registro de la aplicación:
 >    - En la sección **Nombre**, escriba un nombre significativo para la aplicación, que se mostrará a los usuarios de la aplicación, por ejemplo, `AspNetCore-Quickstart`.
->    - En **Dirección URL de respuesta**, agregue `https://localhost:44321/` y seleccione **Registrar**.
+>    - En **URI de redirección**, agregue `https://localhost:44321/` y seleccione **Registrar**.
 > 1. Seleccione el menú **Autenticación** y, a continuación, agregue la siguiente información:
->    - En **Dirección URL de respuesta**, agregue `https://localhost:44321/signin-oidc` y seleccione **Registrar**.
+>    - En **URI de redirección**, agregue `https://localhost:44321/signin-oidc` y seleccione **Guardar**.
 >    - En la sección **Configuración avanzada**, establezca **Dirección URL de cierre de sesión** en `https://localhost:44321/signout-oidc`.
 >    - En **Concesión implícita**, marque **Tokens de identificador**.
 >    - Seleccione **Guardar**.
@@ -88,8 +88,8 @@ En esta guía de inicio rápido, obtendrá información sobre cómo una aplicaci
 
 > [!div renderon="docs"]
 > Donde:
-> - `Enter_the_Application_Id_here` : es el **identificador de aplicación (cliente)** de la aplicación que ha registrado en Azure Portal. Puede encontrar el **Identificador de aplicación (cliente)** en la página **Información general** de la aplicación.
-> - `Enter_the_Tenant_Info_Here` : es una de las siguientes opciones:
+> - `Enter_the_Application_Id_here`: es el **Identificador de aplicación (cliente)** de la aplicación que ha registrado en Azure Portal. Puede encontrar el **Identificador de aplicación (cliente)** en la página **Información general** de la aplicación.
+> - `Enter_the_Tenant_Info_Here`: es una de las siguientes opciones:
 >   - Si la aplicación admite **Solo las cuentas de este directorio organizativo**, reemplace este valor por el **Identificador de inquilino** o el **Nombre de inquilino** (por ejemplo, contoso.microsoft.com)
 >   - Si la aplicación admite **Cuentas en cualquier directorio organizativo**, reemplace este valor por `organizations`
 >   - Si la aplicación admite **Todos los usuarios de cuentas Microsoft**, reemplace este valor por `common`
@@ -120,7 +120,7 @@ public void ConfigureServices(IServiceCollection services)
 
   services.Configure<OpenIdConnectOptions>(AzureADDefaults.OpenIdScheme, options =>
   {
-    options.Authority = options.Authority + "/v2.0/";         // Azure AD v2.0
+    options.Authority = options.Authority + "/v2.0/";         // Microsoft identity platform
 
     options.TokenValidationParameters.ValidateIssuer = false; // accept several tenants (here simplified)
   });
@@ -138,13 +138,18 @@ public void ConfigureServices(IServiceCollection services)
 
 El método `AddAuthentication` configura el servicio para agregar la autenticación basada en cookies, que se usa en escenarios con explorador y establece el desafío en OpenId Connect. 
 
-La línea que contiene `.AddAzureAd` agrega la autenticación de Azure AD a la aplicación. A continuación, se configura para iniciar sesión con el punto de conexión de la versión v2.0 de Azure AD.
+La línea que contiene `.AddAzureAd` agrega la autenticación de la Plataforma de identidad de Microsoft a la aplicación. A continuación, se configura para iniciar sesión con el punto de conexión de la Plataforma de identidad de Microsoft.
 
 > |Where  |  |
 > |---------|---------|
 > | ClientId  | El identificador de aplicación (cliente) de la aplicación registrada en Azure Portal. |
 > | Autoridad | El punto de conexión de STS para que el usuario se autentique. Normalmente es <https://login.microsoftonline.com/{tenant}/v2.0> para la nube pública, donde {tenant} es el nombre del inquilino o el identificador del inquilino o *common* para hacer referencia al punto de conexión común (que se usa para las aplicaciones multiinquilino) |
 > | TokenValidationParameters | Una lista de parámetros para la validación del token. En este caso, `ValidateIssuer` se establece en `false` para indicar que puede aceptar inicios de sesión desde cualquier cuenta personal, profesional o educativa. |
+
+
+> [!NOTE]
+> Establecer `ValidateIssuer = false` es una simplificación para este inicio rápido. En las aplicaciones reales debe validar al emisor.
+> Consulte los ejemplos para entender cómo hacerlo.
 
 ### <a name="protect-a-controller-or-a-controllers-method"></a>Protección de un controlador o del método de un controlador
 
@@ -154,8 +159,7 @@ Puede proteger un controlador o los métodos de un controlador mediante el atrib
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Para más información, consulte el repositorio de GitHub de la guía de inicio rápido de ASP.NET Core, que incluye las instrucciones necesarias para agregar autenticación a una aplicación web de ASP.NET Core totalmente nueva:
+Consulte el repositorio GitHub de este tutorial de ASP.NET Core para obtener más información, incluidas instrucciones sobre cómo agregar autenticación a una nueva aplicación web de ASP.NET Core, cómo llamar a Microsoft Graph y a otras API de Microsoft, cómo llamar a sus propias API, cómo agregar autorización, cómo iniciar sesión con usuarios en nubes nacionales, o con identidades sociales y mucho más:
 
 > [!div class="nextstepaction"]
-> [Ejemplo de código de una aplicación web de ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)
-
+> [Tutorial de una aplicación web de ASP.NET Core](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/)

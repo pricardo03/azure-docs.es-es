@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/01/2016
 ms.author: jonor;sivae
 ms.openlocfilehash: 668862714b416bd89d3b5f82caf8b0305fccae54
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426535"
 ---
 # <a name="example-3-build-a-perimeter-network-to-protect-networks-with-a-firewall-udr-and-nsgs"></a>Ejemplo 3: Creación de una red perimetral para proteger las redes con un firewall, UDR y NSG
@@ -27,7 +27,7 @@ ms.locfileid: "59426535"
 
 En este ejemplo, creará una red perimetral (también conocido como una DMZ, zona desmilitarizada y subred filtrada). El ejemplo implementa un firewall, cuatro servidores de Windows, el enrutamiento definido por el usuario (UDR), el reenvío de IP y grupos de seguridad de red (NSG). Este artículo le guiará a través de cada uno de los comandos pertinentes para proporcionar una comprensión más profunda de cada paso. La sección de escenario de tráfico también explica detalladamente cómo pasa el tráfico a través de las capas de defensa de la red perimetral. Por último, la sección de referencias contiene todo el código y las instrucciones para crear este entorno para que pueda probar y experimentar con diferentes escenarios.
 
-![Red perimetral bidireccional con dispositivo de red virtual, grupo de seguridad de red y enrutamiento definido por el usuario][1]
+![Red perimetral bidireccional con NVA, NSG y UDR][1]
 
 ## <a name="environment-setup"></a>Configuración del entorno
 
@@ -370,7 +370,7 @@ Estos son los aspectos específicos de cada regla necesarios para completar este
   
   * La regla front-end para el tráfico web:
   
-    ![Regla web de firewall][12]
+    ![Regla de Web de firewall][12]
   
     Esta regla NAT de destino permite el tráfico de aplicación real llegue al servidor de la aplicación. A diferencia de las reglas de seguridad, administración y etc., las reglas de aplicación permiten usuarios externos o servicios tener acceso a las aplicaciones. En este ejemplo tiene un único servidor web en el puerto 80, lo que permite una única aplicación regla de firewall redirigir el tráfico destinado a una dirección IP externa enrutar en su lugar a la dirección IP interna del servidor de web. La sesión de tráfico redirigido se reasigna NAT al servidor interno.
 

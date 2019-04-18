@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 6528b683ec9464c2b1982d631455718e6fe6f3b7
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361343"
 ---
 # <a name="run-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Ejecución de Azure Site Recovery Deployment Planner para la recuperación ante desastres de Hyper-V en Azure
@@ -256,10 +256,10 @@ El informe de Microsoft Excel generado contiene la siguiente información:
 
 * [Resumen local](hyper-v-deployment-planner-analyze-report.md#on-premises-summary)
 * [Recomendaciones](hyper-v-deployment-planner-analyze-report.md#recommendations)
-* [Selección de ubicación de almacenamiento de máquina virtual](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
-* [Máquinas virtuales compatibles](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
-* [Máquinas virtuales no compatibles](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
-* [Requisitos de almacenamiento local](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
+* [Selección de ubicación de almacenamiento](hyper-v-deployment-planner-analyze-report.md#vm-storage-placement-recommendation)
+* [VM compatibles](hyper-v-deployment-planner-analyze-report.md#compatible-vms)
+* [VM incompatibles](hyper-v-deployment-planner-analyze-report.md#incompatible-vms)
+* [Requisito de almacenamiento local](hyper-v-deployment-planner-analyze-report.md#on-premises-storage-requirement)
 * [Procesamiento por lotes de IR](hyper-v-deployment-planner-analyze-report.md#initial-replication-batching)
 * [Estimación de costos](hyper-v-deployment-planner-cost-estimation.md)
 

@@ -12,16 +12,16 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
 ms.date: 04/12/2019
-ms.openlocfilehash: 8a2a61e821ad41265dc9262064a79a5c44abbc7f
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: f0cff30f246bfeec528f440b507da9248ebbea9f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545831"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678605"
 ---
 # <a name="automated-backups"></a>Copias de seguridad automatizadas
 
-SQL Database crea automáticamente copias de seguridad de base de datos que se conservan entre 7 y 35 días, y usa el almacenamiento con redundancia geográfica de acceso de lectura (RA-GRS) para asegurarse de que se conservan incluso si el centro de datos no está disponible. Estas copias de seguridad se crean automáticamente y sin cargos adicionales. No es necesario hacer nada para que tengan lugar y puede [cambiar el período de retención de Azure Backup](#how-to-change-the-pitr-backup-retention-period). Las copias de seguridad de base de datos son una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad del negocio, ya que protegen los datos de daños o eliminaciones accidentales. Si las reglas de seguridad requieren que las copias de seguridad estén disponibles durante un largo período de tiempo (hasta diez años), puede configurar una directiva [de retención a largo plazo](sql-database-long-term-retention.md).
+SQL Database usa Azure storage con redundancia geográfica de acceso de lectura (RA-GRS) para asegurarse de que se conservan incluso si el centro de datos está disponible y automáticamente crea copias de seguridad de base de datos que se conservan entre 7 y 35 días. Estas copias de seguridad se crean automáticamente y sin cargos adicionales. No es necesario hacer nada para que tengan lugar y puede [cambiar el período de retención de Azure Backup](#how-to-change-the-pitr-backup-retention-period). Las copias de seguridad de base de datos son una parte esencial de cualquier estrategia de recuperación ante desastres y continuidad del negocio, ya que protegen los datos de daños o eliminaciones accidentales. Si las reglas de seguridad requieren que las copias de seguridad estén disponibles durante un largo período de tiempo (hasta diez años), puede configurar una directiva [de retención a largo plazo](sql-database-long-term-retention.md).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 

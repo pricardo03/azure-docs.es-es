@@ -2,16 +2,17 @@
 title: 'Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure | Microsoft Docs'
 description: Conozca más sobre el emparejamiento de regiones de Azure para asegurarse de que las aplicaciones sean resistentes durante los errores del centro de datos.
 author: rayne-wiselman
+manager: carmon
 ms.service: multiple
 ms.topic: article
-ms.date: 12/23/2018
+ms.date: 04/17/2019
 ms.author: raynew
-ms.openlocfilehash: d27db03977b84002b59d58327af7d14fbdc713c2
-ms.sourcegitcommit: 295babdcfe86b7a3074fd5b65350c8c11a49f2f1
-ms.translationtype: HT
+ms.openlocfilehash: ecbe73e02631e3c3601bd929282d467cb05b41e4
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/27/2018
-ms.locfileid: "53792329"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678877"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidad empresarial y recuperación ante desastres (BCDR): regiones emparejadas de Azure
 
@@ -34,9 +35,10 @@ Figura 1: Parejas regionales de Azure
 | Canadá |Centro de Canadá |Este de Canadá |
 | China |Norte de China |Este de China|
 | China |Norte de China 2 |Este de China 2|
-| Europa |Europa del Norte |Europa occidental |
+| Europa |Norte de Europa |Europa occidental |
 | Francia |Centro de Francia|Sur de Francia|
 | Alemania |Centro de Alemania |Noreste de Alemania |
+| Alemania |Norte de Alemania | Centro occidental de Alemania
 | India |India Central |Sur de la India |
 | India |Oeste de la India |Sur de la India |
 | Japón |Este de Japón |Oeste de Japón |
@@ -45,7 +47,14 @@ Figura 1: Parejas regionales de Azure
 | Norteamérica |Este de EE. UU. 2 |Centro de EE. UU. |
 | Norteamérica |Centro-Norte de EE. UU |Centro-Sur de EE. UU |
 | Norteamérica |Oeste de EE. UU. 2 |Centro occidental de EE.UU. 
+| Norteamérica |Oeste de Estados Unidos 3 |Este de EE. UU
+| Noruega |Este de Noruega |Oeste de Noruega
+| Sudáfrica | Sudáfrica septentrional | Sudáfrica occidental
+| Suecia |Suecia Central |Suecia sur
+| Suiza | Norte de Suiza | Oeste de Suiza
 | Reino Unido |Oeste de Reino Unido |Sur de Reino Unido 2 |
+| Reino Unido |Norte del Reino Unido |Sur del Reino Unido 2
+| Emiratos Árabes Unidos | Norte de EAU | UAE Center
 | Departamento de Defensa de Estados Unidos |Departamento de Defensa de EE. UU. Este |Departamento de Defensa de EE. UU. Centro |
 | Gobierno de Estados Unidos |Gobierno de EE. UU.: Arizona |Gobierno de EE. UU.: Texas |
 | Gobierno de Estados Unidos |US Gov Iowa |Gobierno de EE. UU. - Virginia |
@@ -53,10 +62,11 @@ Figura 1: Parejas regionales de Azure
 
 Tabla 1: Asignación de las parejas regionales de Azure
 
-- Oeste de la India es diferente porque se empareja con otra región en una sola dirección. La región secundaria del Oeste de la India es Sur de la India, pero la región secundaria esta última es India Central.
-- Sur de Brasil es un caso único porque se empareja con una región fuera de su propia ubicación geográfica. La región secundaria del Sur de Brasil es Centro y Sur de EE. UU., pero la región secundaria de esta última no es el Sur de Brasil.
-- La región secundaria de US Gov Iowa es US Gov Virginia, pero la región secundaria de US Gov Virginia no es US Gov Iowa.
-- La región secundaria de US Gov Virginia es US Gov Texas, pero la región secundaria de US Gov Texas no es US Gov Virginia.
+- Oeste de la India se empareja en una sola dirección. La región secundaria del Oeste de la India es Sur de la India, pero la región secundaria esta última es India Central.
+- Sur de Brasil es un caso único porque se empareja con una región fuera de su propia ubicación geográfica. La región secundaria del sur de Brasil es sur de EE. UU. UU región secundaria no es el sur de Brasil.
+- Región secundaria de Iowa gob. EE. UU. es Virginia gob. EE.
+- La región secundaria de Virginia gob. EE. UU. es Texas gob.
+- La región secundaria de Texas gob. EE. UU. es US Gov de Arizona.
 
 
 Se recomienda que configure la continuidad empresarial y recuperación ante desastres entre las parejas regionales para beneficiarse de las directivas de aislamiento y disponibilidad de Azure. Para aplicaciones que admiten varias regiones activas, recomendamos utilizar, siempre que sea posible, ambas regiones en un par de regiones. Esto asegurará una disponibilidad óptima para las aplicaciones y minimizará el tiempo de recuperación en caso de desastre. 

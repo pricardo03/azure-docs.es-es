@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 12/21/2017
 ms.author: rli
 ms.openlocfilehash: 877d994968dbc575c8baa7ac4c8a40b76f6d617f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283484"
 ---
 # <a name="azure-cdn-rules-engine-match-conditions"></a>Condiciones de coincidencia del motor de reglas de Azure CDN 
@@ -88,16 +88,16 @@ Las condiciones de coincidencia URL identifican solicitudes en función de sus d
 
 NOMBRE | Propósito
 -----|--------
-[Directorio de ruta de acceso URL](#url-path-directory) | Identifica solicitudes por su ruta de acceso relativa.
-[Extensión de ruta de acceso URL](#url-path-extension) | Identifica solicitudes por su extensión de nombre de archivo.
-[Nombre de archivo de ruta de acceso URL](#url-path-filename) | Identifica solicitudes por su nombre de archivo.
-[Literal de ruta de acceso URL](#url-path-literal) | Compara la ruta de acceso relativa de una solicitud con el valor especificado.
-[Regex de ruta de acceso URL](#url-path-regex) | Compara la ruta de acceso relativa de una solicitud con la expresión regular especificada.
-[Carácter comodín de ruta de acceso URL](#url-path-wildcard) | Compara la ruta de acceso relativa de una solicitud con el patrón especificado.
-[Literal de consulta de dirección URL](#url-query-literal) | Compara la cadena de consulta de una solicitud con el valor especificado.
-[Parámetro de consulta de dirección URL](#url-query-parameter) | Identifica solicitudes que contienen el parámetro de cadena de consulta que se especifique establecido en un valor que coincide con el patrón especificado.
-[Regex de consulta de dirección URL](#url-query-regex) | Identifica solicitudes que contienen el parámetro de cadena de consulta que se especifique establecido en un valor que coincide con la expresión regular especificada.
-[Carácter comodín de consulta de dirección URL](#url-query-wildcard) | Compara los valores especificados con la cadena de consulta de la solicitud.
+[Directorio de la ruta de acceso URL](#url-path-directory) | Identifica solicitudes por su ruta de acceso relativa.
+[Extensión de la ruta de acceso URL](#url-path-extension) | Identifica solicitudes por su extensión de nombre de archivo.
+[Nombre de archivo de la ruta de acceso URL](#url-path-filename) | Identifica solicitudes por su nombre de archivo.
+[Literal de la ruta de acceso URL](#url-path-literal) | Compara la ruta de acceso relativa de una solicitud con el valor especificado.
+[Regex de la ruta de acceso URL](#url-path-regex) | Compara la ruta de acceso relativa de una solicitud con la expresión regular especificada.
+[Carácter comodín de la ruta de acceso URL](#url-path-wildcard) | Compara la ruta de acceso relativa de una solicitud con el patrón especificado.
+[Literal de la consulta URL](#url-query-literal) | Compara la cadena de consulta de una solicitud con el valor especificado.
+[Parámetro de la consulta URL](#url-query-parameter) | Identifica solicitudes que contienen el parámetro de cadena de consulta que se especifique establecido en un valor que coincide con el patrón especificado.
+[Regex de la consulta URL](#url-query-regex) | Identifica solicitudes que contienen el parámetro de cadena de consulta que se especifique establecido en un valor que coincide con la expresión regular especificada.
+[Carácter comodín de la consulta URL](#url-query-wildcard) | Compara los valores especificados con la cadena de consulta de la solicitud.
 
 
 ## <a name="reference-for-rules-engine-match-conditions"></a>Referencia de las condiciones de coincidencia del motor de reglas
@@ -970,9 +970,9 @@ user=joe              | Este patrón coincide cuando la cadena de consulta para 
 </br>
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Información general de Azure Content Delivery Network](cdn-overview.md)
+* [Introducción a Azure Content Delivery Network](cdn-overview.md)
 * [Referencia del motor de reglas](cdn-rules-engine-reference.md)
 * [Expresiones condicionales del motor de reglas](cdn-rules-engine-reference-conditional-expressions.md)
 * [Características del motor de reglas](cdn-rules-engine-reference-features.md)
-* [Invalidar el comportamiento HTTP predeterminado mediante el motor de reglas](cdn-rules-engine.md)
+* [Invalidación del comportamiento HTTP predeterminado mediante el motor de reglas](cdn-rules-engine.md)
 

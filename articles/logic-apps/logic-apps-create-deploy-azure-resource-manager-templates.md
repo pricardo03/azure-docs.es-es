@@ -11,10 +11,10 @@ ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
 ms.openlocfilehash: bbb10bf0174b6e06e28d171510345ed92b6642d9
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357097"
 ---
 # <a name="deploy-logic-apps-with-azure-resource-manager-templates"></a>Implementación de aplicaciones lógicas con plantillas de Azure Resource Manager
@@ -23,9 +23,9 @@ Después de crear una plantilla de Azure Resource Manager para implementar la ap
 
 * [Azure Portal](#portal)
 * [Azure PowerShell](#powershell)
-* [Azure CLI](#cli)
-* [API de REST de Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy-rest.md)
-* [Azure Pipelines para Azure DevOps](#azure-pipelines)
+* [CLI de Azure](#cli)
+* [API de REST del Administrador de recursos de Azure](../azure-resource-manager/resource-group-template-deploy-rest.md)
+* [Canalizaciones de Azure de DevOps de Azure](#azure-pipelines)
 
 <a name="portal"></a>
 
@@ -33,7 +33,7 @@ Después de crear una plantilla de Azure Resource Manager para implementar la ap
 
 Para implementar automáticamente una plantilla de aplicación lógica en Azure, puede elegir la siguiente **implementar en Azure** botón, que inicia sesión en el portal de Azure y le pide información sobre la aplicación lógica. A continuación, hacer los cambios necesarios en la plantilla de aplicación lógica o los parámetros.
 
-[![Dmplementar a Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+[![Implementación en Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 Por ejemplo, se le pedirá esta información después de iniciar sesión el portal de Azure:
 

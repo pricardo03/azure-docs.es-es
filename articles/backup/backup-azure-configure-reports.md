@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 01/30/2019
 ms.author: adigan
 ms.openlocfilehash: e3004a44958d75d18d608a2fbed7ccc44a00dc93
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59278832"
 ---
 # <a name="configure-azure-backup-reports"></a>Configuración de informes de Azure Backup
@@ -150,6 +150,6 @@ Sí, puede configurar la misma cuenta de Storage en varios almacenes para ver lo
 ## <a name="next-steps"></a>Pasos siguientes
 Después de configurar la cuenta de almacenamiento y ha importado el paquete de contenido de Azure Backup, el siguiente paso es personalizar los informes y usar el modelo de datos de informes para crear informes. Para obtener más información, consulte los siguientes artículos.
 
-* [Usar un modelo de datos de informes de Azure Backup](backup-azure-reports-data-model.md)
-* [Filtro de informes de Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
-* [Crear informes en Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
+* [Uso del modelo de datos de informes de Azure Backup](backup-azure-reports-data-model.md)
+* [Filtrado de informes en Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
+* [Creación de informes en Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)

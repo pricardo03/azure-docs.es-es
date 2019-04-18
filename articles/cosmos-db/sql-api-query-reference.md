@@ -9,10 +9,10 @@ ms.date: 03/31/2019
 ms.author: mjbrown
 ms.custom: seodec18
 ms.openlocfilehash: 22b03417495625ef70650a015530d6f56b32fd4f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283654"
 ---
 # <a name="sql-language-reference-for-azure-cosmos-db"></a>Referencia de lenguaje SQL de Azure Cosmos DB 
@@ -34,7 +34,7 @@ SELECT <select_specification>
     [ ORDER BY <sort_specification> ]  
 ```  
   
- **Comentarios**  
+ **Comentarios:**  
   
  Consulte las siguientes secciones para más información sobre las cláusulas:  
   
@@ -62,7 +62,7 @@ Todos los caracteres de espacio en blanco que no formen parte de una cadena o id
 
 El lenguaje de consulta admite comentarios del estilo de T-SQL como  
 
--   Instrucción SQL `-- comment text [newline]`  
+-   Instrucción SQL `-- comment text [newline]`.  
 
 Aunque los comentarios y los caracteres de espacio en blanco no tienen significado en la gramática, deben utilizarse para separar tokens. Por ejemplo: `-1e5` es un token de un solo número, mientras que `: – 1 e5` es un token de menos seguido por el número 1 y el identificador e5.  
 
@@ -106,9 +106,9 @@ SELECT <select_specification>
 
   Expresión que representa el valor que hay que calcular. Consulte la sección [Expresiones escalares](#bk_scalar_expressions) para más información.  
   
-**Comentarios**  
+**Comentarios:**  
   
-La sintaxis `SELECT *` solo es válida si la cláusula FROM ha declarado exactamente un alias. `SELECT *` Proporciona una proyección de identidad, que puede ser útil si se necesita ninguna proyección. SELECT * solo es válida si se especifica cláusula FROM y se introdujo solo un origen de entrada.  
+La sintaxis `SELECT *` solo es válida si la cláusula FROM ha declarado exactamente un alias. `SELECT *` proporciona una proyección de identidad, que puede resultar útil si no se necesitan proyecciones. SELECT * solo es válida si se especifica cláusula FROM y se introdujo solo un origen de entrada.  
   
 `SELECT <select_list>` y `SELECT *` son código sintáctico y pueden expresarse también mediante instrucciones SELECT sencillas, como se muestra a continuación.  
   
@@ -124,7 +124,7 @@ La sintaxis `SELECT *` solo es válida si la cláusula FROM ha declarado exactam
   
    `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
-**Vea también**  
+**Consulte también**  
   
 [Expresiones escalares](#bk_scalar_expressions)  
 [Cláusula SELECT](#bk_select_query)  
@@ -162,7 +162,7 @@ FROM <from_specification>
   
   -  Si la expresión es `<container_expression>`, se utilizará property_name como alias. Si la expresión es un nombre de contenedor, se utilizará container_name como alias.  
   
-- AS `input_alias`  
+- AS `input_alias`.  
   
   Especifica que `input_alias` es un conjunto de valores que la expresión del contenedor subyacente ha devuelto.  
  
@@ -194,7 +194,7 @@ FROM <from_specification>
   
   Especifica que debe recuperarse ese documento mediante el acceso a la propiedad `property_name` o al elemento de matriz array_index de todos los documentos que ha recuperado la expresión de contenedor específica.  
   
-**Comentarios**  
+**Comentarios:**  
   
 Todos los alias proporcionados o deducidos en `<from_source>(` deben ser únicos. La sintaxis de property_name de `<container_expression>.` es la misma que la de `<container_expression>' ['"property_name"']'`. Sin embargo, esta última puede usarse si un nombre de propiedad contiene algún carácter que no sea un identificador.  
   
@@ -226,7 +226,7 @@ La evaluación de la combinación depende del ámbito del contexto de los conjun
   
 ### <a name="examples-of-joins"></a>Ejemplos de combinaciones  
   
-Echemos un vistazo a la siguiente cláusula FROM: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
+Observemos la siguiente cláusula FROM: `<from_source1> JOIN <from_source2> JOIN ... JOIN <from_sourceN>`  
   
  Los orígenes definirán `input_alias1, input_alias2, …, input_aliasN`. Esta cláusula FROM devuelve un conjunto de N tuplas (tupla con N valores). Cada tupla tiene valores generados mediante la iteración de todos los alias de contenedor en los conjuntos correspondientes.  
   
@@ -304,7 +304,7 @@ Echemos un vistazo a la siguiente cláusula FROM: `<from_source1> JOIN <from_sou
   > [!NOTE]
   > Esto dio como resultado un producto cruzado entre `<from_source2>` y `<from_source3>`, ya que ambos tienen como ámbito el mismo `<from_source1>`.  Esto dio como resultado 4 (2 x 2) tuplas con valor A, 0 tuplas con valor B (1 x 0) y 2 (2 x 1) tuplas con valor C.  
   
-**Vea también**  
+**Consulte también**  
   
  [Cláusula SELECT](#bk_select_query)  
   
@@ -329,7 +329,7 @@ WHERE <filter_condition>
   
    Expresión que representa el valor que hay que calcular. Consulte la sección [Expresiones escalares](#bk_scalar_expressions) para más información.  
   
-  **Comentarios**  
+  **Comentarios:**  
   
   Para que el documento se devuelva, debe establecerse en true una expresión especificada como condición de filtro. Solo un valor booleano true cumplirá la condición, los demás valores (undefined, null, false, número, matriz u objeto) no cumplirán la condición.  
   
@@ -367,7 +367,7 @@ ORDER BY <sort_specification>
   
    Especifica que los valores de la columna especificada se deben ordenar en orden ascendente o descendente. ASC ordena los valores de menor a mayor. DESC ordena los valores de mayor a menos. ASC es el criterio de ordenación predeterminado. Los valores null se tratan como valores mínimos.  
   
-  **Comentarios**  
+  **Comentarios:**  
   
   Aunque la gramática de consulta admite varias propiedades para order by, el tiempo de ejecución de consulta de Cosmos DB admite solo la ordenación por una propiedad y únicamente según los nombres de propiedad (no según las propiedades calculadas). La ordenación también requiere que la directiva de indexación incluya un índice de intervalo para la propiedad y el tipo especificado, con máxima precisión. Consulte la documentación de la directiva de indexación para más detalles.  
   
@@ -456,7 +456,7 @@ ORDER BY <sort_specification>
   
    Representa un valor del nombre de parámetro especificado. Los nombres de parámetro deben tener un único \@ como primer carácter.  
   
-  **Comentarios**  
+  **Comentarios:**  
   
   Todos los argumentos deben estar definidos al llamar a una función escalar incorporada o definida por el usuario. Si alguno de los argumentos no está definido, no se llamará a la función y el resultado será undefined.  
   
@@ -473,49 +473,49 @@ ORDER BY <sort_specification>
   
 |**Categoría**|**Detalles**|  
 |-|-|  
-|**operaciones aritméticas**|El operador espera que las entradas sean números. La salida también es un número. Si alguna de las entradas es **undefined** o de un tipo que no sea un número, el resultado es **undefined**.|  
+|**aritméticos**|El operador espera que las entradas sean números. La salida también es un número. Si alguna de las entradas es **undefined** o de un tipo que no sea un número, el resultado es **undefined**.|  
 |**bit a bit**|El operador espera que las entradas sean números enteros con signo de 32 bits. La salida también es un número entero con signo de 32 bits.<br /><br /> Los valores que no sean enteros se redondean. Los valores positivos se redondean a la baja y los negativos, a la alta.<br /><br /> Se convertirá cualquier valor que esté fuera del intervalo de enteros de 32 bits, aprovechando los últimos 32 bits de su notación de complemento a dos.<br /><br /> Si alguna de las entradas es **undefined** o de un tipo que no sea un número, el resultado es **undefined**.<br /><br /> **Nota:** El comportamiento anterior es compatible con el comportamiento del operador bit a bit de JavaScript.|  
-|**Lógico**|El operador espera que las entradas sean booleanos. La salida también es un booleano.<br />Si alguna de las entradas es **undefined** o de un tipo que no sea un booleano, el resultado es **undefined**.|  
-|**Comparación**|El operador espera que las entradas sean del mismo tipo y sin valores undefined. La salida es un booleano.<br /><br /> Si alguna de las entradas es **undefined** o tienen distintos tipos, el resultado es **undefined**.<br /><br /> Consulte la tabla **Ordenación de los valores para la comparación** para conocer los detalles de ordenación de los valores.|  
-|**string**|El operador espera que las entradas sean cadenas. La salida también es una cadena.<br />Si alguna de las entradas es **undefined** o de un tipo que no sea una cadena, el resultado es **undefined**.|  
+|**lógicos**|El operador espera que las entradas sean booleanos. La salida también es un booleano.<br />Si alguna de las entradas es **undefined** o de un tipo que no sea un booleano, el resultado es **undefined**.|  
+|**de comparación**|El operador espera que las entradas sean del mismo tipo y sin valores undefined. La salida es un booleano.<br /><br /> Si alguna de las entradas es **undefined** o tienen distintos tipos, el resultado es **undefined**.<br /><br /> Consulte la tabla **Ordenación de los valores para la comparación** para conocer los detalles de ordenación de los valores.|  
+|**cadena**|El operador espera que las entradas sean cadenas. La salida también es una cadena.<br />Si alguna de las entradas es **undefined** o de un tipo que no sea una cadena, el resultado es **undefined**.|  
   
  **Operadores unarios:**  
   
-|**NOMBRE**|**Operador**|**Detalles**|  
+|**Nombre**|**Operador**|**Detalles**|  
 |-|-|-|  
-|**operaciones aritméticas**|+<br /><br /> -|Devuelve el valor numérico.<br /><br /> Negativos bit a bit. Devuelve el valor numérico negativo.|  
+|**aritméticos**|+<br /><br /> -|Devuelve el valor numérico.<br /><br /> Negativos bit a bit. Devuelve el valor numérico negativo.|  
 |**bit a bit**|~|Complemento de uno. Devuelve un complemento de un valor numérico.|  
-|**Lógicos**|**NO**|Negación. Devuelve el valor booleano negativo.|  
+|**lógicos**|**NOT**|Negación. Devuelve el valor booleano negativo.|  
   
  **Operadores binarios:**  
   
-|**NOMBRE**|**Operador**|**Detalles**|  
+|**Nombre**|**Operador**|**Detalles**|  
 |-|-|-|  
-|**operaciones aritméticas**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Suma.<br /><br /> Resta.<br /><br /> Multiplicación.<br /><br /> División.<br /><br /> Modulación.|  
+|**aritméticos**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Suma.<br /><br /> Resta.<br /><br /> Multiplicación.<br /><br /> División.<br /><br /> Modulación.|  
 |**bit a bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|OR bit a bit.<br /><br /> AND bit a bit.<br /><br /> XOR bit a bit.<br /><br /> Desplazamiento a la izquierda.<br /><br /> Desplazamiento a la derecha.<br /><br /> Desplazamiento a la derecha con relleno de ceros.|  
-|**Lógico**|**Y**<br /><br /> **OR**|Conjunción lógica. Devuelve **true** si ambos argumentos son **true**, devuelve **false** en caso contrario.<br /><br /> Disyunción lógica. Devuelve **true** si algún argumento es **true**, devuelve **false** en caso contrario.|  
-|**Comparación**|**=**<br /><br /> **!=, <>**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Igual a. Devuelve **true** si ambos argumentos son iguales, en caso contrario, devuelve **false**.<br /><br /> Diferente de. Devuelve **true** si ambos argumentos no son iguales, en caso contrario, devuelve **false**.<br /><br /> Mayor que. Devuelve **true** si el primer argumento es mayor que el segundo, en caso contrario, devuelve **false**.<br /><br /> Mayor o igual que. Devuelve **true** si el primer argumento es mayor o igual que el segundo, en caso contrario, devuelve **false**.<br /><br /> Menor que. Devuelve **true** si el primer argumento es menor que el segundo, en caso contrario, devuelve **false**.<br /><br /> Menor o igual que. Devuelve **true** si el primer argumento es menor o igual que el segundo, en caso contrario, devuelve **false**.<br /><br /> Fusionar. Devuelve el segundo argumento si el primero es un valor **undefined**.|  
-|**string**|**&#124;&#124;**|Concatenación. Devuelve una concatenación de ambos argumentos.|  
+|**lógicos**|**AND**<br /><br /> **O bien**|Conjunción lógica. Devuelve **true** si ambos argumentos son **true**, devuelve **false** en caso contrario.<br /><br /> Disyunción lógica. Devuelve **true** si algún argumento es **true**, devuelve **false** en caso contrario.|  
+|**de comparación**|**=**<br /><br /> **!=, &lt;&gt;**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Igual a. Devuelve **true** si ambos argumentos son iguales, en caso contrario, devuelve **false**.<br /><br /> Diferente de. Devuelve **true** si ambos argumentos no son iguales, en caso contrario, devuelve **false**.<br /><br /> Mayor que. Devuelve **true** si el primer argumento es mayor que el segundo, en caso contrario, devuelve **false**.<br /><br /> Mayor o igual que. Devuelve **true** si el primer argumento es mayor o igual que el segundo, en caso contrario, devuelve **false**.<br /><br /> Menor que. Devuelve **true** si el primer argumento es menor que el segundo, en caso contrario, devuelve **false**.<br /><br /> Menor o igual que. Devuelve **true** si el primer argumento es menor o igual que el segundo, en caso contrario, devuelve **false**.<br /><br /> Fusionar. Devuelve el segundo argumento si el primero es un valor **undefined**.|  
+|**String**|**&#124;&#124;**|Concatenación. Devuelve una concatenación de ambos argumentos.|  
   
  **Operadores ternarios:**  
 
-|**NOMBRE**|**Operador**|**Detalles**| 
+|**Nombre**|**Operador**|**Detalles**| 
 |-|-|-|  
 |Operador ternario|?|Devuelve el segundo argumento si el primero se evalúa como **true**, en caso contrario, devuelve el tercer argumento.|  
 
   
- **Orden de los valores para comparación**  
+ **Ordenación de los valores para la comparación**  
   
-|**Type**|**Orden de los valores**|  
+|**Tipo**|**Orden de los valores**|  
 |-|-|  
 |**Undefined**|No comparables.|  
 |**Null**|Valor único: **null**|  
 |**Number**|Número real natural.<br /><br /> El valor de infinito negativo es menor que cualquier otro valor numérico.<br /><br /> El valor de infinito positivo es mayor que cualquier otro valor numérico. El valor **NaN** no es comparable. La comparación con **NaN** dará como resultado el valor **undefined**.|  
-|**string**|Orden lexicográfico.|  
-|**Matriz**|Ningún orden, pero equitativo.|  
-|**Objeto**|Ningún orden, pero equitativo.|  
+|**String**|Orden lexicográfico.|  
+|**Array**|Ningún orden, pero equitativo.|  
+|**Object**|Ningún orden, pero equitativo.|  
   
- **Comentarios**  
+ **Comentarios:**  
   
  En Cosmos DB, a menudo no se conocen los tipos de los valores hasta que se recuperan de la base de datos. Para admitir la ejecución de consultas de forma eficaz, la mayoría de los operadores tienen requisitos de tipo estrictos. Además, los operadores por sí mismos no realizan conversiones implícitas.  
   
@@ -534,15 +534,15 @@ ORDER BY <sort_specification>
   
  **Tipos de datos escalares admitidos:**  
   
-|**Type**|**Orden de los valores**|  
+|**Tipo**|**Orden de los valores**|  
 |-|-|  
 |**Undefined**|Valor único: **undefined**|  
 |**Null**|Valor único: **null**|  
-|**boolean**|Valores: **false**, **true**.|  
+|**Boolean**|Valores: **false**, **true**.|  
 |**Number**|Número de punto flotante de precisión doble, estándar IEEE 754.|  
-|**string**|Secuencia de cero o más caracteres Unicode. Las cadenas deben ir entre comillas sencillas o dobles.|  
-|**Matriz**|Secuencia de cero o más elementos. Cada elemento puede ser un valor de cualquier tipo de datos escalar, excepto Undefined.|  
-|**Objeto**|Conjunto desordenado de cero o más pares nombre/valor. Nombre es una cadena Unicode, el valor puede ser de cualquier tipo de datos escalar, excepto **Undefined**.|  
+|**String**|Secuencia de cero o más caracteres Unicode. Las cadenas deben ir entre comillas sencillas o dobles.|  
+|**Array**|Secuencia de cero o más elementos. Cada elemento puede ser un valor de cualquier tipo de datos escalar, excepto Undefined.|  
+|**Object**|Conjunto desordenado de cero o más pares nombre/valor. Nombre es una cadena Unicode, el valor puede ser de cualquier tipo de datos escalar, excepto **Undefined**.|  
   
  **Sintaxis**  
   
@@ -618,7 +618,7 @@ ORDER BY <sort_specification>
   
   Se permiten las secuencias de escape siguientes:  
   
-|**Secuencia de escape**|**DESCRIPCIÓN**|**Carácter Unicode**|  
+|**Secuencia de escape**|**Descripción**|**Carácter Unicode**|  
 |-|-|-|  
 |\\'|apóstrofo (')|U + 0027|  
 |\\"|comillas dobles (")|U + 0022|  
@@ -658,7 +658,7 @@ ORDER BY <sort_specification>
   
      En la tabla siguiente se indican las convenciones utilizadas para describir la sintaxis en la siguiente referencia de SQL.  
   
-    |**Convención**|**Usado para**|  
+    |**Convención**|**Se usa para**|  
     |-|-|    
     |MAYÚSCULAS|Palabras clave sin distinción entre mayúsculas y minúsculas.|  
     |minúsculas|Palabras clave con distinción entre mayúsculas y minúsculas.|  
@@ -691,10 +691,10 @@ ORDER BY <sort_specification>
 |-|-|-|  
 |[ABS](#bk_abs)|[ACOS](#bk_acos)|[ASIN](#bk_asin)|  
 |[ATAN](#bk_atan)|[ATN2](#bk_atn2)|[CEILING](#bk_ceiling)|  
-|[COS](#bk_cos)|[COT](#bk_cot)|[GRADOS](#bk_degrees)|  
-|[EXP](#bk_exp)|[FLOOR](#bk_floor)|[REGISTRO](#bk_log)|  
+|[COS](#bk_cos)|[COT](#bk_cot)|[DEGREES](#bk_degrees)|  
+|[EXP](#bk_exp)|[FLOOR](#bk_floor)|[LOG](#bk_log)|  
 |[LOG10](#bk_log10)|[PI](#bk_pi)|[POWER](#bk_power)|  
-|[RADIANES](#bk_radians)|[REDONDEAR](#bk_round)|[SIN](#bk_sin)|  
+|[RADIANS](#bk_radians)|[ROUND](#bk_round)|[SIN](#bk_sin)|  
 |[SQRT](#bk_sqrt)|[SQUARE](#bk_square)|[SIGN](#bk_sign)|  
 |[TAN](#bk_tan)|[TRUNC](#bk_trunc)||  
   
@@ -1047,7 +1047,7 @@ EXP (<numeric_expression>)
   
   Devuelve una expresión numérica.  
   
-  **Comentarios**  
+  **Comentarios:**  
   
   La constante **e** (2,718281 …) es la base de los logaritmos naturales.  
   
@@ -1157,7 +1157,7 @@ LOG10 (<numeric_expression>)
   
   Devuelve una expresión numérica.  
   
-  **Comentarios**  
+  **Comentarios:**  
   
   Las funciones LOG10 y POWER tienen una relación inversa. Por ejemplo, 10 ^ LOG10 (n) = n.  
   
@@ -1842,10 +1842,10 @@ SELECT
   
 ||||  
 |-|-|-|  
-|[CONCAT](#bk_concat)|[CONTIENE](#bk_contains)|[ENDSWITH](#bk_endswith)|  
-|[INDEX_OF](#bk_index_of)|[IZQUIERDA](#bk_left)|[LONGITUD](#bk_length)|  
-|[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REEMPLAZAR](#bk_replace)|  
-|[REPLICAR](#bk_replicate)|[INVERTIR](#bk_reverse)|[CORRECTO](#bk_right)|  
+|[CONCAT](#bk_concat)|[CONTAINS](#bk_contains)|[ENDSWITH](#bk_endswith)|  
+|[INDEX_OF](#bk_index_of)|[LEFT](#bk_left)|[LENGTH](#bk_length)|  
+|[LOWER](#bk_lower)|[LTRIM](#bk_ltrim)|[REPLACE](#bk_replace)|  
+|[REPLICATE](#bk_replicate)|[REVERSE](#bk_reverse)|[RIGHT](#bk_right)|  
 |[RTRIM](#bk_rtrim)|[STARTSWITH](#bk_startswith)|[StringToArray](#bk_stringtoarray)|
 |[StringToBoolean](#bk_stringtoboolean)|[StringToNull](#bk_stringtonull)|[StringToNumber](#bk_stringtonumber)|
 |[StringToObject](#bk_stringtoobject)|[SUBSTRING](#bk_substring)|[ToString](#bk_tostring)|
@@ -3297,4 +3297,4 @@ SELECT ST_ISVALIDDETAILED({
 
 - [Sintaxis SQL y consulta SQL para Cosmos DB](how-to-sql-query.md)
 
-- [Documentación sobre COSMOS DB](https://docs.microsoft.com/azure/cosmos-db/)  
+- [Documentación sobre Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/)  

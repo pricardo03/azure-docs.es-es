@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 04/07/2019
 ms.author: juliako
 ms.openlocfilehash: 91cd8ab0565279f88a0949f873d6e44d564427af
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280220"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examine la salida de Video Indexer producida por la API
@@ -820,7 +820,7 @@ Video Indexer saca conclusiones de los temas principales a partir de las transcr
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Portal para desarrolladores de video Indexer](https://api-portal.videoindexer.ai)
+[Portal para desarrolladores de Video Indexer](https://api-portal.videoindexer.ai)
 
 Para más información acerca de cómo insertar widgets en su aplicación, consulte [Embed Video Indexer widgets into your applications](video-indexer-embed-widgets.md) (Inserción de widgets de Video Indexer en sus aplicaciones). 
 

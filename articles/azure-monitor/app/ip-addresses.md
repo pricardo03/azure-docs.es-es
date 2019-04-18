@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: mbullwin
 ms.openlocfilehash: b383a4f85a039eb8eed87e2e78940aaf48b30a33
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425923"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Direcciones IP que emplean Application Insights y Log Analytics
@@ -52,7 +52,7 @@ Configuración del Monitor de estado; solo lo necesitará en caso de que tenga q
 | Configuración |`secure.aadcdn.microsoftonline-p.com` | |`443` |
 | Configuración |`auth.gfx.ms` | |`443` |
 | Configuración |`login.live.com` | |`443` |
-| Instalación |`packages.nuget.org` , `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net` (Descargas de NuGet) | |`443` |
+| Instalación |`packages.nuget.org` , `nuget.org`, `api.nuget.org`, `az320820.vo.msecnd.net` (descargas de NuGet) | |`443` |
 
 ## <a name="availability-tests"></a>Pruebas de disponibilidad
 Esta es la lista de direcciones a partir de las cuales se ejecutan [pruebas web de disponibilidad](../../azure-monitor/app/monitor-web-app-availability.md) . Si quiere ejecutar pruebas web en su aplicación, pero su servidor web está restringido atender únicamente las solicitudes de clientes específicos, tendrá que permitir el tráfico entrante de nuestros servidores de pruebas de disponibilidad.

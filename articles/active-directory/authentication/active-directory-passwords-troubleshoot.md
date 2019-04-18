@@ -13,10 +13,10 @@ ms.reviewer: sahenry
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5adb857e6032e46c31a86685913277ec3eb571be
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496410"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Solución de problemas del autoservicio de restablecimiento de contraseñas
@@ -155,9 +155,9 @@ Si se producen interrupciones del servicio con el componente de escritura diferi
 
 * [Confirmación de la conectividad de la red](#confirm-network-connectivity)
 * [Reinicio del servicio Azure AD Connect Sync](#restart-the-azure-ad-connect-sync-service)
-* [Deshabilitar y volver a habilitar la característica de escritura diferida de contraseñas](#disable-and-re-enable-the-password-writeback-feature)
+* [Deshabilitar y volver a habilitar la característica de escritura diferida de contraseña](#disable-and-re-enable-the-password-writeback-feature)
 * [Instalación de la última versión de Azure AD Connect](#install-the-latest-azure-ad-connect-release)
-* [Solución de problemas de escritura diferida de contraseñas](#troubleshoot-password-writeback)
+* [Solución de problemas con la escritura diferida de contraseñas](#troubleshoot-password-writeback)
 
 En general, con el fin de recuperar el servicio de la manera más rápida, se recomienda que ejecute estos pasos en el orden anterior.
 
@@ -266,7 +266,7 @@ Para que reciba la ayuda apropiada, le pedimos que proporcione la mayor cantidad
 * **Código de soporte técnico**: ¿qué código de soporte técnico se generó cuando el usuario vio el error?
    * Para encontrarlo, reproduzca el error, seleccione el vínculo **Código de soporte técnico** en la parte inferior de la pantalla y envíe al ingeniero de soporte técnico el GUID resultante.
 
-   ![Encontrar el código de soporte técnico en la parte inferior de la pantalla][Support code]
+   ![Busque el código de soporte técnico en la parte inferior de la pantalla][Support code]
 
   * Si se encuentra en una página sin código de soporte en la parte inferior, seleccione F12, busque el SID y el CID, y envíe estos dos resultados al ingeniero de soporte.
 * **Fecha, hora y zona horaria**: incluya la fecha y la hora precisas (incluida la *zona horaria*) en que se produjo el error.
@@ -285,14 +285,14 @@ Para que reciba la ayuda apropiada, le pedimos que proporcione la mayor cantidad
 
 En los siguientes artículos se proporciona información adicional sobre el restablecimiento de contraseña con Azure AD:
 
-* [¿Cómo se puede completar una implementación correcta de SSPR?](howto-sspr-deployment.md)
-* [Restablecer o cambiar la contraseña](../user-help/active-directory-passwords-update-your-own-password.md)
+* [¿Cómo se realiza un lanzamiento correcto de SSPR?](howto-sspr-deployment.md)
+* [Restablecimiento o modificación de la contraseña](../user-help/active-directory-passwords-update-your-own-password.md)
 * [Registro para el autoservicio de restablecimiento de contraseñas](../user-help/active-directory-passwords-reset-register.md)
-* [¿Tiene alguna pregunta licencias?](concept-sspr-licensing.md)
-* [¿Qué datos usa SSPR y qué datos se deben rellenar para los usuarios?](howto-sspr-authenticationdata.md)
-* [¿Métodos de autenticación que están disponibles para los usuarios?](concept-sspr-howitworks.md#authentication-methods)
+* [¿Tiene alguna pregunta acerca de las licencias?](concept-sspr-licensing.md)
+* [¿Qué datos usa SSPR y cuáles se deben rellenar en lugar de los usuarios?](howto-sspr-authenticationdata.md)
+* [¿Qué métodos de autenticación están disponibles para los usuarios?](concept-sspr-howitworks.md#authentication-methods)
 * [¿Cuáles son las opciones de directiva con SSPR?](concept-sspr-policy.md)
-* [¿Qué es la escritura diferida de contraseñas y por qué me importa sobre ella?](howto-sspr-writeback.md)
+* [¿Qué es la escritura diferida de contraseñas y por qué nos interesa?](howto-sspr-writeback.md)
 * [¿Cómo se informa sobre la actividad de SSPR?](howto-sspr-reporting.md)
-* [¿Qué son todas las opciones en SSPR y qué significan?](concept-sspr-howitworks.md)
-* [Tengo una pregunta que no se ha comentado else](active-directory-passwords-faq.md)
+* [¿Cuáles son todas las opciones en SSPR y qué significan?](concept-sspr-howitworks.md)
+* [Tengo una pregunta que no se ha comentado en ningún otro sitio](active-directory-passwords-faq.md)

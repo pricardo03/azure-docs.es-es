@@ -9,17 +9,17 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 64559f653ba8a466de7bec10db34383b508e3e4b
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361296"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configuración de la recuperación ante desastres de las máquinas virtuales de Hyper-V locales en nubes de VMM en Azure
 
 En este artículo se describe cómo habilitar la replicación de máquinas virtuales de Hyper-V locales administradas por System Center Virtual Machine Manager (VMM), para la recuperación ante desastres en Azure mediante el [Azure Site Recovery](site-recovery-overview.md) service. Si no usa VMM, a continuación, [siga este tutorial](hyper-v-azure-tutorial.md).
 
-Este es el tercer tutorial de una serie que se muestra cómo configurar la recuperación ante desastres en Azure para máquinas virtuales de VMware locales. En el tutorial anterior, hemos [preparado el entorno de Hyper-V local](hyper-v-prepare-on-premises-tutorial.md) para recuperación ante desastres en Azure. 
+Este es el tercer tutorial de una serie que muestra cómo configurar la recuperación ante desastres en Azure para máquinas virtuales locales de VMware. En el tutorial anterior, hemos [preparado el entorno de Hyper-V local](hyper-v-prepare-on-premises-tutorial.md) para recuperación ante desastres en Azure. 
 
 En este tutorial, aprenderá a:
 
@@ -33,7 +33,7 @@ En este tutorial, aprenderá a:
 
 
 > [!NOTE]
-> Tutoriales muestra la ruta de implementación más sencilla para un escenario. Usan opciones predeterminadas siempre que es posible y no muestran todos los valores y las rutas de acceso posibles. Para obtener instrucciones detalladas, consulte el artículo en la sección de la tabla de contenido de sitio de recuperación.
+> Los tutoriales muestran la ruta de implementación más sencilla para un escenario. Usan opciones predeterminadas siempre que es posible y no muestran todos los valores y las rutas de acceso posibles. Para obtener instrucciones detalladas, consulte el artículo de la sección de procedimientos de la tabla de contenido de Site Recovery.
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
@@ -48,8 +48,8 @@ Este es el tercer tutorial de una serie. En este tutorial se da por hecho que ya
 1. En **Almacenes de Recovery Services**, seleccione el almacén. Hemos preparado el almacén **ContosoVMVault** en el tutorial anterior.
 2. En **Introducción**, haga clic en **Site Recovery**. Luego, haga clic en **Preparar infraestructura**.
 3. En **objetivo de protección** > **donde están ubicadas las máquinas?**, seleccione **local**.
-4. En **donde desea replicar las máquinas?**, seleccione **a Azure**.
-5. En **son las máquinas virtualizadas?** seleccione **Sí, con Hyper-V**.
+4. En **¿En dónde quiere replicar las máquinas?**, seleccione **En Azure**.
+5. En **¿Las máquinas están virtualizadas?**, seleccione **Sí, con Hyper-V**.
 6. En **Are you using System Center VMM** (¿Usa System Center VMM?), seleccione **Sí**. A continuación, haga clic en **Aceptar**.
 
     ![Objetivo de replicación](./media/hyper-v-vmm-azure-tutorial/replication-goal.png)
@@ -57,8 +57,8 @@ Este es el tercer tutorial de una serie. En este tutorial se da por hecho que ya
 
 ## <a name="confirm-deployment-planning"></a>Confirmación del planeamiento de la implementación
 
-1. En **planeación de la implementación**, si está planeando una implementación de gran tamaño, descargar Deployment Planner para Hyper-V desde el vínculo en la página. [Obtenga más información](hyper-v-deployment-planner-overview.md) acerca del planeamiento de implementación de Hyper-V.
-2. Para los fines de este tutorial, no necesitamos deployment planner. En **¿completó el planeamiento de implementación?**, seleccione **lo haré más tarde**. A continuación, haga clic en **Aceptar**.
+1. En **Planeamiento de implementación**, si planea una implementación de gran tamaño, descargue Deployment Planner para Hyper-V desde el vínculo de la página. [Obtenga más información](hyper-v-deployment-planner-overview.md) acerca del planeamiento de implementaciones de Hyper-V.
+2. Para este tutorial no se necesita Deployment Planner. En **¿completó el planeamiento de implementación?**, seleccione **lo haré más tarde**. A continuación, haga clic en **Aceptar**.
 
 
 ## <a name="set-up-the-source-environment"></a>Configuración del entorno de origen
@@ -119,7 +119,7 @@ Site Recovery comprueba que tiene una o más redes y cuentas de Azure Storage co
 ## <a name="set-up-a-replication-policy"></a>Configurar una directiva de replicación
 
 1. Haga clic en **Preparar infraestructura** > **Configuración de la replicación** > **+Crear y asociar**.
-2. En **Crear y asociar directiva**, especifique un nombre de directiva. Estamos usando **ContosoReplicationPolicy**.
+2. En **Crear y asociar directiva**, especifique un nombre de directiva. Usamos **ContosoReplicationPolicy**.
 3. Deje los valores predeterminados y haga clic en **Aceptar**.
     - **Frecuencia de copia** indica que los datos diferenciales (después de la replicación inicial) se replicarán cada cinco minutos.
     - **Retención de punto de recuperación** indica para cada punto de recuperación se conservan durante dos horas.
@@ -142,4 +142,4 @@ Site Recovery comprueba que tiene una o más redes y cuentas de Azure Storage co
 
 ## <a name="next-steps"></a>Pasos siguientes
 > [!div class="nextstepaction"]
-> [Ejecución de un simulacro de recuperación ante desastres](tutorial-dr-drill-azure.md)
+> [Exploración de la recuperación ante desastres](tutorial-dr-drill-azure.md)

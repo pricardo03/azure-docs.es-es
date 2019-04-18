@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
 ms.openlocfilehash: f431613d9fa1020f523e03c90cbe31f4d42ccf42
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426229"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Solución Agent Health en Azure Monitor
@@ -51,7 +51,7 @@ En la tabla siguiente se describen los orígenes conectados que son compatibles 
 | Grupo de administración de System Center Operations Manager | Sí | Eventos de latido se recopilan desde los agentes que informan al grupo de administración cada 60 segundos y luego se reenvían a Azure Monitor. No se requiere una conexión directa desde los agentes de Operations Manager a Azure Monitor. Datos de eventos de latido se reenvían desde el grupo de administración para el área de trabajo de Log Analytics.|
 
 ## <a name="using-the-solution"></a>Uso de la solución
-Al agregar la solución al área de trabajo de Log Analytics, se agrega el icono **Agent Health** al panel. Este icono muestra el número total de agentes y el número de agentes que no responden en las últimas 24 horas.<br><br> ![Icono de la solución de mantenimiento de agente en el panel](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
+Al agregar la solución al área de trabajo de Log Analytics, se agrega el icono **Agent Health** al panel. Este icono muestra el número total de agentes y el número de agentes que no responden en las últimas 24 horas.<br><br> ![Icono de la solución Agent Health en el panel](./media/solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 Haga clic en el icono **Agent Health** para abrir el panel **Agent Health**.  El panel incluye las columnas de la tabla siguiente. Cada columna muestra los diez principales eventos por recuento que coinciden con los criterios de esa columna para el intervalo de tiempo especificado. Puede ejecutar una búsqueda de registros que proporcione toda la lista si selecciona **Ver todo** en la parte inferior derecha de la columna o hace clic en el encabezado de columna.
 
@@ -76,7 +76,7 @@ Se crea un registro del tipo **Heartbeat**.  Estos registros tienen las propieda
 
 | Propiedad | DESCRIPCIÓN |
 | --- | --- |
-| `Type` | *Latido*|
+| `Type` | *Heartbeat*|
 | `Category` | El valor es *Direct Agent*, *SCOM Agent* o *SCOM Management Server*.|
 | `Computer` | Nombre del equipo.|
 | `OSType` | Sistema operativo Windows o Linux.|

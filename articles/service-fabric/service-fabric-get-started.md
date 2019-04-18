@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 04/02/2019
 ms.author: aljo
 ms.openlocfilehash: 45d5d1b4e050d01b003b6321e1af44c0da762e19
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275509"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparación del entorno de desarrollo en Windows
 > [!div class="op_single_selector"]
-> * [ Windows](service-fabric-get-started.md) 
+> * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
 > * [OSX](service-fabric-get-started-mac.md)
 > 
@@ -91,10 +91,10 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 ## <a name="next-steps"></a>Pasos siguientes
 Ahora que ha terminado la configuración del entorno de desarrollo, puede empezar a compilar y ejecutar aplicaciones.
 
-* [Obtenga información sobre cómo crear, implementar y administrar aplicaciones](service-fabric-tutorial-create-dotnet-app.md)
-* [Obtenga información sobre los modelos de programación: Reliable Services y Reliable Actors](service-fabric-choose-framework.md)
-* [Consulte los ejemplos de código de Service Fabric en GitHub](https://aka.ms/servicefabricsamples)
-* [Visualización del clúster mediante Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
+* [Aprenda a crear, implementar y administrar aplicaciones](service-fabric-tutorial-create-dotnet-app.md)
+* [Más información sobre los modelos de programación: Reliable Services y Reliable Actors](service-fabric-choose-framework.md)
+* [Consulta de los ejemplos de código de Service Fabric en GitHub](https://aka.ms/servicefabricsamples)
+* [Visualización del clúster mediante el Explorador de Service Fabric](service-fabric-visualizing-your-cluster.md)
 * Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md)
 
 [1]: https://azure.microsoft.com/campaigns/service-fabric/ "Página de campaña de Service Fabric"

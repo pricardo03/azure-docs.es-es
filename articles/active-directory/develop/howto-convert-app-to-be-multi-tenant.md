@@ -19,10 +19,10 @@ ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2054a873d73bce7048ef9e48adabf3fb5279df9
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500403"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedimientos para: Inicio de sesión de cualquier usuario de Azure Active Directory mediante el patrón de aplicación multiinquilino
@@ -36,10 +36,10 @@ Si tiene una aplicación existente con su propio sistema de cuenta o es compatib
 
 Para convertir la aplicación en una aplicación multiempresa de Azure AD, siga estos cuatro sencillos pasos:
 
-1. [Actualice el registro de aplicación para que sea multiempresa](#update-registration-to-be-multi-tenant)
-2. [Actualice el código para enviar solicitudes al punto de conexión /common](#update-your-code-to-send-requests-to-common)
-3. [Actualice el código para administrar varios valores issuer](#update-your-code-to-handle-multiple-issuer-values)
-4. [Comprenda el consentimiento de administrador y usuario y realice los cambios apropiados en el código](#understand-user-and-admin-consent)
+1. [Actualice el registro de aplicación para que sea multiempresa.](#update-registration-to-be-multi-tenant)
+2. [Actualice el código para enviar solicitudes al punto de conexión /common.](#update-your-code-to-send-requests-to-common)
+3. [Actualice el código para administrar varios valores issuer.](#update-your-code-to-handle-multiple-issuer-values)
+4. [Comprenda el consentimiento de administrador y usuario y realice los cambios apropiados en el código.](#understand-user-and-admin-consent)
 
 Vamos a examinar cada paso con detalle. También puede ir directamente a [esta lista de ejemplos de multiinquilino][AAD-Samples-MT].
 
