@@ -43,8 +43,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Azure Se
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **AzureSearch** | Sí |
-| URL | La URL del servicio Azure Search. | Sí |
+| type | La propiedad type debe establecerse en: **AzureSearch** | Sí |
+| url | La URL del servicio Azure Search. | Sí |
 | key | La clave de administración del servicio Azure Search. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) (si el almacén de datos se encuentra en una red privada) o Azure Integration Runtime. Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
@@ -81,7 +81,7 @@ Para copiar datos a Azure Search, establezca la propiedad type del conjunto de d
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **AzureSearchIndex** | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **AzureSearchIndex** | Sí |
 | indexName | Nombre del índice de Azure Search. Data Factory no crea el índice. El índice debe existir en Azure Search. | Sí |
 
 **Ejemplo:**
@@ -112,7 +112,7 @@ Si va a copiar datos a Azure Search, establezca el tipo de origen de la activida
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **AzureSearchIndexSink** | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **AzureSearchIndexSink** | Sí |
 | writeBehavior | Especifica si, cuando ya haya un documento en el índice, se realizará una operación de combinación o de reemplazo. Consulte la propiedad [WriteBehavior](#writebehavior-property).<br/><br/>Los valores permitidos son: **Combinar** (valor predeterminado) y **Cargar**. | Sin  |
 | writeBatchSize | Carga datos en el índice de Azure Search cuando el tamaño del búfer alcanza el valor de WriteBatchSize. Consulte la propiedad [WriteBatchSize](#writebatchsize-property) para obtener más información.<br/><br/>Los valores permitidos son: enteros de 1 a 1000; el valor predeterminado es 1000. | Sin  |
 
@@ -169,13 +169,13 @@ En la tabla siguiente se especifica si se admite o no un tipo de datos de Azure 
 
 | Tipo de datos de Azure Search | Compatible con el receptor de Azure Search |
 | ---------------------- | ------------------------------ |
-| string | Y |
+| String | Y |
 | Int32 | Y |
 | Int64 | Y |
 | Double | Y |
-| boolean | Y |
+| Boolean | Y |
 | DataTimeOffset | Y |
-| Matriz de cadenas | N |
+| String Array | N |
 | GeographyPoint | N |
 
 ## <a name="next-steps"></a>Pasos siguientes
