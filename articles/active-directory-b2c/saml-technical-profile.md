@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 12/21/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d5120b7569acbe9735ea1a70fcb609d322d60793
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: c719bcaca91f9a6e77d79735283cf2c68404ef16
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55154378"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680543"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico de SAML en una directiva personalizada en Azure Active Directory B2C
 
@@ -81,21 +81,6 @@ En el ejemplo siguiente se muestra la sección de cifrado del perfil técnico de
   </KeyInfo>
 </KeyDescriptor>
 ```
-
-## <a name="identity-provider-initiated-flow"></a>Flujo iniciado por el proveedor de identidades
-
-En una sesión de inicio de sesión único (solicitud no solicitada) iniciada por un punto de distribución de emisión, se envía una respuesta SAML no solicitada al proveedor de servicios, en este caso, un perfil técnico de Azure AD B2C. En este proceso, el usuario no pasa primero por la aplicación web, sino que se dirige al proveedor de identidades. Cuando se envía la solicitud, el proveedor de identidades muestra una página de autenticación al usuario. Cuando el usuario ha completado el inicio de sesión, la solicitud se redirige a Azure AD B2C con una respuesta SAML que contiene las aserciones. Azure AD B2C lee las aserciones, emite un token SAML nuevo y vuelve a redirigir al usuario a la aplicación de usuario de confianza. La propiedad **ubicación** del elemento **AssertionConsumerService** es la responsable de los redireccionamientos.
-
-
-![Flujo iniciado por un IDP de SAML](media/saml-technical-profile/technical-profile-idp-saml-idp-initiated.png) 
-
-Tenga en cuenta los siguientes requisitos de directiva al crear un flujo iniciado por un proveedor de identidades:
-
-- El primer paso de orquestación debe ser un intercambio único de notificaciones que apunte a un perfil técnico de SAML.
-- El perfil técnico debe tener un elemento de metadatos denominado **IdpInitiatedProfileEnabled** que esté establecido en `true`.
-- La directiva del usuario de confianza debe ser un usuario de confianza de SAML.
-- La directiva del usuario de confianza debe tener un elemento de metadatos denominado **IdpInitiatedProfileEnabled** que esté establecido en `true`.
-- La respuesta no solicitada debe enviarse al punto de conexión `/your-tenant/your-policy/samlp/sso/assertionconsumer`. Todos los estados de retransmisión se reenvían al usuario de confianza junto con la respuesta. Reemplace los valores siguientes: **your-tenant** por su nombre de inquilino. **your-policy** por el nombre de la directiva del usuario de confianza.
     
 ## <a name="protocol"></a>Protocolo
 
@@ -138,7 +123,7 @@ El perfil técnico también devuelve notificaciones, que no son devueltas por el
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| PartnerEntity | SÍ | URL de los metadatos del proveedor de identidades SAML. Copie los metadatos del proveedor de identidades y agréguelo en el elemento CDATA `<![CDATA[Your IDP metadata]]>` |
+| PartnerEntity | Sí | URL de los metadatos del proveedor de identidades SAML. Copie los metadatos del proveedor de identidades y agréguelo en el elemento CDATA `<![CDATA[Your IDP metadata]]>` |
 | WantsSignedRequests | Sin  | Indica si el perfil técnico requiere que todas las solicitudes de autenticación de salida estén firmadas. Valores posibles: `true` o `false`. El valor predeterminado es `true`. Cuando el valor se establece en `true`, hay que especificar la clave criptográfica **SamlMessageSigning** y todas las solicitudes de autenticación de salida deben estar firmadas. Si el valor se establece en `false`, se omiten los parámetros **SigAlg** y **Signature** (cadena de consulta o parámetro posterior) de la solicitud. Estos metadatos también controlan el atributo **AuthnRequestsSigned** de los metadatos, que se recogen en los metadatos del perfil técnico de Azure AD B2C que se comparte con el proveedor de identidades. Azure AD B2C no firma la solicitud si el valor de**WantsSignedRequests** en los metadatos del perfil técnico se establece en `false` y los metadatos del proveedor de identidades **WantAuthnRequestsSigned** se establecen en `false` o no se especifican. |
 | XmlSignatureAlgorithm | Sin  | El método que Azure AD B2C usa para firmar la solicitud SAML. Estos metadatos controlan el valor del parámetro **SigAlg** (cadena de consulta o parámetro posterior) en la solicitud SAML. Valores posibles: `Sha256`, `Sha384`, `Sha512` o `Sha1`. Asegúrese de configurar el algoritmo de firma en ambos lados con el mismo valor. Use solo el algoritmo que admite el certificado. | 
 | WantsSignedAssertions | Sin  | Indica si el perfil técnico requiere que todas las aserciones entrantes estén firmadas. Valores posibles: `true` o `false`. El valor predeterminado es `true`. Si el valor se establece en `true`, la sección `saml:Assertion` de todas las aserciones enviadas por el proveedor de entidades a Azure AD B2C debe estar firmada. Si el valor se establece en `false`, no es necesario que el proveedor de identidades firme las aserciones, pero aunque lo haga, Azure AD B2C no validará la firma. Estos metadatos también controlan la marca de metadatos **WantsAssertionsSigned**, que se recoge en los metadatos del perfil técnico de Azure AD B2C que se comparte con el proveedor de identidades. Si deshabilita la validación de las aserciones, también puede interesarle deshabilitar la validación de la firma de respuesta (para obtener más información, vea **ResponsesSigned**). |
@@ -157,8 +142,8 @@ El elemento **CryptographicKeys** contiene los siguientes atributos:
 
 | Atributo |Obligatorio | DESCRIPCIÓN |
 | --------- | ----------- | ----------- |
-| SamlMessageSigning |SÍ | El certificado X509 (conjunto de claves RSA) que se va a usar para firmar los mensajes SAML. Azure AD B2C usa esta clave para firmar las solicitudes y enviarlas al proveedor de identidades. |
-| SamlAssertionDecryption |SÍ | El certificado X509 (conjunto de claves RSA) que se va a usar para descifrar los mensajes SAML. El proveedor de identidades debe proporcionar este certificado. Azure AD B2C usa este certificado para descifrar los datos enviados por el proveedor de identidades. |
+| SamlMessageSigning |Sí | El certificado X509 (conjunto de claves RSA) que se va a usar para firmar los mensajes SAML. Azure AD B2C usa esta clave para firmar las solicitudes y enviarlas al proveedor de identidades. |
+| SamlAssertionDecryption |Sí | El certificado X509 (conjunto de claves RSA) que se va a usar para descifrar los mensajes SAML. El proveedor de identidades debe proporcionar este certificado. Azure AD B2C usa este certificado para descifrar los datos enviados por el proveedor de identidades. |
 | MetadataSigning |Sin  | El certificado X509 (conjunto de claves RSA) que se va a usar para firmar los metadatos SAML. Azure AD B2C usa esta clave para firmar los metadatos.  |
 
 ## <a name="examples"></a>Ejemplos

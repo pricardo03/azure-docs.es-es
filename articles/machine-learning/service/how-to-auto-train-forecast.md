@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 03/19/2019
-ms.openlocfilehash: e1b584d38c4583e37b7c47535c836d1fa7d428f1
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: c4f94dd2730dd302951b4476a292b006041b7ee8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59357252"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680866"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Auto-entrenar un modelo de previsión de series temporales
 
@@ -34,27 +34,27 @@ En este artículo, aprenderá a entrenar un modelo de regresión pronóstico de 
 
 La diferencia más importante entre un tipo de tarea de regresión y regresión previsión tipo de tarea automatizada machine Learning está incluida una característica en los datos que representa una serie de tiempo válido. Una serie de tiempo regular tiene una frecuencia coherente y bien definida y tiene un valor en cada etapa de ejemplo de un intervalo de tiempo continuo. Tenga en cuenta la siguiente instantánea de un archivo `sample.csv`.
 
-    week_starting,store,sales_quantity,week_of_year
+    day_datetime,store,sales_quantity,week_of_year
     9/3/2018,A,2000,36
     9/3/2018,B,600,36
-    9/10/2018,A,2300,37
-    9/10/2018,B,550,37
-    9/17/2018,A,2100,38
-    9/17/2018,B,650,38
-    9/24/2018,A,2400,39
-    9/24/2018,B,700,39
-    10/1/2018,A,2450,40
-    10/1/2018,B,650,40
+    9/4/2018,A,2300,36
+    9/4/2018,B,550,36
+    9/5/2018,A,2100,36
+    9/5/2018,B,650,36
+    9/6/2018,A,2400,36
+    9/6/2018,B,700,36
+    9/7/2018,A,2450,36
+    9/7/2018,B,650,36
 
-Este conjunto de datos es un ejemplo sencillo de los datos de ventas semanales de una empresa que tiene dos almacenes diferentes, A y B. Asimismo, hay una característica para `week_of_year` que permitirá que el modelo detectar la estacionalidad semanal. El campo `week_starting` representa una serie temporal limpia con frecuencia semanal y el campo `sales_quantity` es la columna de destino para ejecutar predicciones. Leer los datos en una trama de datos de Pandas y, después, usar el `to_datetime` función para asegurarse de la serie temporal es un `datetime` tipo.
+Este conjunto de datos es un ejemplo sencillo de los datos de ventas diarios de una empresa que tiene dos almacenes diferentes, A y B. Asimismo, hay una característica para `week_of_year` que permitirá que el modelo detectar la estacionalidad semanal. El campo `day_datetime` representa una serie temporal limpia con frecuencia diaria y el campo `sales_quantity` es la columna de destino para ejecutar predicciones. Leer los datos en una trama de datos de Pandas y, después, usar el `to_datetime` función para asegurarse de la serie temporal es un `datetime` tipo.
 
 ```python
 import pandas as pd
 data = pd.read_csv("sample.csv")
-data["week_starting"] = pd.to_datetime(data["week_starting"])
+data["day_datetime"] = pd.to_datetime(data["day_datetime"])
 ```
 
-En este caso los datos ya están ordenados ascendente por el campo de hora `week_starting`. Sin embargo, al configurar un experimento, asegúrese de que la columna de tiempo deseado está ordenada en orden ascendente para generar una serie de tiempo válido. Suponga que los datos contienen 1000 registros y realizar una división determinista en los datos para crear el entrenamiento y conjuntos de datos de prueba. A continuación, separar el campo de destino `sales_quantity` crear la predicción entrenamiento y prueba establece.
+En este caso los datos ya están ordenados ascendente por el campo de hora `day_datetime`. Sin embargo, al configurar un experimento, asegúrese de que la columna de tiempo deseado está ordenada en orden ascendente para generar una serie de tiempo válido. Suponga que los datos contienen 1000 registros y realizar una división determinista en los datos para crear el entrenamiento y conjuntos de datos de prueba. A continuación, separar el campo de destino `sales_quantity` crear la predicción entrenamiento y prueba establece.
 
 ```python
 X_train = data.iloc[:950]
@@ -84,14 +84,18 @@ La `AutoMLConfig` objeto define la configuración y los datos necesarios para un
 |`time_column_name`|Se utiliza para especificar la columna de fecha y hora en los datos de entrada que se utiliza para compilar la serie temporal y deducir su frecuencia.|✓|
 |`grain_column_names`|Nombres de definición de grupos de series individuales en los datos de entrada. Si no se define el nivel de detalle, el conjunto de datos se supone que una serie temporal.||
 |`max_horizon`|Máximo había deseado horizonte de previsión en unidades de frecuencia de serie temporal.|✓|
+|`target_lags`|*n* valores antes de entrenamiento del modelo de destino de los períodos de retraso de avance.||
+|`target_rolling_window_size`|*n* períodos históricos que se utilizarán para generar valores pronosticados, < = tamaño del conjunto de entrenamiento. Si se omite, *n* es el completo conjunto de entrenamiento tamaño.||
 
-Cree la configuración de serie temporal como un objeto de diccionario. Establecer el `time_column_name` a la `week_starting` campo del conjunto de datos. Definir la `grain_column_names` parámetro para asegurarse de que **dos diferentes grupos de series temporales** se crean para nuestros datos; uno para la tienda A y B., por último, establezca el `max_horizon` a 50 con el fin de predecir de toda la prueba establecido.
+Cree la configuración de serie temporal como un objeto de diccionario. Establecer el `time_column_name` a la `day_datetime` campo del conjunto de datos. Definir la `grain_column_names` parámetro para asegurarse de que **dos diferentes grupos de series temporales** se crean para los datos; uno para la tienda A y B., por último, establezca el `max_horizon` a 50 con el fin de predecir de toda la prueba establecido. Establece una ventana de previsión en 10 puntos con `target_rolling_window_size`y el destino 2 períodos con los valores de retraso la `target_lags` parámetro.
 
 ```python
 time_series_settings = {
-    "time_column_name": "week_starting",
+    "time_column_name": "day_datetime",
     "grain_column_names": ["store"],
-    "max_horizon": 50
+    "max_horizon": 50,
+    "target_lags": 2,
+    "target_rolling_window_size": 10
 }
 ```
 
@@ -141,11 +145,11 @@ rmse = sqrt(mean_squared_error(y_actual, y_predict))
 rmse
 ```
 
-Ahora que el global se ha determinado la precisión del modelo, el siguiente paso más realista es utilizar el modelo para predecir valores futuros desconocidos. Solo tiene que proporcionar un conjunto de datos en el mismo formato que el conjunto de pruebas `X_test` pero con fechas futuras y la predicción resultante conjunto es los valores pronosticados para cada paso de la serie temporal. Suponga eran los últimos registros de serie temporal en el conjunto de datos para el inicio de la semana 31/12/2018. Para prever la demanda de la semana siguiente (o períodos de tantos como necesite para realizar la previsión, < = `max_horizon`), crear un único registro serie para cada almacén de tiempo para el inicio de la semana del 01/07/2019.
+Ahora que el global se ha determinado la precisión del modelo, el siguiente paso más realista es utilizar el modelo para predecir valores futuros desconocidos. Solo tiene que proporcionar un conjunto de datos en el mismo formato que el conjunto de pruebas `X_test` pero con fechas futuras y la predicción resultante conjunto es los valores pronosticados para cada paso de la serie temporal. Se supone que los últimos registros de serie temporal en el conjunto de datos ha sido 31/12/2018. Para prever la demanda para el día siguiente (o puntos tantos como necesite para realizar la previsión, < = `max_horizon`), crear un único registro de serie de tiempo para cada almacén de 01/01/2019.
 
-    week_starting,store,week_of_year
-    01/07/2019,A,2
-    01/07/2019,A,2
+    day_datetime,store,week_of_year
+    01/01/2019,A,1
+    01/01/2019,A,1
 
 Repita los pasos necesarios para cargar estos datos a una trama de datos futuros y, a continuación, ejecute `best_run.predict(X_test)` para predecir valores futuros.
 

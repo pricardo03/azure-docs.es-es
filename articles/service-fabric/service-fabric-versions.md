@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 9/24/2018
 ms.author: aljo
-ms.openlocfilehash: de5522e68d1329ce2b80a4d3c7045d38c13169e5
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
+ms.openlocfilehash: d99000e1682b662f4bceb28096395243c894282f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57191654"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681614"
 ---
 # <a name="supported-service-fabric-versions"></a>Versiones admitidas de Service Fabric
 
@@ -30,7 +30,9 @@ Consulte los documentos siguientes para ver detalles sobre cómo hacer que el cl
 - [Actualizar la versión de Service Fabric en un clúster de Azure](service-fabric-cluster-upgrade.md)
 - [Actualizar la versión de Service Fabric en un clúster independiente de windows server](service-fabric-cluster-upgrade-windows-server.md)
 
-A continuación, aparece una lista con las versiones compatibles de Service Fabric y las fechas de finalización del soporte técnico.
+## <a name="supported-versions"></a>Versiones compatibles
+
+En la tabla siguiente se enumera las versiones de Service Fabric que se admiten y sus fechas de finalización del soporte técnico.
 
 | **Entorno de tiempo de ejecución de Service Fabric en el clúster** | **Se puede actualizar directamente desde la versión del clúster** |**Versiones del SDK o paquete de NuGet compatibles** | **Fecha de finalización de soporte técnico** |
 | --- | --- |--- | --- |
@@ -45,3 +47,18 @@ A continuación, aparece una lista con las versiones compatibles de Service Fabr
 | 6.2.* | 6.0.232.* |Versión 3.1 o anterior |26 de octubre de 2018   |
 | 6.3.* | 6.1.480.* |Versión 3.2 o anterior |Marzo de 31,2019  |
 | 6.4.* | 6.2.301.* |Versión 3.3 o anterior |Versión actual y, por lo tanto, sin fecha de finalización |
+
+## <a name="supported-operating-systems"></a>Sistemas operativos compatibles
+
+ En la tabla siguiente se enumera los sistemas operativos compatibles para las versiones compatibles de Service Fabric.
+
+| **Sistema operativo** | **Versión más antigua de Fabric de servicios admitidos** |
+| --- | --- |
+| Windows Server 2012 R2 | Todas las versiones |
+| Windows Server 2016 | Todas las versiones |
+| Windows Server 1709 | 6.0 |
+| Windows Server 1803 | 6.4. |
+| Windows Server 1809 | 6.4.654.9590 |
+| Windows Server 2019 | 6.4.654.9590 |
+| Linux Ubuntu 16.04 | 6.0 |
+

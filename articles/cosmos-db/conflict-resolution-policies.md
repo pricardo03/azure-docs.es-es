@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/24/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 24201cfd657d4f23eb962b7407ed20262d780cf7
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: ebea55f769ca16bfa344d0a100fe16cec6d784d0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407426"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684232"
 ---
 # <a name="conflict-types-and-resolution-policies"></a>Tipos de conflicto y directivas de resolución de conflictos
 
@@ -37,11 +37,11 @@ Azure Cosmos DB ofrece un mecanismo flexible basado en directivas para resolver 
   > [!NOTE]
   > Últimos casos de escritura correcta es la directiva de resolución de conflictos predeterminada Está disponible para las API siguientes: SQL, MongoDB, Cassandra, Gremlin y Table.
 
-  Para obtener más información, consulte los [ejemplos de uso de directivas de resolución de conflictos LWW](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Para obtener más información, consulte los [ejemplos de uso de directivas de resolución de conflictos LWW](how-to-manage-conflicts.md).
 
 - **Personalizada**: esta directiva de resolución se ha diseñado para la conciliación de conflictos con la semántica definida por la aplicación. Al establecer esta directiva en el contenedor de Azure Cosmos, también debe registrar un *combinar el procedimiento almacenado*. Este procedimiento se invoca automáticamente cuando se detectan conflictos en una transacción de base de datos en el servidor. El sistema garantiza exactamente una vez la ejecución de un procedimiento de combinación como parte del protocolo de confirmación.  
 
-  Si configura el contenedor con la opción de resolución personalizada y no puede registrar un procedimiento de mezcla en el contenedor o el procedimiento de mezcla produce una excepción en tiempo de ejecución, los conflictos se escriben en el *conflictos fuente*. La aplicación tendrá luego que resolver manualmente los conflictos en la fuente de conflictos. Para obtener más información, consulte los [ejemplos de uso de la directiva de resolución personalizada y la fuente de conflictos](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy).
+  Si configura el contenedor con la opción de resolución personalizada y no puede registrar un procedimiento de mezcla en el contenedor o el procedimiento de mezcla produce una excepción en tiempo de ejecución, los conflictos se escriben en el *conflictos fuente*. La aplicación tendrá luego que resolver manualmente los conflictos en la fuente de conflictos. Para obtener más información, consulte los [ejemplos de uso de la directiva de resolución personalizada y la fuente de conflictos](how-to-manage-conflicts.md).
 
   > [!NOTE]
   > La directiva de resolución de conflictos personalizada solo está disponible para las cuentas de API de SQL.
@@ -51,6 +51,5 @@ Azure Cosmos DB ofrece un mecanismo flexible basado en directivas para resolver 
 Obtenga información sobre cómo configurar directivas de resolución de conflictos:
 
 * [Configuración de una arquitectura multimaestro en las aplicaciones](how-to-multi-master.md)
-* [Modo de uso de la directiva de resolución de conflictos LWW](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
-* [Modo de uso de la directiva de resolución de conflictos personalizada](how-to-manage-conflicts.md#create-a-last-writer-wins-conflict-resolution-policy)
+* [Cómo administrar directivas de resolución de conflictos](how-to-manage-conflicts.md)
 * [Cómo se leen de la fuente de conflictos](how-to-manage-conflicts.md#read-from-conflict-feed)

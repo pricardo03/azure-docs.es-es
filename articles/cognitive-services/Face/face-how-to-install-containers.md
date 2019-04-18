@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 3e6b220e7193c5e683fc8a6c06a6e9e3dd3e3f6e
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 5028a05fe74f1d19ed5e43ac797df87bbe3382e8
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521625"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680730"
 ---
 # <a name="install-and-run-face-containers"></a>Instalar y ejecutar contenedores de cara
 
@@ -32,7 +32,7 @@ Debe cumplir los siguientes requisitos previos para poder usar los contenedores 
 |--|--|
 |Motor de Docker| Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows**, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br>|
 |Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos.| 
-|Recursos de Face API |Para poder usar el contenedor, debe tener:<br><br>Un recurso de Azure de _Face API_ para obtener la clave de facturación asociada y el URI del punto de conexión de facturación. Ambos valores están disponibles en las páginas de claves y de información general de Face API en Azure Portal y son necesarios para iniciar el contenedor.<br><br>**{BILLING_KEY}**: clave de recurso<br><br>**{BILLING_ENDPOINT_URI}**: el ejemplo de URI de punto de conexión es `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|Azure `Cognitive Services` recursos |Para poder usar el contenedor, debe tener:<br><br>Un _Cognitive Services_ el URI del extremo de facturación de claves de recursos de Azure y la facturación asociada. Ambos valores están disponibles en las páginas de información general y las claves para el recurso y es necesario para iniciar el contenedor. Deberá agregar el `face/v1.0` enrutamiento para el URI del extremo, tal como se muestra en el siguiente ejemplo BILLING_ENDPOINT_URI. <br><br>**{BILLING_KEY}**: clave de recurso<br><br>**{BILLING_ENDPOINT_URI}**: el ejemplo de URI de punto de conexión es `https://westus.api.cognitive.microsoft.com/face/v1.0`|
 
 
 ## <a name="request-access-to-the-private-container-registry"></a>Solicitud de acceso al registro de contenedor privado
@@ -86,8 +86,10 @@ Utilice el comando [docker run](https://docs.docker.com/engine/reference/command
 
 | Marcador de posición | Valor |
 |-------------|-------|
-|{BILLING_KEY} | Esta clave se usa para iniciar el contenedor y está disponible en la página de claves de Face API en Azure Portal.  |
-|{BILLING_ENDPOINT_URI} | El valor de URI del punto de conexión de facturación está disponible en Azure Portal, en la página de información general de Face API.|
+|{BILLING_KEY} | Esta clave se usa para iniciar el contenedor y está disponible en Azure `Cognitive Services` página claves.  |
+|{BILLING_ENDPOINT_URI} | El valor del identificador URI de extremo facturación está disponible en Azure `Cognitive Services` página de información general. Ejemplo es: `https://westus.api.cognitive.microsoft.com/face/v1.0`|
+
+Deberá agregar el `face/v1.0` enrutamiento para el URI del extremo, tal como se muestra en el ejemplo anterior de BILLING_ENDPOINT_URI. 
 
 Reemplace estos parámetros con sus propios valores en el siguiente comando `docker run` de ejemplo.
 

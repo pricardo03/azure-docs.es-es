@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 1/17/2019
 ms.author: srrengar
-ms.openlocfilehash: b8e1958947ced5ea2d0bd8b34667210bf935072d
-ms.sourcegitcommit: c6dc9abb30c75629ef88b833655c2d1e78609b89
+ms.openlocfilehash: 36d01a9e6e55ae54377ba3f983f779dbc692c49a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58662914"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681529"
 ---
 # <a name="eventstore-service-overview"></a>Información general del servicio EventStore
 
@@ -72,7 +72,7 @@ En el archivo [fabricSettings.json del clúster](service-fabric-cluster-fabric-s
 
 ### <a name="azure-cluster"></a>Clúster de Azure
 
-En la plantilla de Azure Resource Manager del clúster, puede activar el servicio EventStore realizando una [actualización de la configuración del clúster](service-fabric-cluster-config-upgrade-azure.md) y agregue el código siguiente. La sección `upgradeDescription` configura la actualización de la configuración para desencadenar un reinicio en los nodos. Puede quitar la sección en otra actualización.
+En la plantilla del clúster Azure Resource Manager, puede activar el servicio EventStore mediante la realización de una [actualización de configuración de clúster](service-fabric-cluster-config-upgrade-azure.md) y agregue el código siguiente, se puede usar PlacementConstraints para colocar las réplicas de EventStore servicio en un tipo de nodo específico, por ejemplo, un tipo de nodo dedicado para los servicios del sistema. La sección `upgradeDescription` configura la actualización de la configuración para desencadenar un reinicio en los nodos. Puede quitar la sección en otra actualización.
 
 ```json
     "fabricSettings": [
@@ -89,6 +89,10 @@ En la plantilla de Azure Resource Manager del clúster, puede activar el servici
               {
                 "name": "MinReplicaSetSize",
                 "value": "1"
+              }
+              {
+                "name": "PlacementConstraints",
+                "value": "(NodeType==<node_type_name_here>)"
               }
             ]
           }

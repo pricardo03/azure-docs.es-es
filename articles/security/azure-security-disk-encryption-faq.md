@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 04/05/2019
+ms.date: 04/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: d7ccf370ae2f3f9add2b73797e8938d4580d81dd
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 2a5fb822a84792cec059aa6c78b66b3a628f25af
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493151"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679285"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>Preguntas más frecuentes de Azure Disk Encryption para máquinas virtuales IaaS
 
@@ -45,8 +45,9 @@ Las distribuciones de servidor de Linux que no están aprobadas por Azure no son
 
 | Distribución de Linux | Versión | Tipo de volumen admitido para el cifrado|
 | --- | --- |--- |
+| Ubuntu | 18,04| Sistema operativo y disco de datos |
 | Ubuntu | 16.04| Sistema operativo y disco de datos |
-| Ubuntu | 14.04.5</br>[con Azure optimizado kernel actualizado a 4.15 valor o una versión posterior](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Sistema operativo y disco de datos |
+| Ubuntu | 14.04.5</br>[con kernel optimizado para Azure 4.15 o posterior](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | Sistema operativo y disco de datos |
 | RHEL | 7.6 | Sistema operativo y disco de datos* |
 | RHEL | 7.5 | Sistema operativo y disco de datos* |
 | RHEL | 7.4 | Sistema operativo y disco de datos* |
@@ -170,6 +171,6 @@ Puede realizar preguntas o publicar comentarios en el [Foro de Azure Disk Encryp
 ## <a name="next-steps"></a>Pasos siguientes
 En este documento, aprendió más acerca de las preguntas más frecuentes sobre Azure Disk Encryption. Para obtener más información acerca de este servicio, vea los siguientes artículos:
 
-- [Introducción al cifrado de disco de Azure](azure-security-disk-encryption-overview.md)
-- [Aplicación del cifrado de discos en el Centro de seguridad de Azure](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
-- [Cifrado de datos de Azure en reposo](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)
+- [Introducción a Azure Disk Encryption](azure-security-disk-encryption-overview.md)
+- [Aplicación de cifrado de discos en Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)
+- [Cifrado de datos en reposo de Azure](https://docs.microsoft.com/azure/security/azure-security-encryption-atrest)

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: arthii, LADocs
 ms.topic: article
 ms.date: 10/01/2018
-ms.openlocfilehash: 91d1369b9197f6ef941d981aa9cf7539b4554d0c
-ms.sourcegitcommit: 3ab534773c4decd755c1e433b89a15f7634e088a
-ms.translationtype: HT
+ms.openlocfilehash: 67a918b227ad3b33a2f63b17f86b94f36fbc9fa3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/07/2019
-ms.locfileid: "54065807"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679132"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Instalación de una puerta de enlace de datos local para Azure Logic Apps
 
@@ -435,26 +435,6 @@ Para encontrar los registros de eventos de la puerta de enlace, siga estos pasos
 
    ![Visualización de registros de eventos de la puerta de enlace](./media/logic-apps-gateway-install/event-viewer.png)
 
-### <a name="telemetry"></a>Telemetría
-
-Para obtener supervisión adicional y solución de problemas, puede activar y recopilar datos de telemetría. 
-
-1. Vaya a la ubicación del cliente de puerta de enlace de datos local, que normalmente se encuentra aquí: ```C:\Program Files\On-premises data gateway```
-
-   En caso contrario, para buscar la ubicación del cliente, abra la consola de servicios en el mismo equipo, busque **On-premises data gateway service** (Servicio de puerta de enlace de datos local) y vea la propiedad **Path to executable** (Ruta de acceso al archivo ejecutable).
-
-2. Abra este archivo de *configuración*: **Microsoft.PowerBI.DataMovement.Pipeline.GatewayCore.dll.config**
-
-3. Cambie el valor de **SendTelemetry** a **true**:
-
-   ```html
-   <setting name="SendTelemetry" serializeAs="String">
-      <value>true</value>
-   </setting>
-   ```
-
-4. Guarde los cambios y reinicie el servicio de Windows.
-
 ### <a name="review-slow-query-performance"></a>Revisión del rendimiento lento de las consultas
 
 Si le parece que las consultas se ejecutan con lentitud a través de la puerta de enlace, puede activar un registro adicional que devuelva las consultas y sus duraciones. Estos registros pueden ayudarle a encontrar las consultas que son lentas o de larga ejecución. Para optimizar el rendimiento de las consultas, es posible que tenga que modificar el origen de datos, por ejemplo, ajustar los índices para las consultas de SQL Server.
@@ -526,7 +506,7 @@ Para determinar la duración de una consulta, siga estos pasos:
 
 ### <a name="trace-traffic-with-fiddler"></a>Seguimiento del tráfico con Fiddler
 
-[Fiddler](http://www.telerik.com/fiddler) es una herramienta gratuita de Telerik que supervisa el tráfico HTTP. Puede ver este tráfico con el servicio Power BI desde la máquina cliente. Este servicio puede mostrar errores y otra información relacionada.
+[Fiddler](https://www.telerik.com/fiddler) es una herramienta gratuita de Telerik que supervisa el tráfico HTTP. Puede ver este tráfico con el servicio Power BI desde la máquina cliente. Este servicio puede mostrar errores y otra información relacionada.
 
 ## <a name="next-steps"></a>Pasos siguientes
     

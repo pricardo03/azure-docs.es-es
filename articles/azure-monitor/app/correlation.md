@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 02/14/2019
 ms.reviewer: sergkanz
 ms.author: lagayhar
-ms.openlocfilehash: cc2d45aee170517d7e41cbda6d92bc21067732d1
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 565f08f0c69aef393a9296f3cce90570a3f0bc2c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59493644"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683034"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlación de Telemetría en Application Insights
 
@@ -102,7 +102,7 @@ public void ConfigureServices(IServiceCollection services)
 
 #### <a name="enable-w3c-distributed-tracing-support-for-java-apps"></a>Habilitar la compatibilidad con el seguimiento distribuido de W3C para aplicaciones de Java
 
-- **Configuración entrante**
+- **Configuración de entrada**
 
   - En el caso de las aplicaciones de Java EE, agregue lo siguiente a la etiqueta `<TelemetryModules>` en el archivo ApplicationInsights.xml:
 
@@ -143,8 +143,8 @@ La [especificación del modelo de datos de OpenTracing](https://opentracing.io/)
 
 | Application Insights                  | OpenTracing                                       |
 |------------------------------------   |-------------------------------------------------  |
-| `Request`. `PageView`                 | `Span` por `span.kind = server`                  |
-| `Dependency`                          | `Span` por `span.kind = client`                  |
+| `Request`, `PageView`                 | `Span` con `span.kind = server`                  |
+| `Dependency`                          | `Span` con `span.kind = client`                  |
 | `Id` de `Request` y `Dependency`    | `SpanId`                                          |
 | `Operation_Id`                        | `TraceId`                                         |
 | `Operation_ParentId`                  | `Reference` de tipo `ChildOf` (el intervalo primario)   |
@@ -158,17 +158,17 @@ Para ver definiciones de los conceptos de OpenTracing, consulte [specification](
 Con el tiempo, .NET ha establecido diversas formas para establecer correspondencias entre la telemetría y los registros de diagnósticos:
 
 - `System.Diagnostics.CorrelationManager` permite realizar un seguimiento de [LogicalOperationStack y ActivityId](https://msdn.microsoft.com/library/system.diagnostics.correlationmanager.aspx). 
-- `System.Diagnostics.Tracing.EventSource` y seguimiento de eventos para Windows (ETW) defina la [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx) método.
+- `System.Diagnostics.Tracing.EventSource` y Seguimiento de eventos para Windows (ETW) definen el método [SetCurrentThreadActivityId](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid.aspx).
 - `ILogger` usa [ámbitos de registro](https://docs.microsoft.com/aspnet/core/fundamentals/logging#log-scopes). 
 - Windows Communication Foundation (WCF) y HTTP conectan la propagación del contexto "actual".
 
-Sin embargo, esos métodos no proporcionaban compatibilidad con el seguimiento distribuido automático. `DiagnosticSource` es una manera de admitir la correlación automática entre equipos. Las bibliotecas de .NET admiten "DiagnosticSource" y permiten la propagación automática entre máquinas del contexto de correlación mediante el transporte correspondiente; por ejemplo, HTTP.
+Sin embargo, esos métodos no proporcionaban compatibilidad con el seguimiento distribuido automático. `DiagnosticSource` es un mecanismo para admitir la correlación automática entre máquinas. Las bibliotecas de .NET admiten "DiagnosticSource" y permiten la propagación automática entre máquinas del contexto de correlación mediante el transporte correspondiente; por ejemplo, HTTP.
 
 En la [guía de Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) de `DiagnosticSource`, se explican los conceptos básicos de las actividades de seguimiento.
 
 ASP.NET Core 2.0 admite la extracción de encabezados HTTP e inicia una nueva actividad.
 
-`System.Net.HttpClient`, comenzando con la versión 4.1.0, admite la inserción automática de los encabezados HTTP de correlación y seguimiento HTTP llamar como una actividad.
+A partir de la versión 4.1.0, `System.Net.HttpClient` permite insertar automáticamente los encabezados HTTP de correlación y realizar un seguimiento de la llamada HTTP como actividad.
 
 Hay un nuevo módulo HTTP, [Microsoft.AspNet.TelemetryCorrelation](https://www.nuget.org/packages/Microsoft.AspNet.TelemetryCorrelation/) para ASP.NET clásico. Este módulo implementa la correlación de telemetría mediante `DiagnosticSource`. Las actividades se inician en función de los encabezados de solicitud entrantes. También establece correlación entre los datos de telemetría de las distintas fases del procesamiento de solicitudes, incluso en los casos en los que cada fase de procesamiento de Internet Information Services (IIS) se ejecuta en un subproceso administrado diferente.
 
@@ -217,7 +217,7 @@ Es posible que, en ocasiones, quiera personalizar el modo en que los nombres de 
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Escriba una [telemetría personalizada](../../azure-monitor/app/api-custom-events-metrics.md).
-- Obtenga más información sobre la [opción cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud_rolename) en otros SDK.
+- Obtenga más información sobre la [opción cloud_RoleName](../../azure-monitor/app/app-map.md#set-cloud-role-name) en otros SDK.
 - Incorpore todos los componentes de un microservicio en Application Insights. Consulte las [plataformas compatibles](../../azure-monitor/app/platforms.md).
 - Consulte en el [modelo de datos](../../azure-monitor/app/data-model.md) los tipos de Application Insights.
 - Obtenga información sobre cómo [ampliar y filtrar la telemetría](../../azure-monitor/app/api-filtering-sampling.md).

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: robinsh
-ms.openlocfilehash: a203018cb1a27c17b9c7162b50a380f9edae2e60
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: ffc2e5fb588ce6861f5df6cefdf810c1a015c043
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59273199"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684045"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Pronóstico meteorológico con los datos del sensor de IoT Hub en Azure Machine Learning
 
@@ -41,7 +41,7 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 
 ## <a name="what-you-need"></a>Lo que necesita
 
-- Tutorial [Instalación de su dispositivo](iot-hub-raspberry-pi-kit-node-get-started.md) completado donde se abordan los siguientes requisitos:
+- Completar la [simulador en línea de Raspberry Pi](iot-hub-raspberry-pi-web-simulator-get-started.md) tutorial o uno de los tutoriales de dispositivo; por ejemplo, [Raspberry Pi con node.js](iot-hub-raspberry-pi-kit-node-get-started.md). Estos cubren los siguientes requisitos:
   - Una suscripción de Azure activa.
   - Un centro de Azure IoT en su suscripción.
   - Una aplicación cliente que envía mensajes a su centro de Azure IoT.
@@ -51,11 +51,11 @@ Obtenga información sobre cómo usar Azure Machine Learning para realizar pron�
 
 1. Vaya a la [página del modelo de pronóstico meteorológico](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1).
 1. Haga clic en **Abrir en Studio** en Microsoft Azure Machine Learning Studio.
-   ![Abra la página del modelo de pronóstico meteorológico en la Galería de Cortana Intelligence](media/iot-hub-weather-forecast-machine-learning/2_weather-prediction-model-in-cortana-intelligence-gallery.png)
+   ![Abrir la página del modelo de pronóstico meteorológico en la Galería de Cortana Intelligence](media/iot-hub-weather-forecast-machine-learning/2_weather-prediction-model-in-cortana-intelligence-gallery.png)
 1. Haga clic en **Ejecutar** para validar los pasos del modelo. Este paso puede tardar 2 minutos en completarse.
-   ![Abra el modelo de pronóstico meteorológico en Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)
+   ![Abrir el modelo de pronóstico meteorológico en Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)
 1. Haga clic en **CONFIGURAR SERVICIO WEB** > **Servicio web predictivo**.
-   ![Implemente el modelo de predicción meteorológica en Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)
+   ![Implementar el modelo de pronóstico meteorológico en Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)
 1. En el diagrama, arrastre el módulo **Entrada de servicio web** a algún lugar cerca del módulo **Puntuar modelo**.
 1. Conecte el módulo **Entrada de servicio web** con el módulo **Puntuar modelo**.
    ![Conectar dos módulos en Azure Machine Learning Studio](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)

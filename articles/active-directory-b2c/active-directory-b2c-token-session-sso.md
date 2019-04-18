@@ -1,78 +1,28 @@
 ---
-title: Configuración de tokens, sesiones e inicio de sesión único en Azure Active Directory B2C | Microsoft Docs
-description: Configuración de tokens, sesiones e inicio de sesión único en Azure Active Directory B2C.
+title: Sesión y solo inicio de sesión en configuración - Azure Active Directory B2C | Microsoft Docs
+description: Sesión y configuración de inicio de sesión único en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: d1acdb8b5d0054f1dffd1014a350540b6de40d75
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.openlocfilehash: 674a20fc96cf5b86219222d746525a3559ae9d09
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55171514"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681104"
 ---
-# <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Configuración de tokens, sesiones e inicio de sesión único en Azure Active Directory B2C.
+# <a name="session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Sesión y la configuración de inicio de sesión único en Azure Active Directory B2C
 
 Esta característica ofrece un control más preciso, [por directivas](active-directory-b2c-reference-policies.md), de lo siguiente:
 
-- La vigencia de los tokens de seguridad emitidos por Azure Active Directory (Azure AD) B2C.
 - La duración de las sesiones de aplicación web administradas por Azure AD B2C.
-- Formatos de notificaciones importantes en los tokens de seguridad emitidos por Azure AD B2C.
 - El comportamiento de inicio de sesión único (SSO) entre varias aplicaciones y flujos de usuario en el inquilino de Azure AD B2C.
-
-Puede usar esta característica en cualquier tipo de directiva, pero en este ejemplo se muestra cómo usar la característica con una directiva de registro o flujo de usuario de inicio de sesión. Con los flujos de usuario, puede usar esta característica en el directorio de Azure AD B2C de la manera siguiente:
-
-1. Haga clic en **Flujos de usuario**.
-2. Haga clic en un flujo de usuarios para abrirlo. Por ejemplo, haga clic en **B2C_1_SiUpIn**.
-3. Haga clic en **Propiedades**.
-4. En **Configuración de compatibilidad de token**, realice los cambios deseados. Obtenga información acerca de las propiedades disponibles en las secciones siguientes.
-5. Haga clic en **Guardar** en la parte superior del menú.
-
-## <a name="token-lifetimes-configuration"></a>Configuración de la vigencia de los tokens
-
-Azure AD B2C admite el [protocolo de autorización de OAuth 2.0](active-directory-b2c-reference-protocols.md) para habilitar un acceso seguro a los recursos protegidos. Para implementar esta compatibilidad, Azure AD B2C emite varios [tokens de seguridad](active-directory-b2c-reference-tokens.md). 
-
-Las siguientes propiedades se utilizan para administrar la vigencia de los tokens de seguridad emitidos por Azure AD B2C:
-
-- **Vigencia (en minutos) de token de acceso y de identificador**: la vigencia del token de portador de OAuth 2.0 que se utiliza para obtener acceso a un recurso protegido.
-    - Valor predeterminado: 60 minutos.
-    - Mínimo (incluido) = 5 minutos.
-    - Máximo (incluido) = 1440 minutos.
-- **Vigencia del token de actualización (en días)**: el período máximo en que un token de actualización se puede utilizar para adquirir un nuevo token de acceso o de identificador (y opcionalmente, un nuevo token de actualización, si se hubiera concedido el ámbito `offline_access` a la aplicación).
-    - Valor predeterminado = 14 días.
-    - Mínimo (incluido) = 1 día.
-    - Máximo (incluido) = 90 días.
-- **Vigencia (en días) de la ventana deslizante del token de actualización**: después de transcurrido este período de tiempo, el usuario está obligado a volver a autenticarse, independientemente de cuál sea el período de validez del último token de actualización obtenido por la aplicación. Solo se pueden proporcionar si el conmutador se establece en **Bounded**(Enlazado). Es preciso que sea mayor o igual que el valor de **Vigencia del token de actualización (en días)** . Si el conmutador se establece en **Unbounded**(Sin enlazar), no se puede proporcionar un valor específico.
-    - Valor predeterminado = 90 días.
-    - Mínimo (incluido) = 1 día.
-    - Máximo (incluido) = 365 días.
-
-Los siguientes casos de uso se habilitan mediante estas propiedades:
-
-- Permiso para que un usuario pueda permanecer conectado en una aplicación móvil indefinidamente, siempre que esté continuamente activo en la misma. Establezca **Duración de la ventana deslizante del token de actualización (días)** en **Unbounded** (Sin enlazar) en el flujo de usuario de inicio de sesión.
-- Cumpla los requisitos de cumplimiento normativo y seguridad de la industria mediante el establecimiento de la vigencia adecuada del token de acceso.
-
-Estas opciones no están disponibles para flujos de usuario de restablecimiento de contraseña. 
-
-## <a name="token-compatibility-settings"></a>Configuración de compatibilidad de tokens
-
-Las siguientes propiedades permiten a los clientes participar según sea necesario:
-
-- **Notificación de emisor (iss)**: esta propiedad identifica el inquilino de Azure AD B2C que emitió el token.
-    - `https://<domain>/{B2C tenant GUID}/v2.0/`: este es el valor predeterminado.
-    - `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: este valor incluye los identificadores tanto del inquilino B2C como del flujo de usuario usado en la solicitud de token. Si una aplicación o biblioteca necesita que Azure AD B2C sea compatible con la [especificación OpenID Connect Discovery 1.0](https://openid.net/specs/openid-connect-discovery-1_0.html), use este valor.
-- **Notificación de asunto (sub)**: esta propiedad identifica la entidad para la que el token valida la información.
-    - **ObjectID**: esta propiedad es el valor predeterminado. Rellena el identificador de objeto del usuario del directorio de la notificación `sub` del token.
-    - **No se admite**: esta propiedad solo se proporciona para que haya compatibilidad con las versiones anteriores y se recomienda cambiar a **ObjectID** lo antes posible.
-- **Notificación que representa el identificador de la directiva**: esta propiedad identifica el tipo de notificación en el que se rellena el identificador de directiva utilizado en la solicitud de token.
-    - **tfp**: esta propiedad es el valor predeterminado.
-    - **acr**: esta propiedad solo se proporciona por motivos de compatibilidad con versiones anteriores.
 
 ## <a name="session-behavior"></a>Comportamiento de la sesión
 
@@ -98,7 +48,7 @@ Si tiene varias aplicaciones y flujos de usuario en el inquilino B2C, puede admi
 - **Inquilino**: esta es la configuración predeterminada. Esta configuración permite que varias aplicaciones y flujos de usuario del inquilino B2C compartan la misma sesión de usuario. Por ejemplo, una vez que un usuario inicia sesión en una aplicación, puede también iniciar sesión perfectamente en otra llamada Contoso Pharmacy simplemente con acceder a ella.
 - **Aplicación**: este valor permite mantener una sesión de usuario exclusivamente para una aplicación, independientemente de otras aplicaciones. Por ejemplo, si desea que el usuario inicie sesión en Contoso Pharmacy (con las mismas credenciales), aunque ya haya iniciado sesión en Contoso Shopping, otra aplicación en el mismo inquilino B2C. 
 - **Directiva**: este valor permite mantener una sesión de usuario exclusivamente para un flujo de usuario, independientemente de las aplicaciones que lo usen. Por ejemplo, si el usuario ya ha iniciado sesión y ha realizado un paso de autenticación multifactor (MFA), se le puede dar acceso a zonas de mayor seguridad de varias aplicaciones mientras no expire la sesión asociada al flujo de usuario.
-- **Deshabilitado**: este valor obliga al usuario a ejecutar todo el flujo de usuario cada vez que se ejecuta la directiva. Por ejemplo, esto permite que varios usuarios se registren en la aplicación (en un escenario de escritorio compartido), incluso si un único usuario permanece conectado durante todo el tiempo.
+- **Deshabilitado**: este valor obliga al usuario a ejecutar todo el flujo de usuario cada vez que se ejecuta la directiva.
 
 Estas opciones no están disponibles para flujos de usuario de restablecimiento de contraseña. 
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: d75deaca7ce052d40274f1f57a8f6603a3ecdfd2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 9c97f23c2dfc2b1c0ff794aa20ffb58cd8b8741a
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59046162"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683909"
 ---
 # <a name="set-up-compute-targets-for-model-training"></a>Configuración de destinos de proceso del entrenamiento del modelo
 
@@ -361,8 +361,8 @@ Siga los pasos descritos previamente para ver la lista de destinos de proceso. L
     > [!NOTE]
     > Microsoft recomienda que use claves SSH, que son más seguras que las contraseñas. Las contraseñas son vulnerables a ataques por fuerza bruta. Las claves SSH se basan en las firmas criptográficas. Para información sobre cómo crear claves SSH para usarlas con Azure Virtual Machines, consulte los siguientes documentos:
     >
-    > * [Crear y utilizar claves SSH en Linux o macOS](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
-    > * [Crear y usar claves SSH en Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
+    > * [Creación y uso de claves SSH en Linux o macOS](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys)
+    > * [Creación y uso de claves SSH en Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows)
 
 1. Seleccione __Adjuntar__. 
 1. Consulte el estado de la operación de adjuntar seleccionando el destino de proceso en la lista.
@@ -377,7 +377,6 @@ Puede acceder a los destinos de proceso asociados con el área de trabajo median
 
 Para más información, consulte el artículo sobre la [administración de recursos](reference-azure-machine-learning-cli.md#resource-management).
 
-
 ## <a id="submit"></a>Envío de una ejecución de entrenamiento
 
 Después de crear una configuración de ejecución, se utiliza para ejecutar el experimento.  El patrón de código para enviar una ejecución de entrenamiento es el mismo para todos los tipos de destinos de proceso:
@@ -385,6 +384,13 @@ Después de crear una configuración de ejecución, se utiliza para ejecutar el 
 1. Creación de un experimento para su ejecución
 1. Envíe la ejecución.
 1. Espere a que la ejecución se complete.
+
+> [!IMPORTANT]
+> Al enviar la ejecución de formación, una instantánea del directorio que contiene los scripts de entrenamiento se crean y envían al destino de proceso. También se almacena como parte del experimento en el área de trabajo. Si cambia los archivos y enviar la ejecución de nuevo, se cargará solo los archivos cambiados.
+>
+> Para evitar que los archivos que se incluye en la instantánea, cree un [.gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` en el directorio y agréguele los archivos. El `.amlignore` archivo usa la misma sintaxis y patrones como la [.gitignore](https://git-scm.com/docs/gitignore) archivo. Si ambos archivos se encuentran el `.amlignore` archivo tiene prioridad.
+> 
+> Para más información, consulte [Instantánea](concept-azure-machine-learning-architecture.md#snapshot).
 
 ### <a name="create-an-experiment"></a>Creación de un experimento
 
@@ -399,8 +405,6 @@ Envíe el experimento con un objeto `ScriptRunConfig`.  Este objeto incluye:
 * **source_directory**: el directorio de origen que contiene el script de entrenamiento.
 * **script**: Identificación del script de entrenamiento
 * **run_config**: la configuración de ejecución, que a su vez define donde tendrá lugar el entrenamiento.
-
-Cuando envía una ejecución de entrenamiento, se crea una instantánea del directorio que contiene los scripts de entrenamiento y se envía al destino de proceso. Para más información, consulte [Instantánea](concept-azure-machine-learning-architecture.md#snapshot).
 
 Por ejemplo, para usar la configuración del [destino local](#local):
 
@@ -418,7 +422,7 @@ También puede:
 ## <a name="notebook-examples"></a>Ejemplos de cuadernos
 
 Consulte estos cuadernos para ver ejemplos de entrenamiento con varios destinos de proceso:
-* [How-to-use-azureml y aprendizaje](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
+* [how-to-use-azureml/training](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training)
 * [tutorials/img-classification-part1-training.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/tutorials/img-classification-part1-training.ipynb)
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
@@ -428,4 +432,4 @@ Consulte estos cuadernos para ver ejemplos de entrenamiento con varios destinos 
 * [Tutorial: Entrenamiento de un modelo](tutorial-train-models-with-aml.md) utiliza un destino de proceso administrado para entrenar un modelo.
 * Cuando tenga un modelo entrenado, aprenda [cómo y dónde implementar los modelos](how-to-deploy-and-where.md).
 * Consulte la referencia del SDK de la [clase RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.runconfiguration?view=azure-ml-py).
-* [Usar el servicio de Azure Machine Learning con Azure Virtual Network](how-to-enable-virtual-network.md)
+* [Uso de Azure Machine Learning Service con Azure Virtual Network](how-to-enable-virtual-network.md)

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 12/03/2018
 ms.author: iainfou
-ms.openlocfilehash: fd538ce6821b35dc6e3932256090afdf70b4b232
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 4b9e9aeab6ed24dd2179f853def02ad194fe1b67
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755256"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681036"
 ---
 # <a name="preview---create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Obtener una vista previa: crear y configurar un clúster de Azure Kubernetes Service (AKS) para usar los nodos virtuales en Azure portal
 
@@ -32,6 +32,16 @@ Para las implementaciones de nodo virtual, se admiten las siguientes regiones:
 * Centro occidental de Ee.uu. (oeste)
 * Europa Occidental (westeurope)
 * Oeste de EE. UU. (westus)
+
+## <a name="known-limitations"></a>Limitaciones conocidas
+Funcionalidad de los nodos virtual es depende en gran medida en el conjunto de características de ACI. Los escenarios siguientes no se admiten aún con los nodos virtuales
+
+* Con la entidad de servicio para extraer imágenes ACR. [Solución alternativa](https://github.com/virtual-kubelet/virtual-kubelet/blob/master/providers/azure/README.md#Private-registry) consiste en usar [secretos de Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
+* [Limitaciones de la red virtual](../container-instances/container-instances-vnet.md) incluidos emparejamiento de redes virtuales, las directivas de red de Kubernetes y el tráfico saliente a internet con grupos de seguridad de red.
+* Contenedores de init
+* [Alias de host](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
+* [Argumentos](../container-instances/container-instances-exec.md#restrictions) para exec en ACI
+* [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) no implementará los pods en el nodo virtual
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 

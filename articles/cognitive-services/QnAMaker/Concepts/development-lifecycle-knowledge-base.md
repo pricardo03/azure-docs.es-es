@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 04/05/2019
+ms.date: 04/16/2019
 ms.author: tulasim
 ms.custom: seodec18
-ms.openlocfilehash: 4acecb9d15f820ba092f36d8fa3ea204658d2dba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3f78b8a2566137d596f4ab3f083e1d14289365c3
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59276786"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59684028"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>Ciclo de vida de una base de conocimiento de QnA Maker
 QnA Maker aprende mejor en un ciclo iterativo de cambios en el modelo, ejemplos de expresiones, publicación y recopilación de datos de las consultas de punto de conexión. 
@@ -35,14 +35,23 @@ La base de conocimiento está lista para probarla una vez que se llena con el co
 
 Este bucle ajustado de prueba-actualización continúa hasta que esté satisfecho con los resultados. Vea cómo [probar la base de conocimiento](../How-To/test-knowledge-base.md).
 
-Para artículos de KB de gran tamaño, use pruebas automatizadas con el [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) y `isTest=true` parámetro de cadena de consulta de las consultas que el `test` knowledge base en lugar de la base de conocimiento publicada. 
+Para artículos de KB de gran tamaño, use pruebas automatizadas con el [generateAnswer API](../how-to/metadata-generateanswer-usage.md#get-answer-predictions-with-the-generateanswer-api) y `isTest` body (propiedad) en las consultas que el `test` knowledge base en lugar de la base de conocimiento publicada. 
+
+```json
+{
+  "question": "example question",
+  "top": 3,
+  "userId": "Default",
+  "isTest": true
+}
+```
 
 ## <a name="publish-the-knowledge-base"></a>Publicación de una base de conocimiento
 Cuando haya terminado de probar la base de conocimiento, puede publicarla. Al publicar, se inserta la versión más reciente de la base de conocimiento probada en un índice de Azure Search dedicado que representa la base de conocimiento **publicada**. También se crea un punto de conexión al que puede llamar en su aplicación o bot de chat.
 
 De esta manera, los cambios realizados en la versión de prueba de la base de conocimiento no afectan a la versión publicada que podría estar activa en una aplicación de producción.
 
-Cada una de estas bases de conocimiento se pueden probar por separado. Con las API, puede dirigirse a la versión de prueba de la base de conocimiento con la marca `isTest=true` en la llamada de generateAnswer.
+Cada una de estas bases de conocimiento se pueden probar por separado. Mediante las API, puede tener como destino la versión de prueba de la base de conocimiento con `isTest` body (propiedad) en la llamada generateAnswer.
 
 Vea cómo [publicar la base de conocimiento](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base).
 

@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 12/10/2018
 ms.author: routlaw
 ms.custom: seodec18
-ms.openlocfilehash: bab6510af98b153ecb61db8fc49b5124aae04598
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 5c9f70650f518c72a75d9a7826e7cbc30a95a00c
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500471"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680883"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guía para desarrolladores de Java para App Service en Linux
 
@@ -28,9 +28,9 @@ Esta guía incluye conceptos clave e instrucciones para los desarrolladores de J
 
 ## <a name="deploying-your-app"></a>Implementación de la aplicación
 
-Puede usar el complemento Maven para implementar los archivos .jar y .war. Para obtener más información acerca del complemento Maven, consulte [esta documentación](https://docs.microsoft.com/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme?view=azure-java-stable).
+Puede usar [complemento Maven de Azure App Service](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) para implementar los archivos .jar y .war. También se admite la implementación con IDE populares con [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) o [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse).
 
-Si no usa Maven, el método de implementación dependerá del tipo de archivo:
+En caso contrario, el método de implementación dependerá de su tipo de archivo:
 
 - Para implementar archivos .war en Tomcat, utilice el punto de conexión `/api/wardeploy/` para realizar el conjunto de rutinas POST en el archivo. Para obtener más información sobre esta API, consulte [este documento](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file).
 - Para implementar archivos .jar en las imágenes de Java SE, use el punto de conexión `/api/zipdeploy/` del sitio de Kudu. Para obtener más información sobre la API, consulte [este documento](https://docs.microsoft.com/azure/app-service/deploy-zip#rest).
@@ -79,12 +79,12 @@ Las imágenes integradas de Java se basan en el [Alpine Linux](https://alpine-li
 
 ## <a name="customization-and-tuning"></a>Personalización y optimización
 
-Azure App Service para Linux admite la optimización y la personalización de serie a través de Azure Portal y de la CLI de Azure. Revise los artículos siguientes para la configuración de aplicaciones web específicas que no son de Java:
+Azure App Service para Linux admite fuera del cuadro optimización y la personalización mediante la CLI y Azure portal. Revise los artículos siguientes para la configuración de aplicaciones web específicas que no son de Java:
 
 - [Configuración de App Service](/azure/app-service/web-sites-configure?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Configurar un dominio personalizado](/azure/app-service/app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Habilitar SSL](/azure/app-service/app-service-web-tutorial-custom-ssl?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-- [Agregar una red CDN](/azure/cdn/cdn-add-to-web-app?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Configuración de un dominio personalizado](/azure/app-service/app-service-web-tutorial-custom-domain?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Habilitación de SSL](/azure/app-service/app-service-web-tutorial-custom-ssl?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
+- [Adición de una red CDN](/azure/cdn/cdn-add-to-web-app?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 - [Configurar el sitio de Kudu](https://github.com/projectkudu/kudu/wiki/Configurable-settings#linux-on-app-service-settings)
 
 ### <a name="set-java-runtime-options"></a>Definición de las opciones de Java Runtime
@@ -93,7 +93,7 @@ Para establecer la memoria asignada u otras opciones de tiempo de ejecución JVM
 
 En Azure Portal, en **Configuración de la aplicación** para la aplicación web, cree un nuevo valor de la aplicación denominado `JAVA_OPTS` que incluya valores de configuración adicionales, como `-Xms512m -Xmx1204m`.
 
-Para configurar la configuración de la aplicación desde el complemento Maven, agregue las etiquetas de configuración y valor en la sección de complemento de Azure. En el ejemplo siguiente se establecen tamaños de montón de Java mínimo y máximo específicos:
+Para configurar la configuración de la aplicación desde el complemento Maven, agregue las etiquetas de configuración y valor en la sección de complemento de Azure. El ejemplo siguiente establece un tamaño de montón de Java mínimo y máximo específico:
 
 ```xml
 <appSettings>
@@ -112,7 +112,7 @@ Los desarrolladores que ejecutan una sola aplicación con una ranura de implemen
 
 Cuando optimice la configuración del montón de la aplicación, revise los detalles de su plan de App Service y tenga en cuenta distintas necesidades de aplicaciones y ranuras de implementación para encontrar la asignación óptima de memoria.
 
-Si va a implementar una aplicación de JAR, debe denominarse `app.jar` para que la imagen integrada puede identificar correctamente la aplicación. (El complemento Maven realiza automáticamente este cambio de nombre). Si no desea cambiar el nombre de archivo JAR para `app.jar`, puede cargar un script de shell con el comando para ejecutar el archivo JAR. A continuación, pegue la ruta de acceso completa a esta secuencia de comandos en el [archivo de inicio](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#startup-file) cuadro de texto en la sección de configuración del Portal.
+Si va a implementar una aplicación de JAR, debe denominarse `app.jar` para que la imagen integrada puede identificar correctamente la aplicación. (El complemento Maven realiza automáticamente este cambio de nombre). Si no desea cambiar el nombre de archivo JAR para `app.jar`, puede cargar un script de shell con el comando para ejecutar el archivo JAR. A continuación, pegue la ruta de acceso completa a esta secuencia de comandos en el [archivo de inicio](https://docs.microsoft.com/en-us/azure/app-service/containers/app-service-linux-faq#startup-file) cuadro de texto en la sección de configuración del portal.
 
 ### <a name="turn-on-web-sockets"></a>Activación de sockets web
 
@@ -156,7 +156,7 @@ Las aplicaciones de Java que se ejecutan en App Service para Linux presentan el 
 
 ### <a name="authenticate-users"></a>Autenticación de usuarios
 
-Configure la autenticación de la aplicación en Azure Portal con la opción **Autenticación y autorización**. Desde allí, puede habilitar la autenticación con Azure Active Directory o con inicios de sesión en redes sociales como Facebook, Google o GitHub. La configuración de Azure Portal solo funciona al configurar un proveedor de autenticación único.  Para obtener más información, consulte [Configuración de una aplicación de App Service para usar el inicio de sesión de Azure Active Directory](/azure/app-service/configure-authentication-provider-aad) y los artículos relacionados de otros proveedores de identidades.
+Configurar la autenticación de la aplicación en el portal de Azure con el **autenticación y autorización** opción. Desde allí, puede habilitar la autenticación con Azure Active Directory o con inicios de sesión en redes sociales como Facebook, Google o GitHub. La configuración de Azure Portal solo funciona al configurar un proveedor de autenticación único.  Para obtener más información, consulte [Configuración de una aplicación de App Service para usar el inicio de sesión de Azure Active Directory](/azure/app-service/configure-authentication-provider-aad) y los artículos relacionados de otros proveedores de identidades.
 
 Si tiene que habilitar varios proveedores de inicio de sesión, siga las instrucciones del artículo sobre la [personalización de la autenticación en App Service](https://docs.microsoft.com/azure/app-service/app-service-authentication-how-to).
 
@@ -293,7 +293,7 @@ Para conectarse a orígenes de datos en aplicaciones de Spring Boot, se recomien
 
 1. En la sección "Configuración de la aplicación" de la hoja de App Service, establezca un nombre para la cadena, pegue la cadena de conexión de JDBC en el campo de valor y establezca el tipo en "Custom". Opcionalmente, puede establecer esta cadena de conexión como configuración de ranura.
 
-    ![Creación de una cadena de conexión en el Portal.][1]
+    ![Creación de una cadena de conexión en el portal.][1]
 
     Esta cadena de conexión es accesible a nuestra aplicación como una variable de entorno denominada `CUSTOMCONNSTR_<your-string-name>`. Por ejemplo, la cadena de conexión creados anteriormente se denominarán `CUSTOMCONNSTR_exampledb`.
 

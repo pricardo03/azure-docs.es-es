@@ -4,65 +4,51 @@ description: Utilice la fuente de cambios de Azure Cosmos DB con Azure Functions
 author: rimman
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 11/06/2018
+ms.date: 04/12/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 93cd93b40c142d504c52f08f9005d082fb5a2a20
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: 35639dac0eacd5eae04b7848bdbbc1bc30fbf214
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55469488"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680781"
 ---
-# <a name="trigger-azure-functions-from-azure-cosmos-db"></a>Desencadenar Azure Functions desde Azure Cosmos DB
+# <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Arquitecturas sin servidor basada en eventos con Azure Cosmos DB y Azure Functions
 
-Si usa Azure Functions, la manera más sencilla de conectarse a una fuente de cambios es agregar un [desencadenador de Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger) a la aplicación Azure Functions. Cuando cree un desencadenador de Cosmos DB en una aplicación de Azure Functions, seleccione el contenedor de Cosmos al que conectarse, y la función se desencadena siempre que se cambie algo en el contenedor.
+Azure Functions proporciona la manera más sencilla para conectarse a la [fuente de cambios](). Puede crear pequeñas reactivo funciones de Azure que se desencadenará automáticamente en cada nuevo evento en la fuente de cambios de su contenedor de Azure Cosmos.
 
-Los desencadenadores pueden crearse en el portal de Azure Functions, en el portal de Azure Cosmos DB o mediante programación. Para más información, consulte [Azure Cosmos DB: informática de base de datos sin servidor con Azure Functions](serverless-computing-database.md).
+![Funciones sin servidor basado en eventos, trabajar con el desencadenador de Azure Cosmos DB](./media/change-feed-functions/functions.png)
 
-## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
+Con el [desencadenador de Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger), puede aprovechar la [procesadores de fuente de cambios](./change-feed-processor.md)escalado y la funcionalidad de detección de eventos confiable sin necesidad de mantener cualquiera [trabajo infraestructura](./change-feed-processor.md#implementing-the-change-feed-processor-library). Centrarse en la lógica de la función de Azure sin preocuparse por el resto de la canalización de abastecimiento de eventos. Incluso puede combinar el desencadenador con cualquier otro [enlaces de Azure Functions](../azure-functions/functions-triggers-bindings.md#supported-bindings).
 
-### <a name="how-can-i-configure-azure-functions-to-read-from-a-particular-region"></a>¿Cómo se puede configurar Azure Functions para que lea desde una región determinada?
+> [!NOTE]
+> Actualmente, el desencadenador de Azure Cosmos DB se puede usar con el núcleo (API de SQL) solo.
 
-Es posible definir la propiedad [PreferredLocations](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_Documents_Client_ConnectionPolicy_PreferredLocations) cuando se utiliza el desencadenador de Azure Cosmos DB para especificar una lista de regiones. Es lo mismo que personalizar la propiedad ConnectionPolicy, para hacer que el desencadenador lea desde las regiones preferidas. Lo ideal es que se quiera leer desde la región más cercana donde se implementan las instancias de Azure Functions.
+## <a name="requirements"></a>Requisitos
 
-### <a name="what-is-the-default-size-of-batches-in-azure-functions"></a>¿Cuál es el tamaño predeterminado de lotes en Azure Functions?
+Para implementar un flujo basado en eventos sin servidor, necesita:
 
-El tamaño predeterminado es de 100 elementos por cada invocación de Azure Functions. Sin embargo, este número se puede configurar dentro del archivo function.json. Esta es una [lista completa de las opciones de configuración](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Si está desarrollando de manera local, actualice la configuración de la aplicación dentro del archivo local.settings.json.
+* **El contenedor supervisado**: Contenedor supervisado es el contenedor de Azure Cosmos supervisado, y almacena los datos desde el que se genera la fuente de cambios. Todas las inserciones y cambios (por ejemplo, CRUD) al contenedor supervisado se reflejan en la fuente de cambios del contenedor.
+* **El contenedor de concesión**: El contenedor de concesión mantiene el estado entre varios y las instancias de función dinámica de Azure sin servidor y permite el escalado dinámico. Este contenedor de concesión puede manual o automáticamente crearse mediante el Trigger.To de Azure Cosmos DB automáticamente cree el contenedor de la concesión, establezca la *CreateLeaseCollectionIfNotExists* marca en el [configuración](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration). Contenedores de concesión con particiones se deben tener un `/id` definición de la clave de partición.
 
-### <a name="i-am-monitoring-a-container-and-reading-its-change-feed-however-i-dont-get-all-the-inserted-documents-some-items-are-missing"></a>Estoy supervisando un contenedor y leyendo su fuente de cambios; sin embargo, veo que no recibo todos los documentos insertados y que faltan algunos documentos.
+## <a name="create-your-azure-cosmos-db-trigger"></a>Crear el desencadenador de Azure Cosmos DB
 
-Asegúrese de que ninguna otra función de Azure lee el mismo contenedor con el mismo contenedor de concesión. Los documentos que faltan los procesan las otras instancias de Azure Functions que también usan el mismo contrato de arrendamiento.
+Ahora se admite la creación de la función de Azure con un desencadenador de Azure Cosmos DB en todos los IDE de las funciones de Azure y las integraciones de CLI:
 
-Por lo tanto, si crea varias instancias de Azure Functions para leer la misma fuente de cambios, deben usar distintos contenedores de concesión o usar la configuración "leasePrefix" para compartir el mismo contenedor. Sin embargo, cuando usa la biblioteca de procesadores de fuente de cambios, puede iniciar varias instancias de la función de Azure y el SDK dividirá los documentos en distintas instancias de manera automática.
+* [Extensión de Visual Studio](../azure-functions/functions-develop-vs.md) para usuarios de Visual Studio.
+* [Extensión de Visual Studio Core](https://code.visualstudio.com/tutorials/functions-extension/create-function) para los usuarios de Visual Studio Code.
+* Y, finalmente, [herramientas CLI Core](../azure-functions/functions-run-local.md#create-func) para una experiencia independiente del IDE multiplataforma.
 
-### <a name="azure-cosmos-item-is-updated-every-second-and-i-dont-get-all-the-changes-in-azure-functions-listening-to-change-feed"></a>El elemento de Azure Cosmos se actualiza a cada segundo y no recibo todos los cambios en Azure Functions donde se escucha la fuente de cambios.
+## <a name="run-your-azure-cosmos-db-trigger-locally"></a>Ejecutar el desencadenador de Azure Cosmos DB localmente
 
-Azure Functions sondea la fuente de cambios continuamente, con un retraso máximo de 5 segundos de manera predeterminada. Si no hay cambios pendientes de leer, o si hay cambios pendientes después de aplicar el desencadenador, la función los leerá de inmediato. Sin embargo, si no hay cambios pendientes, la función esperará cinco segundos y buscará más cambios.
+Puede ejecutar su [Azure Functions localmente](../azure-functions/functions-develop-local.md) con el [emulador de Azure Cosmos DB](./local-emulator.md) para crear y desarrollar sus flujos basado en eventos sin servidor sin una suscripción de Azure ni incurrir en ningún gasto.
 
-Si el documento recibe varios cambios en el mismo intervalo que llevó al desencadenador a buscar nuevos cambios, es posible que reciba la última versión del documento y no la versión intermedia.
-
-Si desea sondear la fuente de cambios durante menos de cinco segundos, por ejemplo, por cada segundo, puede configurar el tiempo de sondeo "feedPollDelay"; consulte [la configuración completa](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.connectionpolicy.preferredlocations?view=azure-dotnet#Microsoft_Azure_Documents_Client_ConnectionPolicy_PreferredLocations). Se define en milisegundos con un valor predeterminado de 5000. Es posible realizar sondeos durante menos de un segundo, pero no se recomienda, ya que comenzará a utilizar más memoria de CPU.
-
-### <a name="can-multiple-azure-functions-read-one-containers-change-feed"></a>¿Varias instancias de Azure Functions pueden leer la fuente de cambios de contenedor?
-
-Sí. Varias instancias de Azure Functions pueden leer la fuente de cambios del mismo contenedor. Sin embargo, las instancias de Azure Functions deben tener definido un "leaseCollectionPrefix" independiente.
-
-### <a name="if-i-am-processing-change-feed-by-using-azure-functions-in-a-batch-of-10-documents-and-i-get-an-error-at-seventh-document-in-that-case-the-last-three-documents-are-not-processed-how-can-i-start-processing-from-the-failed-document-ie-seventh-document-in-my-next-feed"></a>Si estoy procesando una fuente de cambios con Azure Functions, como un lote de 10 documentos, y recibo un error en el séptimo documento. En ese caso, no se procesan los últimos tres documentos. ¿Cómo puedo empezar el procesamiento desde el documento con errores (es decir, el documento séptimo) en mi siguiente fuente?
-
-Para tratar el error, el patrón recomendado es envolver el código con el bloque try-catch y, si está iterando sobre la lista de documentos, envuelva cada iteración en su propio bloque try-catch. Detecte el error y coloque ese documento en una cola (de mensajes fallidos) y defina la lógica para manejar los documentos que generaron el error. Con este método, si tiene un lote de 200 documentos y solo un documento con errores, no tiene que deshacerse de todo el lote.
-
-Si se produce un error, no debe rebobinar al punto de control para comenzar otra acción. Puede seguir obteniendo esos documentos de la fuente de cambios. Recuerde que la fuente de cambios conserva la última instantánea final de los documentos, por lo que puede perder la instantánea anterior en el documento. La fuente de cambios solo conserva una última versión del documento y, entremedio, pueden venir otros procesos y cambiar el documento.
-
-Mientras sigue corrigiendo el código, pronto no encontrará documentos en la cola de mensajes fallidos. La fuente de cambios llama automáticamente a Azure Functions y Azure Functions mantiene de manera interna el punto de control y el sistema. Si quiere revertir el punto de control y controlar cada uno de sus aspectos, debe considerar la posibilidad de usar el SDK del procesador de la fuente de cambios.
-
-### <a name="are-there-any-extra-costs-for-using-the-azure-cosmos-db-trigger"></a>¿Hay algún costo adicional por usar el desencadenador de Azure Cosmos DB?
-
-El desencadenador de Azure Cosmos DB aprovecha internamente la biblioteca de procesadores de fuente de cambios. Como tal, requiere una colección adicional, denominada colección de concesión, para mantener los puntos de control de estado y parciales. Esta administración de estados es necesaria para poder escalar dinámicamente y continuar en caso de que desee detener las instancias de Azure Functions y continuar el procesamiento en un momento posterior. Para más información, consulte el artículo sobre el [trabajo con la biblioteca de procesadores de fuente de cambios](change-feed-processor.md).
+Si desea probar escenarios en vivo en la nube, puede [probar Cosmos DB gratis](https://azure.microsoft.com/try/cosmosdb/) sin ninguna tarjeta de crédito o una suscripción de Azure necesarios.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Ahora, puede obtener más información acerca de las fuentes de cambios en los siguientes artículos:
+Ahora puede continuar obtener más información acerca de la fuente de cambios en los siguientes artículos:
 
 * [Introducción a la fuente de cambios](change-feed.md)
 * [Maneras de leer la fuente de cambios](read-change-feed.md)

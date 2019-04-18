@@ -1,7 +1,7 @@
 ---
 title: Interoperabilidad del modelo
 titleSuffix: Azure Machine Learning service
-description: Obtenga información sobre cómo usar el SDK de interoperabilidad de Azure Machine Learning para explicar por qué el modelo realiza predicciones. Se puede usar durante el entrenamiento e inferencia para comprender cómo el modelo realiza predicciones.
+description: Obtenga información sobre cómo explicar por qué el modelo realiza predicciones mediante el SDK de interoperabilidad de Azure Machine Learning. Se puede usar durante el entrenamiento e inferencia para comprender cómo el modelo realiza predicciones.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: larryfr
 ms.date: 04/09/2019
-ms.openlocfilehash: fbcafb61ecd69f58bb3c14d1b15f36f1b21f2833
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.openlocfilehash: 668551603dfa2a9c42f4538fd9a66ee646e1feb7
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59494447"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682464"
 ---
-# <a name="azure-machine-learning-interpretability-sdk"></a>Interoperabilidad de aprendizaje automático de Azure SDK
+# <a name="model-interpretability-with-azure-machine-learning-service"></a>Interoperabilidad de modelo con el servicio de Azure Machine Learning
 
 En este artículo, aprenderá a explicar por qué el modelo realiza las predicciones se realiza mediante el SDK de interoperabilidad de Azure Machine Learning. Es importante poder explicar el modelo por las razones siguientes:
 
@@ -25,9 +25,10 @@ En este artículo, aprenderá a explicar por qué el modelo realiza las predicci
 * Como científico de datos, le interesa entender **cómo consultar el modelo para buscar información**. También necesita herramientas para tomar decisiones informadas sobre **cómo mejorar el modelo**.
 * Como empresa, debe comprender **el comportamiento del modelo con distintas distribuciones de entrada** y **cómo se comportará el modelo mientras se analiza la entrada específica**.
 
-Interoperabilidad de Machine learning es importante en dos fases del ciclo de desarrollo de aprendizaje automático: **entrenamiento** tiempo y **inferencia** tiempo:
+Interoperabilidad de Machine learning es importante en dos fases del ciclo de desarrollo de aprendizaje automático: 
 
 * Durante la **entrenamiento**: Diseñadores de modelos y evaluadores requieren herramientas de interoperabilidad para explicar el resultado de un modelo a las partes interesadas para crear relaciones de confianza. También necesitan información sobre el modelo para que se puede depurar el modelo y tomar decisiones sobre si el comportamiento coincide con sus objetivos. Por último, que necesitan para garantizar que el modelo se inclina no.
+
 * Durante la **inferencia**: Predicciones deben ser explicación a las personas que utilizan el modelo. Por ejemplo, ¿por qué el modelo denegar un préstamo hipotecario o predecir una cartera de inversiones que lleva a un riesgo más alto?
 
 El SDK de Azure Machine Learning interoperabilidad incorpora las tecnologías desarrolladas por Microsoft y probadas las bibliotecas de terceros (por ejemplo, formas y CAL). El SDK crea una API común a través de las bibliotecas integradas e integra servicios de Azure Machine Learning. Con este SDK, puede explicar los modelos de aprendizaje automático **globalmente en todos los datos**, o **localmente en un punto de datos específico** mediante las tecnologías de última generación de forma escalable y fácil de usar.
@@ -91,7 +92,7 @@ La inteligencia integrada en `TabularExplainer` son más sofisticados como más 
 
 El siguiente diagrama muestra la relación entre los dos conjuntos de direct y explainers meta.
 
-[![MArquitectura de interoperabilidad de aprendizaje achine](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
+[![Arquitectura de interoperabilidad de Machine Learning](./media/machine-learning-interpretability-explainability/interpretability-architecture.png)](./media/machine-learning-interpretability-explainability/interpretability-architecture.png#lightbox)
 
 ### <a name="models-supported"></a>Modelos admitidos
 

@@ -5,20 +5,20 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 04/04/2019
 ms.author: danlep
-ms.openlocfilehash: f3206da25a3c0727e3f9fe12190580a6c28c81a3
-ms.sourcegitcommit: 1afd2e835dd507259cf7bb798b1b130adbb21840
+ms.openlocfilehash: 1e496002c869c5d2c072773d37ed5fd5d4a5841e
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56983258"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683467"
 ---
 # <a name="delete-container-images-in-azure-container-registry"></a>Eliminación de imágenes de contenedor en Azure Container Registry
 
 Para mantener el tamaño del registro de contenedor de Azure, debe eliminar periódicamente los datos de imagen obsoletos. Aunque algunas imágenes de contenedor implementadas en producción pueden requerir un almacenamiento a largo plazo, otras normalmente se pueden eliminar antes. Por ejemplo, en un escenario de compilación y prueba automatizado, el registro se puede rellenar rápidamente con imágenes que es posible que nunca se implementen y se pueden purgar poco después de completar el paso de compilación y prueba.
 
-Dado que puede eliminar datos de la imagen de varias maneras diferentes, es importante comprender cómo afecta cada operación de eliminación al uso del almacenamiento. Este artículo presenta los componentes de un registro de Docker y de las imágenes de contenedor en primer lugar y, a continuación, describe varios métodos para eliminar los datos de la imagen.
+Dado que puede eliminar datos de la imagen de varias maneras diferentes, es importante comprender cómo afecta cada operación de eliminación al uso del almacenamiento. Este artículo presenta los componentes de un registro de Docker y de las imágenes de contenedor en primer lugar y, a continuación, describe varios métodos para eliminar los datos de la imagen. Scripts de muestra se proporcionan para ayudarle a automatizar las operaciones de eliminación.
 
 ## <a name="registry"></a>Registro
 
@@ -34,7 +34,7 @@ acr-helloworld:v1
 acr-helloworld:v2
 ```
 
-Los nombres de repositorio también pueden incluir [espacios de nombres](container-registry-best-practices.md#repository-namespaces). Los espacios de nombres le permiten agrupar imágenes con nombres de repositorio delimitados por barras diagonales hacia delante, por ejemplo:
+Los nombres de repositorio también pueden incluir [espacios de nombres](container-registry-best-practices.md#repository-namespaces). Los espacios de nombres le permiten agrupar imágenes con los nombres de repositorio delimitada por barras diagonales hacia delante, por ejemplo:
 
 ```
 marketing/campaign10-18/web:v2
@@ -50,11 +50,11 @@ Una imagen de contenedor dentro de un registro está asociada con una o varias e
 
 ### <a name="tag"></a>Etiqueta
 
-Una *etiqueta* de imagen especifica su versión. A una sola imagen dentro de un repositorio se le pueden asignar una o varias etiquetas y también puede ser "sin etiqueta". Es decir, puede eliminar todas las etiquetas de una imagen, mientras que los datos de la imagen (sus capas) permanecen en el registro.
+Una *etiqueta* de imagen especifica su versión. A una sola imagen dentro de un repositorio se le pueden asignar una o varias etiquetas y también puede ser "sin etiqueta". Es decir, puede eliminar todas las etiquetas desde una imagen, mientras los datos de la imagen (sus capas) permanecen en el registro.
 
 El repositorio (o repositorio y espacio de nombres) junto con una etiqueta definen el nombre de una imagen. Puede insertar y extraer una imagen especificando su nombre en la operación de inserción o extracción.
 
-En un registro privado como Azure Container Registry, el nombre de la imagen también incluye el nombre completo del host del registro. El host del registro para imágenes en ACR está en el formato *acrname.azurecr.io*. Por ejemplo, el nombre completo de la primera imagen en el espacio de nombres "marketing" de la sección anterior sería:
+En un registro privado como Azure Container Registry, el nombre de la imagen también incluye el nombre completo del host del registro. El host del registro para las imágenes en ACR está en el formato *acrname.azurecr.io* (todo en minúsculas). Por ejemplo, el nombre completo de la primera imagen en el espacio de nombres "marketing" en la sección anterior sería:
 
 ```
 myregistry.azurecr.io/marketing/campaign10-18/web:v2
@@ -158,7 +158,7 @@ Are you sure you want to continue? (y/n): y
 ```
 
 > [!TIP]
-> La eliminación *por etiqueta* no debe confundirse con la eliminación de una etiqueta (quitar etiqueta). Puede eliminar una etiqueta con el comando de la CLI de Azure [az acr repository untag][az-acr-repository-untag]. No se libera espacio al quitar la etiqueta de una imagen porque su [manifiesto](#manifest) y los datos de la capa permanecen en el registro. Solo se elimina la propia referencia de la etiqueta.
+> La eliminación *por etiqueta* no debe confundirse con la eliminación de una etiqueta (quitar etiqueta). Puede eliminar una etiqueta con el comando de la CLI de Azure [az acr repository untag][az-acr-repository-untag]. No hay espacio se libera al quitar una imagen porque su [manifiesto](#manifest) y datos de la capa permanecen en el registro. Solo se elimina la propia referencia de la etiqueta.
 
 ## <a name="delete-by-manifest-digest"></a>Eliminación por hash de manifiesto
 
@@ -201,7 +201,56 @@ This operation will delete the manifest 'sha256:3168a21b98836dda7eb7a846b3d73528
 Are you sure you want to continue? (y/n): y
 ```
 
-La imagen "acr-helloworld:v2" se elimina del registro, así como los datos de la capa únicos para esa imagen. Si un manifiesto está asociado a varias etiquetas, también se eliminan todas las etiquetas asociadas.
+El `acr-helloworld:v2` se elimina la imagen del registro, como los datos de nivel únicos para esa imagen. Si un manifiesto está asociado a varias etiquetas, también se eliminan todas las etiquetas asociadas.
+
+### <a name="list-digests-by-timestamp"></a>Resúmenes de lista por marca de tiempo
+
+Para mantener el tamaño del registro o repositorio, deberá eliminar periódicamente los resúmenes de manifiesto anterior a una fecha determinada.
+
+El siguiente comando de CLI de Azure enumera todas las síntesis del manifiesto en un repositorio de más de una marca de tiempo especificado, en orden ascendente. Reemplace `<acrName>` y `<repositoryName>` por los valores adecuados para su entorno. La marca de tiempo podría ser una expresión de fecha-hora completa o una fecha, como en este ejemplo.
+
+```azurecli
+az acr repository show-manifests --name <acrName> --repository <repositoryName> \
+--orderby time_asc -o tsv --query "[?timestamp < '2019-04-05'].[digest, timestamp]"
+```
+
+### <a name="delete-digests-by-timestamp"></a>Eliminar resúmenes mediante la marca de tiempo
+
+Después de identificar los resúmenes de manifiesto obsoletos, puede ejecutar el siguiente script de Bash para eliminar los resúmenes de manifiesto anterior a una marca de tiempo especificado. Requiere la CLI de Azure y **xargs**. De forma predeterminada, el script no realiza ninguna eliminación. Establezca el valor de `ENABLE_DELETE` en `true` para habilitar la eliminación de imágenes.
+
+> [!WARNING]
+> Use el siguiente script de ejemplo con precaución: los datos de imagen eliminada es irrecuperable. Si tiene sistemas que extraigan imágenes mediante la síntesis del manifiesto (en lugar del nombre de la imagen), no debe ejecutar estos scripts. Eliminar los resúmenes de manifiesto impedirá que esos sistemas extraer las imágenes del registro. En lugar de extraer por manifiesto, considere la posibilidad de adoptar un esquema de *etiquetado único*, un [procedimiento recomendado][tagging-best-practices]. 
+
+```bash
+#!/bin/bash
+
+# WARNING! This script deletes data!
+# Run only if you do not have systems
+# that pull images via manifest digest.
+
+# Change to 'true' to enable image delete
+ENABLE_DELETE=false
+
+# Modify for your environment
+# TIMESTAMP can be a date-time string such as 2019-03-15T17:55:00.
+REGISTRY=myregistry
+REPOSITORY=myrepository
+TIMESTAMP=2019-04-05  
+
+# Delete all images older than specified timestamp.
+
+if [ "$ENABLE_DELETE" = true ]
+then
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY \
+    --orderby time_asc --query "[?timestamp < '$TIMESTAMP'].digest" -o tsv \
+    | xargs -I% az acr repository delete --name $REGISTRY --image $REPOSITORY@% --yes
+else
+    echo "No data deleted."
+    echo "Set ENABLE_DELETE=true to enable deletion of these images in $REPOSITORY:"
+    az acr repository show-manifests --name $REGISTRY --repository $REPOSITORY \
+   --orderby time_asc --query "[?timestamp < '$TIMESTAMP'].[digest, timestamp]" -o tsv
+fi
+```
 
 ## <a name="delete-untagged-images"></a>Eliminación de imágenes sin etiqueta
 
@@ -257,14 +306,12 @@ az acr repository show-manifests --name <acrName> --repository <repositoryName> 
 
 ### <a name="delete-all-untagged-images"></a>Eliminación de todas las imágenes sin etiqueta
 
-Utilice los siguientes scripts de ejemplo con precaución: los datos de las imágenes eliminadas son IRRECUPERABLES.
+> [!WARNING]
+> Utilice los siguientes scripts de ejemplo con precaución: los datos de las imágenes eliminadas son IRRECUPERABLES. Si tiene sistemas que extraigan imágenes mediante la síntesis del manifiesto (en lugar del nombre de la imagen), no debe ejecutar estos scripts. La eliminación de imágenes sin etiqueta impedirá que esos sistemas extraigan las imágenes del registro. En lugar de extraer por manifiesto, considere la posibilidad de adoptar un esquema de *etiquetado único*, un [procedimiento recomendado][tagging-best-practices].
 
 **CLI de Azure en Bash**
 
 El siguiente script de Bash elimina todas las imágenes no etiquetadas de un repositorio. Requiere la CLI de Azure y **xargs**. De forma predeterminada, el script no realiza ninguna eliminación. Establezca el valor de `ENABLE_DELETE` en `true` para habilitar la eliminación de imágenes.
-
-> [!WARNING]
-> Si tiene sistemas que extraen imágenes por hash del manifiesto (en lugar de por el nombre de la imagen), no debe ejecutar este script. La eliminación de imágenes sin etiqueta impedirá que esos sistemas extraigan las imágenes del registro. En lugar de extraer por manifiesto, considere la posibilidad de adoptar un esquema de *etiquetado único*, un [procedimiento recomendado][tagging-best-practices].
 
 ```bash
 #!/bin/bash
@@ -293,9 +340,6 @@ fi
 **CLI de Azure en PowerShell**
 
 El siguiente script de PowerShell elimina todas las imágenes no etiquetadas de un repositorio. Requiere PowerShell y la CLI de Azure. De forma predeterminada, el script no realiza ninguna eliminación. Establezca el valor de `$enableDelete` en `$TRUE` para habilitar la eliminación de imágenes.
-
-> [!WARNING]
-> Si tiene sistemas que extraen imágenes por hash del manifiesto (en lugar de por el nombre de la imagen), no debe ejecutar este script. La eliminación de imágenes sin etiqueta impedirá que esos sistemas extraigan las imágenes del registro. En lugar de extraer por manifiesto, considere la posibilidad de adoptar un esquema de *etiquetado único*, un [procedimiento recomendado][tagging-best-practices].
 
 ```powershell
 # WARNING! This script deletes data!

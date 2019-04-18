@@ -7,21 +7,23 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 04/11/2019
 ms.author: absha
-ms.openlocfilehash: efb7b46919066beb1382d70b676a2115ea0fb8ac
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 20c484779e7ffe74ae01e33472b4cf8761d81b66
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544159"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682687"
 ---
-# <a name="rewrite-http-headers-with-application-gateway-public-preview"></a>Reescribir encabezados HTTP a Application Gateway (versión preliminar pública)
+# <a name="rewrite-http-headers-with-application-gateway"></a>Vuelva a escribir los encabezados HTTP con Application Gateway
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Los encabezados HTTP permiten que el cliente y el servidor pasen información adicional con la solicitud o la respuesta. Volver a escribir estos encabezados HTTP le ayudará a realizar varios escenarios importantes como la adición de campos de encabezado relacionados con la seguridad como HSTS / X-XSS-Protection Quitar encabezado de respuesta de los campos que puede revelar información confidencial, extracción de información de puerto de Encabezados X-Forwarded-For, etcetera. Application gateway admite la capacidad de agregar, quitar o actualizar los encabezados de solicitud y respuesta HTTP mientras la solicitud y los paquetes de respuesta se mueven entre los grupos de cliente y el back-end. También proporciona la funcionalidad para agregar condiciones para asegurarse de que los encabezados especificados se vuelven a escribir sólo cuando se cumplen ciertas condiciones.
+Los encabezados HTTP permiten que el cliente y el servidor pasen información adicional con la solicitud o la respuesta. Volver a escribir estos encabezados HTTP le ayudará a realizar varios escenarios importantes como la adición de campos de encabezado relacionados con la seguridad como HSTS / X-XSS-Protection Quitar encabezado de respuesta de los campos que puede revelar información confidencial, quitando información del puerto desde Encabezados X-Forwarded-For, etcetera. Application gateway admite la capacidad de agregar, quitar o actualizar los encabezados de solicitud y respuesta HTTP mientras la solicitud y los paquetes de respuesta se mueven entre los grupos de cliente y el back-end. Proporciona la funcionalidad para agregar condiciones para asegurarse de que los encabezados especificados se vuelven a escribir sólo cuando se cumplen ciertas condiciones. La capacidad también admite varios [variables de servidor](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) que ayuda a almacenar información adicional acerca de las solicitudes y respuestas, lo que permite que las reglas de reescritura eficaces.
 > [!NOTE]
 >
 > La compatibilidad con la reescritura de encabezados HTTP solo está disponible para la [nueva SKU [Standard_V2\]](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)
+
+![Reescritura de encabezados](media/rewrite-http-headers/rewrite-headers.png)
 
 ## <a name="headers-supported-for-rewrite"></a>Vuelva a escribir los encabezados compatibles con
 
@@ -35,7 +37,7 @@ Uso de la reescritura condiciones puede evaluar el contenido de las respuestas y
 - Encabezados HTTP en la respuesta
 - Variables de servidor de puerta de enlace de aplicaciones
 
-Una condición puede usarse para evaluar si la variable especificada está presente, si la variable especificada coincide exactamente con un valor específico, o si la variable especificada coincide exactamente con un patrón específico. [Biblioteca de expresiones regulares compatibles (PCRE) de Perl](https://www.pcre.org/) se utiliza para implementar en las condiciones de coincidencia de patrones de expresión regular. Para obtener información sobre la sintaxis de expresiones regulares, vea el [expresiones regulares de Perl man página](http://perldoc.perl.org/perlre.html).
+Una condición puede usarse para evaluar si la variable especificada está presente, si la variable especificada coincide exactamente con un valor específico, o si la variable especificada coincide exactamente con un patrón específico. [Biblioteca de expresiones regulares compatibles (PCRE) de Perl](https://www.pcre.org/) se utiliza para implementar en las condiciones de coincidencia de patrones de expresión regular. Para obtener información sobre la sintaxis de expresiones regulares, vea el [expresiones regulares de Perl man página](https://perldoc.perl.org/perlre.html).
 
 ## <a name="rewrite-actions"></a>Acciones de reescritura
 
@@ -124,6 +126,18 @@ Este problema puede resolverse configurando el nombre de host en el encabezado d
 Varias vulnerabilidades de seguridad pueden corregirse mediante la implementación de encabezados necesarios en la respuesta de la aplicación. Algunos de estos encabezados de seguridad son X-XSS-Protection, Strict-Transport-Security, Content-Security-Policy, etcetera. Puede usar la puerta de enlace de aplicación para establecer estos encabezados para todas las respuestas.
 
 ![Encabezado de seguridad](media/rewrite-http-headers/security-header.png)
+
+### <a name="delete-unwanted-headers"></a>Eliminar encabezados no deseados
+
+Es posible que desee quitar esos encabezados de la respuesta HTTP que se revele información confidencial, como el nombre del servidor back-end, el sistema operativo, detalles de biblioteca, etcetera. Puede usar la puerta de enlace de aplicaciones para quitarlas.
+
+![Eliminar encabezado](media/rewrite-http-headers/remove-headers.png)
+
+### <a name="check-presence-of-a-header"></a>Compruebe la presencia de un encabezado
+
+Puede evaluar el encabezado de solicitud o respuesta HTTP de la presencia de una variable de encabezado o el servidor. Esto es útil cuando quiere realizar una reescritura de encabezado solo cuando está presente un encabezado determinado.
+
+![Comprobando la presencia de un encabezado](media/rewrite-http-headers/check-presence.png)
 
 ## <a name="limitations"></a>Limitaciones
 

@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 01/08/2019
 ms.custom: seodec18
-ms.openlocfilehash: cc561bd88c18788be3ed1b9aef8a6a985af8a6f2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2e6bc0fd9de4fdba1188b40c49ebf9459d684d38
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278554"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679999"
 ---
 # <a name="create-and-run-a-machine-learning-pipeline-by-using-azure-machine-learning-sdk"></a>Crear y ejecutar una canalización de aprendizaje automático con el SDK de Azure Machine Learning
 
@@ -93,7 +93,7 @@ blob_input_data = DataReference(
     path_on_datastore="20newsgroups/20news.pkl")
 ```
 
-Los datos intermedios (o salida de un paso) se representan mediante un objeto [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). `output_data1` producido como resultado de un paso y utiliza como entrada de uno o varios pasos futuros. `PipelineData` Introduce una dependencia de datos entre pasos y crea una orden de ejecución implícita en la canalización.
+Los datos intermedios (o salida de un paso) se representan mediante un objeto [PipelineData](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py). `output_data1` se crea como la salida de un paso y se usa como la entrada de uno o más pasos futuros. `PipelineData` introduce una dependencia de datos entre los pasos y crea un orden de ejecución implícito en la canalización.
 
 ```python
 output_data1 = PipelineData(
@@ -253,8 +253,8 @@ trainStep = PythonScriptStep(
 
 Después de definir sus pasos, debe compilar la canalización mediante algunos o todos ellos.
 
->[!NOTE]
->No se carga ningún archivo o dato en Azure Machine Learning Service cuando define los pasos o compila la canalización.
+> [!NOTE]
+> No se carga ningún archivo o dato en Azure Machine Learning Service cuando define los pasos o compila la canalización.
 
 ```python
 # list of steps to run
@@ -289,8 +289,12 @@ Para obtener más información, consulte el [pasos de la canalización de azure 
 
 ## <a name="submit-the-pipeline"></a>Enviar la canalización
 
-Cuando envía la canalización, Azure Machine Learning Service comprueba las dependencias para cada paso y carga una instantánea del directorio de origen especificado. Si no se especifica ningún directorio de origen, se carga el directorio local actual.
+Cuando envía la canalización, Azure Machine Learning Service comprueba las dependencias para cada paso y carga una instantánea del directorio de origen especificado. Si no se especifica ningún directorio de origen, se carga el directorio local actual. La instantánea también se almacena como parte del experimento en el área de trabajo.
 
+> [!IMPORTANT]
+> Para evitar que los archivos que se incluye en la instantánea, cree un [.gitignore](https://git-scm.com/docs/gitignore) o `.amlignore` en el directorio y agréguele los archivos. El `.amlignore` archivo usa la misma sintaxis y patrones como la [.gitignore](https://git-scm.com/docs/gitignore) archivo. Si ambos archivos se encuentran el `.amlignore` archivo tiene prioridad.
+>
+> Para más información, consulte [Instantánea](concept-azure-machine-learning-architecture.md#snapshot).
 
 ```python
 # Submit the pipeline to be run
@@ -361,7 +365,7 @@ Ver la lista de todas las canalizaciones y sus detalles de ejecución:
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com/).  
 
 1. [Ver el área de trabajo](how-to-manage-workspace.md#view) para encontrar la lista de canalizaciones.
- ![lista de canalizaciones de aprendizaje automático](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
+ ![lista de canalizaciones de Machine Learning](./media/how-to-create-your-first-pipeline/list_of_pipelines.png)
  
 1. Seleccione una canalización específica para ver los resultados de la ejecución.
 
