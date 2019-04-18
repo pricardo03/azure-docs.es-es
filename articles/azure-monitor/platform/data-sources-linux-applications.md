@@ -51,8 +51,8 @@ Las entradas del archivo de autenticación se describen en la tabla siguiente.
 | Propiedad | Descripción |
 |:--|:--|
 | Port | Representa el puerto actual en el que está escuchando la instancia de MySQL. El puerto 0 especifica que las propiedades que siguen se usan para la instancia predeterminada. |
-| Dirección de enlace| Dirección de enlace actual de MySQL. |
-| nombre de usuario| Usuario de MySQL usado para supervisar la instancia del servidor MySQL. |
+| Bind-Address| Dirección de enlace actual de MySQL. |
+| username| Usuario de MySQL usado para supervisar la instancia del servidor MySQL. |
 | Contraseña codificada en Base64| Contraseña del usuario de supervisión de MySQL codificada en Base64. |
 | Actualización automática| Especifica si se volverán a examinar los cambios en el archivo my.cnf y si se sobrescribirá el archivo de autenticación de MySQL para OMI cuando el proveedor de MySQL para OMI se actualice. |
 
@@ -118,8 +118,8 @@ Después de configurar el agente de Log Analytics para Linux de forma que envíe
 
 | Nombre de objeto | Nombre del contador |
 |:--|:--|
-| Base de datos MySQL | Espacio en disco en bytes |
-| Base de datos MySQL | Tablas |
+| MySQL Database | Espacio en disco en bytes |
+| MySQL Database | Tablas |
 | MySQL Server | Porcentaje de conexiones anuladas |
 | MySQL Server | Porcentaje de uso de conexión |
 | MySQL Server | Uso de espacio en disco en bytes |
