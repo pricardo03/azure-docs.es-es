@@ -14,15 +14,15 @@ ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: b2c665de94750c4c6f41bda47960fdb9ba17e819
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905637"
 ---
 # <a name="move-data-from-an-odata-source-using-azure-data-factory"></a>Movimiento de datos de un origen de OData mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [versión 1](data-factory-odata-connector.md)
+> * [Versión 1](data-factory-odata-connector.md)
 > * [Versión 2 (versión actual)](../connector-odata.md)
 
 > [!NOTE]
@@ -218,7 +218,7 @@ En el ejemplo se copian los datos de la consulta en un origen de OData a un blob
 }
 ```
 
-**Servicio vinculado Azure Storage:**
+**Servicio vinculado de Azure Storage:**
 
 ```json
 {
@@ -232,7 +232,7 @@ En el ejemplo se copian los datos de la consulta en un origen de OData a un blob
 }
 ```
 
-**El conjunto de datos de entrada OData:**
+**Conjunto de datos de entrada de OData:**
 
 Si se establece "external": "true", se informa al servicio Data Factory que el conjunto de datos es externo a la factoría de datos y que no lo genera ninguna actividad de la factoría de datos.
 
@@ -264,7 +264,7 @@ Si se establece "external": "true", se informa al servicio Data Factory que el c
 
 La especificación de **path** en la definición del conjunto de datos es opcional.
 
-**Conjunto de datos de había salida de Blob de Azure:**
+**Conjunto de datos de salida de blob de Azure:**
 
 Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1). La ruta de acceso de la carpeta para el blob se evalúa dinámicamente según la hora de inicio del segmento que se está procesando. La ruta de acceso de la carpeta usa las partes year, month, day y hours de la hora de inicio.
 
@@ -324,7 +324,7 @@ Los datos se escriben en un nuevo blob cada hora (frecuencia: hora, intervalo: 1
 }
 ```
 
-**Actividad de copia en una canalización con origen OData y receptor Blob:**
+**Actividad de copia en una canalización con origen OData y receptor blob:**
 
 La canalización contiene una actividad de copia que está configurada para usar los conjuntos de datos de entrada y de salida y está programada para ejecutarse cada hora. En la definición de la canalización JSON, el tipo **source** se establece en **RelationalSource** y el tipo **sink** se establece en **BlobSink**. La consulta SQL especificada para la propiedad **query** selecciona los últimos datos (los más recientes) del origen de OData.
 

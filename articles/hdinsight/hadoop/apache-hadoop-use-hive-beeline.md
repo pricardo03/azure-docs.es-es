@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: hrasheed
 ms.openlocfilehash: 89303e5c827fc24540d345a9a2b9a0743e453a4d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257134"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usar el cliente de Apache Beeline con Apache Hive
@@ -180,17 +180,17 @@ En este ejemplo se basa en mediante el cliente de Beeline desde una conexión SS
 
     Estas instrucciones realizan las acciones siguientes:
 
-    * `DROP TABLE` -Si la tabla existe, se elimina.
+    * `DROP TABLE`: si la tabla existe, se elimina.
 
-    * `CREATE EXTERNAL TABLE` : Crea un **externo** tabla en Hive. Las tablas externas solo almacenan la definición de Tabla en Hive. Los datos permanecen en la ubicación original.
+    * `CREATE EXTERNAL TABLE`: crea una tabla **externa** en Hive. Las tablas externas solo almacenan la definición de Tabla en Hive. Los datos permanecen en la ubicación original.
 
-    * `ROW FORMAT` -¿En qué formato de los datos. En este caso, los campos de cada registro se separan mediante un espacio.
+    * `ROW FORMAT`: indica el formato de los datos. En este caso, los campos de cada registro se separan mediante un espacio.
 
-    * `STORED AS TEXTFILE LOCATION` : Indica dónde se almacenan los datos y en qué formato de archivo.
+    * `STORED AS TEXTFILE LOCATION`: indica dónde se almacenan los datos y en qué formato de archivo.
 
-    * `SELECT` : Selecciona un recuento de todas las filas donde columna **t4** contiene el valor **[ERROR]**. Esta consulta devuelve un valor de **3** ya que hay tres filas que contienen este valor.
+    * `SELECT`: selecciona un número de todas las filas donde la columna **t4** contiene el valor **[ERROR]**. Esta consulta devuelve un valor de **3** ya que hay tres filas que contienen este valor.
 
-    * `INPUT__FILE__NAME LIKE '%.log'` : Hive intenta aplicar el esquema a todos los archivos en el directorio. En este caso, el directorio contiene archivos que no coinciden con el esquema. Para evitar que haya datos inservibles en los resultados, esta instrucción indica a Hive que solo se deben devolver datos de archivos que terminen en .log.
+    * `INPUT__FILE__NAME LIKE '%.log'`: Hive intenta aplicar el esquema en todos los archivos del directorio. En este caso, el directorio contiene archivos que no coinciden con el esquema. Para evitar que haya datos inservibles en los resultados, esta instrucción indica a Hive que solo se deben devolver datos de archivos que terminen en .log.
 
    > [!NOTE]  
    > Las tablas externas se deben utilizar cuando se espera que un origen externo actualice los datos subyacentes. Por ejemplo, un proceso de carga de datos automatizado o una operación de MapReduce.
@@ -284,12 +284,12 @@ Esta es una continuación del ejemplo anterior. Use los pasos siguientes para cr
 
 Para más información general sobre el uso de Hive en HDInsight, consulte los documentos siguientes:
 
-* [Uso de Apache Hive con Hadoop Apache en HDInsight](hdinsight-use-hive.md)
+* [Uso de Apache Hive con Apache Hadoop en HDInsight](hdinsight-use-hive.md)
 
 Para más información sobre otras maneras de trabajar con Hadoop en HDInsight, consulte los documentos siguientes:
 
-* [Uso de Pig con Apache Hadoop en HDInsight](hdinsight-use-pig.md)
-* [Uso de MapReduce con Hadoop Apache en HDInsight](hdinsight-use-mapreduce.md)
+* [Uso de Apache Pig con Apache Hadoop en HDInsight](hdinsight-use-pig.md)
+* [Uso de MapReduce con Apache Hadoop en HDInsight](hdinsight-use-mapreduce.md)
 
 [azure-purchase-options]: https://azure.microsoft.com/pricing/purchase-options/
 [azure-member-offers]: https://azure.microsoft.com/pricing/member-offers/

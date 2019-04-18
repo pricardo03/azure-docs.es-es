@@ -13,10 +13,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 12/17/2018
 ms.openlocfilehash: 4351017cc1848e29cca038f82fd96548ae3492e0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892473"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database"></a>Capacidades de varios modelos de Azure SQL Database
@@ -140,7 +140,7 @@ Consulte [Cómo BWin usa OLTP en memoria para lograr un rendimiento y escala sin
 ## <a name="next-steps"></a>Pasos siguientes
 Las funcionalidades de varios modelos en Azure SQL Database también son las características principales del motor de base de datos de SQL Server que se comparten entre Azure SQL Database y SQL Server. Para obtener más información acerca de estas características, visite las páginas de documentación de base de datos relacional de SQL:
 
-* [Procesamiento de gráficos](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview)
+* [Procesamiento de Graph](https://docs.microsoft.com/sql/relational-databases/graphs/sql-graph-overview)
 * [Datos de JSON](https://docs.microsoft.com/sql/relational-databases/json/json-data-sql-server)
-* [Compatibilidad espacial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server)
+* [Soporte espacial](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-sql-server)
 * [Datos XML](https://docs.microsoft.com/sql/relational-databases/xml/xml-data-sql-server)

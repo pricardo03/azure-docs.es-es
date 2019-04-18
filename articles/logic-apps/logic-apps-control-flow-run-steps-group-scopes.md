@@ -11,10 +11,10 @@ ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
 ms.openlocfilehash: 48fb2d14cd4cf99510fff88b25b9ae45814a92a8
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882419"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Ejecución de acciones basadas en el estado del grupo con ámbitos en Azure Logic Apps
@@ -79,20 +79,20 @@ Puede guardar la aplicación lógica en cualquier momento, así que guarde su tr
 
       | Configuración | Valor | DESCRIPCIÓN |
       | ------- | ----- | ----------- |
-      | **Punto de referencia 1** | <*inicio*> | Escriba el origen de la ruta. | 
-      | **Punto de referencia 2** | <*fin*> | Escriba el destino de la ruta. | 
-      | **Evite** | None | Escriba los elemento a evitar en la ruta, como autopistas, peajes, etc. Para los valores posibles, consulte [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calcular una ruta). | 
-      | **Optimizar** | timeWithTraffic | Seleccione un parámetro para optimizar la ruta, como distancia, información sobre el tiempo de trayecto con el tráfico actual, etc. Este ejemplo utiliza este valor: "timeWithTraffic" | 
-      | **Unidad de distancia** | <*su preferencia*> | Especifique la unidad de distancia para calcular la ruta. Este ejemplo utiliza este valor: "Milla" | 
-      | **Modo de desplazamiento** | Conducción | Escriba el modo de desplazamiento para la ruta. Este ejemplo utiliza este valor: "Driving" (Conducción) | 
-      | **Fecha y hora de tránsito** | None | Se aplica solo al modo de tránsito. | 
-      | **Tipo de fecha de tránsito** | None | Se aplica solo al modo de tránsito. | 
+      | **Waypoint 1** (Punto de referencia 1) | <*inicio*> | Escriba el origen de la ruta. | 
+      | **Waypoint 2** (Punto de referencia 2) | <*fin*> | Escriba el destino de la ruta. | 
+      | **Avoid** (Evitar) | None | Escriba los elemento a evitar en la ruta, como autopistas, peajes, etc. Para los valores posibles, consulte [Calculate a route](https://msdn.microsoft.com/library/ff701717.aspx) (Calcular una ruta). | 
+      | **Optimize** (Optimizar) | timeWithTraffic | Seleccione un parámetro para optimizar la ruta, como distancia, información sobre el tiempo de trayecto con el tráfico actual, etc. Este ejemplo utiliza este valor: "timeWithTraffic" | 
+      | **Distance unit** (Unidad de distancia) | <*su preferencia*> | Especifique la unidad de distancia para calcular la ruta. Este ejemplo utiliza este valor: "Mile" (Milla) | 
+      | **Travel mode** (Modo de desplazamiento) | Conducción | Escriba el modo de desplazamiento para la ruta. Este ejemplo utiliza este valor: "Driving" (Conducción) | 
+      | **Transit Date-Time** (Fecha y hora de tránsito) | None | Se aplica solo al modo de tránsito. | 
+      | **Transit Date-Type Type** (Fecha y tipo de tránsito) | None | Se aplica solo al modo de tránsito. | 
       ||||  
 
 1. [Agregue una condición](../logic-apps/logic-apps-control-flow-conditional-statement.md) que compruebe si el tiempo de trayecto con el tráfico actual supera el tiempo especificado. 
    Para este ejemplo, siga estos pasos:
 
-   1. Cambiar el nombre de la condición con esta descripción: **Si el tiempo de tráfico es posterior a la hora especificada**
+   1. Cambie el nombre de la condición por esta descripción: **Si el tiempo de tráfico es posterior a la hora especificada**
 
    1. En la columna más a la izquierda, haga clic dentro del cuadro **Elegir un valor** para que aparezca la lista de contenido dinámico. En la lista, seleccione el campo **Travel Duration Traffic** (Tráfico de duración del desplazamiento), que está en segundos. 
 
@@ -176,14 +176,14 @@ A continuación, agregue un ámbito para que pueda agrupar acciones específicas
 
 1. Ahora agregue los pasos o arrastre los pasos existentes que desea ejecutar dentro del ámbito. En este ejemplo, arrastre estas acciones al ámbito:
       
-   * **Obtención de una ruta**
+   * **Get route** (Obtener ruta)
    * **If traffic time is more than specified time** (Si el tiempo de trayecto es mayor que el tiempo especificado), que incluye las dos ramas: **true** y **false**
 
    Ahora, la aplicación lógica es similar a este ejemplo:
 
    ![Ámbito agregado](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-1. En el ámbito, agregue una condición que compruebe el estado del ámbito. Cambiar el nombre de la condición con esta descripción: **Si no se pudo de ámbito**
+1. En el ámbito, agregue una condición que compruebe el estado del ámbito. Cambie el nombre de la condición por esta descripción: **Si no se pudo de ámbito**
 
    ![Agregar condición para comprobar el estado del ámbito](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   
@@ -397,7 +397,7 @@ Si está trabajando en la vista de código, puede definir la estructura de un á
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Ejecutar pasos según una condición (instrucciones condicionales)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
-* [Ejecutar pasos en función de diferentes valores (instrucciones switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
-* [Ejecutar y repetir los pasos (bucles)](../logic-apps/logic-apps-control-flow-loops.md)
+* [Ejecución de pasos en función de una condición (instrucciones condicionales)](../logic-apps/logic-apps-control-flow-conditional-statement.md)
+* [Realización de pasos en función de los diferentes valores (instrucciones switch)](../logic-apps/logic-apps-control-flow-switch-statement.md)
+* [Ejecución y repetición de pasos (bucles)](../logic-apps/logic-apps-control-flow-loops.md)
 * [Ejecución o combinación de pasos en paralelo (ramas)](../logic-apps/logic-apps-control-flow-branches.md)

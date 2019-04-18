@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/30/2018
 ms.author: pbutlerm
 ms.openlocfilehash: f37ab1b9eef5be4aff6e5f8aecebc3688592f040
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046689"
 ---
 # <a name="deploy-a-vm-from-your-vhds"></a>Implementación de una máquina virtual a partir de VHD
@@ -30,7 +30,7 @@ Una vez que los discos duros virtuales (VHD) se han cargado (el VHD del sistema 
 Para obtener más información sobre las imágenes de máquina virtual, vea las siguientes entradas de blog:
 
 - [Imagen de máquina virtual](https://azure.microsoft.com/blog/vm-image-blog-post/)
-- [PowerShell de la imagen de máquina virtual 'Cómo'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/)
+- [VM Image PowerShell 'How To'](https://azure.microsoft.com/blog/vm-image-powershell-how-to-blog-post/) (Procedimientos para trabajar con imágenes de máquina virtual en PowerShell)
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
@@ -38,7 +38,7 @@ Para obtener más información sobre las imágenes de máquina virtual, vea las 
 
 Si aún no lo ha hecho, instale Azure PowerShell y la CLI de Azure mediante las siguientes instrucciones:
 
-- [Instalar Azure Powershell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
+- [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps)
 - [Instalación de la CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 
 
@@ -53,26 +53,26 @@ Seguirá los pasos a continuación para crear e implementar una imagen de VM de 
 Una vez implementada la VM, está listo para [certificar la imagen de VM](./cpp-certify-vm.md).
 
 1. Haga clic en **Nuevo** y busque **Implementación de plantillas**, luego seleccione **Build your own template in Editor** (Compilar plantilla propia en el editor).  <br/>
-   ![Crear plantilla de implementación de disco duro virtual en Azure portal](./media/publishvm_021.png)
+   ![Compilación de plantilla de implementación de disco duro virtual en Azure Portal](./media/publishvm_021.png)
 
 1. Copie y pegue esta [plantilla JSON](./cpp-deploy-json-template.md) en el editor y haga clic en **Guardar**. <br/>
-   ![Guardar plantilla de implementación de disco duro virtual en Azure portal](./media/publishvm_022.png)
+   ![Guardado de plantilla de implementación de disco duro virtual en Azure Portal](./media/publishvm_022.png)
 
 1. Proporcione los valores de parámetro de las páginas de propiedades **Implementación personalizada** que se muestran.
 
    <table> <tr> <td valign="top"> <img src="./media/publishvm_023.png" alt="Custom deployment property page 1"> </td> <td valign="top"> <img src="./media/publishvm_024.png" alt="Custom deployment property page 2"> </td> </tr> </table> <br/> 
 
-   |  **Parámetro**              |   **DESCRIPCIÓN**                                                            |
+   |  **Parámetro**              |   **Descripción**                                                            |
    |  -------------              |   ---------------                                                            |
    | User Storage Account Name (Nombre de usuario de la cuenta de almacenamiento)   | Nombre de la cuenta de almacenamiento donde se encuentra el disco duro virtual generalizado                    |
    | User Storage Container Name (Nombre de usuario del contenedor de almacenamiento) | Nombre del contenedor donde se encuentra el disco duro virtual generalizado                          |
    | DNS Name for Public IP (Nombre DNS para IP pública)      | Nombre DNS de IP pública                                                           |
    | Nombre de usuario administrador             | Nombre de usuario de la cuenta de administrador de la nueva máquina virtual                                  |
    | Contraseña de administrador              | Contraseña de la cuenta de administrador de la nueva máquina virtual                                  |
-   | OS Type (Tipo de SO)                     | Sistema operativo de máquina virtual: `Windows` \| `Linux`                                    |
+   | OS Type (Tipo de SO)                     | Sistema operativo de la máquina virtual: `Windows` \| `Linux`                                    |
    | Id. de suscripción             | Identificador de la suscripción seleccionada                                      |
    | Ubicación                    | Ubicación geográfica de la implementación                                        |
-   | Tamaño de VM                     | [Tamaño de máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), por ejemplo `Standard_A2` |
+   | Tamaño de VM                     | [Tamaño de la máquina virtual de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes), por ejemplo `Standard_A2` |
    | Nombre de dirección IP pública      | Nombre de la dirección IP pública                                               |
    | Nombre de la máquina virtual                     | Nombre de la nueva máquina virtual                                                           |
    | El nombre de la red virtual        | Nombre de la red virtual que usa la máquina virtual                                   |

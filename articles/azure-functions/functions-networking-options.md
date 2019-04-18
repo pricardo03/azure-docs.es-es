@@ -1,5 +1,5 @@
 ---
-title: Opciones de red de Azure Functions
+title: Las opciones de red de Azure Functions
 description: Información general de todas las opciones de red disponibles en Azure Functions
 services: functions
 author: alexkarcher-msft
@@ -8,94 +8,96 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: a4ae2d8bad50a4103da6afaa0bee5cbb75c877aa
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: b7af0149a690e3cc3a357a5cb769751e3674d374
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59545512"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698208"
 ---
 # <a name="azure-functions-networking-options"></a>Las opciones de red de Azure Functions
 
-Este documento describe el conjunto de características de redes disponibles a través de las opciones de hospedaje de Azure Functions. Todas las siguientes opciones de red proporcionan la posibilidad de tener acceso a recursos sin usar direcciones enrutable de internet o restringir el acceso a internet a una aplicación de función. Todos los modelos de hospedaje tienen diferentes niveles de aislamiento de red disponible y elegir uno correcto le permitirá satisfacer los requisitos de aislamiento de red.
+Este artículo describe las características de redes disponibles a través de las opciones de alojamiento para Azure Functions. Todas las siguientes opciones de red proporcionan la posibilidad de tener acceso a recursos sin usar direcciones enrutable de internet o restringir el acceso a internet a una aplicación de función. 
 
-Función de las aplicaciones puede hospedarse de distintas maneras.
+Los modelos de hospedaje tienen diferentes niveles de aislamiento de red disponible. Elegir uno correcto le ayudará a cumplir los requisitos de aislamiento de red.
 
-* Hay un conjunto de opciones de plan que se ejecutan en infraestructura de varios inquilinos, con distintos niveles de la conectividad de red virtual y opciones de escalado.
-    1. El plan de consumo, que se escala dinámicamente en respuesta a la carga y ofrece opciones de aislamiento de red mínimos.
-    1. El Plan Premium, que también se escala dinámicamente, al tiempo que ofrece aislamiento de red más completo.
-    1. El Plan de App Service, que funciona en una escala fija y ofrece aislamiento de red similar al plan Premium.
-* También se pueden ejecutar funciones en App Service Environment (ASE) que implementa la función en la red virtual y ofrece control completo de la red y aislamiento.
+Puede hospedar aplicaciones de función en un par de formas:
 
-## <a name="networking-feature-matrix"></a>Matriz de características de redes
+* Hay un conjunto de opciones de plan que se ejecutan en una infraestructura para varios inquilinos, con distintos niveles de la conectividad de red virtual y opciones de escalado:
+    * El [plan de consumo](functions-scale.md#consumption-plan), que se escala dinámicamente en respuesta a la carga y ofrece opciones de aislamiento de red mínimos.
+    * El [plan Premium](functions-scale.md#premium-plan-public-preview), que también se escala dinámicamente, al tiempo que ofrece aislamiento de red más completo.
+    * Azure [plan de App Service](functions-scale.md#app-service-plan), que funciona en una escala fija y ofrece aislamiento de red similar al plan Premium.
+* Puede ejecutar funciones en un [App Service Environment](../app-service/environment/intro.md). Este método implementa la función en la red virtual y ofrece control completo de la red y aislamiento.
 
-|                |[Plan de consumo](functions-scale.md#consumption-plan)|⚠ [Plan Premium](functions-scale.md##premium-plan-public-preview)|[Plan de App Service](functions-scale.md#app-service-plan)|[entorno de App Service](../app-service/environment/intro.md)|
+## <a name="matrix-of-networking-features"></a>Matriz de características de red
+
+|                |[Plan de consumo](functions-scale.md#consumption-plan)|⚠ [Plan Premium](functions-scale.md#premium-plan-public-preview)|[plan de App Service](functions-scale.md#app-service-plan)|[entorno de App Service](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
-|[**Restricciones de IP de entrada**](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
-|[**Integración con red virtual**](#vnet-integration)|❌No|❌No|✅Yes|✅Yes|
-|[**Integración con redes virtuales Preview (Express Route & puntos de conexión de servicio)**](#preview-vnet-integration)|❌No|⚠Sí|⚠Sí|✅Yes|
-|[**Conexiones híbridas**](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
-|[**Acceso al sitio de privada**](#private-site-access)|❌No| ❌No|❌No|✅Yes|
+|[Las restricciones de IP de entrada](#inbound-ip-restrictions)|✅Yes|✅Yes|✅Yes|✅Yes|
+|[Integración de redes virtuales](#virtual-network-integration)|❌No|❌No|✅Yes|✅Yes|
+|[Vista previa de la integración de red virtual (Azure ExpressRoute y los puntos de conexión de servicio)](#preview-version-of-virtual-network-integration)|❌No|⚠Sí|⚠Sí|✅Yes|
+|[conexiones híbridas](#hybrid-connections)|❌No|❌No|✅Yes|✅Yes|
+|[acceso privado a sitios](#private-site-access)|❌No| ❌No|❌No|✅Yes|
 
-⚠ Característica de vista previa, no para su uso en producción
+⚠ Esta característica de vista previa no disponible para su uso en producción.
 
 ## <a name="inbound-ip-restrictions"></a>Las restricciones de IP de entrada
 
-Las restricciones de direcciones IP le permiten definir una lista de direcciones IP ordenadas por prioridad que tienen permiso para acceder a la aplicación. La lista de elementos permitidos puede incluir direcciones IPv4 e IPv6. Cuando hay una o varias entradas, hay una denegación implícita de todo lo que existe al final de la lista. La funcionalidad de las restricciones de IP funciona con la función de todas las opciones de hospedaje.
+Puede usar las restricciones de IP para definir una lista ordenada por prioridad de las direcciones IP que se permite o deniega el acceso a la aplicación. La lista puede incluir direcciones IPv4 e IPv6. Cuando hay una o varias entradas, implícita "Denegar todo" existe al final de la lista. Las restricciones de IP funcionan con todas las opciones de hospedaje de función.
 
 > [!NOTE]
-> Para poder usar el editor de Azure portal, el portal debe ser capaz de acceder directamente a la aplicación de función de ejecución y el dispositivo que se usa para acceder al portal debe tener su en la lista blanca IP. Con las restricciones de red en su lugar, es posible tener acceso cualquier característica en el **características de la plataforma** ficha.
+> Para usar el editor de Azure portal, el portal debe poder tener acceso directamente a la aplicación de función en ejecución. Además, el dispositivo que se usa para acceder al portal debe tener su en la lista blanca IP. Con las restricciones de red en su lugar, todavía puede tener acceso a todas las características en el **características de la plataforma** ficha.
 
-[Más información aquí](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions).
+Para obtener más información, consulte [restricciones de acceso estáticos de Azure App Service](../app-service/app-service-ip-restrictions.md).
 
-## <a name="vnet-integration"></a>Integración con red virtual
+## <a name="virtual-network-integration"></a>Integración de la red virtual
 
-Integración con red virtual permite que la aplicación de función tener acceso a recursos dentro de una red virtual. Integración con redes virtuales está disponible en el plan Premium y el plan de App Service. Si la aplicación está en un entorno de App Service, ya está en una red virtual y no requiere el uso de la característica de integración con red virtual para tener acceso a recursos en la misma red virtual.
+Integración de virtual network permite que la aplicación de función tener acceso a recursos dentro de una red virtual. Esta característica está disponible en el plan Premium y el plan de App Service. Si la aplicación está en un entorno de App Service, ya está en una red virtual y no requiere el uso de la integración de red virtual para tener acceso a recursos en la misma red virtual.
 
-Integración con red virtual proporciona el acceso a la aplicación de función a los recursos de la red virtual, pero no concede [acceso privado a sitios](#private-site-access) a la aplicación de función de la red virtual.
+Integración de red virtual proporciona el acceso a la aplicación de función a los recursos de la red virtual, pero no concede [acceso privado a sitios](#private-site-access) a la aplicación de función de la red virtual.
 
-La integración con red virtual se usa a menudo para habilitar el acceso de aplicaciones a bases de datos y servicios web que se ejecutan en su red virtual. Con Integración con red virtual, no es necesario exponer un punto de conexión público para las aplicaciones en su máquina virtual, sino que puede usar las direcciones privadas no enrutables sin conexión a Internet en su lugar.
+Puede usar la integración de red virtual para permitir el acceso desde aplicaciones de bases de datos y servicios web que se ejecutan en la red virtual. Con la integración de red virtual, no es necesario exponer un punto de conexión público para las aplicaciones en la máquina virtual. Puede usar las direcciones privadas de internet que no son enrutables en su lugar.
 
-La versión disponible con carácter general de la integración con red virtual se basa en una puerta de enlace VPN para conectarse a aplicaciones de función a una red virtual. Está disponible en las funciones que se hospeda en un plan de app service. Para obtener información sobre cómo configurar esta característica, consulte el [documento de servicio de aplicación de la misma función](../app-service/web-sites-integrate-with-vnet.md#enabling-vnet-integration).
+La versión disponible con carácter general de la integración de red virtual se basa en una puerta de enlace VPN para conectarse a aplicaciones de función a una red virtual. Está disponible en las funciones hospedadas en un plan de App Service. Para obtener información sobre cómo configurar esta característica, consulte [integrar su aplicación con una red virtual](../app-service/web-sites-integrate-with-vnet.md#enabling-vnet-integration).
 
-### <a name="preview-vnet-integration"></a>Integración de la red virtual de versión preliminar
+### <a name="preview-version-of-virtual-network-integration"></a>Versión preliminar de integración de red virtual
 
-Hay una nueva versión de la característica Integración con red virtual que está en versión preliminar. No depende de la VPN de punto a sitio y admite el acceso a los recursos a través de ExpressRoute o de los puntos de conexión de servicio. Esta característica está disponible en el plan Premium y en los planes de App Service, escalados hasta PremiumV2.
+Una nueva versión de la característica de integración de la red virtual está en versión preliminar. No depende de VPN de punto a sitio. Admite el acceso a los recursos a través de ExpressRoute o puntos de conexión de servicio. Está disponible en el plan Premium y en los planes de App Service, escalados hasta PremiumV2.
 
-La nueva versión de la integración con red virtual, que se encuentra actualmente en versión preliminar, proporciona las siguientes ventajas:
+Estas son algunas características de esta versión:
 
-* No es necesaria ninguna puerta de enlace para usar la nueva característica de integración con red virtual.
-* Puede acceder a recursos en conexiones de ExpressRoute sin ninguna configuración adicional, aparte de la integración con la red virtual conectada a ExpressRoute.
-* Puede consumir los recursos protegidos de ejecutar las funciones de punto de conexión de servicio. Para ello, habilite los puntos de conexión de servicio en la subred usada para la integración con red virtual.
-* No se puede configurar desencadenadores para usar el extremo de servicio que protegen recursos mediante la nueva funcionalidad de integración con red virtual. 
+* No necesita una puerta de enlace para utilizarlo.
+* Puede acceder a los recursos a través de conexiones de ExpressRoute sin más configuración que la integración con la red virtual conectada a ExpressRoute.
+* Puede consumir los recursos protegidos de punto de conexión de servicio se ejecuten las funciones. Para ello, habilite los puntos de conexión de servicio en la subred usada para la integración de red virtual.
+* No se puede configurar desencadenadores para usar recursos protegidos de punto de conexión de servicio. 
 * La aplicación de función y la red virtual deben estar en la misma región.
-* La nueva característica requiere una subred sin usar en la red virtual de Resource Manager.
-* Las cargas de trabajo de producción no se admiten en la nueva versión de la integración con red virtual mientras está en versión preliminar.
-* Las tablas de rutas y el emparejamiento global no están aún disponibles con la nueva integración con red virtual.
-* Se usa una dirección para cada instancia de aplicación de función posibles. Dado que no se puede cambiar el tamaño de la subred después de la asignación, utilice una subred que puede admitir fácilmente el tamaño de la escala máxima. Por ejemplo, para admitir un plan Premium que se puede escalar hasta 80 instancias, se recomienda un `/25` subred que proporciona 126 direcciones de host.
+* La nueva característica requiere una subred sin usar en la red virtual que ha implementado mediante Azure Resource Manager.
+* No se admiten las cargas de trabajo de producción mientras la característica está en versión preliminar.
+* Las tablas de rutas y el emparejamiento global no están aún disponibles con la característica.
+* Se usa una dirección para cada instancia potencial de una aplicación de función. Dado que no se puede cambiar el tamaño de la subred después de la asignación, utilice una subred que puede admitir fácilmente el tamaño de la escala máxima. Por ejemplo, para admitir un plan Premium que se puede escalar hasta 80 instancias, se recomienda un `/25` subred que proporciona 126 direcciones de host.
 
-Para más información sobre el uso de la integración de red virtual de versión preliminar, consulte [integrar una aplicación de función con una red Virtual de Azure](functions-create-vnet.md).
+Para más información sobre el uso de la versión preliminar de integración de red virtual, consulte [integrar una aplicación de función con una red virtual](functions-create-vnet.md).
 
-## <a name="hybrid-connections"></a>Conexiones híbridas
+## <a name="hybrid-connections"></a>conexiones híbridas
 
-[Conexiones híbridas](../service-bus-relay/relay-hybrid-connections-protocol.md) es una característica de Azure Relay que se puede usar para tener acceso a recursos de la aplicación en otras redes. Proporciona acceso desde la aplicación a un punto de conexión de la aplicación. No se puede usar para tener acceso a la aplicación. Conexiones híbridas está disponible para las funciones que se ejecutan en un [plan de App Service](functions-scale.md#app-service-plan) y un [App Service Environment](../app-service/environment/intro.md).
+[Conexiones híbridas](../service-bus-relay/relay-hybrid-connections-protocol.md) es una característica de Azure Relay que puede usar para tener acceso a recursos de la aplicación en otras redes. Proporciona acceso desde la aplicación a un punto de conexión de la aplicación. No puede usarlo para acceder a la aplicación. Conexiones híbridas está disponible para las funciones que se ejecutan en un [plan de App Service](functions-scale.md#app-service-plan) y un [App Service Environment](../app-service/environment/intro.md).
 
-Tal como se utiliza en funciones, cada conexión híbrida se correlaciona con una combinación única de host y el puerto TCP. Esto significa que el punto de conexión híbrida puede estar en cualquier sistema operativo y en cualquier aplicación, siempre y cuando se acceda a un puerto de escucha TCP. La característica Conexiones híbridas no sabe lo que es el protocolo de aplicaciones ni sabe a qué se accede. Simplemente ofrece acceso a la red.
+Tal como se utiliza en Azure Functions, cada conexión híbrida se correlaciona con una combinación única de host y el puerto TCP. Esto significa que el punto de conexión de la conexión híbrida puede estar en cualquier sistema operativo y cualquier aplicación, mientras que está accediendo a un puerto de escucha TCP. La característica conexiones híbridas no sabe ni necesita atención, ¿qué es el protocolo de aplicación, o que está accediendo. Simplemente proporciona acceso a la red.
 
-Para obtener más información, consulte el [documentación de App Service para las conexiones híbridas](../app-service/app-service-hybrid-connections.md), que es compatible con las funciones y las aplicaciones Web.
+Para obtener más información, consulte el [documentación de App Service para las conexiones híbridas](../app-service/app-service-hybrid-connections.md), que es compatible con las funciones en un plan de App Service.
 
 ## <a name="private-site-access"></a>El acceso privado a sitios
 
-El acceso al sitio privado se refiere a que la aplicación solo es accesible desde una red privada, como desde dentro de una red virtual de Azure. El acceso privado al sitio solo está disponible con un ASE configurado con un Equilibrador de carga interno (ILB). Para obtener más información sobre el uso de un ASE de ILB, consulte [creación y uso de un ASE de ILB](../app-service/environment/create-ilb-ase.md).
+Acceso al sitio privado se refiere a que la aplicación sea accesible solo desde una red privada, como desde dentro de una red virtual de Azure. Acceso privado a sitios está disponible solo con un entorno de App Service configurados con un equilibrador de carga interno (ILB). Para obtener más información, consulte [creación y uso de un equilibrador de carga interno con App Service Environment](../app-service/environment/create-ilb-ase.md).
 
-Hay muchas maneras de acceder a recursos de red virtual de otras opciones de hospedaje, pero un ASE es la única manera de permitir que los desencadenadores para una función que se produzca a través de una red virtual.
+Hay muchas maneras de obtener acceso a recursos de red virtual de otras opciones de hospedaje. Pero un entorno de App Service es la única manera de permitir que los desencadenadores para una función que se produzca a través de una red virtual.
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para más información acerca de las redes y funciones: 
+Para más información acerca de las funciones de red y Azure: 
 
-* [Siga nuestra red virtual integración tutorial de introducción](./functions-create-vnet.md)
-* [Leer las funciones de aquí a preguntas más frecuentes sobre redes](./functions-networking-faq.md)
-* [Más información sobre la integración de la red virtual con App Service y Functions](../app-service/web-sites-integrate-with-vnet.md)
-* [Más información sobre las redes virtuales en Azure](../virtual-network/virtual-networks-overview.md)
+* [Siga el tutorial sobre cómo empezar con la integración de red virtual](./functions-create-vnet.md)
+* [Leer las funciones de preguntas más frecuentes de red](./functions-networking-faq.md)
+* [Más información sobre la integración con la aplicación de servicio o funciones de red virtual](../app-service/web-sites-integrate-with-vnet.md)
+* [Más información sobre redes virtuales en Azure](../virtual-network/virtual-networks-overview.md)
 * [Habilitar más características de red y control con entornos de App Service](../app-service/environment/intro.md)
-* [Conexión a recursos locales específicos mediante conexiones híbridas sin modificar el firewall](../app-service/app-service-hybrid-connections.md)
+* [Conectarse a recursos individuales de forma local sin cambios en el firewall mediante conexiones híbridas](../app-service/app-service-hybrid-connections.md)

@@ -11,10 +11,10 @@ ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
 ms.openlocfilehash: 2dd2a6e071533deef47a6482bfb9ed92953864ba
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259823"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Creación de grupos de administración para la organización y la administración de recursos
@@ -98,7 +98,7 @@ az account management-group create --name ContosoSubGroup --parent Contoso
 Para más información sobre los grupos de administración, consulte:
 
 - [Creación de grupos de administración para organizar los recursos de Azure](create.md)
-- [Cómo cambiar, eliminar o administrar los grupos de administración](manage.md)
-- [Revise los grupos de administración en el módulo de recursos de Azure PowerShell](/powershell/module/az.resources#resources)
-- [Revise los grupos de administración en la API de REST](/rest/api/resources/managementgroups)
-- [Revise los grupos de administración en la CLI de Azure](/cli/azure/account/management-group)
+- [Cambio, eliminación y administración de los grupos de administración](manage.md)
+- [Revisión de grupos de administración en el módulo de recursos de Azure PowerShell](/powershell/module/az.resources#resources)
+- [Revisión de grupos de administración en la API REST](/rest/api/resources/managementgroups)
+- [Revisión de grupos de administración en la CLI de Azure](/cli/azure/account/management-group)

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 0302146634904ccf1d87220d3a24553149e10372
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012971"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-cli"></a>Administración automática de dispositivos IoT a escala mediante la CLI de Azure
@@ -99,11 +99,11 @@ Use el comando siguiente para crear una configuración:
 
 * --**config-id**: el nombre de la configuración que se creará en IoT Hub. Asigne a su configuración un nombre exclusivo de hasta 128 letras en minúscula. Evite los espacios y los siguientes caracteres no válidos: `& ^ [ ] { } \ | " < > /`.
 
-* --**labels**: agrega etiquetas para ayudar a realizar un mejor seguimiento de la configuración. Las etiquetas son pares de Nombre y Valor que describen la implementación. Por ejemplo, `HostPlatform, Linux` o `Version, 3.0.1`
+* --**labels**: agrega etiquetas para ayudar a realizar un mejor seguimiento de la configuración. Las etiquetas son pares de Nombre y Valor que describen la implementación. Por ejemplo, `HostPlatform, Linux` o `Version, 3.0.1`.
 
 * --**content**: formato JSON alineado o ruta de acceso del archivo al contenido de destino que se establecerá como las propiedades gemelas que quiera. 
 
-* --**hub-name**: nombre de la instancia de IoT Hub en la que se creará la configuración. El centro debe estar en la suscripción actual. Cambie a la suscripción deseada con el comando `az account set -s [subscription name]`
+* --**hub-name**: nombre de la instancia de IoT Hub en la que se creará la configuración. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
 
 * --**target-condition**: escriba una condición de destino para determinar qué dispositivos se dirigirán a esta configuración. La condición se basa en las etiquetas del dispositivo gemelo o en las propiedades deseadas del dispositivo gemelo y debe coincidir con el formato de expresión. Por ejemplo, `tags.environment='test'` o `properties.desired.devicemodel='4000x'`. 
 
@@ -122,7 +122,7 @@ az iot hub configuration show --config-id [configuration id] \
 
 * --**config-id**: el nombre de la configuración que está en IoT Hub.
 
-* --**hub-name**: el nombre de la instancia de IoT Hub en la que está la configuración. El centro debe estar en la suscripción actual. Cambie a la suscripción deseada con el comando `az account set -s [subscription name]`
+* --**hub-name**: el nombre de la instancia de IoT Hub en la que está la configuración. El centro debe estar en la suscripción actual. Cambie a la suscripción que quiera usar con el comando `az account set -s [subscription name]`.
 
 Revise la configuración en la ventana de comandos. La propiedad **metrics** enumera un recuento para cada métrica que evalúa cada centro:
 
@@ -172,7 +172,7 @@ az iot hub configuration update --config-id [configuration id] \
 
 * --**set**: actualiza una propiedad de la configuración. Puede actualizar las propiedades siguientes:
 
-    * targetCondition - por ejemplo `targetCondition=tags.location.state='Oregon'`
+    * targetCondition: por ejemplo, `targetCondition=tags.location.state='Oregon'`.
 
     * labels 
 
@@ -202,9 +202,9 @@ En este artículo, aprendió a configurar y supervisar dispositivos IoT a escala
 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
-* [Guía del desarrollador de IoT Hub](iot-hub-devguide.md)
-* [Implementar AI en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md)
+* [Implementación de IA en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 Para explorar el uso del servicio IoT Hub Device Provisioning para habilitar el aprovisionamiento Just-In-Time sin intervención del usuario, vea: 
 
-* [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)
+* [Servicio Azure IoT Hub Device Provisioning](/azure/iot-dps)

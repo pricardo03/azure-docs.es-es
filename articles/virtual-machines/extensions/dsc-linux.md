@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
 ms.openlocfilehash: 67f72c5b396bc935f7bec34bc8a52f63131649b1
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904481"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Extensión DSC para Linux (Microsoft.OSTCExtensions.DSCForLinux)
@@ -57,14 +57,14 @@ La extensión DSCForlinux requiere que la máquina virtual de destino esté cone
 
 Estos son todos los parámetros de configuración pública admitidos:
 
-* `FileUri`: (opcional, cadena) el uri del archivo de ZIP de recursos MOF y archivo de metadatos MOF o los archivos personalizados.
-* `ResourceName`: (opcional, cadena) el nombre del módulo de recursos personalizados
+* `FileUri`: (opcional, cadena) URI del archivo MOF, del archivo Meta MOF o del archivo ZIP de recursos personalizados.
+* `ResourceName`: (opcional, cadena) nombre del módulo de recursos personalizados.
 * `ExtensionAction`: (opcional, cadena) especifica lo que hace una extensión. Valores válidos: Register, Push, Pull, Install y Remove. Si no se especifica, se considera como acción de inserción de forma predeterminada.
-* `NodeConfigurationName`: (opcional, cadena) el nombre de una configuración de nodo que se aplicará.
-* `RefreshFrequencyMins`: (opcional, int) especifica la frecuencia (en minutos), DSC intenta obtener la configuración del servidor de extracción. 
+* `NodeConfigurationName`: (opcional, cadena) nombre de una configuración de nodo que se aplicará.
+* `RefreshFrequencyMins`: (opcional, entero) especifica la frecuencia (en minutos) en que DSC intenta obtener la configuración del servidor de extracción. 
        Si la configuración del servidor de extracción es diferente de la configuración actual en el nodo de destino, se copia en el almacén pendiente y se aplica.
 * `ConfigurationMode`: (opcional, cadena) especifica cómo DSC debe aplicar la configuración. Los valores válidos son: ApplyOnly, ApplyAndMonitor y ApplyAndAutoCorrect.
-* `ConfigurationModeFrequencyMins`: (opcional, int) especifica la frecuencia (en minutos), DSC garantiza que la configuración en el estado deseado.
+* `ConfigurationModeFrequencyMins`: (opcional, entero) especifica la frecuencia (en minutos) en que DSC garantiza que la configuración esté en el estado deseado.
 
 > [!NOTE]
 > Si usa una versión anterior a la 2.3, el parámetro de modo es igual que ExtensionAction. Modo parece ser un término sobrecargado. Por lo tanto, para evitar confusiones, ExtensionAction se utiliza a partir de la versión 2.3. Para ofrecer compatibilidad con versiones anteriores, la extensión admite tanto el modo como ExtensionAction. 
@@ -74,10 +74,10 @@ Estos son todos los parámetros de configuración pública admitidos:
 
 Estos son todos los parámetros de configuración protegidos que se admiten:
 
-* `StorageAccountName`: (opcional, cadena) el nombre de la cuenta de almacenamiento que contiene el archivo
-* `StorageAccountKey`: (opcional, cadena) la clave de la cuenta de almacenamiento que contiene el archivo
-* `RegistrationUrl`: (opcional, cadena) la dirección URL de la cuenta de Azure Automation
-* `RegistrationKey`: (opcional, cadena) la clave de acceso de la cuenta de Azure Automation
+* `StorageAccountName`: (opcional, cadena) nombre de la cuenta de almacenamiento que contiene el archivo.
+* `StorageAccountKey`: (opcional, cadena) clave de la cuenta de almacenamiento que contiene el archivo.
+* `RegistrationUrl`: (opcional, cadena) dirección URL de la cuenta de Azure Automation.
+* `RegistrationKey`: (opcional, cadena) clave de acceso de la cuenta de Azure Automation.
 
 
 ## <a name="scenarios"></a>Escenarios
@@ -403,7 +403,7 @@ Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location
   -TypeHandlerVersion $version -SettingString $publicConfig -ProtectedSettingString $privateConfig
 ```
 
-## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
+## <a name="troubleshoot-and-support"></a>Solución de problemas y soporte técnico
 
 ### <a name="troubleshoot"></a>Solución de problemas
 

@@ -3,8 +3,8 @@ title: Extensión de script personalizada en una máquina virtual Windows | Micr
 description: Automatizar tareas de configuración de máquina virtual de Azure mediante la extensión de script personalizada para ejecutar scripts de PowerShell en una máquina virtual remota de Windows
 services: virtual-machines-windows
 documentationcenter: ''
-author: roiyz-msft
-manager: jeconnoc
+author: georgewallace
+manager: carmonm
 editor: ''
 tags: azure-service-management
 ms.assetid: ebb7340a-8f61-4d3c-a290-d7bf8de2d0bd
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 01/17/2017
-ms.author: roiyz
-ms.openlocfilehash: f7a1cb0ff1e530f15db7d56421fcc67555ac8ada
-ms.sourcegitcommit: 943af92555ba640288464c11d84e01da948db5c0
-ms.translationtype: HT
+ms.author: gwallace
+ms.openlocfilehash: 65e626ebccd4965807fb384b4ac2a8667c4323c3
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/09/2019
-ms.locfileid: "55978568"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699071"
 ---
 # <a name="custom-script-extension-for-windows-using-the-classic-deployment-model"></a>Extensión de script personalizado para Windows con el modelo de implementación clásico
 
@@ -102,7 +102,7 @@ Set-AzureVMCustomScriptExtension -VM $vm -FileUri myFileUri -Run 'create-file.ps
 $vm | Update-AzureVM
 ```
 
-## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
+## <a name="troubleshoot-and-support"></a>Solución de problemas y soporte técnico
 
 ### <a name="troubleshoot"></a>Solución de problemas
 

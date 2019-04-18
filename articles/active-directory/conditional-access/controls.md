@@ -19,10 +19,10 @@ ms.author: joflore
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a92d10f67533efc2f5893b012aefbcb92efee59a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258749"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>¿Qué son los controles de acceso en el acceso condicional de Azure Active Directory?
@@ -78,7 +78,7 @@ El dispositivo tiene que estar registrado en Azure AD antes de que se pueda marc
 
 - [Dispositivos registrados en Azure AD](../devices/overview.md#azure-ad-registered-devices)
 - [Dispositivos unidos a Azure AD](../devices/overview.md#azure-ad-joined-devices)  
-- [Dispositivos híbridos unidos a Azure AD](../devices/overview.md#hybrid-azure-ad-joined-devices)
+- [Dispositivos unidos a Azure AD híbrido](../devices/overview.md#hybrid-azure-ad-joined-devices)
 
 Para más información, consulte [Uso obligatorio de dispositivos administrados para el acceso a aplicaciones en la nube mediante el acceso condicional](require-managed-devices.md).
 
@@ -125,7 +125,7 @@ Los proveedores que actualmente ofrecen un servicio compatible incluyen:
 
 - [Duo Security](https://duo.com/docs/azure-ca)
 - [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
-- [Ping Identity](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
+- [Identidad de ping](https://documentation.pingidentity.com/pingid/pingidAdminGuide/index.shtml#pid_c_AzureADIntegration.html)
 - RSA
 - [SecureAuth](https://docs.secureauth.com/pages/viewpage.action?pageId=47238992#)
 - [Silverfort](https://www.silverfort.io/company/using-silverfort-mfa-with-azure-active-directory/)

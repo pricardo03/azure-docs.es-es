@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: absha
 ms.openlocfilehash: 40c5444a54f4e483a9dcacb958c18f66da45019a
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58906130"
 ---
 # <a name="application-gateway-configuration-overview"></a>Introducción a la configuración de Application Gateway
@@ -346,4 +346,4 @@ Ahora que sabe acerca de los componentes de Application Gateway, puede:
 
 - [Crear una puerta de enlace de la aplicación en Azure portal](quick-create-portal.md)
 - [Crear una instancia de application gateway mediante PowerShell](quick-create-powershell.md)
-- [Creación de una puerta de enlace de aplicaciones mediante la CLI de Azure](quick-create-cli.md)
+- [Crear una puerta de enlace de aplicaciones mediante la CLI de Azure](quick-create-cli.md)

@@ -16,10 +16,10 @@ search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 146fdc3ca2af708a96e6b9a604493eb63c2e6530
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916383"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implementación de la sincronización de hash de contraseñas con la sincronización de Azure AD Connect
@@ -119,7 +119,7 @@ Si usa una configuración personalizada al instalar Azure AD Connect, la sincron
 ### <a name="password-hash-synchronization-and-fips"></a>Sincronización de hash de contraseñas y FIPS
 Si el servidor se bloquea según el Estándar Federal de Procesamiento de la Información (FIPS), se deshabilita el hash MD5.
 
-**Para habilitar el MD5 para la sincronización de hash de contraseña, realice los pasos siguientes:**
+**Para habilitar el MD5 para la sincronización de hash de contraseñas, realice los pasos siguientes:**
 
 1. Vaya a %programfiles%\Azure AD Sync\Bin.
 2. Abra miiserver.exe.config.
@@ -143,6 +143,6 @@ Para obtener información sobre la seguridad y FIPS, vea [Azure AD password hash
 Si tiene problemas con la sincronización de hash de contraseñas, vea [Solución de problemas de sincronización de hash de contraseñas](tshoot-connect-password-hash-synchronization.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Sincronización de Azure AD Connect: Personalizar las opciones de sincronización](how-to-connect-sync-whatis.md)
+* [Sincronización de Azure AD Connect: personalización de las opciones de sincronización](how-to-connect-sync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md)
-* [Obtenga un plan de implementación paso a paso para migrar desde AD FS para la sincronización de Hash de contraseña](https://aka.ms/authenticationDeploymentPlan)
+* [Obtención de un plan de implementación paso a paso para migrar desde AD FS para la sincronización de hash de contraseña](https://aka.ms/authenticationDeploymentPlan)

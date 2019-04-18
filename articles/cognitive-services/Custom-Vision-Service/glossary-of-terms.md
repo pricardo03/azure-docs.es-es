@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: anroth
 ms.openlocfilehash: 3a34af77a2806ceb56e939e2b153f2e68bba61cd
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048943"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Glosario de términos de Custom Vision Service
@@ -29,10 +29,10 @@ Un clasificador es un modelo que se crea con Custom Vision Service, mediante el 
 
 Cuando se crea un proyecto, se selecciona un "dominio" para ese proyecto. El dominio optimiza un clasificador para un tipo específico del objeto en las imágenes. Por ejemplo, si el escenario es clasificar imágenes entre tarta de manzana y tarta de zanahoria, seleccione el dominio "Food" (Comidas). Si no está seguro de qué dominio elegir, seleccione el dominio "Generic" (Genérico).
 
-- **El dominio de alimentos.** Optimizado para los platos que vería en el menú de un restaurante. No se ha optimizado para reconocer frutas o verduras individuales. Si desea clasificar fotografías de frutas o verduras individuales, utilice el dominio genérico para ese fin.
-- **El dominio de punto de referencia.** Optimizado para lugares de interés reconocibles, tanto naturales como artificiales. Este dominio funciona mejor si el lugar de interés es claramente visible en la fotografía, aunque aparezca ligeramente tapado por un grupo de personas situadas frente a él.
-- **El dominio de venta directa.** Optimizado para clasificar imágenes que se encuentran en un catálogo de compra o un sitio web de compras. Si desea una alta precisión al clasificar vestidos, pantalones, camisas, etc., use el dominio Retail.
-- **El dominio General.** Idóneo para una amplia gama de tareas de clasificación de imágenes.
+- **Dominio Food (Comidas).** Optimizado para los platos que vería en el menú de un restaurante. No se ha optimizado para reconocer frutas o verduras individuales. Si desea clasificar fotografías de frutas o verduras individuales, utilice el dominio genérico para ese fin.
+- **Dominio Landmark (Lugares de interés).** Optimizado para lugares de interés reconocibles, tanto naturales como artificiales. Este dominio funciona mejor si el lugar de interés es claramente visible en la fotografía, aunque aparezca ligeramente tapado por un grupo de personas situadas frente a él.
+- **Dominio Retail (Tienda).** Optimizado para clasificar imágenes que se encuentran en un catálogo de compra o un sitio web de compras. Si desea una alta precisión al clasificar vestidos, pantalones, camisas, etc., use el dominio Retail.
+- **Dominio General.** Idóneo para una amplia gama de tareas de clasificación de imágenes.
 
 Los modelos generados por los **dominios compactos** se pueden exportar con la funcionalidad de exportación de iteración. Están optimizados para las restricciones de clasificación en tiempo real en dispositivos móviles. Los clasificadores creados con un dominio compacto podrían ser un poco menos precisos que los que usan un dominio estándar con la misma cantidad de datos de entrenamiento. La contrapartida es que son lo suficientemente pequeños como para ejecutarse localmente prácticamente en tiempo real. 
 

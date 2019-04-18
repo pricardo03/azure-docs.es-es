@@ -17,10 +17,10 @@ ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2949559542759cadf90d329bc50b352998b3eb7e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262557"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Redirección de los vínculos codificados de manera rígida para las aplicaciones publicadas con el Proxy de aplicación de Azure AD
@@ -148,4 +148,4 @@ Queremos que nos ayude a hacer que esta característica funcione para todas las 
 ## <a name="next-steps"></a>Pasos siguientes
 [Uso de dominios personalizados con el Proxy de aplicación de Azure AD](application-proxy-configure-custom-domain.md) para tener la misma dirección URL interna y externa
 
-[Configurar asignaciones de acceso alternativo para SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)
+[Configurar las asignaciones alternativas de acceso en SharePoint 2013](https://technet.microsoft.com/library/cc263208.aspx)

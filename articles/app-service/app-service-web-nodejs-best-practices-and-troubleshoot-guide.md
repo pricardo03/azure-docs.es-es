@@ -16,10 +16,10 @@ ms.date: 11/09/2017
 ms.author: ranjithr
 ms.custom: seodec18
 ms.openlocfilehash: 321dbf891c77007952f01b32bb509a15c2ac3e6f
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895790"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Guía de procedimientos recomendados y solución de problemas para aplicaciones Node en Azure App Service de Windows
@@ -173,7 +173,7 @@ http.createServer(function (req, res) {
 }).listen(process.env.PORT);
 ```
 
-Vaya al sitio de la consola de depuración `https://yoursite.scm.azurewebsites.net/DebugConsole`
+Vaya al sitio de la Consola de depuración `https://yoursite.scm.azurewebsites.net/DebugConsole`
 
 Vaya al directorio /wwwroot del sitio. Verá un símbolo del sistema como se muestra en el siguiente ejemplo:
 
@@ -274,7 +274,7 @@ Habilite FREB para la aplicación a fin de ver el código de error win32 (asegú
 | 503 |1002 |Compruebe la verdadera razón en el código de error win32; no se pudo enviar la solicitud a un proceso node.exe. |
 | 503 |1003 |Canalización con nombre demasiado ocupada: verifique si node.exe consume una cantidad excesiva de CPU |
 
-NODE.exe tiene una configuración denominada `NODE_PENDING_PIPE_INSTANCES`. En Azure App Service, este valor se establece en 5000. Esto significa que node.exe puede aceptar 5000 solicitudes a la vez en la canalización con nombre. Este valor debería bastar para la mayoría de las aplicaciones Node que se ejecutan en Azure App Service. No debería ver 503.1003 en Azure App Service ya que el valor para el `NODE_PENDING_PIPE_INSTANCES`
+NODE.exe tiene una configuración denominada `NODE_PENDING_PIPE_INSTANCES`. En Azure App Service, este valor se establece en 5000. Esto significa que node.exe puede aceptar 5000 solicitudes a la vez en la canalización con nombre. Este valor debería bastar para la mayoría de las aplicaciones Node que se ejecutan en Azure App Service. No debería ver 503.1003 en Azure App Service, ya que el valor de `NODE_PENDING_PIPE_INSTANCES` es elevado.
 
 ## <a name="more-resources"></a>Más recursos
 
@@ -285,4 +285,4 @@ Siga estos vínculos para obtener más información acerca de las aplicaciones d
 * [Uso de módulos Node.js con aplicaciones de Azure](../nodejs-use-node-modules-azure-apps.md)
 * [Azure App Service Web Apps: Node.js](https://blogs.msdn.microsoft.com/silverlining/2012/06/14/windows-azure-websites-node-js/)
 * [Centro para desarrolladores de Node.js](../nodejs-use-node-modules-azure-apps.md)
-* [Exploración de la consola de depuración súper secreta de Kudu](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)
+* [Exploring the Super Secret Kudu Debug Console (Exploración de la consola de depuración súper secreta de Kudu)](https://azure.microsoft.com/documentation/videos/super-secret-kudu-debug-console-for-azure-web-sites/)

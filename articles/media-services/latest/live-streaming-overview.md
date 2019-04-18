@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: juliako
 ms.openlocfilehash: ad8e84d84665b20bfff53cf09473bc8bce9760d8
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916043"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en vivo con Azure Media Services v3
@@ -67,8 +67,8 @@ Si utiliza la codificación en directo con Media Services, deberá configurar el
 
 Para entender el flujo de trabajo de streaming en vivo en Media Services v3, tiene que primero revise y entender los conceptos siguientes: 
 
-- [Extremos de streaming](streaming-endpoint-concept.md)
-- [Eventos en directo y salidas en vivo](live-events-outputs-concept.md)
+- [Puntos de conexión de streaming](streaming-endpoint-concept.md)
+- [Objetos LiveEvent y LiveOutput](live-events-outputs-concept.md)
 - [Localizadores de streaming](streaming-locators-concept.md)
 
 ### <a name="general-steps"></a>Pasos generales
@@ -87,13 +87,13 @@ Para entender el flujo de trabajo de streaming en vivo en Media Services v3, tie
 
 ## <a name="other-important-articles"></a>Otros artículos importantes
 
-- [Codificadores en directo recomendados](recommended-on-premises-live-encoders.md)
-- [Uso de una DVR en la nube](live-event-cloud-dvr.md)
-- [Comparación de características de los tipos de evento en directo](live-event-types-comparison.md)
+- [Recommended live encoders](recommended-on-premises-live-encoders.md) (Codificadores en directo recomendados)
+- [Uso de un DVR en la nube](live-event-cloud-dvr.md)
+- [Comparación de tipos de objetos LiveEvent](live-event-types-comparison.md)
 - [Estados y facturación](live-event-states-billing.md)
-- [Latencia](live-event-latency.md)
+- [Latency](live-event-latency.md)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Tutorial de transmisión por secuencias en directo](stream-live-tutorial-with-api.md)
+* [Tutorial de Live Streaming](stream-live-tutorial-with-api.md)
 * [Guía de migración para mover de Media Services v2 a v3](migrate-from-v2-to-v3.md)

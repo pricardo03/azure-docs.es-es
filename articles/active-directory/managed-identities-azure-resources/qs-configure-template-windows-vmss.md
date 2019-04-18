@@ -16,10 +16,10 @@ ms.date: 02/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6ecbac8af86c3c2c76b7710eb61f71481b86291b
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009876"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-virtual-machine-scale-using-a-template"></a>Configurar identidades administradas para los recursos de Azure en una escala de máquina virtual de Azure mediante una plantilla
@@ -123,11 +123,11 @@ Si tiene un conjunto de escalado de máquinas virtuales que ya no necesita una i
 
 2. Cargue la plantilla en un [editor](#azure-resource-manager-templates) y busque el `Microsoft.Compute/virtualMachineScaleSets`recurso de interés dentro de la sección `resources`. Si dispone de una VM que solo tenga una identidad administrada asignada por el sistema, puede deshabilitarla cambiando el tipo de identidad a `None`.
 
-   **Versión 2018-06-01 de la API Microsoft.COMPUTE/virtualmachinescalesets**
+   **Microsoft.Compute/virtualMachineScaleSets versión de API 2018-06-01**
 
    Si apiVersion es `2018-06-01` y la VM tiene identidades administradas asignadas tanto por el usuario como por el sistema, quite `SystemAssigned` del tipo de identidad y mantenga `UserAssigned` junto con los valores del diccionario userAssignedIdentities.
 
-   **Versión 2018-06-01 de la API Microsoft.COMPUTE/virtualmachinescalesets**
+   **Microsoft.Compute/virtualMachineScaleSets versión de API 2018-06-01**
 
    Si apiVersion es `2017-12-01` y el conjunto de escalado de máquinas virtuales tiene identidades administradas asignadas tanto por el usuario como por el sistema, quite `SystemAssigned` del tipo de identidad y mantenga `UserAssigned` junto con la matriz `identityIds` de las identidades administradas asignadas por el usuario. 
    
@@ -158,7 +158,7 @@ En esta sección, asignará una identidad administrada asignada por el usuario a
 
 1. En el elemento `resources`, agregue la siguiente entrada para asignar una identidad administrada asignada por el usuario al conjunto de escalado de máquinas virtuales.  No olvide reemplazar `<USERASSIGNEDIDENTITY>` con el nombre de la identidad administrada asignada por el usuario que ha creado.
    
-   **Versión 2018-06-01 de la API Microsoft.COMPUTE/virtualmachinescalesets**
+   **Microsoft.Compute/virtualMachineScaleSets versión de API 2018-06-01**
 
    Si apiVersion es `2018-06-01`, las identidades administradas asignadas por el usuario se almacenan en el formato de diccionario `userAssignedIdentities` y el valor `<USERASSIGNEDIDENTITYNAME>` debe almacenarse en una variable definida en la sección `variables` de la plantilla.
 
@@ -177,7 +177,7 @@ En esta sección, asignará una identidad administrada asignada por el usuario a
    }
    ```   
 
-   **Microsoft.COMPUTE/virtualmachinescalesets API versión 2017-12-01**
+   **Microsoft.Compute/virtualMachineScaleSets versión de API 2017-12-01**
     
    Si `apiVersion` es `2017-12-01` o anterior, las identidades administradas asignadas por el usuario se almacenan en la matriz `identityIds` y el valor `<USERASSIGNEDIDENTITYNAME>` debe almacenarse en una variable definida en la sección de variables de la plantilla.
 
@@ -200,7 +200,7 @@ En esta sección, asignará una identidad administrada asignada por el usuario a
 
 3. Cuando haya terminado, la plantilla debería tener un aspecto similar al siguiente:
    
-   **Versión 2018-06-01 de la API Microsoft.COMPUTE/virtualmachinescalesets**   
+   **Microsoft.Compute/virtualMachineScaleSets versión de API 2018-06-01**   
 
    ```json
    "resources": [
@@ -243,7 +243,7 @@ En esta sección, asignará una identidad administrada asignada por el usuario a
     ]
    ```
 
-   **Microsoft.COMPUTE/virtualmachines API versión 2017-12-01**
+   **Microsoft.Compute/virtualMachines versión 2017-12-01 de la API**
 
    ```json
    "resources": [
@@ -306,13 +306,13 @@ Si tiene un conjunto de escalado de máquinas virtuales que ya no necesita una i
    }
    ```
    
-   **Versión 2018-06-01 de la API Microsoft.COMPUTE/virtualmachinescalesets**
+   **Microsoft.Compute/virtualMachineScaleSets versión de API 2018-06-01**
     
    Para quitar una identidad administrada asignada por un usuario único desde un conjunto de escalado de máquinas virtuales, quítela del diccionario `userAssignedIdentities`.
 
    Si tiene una identidad asignada por el sistema, consérvela en el valor `type` de `identity`.
 
-   **Microsoft.COMPUTE/virtualmachinescalesets API versión 2017-12-01**
+   **Microsoft.Compute/virtualMachineScaleSets versión de API 2017-12-01**
 
    Para quitar una identidad administrada asignada por un usuario único desde un conjunto de escalado de máquinas virtuales, quítela de la matriz `identityIds`.
 

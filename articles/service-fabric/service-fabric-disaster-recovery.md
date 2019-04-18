@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
 ms.openlocfilehash: 7153a6ed4a91e59eea936f1e17d827a40bb99371
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883248"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Recuperación ante desastres en Service Fabric de Azure
@@ -69,15 +69,15 @@ Por ejemplo, supongamos que un error en una fuente de alimentación provoca un e
 
 Los dominios de actualización son útiles para modelar las áreas donde se va actualizar software de manera simultánea. Por este motivo, los dominios de actualización a menudo también definen los límites de desconexión del software durante las actualizaciones planeadas. Las actualizaciones de Service Fabric y los servicios siguen el mismo modelo. Para más información acerca de las actualizaciones graduales, los dominios de actualización y el modelo de estado de Service Fabric que ayuda a evitar que los cambios por error afecten al clúster y al servicio, consulte estos documentos:
 
- - [Actualización de la aplicación](service-fabric-application-upgrade.md)
- - [Tutorial de actualización de aplicación](service-fabric-application-upgrade-tutorial.md)
- - [Modelo de mantenimiento de Service Fabric](service-fabric-health-introduction.md)
+ - [Actualización de aplicaciones](service-fabric-application-upgrade.md)
+ - [Tutorial sobre la actualización de aplicaciones](service-fabric-application-upgrade-tutorial.md)
+ - [Modelo de estado de Service Fabric](service-fabric-health-introduction.md)
 
 Puede visualizar el diseño del clúster mediante el mapa de clúster que se proporciona en [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md):
 
 <center>
 
-![Distribución de nodos entre dominios de error en el Explorador de Service Fabric][sfx-cluster-map]
+![Distribución de nodos entre dominios de error en Service Fabric Explorer][sfx-cluster-map]
 </center>
 
 > [!NOTE]
@@ -140,7 +140,7 @@ En los clústeres independientes de Service Fabric y Azure, el "tipo de nodo pri
 - Obtenga más información sobre cómo simular varios errores mediante la [plataforma de comprobación](service-fabric-testability-overview.md)
 - Lea otros recursos sobre alta disponibilidad y recuperación ante desastres. Microsoft ha publicado una gran cantidad de instrucciones sobre estos temas. Aunque algunos de estos documentos se refieren a técnicas específicas para su uso en otros productos, contienen muchos procedimientos recomendados generales que se pueden aplicar también en el contexto de Service Fabric:
   - [Lista de comprobación de disponibilidad](../best-practices-availability-checklist.md)
-  - [Realizar un simulacro de recuperación ante desastres](../sql-database/sql-database-disaster-recovery-drills.md)
+  - [Exploración en profundidad de la recuperación ante desastres](../sql-database/sql-database-disaster-recovery-drills.md)
   - [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure][dr-ha-guide]
 - Más información sobre las [opciones de soporte técnico de Service Fabric](service-fabric-support.md)
 

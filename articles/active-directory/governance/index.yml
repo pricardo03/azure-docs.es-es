@@ -45,4 +45,4 @@ sections:
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/active-directory/conditional-access/terms-of-use">¿Qué puedo hacer con Terms of Use?</a>
+          - html: <a href="/azure/active-directory/conditional-access/terms-of-use">¿Qué puedo hacer con los Términos de uso?</a>

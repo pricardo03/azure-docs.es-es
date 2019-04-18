@@ -13,10 +13,10 @@ ms.reviewer: sstein
 manager: craigg
 ms.date: 04/03/2019
 ms.openlocfilehash: ddb115370c62371e769ef98e0031f7e0379bafbf
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916179"
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Puertos más allá de 1433 para ADO.NET 4.5
@@ -84,6 +84,6 @@ En esta sección se explican los monikers que hacen referencia a las versiones d
 * [Lista de versiones del protocolo TDS](http://www.freetds.org/userguide/tdshistory.htm)
 * [Información general de desarrollo de SQL Database](sql-database-develop-overview.md)
 * [Firewall de Azure SQL Database](sql-database-firewall-configure.md)
-* [Procedimientos para: Establecer la configuración de firewalll en la SQL Database](sql-database-configure-firewall-settings.md)
+* [Uso de configuración del firewall en SQL Database](sql-database-configure-firewall-settings.md)
 
 

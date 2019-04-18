@@ -9,10 +9,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 30d99c3f4767eb50361f7074c0d508fcf309faca
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896601"
 ---
 # <a name="run-micro-focus-enterprise-server-40-in-a-docker-container-on-azure"></a>Ejecute Micro Focus Enterprise Server 4.0 en un contenedor de Docker en Azure
@@ -117,7 +117,7 @@ En este momento, la máquina virtual está ejecutándose y conectado a través d
 
      ![Ventana de comandos que muestra la imagen es acctdemo](media/container-05.png)
 
-## <a name="run-the-image"></a>Ejecutar la imagen 
+## <a name="run-the-image"></a>Ejecución de la imagen 
 
 1.  Para iniciar Enterprise Server 4.0 y la aplicación acctdemo, en el símbolo del sistema, escriba:
 
@@ -171,4 +171,4 @@ Eso es todo. Ahora se está ejecutando y administración de una aplicación CICS
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Instalación de Micro Focus Enterprise Server 4.0 y desarrollador empresarial 4.0 en Azure](./set-up-micro-focus-azure.md)
-- [Migración de aplicaciones del sistema central](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)
+- [Migrar la aplicación del sistema central](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/application-strategies)

@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
 ms.openlocfilehash: 4a5bed67252c3b87233c8d2e677e3c620adb8a17
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918814"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
@@ -58,7 +58,7 @@ Hay tres encabezados que puede usar para autenticar su suscripción. En esta tab
 |encabezados|DESCRIPCIÓN|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*Úselo con la suscripción a Cognitive Services si pasa su clave secreta*.<br/>El valor es la clave secreta de Azure para su suscripción a Translator Text API.|
-|Autorización|*Usar con la suscripción de Cognitive Services si se pasa un token de autenticación.*<br/>El valor es el token de portador: `Bearer <token>`.|
+|Autorización|*Úselo con la suscripción a Cognitive Services si pasa un token de autenticación.*<br/>El valor es el token de portador: `Bearer <token>`.|
 |Ocp-Apim-Subscription-Region|*Utilizar con suscripciones de varios servicios de Cognitive Services si se pasa una clave secreta de varios servicio.*<br/>El valor es la región de la suscripción de varios servicio. Este valor es opcional cuando no se usa una suscripción de varios servicio.|
 
 ###  <a name="secret-key"></a>Clave secreta

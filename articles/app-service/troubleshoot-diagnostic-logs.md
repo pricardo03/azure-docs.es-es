@@ -16,10 +16,10 @@ ms.date: 06/06/2016
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 37455c278d665d05636ec120ca91b76153e53d16
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894925"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Habilitar el registro de diagnósticos para las aplicaciones de Azure App Service
@@ -57,9 +57,9 @@ Cuando habilite **Diagnóstico de aplicaciones**, elija también **Nivel**. En l
 
 | Nivel| Categorías de registro incluidas |
 |-|-|
-|**Disabled** | None |
+|**Deshabilitada** | None |
 |**Error** | Error, Crítico |
-|**Advertencia** | Advertencia, Error, Crítico|
+|**Warning (ADVERTENCIA)** | Advertencia, Error, Crítico|
 |**Información** | Información, Advertencia, Error, Crítico|
 |**Detallado** | Seguimiento, Depurar, Información, Advertencia, Error, Crítico (todas las categorías) |
 |-|-|
@@ -132,7 +132,7 @@ Visual Studio Application Insights proporciona herramientas para filtrar y busca
 3. Cargue el proyecto y ejecútelo para generar datos de registro.
 4. En [Azure Portal](https://portal.azure.com/), busque el nuevo recurso de Application Insights y abra **Buscar**. Verá los datos de registro, junto con la solicitud, el uso y otros datos de telemetría. Es posible que algunos datos de telemetría demoren unos minutos en aparecer: haga clic en Actualizar. [Más información](../azure-monitor/app/diagnostic-search.md)
 
-[Más información sobre el seguimiento del rendimiento con Application Insights](../azure-monitor/app/azure-web-apps.md)
+[Obtenga más información acerca del seguimiento del rendimiento con Application Insights](../azure-monitor/app/azure-web-apps.md)
 
 ## <a name="streamlogs"></a> Instrucciones: Transmisión de registros
 Al implementar una aplicación, suele resultar útil ver la información de registro casi en tiempo real. Puede transmitir información de registro al entorno de desarrollo mediante la CLI de Azure.
@@ -183,7 +183,7 @@ Por ejemplo, un evento de error presentaría un formato similar al siguiente:
 
 El registro en el sistema de archivos ofrece la información más básica de los tres métodos disponibles, ya que ofrece solo la hora, el identificador del proceso, el nivel de evento y el mensaje.
 
-**Almacenamiento de blobs**
+**Blob Storage**
 
 Al realizar registros en el almacenamiento de blobs, los datos se almacenan con un formato de valores separados por comas (CSV). Se registran campos adicionales para ofrecer información más pormenorizada acerca del evento. Las siguientes propiedades se usan para cada fila con el formato CSV:
 
@@ -230,6 +230,6 @@ A los registros del servidor web se les aplica el [formato de archivo de registr
 >
 
 ## <a name="nextsteps"></a> Pasos siguientes
-* [Supervisión de Azure App Service](web-sites-monitor.md)
-* [Solución de problemas de Azure App Service en Visual Studio](troubleshoot-dotnet-visual-studio.md)
-* [Analizar los registros de aplicación en HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Control de Supervisión de aplicaciones en Azure App Service](web-sites-monitor.md)
+* [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md) (Solución de problemas de Azure App Service en Visual Studio)
+* [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413) (Análisis de registros de aplicación en HDInsight)

@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2019
 ms.author: magoedte
-ms.openlocfilehash: f7a0300619d82f760c0e307601efbd3987eb6067
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: a60413ee6614b638db58748ee2c0aea5d7ea32ea
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58004592"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59697896"
 ---
 # <a name="what-is-azure-monitor-for-vms-preview"></a>¿Qué es Azure Monitor para VM (versión preliminar)?
 
-Azure Monitor para VM supervisa las máquinas virtuales (VM) y los conjuntos de escalado de máquinas virtuales de Azure. Analiza el rendimiento y el estado de sus máquinas virtuales Linux y Windows y supervisa sus procesos y dependencias de otros recursos y procesos externos. 
+Azure Monitor para VM supervisa las máquinas virtuales (VM) y los conjuntos de escalado de máquinas virtuales de Azure. El servicio analiza el rendimiento y el estado de las VM Windows y Linux, y supervisa sus procesos y dependencias en otros recursos y procesos externos. 
 
 Como solución, Azure Monitor para VM permite supervisar el rendimiento y las dependencias de las aplicaciones en VM hospedadas en el entorno local o en otro proveedor en la nube. Tres características clave ofrecen información detallada:
 
@@ -39,7 +39,7 @@ Las características se organizan en tres perspectivas:
 * Map
 
 >[!NOTE]
->Actualmente, solo se ofrece la característica de mantenimiento para las máquinas virtuales y los conjuntos de escalado de máquinas virtuales de Azure. Rendimiento y características de mapa admiten máquinas virtuales de Azure y máquinas virtuales que se hospedan en su entorno u otro proveedor de nube.
+>Actualmente, la característica de mantenimiento se ofrece solo para máquinas virtuales de Azure. Rendimiento y características de mapa admiten Azure Virtual Machines, conjuntos de escalado de máquina virtual de Azure y máquinas virtuales que se hospedan en su entorno u otro proveedor de nube.
 
 La integración con los registros de Azure Monitor ofrece agregación y filtrado eficaces, y puede analizar la tendencias de los datos a lo largo del tiempo. Dicha supervisión integral de las cargas de trabajo no se puede lograr únicamente con Azure Monitor o Service Map.  
 

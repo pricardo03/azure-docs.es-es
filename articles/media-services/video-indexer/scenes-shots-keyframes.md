@@ -10,17 +10,17 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: dfa41dc695cf6ab357a9cd4cdbd32454b6dd107d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896559"
 ---
-# <a name="scenes-shots-and-keyframes"></a>Segundo plano, las capturas y fotogramas clave
+# <a name="scenes-shots-and-keyframes"></a>Escenas, capturas y fotogramas clave
 
 Video Indexer es compatible con vídeos segmentar en unidades temporales basadas en propiedades estructurales y semánticas. Esta funcionalidad permite a los clientes buscar fácilmente, administrar y editar su contenido de vídeo en función de las granularidades variables. Por ejemplo, se basa en segundo plano, las capturas y fotogramas clave, que se describe en este tema. El **detección escena** característica está actualmente en versión preliminar.   
 
-![Segundo plano, las capturas y fotogramas clave](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
+![Escenas, capturas y fotogramas clave](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
 
 ## <a name="scene-detection-preview"></a>Detección de escena (versión preliminar)
 

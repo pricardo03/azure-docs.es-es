@@ -9,19 +9,19 @@ ms.date: 12/11/2018
 ms.author: cherylmc
 ms.custom: seodec18
 ms.openlocfilehash: 598ddaa98b0c98d2123f0084a0b8b6dfaf615deb
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045720"
 ---
 # <a name="create-and-modify-peering-for-an-expressroute-circuit-classic"></a>Creación y modificación del emparejamiento de un circuito ExpressRoute (clásica)
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
-> * [Azure CLI](howto-routing-cli.md)
-> * [Vídeo: emparejamiento privado](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
-> * [Vídeo: emparejamiento público](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
+> * [CLI de Azure](howto-routing-cli.md)
+> * [Vídeo: pares privados](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
+> * [Vídeo: pares públicos](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
 > * [Vídeo: emparejamiento de Microsoft](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
 > * [PowerShell (clásico)](expressroute-howto-routing-classic.md)
 > 
@@ -32,7 +32,7 @@ Estas instrucciones se aplican solo a los circuitos que se crean con proveedores
 
 [!INCLUDE [expressroute-classic-end-include](../../includes/expressroute-classic-end-include.md)]
 
-**Acerca de los modelos de implementación de Azure**
+**Información sobre los modelos de implementación de Azure**
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
@@ -87,10 +87,10 @@ Esta sección proporciona instrucciones sobre cómo crear, obtener, actualizar y
 
 ### <a name="to-create-azure-private-peering"></a>Creación de un emparejamiento privado de Azure
 
-1. **Crear un circuito ExpressRoute.**
+1. **Creación de un circuito ExpressRoute.**
 
    Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-classic.md) y habilite su aprovisionamiento a través del proveedor de conectividad. Si su proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares privados de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Por otra parte, si su proveedor de conectividad no administra este enrutamiento, una vez que cree el circuito siga las instrucciones siguientes.
-2. **Compruebe el circuito de ExpressRoute para asegurarse de que se está aprovisionando.**
+2. **Compruebe el circuito ExpressRoute para asegurarse de que está aprovisionado.**
    
    Compruebe si el circuito ExpressRoute tiene los estados Aprovisionado y Habilitado.
 
@@ -193,7 +193,7 @@ En esta sección se proporcionan instrucciones sobre cómo crear, obtener, actua
 1. **Creación de un circuito ExpressRoute**
 
    Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-classic.md) y habilite su aprovisionamiento a través del proveedor de conectividad. Si el proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares públicos de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Por otra parte, si su proveedor de conectividad no administra este enrutamiento, una vez que cree el circuito siga las instrucciones siguientes.
-2. **Compruebe el circuito de ExpressRoute para comprobar que se haya aprovisionado**
+2. **Comprobación del circuito ExpressRoute para comprobar que está aprovisionado**
 
    En primer lugar tiene que comprobar si el circuito ExpressRoute tiene los estados Aprovisionado y Habilitado.
 
@@ -220,7 +220,7 @@ En esta sección se proporcionan instrucciones sobre cómo crear, obtener, actua
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-4. **Configurar el emparejamiento público de Azure para el circuito**
+4. **Establecimiento de la configuración entre pares públicos de Azure para el circuito.**
    
    Asegúrese de que tiene la siguiente información antes de empezar:
    
@@ -297,7 +297,7 @@ En esta sección se proporcionan instrucciones sobre cómo crear, obtener, actua
 1. **Creación de un circuito ExpressRoute**
   
    Siga las instrucciones para crear un [circuito ExpressRoute](expressroute-howto-circuit-classic.md) y habilite su aprovisionamiento a través del proveedor de conectividad. Si su proveedor de conectividad ofrece servicios administrados de nivel 3, puede solicitarle que habilite la configuración entre pares privados de Azure. En ese caso, no necesita seguir las instrucciones que aparecen en las secciones siguientes. Por otra parte, si su proveedor de conectividad no administra este enrutamiento, una vez que cree el circuito siga las instrucciones siguientes.
-2. **Compruebe el circuito de ExpressRoute para comprobar que se haya aprovisionado**
+2. **Comprobación del circuito ExpressRoute para comprobar que está aprovisionado**
 
    Compruebe que el circuito se muestra como Aprovisionado y Habilitado. 
    
@@ -324,7 +324,7 @@ En esta sección se proporcionan instrucciones sobre cómo crear, obtener, actua
    ServiceProviderProvisioningState : Provisioned
    Status                           : Enabled
    ```
-3. **Configurar el emparejamiento de Microsoft para el circuito**
+3. **Establecimiento de la configuración entre pares de Microsoft para el circuito**
    
     Asegúrese de que tiene la siguiente información antes de empezar:
    

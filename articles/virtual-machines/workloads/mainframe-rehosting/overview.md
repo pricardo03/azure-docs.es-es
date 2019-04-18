@@ -11,10 +11,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 8b7c2a088dc917c319acf6cad251ad53367a14b6
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895044"
 ---
 # <a name="mainframe-rehosting-on-azure-virtual-machines"></a>Rehospedaje del sistema central en Azure virtual machines
@@ -118,8 +118,8 @@ Consulte también:
 
 - [Notas del producto acerca de temas del sistema central](mainframe-white-papers.md)
 - [Migración del sistema central](/azure/architecture/cloud-adoption/infrastructure/mainframe-migration/overview)
-- [solución de problemas](/azure/virtual-machines/troubleshooting/)
-- [Demystifying mainframe to Azure migration (Desmitificación del sistema central para la migración a Azure)](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
+- [Solución de problemas](/azure/virtual-machines/troubleshooting/)
+- [Desmitificación del sistema central para la migración a Azure](https://azure.microsoft.com/resources/demystifying-mainframe-to-azure-migration/)
 
 <!-- INTERNAL LINKS -->
 [microfocus-get-started]: /microfocus/get-started.md

@@ -14,10 +14,10 @@ ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60e4d9a4cb555dfbc9f05961487a8f794d19e1bf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268366"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Inicio de sesión con la información de seguridad o la verificación en dos pasos
@@ -26,7 +26,7 @@ Una vez configurada la verificación en dos pasos o la información de seguridad
 > [!Note]
 > Si sigue usando la experiencia de verificación en dos pasos, deberá configurar los métodos de autenticación siguiendo las instrucciones del artículo [Configuración de mi cuenta para la verificación en dos pasos](multi-factor-authentication-end-user-first-time.md).
 > 
-> Si el administrador ha activado la experiencia de información de seguridad, deberá establecer los métodos de autenticación con estos artículos detallados:<ul><li>[Configuración de información de seguridad para usar una aplicación de autenticación](security-info-setup-auth-app.md)</li><li>[Configuración de información de seguridad para usar la mensajería de texto](security-info-setup-text-msg.md)</li><li>[Configuración de información de seguridad para usar una llamada de teléfono](security-info-setup-phone-number.md)</li></ul>
+> Si el administrador ha activado la experiencia de información de seguridad, deberá establecer los métodos de autenticación con estos artículos detallados:<ul><li>[Configuración de la información de seguridad para usar una aplicación autenticadora](security-info-setup-auth-app.md)</li><li>[Configuración de la información de seguridad para usar la mensajería de texto](security-info-setup-text-msg.md)</li><li>[Configuración de la información de seguridad para usar las llamadas de teléfono](security-info-setup-phone-number.md)</li></ul>
 
 ## <a name="sign-in-using-an-authenticator-app-notification-on-your-mobile-device"></a>Inicio de sesión con una notificación de la aplicación Authenticator en el dispositivo móvil
 

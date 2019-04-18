@@ -14,16 +14,16 @@ ms.workload: NA
 ms.date: 03/22/2019
 ms.author: aljo
 ms.openlocfilehash: 2e9c41409c1f528947e3bef281e9a3c34da39e9b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050449"
 ---
 # <a name="enable-disk-encryption-for-service-fabric-windows-cluster-nodes"></a>Habilitación del cifrado de disco para nodos de clústeres con Windows de Service Fabric 
 > [!div class="op_single_selector"]
-> * [Disk Encryption para Windows](service-fabric-enable-azure-disk-encryption-windows.md)
-> * [Disk Encryption para Linux](service-fabric-enable-azure-disk-encryption-linux.md)
+> * [Cifrado de disco para Windows](service-fabric-enable-azure-disk-encryption-windows.md)
+> * [Cifrado de disco para Linux](service-fabric-enable-azure-disk-encryption-linux.md)
 >
 >
 

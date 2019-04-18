@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 01/22/2019
 ms.author: kgremban
 ms.openlocfilehash: 6195c37780acaf8c8f432fa09c5ac01a75363c04
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265533"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carga de archivos de un dispositivo a la nube con IoT Hub
@@ -155,8 +155,8 @@ Ahora está preparado para ejecutar la aplicación.
 
 En este tutorial ha aprendido a usar la funcionalidad de carga de archivos de IoT Hub para simplificar la carga de archivos desde los dispositivos. Puede continuar explorando las características y los escenarios del centro de IoT con los siguientes artículos:
 
-* [Crear un Centro de IoT mediante programación](iot-hub-rm-template-powershell.md)
+* [Creación de un centro de IoT mediante programación](iot-hub-rm-template-powershell.md)
 
-* [Introducción a C SDK](iot-hub-device-sdk-c-intro.md)
+* [Introducción a SDK para C](iot-hub-device-sdk-c-intro.md)
 
 * [SDK de IoT de Azure](iot-hub-devguide-sdks.md)

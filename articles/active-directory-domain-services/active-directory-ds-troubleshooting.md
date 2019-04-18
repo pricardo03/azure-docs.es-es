@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 01/08/2018
 ms.author: ergreenl
 ms.openlocfilehash: 48831767f72dd1b978fad5b0a9a8f2c7a11ec89d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893119"
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Guía de solución de problemas de Azure AD Domain Services
@@ -32,15 +32,15 @@ Elija los pasos de solución de problemas que correspondan al mensaje de error q
 
 | **Mensaje de error** | **Resolución** |
 | --- |:--- |
-| *El nombre contoso100.com ya está en uso en esta red. Especifique un nombre que no está en uso.* |[Conflicto de nombres de dominio en la red virtual](active-directory-ds-troubleshooting.md#domain-name-conflict) |
-| *No se pudo habilitar Domain Services en este inquilino de Azure AD. El servicio no tiene los permisos adecuados para la aplicación llamada 'Azure AD Domain Services Sync'. Elimine la aplicación llamada "Azure AD Domain Services Sync" y, a continuación, intente habilitar Domain Services para su inquilino de Azure AD.* |[Servicios de dominio no tiene los permisos adecuados para la aplicación de Azure AD Domain Services Sync](active-directory-ds-troubleshooting.md#inadequate-permissions) |
-| *No se pudo habilitar Domain Services en este inquilino de Azure AD. La aplicación de Domain Services en el inquilino de Azure AD carece de los permisos necesarios para habilitar Domain Services. Eliminar la aplicación con el identificador d87dcbc6-a371-462e-88e3-28ad15ec4e64 e intente habilitar Domain Services para el inquilino de Azure AD.* |[La aplicación de servicios de dominio no está configurada correctamente en el inquilino](active-directory-ds-troubleshooting.md#invalid-configuration) |
-| *No se pudo habilitar Domain Services en este inquilino de Azure AD. La aplicación Microsoft Azure AD está deshabilitada en el inquilino de Azure AD. Habilite la aplicación con el identificador 00000002-0000-0000-c000-000000000000 e intente habilitar Domain Services para el inquilino de Azure AD.* |[La aplicación de Microsoft Graph está deshabilitada en el inquilino de Azure AD](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
+| *El nombre contoso100.com ya se está usando en esta red. Especifique un nombre que no esté en uso.* |[Conflicto de nombres de dominio en la red virtual](active-directory-ds-troubleshooting.md#domain-name-conflict) |
+| *No se pudo habilitar Domain Services en este inquilino de Azure AD. El servicio no tiene los permisos adecuados para la aplicación llamada 'Azure AD Domain Services Sync'. Elimine la aplicación llamada "Azure AD Domain Services Sync" e intente habilitar Domain Services para el inquilino de Azure AD.)* |[Domain Services carece de permisos suficientes para la aplicación Azure AD Domain Services Sync](active-directory-ds-troubleshooting.md#inadequate-permissions) |
+| *No se pudo habilitar Domain Services en este inquilino de Azure AD. La aplicación de Domain Services en el inquilino de Azure AD carece de los permisos necesarios para habilitar Domain Services. Elimine la aplicación con el identificador d87dcbc6-a371-462e-88e3-28ad15ec4e64 e intente habilitar Domain Services para el inquilino de Azure AD.* |[La aplicación de Domain Services no está configurada correctamente en el inquilino](active-directory-ds-troubleshooting.md#invalid-configuration) |
+| *No se pudo habilitar Domain Services en este inquilino de Azure AD. La aplicación Microsoft Azure AD está deshabilitada en el inquilino de Azure AD. Habilite la aplicación con el identificador 00000002-0000-0000-c000-000000000000 e intente habilitar Domain Services para el inquilino de Azure AD.* |[La aplicación Microsoft Graph está deshabilitada en el inquilino de Azure AD](active-directory-ds-troubleshooting.md#microsoft-graph-disabled) |
 
 ### <a name="domain-name-conflict"></a>Conflicto de nombres de dominio
 **Mensaje de error:**
 
-*El nombre contoso100.com ya está en uso en esta red. Especifique un nombre que no está en uso.*
+*El nombre contoso100.com ya se está usando en esta red. Especifique un nombre que no esté en uso.*
 
 **Corrección:**
 
@@ -51,7 +51,7 @@ que se debe a los conflictos de nombre en el nombre de dominio de la red virtual
 ### <a name="inadequate-permissions"></a>Permisos insuficientes
 **Mensaje de error:**
 
-*No se pudo habilitar Domain Services en este inquilino de Azure AD. El servicio no tiene los permisos adecuados para la aplicación llamada 'Azure AD Domain Services Sync'. Elimine la aplicación llamada "Azure AD Domain Services Sync" y, a continuación, intente habilitar Domain Services para su inquilino de Azure AD.*
+*No se pudo habilitar Domain Services en este inquilino de Azure AD. El servicio no tiene los permisos adecuados para la aplicación llamada 'Azure AD Domain Services Sync'. Elimine la aplicación llamada "Azure AD Domain Services Sync" e intente habilitar Domain Services para el inquilino de Azure AD.)*
 
 **Corrección:**
 
@@ -67,7 +67,7 @@ Realice los pasos siguientes para comprobar la presencia de la aplicación y eli
 ### <a name="invalid-configuration"></a>Configuración no válida
 **Mensaje de error:**
 
-*No se pudo habilitar Domain Services en este inquilino de Azure AD. La aplicación de Domain Services en el inquilino de Azure AD carece de los permisos necesarios para habilitar Domain Services. Eliminar la aplicación con el identificador d87dcbc6-a371-462e-88e3-28ad15ec4e64 e intente habilitar Domain Services para el inquilino de Azure AD.*
+*No se pudo habilitar Domain Services en este inquilino de Azure AD. La aplicación de Domain Services en el inquilino de Azure AD carece de los permisos necesarios para habilitar Domain Services. Elimine la aplicación con el identificador d87dcbc6-a371-462e-88e3-28ad15ec4e64 e intente habilitar Domain Services para el inquilino de Azure AD.*
 
 **Corrección:**
 

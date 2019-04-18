@@ -3,8 +3,8 @@ title: Extensión de script personalizado de Azure para Windows | Microsoft Docs
 description: Automatización de tareas de configuración de máquinas virtuales Windows mediante la extensión de script personalizado
 services: virtual-machines-windows
 documentationcenter: ''
-author: roiyz-msft
-manager: jeconnoc
+author: georgewallace
+manager: carmonm
 editor: ''
 tags: azure-resource-manager
 ms.assetid: f4181fee-7a9d-4a1c-b517-52956f5b7fa1
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2018
-ms.author: roiyz
-ms.openlocfilehash: 520ff1dfeefc8cca66710745012ee54b550a19a0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.author: gwallace
+ms.openlocfilehash: 075813feadfb81fe8f7d337dfc5f7ba01bd41e86
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58097930"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698697"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensión de la secuencia de comandos personalizada para Windows
 
@@ -206,7 +206,7 @@ Si quiere ejecutar la extensión de script personalizado más de una vez, solo p
 1. El parámetro "Name" de la extensión coincide con la implementación anterior de la extensión.
 2. Debe actualizar la configuración; de lo contrario, el comando no volverá a ejecutarse. Puede agregar una propiedad dinámica en el comando, como una marca de tiempo.
 
-## <a name="troubleshoot-and-support"></a>Solución de problemas y asistencia
+## <a name="troubleshoot-and-support"></a>Solución de problemas y soporte técnico
 
 ### <a name="troubleshoot"></a>Solución de problemas
 

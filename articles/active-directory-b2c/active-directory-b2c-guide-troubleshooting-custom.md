@@ -11,10 +11,10 @@ ms.date: 05/07/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: b33b76175558c71720c15a2a4e206e26a60f1f95
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880651"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Solución de problemas de directivas personalizadas de Azure AD B2C y el marco de experiencia de identidad
@@ -44,7 +44,7 @@ Podría resultarle útil revisar las reglas del código XML. Azure AD B2C rechaz
 Fragmento de código de error: `... makes a reference to ClaimType with id "displaName" but neither the policy nor any of its base policies contain such an element`
 * El valor de ClaimType podría estar mal escrito o no existir en el esquema.
 * Se deben definir valores de ClaimType en al menos uno de los archivos de la directiva. 
-    Por ejemplo:  `<ClaimType Id="socialIdpUserId">`
+    Por ejemplo: `<ClaimType Id="socialIdpUserId">`
 * Si ClaimType se define en el archivo de extensiones, pero también se usa en el valor de TechnichalProfile en el archivo base, al cargar dicho archivo se producirá un error.
 
 Fragmento de código de error: `...makes a reference to a ClaimsTransformation with id...`
@@ -66,11 +66,11 @@ Fragmento de código de error: `Reason: User is currently logged as a user of 'y
 
 ## <a name="recommended-practices"></a>Procedimientos recomendados
 
-**Mantenga varias versiones de sus escenarios. Puede agruparlos en un proyecto con la aplicación.** Los archivos base, de extensiones y de usuario de confianza dependen directamente los unos de los otros. Guárdelos como un grupo. A medida que se agreguen nuevas características a las directivas, mantenga versiones operativas distintas. Organice las versiones operativas en su propio sistema de archivos con el código de aplicación con el que interactúan.  Las aplicaciones pueden invocar muchas directivas de usuario de confianza diferentes en un inquilino. Pueden convertirse en dependientes de las notificaciones que esperan de sus directivas de Azure AD B2C.
+**Mantenga varias versiones de los escenarios. Agrúpelas en un proyecto con la aplicación.** Los archivos base, de extensiones y de usuario de confianza dependen directamente los unos de los otros. Guárdelos como un grupo. A medida que se agreguen nuevas características a las directivas, mantenga versiones operativas distintas. Organice las versiones operativas en su propio sistema de archivos con el código de aplicación con el que interactúan.  Las aplicaciones pueden invocar muchas directivas de usuario de confianza diferentes en un inquilino. Pueden convertirse en dependientes de las notificaciones que esperan de sus directivas de Azure AD B2C.
 
 **Desarrolle y pruebe perfiles técnicos con recorridos de usuario conocidos.** Use directivas probadas del paquete de inicio para configurar los perfiles técnicos. Pruébelas por separado antes de incorporarlas a sus propios recorridos de usuario.
 
-**Desarrolle y pruebe recorridos de usuario con perfiles técnicos probados.** Cambie los pasos de orquestación de un recorrido del usuario de forma incremental. Compile progresivamente los escenarios previstos.
+**Desarrolle y pruebe recorridos de usuario con perfiles técnicos conocidos.** Cambie los pasos de orquestación de un recorrido del usuario de forma incremental. Compile progresivamente los escenarios previstos.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

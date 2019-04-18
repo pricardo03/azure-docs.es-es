@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: robinsh
 ms.openlocfilehash: 4f1a5d59c340a02dcdc0291046ef6361c6f41c86
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59044919"
 ---
 # <a name="configure-iot-hub-file-uploads-using-powershell"></a>Configuración de cargas de archivos de IoT Hub mediante PowerShell
@@ -135,6 +135,6 @@ Siga estos vínculos para más información sobre la administración de Azure Io
 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
-* [Guía del desarrollador de IoT Hub](iot-hub-devguide.md)
-* [Implementar AI en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
-* [Protección de la solución de IoT desde el principio de](../iot-fundamentals/iot-security-ground-up.md)
+* [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md)
+* [Implementación de IA en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Protección total de la solución de IoT](../iot-fundamentals/iot-security-ground-up.md)

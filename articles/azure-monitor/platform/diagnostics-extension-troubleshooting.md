@@ -4,17 +4,16 @@ description: Solucione problemas al utilizar Diagnostics de instancias de Azure 
 services: azure-monitor
 author: rboucher
 ms.service: azure-monitor
-ms.devlang: dotnet
-ms.topic: conceptual
-ms.date: 07/12/2017
-ms.author: robb
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: f92b2589afc8bf4eba1bfdf421ab27300b41aa91
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.topic: conceptual
+ms.date: 04/17/2019
+ms.author: robb
+ms.openlocfilehash: 81c93900acf2d75eeb8e4fdc8da7d563f3a59595
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55822143"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699105"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Solución de problemas de Azure Diagnostics
 En este artículo se proporciona información para la solución de problemas relacionados con el uso de Azure Diagnostics. Para obtener información sobre Azure Diagnostics, consulte la [introducción a Azure Diagnostics](diagnostics-extension-overview.md).
@@ -82,7 +81,7 @@ Si no hay ningún dato para la métrica específica, compruebe la opción **Conf
 Si la configuración se ha establecido correctamente, pero todavía no puede ver los datos métricos, siga las instrucciones siguientes para solucionar cualquier problema que tenga.
 
 
-## <a name="azure-diagnostics-isnt-starting"></a>Azure Diagnostics no se inicia
+## <a name="azure-diagnostics-is-not-starting"></a>No se inicia el diagnóstico de Azure
 Examine los archivos **DiagnosticsPluginLauncher.log** y **DiagnosticsPlugin.log** en la ubicación de los archivos de registro proporcionada anteriormente, para obtener información sobre por qué Azure Diagnostics no se pudo iniciar.
 
 Si estos registros indican `Monitoring Agent not reporting success after launch`, significa que hubo un error al iniciar MonAgentHost.exe. Examine los registros en la ubicación que se indicó para `MonAgentHost log file` en la sección anterior.
@@ -105,9 +104,16 @@ La razón más común para que los datos de evento no aparezcan en absoluto, es 
 
 Solución: corrija la configuración de Diagnostics y vuelva a instalar esta extensión.
 
-Si la cuenta de almacenamiento está configurada correctamente, conéctese a la máquina mediante Escritorio remoto y asegúrese de que DiagnosticsPlugin.exe y MonAgentCore.exe se están ejecutando. Si no se están ejecutando, siga las instrucciones de la sección Azure Diagnostics no se inicia.
+Si la cuenta de almacenamiento está configurado correctamente, acceso remoto en el equipo y compruebe que *DiagnosticsPlugin.exe* y *MonAgentCore.exe* se ejecutan. Si no se están ejecutando, siga las instrucciones de la sección [Azure Diagnostics no se inicia](#azure-diagnostics-is-not-starting).
 
 Si los procesos están en ejecución, vaya a [¿Se capturan los datos localmente?](#is-data-getting-captured-locally) y siga las instrucciones que se detallan allí.
+
+Si esto no resuelve el problema, intente:
+
+1. Desinstalación del agente
+2. Quitar directorio C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics
+3. Vuelva a instalar el agente
+
 
 ### <a name="part-of-the-data-is-missing"></a>No están todos los datos
 Si puede ver algunos de los datos pero no todos, esto quiere decir que la colección de datos o la canalización de transferencia están configuradas correctamente. Siga las subsecciones que se muestran aquí para acotar el problema.

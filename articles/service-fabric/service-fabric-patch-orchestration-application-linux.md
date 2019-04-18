@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 5/22/2018
 ms.author: nachandr
 ms.openlocfilehash: 537450dbc386a94fa5c2e0d9334435dce041a32f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266144"
 ---
 # <a name="patch-the-linux-operating-system-in-your-service-fabric-cluster"></a>Revisión del sistema operativo Linux en el clúster de Service Fabric
 
 > [!div class="op_single_selector"]
-> * [ Windows](service-fabric-patch-orchestration-application.md)
+> * [Windows](service-fabric-patch-orchestration-application.md)
 > * [Linux](service-fabric-patch-orchestration-application-linux.md)
 >
 >
@@ -76,7 +76,7 @@ Los clústeres Linux de Azure en el nivel de durabilidad Plata y Oro tienen habi
 
 ##### <a name="azure-portal"></a>Azure Portal
 Puede habilitar el administrador de reparaciones desde Azure Portal en el momento de la configuración del clúster. Seleccione la opción **Incluir administrador de reparaciones** en **Características complementarias** en el momento de la configuración del clúster.
-![Imagen de habilitar el Administrador de reparaciones desde Azure portal](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
+![Imagen de la habilitación del administrador de reparaciones de Azure Portal](media/service-fabric-patch-orchestration-application/EnableRepairManager.png)
 
 ##### <a name="azure-resource-manager-deployment-model"></a>modelo de implementación de Azure Resource Manager
 También puede usar el [modelo de implementación de Azure Resource Manager](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) para habilitar el servicio del administrador de reparaciones en clústeres de Service Fabric nuevos y existentes. Obtenga la plantilla del clúster que desea implementar. Puede usar las plantillas de ejemplo o crear una plantilla del modelo de implementación de Azure Resource Manager personalizada. 
@@ -127,7 +127,7 @@ Se puede descargar la aplicación en formato de sfpkg desde el [vínculo sfpkg](
 
 El comportamiento de la aplicación de orquestación de revisiones puede configurarse según sus necesidades. Invalide los valores predeterminados al pasar el parámetro de la aplicación durante la creación o actualización de la aplicación. Los parámetros de la aplicación se pueden proporcionar especificando `ApplicationParameter` en los cmdlets `Start-ServiceFabricApplicationUpgrade` o `New-ServiceFabricApplication`.
 
-|**Parámetro**        |**Type**                          | **Detalles**|
+|**Parámetro**        |**Tipo**                          | **Detalles**|
 |:-|-|-|
 |MaxResultsToCache    |long                              | Número máximo de resultados de actualización que deben almacenarse en la memoria caché. <br>El valor predeterminado es 3000 suponiendo que: <br> - El número de nodos es 20. <br> - El número de actualizaciones en un nodo al mes es cinco. <br> - El número de resultados por cada operación es 10. <br> - Deben almacenarse los resultados de los últimos tres meses. |
 |TaskApprovalPolicy   |Enum <br> { NodeWise, UpgradeDomainWise }                          |TaskApprovalPolicy indica la directiva que usará Coordinator Service para instalar las actualizaciones en todos los nodos del clúster de Service Fabric.<br>                         Los valores permitidos son: <br>                                                           <b>NodeWise</b>. Las actualizaciones se instalan en un nodo cada vez. <br>                                                           <b>UpgradeDomainWise</b>. Las actualizaciones se instalan en un dominio de actualización cada vez. (Como máximo, todos los nodos que pertenecen a un dominio de actualización son aptos para la actualización).
@@ -173,8 +173,7 @@ Para su comodidad, junto con la aplicación se proporcionan los scripts de Power
 
 ## <a name="view-the-update-results"></a>Visualización de los resultados de la actualización
 
-La aplicación de orquestación de revisiones expone API de REST para mostrar los resultados históricos al usuario. Siguiente es un resultado de ejemplo:
-```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
+La aplicación de orquestación de revisiones expone API de REST para mostrar los resultados históricos al usuario. A continuación se muestra un resultado de ejemplo: ```testadm@bronze000001:~$ curl -X GET http://10.0.0.5:20002/PatchOrchestrationApplication/v1/GetResults```
 ```json
 [ 
   { 
@@ -272,7 +271,7 @@ Si el servicio de administrador de reparaciones no se encuentra en el clúster, 
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
-P: **¿Por qué veo el clúster en un estado de error cuando se ejecuta la aplicación de orquestación de revisiones?**
+P: **¿Por qué veo el clúster en estado de error cuando se ejecuta la aplicación de orquestación de revisiones?**
 
 A. Durante el proceso de instalación, la aplicación de orquestación de revisiones deshabilita o reinicia los nodos. Esta operación puede producir temporalmente que el estado de mantenimiento del clúster deje de estar activo.
 
@@ -286,15 +285,15 @@ En el ejemplo siguiente, el clúster entró en estado de error temporalmente por
 
 Si el problema persiste, consulte la sección de solución de problemas.
 
-P: **Aplicación de orquestación de revisiones está en estado de advertencia**
+P: **La aplicación de orquestación de revisiones está en estado de advertencia**
 
 A. Compruebe si un informe de estado publicado a la aplicación es la causa principal. Normalmente la advertencia contiene los detalles del problema. Si el problema es transitorio, se espera que la aplicación se recupere automáticamente de este estado.
 
-P: **¿Qué puedo hacer si mi clúster está en mal estado y tengo que realizar una actualización urgente del sistema operativo?**
+P: **¿Qué puedo hacer si el clúster está en mal estado y tengo que realizar una actualización urgente del sistema operativo?**
 
 A. La aplicación de orquestación de revisiones no instala actualizaciones cuando el clúster está en mal estado. Intente devolver el clúster a un estado correcto para desbloquear el flujo de trabajo de la aplicación de orquestación de revisiones.
 
-P: **¿Por qué revisiones en los clústeres tarda tanto tiempo en ejecutarse?**
+P: **¿Por qué la aplicación de revisiones en el clúster tarda tanto tiempo en ejecutarse?**
 
 A. El tiempo que necesita la aplicación de orquestación de revisiones depende principalmente de los factores siguientes:
 
@@ -304,7 +303,7 @@ A. El tiempo que necesita la aplicación de orquestación de revisiones depende 
 - El tiempo promedio necesario para descargar e instalar una actualización, que no debe superar un par de horas.
 - El rendimiento de la máquina virtual y ancho de banda de la red.
 
-P: **¿Cómo hace la aplicación de orquestación de revisiones decide qué actualizaciones son actualizaciones de seguridad.**
+P: **¿Cómo decide la aplicación de orquestación de revisiones qué actualizaciones son actualizaciones de seguridad?**
 
 A. La aplicación de orquestación de revisiones utiliza una lógica específica de cada distribución para determinar qué actualizaciones entre las actualizaciones disponibles son actualizaciones de seguridad. Por ejemplo:  En ubuntu la aplicación busca actualizaciones de los archivos $RELEASE-seguridad, $RELEASE-las actualizaciones ($RELEASE = xenial o la versión de lanzamiento de base estándar de linux). 
 
@@ -319,11 +318,11 @@ P: **¿Qué ocurre con las actualizaciones automáticas habilitadas en Ubuntu?**
 A. Tan pronto como instale la aplicación de orquestación de revisiones en el clúster, se deshabilitan las actualizaciones desatendidas en el nodo del clúster. Todo el flujo de trabajo de actualizaciones periódicas está determinado por la aplicación de orquestación de revisiones.
 Para la coherencia de entorno en el clúster, se recomienda instalar las actualizaciones únicamente a través de la aplicación de orquestación de revisiones. 
  
-P: **¿Registrar actualización patch realiza de aplicación de orquestación la limpieza de los paquetes no utilizados?**
+P: **¿La aplicación de orquestación de revisiones realiza la limpieza de los paquetes no utilizados después de la actualización?**
 
 A. Sí, la limpieza se produce como parte de los pasos posteriores a la instalación. 
 
-P: **¿Aplicación de orquestación de revisiones sirve para aplicar revisiones a mi clúster de desarrollo (un nodo de clúster)?**
+P: **¿La aplicación Patch Orchestration se puede utilizar para aplicar revisiones al clúster de desarrollo (clúster con un solo nodo)?**
 
 A. No, la aplicación Patch Orchestration no se puede utilizar para aplicar revisiones a clústeres de un nodo. Esta limitación es así por naturaleza, ya que los [servicios del sistema de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-technical-overview#system-services) o las aplicaciones del cliente van a registrar tiempos de inactividad y, por tanto, cualquier trabajo de reparación que se realice durante la aplicación de revisiones nunca conseguirá la aprobación del administrador de reparaciones.
 

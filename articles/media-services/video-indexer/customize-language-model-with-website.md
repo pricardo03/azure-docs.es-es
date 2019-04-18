@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 02/10/2019
 ms.author: anzaman
 ms.openlocfilehash: 7b81b53c03104023823bef75beb4ac6077feede7
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918695"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Personalización de un modelo de lenguaje con el sitio web de Video Indexer
@@ -147,4 +147,4 @@ Video Indexer admite la personalización automática del lenguaje de modelos bas
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Personalizar el modelo de lenguaje mediante las API](customize-language-model-with-api.md)
+[Personalización del modelo de lenguaje mediante las API](customize-language-model-with-api.md)

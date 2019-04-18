@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
 ms.openlocfilehash: b2398e7db7ed91dee8d85c0c50058bb15b9f4c7e
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894139"
 ---
 # <a name="acr-tasks-reference-yaml"></a>Referencia de ACR Tasks: YAML
@@ -404,8 +404,8 @@ az acr run -f when-parallel-dependent.yaml https://github.com/Azure-Samples/acr-
 
 La propiedad `when` especifica la dependencia de un paso de otros pasos dentro de la tarea. Admite dos valores de parámetro:
 
-* `when: ["-"]` -No indica ninguna dependencia en otros pasos. Un paso que especifica `when: ["-"]` comenzará inmediatamente la ejecución y permitirá la ejecución de pasos simultáneos.
-* `when: ["id1", "id2"]` -Indica el paso depende de los pasos con `id` "id1" y `id` "ID 2". Este paso no se ejecuta hasta que los pasos "id1" e "id2" se han completado.
+* `when: ["-"]`: no indica ninguna dependencia de otros pasos. Un paso que especifica `when: ["-"]` comenzará inmediatamente la ejecución y permitirá la ejecución de pasos simultáneos.
+* `when: ["id1", "id2"]`: indica que el paso depende de los pasos con `id` "id1" e `id` "id2". Este paso no se ejecuta hasta que los pasos "id1" e "id2" se han completado.
 
 Si `when` no se especifica en un paso, este paso depende de la finalización del paso anterior en el archivo `acr-task.yaml`.
 

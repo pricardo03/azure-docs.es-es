@@ -11,10 +11,10 @@ ms.topic: article
 ms.date: 08/23/2018
 tags: connectors
 ms.openlocfilehash: 7785d1788e8d5e9b432a8189345f293ebf05ef7c
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878407"
 ---
 # <a name="manage-ibm-db2-resources-with-azure-logic-apps"></a>Administración de recursos de IBM DB2 con Azure Logic Apps
@@ -85,9 +85,9 @@ Para establecer la conexión, proporcione estos detalles de conexión cuando se 
 
 | Propiedad | Obligatorio | DESCRIPCIÓN |
 |----------|----------|-------------|
-| **Conectar mediante puerta de enlace local** | Sin  | Solo se aplica a conexiones locales. |
+| **Conectarse a través de la puerta de enlace local** | Sin  | Solo se aplica a conexiones locales. |
 | **Nombre de la conexión** | Sí | El nombre de la conexión; por ejemplo, "MyLogicApp-DB2-connection" |
-| **Server** | Sí | La dirección o el alias seguido de dos puntos y el número de puerto del servidor de DB2; por ejemplo, "myDB2server.cloudapp.net:50000" <p><p>**Nota**: Este valor es una cadena que representa una dirección TCP/IP o alias, ya sea en formato IPv4 o IPv6 seguido de dos puntos y un número de puerto TCP/IP. |
+| **Servidor** | Sí | La dirección o el alias seguido de dos puntos y el número de puerto del servidor de DB2; por ejemplo, "myDB2server.cloudapp.net:50000" <p><p>**Nota**: Este valor es una cadena que representa una dirección TCP/IP o alias, ya sea en formato IPv4 o IPv6 seguido de dos puntos y un número de puerto TCP/IP. |
 | **Base de datos** | Sí | El nombre de la base de datos <p><p>**Nota**: Este valor es una cadena que representa un nombre de base de datos relacional de DRDA (RDBNAM): <p>- DB2 para z/OS acepta una cadena de 16 bytes, donde la base de datos se conoce como una ubicación "IBM DB2 para z/OS". <br>- DB2 para DB2/OS acepta una cadena de 18 bytes, donde la base de datos se conoce como una base de datos relacional "IBM DB2 para i". <br>- DB2 para LUW acepta una cadena de 8 bytes. |
 | **Nombre de usuario** | Sí | El nombre de usuario de la base de datos <p><p>**Nota**: Este valor es una cadena cuya longitud se basa en la base de datos específica: <p><p>- DB2 para z/OS acepta una cadena de 8 bytes. <br>- DB2 para i acepta una cadena de 10 bytes. <br>- DB2 para Linux o UNIX acepta una cadena de 8 bytes. <br>- DB2 para Windows acepta una cadena de 30 bytes. |
 | **Contraseña** | Sí | La contraseña de la base de datos |
@@ -105,14 +105,14 @@ Antes de crear la conexión, ya debe tener la puerta de enlace de datos local in
 
 | Propiedad | Obligatorio | DESCRIPCIÓN |
 |----------|----------|-------------|
-| **Conectar mediante puerta de enlace local** | Sí | Se aplica cuando se desea una conexión local y se muestra las propiedades de la conexión local. |
+| **Conectarse a través de la puerta de enlace local** | Sí | Se aplica cuando se desea una conexión local y se muestra las propiedades de la conexión local. |
 | **Nombre de la conexión** | Sí | El nombre de la conexión; por ejemplo, "MyLogicApp-DB2-connection" | 
-| **Server** | Sí | La dirección o el alias seguido de dos puntos y el número de puerto del servidor de DB2; por ejemplo, "myDB2server:50000" <p><p>**Nota**: Este valor es una cadena que representa una dirección TCP/IP o alias, ya sea en formato IPv4 o IPv6 seguido de dos puntos y un número de puerto TCP/IP. |
+| **Servidor** | Sí | La dirección o el alias seguido de dos puntos y el número de puerto del servidor de DB2; por ejemplo, "myDB2server:50000" <p><p>**Nota**: Este valor es una cadena que representa una dirección TCP/IP o alias, ya sea en formato IPv4 o IPv6 seguido de dos puntos y un número de puerto TCP/IP. |
 | **Base de datos** | Sí | El nombre de la base de datos <p><p>**Nota**: Este valor es una cadena que representa un nombre de base de datos relacional de DRDA (RDBNAM): <p>- DB2 para z/OS acepta una cadena de 16 bytes, donde la base de datos se conoce como una ubicación "IBM DB2 para z/OS". <br>- DB2 para DB2/OS acepta una cadena de 18 bytes, donde la base de datos se conoce como una base de datos relacional "IBM DB2 para i". <br>- DB2 para LUW acepta una cadena de 8 bytes. |
-| **Authentication** | Sí | El tipo de autenticación para la conexión; por ejemplo, "Basic" <p><p>**Nota**: Seleccione este valor en la lista, que incluye Basic o Windows (Kerberos). |
+| **Autenticación** | Sí | El tipo de autenticación para la conexión; por ejemplo, "Basic" <p><p>**Nota**: Seleccione este valor en la lista, que incluye Basic o Windows (Kerberos). |
 | **Nombre de usuario** | Sí | El nombre de usuario de la base de datos <p><p>**Nota**: Este valor es una cadena cuya longitud se basa en la base de datos específica: <p><p>- DB2 para z/OS acepta una cadena de 8 bytes. <br>- DB2 para i acepta una cadena de 10 bytes. <br>- DB2 para Linux o UNIX acepta una cadena de 8 bytes. <br>- DB2 para Windows acepta una cadena de 30 bytes. |
 | **Contraseña** | Sí | La contraseña de la base de datos |
-| **Puerta de enlace** | Sí | El nombre de la puerta de enlace de datos local instalada <p><p>**Nota**: Seleccione este valor en la lista, que incluye todas las puertas de enlace de datos instalados en su suscripción de Azure y el grupo de recursos. |
+| **Gateway** | Sí | El nombre de la puerta de enlace de datos local instalada <p><p>**Nota**: Seleccione este valor en la lista, que incluye todas las puertas de enlace de datos instalados en su suscripción de Azure y el grupo de recursos. |
 ||||
 
 Por ejemplo: 
@@ -156,7 +156,7 @@ Para capturar un registro de una tabla de base de datos de DB2, use la acción *
 
    | Propiedad | Obligatorio | DESCRIPCIÓN |
    |----------|----------|-------------|
-   | **Nombre de tabla** | Sí | La tabla que tiene el registro deseado, como "AREA" en este ejemplo |
+   | **Nombre de la tabla** | Sí | La tabla que tiene el registro deseado, como "AREA" en este ejemplo |
    | **Id. de área** | Sí | El identificador del registro que desee, como "99999" en este ejemplo |
    ||||
 
@@ -236,9 +236,9 @@ Para agregar un único registro de una tabla de base de datos de DB2, use la acc
 
    | Propiedad | Obligatorio | DESCRIPCIÓN |
    |----------|----------|-------------|
-   | **Nombre de tabla** | Sí | La tabla a la que agregar el registro, como "AREA" |
+   | **Nombre de la tabla** | Sí | La tabla a la que agregar el registro, como "AREA" |
    | **Id. de área** | Sí | El identificador del área que se va a agregar, como "99999" |
-   | **Descripción de área** | Sí | La descripción del área que se va a agregar, como "Area 99999" |
+   | **Descripción del área** | Sí | La descripción del área que se va a agregar, como "Area 99999" |
    | **Id. de región** | Sí | El identificador de la región que se va a agregar, como "102" |
    |||| 
 
@@ -283,10 +283,10 @@ Para actualizar un único registro de una tabla de base de datos de DB2, use la 
 
    | Propiedad | Obligatorio | DESCRIPCIÓN |
    |----------|----------|-------------|
-   | **Nombre de tabla** | Sí | La tabla en la que actualizar el registro, como "AREA" |
+   | **Nombre de la tabla** | Sí | La tabla en la que actualizar el registro, como "AREA" |
    | **Id. de fila** | Sí | Identificador del registro que se va a actualizar, como "99999" |
    | **Id. de área** | Sí | El nuevo identificador de área, como "99999" |
-   | **Descripción de área** | Sí | La nueva descripción del área, como "Updated 99999" |
+   | **Descripción del área** | Sí | La nueva descripción del área, como "Updated 99999" |
    | **Id. de región** | Sí | El nuevo identificador de región, como "102" |
    ||||
 
@@ -331,7 +331,7 @@ Para eliminar un único registro de una tabla de base de datos de DB2, use la ac
 
    | Propiedad | Obligatorio | DESCRIPCIÓN |
    |----------|----------|-------------|
-   | **Nombre de tabla** | Sí | La tabla de la que eliminar el registro, como "AREA" |
+   | **Nombre de la tabla** | Sí | La tabla de la que eliminar el registro, como "AREA" |
    | **Id. de fila** | Sí | Identificador del registro que se va a eliminar, como "99999" |
    ||||
 

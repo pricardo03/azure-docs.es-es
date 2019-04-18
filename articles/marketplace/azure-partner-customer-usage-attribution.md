@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 11/17/2018
 ms.author: yijenj
 ms.openlocfilehash: 078815185ddb6018a394401f57f7557ac3aedb73
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050159"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Atribución de uso del cliente para asociados de Azure
@@ -316,19 +316,19 @@ Se contactarán por un consultor técnico de Microsoft Partner para configurar u
 
 ## <a name="faq"></a>Preguntas más frecuentes
 
-**¿Qué es la ventaja de agregar el GUID para la plantilla?**
+**¿Cuál es la ventaja de agregar el identificador único global a la plantilla?**
 
 Microsoft proporciona los socios con una vista de las implementaciones de clientes de sus soluciones e información sobre su uso influido. Tanto Microsoft como el asociado pueden usar dicha información para impulsar una participación más estrecha entre los equipos de ventas. Tanto Microsoft como el asociado pueden usar los datos para obtener una vista más coherente del impacto que un asociado individual tiene en el crecimiento de Azure.
 
-**¿Una vez agregado un GUID, puede cambiar?**
+**Una vez que se ha agregado un identificador único global, ¿se puede cambiar?**
 
 Sí, cualquier cliente o asociado de implementación puede personalizar la plantilla y cambiar o quitar el identificador único global. Se recomienda que los asociados proactivamente describirán la función de los recursos y el GUID a sus clientes y asociados para evitar la eliminación o modificación en el GUID. El cambio del identificador único global solo afecta a las implementaciones y a los recursos nuevos, no a los existentes.
 
-**¿Puedo realizar un seguimiento de las plantillas implementadas desde un repositorio que no sean de Microsoft, como GitHub?**
+**¿Puedo realizar un seguimiento de las plantillas implementadas desde un repositorio que no sea de Microsoft, como GitHub?**
 
 Sí, si el GUID está presente cuando se implemente la plantilla, se realiza el seguimiento. Los asociados deben tener un perfil en el CPP para registrar los identificadores GUID utilizados para la implementación fuera de Azure Marketplace.
 
-**¿El cliente recibe reporting así?**
+**¿El cliente recibe también un informe?**
 
 Los clientes pueden realizar el seguimiento del uso tanto de recursos individuales como de grupos de recursos definidos por los usuarios en Azure Portal.
 
@@ -336,7 +336,7 @@ Los clientes pueden realizar el seguimiento del uso tanto de recursos individual
 
 Este nuevo método de conexión de la implementación y el uso en la solución de un asociado proporciona un mecanismo que permite vincular una solución de asociado al uso de Azure. DPOR está pensado para asociar un asociado de consultoría (integrador de sistemas) o de administración (proveedor de servicios administrados) con la suscripción de Azure de un cliente.
 
-**¿Qué es la ventaja de usar el formulario del generador de GUID del almacenamiento de Azure?**
+**¿Cuál es la ventaja de usar el formulario del generador de GUID de Azure Storage?**
 
 El formulario del generador de GUID de Azure Storage garantiza la generación de un GUID del formato necesario. Además, si usa alguno de los métodos de seguimiento de planos de datos de Azure Storage, puede aprovechar el mismo GUID para el seguimiento de planos de control de Marketplace. Esto le permite aprovechar un único GUID unificado para la atribución de asociado sin tener que mantener distintos GUID.
 

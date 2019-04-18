@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: ashish
 ms.openlocfilehash: d2eaab80abed6615f46ef190bae56b8a70db2888
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050686"
 ---
 # <a name="scale-hdinsight-clusters"></a>Escalabilidad de clústeres de HDInsight
@@ -33,7 +33,7 @@ Microsoft proporciona las utilidades siguientes para escalar clústeres:
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[Conjunto AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) - ClusterName \<nombre del clúster > - TargetInstanceCount \<NewSize >|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[Conjunto AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) - ClusterName \<nombre del clúster > - TargetInstanceCount \<NewSize >|
-|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[cambiar el tamaño de AZ hdinsight](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) : grupo de recursos \<grupo de recursos >--nombre \<nombre del clúster >--recuento de instancias de destino \<NewSize >|
+|[CLI de Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)|[cambiar el tamaño de AZ hdinsight](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) : grupo de recursos \<grupo de recursos >--nombre \<nombre del clúster >--recuento de instancias de destino \<NewSize >|
 |[CLI de Azure clásica](hdinsight-administer-use-command-line.md)|cambio de tamaño de clúster de hdinsight de Azure \<clusterName > \<recuento de instancias de destino >|
 |[Azure Portal](https://portal.azure.com)|Abra el panel del clúster de HDInsight, seleccione **tamaño del clúster** en el menú izquierdo, en el panel de tamaño del clúster, escriba el número de nodos de trabajo y seleccione Guardar.|  
 
@@ -154,7 +154,7 @@ hdfs dfsadmin -D 'fs.default.name=hdfs://mycluster/' -safemode get
 ![Modo seguro desactivado](./media/hdinsight-scaling-best-practices/safe-mode-off.png)
 
 > [!NOTE]  
-> El conmutador `-D` es necesario porque el sistema de archivos predeterminado de HDInsight es Azure Storage o Azure Data Lake Storage. `-D` Especifica que los comandos se ejecuten en el sistema de archivos HDFS local.
+> El conmutador `-D` es necesario porque el sistema de archivos predeterminado de HDInsight es Azure Storage o Azure Data Lake Storage. `-D` especifica que los comandos se ejecuten en el sistema de archivos HDFS local.
 
 A continuación, puede consultar un informe en que se muestran los detalles del estado de HDFS:
 

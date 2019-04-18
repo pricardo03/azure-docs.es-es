@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.subservice: common
-ms.openlocfilehash: 426dd265f4d608b8dd3c9ab746479ea103419562
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 244d7fc3caa96173e408a193e13acd656d4a7f77
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579349"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698782"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Métricas de Azure Storage en Azure Monitor
 
@@ -342,8 +342,8 @@ Azure Storage proporciona las siguientes métricas de capacidad en Azure Monitor
 
 | Nombre de métrica | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-| BlobCapacity | El total de almacenamiento de blobs que se utiliza en la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 <br/> Dimensión: BlobType ([definición](#metrics-dimensions)) |
-| BlobCount    | El número de objetos BLOB almacenados en la cuenta de almacenamiento. <br/><br/> Unidad: Número <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 <br/> Dimensión: BlobType ([definición](#metrics-dimensions)) |
+| BlobCapacity | El total de almacenamiento de blobs que se utiliza en la cuenta de almacenamiento. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 <br/> Dimensiones: **BlobType**, y **BlobTier** ([definición](#metrics-dimensions)) |
+| BlobCount    | El número de objetos BLOB almacenados en la cuenta de almacenamiento. <br/><br/> Unidad: Número <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 <br/> Dimensiones: **BlobType**, y **BlobTier** ([definición](#metrics-dimensions)) |
 | ContainerCount    | El número de contenedores que hay en la cuenta de almacenamiento. <br/><br/> Unidad: Número <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
 | IndexCapacity     | Cantidad de almacenamiento que usa el índice jerárquico de ADLS Gen2. <br/><br/> Unidad: Bytes <br/> Tipo de agregación: Media <br/> Ejemplo de valor: 1024 |
 
@@ -392,11 +392,12 @@ Azure Storage admite los siguientes dimensiones para las métricas en Azure Moni
 
 | Nombre de dimensión | DESCRIPCIÓN |
 | ------------------- | ----------------- |
-| BlobType | Solo el tipo de blob de las métricas de Blob. Los valores que se admiten son **BlockBlob** y **PageBlob**. Anexar Blob se incluye en BlockBlob. |
-| ResponseType | Tipo de respuesta de la transacción. Los valores disponibles son: <br/><br/> <li>ServerOtherError: todos los errores del servidor, excepto los descritos. </li> <li> ServerBusyError: solicitud autenticada que devolvió un código de estado HTTP 503. </li> <li> ServerTimeoutError: solicitud autenticada que ha superado el tiempo de espera y que devolvió un código de estado HTTP 500. El tiempo de espera se superó debido a un error del servidor. </li> <li> AuthorizationError: solicitud autenticada errónea debido a un acceso no autorizado de los datos o a un error de autorización. </li> <li> NetworkError: solicitud autenticada errónea debido a errores de red. Normalmente se produce cuando un cliente cierra prematuramente una conexión antes de que se haya superado el tiempo de expiración. </li> <li>    ClientThrottlingError: error de limitación del lado cliente. </li> <li> ClientTimeoutError: solicitud autenticada que ha superado el tiempo de espera y que devolvió un código de estado HTTP 500. Si el tiempo de expiración de la red del cliente o el tiempo de expiración de la solicitud se establece en un valor menor de lo que espera el servicio de almacenamiento, es un tiempo de expiración esperado. De lo contrario, se notifica como un error ServerTimeoutError. </li> <li> ClientOtherError: todos los errores del lado cliente, excepto los descritos. </li> <li> Correcto: Solicitud correcta.|
-| GeoType | Transacción de clúster principal o secundario. Los valores disponibles incluyen Principal y Secundario. Se aplica al Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) al leer objetos de un inquilino secundario. |
-| ApiName | El nombre de la operación. Por ejemplo:  <br/> <li>CreateContainer</li> <li>DeleteBlob</li> <li>GetBlob</li> Para ver los nombres de todas las operaciones, consulte este [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
-| Authentication | Tipos de autenticación que se usan en las transacciones. Los valores disponibles son: <br/> <li>AccountKey: la transacción se autentica con la clave de la cuenta de almacenamiento.</li> <li>SAS: la transacción se autentica con firmas de acceso compartido.</li> <li>OAuth: la transacción se autentica con tokens de acceso de OAuth.</li> <li>Anonymous: la transacción se solicita de forma anónima. No incluye las solicitudes preparatorias.</li> <li>AnonymousPreflight: la transacción es una solicitud preparatoria.</li> |
+| **BlobType** | Solo el tipo de blob de las métricas de Blob. Los valores admitidos son **BlockBlob**, **PageBlob**, y **Azure Data Lake Storage**. Anexar Blob se incluye en BlockBlob. |
+| **BlobTier** | Azure storage ofrece niveles de acceso diferentes, lo que permite almacenar los datos de objeto de blob de la manera más rentable. Obtenga más información en [niveles de blob de Azure Storage](../blobs/storage-blob-storage-tiers.md). Los valores admitidos son: <br/> <li>**Hot**: Nivel de acceso frecuente</li> <li>**Genial**: Nivel de acceso esporádico</li> <li>**Archivo**: Nivel de archivo</li> <li>**Premium**: Nivel Premium para blob en bloques</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: Tipos de nivel de blob en páginas premium</li> <li>**Estándar**: Tipo de nivel de Blob de página estándar</li> <li>**Untiered**: Tipo de nivel de cuenta de almacenamiento de uso general v1</li> |
+| **GeoType** | Transacción de clúster principal o secundario. Los valores disponibles incluyen **principal** y **secundaria**. Se aplica al Almacenamiento con redundancia geográfica con acceso de lectura (RA-GRS) al leer objetos de un inquilino secundario. |
+| **ResponseType** | Tipo de respuesta de la transacción. Los valores disponibles son: <br/><br/> <li>**ServerOtherError**: todos los errores del servidor, excepto los descritos. </li> <li>**ServerBusyError**: solicitud autenticada que devolvió un código de estado HTTP 503. </li> <li>**ServerTimeoutError**: solicitud autenticada que ha superado el tiempo de espera y que devolvió un código de estado HTTP 500. El tiempo de espera se superó debido a un error del servidor. </li> <li>**AuthorizationError**: solicitud autenticada errónea debido a un acceso no autorizado de los datos o a un error de autorización. </li> <li>**NetworkError**: solicitud autenticada errónea debido a errores de red. Normalmente se produce cuando un cliente cierra prematuramente una conexión antes de que se haya superado el tiempo de expiración. </li> <li>**ClientThrottlingError**: error de limitación del lado cliente. </li> <li>**ClientTimeoutError**: solicitud autenticada que ha superado el tiempo de espera y que devolvió un código de estado HTTP 500. Si el tiempo de expiración de la red del cliente o el tiempo de expiración de la solicitud se establece en un valor menor de lo que espera el servicio de almacenamiento, es un tiempo de expiración esperado. De lo contrario, se notifica como un error ServerTimeoutError. </li> <li>**ClientOtherError**: todos los errores del lado cliente, excepto los descritos. </li> <li>**Correcto**: solicitud correcta.</li> |
+| **ApiName** | El nombre de la operación. Por ejemplo:  <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> Para ver los nombres de todas las operaciones, consulte este [documento](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages). |
+| **Autenticación** | Tipos de autenticación que se usan en las transacciones. Los valores disponibles son: <br/> <li>**AccountKey**: la transacción se autentica con la clave de la cuenta de almacenamiento.</li> <li>**SAS**: la transacción se autentica con firmas de acceso compartido.</li> <li>**OAuth**: la transacción se autentica con tokens de acceso de OAuth.</li> <li>**Anónimo**: la transacción se solicita de forma anónima. No incluye las solicitudes preparatorias.</li> <li>**AnonymousPreflight**: la transacción es una solicitud preparatoria.</li> |
 
 En el caso de las dimensiones compatibles con métricas, es preciso especificar el valor de la dimensión para ver los valores correspondientes de las métricas. Por ejemplo, si observa el valor **Transactions** en las respuestas correctas, es preciso filtrar la dimensión **ResponseType** por **Success**. O bien si examina el valor **BlobCount** de Blob en bloques, es preciso filtrar la dimensión **BlobType** por **BlockBlob**.
 

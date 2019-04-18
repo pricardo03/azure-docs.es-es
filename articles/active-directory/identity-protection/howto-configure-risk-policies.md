@@ -17,12 +17,12 @@ ms.date: 02/07/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbc2a1bd8b751ab1b88e54876227892ea3c257a3
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: cdacdf604ab7a4ded7ddf302a217084630f60b31
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517545"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699040"
 ---
 # <a name="how-to-configure-risk-policies-in-azure-active-directory-identity-protection-refreshed"></a>Instrucciones: Configuración de las directivas de riesgo en Azure Active Directory Identity Protection (actualizado)
 
@@ -41,7 +41,8 @@ AD Azure analiza cada inicio de sesión de un usuario. El objetivo del análisis
 
 La directiva de riesgo de inicio de sesión es una respuesta automatizada que puede configurar para un nivel de riesgo de inicio de sesión específico. En la respuesta, puede bloquear el acceso a los recursos o enviar un desafío de autenticación multifactor (MFA) para obtener acceso.
 
-   
+Cuando un usuario completa correctamente un mensaje de AMF activado por la directiva de inicio de sesión de riesgo, proporciona comentarios a la protección de identidad que el inicio de sesión se originaron desde un usuario legítimo. Por lo tanto, el evento de inicio de sesión de riesgo que desencadenó el aviso de MFA se cerrará automáticamente y protección de identidad impedirá que este evento que contribuyen a la elevación de riesgo del usuario. Habilitación de la directiva de inicio de sesión de riesgo puede reducir noisiness en la vista de inicios de sesión permitiendo a los usuarios a corregir cuando se le pida MFA y posteriormente automáticamente cerrando el asociado inicio de sesión peligroso.
+
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>¿Cómo puedo acceder a la directiva de riesgo de inicio de sesión?
    
 En la hoja **Azure AD Identity Protection**, en la sección [Configurar](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy), está la directiva de riesgo de inicio de sesión.

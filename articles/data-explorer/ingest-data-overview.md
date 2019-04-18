@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
 ms.openlocfilehash: 6c9cb7282ba9d99ea643bbd023d876b8fbe3904c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045601"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingesta de datos de Azure Data Explorer
@@ -64,7 +64,7 @@ Kusto ofrece un cliente SDK que puede utilizarse para la ingesta y consulta de d
 
 * [SDK de Python](/azure/kusto/api/python/kusto-python-client-library)
 
-* [.NET SDK](/azure/kusto/api/netfx/about-the-sdk)
+* [SDK de .NET](/azure/kusto/api/netfx/about-the-sdk)
 
 * [SDK de Java](/azure/kusto/api/java/kusto-java-client-library)
 
@@ -90,7 +90,7 @@ Kusto ofrece un cliente SDK que puede utilizarse para la ingesta y consulta de d
 
 | Método | Latencia |
 | --- | --- |
-| **Ingesta en línea** | Inmediata |
+| **Ingesta insertada** | Inmediata |
 | **Ingesta de consulta** | Tiempo de consulta + tiempo de procesamiento |
 | **Ingesta de almacenamiento** | Tiempo de descarga + tiempo de procesamiento |
 | **Ingesta en cola** | Tiempo del procesamiento por lotes + tiempo de procesamiento |
@@ -144,7 +144,7 @@ La asignación de esquemas, ayuda a enlazar campos de datos de origen a columnas
 > [Ingesta de datos del centro de eventos a Azure Data Explorer](ingest-data-event-hub.md)
 
 > [!div class="nextstepaction"]
-> [Ingesta de datos mediante la suscripción de Event Grid en el Explorador de datos de Azure](ingest-data-event-grid.md)
+> [Ingesta de datos mediante la suscripción de Event Grid en Azure Data Explorer](ingest-data-event-grid.md)
 
 > [!div class="nextstepaction"]
 > [Ingesta de datos de Kafka en Azure Data Explorer](ingest-data-kafka.md)

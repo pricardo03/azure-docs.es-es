@@ -11,10 +11,10 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 02/14/2019
 ms.openlocfilehash: 903f2700ad127c9bcc69e69ee125ba62fccf52e0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051638"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Nuevo entrenamiento e implementación de un modelo de aprendizaje automático
@@ -192,5 +192,5 @@ Por último, use el [actualización AzMlWebService](https://docs.microsoft.com/p
 
 Para más información acerca de cómo administrar los servicios web o realizar un seguimiento de la ejecución de varios experimentos, consulte los artículos siguientes:
 
-* [Explorar el portal servicios Web](manage-new-webservice.md)
+* [Exploración del portal de Web Services](manage-new-webservice.md)
 * [Administración de iteraciones de experimentos](manage-experiment-iterations.md)

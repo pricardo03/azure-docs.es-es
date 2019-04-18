@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 12/20/2018
 ms.author: jingwang
 ms.openlocfilehash: 99798b35419ec9574c99aaba42803fbeeb1555f1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267130"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>Asignación de esquemas en la actividad de copia
@@ -268,5 +268,5 @@ En los escenarios siguientes, se sugiere el elemento "structure" en el conjunto 
 Consulte los otros artículos de la actividad de copia:
 
 - [Información general de la actividad de copia](copy-activity-overview.md)
-- [Copie la tolerancia a errores de actividad](copy-activity-fault-tolerance.md)
+- [Tolerancia a errores de la actividad de copia](copy-activity-fault-tolerance.md)
 - [Rendimiento de la actividad de copia](copy-activity-performance.md)

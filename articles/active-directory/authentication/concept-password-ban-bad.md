@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cc2c125df2e3455b0e90919dbca92fe497a4b1b7
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884353"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>Elimine las contraseñas incorrectas de su organización
@@ -123,4 +123,4 @@ Lamentablemente, la contraseña contiene una palabra, frase o patrón que permit
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Configuración de la lista personalizada de contraseñas prohibidas](howto-password-ban-bad.md)
-* [Habilitar Azure AD contraseña protección agentes locales](howto-password-ban-bad-on-premises-deploy.md)
+* [Habilitar agentes de Protección con contraseña de Azure AD locales](howto-password-ban-bad-on-premises-deploy.md)

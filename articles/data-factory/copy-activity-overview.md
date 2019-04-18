@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 28d8c077f106f12812f7ed710217febd24d81efc
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267164"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Actividad de copia en Azure Data Factory
@@ -24,7 +24,7 @@ ms.locfileid: "59267164"
 ## <a name="overview"></a>Información general
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [versión 1](v1/data-factory-data-movement-activities.md)
+> * [Versión 1](v1/data-factory-data-movement-activities.md)
 > * [Versión actual](copy-activity-overview.md)
 
 En Azure Data Factory, puede usar la actividad de copia para copiar datos entre los almacenes de datos locales y en la nube. Una vez copiados los datos, se pueden analizar y transformar con más profundidad. La actividad de copia también puede utilizarse para publicar los resultados de transformación y análisis de inteligencia empresarial (BI) y el consumo de la aplicación.
@@ -72,9 +72,9 @@ El servicio que ofrece la actividad de copia está disponible globalmente en las
 
 Para usar la actividad de copia en Azure Data Factory, necesita:
 
-1. **Cree servicios vinculados para el almacén de datos de origen y el almacén de datos receptor.** Consulte la sección "Propiedades del servicio vinculado" del artículo sobre conectores para información de cómo configurar y las propiedades compatibles. Puede encontrar la lista de conectores compatibles en la sección [Almacenes de datos y formatos que se admiten](#supported-data-stores-and-formats).
-2. **Crear conjuntos de datos de origen y receptor.** Consulte la sección "Propiedades del conjunto de datos" del artículo sobre el conector de origen y receptor para información de cómo configurar y las propiedades compatibles.
-3. **Crear una canalización con actividad de copia.** Se proporciona un ejemplo en la sección siguiente.  
+1. **Crear servicios vinculados para el almacén de datos de origen y el almacén de datos de receptor**. Consulte la sección "Propiedades del servicio vinculado" del artículo sobre conectores para información de cómo configurar y las propiedades compatibles. Puede encontrar la lista de conectores compatibles en la sección [Almacenes de datos y formatos que se admiten](#supported-data-stores-and-formats).
+2. **Crear conjuntos de datos para origen y receptor**. Consulte la sección "Propiedades del conjunto de datos" del artículo sobre el conector de origen y receptor para información de cómo configurar y las propiedades compatibles.
+3. **Crear una canalización con la actividad de copia**. Se proporciona un ejemplo en la sección siguiente.  
 
 ### <a name="syntax"></a>Sintaxis
 
@@ -162,10 +162,10 @@ Haga clic en el vínculo "**Detalles**" en **Acciones** para ver los detalles de
 >En algunos casos, también verá el mensaje "**Sugerencias para la optimización del rendimiento**" en la parte superior de la página de supervisión de copias, que le informa sobre el cuello de botella identificado y le guía por las opciones que puede cambiar con el fin de mejorar el rendimiento de la copia. Puede ver el ejemplo con detalles [aquí](#performance-and-tuning).
 
 **Ejemplo: copia de Amazon S3 a Azure Data Lake Store**
-![detalles de la ejecución de supervisión de la actividad](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
+![Detalles de la supervisión de la ejecución de actividad](./media/copy-activity-overview/monitor-activity-run-details-adls.png)
 
-**Ejemplo: copia almacenada provisionalmente copiar desde Azure SQL Database en Azure SQL Data Warehouse con**
-![detalles de la ejecución de supervisión de la actividad](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
+**Ejemplo: copia de Azure SQL Database a Azure SQL Data Warehouse con una copia almacenada provisionalmente**
+![Detalles de la supervisión de la ejecución de actividad](./media/copy-activity-overview/monitor-activity-run-details-sql-dw.png)
 
 ### <a name="monitor-programmatically"></a>Supervisión mediante programación
 
@@ -254,6 +254,6 @@ En la versión 1, Azure Data Factory admitía la lectura y la escritura de datos
 ## <a name="next-steps"></a>Pasos siguientes
 Consulte las guías de inicio rápido, los tutoriales y los ejemplos siguientes:
 
-- [Copiar datos desde una ubicación a otra ubicación en el mismo almacenamiento de blobs de Azure](quickstart-create-data-factory-dot-net.md)
-- [Copiar datos desde Azure Blob Storage a Azure SQL Database](tutorial-copy-data-dot-net.md)
-- [Copiar datos desde un entorno local de SQL Server en Azure](tutorial-hybrid-copy-powershell.md)
+- [Copia de datos de una ubicación a otra en la misma instancia de Azure Blob Storage](quickstart-create-data-factory-dot-net.md)
+- [Copia de datos de Azure Blob Storage a Azure SQL Database](tutorial-copy-data-dot-net.md)
+- [Copia de datos de un servidor SQL Server local a Azure](tutorial-hybrid-copy-powershell.md)

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a25418f30225184424011527def468d0d3909563
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045703"
 ---
 # <a name="create-certificates-for-azure-key-vault"></a>Creación de certificados para Azure Key Vault
@@ -39,7 +39,7 @@ Puede usar un grupo de recursos de Azure nuevo o existente para este trabajo.  E
 
 Edite y ejecute el siguiente script de Azure PowerShell para crear el archivo de certificado (.pfx) en una carpeta local.  Tendrá que reemplazar los valores para los parámetros siguientes:
 
-|  **Parámetro**        |   **DESCRIPCIÓN**                                                               |
+|  **Parámetro**        |   **Descripción**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$certroopath` | Carpeta local donde guardar el archivo .pfx  |
 | `$location`    | Una de las ubicaciones geográficas estándares de Azure  |
@@ -85,7 +85,7 @@ Edite y ejecute el siguiente script de Azure PowerShell para crear el archivo de
 
 Copie el contenido de la [plantilla de implementación de Key Vault](./cpp-key-vault-deploy-template.md) en un archivo en el equipo local (en el siguiente script de ejemplo, este recurso es `C:\certLocation\keyvault.json`).  Edite y ejecute el siguiente script de Azure PowerShell para crear una instancia de Azure Key Vault y el grupo de recursos asociado.  Tendrá que reemplazar los valores para los parámetros siguientes:
 
-|  **Parámetro**        |   **DESCRIPCIÓN**                                                               |
+|  **Parámetro**        |   **Descripción**                                                               |
 |  -------------        |   ---------------                                                               |
 | `$postfix`            | Cadena numérica arbitraria anexada a identificadores de implementación                     |
 | `$rgName`             | Nombre del grupo de recursos (RG) de Azure para crear                                        |

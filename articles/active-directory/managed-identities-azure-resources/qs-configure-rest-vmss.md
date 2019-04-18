@@ -16,10 +16,10 @@ ms.date: 06/25/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: cafb3c97befd64cc6413a2eefa5e5baa9e01bf93
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009589"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-rest-api-calls"></a>Configuración de identidades administradas de recursos de Azure en un conjunto de escalado de máquinas virtuales mediante llamadas a la API REST
@@ -206,7 +206,7 @@ Para habilitar la identidad administrada asignada por el sistema en un conjunto 
 
    La versión de API `2018-06-01` almacena las identidades administradas asignadas por el usuario en el valor `userAssignedIdentities` en un formato de diccionario, en contraposición con el valor `identityIds` en formato de matriz que se usaba en la versión `2017-12-01` de la API.
    
-   **API VERSIÓN 2018-06-01**
+   **VERSIÓN DE API 2018-06-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{},"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -240,7 +240,7 @@ Para habilitar la identidad administrada asignada por el sistema en un conjunto 
     }
    ```
    
-   **API VERSIÓN 2017-12-01**
+   **VERSIÓN DE API 2017-12-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"SystemAssigned,UserAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1","/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID2"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -341,7 +341,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
 
 5. Cree un conjunto de escalado de máquinas virtuales con CURL para llamar al punto de conexión REST de Azure Resource Manager. En el ejemplo siguiente se crea un conjunto de escalado de máquinas virtuales denominado *myVMSS* en el grupo de recursos *myResourceGroup* con una identidad administrada asignada por el usuario `ID1`, como se identificó en el cuerpo de la solicitud por el valor `"identity":{"type":"UserAssigned"}`. Reemplace `<ACCESS TOKEN>` por el valor que ha recibido en el paso anterior cuando solicitó un token de acceso de portador y el valor `<SUBSCRIPTION ID>` según sea apropiado para su entorno.
  
-   **API VERSIÓN 2018-06-01**
+   **VERSIÓN DE API 2018-06-01**
 
    ```bash   
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-06-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"UserAssigned","userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -428,7 +428,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
     }
    ```   
 
-   **API VERSIÓN 2017-12-01**
+   **VERSIÓN DE API 2017-12-01**
 
    ```bash   
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PUT -d '{"sku":{"tier":"Standard","capacity":3,"name":"Standard_D1_v2"},"location":"eastus","identity":{"type":"UserAssigned","identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]},"properties":{"overprovision":true,"virtualMachineProfile":{"storageProfile":{"imageReference":{"sku":"2016-Datacenter","publisher":"MicrosoftWindowsServer","version":"latest","offer":"WindowsServer"},"osDisk":{"caching":"ReadWrite","managedDisk":{"storageAccountType":"Standard_LRS"},"createOption":"FromImage"}},"osProfile":{"computerNamePrefix":"myVMSS","adminUsername":"azureuser","adminPassword":"myPassword12"},"networkProfile":{"networkInterfaceConfigurations":[{"name":"myVMSS","properties":{"primary":true,"enableIPForwarding":true,"ipConfigurations":[{"name":"myVMSS","properties":{"subnet":{"id":"/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"}}}]}}]}},"upgradePolicy":{"mode":"Manual"}}}' -H "Content-Type: application/json" -H "Authorization: Bearer <ACCESS TOKEN>"
@@ -544,7 +544,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
 
    En el ejemplo siguiente se asigna una identidad administrada asignada por el usuario, `ID1`, a un conjunto de escalado de máquinas virtuales denominado *myVMSS* en el grupo de recursos *myResourceGroup*.  Reemplace `<ACCESS TOKEN>` por el valor que ha recibido en el paso anterior cuando solicitó un token de acceso de portador y el valor `<SUBSCRIPTION ID>` según sea apropiado para su entorno.
 
-   **API VERSIÓN 2018-06-01**
+   **VERSIÓN DE API 2018-06-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2018-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "userAssignedIdentities":{"/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1":{}}}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -576,7 +576,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
     }
    ``` 
     
-   **API VERSIÓN 2017-12-01**
+   **VERSIÓN DE API 2017-12-01**
 
    ```bash
    curl 'https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/myResourceGroup/providers/Microsoft.Compute/virtualMachineScaleSets/myVMSS?api-version=2017-12-01' -X PATCH -d '{"identity":{"type":"userAssigned", "identityIds":["/subscriptions/<SUBSCRIPTION ID>/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/ID1"]}}' -H "Content-Type: application/json" -H Authorization:"Bearer <ACCESS TOKEN>"
@@ -608,7 +608,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
 
 5. Si ya dispone de una identidad administrada asignada por el usuario o por el sistema y está asignada al conjunto de escalado de máquinas virtuales:
    
-   **API VERSIÓN 2018-06-01**
+   **VERSIÓN DE API 2018-06-01**
 
    Agregue la identidad administrada asignada por el usuario al valor de diccionario `userAssignedIdentities`.
 
@@ -647,7 +647,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
     }
    ```
 
-   **API VERSIÓN 2017-12-01**
+   **VERSIÓN DE API 2017-12-01**
 
    Conserve las identidades administradas asignadas por el usuario y que le gustaría mantener en el valor de matriz `identityIds` al tiempo que agrega la nueva identidad administrada asignada por el usuario.
 
@@ -710,7 +710,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
     
    Por ejemplo, si tiene identidades administradas asignadas por el usuario `ID1` y `ID2`, y que están asignadas al conjunto de escalado de máquinas virtuales, y sólo quiere mantener `ID1` asignada y conservar la identidad administrada asignada por el sistema:
 
-   **API VERSIÓN 2018-06-01**
+   **VERSIÓN DE API 2018-06-01**
 
    Agregue `null` a la identidad administrada asignada por el usuario que quiere quitar:
 
@@ -742,7 +742,7 @@ En esta sección, aprenderá a agregar y quitar una identidad administrada asign
     }
    ```
 
-   **API VERSIÓN 2017-12-01**
+   **VERSIÓN DE API 2017-12-01**
 
    Conserve solo las identidades administradas asignadas por el usuario que le gustaría mantener en la matriz `identityIds`:
 
@@ -832,4 +832,4 @@ PATCH https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroup
 
 Para obtener información sobre cómo crear, enumerar o eliminar identidades administradas asignadas por el usuario mediante REST, consulte:
 
-- [Crear, enumerar o eliminar una identidad administrada asignada por el usuario mediante llamadas a la API REST](how-to-manage-ua-identity-rest.md)
+- [Creación, enumeración o eliminación de una identidad administrada asignada por el usuario mediante llamadas a la API REST](how-to-manage-ua-identity-rest.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 3a0d10f373b045058c6df242c4d98f78d04c4490
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: b56cbfbc9dfde8b1a7d43d55ee85c34fde385902
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58801142"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "58846383"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Usar el portal de Azure para acceder a los datos blob o cola
 

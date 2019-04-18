@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
 ms.openlocfilehash: d1e4af6e73c272a7ccc8996b0ccc854be64dd74b
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006349"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Requisitos del sistema de borde del cuadro de datos Azure
@@ -135,4 +135,4 @@ Por último, asegúrese de que validar la solución en el conjunto de datos y cu
 
 ## <a name="next-step"></a>Paso siguiente
 
-- [Implementar el borde del cuadro de datos de Azure](data-box-edge-deploy-prep.md)
+- [Implementación de Azure Data Box Edge](data-box-edge-deploy-prep.md)

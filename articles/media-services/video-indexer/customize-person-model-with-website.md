@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: anzaman
 ms.openlocfilehash: 8dd535d97e40fe1dd4358d782db60940af1dd95d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892847"
 ---
 # <a name="customize-a-person-model-with-the-video-indexer-website"></a>Personalización de un modelo de persona con el sitio web de Video Indexer
@@ -201,4 +201,4 @@ Para eliminar una cara detectada en el vídeo, vaya al panel de información y h
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Personalizar mediante las API de modelo de persona](customize-person-model-with-api.md)
+[Personalización del modelo de persona mediante las API](customize-person-model-with-api.md)

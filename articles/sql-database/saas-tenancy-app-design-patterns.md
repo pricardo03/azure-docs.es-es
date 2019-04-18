@@ -13,10 +13,10 @@ ms.reviewer: billgib, sstein
 manager: craigg
 ms.date: 01/25/2019
 ms.openlocfilehash: 6332555c1a176a06004ddfeee513844ad5875c30
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260551"
 ---
 # <a name="multi-tenant-saas-database-tenancy-patterns"></a>Patrones de inquilinato de base de datos SaaS multiinquilino
@@ -56,7 +56,7 @@ En general, el modelo de inquilinato no afecta a la función de una aplicación,
     - Cambios en las consultas (requeridos por el patrón).
 
 - **Complejidad operativa:**
-    - Supervisión y administración del rendimiento
+    - Supervisión y administración del rendimiento.
     - Administración del esquema.
     - Restauración de un inquilino.
     - Recuperación ante desastres
@@ -71,7 +71,7 @@ El análisis de inquilinos se centra en la capa de *datos*.  Pero tenga en cuent
 
 En este modelo, la aplicación entera se instala varias veces, una vez para cada inquilino.  Cada instancia de la aplicación es una instancia independiente, por lo que nunca interactúa con cualquier otra instancia independiente.  Cada instancia de la aplicación tiene un solo inquilino y, por tanto, necesita solo una base de datos.  El inquilino tiene la base de datos entera para él.
 
-![Diseño de aplicación independiente con exactamente una base de datos de inquilino único.][image-standalone-app-st-db-111a]
+![Diseño de aplicación independiente con base de datos de un único inquilino.][image-standalone-app-st-db-111a]
 
 Cada instancia de la aplicación se instala en un grupo de recursos de Azure independiente.  El grupo de recursos puede pertenecer a una suscripción que a su vez pertenezca al proveedor de software o al inquilino.  En cualquier caso, el proveedor puede administrar el software para el inquilino.  Cada instancia de la aplicación se configura para conectarse a su base de datos correspondiente.
 
@@ -85,7 +85,7 @@ El proveedor puede tener acceso a todas las bases de datos en todas las instanci
 
 El patrón siguiente utiliza una aplicación multiinquilino con muchas bases de datos, cada una de ellas de un único inquilino.  Se aprovisiona una nueva base de datos para cada nuevo inquilino.  La capa de aplicación se escala *verticalmente* mediante la adición de más recursos por nodo.  O la aplicación se escala *horizontalmente* agregando más nodos.  El escalado se basa en la carga de trabajo y es independiente del número o la escala de las bases de datos individuales.
 
-![Diseño de una aplicación multiinquilino con una base de datos por inquilino.][image-mt-app-db-per-tenant-132d]
+![Diseño de una aplicación multiinquilino con una base de datos por inquilino][image-mt-app-db-per-tenant-132d]
 
 #### <a name="customize-for-a-tenant"></a>Personalización para un inquilino
 
@@ -97,7 +97,7 @@ Con una base de datos por inquilino, la personalización del esquema para uno o 
 
 Cuando las bases de datos se implementan en el mismo grupo de recursos, se pueden agrupar en grupos elásticos.  Los grupos proporcionan una manera rentable de compartir recursos entre varias bases de datos.  Esta opción de grupo resulta más económica que exigir que cada base de datos sea lo suficientemente grande como para dar cabida a los picos de uso que producen.  Aunque las bases de datos agrupadas comparten el acceso a los recursos, pueden mantener un alto grado de aislamiento del rendimiento.
 
-![Diseño de una aplicación multiinquilino con una base de datos por inquilino, mediante un grupo elástico.][image-mt-app-db-per-tenant-pool-153p]
+![Diseño de aplicación multiinquilino con una base de datos por inquilino mediante un grupo elástico.][image-mt-app-db-per-tenant-pool-153p]
 
 Azure SQL Database proporciona las herramientas necesarias para configurar, supervisar y administrar el uso compartido.  Existen métricas de rendimiento de nivel de grupo y el nivel de base de datos están disponibles en el portal de Azure y, a través de los registros de Azure Monitor.  Las métricas pueden dar detalles sobre el rendimiento agregado y específico del inquilino.  Las bases de datos individuales se pueden mover entre grupos para proporcionar recursos reservados para un inquilino específico.  Estas herramientas permiten garantizar un buen rendimiento en forma rentable.
 
@@ -146,7 +146,7 @@ Las operaciones de administración que se centran en inquilinos individuales tie
 
 La mayoría de las aplicaciones de SaaS acceden a los datos de un solo inquilino a la vez.  Este patrón de acceso permite que los datos del inquilino se distribuyan a través de varias bases de datos o particiones, donde todos los datos de cualquier inquilino determinado están contenidos en una partición.  Combinado con un patrón de base de datos multiinquilino, un modelo con particiones permite una escala casi infinita.
 
-![Diseño de una aplicación multiinquilino con bases de datos multiinquilino con particiones.][image-mt-app-sharded-mt-db-174s]
+![Diseño de aplicación multiinquilino con bases de datos multiinquilino con particiones][image-mt-app-sharded-mt-db-174s]
 
 #### <a name="manage-shards"></a>Administración de particiones
 

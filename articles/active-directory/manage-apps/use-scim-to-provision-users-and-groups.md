@@ -17,10 +17,10 @@ ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a404b5e6769c7bb91b4f7b5830cea18372ec456d
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59007157"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Uso de System for Cross-Domain Identity Management (SCIM) para aprovisionar automáticamente a los usuarios y grupos de Azure Active Directory para aplicaciones
@@ -38,7 +38,7 @@ El enfoque principal de este artículo se encuentra en el perfil de SCIM 2.0 que
 >El comportamiento de la implementación de SCIM de Azure AD se actualizó por última vez el 18 de diciembre de 2018. Para obtener información sobre los cambios que se han producido, consulte [SCIM 2.0 protocol compliance of the Azure AD User Provisioning service](application-provisioning-config-problem-scim-compatibility.md) (Cumplimiento del protocolo SCIM 2.0 del servicio de aprovisionamiento de usuarios de Azure AD).
 
 ![][0]
-*Ilustración 1: Aprovisionamiento de Azure Active Directory en un aplicación o almacén de identidades que implementa SCIM*
+*Ilustración 1: Aprovisionamiento de Azure Active Directory en un aplicación o almacén de identidades que implementa SCIM*
 
 En este artículo se divide en cuatro secciones:
 
@@ -72,13 +72,13 @@ Las aplicaciones que admiten el perfil SCIM descrito en este artículo se pueden
 1. Escriba un nombre para la aplicación y seleccione **agregar** para crear un objeto de aplicación. La nueva aplicación se agrega a la lista de aplicaciones empresariales y se abre en su pantalla de administración de la aplicación.
     
    ![][1]
-   *Figura 2: Galería de aplicaciones de Azure AD*
+   *Ilustración 2: Galería de aplicaciones de Azure AD*
     
 1. En la pantalla de administración de aplicaciones, seleccione **aprovisionamiento** en el panel izquierdo.
 1. En el menú **Modo de aprovisionamiento**, seleccione **Automático**.
     
    ![][2]
-   *Figura 3: Configuración del aprovisionamiento en Azure Portal*
+   *Ilustración 3: Configuración del aprovisionamiento en Azure Portal*
     
 1. En el campo **Dirección URL del inquilino**, escriba la dirección URL del punto de conexión SCIM de la aplicación. Ejemplo: https://api.contoso.com/scim/v2/
 1. Si el punto de conexión SCIM requiere un token de portador OAuth de un emisor que no sea Azure AD, copie el token de portador OAuth necesario en el campo **Token secreto**. Si este campo se deja en blanco, Azure AD incluye un token de portador OAuth emitido desde Azure AD con cada solicitud. Las aplicaciones que usan Azure AD como un proveedor de identidades pueden validar este token que emitió Azure AD.
@@ -134,7 +134,7 @@ Al implementar un punto de conexión SCIM para garantizar la compatibilidad con 
 La siguiente ilustración muestra los mensajes que Azure Active Directory se envía a un servicio SCIM para administrar el ciclo de vida de un usuario en el almacén de identidades de su aplicación.  
 
 ![][4]
-*Ilustración 4: Aprovisionamiento y Desaprovisionamiento de secuencia*
+*Ilustración 4: Secuencia de aprovisionamiento y cancelación de aprovisionamiento de usuarios*
 
 ### <a name="group-provisioning-and-de-provisioning"></a>Aprovisionamiento y cancelación del aprovisionamiento de grupos
 Aprovisionamiento y Desaprovisionamiento de grupo es opcional. Cuando está implementado y habilitado, la siguiente ilustración muestra los mensajes que Azure AD envía a un servicio SCIM para administrar el ciclo de vida de un grupo en el almacén de identidades de su aplicación.  Esos mensajes se diferencian de los mensajes acerca de los usuarios de dos maneras: 
@@ -143,7 +143,7 @@ Aprovisionamiento y Desaprovisionamiento de grupo es opcional. Cuando está impl
 * Las solicitudes para determinar si un atributo de referencia tiene un valor determinado son solicitudes sobre el atributo members.  
 
 ![][5]
-*Ilustración 5: Aprovisionamiento de grupos y el desaprovisionamiento secuencia*
+*Ilustración 5: Secuencia de aprovisionamiento y cancelación del aprovisionamiento de grupos*
 
 ### <a name="scim-protocol-requests-and-responses"></a>Solicitudes del protocolo SCIM y respuestas
 Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el cliente de SCIM de Azure AD y el ejemplo respuestas esperadas. Para obtener mejores resultados, debe codificar la aplicación para controlar estas solicitudes en este formato y emite las respuestas esperadas.
@@ -154,47 +154,47 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 - [Operaciones de usuario](#user-operations)
   - [Crear usuario](#create-user)
     - [Solicitud](#request)
-    - [Response](#response)
+    - [Respuesta](#response)
   - [Obtener usuario](#get-user)
     - [Solicitud](#request-1)
-    - [Response](#response-1)
+    - [Respuesta](#response-1)
   - [Obtener usuario por consulta](#get-user-by-query)
     - [Solicitud](#request-2)
-    - [Response](#response-2)
+    - [Respuesta](#response-2)
   - [Obtener usuario por consulta: cero da como resultado](#get-user-by-query---zero-results)
     - [Solicitud](#request-3)
-    - [Response](#response-3)
+    - [Respuesta](#response-3)
   - [Actualizar usuario [propiedades con varios valores]](#update-user-multi-valued-properties)
     - [Solicitud](#request-4)
-    - [Response](#response-4)
+    - [Respuesta](#response-4)
   - [Actualizar usuario [propiedades de un solo valor]](#update-user-single-valued-properties)
     - [Solicitud](#request-5)
-    - [Response](#response-5)
+    - [Respuesta](#response-5)
   - [Eliminar usuario](#delete-user)
     - [Solicitud](#request-6)
-    - [Response](#response-6)
+    - [Respuesta](#response-6)
 - [Operaciones de grupo](#group-operations)
   - [Crear grupo](#create-group)
     - [Solicitud](#request-7)
-    - [Response](#response-7)
+    - [Respuesta](#response-7)
   - [Obtener grupo](#get-group)
     - [Solicitud](#request-8)
-    - [Response](#response-8)
+    - [Respuesta](#response-8)
   - [Obtener grupo por displayName](#get-group-by-displayname)
     - [Solicitud](#request-9)
-    - [Response](#response-9)
+    - [Respuesta](#response-9)
   - [Grupo de actualizaciones [atributos que no son miembro]](#update-group-non-member-attributes)
     - [Solicitud](#request-10)
-    - [Response](#response-10)
+    - [Respuesta](#response-10)
   - [Grupo de actualizaciones [Agregar miembros]](#update-group-add-members)
     - [Solicitud](#request-11)
-    - [Response](#response-11)
+    - [Respuesta](#response-11)
   - [Grupo de actualizaciones [quitar miembros]](#update-group-remove-members)
     - [Solicitud](#request-12)
-    - [Response](#response-12)
+    - [Respuesta](#response-12)
   - [Eliminar grupo](#delete-group)
     - [Solicitud](#request-13)
-    - [Response](#response-13)
+    - [Respuesta](#response-13)
 
 ### <a name="user-operations"></a>Operaciones de usuario
 
@@ -397,7 +397,7 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 #### <a name="update-user-single-valued-properties"></a>Actualizar usuario [propiedades de un solo valor]
 
 ##### <a name="request"></a>Solicitud
-*PATCH/usuarios/5171a35d82074e068ce2 HTTP/1.1*
+*PATCH /Users/5171a35d82074e068ce2 HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -440,7 +440,7 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 #### <a name="delete-user"></a>Eliminar usuario
 
 ##### <a name="request"></a>Solicitud
-*ELIMINAR /Users/5171a35d82074e068ce2 HTTP/1.1*
+*DELETE /Users/5171a35d82074e068ce2 HTTP/1.1*
 
 ##### <a name="response"></a>Response
 *HTTP/1.1 204 Sin contenido*
@@ -455,7 +455,7 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 #### <a name="create-group"></a>Crear grupo
 
 ##### <a name="request"></a>Solicitud
-*POST/Groups HTTP/1.1*
+*POST /Groups HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group", "http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/2.0/Group"],
@@ -556,7 +556,7 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 ### <a name="update-group-add-members"></a>Grupo de actualizaciones [Agregar miembros]
 
 ##### <a name="request"></a>Solicitud
-*PATCH/grupos/a99962b9f99d4c4fac67 HTTP/1.1*
+*PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -577,7 +577,7 @@ Esta sección se proporcionan las solicitudes SCIM de ejemplo emiten por el clie
 #### <a name="update-group-remove-members"></a>Grupo de actualizaciones [quitar miembros]
 
 ##### <a name="request"></a>Solicitud
-*PATCH/grupos/a99962b9f99d4c4fac67 HTTP/1.1*
+*PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -664,7 +664,7 @@ Es la manera más fácil de implementar un punto de conexión SCIM que puede ace
 1. En el menú **Modo de aprovisionamiento**, seleccione **Automático**.
     
    ![][2]
-   *Figura 6: Configuración del aprovisionamiento en Azure Portal*
+   *Ilustración 6: Configuración del aprovisionamiento en Azure Portal*
     
 1. En el campo **URL de inquilino**, escriba la dirección URL expuesta a Internet y el puerto del punto de conexión SCIM. La entrada es algo parecido a http://testmachine.contoso.com:9000 o http://\<ip-address>:9000/, donde \<ip-address> es la dirección IP expuesta a Internet. 
 
@@ -1260,10 +1260,10 @@ Los recursos del grupo se identifican mediante el identificado de esquema `urn:i
 
 
 ## <a name="related-articles"></a>Artículos relacionados
-* [Automatizar el aprovisionamiento y desaprovisionamiento para aplicaciones SaaS](user-provisioning.md)
-* [Personalizar asignaciones de atributos para el aprovisionamiento de usuarios](customize-application-attributes.md)
-* [Escribir expresiones para asignaciones de atributos](functions-for-customizing-application-data.md)
-* [Filtros de ámbito para el aprovisionamiento de usuarios](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory](user-provisioning.md)
+* [Personalización de asignaciones de atributos para el aprovisionamiento de usuarios](customize-application-attributes.md)
+* [Escritura de expresiones para asignaciones de atributos](functions-for-customizing-application-data.md)
+* [Filtros de ámbito para el aprovisionamiento de usuario](define-conditional-rules-for-provisioning-user-accounts.md)
 * [Notificaciones de aprovisionamiento de cuentas](user-provisioning.md)
 * [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](../saas-apps/tutorial-list.md)
 

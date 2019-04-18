@@ -10,10 +10,10 @@ ms.suite: integration
 ms.topic: article
 ms.date: 08/23/2018
 ms.openlocfilehash: 59c8effb4c5feae99755b7937f4796e8f11fde46
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895890"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Conectores para Azure Logic Apps
@@ -77,7 +77,7 @@ Estas son las acciones integradas para trabajar con salidas de datos y sus forma
 |   |   | 
 |---|---| 
 | [![Icono integrado][data-operations-icon]<br/>**Operaciones de datos**][data-operations-doc] | Realiza operaciones con datos: <p>- **Redactar**: Crear una única salida de varias entradas con varios tipos. <br>- **Crear tabla CSV**: Crear una tabla de valores separados por comas (CSV) de una matriz con los objetos JSON. <br>- **Crear tabla HTML**: Crear una tabla HTML de una matriz con los objetos JSON. <br>- **Filtrar matriz**: Crear una matriz de elementos de otra matriz que cumplen los criterios. <br>- **Únase a**: Crear una cadena de todos los elementos de una matriz y separe los elementos con el delimitador especificado. <br>- **Analizar JSON**: Crear fácil de usar tokens de propiedades y sus valores en el contenido JSON para que pueda usar estas propiedades en el flujo de trabajo. <br>- **Seleccione**: Crear una matriz con los objetos JSON, transformar los elementos o los valores en otra matriz y asignar esos elementos a las propiedades especificadas. | 
-| ![Icono integrado][date-time-icon]<br/>**Date Time** | Realiza operaciones con marcas de tiempo: <p>- **Agregar a la hora**: Agregar el número especificado de unidades a una marca de tiempo. <br>- **Convertir la zona horaria**: Convierte una marca de tiempo de la zona horaria de origen a la zona horaria de destino. <br>- **Hora actual**: Devuelve la marca de tiempo actual como una cadena. <br>- **Obtener la hora futura**: Devuelve la marca de tiempo actual más las unidades de tiempo especificadas. <br>- **Obtener la hora pasada**: Devuelve la marca de tiempo actual menos las unidades de tiempo especificadas. <br>- **Restar tiempo**: Resta un número de unidades de tiempo de una marca de tiempo. |
+| ![Icono integrado][date-time-icon]<br/>**Fecha y hora** | Realiza operaciones con marcas de tiempo: <p>- **Agregar a la hora**: Agregar el número especificado de unidades a una marca de tiempo. <br>- **Convertir la zona horaria**: Convierte una marca de tiempo de la zona horaria de origen a la zona horaria de destino. <br>- **Hora actual**: Devuelve la marca de tiempo actual como una cadena. <br>- **Obtener la hora futura**: Devuelve la marca de tiempo actual más las unidades de tiempo especificadas. <br>- **Obtener la hora pasada**: Devuelve la marca de tiempo actual menos las unidades de tiempo especificadas. <br>- **Restar tiempo**: Resta un número de unidades de tiempo de una marca de tiempo. |
 | [![Icono integrado][variables-icon]<br/>**Variables**][variables-doc] | Realiza operaciones con variables: <p>- **Anexar a la variable de matriz**: Insertar un valor como el último elemento en una matriz almacenado en una variable. <br>- **Anexar a la variable de cadena**: Insertar un valor como el último carácter en una cadena almacenada por una variable. <br>- **Reducir variable**: Disminuye una variable en un valor constante. <br>- **Incrementar variable**: Aumentar una variable en un valor constante. <br>- **Inicializar variable**: Cree una variable y declarar su tipo de datos y el valor inicial. <br>- **Establecer variable**: Asignar un valor diferente a una variable existente. |
 |  |  | 
 
@@ -105,8 +105,8 @@ Estos son algunos de los conectores más usados que proporcionan acceso a datos 
 
 |   |   |   |   |   | 
 |---|---|---|---|---| 
-| ![Icono de la API][biztalk-server-icon]<br/>**BizTalk**</br> **Server** | [![Icono de API][file-system-icon]<br/>**File</br> System**][file-system-doc] | [![Icono de API][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![Icono de API][ibm-informix-icon]<br/>**IBM**</br> **Informix**][ibm-informix-doc] | ![Icono de la API][mysql-icon]<br/>**MySQL** | 
-| [![Icono de API][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![Icono de la API][postgre-sql-icon]<br/>**PostgreSQL** | [![Icono de API][sharepoint-server-icon]<br/>**SharePoint</br> Server**][sharepoint-server-doc] | [![Icono de API][sql-server-icon]<br/>**SQL Server</br>**][sql-server-doc] | ![Icono de la API][teradata-icon]<br/>**Teradata** | 
+| ![Icono de API][biztalk-server-icon]<br/>**BizTalk**</br> **Servidor** | [![Icono de API][file-system-icon]<br/>**File</br> System**][file-system-doc] | [![Icono de API][ibm-db2-icon]<br/>**IBM DB2**][ibm-db2-doc] | [![Icono de API][ibm-informix-icon]<br/>**IBM**</br> **Informix**][ibm-informix-doc] | ![Icono de API][mysql-icon]<br/>**MySQL** | 
+| [![Icono de API][oracle-db-icon]<br/>**Oracle DB**][oracle-db-doc] | ![Icono de API][postgre-sql-icon]<br/>**PostgreSQL** | [![Icono de API][sharepoint-server-icon]<br/>**SharePoint</br> Server**][sharepoint-server-doc] | [![Icono de API][sql-server-icon]<br/>**SQL Server</br>**][sql-server-doc] | ![Icono de API][teradata-icon]<br/>**Teradata** | 
 ||||| 
 
 <a name="integration-account-connectors"></a>
@@ -176,8 +176,8 @@ Para que las aplicaciones de API o los conectores personalizados sean públicos 
 ## <a name="next-steps"></a>Pasos siguientes
 
 * Búsqueda de la [lista completa de conectores](https://docs.microsoft.com/connectors)
-* [Crear su primera aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Crear conectores personalizados para logic apps](https://docs.microsoft.com/connectors/custom-connectors/)
+* [Creación de una nueva aplicación lógica mediante la conexión de servicios de SaaS](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+* [Creación de conectores personalizados para aplicaciones lógicas](https://docs.microsoft.com/connectors/custom-connectors/)
 * [Creación de API personalizadas para las aplicaciones lógicas](../logic-apps/logic-apps-create-api-app.md)
 
 <!--Misc doc links-->

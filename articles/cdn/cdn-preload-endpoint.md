@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 02/12/2018
 ms.author: magattus
 ms.openlocfilehash: 0d34985c8d83e8adad43aeec36ead939d8b22132
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918372"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Carga previa de activos en un punto de conexión de Azure CDN
@@ -50,8 +50,8 @@ Este tutorial le guiará a través de la precarga de contenido almacenado en la 
    > Después de empezar a escribir texto, aparecerán más cuadros de texto de **Ruta de acceso de contenido** para permitirle crear una lista de varios recursos. Para eliminar recursos de la lista, seleccione el botón de puntos suspensivos (...) y, a continuación, seleccione **Eliminar**.
    > 
    > Cada ruta de acceso de contenido debe ser una dirección URL relativa que se ajuste a las siguientes [expresiones regulares](/dotnet/standard/base-types/regular-expression-language-quick-reference):  
-   > - Carga una sola ruta de archivo: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
-   > - Cargar un único archivo con cadena de consulta: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
+   > - Carga de una sola ruta de acceso del archivo: `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
+   > - Carga de un único archivo con cadena de consulta: `^(?:\?[-_a-zA-Z0-9\/%:;=!,.\+'&\u0020]*)?$` 
    > 
    > Dado que cada recurso debe tener su propia ruta de acceso, no hay ninguna funcionalidad de comodín para recursos de carga previa.
    > 

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
 ms.openlocfilehash: d704c32ee7417c6460ad6cc880e451adddfa61de
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048221"
 ---
 # <a name="azure-data-factory-faq"></a>Preguntas más frecuentes de Azure Data Factory
@@ -145,9 +145,9 @@ Los flujos de control organizan actividades de canalización que incluyen el enc
 
 Para más información sobre los conceptos de Data Factory, consulte los siguientes artículos:
 
-- [Conjunto de datos y servicios vinculados](concepts-datasets-linked-services.md)
+- [Dataset and linked services](concepts-datasets-linked-services.md) (Conjuntos de datos y servicios vinculados)
 - [Canalizaciones y actividades](concepts-pipelines-activities.md)
-- [Tiempo de ejecución de integración](concepts-integration-runtime.md)
+- [Integration runtime](concepts-integration-runtime.md) (Tiempo de ejecución de integración)
 
 ## <a name="what-is-the-pricing-model-for-data-factory"></a>¿Qué es el modelo de precios de Data Factory?
 Consulte los [detalles de precios de Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/) para obtener información al respecto.
@@ -156,7 +156,7 @@ Consulte los [detalles de precios de Azure Data Factory](https://azure.microsoft
 Para ver la información más actualizada acerca de Azure Data Factory, vaya a los sitios siguientes:
 
 - [Blog](https://azure.microsoft.com/blog/tag/azure-data-factory/)
-- [Página principal de documentación](/azure/data-factory)
+- [Página principal de la documentación](/azure/data-factory)
 - [Página principal del producto](https://azure.microsoft.com/services/data-factory/)
 
 ## <a name="technical-deep-dive"></a>Inmersión técnica profunda 
@@ -212,4 +212,4 @@ Utilice la actividad de copia para almacenar los datos desde cualquiera de los d
 Para obtener instrucciones paso a paso para crear una factoría de datos, consulte los siguientes tutoriales:
 
 - [Inicio rápido: Crear una factoría de datos](quickstart-create-data-factory-dot-net.md)
-- [Tutorial: Copiar datos en la nube](tutorial-copy-data-dot-net.md)
+- [Tutorial: Copia de datos en la nube](tutorial-copy-data-dot-net.md)

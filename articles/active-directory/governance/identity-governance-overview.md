@@ -17,10 +17,10 @@ ms.author: rolyon
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e4e2f564de254c2aea779b30286183d0a4e17db6
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045491"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>¿Qué es la gobernanza de identidades de Azure AD?
@@ -75,13 +75,13 @@ Aunque no existe ninguna solución o recomendación perfecta para cada cliente, 
 ### <a name="access-reviews"></a>Revisiones de acceso
 
 - [¿Qué es una revisión de acceso?](access-reviews-overview.md)
-- [Administrar el acceso de usuario con revisiones de acceso](manage-user-access-with-access-reviews.md)
-- [Administrar el acceso de invitado con revisiones de acceso](manage-guest-access-with-access-reviews.md)
+- [Administración del acceso de los usuarios con las revisiones de acceso](manage-user-access-with-access-reviews.md)
+- [Administración del acceso de los invitados con las revisiones de acceso](manage-guest-access-with-access-reviews.md)
 - [Iniciar una revisión de acceso de roles de Azure AD](../privileged-identity-management/pim-how-to-start-security-review.md)
 
 ### <a name="terms-of-use"></a>Términos de uso
 
-- [¿Qué puedo hacer con Terms of Use?](../conditional-access/terms-of-use.md)
+- [¿Qué puedo hacer con los Términos de uso?](../conditional-access/terms-of-use.md)
 
 ### <a name="privileged-identity-management"></a>Privileged Identity Management
 

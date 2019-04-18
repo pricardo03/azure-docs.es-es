@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: v-erkell
 ms.openlocfilehash: 88305e5d877f5bc3cc7ebb116f69b0f49f162b79
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268388"
 ---
 # <a name="avere-vfxt-for-azure---deployment-overview"></a>Avere vFXT para Azure: información general de la implementación
@@ -56,8 +56,8 @@ Aquí encontrará información general de todos los pasos.
 
    Conéctese a la interfaz de configuración de Avere vFXT (panel de control de Avere) para personalizar la configuración del clúster. Puede participar en la opción de supervisión del soporte técnico y agregar el sistema de almacenamiento si usa un centro de datos local.
 
-   * [Acceso al clúster de vFXT](avere-vfxt-cluster-gui.md)
-   * [Habilitar la compatibilidad con](avere-vfxt-enable-support.md)
+   * [Obtener acceso al clúster de vFXT](avere-vfxt-cluster-gui.md)
+   * [Habilitar el soporte técnico](avere-vfxt-enable-support.md)
    * [Configurar el almacenamiento](avere-vfxt-add-storage.md) (si fuera necesario)
 
 1. Agregar clientes

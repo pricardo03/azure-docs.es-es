@@ -18,10 +18,10 @@ ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5f9fd062d445fb738842667cab0c24332c0e4cc8
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879263"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Procedimientos para: Migración desde Azure Access Control Service
@@ -101,7 +101,7 @@ Siga los pasos descritos en esta sección para averiguar qué aplicaciones se ve
 
 ### <a name="check-which-applications-will-be-impacted"></a>Compruebe qué aplicaciones que se verán afectadas
 
-1. Utilice el espacio de nombres en el paso anterior y vaya a `https://<namespace>.accesscontrol.windows.net`
+1. Use el espacio de nombres del paso anterior y vaya a `https://<namespace>.accesscontrol.windows.net`
 
     Por ejemplo, si uno de los espacios de nombres es contoso-test, vaya a `https://contoso-test.accesscontrol.windows.net`
 
@@ -133,10 +133,10 @@ Cada uno de los Servicios en la nube de Microsoft que aceptan tokens que haya em
 | ------- | -------- |
 | Azure Service Bus | [Migración a firmas de acceso compartido](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Azure Service Bus Relay | [Migración a firmas de acceso compartido](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
-| Azure Managed Cache | [Migrar a caché de Azure para Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
-| Azure DataMarket | [Migrar a las API de Cognitive Services](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
-| BizTalk Services | [Migrar a la característica Logic Apps de Azure App Service](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
-| Azure Media Services | [Migrar a la autenticación de Azure AD](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
+| Azure Managed Cache | [Migración a Azure Cache for Redis](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-faq#which-azure-cache-offering-is-right-for-me) |
+| Azure DataMarket | [Migración a Cognitive Services APIs](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| BizTalk Services | [Migración a la característica Logic Apps de Azure App Service](https://docs.microsoft.com/azure/machine-learning/studio/datamarket-deprecation) |
+| Azure Media Services | [Migración a la autenticación de Azure AD](https://azure.microsoft.com/blog/azure-media-service-aad-auth-and-acs-deprecation/) |
 | Azure Backup | [Actualización del agente de Azure Backup](https://docs.microsoft.com/azure/backup/backup-azure-file-folder-backup-faq) |
 
 <!-- Dynamics CRM: Migrate to new SDK, Dynamics team handling privately -->
@@ -197,7 +197,7 @@ En líneas generales, *Azure Active Directory probablemente no sea la opción ad
 | Cuentas desde otros sistemas de administración de identidades empresariales |- Es posible a través de la federación con un inquilino de Azure AD. <br />- Compatible a través de la federación directa. | Es posible a través de la federación con un inquilino de Azure AD |
 | Cuentas de Microsoft para uso personal | Compatible | Compatible a través del protocolo v2.0 OAuth de Azure AD, pero no a través de ningún otro protocolo. | 
 | Cuentas de Facebook, Google, Yahoo | Compatible | No se admite ningún tipo. |
-| **Compatibilidad SDK y protocolos** | | |
+| **Compatibilidad con el SDK y protocolos** | | |
 | WIF | Compatible | Compatible, pero con instrucciones limitadas disponibles. |
 | El certificado del proveedor de identidades de WS-Federation | Compatible | Compatible |
 | OAuth 2.0 | Soporte para Draft 13 | Compatibilidad con RFC 6749, la especificación más moderna. |
@@ -248,7 +248,7 @@ En la siguiente tabla se comparan las características de Access Control pertine
 | Cuentas desde otros sistemas de administración de identidades empresariales | Compatible a través de la federación directa mediante WS-Federation | Compatible a través de federación de SAML mediante directivas personalizadas |
 | Cuentas de Microsoft para uso personal | Compatible | Compatible | 
 | Cuentas de Facebook, Google, Yahoo | Compatible | Facebook y Google se admiten de forma nativa, Yahoo se admite a través de la federación de OpenID Connect mediante directivas personalizadas. |
-| **Compatibilidad SDK y protocolos** | | |
+| **Compatibilidad con el SDK y protocolos** | | |
 | Windows Identity Foundation (WIF) | Compatible | No compatible |
 | El certificado del proveedor de identidades de WS-Federation | Compatible | No compatible |
 | OAuth 2.0 | Soporte para Draft 13 | Compatibilidad con RFC 6749, la especificación más moderna. |
@@ -332,8 +332,8 @@ Asimismo, también puede utilizar Azure AD para realizar la autenticación de un
 Para obtener información sobre escenarios de implementación entre servidores, consulte los siguientes recursos:
 
 - Sección Servicio a servicio de la [Guía del desarrollador de Azure AD](https://aka.ms/aaddev)
-- [Ejemplo de código de demonio mediante el uso de credenciales de cliente de contraseña simple](https://github.com/Azure-Samples/active-directory-dotnet-daemon)
-- [Ejemplo de código de demonio mediante el uso de credenciales de cliente de certificado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)
+- [Daemon code sample by using simple password client credentials](https://github.com/Azure-Samples/active-directory-dotnet-daemon) (Ejemplo de código Daemon que usa credenciales de cliente con contraseñas simples)
+- [Daemon code sample by using certificate client credentials](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential) (Ejemplo de código Daemon que usa credenciales de cliente con certificados)
 
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Migrar a la identidad de Ping o Auth0
 

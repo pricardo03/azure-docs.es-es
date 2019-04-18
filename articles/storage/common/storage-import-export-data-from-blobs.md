@@ -9,10 +9,10 @@ ms.date: 04/08/2019
 ms.author: alkohli
 ms.subservice: common
 ms.openlocfilehash: fc02e830953f8612a077fb219c7fef4e86bc3827
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263848"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>Uso del servicio Azure Import/Export para exportar datos de Azure Blob Storage
@@ -205,7 +205,7 @@ En la siguiente tabla se muestran ejemplos de rutas de acceso del blob válidas:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Ver el estado del trabajo y la unidad](storage-import-export-view-drive-status.md)
-* [Revise los requisitos de Import/Export](storage-import-export-requirements.md)
+* [Visualización del estado del trabajo y de la unidad de disco](storage-import-export-view-drive-status.md)
+* [Revisión de los requisitos de Import/Export](storage-import-export-requirements.md)
 
 

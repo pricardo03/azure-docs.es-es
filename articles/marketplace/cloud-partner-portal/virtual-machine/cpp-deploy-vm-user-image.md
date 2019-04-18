@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/29/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 0885b187c4b9e9636144a3ab2a94b941008bec20
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046742"
 ---
 # <a name="deploy-an-azure-vm-from-a-user-vhd"></a>Implementación de una máquina virtual de Azure desde un disco duro virtual de usuario
@@ -31,7 +31,7 @@ En este artículo se explica cómo implementar una imagen generalizada de VHD pa
 
 Copie la plantilla de Azure Resource Manager para la [implementación de VHD](cpp-deploy-json-template.md) en un archivo local denominado `VHDtoImage.json`.  Edite este archivo para proporcionar valores para los parámetros siguientes. 
 
-|  **Parámetro**             |   **DESCRIPCIÓN**                                                              |
+|  **Parámetro**             |   **Descripción**                                                              |
 |  -------------             |   ---------------                                                              |
 | ResourceGroupName          | El nombre del grupo de recursos de Azure existente.  Normalmente se usa el mismo grupo de recursos asociado al almacén de claves  |
 | TemplateFile               | Ruta de acceso completa al archivo `VHDtoImage.json`                                    |
@@ -42,7 +42,7 @@ Copie la plantilla de Azure Resource Manager para la [implementación de VHD](cp
 | vmName                     | Nombre de la máquina virtual                                                    |
 | vaultName                  | Nombre del almacén de claves.                                                          |
 | vaultResourceGroup         | Grupo de recursos del almacén de claves.
-| certificateUrl             | Dirección URL del certificado, incluida la versión almacenada en el almacén de claves, por ejemplo:  `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
+| certificateUrl             | Dirección URL del certificado, incluida la versión almacenada en el almacén de claves, por ejemplo: `https://testault.vault.azure.net/secrets/testcert/b621es1db241e56a72d037479xab1r7` |
 | vhdUrl                     | Dirección URL del disco duro virtual                                                   |
 | vmSize                     | tamaño de la instancia de máquina virtual                                           |
 | publicIPAddressName        | Nombre de la dirección IP pública                                                  |

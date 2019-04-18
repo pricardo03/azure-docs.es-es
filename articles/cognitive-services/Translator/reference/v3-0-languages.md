@@ -11,10 +11,10 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: 1713a05590f389a6de70d72e8d62237c7521d808
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915771"
 ---
 # <a name="translator-text-api-30-languages"></a>Translator Text API 3.0: Languages
@@ -67,11 +67,11 @@ No es obligatorio que la autenticación obtenga recursos de idioma.
 
 Un cliente usa el parámetro de consulta `scope` para definir los grupos de idiomas en los que está interesado.
 
-* `scope=translation` Proporciona los idiomas admitidos para traducir el texto de un idioma a otro idioma;
+* `scope=translation` proporciona los idiomas admitidos para traducir texto de un idioma a otro;
 
-* `scope=transliteration` proporciona funciones para convertir texto en un idioma de un script en otra secuencia de comandos;
+* `scope=transliteration` proporciona funcionalidades para convertir texto en un idioma de un script a otro;
 
-* `scope=dictionary` Proporciona los pares de idiomas para los que `Dictionary` las operaciones devuelven datos.
+* `scope=dictionary` proporciona pares de idiomas para los que las operaciones de `Dictionary` devuelven datos.
 
 Un cliente puede recuperar varios grupos simultáneamente mediante la especificación de una lista de nombres separados por comas. Por ejemplo, `scope=translation,transliteration,dictionary` devolvería los idiomas admitidos para todos los grupos.
 
@@ -93,7 +93,7 @@ Una respuesta correcta es un objeto JSON con una propiedad para cada grupo solic
 
 El valor de cada propiedad es el siguiente.
 
-* `translation` propiedad
+* Propiedad `translation`
 
   El valor de la propiedad `translation` es un diccionario de pares (clave, valor). Cada clave es una etiqueta de idioma BCP 47. Una clave identifica un idioma de origen o destino para la traducción de un texto. El valor asociado a la clave es un objeto JSON con propiedades que describen el idioma:
 
@@ -101,7 +101,7 @@ El valor de cada propiedad es el siguiente.
 
   * `nativeName`: nombre para mostrar del idioma en la configuración regional nativa del idioma.
 
-  * `dir`: direccionalidad, que es `ltr` para los idiomas de derecha a izquierda o  para los idiomas de izquierda a derecha.
+  * `dir`: direccionalidad, que es `rtl` para los idiomas de derecha a izquierda o `ltr` para los idiomas de izquierda a derecha.
 
   Ejemplo:
           
@@ -119,7 +119,7 @@ El valor de cada propiedad es el siguiente.
   }
   ```
 
-* `transliteration` propiedad
+* Propiedad `transliteration`
 
   El valor de la propiedad `transliteration` es un diccionario de pares (clave, valor). Cada clave es una etiqueta de idioma BCP 47. Una clave identifica un idioma para el que se puede convertir texto de un script a otro. El valor asociado a la clave es un objeto JSON con propiedades que describen el idioma y sus scripts admitidos:
 
@@ -135,7 +135,7 @@ El valor de cada propiedad es el siguiente.
 
     * `nativeName`: nombre para mostrar del idioma en la configuración regional nativa del idioma.
 
-    * `dir`: direccionalidad, que es `ltr` para los idiomas de derecha a izquierda o  para los idiomas de izquierda a derecha.
+    * `dir`: direccionalidad, que es `rtl` para los idiomas de derecha a izquierda o `ltr` para los idiomas de izquierda a derecha.
 
     * `toScripts`: lista de scripts disponibles como destino para la conversión de texto. Cada elemento de la lista `toScripts` tiene las propiedades `code`, `name`, `nativeName` y `dir` descritas anteriormente.
 
@@ -184,7 +184,7 @@ El valor de cada propiedad es el siguiente.
   }
   ```
 
-* `dictionary` propiedad
+* Propiedad `dictionary`
 
   El valor de la propiedad `dictionary` es un diccionario de pares (clave, valor). Cada clave es una etiqueta de idioma BCP 47. La clave identifica un idioma para el que existen traducciones alternativas y traducciones inversas disponibles. El valor es un objeto JSON que describe los idiomas de origen y destino con las traducciones disponibles:
 
@@ -192,7 +192,7 @@ El valor de cada propiedad es el siguiente.
 
   * `nativeName`: nombre para mostrar del idioma en la configuración regional nativa del idioma.
 
-  * `dir`: direccionalidad, que es `ltr` para los idiomas de derecha a izquierda o  para los idiomas de izquierda a derecha.
+  * `dir`: direccionalidad, que es `rtl` para los idiomas de derecha a izquierda o `ltr` para los idiomas de izquierda a derecha.
 
   * `translations`: lista de idiomas con traducciones alternativas y ejemplos para la consulta expresada en el idioma de origen. Cada elemento de la lista `translations` tiene las siguientes propiedades:
 
@@ -200,7 +200,7 @@ El valor de cada propiedad es el siguiente.
 
     * `nativeName`: nombre para mostrar del idioma de destino en la configuración regional nativa del idioma de destino.
 
-    * `dir`: direccionalidad, que es `ltr` para los idiomas de derecha a izquierda o  para los idiomas de izquierda a derecha.
+    * `dir`: direccionalidad, que es `rtl` para los idiomas de derecha a izquierda o `ltr` para los idiomas de izquierda a derecha.
     
     * `code`: código de idioma que identifica el idioma de destino.
 
@@ -281,7 +281,7 @@ Si se produce un error, la solicitud también devolverá una respuesta de error 
 
 En el ejemplo siguiente se muestra cómo recuperar los idiomas admitidos para la traducción de texto.
 
-# [<a name="curl"></a>curl](#tab/curl)
+# <a name="curltabcurl"></a>[curl](#tab/curl)
 
 ```
 curl "https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation"

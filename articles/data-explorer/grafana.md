@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.openlocfilehash: 188cb310cfc13fe2fc41ba3e01deb01068c0184d
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048323"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-grafana"></a>Visualización de datos desde Azure Data Explorer en Grafana
@@ -208,6 +208,6 @@ Ahora que ya ha terminado de configurar Azure Data Explorer como origen de datos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Escribir consultas para el Explorador de datos de Azure](write-queries.md)
+[Write queries for Azure Data Explorer](write-queries.md) (Escritura de consultas del Explorador de datos de Azure)
 
-[Tutorial: Visualizar datos desde el Explorador de datos de Azure en Power BI](visualize-power-bi.md)
+[Tutorial: Visualización de datos desde Azure Data Explorer en Power BI](visualize-power-bi.md)

@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 9e30337eb8acaa6dc3386f5e60285faa80dd6307
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257916"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de archivo y códecs de compresión admitidos en Azure Data Factory
 
-*En este artículo se aplica a los conectores siguientes: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [Sistema de archivos](connector-file-system.md), [FTP](connector-ftp.md), [almacenamiento en nube de Google](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)y [ SFTP](connector-sftp.md).*
+*Este artículo se aplica a los conectores siguientes: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [File System](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md) y [SFTP](connector-sftp.md).*
 
 Si desea **copiar los archivos tal cual** entre los almacenes basados en archivos (copia binaria), omita la sección de formato en las definiciones de los conjuntos de datos de entrada y salida. Si quiere **analizar o generar archivos con un formato concreto**, Azure Data Factory admite los siguientes tipos de formato de archivo:
 
@@ -192,9 +192,9 @@ La actividad de copia puede analizar los siguientes patrones de archivos JSON:
 
 ### <a name="jsonformat-example"></a>Ejemplo de JsonFormat
 
-**Caso 1: Copiar datos desde archivos JSON**
+**Caso 1: Copia de datos desde archivos JSON**
 
-**Ejemplo 1: extraer datos de objeto y matriz**
+**Ejemplo 1: extracción de datos de objeto y matriz**
 
 En esta ejemplo, se espera un objeto JSON de raíz que se asigna al registro individual en resultado tabulares. Si tiene un archivo JSON con el siguiente contenido:  
 
@@ -230,8 +230,8 @@ y quiere copiarlo en una tabla de SQL de Azure con el formato siguiente extrayen
 
 El conjunto de datos de entrada con el tipo **JsonFormat** se define de la siguiente manera: (definición parcial en la que solo se ilustran las secciones relevantes). Más concretamente:
 
-- `structure` sección define los nombres de columna personalizada y el tipo de datos correspondiente al convertir a datos tabulares. Esta sección es **opcional** a menos que necesite realizar una asignación de columnas. Consulte la sección [Asignación de columnas de conjunto de datos de origen a columnas del conjunto de datos de destino](copy-activity-schema-and-type-mapping.md) para más información.
-- `jsonPathDefinition` Especifica la ruta de acceso JSON para cada columna que indica dónde deben extraer los datos. Para copiar datos de la matriz, puede usar `array[x].property` para extraer el valor de la propiedad dada del objeto `xth`, o puede usar `array[*].property` para buscar el valor de cualquier objeto que contenga dicha propiedad.
+- La sección `structure` permite definir los nombres personalizados de columna y el tipo de datos correspondiente mientras los convierte a datos tabulares. Esta sección es **opcional** a menos que necesite realizar una asignación de columnas. Consulte la sección [Asignación de columnas de conjunto de datos de origen a columnas del conjunto de datos de destino](copy-activity-schema-and-type-mapping.md) para más información.
+- `jsonPathDefinition` especifica la ruta de acceso JSON para cada columna que indica de dónde se deben extraer los datos. Para copiar datos de la matriz, puede usar `array[x].property` para extraer el valor de la propiedad dada del objeto `xth`, o puede usar `array[*].property` para buscar el valor de cualquier objeto que contenga dicha propiedad.
 
 ```json
 "properties": {
@@ -268,7 +268,7 @@ El conjunto de datos de entrada con el tipo **JsonFormat** se define de la sigui
 }
 ```
 
-**Ejemplo 2: aplicación cruzada en varios objetos con el mismo patrón de matriz**
+**Ejemplo 2: aplicación cruzada en varios objetos del mismo patrón de matriz**
 
 En este ejemplo, se espera transformar un objeto JSON de raíz en varios registros en resultado tabular. Si tiene un archivo JSON con el siguiente contenido:
 
@@ -305,9 +305,9 @@ y desea copiarlo en una tabla de Azure SQL del formato siguiente, puede hacerlo 
 
 El conjunto de datos de entrada con el tipo **JsonFormat** se define de la siguiente manera: (definición parcial en la que solo se ilustran las secciones relevantes). Más concretamente:
 
-- `structure` sección define los nombres de columna personalizada y el tipo de datos correspondiente al convertir a datos tabulares. Esta sección es **opcional** a menos que necesite realizar una asignación de columnas. Consulte la sección [Asignación de columnas de conjunto de datos de origen a columnas del conjunto de datos de destino](copy-activity-schema-and-type-mapping.md) para más información.
-- `jsonNodeReference` indica que se va a iterar y extraer datos de los objetos con el mismo patrón en **matriz** `orderlines`.
-- `jsonPathDefinition` Especifica la ruta de acceso JSON para cada columna que indica dónde deben extraer los datos. En este ejemplo, `ordernumber`, `orderdate` y `city` están bajo el objeto raíz con la ruta de acceso JSON que empieza por `$.`, mientras que `order_pd` y `order_price` se definen con la ruta de acceso que se obtiene del elemento de matriz sin `$.`.
+- La sección `structure` permite definir los nombres personalizados de columna y el tipo de datos correspondiente mientras los convierte a datos tabulares. Esta sección es **opcional** a menos que necesite realizar una asignación de columnas. Consulte la sección [Asignación de columnas de conjunto de datos de origen a columnas del conjunto de datos de destino](copy-activity-schema-and-type-mapping.md) para más información.
+- `jsonNodeReference` indica la iteración y extracción de datos de los objetos con el mismo patrón en **matriz** `orderlines`.
+- `jsonPathDefinition` especifica la ruta de acceso JSON para cada columna que indica de dónde se deben extraer los datos. En este ejemplo, `ordernumber`, `orderdate` y `city` están bajo el objeto raíz con la ruta de acceso JSON que empieza por `$.`, mientras que `order_pd` y `order_price` se definen con la ruta de acceso que se obtiene del elemento de matriz sin `$.`.
 
 ```json
 "properties": {
@@ -352,7 +352,7 @@ El conjunto de datos de entrada con el tipo **JsonFormat** se define de la sigui
 * Si hay algún nombre duplicado en el mismo nivel, la actividad de copia elige el último.
 * Los nombres de propiedad distinguen entre mayúsculas y minúsculas. Dos propiedades con el mismo nombre, pero con distintas mayúsculas y minúsculas se consideran propiedades independientes.
 
-**Caso 2: Escribir datos en el archivo JSON**
+**Caso 2: Escritura de datos en el archivo JSON**
 
 Si tiene la siguiente tabla en SQL Database:
 
@@ -592,8 +592,8 @@ Consulte los siguientes artículos relativos a los almacenes de datos basados en
 - [Conector de Azure Blob Storage](connector-azure-blob-storage.md)
 - [Conector de Azure Data Lake Store](connector-azure-data-lake-store.md)
 - [Conector de Amazon S3](connector-amazon-simple-storage-service.md)
-- [Conector de sistema de archivos](connector-file-system.md)
+- [Conector del sistema de archivos](connector-file-system.md)
 - [Conector de FTP](connector-ftp.md)
 - [Conector de SFTP](connector-sftp.md)
-- [Conector HDFS](connector-hdfs.md)
-- [Conector HTTP](connector-http.md)
+- [Conector de HDFS](connector-hdfs.md)
+- [Conector de HTTP](connector-http.md)

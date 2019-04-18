@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
 ms.openlocfilehash: 981ffce34c56f4becee2ed0c72da72baa220e395
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894362"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Referencia para desarrolladores de F# de Azure Functions
@@ -166,7 +166,7 @@ let Run(req: HttpRequestMessage, log: ILogger) =
 
 El entorno de hospedaje de Azure Functions agrega automáticamente los siguientes ensamblados:
 
-* `mscorlib`.
+* `mscorlib`,
 * `System`
 * `System.Core`
 * `System.Xml`
@@ -284,19 +284,19 @@ let mylog(log: ILogger, text: string) =
 
 Las rutas de acceso a la directiva `#load` son relativas a la ubicación del archivo `.fsx`.
 
-* `#load "logger.fsx"` carga un archivo ubicado en la carpeta de función.
-* `#load "package\logger.fsx"` carga un archivo ubicado en el `package` en la carpeta de función.
-* `#load "..\shared\mylogger.fsx"` carga un archivo ubicado en el `shared` carpeta en el mismo nivel que la carpeta de función, es decir, directamente debajo de `wwwroot`.
+* `#load "logger.fsx"` carga un archivo que se encuentra en la carpeta de la función.
+* `#load "package\logger.fsx"` carga un archivo que se encuentra en la carpeta `package` dentro de la carpeta de la función.
+* `#load "..\shared\mylogger.fsx"` carga un archivo ubicado en la carpeta `shared` al mismo nivel que la carpeta de la función, es decir, directamente en `wwwroot`.
 
 La directiva `#load` solo funciona con archivos `.fsx` (script de F#) y no con archivos `.fs`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información, consulte los siguientes recursos:
 
-* [F#Guía](/dotnet/articles/fsharp/index)
+* [Guía de F#](/dotnet/articles/fsharp/index)
 * [Procedimientos recomendados de Azure Functions](functions-best-practices.md)
 * [Referencia para desarrolladores de Azure Functions](functions-reference.md)
-* [Los enlaces y desencadenadores de azure Functions](functions-triggers-bindings.md)
+* [Enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md)
 * [Prueba de Azure Functions](functions-test-a-function.md)
 * [Escalado de Azure Functions](functions-scale.md)
 

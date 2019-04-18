@@ -15,15 +15,15 @@ ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
 ms.openlocfilehash: d49104c1d1402969917de63e22bd41e7489a08c7
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046302"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Recopilación y agregación de eventos con Azure Diagnostics de Windows
 > [!div class="op_single_selector"]
-> * [ Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+> * [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
 > * [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
 >
 >
@@ -40,7 +40,7 @@ En este artículo se emplean las herramientas siguientes:
 
 * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
 * [Azure PowerShell](/powershell/azure/overview)
-* [Plantilla del Administrador de recursos de Azure](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Plantilla de Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## <a name="service-fabric-platform-events"></a>Eventos de plataforma de Service Fabric
 Service Fabric configura algunos [canales de registro predefinidos](service-fabric-diagnostics-event-generation-infra.md). Los que se indican a continuación se configuran previamente con la extensión para que envíen datos de supervisión y diagnóstico a una tabla de almacenamiento u otro lugar:
@@ -192,7 +192,7 @@ Después de modificar el archivo template.json tal como se indicó, vuelva a pub
 
 ### <a name="update-storage-quota"></a>Actualización de la cuota de almacenamiento
 
-Como las tablas que rellena la extensión aumentan hasta que se alcanza la cuota, quizá quiera considerar reducir el tamaño de esta. El valor predeterminado es de 50 GB y se puede configurar en la plantilla en el `overallQuotaInMB` campo `DiagnosticMonitorConfiguration`
+Como las tablas que rellena la extensión aumentan hasta que se alcanza la cuota, quizá quiera considerar reducir el tamaño de esta. El valor predeterminado es 50 GB y se puede configurar en la plantilla en el campo `overallQuotaInMB` de `DiagnosticMonitorConfiguration`
 
 ```json
 "overallQuotaInMB": "50000",
@@ -348,8 +348,8 @@ Una vez que haya configurado correctamente Azure Diagnostics, verá los datos en
 >[!NOTE]
 >Actualmente no existe ninguna manera de filtrar o limpiar los eventos que se envían a la tabla. Si no se implementa un proceso para quitar eventos de la tabla, la tabla seguirá aumentando. Actualmente, hay un ejemplo de un servicio de limpieza de datos en ejecución en el [ejemplo de guardián](https://github.com/Azure-Samples/service-fabric-watchdog-service). Se recomienda que escriba uno para sí mismo, a menos que tenga una buena razón para almacenar los registros durante más de 30 o 90 días.
 
-* [Obtenga información sobre cómo recopilar registros o contadores de rendimiento mediante el uso de la extensión de diagnósticos](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [Análisis de eventos y la visualización con Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [Información sobre cómo recopilar registros o contadores de rendimiento mediante la extensión de Diagnósticos](../virtual-machines/windows/extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Análisis y visualización de eventos con Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Análisis de eventos y la visualización con registros de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)
-* [Análisis de eventos y la visualización con Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+* [Análisis y visualización de eventos con Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
 * [Análisis de eventos y la visualización con registros de Azure Monitor](service-fabric-diagnostics-event-analysis-oms.md)

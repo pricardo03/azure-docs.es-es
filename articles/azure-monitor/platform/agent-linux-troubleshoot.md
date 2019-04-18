@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: magoedte
 ms.openlocfilehash: b79f8a44f0fc38dd7e5f9ae7e3ac1fe6e9f6b7b8
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884183"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Cómo solucionar problemas relacionados con el agente de Log Analytics para Linux 
@@ -45,7 +45,7 @@ Si ninguno de estos pasos funciona, también están disponibles los siguientes c
 
  Categoría | Ubicación del archivo
  ----- | -----
- syslog | `/etc/syslog-ng/syslog-ng.conf` o `/etc/rsyslog.conf` o `/etc/rsyslog.d/95-omsagent.conf`
+ syslog | `/etc/syslog-ng/syslog-ng.conf`, `/etc/rsyslog.conf` o `/etc/rsyslog.d/95-omsagent.conf`
  Rendimiento, Nagios, Zabbix, salida de Log Analytics y agente general | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`
  Configuraciones adicionales | `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/*.conf`
 
@@ -117,7 +117,7 @@ Si ninguno de estos pasos funciona, también están disponibles los siguientes c
 
 Registro de depuración permite ver cargas por lotes a Azure Monitor separados por tipo, el número de elementos de datos y el tiempo empleado en enviar:
 
-*Registro de ejemplo con depuración habilitada:*
+*Ejemplo de registro con depuración habilitada:*
 
 ```
 Success sending oms.nagios x 1 in 0.14s
@@ -380,8 +380,8 @@ Este error indica que la extensión Diagnostics de Linux (LAD) está instalada e
 
 **Información previa:** En lugar de que el agente de Log Analytics para Linux se ejecute como usuario con privilegios, `root`, el agente se ejecuta como el usuario `omsagent`. En la mayoría de los casos, se deben conceder permisos explícitos al usuario para que lea determinados archivos. Para conceder permiso al usuario `omsagent`, ejecute los siguientes comandos:
 
-1. Agregar el `omsagent` usuario a grupo específico `sudo usermod -a -G <GROUPNAME> <USERNAME>`
-2. Conceder acceso universal de lectura al archivo necesario `sudo chmod -R ugo+rx <FILE DIRECTORY>`
+1. Agregue el usuario `omsagent` a un grupo específico `sudo usermod -a -G <GROUPNAME> <USERNAME>`.
+2. Concédale acceso de lectura universal al archivo necesario `sudo chmod -R ugo+rx <FILE DIRECTORY>`.
 
 Existe un problema conocido con la condición de carrera en el agente de Log Analytics para Linux antes de la versión 1.1.0-217. Después de actualizar al agente más reciente, ejecute el siguiente comando para obtener la versión más reciente del complemento de salida: `sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.conf /etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.conf`.
 

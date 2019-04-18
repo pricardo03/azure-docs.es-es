@@ -9,10 +9,10 @@ ms.date: 04/14/2018
 ms.author: genli
 ms.custom: include file
 ms.openlocfilehash: 8afaeaea3c8ceb0de33147e70e00f3f57c857ca7
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883163"
 ---
 Cuando se crea una máquina virtual (VM), se reinician las detenidas (desasignadas) o se les cambia el tamaño, Microsoft Azure asigna recursos de proceso a la suscripción. Invertimos continuamente en infraestructura y características adicionales para asegurarnos de que todos los tipos de máquina virtual están disponibles para respaldar la demanda de los clientes. Sin embargo, en ocasiones, puede experimentar errores de asignación de recursos debido al crecimiento sin precedentes de la demanda de los servicios de Azure en determinadas regiones. Este problema puede producirse al intentar crear o iniciar máquinas virtuales en una región mientras estas muestran los siguientes código de error y mensaje:
@@ -80,8 +80,8 @@ A medida que ampliamos la infraestructura de Azure, implementamos hardware de nu
 |Tamaño o serie de VM heredados|Tamaño o serie de VM más recientes recomendados|Más información|
 |----------------------|----------------------------|--------------------|
 |Serie Av1|[Serie Av2](../articles/virtual-machines/windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
-|Serie Dv1 o DSv1 (D1 a D5)|[Dv3 o DSV3](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
-|Serie Dv1 o DSv1 (D11 a D14)|[Ev3 o Esv3-series](../articles/virtual-machines/windows/sizes-memory.md#esv3-series)|
+|Serie Dv1 o DSv1 (D1 a D5)|[Serie Dv3 o DSv3](../articles/virtual-machines/windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Serie Dv1 o DSv1 (D11 a D14)|[Serie Ev3 o ESv3](../articles/virtual-machines/windows/sizes-memory.md#esv3-series)|
 |D15v2 o DS15v2|Si usa el modelo de implementación de Resource Manager para aprovechar los tamaños de máquina virtual más grandes, considere la posibilidad de cambiar a E16v3/E16sv3 o E32v3/E32sv3. Estos están diseñados para ejecutarse en el hardware de última generación. Si usa el modelo de implementación de Resource Manager para asegurarse de que su máquina virtual está aislada para hardware dedicado a un solo cliente, considere la posibilidad de trasladarse a los nuevos tamaños de VM aislados, E64i_v3 or E64is_v3, diseñados para ejecutarse en el hardware de última generación. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 
 

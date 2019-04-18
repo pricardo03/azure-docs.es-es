@@ -7,10 +7,10 @@ ms.date: 04/02/2019
 ms.topic: article
 ms.service: multiple
 ms.openlocfilehash: 8aea4a74ba84855f011dada70ea75ec0d5fb64fe
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58896522"
 ---
 # <a name="move-mainframe-compute-to-azure"></a>Mover el proceso del sistema central a Azure
@@ -100,7 +100,7 @@ Una de las ventajas de una solución basada en Azure es la capacidad para escala
 
 - **Escalado de PaaS.** Recursos de proceso de escalado de las ofertas de PaaS de Azure. Por ejemplo, [Azure Service Fabric](/azure/service-fabric/service-fabric-overview) asigna recursos de proceso para cumplir con aumentos en el volumen de solicitudes.
 
-- **Kubernetes clusters.** Las aplicaciones en Azure pueden usar [clústeres de Kubernetes](/azure/aks/concepts-clusters-workloads) para servicios de proceso para los recursos especificados. Azure Kubernetes Service (AKS) es un servicio administrado que organiza los nodos de Kubernetes, grupos y clústeres en Azure.
+- **Clústeres de Kubernetes.** Las aplicaciones en Azure pueden usar [clústeres de Kubernetes](/azure/aks/concepts-clusters-workloads) para servicios de proceso para los recursos especificados. Azure Kubernetes Service (AKS) es un servicio administrado que organiza los nodos de Kubernetes, grupos y clústeres en Azure.
 
 Para elegir el método adecuado para el escalado horizontal de los recursos de proceso, es importante entender cómo Azure y mainframes difieren. La clave es cómo, o si, comparten los recursos de proceso de datos. En Azure, datos (de forma predeterminada) no se comparten normalmente por varias máquinas virtuales. Si el uso compartido de datos requiere un clúster de proceso de varias máquinas virtuales en una implementación escalada, los datos compartidos deben residir en un recurso que admite esta funcionalidad. En Azure, uso compartido de datos implica almacenamiento tal como se describe en la sección siguiente.
 
@@ -122,10 +122,10 @@ Cada nivel también puede proporcionar ante desastres adecuada los servicios de 
 
 - [Sysplex paralela en IBM Z](https://www.ibm.com/it-infrastructure/z/technologies/parallel-sysplex-resources)
 - [IBM CICS y las instalaciones de acoplamiento: Más allá de los conceptos básicos](http://www.redbooks.ibm.com/redbooks/pdfs/sg248420.pdf)
-- [Creación de usuarios requeridos para una instalación de la característica de Db2 pureScale](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
-- [Db2icrt - crear comando de instancia](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
+- [Creación de los usuarios necesarios para una instalación de Db2 pureScale Feature](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0055374.html?pos=2)
+- [Mandato db2icrt - Crear instancia](https://www.ibm.com/support/knowledgecenter/en/SSEPGG_11.1.0/com.ibm.db2.luw.admin.cmd.doc/doc/r0002057.html)
 - [PureScale Clustered solución de base de datos de Db2](http://www.ibmbigdatahub.com/blog/db2-purescale-clustered-database-solution-part-1)
-- [Datos de IBM Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
+- [IBM Data Studio](https://www.ibm.com/developerworks/downloads/im/data/index.html/)
 
 ### <a name="azure-government"></a>Azure Government
 
@@ -134,6 +134,6 @@ Cada nivel también puede proporcionar ante desastres adecuada los servicios de 
 
 ### <a name="more-migration-resources"></a>Más recursos de migración
 
-- [Alianza de modernización de plataforma: IBM Db2 en Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
-- [Centro de datos Virtual de Azure Lift- and -Shift guía](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/)
-- [GlusterFS iSCSI](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)
+- [Platform Modernization Alliance: IBM Db2 en Azure](https://www.platformmodernization.org/pages/ibmdb2azure.aspx)
+- [Azure Virtual Data Center Lift and Shift Guide](https://azure.microsoft.com/resources/azure-virtual-datacenter-lift-and-shift-guide/) (Centro de datos virtual de Azure: guía para una migración lift-and-shift)
+- [iSCSI en GlusterFS](https://docs.gluster.org/en/latest/Administrator%20Guide/GlusterFS%20iSCSI/)

@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 53608654392d7efb73b6dadac14f01a94bb035a7
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893527"
 ---
 # <a name="social-accounts-claims-transformations"></a>Transformaciones de notificaciones de cuentas de redes sociales
@@ -81,7 +81,7 @@ Agrega un elemento `AlternativeSecurityId` a una notificación `alternativeSecur
 En el ejemplo siguiente, se vincula una nueva identidad de red social a una cuenta existente. Para vincular una nueva identidad de red social:
 1. En los perfiles técnicos **AAD-UserReadUsingAlternativeSecurityId** y **AAD-UserReadUsingObjectId**, se muestra la salida de la notificación **alternativeSecurityIds** del usuario.
 1. Pida al usuario que inicie sesión con uno de los proveedores de identidades que no esté asociado a este usuario.
-1. Mediante el **CreateAlternativeSecurityId** de notificaciones de transformación, cree un nuevo **alternativeSecurityId** tipo con el nombre de notificación `AlternativeSecurityId2`
+1. Al usar la transformación de notificaciones **CreateAlternativeSecurityId**, se crea un tipo de notificación **alternativeSecurityId** con el nombre `AlternativeSecurityId2`.
 1. Realice una llamada a la transformación de notificaciones **AddItemToAlternativeSecurityIdCollection** para agregar la notificación **AlternativeSecurityId2** a la notificación **AlternativeSecurityIds** existente.
 1. Hacer persistir la notificación **alternativeSecurityIds** en la cuenta de usuario
 

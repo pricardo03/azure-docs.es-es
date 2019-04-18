@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: yizhon
 ms.openlocfilehash: 7788bca621a59ec8cdfe36edf73a99efca8c460c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261401"
 ---
 # <a name="develop-for-constrained-devices-using-azure-iot-c-sdk"></a>Desarrollo para dispositivos restringidos con los SDK para C de Azure IoT
@@ -82,5 +82,5 @@ Otro conjunto de API sin el índice _LL_ se denomina capa de comodidad, en las q
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para más información acerca de la arquitectura del SDK de Azure IoT para C:
--   [Código de origen de C SDK IoT de Azure](https://github.com/Azure/azure-iot-sdk-c/)
--   [Dispositivo de IoT de Azure SDK para la introducción de C](iot-hub-device-sdk-c-intro.md)
+-   [Código fuente del SDK de Azure IoT para C](https://github.com/Azure/azure-iot-sdk-c/)
+-   [Introducción al SDK de dispositivo IoT de Azure para C](iot-hub-device-sdk-c-intro.md)

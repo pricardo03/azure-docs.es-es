@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 02/1/2018
 ms.author: mazha
 ms.openlocfilehash: f7fc11af8cd2574271b26f7dec62072692685672
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916808"
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-cdn"></a>Administración de la expiración de Azure Storage Blob en Azure CDN
 > [!div class="op_single_selector"]
 > * [Contenido web de Azure](cdn-manage-expiration-of-cloud-service-content.md)
-> * [Azure Blob Storage](cdn-manage-expiration-of-blob-content.md)
+> * [Almacenamiento de blobs de Azure](cdn-manage-expiration-of-blob-content.md)
 > 
 > 
 
@@ -59,7 +59,7 @@ El método preferido para establecer el encabezado `Cache-Control` de un blob co
    ![Página de caché de CDN](./media/cdn-manage-expiration-of-blob-content/cdn-caching-page.png)
 
 
-**Para establecer los encabezados Cache-Control del servicio de almacenamiento de blobs con reglas de almacenamiento en caché globales:**
+**Para establecer encabezados Cache-Control del servicio de almacenamiento de blobs con reglas de almacenamiento en caché globales:**
 
 1. En **Reglas de almacenamiento en caché globales**, establezca **Comportamiento del almacenamiento en caché de cadenas de consulta** en **Ignorar cadenas de consulta**, y establezca **Comportamiento de almacenamiento en caché** en **Invalidar**.
       
@@ -71,7 +71,7 @@ El método preferido para establecer el encabezado `Cache-Control` de un blob co
 
 3. Seleccione **Guardar**.
  
-**Para establecer los encabezados Cache-Control del archivo de un blob mediante el uso de reglas de almacenamiento en caché personalizadas:**
+**Para establecer encabezados Cache-Control de un archivo de blobs con reglas de almacenamiento en caché personalizadas:**
 
 1. En **Reglas de almacenamiento en caché personalizadas**, cree dos condiciones de coincidencia:
 
@@ -180,6 +180,6 @@ Puede usar la [API de REST de servicios de Azure Storage](/rest/api/storageservi
 La configuración de TTL de los blobs se puede comprobar con facilidad. Con las [herramientas de desarrollo](https://developer.microsoft.com/microsoft-edge/platform/documentation/f12-devtools-guide/) del explorador, compruebe que el blob incluye el encabezado de respuesta `Cache-Control`. Asimismo, también puede usar una herramienta como [Wget](https://www.gnu.org/software/wget/), [Postman](https://www.getpostman.com/) o [Fiddler](https://www.telerik.com/fiddler) para examinar los encabezados de respuesta.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Obtenga información sobre cómo administrar la caducidad del contenido del servicio en la nube en la red CDN de Azure](cdn-manage-expiration-of-cloud-service-content.md)
-* [Obtenga información sobre los conceptos de almacenamiento en caché](cdn-how-caching-works.md)
+* [Aprenda a administrar la expiración del contenido del Servicio en la nube en Azure CDN](cdn-manage-expiration-of-cloud-service-content.md)
+* [Obtenga información sobre conceptos del almacenamiento en caché](cdn-how-caching-works.md)
 

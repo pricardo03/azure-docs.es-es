@@ -15,10 +15,10 @@ ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
 ms.openlocfilehash: 5a4b7514005da9e9a998dba014fa0ea6c014397a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268524"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core en Reliable Services de Service Fabric
@@ -134,7 +134,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="httpsys-in-a-stateful-service"></a>HttpSys en un servicio con estado
 
-`HttpSysCommunicationListener` actualmente no está diseñado para su uso en los servicios con estado debido a las complicaciones con subyacente *http.sys* característica de uso compartido de puerto. Para más información, consulte la sección siguiente sobre la asignación dinámica de puertos con HttpSys. Para los servicios con estado, Kestrel es el servidor web recomendado.
+Actualmente, `HttpSysCommunicationListener` no está diseñado para usarse en servicios con estado a causa de las complicaciones con la característica subyacente para compartir puertos *http.sys*. Para más información, consulte la sección siguiente sobre la asignación dinámica de puertos con HttpSys. Para los servicios con estado, Kestrel es el servidor web recomendado.
 
 ### <a name="endpoint-configuration"></a>Configuración del punto de conexión
 
@@ -471,7 +471,7 @@ Cuando se expone a Internet, un servicio sin estado debe usar un punto de conexi
 
 |  |  | **Notas** |
 | --- | --- | --- |
-| Servidor Web | Kestrel | Kestrel es el servidor web recomendado porque es compatible en Windows y Linux. |
+| Servidor web | Kestrel | Kestrel es el servidor web recomendado porque es compatible en Windows y Linux. |
 | Configuración de puerto | estática | Se debe configurar un puerto estático conocido en la configuración `Endpoints` de ServiceManifest.xml, como 80 para HTTP o 443 para HTTPS. |
 | ServiceFabricIntegrationOptions | None | La opción `ServiceFabricIntegrationOptions.None` se debe usar al configurar el middleware de integración de Service Fabric para que el servicio no intente validar solicitudes entrantes para un identificador único. Los usuarios externos de la aplicación no conocerán la información de identificación única utilizada por el middleware. |
 | Recuento de instancias | -1 | En casos de uso habituales, la configuración de recuento de instancias debe establecerse en "-1" para que una instancia esté disponible en todos los nodos que reciban tráfico de un equilibrador de carga. |
@@ -496,7 +496,7 @@ Los servicios sin estado a los que solo se llama desde dentro del clúster deben
 
 |  |  | **Notas** |
 | --- | --- | --- |
-| Servidor Web | Kestrel | Aunque HttpSys puede usarse para servicios sin estado internos, Kestrel es el servidor recomendado para permitir que varias instancias de servicio compartan un host.  |
+| Servidor web | Kestrel | Aunque HttpSys puede usarse para servicios sin estado internos, Kestrel es el servidor recomendado para permitir que varias instancias de servicio compartan un host.  |
 | Configuración de puerto | asignado de forma dinámica | Varias réplicas de un servicio con estado pueden compartir un proceso de host o un sistema operativo host y, por tanto, necesitarán puertos únicos. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Con la asignación dinámica de puertos, esta configuración evita el problema de identidad equivocada descrito antes. |
 | InstanceCount | cualquiera | La configuración de recuento de instancias se puede establecer en cualquier valor necesario para hacer funcionar el servicio. |
@@ -506,7 +506,7 @@ Los servicios con estado a los que solo se llama desde dentro del clúster deben
 
 |  |  | **Notas** |
 | --- | --- | --- |
-| Servidor Web | Kestrel | `HttpSysCommunicationListener` no está diseñado para usarse en servicios con estado en los que las réplicas comparten un proceso de host. |
+| Servidor web | Kestrel | `HttpSysCommunicationListener` no está diseñado para usarse en servicios con estado en los que las réplicas comparten un proceso de host. |
 | Configuración de puerto | asignado de forma dinámica | Varias réplicas de un servicio con estado pueden compartir un proceso de host o un sistema operativo host y, por tanto, necesitarán puertos únicos. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Con la asignación dinámica de puertos, esta configuración evita el problema de identidad equivocada descrito antes. |
 

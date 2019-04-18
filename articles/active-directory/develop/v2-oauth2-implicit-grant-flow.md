@@ -18,12 +18,12 @@ ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 453a3316288cbc0b07d82e2fad9ecc7c3d353e9b
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: d517828b30629cd9dfba5459b1d90913d8bc4f77
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59501321"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698459"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Flujo de concesión de la plataforma de identidad de Microsoft e implícita
 
@@ -52,7 +52,7 @@ En el diagrama siguiente se muestra el aspecto que tiene el flujo implícito de 
 
 ## <a name="send-the-sign-in-request"></a>Envío de la solicitud de inicio de sesión
 
-Para iniciar sesión inicialmente el usuario en la aplicación, puede enviar un [OpenID Connect](v2-protocols-oidc.md) solicitud de autorización y obtener un `id_token` desde el punto de conexión de plataforma de identidad de Microsoft.
+Para iniciar sesión inicialmente el usuario en la aplicación, puede enviar un [OpenID Connect](v2-protocols-oidc.md) solicitud de autenticación y obtenga un `id_token` desde el punto de conexión de plataforma de identidad de Microsoft.
 
 > [!IMPORTANT]
 > Para solicitar correctamente un token de identificador, el registro de aplicación en el [Azure portal: registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) página debe tener habilitado correctamente, seleccionando el flujo de concesión implícita **tokens de acceso** y **Los tokens de identificador** bajo el **concesión implícita** sección. Si no está habilitado, un `unsupported_response` , se devolverá el error: **The provided value for the input parameter 'response_type' is not allowed for this client (El valor proporcionado para el parámetro de entrada “response_type” no se admite para este cliente). Expected value is 'code'** ("No se permite el valor proporcionado para el parámetro de entrada "response_type" para este cliente. El valor esperado es "code"").
@@ -84,7 +84,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `response_mode` | opcional |Especifica el método que debe usarse para enviar el token resultante de nuevo a la aplicación. El valor predeterminado es "query" para un token de acceso, pero "fragment" si la solicitud incluye un valor id_token. |
 | `state` | recomendado |Un valor incluido en la solicitud que se devolverá también en la respuesta del token. Puede ser una cadena de cualquier contenido que desee. Normalmente se usa un valor único generado de forma aleatoria para [evitar los ataques de falsificación de solicitudes entre sitios](https://tools.ietf.org/html/rfc6749#section-10.12). El estado también se usa para codificar información sobre el estado del usuario en la aplicación antes de que se haya producido la solicitud de autenticación, por ejemplo, la página o vista en la que estaban. |
 | `nonce` | requerido |Un valor incluido en la solicitud, generada por la aplicación, que se incluirá en el id_token resultante como una notificación. La aplicación puede comprobar este valor para mitigar los ataques de reproducción de token. Normalmente, el valor es una cadena única aleatoria que puede utilizarse para identificar el origen de la solicitud. Solo es necesario cuando se solicita un valor id_token. |
-| `prompt` | opcional |Indica el tipo de interacción necesaria con el usuario. Los únicos valores válidos en este momento son "login", "none", "select_account" y "consent". `prompt=login` obligará al usuario que escriba sus credenciales en esa solicitud, negando inicio de sesión único. `prompt=none` es la opuesta - garantizará que el usuario no se le presenta ninguna solicitud interactiva del tipo que sea. Si la solicitud no se puede completar en modo silencioso a través de inicio de sesión único, el punto de conexión de plataforma de identidad de Microsoft devolverá un error. `prompt=select_account` envía al usuario a un selector de cuenta que todas las cuentas que se recuerdan en la sesión aparecerá. `prompt=consent` se desencadenará el cuadro de diálogo de consentimiento de OAuth después de que el usuario inicia sesión y solicita al usuario que conceda permisos a la aplicación. |
+| `prompt` | opcional |Indica el tipo de interacción necesaria con el usuario. Los únicos valores válidos en este momento son "login", "none", "select_account" y "consent". `prompt=login` obligará al usuario a escribir sus credenciales en esa solicitud, negando el inicio de sesión único. `prompt=none` es la opuesta - garantizará que el usuario no se le presenta ninguna solicitud interactiva del tipo que sea. Si la solicitud no se puede completar en modo silencioso a través de inicio de sesión único, el punto de conexión de plataforma de identidad de Microsoft devolverá un error. `prompt=select_account` envía al usuario a un selector de cuenta donde aparecerán todas las cuentas que se recuerdan en la sesión. `prompt=consent` desencadenará el cuadro de diálogo de consentimiento de OAuth después de que el usuario inicia sesión, y solicitará a este que conceda permisos a la aplicación. |
 | `login_hint`  |opcional |Puede usarse para rellenar previamente el campo de nombre de usuario y dirección de correo electrónico de la página de inicio de sesión del usuario, si sabe su nombre de usuario con antelación. A menudo las aplicaciones usarán este parámetro durante la reautenticación, dado que ya han extraído el nombre de usuario de un inicio de sesión anterior mediante la notificación `preferred_username` .|
 | `domain_hint` | opcional |Puede ser `consumers` o `organizations`. Si se incluye, omitirá el proceso de detección basada en correo electrónico que el usuario pasa en la página de inicio de sesión para una experiencia de usuario será ligeramente más sencilla. A menudo las aplicaciones usarán este parámetro durante la reautenticación, para lo que extraerán la notificación `tid` de id_token. Si el valor de la notificación `tid` es `9188040d-6c67-4c5b-b112-36a304b66dad` (el inquilino consumidor de la cuenta Microsoft), debe usar `domain_hint=consumers`. En caso contrario, puede usar `domain_hint=organizations` durante la reautenticación. |
 

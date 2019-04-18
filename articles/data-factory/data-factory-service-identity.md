@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 3c1bb38eb12ce77d172257706cd458cebda4bd8c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260755"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identidad administrada de Data Factory
@@ -192,6 +192,6 @@ Type                  : ServicePrincipal
 Consulte los siguientes temas que presentan cuándo y cómo usar factoría de datos de identidad administrada:
 
 - [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md)
-- [Copiar datos desde y hacia Azure Data Lake Store con identidades administradas para la autenticación de los recursos de Azure](connector-azure-data-lake-store.md)
+- [Copia de datos con Azure Data Lake Storage Gen1 como origen o destino mediante Azure Data Factory](connector-azure-data-lake-store.md)
 
 Consulte [identidades administradas para Azure Resources Overview](/azure/active-directory/managed-identities-azure-resources/overview) para obtener más información sobre las identidades administradas para los recursos de Azure, la identidad administrada de que data factory se basa en. 

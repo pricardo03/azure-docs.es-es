@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 02/02/2019
 ms.author: haroldw
 ms.openlocfilehash: cf3a3ca1f751ce9eed5ee5c5397c1d9c864a1dd6
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58903682"
 ---
 # <a name="post-deployment-tasks"></a>Tareas posteriores a la implementación
@@ -42,7 +42,7 @@ Estos pasos usan la CLI de Azure para crear el registro de aplicación y la GUI 
 - Nombre para mostrar: Nombre de registro de la aplicación (por ejemplo, OCPAzureAD)
 - Página de inicio: Dirección URL de la consola de OpenShift (por ejemplo, https://masterdns343khhde.westus.cloudapp.azure.com/console)
 - Identificador URI: Dirección URL de la consola de OpenShift (por ejemplo, https://masterdns343khhde.westus.cloudapp.azure.com/console)
-- Dirección URL de respuesta: Maestro de dirección URL pública y el nombre del registro de aplicación (por ejemplo, https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
+- URL de respuesta: Maestro de dirección URL pública y el nombre del registro de aplicación (por ejemplo, https://masterdns343khhde.westus.cloudapp.azure.com/oauth2callback/OCPAzureAD)
 - Contraseña: Contraseña segura (use una contraseña segura)
 
 En el ejemplo siguiente, se creará un registro de aplicación con la información anterior:
@@ -147,7 +147,7 @@ Inserte las líneas siguientes inmediatamente después de las líneas anteriores
         token: https://login.microsoftonline.com/<tenant Id>/oauth2/token
 ```
 
-Asegúrese de que el texto se alinea correctamente en identityProviders. Busque el identificador de inquilino mediante el siguiente comando de CLI: ```az account show```
+Asegúrese de que el texto se alinea correctamente en identityProviders. Busque el identificador de inquilino mediante el siguiente comando de CLI: ```az account show```.
 
 Reinicie los servicios maestros de OpenShift en todos los nodos maestros:
 
@@ -251,7 +251,7 @@ Para la plantilla de OpenShift Container y la oferta de Marketplace, el archivo 
 
 Conéctese mediante SSH al nodo de tipo bastión o al primer nodo maestro (en función de la plantilla y la rama en uso) con las credenciales proporcionadas durante la implementación. Ejecute el siguiente comando:
 
-**OpenShift Container Platform 3.7 y versiones anterior**
+**OpenShift Container Platform 3.7 y versiones anteriores**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -263,7 +263,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cl
 -e openshift_hosted_logging_storage_kind=dynamic
 ```
 
-**OpenShift Container Platform 3.9 y versiones posterior**
+**OpenShift Container Platform 3.9 y versiones posteriores**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
@@ -275,7 +275,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-loggin
 -e openshift_logging_es_pvc_dynamic=true
 ```
 
-**OKD 3.7 y versiones anterior**
+**OKD 3.7 y versiones anteriores**
 
 ```bash
 ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -287,7 +287,7 @@ ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-l
 -e openshift_hosted_logging_storage_kind=dynamic
 ```
 
-**OKD 3.9 y versiones posterior**
+**OKD 3.9 y versiones posteriores**
 
 ```bash
 ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -304,7 +304,7 @@ ansible-playbook ~/openshift-ansible/playbooks/openshift-logging/config.yml \
 Conéctese mediante SSH al nodo de tipo bastión o al primer nodo maestro (en función de la plantilla y la rama en uso) con las credenciales proporcionadas durante la implementación. Ejecute el siguiente comando:
 
 
-**OpenShift Container Platform 3.7 y versiones anterior**
+**OpenShift Container Platform 3.7 y versiones anteriores**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -314,7 +314,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/byo/openshift-cl
 -e openshift_logging_install_logging=True
 ```
 
-**OpenShift Container Platform 3.9 y versiones posterior**
+**OpenShift Container Platform 3.9 y versiones posteriores**
 
 ```bash
 ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-metrics/config.yml \
@@ -324,7 +324,7 @@ ansible-playbook /usr/share/ansible/openshift-ansible/playbooks/openshift-loggin
 -e openshift_logging_install_logging=True
 ```
 
-**OKD 3.7 y versiones anterior**
+**OKD 3.7 y versiones anteriores**
 
 ```bash
 ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \
@@ -334,7 +334,7 @@ ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-l
 -e openshift_logging_install_logging=True
 ```
 
-**OKD 3.9 y versiones posterior**
+**OKD 3.9 y versiones posteriores**
 
 ```bash
 ansible-playbook ~/openshift-ansible/playbooks/byo/openshift-cluster/openshift-metrics.yml \

@@ -13,10 +13,10 @@ ms.reviewer: vanto, genemi
 manager: craigg
 ms.date: 03/12/2019
 ms.openlocfilehash: 8c33cd7fe702f46f9c88643895b96445a9aa6a78
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58805200"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Usar reglas y puntos de conexión de servicio de Virtual Network para servidores de bases de datos
@@ -248,7 +248,7 @@ El error de conexión 40914 se relaciona con *reglas de red virtual*, tal y como
 
 ### <a name="error-40914"></a>Error 40914
 
-*Texto del mensaje:* No se puede abrir el servidor "*[nombre-servidor]*" solicitado por el inicio de sesión. Un cliente no puede acceder al servidor.
+*Texto del mensaje:* No se puede abrir el servidor "*[nombre-servidor]*" solicitado por el inicio de sesión. No está permitido que el cliente acceda al servidor.
 
 *Descripción del error:* el cliente está en una subred que tiene puntos de conexión de servidor de red virtual. Sin embargo, el servidor de Azure SQL Database no tiene ninguna regla de red virtual que conceda a la subred el derecho para comunicarse con la base de datos SQL.
 

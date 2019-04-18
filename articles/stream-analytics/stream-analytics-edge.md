@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 4/2/2019
 ms.custom: seodec18
 ms.openlocfilehash: 4ecea8864a565997b8df119d870e7efee8448143
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892235"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Azure Stream Analytics en IoT Edge
@@ -48,8 +48,8 @@ Los valores posibles se describen en la tabla siguiente. En las secciones siguie
 |      |Paso   | Notas   |
 | ---   | ---   |  ---      |
 | 1   | **Creación de un contenedor de almacenamiento**   | Los contenedores de almacenamiento se utilizan para guardar la definición de trabajo donde pueden obtenerla sus dispositivos de IoT. <br>  Todos los contenedor de almacenamiento existente se pueden reutilizar.     |
-| 2   | **Crear un trabajo de edge ASA**   |  Cree un nuevo trabajo y seleccione **Edge** como **entorno de hospedaje**. <br> Estos trabajos se crean o administran desde la nube y se ejecutan en sus propios dispositivos de IoT Edge.     |
-| 3   | **Configurar el entorno de IoT Edge en dispositivos de**   | Instrucciones para [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) o [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
+| 2   | **Creación de un trabajo perimetral de ASA**   |  Cree un nuevo trabajo y seleccione **Edge** como **entorno de hospedaje**. <br> Estos trabajos se crean o administran desde la nube y se ejecutan en sus propios dispositivos de IoT Edge.     |
+| 3   | **Configuración de un entorno de IoT Edge en los dispositivos**   | Instrucciones para [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) o [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).          |
 | 4   | **Implementación de ASA en dispositivos de IoT Edge**   |  La definición del trabajo ASA se exporta al contenedor de almacenamiento que creó anteriormente.       |
 
 Puede seguir [este tutorial paso a paso](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) para implementar su primer trabajo de ASA en IoT Edge. El vídeo siguiente debería ayudarle a entender el proceso para ejecutar un trabajo de Stream Analytics en un dispositivo con IoT Edge:  
@@ -106,7 +106,7 @@ Estos pasos se describen en la documentación de IoT Edge para [Windows](https:/
 - En Azure Portal, abra IoT Hub, vaya a **IoT Edge** y haga clic en el dispositivo que va a ser el destino de esta implementación.
 - Seleccione **Establecer módulos**, **+ Agregar** y, finalmente, **Módulo de Azure Stream Analytics**.
 - Seleccione la suscripción y el trabajo Edge de ASA que ha creado. Haga clic en Guardar.
-![Agregar módulo ASA en la implementación](media/stream-analytics-edge/add-stream-analytics-module.png)
+![Adición de un módulo de ASA a una implementación](media/stream-analytics-edge/add-stream-analytics-module.png)
 
 
 > [!Note]
@@ -209,10 +209,10 @@ Para más ayuda, pruebe el [foro de Azure Stream Analytics](https://social.msdn.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Obtener más información sobre Azure Iot Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
-* [ASA en el tutorial de IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
+* [Más información acerca de Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
+* [Tutorial de ASA en IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
 * [Desarrollo de trabajos para dispositivos perimetrales de Stream Analytics mediante herramientas de Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
-* [Implementación de CI/CD para Stream Analytics mediante API](stream-analytics-cicd-api.md)
+* [Implement CI/CD for Stream Analytics using APIs](stream-analytics-cicd-api.md) (Implementación de CI/CD para Stream Analytics mediante API)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

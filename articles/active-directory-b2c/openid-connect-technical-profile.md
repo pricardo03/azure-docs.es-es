@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: a13ca362bf08b86297641061992f0820f0b624c5
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916774"
 ---
 # <a name="define-an-openid-connect-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir un perfil técnico de OpenId Connect en una directiva personalizada de Azure Active Directory B2C
@@ -104,9 +104,9 @@ Si usa el dominio **b2clogin.com** en lugar de **login.microsoftonline.com**, as
 
 Ejemplos:
 
-- [Agregar cuenta de Microsoft (MSA) como proveedor de identidades mediante directivas personalizadas](active-directory-b2c-custom-setup-msa-idp.md)
-- [Inicie sesión con cuentas de Azure AD](active-directory-b2c-setup-aad-custom.md)
-- [Permitir que los usuarios inicien sesión un proveedor de identidades multiinquilino de Azure AD mediante directivas personalizadas](active-directory-b2c-setup-commonaad-custom.md)
+- [Agregar una cuenta Microsoft (MSA) como un proveedor de identidades mediante directivas personalizadas](active-directory-b2c-custom-setup-msa-idp.md)
+- [Iniciar sesión con cuentas de Azure AD](active-directory-b2c-setup-aad-custom.md)
+- [Permitir que los usuarios inicien sesión en un proveedor de identidades de Azure AD multiinquilino mediante directivas personalizadas](active-directory-b2c-setup-commonaad-custom.md)
 
  
 

@@ -15,10 +15,10 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: db68ad2a29dcaa53d219b679b9e0f24a50a6f576
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877064"
 ---
 # <a name="how-to-troubleshoot-sign-in-errors-using-azure-active-directory-reports"></a>Procedimientos para: Solución de errores de inicio de sesión mediante informes de Azure Active Directory
@@ -63,5 +63,5 @@ Necesita:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Hacer referencia a los códigos de error de inicios de sesión](reference-sign-ins-error-codes.md)
-* [Información general sobre el informe de inicios de sesión](concept-sign-ins.md)
+* [Referencia de códigos de error de inicio de sesión](reference-sign-ins-error-codes.md)
+* [Información general sobre los informes de inicios de sesión](concept-sign-ins.md)

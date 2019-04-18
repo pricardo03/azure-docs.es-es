@@ -16,10 +16,10 @@ ms.date: 04/03/2019
 ms.author: rolyon
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a1f03cd518a15d08971968e04fa69954951c77e0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59052363"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Característica Condiciones de uso de Azure Active Directory
@@ -34,8 +34,8 @@ El vídeo siguiente ofrece una introducción rápida a Condiciones de uso.
 >[!VIDEO https://www.youtube.com/embed/tj-LK0abNao]
 
 Para otros vídeos, vea:
-- [Cómo implementar los términos de uso en Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
-- [Cómo implementar los términos de uso en Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
+- [Cómo implementar Condiciones de uso de Azure Active Directory](https://www.youtube.com/embed/N4vgqHO2tgY)
+- [Cómo lanzar Condiciones de uso de Azure Active Directory](https://www.youtube.com/embed/t_hA4y9luCY)
 
 ## <a name="what-can-i-do-with-terms-of-use"></a>¿Qué puedo hacer con Terms of Use?
 Términos de uso de Azure AD tiene las siguientes funcionalidades:
@@ -265,7 +265,7 @@ Esta es una lista de las plataformas y el software admitidos.
 > | **Aplicación nativa** | Sí | Sí | Sí |  |
 > | **Microsoft Edge** | Sí | Sí | Sí |  |
 > | **Internet Explorer** | Sí | Sí | Sí |  |
-> | **Chrome (con la extensión)** | Sí | Sí | Sí |  |
+> | **Chrome (con extensión)** | Sí | Sí | Sí |  |
 
 Términos de uso por dispositivo tiene las siguientes restricciones:
 
@@ -345,46 +345,46 @@ Puede configurar una directiva de acceso condicional para la aplicación de insc
 
 ## <a name="frequently-asked-questions"></a>Preguntas más frecuentes
 
-**P: ¿Cómo se puede ver si un usuario ha aceptado los términos de uso?**<br />
+**P: ¿Cómo puedo ver si un usuario ha aceptado una instancia de Términos de uso y cuándo lo ha hecho?**<br />
 R: En la hoja Términos de uso, haga clic en el número situado bajo **Aceptado**. También puede ver o buscar la actividad de aceptación en los registros de auditoría de Azure AD. Para más información, consulte Ver quién los ha aceptado y rechazado y [Visualización de registros de auditoría de Azure AD](#view-azure-ad-audit-logs).
 
-**P: ¿Durante cuánto tiempo es la información almacenada?**<br />
+**P: ¿Cuánto tiempo se almacena la información?**<br />
 R: Los recuentos de usuarios en el informe Términos de uso y quién los ha aceptado o rechazado se almacenan mientras están vigentes los Términos de uso. Los registros de auditoría de Azure AD se almacenan durante 30 días.
 
-**P: ¿Por qué veo un número diferente de consentimientos en términos de uso de informes frente a Azure AD los registros de auditoría?**<br />
+**P: ¿Por qué veo un número diferente de autorizaciones en el informe Términos de uso en comparación con los registros de auditoría de Azure AD?**<br />
 R: El informe Términos de uso se almacena durante toda la vigencia de esos Términos de uso, mientras que los registros de auditoría de Azure AD se almacenan durante 30 días. Además, el informe Términos de uso solo muestra el estado de consentimiento actual de los usuarios. Por ejemplo, si un usuario manifiesta su rechazo y luego su aceptación, el informe Términos de uso solo mostrará la aceptación de ese usuario. Si necesita ver el historial, puede usar los registros de auditoría de Azure AD.
 
-**P: ¿Si editar los detalles de los términos de uso, requieren los usuarios que acepten de nuevo?**<br />
+**P: Si edito los detalles de una instancia de Términos de uso, ¿los usuarios tienen que volver a aceptarlos?**<br />
 R: No, si un administrador edita los detalles de una instancia de Términos de uso (nombre, nombre para mostrar, requerir a los usuarios que expandan o agregar un idioma), no requiere a los usuarios que vuelvan a aceptar los nuevos términos.
 
-**P: ¿Puedo actualizar una existente documento condiciones de uso?**<br />
+**P: ¿Se puede actualizar un documento de términos de uso existente?**<br />
 R: Actualmente no se puede actualizar un documento de términos de uso existente. Para cambiarlo tendrá que crear una nueva instancia de los términos de uso.
 
-**P: ¿Si los hipervínculos están en los términos de uso de documentos PDF, los usuarios finales podrán hacer clic en ellos?**<br />
+**P: Si hay hipervínculos en el documento PDF de Términos de uso, ¿los usuarios finales podrán hacer clic en ellos?**<br />
 R: El archivo PDF se representa de manera predeterminada como un archivo JPEG, por lo que no se puede hacer clic en los hipervínculos. Los usuarios tiene la opción de seleccionar **¿Tiene problemas con la visualización? Haga clic aquí**, que muestra el PDF de manera nativa, donde sí se admiten los hipervínculos.
 
-**P: ¿Términos de uso admitan varios idiomas?**<br />
+**P: ¿Puede una instancia de Términos de uso admitir varios idiomas?**<br />
 R: Sí. Actualmente, un administrador puede configurar hasta 108 idiomas diferentes para unos solos Términos de uso. Un administrador puede cargar varios documentos PDF y etiquetarlos con un idioma correspondiente (hasta 108). Cuando los usuarios finales inician sesión, nos fijamos en su preferencia de idioma del navegador y mostramos el documento coincidente. Si no hay ninguna coincidencia, mostraremos el documento predeterminado, que es el primer documento que se carga.
 
-**P: ¿Cuándo es los términos de uso desencadenadas?**<br />
+**P: ¿Cuándo se desencadenan los Términos de uso?**<br />
 R: Los Términos de uso se desencadenan durante la experiencia de inicio de sesión.
 
-**P: ¿Qué aplicaciones puedo destino los términos de uso?**<br />
+**P: ¿Qué aplicaciones puedo usar como destino de una instancia de Términos de uso?**<br />
 R: Puede crear una directiva de acceso condicional en las aplicaciones empresariales que usan autenticación moderna. Para más información, consulte [aplicaciones empresariales](./../manage-apps/view-applications-portal.md).
 
-**P: ¿Puedo agregar varios términos de uso para una aplicación o usuario determinado?**<br />
+**P: ¿Puedo agregar varios Términos de uso a un usuario o aplicación determinados?**<br />
 R: Sí, mediante la creación de varias directivas de acceso condicional cuyo destino sean dichos grupos o aplicaciones. Si un usuario se encuentra en el ámbito de varios Términos de uso, aceptará primero unos y después otros.
 
-**P: ¿Qué ocurre si un usuario no acepta los términos de uso?**<br />
+**P: ¿Qué ocurre si un usuario no acepta los Términos de uso?**<br />
 R: Se bloqueará al usuario y no podrá obtener acceso a la aplicación. El usuario tendría que iniciar sesión de nuevo y aceptar las condiciones con el fin de obtener acceso.
 
-**P: ¿Es posible unaccept términos de uso que se han aceptado previamente?**<br />
+**P: ¿Es posible rechazar los Términos de uso que se han aceptado previamente?**<br />
 R: Puede [revisar los Términos de uso aceptados previamente](#how-users-can-review-their-terms-of-use) pero actualmente no hay ninguna manera de poderlos rechazar.
 
-**P: ¿Qué ocurre si utilizo términos y condiciones de Intune?**<br />
+**P: ¿Qué ocurre si también utilizo los términos y condiciones de Intune?**<br />
 R: Si ha configurado los Términos de uso de Azure AD y [los términos y condiciones de Intune](/intune/terms-and-conditions-create), se le pedirá al usuario que acepte ambos. Para obtener más información, consulte la entrada de blog [Choosing the right Terms solution for your organization](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409) (Elección de la solución de términos adecuada para su organización).
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Inicio rápido: Solicitud de la aceptación de los términos de uso antes de acceder a aplicaciones en la nube](require-tou.md)
+- [Guía de inicio rápido: Solicitar la aceptación de los términos de uso antes de acceder a aplicaciones en la nube](require-tou.md)
 - [Procedimientos recomendados para el acceso condicional en Azure Active Directory](best-practices.md)

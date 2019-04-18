@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/26/2019
 ms.author: absha
 ms.openlocfilehash: cfc63349e20aa6dbef4e0d31e81842d325bd3ec6
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905547"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurar una puerta de enlace de la aplicación con un extremo (ILB) de equilibrador de carga interno
@@ -30,7 +30,7 @@ En este artículo, aprenderá a:
 
 ## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en el portal de Azure en <https://portal.azure.com>
+Inicie sesión en Azure Portal en <https://portal.azure.com>
 
 ## <a name="create-an-application-gateway"></a>Creación de una puerta de enlace de aplicaciones
 
@@ -70,7 +70,7 @@ El grupo de back-end se usa para enrutar las solicitudes a los servidores back-e
 3. Especifique estos valores para la máquina virtual:
    - *myVM*: como nombre de la máquina virtual.
    - *azureuser*: como nombre del usuario administrador.
-   - *¡Azure123456!* como contraseña.
+   - *Azure123456!* como contraseña.
    - Seleccione **Usar existente** y *myResourceGroupAG*.
 4. Haga clic en **OK**.
 5. Seleccione **DS1_V2** el tamaño de la máquina virtual y haga clic en **seleccione**.

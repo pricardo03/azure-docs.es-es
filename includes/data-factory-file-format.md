@@ -5,10 +5,10 @@ ms.topic: include
 ms.date: 11/09/2018
 ms.author: jingwang
 ms.openlocfilehash: 89d5483347f93cd3b57a02ced19b1e8b099a5ab0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58919353"
 ---
 ## <a name="specifying-formats"></a>Especificación de formatos
@@ -18,7 +18,7 @@ Azure Data Factory admite los siguientes tipos de formato:
 * [Formato JSON](#specifying-jsonformat)
 * [Formato Avro](#specifying-avroformat)
 * [Formato ORC](#specifying-orcformat)
-* [Formato parquet](#specifying-parquetformat)
+* [Formato Parquet](#specifying-parquetformat)
 
 ### <a name="specifying-textformat"></a>Especificación de TextFormat
 Si desea analizar los archivos de texto o escribir los datos en formato de texto, establezca la propiedad `format` `type` en **TextFormat**. También puede especificar las siguientes propiedades **opcionales** en la sección `format`. Consulte la sección [Ejemplo de TextFormat](#textformat-example) sobre cómo realizar la configuración.
@@ -174,11 +174,11 @@ La actividad de copia puede analizar los siguientes patrones de archivos JSON:
 
 #### <a name="jsonformat-example"></a>Ejemplo de JsonFormat
 
-**Caso 1: Copiar datos desde archivos JSON**
+**Caso 1: Copia de datos desde archivos JSON**
 
 Vea a continuación dos tipos de ejemplos en los que se copian datos desde archivos JSON, y los puntos de genéricos a tener en cuenta:
 
-**Ejemplo 1: extraer datos de objeto y matriz**
+**Ejemplo 1: extracción de datos de objeto y matriz**
 
 En esta ejemplo, se espera un objeto JSON de raíz que se asigna al registro individual en resultado tabulares. Si tiene un archivo JSON con el siguiente contenido:  
 
@@ -213,8 +213,8 @@ y quiere copiarlo en una tabla de SQL de Azure con el formato siguiente extrayen
 
 El conjunto de datos de entrada con el tipo **JsonFormat** se define de la siguiente manera: (definición parcial en la que solo se ilustran las secciones relevantes). Más concretamente:
 
-- `structure` sección define los nombres de columna personalizada y el tipo de datos correspondiente al convertir a datos tabulares. Esta sección es **opcional** a menos que necesite realizar una asignación de columnas. Consulte "Especificación de la definición de la estructura de los conjuntos de datos rectangulares" para obtener más información.
-- `jsonPathDefinition` Especifica la ruta de acceso JSON para cada columna que indica dónde deben extraer los datos. Para copiar datos de matriz, puede usar **array[x].property** para extraer el valor de la propiedad especificada desde el objeto xº, o puede usar **array[*].property** para encontrar el valor de cualquier objeto que contenga dicha propiedad.
+- La sección `structure` permite definir los nombres personalizados de columna y el tipo de datos correspondiente mientras los convierte a datos tabulares. Esta sección es **opcional** a menos que necesite realizar una asignación de columnas. Consulte "Especificación de la definición de la estructura de los conjuntos de datos rectangulares" para obtener más información.
+- `jsonPathDefinition` especifica la ruta de acceso JSON para cada columna que indica de dónde se deben extraer los datos. Para copiar datos de matriz, puede usar **array[x].property** para extraer el valor de la propiedad especificada desde el objeto xº, o puede usar **array[*].property** para encontrar el valor de cualquier objeto que contenga dicha propiedad.
 
 ```json
 "properties": {
@@ -251,7 +251,7 @@ El conjunto de datos de entrada con el tipo **JsonFormat** se define de la sigui
 }
 ```
 
-**Ejemplo 2: aplicación cruzada en varios objetos con el mismo patrón de matriz**
+**Ejemplo 2: aplicación cruzada en varios objetos del mismo patrón de matriz**
 
 En este ejemplo, se espera transformar un objeto JSON de raíz en varios registros en resultado tabular. Si tiene un archivo JSON con el siguiente contenido:  
 
@@ -286,9 +286,9 @@ y desea copiarlo en una tabla de Azure SQL del formato siguiente, puede hacerlo 
 
 El conjunto de datos de entrada con el tipo **JsonFormat** se define de la siguiente manera: (definición parcial en la que solo se ilustran las secciones relevantes). Más concretamente:
 
-- `structure` sección define los nombres de columna personalizada y el tipo de datos correspondiente al convertir a datos tabulares. Esta sección es **opcional** a menos que necesite realizar una asignación de columnas. Consulte "Especificación de la definición de la estructura de los conjuntos de datos rectangulares" para obtener más información.
-- `jsonNodeReference` indica que se va a iterar y extraer datos de los objetos con el mismo patrón en **matriz** orderlines.
-- `jsonPathDefinition` Especifica la ruta de acceso JSON para cada columna que indica dónde deben extraer los datos. En este ejemplo, "ordernumber", "orderdate" y "city" están bajo el objeto raíz con la ruta de acceso JSON que empieza por "$.", mientras que "order_pd" y "order_price" se definen con la ruta de acceso que se deriva del elemento de matriz sin "$.".
+- La sección `structure` permite definir los nombres personalizados de columna y el tipo de datos correspondiente mientras los convierte a datos tabulares. Esta sección es **opcional** a menos que necesite realizar una asignación de columnas. Consulte "Especificación de la definición de la estructura de los conjuntos de datos rectangulares" para obtener más información.
+- `jsonNodeReference` indica la iteración y extracción de datos de los objetos con el mismo patrón de las líneas de pedido de **matriz**.
+- `jsonPathDefinition` especifica la ruta de acceso JSON para cada columna que indica de dónde se deben extraer los datos. En este ejemplo, "ordernumber", "orderdate" y "city" están bajo el objeto raíz con la ruta de acceso JSON que empieza por "$.", mientras que "order_pd" y "order_price" se definen con la ruta de acceso que se deriva del elemento de matriz sin "$.".
 
 ```json
 "properties": {
@@ -333,7 +333,7 @@ El conjunto de datos de entrada con el tipo **JsonFormat** se define de la sigui
 * Si hay algún nombre duplicado en el mismo nivel, la actividad de copia elige el último.
 * Los nombres de propiedad distinguen entre mayúsculas y minúsculas. Dos propiedades con el mismo nombre, pero con distintas mayúsculas y minúsculas se consideran propiedades independientes.
 
-**Caso 2: Escribir datos en el archivo JSON**
+**Caso 2: Escritura de datos en el archivo JSON**
 
 Si tiene la siguiente tabla en SQL Database:
 

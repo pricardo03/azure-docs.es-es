@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2a3e7373a8b0354a3d08debf944f2f77f1609382
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267045"
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: actualización de una versión anterior a la versión más reciente
@@ -89,7 +89,7 @@ Debe configurar los siguientes de la misma forma en ambos servidores:
 * Filtrado por dominio y unidad organizativa
 * Las mismas características opcionales, como la sincronización de contraseña y la escritura diferida de contraseñas
 
-**Mover las reglas de sincronización personalizada**  
+**Movimiento las reglas de sincronización personalizadas**  
 Para mover reglas de sincronización personalizadas, siga estos pasos:
 
 1. Abra el **Editor de reglas de sincronización** en el servidor activo.
@@ -117,7 +117,7 @@ Puede que haya situaciones en las no quiere que estas invalidaciones se produzca
 
 3. Anote las invalidaciones existentes que se han agregado.
    
-4. Para quitar las invalidaciones de importación completa y sincronización completa en un conector arbitrario, ejecute el siguiente cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
+4. Para quitar las invalidaciones de importación completa y sincronización completa de un conector arbitrario, ejecute el siguiente cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid-of-ConnectorIdentifier> -FullImportRequired $false -FullSyncRequired $false`
 
    Para quitar las invalidaciones de todos los conectores, ejecute el siguiente script de PowerShell:
 
@@ -128,12 +128,12 @@ Puede que haya situaciones en las no quiere que estas invalidaciones se produzca
    }
    ```
 
-5. Para reanudar al programador, ejecute el siguiente cmdlet: `Set-ADSyncScheduler -SyncCycleEnabled $true`
+5. Para reanudar el programador, ejecute el cmdlet siguiente: `Set-ADSyncScheduler -SyncCycleEnabled $true`
 
    >[!IMPORTANT]
    > No olvide ejecutar lo antes posible los pasos de sincronización necesarios. Puede ejecutar estos pasos manualmente con el Synchronization Service Manager o volver a agregar las invalidaciones con el cmdlet Set-ADSyncSchedulerConnectorOverride.
 
-Para agregar las invalidaciones de importación completa y sincronización completa en un conector arbitrario, ejecute el siguiente cmdlet:  `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
+Para agregar las invalidaciones de importación completa y sincronización completa en un conector arbitrario, ejecute el siguiente cmdlet: `Set-ADSyncSchedulerConnectorOverride -ConnectorIdentifier <Guid> -FullImportRequired $true -FullSyncRequired $true`
 
 ## <a name="troubleshooting"></a>solución de problemas
 La siguiente sección contiene instrucciones de solución de problemas e información que puede usar si se produce un problema al actualizar Azure AD Connect.
@@ -144,7 +144,7 @@ Cuando se actualiza Azure AD Connect desde una versión anterior, podría aparec
 
 ![Error](./media/how-to-upgrade-previous-version/error1.png)
 
-Este error se produce porque el conector de Azure Active Directory, con el identificador b891884f-051e-4a83-95af-2544101c9083, no existe en la configuración actual de Azure AD Connect. Para comprobar que este es el caso, abra una ventana de PowerShell, ejecute el Cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
+Este error se produce porque el conector de Azure Active Directory, con el identificador b891884f-051e-4a83-95af-2544101c9083, no existe en la configuración actual de Azure AD Connect. Para comprobar que este es el caso, abra una ventana de PowerShell y ejecute el cmdlet `Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083`
 
 ```
 PS C:\> Get-ADSyncConnector -Identifier b891884f-051e-4a83-95af-2544101c9083

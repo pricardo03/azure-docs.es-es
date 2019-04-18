@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: diberry
 ms.openlocfilehash: 672c9d43007f954d870f8195bcad63d9cee69523
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894464"
 ---
 # <a name="language-understanding-frequently-asked-questions-faq"></a>Preguntas más frecuentes de Language Understanding
@@ -240,7 +240,7 @@ Lo primero que hay que hacer es determinar si el problema está solo relacionado
 #### <a name="resolve-issue-in-luis"></a>Solución del problema en LUIS
 Pase la misma expresión a LUIS desde el [punto de conexión de LUIS](luis-get-started-create-app.md#query-the-endpoint-with-a-different-utterance). Si recibe un error, resuelva el problema en LUIS hasta que deje de devolverse este. Estos son algunos de los errores comunes:
 
-* `Out of call volume quota. Quota will be replenished in <time>.` : Este problema indica cualquier necesidad de cambiar de una clave de creación para una [clave de extremo](luis-how-to-azure-subscription.md) o deba cambiar [niveles de servicio](luis-how-to-azure-subscription.md#change-pricing-tier). 
+* `Out of call volume quota. Quota will be replenished in <time>.`: este problema indica que debe cambiar de una clave de creación a una [clave de punto de conexión](luis-how-to-azure-subscription.md) o que debe cambiar de [nivel de servicio](luis-how-to-azure-subscription.md#change-pricing-tier). 
 
 #### <a name="resolve-issue-in-azure-bot-service"></a>Solución del problema en Azure Bot Service
 
@@ -296,10 +296,10 @@ Las siguientes características se publicaron en la conferencia Build 2018:
 Se incluyeron [rutas de API](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/authoring-routes.md) de creación adicionales.
 
 Videos:
-* [Azure el viernes a las compilación 2018: Cognitivas Services - lenguaje (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
-* [Compilación 2018 AI Show - Novedades de servicio de lenguaje de descripción](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player)
-* [Sesión de Build 2018 - inteligencia Bot, las capacidades de voz y NLU procedimientos recomendados](https://channel9.msdn.com/events/Build/2018/BRK3208)
-* [Compilación de 2018 - las actualizaciones de LUIS](https://channel9.msdn.com/events/Build/2018/THR3118/player)
+* [Azure Friday en la compilación de 2018: Cognitive Services - Language (LUIS)](https://channel9.msdn.com/Shows/Azure-Friday/At-Build-2018-Cognitive-Services-Language-LUIS/player)
+* [Build 2018 AI Show - What’s New with Language Understanding Service](https://channel9.msdn.com/Shows/AI-Show/Whats-New-with-Language-Understanding-Service-LUIS/player) (Presentación de IA en Build 2018: Novedades de Language Understanding Service)
+* [Build 2018 Session - Bot intelligence, Speech Capabilities, and NLU best practices](https://channel9.msdn.com/events/Build/2018/BRK3208) (Sesión de Build 2018: inteligencia de bot, funcionalidades de voz y procedimientos recomendados de NLU)
+* [Build 2018 - LUIS Updates](https://channel9.msdn.com/events/Build/2018/THR3118/player) (Build 2018: actualizaciones de LUIS)
 
 Proyectos:
 * Demostración [Contoso Cafe bot](https://github.com/botbuilderbuild2018/build2018demo) (Bot de Contoso Cafe): código fuente en GitHub
@@ -307,5 +307,5 @@ Proyectos:
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para obtener más información sobre LUIS, consulte los siguientes recursos:
-* [Preguntas de desbordamiento de pila etiquetadas con LUIS](https://stackoverflow.com/questions/tagged/luis)
-* [Foro de (LUIS) de los servicios comprensión inteligente del lenguaje MSDN](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)
+* [Preguntas de Stack Overflow con etiquetas de LUIS](https://stackoverflow.com/questions/tagged/luis)
+* [Foro MSDN de Language Understanding Intelligent Services (LUIS)](https://social.msdn.microsoft.com/forums/azure/home?forum=LUIS)

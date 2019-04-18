@@ -13,10 +13,10 @@ ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
 ms.openlocfilehash: 5b2b7f3cd6bfa219b794edc63d6bf8b2784b713c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891896"
 ---
 # <a name="azure-functions-developers-guide"></a>Guía para desarrolladores de Azure Functions
@@ -86,10 +86,10 @@ El código de Azure Functions es código abierto y está almacenado en repositor
 
 * [Azure Functions](https://github.com/Azure/Azure-Functions)
 * [Host de Azure Functions](https://github.com/Azure/azure-functions-host/)
-* [portal de Azure Functions](https://github.com/azure/azure-functions-ux)
+* [Portal de Azure Functions](https://github.com/azure/azure-functions-ux)
 * [Plantillas de Azure Functions](https://github.com/azure/azure-functions-templates)
 * [SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/)
-* [Extensiones del SDK de WebJobs de Azure](https://github.com/Azure/azure-webjobs-sdk-extensions/)
+* [Extensiones del SDK de Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk-extensions/)
 
 ## <a name="bindings"></a>Enlaces
 Esta es una tabla de todos los enlaces admitidos.
@@ -104,8 +104,8 @@ Esta es una tabla de todos los enlaces admitidos.
 ## <a name="next-steps"></a>Pasos siguientes
 Para obtener más información, consulte los siguientes recursos:
 
-* [Los enlaces y desencadenadores de azure Functions](functions-triggers-bindings.md)
-* [Codificación y comprobación de las funciones de Azure Functions en un entorno local](./functions-develop-local.md)
+* [Enlaces y desencadenadores de Azure Functions](functions-triggers-bindings.md)
+* [Codificación y comprobación de Azure Functions en un entorno local](./functions-develop-local.md)
 * [Procedimientos recomendados de Azure Functions](functions-best-practices.md)
 * [Referencia para desarrolladores de C# de Azure Functions](functions-reference-csharp.md)
 * [Referencia para desarrolladores de NodeJS de Azure Functions](functions-reference-node.md)

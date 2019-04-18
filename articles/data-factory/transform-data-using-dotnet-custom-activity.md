@@ -12,16 +12,16 @@ author: nabhishek
 ms.author: abnarain
 manager: craigg
 ms.openlocfilehash: ea409d6705d0146e9cb32ba11e6b785cf527739c
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904583"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Uso de actividades personalizadas en una canalización de Azure Data Factory
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [versión 1](v1/data-factory-use-custom-activities.md)
+> * [Versión 1](v1/data-factory-use-custom-activities.md)
 > * [Versión actual](transform-data-using-dotnet-custom-activity.md)
 
 Hay dos tipos de actividades que puede usar en una canalización de Azure Data Factory.
@@ -384,8 +384,8 @@ Vea los siguientes artículos, en los que se explica cómo transformar datos de 
 * [Actividad de U-SQL](transform-data-using-data-lake-analytics.md)
 * [Actividad de Hive](transform-data-using-hadoop-hive.md)
 * [Actividad de Pig](transform-data-using-hadoop-pig.md)
-* [Actividad MapReduce](transform-data-using-hadoop-map-reduce.md)
-* [Actividad de Streaming de Hadoop](transform-data-using-hadoop-streaming.md)
+* [Actividad de MapReduce](transform-data-using-hadoop-map-reduce.md)
+* [Actividad de streaming de Hadoop](transform-data-using-hadoop-streaming.md)
 * [Actividad de Spark](transform-data-using-spark.md)
-* [Actividad de ejecución de lotes de aprendizaje de máquina](transform-data-using-machine-learning.md)
+* [Actividad de ejecución de Batch de Machine Learning](transform-data-using-machine-learning.md)
 * [Actividad de procedimiento almacenado](transform-data-using-stored-procedure.md)

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 01/23/2019
 ms.author: diberry
 ms.openlocfilehash: 51c6a58567b35c9b8486d8634b0bed1af7218994
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893632"
 ---
 # <a name="test-your-luis-app-in-the-luis-portal"></a>Prueba de la aplicación de LUIS en el portal de LUIS
@@ -108,7 +108,7 @@ Use el procedimiento siguiente para incluir el servicio [Bing Spell Check v7](ht
 3. Cuando se abra el panel **Publicado**, seleccione **[Configuración adicional](#additional-settings-in-test-panel)**.
 
 4. En el cuadro de diálogo emergente, escriba su clave de servicio de **Bing Spell Check**. 
-    ![Escriba la clave del servicio Bing Spell Check](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
+    ![Escribir la clave de servicio de Bing Spell Check](./media/luis-how-to-interactive-test/interactive-with-spell-check-service-key.png)
 
 5. Escriba una consulta con una ortografía incorrecta, como `book flite to seattle` y presione Entrar. La ortografía incorrecta de la palabra `flite` se sustituye en la consulta enviada a LUIS y el JSON resultante muestra la consulta original, como `query`, y la ortografía corregida en la consulta, como `alteredQuery`.
 
@@ -132,5 +132,5 @@ Vea los [conceptos](luis-concept-batch-test.md) de las pruebas por lotes y obten
 
 Si las pruebas indican que la aplicación de LUIS no reconoce las entidades y las intenciones correctas, puede trabajar para mejorar la precisión de la aplicación de LUIS etiquetando más expresiones o agregando características. 
 
-* [Etiqueta sugeridos grabaciones de voz con LUIS](luis-how-to-review-endpoint-utterances.md) 
-* [Uso de características para mejorar el rendimiento de la aplicación de LUIS](luis-how-to-add-features.md) 
+* [Label suggested utterances with LUIS](luis-how-to-review-endpoint-utterances.md) (Etiquetado de expresiones sugeridas con LUIS) 
+* [Use features to improve your LUIS app's performance](luis-how-to-add-features.md) (Uso de características para mejorar el rendimiento de la aplicación de LUIS) 

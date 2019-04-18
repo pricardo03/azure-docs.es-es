@@ -11,10 +11,10 @@ ms.date: 03/03/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 12b464d9b6bd09acb9c93ab1de0ba178f28a778a
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894908"
 ---
 # <a name="azure-active-directory-b2c-migrate-users-with-social-identities"></a>Azure Active Directory B2C: Migración de usuarios con identidades sociales
@@ -29,11 +29,11 @@ Este artículo es una continuación del artículo sobre migración de usuarios y
 
 * Las identidades de las **cuentas de las redes sociales** se almacenan en la colección `userIdentities`. La entrada especifica `issuer` (nombre de proveedor de identidades) como facebook.com y `issuerUserId`, que es un identificador de usuario único para el emisor. El atributo `userIdentities` contiene uno o más registros de identidad de usuario que especifican el tipo de cuenta de redes sociales y el identificador de usuario único del proveedor de identidades de redes sociales.
 
-* **Combine una cuenta local con una identidad de redes sociales**. Como ya se ha mencionado, los nombres de inicio de sesión de cuentas locales y las identidades de cuentas de redes sociales se almacenan en diferentes atributos. `signInNames` es si se usa para la cuenta local, mientras `userIdentities` para la cuenta de redes sociales. Una sola cuenta de Azure AD B2C puede ser solo una cuenta local, solo una cuenta de redes sociales, o combinar una cuenta local con identidad de redes sociales en un registro de usuario. Este comportamiento le permite administrar una única cuenta, mientras que un usuario puede iniciar sesión con las credenciales de cuenta local o con las identidades de redes sociales.
+* **Combine una cuenta local con una identidad de redes sociales**. Como ya se ha mencionado, los nombres de inicio de sesión de cuentas locales y las identidades de cuentas de redes sociales se almacenan en diferentes atributos. `signInNames` se utiliza para la cuenta local, mientras que `userIdentities` es para la cuenta de redes sociales. Una sola cuenta de Azure AD B2C puede ser solo una cuenta local, solo una cuenta de redes sociales, o combinar una cuenta local con identidad de redes sociales en un registro de usuario. Este comportamiento le permite administrar una única cuenta, mientras que un usuario puede iniciar sesión con las credenciales de cuenta local o con las identidades de redes sociales.
 
-* `UserIdentity` Tipo: contiene información sobre la identidad de un usuario de la cuenta de redes sociales en un inquilino de Azure AD B2C:
+* Tipo `UserIdentity`: contiene información sobre la identidad de un usuario de la cuenta de redes sociales en un inquilino de Azure AD B2C:
   * `issuer` La representación de cadena del proveedor de identidades que ha emitido el identificador de usuario, como facebook.com.
-  * `issuerUserId` El identificador de usuario único utilizado por el proveedor de identidades de redes sociales en formato base64.
+  * `issuerUserId` El identificador de usuario único utilizado por el proveedor de identidades de redes sociales en formato en base64.
 
     ```JSON
     "userIdentities": [{

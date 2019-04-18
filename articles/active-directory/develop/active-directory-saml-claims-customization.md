@@ -19,10 +19,10 @@ ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878577"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimientos para: Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales
@@ -62,9 +62,9 @@ Desde el **Elegir formato de identificador de nombre** lista desplegable, puede 
 | Formato de NameID | DESCRIPCIÓN |
 |---------------|-------------|
 | **Valor predeterminado** | Utilizará el formato de origen predeterminado de Azure AD. |
-| **Persistente** | Azure AD usará persistente como el formato de NameID. |
+| **Persistent** | Azure AD usará persistente como el formato de NameID. |
 | **EmailAddress** | Azure AD usará la dirección de correo electrónico como el formato de NameID. |
-| **No especificada** | Azure AD usará no especificado como el formato de NameID. |
+| **No se especifica** | Azure AD usará no especificado como el formato de NameID. |
 | **Transitorio** | Azure AD usará a transitorio como el formato de NameID. |
 
 Para obtener más información sobre el atributo NameIDPolicy, consulte [protocolo SAML de inicio de sesión único](single-sign-on-saml-protocol.md).
@@ -121,8 +121,8 @@ También puede usar las funciones de transformación de notificaciones.
 | **Extract() - antes de coincidencia** | Devuelve la subcadena hasta que coincida con el valor especificado.<br/>Por ejemplo, si el valor de la entrada es "BSimon_US", el valor coincidente es "_US", entonces el resultado de la notificación es "BSimon". |
 | **Extract() - entre coincidentes** | Devuelve la subcadena hasta que coincida con el valor especificado.<br/>Por ejemplo, si el valor de la entrada es "Finance_BSimon_US", el primer valor coincidente es "Finance_", el segundo valor coincidente es "_US", entonces el resultado de la notificación es "BSimon". |
 | **ExtractAlpha() - Prefix** | Devuelve la parte alfabético de prefijo de la cadena.<br/>Por ejemplo, si el valor de la entrada es "BSimon_123", devuelve "BSimon". |
-| **ExtractAlpha() - sufijo** | Devuelve la parte alfabético de sufijo de la cadena.<br/>Por ejemplo, si el valor de la entrada es "123_Simon", devuelve "BSimon". |
-| **ExtractNumeric() - prefijo** | Devuelve la parte numérica del prefijo de la cadena.<br/>Por ejemplo, si el valor de la entrada es "123_BSimon", devuelve "123". |
+| **ExtractAlpha() - Suffix** | Devuelve la parte alfabético de sufijo de la cadena.<br/>Por ejemplo, si el valor de la entrada es "123_Simon", devuelve "BSimon". |
+| **ExtractNumeric() - Prefix** | Devuelve la parte numérica del prefijo de la cadena.<br/>Por ejemplo, si el valor de la entrada es "123_BSimon", devuelve "123". |
 | **ExtractNumeric() - sufijo** | Devuelve la parte numérica del sufijo de la cadena.<br/>Por ejemplo, si el valor de la entrada es "BSimon_123", devuelve "123". |
 | **IfEmpty()** | Genera un atributo o una constante si la entrada es nulo o está vacío.<br/>Por ejemplo, si desea dar salida a un atributo que se almacenan en un extensionattribute si el identificador de empleado para un usuario determinado está vacío. Para ello, configuraría los siguientes valores:<br/>Parámetro 1(input): user.employeeid<br/>Parámetro 2 (salida): extensionAttribute1<br/>Parámetro 3 (si no hay ninguna coincidencia de salida): user.employeeid |
 | **IfNotEmpty()** | Genera un atributo o una constante si la entrada no es nulo o está vacío.<br/>Por ejemplo, si desea dar salida a un atributo que se almacenan en un extensionattribute si el identificador de empleado para un usuario determinado no está vacía. Para ello, configuraría los siguientes valores:<br/>Parámetro 1(input): user.employeeid<br/>Parámetro 2 (salida): extensionAttribute1 |
@@ -131,6 +131,6 @@ Si necesita transformaciones adicionales, envíe su idea en el [foro de comentar
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Administración de aplicaciones de Azure AD](../manage-apps/what-is-application-management.md)
-* [Configurar inicio de sesión único en aplicaciones que no están en la Galería de aplicaciones de Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Solución de problemas de basado en SAML sesión único](howto-v1-debug-saml-sso-issues.md)
+* [Administración de aplicaciones en Azure AD](../manage-apps/what-is-application-management.md)
+* [Configuración del inicio de sesión único en aplicaciones que no están en la galería de aplicaciones de Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Solución de problemas del inicio de sesión único basado en SAML](howto-v1-debug-saml-sso-issues.md)

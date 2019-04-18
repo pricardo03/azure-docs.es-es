@@ -11,10 +11,10 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 0dfe6553778092c33f9e1bd55ac7a7ae65137a6e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881008"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates y PredicateValidations
@@ -194,7 +194,7 @@ Con **Predicates** y **PredicateValidationsInput** puede controlar los requisito
 - **Lowercase** con el método `IncludesCharacters` valida que la contraseña contiene una letra minúscula.
 - **Uppercase** con el método `IncludesCharacters` valida que la contraseña contiene una letra mayúscula.
 - **Number** con el método `IncludesCharacters` valida que la contraseña contiene un dígito.
-- **Símbolo** utilizando el `IncludesCharacters` método valida que la contraseña contiene uno de los siguientes símbolos `@#$%^&*\-_+=[]{}|\:',?/~"();!`
+- **Symbol** con el método `IncludesCharacters` valida que la contraseña contiene uno de los siguientes símbolos `@#$%^&*\-_+=[]{}|\:',?/~"();!`
 - **PIN** con el método `MatchesRegex` valida que la contraseña solo contiene números.
 - **AllowedAADCharacters** con el método `MatchesRegex` valida que se ha proporcionado el único carácter no válido de la contraseña.
 - **DisallowedWhitespace** con el método `MatchesRegex` valida que la contraseña no empiece ni termine con un carácter de espacio en blanco.

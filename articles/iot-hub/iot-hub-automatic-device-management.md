@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/13/2018
 ms.author: chrisgre
 ms.openlocfilehash: 598bf82e375f472b2f723c3462ba7ba7b4d25fbe
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012956"
 ---
 # <a name="automatic-iot-device-management-at-scale-using-the-azure-portal"></a>Administración automática de dispositivos IoT a escala mediante el portal de Azure
@@ -208,9 +208,9 @@ En este artículo, aprendió a configurar y supervisar dispositivos IoT a escala
 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
-* [Guía del desarrollador de IoT Hub](iot-hub-devguide.md)
-* [Implementar AI en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md)
+* [Implementación de IA en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 Para explorar el uso del servicio IoT Hub Device Provisioning para habilitar el aprovisionamiento Just-In-Time sin intervención del usuario, vea: 
 
-* [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)
+* [Servicio Azure IoT Hub Device Provisioning](/azure/iot-dps)

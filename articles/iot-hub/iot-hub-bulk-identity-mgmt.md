@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 07/03/2017
 ms.author: robinsh
 ms.openlocfilehash: 274b77644326cbf73696aae77b48afcbc63aa4c2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049979"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importar y exportar identidades de dispositivo de IoT Hub de forma masiva
@@ -256,7 +256,7 @@ Use la propiedad opcional **importMode** en los datos de serialización de impor
 | importMode | DESCRIPCIÓN |
 | --- | --- |
 | **createOrUpdate** |Si no existe un dispositivo con los valores especificados **ID**, se registra por primera vez. <br/>Si el dispositivo ya existe, la información existente se sobrescribe con los datos de entrada proporcionados con independencia del valor **ETag** . <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
-| **create** |Si no existe un dispositivo con los valores especificados **ID**, se registra por primera vez. <br/>Si el dispositivo ya existe, se escribe un error en el archivo de registro. <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
+| **crear** |Si no existe un dispositivo con los valores especificados **ID**, se registra por primera vez. <br/>Si el dispositivo ya existe, se escribe un error en el archivo de registro. <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
 | **update** |Si ya existe un dispositivo con los valores especificados **ID**, información existente se sobrescribe con los datos de entrada proporcionados sin respecto a la **ETag** valor. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. |
 | **updateIfMatchETag** |Si ya existe un dispositivo con los valores especificados **ID**, información existente se sobrescribe con los datos de entrada proporcionados solo si hay un **ETag** coinciden. <br/>Si el dispositivo no existe, se escribe un error en el archivo de registro. <br/>Si no existe la coincidencia con **ETag** , se escribe un error en el archivo de registro. |
 | **createOrUpdateIfMatchETag** |Si no existe un dispositivo con los valores especificados **ID**, se registra por primera vez. <br/>Si el dispositivo ya existe, la información existente se sobrescribe con los datos de entrada proporcionados solo si hay una coincidencia con **ETag** . <br/>Si no existe la coincidencia con **ETag** , se escribe un error en el archivo de registro. <br> El usuario puede especificar opcionalmente datos gemelos junto con los datos del dispositivo. El valor etag del gemelo, si se especifica, se procesa por separado del etag del dispositivo. Si no coincide con el etag del gemelo existente, se escribe un error en el archivo de registro. |
@@ -424,9 +424,9 @@ En este artículo, aprendió a realizar operaciones de forma masiva en el Regist
 
 Para explorar aún más las funcionalidades de IoT Hub, consulte:
 
-* [Guía del desarrollador de IoT Hub](iot-hub-devguide.md)
-* [Implementar AI en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
+* [Guía para desarrolladores de IoT Hub](iot-hub-devguide.md)
+* [Implementación de IA en dispositivos perimetrales con Azure IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)
 
 Para explorar el uso del servicio IoT Hub Device Provisioning para habilitar el aprovisionamiento Just-In-Time sin intervención del usuario, vea: 
 
-* [Azure IoT Hub Device Provisioning Service](/azure/iot-dps)
+* [Servicio Azure IoT Hub Device Provisioning](/azure/iot-dps)

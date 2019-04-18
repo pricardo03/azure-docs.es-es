@@ -11,10 +11,10 @@ ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: bcbda2464a4607aaa0b1bb96ef8f34c8713cb5f1
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918797"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Control de acceso basado en rol en Azure Automation
@@ -25,7 +25,7 @@ El control de acceso basado en rol (RBAC) permite la administración del acceso 
 
 En Azure Automation, el acceso se concede mediante la asignación de rol de RBAC adecuado a los usuarios, grupos y aplicaciones en el ámbito de las cuentas de Automation. Estos son los roles integrados compatibles que admiten las cuentas de Automation:
 
-| **Rol** | **DESCRIPCIÓN** |
+| **Rol** | **Descripción** |
 |:--- |:--- |
 | Propietario |El rol Propietario permite el acceso a todos los recursos y las acciones de una cuenta de Automation, lo que incluye proporcionar acceso a otros usuarios, grupos y aplicaciones para que administren la cuenta de Automation. |
 | Colaborador |El rol Colaborador permite administrar todo, excepto la modificación de los permisos de acceso de otros usuarios a una cuenta de Automation. |
@@ -55,7 +55,7 @@ Un propietario puede administrar todo, incluido el acceso. La siguiente tabla mu
 
 Un colaborador puede administrar todo, excepto el acceso. La siguiente tabla muestra los permisos concedidos y denegados para el rol:
 
-|**Acciones**  |**DESCRIPCIÓN**  |
+|**Acciones**  |**Descripción**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/|Crear y administrar recursos de todos los tipos|
 |**No acciones**||
@@ -67,7 +67,7 @@ Un colaborador puede administrar todo, excepto el acceso. La siguiente tabla mue
 
 Un lector puede ver todos los recursos de una cuenta de Automation, pero no realizar cambios.
 
-|**Acciones**  |**DESCRIPCIÓN**  |
+|**Acciones**  |**Descripción**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/read|Ver todos los recursos en una cuenta de Automation. |
 
@@ -75,7 +75,7 @@ Un lector puede ver todos los recursos de una cuenta de Automation, pero no real
 
 El rol de Operador de Automation permite crear y administrar trabajos, y leer las propiedades y el nombre del runbook de todos los runbooks de una cuenta de Automation.  Nota: Si quiere controlar el acceso de los operadores a runbooks específicos, no establezca este rol. En su lugar, combine los roles "Operador de trabajo de Automation" y "Operador de runbooks de Automation". La siguiente tabla muestra los permisos concedidos para el rol:
 
-|**Acciones**  |**DESCRIPCIÓN**  |
+|**Acciones**  |**Descripción**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|Autorización de lectura.|
 |Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read|Lee los recursos de Hybrid Runbook Worker.|
@@ -102,7 +102,7 @@ El rol de Operador de Automation permite crear y administrar trabajos, y leer la
 
 El rol de Operador de trabajos de Automation se asigna en el ámbito de la cuenta de Automation. Esto permite a los roles con permiso de Operador crear y administrar trabajos para todos los runbooks de la cuenta. La siguiente tabla muestra los permisos concedidos para el rol:
 
-|**Acciones**  |**DESCRIPCIÓN**  |
+|**Acciones**  |**Descripción**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|Autorización de lectura.|
 |Microsoft.Automation/automationAccounts/jobs/read|Enumerar trabajos del runbook.|
@@ -120,7 +120,7 @@ El rol de Operador de trabajos de Automation se asigna en el ámbito de la cuent
 
 El rol de operador de runbooks de Automation se concede en el ámbito del runbook. Un Operador de runbooks de Automation puede ver las propiedades y el nombre del runbook.  Este rol, combinado con el de Operador de trabajos de Automation, permite también al operador crear y administrar trabajos para el runbook. La siguiente tabla muestra los permisos concedidos para el rol:
 
-|**Acciones**  |**DESCRIPCIÓN**  |
+|**Acciones**  |**Descripción**  |
 |---------|---------|
 |Microsoft.Automation/automationAccounts/runbooks/read     | Enumerar los runbooks.        |
 |Microsoft.Authorization/*/read      | Autorización de lectura.        |
@@ -133,7 +133,7 @@ El rol de operador de runbooks de Automation se concede en el ámbito del runboo
 
 Un colaborador de Log Analytics puede leer todos los datos de supervisión y editar la configuración de supervisión. La edición de la configuración de supervisión incluye la posibilidad de añadir la extensión de máquina virtual a las máquinas virtuales, leer las claves de las cuentas de almacenamiento para poder configurar la recopilación de registros de Azure Storage, crear y configurar cuentas de Automation, añadir soluciones y configurar Azure Diagnostics en todos los recursos de Azure. La siguiente tabla muestra los permisos concedidos para el rol:
 
-|**Acciones**  |**DESCRIPCIÓN**  |
+|**Acciones**  |**Descripción**  |
 |---------|---------|
 |*/read|Leer recursos de todos los tipos, excepto secretos.|
 |Microsoft.Automation/automationAccounts/*|Administrar cuentas de Automation.|
@@ -153,7 +153,7 @@ Un colaborador de Log Analytics puede leer todos los datos de supervisión y edi
 
 Un lector de Log Analytics puede ver y buscar los datos de supervisión, así como consultar la configuración, incluida la de Azure Diagnostics en todos los recursos de Azure. La siguiente tabla muestra los permisos concedidos o denegados para el rol:
 
-|**Acciones**  |**DESCRIPCIÓN**  |
+|**Acciones**  |**Descripción**  |
 |---------|---------|
 |*/read|Leer recursos de todos los tipos, excepto secretos.|
 |Microsoft.OperationalInsights/workspaces/analytics/query/action|Administrar consultas en los registros de Azure Monitor.|
@@ -166,7 +166,7 @@ Un lector de Log Analytics puede ver y buscar los datos de supervisión, así co
 
 Un colaborador de supervisión puede leer todos los datos de supervisión y actualizar la configuración de supervisión. La siguiente tabla muestra los permisos concedidos para el rol:
 
-|**Acciones**  |**DESCRIPCIÓN**  |
+|**Acciones**  |**Descripción**  |
 |---------|---------|
 |*/read|Leer recursos de todos los tipos, excepto secretos.|
 |Microsoft.AlertsManagement/alerts/*|Administrar alertas.|
@@ -192,7 +192,7 @@ Un colaborador de supervisión puede leer todos los datos de supervisión y actu
 
 Un lector de supervisión puede leer todos los datos de supervisión. La siguiente tabla muestra los permisos concedidos para el rol:
 
-|**Acciones**  |**DESCRIPCIÓN**  |
+|**Acciones**  |**Descripción**  |
 |---------|---------|
 |*/read|Leer recursos de todos los tipos, excepto secretos.|
 |Microsoft.OperationalInsights/workspaces/search/action|Buscar áreas de trabajo de Log Analytics.|
@@ -202,7 +202,7 @@ Un lector de supervisión puede leer todos los datos de supervisión. La siguien
 
 Un administrador de acceso de usuario puede administrar el acceso de los usuarios a los recursos de Azure. La siguiente tabla muestra los permisos concedidos para el rol:
 
-|**Acciones**  |**DESCRIPCIÓN**  |
+|**Acciones**  |**Descripción**  |
 |---------|---------|
 |*/read|Leer todos los recursos.|
 |Microsoft.Authorization/*|Administrar la autorización|
@@ -214,7 +214,7 @@ Las siguientes tablas muestran los permisos mínimos necesarios para incorporar 
 
 ### <a name="onboarding-from-a-virtual-machine"></a>Incorporación desde una máquina virtual
 
-|**.**  |**Permiso**  |**Ámbito mínimo**  |
+|**Acción**  |**Permiso**  |**Ámbito mínimo**  |
 |---------|---------|---------|
 |Escribir nueva implementación      | Microsoft.Resources/deployments/*          |Subscription          |
 |Escribir nuevo grupo de recursos      | Microsoft.Resources/subscriptions/resourceGroups/write        | Subscription          |
@@ -237,7 +237,7 @@ Las siguientes tablas muestran los permisos mínimos necesarios para incorporar 
 
 ### <a name="onboarding-from-automation-account"></a>Incorporación desde cuenta de Automation
 
-|**.**  |**Permiso** |**Ámbito mínimo**  |
+|**Acción**  |**Permiso** |**Ámbito mínimo**  |
 |---------|---------|---------|
 |Crear una nueva implementación     | Microsoft.Resources/deployments/*        | Subscription         |
 |Crear un grupo de recursos     | Microsoft.Resources/subscriptions/resourceGroups/write         | Subscription        |
@@ -251,7 +251,7 @@ Las siguientes tablas muestran los permisos mínimos necesarios para incorporar 
 |Crear o editar búsqueda guardada     | Microsoft.OperationalInsights/workspaces/write        | Área de trabajo        |
 |Crear o editar la configuración de ámbito     | Microsoft.OperationalInsights/workspaces/write        | Área de trabajo        |
 |Vincular solución a la configuración de ámbito      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Solución         |
-|**Paso 2: incorporación varias máquinas virtuales**     |         |         |
+|**Paso 2: Incorporación de varias máquinas virtuales**     |         |         |
 |Hoja VMOnboarding: crear extensión MMA     | Microsoft.Compute/virtualMachines/write           | Máquina virtual        |
 |Crear o editar búsqueda guardada     | Microsoft.OperationalInsights/workspaces/write           | Área de trabajo        |
 |Crear o editar la configuración de ámbito  | Microsoft.OperationalInsights/workspaces/write   | Área de trabajo|

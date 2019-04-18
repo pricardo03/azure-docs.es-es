@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: raynew
 ms.openlocfilehash: 142ffdadf4adb1ee07f3592624cbdddfb310b580
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264563"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Copia de seguridad de máquinas virtuales de Azure en un almacén de Recovery Services
@@ -162,9 +162,9 @@ La copia de seguridad inicial se ejecutará según la programación, pero puede 
 
 Azure Backup realiza una copia de seguridad de máquinas virtuales de Azure instalando una extensión en el agente de máquina virtual de Azure que se ejecuta en la máquina. Si se creó la máquina virtual desde una imagen de Marketplace de Azure, el agente está instalado y ejecutándose. Si crea una máquina virtual personalizada, o migrar una máquina local, es posible que deba instalar al agente manualmente, como se resume en la tabla.
 
-**máquina virtual** | **Detalles**
+**VM** | **Detalles**
 --- | ---
-** Windows** | 1. [Descargue e instale](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) el archivo MSI del agente.<br/><br/> 2. Realice la instalación con permisos de administrador en el equipo.<br/><br/> 3. Comprobar la instalación. En *C:\WindowsAzure\Packages* en la máquina virtual, haga clic en **WaAppAgent.exe** > **propiedades**. En el **detalles** ficha, **versión del producto** debe ser el valor 2.6.1198.718 o superior.<br/><br/> Si va a actualizar el agente, asegúrese de que no se está ejecutando ninguna operación de copia de seguridad, y [volver a instalar el agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
+**Windows** | 1. [Descargue e instale](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) el archivo MSI del agente.<br/><br/> 2. Realice la instalación con permisos de administrador en el equipo.<br/><br/> 3. Comprobar la instalación. En *C:\WindowsAzure\Packages* en la máquina virtual, haga clic en **WaAppAgent.exe** > **propiedades**. En el **detalles** ficha, **versión del producto** debe ser el valor 2.6.1198.718 o superior.<br/><br/> Si va a actualizar el agente, asegúrese de que no se está ejecutando ninguna operación de copia de seguridad, y [volver a instalar el agente](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
 **Linux** | Instalar mediante el uso de un paquete de DEB o RPM del repositorio de paquetes de su distribución. Este es el método preferido para instalar y actualizar al agente Linux de Azure. Todos los [proveedores de distribución aprobada](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) integran el paquete de agente Linux de Azure en sus imágenes y repositorios. El agente está disponible en [GitHub](https://github.com/Azure/WALinuxAgent), pero no se recomienda instalarlo desde allí.<br/><br/> Si va a actualizar al agente, asegúrese de que está ejecutando ninguna operación de copia de seguridad y actualizar los archivos binarios.
 
 ### <a name="explicitly-allow-outbound-access"></a>Permitir explícitamente el acceso de salida
@@ -175,11 +175,11 @@ La extensión de copia de seguridad que se ejecuta en la máquina virtual necesi
 - Si tiene dificultades con las máquinas virtuales conectarse o si ve el error **ExtensionSnapshotFailedNoNetwork** al intentar conectarse, se debe permitir expresamente el acceso para la extensión de copia de seguridad puede comunicarse con la dirección IP pública de Azure direcciones para el tráfico de copia de seguridad. En la tabla siguiente se resumen los métodos de acceso.
 
 
-**Opción** | **.** | **Detalles** 
+**Opción** | **Acción** | **Detalles** 
 --- | --- | --- 
-**Configurar las reglas NSG** | Permita los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/> En lugar de permitir y administrar cada intervalo de direcciones, puede agregar una regla que permita el acceso al servicio Azure Backup mediante un [etiqueta de servicio](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). | [Más información](../virtual-network/security-overview.md#service-tags) sobre las etiquetas de servicio.<br/><br/> Las etiquetas de servicios simplifican la administración de acceso y no incurrir en costos adicionales.
-**Implementar un servidor proxy** | Implementación de un servidor proxy HTTP para enrutar el tráfico. | Proporciona acceso a la totalidad de Azure, no solo al almacenamiento.<br/><br/> Se permite un control detallado de las direcciones URL de almacenamiento.<br/><br/> Punto individual de acceso a Internet para las máquinas virtuales.<br/><br/> Costos adicionales del proxy.
-**Configurar el Firewall de Azure** | Permita que el tráfico pase por Azure Firewall en la máquina virtual y utilice una etiqueta de nombre de dominio completo para el servicio Azure Backup. | Fácil de usar si tiene configurado en una subred de red virtual de Firewall de Azure.<br/><br/> No se puede crear sus propias etiquetas FQDN, o modificar el FQDN en una etiqueta.<br/><br/> Si las máquinas virtuales de Azure tienen discos administrados, deberá abrir otro puerto (8443) en los firewalls.
+**Configuración de reglas de NSG** | Permita los [intervalos de direcciones IP del centro de datos de Azure](https://www.microsoft.com/download/details.aspx?id=41653).<br/><br/> En lugar de permitir y administrar cada intervalo de direcciones, puede agregar una regla que permita el acceso al servicio Azure Backup mediante un [etiqueta de servicio](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure). | [Más información](../virtual-network/security-overview.md#service-tags) sobre las etiquetas de servicio.<br/><br/> Las etiquetas de servicios simplifican la administración de acceso y no incurrir en costos adicionales.
+**Implementación de un proxy** | Implementación de un servidor proxy HTTP para enrutar el tráfico. | Proporciona acceso a la totalidad de Azure, no solo al almacenamiento.<br/><br/> Se permite un control detallado de las direcciones URL de almacenamiento.<br/><br/> Punto individual de acceso a Internet para las máquinas virtuales.<br/><br/> Costos adicionales del proxy.
+**Configuración de Azure Firewall** | Permita que el tráfico pase por Azure Firewall en la máquina virtual y utilice una etiqueta de nombre de dominio completo para el servicio Azure Backup. | Fácil de usar si tiene configurado en una subred de red virtual de Firewall de Azure.<br/><br/> No se puede crear sus propias etiquetas FQDN, o modificar el FQDN en una etiqueta.<br/><br/> Si las máquinas virtuales de Azure tienen discos administrados, deberá abrir otro puerto (8443) en los firewalls.
 
 #### <a name="establish-network-connectivity"></a>Establecimiento de conectividad de red
 
@@ -229,8 +229,8 @@ Si no tiene un proxy de la cuenta del sistema, configure uno como se indica a co
      - Agregue esta línea al archivo **/etc/environment**:
        - **http_proxy = http:\/puerto de proxy: dirección IP/proxy**
      - Agregue estas líneas al archivo **/etc/waagent.conf**:
-         - **Dirección IP de HttpProxy.Host=proxy**
-         - **Puerto HttpProxy.Port=proxy**
+         - **HttpProxy.Host=proxy IP address**
+         - **HttpProxy.Port=proxy port**
    - En los equipos Windows, en la configuración del explorador, especifique que se debe usar un proxy. Si actualmente usa a un proxy en una cuenta de usuario, puede utilizar este script para aplicar el valor en el nivel de cuenta del sistema.
        ```powershell
       $obj = Get-ItemProperty -Path Registry::”HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Connections"

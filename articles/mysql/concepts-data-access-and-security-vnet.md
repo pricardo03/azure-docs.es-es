@@ -8,10 +8,10 @@ ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.openlocfilehash: 37cc8192cc5934cf967ad9b9c62614d0b4503fb4
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006610"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Uso de reglas y puntos de conexión del servicio Virtual Network para Azure Database for MySQL
@@ -93,7 +93,7 @@ Existe una separación de los roles de seguridad en la administración de puntos
 - **Administrador de red:** &nbsp; se activa el punto de conexión.
 - **Administrador de base de datos:** &nbsp; se actualiza la lista de control de acceso (ACL) que se va a agregar a la subred proporcionada en el servidor de Azure Database for MySQL.
 
-*Alternativa RBAC:*
+*Alternativa de RBAC:*
 
 Las funciones de administrador de red y de base de datos tienen más capacidades de las que se necesitan para administrar las reglas de red virtual. Solo se necesita un subconjunto de sus capacidades.
 
@@ -142,8 +142,8 @@ Puede establecer la marca **IgnoreMissingServiceEndpoint** mediante la CLI de Az
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para ver artículos sobre cómo crear reglas de red virtual, consulte lo siguiente:
-- [Crear y administrar la base de datos de Azure para las reglas de MySQL VNet mediante Azure portal](howto-manage-vnet-using-portal.md)
-- [Crear y administrar la base de datos de Azure para las reglas de MySQL VNet mediante la CLI de Azure](howto-manage-vnet-using-cli.md)
+- [Create and manage Azure Database for MySQL VNet rules using the Azure portal](howto-manage-vnet-using-portal.md) (Creación y administración de reglas de red virtual de Azure Database for MySQL mediante Azure Portal)
+- [Creación y administración de puntos de conexión de servicio de red virtual de Azure Database for MySQL mediante la CLI de Azure](howto-manage-vnet-using-cli.md)
 
 <!-- Link references, to text, Within this same GitHub repo. -->
 [arm-deployment-model-568f]: ../azure-resource-manager/resource-manager-deployment-model.md

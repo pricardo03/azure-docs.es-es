@@ -14,10 +14,10 @@ ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c1bac4d2c0f236b8fca611c7391846abdb782796
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009604"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Incorporación o eliminación de usuarios mediante Azure Active Directory
@@ -45,7 +45,7 @@ Puede crear un nuevo usuario con el portal de Azure Active Directory.
 
    - **Perfil.** Si quiere, puede agregar más información sobre el usuario. También puede agregar información del usuario posteriormente. Para obtener más información sobre cómo agregar información de usuario, vea [How to add or change user profile information](active-directory-users-profile-azure-portal.md) (Incorporación o modificación de la información del perfil de usuario).
 
-   - **grupos.** Si quiere, puede agregar el usuario a uno o varios de los grupos existentes. También puede agregar el usuario a grupos en un momento posterior. Para obtener más información acerca de cómo agregar usuarios a grupos, consulte [Creación de un grupo básico y adición de miembros](active-directory-groups-create-azure-portal.md).
+   - **Grupos.** Si quiere, puede agregar el usuario a uno o varios de los grupos existentes. También puede agregar el usuario a grupos en un momento posterior. Para obtener más información acerca de cómo agregar usuarios a grupos, consulte [Creación de un grupo básico y adición de miembros](active-directory-groups-create-azure-portal.md).
 
    - **Rol del directorio.** Si lo desea, puede agregar el usuario a un rol de administrador de Azure AD. Puede asignar el usuario sea un administrador Global o uno o varios de los roles de administrador limitado en Azure AD. Para obtener más información sobre la asignación de roles, consulte [Asignación de roles a usuarios](active-directory-users-assign-role-azure-portal.md).
 
@@ -79,12 +79,12 @@ Puede eliminar un usuario existente mediante el portal de Azure Active Directory
 
 Después de agregar a los usuarios, puede realizar los siguientes procesos básicos:
 
-- [Adiciones o cambios a la información del perfil](active-directory-users-profile-azure-portal.md)
+- [Add or change profile information](active-directory-users-profile-azure-portal.md) (Incorporación o modificación de la información del perfil)
 
 - [Asignación de roles a usuarios](active-directory-users-assign-role-azure-portal.md)
 
 - [Creación de un grupo básico y adición de miembros](active-directory-groups-create-azure-portal.md)
 
-- [Trabajar con usuarios y grupos dinámicos](../users-groups-roles/groups-create-rule.md)
+- [Trabajo con usuarios y grupos dinámicos](../users-groups-roles/groups-create-rule.md)
 
 O bien puede realizar otras tareas de administración de usuarios, como [agregar usuarios invitados de otro directorio](../b2b/what-is-b2b.md) o [restaurar un usuario eliminado](active-directory-users-restore.md). Para obtener más información acerca de otras acciones disponibles, consulte la [documentación de administración de usuarios en Azure Active Directory](../users-groups-roles/index.yml).

@@ -12,10 +12,10 @@ ms.topic: article
 tags: connectors
 ms.date: 07/21/2016
 ms.openlocfilehash: c3047000843e054e71ec1a80313118a25e7c4905
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895586"
 ---
 # <a name="create-event-based-workflows-or-actions-by-using-webhooks-and-azure-logic-apps"></a>Creación de flujos de trabajo o acciones basados en eventos mediante webhooks y Azure Logic Apps
@@ -104,7 +104,7 @@ Un asterisco (*) indica un campo obligatorio.
 | Autenticación de suscripción |Autenticación |Autenticación HTTP que se utiliza para realizar la suscripción. Para más información consulte el [conector HTTP](connectors-native-http.md#authentication) |
 | Cuerpo de cancelación de suscripción |Cuerpo |Cuerpo de la solicitud HTTP para cancelar la suscripción. |
 | Encabezados de cancelación de suscripción |encabezados |Encabezados de la solicitud HTTP para cancelar la suscripción. |
-| Autenticación de cancelación de suscripción |authentication |Autenticación HTTP que se utiliza para cancelar la suscripción. [Conector HTTP](connectors-native-http.md#authentication) para obtener más información. |
+| Autenticación de cancelación de suscripción |authentication |Autenticación HTTP que se utiliza para cancelar la suscripción. Para más información consulte el [conector HTTP](connectors-native-http.md#authentication) |
 
 **Detalles de salida**
 
@@ -140,7 +140,7 @@ Un asterisco (*) indica un campo obligatorio.
 | Autenticación de suscripción |Autenticación |Autenticación HTTP que se utiliza para realizar la suscripción. Para más información consulte el [conector HTTP](connectors-native-http.md#authentication) |
 | Cuerpo de cancelación de suscripción |Cuerpo |Cuerpo de la solicitud HTTP para cancelar la suscripción. |
 | Encabezados de cancelación de suscripción |encabezados |Encabezados de la solicitud HTTP para cancelar la suscripción. |
-| Autenticación de cancelación de suscripción |authentication |Autenticación HTTP que se utiliza para cancelar la suscripción. [Conector HTTP](connectors-native-http.md#authentication) para obtener más información. |
+| Autenticación de cancelación de suscripción |authentication |Autenticación HTTP que se utiliza para cancelar la suscripción. Para más información consulte el [conector HTTP](connectors-native-http.md#authentication) |
 
 **Detalles de salida**
 
@@ -155,4 +155,4 @@ Solicitud de webhook
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Encuentre otros conectores](apis-list.md)
+* [Buscar otros conectores](apis-list.md)

@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f524e8cef3878816cec53575217bdb6d0fd9be7b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: 761f3e6e72319a2e63d6b66f2893130ec5a82ebf
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501262"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698171"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Corregir las reglas predeterminadas modificadas en Azure AD Connect
 
@@ -76,12 +76,12 @@ Regla de sincronización entrante significa que el origen para el atributo es un
 
  ![reglas predeterminadas](media/how-to-connect-fix-default-rules/default3a.png)
 
-Siga su propia convención de nomenclatura para el nombre de la regla, aquí usamos **personalizado In from AD - usuario**, esto significa que la regla sea una regla personalizada y una regla de entrada desde el espacio del conector de AD en el metaverso. 
+Siga su propia convención de nomenclatura para el nombre de la regla, aquí usamos **personalizado In from AD - usuario**, esto significa que la regla sea una regla personalizada y una regla de entrada desde el espacio del conector de AD en el metaverso.   
 
  ![reglas predeterminadas](media/how-to-connect-fix-default-rules/default3b.png)
 
-Asigne a su propia descripción de la regla para que sea fácil, al igual que lo que es el objetivo de esta regla y por qué se necesita el mantenimiento futuro de la regla.
-Sistema conectado (el bosque) seleccionado el origen del atributo. A continuación, tipo de objeto de sistema conectado y el tipo de objeto de metaverso.
+Asigne a su propia descripción de la regla para que sea fácil, como cuál es el objetivo de esta regla y por qué se necesita el mantenimiento futuro de la regla.
+Seleccione un sistema conectado (el bosque): el origen de atributo. A continuación, seleccione el tipo de objeto de sistema conectado y el tipo de objeto de metaverso.
 
 Especifique el valor de prioridad entre 0 y 99 (reducir el número, mayor precedencia). Mantenga los demás campos como 'Etiqueta', "Habilitar sincronización de contraseñas" y "Disabled" como valor predeterminado.
 

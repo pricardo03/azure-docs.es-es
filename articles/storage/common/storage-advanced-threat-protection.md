@@ -9,15 +9,15 @@ ms.date: 04/03/2019
 ms.author: monhaber
 ms.manager: shaik
 ms.openlocfilehash: 78338ece1bc70d8410bd71183a34aaf1a52f2d1b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904124"
 ---
 # <a name="advanced-threat-protection-for-azure-storage"></a>Advanced Threat Protection para Azure Storage
 
-Protección contra amenazas avanzada de Azure Storage proporciona una capa adicional de inteligencia de seguridad que detecta intentos inusuales y potencialmente dañinos de acceso o ataque a las cuentas de almacenamiento. Esta capa de protección le permite afrontar las amenazas sin necesidad de ser un experto en seguridad ni administrar sistemas de supervisión de la seguridad. 
+Advanced Threat Protection para Azure Storage proporciona un nivel adicional de inteligencia de seguridad que detecta intentos poco habituales y potencialmente peligrosos de acceder o vulnerar las cuentas de almacenamiento. Esta capa de protección le permite afrontar las amenazas sin necesidad de ser un experto en seguridad ni administrar sistemas de supervisión de la seguridad. 
 
 Las alertas de seguridad se desencadenan cuando se producen anomalías en la actividad.  Estas alertas de seguridad se integran con [Azure Security Center](https://azure.microsoft.com/services/security-center/)y también se envían por correo electrónico a los administradores de suscripciones con detalles de actividad sospechosa y recomendaciones sobre cómo investigar y solucionar las amenazas.
 
@@ -80,7 +80,7 @@ Usar comandos de la API de Rest para crear, actualizar u obtener la configuraci�
 
 Use los siguientes cmdlets de PowerShell:
 
-  * [Activar Protección contra amenazas avanzada](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
+  * [Habilitar protección contra amenazas avanzada](https://docs.microsoft.com/powershell/module/az.security/enable-azsecurityadvancedthreatprotection)
   * [Obtener protección contra amenazas avanzada](https://docs.microsoft.com/powershell/module/az.security/get-azsecurityadvancedthreatprotection)
   * [Deshabilitar protección contra amenazas avanzada](https://docs.microsoft.com/powershell/module/az.security/disable-azsecurityadvancedthreatprotection)
 

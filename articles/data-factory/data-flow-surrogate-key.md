@@ -1,20 +1,20 @@
 ---
 title: Transformación Clave suplente de Azure Data Factory Mapping Data Flow
-description: Transformación Clave suplente de Azure Data Factory Mapping Data Flow
+description: Cómo usar asignación de flujo de suplente clave transformación de Azure Data Factory de datos para generar valores de clave secuenciales
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 6243905857f0450168541f556636d90bb4d855f7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: eaa1c577f7e208400d3430222b006e0dbbd7956a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734955"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698442"
 ---
-# <a name="azure-data-factory-mapping-data-flow-surrogate-key-transformation"></a>Transformación Clave suplente de Azure Data Factory Mapping Data Flow
+# <a name="mapping-data-flow-surrogate-key-transformation"></a>Transformación de clave de suplente de flujo de datos de asignación
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
@@ -25,3 +25,31 @@ Para agregar un valor de clave incremental arbitrario no empresarial al conjunto
 "Columna de clave" es el nombre que dará a la nueva columna de clave suplente.
 
 "Valor inicial" es el punto de partida del valor incremental.
+
+## <a name="increment-keys-from-existing-sources"></a>Claves de incremento de orígenes existentes
+
+Si desea iniciar la secuencia de un valor que existe en un origen, puede utilizar una transformación columna derivada inmediatamente después de la transformación de la clave suplente y sumar los dos valores:
+
+![SK agregar Max](media/data-flow/sk006.png "suplente clave transformación Agregar máx.")
+
+Para inicializar el valor de clave con el número máximo de anterior, hay dos técnicas que puede usar:
+
+### <a name="database-sources"></a>Orígenes de base de datos
+
+Use la opción de "Consulta" para seleccionar MAX() desde el origen de la transformación de origen:
+
+![Suplentes consulta clave](media/data-flow/sk002.png "suplentes de la consulta de transformación de clave")
+
+### <a name="file-sources"></a>Orígenes de archivo
+
+Si el valor máximo anterior está en un archivo, puede usar la transformación de origen junto con una transformación agregado y use la función MAX() de expresión para obtener el máximo valor anterior:
+
+![Archivo de clave de suplentes](media/data-flow/sk008.png "sustituta de archivo de clave")
+
+En ambos casos, debe unir los datos entrantes del nuevo junto con el origen que contiene el valor máximo anterior:
+
+![Combinación de claves de suplentes](media/data-flow/sk004.png "suplentes de la combinación de claves")
+
+## <a name="next-steps"></a>Pasos siguientes
+
+Estos ejemplos se usa el [unir](data-flow-join.md) y [columna derivada](data-flow-derived-column.md) transformaciones.

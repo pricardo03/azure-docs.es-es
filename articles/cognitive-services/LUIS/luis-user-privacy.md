@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
 ms.openlocfilehash: eb125133138c6de173fdeb90024a9e5d961a929d
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895163"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Exportación y eliminación de datos del cliente en Language Understanding (LUIS) en Cognitive Services
@@ -37,18 +37,18 @@ El contenido del cliente se almacena cifrado en el almacenamiento regional de Mi
 ## <a name="deleting-customer-data"></a>Eliminación de datos del cliente
 Los usuarios de LUIS tienen control total para eliminar cualquier usuario contenido, ya sea a través del portal web de LUIS o las API de creación de LUIS (también conocida como mediante programación). En la siguiente tabla se muestran vínculos para proporcionar asistencia con ambos:
 
-| | **Cuenta de usuario** | **Application** | **Ejemplo Utterance(s)** | **Consultas del usuario final** |
+| | **Cuenta de usuario** | **Aplicación** | **Ejemplo Utterance(s)** | **Consultas de usuario final** |
 | --- | --- | --- | --- | --- |
 | **Portal** | [Vínculo](luis-concept-data-storage.md#delete-an-account) | [Vínculo](luis-how-to-start-new-app.md#delete-app) | [Vínculo](luis-concept-data-storage.md#utterances-in-an-intent) | [Declaraciones de aprendizaje activo](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[Grabaciones de voz registrados](luis-concept-data-storage.md#disable-logging-utterances) |
-| **API existentes** | [Vínculo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Vínculo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Vínculo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Vínculo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
+| **API** | [Vínculo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [Vínculo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [Vínculo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [Vínculo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
 
 
 ## <a name="exporting-customer-data"></a>Exportación de datos del cliente
 Los usuarios de LUIS tienen control total para ver los datos en el portal, sin embargo, se debe exportar mediante las API de creación de LUIS (también conocida como programación). En la tabla siguiente muestra los vínculos relacionados con exportaciones de datos a través de la API (también conocida como programación) LUIS de creación:
 
-| | **Cuenta de usuario** | **Application** | **Utterance(s)** | **Consultas del usuario final** |
+| | **Cuenta de usuario** | **Aplicación** | **Expresiones** | **Consultas de usuario final** |
 | --- | --- | --- | --- | --- |
-| **API existentes** | [Vínculo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [Vínculo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [Vínculo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [Vínculo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
+| **API** | [Vínculo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [Vínculo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [Vínculo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [Vínculo](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
 
 ## <a name="location-of-active-learning"></a>Ubicación del aprendizaje activo
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: magoedte
-ms.openlocfilehash: 32f2833b4c1ba77564d5388bc080a7cb32d90201
-ms.sourcegitcommit: b3d74ce0a4acea922eadd96abfb7710ae79356e0
-ms.translationtype: HT
+ms.openlocfilehash: ade12225a470b64278b9d27676ceab768f64d904
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/14/2019
-ms.locfileid: "56243780"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698287"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>Azure Monitor para VM (versión preliminar): preguntas más frecuentes
 En este artículo de preguntas frecuentes de Microsoft, se presenta una lista con las preguntas frecuentes sobre Azure Monitor para VM. Si tiene alguna otra pregunta sobre esta solución, vaya al [foro de discusión](https://feedback.azure.com/forums/34192--general-feedback) y publíquela. Si una pregunta es frecuente, se agrega a este artículo para que se pueda encontrar de forma rápida y sencilla.
@@ -100,7 +100,7 @@ La característica de asignación de Azure Monitor para máquinas virtuales est�
 * Ahora se incluyen máquinas virtuales supervisadas en el nodo de grupo del cliente y el gráfico de anillos muestra la proporción de máquinas virtuales no supervisadas frente a las supervisadas en el grupo.  También puede usarse para filtrar la lista de máquinas cuando el grupo está expandido.
 * Ahora se incluyen las máquinas virtuales supervisadas en los nodos de grupo de los puertos del servidor, y el gráfico de anillos muestra la proporción de máquinas supervisadas frente a las no supervisadas en el grupo.  También puede usarse para filtrar la lista de máquinas cuando el grupo está expandido.
 * El estilo de la asignación se actualizó para que sea más coherente con el mapa de aplicación de Application Insights.
-* Los paneles laterales se han actualizado, pero aún no tienen el conjunto completo de integración que era compatible con Service Map: Update Management, Change Tracking, seguridad y Service Desk. 
+* Se han actualizado los paneles laterales y no tiene el conjunto completo de integración que se admitían en Service Map - Update Management, Change Tracking, seguridad y servicio de asistencia. 
 * La opción para elegir los grupos y máquinas que se asignarán se ha actualizado y ahora es compatible con las suscripciones, grupos de recursos, conjuntos de escalado de máquinas virtuales de Azure y servicios en la nube.
 * No puede crear grupos de máquinas de Service Map en la característica de asignación de Azure Monitor para máquinas virtuales.  
 
@@ -125,6 +125,12 @@ Aunque hemos realizado mejoras a la asignación para que controle configuracione
 ## <a name="why-does-the-network-chart-on-the-performance-tab-look-different-than-the-network-chart-on-the-azure-vm-overview-page"></a>¿Por qué el gráfico de red de la pestaña Rendimiento es distinta al gráfico de red de la página Información general de la máquina virtual de Azure?
 
 La página de información general de una máquina virtual de Azure muestra gráficos basados en la medición de actividad de la máquina virtual invitada que realiza el host.  En el gráfico de red de la información general de la máquina virtual de Azure, solo se muestra el tráfico de red que se facturará.  Esto no incluye el tráfico entre redes virtuales.  Los datos y gráficos que se muestran en Azure Monitor para máquinas virtuales se basan en los datos de la máquina virtual invitada, y el gráfico de red muestra todo el tráfico TCP/IP entrante y saliente de esa máquina virtual, incluido el que fluye entre redes virtuales.
+
+## <a name="how-is-response-time-measured-for-data-stored-in-vmconnection-and-displayed-in-the-connection-panel-and-workbooks"></a>¿Cómo se mide el tiempo de respuesta para los datos almacenados en VMConnection y aparece en el panel de la conexión y los libros?
+
+Tiempo de respuesta es una aproximación. Puesto que no se instrumenta el código de la aplicación, que no sabemos realmente cuando comienza una solicitud y cuando llegue la respuesta. En su lugar, observamos que se envían en una conexión de datos y, a continuación, los datos devueltos en esa conexión. Nuestro agente realiza un seguimiento de estos envía y recibe e intenta emparejarlas: recibe una secuencia de envíos, seguido de una secuencia de se interpreta como un par de solicitud/respuesta. Tiempo que transcurre entre estas operaciones es el tiempo de respuesta. Se incluyen la latencia de red y el tiempo de procesamiento del servidor.
+
+Esta aproximación funciona bien para los protocolos que se basa en solicitud/respuesta: una única solicitud sale de la conexión y recibe una respuesta única. Este es el caso de HTTP (S) (sin la canalización), pero no cumplida para otros protocolos.
 
 ## <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>¿Existen limitaciones si estoy en el plan de tarifa gratis de Log Analytics?
 Si ha configurado Azure Monitor con un área de trabajo de Log Analytics mediante el plan de tarifa *gratis*, la característica de asignación de Azure Monitor para máquinas virtuales solo admitirá cinco máquinas conectadas. Si tiene cinco máquinas virtuales conectadas a un área de trabajo gratuita, desconecte una para poder conectar otra nueva. La nueva máquina virtual que conecte no se supervisará ni se reflejará en la página de asignación.  

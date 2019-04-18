@@ -19,10 +19,10 @@ ms.reviewer: hirsin, andret, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, d
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4dd443c95e8cf6dbddd66e5531b182469a118e4c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59260738"
 ---
 # <a name="comparing-the-microsoft-identity-platform-endpoint-and-azure-ad-v10-endpoint"></a>Comparación de punto de conexión de plataforma de identidad de Microsoft y el punto de conexión de Azure AD v1.0
@@ -143,7 +143,7 @@ Los registros de aplicaciones que admiten cuentas profesionales y educativas y c
 
 ### <a name="restrictions-on-redirect-urls"></a>Restricciones en las URL de redireccionamiento
 
-Las aplicaciones que están registradas para la plataforma Microsoft identity están restringidas a un conjunto limitado de valores de dirección URL de redireccionamiento. La URL de redireccionamiento de aplicaciones y servicios web debe comenzar por el esquema `https`, y todos los valores de URL de redireccionamiento deben compartir un único dominio DNS.  El sistema de registro compara el nombre DNS completo de la URL de redireccionamiento existente con el nombre DNS de la URL de redireccionamiento que va a agregar. `http://localhost` También se admite como una dirección URL de redireccionamiento.  
+Las aplicaciones que están registradas para la plataforma Microsoft identity están restringidas a un conjunto limitado de valores de dirección URL de redireccionamiento. La URL de redireccionamiento de aplicaciones y servicios web debe comenzar por el esquema `https`, y todos los valores de URL de redireccionamiento deben compartir un único dominio DNS.  El sistema de registro compara el nombre DNS completo de la URL de redireccionamiento existente con el nombre DNS de la URL de redireccionamiento que va a agregar. `http://localhost` también se admite como una dirección URL de redireccionamiento.  
 
 La solicitud para agregar el nombre DNS presentará un error si se cumple alguna de las condiciones siguientes:  
 

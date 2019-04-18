@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 03/12/2019
 ms.author: magoedte
 ms.openlocfilehash: 6f27aeb65cb9077011e662c165ca26202546db26
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905739"
 ---
 # <a name="create-a-log-analytics-workspace-with-azure-powershell"></a>Creación de un área de trabajo de Log Analytics con Azure PowerShell
@@ -31,9 +31,9 @@ El módulo de Azure PowerShell se usa para crear y administrar recursos de Azure
  
 Para otros orígenes, como las máquinas virtuales de Azure y la máquinas virtuales Windows o Linux del entorno, consulte los temas siguientes:
 
-* [Recopilar datos de máquinas virtuales de Azure](../learn/quick-collect-azurevm.md)
-* [Recopilar datos de equipos de Linux híbrido](../learn/quick-collect-linux-computer.md)
-* [Recopilar datos de equipos de Windows híbrido](quick-collect-windows-computer.md)
+* [Recopilación de datos de máquinas virtuales de Azure](../learn/quick-collect-azurevm.md)
+* [Recopilación de datos de un equipo Linux híbrido](../learn/quick-collect-linux-computer.md)
+* [Recopilación de datos de un equipo Windows híbrido](quick-collect-windows-computer.md)
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 

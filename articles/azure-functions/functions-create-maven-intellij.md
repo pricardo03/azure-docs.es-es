@@ -13,10 +13,10 @@ ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
 ms.openlocfilehash: da93c60b52edf509900adf89fb688a0596d9763b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877813"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Cree su primera función de Azure con Java y IntelliJ
@@ -37,7 +37,7 @@ Para desarrollar una función con Java e IntelliJ, instale el software siguiente
 - [Kit de desarrolladores de Java](https://www.azul.com/downloads/zulu/) (JDK), versión 8
 - [Apache Maven](https://maven.apache.org), versión 3.0 o posterior
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), versión Community o Ultimate con Maven
-- [Azure CLI](https://docs.microsoft.com/cli/azure)
+- [CLI de Azure](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT]
 > La variable de entorno JAVA_HOME se debe establecer en la ubicación de instalación del JDK para completar los pasos de este artículo.
@@ -68,7 +68,7 @@ Maven crea los archivos del proyecto en una carpeta nueva con el mismo nombre qu
 1. Abra la barra de herramientas **Maven Projects** (Proyectos de Maven).
 1. Expanda **Lifecycle** (Ciclo de vida) y, a continuación, abra **package** (paquete). La solución se compila y empaqueta en un directorio de destino recién creado.
 1. Expanda **Plugins** > **azure-functions** (Complementos > azure-functions) y abra **azure-functions:run** para iniciar el entorno de ejecución local de Azure Functions.  
-  ![Barra de herramientas de maven para Azure Functions](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
+  ![Barra de herramientas de Maven para Azure Functions](media/functions-create-first-java-intellij/functions-intellij-java-maven-toolbar.png)  
 
 1. Cierre el cuadro de diálogo de ejecución cuando termine de probar la función. Solo puede haber un host de función activo y en ejecución en el entorno local a la vez.
 

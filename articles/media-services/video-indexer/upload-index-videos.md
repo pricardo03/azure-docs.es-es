@@ -10,10 +10,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
 ms.openlocfilehash: e6dead0f08f50b32dd963832824d9166ff2467c0
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893459"
 ---
 # <a name="upload-and-index-your-videos"></a>Carga e indexación de los vídeos  
@@ -85,9 +85,9 @@ Una dirección URL que se usa para notificar al cliente (mediante una solicitud 
 
 Utilice este parámetro si hay grabaciones sin formato o externas que contengan ruido de fondo. Este parámetro se utiliza para configurar el proceso de indexación. Puede especificar los siguientes valores:
 
-- `Default` : El índice y extraer ideas con audio y vídeo
-- `AudioOnly` : El índice y extraer ideas con audio única (y pasa por alto vídeo)
-- `DefaultWithNoiseReduction` – Indexar y extraer información de audio y vídeo, al aplicar algoritmos de reducción de ruido en la secuencia de audio
+- `Default`: indexar y extraer información detallada con audio y vídeo
+- `AudioOnly`: indexar y extraer información detallada solo con audio (e ignorar el vídeo)
+- `DefaultWithNoiseReduction`: indexar y extraer información detallada de audio y vídeo, mientras se aplican algoritmos de reducción de ruido en la transmisión de audio
 
 El precio depende de la opción de indexación seleccionada.  
 

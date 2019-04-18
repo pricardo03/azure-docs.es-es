@@ -12,10 +12,10 @@ ms.date: 12/19/2018
 ms.author: martincoetzer
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6e1fa72f8c7edf76ec46663fd62ee40a3a16e8cd
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58886087"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Crear una estrategia de administración de control de acceso resistente con Azure Active Directory
@@ -75,7 +75,7 @@ Incorpore los siguientes controles de acceso en las directivas de acceso condici
 El siguiente ejemplo describe las directivas que debe crear para proporcionar un control de acceso resistente para que los usuarios accedan a sus aplicaciones y recursos. En este ejemplo, necesitará un grupo de seguridad **AppUsers** con los usuarios de destino a los que quiere dar acceso, un grupo denominado **CoreAdmins** con los administradores principales y un grupo denominado  **EmergencyAccess** con las cuentas de acceso de emergencia.
 Este conjunto de directivas de ejemplo concederá a los usuarios seleccionados en **AppUsers** acceso a las aplicaciones seleccionadas si se están conectando desde un dispositivo de confianza o proporcionan una autenticación sólida, como por ejemplo MFA. Excluye las cuentas de emergencias y los administradores principales.
 
-**Establecen directivas de mitigación de la entidad de certificación:**
+**Conjunto de directivas de mitigación de CA:**
 
 * Directiva 1: Bloquee el acceso a los usuarios ajenos a los grupos de destino
   * Usuarios y grupos: Incluya a todos los usuarios. Excluya a AppUsers, a CoreAdmins y a EmergencyAccess
@@ -137,7 +137,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 
 En el ejemplo siguiente: **Ejemplo A: directiva de CA de contingencia para restaurar el acceso a aplicaciones de colaboración críticas**, es una contingencia corporativa típica. En este escenario, la organización normalmente requiere MFA para todos los accesos de Exchange Online y SharePoint Online y, en este caso, la interrupción se da porque el proveedor de MFA para el cliente tiene una interrupción del servicio (ya sea Azure MFA, un proveedor de MFA local o MFA de terceros). Esta directiva mitiga esta interrupción al permitir que los usuarios de destino específicos accedan a estas aplicaciones desde dispositivos Windows de confianza solo cuando acceden a la aplicación desde su red corporativa de confianza. También excluirá las cuentas de emergencia y los administradores principales de estas restricciones. Los usuarios de destino tendrán entonces acceso a Exchange Online y SharePoint Online, mientras que otros usuarios seguirán sin tener acceso a las aplicaciones debido a la interrupción. En este ejemplo se necesita una ubicación de red denominada **CorpNetwork** y un grupo de seguridad **ContingencyAccess** con los usuarios de destino, un grupo denominado **CoreAdmins** con los administradores principales y un grupo denominado **EmergencyAccess** con las cuentas de acceso de emergencia. La contingencia requiere cuatro directivas para proporcionar el acceso deseado. 
 
-**Ejemplo A - directivas de entidad emisora de certificados de contingencia para restaurar el acceso a aplicaciones críticas de colaboración:**
+**Ejemplo A. Directiva de CA de contingencia para restaurar el acceso a aplicaciones de colaboración críticas:**
 
 * Directiva 1: Requiera dispositivos unidos a un dominio para Exchange y SharePoint
   * Nombre: EM001 - HABILITAR EN CASO DE EMERGENCIA: Interrupción de MFA [1/4]: Exchange SharePoint: Requerir la unión a Azure AD híbrido
@@ -179,7 +179,7 @@ Orden de activación:
 
 En el ejemplo siguiente, **Ejemplo B. Directivas de CA de contingencia para permitir el acceso móvil a Salesforce**, se restaurará el acceso de una aplicación empresarial. En este escenario, el cliente normalmente requiere que el acceso de los empleados de ventas a Salesforce (configurada para inicio de sesión único con Azure AD) desde dispositivos móviles solo se permita desde dispositivos compatibles. La interrupción en este caso es que hay un problema con la evaluación del cumplimiento de dispositivos y la interrupción se produce en un momento delicado en el que el equipo de ventas necesita acceder a Salesforce para cerrar acuerdos. Estas directivas de contingencia conceden a los usuarios críticos acceso a Salesforce desde un dispositivo móvil para que sigan cerrando tratos y, de esta forma, que el negocio no se vea afectado. En este ejemplo, **SalesforceContingency** contiene todos los empleados de ventas que necesitan conservar el acceso y **SalesAdmins** contiene los administradores necesarios de Salesforce.
 
-**Ejemplo B - directivas de entidad de certificación de contingencia:**
+**Ejemplo B. Directivas de CA de contingencia:**
 
 * Directiva 1: Bloquear a todos los usuarios que no están en el equipo SalesContingency
   * Nombre: EM001 - HABILITAR EN CASO DE EMERGENCIA: Interrupción del cumplimiento de dispositivo [1/2]: Salesforce: Bloquear todos los usuarios excepto SalesforceContingency
@@ -261,12 +261,12 @@ Si su organización usa directivas heredadas de MFA por usuario, puede considera
 
 ## <a name="learn-more"></a>Más información
 
-* [Documentación sobre autenticación de Azure AD](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
+* [Configuración de Servidor Azure Multi-Factor Authentication para aplicaciones web de IIS](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [Administración de cuentas administrativas de acceso de emergencia en Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
-* [Configuración de ubicaciones con nombre en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
+* [Inicio rápido: Configuración de ubicaciones con nombre en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations)
   * [Set-MsolDomainFederationSettings](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0)
-* [Configuración de dispositivos híbridos unidos a Azure Active Directory](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
-* [Windows Hello para la Guía de implementación empresarial](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
-  * [Guía de contraseña: Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
+* [Planeamiento de la implementación de unión a Azure Active Directory híbrido](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
+* [Guía de implementación de Windows Hello para empresas](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
+  * [Password Guidance - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf) (Instrucciones de contraseñas: Microsoft Research)
 * [¿Qué son las condiciones en el acceso condicional de Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
 * [¿Qué son los controles de acceso en el acceso condicional de Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

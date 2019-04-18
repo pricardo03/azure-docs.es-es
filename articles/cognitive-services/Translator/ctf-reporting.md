@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
 ms.openlocfilehash: da321aa2a4db441fa5bb51e4986d00889cb7482d
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917403"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Cómo usar los informes de Collaborative Translation Framework (CTF)
@@ -116,7 +116,7 @@ El conjunto de resultados contiene la matriz de **UserTranslationCount**. Cada U
 > [!NOTE]
 > La cuota se ajustará para garantizar la equidad entre todos los usuarios del servicio.
 
-**Ver ejemplos de código en Github**
+**Vea ejemplos de código en GitHib**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslationcounts-example-php.md)
 
@@ -153,7 +153,7 @@ Este método recupera las traducciones creadas por el usuario. Proporciona las t
 | to| **Opcional** Una cadena que representa el código de idioma al que se va a traducir el texto.|
 | minRating| **Opcional** Un valor entero que representa la clasificación de calidad mínima para el texto traducido. El valor válido se encuentra entre -10 y 10. El valor predeterminado es 1.|
 | maxRating| **Opcional** Un valor entero que representa la clasificación de calidad máxima para el texto traducido. El valor válido se encuentra entre -10 y 10. El valor predeterminado es 1.|
-| user| **Opcional. Una cadena que se utiliza para filtrar el resultado según el originador del envío**|
+| user| **Opcional. Una cadena que se utiliza para filtrar los resultados según el autor del envío**|
 | categoría| **Opcional** Una cadena que contiene la categoría o el dominio de la traducción. Este parámetro admite solo la opción predeterminada general.|
 | minDateUtc| **Opcional** La fecha desde la que desea recuperar las traducciones. La fecha debe tener el formato UTC.|
 | maxDateUtc| **Opcional** La fecha hasta la que desea recuperar las traducciones. La fecha debe tener el formato UTC.|
@@ -189,6 +189,6 @@ El conjunto de resultados contiene la matriz de **UserTranslation**. Cada UserTr
 > [!NOTE]
 > La cuota se ajustará para garantizar la equidad entre todos los usuarios del servicio.
 
-**Ver ejemplos de código en Github**
+**Vea ejemplos de código en GitHib**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)
