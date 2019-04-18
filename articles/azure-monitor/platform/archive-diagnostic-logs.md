@@ -79,7 +79,7 @@ Set-AzDiagnosticSetting -ResourceId /subscriptions/s1id1234-5679-0123-4567-89012
 | ResourceId |Sí |Identificador de recurso en el que desea establecer una configuración de diagnóstico. |
 | StorageAccountId |Sin  |Identificador de recurso de la cuenta de almacenamiento en la que se deben guardar los registros de diagnóstico. |
 | Categorías |Sin  |Lista de categorías de registro separadas por comas, que se van a habilitar. |
-| habilitado |Sí |Valor booleano que indica si los diagnósticos están habilitados o deshabilitados en este recurso. |
+| Enabled |Sí |Valor booleano que indica si los diagnósticos están habilitados o deshabilitados en este recurso. |
 | RetentionEnabled |Sin  |Valor booleano que indica si está habilitada una directiva de retención en este recurso. |
 | RetentionInDays |Sin  |Número de días que deben retenerse los eventos, entre 1 y 2147483647. Con el valor cero, se almacenan los registros indefinidamente. |
 
@@ -152,11 +152,11 @@ En el archivo PT1H.json, cada evento se almacena en la matriz de "registros" con
 
 | Nombre del elemento | DESCRIPCIÓN |
 | --- | --- |
-| Twitter en tiempo |Marca de tiempo de cuándo el servicio de Azure generó el evento que procesó la solicitud correspondiente al evento. |
-| ResourceId |Identificador de recurso del recurso afectado. |
+| time |Marca de tiempo de cuándo el servicio de Azure generó el evento que procesó la solicitud correspondiente al evento. |
+| resourceId |Identificador de recurso del recurso afectado. |
 | operationName |Nombre de la operación. |
-| categoría |Categoría de registro del evento. |
-| propiedades |Conjunto de pares `<Key, Value>` (es decir, diccionario) que describe los detalles del evento. |
+| category |Categoría de registro del evento. |
+| properties |Conjunto de pares `<Key, Value>` (es decir, diccionario) que describe los detalles del evento. |
 
 > [!NOTE]
 > Las propiedades y el uso de estas propiedades pueden variar según el recurso.
