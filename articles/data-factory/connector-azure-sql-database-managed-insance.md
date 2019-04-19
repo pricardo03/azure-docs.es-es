@@ -53,10 +53,10 @@ Las siguientes propiedades se admiten en el servicio vinculado de Instancia admi
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type se debe establecer en: **SqlServer**. | Sí. |
+| type | La propiedad type se debe establecer en: **SqlServer**. | Sí. |
 | connectionString |Esta propiedad especifica la información de connectionString necesaria para conectarse a la instancia administrada mediante autenticación de SQL o autenticación de Windows. Para más información, vea los ejemplos siguientes. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la contraseña en Azure Key Vault y, en el caso de autenticación de SQL, extraer la configuración `password` de la cadena de conexión. Vea el ejemplo de JSON debajo de la tabla y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. |Sí. |
 | userName |Esta propiedad especifica un nombre de usuario si usa la autenticación de Windows. Un ejemplo es **domainname\\username**. | No. |
-| contraseña |Esta propiedad especifica la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Seleccione **SecureString** para almacenar la información de connectionString de forma segura en Data Factory o para [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | No. |
+| password |Esta propiedad especifica la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Seleccione **SecureString** para almacenar la información de connectionString de forma segura en Data Factory o para [hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | No. |
 | connectVia | Este [entorno de ejecución de integración](concepts-integration-runtime.md) se usa para conectarse al almacén de datos. Aprovisione el entorno de ejecución de integración autohospedado en la misma red virtual que la instancia administrada. |Sí. |
 
 >[!TIP]
@@ -146,7 +146,7 @@ Para copiar datos desde y hacia Instancia administrada de Azure SQL Database, es
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos se debe establecer en **SqlServerTable**. | Sí. |
+| type | La propiedad type del conjunto de datos se debe establecer en **SqlServerTable**. | Sí. |
 | tableName |Esta propiedad es el nombre de la tabla o vista de la instancia de base de datos a la que hace referencia el servicio vinculado. | No para el origen. Sí para el receptor. |
 
 **Ejemplo**
@@ -178,8 +178,8 @@ Si va a copiar datos desde Instancia administrada de Azure SQL Database, estable
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en **SqlSource**. | Sí. |
-| SqlReaderQuery |Esta propiedad usa la consulta SQL personalizada para leer los datos. Un ejemplo es `select * from MyTable`. | No. |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en **SqlSource**. | Sí. |
+| sqlReaderQuery |Esta propiedad usa la consulta SQL personalizada para leer los datos. Un ejemplo es `select * from MyTable`. | No. |
 | sqlReaderStoredProcedureName |Esta propiedad es el nombre del procedimiento almacenado que lee datos de la tabla de origen. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. | No. |
 | storedProcedureParameters |Estos parámetros son para el procedimiento almacenado.<br/>Los valores permitidos son pares de nombre o valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. | No. |
 
@@ -281,7 +281,7 @@ Para copiar datos en Instancia administrada de Azure SQL Database, establezca el
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en **SqlSink**. | Sí. |
+| type | La propiedad type del receptor de la actividad de copia debe establecerse en **SqlSink**. | Sí. |
 | writeBatchSize |Número de filas que se inserta en la tabla SQL **por lote**.<br/>Los valores permitidos son enteros para el número de filas. |No (valor predeterminado: 10 000). |
 | writeBatchTimeout |Esta propiedad especifica el tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son para el intervalo de tiempo. Un ejemplo es "00:30:00", que es 30 minutos. | No. |
 | preCopyScript |Esta propiedad especifica una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en la instancia administrada. Solo se invoca una vez por cada copia que se ejecuta. Puede usar esta propiedad para limpiar los datos cargados previamente. | No. |
@@ -511,16 +511,16 @@ Al copiar datos desde y hacia Instancia administrada de Azure SQL Database, se u
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |boolean |
+| bit |Boolean |
 | char |String, Char[] |
-| fecha |DateTime |
-| DateTime |DateTime |
+| date |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
-| imagen |Byte[] |
+| image |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
@@ -532,15 +532,15 @@ Al copiar datos desde y hacia Instancia administrada de Azure SQL Database, se u
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Objeto |
+| sql_variant |Object |
 | text |String, Char[] |
-| Twitter en tiempo |TimeSpan |
-|  timestamp |Byte[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |xml |
+| xml |Xml |
 
 >[!NOTE]
 > Para los tipos de datos que se asignan al tipo decimal provisional, Azure Data Factory actualmente admite una precisión de hasta 28. Si tiene datos que requieren una precisión mayor que 28, considere la posibilidad de convertir a una cadena en una consulta SQL.
