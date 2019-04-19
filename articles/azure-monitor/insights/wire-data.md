@@ -390,7 +390,7 @@ Se crea un registro con un tipo de _WireData_ para cada tipo de datos de entrada
 
 | Propiedad | Descripción |
 |---|---|
-| Equipo | Nombre de equipo del que se recopilan los datos |
+| Computer | Nombre de equipo del que se recopilan los datos |
 | TimeGenerated | Hora del registro |
 | LocalIP | Dirección IP del equipo local |
 | SessionState | Conectado o desconectado |
@@ -399,7 +399,7 @@ Se crea un registro con un tipo de _WireData_ para cada tipo de datos de entrada
 | IPVersion | Versión de la dirección IP |
 | Dirección | De entrada o de salida |
 | MaliciousIP | Dirección IP de un origen malintencionado conocido |
-| Gravedad | Gravedad del supuesto malware |
+| Severity | Gravedad del supuesto malware |
 | RemoteIPCountry | País de la dirección IP remota |
 | ManagementGroupName | Nombre del grupo de administración de Operations Manager |
 | SourceSystem | Origen del que se recopilan los datos |
