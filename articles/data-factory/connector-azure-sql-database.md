@@ -54,7 +54,7 @@ Estas propiedades son compatibles con un servicio vinculado de Azure SQL Databas
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** debe establecerse en **AzureSqlDatabase**. | Sí |
+| type | La propiedad **type** debe establecerse en **AzureSqlDatabase**. | Sí |
 | connectionString | Especifique la información necesaria para conectarse a la instancia de Azure SQL Database para la propiedad **connectionString**. <br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la contraseña o clave de la entidad de servicio en Azure Key Vault y, en el caso de la autenticación de SQL, extraer la configuración `password` de la cadena de conexión. Vea el ejemplo de JSON debajo de la tabla y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. | Sí |
 | servicePrincipalId | Especifique el id. de cliente de la aplicación. | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio. |
 | servicePrincipalKey | Especifique la clave de la aplicación. Marque este campo como [SecureString](store-credentials-in-key-vault.md) para almacenarlo de forma segura en Data Factory, o bien **para hacer referencia a un secreto almacenado en Azure Key Vault**. | Sí, al utilizar la autenticación de Azure AD con una entidad de servicio. |
@@ -237,7 +237,7 @@ Para copiar datos con una instancia de Azure SQL Database como origen o destino,
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del conjunto de datos debe establecerse en **AzureSqlTable**. | Sí |
+| type | La propiedad **type** del conjunto de datos debe establecerse en **AzureSqlTable**. | Sí |
 | tableName | Nombre de la tabla o vista de la instancia de Azure SQL Database a la que hace referencia el servicio vinculado. | No para el origen, sí para el receptor |
 
 #### <a name="dataset-properties-example"></a>Ejemplo de propiedades de un conjunto de datos
@@ -269,8 +269,8 @@ Para copiar datos desde Azure SQL Database (o en dicho servicio), establezca la 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del origen de la actividad de copia debe establecerse en **SqlSource**. | Sí |
-| SqlReaderQuery | Use la consulta SQL personalizada para leer los datos. Ejemplo: `select * from MyTable`. | Sin  |
+| type | La propiedad **type** del origen de la actividad de copia debe establecerse en **SqlSource**. | Sí |
+| sqlReaderQuery | Use la consulta SQL personalizada para leer los datos. Ejemplo: `select * from MyTable`. | Sin  |
 | sqlReaderStoredProcedureName | Nombre del procedimiento almacenado que lee datos de la tabla de origen. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. | Sin  |
 | storedProcedureParameters | Parámetros del procedimiento almacenado.<br/>Los valores permitidos son pares de nombre o valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. | Sin  |
 
@@ -372,7 +372,7 @@ Para copiar los datos a Azure SQL Database, establezca la propiedad **type** del
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del receptor de la actividad de copia debe establecerse en **SqlSink**. | Sí |
+| type | La propiedad **type** del receptor de la actividad de copia debe establecerse en **SqlSink**. | Sí |
 | writeBatchSize | Número de filas que se inserta en la tabla SQL **por lote**.<br/> El valor que se permite es un **entero** (número de filas). |  No. El valor predeterminado es 10 000. |
 | writeBatchTimeout | Tiempo que se concede a la operación de inserción por lotes para que finalice antes de que se agote el tiempo de espera.<br/> El valor permitido es **intervalo de tiempo**. Ejemplo: "00:30:00" (30 minutos). | Sin  |
 | preCopyScript | Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en Azure SQL Database. Solo se invoca una vez por cada copia que se ejecute. Esta propiedad se usa para limpiar los datos cargados previamente. | Sin  |
@@ -606,16 +606,16 @@ Al copiar datos con Azure SQL Database como origen o destino, se utilizan las si
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |boolean |
+| bit |Boolean |
 | char |String, Char[] |
-| fecha |DateTime |
-| DateTime |DateTime |
+| date |DateTime |
+| Datetime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
-| imagen |Byte[] |
+| image |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
@@ -627,15 +627,15 @@ Al copiar datos con Azure SQL Database como origen o destino, se utilizan las si
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Objeto |
+| sql_variant |Object |
 | text |String, Char[] |
-| Twitter en tiempo |TimeSpan |
-|  timestamp |Byte[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
 | tinyint |Byte |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |xml |
+| xml |Xml |
 
 >[!NOTE]
 > En la actualidad, ADF admite una precisión máxima de 28 en los tipos de datos que se asignan a tipos provisionales decimales. Si tiene datos con una precisión mayor de 28, considere la posibilidad de convertirlos en una cadena de consulta SQL.
