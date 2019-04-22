@@ -10,17 +10,17 @@ ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
 ms.openlocfilehash: 70721b8bfbecaf554a9502b9ec3417fc8e561b3f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885951"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Proyecto de seguridad y cumplimiento de Azure: IA y datos médicos HIPAA/HITRUST
 
 ## <a name="overview"></a>Información general
 
-**La seguridad de Azure y Compliance Blueprint: IA y datos médicos HIPAA/HITRUST ofrece una implementación llave en mano de una solución de IaaS y PaaS de Azure para demostrar cómo ingerir, almacenar, analizar, interactuar, identidad e implementar soluciones con datos de estado mientras de forma segura ser capaz de cumplir los requisitos de cumplimiento de normas del sector. El plano técnico ayuda a acelerar la adopción de la nube y el uso de los clientes con datos regulados.**
+**El Plano técnico de seguridad y cumplimiento de Azure (IA y datos de estado de HIPAA/HITRUST) ofrece una implementación llave en mano de una solución de IaaS y PaaS de Azure para mostrar cómo ingerir, almacenar, analizar, interactuar, identificar y desplegar de forma segura soluciones con datos de estado y alcanzar los requisitos de cumplimiento del sector. El proyecto le ayuda a acelerar la adopción en la nube y el uso de los clientes con datos regulados.**
 
 El proyecto de seguridad y cumplimiento de Azure: IA y datos médicos HIPAA/HITRUST proporciona herramientas y orientación para ayudar a implementar un entorno seguro de plataforma como servicio (PaaS) conforme a Health Insurance Portability and Accountability Act (HIPAA) y Health Information Trust Alliance (HITRUST) para introducir, almacenar, analizar e interactuar con los historiales médicos personales y de carácter no personal en un entorno seguro y niveles múltiples en la nube, implementado como una solución de un extremo a otro. 
 
@@ -59,7 +59,7 @@ La arquitectura fundamental consta de los siguientes componentes:
 
 -   **[Matriz de implementación del cliente](https://aka.ms/healthcrmblueprint)** un libro de Microsoft Excel enumera los requisitos de HITRUST pertinentes y explica cómo Microsoft y el cliente son responsables del cumplimiento de cada uno de ellos.
 
--   **[Revisión del estado.](https://aka.ms/healthreviewpaper)** La solución la revisó Coalfire systems, Inc. El documento de Revisión del cumplimiento de Health (HIPAA e HITRUST) e instrucciones para la implementación proporciona la opinión del auditor de la solución y sus reflexiones para transformar el proyecto en una implementación que esté lista para la producción.
+-   **[Revisión de datos médicos.](https://aka.ms/healthreviewpaper)** La solución la revisó Coalfire systems, Inc. El documento de Revisión del cumplimiento de Health (HIPAA e HITRUST) e instrucciones para la implementación proporciona la opinión del auditor de la solución y sus reflexiones para transformar el proyecto en una implementación que esté lista para la producción.
 
 ## <a name="architectural-diagram"></a>Diagrama de arquitectura
 
@@ -154,7 +154,7 @@ El proyecto incluye un conjunto grande de historiales médicos anonimizados para
 
 El trabajo de Alex consiste en evaluar las tecnologías que puedan reducir la carga de la administración de una red local y reducir los costos de administración. Alex ha estado evaluando Azure durante algún tiempo, pero se encontró con problemas al configurar los servicios que necesita para cumplir los requisitos de cumplimiento de las normas HiTrust para almacenar datos de pacientes en la nube. Alex ha seleccionado la tecnología de inteligencia artificial sobre datos médicos de Azure para implementar una solución de datos médicos preparada en materia de cumplimiento y que proporciona los requisitos necesarios para el cumplimiento de clientes en HiTrust.
 
-**Datos: Debra**
+**Científica de datos: Debra**
 
 *Correo electrónico: Debra\_DataScientist*
 
@@ -166,12 +166,12 @@ Debra está a cargo del uso y la creación de modelos que analizan los historial
 
 Danny es el contacto principal para cualquier asunto relacionado con Microsoft SQL Server, que almacena todos los datos de los pacientes de Contosoclinic. Danny es un administrador experimentado de SQL Server que recientemente se ha familiarizado con Azure SQL Database.
 
-**Información médica: Caroline**
+**Directora de información médica: Caroline**
 
 Caroline trabaja con Chris, el administrador de la línea de atención al paciente y con Debra, la científica de datos, para determinar qué factores afectan a la duración de la estancia de los pacientes.
 Caroline usa las predicciones de la solución de duración de estancia (LOS) para determinar si se están asignando correctamente los recursos en la red del hospital. Por ejemplo, mediante el panel que proporciona esta solución.
 
-**Ocupa el Administrador de la línea: Chris**
+**Administrador de la línea de atención al paciente: Chris**
 
 *Correo electrónico: Chris\_CareLineManager*
 
@@ -249,7 +249,7 @@ En esta sección se describen las configuraciones predeterminadas y las medidas 
 ### <a name="azure-functions"></a>Azure Functions
 La solución ha sido diseñada para el uso de [Azure Functions](/azure/azure-functions/) para procesar la datos de duración de estancia de ejemplo que se usan en la demostración de análisis. Se han creado tres funcionalidades en las funciones.
 
-**1. Importación masiva de datos de phi de datos de cliente**
+**1. Importación masiva de los datos de información sanitaria protegida del cliente**
 
 Cuando se utiliza el script de demostración. .\\HealthcareDemo.ps1 con el modificador **BulkPatientAdmission** tal como se describe en **Implementación y ejecución de la demostración** se ejecuta la canalización de procesamiento siguiente:
 1. **Azure Blob Storage**: Se carga en el almacenamiento el archivo .csv de ejemplo con los datos de los pacientes
@@ -268,7 +268,7 @@ Además, la función de Azure se diseñó para leer y proteger los datos confide
 **2. Admisión de nuevos pacientes**
 
 Cuando se utiliza el script de demostración. .\\HealthcareDemo.ps1 con el modificador **BulkPatientadmission** tal como se describe en **Implementación y ejecución de la demostración** se ejecuta la canalización de procesamiento siguiente: ![](images/securetransact.png)
-**1. Azure Functions[ se desencadena y la función solicita un ](/rest/api/)token al portador de Azure Active Directory.
+**1. Azure Functions** se desencadena y la función solicita un [token al portador](/rest/api/) de Azure Active Directory.
 
 **2. Key Vault** Se solicita un secreto que está asociado al token solicitado.
 
@@ -384,4 +384,4 @@ La solución es compatible con Azure Event Grid, un único servicio para adminis
 
 -   [Application Insights Connector (versión preliminar)](/azure/log-analytics/log-analytics-app-insights-connector) está habilitado
 
--   El [Análisis del registro de actividad](/azure/log-analytics/log-analytics-activity) está habilitado
+-   El [análisis de registros de actividad](/azure/log-analytics/log-analytics-activity) está habilitado

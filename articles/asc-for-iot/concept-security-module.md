@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: c5814b188c73ea03094d7dae565e40ca09e705c2
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862444"
 ---
 # <a name="security-module"></a>Módulo de seguridad
 
 > [!IMPORTANT]
-> Azure Security Center para IoT está actualmente en versión preliminar pública.
+> Azure Security Center for IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 En este artículo se explica cómo Azure Security Center (ASC) para IoT usa módulos y los dispositivos gemelos. 
@@ -48,5 +48,5 @@ Consulte [gemelo de módulo de seguridad crear](quickstart-create-security-twin.
 
 ## <a name="see-also"></a>Vea también
 - [ASC para la versión preliminar de IoT](overview.md)
-- [Implementación de agentes de seguridad](how-to-deploy-agent.md)
+- [Implementar a agentes de seguridad](how-to-deploy-agent.md)
 - [Métodos de autenticación de seguridad del agente](concept-security-agent-authentication-methods.md)

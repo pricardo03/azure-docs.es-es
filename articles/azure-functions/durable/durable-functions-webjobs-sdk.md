@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
 ms.openlocfilehash: df12639aaafaf3df7ae2b755d635d4fba83d846e
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905101"
 ---
 # <a name="how-to-run-durable-functions-as-webjobs"></a>Cómo ejecutar Durable Functions como WebJobs
@@ -33,7 +33,7 @@ En este artículo se supone que está familiarizado con los conceptos básicos d
 
 * [Introducción al SDK de WebJobs](../../app-service/webjobs-sdk-get-started.md)
 * [Creación de la primera función mediante Visual Studio](../functions-create-your-first-function-visual-studio.md)
-* [Funciones duraderas](durable-functions-sequence.md)
+* [Durable Functions](durable-functions-sequence.md)
 
 Para completar los pasos de este artículo:
 
@@ -132,8 +132,8 @@ Durable Functions en el contexto de WebJobs difiere ligeramente de Durable Funct
 El SDK de WebJobs no es compatible con las siguientes características de Azure Functions:
 
 * [Atributo FunctionName](#functionname-attribute)
-* [Desencadenador HTTP](#http-trigger)
-* [API de administración de funciones HTTP duradera](#http-management-api)
+* [desencadenador HTTP](#http-trigger)
+* [API de administración HTTP de Durable Functions](#http-management-api)
 
 ### <a name="functionname-attribute"></a>Atributo FunctionName
 

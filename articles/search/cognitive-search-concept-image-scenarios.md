@@ -12,10 +12,10 @@ ms.date: 05/01/2018
 ms.author: luisca
 ms.custom: seodec2018
 ms.openlocfilehash: f1491d6b87816dfc70e94e01653567bda101d045
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916978"
 ---
 #  <a name="how-to-process-and-extract-information-from-images-in-cognitive-search-scenarios"></a>Procesamiento y extracción de información de imágenes en escenarios de búsqueda cognitiva
@@ -218,9 +218,9 @@ Como ayuda adicional, si tiene que transformar las coordenadas normalizadas al e
 ```
 
 ## <a name="see-also"></a>Vea también
-+ [Crear el indexador (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
-+ [Analizar la habilidad de imagen](cognitive-search-skill-image-analysis.md)
++ [Create indexer (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Habilidad Análisis de imágenes](cognitive-search-skill-image-analysis.md)
 + [Habilidad de OCR](cognitive-search-skill-ocr.md)
-+ [Habilidades de mezcla de texto](cognitive-search-skill-textmerger.md)
-+ [Cómo definir un conjunto de habilidades](cognitive-search-defining-skillset.md)
-+ [Cómo asignar campos enriquecidos](cognitive-search-output-field-mapping.md)
++ [Habilidad de Combinación de texto](cognitive-search-skill-textmerger.md)
++ [Definición de un conjunto de habilidades](cognitive-search-defining-skillset.md)
++ [Asignación a campos de índice](cognitive-search-output-field-mapping.md)

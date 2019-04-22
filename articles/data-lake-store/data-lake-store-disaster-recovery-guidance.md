@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: twooley
 ms.openlocfilehash: b3f1888a73baf2b7f9efa9f5e7cdb3305aa9f90d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878118"
 ---
 # <a name="disaster-recovery-guidance-for-data-in-azure-data-lake-storage-gen1"></a>Guía de recuperación ante desastres para datos de Azure Data Lake Storage Gen1
@@ -25,7 +25,7 @@ Azure Data Lake Storage Gen1 proporciona almacenamiento con redundancia local (L
 ## <a name="disaster-recovery-guidance"></a>Guía de recuperación ante desastres
 Es fundamental que todos los clientes preparen su propio plan de recuperación ante desastres. Lea la información de este artículo para generar el plan de recuperación ante desastres. Aquí tiene algunos recursos que pueden ayudarle a crear su propio plan.
 
-* [Recuperación ante desastres y alta disponibilidad para las aplicaciones de Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
+* [Recuperación ante desastres y alta disponibilidad para aplicaciones de Azure](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 * [Guía técnica sobre resistencia en Azure](../resiliency/resiliency-technical-guidance.md)
 
 ### <a name="best-practices"></a>Procedimientos recomendados
@@ -42,6 +42,6 @@ Para evitar la eliminación por error, se recomienda establecer primero las dire
 Las organizaciones también pueden habilitar un [registro de diagnóstico](data-lake-store-diagnostic-logs.md) para su cuenta de Data Lake Storage Gen1 y recopilar seguimientos de auditoría de acceso a datos que proporcionen información sobre quién puede eliminar o actualizar un archivo.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Introducción a Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
-* [Proteger los datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Introducción Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
+* [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
 

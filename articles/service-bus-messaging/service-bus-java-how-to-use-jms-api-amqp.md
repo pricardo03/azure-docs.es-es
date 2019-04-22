@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: aschhab
 ms.openlocfilehash: a7e4282a176794fe885049173ba56ce2461cd6fa
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885560"
 ---
 # <a name="how-to-use-the-java-message-service-jms-api-with-service-bus-and-amqp-10"></a>Uso de la API de Java Message Service (JMS) con Service Bus y AMQP 1.0
@@ -381,9 +381,9 @@ En esta guía de instrucciones se indica cómo usar las características de mens
 También puede utilizar AMQP 1.0 de Service Bus desde otros lenguajes, como .NET, C, Python y PHP. Los componentes creados utilizando estos lenguajes pueden intercambiar mensajes con seguridad y fidelidad gracias a la compatibilidad de AMQP 1.0 en Service Bus.
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Compatibilidad de Azure Service Bus con AMQP 1.0](service-bus-amqp-overview.md)
+* [Compatibilidad de AMQP 1.0 en Azure Service Bus](service-bus-amqp-overview.md)
 * [Uso de AMQP 1.0 con la API .NET de Service Bus](service-bus-dotnet-advanced-message-queuing.md)
-* [AMQP 1.0 de Service Bus Guía del desarrollador](service-bus-amqp-dotnet.md)
+* [Guía para desarrolladores sobre AMQP 1.0 de Service Bus](service-bus-amqp-dotnet.md)
 * [Introducción a las colas de Service Bus](service-bus-dotnet-get-started-with-queues.md)
-* [Centro para desarrolladores de Java](https://azure.microsoft.com/develop/java/)
+* [Centro de desarrolladores de Java](https://azure.microsoft.com/develop/java/)
 

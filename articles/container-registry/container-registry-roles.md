@@ -9,17 +9,17 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: danlep
 ms.openlocfilehash: b6e26bfa476c5c13e6e478f40c39978af61d83e7
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894275"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Roles y permisos de Azure Container Registry
 
 El servicio Azure Container Registry admite un conjunto de roles de Azure que proporcionan distintos niveles de permisos a una instancia de Azure Container Registry. Use el [control de acceso basado en roles](../role-based-access-control/index.yml) (RBAC) de Azure para asignar permisos específicos a usuarios o entidades de servicio que necesiten interactuar con un registro.
 
-| Rol/permiso       | [Acceso a Resource Manager](#access-resource-manager) | [Crear o eliminar un registro](#create-and-delete-registry) | [Imagen de inserción](#push-image) | [Extraer imagen](#pull-image) | [Eliminación de los datos de la imagen](#delete-image-data) | [Cambiar directivas](#change-policies) |   [Firmar imágenes](#sign-images)  |
+| Rol/permiso       | [Acceso a Resource Manager](#access-resource-manager) | [Crear o eliminar un registro](#create-and-delete-registry) | [Insertar imagen](#push-image) | [Extraer imagen](#pull-image) | [Eliminar datos de imagen](#delete-image-data) | [Cambiar directivas](#change-policies) |   [Firmar imágenes](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | Propietario | X | X | X | X | X | X |  |  
 | Colaborador | X | X | X |  X | X | X |  |  

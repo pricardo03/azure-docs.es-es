@@ -15,10 +15,10 @@ ms.workload: NA
 ms.date: 01/11/2019
 ms.author: alkohli
 ms.openlocfilehash: a6bea2b5447435930cb0e1f80073a11007e80415
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58876843"
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos del sistema de la matriz virtual de StorSimple
@@ -39,7 +39,7 @@ La información acerca de los requisitos de sistema de StorSimple publicada en e
 Los requisitos de software incluyen información sobre los exploradores web compatibles, las versiones SMB, las plataformas de virtualización y los requisitos mínimos de los dispositivos virtuales.
 
 ### <a name="supported-virtualization-platforms"></a>Plataformas de virtualización admitidas
-| **hipervisor** | **Versión** |
+| **Hipervisor** | **Versión** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 y posterior |
 | VMware ESXi |5.0, 5.5, 6.0 y 6.5. |
@@ -133,4 +133,4 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 | `https://*.data.microsoft.com` |Para información sobre el servicio de telemetría en Windows, consulte la [actualización para la experiencia del usuario y la telemetría de diagnóstico](https://support.microsoft.com/en-us/kb/3068708). |
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Preparar el portal para implementar StorSimple Virtual Array](storsimple-virtual-array-deploy1-portal-prep.md)
+* [Prepare el portal para implementar la matriz virtual de StorSimple](storsimple-virtual-array-deploy1-portal-prep.md)

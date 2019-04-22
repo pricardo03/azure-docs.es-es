@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: b6ef5a5c12bb766fb7106d5c7a8189c4b92980d2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880209"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-python"></a>Operaciones de administración de cuentas en Azure Data Lake Storage Gen1 mediante Python.
 > [!div class="op_single_selector"]
-> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
+> * [SDK de .NET](data-lake-store-get-started-net-sdk.md)
 > * [API DE REST](data-lake-store-get-started-rest-api.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -31,7 +31,7 @@ Aprenda a usar el SDK de Python para Azure Data Lake Storage Gen1 para realizar 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Python** Python se puede descargar desde [aquí](https://www.python.org/downloads/). En este artículo se usa Python 3.6.2.
+* **Python**. Python se puede descargar desde [aquí](https://www.python.org/downloads/). En este artículo se usa Python 3.6.2.
 
 * **Una suscripción de Azure**. Consulte [Obtención de una versión de evaluación gratuita](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -135,5 +135,5 @@ En el siguiente fragmento de código se crea primero el cliente de la cuenta de 
 
 ## <a name="see-also"></a>Vea también
 
-* [referencia de Python (sistema de archivos) de Azure-datalake-store](https://azure-datalake-store.readthedocs.io/en/latest)
-* [Abrir aplicaciones Big Data de origen compatibles con Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
+* [azure-datalake-store Python (Filesystem) reference](https://azure-datalake-store.readthedocs.io/en/latest) [Referencia de azure-datalake-store Python (sistema de archivos)]
+* [Open Source Big Data applications compatible with Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md) (Abrir aplicaciones Big Data de origen que funcionan con Azure Data Lake Storage Gen1)

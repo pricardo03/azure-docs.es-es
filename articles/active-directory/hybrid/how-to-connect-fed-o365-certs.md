@@ -17,10 +17,10 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d98a1aabef2de505e66b2127226b9e89cd791e20
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883452"
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renovación de certificados de federación para Office 365 y Azure Active Directory
@@ -114,7 +114,7 @@ Compruebe lo siguiente para confirmar que se puede actualizar el certificado aut
 
 **1. La propiedad AutoCertificateRollover de AD FS debe establecerse en True.** Esto indica que AD FS generará automáticamente nuevos certificados de descifrado de tokens y de firma de tokens antes de que expiren los antiguos.
 
-**2. Los metadatos de federación de AD FS están accesible públicamente.**  Compruebe que se puede obtener acceso públicamente a los metadatos de federación, desplácese hasta la siguiente dirección URL desde un equipo de la red de Internet pública (fuera de la red corporativa):
+**2. Los metadatos de federación de AD FS están disponibles públicamente.**  Compruebe que se puede obtener acceso públicamente a los metadatos de federación, desplácese hasta la siguiente dirección URL desde un equipo de la red de Internet pública (fuera de la red corporativa):
 
 https://(your_FS_name)/federationmetadata/2007-06/federationmetadata.xml
 
@@ -134,7 +134,7 @@ En estos escenarios, cada vez que actualice los certificados de firma de tokens,
 
 Si está en una configuración no predeterminada de AD FS donde la propiedad **AutoCertificateRollover** está establecida en **False**, probablemente esté utilizando certificados personalizados (no autofirmados). Para más información sobre cómo renovar los certificados de firma de tokens de AD FS, consulte la [guía para clientes que no usan certificados autofirmados AD FS](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
 
-**Los metadatos de federación no están disponible públicamente**
+**Los metadatos de federación no están disponibles públicamente**
 
 Por otro lado si la propiedad **AutoCertificateRollover** está establecida en **True** pero los metadatos de federación no están disponibles públicamente, asegúrese primero de que los certificados de firma de tokens nuevos los ha generado AD FS. Siga los pasos siguientes para confirmar que dispone de nuevos certificados de firma de tokens.
 

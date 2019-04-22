@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 2372f49c7280ee5c817f3d2f98cc80a196dae5f5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879206"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Back-end y grupos de back-end en Azure Front Door Service
@@ -91,5 +91,5 @@ Para obtener más información, consulte [menor latencia según el método de en
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación de un perfil de Front Door](quickstart-create-front-door.md)
+- [Crear un perfil de la puerta delantera](quickstart-create-front-door.md)
 - [Cómo funciona la puerta de entrada](front-door-routing-architecture.md)

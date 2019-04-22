@@ -16,10 +16,10 @@ ms.author: celested
 ms.reviewer: asmalser
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 40e8aaa60359fcfb85c79c4210f7c5cc14633c7b
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58894413"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatización del aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS con Azure Active Directory
@@ -58,13 +58,13 @@ Las razones habituales por las que se debe usar esta característica son:
 El **el servicio de aprovisionamiento de Azure AD** aprovisiona usuarios para aplicaciones SaaS y otros sistemas mediante la conexión a puntos de conexión de API de administración de usuario proporcionadas por cada proveedor de la aplicación. Estos puntos de conexión de la API de administración de usuarios permiten a Azure AD crear, actualizar y quitar usuarios mediante programación. Para las aplicaciones seleccionadas, el servicio de aprovisionamiento también puede crear, actualizar y quitar objetos adicionales relacionados con la identidad, como los grupos y roles. 
 
 ![Aprovisionamiento](./media/user-provisioning/provisioning0.PNG)
-*figura 1: Servicio de aprovisionamiento de Azure AD*
+*Figura 1: Servicio de aprovisionamiento de Azure AD*
 
 ![Aprovisionamiento de salida](./media/user-provisioning/provisioning1.PNG)
-*figura 2: Flujo de trabajo "saliente" del aprovisionamiento de usuarios desde Azure AD a aplicaciones SaaS populares*
+*Figura 2: Flujo de trabajo "saliente" del aprovisionamiento de usuarios desde Azure AD a aplicaciones SaaS populares*
 
 ![Aprovisionamiento de entrada](./media/user-provisioning/provisioning2.PNG)
-*figura 3: Flujo de trabajo "entrante" del aprovisionamiento de usuarios desde aplicaciones populares de administración del capital humano (HCM) a Azure Active Directory y Windows Server Active Directory*
+*Figura 3: Flujo de trabajo "entrante" del aprovisionamiento de usuarios desde aplicaciones populares de administración del capital humano (HCM) a Azure Active Directory y Windows Server Active Directory*
 
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>¿Qué aplicaciones y sistemas puedo usar con el aprovisionamiento automático de usuarios de Azure AD?
@@ -278,8 +278,8 @@ Como alternativa, debe asignar explícitamente (o de otro modo [definir el ámbi
 ## <a name="related-articles"></a>Artículos relacionados
 
 - [Lista de tutoriales sobre cómo integrar aplicaciones SaaS](../saas-apps/tutorial-list.md)
-- [Personalizar asignaciones de atributos para el aprovisionamiento de usuarios](customize-application-attributes.md)
-- [Escribir expresiones para asignaciones de atributos](functions-for-customizing-application-data.md)
-- [Filtros de ámbito para el aprovisionamiento de usuarios](define-conditional-rules-for-provisioning-user-accounts.md)
+- [Personalización de asignaciones de atributos para el aprovisionamiento de usuarios](customize-application-attributes.md)
+- [Escritura de expresiones para asignaciones de atributos](functions-for-customizing-application-data.md)
+- [Filtros de ámbito para el aprovisionamiento de usuario](define-conditional-rules-for-provisioning-user-accounts.md)
 - [Uso de SCIM para habilitar el aprovisionamiento automático de usuarios y grupos de Azure Active Directory a aplicaciones](use-scim-to-provision-users-and-groups.md)
-- [Introducción a API de sincronización de Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
+- [Introducción a la API de sincronización de Azure AD](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

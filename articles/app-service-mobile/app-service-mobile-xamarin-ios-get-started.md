@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 10/01/2016
 ms.author: crdun
 ms.openlocfilehash: 03fb286bd24bb12f3a1e508627a2de156e185568
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58892439"
 ---
 # <a name="create-a-xamarinios-app"></a>Creación de una aplicación Xamarin.iOS
@@ -49,7 +49,7 @@ Para configurar el proyecto de servidor para que use el back-end de Node.js o. N
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="download-and-run-the-xamarinios-app"></a>Descarga y ejecución de la aplicación Xamarin.iOS
-1. En el equipo Mac, abra el [Portal de Azure] en una ventana del explorador.
+1. En el equipo Mac, abra el [Azure Portal] en una ventana del explorador.
 2. En la hoja de configuración de la aplicación móvil, haga clic en **Introducción** > **Xamarin.iOS**. En el paso 3, haga clic en **Crear una nueva aplicación** , en caso de que no esté seleccionado.  A continuación, haga clic en el botón **Descargar** .
 
       Se descarga una aplicación cliente que se conecta a su back-end móvil. Guarde el archivo comprimido del proyecto en el equipo local y anote dónde lo guardó.
@@ -71,8 +71,8 @@ Para configurar el proyecto de servidor para que use el back-end de Node.js o. N
 >
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Agregar sincronización sin conexión a la aplicación](app-service-mobile-xamarin-ios-get-started-offline-data.md)
-* [Agregar autenticación a la aplicación](app-service-mobile-xamarin-ios-get-started-users.md)
+* [Add Offline Sync to your app](app-service-mobile-xamarin-ios-get-started-offline-data.md) (Incorporación de sincronización sin conexión a la aplicación)
+* [Incorporación de autenticación a la aplicación](app-service-mobile-xamarin-ios-get-started-users.md)
 * [Agregar notificaciones push a la aplicación de Xamarin.Android](app-service-mobile-xamarin-ios-get-started-push.md)
 * [Uso del cliente administrado para Azure Mobile Apps](app-service-mobile-dotnet-how-to-use-client-library.md)
 

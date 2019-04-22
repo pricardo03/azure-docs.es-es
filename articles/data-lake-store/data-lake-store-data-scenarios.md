@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: 0b16154edbda4bedfd4e9b680ba4311e7a235212
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58878764"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Uso de Azure Data Lake Storage Gen1 para requisitos de macrodatos
@@ -40,8 +40,8 @@ Representan conjuntos de datos más pequeños que se utilizan para la creación 
 
 | Origen de datos | Introducir mediante |
 | --- | --- |
-| Equipo local |<ul> <li>[Azure Portal](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Azure CLI](data-lake-store-get-started-cli-2.0.md)</li> <li>[Mediante Data Lake Tools para Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
-| Blob de Azure Storage |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[Herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp ejecutándose en el clúster de HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
+| Equipo local |<ul> <li>[Azure Portal](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[CLI de Azure](data-lake-store-get-started-cli-2.0.md)</li> <li>[Usar herramientas de Data Lake para Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
+| Blob de Azure Storage |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp ejecutándose en un clúster de HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Datos de streaming
 Representa los datos que se pueden generar por diversos orígenes, como aplicaciones, dispositivos o sensores, entre otros. Estos datos se pueden ingerir en Data Lake Storage Gen1 mediante distintas herramientas. Estas herramientas normalmente capturan y procesan los datos en eventos individuales y en tiempo real y, después, escriben los eventos en lotes en Data Lake Storage Gen1 para que puedan procesarse posteriormente.
@@ -61,7 +61,7 @@ También se pueden originar datos desde bases de datos relacionales. Durante un 
 ### <a name="web-server-log-data-upload-using-custom-applications"></a>Datos de registro de servidor web (carga mediante aplicaciones personalizadas)
 Este tipo de conjunto de datos es específicamente necesario porque el análisis de los datos de registro del servidor web es un caso de uso común para aplicaciones de macrodatos y requiere que se carguen grandes volúmenes de archivos de registro en Data Lake Storage Gen1. Puede utilizar cualquiera de las herramientas siguientes para escribir sus propios scripts o aplicaciones para cargar dichos datos.
 
-* [Azure CLI](data-lake-store-get-started-cli-2.0.md)
+* [CLI de Azure](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [SDK de .NET de Azure Data Lake Storage Gen1](data-lake-store-get-started-net-sdk.md)
 * [Azure Data Factory](../data-factory/copy-activity-overview.md)
@@ -72,7 +72,7 @@ Para cargar datos de registro del servidor web y también para cargar otros tipo
 La mayoría de los tipos de clúster de HDInsight (Hadoop, HBase, Storm) admiten Data Lake Storage Gen1 como repositorio de almacenamiento de datos. Los clústeres de HDInsight acceden a los datos de Azure Storage Blob (WASB). Para mejorar el rendimiento, puede copiar los datos de WASB en una cuenta de Data Lake Storage Gen1 asociada con el clúster. Puede usar las herramientas siguientes para copiar los datos.
 
 * [Apache DistCp](data-lake-store-copy-data-wasb-distcp.md)
-* [AdlCopy Service](data-lake-store-copy-data-azure-storage-blob.md)
+* [Servicio de AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 * [Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
 
 ### <a name="data-stored-in-on-premises-or-iaas-hadoop-clusters"></a>Datos almacenados en clústeres locales o de IaaS de Hadoop
@@ -81,8 +81,8 @@ Es posible que haya grandes cantidades de datos almacenados en clústeres de Had
 | Enfoque | Detalles | Ventajas | Consideraciones |
 | --- | --- | --- | --- |
 | Usar Azure Data Factory (ADF) para copiar datos directamente desde los clústeres de Hadoop hasta Azure Data Lake Storage Gen1 |[ADF admite HDFS como origen de datos](../data-factory/connector-hdfs.md) |ADF proporciona compatibilidad inmediata con HDFS, así como una supervisión y administración integrales y de primera clase. |Requiere que se implemente Data Management Gateway localmente o en el clúster de IaaS. |
-| Exportar datos desde Hadoop como archivos. Luego, copiar los archivos en Azure Data Lake Storage Gen1 con el mecanismo adecuado. |Puede copiar archivos en Azure Data Lake Storage Gen1 por medio de: <ul><li>[Azure PowerShell para el sistema operativo Windows](data-lake-store-get-started-powershell.md)</li><li>[Azure CLI](data-lake-store-get-started-cli-2.0.md)</li><li>Aplicación personalizada con cualquier SDK de Data Lake Storage Gen1</li></ul> |Se empieza rápido. Se pueden usar cargas personalizadas. |Proceso de varios pasos en el que participan varias tecnologías. La administración y la supervisión presentarán dificultades con el tiempo, dada la naturaleza personalizada de las herramientas. |
-| Usar Distcp para copiar datos de Hadoop en Azure Storage. Después, copiar los datos de Azure Storage en Data Lake Store Gen1 con el mecanismo adecuado. |Puede copiar datos de Azure Storage a Data Lake Store Gen1 por medio de: <ul><li>[Azure Data Factory](../data-factory/copy-activity-overview.md)</li><li>[Herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[Apache DistCp ejecutándose en clústeres de HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li></ul> |Puede usar herramientas de código abierto. |Proceso de varios pasos en el que participan varias tecnologías. |
+| Exportar datos desde Hadoop como archivos. Luego, copiar los archivos en Azure Data Lake Storage Gen1 con el mecanismo adecuado. |Puede copiar archivos en Azure Data Lake Storage Gen1 por medio de: <ul><li>[Azure PowerShell para SO Windows](data-lake-store-get-started-powershell.md)</li><li>[CLI de Azure](data-lake-store-get-started-cli-2.0.md)</li><li>Aplicación personalizada con cualquier SDK de Data Lake Storage Gen1</li></ul> |Se empieza rápido. Se pueden usar cargas personalizadas. |Proceso de varios pasos en el que participan varias tecnologías. La administración y la supervisión presentarán dificultades con el tiempo, dada la naturaleza personalizada de las herramientas. |
+| Usar Distcp para copiar datos de Hadoop en Azure Storage. Después, copiar los datos de Azure Storage en Data Lake Store Gen1 con el mecanismo adecuado. |Puede copiar datos de Azure Storage a Data Lake Store Gen1 por medio de: <ul><li>[Azure Data Factory](../data-factory/copy-activity-overview.md)</li><li>[herramienta AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[Apache DistCp ejecutándose en clústeres de HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li></ul> |Puede usar herramientas de código abierto. |Proceso de varios pasos en el que participan varias tecnologías. |
 
 ### <a name="really-large-datasets"></a>Conjuntos de datos realmente grandes
 Para cargar conjuntos de datos cuyo tamaño oscila en varios terabytes, el uso de los métodos descritos anteriormente puede a veces resultar lento y costoso. En tales casos, puede utilizar las opciones siguientes.
@@ -102,8 +102,8 @@ Cuando los datos están disponibles en Data Lake Storage Gen1, puede ejecutar un
 
 Puede buscar en los ejemplos siguientes.
 
-* [Crear un clúster de HDInsight con Data Lake Storage Gen1 como almacenamiento](data-lake-store-hdinsight-hadoop-use-portal.md)
-* [Usar Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Creación de un clúster de HDInsight con Data Lake Storage Gen1 como almacenamiento](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Uso de Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 
 ## <a name="download-data-from-data-lake-storage-gen1"></a>Descarga de datos de Data Lake Storage Gen1
 También puede descargar o mover datos de Azure Data Lake Storage Gen1 en escenarios como los siguientes:
@@ -121,7 +121,7 @@ En tales casos, puede utilizar cualquiera de las opciones siguientes.
 
 También puede usar los métodos siguientes para escribir su propio script o aplicación para descargar datos de Data Lake Storage Gen1.
 
-* [Azure CLI](data-lake-store-get-started-cli-2.0.md)
+* [CLI de Azure](data-lake-store-get-started-cli-2.0.md)
 * [Azure PowerShell](data-lake-store-get-started-powershell.md)
 * [SDK de .NET de Azure Data Lake Storage Gen1](data-lake-store-get-started-net-sdk.md)
 

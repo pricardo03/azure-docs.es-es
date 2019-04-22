@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/17/2019
 ms.author: monhaber
 ms.openlocfilehash: 27acda2496adea39321e498868aebcc2f824df3c
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905297"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Actualización al nivel Estándar de Security Center para mejorar la seguridad
@@ -65,7 +65,7 @@ Security Center ofrece una seguridad mejorada y una protección contra amenazas 
 En este artículo se han presentado los precios de Security Center. Para obtener más información sobre la seguridad mejorada y la protección contra amenazas avanzada del nivel Estándar, vea:
 
 - [Detección de amenazas avanzada](security-center-threat-report.md)
-- [Just-in-control de acceso de máquina virtual de tiempo](security-center-just-in-time.md)
+- [Control de acceso a VM Just-In-Time](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png

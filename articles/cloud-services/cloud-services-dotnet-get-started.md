@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: jeconnoc
 ms.openlocfilehash: a2eff2ca2e72ad263e3e23d0827e7603bca3fdcb
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58917483"
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introducción a Azure Cloud Services y ASP.NET
@@ -703,7 +703,7 @@ Después de cada iteración del bucle, si no se encuentra ningún mensaje de col
 
 Algunas veces, el contenido de un mensaje de cola causa un error de procesamiento. Esto se llama *mensaje dudoso*y si simplemente registró un error y reinició el bucle, podría intentar procesar ese mensaje incesantemente.  Por tanto, el bloque de captura incluye una declaración if que comprueba el número de veces que la aplicación ha intentado procesar el mensaje actual y, si dicho número es superior a 5, el mensaje se elimina de la cola.
 
-`ProcessQueueMessage` se llama cuando se encuentra un mensaje en cola.
+`ProcessQueueMessage` se llama cuando se encuentra un mensaje de cola.
 
 ```csharp
 private void ProcessQueueMessage(CloudQueueMessage msg)
@@ -775,7 +775,7 @@ Para ver un vídeo introductorio de los procedimientos y modelos recomendados de
 
 Para obtener más información, consulte los siguientes recursos:
 
-* [Servicios de nube de Azure, parte 1: Introducción](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
-* [Cómo administrar servicios en la nube](cloud-services-how-to-manage-portal.md)
+* [Azure Cloud Services Part 1 (Azure Cloud Services, parte 1): Introducción](https://justazure.com/microsoft-azure-cloud-services-part-1-introduction/)
+* [Administración de Cloud Services](cloud-services-how-to-manage-portal.md)
 * [Azure Storage](https://docs.microsoft.com/azure/storage/)
 * [Cómo se elige un proveedor de servicios en la nube](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)

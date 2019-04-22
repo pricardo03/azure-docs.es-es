@@ -8,10 +8,10 @@ ms.date: 11/20/2018
 ms.author: rimman
 ms.reviewer: sngun
 ms.openlocfilehash: c3a3305197802906077dab330a6b51c1195c6c36
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58879478"
 ---
 # <a name="total-cost-of-ownershiptco-with-azure-cosmos-db"></a>Costo total de propiedad (TCO) con Azure Cosmos DB
@@ -48,11 +48,11 @@ El modelo de aprovisionamiento sin servidor de Azure Cosmos DB elimina la necesi
 
 * **Puede usar el rendimiento aprovisionado hasta un límite máximo:** En virtud de la multiplexación subnúcleo en Azure Cosmos DB, puede saturar el rendimiento aprovisionado para un nivel mucho mayor que las opciones hospedadas en IaaS u ofertas de terceros. Este método ahorra mucho más que las soluciones alternativas.
 
-* **Integración profunda de Azure Cosmos DB con otros servicios de Azure.** Azure Cosmos DB tiene una integración nativa en Redes, Proceso, Azure Functions (sin servidor), Azure IoT y otros servicios de Azure. Con esta integración, obtendrá el mejor rendimiento y velocidad de replicación de datos en todo el mundo con las garantías sólidas. Las soluciones de terceros no podrán ofrecer tanto, o cobrarán una prima para ofrecen dichas características.
+* **Integración profunda de Azure Cosmos DB en otros servicios de Azure.** Azure Cosmos DB tiene una integración nativa en Redes, Proceso, Azure Functions (sin servidor), Azure IoT y otros servicios de Azure. Con esta integración, obtendrá el mejor rendimiento y velocidad de replicación de datos en todo el mundo con las garantías sólidas. Las soluciones de terceros no podrán ofrecer tanto, o cobrarán una prima para ofrecen dichas características.
 
 * **Obtiene automáticamente alta disponibilidad, con al menos 10 a 20 dominios de error de forma predeterminada:** Azure Cosmos DB admite la distribución de cargas de trabajo entre dominios de error, una característica que es crítica para la alta disponibilidad. Ofrece una alta disponibilidad del 99,999 para las lecturas y escrituras en el percentil 99 en cualquier lugar del mundo. El costo de implementar algo parecido a esto por sí mismo o a través de la solución de un tercero sería alto.
 
-* **Obtendrá automáticamente todas las funcionalidades de enterprise, sin costo adicional.** Azure Cosmos DB ofrece el conjunto más completo de certificaciones de cumplimiento, seguridad y cifrado en reposo y en movimiento sin costo adicional (en comparación con la competencia). Obtiene automáticamente disponibilidad regional en cualquier lugar del mundo. Puede expandir su base de datos a lo largo de cualquier número de regiones de Azure y agregar o quitar regiones en cualquier momento.
+* **Obtiene automáticamente todas las funcionalidades empresariales, sin costo adicional.** Azure Cosmos DB ofrece el conjunto más completo de certificaciones de cumplimiento, seguridad y cifrado en reposo y en movimiento sin costo adicional (en comparación con la competencia). Obtiene automáticamente disponibilidad regional en cualquier lugar del mundo. Puede expandir su base de datos a lo largo de cualquier número de regiones de Azure y agregar o quitar regiones en cualquier momento.
 
 * **Puede guardar hasta un 65 % de los costos con capacidad reservada:** La [capacidad reservada](cosmos-db-reserved-capacity.md) de Azure Cosmos DB le ayuda a ahorrar dinero gracias al pago anticipado de los recursos de Azure Cosmos DB durante uno o tres años. Con los compromisos de un año o tres por adelantado, puede reducir los costos considerablemente y ahorrar de un 20 a un 65 % de descuento en comparación con los precios normales. Puede obtener los mejores SLA en cuanto a capacidad de aprovisionamiento en las cargas de trabajo críticas.
 

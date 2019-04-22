@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/09/2018
 ms.author: alkohli
 ms.openlocfilehash: bc1e8a5abc85af95448570497177030f17649d87
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877591"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configuración de MPIO en un host de StorSimple que ejecuta CentOS
@@ -438,7 +438,7 @@ Para obtener más información, consulte [Usar el comando interactivo de soluci�
 | &nbsp; |`chkconfig multipathd on` </br> OR </br> `mpathconf –with_chkconfig y` |Habilitar el daemon de múltiples rutas al arrancar |
 | &nbsp; |`multipathd –k` |Iniciar la consola interactiva para la solución de problemas |
 | &nbsp; |`multipath –l` |Enumerar dispositivos y conexiones de múltiples rutas |
-| &nbsp; |`mpathconf --enable` |Crear un ejemplo mulitpath.conf en `/etc/mulitpath.conf` |
+| &nbsp; |`mpathconf --enable` |Crear un archivo de ejemplo mulitpath.conf en `/etc/mulitpath.conf` |
 |  | | |
 
 ## <a name="next-steps"></a>Pasos siguientes

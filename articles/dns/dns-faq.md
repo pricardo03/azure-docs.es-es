@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 3/21/2019
 ms.author: victorh
 ms.openlocfilehash: 4f0800dfd264059e1dc8aac32a54f216f777647f
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905722"
 ---
 # <a name="azure-dns-faq"></a>Preguntas más frecuentes sobre DNS de Azure
@@ -116,10 +116,10 @@ Los conjuntos de registros de alias se admiten para los siguientes tipos de regi
 
 ### <a name="what-resources-are-supported-as-targets-for-alias-record-sets"></a>¿Qué recursos se admiten como destinos para los conjuntos de registros de alias?
 
-- **Apuntar a un recurso de IP pública desde un conjunto de registros A/AAAA de DNS.** Puede crear un conjunto de registros D/AAAA y hacer que sea un conjunto de registros de alias que apunte a un recurso de dirección IP pública.
-- **Apuntar a un perfil de Traffic Manager desde un conjunto de registros DNS A/AAAA o CNAME.** Puede apuntar al CNAME de un perfil de Traffic Manager desde un conjunto de registros CNAME de DNS. Un ejemplo es contoso.trafficmanager.net. Ahora, también puede apuntar a un perfil de Traffic Manager que tenga puntos de conexión externos desde un registro D o AAAA establecido en su zona DNS.
+- **Apuntar a un recurso de dirección IP pública desde un conjunto de registros A/AAAA de DNS**. Puede crear un conjunto de registros D/AAAA y hacer que sea un conjunto de registros de alias que apunte a un recurso de dirección IP pública.
+- **Apuntar a un perfil de Traffic Manager desde un conjunto de registros D/AAAA/CNAME de DNS.** Puede apuntar al CNAME de un perfil de Traffic Manager desde un conjunto de registros CNAME de DNS. Un ejemplo es contoso.trafficmanager.net. Ahora, también puede apuntar a un perfil de Traffic Manager que tenga puntos de conexión externos desde un registro D o AAAA establecido en su zona DNS.
 - **Seleccione un punto de conexión de Azure Content Delivery Network (CDN)**. Esto es útil al crear los sitios Web estáticos con Azure storage y red CDN de Azure.
-- **Elija otro conjunto de registros DNS dentro de la misma zona.** Los registros de alias pueden hacer referencia a otros conjuntos de registros del mismo tipo. Por ejemplo, puede hacer que un conjunto de registros CNAME de DNS sea un alias de otro conjunto de registros CNAME del mismo tipo. Esta organización resulta útil si desea que algunos conjuntos de registros sean alias y otros no alias.
+- **Apuntar a otro conjunto de registros de DNS dentro de la misma zona**. Los registros de alias pueden hacer referencia a otros conjuntos de registros del mismo tipo. Por ejemplo, puede hacer que un conjunto de registros CNAME de DNS sea un alias de otro conjunto de registros CNAME del mismo tipo. Esta organización resulta útil si desea que algunos conjuntos de registros sean alias y otros no alias.
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>¿Puedo crear y actualizar registros de alias desde Azure Portal?
 

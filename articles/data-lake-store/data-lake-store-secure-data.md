@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: cebdff5ed233516683df3330e8fd3332ded664e5
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885679"
 ---
 # <a name="securing-data-stored-in-azure-data-lake-storage-gen1"></a>Protección de los datos almacenados en Azure Data Lake Storage Gen1
@@ -149,10 +149,10 @@ Cuando quita las ACL de grupos de seguridad de un sistema de archivos de Data La
 
 ## <a name="see-also"></a>Vea también
 * [Introducción a Azure Data Lake Storage Gen1](data-lake-store-overview.md)
-* [Copiar datos desde Azure Storage BLOB a Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
-* [Usar Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Uso de Azure HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Copia de datos de los blobs de Azure Storage en Data Lake Storage Gen1](data-lake-store-copy-data-azure-storage-blob.md)
+* [Use Azure Data Lake Analytics with Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md) (Uso de Azure Data Lake Analytics con Data Lake Storage Gen1)
+* [Use Azure HDInsight with Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md) (Uso de Azure HDInsight con Data Lake Storage Gen1)
 * [Introducción a Data Lake Storage Gen1 con PowerShell](data-lake-store-get-started-powershell.md)
-* [Introducción a Data Lake Storage Gen1 con SDK de .NET](data-lake-store-get-started-net-sdk.md)
-* [Registros de diagnóstico de acceso de Data Lake Storage Gen1](data-lake-store-diagnostic-logs.md)
+* [InGet Started with Data Lake Storage Gen1 using .NET SDK](data-lake-store-get-started-net-sdk.md) (Introducción a Data Lake Storage Gen1 con el SDK de .NET)
+* [Access diagnostic logs for Data Lake Storage Gen1](data-lake-store-diagnostic-logs.md) (Acceso a los registros de diagnóstico de Data Lake Storage Gen1)
 

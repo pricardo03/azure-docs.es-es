@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 09809270d6b42a5491d322628f1d98c580f65206
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915943"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-cndk"></a>Cómo crear y localizar los anclajes mediante delimitadores espacial de Azure en C++ / c++ / NDK
@@ -36,8 +36,8 @@ Azure Spatial Anchors permite compartir delimitadores entre diferentes dispositi
 
 Para completar a esta guía, asegúrese de que tiene:
 
-- Lea la [información general de Azure espacial delimitadores](../overview.md).
-- Completado uno de los [inicios rápidos en 5 minutos](../index.yml).
+- Ha leído completamente [Introducción a Azure Spatial Anchors](../overview.md).
+- Ha completado uno de los [inicios rápidos en 5 minutos](../index.yml).
 - Conocimientos básicos sobre C++ y la <a href="https://developer.android.com/ndk/" target="_blank">Kit de desarrollo nativo de Android</a>.
 - Conocimiento básico sobre <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> 1.5.
 

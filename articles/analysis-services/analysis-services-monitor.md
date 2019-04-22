@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: cdffa8e138062a91bd1876ac6e44728c47d9cdd7
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893187"
 ---
 # <a name="monitor-server-metrics"></a>Supervisión de las métricas del servidor
@@ -87,4 +87,4 @@ Utilice esta tabla para determinar qué métricas son más adecuadas para su esc
 ## <a name="next-steps"></a>Pasos siguientes
 [Supervisión en Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview.md)   
 [Métricas en Microsoft Azure](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md)   
-[Métricas de API de REST de Azure Monitor](/rest/api/monitor/metrics)
+[Métricas de la API de REST de Azure Monitor](/rest/api/monitor/metrics)

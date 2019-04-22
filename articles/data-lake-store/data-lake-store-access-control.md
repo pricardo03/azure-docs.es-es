@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: twooley
 ms.openlocfilehash: 211cb32298b17bb9e4023bf8bc74233c3916f58d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877676"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Control de acceso en Azure Data Lake Storage Gen1
@@ -47,7 +47,7 @@ Los permisos de un objeto del sistema de archivos son de **lectura**, **escritur
 
 |            |    Archivo     |   Carpeta |
 |------------|-------------|----------|
-| **Read (R)** | Puede leer el contenido de un archivo | Requiere permisos de **lectura** y **ejecución** para enumerar el contenido de la carpeta.|
+| **Lectura (R)** | Puede leer el contenido de un archivo | Requiere permisos de **lectura** y **ejecución** para enumerar el contenido de la carpeta.|
 | **Escritura (W)** | Puede escribir o anexar a un archivo | Requiere permisos de **lectura** y **ejecución** para crear elementos secundarios en una carpeta. |
 | **Ejecución (X)** | No significa nada en el contexto de Data Lake Storage Gen1 | Se requiere para atravesar los elementos secundarios de una carpeta. |
 
@@ -124,13 +124,13 @@ El usuario que creó el elemento es automáticamente el usuario propietario del 
 
 ### <a name="the-owning-group"></a>El grupo propietario
 
-**Fondo**
+**Información preliminar**
 
 En las ACL de POSIX, todos los usuarios están asociados a un "grupo principal". Por ejemplo, el usuario "alice" puede pertenecer al grupo "finance". Alice puede pertenecer a varios grupos, pero uno de ellos siempre se designa como su grupo principal. En POSIX, cuando Alice crea un archivo, el grupo propietario de dicho archivo se establece como su grupo principal, que en este caso es "finance". De lo contrario, el grupo propietario se comporta de forma similar a los permisos asignados para otros usuarios o grupos.
 
 Dado que no hay ningún "grupo principal" asociado a los usuarios de Data Lake Storage Gen1, el grupo propietario se asigna como sigue.
 
-**Asignar al grupo propietario de un nuevo archivo o carpeta**
+**Asignar el grupo propietario de un nuevo archivo o carpeta**
 
 * **Caso 1**: la carpeta raíz "/". Esta carpeta se crea cuando se crea una cuenta de Data Lake Storage Gen1. En este caso, el grupo propietario se establece en un GUID con solo ceros.  Este valor no permite ningún acceso.  Es un marcador de posición hasta el momento en el que se asigna un grupo.
 * **Caso 2** (cada dos casos): cuando se crea un nuevo elemento, se copia el grupo propietario de la carpeta primaria.
@@ -288,14 +288,14 @@ No, pero las ACL predeterminada pueden usarse para establecer las ACL para archi
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>¿Dónde puedo obtener más información sobre el modelo de control de acceso POSIX?
 
-* [Listas de Control de acceso POSIX en Linux](https://www.linux.com/news/posix-acls-linux)
-* [Guía de permisos de HDFS](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html)
-* [PREGUNTAS MÁS FRECUENTES DE POSIX](https://www.opengroup.org/austin/papers/posix_faq.html)
+* [POSIX Access Control Lists on Linux](https://www.linux.com/news/posix-acls-linux) (Listas de control de acceso de POSIX en Linux)
+* [HDFS Permission Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html) (Guía de permisos de HDFS)
+* [POSIX FAQ (PREGUNTAS MÁS FRECUENTES SOBRE POSIX)](https://www.opengroup.org/austin/papers/posix_faq.html)
 * [POSIX 1003.1 2008](https://standards.ieee.org/findstds/standard/1003.1-2008.html)
 * [POSIX 1003.1 2013](https://pubs.opengroup.org/onlinepubs/9699919799.2013edition/)
 * [POSIX 1003.1 2016](https://pubs.opengroup.org/onlinepubs/9699919799.2016edition/)
 * [ACL de POSIX en Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
-* [ACL mediante listas de control de acceso en Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)
+* [ACL: Using Access Control Lists on Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/) (ACL: uso de listas de control de acceso en Linux)
 
 ## <a name="see-also"></a>Vea también
 

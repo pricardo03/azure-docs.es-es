@@ -10,10 +10,10 @@ ms.date: 12/26/2018
 ms.author: lyrana
 ms.custom: seodec18
 ms.openlocfilehash: 72155799971760e9ddc93746dceafb1ea554d88b
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905314"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Crear y administrar las asignaciones de roles en Azure Digital Twins
@@ -163,7 +163,7 @@ Para comprobar una asignación de roles específica, realice una solicitud HTTP 
 YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH&accessType=YOUR_ACCESS_TYPE&resourceType=YOUR_RESOURCE_TYPE
 ```
 
-| **Valor del parámetro** | **Obligatorio** |  **Type** |  **DESCRIPCIÓN** |
+| **Valor del parámetro** | **Obligatorio** |  **Tipo** |  **Descripción** |
 | --- | --- | --- | --- |
 | YOUR_USER_ID |  True | string |   El valor de objectId para el objectIdType UserId. |
 | YOUR_PATH | True | string |   La ruta de acceso elegida cuyo acceso se comprobará. |

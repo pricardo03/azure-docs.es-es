@@ -12,10 +12,10 @@ ms.date: 01/14/2019
 ms.author: Barclayn
 ms.custom: AzLog
 ms.openlocfilehash: 7e70920e806b3d9838d693ff1fc74a3e9371319d
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883928"
 ---
 # <a name="azure-log-integration-tutorial-process-azure-key-vault-events-by-using-event-hubs"></a>Tutorial de Azure Log Integration: Procesamiento de eventos de Azure Key Vault mediante Event Hubs
@@ -45,7 +45,7 @@ Para más información sobre los servicios que se mencionan en este tutorial, ve
 
 - [Azure Key Vault](../key-vault/key-vault-whatis.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)
-- [Azure Log Integration](security-azure-log-integration-overview.md)
+- [Integración de registros de Azure](security-azure-log-integration-overview.md)
 
 
 ## <a name="initial-setup"></a>Configuración inicial
@@ -89,13 +89,13 @@ Necesita lo siguiente para completar los pasos de este artículo:
 1. Después de autenticarse correctamente, ha iniciado sesión. Tome nota del identificador y el nombre de la suscripción, ya que los necesitará para completar los pasos posteriores.
 
 1. Cree variables para almacenar valores que se usarán más adelante. Escriba cada una de las siguientes líneas de PowerShell. Es posible que necesite ajustar los valores para que se adapten a su entorno.
-    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (El nombre de la suscripción puede variar. Puede verlo como parte de la salida del comando anterior).
-    - ```$location = 'West US'``` (Esta variable se usará para pasar la ubicación donde se deben crear los recursos. Puede cambiar esta variable para que sea cualquier otra ubicación que elija).
+    - ```$subscriptionName = 'Visual Studio Ultimate with MSDN'``` (El nombre de la suscripción puede ser diferente. Puede verlo como parte de la salida del comando anterior).
+    - ```$location = 'West US'``` (Se utilizará esta variable para pasar la ubicación donde se deben crear los recursos. Puede cambiar esta variable para que sea cualquier otra ubicación que elija).
     - ```$random = Get-Random```
-    - ```$name = 'azlogtest' + $random``` (El nombre puede ser cualquier cosa, pero debe incluir solo letras minúsculas y números).
-    - ```$storageName = $name``` (Esta variable se usará para el nombre de cuenta de almacenamiento).
+    - ```$name = 'azlogtest' + $random``` (El nombre puede ser de cualquier tipo, pero solo debe incluir números y letras en minúsculas).
+    - ```$storageName = $name``` (Esta variable se usará para el nombre de la cuenta de almacenamiento).
     - ```$rgname = $name``` (Esta variable se usará para el nombre del grupo de recursos).
-    - ```$eventHubNameSpaceName = $name``` (Esto es el nombre del espacio de nombres del centro de eventos).
+    - ```$eventHubNameSpaceName = $name``` (El nombre del espacio de nombres del centro de eventos).
 1. Especifique la suscripción con la que va a trabajar:
     
     ```Select-AzSubscription -SubscriptionName $subscriptionName```
@@ -157,8 +157,7 @@ Las solicitudes se deben enviar a Key Vault para generar actividades de registro
    ```Get-AzStorageAccountKey -Name $storagename -ResourceGroupName $rgname  | ft -a```
 1. Establezca y lea un secreto para generar entradas de registro adicionales:
     
-    a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)```
-   b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
+    a. ```Set-AzKeyVaultSecret -VaultName $name -Name TestSecret -SecretValue (ConvertTo-SecureString -String 'Hi There!' -AsPlainText -Force)``` b. ```(Get-AzKeyVaultSecret -VaultName $name -Name TestSecret).SecretValueText```
 
    ![Secreto devuelto](./media/security-azure-log-integration-keyvault-eventhub/keyvaultsecret.png)
 
@@ -181,6 +180,6 @@ Aproximadamente un minuto después de la ejecución de los dos últimos comandos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Preguntas más frecuentes sobre Azure Log Integration](security-azure-log-integration-faq.md)
-- [Introducción a Azure Log Integration](security-azure-log-integration-get-started.md)
-- [Integrar los registros de recursos de Azure en sistemas SIEM](security-azure-log-integration-overview.md)
+- [Preguntas más frecuentes sobre la integración de registro de Azure](security-azure-log-integration-faq.md)
+- [Introducción a la integración de registros de Azure](security-azure-log-integration-get-started.md)
+- [Integrar registros de recursos de Azure en sistemas SIEM](security-azure-log-integration-overview.md)

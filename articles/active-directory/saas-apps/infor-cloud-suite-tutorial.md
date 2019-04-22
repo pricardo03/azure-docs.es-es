@@ -17,10 +17,10 @@ ms.date: 11/29/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 025a9d7df16b2be5e22104010be057403ce53c25
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880634"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-infor-cloudsuite"></a>Tutorial: Integración de Azure Active Directory con Infor CloudSuite
@@ -61,7 +61,7 @@ En este tutorial, puede probar el inicio de sesión único de Azure AD en un ent
 
 Para configurar la integración de Infor CloudSuite en Azure AD, deberá agregarlo desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Infor CloudSuite desde la galería, realice los pasos siguientes:**
+**Para agregar Infor CloudSuite desde la galería, siga estos pasos:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
@@ -97,7 +97,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Infor Cloud
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y lo configurará en la aplicación Infor CloudSuite.
 
-**Para configurar el inicio de sesión único en Azure AD con Infor CloudSuite, realice los pasos siguientes:**
+**Para configurar el inicio de sesión único de Azure AD con Infor CloudSuite, realice los pasos siguientes:**
 
 1. En Azure Portal, en la página de integración de aplicaciones **Infor CloudSuite**, haga clic en **Inicio de sesión único**.
 

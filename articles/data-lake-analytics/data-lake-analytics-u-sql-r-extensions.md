@@ -10,10 +10,10 @@ ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
 ms.openlocfilehash: 59a52b2aeb83732a608f1fcf5bc4de907d25dfd1
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885033"
 ---
 # <a name="extend-u-sql-scripts-with-r-code-in-azure-data-lake-analytics"></a>Extend U-SQL scripts with R code in Azure Data Lake Analytics (Extensión de los scripts de U-SQL con código R en Azure Data Lake Analytics)
@@ -93,7 +93,7 @@ Use un script U-SQL para implementar ese script R con la instrucción DEPLOY RES
 ### <a name="datatypes"></a>Tipos de datos
 * Las columnas de cadena y numéricas de U-SQL se convierten tal cual entre R DataFrame y U-SQL [tipos admitidos: `double`, `string`, `bool`, `integer` y `byte`].
 * El tipo de datos `Factor` no se admite en U-SQL.
-* `byte[]` debe serializarse como codificada en base64 `string`.
+* `byte[]` debe serializarse como `string` codificada en base64.
 * Las cadenas de U-SQL se pueden convertir en factores en el código R, una vez que U-SQL cree una trama de datos de entrada de R o mediante el establecimiento del parámetro reductor `stringsAsFactors: true`.
 
 ### <a name="schemas"></a>Esquemas
@@ -207,6 +207,6 @@ En primer lugar, cree un módulo personalizado de R, comprímalo y luego cargue 
     OUTPUT @RScriptOutput TO @OutputFileModelSummary USING Outputters.Tsv();
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Información general de Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Desarrollar scripts U-SQL mediante Data Lake Tools para Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
+* [Información general de Análisis de Microsoft Azure Data Lake](data-lake-analytics-overview.md)
+* [Desarrollo de scripts U-SQL mediante Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Uso de funciones de ventana de U-SQL para trabajos de Análisis de Azure Data Lake](data-lake-analytics-use-window-functions.md)

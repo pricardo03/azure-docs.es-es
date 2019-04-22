@@ -12,10 +12,10 @@ ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
 ms.openlocfilehash: 92e8435e4336c68982e4becc2a95f99b2c776c0e
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58861849"
 ---
 # <a name="protocol-support-for-http-headers-in-azure-front-door-service"></a>Soporte de protocolo para los encabezados HTTP en el servicio de puerta de entrada de Azure
@@ -54,7 +54,7 @@ Los encabezados enviados a la puerta de entrada desde el back-end también se pa
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Creación de una instancia de Front Door](quickstart-create-front-door.md)
+- [Crear una puerta de entrada](quickstart-create-front-door.md)
 - [Cómo funciona la puerta de entrada](front-door-routing-architecture.md)
 
 <!--Image references-->

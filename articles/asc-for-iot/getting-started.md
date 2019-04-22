@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: aac15d766439a725f593ca421cbdc6da496f29f4
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862699"
 ---
 # <a name="get-started-with-azure-security-center-for-iot"></a>Introducción a Azure Security Center para IoT 
 
 > [!IMPORTANT]
-> Azure Security Center para IoT está actualmente en versión preliminar pública.
+> Azure Security Center for IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 En este artículo se proporciona una explicación de los distintos bloques de creación de Azure Security Center (ASC) para el servicio IoT y se explica cómo empezar a trabajar con [habilitar el servicio](quickstart-onboard-iot-hub.md). 
@@ -76,6 +76,6 @@ Hacer uso de ASC para capacidades de seguridad mejorada de IoT, como la supervis
 
 - Habilitar [ASC para IoT](quickstart-onboard-iot-hub.md)
 - Configurar su [solución](quickstart-configure-your-solution.md)
-- [Crear módulos de seguridad](quickstart-create-security-twin.md)
+- [Creación de módulos de seguridad](quickstart-create-security-twin.md)
 - Configurar [alertas personalizadas](quickstart-create-custom-alerts.md)
-- [Implementar a un agente de seguridad](how-to-deploy-agent.md)
+- [Implementación de un agente de seguridad](how-to-deploy-agent.md)

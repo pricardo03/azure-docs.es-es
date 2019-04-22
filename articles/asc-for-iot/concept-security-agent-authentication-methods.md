@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: d1f9d77d1f87e8d201e2cb034401bb3cae14f41b
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862920"
 ---
 # <a name="security-agent-authentication-methods"></a>Métodos de autenticación de seguridad del agente 
 
 > [!IMPORTANT]
-> Azure Security Center para IoT está actualmente en versión preliminar pública.
+> Azure Security Center for IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 En este artículo se explica los diferentes métodos de autenticación que puede utilizar con el agente AzureIoTSecurity para autenticarse con IoT Hub.
@@ -63,8 +63,8 @@ Estos argumentos se documentan en la tabla siguiente.
 
 |Parámetro|DESCRIPCIÓN|Opciones|
 |---------|---------------|---------------|
-|**identidad**|Modo de autenticación| **Módulo** o **dispositivo**|
-|**Tipo**|Tipo de autenticación|**SymmetricKey** o **SelfSignedCertificate**|
+|**identity**|Modo de autenticación| **Módulo** o **dispositivo**|
+|**type**|Tipo de autenticación|**SymmetricKey** o **SelfSignedCertificate**|
 |**filePath**|Ruta de acceso absoluta completa del archivo que contiene el certificado o la clave simétrica| |
 |**gatewayHostname**|FQDN de IoT Hub|Ejemplo: ContosoIotHub.azure-devices.net|
 |**deviceId**|Id. de dispositivo|Ejemplo: MyDevice1|
@@ -114,4 +114,4 @@ Editar _LocalConfiguration.json_ con los siguientes parámetros:
 ## <a name="see-also"></a>Vea también
 - [Información general sobre los agentes de seguridad](security-agent-architecture.md)
 - [Implementar el agente de seguridad](how-to-deploy-agent.md)
-- [Acceso a datos de seguridad sin procesar](how-to-security-data-access.md)
+- [Acceder a los datos sin procesar de seguridad](how-to-security-data-access.md)

@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: fd887560c0011fb1ec2141e33f02f7e3d8a39c81
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877891"
 ---
 # <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Registro de datos de Azure Data Lake Storage Gen1 en Azure Data Catalog
@@ -74,10 +74,10 @@ Antes de empezar este tutorial, debe contar con lo siguiente:
      ![Buscar datos en el catálogo](./media/data-lake-store-with-data-catalog/search-data-in-catalog.png "Buscar datos en el catálogo")
 1. Ahora ya puede realizar operaciones como agregar anotaciones y documentación a los datos. Para más información, consulte los vínculos siguientes:
 
-    * [Anotación de orígenes de datos en Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
-    * [Orígenes de datos de documento en el catálogo de datos](../data-catalog/data-catalog-how-to-documentation.md)
+    * [Anotación de orígenes de datos](../data-catalog/data-catalog-how-to-annotate.md)
+    * [Orígenes de datos de documentos](../data-catalog/data-catalog-how-to-documentation.md)
 
 ## <a name="see-also"></a>Vea también
-* [Anotación de orígenes de datos en Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
-* [Orígenes de datos de documento en el catálogo de datos](../data-catalog/data-catalog-how-to-documentation.md)
+* [Anotación de orígenes de datos](../data-catalog/data-catalog-how-to-annotate.md)
+* [Orígenes de datos de documentos](../data-catalog/data-catalog-how-to-documentation.md)
 * [Integración de Data Lake Storage Gen1 con otros servicios de Azure](data-lake-store-integrate-with-other-services.md)

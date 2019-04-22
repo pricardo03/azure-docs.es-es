@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: damaerte
 ms.openlocfilehash: 1fc9883e0ea35c384c3bfc83e76b8eded48cbcba
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58905076"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell"></a>Guía de inicio rápido de PowerShell en Azure Cloud Shell
@@ -36,7 +36,7 @@ En este documento se detalla cómo usar PowerShell en Cloud Shell en [Azure Port
 
    ![](media/quickstart-powershell/shell-icon.png)
 
-2. Seleccione el entorno de PowerShell en la lista desplegable y estará en la unidad de Azure `(Azure:)`
+2. Seleccione el entorno PowerShell en el menú desplegable y estará en la unidad `(Azure:)` de Azure
 
    ![](media/quickstart-powershell/environment-ps.png)
 
@@ -68,7 +68,7 @@ MyResourceGroup         MyVM2       eastus   Standard_DS2_v2_Promo  Windows    S
     PS Azure:\> dir
     ```
 
- 2. `cd` a su suscripción preferida
+ 2. `cd` a la suscripción de su preferencia
 
     ```azurepowershell-interactive
     PS Azure:\> cd MySubscriptionName

@@ -12,10 +12,10 @@ ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
 ms.openlocfilehash: 2e715e5280794172451a333624a954340a1a60fe
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881025"
 ---
 # <a name="streaming-endpoints"></a>Extremos de streaming
@@ -29,7 +29,7 @@ En Microsoft Azure Media Services (AMS), la entidad [Puntos de conexión de stre
 
 ## <a name="naming-convention"></a>Convención de nomenclatura
 
-Para el extremo predeterminado: `{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+Para el punto de conexión predeterminado: `{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
 
 Para los puntos de conexión adicionales: `{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
 
@@ -42,7 +42,7 @@ En la tabla se describen los tipos:
 |Type|Unidades de escalado|DESCRIPCIÓN|
 |--------|--------|--------|  
 |**Punto de conexión de streaming estándar** (recomendado)|0|El valor predeterminado es el punto de conexión de Streaming un **estándar** escriba, pero puede cambiarse al tipo Premium.<br/> El tipo estándar es la opción recomendada para prácticamente todos los escenarios de streaming y tamaños de audiencia. El tipo **estándar** escala el ancho de banda de salida automáticamente. El rendimiento de este tipo de extremo de Streaming es hasta 600 Mbps. Fragmentos de vídeo almacenados en caché en la red CDN, no utilice el ancho de banda de punto de conexión de Streaming.<br/>Para los clientes con requisitos muy exigentes, Media Services ofrece puntos de conexión de streaming **prémium**, que pueden utilizarse para escalar horizontalmente la capacidad para las audiencias de Internet más grandes. Si espera un público amplio y usuarios simultáneos, póngase en contacto con nosotros en amsstreaming\@microsoft.com para obtener instrucciones sobre si necesita mover a la **Premium** tipo. |
-|**Extremo de Streaming Premium**|>0|Los puntos de conexión de streaming **Premium** son adecuados para cargas de trabajo avanzadas y proporcionan una capacidad de ancho de banda dedicada y escalable. Para pasar a un tipo **premium** se ajusta la propiedad `scaleUnits`. `scaleUnits` proporcionan la capacidad de salida dedicada puede adquirirse en incrementos de 200 Mbps. Cuando se usa el tipo **premium**, cada unidad habilitada proporciona capacidad de ancho de banda adicional a la aplicación. |
+|**Punto de conexión de streaming premium**|>0|Los puntos de conexión de streaming **Premium** son adecuados para cargas de trabajo avanzadas y proporcionan una capacidad de ancho de banda dedicada y escalable. Para pasar a un tipo **premium** se ajusta la propiedad `scaleUnits`. La propiedad `scaleUnits` proporciona capacidad de salida dedicada que puede adquirirse en incrementos de 200 Mbps. Cuando se usa el tipo **premium**, cada unidad habilitada proporciona capacidad de ancho de banda adicional a la aplicación. |
  
 ## <a name="comparing-streaming-types"></a>Comparación de tipos de streaming
 
@@ -77,8 +77,8 @@ En esta sección se proporciona detalles sobre algunas de las propiedades del ex
   - Compruebe el resultado devuelto para un `HTTP Error Code 412` (PreconditionFailed) con el mensaje "Propiedad CdnEnabled de extremo de Streaming no se puede establecer como verdadero, como la capacidad de red CDN no está disponible en la región actual." 
 
     Si recibe este error, el centro de datos no la admite. Debe probar otro centro de datos.
-- `cdnProfile` -Cuando `cdnEnabled` está establecido en true, también puede pasar `cdnProfile` valores. `cdnProfile` es el nombre del perfil CDN donde se creará el punto de punto de conexión CDN. Puede proporcionar un cdnProfile existente o usar uno nuevo. Si el valor es NULL y `cdnEnabled` es true, se utiliza el valor predeterminado "AzureMediaStreamingPlatformCdnProfile". Si el valor `cdnProfile` proporcionado ya existe, se crea un punto de conexión debajo de él. Si el perfil no existe, automáticamente se crea un nuevo perfil.
-- `cdnProvider` -Cuando CDN esté habilitado, también se puede pasar `cdnProvider` valores. `cdnProvider` controla qué proveedor se utilizará. Actualmente, se admiten tres valores: "StandardVerizon", "PremiumVerizon" y "StandardAkamai". Si se proporciona ningún valor y `cdnEnabled` es true, se utiliza "StandardVerizon" (es decir, el valor predeterminado).
+- `cdnProfile` -Cuando `cdnEnabled` está establecido en true, también puede pasar `cdnProfile` valores. El valor `cdnProfile` es el nombre del perfil CDN donde se creará el punto de conexión CDN. Puede proporcionar un cdnProfile existente o usar uno nuevo. Si el valor es NULL y `cdnEnabled` es true, se utiliza el valor predeterminado "AzureMediaStreamingPlatformCdnProfile". Si el valor `cdnProfile` proporcionado ya existe, se crea un punto de conexión debajo de él. Si el perfil no existe, automáticamente se crea un nuevo perfil.
+- `cdnProvider` -Cuando CDN esté habilitado, también se puede pasar `cdnProvider` valores. El valor `cdnProvider` controla qué proveedor se utilizará. Actualmente, se admiten tres valores: "StandardVerizon", "PremiumVerizon" y "StandardAkamai". Si se proporciona ningún valor y `cdnEnabled` es true, se utiliza "StandardVerizon" (es decir, el valor predeterminado).
 - `crossSiteAccessPolicies` : Se usa para especificar las directivas de acceso entre sitios para varios clientes. Para obtener más información, consulte [Cross-domain policy file specification](https://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html) (Especificación del archivo de directivas entre dominios) y [Making a Service Available Across Domain Boundaries](https://msdn.microsoft.com/library/cc197955\(v=vs.95\).aspx) (Hacer que un servicio esté disponible a través de los límites del dominio).<br/>La configuración se aplica solo a Smooth Streaming.
 - `customHostNames` : Se usa para configurar un extremo de Streaming para aceptar tráfico dirigido a un nombre de host personalizado.  Esta propiedad es válida para Standard y Premium de extremos de Streaming y se puede establecer cuando `cdnEnabled`: false.
     

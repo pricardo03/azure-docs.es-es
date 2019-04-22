@@ -12,10 +12,10 @@ tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
 ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893408"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Llamada a puntos de conexión REST con el conector HTTP + Swagger para Azure Logic Apps
@@ -126,4 +126,4 @@ Al realizar llamadas a diversas acciones, es posible que obtenga determinadas re
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Encuentre otros conectores](apis-list.md)
+* [Buscar otros conectores](apis-list.md)

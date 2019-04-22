@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: b09ca2cc358107c5f95fe3426351d380380db3c2
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880141"
 ---
 # <a name="create-an-hdinsight-cluster-with-azure-data-lake-storage-gen1-using-azure-resource-manager-template"></a>Creación de un clúster de HDInsight con Azure Data Lake Storage Gen1 mediante las plantillas de Azure Resource Manager
 > [!div class="op_single_selector"]
-> * [Uso del Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
+> * [Uso del portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 > * [Uso de PowerShell (para el almacenamiento predeterminado)](data-lake-store-hdinsight-hadoop-use-powershell-for-default-storage.md)
-> * [Uso de PowerShell (para almacenamiento adicional)](data-lake-store-hdinsight-hadoop-use-powershell.md)
-> * [Mediante Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
+> * [Uso de PowerShell (para el almacenamiento adicional)](data-lake-store-hdinsight-hadoop-use-powershell.md)
+> * [Uso de Resource Manager](data-lake-store-hdinsight-hadoop-use-resource-manager-template.md)
 >
 >
 
@@ -146,5 +146,5 @@ También puede usar el comando `hdfs dfs -put` para cargar algunos archivos en D
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Copiar datos desde Azure Storage BLOB a Data Lake Storage Gen1](data-lake-store-copy-data-wasb-distcp.md)
+* [Copia de datos de los blobs de Azure Storage en Data Lake Storage Gen1](data-lake-store-copy-data-wasb-distcp.md)
 * [Uso de Data Lake Storage Gen1 con clústeres de Azure HDInsight](../hdinsight/hdinsight-hadoop-use-data-lake-store.md)

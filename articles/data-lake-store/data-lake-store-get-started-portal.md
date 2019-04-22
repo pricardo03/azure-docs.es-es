@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
 ms.openlocfilehash: e021d8c056028c03ac71d2a27c9128272f374da6
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58883588"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-the-azure-portal"></a>Introducción a Azure Data Lake Storage Gen1 con Azure Portal
@@ -22,7 +22,7 @@ ms.locfileid: "58883588"
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
-> * [Azure CLI](data-lake-store-get-started-cli-2.0.md)
+> * [CLI de Azure](data-lake-store-get-started-cli-2.0.md)
 >
 > 
 
@@ -123,8 +123,8 @@ Para eliminar una cuenta de Data Lake Storage Gen1, en la hoja de Data Lake Stor
 ![Eliminación de una cuenta de Data Lake Storage Gen1](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Eliminación de una cuenta de Data Lake")
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Usar Azure Data Lake Storage Gen1 para conocer los requisitos de macrodatos](data-lake-store-data-scenarios.md) 
-* [Proteger los datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
-* [Usar Azure Data Lake Analytics con Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Uso de Azure Data Lake Storage Gen1 para requisitos de macrodatos](data-lake-store-data-scenarios.md) 
+* [Protección de datos en Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Use Azure Data Lake Analytics with Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md) (Uso de Azure Data Lake Analytics con Data Lake Storage Gen1)
 * [Uso de Azure HDInsight con Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)
 

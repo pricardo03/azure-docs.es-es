@@ -17,10 +17,10 @@ ms.date: 04/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9167a5ed72e6fec2ca03cc97d1d41dd6cd4aaba6
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885849"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-secret-server-on-premises"></a>Tutorial: Integración de Azure Active Directory con Secret Server (On-Premises)
@@ -59,7 +59,7 @@ En este tutorial, puede probar el inicio de sesión único de Azure AD en un ent
 ## <a name="adding-secret-server-on-premises-from-the-gallery"></a>Adición de Secret Server (On-Premises) desde la galería
 Para configurar la integración de Secret Server (On-Premises) en Azure AD, es necesario que agregue Secret Server (On-Premises) desde la galería hasta la lista de aplicaciones SaaS administradas.
 
-**Para agregar Secret Server (On-Premises) desde la galería, realice los pasos siguientes:**
+**Para agregar Secret Server (On-Premises) desde la galería, siga los pasos a continuación:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
 
@@ -95,7 +95,7 @@ Para configurar y probar el inicio de sesión único de Azure AD con Secret Serv
 
 En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal y configurará el inicio de sesión único en la aplicación Secret Server (On-Premises).
 
-**Para configurar el inicio de sesión único en Azure AD con Secret Server (local), realice los pasos siguientes:**
+**Para configurar el inicio de sesión único de Azure AD con Secret Server (On-Premises), siga los pasos a continuación:**
 
 1. En Azure Portal, en la página de integración de la aplicación **Secret Server (On-Premises)**, haga clic en **Inicio de sesión único**.
 
@@ -109,9 +109,9 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Secret Server (On-Premises)](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url.png)
 
-     a. En el **identificador** cuadro de texto, escriba el usuario elige el valor como un ejemplo: `https://secretserveronpremises.azure`
+     a. En el cuadro de texto **Identificador**, escriba el valor elegido por el usuario como ejemplo: `https://secretserveronpremises.azure`
 
-    b. En el cuadro de texto **URL de respuesta** , escriba una dirección URL con el siguiente patrón: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx`
+    b. En el cuadro de texto **URL de respuesta**, escriba una dirección URL con el siguiente patrón: `https://<SecretServerURL>/SAML/AssertionConsumerService.aspx`.
 
     > [!NOTE]
     > El identificador de entidad mostrado anteriormente es solo un ejemplo; es libre de elegir cualquier valor único que identifique la instancia de Secret Server en Azure AD. Este identificador de entidad se deberá enviar al [equipo de atención al cliente de Secret Server (On-Premises)](https://thycotic.force.com/support/s/) para que se lo configuren. Para obtener más información, lea [este artículo](https://thycotic.force.com/support/s/article/Configuring-SAML-in-Secret-Server).
@@ -120,7 +120,7 @@ En esta sección, habilitará el inicio de sesión único de Azure AD en Azure P
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Secret Server (On-Premises)](./media/secretserver-on-premises-tutorial/tutorial_secretserver_url1.png)
 
-    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SecretServerURL>/login.aspx`
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<SecretServerURL>/login.aspx`.
      
     > [!NOTE] 
     > Estos valores no son reales. Actualice estos valores con los valores reales de URL de respuesta y URL de inicio de sesión. Póngase en contacto con el [equipo de atención al cliente de Secret Server (On-Premises)](https://thycotic.force.com/support/s/) para obtener estos valores.
@@ -149,7 +149,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
    ![Creación de un usuario de prueba de Azure AD][100]
 
-**Para crear un usuario de prueba en Azure AD, realice los pasos siguientes:**
+**Siga estos pasos para crear un usuario de prueba en Azure AD:**
 
 1. En el panel izquierdo de Azure Portal, haga clic en el botón **Azure Active Directory**.
 
@@ -185,7 +185,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 
 ![Asignación de rol de usuario][200]
 
-**Para asignar a Britta Simon a Secret Server (local), realice los pasos siguientes:**
+**Para asignar a Britta Simon a Secret Server (On-Premises), siga estos pasos:**
 
 1. En Azure Portal, abra la vista de aplicaciones, navegue a la vista de directorio y vaya a **Aplicaciones empresariales**. Luego haga clic en **Todas las aplicaciones**.
 

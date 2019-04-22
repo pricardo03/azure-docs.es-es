@@ -8,10 +8,10 @@ ms.date: 03/15/2019
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 8839d7ea93bcb205b1900e63d3ab98394e72cd75
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904872"
 ---
 # <a name="diagnostic-logging-in-azure-cosmos-db"></a>Registro de diagnóstico de Azure Cosmos DB 
@@ -440,11 +440,11 @@ En la tabla siguiente se describe el contenido de cada entrada del registro.
 
 | Propiedad o campo de Azure Storage | Propiedad de los registros de Azure Monitor | DESCRIPCIÓN |
 | --- | --- | --- |
-| **Twitter en tiempo** | **TimeGenerated** | La fecha y hora (UTC) cuando se produjo la operación. |
-| **ResourceId** | **Recurso** | La cuenta de Azure Cosmos DB para la cual los registros están habilitados.|
-| **categoría** | **Categoría** | Para los registros de Azure Cosmos DB, **DataPlaneRequests** es el único valor disponible. |
-| **operationName** | **nombreOperación** | Nombre de la operación. Este valor puede ser cualquiera de las operaciones siguientes: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed o Upsert.   |
-| **propiedades** | N/D | El contenido de este campo se describe en las filas siguientes. |
+| **time** | **TimeGenerated** | La fecha y hora (UTC) cuando se produjo la operación. |
+| **resourceId** | **Recurso** | La cuenta de Azure Cosmos DB para la cual los registros están habilitados.|
+| **category** | **Categoría** | Para los registros de Azure Cosmos DB, **DataPlaneRequests** es el único valor disponible. |
+| **operationName** | **OperationName** | Nombre de la operación. Este valor puede ser cualquiera de las operaciones siguientes: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed o Upsert.   |
+| **properties** | N/D | El contenido de este campo se describe en las filas siguientes. |
 | **activityId** | **activityId_g** | GUID único para la operación registrada. |
 | **userAgent** | **userAgent_s** | Una cadena que especifica el agente de usuario de cliente que realiza la solicitud. El formato es {nombre de agente de usuario}/{versión}.|
 | **requestResourceType** | **requestResourceType_s** | Tipo de recurso al que se accede. Este valor puede ser cualquiera de los tipos de recursos siguientes: Database, Container, Document, Attachment, User, Permission, StoredProcedure, Trigger, UserDefinedFunction u Offer. |

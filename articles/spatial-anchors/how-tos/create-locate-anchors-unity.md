@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: d1c5f906fef495f7ef1dde5df38a84629a6d6c61
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915958"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-unity"></a>Cómo crear y localizar los anclajes mediante delimitadores espacial de Azure en Unity
@@ -36,10 +36,10 @@ Azure Spatial Anchors permite compartir delimitadores entre diferentes dispositi
 
 Para completar a esta guía, asegúrese de que tiene:
 
-- Lea la [información general de Azure espacial delimitadores](../overview.md).
-- Completado uno de los [inicios rápidos en 5 minutos](../index.yml).
-- Conocimiento básico sobre C# y Unity.
-- Conocimiento básico sobre <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> si desea usar Android, o <a href="https://developer.apple.com/arkit/" target="_blank">ARKit</a> si desea usar iOS.
+- Ha leído completamente [Introducción a Azure Spatial Anchors](../overview.md).
+- Ha completado uno de los [inicios rápidos en 5 minutos](../index.yml).
+- Conocimiento básico de C# y Unity.
+- Conocimiento básico de <a href="https://developers.google.com/ar/discover/" target="_blank">ARCore</a> si desea usar Android, o <a href="https://developer.apple.com/arkit/" target="_blank">ARKit</a> si desea usar iOS.
 
 [!INCLUDE [Start](../../../includes/spatial-anchors-create-locate-anchors-start.md)]
 

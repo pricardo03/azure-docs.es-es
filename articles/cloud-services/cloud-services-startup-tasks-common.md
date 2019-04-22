@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
 ms.openlocfilehash: 0a2e2a3d817140a6ab15dab0093b4025a3bfd76c
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58916664"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>Tareas de inicio comunes para los servicios en la nube
@@ -31,7 +31,7 @@ Consulte [este artículo](cloud-services-startup-tasks.md) para entender cómo f
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>Definición de variables de entorno antes de que se inicie un rol
-Si necesita las variables de entorno definidas para una tarea específica, use el elemento [Environment] dentro del elemento [Task].
+Si necesita las variables de entorno definidas para una tarea específica, use el elemento [Entorno] dentro del elemento [Task].
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -507,14 +507,14 @@ Obtener más información acerca de cómo funcionan las [tareas](cloud-services-
 [Crear e implementar](cloud-services-how-to-create-deploy-portal.md) el paquete de servicio en la nube
 
 [ServiceDefinition.csdef]: cloud-services-model-and-package.md#csdef
-[Tarea]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
+[Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
 [Entorno]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [Variable]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[Puntos de conexión]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
+[Endpoints]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue

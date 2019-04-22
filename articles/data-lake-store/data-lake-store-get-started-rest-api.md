@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 97fe33309f36cd7545f8c9d6c2d34671641caa1f
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880175"
 ---
 # <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-rest-api"></a>Operaciones de administración de cuentas en Azure Data Lake Storage Gen1 mediante API REST
 > [!div class="op_single_selector"]
-> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
+> * [SDK de .NET](data-lake-store-get-started-net-sdk.md)
 > * [API DE REST](data-lake-store-get-started-rest-api.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -75,6 +75,6 @@ Debe ver algo parecido al siguiente fragmento de código:
 * [Filesystem operations on Data Lake Storage Gen1 using REST API](data-lake-store-data-operations-rest-api.md) (Operaciones del sistema de archivos en Data Lake Storage Gen1 mediante la API REST).
 
 ## <a name="see-also"></a>Vea también
-* [Referencia de API de REST de Azure Data Lake Storage Gen1](https://docs.microsoft.com/rest/api/datalakestore/)
-* [Abrir aplicaciones Big Data de origen compatibles con Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md)
+* [Azure Data Lake Storage Gen1 REST API Reference](https://docs.microsoft.com/rest/api/datalakestore/) (Referencia sobre la API de REST de Azure Data Lake Storage Gen1)
+* [Open Source Big Data applications compatible with Azure Data Lake Storage Gen1](data-lake-store-compatible-oss-other-applications.md) (Abrir aplicaciones Big Data de origen que funcionan con Azure Data Lake Storage Gen1)
 

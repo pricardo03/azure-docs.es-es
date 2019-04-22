@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 4a53bcf77696d3aa53a4a404bfacd6f6d468885b
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862109"
 ---
 # <a name="deploy-azure-security-center-for-iot-c-based-security-agent-for-linux"></a>Implementar Azure Security Center para IoT C#-basándose security agent para Linux
 
 > [!IMPORTANT]
-> Azure Security Center para IoT está actualmente en versión preliminar pública.
+> Azure Security Center for IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Esta guía explica cómo instalar e implementar Azure Security Center (ASC) para IoT C#-agente de seguridad de basados en Linux.
@@ -52,7 +52,7 @@ Para implementar el agente de seguridad, realice las siguientes operaciones:
 
 1. Extraiga el contenido del paquete y vaya a la carpeta _/Install_.
 
-1. Agregue permisos de ejecución a la **InstallSecurityAgent script** mediante la ejecución `chmod +x InstallSecurityAgent.sh` 
+1. Agregue permisos de ejecución al **script de InstallSecurityAgent**, para lo que debe ejecutar `chmod +x InstallSecurityAgent.sh` 
 
 1. A continuación, ejecute: 
 
@@ -118,7 +118,7 @@ Para desinstalar al agente, ejecute el script con el parámetro – u: `./Instal
 
    1. Vea el archivo de registro para más información acerca del error.  
 
-       Ubicación del archivo de registro es: `/var/ASCIoTAgent/IotAgentLog.log`
+       La ubicación del archivo de registro es: `/var/ASCIoTAgent/IotAgentLog.log`
 
        Cambie la ruta de acceso de la ubicación del archivo en función del nombre que eligió para el **logFilePath** en el paso 2. 
 

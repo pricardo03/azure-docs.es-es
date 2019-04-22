@@ -16,18 +16,18 @@ ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: victorh
 ms.openlocfilehash: 90d576fd00a39f7e871cbe0922ce131dfbe38ff0
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862172"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Creación de un sondeo personalizado para Puerta de enlace de aplicaciones mediante el portal
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](application-gateway-create-probe-portal.md)
-> * [Azure PowerShell de Resource Manager](application-gateway-create-probe-ps.md)
-> * [Azure PowerShell clásico](application-gateway-create-probe-classic-ps.md)
+> * [PowerShell del Administrador de recursos de Azure](application-gateway-create-probe-ps.md)
+> * [Azure Classic PowerShell](application-gateway-create-probe-classic-ps.md)
 
 En este artículo, agregará un sondeo personalizado a una puerta de enlace de aplicaciones existente a través de Azure Portal. Los sondeos personalizados son útiles para aplicaciones que tienen una página de comprobación del estado o para aplicaciones que no proporcionan una respuesta correcta en la aplicación web predeterminada.
 
@@ -51,7 +51,7 @@ Los sondeos se configuran en un proceso de dos pasos a través del portal. El pr
 
    |**Configuración** | **Valor** | **Detalles**|
    |---|---|---|
-   |**NOMBRE**|customProbe|Este valor es un nombre descriptivo para el sondeo al que se puede acceder en el portal.|
+   |**Nombre**|customProbe|Este valor es un nombre descriptivo para el sondeo al que se puede acceder en el portal.|
    |**Protocolo**|HTTP o HTTPS | El protocolo que usa el sondeo de estado.|
    |**Host**|es decir, contoso.com|Este valor es el nombre de host que se utiliza para el sondeo. Solo se puede aplicar cuando se ha configurado un entorno multisitio en Application Gateway; de lo contrario hay que usar '127.0.0.1'. Este valor es distinto del nombre de host de máquina virtual.|
    |**Ruta de acceso**|/ u otra ruta de acceso|El resto de la dirección URL completa del sondeo personalizado. Las rutas de acceso válidas comienzan por '/'. Para la ruta de acceso predeterminada de http:\//contoso.com simplemente use '/' |

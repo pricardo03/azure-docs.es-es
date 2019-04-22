@@ -12,10 +12,10 @@ ms.custom: mvc
 ms.topic: article
 ms.date: 04/04/2019
 ms.openlocfilehash: f25bc9bc3a958b2fa97ae4d5ab3715b602110393
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58915482"
 ---
 # <a name="status-of-migration-scenarios-supported-by-azure-database-migration-service"></a>Estado de los escenarios de migración admitidos por Azure Database Migration Service
@@ -50,9 +50,9 @@ En la siguiente tabla se muestra la compatibilidad de Azure Database Migration S
 | **Máquina virtual de Azure SQL** | SQL Server | ✔ | GA |
 |   | Oracle |   |   |
 | **Azure Cosmos DB** | MongoDB | ✔ | Versión preliminar pública |
-| **Base de datos MySQL en Azure** | MySQL |   |   |
+| **Azure DB para MySQL** | MySQL |   |   |
 |   | MySQL de RDS |   |   |
-| **Base de datos de Azure para PostgreSQL** | PostgreSQL |  |
+| **Azure DB para PostgreSQL** | PostgreSQL |  |
 |  | PostgreSQL de RDS |   |   |
 
 ### <a name="online-continuous-sync-migration-support"></a>Compatibilidad con la migración en línea (sincronización continua)
@@ -69,9 +69,9 @@ En la siguiente tabla se muestra la compatibilidad de Azure Database Migration S
 | **Máquina virtual de Azure SQL** | SQL Server |   |   |
 |   | Oracle  |  |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | Versión preliminar pública |
-| **Base de datos MySQL en Azure** | MySQL | ✔ | GA |
+| **Azure DB para MySQL** | MySQL | ✔ | GA |
 |   | MySQL de RDS | ✔ | GA |
-| **Base de datos de Azure para PostgreSQL** | PostgreSQL | ✔ | GA |
+| **Azure DB para PostgreSQL** | PostgreSQL | ✔ | GA |
 |   | PostgreSQL de RDS | ✔ | GA |
 |   | Oracle | ✔ | Versión preliminar privada |
 

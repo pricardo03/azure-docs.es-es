@@ -12,27 +12,27 @@ manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c8c3395345093ae9a3d35deb27a08f12d331c9f3
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58861911"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>protección con contraseña de Azure AD local: preguntas más frecuentes
 
 ## <a name="general-questions"></a>Preguntas generales
 
-**P: ¿Qué guía a los usuarios tendrán sobre cómo seleccionar una contraseña segura?**
+**P: ¿Qué guía debe proporcionarse a los usuarios sobre cómo seleccionar una contraseña segura?**
 
 La guía actual de Microsoft sobre este tema puede encontrarse en el siguiente vínculo:
 
-[Orientación de la contraseña de Microsoft](https://www.microsoft.com/en-us/research/publication/password-guidance)
+[Guía de contraseñas de Microsoft](https://www.microsoft.com/en-us/research/publication/password-guidance)
 
-**P: ¿Es de forma local la protección de contraseña de Azure AD admitida en las nubes no públicos?**
+**P: ¿La protección con contraseña de Azure AD local se admite en las nubes que no son públicas?**
 
 No, la protección con contraseña de Azure AD local solo se admite en las nubes públicas. No se ha anunciado ninguna fecha de disponibilidad de la nube no pública.
 
-**P: ¿Cómo se puede aplicar las ventajas de la protección con contraseña de Azure AD a un subconjunto de Mis usuarios de forma local?**
+**P: ¿Cómo puedo aplicar las ventajas de la protección con contraseña de Azure AD a un subconjunto de mis usuarios locales?**
 
 No compatible. Una vez implementada y habilitada, la característica Protección con contraseña de Azure AD no es discriminatoria: todos los usuarios reciben ventajas de seguridad por igual.
 
@@ -44,41 +44,41 @@ Un conjunto de contraseña (denominado a veces un restablecimiento de contraseñ
 
 La directiva de validación de contraseña comporta igual independientemente de si se realiza un cambio de contraseña o un conjunto. El servicio del agente de DC de protección de contraseña de Azure AD registrar eventos diferentes para informarle si un cambio de contraseña o se realizó la operación de establecimiento.  Consulte [protección con contraseña de Azure AD de supervisión y registro](https://docs.microsoft.com/en-us/azure/active-directory/authentication/howto-password-ban-bad-on-premises-monitor).
 
-**P: ¿Se admite para instalar la protección de contraseña de Azure AD en paralelo con otros productos basada en filtros de contraseña?**
+**P: ¿Es posible instalar la protección con contraseña de Azure AD junto con otros productos basados en filtros de contraseña?**
 
 Sí. La compatibilidad con varios archivos DLL de filtro de contraseña registrados es una característica principal de Windows y no es específica de la protección con contraseña de Azure AD. Todos los archivos DLL de filtro de contraseña registrados deben coincidir para que se acepte una contraseña.
 
-**P: ¿Cómo se puede implementar y configurar la protección con contraseña de Azure AD en mi entorno de Active Directory sin usar Azure?**
+**P: ¿Cómo puedo implementar y configurar Protección con contraseña de Azure AD en mi entorno de Active Directory sin usar Azure?**
 
 No compatible. Protección con contraseña de AD Azure es una característica de Azure que puede extenderse a un entorno de Active Directory local.
 
-**P: ¿Cómo se puede modificar el contenido de la directiva en el nivel de Active Directory?**
+**P: ¿Cómo puedo modificar el contenido de la directiva en el nivel de Active Directory?**
 
 No compatible. La directiva solo se puede administrar mediante el portal de administración de Azure AD. Consulte también la pregunta anterior.
 
-**P: ¿Por qué se necesita DFSR para la replicación de sysvol?**
+**P: ¿Por qué se requiere DFSR para la replicación SYSVOL?**
 
 FRS (la tecnología predecesora a DFSR) tiene muchos problemas conocidos y es totalmente incompatible en las versiones más recientes de Windows Server Active Directory. No se hará ninguna prueba de la protección con contraseña de Azure AD en los dominios configurados para FRS.
 
 Para obtener más información, consulte los artículos siguientes:
 
-[El caso de migrar la replicación de sysvol para DFSR](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr)
+[The Case for Migrating sysvol replication to DFSR](https://blogs.technet.microsoft.com/askds/2010/04/22/the-case-for-migrating-sysvol-to-dfsr) (El caso de migrar la replicación de SYSVOL a DFSR)
 
-[El extremo es Nigh para FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs)
+[The End is Nigh for FRS](https://blogs.technet.microsoft.com/filecab/2014/06/25/the-end-is-nigh-for-frs) (El final de FRS está cerca)
 
-**P: ¿Cuánto espacio en disco requiere la característica en el recurso compartido sysvol de dominio?**
+**P: ¿Cuánto espacio en disco requiere la característica en el recurso compartido sysvol del dominio?**
 
 El uso exacto del espacio varía puesto que depende de factores como el número y la longitud de los tokens no permitidos en la lista global de Microsoft de no permitidos y la lista personalizada por inquilino, además de la sobrecarga de cifrado. El contenido de estas listas es probable que aumente en el futuro. Teniendo esto en cuenta, la característica debería necesitar al menos cinco (5) megabytes de espacio en el recurso compartido sysvol del dominio.
 
-**P: ¿Por qué se requiere un reinicio para instalar o actualizar el software del agente de controlador de dominio?**
+**P: ¿Por qué se requiere un reinicio para instalar o actualizar el software del agente del controlador de dominio?**
 
 Este requisito lo causa un comportamiento principal de Windows.
 
-**P: ¿Hay alguna forma de configurar un agente de controlador de dominio para usar un servidor proxy específico?**
+**P: ¿Existe alguna forma de configurar un agente de controlador de dominio para que use un servidor proxy específico?**
 
  No. Puesto que el servidor proxy es sin estado, no es importante qué servidor proxy específico se utilice.
 
-**P: ¿Es correcto implementar el servicio de Proxy de la protección de contraseña de Azure AD en paralelo con otros servicios como Azure AD Connect?**
+**P: ¿Se puede implementar el servicio de proxy de Protección con contraseña de Azure AD en paralelo a otros servicios como Azure AD Connect?**
 
 Sí. El servicio de proxy de Protección con contraseña de Azure AD y Azure AD Connect no deben nunca entrar en conflicto directamente entre sí.
 
@@ -86,7 +86,7 @@ Sí. El servicio de proxy de Protección con contraseña de Azure AD y Azure AD 
 
 Se admite ningún orden de instalación del agente Proxy, instalación del agente DC, registro del bosque y el registro de Proxy.
 
-**P: ¿Es necesario tener preocupa el rendimiento en mis controladores de dominio de la implementación de esta característica?**
+**P: ¿Debe preocuparme el rendimiento de mis controladores de dominio por implementar esta característica?**
 
 El servicio de agente de controlador de dominio de Protección con contraseña de Azure AD no debería afectar significativamente al rendimiento del controlador de dominio en una implementación existente de Active Directory en buen estado.
 
@@ -94,19 +94,19 @@ En la mayoría de las implementaciones de Active Directory, las operaciones de c
 
 Sin embargo, si los controladores de dominio actuales ya se están ejecutando en los niveles de rendimiento limitado (por ejemplo, si se sobrepasa con respecto a CPU, espacio en disco, E/S de disco, etc.), es conveniente agregar más controladores de dominio o expandir el espacio disponible en disco antes de implementar esta característica. Consulte también la pregunta anterior sobre el uso de espacio en disco de sysvol.
 
-**P: Quiero probar Protección con contraseña de Azure AD en solo unos pocos controladores de dominio de mi dominio. ¿Es posible forzar los cambios de contraseña de usuario para usar esos controladores de dominio específicos?**
+**P: Quiero probar Protección con contraseña de Azure AD en solo unos pocos controladores de dominio de mi dominio. ¿Se pueden forzar los cambios de contraseña de usuario para usar esos controladores de dominio específicos?**
 
  No. El sistema operativo de cliente Windows controla qué controlador de dominio se utiliza cuando un usuario cambia su contraseña. El controlador de dominio se selecciona en función de diversos factores, como las asignaciones de sitio y subred de Active Directory, la configuración de red específica de entorno, etcétera. Protección con contraseña de Azure AD no controla estos factores y no puede influir en qué controlador de dominio se selecciona para cambiar la contraseña de un usuario.
 
 Una manera de lograr este objetivo sería implementar parcialmente Protección con contraseña de Azure AD en todos los controladores de dominio de un determinado sitio de Active Directory. Este enfoque proporcionará una cobertura razonable a los clientes de Windows que están asignados a ese sitio, y por lo tanto, también a los usuarios que están iniciando sesión en los clientes y cambiando sus contraseñas.
 
-**P: ¿Si instalo el servicio del agente de DC de protección de contraseña de Azure AD en simplemente el dominio controlador principal (PDC), todos los demás controladores de dominio en el dominio también se protegerá?**
+**P: Si instalo el servicio de agente de controlador de dominio de Protección con contraseña de Azure AD solamente en el controlador de dominio principal (PDC), ¿también se protegerán el resto de los controladores de dominio del dominio?**
 
  No. Cuando se cambia la contraseña de un usuario en un controlador de dominio determinado que no es PDC, nunca se envía la contraseña no cifrada al PDC (esta idea es una percepción errónea común). Una vez que se acepta una contraseña nueva en un controlador de dominio determinado, ese controlador de dominio usa esa contraseña para crear los hashes específicos del protocolo de autenticación de esa contraseña y, a continuación, conserva los hashes en el directorio. La contraseña no cifrada no se mantiene. Los hashes actualizados se replican luego en el PDC. En algunos casos, las contraseñas de usuario se pueden volver a cambiar directamente en el PDC según varios factores, como la topología de red y el diseño del sitio de Active Directory. Consulte la pregunta anterior.
 
 En resumen, se requiere implementar el servicio de agente de controlador de dominio de Protección con contraseña de Azure AD en el PDC para llegar al 100 % de cobertura de seguridad de la característica en todo el dominio. Si se implementa solamente la característica en el PDC, no se proporcionan las ventajas de seguridad de Protección con contraseña de Azure AD para los otros controladores de dominio del dominio.
 
-**P: ¿Es un módulo de administración de System Center Operations Manager disponible para la protección de contraseña de Azure AD?**
+**P: ¿Hay algún módulo de administración de Operations Manager disponible para Protección con contraseña de Azure AD?**
 
  No.
 
@@ -120,9 +120,9 @@ Los vínculos siguientes no forman parte de la documentación principal de Prote
 
 [Protección mediante contraseña de Azure AD ya está disponible con carácter general.](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-is-now-generally-available/ba-p/377487)
 
-[Enviar por correo electrónico a "phishing" protección Guide – parte 15: Implementar el servicio de protección de contraseña de Microsoft Azure AD (para un entorno local demasiado!)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/)
+[Email Phishing Protection Guide – Part 15: Implement the Microsoft Azure AD Password Protection Service (for On-Premises too!)](https://blogs.technet.microsoft.com/cloudready/2018/10/14/email-phishing-protection-guide-part-15-implement-the-microsoft-azure-ad-password-protection-service-for-on-premises-too/) (Guía de protección contra la suplantación de identidad en correos electrónicos: Implementación del servicio Protección con contraseña de Microsoft Azure AD)
 
-[Azure AD la protección con contraseña y el bloqueo inteligente están ahora en versión preliminar pública.](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-and-Smart-Lockout-are-now-in-Public/ba-p/245423#M529)
+[Azure AD Password Protection and Smart Lockout are now in Public Preview!](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Password-Protection-and-Smart-Lockout-are-now-in-Public/ba-p/245423#M529) (Protección con contraseña de Azure AD y Bloqueo inteligente ya están en versión preliminar pública)
 
 ## <a name="microsoft-premierunified-support-training-available"></a>Aprendizaje de soporte técnico de Microsoft Premier\Unified disponible
 

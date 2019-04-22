@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/27/2019
 ms.author: mlottner
 ms.openlocfilehash: 41b2d012ef2f6dd1ca5f57e04da43eb1a06dafde
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862716"
 ---
 # <a name="pricing-and-associated-costs"></a>Precios y costos asociados
 
 > [!IMPORTANT]
-> Azure Security Center para IoT está actualmente en versión preliminar pública.
+> Azure Security Center for IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin Acuerdo de Nivel de Servicio y no se recomienda para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 En este artículo explica Azure Security Center (ASC) para el modelo de precios de IoT, se resume todos los costes asociados y se explica cómo administrarlas.
@@ -85,6 +85,6 @@ En la tabla siguiente proporciona un resumen de los costos asociados y las impli
 ## <a name="see-also"></a>Vea también
 
 - Acceso a su [datos sin procesar de seguridad](how-to-security-data-access.md)
-- [Investigación de un dispositivo](how-to-investigate-device.md)
+- [Investigar un dispositivo](how-to-investigate-device.md)
 - Conocer y explorar [recomendaciones de seguridad](concept-recommendations.md)
 - Conocer y explorar [las alertas de seguridad](concept-security-alerts.md)

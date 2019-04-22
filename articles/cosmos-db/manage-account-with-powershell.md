@@ -8,10 +8,10 @@ ms.date: 12/06/2018
 ms.author: sngun
 ms.custom: seodec18
 ms.openlocfilehash: 01c351ad08399c0b42e831e325b3f818741d1d83
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904379"
 ---
 # <a name="manage-azure-cosmos-resources-using-powershell"></a>Administrar los recursos de Azure Cosmos mediante PowerShell
@@ -41,13 +41,13 @@ Este comando le permite crear una cuenta de base de datos de Azure Cosmos DB. Co
     
 * `<write-region-location>` El nombre de la ubicación de la región de escritura de la cuenta de base de datos. Esta ubicación debe tener un valor de prioridad de conmutación por error de 0. Debe haber exactamente una región de escritura por cuenta de base de datos.
 * `<read-region-location>` El nombre de la ubicación de la región de lectura de la cuenta de base de datos. Esta ubicación debe tener un valor de prioridad de conmutación por error mayor que 0. Puede haber más de una región de lectura por cuenta de base de datos.
-* `<ip-range-filter>` Especifica el conjunto de direcciones IP o intervalos de direcciones IP en formato CIDR para incluir la lista permitida de direcciones IP de cliente para una cuenta de base de datos determinada. Los intervalos o direcciones IP deben ir separados por una coma y no deben contener espacios. Para más información, consulte [Compatibilidad con el firewall de Azure Cosmos DB](firewall-support.md).
+* `<ip-range-filter>` Especifica el conjunto de direcciones IP o intervalos de direcciones IP en formato CIDR para incluir en la lista permitida de direcciones IP de cliente para una cuenta de base de datos dada. Los intervalos o direcciones IP deben ir separados por una coma y no deben contener espacios. Para más información, consulte [Compatibilidad con el firewall de Azure Cosmos DB](firewall-support.md).
 * `<default-consistency-level>` El nivel de coherencia predeterminado de la cuenta de Azure Cosmos DB. Para más información, consulte [Niveles de coherencia en Azure Cosmos DB](consistency-levels.md).
 * `<max-interval>` Cuando se utiliza con coherencia de obsolescencia limitada, este valor representa la cantidad de tiempo de obsolescencia (en segundos) tolerada. El intervalo aceptado para este valor es de 1 - 100.
-* `<max-staleness-prefix>` Cuando se utiliza con coherencia de obsolescencia limitada, este valor representa el número de solicitudes obsoletas toleradas. El intervalo aceptado para este valor es de 1 - 2.147.483.647.
-* `<resource-group-name>` El nombre de la [grupo de recursos de Azure] [ azure-resource-groups] al que pertenece la nueva cuenta de base de datos de Azure Cosmos DB.
-* `<resource-group-location>` La ubicación del grupo de recursos de Azure a la que pertenece la nueva cuenta de base de datos de Azure Cosmos DB.
-* `<database-account-name>` El nombre de la cuenta de base de datos de Azure Cosmos DB para crearse. Solo se admiten minúsculas, números y el carácter "-", y debe tener entre 3 y 50 caracteres.
+* `<max-staleness-prefix>` Cuando se utiliza con la coherencia de obsolescencia limitada, este valor representa el número de solicitudes obsoletas toleradas. El intervalo aceptado para este valor es de 1 - 2.147.483.647.
+* `<resource-group-name>` El nombre del [grupo de recursos de Azure][azure-resource-groups] al que pertenece la nueva cuenta de base de datos de Azure Cosmos DB.
+* `<resource-group-location>` La ubicación del grupo de recursos de Azure al que pertenece la nueva cuenta de base de datos de Azure Cosmos DB.
+* `<database-account-name>` El nombre de la cuenta de base de datos de Azure Cosmos DB que se va a crear. Solo se admiten minúsculas, números y el carácter "-", y debe tener entre 3 y 50 caracteres.
 
 Ejemplo: 
 
@@ -77,12 +77,12 @@ Este comando permite actualizar las propiedades de la cuenta de base de datos de
 * `<write-region-location>` El nombre de la ubicación de la región de escritura de la cuenta de base de datos. Esta ubicación debe tener un valor de prioridad de conmutación por error de 0. Debe haber exactamente una región de escritura por cuenta de base de datos.
 * `<read-region-location>` El nombre de la ubicación de la región de lectura de la cuenta de base de datos. Esta ubicación debe tener un valor de prioridad de conmutación por error mayor que 0. Puede haber más de una región de lectura por cuenta de base de datos.
 * `<default-consistency-level>` El nivel de coherencia predeterminado de la cuenta de Azure Cosmos DB. Para más información, consulte [Niveles de coherencia en Azure Cosmos DB](consistency-levels.md).
-* `<ip-range-filter>` Especifica el conjunto de direcciones IP o intervalos de direcciones IP en formato CIDR para incluir la lista permitida de direcciones IP de cliente para una cuenta de base de datos determinada. Los intervalos o direcciones IP deben ir separados por una coma y no deben contener espacios. Para más información, consulte [Compatibilidad con el firewall de Azure Cosmos DB](firewall-support.md).
+* `<ip-range-filter>` Especifica el conjunto de direcciones IP o intervalos de direcciones IP en formato CIDR para incluir en la lista permitida de direcciones IP de cliente para una cuenta de base de datos dada. Los intervalos o direcciones IP deben ir separados por una coma y no deben contener espacios. Para más información, consulte [Compatibilidad con el firewall de Azure Cosmos DB](firewall-support.md).
 * `<max-interval>` Cuando se utiliza con coherencia de obsolescencia limitada, este valor representa la cantidad de tiempo de obsolescencia (en segundos) tolerada. El intervalo aceptado para este valor es de 1 - 100.
-* `<max-staleness-prefix>` Cuando se utiliza con coherencia de obsolescencia limitada, este valor representa el número de solicitudes obsoletas toleradas. El intervalo aceptado para este valor es de 1 - 2.147.483.647.
-* `<resource-group-name>` El nombre de la [grupo de recursos de Azure] [ azure-resource-groups] al que pertenece la nueva cuenta de base de datos de Azure Cosmos DB.
-* `<resource-group-location>` La ubicación del grupo de recursos de Azure a la que pertenece la nueva cuenta de base de datos de Azure Cosmos DB.
-* `<database-account-name>` El nombre de la cuenta de base de datos de Azure Cosmos DB que se puede actualizar.
+* `<max-staleness-prefix>` Cuando se utiliza con la coherencia de obsolescencia limitada, este valor representa el número de solicitudes obsoletas toleradas. El intervalo aceptado para este valor es de 1 - 2.147.483.647.
+* `<resource-group-name>` El nombre del [grupo de recursos de Azure][azure-resource-groups] al que pertenece la nueva cuenta de base de datos de Azure Cosmos DB.
+* `<resource-group-location>` La ubicación del grupo de recursos de Azure al que pertenece la nueva cuenta de base de datos de Azure Cosmos DB.
+* `<database-account-name>` El nombre de la cuenta de base de datos de Azure Cosmos DB que se va a actualizar.
 
 Ejemplo: 
 
@@ -98,8 +98,8 @@ Este comando le permite eliminar una cuenta de base de datos de Azure Cosmos DB 
 
     Remove-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
     
-* `<resource-group-name>` El nombre de la [grupo de recursos de Azure] [ azure-resource-groups] al que pertenece la nueva cuenta de base de datos de Azure Cosmos DB.
-* `<database-account-name>` El nombre de la cuenta de base de datos de Azure Cosmos DB que se puede eliminar.
+* `<resource-group-name>` El nombre del [grupo de recursos de Azure][azure-resource-groups] al que pertenece la nueva cuenta de base de datos de Azure Cosmos DB.
+* `<database-account-name>` El nombre de la cuenta de base de datos de Azure Cosmos DB que se va a eliminar.
 
 Ejemplo:
 
@@ -111,7 +111,7 @@ Este comando le permite obtener las propiedades de una cuenta de base de datos d
 
     Get-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
 
-* `<resource-group-name>` El nombre de la [grupo de recursos de Azure] [ azure-resource-groups] al que pertenece la nueva cuenta de base de datos de Azure Cosmos DB.
+* `<resource-group-name>` El nombre del [grupo de recursos de Azure][azure-resource-groups] al que pertenece la nueva cuenta de base de datos de Azure Cosmos DB.
 * `<database-account-name>` El nombre de la cuenta de base de datos de Azure Cosmos DB.
 
 Ejemplo:
@@ -136,7 +136,7 @@ Cuando se crea una cuenta de Azure Cosmos DB, el servicio genera dos claves de a
 
     $keys = Invoke-AzResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
 
-* `<resource-group-name>` El nombre de la [grupo de recursos de Azure] [ azure-resource-groups] al que pertenece la nueva cuenta de base de datos de Azure Cosmos DB.
+* `<resource-group-name>` El nombre del [grupo de recursos de Azure][azure-resource-groups] al que pertenece la nueva cuenta de base de datos de Azure Cosmos DB.
 * `<database-account-name>` El nombre de la cuenta de base de datos de Azure Cosmos DB.
 
 Ejemplo:
@@ -149,7 +149,7 @@ En el caso de las cuentas de MongoDB, se puede recuperar la cadena de conexión 
 
     $keys = Invoke-AzResourceAction -Action listConnectionStrings -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
 
-* `<resource-group-name>` El nombre de la [grupo de recursos de Azure] [ azure-resource-groups] al que pertenece la nueva cuenta de base de datos de Azure Cosmos DB.
+* `<resource-group-name>` El nombre del [grupo de recursos de Azure][azure-resource-groups] al que pertenece la nueva cuenta de base de datos de Azure Cosmos DB.
 * `<database-account-name>` El nombre de la cuenta de base de datos de Azure Cosmos DB.
 
 Ejemplo:
@@ -162,9 +162,9 @@ Cambie periódicamente las claves de acceso de la cuenta de Azure Cosmos DB para
 
     Invoke-AzResourceAction -Action regenerateKey -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>" -Parameters @{"keyKind"="<key-kind>"}
 
-* `<resource-group-name>` El nombre de la [grupo de recursos de Azure] [ azure-resource-groups] al que pertenece la nueva cuenta de base de datos de Azure Cosmos DB.
+* `<resource-group-name>` El nombre del [grupo de recursos de Azure][azure-resource-groups] al que pertenece la nueva cuenta de base de datos de Azure Cosmos DB.
 * `<database-account-name>` El nombre de la cuenta de base de datos de Azure Cosmos DB.
-* `<key-kind>` Uno de los cuatro tipos de claves: ["Primary" | " Secundaria "|" PrimaryReadonly "|" SecondaryReadonly"] que le gustaría volver a generar.
+* `<key-kind>` Uno de los cuatro tipos de claves: ["Primary"|"Secondary"|"PrimaryReadonly"|"SecondaryReadonly"] que desea regenerar.
 
 Ejemplo:
 
@@ -179,7 +179,7 @@ En el caso de cuentas de bases de datos de varias regiones, puede cambiar la pri
 
 * `<write-region-location>` El nombre de la ubicación de la región de escritura de la cuenta de base de datos. Esta ubicación debe tener un valor de prioridad de conmutación por error de 0. Debe haber exactamente una región de escritura por cuenta de base de datos.
 * `<read-region-location>` El nombre de la ubicación de la región de lectura de la cuenta de base de datos. Esta ubicación debe tener un valor de prioridad de conmutación por error mayor que 0. Puede haber más de una región de lectura por cuenta de base de datos.
-* `<resource-group-name>` El nombre de la [grupo de recursos de Azure] [ azure-resource-groups] al que pertenece la nueva cuenta de base de datos de Azure Cosmos DB.
+* `<resource-group-name>` El nombre del [grupo de recursos de Azure][azure-resource-groups] al que pertenece la nueva cuenta de base de datos de Azure Cosmos DB.
 * `<database-account-name>` El nombre de la cuenta de base de datos de Azure Cosmos DB.
 
 Ejemplo:

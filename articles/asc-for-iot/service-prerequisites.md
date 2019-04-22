@@ -15,16 +15,16 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: f09d768c0c6c1d351f737b053da9fd3282867099
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58861696"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>Azure Security Center para los requisitos previos de IoT
 
 > [!IMPORTANT]
-> Azure Security Center para IoT está actualmente en versión preliminar pública.
+> Azure Security Center for IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 En este artículo se proporciona una explicación de los diferentes bloques de creación de la Azure Security Center (ASC) para IoT service, lo que necesita para comenzar y conceptos básicos para ayudar a comprender el servicio. 
@@ -33,7 +33,7 @@ En este artículo se proporciona una explicación de los diferentes bloques de c
 
 - Nivel estándar de IoT Hub
     - Rol de RBAC **propietario** privilegios 
-- [Área de trabajo de Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) 
+- [El área de trabajo de log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace) 
 - Azure Security Center (recomendado)
     - Aunque el uso de Azure Security Center es sólo una recomendación y no es un requisito, sin él, no podrá ver los otros recursos de Azure dentro de IoT Hub. 
  

@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
 ms.openlocfilehash: 9d74cd3bd466578c61f8f12bf9b6e862c046e9bc
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58903767"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Plantillas de perfil de usuario en Azure API Management
@@ -28,11 +28,11 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
   
 -   [Perfil](#Profile)  
   
--   [Suscripciones](#Subscriptions)  
+-   [Subscriptions](#Subscriptions)  
   
--   [APLICACIONES](#Applications)  
+-   [Aplicaciones](#Applications)  
   
--   [Actualizar la información de cuenta](#UpdateAccountInfo)  
+-   [Update account info](#UpdateAccountInfo)  
   
 > [!NOTE]
 >  En la siguiente documentación se incluyen plantillas predeterminadas de ejemplo; sin embargo, están sujetas a cambios debido a mejoras continuas. Puede ver las plantillas predeterminadas en vivo en el portal para desarrolladores; para ello, vaya hasta a las plantillas individuales que desee. Para más información sobre cómo trabajar con plantillas, consulte [Cómo personalizar el portal para desarrolladores de API Management mediante plantillas](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
@@ -318,7 +318,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 ### <a name="controls"></a>Controles  
  Esta plantilla puede utilizar los siguientes [controles de página](api-management-page-controls.md).  
   
--   [cancelación de suscripción](api-management-page-controls.md#subscription-cancel)  
+-   [subscription-cancel](api-management-page-controls.md#subscription-cancel)  
   
 ### <a name="data-model"></a>Modelo de datos  
   
@@ -481,7 +481,7 @@ Azure API Management le ofrece la posibilidad de personalizar el contenido de la
 ### <a name="controls"></a>Controles  
  Esta plantilla puede utilizar los siguientes [controles de página](api-management-page-controls.md).  
   
--   [acciones de aplicación](api-management-page-controls.md#app-actions)  
+-   [app-actions](api-management-page-controls.md#app-actions)  
   
 ### <a name="data-model"></a>Modelo de datos  
   

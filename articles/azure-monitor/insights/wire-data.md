@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: magoedte
 ms.openlocfilehash: d295a5a7eae2bdc7983e7271aa11bce1840b92dd
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58882079"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Solución de Wire Data 2.0 (versión preliminar) en Azure Monitor
@@ -58,7 +58,7 @@ Pero como está viendo los metadatos, no son necesariamente útiles para la solu
 
 Wire Data obtiene sus datos de Microsoft Dependency Agent. El agente de dependencia depende del agente de Log Analytics para sus conexiones a Azure Monitor. Es decir, un servidor debe tener instalado y configurado el agente de Log Analytics con Dependency Agent. En la tabla siguiente se describen los orígenes conectados que son compatibles con la solución Wire Data.
 
-| **Origen conectado** | **Compatible** | **DESCRIPCIÓN** |
+| **Origen conectado** | **Compatible** | **Descripción** |
 | --- | --- | --- |
 | Agentes de Windows | Sí | Wire Data analiza y recopila datos de equipos del agente de Windows. <br><br> Además del [agente de Log Analytics para Windows](../../azure-monitor/platform/agent-windows.md), los agentes de Windows requieren Microsoft Dependency Agent. Consulte los [sistemas operativos compatibles](../../azure-monitor/insights/service-map-configure.md#supported-windows-operating-systems) para obtener una lista completa de las versiones de sistema operativo. |
 | Agentes de Linux | Sí | Wire Data analiza y recopila datos de equipos del agente de Linux.<br><br> Además del [agente de Log Analytics para Linux](../../azure-monitor/learn/quick-collect-linux-computer.md), los agentes de Linux requieren Microsoft Dependency Agent. Consulte los [sistemas operativos compatibles](../../azure-monitor/insights/service-map-configure.md#supported-linux-operating-systems) para obtener una lista completa de las versiones de sistema operativo. |
@@ -187,7 +187,7 @@ Dependency Agent se instala en equipos que ejecutan Windows mediante InstallDepe
 Use los pasos siguientes para instalar Dependency Agent en cada equipo que ejecute Windows:
 
 1. Instale el agente de Log Analytics siguiendo los pasos descritos en [Collect data from Windows computers hosted in your environment](../../azure-monitor/platform/agent-windows.md) (Recopilar datos de equipos Windows hospedados en el entorno).
-2. Descargue a Dependency Agent de Windows mediante el vínculo en la sección anterior y, a continuación, ejecútelo mediante el comando siguiente: `InstallDependencyAgent-Windows.exe`
+2. Descargue Dependency Agent de Windows mediante el vínculo de la sección anterior y, después, ejecútelo mediante el comando siguiente: `InstallDependencyAgent-Windows.exe`.
 3. Siga el asistente para instalar el agente.
 4. Si el agente de dependencia no se inicia, compruebe los registros para obtener información detallada del error. En los agentes de Windows, el directorio de registro es %Programfiles%\Microsoft Dependency Agent\logs.
 
@@ -197,7 +197,7 @@ Use las opciones de la tabla siguiente para realizar la instalación desde una l
 
 InstallDependencyAgent-Windows.exe /?
 
-| **Marca** | **DESCRIPCIÓN** |
+| **Marca** | **Descripción** |
 | --- | --- |
 | <code>/?</code> | Obtenga una lista de las opciones de la línea de comandos. |
 | <code>/S</code> | Realice una instalación silenciosa sin preguntas. |
@@ -222,7 +222,7 @@ Para ver una lista de marcas de instalación, ejecute el programa de instalació
 InstallDependencyAgent-Linux64.bin -help
 ```
 
-| **Marca** | **DESCRIPCIÓN** |
+| **Marca** | **Descripción** |
 | --- | --- |
 | <code>-help</code> | Obtenga una lista de las opciones de la línea de comandos. |
 | <code>-s</code> | Realice una instalación silenciosa sin preguntas. |
@@ -358,7 +358,7 @@ Después de instalar los agentes y la solución, el icono de Wire Data 2.0 apare
 
 En la página **Introducción** del área de trabajo de Log Analytics en Azure Portal, haga clic en el icono **Wire Data 2.0** para abrir el panel de Wire Data. El panel incluye las hojas de la tabla siguiente. Cada hoja muestra hasta diez elementos que coinciden con los criterios de esa hoja para el ámbito e intervalo de tiempo especificados. Puede ejecutar una búsqueda de registros que devuelva todos los registros si hace clic en **Ver todo** en la parte inferior de la hoja o si hace clic en el encabezado de esta.
 
-| **Hoja** | **DESCRIPCIÓN** |
+| **Hoja** | **Descripción** |
 | --- | --- |
 | Agentes que capturan el tráfico de red | Muestra el número de agentes que capturan el tráfico de red y enumera los 10 equipos principales que capturan el tráfico. Haga clic en el número para ejecutar una búsqueda de registros de <code>WireData \| summarize sum(TotalBytes) by Computer \| take 500000</code>. Haga clic en un equipo de la lista para ejecutar una búsqueda de registros que devuelve el número total de bytes capturados. |
 | Subredes locales | Muestra el número de subredes locales que los agentes han detectado.  Haga clic en el número para ejecutar una búsqueda de registros para <code>WireData \| summarize sum(TotalBytes) by LocalSubnet</code> que enumera todas las subredes con el número de bytes enviados a través de cada una de ellas. Haga clic en una subred de la lista para ejecutar una búsqueda de registros que devuelve el número total de bytes enviados sobre la subred. |

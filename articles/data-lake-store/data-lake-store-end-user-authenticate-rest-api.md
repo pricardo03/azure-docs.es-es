@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: 0ef65c23ee1bf4f064695779b71c8616427da204
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58881450"
 ---
 # <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Autenticación del usuario final con Azure Data Lake Storage Gen1 mediante API REST
 > [!div class="op_single_selector"]
-> * [Usar Java](data-lake-store-end-user-authenticate-java-sdk.md)
-> * [Uso del SDK de .NET](data-lake-store-end-user-authenticate-net-sdk.md)
-> * [Usar Python](data-lake-store-end-user-authenticate-python.md)
+> * [Uso de Java](data-lake-store-end-user-authenticate-java-sdk.md)
+> * [Uso de SDK de .NET](data-lake-store-end-user-authenticate-net-sdk.md)
+> * [Uso de Python](data-lake-store-end-user-authenticate-python.md)
 > * [Uso de la API de REST](data-lake-store-end-user-authenticate-rest-api.md)
 > 
 >  
@@ -86,6 +86,6 @@ Para más información sobre la autenticación interactiva de usuarios, consulte
 ## <a name="next-steps"></a>Pasos siguientes
 En este artículo aprendió a usar la autenticación entre servicios con Azure Data Lake Storage Gen1 mediante la API REST. Ahora puede consultar los siguientes artículos, que tratan acerca de cómo usar la API REST con Azure Data Lake Storage Gen1.
 
-* [Operaciones de administración de cuentas en Data Lake Storage Gen1 mediante API de REST](data-lake-store-get-started-rest-api.md)
-* [Operaciones de datos en Data Lake Storage Gen1 con API de REST](data-lake-store-data-operations-rest-api.md)
+* [Account management operations on Data Lake Storage Gen1 using REST API](data-lake-store-get-started-rest-api.md) (Operaciones de administración de cuentas en Data Lake Storage Gen1 mediante API REST)
+* [Data operations on Data Lake Storage Gen1 using REST API](data-lake-store-data-operations-rest-api.md) (Operaciones de datos en Data Lake Storage Gen1 mediante API REST)
 

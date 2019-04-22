@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: twooley
 ms.openlocfilehash: f83cf183bee930dd07c707b0eb49125cecd70b84
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884642"
 ---
 # <a name="authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Autenticación en Azure Data Lake Storage Gen1 con Azure Active Directory
@@ -42,8 +42,8 @@ En la tabla siguiente se indica cómo se admiten los mecanismos de autenticació
 |Entre servicios (con clave de cliente)         |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-client-secret)** |    **[✔*](data-lake-store-service-to-service-authenticate-java.md)**    |    ✔      |       ✔      |    **[✔*](data-lake-store-service-to-service-authenticate-python.md#service-to-service-authentication-with-client-secret-for-account-management)**     |    **[✔*](data-lake-store-service-to-service-authenticate-rest-api.md)**    |
 |Entre servicios (con certificado de cliente) |    **[✔*](data-lake-store-service-to-service-authenticate-net-sdk.md#service-to-service-authentication-with-certificate)**        |    ✔    |    ✔      |       ✔      |    ✔     |    ✔    |
 
-<i>* Haga clic en el <b>✔\* </b> símbolos. Es un vínculo.</i><br>
-<i>** MFA hace referencia a la autenticación multifactor</i>
+<i>* Haga clic en el símbolo <b>✔\*</b>. Es un vínculo.</i><br>
+<i>** MFA hace referencia a la autenticación multifactor</i>.
 
 Vea [Escenarios de autenticación para Azure AD](../active-directory/develop/authentication-scenarios.md) para obtener más información sobre cómo usar Azure Active Directory para la autenticación.
 

@@ -16,10 +16,10 @@ ms.date: 12/03/2018
 ms.author: asmalser
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c2a2c1c415d0862b2631fa749241a9ae07df3b98
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880158"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Problemas conocidos y soluciones con el cumplimiento de protocolo SCIM 2.0 del servicio de aprovisionamiento de usuarios de Azure AD
@@ -35,7 +35,7 @@ En este artículo se describen los problemas actuales y pasados con el cumplimie
 
 ## <a name="scim-20-compliance-issues-and-status"></a>Problemas de cumplimiento y estado de SCIM 2.0
 
-| **Problema de cumplimiento de SCIM 2.0** |  **¿Se ha corregido?** | **Corrija la fecha**  |  
+| **Problema de compatibilidad de SCIM 2.0** |  **¿Corregido?** | **Fecha de corrección**  |  
 |---|---|---|
 | Azure AD requiere "/scim" en la raíz de la dirección URL del punto de conexión SCIM de la aplicación.  | Sí  |  18 de diciembre de 2018 | 
 | Los atributos de extensión utilizan la notación de punto "." antes de los nombres de atributo en lugar de la notación de dos puntos ":". |  Sí  | 18 de diciembre de 2018  | 
@@ -112,5 +112,5 @@ Sí. Si programó una aplicación con el comportamiento anterior que existía an
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Más información sobre el aprovisionamiento y Desaprovisionamiento de usuarios para aplicaciones SaaS](user-provisioning.md)
+[Más información sobre aprovisionamiento y desaprovisionamiento de usuarios para aplicaciones SaaS](user-provisioning.md)
 

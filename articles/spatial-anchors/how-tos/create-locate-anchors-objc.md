@@ -9,10 +9,10 @@ ms.date: 02/24/2019
 ms.topic: how-to
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: 3dd4fbedd51e11e84303f997cef0bb28bf79b241
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58918185"
 ---
 # <a name="how-to-create-and-locate-anchors-using-azure-spatial-anchors-in-objective-c"></a>Cómo crear y localizar los anclajes mediante Azure espacial anclajes en Objective-C
@@ -36,8 +36,8 @@ Azure Spatial Anchors permite compartir delimitadores entre diferentes dispositi
 
 Para completar a esta guía, asegúrese de que tiene:
 
-- Lea la [información general de Azure espacial delimitadores](../overview.md).
-- Completado uno de los [inicios rápidos en 5 minutos](../index.yml).
+- Ha leído completamente [Introducción a Azure Spatial Anchors](../overview.md).
+- Ha completado uno de los [inicios rápidos en 5 minutos](../index.yml).
 - Conocimientos básicos en Objective-C.
 - Conocimiento básico sobre <a href="https://developer.apple.com/arkit/" target="_blank">ARKit</a>.
 

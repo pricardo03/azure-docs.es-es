@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/24/2019
 ms.author: mlottner
 ms.openlocfilehash: a0eb459391da65f8d0e2ae251809805924d07ad1
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862372"
 ---
 # <a name="azure-security-center-for-iot-architecture"></a>Azure Security Center para arquitectura de IoT
@@ -26,7 +26,7 @@ ms.locfileid: "58862372"
 En este artículo se explica la arquitectura del sistema funcional de Azure Security Center (ASC) para la solución de IoT. 
 
 > [!IMPORTANT]
-> Azure Security Center para IoT está actualmente en versión preliminar pública.
+> Azure Security Center for IoT está actualmente en versión preliminar pública.
 > Esta versión preliminar se ofrece sin contrato de nivel de servicio y no es aconsejable usarla para cargas de trabajo de producción. Es posible que algunas características no sean compatibles o que tengan sus funcionalidades limitadas. Para más información, consulte [Términos de uso complementarios de las Versiones Preliminares de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="asc-for-iot-components"></a>ASC para los componentes de IoT
@@ -55,9 +55,9 @@ ASC para IoT recomendaciones y alertas (salida de canalización de análisis) se
 
 En este artículo, ha aprendido sobre la arquitectura básica y el flujo de trabajo de procesos de ASC para solución de IoT. Para obtener más información sobre los requisitos previos, cómo empezar a trabajar y habilitar la solución de seguridad en IoT Hub, consulte los artículos siguientes:
 
-- [Requisitos previos de servicios](service-prerequisites.md)
+- [Requisitos previos del servicio](service-prerequisites.md)
 - [Introducción](getting-started.md)
-- [Configuración de la solución](quickstart-configure-your-solution.md)
+- [Configuración de una solución](quickstart-configure-your-solution.md)
 - [Habilitar la seguridad en IoT Hub](quickstart-onboard-iot-hub.md)
 - [ASC para IoT preguntas más frecuentes](resources-frequently-asked-questions.md)
 - [ASC para las alertas de seguridad de IoT](concept-security-alerts.md)

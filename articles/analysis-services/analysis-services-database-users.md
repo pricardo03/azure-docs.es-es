@@ -9,10 +9,10 @@ ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 462625ce61f4538aa0769667648e07cc6307cbb3
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58891691"
 ---
 # <a name="manage-database-roles-and-users"></a>Administración de usuarios y roles de base de datos
@@ -47,7 +47,7 @@ Cuando se crea un proyecto de modelo tabular, crea roles y agrega usuarios o gru
     |----------------|-----------------|  
     |**None**|Los miembros no pueden modificar el esquema de modelo ni tampoco consultar datos.|  
     |**Lectura**|Los miembros pueden consultar datos (según los filtros de fila), pero no pueden modificar el esquema de modelo.|  
-    |**Lectura y procesamiento**|Los miembros pueden consultar datos (según los filtros de nivel de fila) y ejecutar las operaciones Procesar y Procesar todo, pero no pueden modificar el esquema de modelo.|  
+    |**Lectura y proceso**|Los miembros pueden consultar datos (según los filtros de nivel de fila) y ejecutar las operaciones Procesar y Procesar todo, pero no pueden modificar el esquema de modelo.|  
     |**Proceso**|Los modelos pueden ejecutar las operaciones Procesar y Procesar todo. No pueden modificar el esquema de modelo ni pueden consultar datos.|  
     |**Administrador**|Los miembros pueden modificar el esquema de modelo y consultar todos los datos.|   
   
@@ -74,8 +74,8 @@ Para agregar roles y usuarios a una base de datos modelo implementada, debe esta
 
    |Permiso|DESCRIPCIÓN|  
    |----------------|-----------------|  
-   |**Control total (Administrador)**|Los miembros pueden modificar el esquema modelo, el proceso y pueden consultar todos los datos.| 
-   |**Procesar base de datos**|Los modelos pueden ejecutar las operaciones Procesar y Procesar todo. No pueden modificar el esquema de modelo ni pueden consultar datos.|  
+   |**Control total (administrador)**|Los miembros pueden modificar el esquema modelo, el proceso y pueden consultar todos los datos.| 
+   |**Proceso de una base de datos**|Los modelos pueden ejecutar las operaciones Procesar y Procesar todo. No pueden modificar el esquema de modelo ni pueden consultar datos.|  
    |**Lectura**|Los miembros pueden consultar datos (según los filtros de fila), pero no pueden modificar el esquema de modelo.|  
   
 4. Haga clic en **Pertenencia** y, luego, escriba un usuario o grupo en Azure AD del inquilino por dirección de correo electrónico.
@@ -150,7 +150,7 @@ Los filtros de fila se aplican a las rilas especificadas y a las filas relaciona
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-  [Administración de administradores de servidor](analysis-services-server-admins.md)   
+  [Administración de administradores del servidor](analysis-services-server-admins.md)   
   [Administración de Azure Analysis Services con PowerShell](analysis-services-powershell.md)  
-  [Tabular Model Scripting Language (TMSL) referencia](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
+  [Referencia Tabular Model Scripting Language (TMSL)](https://docs.microsoft.com/sql/analysis-services/tabular-model-scripting-language-tmsl-reference)
 
