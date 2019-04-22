@@ -8,12 +8,12 @@ ms.author: kasparks
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 42627649145b568b2b25411d182e5a36cdb025b0
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 793c881d08e8feb038cc6e7ac82b7e95384e1b55
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58881195"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699311"
 ---
 # <a name="improve-availability-of-your-application-with-azure-advisor"></a>Mejora de la disponibilidad de la aplicación con Azure Advisor
 
@@ -65,6 +65,10 @@ Habilite la [eliminación temporal](https://docs.microsoft.com/azure/storage/blo
 ## <a name="configure-your-vpn-gateway-to-active-active-for-connection-resiliency"></a>Configuración de la puerta de enlace VPN como activo-activo para lograr la resistencia de conexión
 
 En configuración activo / activo, ambas instancias de una puerta de enlace VPN establecerán túneles VPN S2S al dispositivo VPN local. Cuando se produce un evento de mantenimiento planeado o no planeado para una instancia de la puerta de enlace, el tráfico cambiará automáticamente al otro el túnel IPsec activo. Azure Advisor identificará las puertas de enlace VPN que no están configuradas como activo-activo y sugerirá que las configure para alta disponibilidad.
+
+## <a name="use-production-vpn-gateways-to-run-your-production-workloads"></a>Usar puertas de enlace VPN de producción para ejecutar sus cargas de trabajo de producción
+
+Azure Advisor comprobará las puertas de enlace VPN que son una SKU básica y recomendamos que use una SKU de producción en su lugar. La SKU básica está diseñada para fines de prueba y desarrollo. SKU de producción ofrecen un mayor número de túneles, compatibilidad con BGP, las opciones de configuración activo / activo, personalizado directiva Ipsec/IKE y mayor estabilidad y disponibilidad.
 
 ## <a name="how-to-access-high-availability-recommendations-in-advisor"></a>Obtención de acceso a las recomendaciones sobre alta disponibilidad en Advisor
 

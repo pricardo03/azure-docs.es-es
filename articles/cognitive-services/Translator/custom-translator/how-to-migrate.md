@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: v-rada
 ms.topic: conceptual
-ms.openlocfilehash: 3b2c5f3e02241f8c4e8a9ae87bd7436863243978
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 73fc0d26612d32f2614899c62f680ff9e85d1609
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57901532"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698406"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>Migración del área de trabajo y los proyectos de Microsoft Translator Hub a Custom Translator
 
@@ -119,6 +119,7 @@ La página Historial de migraciones muestra la siguiente información como resum
 Si desea obtener un informe de migración más detallado sobre los proyectos, aprendizajes y documentos, puede exportar los detalles en un archivo .csv.
 
 ## <a name="implementation-notes"></a>Notas de implementación
+* Aún no pares disponible en sistemas con lenguaje personalizado traductor solo estará disponible para tener acceso a datos o anular la implementación a través de traductor personalizado. Estos proyectos se marcará como "No disponible" en la página proyectos. A medida que se habiliten a nuevos pares de idioma de Translator personalizado, los proyectos se activan para entrenar e implementar. 
 * La migración de un proyecto del centro a Traductor personalizado no tendrá ningún impacto en los entrenamientos o proyectos del centro. No se eliminan documentos ni proyectos del centro durante una migración y no se anula la implementación de modelos.
 * Solo se permite migrar una vez por proyecto. Si necesita repetir una migración de un proyecto, póngase en contacto con nosotros.
 * Traductor personalizado es compatible con los pares de idiomas NMT hacia y desde el inglés. [Ver una lista completa de idiomas admitidos](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization). El centro no requiere modelos de referencia y, por tanto, admite varios miles de lenguajes. Puede migrar un par de idiomas no admitidos, pero solo se realizará la migración de los documentos y las definiciones del proyecto. No se podrá entrenar el modelo nuevo. Además, estos documentos y proyectos se mostrarán como inactivos para indicar que no se pueden utilizar en este momento. Si se agrega compatibilidad para estos proyectos y/o documentos, estarán activos y se podrán entrenar.

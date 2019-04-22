@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: e82b9ae96ae43278e22da22702d3d899abadb1b5
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
-ms.translationtype: MT
+ms.openlocfilehash: 9d69a24b106fc39c03b8f95758bc240916023456
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505607"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59698322"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Preparación y personalización de una imagen de disco duro virtual maestro
 
@@ -274,7 +274,7 @@ Para redirigir las zonas horarias:
 1. En el servidor de Active Directory, abra el **Group Policy Management Console**.
 2. Expanda el dominio y objetos de directiva de grupo.
 3. Haga clic en el **objeto de directiva de grupo** que creó para la configuración de directiva de grupo y seleccione **editar**.
-4. En el **Editor de administración de directivas de grupo**, vaya a **configuración del equipo** > **directivas** > **administrativo Plantillas de** > **componentes de Windows** > **horizonte ver RDSH servicios** > **sesión de escritorio remoto Host** > **redireccionar los recursos y dispositivos**.
+4. En el **Editor de administración de directivas de grupo**, vaya a **configuración del equipo** > **directivas** > **administrativo Plantillas de** > **componentes de Windows** > **servicios de escritorio remoto** > **Host de sesión de escritorio remoto**   >  **Redireccionar los recursos y dispositivos**.
 5. Habilitar la **permitir redirección de zona horaria** configuración.
 
 También puede ejecutar este comando en la imagen maestra para redirigir las zonas horarias:
@@ -367,8 +367,8 @@ Las siguientes instrucciones le indicará cómo cargar su imagen maestra en una 
 
 Ahora que tiene una imagen, puede crear o actualizar los grupos host. Para obtener más información sobre cómo crear y actualizar los grupos host, consulte los artículos siguientes:
 
-- [Creación de un grupo host con una plantilla de Azure Resource Manager](create-host-pools-arm-template.md)
-- [Tutorial: Creación de un grupo host con Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Crear un grupo host con una plantilla de Azure Resource Manager](create-host-pools-arm-template.md)
+- [Tutorial: Crear un grupo host con Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Creación de un grupo host con PowerShell](create-host-pools-powershell.md)
-- [Configuración de un recurso compartido de archivos de perfil de usuario para un grupo host](create-host-pools-user-profile.md)
-- [Configuración del método de equilibrio de carga de Windows Virtual Desktop](configure-host-pool-load-balancing.md)
+- [Configure un recurso compartido de perfil de usuario para un grupo host](create-host-pools-user-profile.md)
+- [Configurar el método de equilibrio de carga de Escritorio Virtual de Windows](configure-host-pool-load-balancing.md)

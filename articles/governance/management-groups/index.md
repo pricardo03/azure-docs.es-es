@@ -4,15 +4,15 @@ description: Más información sobre los grupos de administración, el funcionam
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: azure-resource-manager
-ms.date: 02/20/2019
+ms.date: 04/17/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: bd874ffe9293d01fced7ff6df5d329a829b7d8b4
-ms.sourcegitcommit: 3341598aebf02bf45a2393c06b136f8627c2a7b8
+ms.openlocfilehash: 157701e826d6a281a60393e1ec270cf061be8214
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58804843"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699396"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Organización de los recursos con grupos de administración de Azure
 
@@ -43,11 +43,11 @@ Una asignación en el grupo de administración puede permitir a los usuarios acc
 ## <a name="root-management-group-for-each-directory"></a>Un grupo de administración raíz para cada directorio
 
 Cada directorio tiene un grupo de administración de nivel superior único denominado "raíz".
-Este grupo de administración raíz está integrado en la jerarquía de manera que contiene todos los grupos de administración y suscripciones. Este grupo de administración raíz permite que las directivas globales y las asignaciones de control de acceso basado en rol se apliquen en el nivel de directorio. Los [administradores globales de Azure AD necesitan elevar sus privilegios](../../role-based-access-control/elevate-access-global-admin.md) para ser inicialmente el propietario del grupo raíz. Una vez que el administrador es el propietario del grupo, puede asignar cualquier control de acceso basado en rol a otros usuarios o grupos del directorio para administrar la jerarquía.
+Este grupo de administración raíz está integrado en la jerarquía de manera que contiene todos los grupos de administración y suscripciones. Este grupo de administración raíz permite que las directivas globales y las asignaciones de control de acceso basado en rol (RBAC) se apliquen en el nivel de directorio. Los [administradores globales de Azure AD necesitan elevar sus privilegios inicialmente](../../role-based-access-control/elevate-access-global-admin.md) al rol Administrador de acceso de usuario de este grupo raíz. Después de esta elevación de los privilegios de acceso, puede asignar cualquier control de acceso basado en rol a otros usuarios o grupos del directorio para administrar la jerarquía. Como administrador, puede asignar su propia cuenta como propietario del grupo de administración raíz.
 
 ### <a name="important-facts-about-the-root-management-group"></a>Hechos importantes acerca de los grupos de administración raíz
 
-- El nombre y el identificador del grupo de administración raíz se proporcionan de forma predeterminada. El nombre para mostrar se puede actualizar en cualquier momento para mostrarse diferente en Azure Portal.
+- El nombre y el identificador del grupo de administración raíz se proporcionan de forma predeterminada. El nombre para mostrar se puede actualizar en cualquier momento para mostrarse diferente en Azure Portal. Para [cambiar el nombre](manage.md#change-the-name-of-a-management-group), se debe asignar a su cuenta el rol de Propietario o Colaborador en el grupo de administración raíz.
   - El nombre será "Grupo raíz de inquilino".
   - El identificador será el de Azure Active Directory.
 - El grupo de administración raíz no se puede mover ni eliminar, a diferencia de los demás.  
@@ -69,7 +69,7 @@ Cuando algún usuario comienza usando grupos de administración, se produce un p
 
 ## <a name="trouble-seeing-all-subscriptions"></a>Problemas para ver todas las suscripciones
 
-Algunos de los directorios que empezaron a usar grupos de administración durante la versión preliminar (antes del 25 de junio de 2018) podrían experimentar el problema de que no estén todas las suscripciones en la jerarquía.  Los procesos para que todas las suscripciones estén en la jerarquía se implementaron después de realizar una asignación de roles o directivas en el grupo de administración raíz del directorio.
+Algunos de los directorios que empezaron a usar grupos de administración durante la versión preliminar (antes del 25 de junio de 2018) podrían experimentar el problema de que no estén todas las suscripciones en la jerarquía. El proceso para que todas las suscripciones estén en la jerarquía se implementó después de realizar una asignación de roles o directivas en el grupo de administración raíz del directorio. 
 
 ### <a name="how-to-resolve-the-issue"></a>Cómo resolver el problema
 

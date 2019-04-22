@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 03/13/2019
 ms.author: manayar
 ms.custom: na
-ms.openlocfilehash: 07a488556bc899efa80d67ceb984b60f461b9742
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 56a31770c374cdccaec4dbee751925a6da00fa59
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58541045"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683960"
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Preguntas frecuentes sobre los conjuntos de escalado de máquinas virtuales de Azure
 
@@ -29,13 +29,13 @@ Obtenga respuestas a preguntas frecuentes sobre los conjuntos de escalado de má
 
 ## <a name="top-frequently-asked-questions-for-scale-sets"></a>Preguntas más frecuentes sobre los conjuntos de escalado
 
-**P.** ¿Cuántas máquinas virtuales puede contener un conjunto de escalado?
+### <a name="how-many-vms-can-i-have-in-a-scale-set"></a>¿Cuántas máquinas virtuales puede contener un conjunto de escalado?
 
-**R.** Un conjunto de escalado puede tener entre 0 y 1000 máquinas virtuales basadas en imágenes de plataforma, o entre 0 y 600 basadas en imágenes personalizadas.
+Un conjunto de escalado puede tener entre 0 y 1000 máquinas virtuales basadas en imágenes de plataforma, o entre 0 y 600 basadas en imágenes personalizadas.
 
-**P.** ¿Se admiten discos de datos en los conjuntos de escalado?
+### <a name="are-data-disks-supported-within-scale-sets"></a>¿Se admiten discos de datos en los conjuntos de escalado?
 
-**R.** Sí. Un conjunto de escalado puede definir una configuración de discos de datos conectados que se aplica a todas las máquinas virtuales del conjunto. Para más información, consulte [Conjuntos de escalado de máquinas virtuales de Azure y discos de datos conectados](virtual-machine-scale-sets-attached-disks.md). Otras opciones para almacenar datos son las siguientes:
+Sí. Un conjunto de escalado puede definir una configuración de discos de datos conectados que se aplica a todas las máquinas virtuales del conjunto. Para más información, consulte [Conjuntos de escalado de máquinas virtuales de Azure y discos de datos conectados](virtual-machine-scale-sets-attached-disks.md). Otras opciones para almacenar datos son las siguientes:
 
 * Archivos de Azure (unidades compartidas SMB)
 * Unidad de sistema operativo
@@ -43,33 +43,33 @@ Obtenga respuestas a preguntas frecuentes sobre los conjuntos de escalado de má
 * Servicio de datos de Azure (por ejemplo, tablas y blobs de Azure)
 * Servicio de datos externos (por ejemplo, una base de datos remota)
 
-**P.** ¿Qué regiones de Azure admiten conjuntos de escalado?
+### <a name="which-azure-regions-support-scale-sets"></a>¿Qué regiones de Azure admiten conjuntos de escalado?
 
-**R.** Todas las regiones admiten conjuntos de escalado.
+Todas las regiones admiten conjuntos de escalado.
 
-**P.** ¿Cómo se crea un conjunto de escalado con una imagen personalizada?
+### <a name="how-do-i-create-a-scale-set-by-using-a-custom-image"></a>¿Cómo se crea un conjunto de escalado con una imagen personalizada?
 
-**R.** Cree y capture una imagen de máquina virtual y, a continuación, úsela como origen para el conjunto de escalado. Para obtener un tutorial sobre cómo crear y usar una imagen de máquina virtual personalizada, puede usar la [CLI de Azure](tutorial-use-custom-image-cli.md) o [Azure PowerShell](tutorial-use-custom-image-powershell.md).
+Cree y capture una imagen de máquina virtual y, a continuación, úsela como origen para el conjunto de escalado. Para obtener un tutorial sobre cómo crear y usar una imagen de máquina virtual personalizada, puede usar la [CLI de Azure](tutorial-use-custom-image-cli.md) o [Azure PowerShell](tutorial-use-custom-image-powershell.md).
 
-**P.** Si reduzco la capacidad de mi conjunto de escalado de 20 a 15, ¿qué máquinas virtuales se quitan?
+### <a name="if-i-reduce-my-scale-set-capacity-from-20-to-15-which-vms-are-removed"></a>Si reduzco la capacidad de mi conjunto de escalado de 20 a 15, ¿qué máquinas virtuales se quitan?
 
-**R.** Las máquinas virtuales se quitan uniformemente del conjunto de escalado tanto en los dominios de actualización como en los dominios de error para maximizar su disponibilidad. Primero se quitan las máquinas virtuales que tengan los identificadores más altos.
+Las máquinas virtuales se quitan uniformemente del conjunto de escalado tanto en los dominios de actualización como en los dominios de error para maximizar su disponibilidad. Primero se quitan las máquinas virtuales que tengan los identificadores más altos.
 
-**P.** ¿Y si después se aumenta la capacidad de 15 a 18?
+### <a name="what-if-i-then-increase-the-capacity-from-15-to-18"></a>¿Y si después se aumenta la capacidad de 15 a 18?
 
-**R.** Si aumenta la capacidad a 18, se crearán 3 máquinas virtuales. Cada vez, el identificador de la instancia de máquina virtual se aumenta a partir del mayor valor anterior (por ejemplo, 20, 21 y 22). Las máquinas virtuales están equilibradas entre los dominios de error y los dominios de actualización.
+Si aumenta la capacidad a 18, se crearán 3 máquinas virtuales. Cada vez, el identificador de la instancia de máquina virtual se aumenta a partir del mayor valor anterior (por ejemplo, 20, 21 y 22). Las máquinas virtuales están equilibradas entre los dominios de error y los dominios de actualización.
 
-**P.** Si se usan varias extensiones en un conjunto de escalado, ¿se puede exigir una secuencia de ejecución?
+### <a name="when-im-using-multiple-extensions-in-a-scale-set-can-i-enforce-an-execution-sequence"></a>Si se usan varias extensiones en un conjunto de escalado, ¿se puede exigir una secuencia de ejecución?
 
-**R.** Sí, puede usar el conjunto de escalado [secuenciación de extensión](virtual-machine-scale-sets-extension-sequencing.md).
+Sí, puede usar el conjunto de escalado [secuenciación de extensión](virtual-machine-scale-sets-extension-sequencing.md).
 
-**P.** ¿Funcionan los conjuntos de escalado con los conjuntos de disponibilidad de Azure?
+### <a name="do-scale-sets-work-with-azure-availability-sets"></a>¿Funcionan los conjuntos de escalado con los conjuntos de disponibilidad de Azure?
 
-**R.** Un conjunto de escalado regional (no de zona) usa *grupos de selección de ubicación*, donde cada uno actúa como un conjunto de disponibilidad implícito con cinco dominios predeterminados y cinco dominios de actualización. Los conjuntos de escalado con más de 100 máquinas virtuales abarcan varios grupos de selección de ubicación. Para más información, consulte [Uso de grandes conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-placement-groups.md). Puede existir un conjunto de disponibilidad de máquinas virtuales en la misma red virtual que un conjunto de escalado de máquinas virtuales. Una configuración común consiste en colocar máquinas virtuales de nodos de control (que a menudo necesitan una configuración única) en un conjunto de disponibilidad y nodos de datos en el conjunto de escalado.
+Un conjunto de escalado regional (no de zona) usa *grupos de selección de ubicación*, donde cada uno actúa como un conjunto de disponibilidad implícito con cinco dominios predeterminados y cinco dominios de actualización. Los conjuntos de escalado con más de 100 máquinas virtuales abarcan varios grupos de selección de ubicación. Para más información, consulte [Uso de grandes conjuntos de escalado de máquinas virtuales](virtual-machine-scale-sets-placement-groups.md). Puede existir un conjunto de disponibilidad de máquinas virtuales en la misma red virtual que un conjunto de escalado de máquinas virtuales. Una configuración común consiste en colocar máquinas virtuales de nodos de control (que a menudo necesitan una configuración única) en un conjunto de disponibilidad y nodos de datos en el conjunto de escalado.
 
-**P.** ¿Funcionan los conjuntos de escalado con las zonas de disponibilidad de Azure?
+### <a name="do-scale-sets-work-with-azure-availability-zones"></a>¿Funcionan los conjuntos de escalado con las zonas de disponibilidad de Azure?
 
-**R.** Sí. Para más información, consulte el [documento sobre las zonas de conjunto de escalado](./virtual-machine-scale-sets-use-availability-zones.md).
+Sí. Para más información, consulte el [documento sobre las zonas de conjunto de escalado](./virtual-machine-scale-sets-use-availability-zones.md).
 
 
 ## <a name="autoscale"></a>Escalado automático

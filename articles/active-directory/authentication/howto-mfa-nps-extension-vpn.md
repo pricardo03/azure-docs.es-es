@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5ea409b1726e82557b564f93fbd35898e9cf2cb
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.openlocfilehash: 2674e5ca12269d44e111f140fce77bd8bc0c9ae7
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372461"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699122"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integración de la infraestructura de VPN con Azure MFA utilizando la extensión Servidor de directivas de redes para Azure
 
@@ -374,7 +374,7 @@ Para usar el script, indique a la extensión sus credenciales de administrador d
 
 2. En el símbolo del sistema de PowerShell, escriba **cd "c:\Program Files\Microsoft\AzureMfa\Config"** y presione ENTRAR.
 
-3. En la siguiente ventana del símbolo del sistema, escriba **.\AzureMfsNpsExtnConfigSetup.ps1** y presione ENTRAR. El script comprueba si está instalado el módulo de PowerShell de Azure AD. Si no está instalado, el script instala el módulo.
+3. En la siguiente ventana del símbolo del sistema, escriba **.\AzureMfaNpsExtnConfigSetup.ps1**y, a continuación, presione ENTRAR. El script comprueba si está instalado el módulo de PowerShell de Azure AD. Si no está instalado, el script instala el módulo.
 
     ![Ejecutar el script de configuración AzureMfsNpsExtnConfigSetup.ps1](./media/howto-mfa-nps-extension-vpn/image38.png)
 

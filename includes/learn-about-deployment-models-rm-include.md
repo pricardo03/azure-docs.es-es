@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 5d540cbc4bf3cc85d45d9f8e6973ac80a7cb0730
-ms.sourcegitcommit: a08d1236f737915817815da299984461cc2ab07e
-ms.translationtype: HT
+ms.openlocfilehash: cef2eb2cde2a26239b774729fa72b4f3ba367df7
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/26/2018
-ms.locfileid: "52331450"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737292"
 ---
 > [!NOTE]
-> Azure tiene dos modelos de implementación diferentes para crear recursos y trabajar con ellos: [Resource Manager y el clásico](../articles/azure-resource-manager/resource-manager-deployment-model.md).  En este artículo se describe el uso del modelo de implementación de Resource Manager, que es el que recomienda Microsoft para la mayoría de las nuevas implementaciones en lugar del modelo de implementación clásica.
+> Azure tiene dos modelos de implementación diferentes que puede usar para crear y trabajar con recursos: [Azure Resource Manager y clásico](../articles/azure-resource-manager/resource-manager-deployment-model.md). En este artículo se explica el uso del modelo de implementación de Resource Manager. Se recomienda el modelo de implementación de Resource Manager para nuevas implementaciones en lugar del modelo de implementación clásica.

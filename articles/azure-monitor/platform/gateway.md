@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 03/04/2019
+ms.date: 04/17/2019
 ms.author: magoedte
-ms.openlocfilehash: 81005c2c95c9cccb32796d1afca4208f5ff8b919
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: b0b221a9fe6c6482e8759664c297dbd25d0ee776
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58437346"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699277"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>Conectar equipos sin acceso a internet a través de la puerta de enlace de Log Analytics en Azure Monitor
 
@@ -124,9 +124,9 @@ o
 1. En la hoja de área de trabajo en **Configuración**, seleccione **Configuración avanzada**.
 1. Vaya a **orígenes conectados** > **servidores Windows** y seleccione **puerta de enlace de descarga de Log Analytics**.
 
-## <a name="install-the-log-analytics-gateway"></a>Instalar la puerta de enlace de Log Analytics
+## <a name="install-log-analytics-gateway-using-setup-wizard"></a>Instalar la puerta de enlace de Log Analytics mediante el Asistente para la instalación
 
-Para instalar una puerta de enlace, siga estos pasos.  (Si instaló una versión anterior, denominada reenviador de Log Analytics, se actualizará a esta versión.)
+Para instalar una puerta de enlace mediante el Asistente para la instalación, siga estos pasos. 
 
 1. En la carpeta de destino, haga doble clic en **Log Analytics gateway.msi**.
 1. En la página **principal**, seleccione **Siguiente**.
@@ -152,6 +152,40 @@ Para instalar una puerta de enlace, siga estos pasos.  (Si instaló una versión
 
    ![Captura de pantalla de los servicios locales, con la que se está ejecutando la puerta de enlace de OMS](./media/gateway/gateway-service.png)
 
+## <a name="install-the-log-analytics-gateway-using-the-command-line"></a>Instalar la puerta de enlace de Log Analytics mediante la línea de comandos
+El archivo descargado para la puerta de enlace es un paquete de instalador de Windows que admite la instalación silenciosa desde la línea de comandos u otro método automatizado. Si no está familiarizado con las opciones de línea de comandos estándar de Windows Installer, consulte [opciones de línea de comandos](https://docs.microsoft.com/windows/desktop/Msi/command-line-options).   
+
+En la tabla siguiente se resalta los parámetros admitidos por el programa de instalación.
+
+|Parámetros| Notas|
+|----------|------| 
+|NÚMERO DE PUERTO | Número de puerto TCP para la puerta de enlace para escuchar en |
+|PROXY | Dirección IP del servidor proxy |
+|INSTALLDIR | Ruta de acceso completa para especificar el directorio de instalación de archivos de software de puerta de enlace |
+|NOMBRE DE USUARIO | Id. de usuario para autenticarse con el servidor proxy |
+|CONTRASEÑA | Contraseña del usuario Id para autenticar con el proxy |
+|LicenseAccepted | Especifique un valor de **1** para comprobar que acepte el contrato de licencia |
+|HASAUTH | Especifique un valor de **1** cuando se especifican los parámetros de nombre de usuario/contraseña |
+|HASPROXY | Especifique un valor de **1** al especificar la dirección IP para **PROXY** parámetro |
+
+Para instalar la puerta de enlace de forma silenciosa y configurarlo con una dirección de proxy específico, el número de puerto, escriba lo siguiente:
+
+```dos
+Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 LicenseAccepted=1 
+```
+
+Con la opción de línea de comandos/qn oculta el programa de instalación, /qb muestra el programa de instalación durante la instalación silenciosa.  
+
+Si tiene que proporcionar credenciales para autenticarse con el proxy, escriba lo siguiente:
+
+```dos
+Msiexec.exe /I “oms gateway.msi” /qn PORTNUMBER=8080 PROXY=”10.80.2.200” HASPROXY=1 HASAUTH=1 USERNAME=”<username>” PASSWORD=”<password>” LicenseAccepted=1 
+```
+
+Después de la instalación, puede confirmar la configuración está aceptados (exlcuding el nombre de usuario y contraseña) mediante los siguientes cmdlets de PowerShell:
+
+- **Get-OMSGatewayConfig** : devuelve la la puerta de enlace está configurado para escuchar en el puerto TCP.
+- **Get-OMSGatewayRelayProxy** : devuelve la dirección IP del servidor proxy está configurado para comunicarse con.
 
 ## <a name="configure-network-load-balancing"></a>Configuración de equilibrio de carga de red 
 Puede configurar la puerta de enlace para lograr alta disponibilidad con equilibrio de carga de red (NLB) mediante Microsoft [equilibrio de carga de red (NLB)](https://docs.microsoft.com/windows-server/networking/technologies/network-load-balancing), [Azure Load Balancer](../../load-balancer/load-balancer-overview.md), o equilibradores de carga basado en hardware. El equilibrador de carga administra el tráfico al redirigir las conexiones solicitadas desde los agentes de Log Analytics o los servidores de administración de Operations Manager mediante sus nodos. Si un servidor de puerta de enlace deja de funcionar, el tráfico se redirige a otros nodos.

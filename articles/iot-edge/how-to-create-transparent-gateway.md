@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 9d67a87b182758e37c9e379a8f96a6540797ce3e
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: 95ee0a4d5d150741e59c0c2d20abebe9609e179f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58482953"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699020"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>Configuración de un dispositivo IoT Edge para que actúe como puerta de enlace transparente
 
@@ -260,6 +260,18 @@ Puede comprobar qué módulos se ejecutan en un dispositivo con el comando `iote
    ```
 
 6. En la página **Review template** (Revisar plantilla), seleccione **Submit** (Enviar).
+
+## <a name="open-ports-on-gateway-device"></a>Abrir puertos en el dispositivo de puerta de enlace
+
+Los dispositivos de IoT Edge estándares no necesitan conectividad entrante a la función, porque toda la comunicación con IoT Hub se realiza a través de las conexiones salientes. Sin embargo, los dispositivos de puerta de enlace son diferentes porque tienen que ser capaz de recibir mensajes desde sus dispositivos de nivel inferior.
+
+Para que un escenario de puerta de enlace trabajar, al menos uno de los protocolos admitidos del centro de IoT Edge debe estar abierto para el tráfico entrante desde dispositivos de nivel inferior. El portocols admitidos son MQTT, AMQP y HTTPS.
+
+| Port | Protocolo |
+| ---- | -------- |
+| 8883 | MQTT |
+| 5671 | AMQP |
+| 443 | HTTPS <br> MQTT + WS <br> AMQP + WS | 
 
 ## <a name="route-messages-from-downstream-devices"></a>Enrutamiento de mensajes desde dispositivos de bajada
 El entorno de ejecución de Azure IoT Edge puede enrutar los mensajes enviados desde dispositivos de bajada igual que los mensajes enviados por los módulos. Esto le permite realizar análisis en un módulo que se ejecuta en la puerta de enlace antes de enviar datos a la nube. 

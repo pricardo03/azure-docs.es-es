@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 74525b42445d87923b0bad7a522456257e651d00
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 2086813b01de6cd06f3714477e56864b36196382
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57856029"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699054"
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Colas de Storage y de Service Bus: comparación y diferencias
 En este artículo se analizan las diferencias y similitudes entre los dos tipos de cola que actualmente ofrece Microsoft Azure: las colas de Storage y las colas de Service Bus. Con esta información, puede comparar y contrastar las tecnologías respectivas y puede tomar una decisión más fundamentada sobre la solución que satisfaga mejor sus necesidades.
@@ -84,7 +84,7 @@ En esta sección se comparan algunas de las funcionalidades de puesta en cola fu
 * El patrón de FIFO garantizado en las colas de Service Bus requiere el uso de sesiones de mensajería. En caso de que la aplicación se bloquee al procesar un mensaje recibido en el modo **Ojear y bloquear**, la próxima vez que un receptor de la cola acepte una sesión de mensajería, empezará con el mensaje de error después de que expire su período de vida (TTL).
 * Las colas de Storage están diseñadas para admitir escenarios de puesta en cola estándar, como componentes de aplicación de desacoplamiento para aumentar la escalabilidad y tolerancia a errores, nivelación de carga y creación de flujos de trabajo de proceso.
 * Las colas de Service Bus admiten la garantía de entrega *Al menos una vez*. 
-* Se pueden evitar incoherencias con respecto al control de mensajes en el contexto de las sesiones de Service Bus con el estado de sesión para almacenar el estado de la aplicación en relación con el progreso de la secuencia del mensaje de la sesión de control y mediante el uso de transacciones en torno a fijar recibe los mensajes y actualizar el estado de sesión. Este tipo de característica de coherencia se denomina a veces *exactamente-procesamiento una vez* en productos de otros proveedores, pero transacción errores obviamente hará que los mensajes se redeliveried y, por tanto, el término es suficiente no exactamente.
+* Se pueden evitar incoherencias con respecto al control de mensajes en el contexto de las sesiones de Service Bus con el estado de sesión para almacenar el estado de la aplicación en relación con el progreso de la secuencia del mensaje de la sesión de control y mediante el uso de transacciones en torno a fijar recibe los mensajes y actualizar el estado de sesión. Este tipo de característica de coherencia se denomina a veces *exactamente-procesamiento una vez* en productos de otros proveedores, pero transacción errores obviamente hará que se vuelva a entregar los mensajes y, por tanto, el término es suficiente no exactamente.
 * Las colas de Storage ofrecen un modelo de programación coherente y uniforme en las colas, tablas y blobs, tanto para desarrolladores como para los equipos de operaciones.
 * Las colas de Service Bus ofrecen compatibilidad con transacciones locales en el contexto de una sola cola.
 * El modo **Recibir y eliminar** compatible con el Service Bus ofrece la capacidad de reducir el número de operaciones de mensajería (y el costo asociado) a cambio de una garantía de entrega menor.

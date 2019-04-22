@@ -7,15 +7,15 @@ manager: cgronlun
 tags: azure-portal
 ms.service: search
 ms.topic: conceptual
-ms.date: 04/05/2019
+ms.date: 04/15/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: da8c8adacfead598a8dec6280cf3518fb7b31f49
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b50d0c0ca9a4000cc0c725453a3ef04b4bed9275
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59270961"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681580"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Selección de un plan de tarifa de Azure Search
 
@@ -64,35 +64,36 @@ En Azure Search, hay tres maneras de incurrir en costes en Azure Search y existe
 
 ### <a name="1-core-service-costs-fixed-and-variable"></a>1. Costos de servicio de núcleo (fijos y variables)
 
-Para el servicio, el cargo mínimo es la primera unidad de búsqueda (partición 1 réplica 1), y esta cantidad es constante durante la vigencia del servicio porque el servicio no se puede ejecutar en cualquier cosa menor que esta configuración. 
+Para el servicio, el cargo mínimo es la primera unidad de búsqueda (partición 1 réplica 1), y esta cantidad es fijo durante la vigencia del servicio porque el servicio no se puede ejecutar en cualquier cosa menor que esta configuración. 
 
-En la siguiente captura de pantalla, por unidad de precio se indica para gratis, básico y S1 (no se muestran S2, S3, L1 y L2). Si ha creado un **básica**, **estándar**, o **optimizadas para almacenamiento** servicio, el costo mensual sería el valor promedio que aparece para *precio-1*y *precio 2* respectivamente. Los costos de unidad ir para cada nivel porque la capacidad de almacenamiento y potencia computacional es mayor en cada nivel consecutivo.
+Más allá de la mínima, puede agregar réplicas y particiones por separado. Por ejemplo, puede agregar sólo las réplicas o solo las particiones. Aumento incremental en capacidad a través de las réplicas y particiones constituye el componente de coste de la variable. 
+
+La facturación se basa en un [fórmula (réplicas x particiones x velocidad)](#search-units). El plan de tarifa que seleccione depende de la tarifa que se aplica.
+
+En la siguiente captura de pantalla, por unidad de precio se indica para gratis, básico y S1 (no se muestran S2, S3, L1 y L2). Si ha creado un **básica**, **estándar**, o **optimizadas para almacenamiento** servicio, el costo mensual sería el valor promedio que aparece para *precio-1*y *precio 2* respectivamente. Los costos de unidad ir para cada nivel porque la capacidad de almacenamiento y potencia computacional es mayor en cada nivel consecutivo. Las tarifas de Azure Search se publican en el [página de precios de Azure Search](https://azure.microsoft.com/pricing/details/search/).
 
 ![Por el precio por unidades](./media/search-sku-tier/per-unit-pricing.png "por unidad de precio")
 
-Las particiones y réplicas adicionales son un complemento de la carga inicial. Un servicio de búsqueda requiere una réplica y partición por lo que la configuración mínima es uno de cada uno. Más allá del mínimo, agrega réplicas y particiones por separado. Por ejemplo, podría agregar sólo las réplicas o solo las particiones. 
+Cuando el costo de una solución de búsqueda, tenga en cuenta que los precios y la capacidad no son lineales (lo que duplica capacidad más que duplica el costo). Para obtener un ejemplo de cómo de la fórmula funciona, consulte ["Cómo asignar particiones y réplicas"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
-Particiones y réplicas adicionales se cobran según un [fórmula](#search-units). Los costos no son lineales (lo que duplica capacidad más que duplica el costo). Para obtener un ejemplo de cómo de la fórmula funciona, consulte ["Cómo asignar particiones y réplicas"](search-capacity-planning.md#how-to-allocate-replicas-and-partitions).
 
 ### <a name="2-data-egress-charges-during-indexing"></a>2. Cargos de salida de datos durante la indización.
 
-El uso de [indexadores de Azure Search](search-indexer-overview.md) puede dar lugar a facturación impacto dependiendo de dónde se encuentran los servicios. Puede eliminar los cargos de salida de datos completamente si crea el servicio Azure Search en la misma región que los datos.
+El uso de [indexadores de Azure Search](search-indexer-overview.md) puede dar lugar a facturación impacto según donde se encuentran los servicios. Puede eliminar los cargos de salida de datos completamente si crea el servicio Azure Search en la misma región que los datos. Los puntos siguientes son desde el [página de precios de ancho de banda](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-+ Ningún cargo por los datos de entrada a cualquier servicio de Azure.
++ Microsoft no cobra para los datos entrantes a cualquier servicio de Azure, o para los datos de salida de Azure Search.
 
-+ No hay cargos para los datos de salida de Azure Search.
++ En soluciones de varios servicios, no hay ningún cargo por datos que atraviesan la conexión cuando todos los servicios están en la misma región.
 
-+ Ningún cargo por datos o archivos de salida de la base de datos SQL, Cosmos, almacenamiento de blobs (de entrada a Azure Search) siempre y cuando todos los servicios están en la misma región.
-
-+ Se aplican cargos para los archivos o datos de salida si storage y Azure Search se encuentran en regiones diferentes.
-
-Al enrutar datos entre regiones de Azure, verá los cargos de ancho de banda en la factura para esos recursos. Dichos cargos no forman parte de la factura de Azure Search, pero se mencionan aquí porque si usa indexadores para extraer los archivos de datos o a través del cable, verá que cargos en su factura general.
-
-Si no utiliza indizadores, no hay ningún cargo de ancho de banda. 
+Si hay servicios en regiones diferentes se aplican cargos por los datos salientes. Estos cargos no forman parte de la factura de Azure Search Sí, pero se mencionan aquí porque si usa datos o indexadores enriquecida de inteligencia artificial para extraer datos desde distintas regiones, podrá ver esos costos reflejados en su factura general. 
 
 ### <a name="3-ai-enriched-indexing-using-cognitive-services"></a>3. IA-indexación enriquecida con Cognitive Services
 
-Para [AI indexación con Cognitive Services](cognitive-search-concept-intro.md) solo, extracción de imagen durante la averiguación de documentos se factura en función del número de imágenes que se extraen de los documentos. La extracción de texto es actualmente gratuita. Enriquecimientos de otros, como el procesamiento de lenguaje natural, se basan en [integrados conocimientos cognitivos](cognitive-search-predefined-skills.md) se facturan con un recurso de Cognitive Services. Los enriquecimientos se facturan a la misma tarifa que si hubiera realizado la tarea mediante Cognitive Services directamente.
+Para [AI indexación con Cognitive Services](cognitive-search-concept-intro.md), debe planear sobre cómo conectar un recurso de Cognitive Services facturable en el S0 plan de tarifa para el procesamiento de pago por uso. No hay ningún "costo fijo" asociado asociar Cognitive Services. Solo paga por los procesos que necesite.
+
+Extracción de la imagen durante la averiguación de documentos es un cargo de Azure Search, que se facturan en función del número de imágenes que se extraen de los documentos. La extracción de texto es actualmente gratuita. 
+
+Enriquecimientos de otros, como el procesamiento de lenguaje natural, se basan en [integrados conocimientos cognitivos](cognitive-search-predefined-skills.md) se facturan con un recurso de Cognitive Services, con la misma velocidad como si hubiera realiza la tarea mediante Cognitive Services directamente. Para obtener más información, consulte [adjuntar un recurso de Cognitive Services con un conjunto de habilidades](cognitive-search-attach-cognitive-services.md).
 
 <a name="search-units"></a>
 
@@ -193,7 +194,7 @@ Para determinar el tamaño de un índice, tendrá que [crear uno](search-create-
 
 Un enfoque para calcular la capacidad es comenzar con el nivel **Gratis**. Recuerde que el servicio **Gratis** ofrece hasta 3 índices, 50 MB de almacenamiento y 2 minutos de tiempo de indexación. Puede resultar complicado calcular un tamaño proyectado de índice con estas restricciones, pero en el ejemplo siguiente se muestra un enfoque:
 
-+ [Crear un servicio gratuito](search-create-service-portal.md)
++ [Cree un servicio gratis](search-create-service-portal.md)
 + Prepare un conjunto de datos pequeño y representativo (supongamos cinco mil documentos y tamaño de la muestra del diez por ciento)
 + [Genere un índice inicial](search-create-index-portal.md) y anote su tamaño en el portal (supongamos 30 MB)
 

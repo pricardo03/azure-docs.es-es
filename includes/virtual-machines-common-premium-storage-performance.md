@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 12bcf665fafca3df7fc2d21c77c2f8d2fbec84fc
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: c81b0926b88ad2f1dbb3af7c1a2c51e8a79430f9
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58542444"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737293"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage: diseño de alto rendimiento
 
@@ -67,7 +67,7 @@ La latencia es el tiempo que tarda una aplicación en recibir una sola solicitud
 
 Cuando se optimiza la aplicación para obtener un valor de IOPS y un rendimiento mayores, afectará a su latencia. Después de ajustar el rendimiento de las aplicaciones, siempre se evalúa la latencia de la aplicación para evitar un comportamiento inesperado con alta latencia.
 
-Las siguientes operaciones de plano de control en Managed Disks pueden implicar el movimiento del disco desde una ubicación de almacenamiento a otro. Esto se coordina a través de la copia en segundo plano de datos que pueden tardar varias horas en completarse, normalmente menos de 24 horas según la cantidad de datos de los discos. Durante ese tiempo, la aplicación puede experimentar una latencia de lectura más alta de lo habitual, ya que algunas lecturas pueden redirigirse a la ubicación original y pueden tardar más tiempo en completarse. No hay ningún impacto en la latencia de escritura durante este período.
+Las siguientes operaciones de plano de control en Managed Disks pueden implicar el movimiento del disco desde una ubicación de almacenamiento a otro. Esto se coordina a través de la copia en segundo plano de datos que pueden tardar varias horas en completarse, normalmente menos de 24 horas según la cantidad de datos de los discos. Durante ese tiempo la aplicación puede experimentar una cantidad superior a la latencia de lectura habitual como algunas de las lecturas se puedan redirigir a la ubicación original y pueden tardar más en completarse. No hay ningún impacto en la latencia de escritura durante este período.
 
 - Actualizar el tipo de almacenamiento.
 - Separar y adjuntar un disco de una máquina virtual a otro.
@@ -261,7 +261,8 @@ Recuerde que los discos de Premium Storage tienen capacidades de rendimiento sup
 Las máquinas virtuales a gran escala que aprovechan Azure Premium Storage tienen una tecnología de almacenamiento en caché de niveles múltiples denominada BlobCache. BlobCache usa una combinación de la RAM de máquina virtual y SSD local para almacenar en caché. Esta memoria caché está disponible para los discos de Premium Storage persistentes y los discos locales de la máquina virtual. De forma predeterminada, esta configuración de la caché se establece en lectura y escritura para los discos del sistema operativo y de solo lectura para los discos de datos hospedados en Premium Storage. Con la caché de disco habilitada en los discos de Premium Storage, la máquinas virtuales a gran escala pueden lograr niveles de rendimiento extremadamente altos que superan el rendimiento del disco subyacente.
 
 > [!WARNING]
-> Solo se admite el almacenamiento en caché de disco para los tamaños de disco de hasta 4 TiB.
+> No se admite el almacenamiento en caché de disco para discos de más de 4 TB. Si varios discos están conectados a la máquina virtual, cada disco que es de 4 TB o más pequeños será compatible con almacenamiento en caché.
+>
 > Al cambiar la configuración de caché de un disco de Azure, se desconecta y se vuelve a conectar el disco de destino. Si se trata del disco del sistema operativo, se reinicia la máquina virtual. Detenga todas las aplicaciones y todos los servicios que podrían verse afectados por esta interrupción antes de cambiar la configuración de caché de disco.
 
 Para más información acerca del funcionamiento de BlobCache, consulte la publicación de blog [Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/).
@@ -353,7 +354,7 @@ En Linux, use la utilidad MDADM para seccionar discos conjuntamente. Para ver lo
 
 Por ejemplo, si una solicitud de E/S generada por la aplicación es mayor que el tamaño de franja del disco, el sistema de almacenamiento escribe a través de límites de la unidad de franja en más de un disco. Cuando llega el momento para tener acceso a esos datos, tendrá que buscar en las unidades con más de una franja para completar la solicitud. El efecto acumulativo de este comportamiento puede provocar una degradación del rendimiento considerable. Por otro lado, si el tamaño de la solicitud de E/S es menor que el tamaño de franja, y si es aleatoria por naturaleza, las solicitudes de E/S pueden acumularse en el mismo disco, causar un cuello de botella y, en última instancia, degradar el rendimiento de E/S.
 
-Según el tipo de carga de trabajo que se ejecute la aplicación, elija un tamaño de franja adecuado. Para solicitudes de E/S pequeñas aleatorias, use un tamaño de franja más pequeño. Por otra parte, para solicitudes de E/S secuenciales grandes, use un tamaño de franja mayor. Descubra las recomendaciones de tamaño de franja para la aplicación que se ejecutará en Premium Storage. Para SQL Server, configure el tamaño de franja de 64 KB para cargas de trabajo OLTP y 256 KB para cargas de trabajo de almacenamiento de datos. Vea [Procedimientos recomendados para SQL Server en máquinas virtuales de Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) para más información.
+Según el tipo de carga de trabajo que se ejecute la aplicación, elija un tamaño de franja adecuado. Para solicitudes de E/S pequeñas aleatorias, use un tamaño de franja más pequeño. Mientras que para E/S secuenciales grandes solicitudes usan un tamaño de franja mayor. Descubra las recomendaciones de tamaño de franja para la aplicación que se ejecutará en Premium Storage. Para SQL Server, configure el tamaño de franja de 64 KB para cargas de trabajo OLTP y 256 KB para cargas de trabajo de almacenamiento de datos. Vea [Procedimientos recomendados para SQL Server en máquinas virtuales de Azure](../articles/virtual-machines/windows/sql/virtual-machines-windows-sql-performance.md#disks-guidance) para más información.
 
 > [!NOTE]
 >  Puede seccionar conjuntamente un máximo de 32 discos de almacenamiento premium en una serie de máquinas virtuales DS y 64 discos de almacenamiento premium en una serie de máquinas virtuales GS.
