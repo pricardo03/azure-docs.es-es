@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 01/09/2019
-ms.openlocfilehash: 9a17bbc26a65d3747683ad0fc0ecba40a22088d7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: de0bd93b4cdd41ebd0ccc3aa89185e4501b711e1
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57856216"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524215"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Inicio rápido: Creación de un servidor de Azure Database for PostgreSQL en Azure Portal
 
@@ -141,7 +141,7 @@ Hay una serie de aplicaciones que se pueden usar para conectarse al servidor de 
     > [!TIP]
     > Si el firewall no está configurado para permitir la dirección IP de su cliente, se produce el siguiente error:
     > 
-    > "psql: FATAL:  no pg_hba.conf entry for host "<IP address>", user "myadmin", database "postgres", SSL on FATAL: SSL connection is required. Specify SSL options and retry.
+    > "psql: FATAL:  no pg_hba.conf entry for host `<IP address>`, user "myadmin", database "postgres", SSL on FATAL: SSL connection is required. Specify SSL options and retry.
     > 
     > Para resolver el error, asegúrese de que la configuración del servidor coincida con los pasos descritos en la sección "Configuración de una regla de firewall de nivel de servidor" de este artículo.
 

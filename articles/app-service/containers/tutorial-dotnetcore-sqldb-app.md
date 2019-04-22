@@ -1,10 +1,10 @@
 ---
-title: 'Creación de aplicación de .NET Core con SQL Database en Linux: Azure App Service | Microsoft Docs'
-description: Aprenda a poner en funcionamiento una aplicación .NET Core en Azure App Service en Linux con conexión a una SQL Database.
+title: 'ASP.NET Core con SQL Database en Linux: Azure App Service | Microsoft Docs'
+description: Aprenda a poner en funcionamiento una aplicación de ASP.NET Core en Azure App Service en Linux con conexión a una instancia de SQL Database.
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
-manager: syntaxc4
+manager: jeconnoc
 editor: ''
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
 ms.service: app-service-web
@@ -12,17 +12,17 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 01/31/2019
+ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9d4aee884e91c52be48c8a44f185f188b0c93ab5
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
+ms.openlocfilehash: c90d0d2596eb6b8650e2d9809b23bb0e184d97c0
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55511146"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547834"
 ---
-# <a name="build-a-net-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación .NET Core y SQL Database en Azure App Service en Linux
+# <a name="build-an-aspnet-core-and-sql-database-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación de ASP.NET Core y SQL Database en Azure App Service en Linux
 
 > [!NOTE]
 > En este artículo se implementa una aplicación en App Service en Linux. Para implementar App Service en _Windows_, consulte [Creación de una aplicación .NET Core y SQL Database en Azure App Service](../app-service-web-tutorial-dotnetcore-sqldb.md).
@@ -32,7 +32,7 @@ ms.locfileid: "55511146"
 
 ![aplicación que se ejecuta en App Service en Linux](./media/tutorial-dotnetcore-sqldb-app/azure-app-in-browser.png)
 
-Aprenderá a:
+En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Crear una base de datos Azure SQL Database
@@ -100,11 +100,11 @@ Para SQL Database, en este tutorial se usa [Azure SQL Database](/azure/sql-datab
 
 En Cloud Shell, cree un servidor lógico de SQL Database con el comando [`az sql server create`](/cli/azure/sql/server?view=azure-cli-latest#az-sql-server-create).
 
-Reemplace el marcador de posición *\<server_name>* con un nombre de SQL Database único. Este nombre se usa como parte del punto de conexión de SQL Database, `<server_name>.database.windows.net`, por lo que el nombre debe ser único para todos los servidores lógicos en Azure. El nombre debe contener solo letras minúsculas, números y el carácter de guión (-), y debe tener una longitud de entre 3 y 50 caracteres. Además, reemplace *\<db_username>* y *\<db_password>* por un nombre de usuario y una contraseña de su elección. 
+Reemplace el marcador de posición *\<server-name>* por un nombre de SQL Database único. Este nombre se usa como parte del punto de conexión de SQL Database, `<server-name>.database.windows.net`, por lo que el nombre debe ser único para todos los servidores lógicos en Azure. El nombre debe contener solo letras minúsculas, números y el carácter de guión (-), y debe tener una longitud de entre 3 y 50 caracteres. Reemplace también *\<db_username>* y *\<db_password>* por el nombre de usuario y la contraseña que prefiera. 
 
 
 ```azurecli-interactive
-az sql server create --name <server_name> --resource-group myResourceGroup --location "West Europe" --admin-user <db_username> --admin-password <db_password>
+az sql server create --name <server-name> --resource-group myResourceGroup --location "West Europe" --admin-user <db-username> --admin-password <db-password>
 ```
 
 Cuando se crea el servidor lógico de SQL Database, la CLI de Azure muestra información similar al ejemplo siguiente:
@@ -113,12 +113,12 @@ Cuando se crea el servidor lógico de SQL Database, la CLI de Azure muestra info
 {
   "administratorLogin": "sqladmin",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<server_name>.database.windows.net",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/<server_name>",
+  "fullyQualifiedDomainName": "<server-name>.database.windows.net",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/<server-name>",
   "identity": null,
   "kind": "v12.0",
   "location": "westeurope",
-  "name": "<server_name>",
+  "name": "<server-name>",
   "resourceGroup": "myResourceGroup",
   "state": "Ready",
   "tags": null,
@@ -132,7 +132,7 @@ Cuando se crea el servidor lógico de SQL Database, la CLI de Azure muestra info
 Cree una [regla de firewall en el nivel de servidor de Azure SQL Database](../../sql-database/sql-database-firewall-configure.md) mediante el comando [`az sql server firewall create`](/cli/azure/sql/server/firewall-rule?view=azure-cli-latest#az-sql-server-firewall-rule-create). Cuando tanto la dirección IP de inicio como final están establecidas en 0.0.0.0., el firewall solo se abre para otros recursos de Azure. 
 
 ```azurecli-interactive
-az sql server firewall-rule create --resource-group myResourceGroup --server <server_name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az sql server firewall-rule create --resource-group myResourceGroup --server <server-name> --name AllowYourIp --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 ### <a name="create-a-database"></a>Creación de una base de datos
@@ -140,15 +140,15 @@ az sql server firewall-rule create --resource-group myResourceGroup --server <se
 Cree una base de datos con un [nivel de rendimiento S0](../../sql-database/sql-database-service-tiers-dtu.md) en el servidor con el comando [`az sql db create`](/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-create).
 
 ```azurecli-interactive
-az sql db create --resource-group myResourceGroup --server <server_name> --name coreDB --service-objective S0
+az sql db create --resource-group myResourceGroup --server <server-name> --name coreDB --service-objective S0
 ```
 
 ### <a name="create-connection-string"></a>Creación de la cadena de conexión
 
-Reemplace la cadena siguiente por el valor de *\<server_name>*, *\<db_username>* y *\<db_password>* que usó anteriormente.
+Reemplace la cadena siguiente por los valores de *\<server-name>*, *\<db-username>* y *\<db-password>* que usó anteriormente.
 
 ```
-Server=tcp:<server_name>.database.windows.net,1433;Database=coreDB;User ID=<db_username>;Password=<db_password>;Encrypt=true;Connection Timeout=30;
+Server=tcp:<server-name>.database.windows.net,1433;Database=coreDB;User ID=<db-username>;Password=<db-password>;Encrypt=true;Connection Timeout=30;
 ```
 
 Esta es la cadena de conexión de la aplicación .NET Core. Cópiela para usarla más adelante.
@@ -171,18 +171,18 @@ En este paso, implementará la aplicación .NET Core conectada a SQL Database en
 
 ### <a name="configure-an-environment-variable"></a>Configuración de una variable de entorno
 
-Para establecer las cadenas de conexión de la aplicación de Azure, use el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) en Cloud Shell. En el comando siguiente, reemplace el parámetro *\<app name>* así como *\<connection_string>* por la cadena de conexión que creó anteriormente.
+Para establecer las cadenas de conexión de la aplicación de Azure, use el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) en Cloud Shell. En el comando siguiente, reemplace*\<app-name>* así como el parámetro *\<connection-string>*, por la cadena de conexión que creó anteriormente.
 
 ```azurecli-interactive
-az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection_string>' --connection-string-type SQLServer
+az webapp config connection-string set --resource-group myResourceGroup --name <app name> --settings MyDbConnection='<connection-string>' --connection-string-type SQLServer
 ```
 
 A continuación, establezca la configuración de la aplicación `ASPNETCORE_ENVIRONMENT` en _Producción_. Esta configuración permite saber si ejecuta Azure, porque usa SQLite para el entorno de desarrollo local y SQL Database para el entorno de Azure.
 
-En el ejemplo siguiente se realiza una configuración de aplicación `ASPNETCORE_ENVIRONMENT` en la aplicación de Azure. Reemplace el marcador de posición *\<app_name>*.
+En el ejemplo siguiente se realiza una configuración de aplicación `ASPNETCORE_ENVIRONMENT` en la aplicación de Azure. Reemplace el marcador de posición *\<app-name>*.
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings ASPNETCORE_ENVIRONMENT="Production"
 ```
 
 ### <a name="connect-to-sql-database-in-production"></a>Conexión a SQL Database en producción
@@ -209,11 +209,11 @@ else
 services.BuildServiceProvider().GetService<MyDatabaseContext>().Database.Migrate();
 ```
 
-Si este código detecta que se ejecuta en producción (lo que indica el entorno de Azure), usa la cadena de conexión que configuró para conectarse a SQL Database.
+Si este código detecta que se ejecuta en producción (lo que indica el entorno de Azure), usa la cadena de conexión que configuró para conectarse a SQL Database. Para obtener información acerca de cómo se accede a la configuración de la aplicación en App Service, consulte [Acceso a variables de entorno](configure-language-dotnetcore.md#access-environment-variables).
 
-La llamada de `Database.Migrate()` le ayuda cuando se ejecuta en Azure, porque crea automáticamente las bases de datos que necesita la aplicación .NET Core según su configuración de migración. 
+La llamada de `Database.Migrate()` le ayuda cuando se ejecuta en Azure, porque crea automáticamente las bases de datos que necesita la aplicación .NET Core según su configuración de migración.
 
-Guarde los cambios y confírmelos en el repositorio de Git. 
+Guarde los cambios y confírmelos en el repositorio de Git.
 
 ```bash
 git add .
@@ -246,7 +246,7 @@ remote: Finished successfully.
 remote: Running post deployment command(s)...
 remote: Deployment successful.
 remote: App container will begin restart within 10 seconds.
-To https://<app_name>.scm.azurewebsites.net/<app_name>.git
+To https://<app-name>.scm.azurewebsites.net/<app-name>.git
  * [new branch]      master -> master
 ```
 
@@ -255,7 +255,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 Vaya a la aplicación implementada mediante el explorador web.
 
 ```bash
-http://<app_name>.azurewebsites.net
+http://<app-name>.azurewebsites.net
 ```
 
 Agregue algunos elementos de tareas pendientes.
@@ -369,23 +369,9 @@ El proyecto de ejemplo ya sigue las instrucciones indicadas en [Registro de ASP.
 
 > [!NOTE]
 > El nivel de registro del proyecto se establece en `Information` en *appsettings.json*.
-> 
+>
 
-En App Service en Linux, las aplicaciones se ejecutan dentro de un contenedor a partir de una imagen de Docker predeterminada. Puede acceder a los registros de consola generados desde el contenedor. Para obtener los registros, en primer lugar active registro de contenedores ejecutando el comando [`az webapp log config`](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-config) en Cloud Shell.
-
-```azurecli-interactive
-az webapp log config --name <app_name> --resource-group myResourceGroup --docker-container-logging filesystem
-```
-
-Una vez que se active el registro de contenedor, vea la secuencia de registro ejecutando el comando [`az webapp log tail` ](/cli/azure/webapp/log?view=azure-cli-latest#az-webapp-log-tail) en Cloud Shell.
-
-```azurecli-interactive
-az webapp log tail --name <app_name> --resource-group myResourceGroup
-```
-
-Cuando las secuencias de registro se inicien, actualice la aplicación de Azure en el explorador para obtener tráfico web. Ahora puede ver los registros de la consola canalizados al terminal. Si no ve los registros de la consola de inmediato, vuelve a comprobarlo en 30 segundos.
-
-Para detener la secuencia de registro en cualquier momento, escriba `Ctrl`+`C`.
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
 
 Para más información acerca de cómo personalizar los registros de ASP.NET Core, consulte [Registro en ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging).
 
@@ -419,4 +405,9 @@ De manera predeterminada, el portal muestra la página **Información general** 
 Vaya al siguiente tutorial para aprender a asignar un nombre DNS personalizado a una aplicación web.
 
 > [!div class="nextstepaction"]
-> [Asignación de un nombre DNS personalizado existente a Azure App Service](../app-service-web-tutorial-custom-domain.md)
+> [Tutorial: Asignar un nombre DNS personalizado a la aplicación](../app-service-web-tutorial-custom-domain.md)
+
+O bien, eche un vistazo a otros recursos:
+
+> [!div class="nextstepaction"]
+> [Configure ASP.NET Core app](configure-language-dotnetcore.md) (Configuración de una aplicación de ASP.NET Core)

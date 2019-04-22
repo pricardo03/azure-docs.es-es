@@ -1,6 +1,6 @@
 ---
-title: Demonio de .NET Core de Azure AD v2 | Microsoft Docs
-description: Aprenda cómo un proceso .NET Core puede obtener un token de acceso y llamar a una API protegida por un punto de conexión de Azure Active Directory v2.0 mediante la propia identidad de la aplicación.
+title: Demonio de .NET Core con la plataforma de identidad de Microsoft | Azure
+description: Aprenda cómo un proceso .NET Core puede obtener un token de acceso y llamar a una API protegida por un punto de conexión de la plataforma de identidad de Microsoft mediante la propia identidad de la aplicación
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/20/2019
+ms.date: 04/10/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c63269630d0ed74d1b17edbc5cb9e787499604e
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
+ms.openlocfilehash: a0a40c9ee06751edfb7b218cf15275019c142545
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58200531"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491328"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-console-app-using-apps-identity"></a>Inicio rápido: Adquisición de un token y llamada a Microsoft Graph API desde una aplicación de consola mediante la identidad de la aplicación
 
@@ -30,11 +30,11 @@ ms.locfileid: "58200531"
 
 En esta guía de inicio rápido, aprenderá a escribir una aplicación .NET Core que pueda obtener un token de acceso mediante la propia identidad de la aplicación, y a llamar a Microsoft Graph API para mostrar una [lista de usuarios](https://docs.microsoft.com/graph/api/user-list) en el directorio. Este escenario es útil en situaciones donde es necesario ejecutar trabajos desatendidos o servicios de Windows con una identidad de aplicación, en lugar de la identidad de un usuario.
 
-![Muestra cómo funciona la aplicación de ejemplo generada por este inicio rápido.](media/quickstart-v2-netcore-daemon/netcore-daemon-intro-updated.png)
+![Muestra cómo funciona la aplicación de ejemplo generada por este inicio rápido.](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Para esta guía de inicio rápido se requiere [.NET Core 2.1](https://www.microsoft.com/net/download/dotnet-core/2.1).
+Para este inicio rápido se requiere [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-app"></a>Registro y descarga de la aplicación de inicio rápido
@@ -47,7 +47,7 @@ Para esta guía de inicio rápido se requiere [.NET Core 2.1](https://www.micros
 >
 > ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Opción 1: registrar y configurar de modo automático la aplicación y, a continuación, descargar el código de ejemplo
 >
-> 1. Vaya a [Azure Portal: registro de aplicaciones (versión preliminar)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs).
+> 1. Vaya al nuevo panel de [Azure Portal: Registros de aplicaciones](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/DotNetCoreDaemonQuickstartPage/sourceType/docs).
 > 1. Escriba un nombre para la aplicación y seleccione **Registrar**.
 > 1. Siga las instrucciones para descargar y configurar automáticamente la nueva aplicación con un solo clic.
 >
@@ -59,7 +59,9 @@ Para esta guía de inicio rápido se requiere [.NET Core 2.1](https://www.micros
 >
 > 1. Inicie sesión en [Azure Portal](https://portal.azure.com) con una cuenta personal, profesional o educativa de Microsoft.
 > 1. Si la cuenta proporciona acceso a más de un inquilino, haga clic en la cuenta en la esquina superior derecha y establezca la sesión del portal en el inquilino de Azure AD deseado.
-> 1. En el panel de navegación izquierdo, seleccione el servicio **Azure Active Directory** y, a continuación, seleccione **Registros de aplicaciones (versión preliminar)** > **Nuevo registro**.
+> 1. Vaya a la página [Registros de aplicaciones](https://go.microsoft.com/fwlink/?linkid=2083908) de la plataforma de identidad de Microsoft para desarrolladores.
+> 1. Seleccione **Nuevo registro**.
+> 1. Cuando aparezca la página **Registrar una aplicación**, escriba la información de registro de la aplicación. 
 > 1. En la sección **Nombre**, escriba un nombre de aplicación significativo que se mostrará a los usuarios de la aplicación, por ejemplo, `Daemon-console`; luego, seleccione **Registrarse** para crear la aplicación.
 > 1. Una vez registrado, seleccione el menú **Certificates & secrets** (Certificados y secretos).
 > 1. En **Secretos de cliente**, seleccione **+Nuevo secreto de cliente**. Asígnele un nombre y seleccione **Agregar**. Copie el secreto en una ubicación segura. Lo necesitará para usarlo en el código.
@@ -80,7 +82,7 @@ Para esta guía de inicio rápido se requiere [.NET Core 2.1](https://www.micros
 
 #### <a name="step-2-download-your-visual-studio-project"></a>Paso 2: Descarga del proyecto de Visual Studio
 
-[Descargue el proyecto de Visual Studio](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/master.zip)
+[Descargue el proyecto de Visual Studio](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/archive/msal3x.zip)
 
 #### <a name="step-3-configure-your-visual-studio-project"></a>Paso 3: Configuración del proyecto de Visual Studio
 
@@ -98,9 +100,9 @@ Para esta guía de inicio rápido se requiere [.NET Core 2.1](https://www.micros
     
     > [!div renderon="docs"]
     >> Donde:
-    >> * `Enter_the_Application_Id_Here`: es el **identificador de aplicación (cliente)** de la aplicación que registró.
-    >> * `Enter_the_Tenant_Id_Here`: sustituya este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, contoso.microsoft.com).
-    >> * `Enter_the_Client_Secret_Here`: sustituya este valor por el secreto de cliente creado en el paso 1.
+    >> * `Enter_the_Application_Id_Here` - es el **identificador de aplicación (cliente)** de la aplicación que registró.
+    >> * `Enter_the_Tenant_Id_Here` - sustituya este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, contoso.microsoft.com).
+    >> * `Enter_the_Client_Secret_Here` - sustituya este valor por el secreto de cliente creado en el paso 1.
 
     > [!div renderon="docs"]
     > > [!TIP]
@@ -108,7 +110,7 @@ Para esta guía de inicio rápido se requiere [.NET Core 2.1](https://www.micros
     
 #### <a name="step-4-admin-consent"></a>Paso 4: Consentimiento de administrador
 
-Si intenta ejecutar la aplicación en este momento, recibirá un error *HTTP 403 - Prohibido*: `Insufficient privileges to complete the operation`. Esto sucede porque cualquier *permiso de solo aplicación* requiere el consentimiento del administrador, lo que significa que necesita que un administrador global del directorio dé su consentimiento a la aplicación. Seleccione una de las opciones siguientes según el rol:
+Si intenta ejecutar la aplicación en este momento, recibirá un error *HTTP 403 - Prohibido*: `Insufficient privileges to complete the operation`. Esto sucede porque cualquier *permiso de solo aplicación* requiere el consentimiento del administrador, lo que significa que necesita que un administrador global del directorio otorgue su consentimiento a la aplicación. Seleccione una de las opciones siguientes según el rol:
 
 ##### <a name="global-tenant-administrator"></a>Administrador de inquilinos global
 
@@ -130,8 +132,8 @@ https://login.microsoftonline.com/Enter_the_Tenant_Id_Here/adminconsent?client_i
 
 > [!div renderon="docs"]
 >> Donde:
->> * `Enter_the_Tenant_Id_Here`: sustituya este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, contoso.microsoft.com).
->> * `Enter_the_Application_Id_Here`: es el **identificador de aplicación (cliente)** de la aplicación que registró.
+>> * `Enter_the_Tenant_Id_Here` - sustituya este valor por el **identificador de inquilino** o el **nombre de inquilino** (por ejemplo, contoso.microsoft.com).
+>> * `Enter_the_Application_Id_Here` - es el **identificador de aplicación (cliente)** de la aplicación que registró.
 
 > [!NOTE]
 > Es posible que vea el error *"AADSTS50011: No reply address is registered for the application"* (AADSTS50011: no hay ninguna dirección de respuesta registrada para la aplicación) después de dar consentimiento a la aplicación mediante la dirección URL anterior. Esto sucede porque esta aplicación y la dirección URL no tienen un URI de redirección. No haga caso del error.
@@ -157,12 +159,12 @@ Como resultado, verá una lista de usuarios en el directorio de Azure AD.
 
 ### <a name="msalnet"></a>MSAL.NET
 
-MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) es la biblioteca que se usa para iniciar la sesión de los usuarios y solicitar tokens de acceso a una API protegida por Microsoft Azure Active Directory (Azure AD). Como se ha descrito, en esta guía de inicio rápido se solicitan tokens mediante la propia identidad de la aplicación, en lugar de permisos delegados. El flujo de autenticación usado en este caso se conoce como *[flujo de OAuth de credenciales de cliente](v2-oauth2-client-creds-grant-flow.md)*. Para más información sobre cómo usar MSAL.NET con el flujo de credenciales de cliente, consulte [este artículo](https://aka.ms/msal-net-client-credentials).
+MSAL ([Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)) es la biblioteca que se usa para iniciar la sesión de los usuarios y solicitar tokens de acceso a una API protegida por la Plataforma de identidad de Microsoft. Como se ha descrito, en este inicio rápido se solicitan tokens mediante la propia identidad de la aplicación, en lugar de permisos delegados. El flujo de autenticación usado en este caso se conoce como *[flujo de OAuth de credenciales de cliente](v2-oauth2-client-creds-grant-flow.md)*. Para más información sobre cómo usar MSAL.NET con el flujo de credenciales de cliente, consulte [este artículo](https://aka.ms/msal-net-client-credentials).
 
  Puede instalar MSAL mediante la ejecución del siguiente comando en la **Consola del Administrador de paquetes** de Visual Studio:
 
 ```powershell
-Install-Package Microsoft.Identity.Client
+Install-Package Microsoft.Identity.Client -Pre
 ```
 
 También, si no utiliza Visual Studio, puede ejecutar el siguiente comando para agregar MSAL al proyecto:
@@ -182,47 +184,43 @@ using Microsoft.Identity.Client;
 A continuación, realice la inicialización de MSAL con el siguiente código:
 
 ```csharp
-ClientCredential clientCredentials = new ClientCredential(secret: config.ClientSecret);
-
-var app = new ConfidentialClientApplication(
-    clientId: config.ClientId, 
-    authority: config.Authority, 
-    redirectUri: "https://daemon", 
-    clientCredential: clientCredentials, 
-    userTokenCache: null, 
-    appTokenCache: new TokenCache()
+IConfidentialClientApplication app;
+app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
+                                          .WithClientSecret(config.ClientSecret)
+                                          .WithAuthority(new Uri(config.Authority))
+                                          .Build();
 );
 ```
 
 > | Donde: ||
 > |---------|---------|
-> | `secret` | Es el secreto de cliente creado para la aplicación en Azure Portal. |
-> | `clientId` | Es el **Identificador de aplicación (cliente)** de la aplicación registrada en Azure Portal. Puede encontrar este valor en la página **Información general** de la aplicación en Azure Portal. |
-> | `Authority`    | (Opcional) El punto de conexión STS del usuario que se autenticará. Normalmente <https://login.microsoftonline.com/{tenant}> en la nube pública, donde {tenant} es el nombre o el identificador del inquilino.|
-> | `redirectUri`  | Dirección URL donde se envía a los usuarios tras la autenticación. En este caso, como se trata de una aplicación de consola o no interactiva, este parámetro no se usa. |
-> | `clientCredentials`  | El objeto de credenciales de cliente, que contiene el secreto o el certificado. |
-> | `userTokenCache`  | Instancia de una caché de tokens para el usuario. En este caso, como esta aplicación se ejecuta en el contexto de la aplicación y no del usuario, este valor es null.|
-> | `appTokenCache`  | Instancia de una caché de tokens para la aplicación|
+> | `config.ClientSecret` | Es el secreto de cliente creado para la aplicación en Azure Portal. |
+> | `config.ClientId` | Es el **Identificador de aplicación (cliente)** de la aplicación registrada en Azure Portal. Puede encontrar este valor en la página **Información general** de la aplicación en Azure Portal. |
+> | `config.Authority`    | (Opcional) El punto de conexión STS del usuario que se autenticará. Normalmente <https://login.microsoftonline.com/{tenant}> en la nube pública, donde {tenant} es el nombre o el identificador del inquilino.|
 
-Para más información, consulte la [documentación de referencia de `ConfidentialClientApplication`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.-ctor?view=azure-dotnet).
+Para más información, consulte la [documentación de referencia de `ConfidentialClientApplication`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.identity.client.iconfidentialclientapplication?view=azure-dotnet).
 
 ### <a name="requesting-tokens"></a>Solicitud de tokens
 
-Para solicitar un token mediante la identidad de la aplicación, use el método `AcquireTokenForClientAsync`:
+Para solicitar un token mediante la identidad de la aplicación, use el método `AcquireTokenForClient`:
 
 ```csharp
-result = await app.AcquireTokenForClientAsync(scopes);
+result = await app.AcquireTokenForClient(scopes)
+                  .ExecuteAsync();
 ```
 
 > |Donde:| |
 > |---------|---------|
 > | `scopes` | Contiene los ámbitos solicitados. Con clientes confidenciales, se debe usar el formato similar a `{Application ID URI}/.default` para indicar que los ámbitos que se solicitan son los definidos estáticamente en el objeto de aplicación establecido en Azure Portal (con Microsoft Graph, `{Application ID URI}` apunta a `https://graph.microsoft.com`). Con API web personalizadas, `{Application ID URI}` se define en la sección **Exponer una API** del registro de aplicaciones de Azure Portal (versión preliminar). |
 
-Para más información, consulte la [documentación de referencia de `AcquireTokenForClientAsync`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclientasync?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication_AcquireTokenForClientAsync_System_Collections_Generic_IEnumerable_System_String__).
+Para más información, consulte la [documentación de referencia de `AcquireTokenForClient`](https://docs.microsoft.com/dotnet/api/microsoft.identity.client.confidentialclientapplication.acquiretokenforclientasync?view=azure-dotnet#Microsoft_Identity_Client_ConfidentialClientApplication_AcquireTokenForClientAsync_System_Collections_Generic_IEnumerable_System_String__).
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
 
 ## <a name="next-steps"></a>Pasos siguientes
+
+> [!div class="nextstepaction"]
+> [Ejemplo de demonio de .NET Core](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2)
 
 Más información sobre los permisos y el consentimiento:
 

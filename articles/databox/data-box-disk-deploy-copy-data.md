@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2019
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 47c14379a01da86f547ac917472260a041b67f99
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5b5404f19a9b692b3984dafd6f029729822284dc
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106906"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548753"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Tutorial: Copia de datos a Azure Data Box Disk y comprobación de los mismos
 
@@ -44,14 +44,15 @@ Antes de copiar los datos en los discos, revise las siguientes consideraciones:
 - Al copiar los datos, asegúrese de que su tamaño se ajusta a los límites descritos en los [límites de almacenamiento de Azure y Data Box Disk](data-box-disk-limits.md).
 - Si los datos que carga Data Box Disk están siendo cargados a la vez por otras aplicaciones fuera de Data Box Disk, podría provocar errores en el trabajo de carga y daños en los datos.
 
-Si especificó en orden los discos administrados, revise las siguientes consideraciones adicionales:
+   > [!IMPORTANT]
+   >  Si se especificaron discos administrados como uno de los destinos de almacenamiento durante la creación del pedido, continúe con la siguiente sección.
 
 - Solo puede tener un disco administrado con un nombre determinado en un grupo de recursos en las carpetas que se crearon previamente y en Data Box Disk. Esto implica que los VHD cargados en las carpetas creadas previamente deben tener nombres únicos. Asegúrese de que el nombre indicado no coincida con un disco administrado ya existente en un grupo de recursos. Si los discos duros virtuales tienen los mismos nombres, solo uno se convierte en un disco administrado con ese nombre. Los otros discos duros virtuales se cargan como blobs en páginas en la cuenta de almacenamiento provisional.
 - Copie siempre los VHD en una de las carpetas creadas previamente. Si copia los VHD fuera de estas carpetas o en una carpeta que usted mismo haya creado, se cargarán en la cuenta de Azure Storage como blobs en páginas y no como discos administrados.
 - Solo se pueden cargar VHD fijos para crear discos administrados. No se admiten los discos duros virtuales dinámicos, los de diferenciación ni los archivos VHDX.
 
 
-Realice los pasos siguientes para conectarse y copiar datos desde el equipo a Data Box Disk.
+## <a name="perform-the-following-steps-to-connect-and-copy-data-from-your-computer-to-the-data-box-disk"></a>Realice los pasos siguientes para conectarse y copiar datos desde el equipo a Data Box Disk.
 
 1. Vea el contenido de la unidad desbloqueada. La lista de las carpetas y subcarpetas creadas previamente en la unidad difiere según las opciones seleccionadas al realizar el pedido de Data Box Disk.
 
@@ -91,12 +92,12 @@ Realice los pasos siguientes para conectarse y copiar datos desde el equipo a Da
     |Destino       | Especifica la ruta de acceso del directorio de destino.        |
     |/E                  | Copia los subdirectorios incluyendo los directorios vacíos. |
     |/MT[:N]             | Crea copias multiproceso con N subprocesos, donde N es un entero entre 1 y 128. <br>El valor predeterminado de N es 8.        |
-    |/R: <N>             | Especifica el número de reintentos en las copias con errores. El valor predeterminado de N es 1 000 000 (un millón de reintentos).        |
-    |/W: <N>             | Especifica el tiempo de espera entre reintentos, en segundos. El valor predeterminado de N es 30 (30 segundos de tiempo de espera).        |
+    |/R: \<N>             | Especifica el número de reintentos en las copias con errores. El valor predeterminado de N es 1 000 000 (un millón de reintentos).        |
+    |/W: \<N>             | Especifica el tiempo de espera entre reintentos, en segundos. El valor predeterminado de N es 30 (30 segundos de tiempo de espera).        |
     |/NFL                | Especifica que los nombres de archivo no se van a registrar.        |
     |/NDL                | Especifica que los nombres de directorio no se van a registrar.        |
     |/FFT                | Se da por supuesto que se trata de tiempos de archivos FAT (precisión de dos segundos).        |
-    |/Log:<Log File>     | Escribe la salida del estado en el archivo de registro (sobrescribe el archivo de registro existente).         |
+    |/Log:\<Archivo de registro>     | Escribe la salida del estado en el archivo de registro (sobrescribe el archivo de registro existente).         |
 
     Se pueden usar varios discos en paralelo con varios trabajos que se ejecutan en cada disco.
 

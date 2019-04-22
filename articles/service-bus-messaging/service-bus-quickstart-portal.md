@@ -5,32 +5,28 @@ services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
-ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/12/2019
+ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: fa6d2b7d1fbd99e482cc013720c39b4b150f6742
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 05c84f91c960bbcf7383cd2164289c8398f8dc91
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889552"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607762"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>Inicio rápido: Uso de Azure Portal para crear una cola de Service Bus
-Microsoft Azure Service Bus es un agente de mensajes de integración empresarial que proporciona mensajería segura y una absoluta confiabilidad. Un escenario típico de Service Bus implica normalmente el desacoplamiento de dos o más aplicaciones, servicios o procesos, y la transferencia de los cambios de estado o de datos. Estos escenarios pueden implicar la programación de varios trabajos por lotes en otras aplicaciones o servicios, o desencadenar la realización de pedidos. Por ejemplo, una empresa minorista puede enviar los datos de un punto de ventas a un área de operaciones o centro de distribución regional para indicar las actualizaciones de reposición y de inventario. En este escenario, la aplicación cliente envía y recibe mensajes de una cola de Service Bus.  
-
-![queue](./media/service-bus-quickstart-portal/quick-start-queue.png)
-
 Esta guía de inicio rápido describe cómo enviar y recibir mensajes de una cola de Service Bus, cómo usar [Azure portal][Azure portal] para crear un espacio de nombres de mensajería y una cola dentro de este, y cómo obtener las credenciales de autorización de ese espacio de nombres. El procedimiento muestra después cómo enviar y recibir mensajes de esta cola mediante la [biblioteca de .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
-Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita][] antes de empezar.
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, asegúrese de que tiene instalados los siguientes elementos:
 
-- [Visual Studio 2017 Update 3 (versión 15.3, 26730.01)](https://www.visualstudio.com/vs) o posterior.
+- Una suscripción de Azure. Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita][] antes de empezar.
+- [Visual Studio 2017 Update 3 (versión 15.3, 26730.01)](https://www.visualstudio.com/vs) o posterior. Use Visual Studio para compilar un ejemplo que envíe mensajes a una cola y los reciba. El ejemplo es para probar la cola que creó mediante PowerShell. 
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), versión 2.0 o posterior.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
@@ -75,7 +71,7 @@ Esta sección contiene información más detallada acerca de lo que hace el cód
 
 ### <a name="get-connection-string-and-queue"></a>Obtención de la cadena de conexión y la cola
 
-La cadena de conexión y el nombre de la cola se pasan al método `Main()` como argumentos de la línea de comandos. `Main()` declara dos variables de cadena que contienen estos valores:
+Tanto la cadena de conexión como el nombre de la cola se usan en el método `Main()` como argumentos de la línea de comandos. `Main()` declara dos variables de cadena que contienen estos valores:
 
 ```csharp
 static void Main(string[] args)
@@ -204,10 +200,10 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha creado un espacio de nombres de Service Bus y otros recursos necesarios para enviar y recibir mensajes de una cola. Para más información sobre cómo escribir código para enviar y recibir mensajes, pase al tutorial siguiente de Service Bus:
+En este artículo, ha creado un espacio de nombres de Service Bus y otros recursos necesarios para enviar y recibir mensajes de una cola. Para más información sobre cómo escribir código para enviar y recibir mensajes, continúe con los tutoriales de la sección **Envío y recepción de mensajes**. 
 
 > [!div class="nextstepaction"]
-> [Actualización del inventario mediante Azure Portal](./service-bus-tutorial-topics-subscriptions-portal.md)
+> [Envío y recepción de mensajes](service-bus-dotnet-get-started-with-queues.md)
 
 
 [cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

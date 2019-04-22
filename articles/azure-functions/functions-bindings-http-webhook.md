@@ -12,10 +12,10 @@ ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
 ms.openlocfilehash: a1d66cf4506e3b8f58572576db908812f4e2be07
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490417"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Enlaces y desencadenadores HTTP de Azure Functions
@@ -331,10 +331,10 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 ### <a name="trigger---java-examples"></a>Desencadenador: ejemplos de Java
 
-* [Lee el parámetro de la cadena de consulta](#read-parameter-from-the-query-string-java)
+* [Leer el parámetro de la cadena de consulta](#read-parameter-from-the-query-string-java)
 * [Leer el cuerpo de una solicitud POST](#read-body-from-a-post-request-java)
-* [Parámetro de lectura desde una ruta de acceso](#read-parameter-from-a-route-java)
-* [Cuerpo de POJO de lectura de una solicitud POST](#read-pojo-body-from-a-post-request-java)
+* [Leer el parámetro de una ruta](#read-parameter-from-a-route-java)
+* [Leer el cuerpo POJO de una solicitud POST](#read-pojo-body-from-a-post-request-java)
 
 En el ejemplo siguiente se muestra un enlace de desencadenador HTTP de un archivo *function.json* y las [funciones de Java](functions-reference-java.md) correspondientes que usan el enlace. 
 
@@ -559,13 +559,13 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 |Propiedad de function.json | Propiedad de atributo |DESCRIPCIÓN|
 |---------|---------|----------------------|
-| **Tipo** | N/D| Requerida: se debe establecer en `httpTrigger`. |
+| **type** | N/D| Requerida: se debe establecer en `httpTrigger`. |
 | **dirección** | N/D| Requerida: se debe establecer en `in`. |
-| **Nombre** | N/D| Requerida: nombre de variable que se usa en el código de la función para la solicitud o el cuerpo de la solicitud. |
-| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina qué claves, si las hubiera, deben estar presentes en la solicitud para poder invocar a la función. El nivel de autorización puede ser uno de los siguientes: <ul><li><code>anonymous</code>&mdash;Se requiere ninguna clave de API.</li><li><code>function</code>&mdash;Se requiere una clave de API de funciones específicas. Este es el valor predeterminado si no se proporciona ninguno.</li><li><code>admin</code>&mdash;Se requiere la clave maestra.</li></ul> Para más información, consulte la sección sobre las [claves de autorización](#authorization-keys). |
-| **Métodos** |**Métodos** | Una matriz de los métodos HTTP a los que responde la función. Si no se especifica, la función responde a todos los métodos HTTP. Consulte cómo [personalizar el punto de conexión HTTP](#customize-the-http-endpoint). |
-| **ruta** | **Enrutar** | Define la plantilla de ruta y controla las direcciones URL de solicitud a las que responde la función. El valor predeterminado es `<functionname>` si no se proporciona ninguno. Para más información, consulte cómo [personalizar el punto de conexión HTTP](#customize-the-http-endpoint). |
-| **webHookType** | **WebHookType** | _Solo admite la versión 1.x del runtime._<br/><br/>Configura el desencadenador HTTP para que actúe como un receptor de [webhook](https://en.wikipedia.org/wiki/Webhook) para el proveedor especificado. No establezca la propiedad `methods` si establece esta propiedad. El tipo de webhook puede ser uno de los valores siguientes:<ul><li><code>genericJson</code>&mdash;Un punto de conexión de webhook de uso general sin lógica para un proveedor específico. Este valor restringe las solicitudes a solo aquellas que usan HTTP POST y con el tipo de contenido `application/json`.</li><li><code>github</code>&mdash;La función responde a [webhooks de GitHub](https://developer.github.com/webhooks/). No use la propiedad _authLevel_ con webhooks de GitHub. Para más información, consulte la sección sobre webhooks de GitHub que aparece más adelante en este artículo.</li><li><code>slack</code>&mdash;La función responde a [webhooks de Slack](https://api.slack.com/outgoing-webhooks). No use la propiedad _authLevel_ con webhooks de Slack. Para más información, consulte la sección sobre webhooks de Slack que aparece más adelante en este artículo.</li></ul>|
+| **name** | N/D| Requerida: nombre de variable que se usa en el código de la función para la solicitud o el cuerpo de la solicitud. |
+| <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Determina qué claves, si las hubiera, deben estar presentes en la solicitud para poder invocar a la función. El nivel de autorización puede ser uno de los siguientes: <ul><li><code>anonymous</code>: no se requiere ninguna clave de API.</li><li><code>function</code>: se requiere una clave de API específica de la función. Este es el valor predeterminado si no se proporciona ninguno.</li><li><code>admin</code>: se requiere la clave maestra.</li></ul> Para más información, consulte la sección sobre las [claves de autorización](#authorization-keys). |
+| **methods** |**Métodos** | Una matriz de los métodos HTTP a los que responde la función. Si no se especifica, la función responde a todos los métodos HTTP. Consulte cómo [personalizar el punto de conexión HTTP](#customize-the-http-endpoint). |
+| **route** | **Route** | Define la plantilla de ruta y controla las direcciones URL de solicitud a las que responde la función. El valor predeterminado es `<functionname>` si no se proporciona ninguno. Para más información, consulte cómo [personalizar el punto de conexión HTTP](#customize-the-http-endpoint). |
+| **webHookType** | **WebHookType** | _Compatible solo con la versión 1.x del runtime._<br/><br/>Configura el desencadenador HTTP para que actúe como un receptor de [webhook](https://en.wikipedia.org/wiki/Webhook) para el proveedor especificado. No establezca la propiedad `methods` si establece esta propiedad. El tipo de webhook puede ser uno de los valores siguientes:<ul><li><code>genericJson</code>: un punto de conexión de webhook de uso general sin lógica para un proveedor concreto. Este valor restringe las solicitudes a solo aquellas que usan HTTP POST y con el tipo de contenido `application/json`.</li><li><code>github</code>&mdash;La función responde a [webhooks de GitHub](https://developer.github.com/webhooks/). No use la propiedad _authLevel_ con webhooks de GitHub. Para más información, consulte la sección sobre webhooks de GitHub que aparece más adelante en este artículo.</li><li><code>slack</code>&mdash;La función responde a [webhooks de Slack](https://api.slack.com/outgoing-webhooks). No use la propiedad _authLevel_ con webhooks de Slack. Para más información, consulte la sección sobre webhooks de Slack que aparece más adelante en este artículo.</li></ul>|
 
 ## <a name="trigger---usage"></a>Desencadenador: uso
 
@@ -802,9 +802,9 @@ En la siguiente tabla se explican las propiedades de configuración de enlace qu
 
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
-| **Tipo** |Se debe establecer en `http`. |
+| **type** |Se debe establecer en `http`. |
 | **dirección** | Se debe establecer en `out`. |
-|**Nombre** | Nombre de la variable usado en el código de la función para la respuesta, o `$return` para usar el valor devuelto. |
+|**name** | Nombre de la variable usado en el código de la función para la respuesta, o `$return` para usar el valor devuelto. |
 
 ## <a name="output---usage"></a>Uso de salidas
 
@@ -814,4 +814,4 @@ Para obtener respuestas de ejemplo, vea el [ejemplo de desencadenador](#trigger-
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Más información sobre los enlaces y desencadenadores de Azure functions](functions-triggers-bindings.md)
+[Más información sobre desencadenadores y enlaces de Azure Functions](functions-triggers-bindings.md)

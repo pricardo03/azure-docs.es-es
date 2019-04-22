@@ -8,12 +8,12 @@ ms.date: 06/14/2018
 ms.author: anshan
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: a9baf36221c99ece0703e2caa3f3e6c3b9364480
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: fe8b6113646589e30ff839c8bd47968138d98b03
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58312213"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521443"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-single-page-web-app"></a>Tutorial: Creación de una aplicación web de página única de Azure Time Series Insights
 
@@ -179,7 +179,7 @@ Antes de compilar la aplicación, es preciso registrarla en Azure AD. El registr
 Código o condición de error | DESCRIPCIÓN
 ---------------------| -----------
 *AADSTS50011: no hay direcciones de respuesta registradas para la aplicación.* | Al registro de Azure AD le falta la propiedad "Dirección URL de respuesta". Vaya a la página **Configuración** / **Direcciones URL de respuesta** para el registro de la aplicación de Azure AD. Compruebe que la dirección URL de **inicio de sesión** especificada en el paso 3 de [Registro de la aplicación en Azure AD](#register-the-application-with-azure-ad) está presente. 
-*AADSTS50011: la dirección URL de respuesta especificada en la solicitud no coincide con las direcciones URL de respuesta configuradas para la aplicación: "<Application ID GUID>".* | El valor `postLogoutRedirectUri` especificado en el paso 4.b de [Creación y publicación de la aplicación](#build-and-publish-the-web-application), debe coincidir con el valor especificado en la propiedad **Configuración** / **Direcciones URL de respuesta**del registro de la aplicación de Azure AD. Asegúrese de cambiar también el valor de **Dirección URL de destino** para usar `https`, como en el paso #5.e de [Creación y publicación de la aplicación web](#build-and-publish-the-web-application).
+*AADSTS50011: la dirección URL de respuesta especificada en la solicitud no coincide con las direcciones URL de respuesta configuradas para la aplicación: "\<Identificador único global de la aplicación>".* | El valor `postLogoutRedirectUri` especificado en el paso 4.b de [Creación y publicación de la aplicación](#build-and-publish-the-web-application), debe coincidir con el valor especificado en la propiedad **Configuración** / **Direcciones URL de respuesta**del registro de la aplicación de Azure AD. Asegúrese de cambiar también el valor de **Dirección URL de destino** para usar `https`, como en el paso #5.e de [Creación y publicación de la aplicación web](#build-and-publish-the-web-application).
 Se carga la aplicación web, pero tiene una página de inicio de sesión de solo texto sin estilo, con un fondo blanco. | Compruebe que las rutas de acceso que se describen en el paso 4.a de [Creación y publicación de la aplicación web](#build-and-publish-the-web-application) son correctos. Si la aplicación web no encuentra los archivos .css, no se aplicará el estilo correcto a la página.
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos

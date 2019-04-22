@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 03/27/2019
+ms.date: 04/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 8e07678604797e7e2090f5fefcdb3f3adff40161
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: cd4d84d6698ddeda2fb00a8452fbe8cd02771e4b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521778"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59544575"
 ---
 # <a name="what-is-azure-data-box-edge"></a>¿Qué es Azure Data Box Edge? 
 
@@ -93,7 +93,7 @@ El dispositivo físico Data Box Edge, el recurso de Azure y la cuenta de almacen
     - **Unión Europea**: Europa Occidental
     - **Asia Pacífico**: Sudeste de Asia
     
-    Data Box Gateway también se puede implementar en la nube de Azure Government. Para más información, consulte [¿Qué es Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
+    Data Box Edge también se puede implementar en la nube de Azure Government. Para más información, consulte [¿Qué es Azure Government?](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome).
     
 - **Cuentas de almacenamiento de destino**: las cuentas de almacenamiento que almacenan los datos están disponibles en todas las regiones de Azure. 
 

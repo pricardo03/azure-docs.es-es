@@ -5,7 +5,7 @@ keywords: azure app service, aplic. web, dotnet, núcleo, linux, oss
 services: app-service
 documentationCenter: ''
 author: cephalin
-manager: syntaxc4
+manager: jeconnoc
 editor: ''
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
 ms.service: app-service
@@ -13,15 +13,15 @@ ms.workload: web
 ms.tgt_pltfrm: linux
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/11/2018
-ms.author: cfowler
+ms.date: 03/27/2019
+ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 43016b3c31a0371f953f758bc7afb53bd1508495
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: da4d246e098751f650eb6315de3794ad957884d6
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278520"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59543900"
 ---
 # <a name="create-an-aspnet-core-app-in-app-service-on-linux"></a>Creación de una aplicación ASP.NET Core en App Service en Linux
 
@@ -41,8 +41,8 @@ Estos pasos se pueden realizar en este artículo con una máquina Mac, Windows o
 
 Para completar esta guía de inicio rápido:
 
-* <a href="https://git-scm.com/" target="_blank">Instalar Git</a>
-* <a href="https://www.microsoft.com/net/core/" target="_blank">Instalar .NET Core</a>
+* <a href="https://git-scm.com/" target="_blank">Instalación de Git</a>
+* <a href="https://www.microsoft.com/net/core/" target="_blank">Instalación de .NET Core</a>
 
 ## <a name="create-the-app-locally"></a>Creación de la aplicación localmente
 
@@ -148,7 +148,7 @@ El ejemplo de código de .NET Core se ejecuta en App Service en Linux con una im
 
 ![Aplicación de ejemplo que se ejecuta en Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**Felicidades.** Ha implementado su primera aplicación de .NET Core en App Service en Linux.
+**¡Enhorabuena!** Ha implementado su primera aplicación de .NET Core en App Service en Linux.
 
 ## <a name="update-and-redeploy-the-code"></a>Actualización del código y nueva implementación
 
@@ -188,4 +188,7 @@ El menú izquierdo proporciona distintas páginas para configurar la aplicación
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Compilación de una aplicación .NET Core y SQL Database en Azure App Service en Linux](tutorial-dotnetcore-sqldb-app.md)
+> [Tutorial: Aplicación de ASP.NET Core con SQL Database](tutorial-dotnetcore-sqldb-app.md)
+
+> [!div class="nextstepaction"]
+> [Configure ASP.NET Core app](configure-language-dotnetcore.md) (Configuración de una aplicación de ASP.NET Core)

@@ -7,36 +7,32 @@ manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 02/25/2019
+ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: b40cd130039f7d55b69198b4be4af908dedbe8b7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: eb19833251fc9ee08a12aaf6ffcef55d59cea5d6
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58076894"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500641"
 ---
 # <a name="quickstart-use-the-azure-cli-to-create-a-service-bus-queue"></a>Inicio rápido: Uso de la CLI de Azure para crear una cola de Service Bus
-
-Microsoft Azure Service Bus es un agente de mensajes de integración empresarial que proporciona mensajería segura y gran confiabilidad. Un escenario típico de Service Bus implica normalmente el desacoplamiento de dos o más aplicaciones, servicios o procesos (no es necesario que las aplicaciones estén en línea al mismo tiempo), la transferencia de los cambios de estado o de datos, y el envío de mensajes entre las aplicaciones. 
-
-Por ejemplo, una empresa minorista puede enviar los datos de un punto de ventas a un área de operaciones o centro de distribución regional para indicar las actualizaciones de reposición y de inventario. En este caso, la aplicación cliente envía y recibe mensajes de una cola de Service Bus:
-
-![queue](./media/service-bus-quickstart-cli/quick-start-queue.png)
-
 En este inicio rápido se describe cómo enviar y recibir mensajes con Service Bus mediante la CLI de Azure y la biblioteca Java de Service Bus. Por último, si le interesa obtener más información técnica, puede [leer una explicación](#understand-the-sample-code) de los elementos clave del ejemplo de código.
 
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
+## <a name="prerequisites"></a>Requisitos previos
 Si no tiene una suscripción a Azure, puede crear una [cuenta gratuita][] antes de empezar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
+Si usa el botón **Probar** para iniciar Cloud Shell, inicie sesión en Azure con sus credenciales. 
 
-Haga clic en el botón de Cloud Shell en el menú de la esquina superior derecha de Azure Portal y, en la lista desplegable **Seleccionar entorno**, seleccione **Bash**. 
+Si ha iniciado Cloud Shell en el explorador web, ya sea directamente o en Azure Portal, cambie a **Bash** si ve **PowerShell** en la esquina superior izquierda de Cloud Shell. 
 
 ## <a name="use-the-azure-cli-to-create-resources"></a>Uso de la CLI de Azure para crear recursos
-
-En Cloud Shell, desde el símbolo del sistema de Bash emita los comandos siguientes para aprovisionar los recursos de Service Bus. Asegúrese de reemplazar todos los marcadores de posición por los valores apropiados: El programa de ejemplo de Java espera que el nombre de cola sea BasicQueue, por lo que no debe cambiarlo. 
+En Cloud Shell, desde el símbolo del sistema de Bash emita los comandos siguientes para aprovisionar los recursos de Service Bus. Asegúrese de reemplazar todos los marcadores de posición por los valores apropiados: El programa de ejemplo de Java espera que el nombre de cola sea BasicQueue, por lo que no debe cambiarlo. Es posible que desee copiar y pegar los comandos uno a uno, con el fin de poder reemplazar los valores antes de ejecutarlos. 
 
 ```azurecli-interactive
 # Create a resource group
@@ -373,10 +369,10 @@ void registerReceiver(QueueClient queueClient, ExecutorService executorService) 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha creado un espacio de nombres de Service Bus y otros recursos necesarios para enviar y recibir mensajes de una cola. Para más información sobre cómo escribir código para enviar y recibir mensajes, pase al tutorial siguiente de Service Bus:
+En este artículo, ha creado un espacio de nombres de Service Bus y otros recursos necesarios para enviar y recibir mensajes de una cola. Para más información sobre cómo escribir código para enviar y recibir mensajes, continúe con los tutoriales de la sección **Envío y recepción de mensajes**. 
 
 > [!div class="nextstepaction"]
-> [Actualización del inventario mediante la CLI de Azure y Java](./service-bus-tutorial-topics-subscriptions-cli.md)
+> [Envío y recepción de mensajes](service-bus-dotnet-get-started-with-queues.md)
 
 [cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [fully qualified domain name]: https://wikipedia.org/wiki/Fully_qualified_domain_name

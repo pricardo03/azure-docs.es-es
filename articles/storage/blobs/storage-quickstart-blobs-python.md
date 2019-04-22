@@ -8,16 +8,16 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/14/2018
 ms.author: tamram
-ms.openlocfilehash: 95b960245e00a353bb165e1f1d38db56bce62a8f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a1a931573967f12eb7abc791bd951dc6e1e9e60b
+ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57996730"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59607405"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Inicio rápido: Carga, descarga y enumeración de blobs mediante Python
 
-En esta guía de inicio rápido, aprenderá a usar Python para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage. 
+En este artículo de inicio rápido aprenderá a usar Python para cargar, descargar y enumerar blobs en bloques en un contenedor en Azure Blob Storage. Los blobs son simplemente los objetos que pueden contener cualquier cantidad de texto o datos binarios (por ejemplo, imágenes, documentos, medios de transmisión, datos de archivo, etc.) y en Azure Storage son distintos de los recursos compartidos de archivos, las tablas sin esquema y las colas de mensajes. Para más información, consulte [Introducción a Azure Storage](/azure/storage/common/storage-introduction.md).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

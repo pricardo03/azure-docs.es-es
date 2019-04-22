@@ -3,19 +3,19 @@ title: Esta guía de inicio rápido le muestra cómo inscribir dispositivos X.50
 description: Esta guía de inicio rápido usa inscripciones de grupos. En esta guía de inicio rápido, inscribirá dispositivos X.509 en el servicio Azure IoT Hub Device Provisioning Service con el SDK de servicio de Node.js
 author: wesmc7777
 ms.author: wesmc
-ms.date: 12/21/2017
+ms.date: 04/10/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
+manager: philmea
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 3459814108450e3c8faead6ab373ce62b951885e
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: a861bc52734f5b2bc6e455965428328cd1415b76
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55095810"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59500675"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>Guía de inicio rápido: Inscripción de dispositivos X.509 en el servicio Device Provisioning con Node.js
 
@@ -50,7 +50,7 @@ Para usar estas herramientas de prueba para generar certificados, realice los pa
    git clone https://github.com/Azure/azure-iot-sdk-c.git --recursive
    ```
 
-   Actualmente, el tamaño de este repositorio es de unos 220 MB. Esta operación puede tardar varios minutos en completarse.
+   Esta operación puede tardar varios minutos en completarse.
 
    Las herramientas de prueba se encuentran en el directorio *azure-iot-sdk-c/tools/CACertificates* del repositorio que clonó.    
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d58b439d12b313bd6f01c9524b230bbfecc21ef0
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 47adab265978b4b760450ab1176cf28c55bc0548
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283916"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563689"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-certent-equity-management"></a>Tutorial: Integración de Azure Active Directory con Certent Equity Management
 
@@ -224,9 +224,9 @@ Al hacer clic en el icono de Certent Equity Management en el Panel de acceso, de
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-- [ Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

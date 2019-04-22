@@ -11,10 +11,10 @@ ms.date: 04/04/2019
 ms.author: mcarter
 ms.custom: seodec2018
 ms.openlocfilehash: ed2e0bd352823a932cfea719c18e05ae6c913621
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59495743"
 ---
 # <a name="example-add-suggestions-or-autocomplete-to-your-azure-search-application"></a>Ejemplo: Agregar sugerencias o Autocompletar a la aplicación de Azure Search
@@ -89,7 +89,7 @@ $(function () {
 });
 ```
 
-El código anterior se ejecuta en el explorador carga la página Configuración de Autocompletar de jQuery UI para el cuadro de entrada "example1a".  `minLength: 3` garantiza que solo se mostrarán recomendaciones cuando hay al menos tres caracteres en el cuadro de búsqueda.  El valor de origen es importante:
+El código anterior se ejecuta en el explorador carga la página Configuración de Autocompletar de jQuery UI para el cuadro de entrada "example1a".  `minLength: 3` garantiza que la recomendación solo se mostrará cuando haya al menos tres caracteres en el cuadro de búsqueda.  El valor de origen es importante:
 
 ```javascript
 source: "/home/suggest?highlights=false&fuzzy=false&",

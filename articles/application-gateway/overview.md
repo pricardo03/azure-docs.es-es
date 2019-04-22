@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 03/20/2019
 ms.author: victorh
-ms.openlocfilehash: bb849e80e83edc4a25ad2f891d2c6c433ba0d106
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 447c5b1e94b848e9e560db1188a767f2040740c0
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225542"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546857"
 ---
 # <a name="what-is-azure-application-gateway"></a>¿Qué es Azure Application Gateway?
 
@@ -119,9 +119,12 @@ Para más información, consulte [Compatibilidad con WebSocket
 
 ## <a name="rewrite-http-headers-public-preview"></a>Reescritura de los encabezados HTTP (versión preliminar pública)
 
-Los encabezados HTTP permiten que el cliente y el servidor pasen información adicional con la solicitud o la respuesta. La reescritura de estos encabezados HTTP ayuda con varios escenarios importantes, por ejemplo, agregar campos de encabezado relacionados con la seguridad, como HSTS/X-XSS-Protection o quitar campos de encabezado de respuesta que pueden revelar información confidencial, como el nombre del servidor back-end. 
+Los encabezados HTTP permiten que el cliente y el servidor pasen información adicional con la solicitud o la respuesta. Volver a escribir estos encabezados HTTP le permitirá lograr varios escenarios importantes, como:
+- Agregar campos de encabezado relacionados con la seguridad como HSTS/X-XSS-Protection.
+- Quitar campos de encabezado de respuesta que pueden revelar información confidencial.
+- Eliminar información del puerto desde los encabezados X-Forwarded-For.
 
-Application Gateway admite ahora la capacidad de reescribir los encabezados de las solicitudes HTTP entrantes, así como las respuestas HTTP salientes. Podrá agregar, quitar o actualizar los encabezados de solicitud y respuesta HTTP mientras los paquetes de solicitud/respuesta se mueven entre los grupos de back-end y de cliente. Puede reescribir tanto campos de encabezado estándar (definidos en [RFC 2616](https://www.ietf.org/rfc/rfc2616.txt)), como no estándar.  
+Application Gateway admite la funcionalidad para agregar, quitar o actualizar los encabezados HTTP de solicitud y respuesta, mientras los paquetes de solicitud y respuesta se mueven entre los grupos de back-end y de cliente. También proporciona la funcionalidad para agregar condiciones a fin de asegurarse de que los encabezados especificados se vuelven a escribir solo cuando se cumplen ciertas condiciones.
 
 Para más información sobre esta característica en versión preliminar pública, consulte [Reescritura de encabezados HTTP](rewrite-http-headers.md).
 

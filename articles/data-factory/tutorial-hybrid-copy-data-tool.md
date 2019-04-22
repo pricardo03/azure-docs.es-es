@@ -12,15 +12,15 @@ ms.topic: tutorial
 ms.date: 04/09/2018
 ms.author: abnarain
 ms.openlocfilehash: 26bc6861602cae349c8ebaafefe070c119a93e87
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261532"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copia de datos de una base de datos de SQL Server local en Azure Blob Storage con la herramienta Copy Data
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [versión 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
+> * [Versión 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versión actual](tutorial-hybrid-copy-data-tool.md)
 
 En este tutorial, usará Azure Portal para crear una factoría de datos. A continuación, usará la herramienta Copy Data para crear una canalización que copia datos de una instancia de base de datos de SQL Server local en una instancia de Azure Blob Storage.
@@ -285,4 +285,4 @@ Para ver una lista de los almacenes de datos compatibles con Data Factory, consu
 Para informarse acerca de cómo copiar datos de forma masiva de un origen a un destino, pase al tutorial siguiente:
 
 > [!div class="nextstepaction"]
->[Copia de datos de forma masiva](tutorial-bulk-copy-portal.md)
+>[Copiar datos de forma masiva](tutorial-bulk-copy-portal.md)

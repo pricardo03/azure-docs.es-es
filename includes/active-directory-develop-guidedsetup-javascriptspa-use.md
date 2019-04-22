@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: e228c49d4ad8e691e59f76a9b6fb9013f7b1bb3a
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 68598d4bb7fb9fd928a7b664e6ce0c02220ca4bb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58891086"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59502684"
 ---
 ## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Uso de la biblioteca de autenticación de Microsoft (MSAL) para iniciar la sesión del usuario
 
@@ -124,19 +124,19 @@ if (!isIE) {
 <!--start-collapse-->
 ### <a name="more-information"></a>Más información
 
-Cuando un usuario hace clic en el botón **Iniciar sesión** por primera vez, el método `signIn` llama a `loginPopup` para iniciar la sesión del usuario. Este método hace que se abra una ventana emergente con el *punto de conexión v2.0 de Microsoft Azure Active Directory* para pedir y validar las credenciales del usuario. Como resultado de un inicio de sesión correcto, se redirige al usuario a la página *index.html* original y se recibe un token, el que `msal.js` procesa, y se almacena en caché la información que contiene el token. Este token se conoce como el *token de identificador* y contiene información básica sobre el usuario, como su nombre. Si piensa utilizar los datos proporcionados por este token para algún propósito, debe asegurarse de que el servidor backend lo valide para garantizar que el token se emitió a un usuario válido para la aplicación.
+Cuando un usuario hace clic en el botón **Iniciar sesión** por primera vez, el método `signIn` llama a `loginPopup` para iniciar la sesión del usuario. Este método hace que se abra una ventana emergente con el *punto de conexión de la plataforma de identidad de Microsoft* para pedir y validar las credenciales del usuario. Como resultado de un inicio de sesión correcto, se redirige al usuario a la página *index.html* original y se recibe un token, el que `msal.js` procesa, y se almacena en caché la información que contiene el token. Este token se conoce como el *token de identificador* y contiene información básica sobre el usuario, como su nombre. Si piensa utilizar los datos proporcionados por este token para algún propósito, debe asegurarse de que el servidor backend lo valide para garantizar que el token se emitió a un usuario válido para la aplicación.
 
 La instancia de SPA generada por esta guía llama a `acquireTokenSilent` o a `acquireTokenPopup` para adquirir un *token de acceso* que se usa para consultar la información del perfil de usuario a Microsoft Graph API. Si necesita obtener un ejemplo que valide el token de identificador, eche un vistazo a [esta](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "aplicación de ejemplo Github active-directory-javascript-singlepageapp-dotnet-webapi-v2") en GitHub (se usa una ASP.NET WEB API para la validación del token).
 
 #### <a name="getting-a-user-token-interactively"></a>Obtención de un token de usuario interactivamente
 
-Después del inicio de sesión inicial, no desea pedir a los usuarios que se vuelvan a autenticar cada vez que tengan que solicitar un token para acceder a un recurso, por lo que se usará *acquireTokenSilent* la mayor parte del tiempo para adquirir los tokens. Sin embargo, hay situaciones en las que resulta necesario forzar a los usuarios a que interactúen con el punto de conexión de Azure Active Directory v2.0. Algunos ejemplos de esto son los siguientes:
+Después del inicio de sesión inicial, no desea pedir a los usuarios que se vuelvan a autenticar cada vez que tengan que solicitar un token para acceder a un recurso, por lo que se usará *acquireTokenSilent* la mayor parte del tiempo para adquirir los tokens. Sin embargo, hay situaciones en las que resulta necesario forzar a que los usuarios interactúen con el punto de conexión de la plataforma de identidad de Microsoft. Algunos ejemplos de esto son los siguientes:
 
 - Es posible que los usuarios deban volver a escribir las credenciales porque la contraseña expiró
 - La aplicación solicita acceso a un recurso para el cual el usuario necesita consentimiento
 - Se requiere la autenticación en dos fases
 
-Al llamar a *acquireTokenPopup(scope)*, se abre una ventana emergente (o *acquireTokenRedirect[scope]* redirige a los usuarios al punto de conexión v2.0 de Azure Active Directory) donde los usuarios deben confirmar las credenciales, dar su consentimiento al recurso requerido o completar la autenticación en dos fases.
+Al llamar a *acquireTokenPopup(scope)*, se abre una ventana emergente [o *acquireTokenRedirect(scope)* redirige a los usuarios al punto de conexión de la plataforma de identidad de Microsoft] donde los usuarios deben confirmar las credenciales, dar su consentimiento al recurso requerido o completar la autenticación en dos fases.
 
 #### <a name="getting-a-user-token-silently"></a>Obtención de un token de usuario en silencio
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-spell-check
 ms.topic: quickstart
-ms.date: 02/20/2019
+ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: b439b702fb5ae4990c8c31838fe9677cb882d2a2
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 7a17c695482f2e9c8158c437c9c40c0abcb07e67
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546326"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59616295"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>Inicio rápido: Revisión ortográfica con la API REST de Bing Spell Check y C#
 
@@ -24,7 +24,10 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
 ## <a name="prerequisites"></a>Requisitos previos
 
 * Cualquier edición de [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* El marco [Json.NET](https://www.newtonsoft.com/json), disponible como un paquete NuGet.
+* Para instalar `Newtonsoft.Json` como un paquete NuGet en Visual Studio:
+    1. En el Explorador de soluciones, haga clic con el botón derecho en el archivo Solution.
+    1. Seleccione **Administrar paquetes NuGet para la solución**.
+    1. A continuación, busque `Newtonsoft.Json` e instale el paquete.
 * Si usa Linux o MacOS, esta aplicación puede ejecutarse con [Mono](https://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-spell-check-signup-requirements](../../../../includes/cognitive-services-bing-spell-check-signup-requirements.md)]
@@ -52,14 +55,14 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
         {
             static string host = "https://api.cognitive.microsoft.com";
             static string path = "/bing/v7.0/spellcheck?";
-            static string key = "enter your key here";
+            static string key = "<ENTER-KEY-HERE>";
             //text to be spell-checked
             static string text = "Hollo, wrld!";
         }
     }
     ```
 
-3. Cree una variable para los parámetros de búsqueda. Anexe el código de mercado a `mkt=` y el modo de revisión ortográfica a `&mode=`.
+3. Cree una variable para los parámetros de búsqueda. Anexe el código de mercado después de `mkt=`. El código de mercado es el país desde el que se realiza la solicitud. Asimismo, también debe anexar el modo de revisión ortográfica después de `&mode=`. El modo es `proof` (detecta la mayoría de los errores de ortografía y de gramática) o `spell` (detecta la mayoría de los errores de ortografía, pero no tanto los de gramática).
     
     ```csharp
     static string params_ = "mkt=en-US&mode=proof";
@@ -76,10 +79,10 @@ Use este inicio rápido para realizar la primera llamada a la API REST de Bing S
         client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
 
         HttpResponseMessage response = new HttpResponseMessage();
-        //...
+        // add the rest of the code snippets here (except for main())...
     }
 
-2. Create the URI for your request by appending your host, path, and parameters. 
+2. Create the URI for your request by appending your host, path, and parameters.
     
     ```csharp
     string uri = host + path + params_;

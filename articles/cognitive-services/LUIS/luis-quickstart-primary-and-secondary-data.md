@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 02/19/2019
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: b9ddd82d18b7f67f61e5c1589511ea6db4fa18a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ea9a2df1f06ba6836ef88bc57dc3f95fd31e1ee9
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58100299"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526576"
 ---
 # <a name="tutorial-extract-names-with-simple-entity-and-a-phrase-list"></a>Tutorial: Extracción de nombres con una lista de entidades simples y frases
 
@@ -48,7 +48,7 @@ La entidad simple es una buena opción para este tipo de datos cuando:
 * Los datos no tienen un formato correcto, como una expresión regular.
 * Los datos no son comunes, como una entidad previamente creada de número de teléfono o de datos.
 * Los datos no coinciden exactamente con una lista de palabras conocidas, como una entidad de lista.
-* Los datos no contienen otros elementos de datos como una entidad compuesta o jerárquica.
+* Los datos no contienen otros elementos de datos de tipo entidad compuesta ni roles contextuales.
 
 Fíjese en las siguientes expresiones de un bot de chat:
 

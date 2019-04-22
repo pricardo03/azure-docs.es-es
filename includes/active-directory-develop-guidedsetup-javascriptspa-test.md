@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: bb73f58c5dca5e49cdb075b046f883ffeb77c95c
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: c13c9ece54d512adf271532a4ac17876a88d733e
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203355"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503236"
 ---
 ## <a name="test-your-code"></a>Prueba del código
 
@@ -35,7 +35,7 @@ Si no está utilizando Visual Studio, asegúrese de que el servidor web está ac
     ```
 1. Abra el explorador y escriba http://<span></span>localhost:30662 o http://<span></span>localhost:{port}, donde **port** es el puerto que está escuchando el servidor web. Verá el contenido del archivo index.html y el botón **Iniciar sesión**.
 
-<p/><!-- -->
+<p><!-- -->
 
 ### <a name="test-with-visual-studio"></a>Pruebas con Visual Studio
 
@@ -43,7 +43,7 @@ Si usa Visual Studio, asegúrese de seleccionar la solución del proyecto y pres
 
 ## <a name="test-your-application"></a>Prueba de la aplicación
 
-Cuando el explorador haya cargado el archivo index.html, haga clic en **Iniciar sesión**. Se le pedirá que inicie sesión con el punto de conexión de Microsoft Azure Active Directory (Azure AD) v2.0:
+Cuando el explorador haya cargado el archivo index.html, haga clic en **Iniciar sesión**. Se le pedirá que inicie sesión con el punto de conexión de la plataforma de identidad de Microsoft:
 
 ![Inicie sesión en la cuenta de la aplicación SPA de JavaScript](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
 

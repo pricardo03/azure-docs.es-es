@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: c5eb69ddd9c621024799b940ef58c34e7caaa3ff
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.openlocfilehash: b80cb0d68e6875881f2a9fc97fa52531525c1cdc
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294032"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59579196"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutorial: Incorporación de un dominio personalizado a un punto de conexión de Azure CDN
 En este tutorial se muestra cómo agregar un dominio personalizado a un punto de conexión de Azure Content Delivery Network (CDN). Si se usa un punto de conexión de CDN para entregar contenido, se necesita un dominio personalizado si se desea que el nombre de dominio propio esté visible en la dirección URL de la red CDN. El hecho de tener un nombre de dominio visible puede ser cómodo para sus clientes y útil con fines de personalización de marca. 
@@ -50,7 +50,7 @@ Para poder usar un dominio personalizado con un punto de conexión de Azure CDN,
 Un dominio personalizado y su subdominio no se pueden asociar con más de un solo punto de conexión a la vez. Sin embargo, puede utilizar sus dominios diferentes desde el mismo dominio personalizado para distintos puntos de conexión de servicio de Azure mediante el uso de varios registros de CNAME. También puede asignar un dominio personalizado con diferentes subdominios al mismo punto de conexión de CDN.
 
 > [!NOTE]
-> Si se utiliza Azure DNS como proveedor de dominio, se puede usar cualquier tipo de registro de alias para los dominios personalizados. Este tutorial utiliza el tipo de registro CNAME. Si usa los tipos de registro A o AAAA, siga los mismos pasos que se indican a continuación, pero reemplace CNAME por el tipo de registro que prefiera. Si usa un registro de alias para agregar un dominio raíz como un dominio personalizado y desea habilitar SSL, debe usar la validación manual como se describe [aquí](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint)
+> Si se utiliza Azure DNS como proveedor de dominio, se puede usar cualquier tipo de registro de alias para los dominios personalizados. Este tutorial utiliza el tipo de registro CNAME. Si usa los tipos de registro A o AAAA, siga los mismos pasos que se indican a continuación, pero reemplace CNAME por el tipo de registro que prefiera. Si usa un registro de alias para agregar un dominio raíz como un dominio personalizado y desea habilitar SSL, debe usar la validación manual como se describe en [este artículo](https://docs.microsoft.com/azure/cdn/cdn-custom-ssl?tabs=option-1-default-enable-https-with-a-cdn-managed-certificate#custom-domain-is-not-mapped-to-your-cdn-endpoint). Para más información, consulte [Vértice de zona a puntos de conexión de Azure CDN](https://docs.microsoft.com/azure/dns/dns-alias#point-zone-apex-to-azure-cdn-endpoints).
 
 ## <a name="map-the-temporary-cdnverify-subdomain"></a>Asignación del subdominio temporal cdnverify
 

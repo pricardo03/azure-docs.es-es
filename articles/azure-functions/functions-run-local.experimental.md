@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: glenga
 ms.openlocfilehash: 84c578fdbcfb555bde23d6a9e6f8258259cff8de
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59497107"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Uso de Azure Functions Core Tools
@@ -32,7 +32,7 @@ Desarrollo de funciones en el equipo local y publicarlas en Azure mediante herra
 > * [Registrar extensiones de enlace y desencadenador.](#register-extensions)
 > * [Definir el almacenamiento y otras conexiones.](#local-settings-file)
 > * [Cree una función de un desencadenador y una plantilla específica del lenguaje.](#create-func)
-> * [Ejecución local de la función](#start)
+> * [Ejecute la función localmente](#start)
 > * [Publicar el proyecto en Azure](#publish)
 
 ## <a name="core-tools-versions"></a>Versiones de Core Tools
@@ -147,7 +147,7 @@ Writing C:\myfunctions\myMyFunctionProj\.vscode\extensions.json
 Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 ```
 
-`func init` admite las siguientes opciones, que son versión 2.x solo, a menos que se indique lo contrario:
+`func init` admite las siguientes opciones, que corresponden solo a la versión 2.x, a menos que se indique lo contrario:
 
 | Opción     | DESCRIPCIÓN                            |
 | ------------ | -------------------------------------- |
@@ -203,9 +203,9 @@ El archivo local.settings.json almacena la configuración de la aplicación, las
 
 Esta configuración de la aplicación de función también se puede leer en el código como variables de entorno. Para más información, consulte la sección Variables de entorno de estos temas de referencia específicos del lenguaje:
 
-* [C#precompilado](functions-dotnet-class-library.md#environment-variables)
+* [C# precompilado](functions-dotnet-class-library.md#environment-variables)
 * [Script de C# (.csx)](functions-reference-csharp.md#environment-variables)
-* [F# script (.fsx)](functions-reference-fsharp.md#environment-variables)
+* [Script de F# (.fsx)](functions-reference-fsharp.md#environment-variables)
 * [Java](functions-reference-java.md#environment-variables)
 * [JavaScript](functions-reference-node.md#environment-variables)
 
@@ -480,7 +480,7 @@ Están disponibles las siguientes opciones de implementación de contenedor pers
 
 ## <a name="monitoring-functions"></a>Supervisión de funciones
 
-Es la manera recomendada para supervisar la ejecución de las funciones mediante la integración con Azure Application Insights. De forma predeterminada, cuando crea una aplicación de función en Azure Portal, esta integración se realiza automáticamente. Sin embargo, cuando se crea la aplicación de función mediante la CLI de Azure, no se realiza la integración de function app en Azure.
+Es la manera recomendada para supervisar la ejecución de las funciones mediante la integración con Azure Application Insights. De forma predeterminada, cuando crea una aplicación de función en Azure Portal, esta integración se realiza automáticamente. Sin embargo, al crear la aplicación de función mediante la CLI de Azure, no se lleva a cabo su integración en Azure.
 
 Para habilitar Application Insights para la aplicación de función:
 

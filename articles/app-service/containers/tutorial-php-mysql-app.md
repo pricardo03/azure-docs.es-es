@@ -1,22 +1,22 @@
 ---
-title: 'Compilación de la aplicación de PHP con MySQL en Linux: Azure App Service | Microsoft Docs'
-description: Obtenga información sobre cómo poner en funcionamiento una aplicación PHP en Azure App Service en Linux, con conexión a una base de datos de MySQL en Azure.
+title: 'PHP (Laravel) con MySQL en Linux: Azure App Service | Microsoft Docs'
+description: Obtenga información sobre cómo poner en funcionamiento una aplicación PHP en Azure App Service en Linux, con conexión a una base de datos de MySQL en Azure. Laravel se utiliza en el tutorial.
 services: app-service\web
 author: cephalin
-manager: erikre
+manager: jeconnoc
 ms.service: app-service-web
 ms.workload: web
 ms.devlang: php
 ms.topic: tutorial
-ms.date: 11/15/2018
+ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 0470c12f7965ec5d7e151bb6b03163d6946b83e6
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: 6d9ef67f39a67fd06a5b42afe4432b5a0156fead
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57548190"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59549838"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Compilación de una aplicación PHP y MySQL en Azure App Service en Linux
 
@@ -161,22 +161,22 @@ En este paso, creará una base de datos MySQL en [Azure Database for MySQL](/azu
 
 Cree un servidor en Azure Database for MySQL con el comando [`az mysql server create`](/cli/azure/mysql/server?view=azure-cli-latest#az-mysql-server-create).
 
-En el siguiente comando, sustituya un nombre de servidor único por el marcador de posición *\<mysql_server_name>*, un nombre de usuario por el marcador de posición *\<admin_user>* y una contraseña por el marcador de posición *\<admin_password>*. El nombre del servidor se usa como parte del punto de conexión de MySQL (`https://<mysql_server_name>.mysql.database.azure.com`), por lo que debe ser único en todos los servidores de Azure. Para más información sobre cómo seleccionar la SKU de MySQL DB, consulte [Creación de un servidor de Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
+En el siguiente comando, sustituya un nombre de servidor único por el marcador de posición *\<mysql-server-name>*, un nombre de usuario por el marcador de posición *\<admin-user>* y una contraseña por el marcador de posición *\<admin-password>*. El nombre del servidor se usa como parte del punto de conexión de MySQL (`https://<mysql-server-name>.mysql.database.azure.com`), por lo que debe ser único en todos los servidores de Azure. Para más información sobre cómo seleccionar la SKU de MySQL DB, consulte [Creación de un servidor de Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli#create-an-azure-database-for-mysql-server).
 
 ```azurecli-interactive
-az mysql server create --resource-group myResourceGroup --name <mysql_server_name> --location "West Europe" --admin-user <admin_user> --admin-password <admin_password> --sku-name B_Gen5_1
+az mysql server create --resource-group myResourceGroup --name <mysql-server-name> --location "West Europe" --admin-user <admin-user> --admin-password <admin-password> --sku-name B_Gen5_1
 ```
 
 Cuando se crea el servidor MySQL, la CLI de Azure muestra información similar a la del siguiente ejemplo:
 
 ```json
 {
-  "administratorLogin": "<admin_user>",
+  "administratorLogin": "<admin-user>",
   "administratorLoginPassword": null,
-  "fullyQualifiedDomainName": "<mysql_server_name>.mysql.database.azure.com",
-  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql_server_name>",
+  "fullyQualifiedDomainName": "<mysql-server-name>.mysql.database.azure.com",
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.DBforMySQL/servers/<mysql-server-name>",
   "location": "westeurope",
-  "name": "<mysql_server_name>",
+  "name": "<mysql-server-name>",
   "resourceGroup": "myResourceGroup",
   ...
 }
@@ -187,25 +187,25 @@ Cuando se crea el servidor MySQL, la CLI de Azure muestra información similar a
 Cree una regla de firewall para que el servidor MySQL permita conexiones de cliente con el comando [`az mysql server firewall-rule create`](/cli/azure/mysql/server/firewall-rule?view=azure-cli-latest#az-mysql-server-firewall-rule-create). Cuando tanto la dirección IP de inicio como final están establecidas en 0.0.0.0., el firewall solo se abre para otros recursos de Azure. 
 
 ```azurecli-interactive
-az mysql server firewall-rule create --name allAzureIPs --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
+az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address 0.0.0.0 --end-ip-address 0.0.0.0
 ```
 
 > [!TIP] 
 > Puede ser incluso más restrictivo con su regla de firewall [usando solo las direcciones IP de salida que utiliza su aplicación](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 >
 
-En Cloud Shell, ejecute de nuevo el comando para permitir el acceso desde el equipo local y reemplace *\<su_dirección_ip>* por [la dirección IP IPv4 local](https://www.whatsmyip.org/).
+En Cloud Shell, ejecute de nuevo el comando para permitir el acceso desde el equipo local y reemplace *\<your-ip-address>* por [la dirección IP IPv4 local](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
-az mysql server firewall-rule create --name AllowLocalClient --server <mysql_server_name> --resource-group myResourceGroup --start-ip-address=<your_ip_address> --end-ip-address=<your_ip_address>
+az mysql server firewall-rule create --name AllowLocalClient --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
 ```
 
 ### <a name="connect-to-production-mysql-server-locally"></a>Conexión al servidor MySQL de producción local
 
-En la ventana de terminal, conéctese al servidor MySQL de Azure. Use el valor que especificó anteriormente para _&lt;admin_user>_ y _&lt;mysql_server_name>_. Cuando se le solicite una contraseña, utilice la contraseña que especificó al crear la base de datos en Azure.
+En la ventana de terminal, conéctese al servidor MySQL de Azure. Use el valor que especificó anteriormente para _&lt;admin-user>_ y _&lt;mysql-server-name>_. Cuando se le solicite una contraseña, utilice la contraseña que especificó al crear la base de datos en Azure.
 
 ```bash
-mysql -u <admin_user>@<mysql_server_name> -h <mysql_server_name>.mysql.database.azure.com -P 3306 -p
+mysql -u <admin-user>@<mysql-server-name> -h <mysql-server-name>.mysql.database.azure.com -P 3306 -p
 ```
 
 ### <a name="create-a-production-database"></a>Creación de una base de datos de producción
@@ -239,7 +239,7 @@ En este paso, conectará la aplicación PHP a la base de datos MySQL que creó e
 
 ### <a name="configure-the-database-connection"></a>Configuración de la conexión de base de datos
 
-En la raíz del repositorio, cree un archivo _.env.production_ y copie en él las siguientes variables. Reemplace el marcador de posición _&lt;mysql_server_name >_.
+En la raíz del repositorio, cree un archivo _.env.production_ y copie en él las siguientes variables. Reemplace el marcador de posición _&lt;mysql-server-name>_.
 
 ```txt
 APP_ENV=production
@@ -247,9 +247,9 @@ APP_DEBUG=true
 APP_KEY=SomeRandomString
 
 DB_CONNECTION=mysql
-DB_HOST=<mysql_server_name>.mysql.database.azure.com
+DB_HOST=<mysql-server-name>.mysql.database.azure.com
 DB_DATABASE=sampledb
-DB_USERNAME=phpappuser@<mysql_server_name>
+DB_USERNAME=phpappuser@<mysql-server-name>
 DB_PASSWORD=MySQLAzure2017
 MYSQL_SSL=true
 ```
@@ -271,12 +271,12 @@ Abra _config/database.php_ y agregue los parámetros _sslmode_ y _options_ a `co
     ...
     'sslmode' => env('DB_SSLMODE', 'prefer'),
     'options' => (env('MYSQL_SSL')) ? [
-        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/BaltimoreCyberTrustRoot.crt.pem', 
+        PDO::MYSQL_ATTR_SSL_KEY    => '/ssl/BaltimoreCyberTrustRoot.crt.pem',
     ] : []
 ],
 ```
 
-El certificado `BaltimoreCyberTrustRoot.crt.pem` se proporciona en el repositorio por comodidad en este tutorial. 
+El certificado `BaltimoreCyberTrustRoot.crt.pem` se proporciona en el repositorio por comodidad en este tutorial.
 
 ### <a name="test-the-application-locally"></a>Prueba de la aplicación de forma local
 
@@ -323,10 +323,7 @@ En este paso se implementará la aplicación PHP conectada a MySQL en Azure App 
 
 La aplicación Laravel se inicia en el directorio _/public_. La imagen de Docker PHP predeterminada para App Service utiliza Apache y no le permite personalizar `DocumentRoot` para Laravel. Sin embargo, puede usar `.htaccess` para volver a escribir todas las solicitudes para que apunten a _/public_ en lugar de al directorio raíz. En la raíz del repositorio, ya se ha agregado `.htaccess` con este fin. Con él, la aplicación Laravel está preparada para implementarse.
 
-> [!NOTE] 
-> Si prefiere no usar la reescritura de _.htaccess_, puede implementar la aplicación Laravel con una [imagen personalizada de Docker](quickstart-docker-go.md) en su lugar.
->
->
+Para más información, consulte [Change site root](configure-language-php.md#change-site-root) (Cambio de la raíz del sitio).
 
 ### <a name="configure-a-deployment-user"></a>Configuración de un usuario de implementación
 
@@ -344,13 +341,13 @@ La aplicación Laravel se inicia en el directorio _/public_. La imagen de Docker
 
 En App Service, las variables de entorno se establecen como _valores de aplicación_ mediante el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set).
 
-El siguiente comando permite configurar los valores de aplicación `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` y `DB_PASSWORD`. Reemplace los marcadores de posición _&lt;appname>_ y _&lt;mysql_server_name>_.
+El siguiente comando permite configurar los valores de aplicación `DB_HOST`, `DB_DATABASE`, `DB_USERNAME` y `DB_PASSWORD`. Reemplace los marcadores de posición _&lt;appname>_ y _&lt;mysql-server-name>_.
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings DB_HOST="<mysql_server_name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql_server_name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DB_HOST="<mysql-server-name>.mysql.database.azure.com" DB_DATABASE="sampledb" DB_USERNAME="phpappuser@<mysql-server-name>" DB_PASSWORD="MySQLAzure2017" MYSQL_SSL="true"
 ```
 
-Para acceder a la configuración puede usar el método [getenv](https://php.net/manual/en/function.getenv.php) de PHP. El código de Laravel usa un contenedor [env ](https://laravel.com/docs/5.4/helpers#method-env) sobre el elemento `getenv` de PHP. Por ejemplo, la configuración de MySQL de _config/database.php_ es como el código siguiente:
+Para [acceder a la configuración de la aplicación](configure-language-php.md#access-environment-variables) puede usar el método [getenv](https://php.net/manual/en/function.getenv.php) de PHP. El código de Laravel usa un contenedor [env](https://laravel.com/docs/5.4/helpers#method-env) sobre el elemento `getenv` de PHP. Por ejemplo, la configuración de MySQL de _config/database.php_ es como el código siguiente:
 
 ```php
 'mysql' => [
@@ -376,7 +373,7 @@ php artisan key:generate --show
 Establezca la clave de aplicación en la aplicación App Service, para lo que hay que usar el comando [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set). Reemplace los marcadores de posición _&lt;appname>_ y _&lt;outputofphpartisankey:generate>_.
 
 ```azurecli-interactive
-az webapp config appsettings set --name <app_name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings APP_KEY="<output_of_php_artisan_key:generate>" APP_DEBUG="true"
 ```
 
 `APP_DEBUG="true"` indica a Laravel que devuelva información de depuración si la aplicación implementada encuentra errores. Al ejecutar una aplicación de producción, establézcala en `false`, que es más seguro.
@@ -419,12 +416,12 @@ remote: Running deployment command...
 > - `deploy.sh`: el script de implementación personalizado. Si revisa el archivo, verá que se ejecuta `php composer.phar install` después de `npm install`.
 > - `composer.phar`: el administrador de paquetes de Composer.
 >
-> Puede aplicar este enfoque para agregar cualquier paso a la implementación basada en Git en App Service. Para obtener más información, consulte [Custom Deployment Script](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) (Script de implementación personalizado).
+> Puede aplicar este enfoque para agregar cualquier paso a la implementación basada en Git en App Service. Para más información, vea [Ejecución de Composer](configure-language-php.md#run-composer).
 >
 
 ### <a name="browse-to-the-azure-app"></a>Navegación hasta la aplicación de Azure
 
-Vaya a `http://<app_name>.azurewebsites.net` y agregue algunas tareas a la lista.
+Vaya a `http://<app-name>.azurewebsites.net` y agregue algunas tareas a la lista.
 
 ![Aplicación PHP que se ejecuta en Azure App Service](./media/tutorial-php-mysql-app/php-mysql-in-azure.png)
 
@@ -572,6 +569,10 @@ Una vez que `git push` esté completo, vaya a la aplicación de Azure y pruebe l
 
 Si ha agregado tareas, estas se conservarán en la base de datos. Las actualizaciones que efectúe en el esquema de datos dejan los datos existentes intactos.
 
+## <a name="stream-diagnostic-logs"></a>Transmisión de registros de diagnóstico
+
+[!INCLUDE [Access diagnostic logs](../../../includes/app-service-web-logs-access-no-h.md)]
+
 ## <a name="manage-the-azure-app"></a>Administración de la aplicación de Azure
 
 Vaya a [Azure Portal](https://portal.azure.com) para administrar la aplicación que ha creado.
@@ -605,4 +606,9 @@ En este tutorial aprendió lo siguiente:
 Vaya al siguiente tutorial para aprender a asignar un nombre DNS personalizado a una aplicación web.
 
 > [!div class="nextstepaction"]
-> [Asignación de un nombre DNS personalizado existente a Azure App Service](../app-service-web-tutorial-custom-domain.md)
+> [Tutorial: Asignar un nombre DNS personalizado a la aplicación](../app-service-web-tutorial-custom-domain.md)
+
+O bien, eche un vistazo a otros recursos:
+
+> [!div class="nextstepaction"]
+> [Configure PHP app](configure-language-php.md) (Configuración de una aplicación de PHP)

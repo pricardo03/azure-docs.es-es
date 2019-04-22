@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 12/11/2018
 ms.author: mjbrown
 ms.openlocfilehash: c94509fb39d1c5ebb9aec1acfe1cbacc9cd6fd4a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268431"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Escritura de procedimientos almacenados, desencadenadores y funciones definidas por el usuario (UDF) en Azure Cosmos DB
@@ -318,10 +318,10 @@ Para obtener ejemplos de cómo registrar y utilizar una función definida por el
 
 Aprenda más conceptos y cómo escribir o utilizar procedimientos almacenados, desencadenadores y funciones definidas por el usuario en Azure Cosmos DB:
 
-* [Registro y uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario en Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md)
+* [How to register and use stored procedures, triggers, and user-defined functions in Azure Cosmos DB](how-to-use-stored-procedures-triggers-udfs.md) (Registro y uso de procedimientos almacenados, desencadenadores y funciones definidas por el usuario en Azure Cosmos DB)
 
-* [How to write stored procedures and triggers using Javascript Query API in Azure Cosmos DB (Escritura de procedimientos almacenados y desencadenadores con la API de consulta de Javascript en Azure Cosmos DB)](how-to-write-javascript-query-api.md)
+* [How to write stored procedures and triggers using Javascript Query API in Azure Cosmos DB](how-to-write-javascript-query-api.md) (Escritura de procedimientos almacenados y desencadenadores con la API de consulta de Javascript en Azure Cosmos DB)
 
-* [Working with Azure Cosmos DB stored procedures, triggers, and user-defined functions in Azure Cosmos DB (Trabajo con procedimientos almacenados, desencadenadores y funciones definidas por el usuario de Azure Cosmos DB en Azure Cosmos DB)](stored-procedures-triggers-udfs.md)
+* [Working with Azure Cosmos DB stored procedures, triggers, and user-defined functions in Azure Cosmos DB](stored-procedures-triggers-udfs.md) (Trabajo con procedimientos almacenados, desencadenadores y funciones definidas por el usuario de Azure Cosmos DB en Azure Cosmos DB)
 
-* [Trabajo con la API de consulta integrada en lenguaje JavaScript en Azure Cosmos DB](javascript-query-api.md)
+* [Working with JavaScript language integrated query API in Azure Cosmos DB](javascript-query-api.md) (Trabajo con la API de consulta integrada del lenguaje JavaScript en Azure Cosmos DB)

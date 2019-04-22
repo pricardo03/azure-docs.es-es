@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 701b08cafd2e6d38a68252ea5919c8f4cd7de9b4
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: dcfc341b89a3cfebcb5538f88481fd2fbb2936a7
+ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203659"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59505824"
 ---
 ## <a name="set-up-your-project"></a>Configurar su proyecto
 
@@ -51,12 +51,13 @@ En esta sección se muestran los pasos necesarios para instalar y configurar la 
 <!--end-collapse-->
 
 ## <a name="configure-the-authentication-pipeline"></a>Configuración de la canalización de autenticación
+
 Los pasos siguientes se utilizan para crear una clase de inicio del middleware de OWIN para configurar la autenticación de OpenID Connect. Esta clase se ejecutará automáticamente cuando se inicie el proceso de IIS.
 
 > [!TIP]
 > Si el proyecto no tiene un archivo `Startup.cs` en la carpeta raíz:
 > 1. Haga clic con el botón derecho en la carpeta raíz del proyecto: > `Add` > `New Item...` > `OWIN Startup class`<br/>
-> 2. Asígnele el nombre `Startup.cs`.
+> 2. Asígnele un nombre `Startup.cs`
 >
 >> Asegúrese de que la clase seleccionada es una clase de inicio de OWIN y no una clase estándar de C#. Para confirmarlo, compruebe si ve `[assembly: OwinStartup(typeof({NameSpace}.Startup))]` encima del espacio de nombres.
 
@@ -113,10 +114,10 @@ Los pasos siguientes se utilizan para crear una clase de inicio del middleware d
                     ResponseType = OpenIdConnectResponseType.IdToken,
                     // ValidateIssuer set to false to allow personal and work accounts from any organization to sign in to your application
                     // To only allow users from a single organizations, set ValidateIssuer to true and 'tenant' setting in web.config to the tenant name
-                    // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter 
+                    // To allow users from only a list of specific organizations, set ValidateIssuer to true and use ValidIssuers parameter
                     TokenValidationParameters = new TokenValidationParameters()
                     {
-                        ValidateIssuer = false
+                        ValidateIssuer = false // This is a simplification
                     },
                     // OpenIdConnectAuthenticationNotifications configures OWIN to send notification of failed authentications to OnAuthenticationFailed method
                     Notifications = new OpenIdConnectAuthenticationNotifications
@@ -140,6 +141,9 @@ Los pasos siguientes se utilizan para crear una clase de inicio del middleware d
         }
     }
     ```
+
+> [!NOTE]
+> Establecer `ValidateIssuer = false` es una simplificación para este inicio rápido. En las aplicaciones reales es preciso validar al emisor. Para aprender a hacerlo, vea los ejemplos.
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>Más información

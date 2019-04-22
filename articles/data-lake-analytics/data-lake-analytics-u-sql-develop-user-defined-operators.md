@@ -10,10 +10,10 @@ ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 122a4b6af78a22f74d5057da75767077f8d9b978
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59496153"
 ---
 # <a name="develop-u-sql-user-defined-operators-udos"></a>Desarrollo de operadores U-SQL definidos por el usuario (UDO)
@@ -118,11 +118,11 @@ En este artículo se describe cómo desarrollar operadores definidos por el usua
 11. Haga clic en **Enviar**. Los resultados del envío y el vínculo del trabajo están disponibles en la ventana de resultados cuando se completa el envío.
 12. Haga clic en el botón **Actualizar** para ver el estado del trabajo más reciente y actualizar la pantalla.
 
-**Para ver la salida**
+**Para ver la salida**:
 
 1. En el **Explorador de servidores**, expanda **Azure**, **Data Lake Analytics**, su cuenta de Data Lake Analytics y **Cuentas de almacenamiento**, haga clic con el botón derecho en el almacén predeterminado y, finalmente, haga clic en **Explorador**.
 2. Expanda Ejemplos, expanda Salidas y, finalmente, haga doble clic en **Drivers.csv**.
 
 ## <a name="see-also"></a>Vea también
-* [Extender las expresiones U-SQL con código de usuario](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
-* [Uso de herramientas de Data Lake para Visual Studio para desarrollar aplicaciones de U-SQL](data-lake-analytics-data-lake-tools-get-started.md)
+* [Extensión de las expresiones U-SQL con código de usuario](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
+* [Uso de Data Lake Tools for Visual Studio para desarrollar aplicaciones de U-SQL](data-lake-analytics-data-lake-tools-get-started.md)

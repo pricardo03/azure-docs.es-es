@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: damaerte
 ms.openlocfilehash: 46c9350dd2a33d0d25fe193b2ae50c954f2d1f95
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59500624"
 ---
 # <a name="features--tools-for-azure-cloud-shell"></a>Características y herramientas de Azure Cloud Shell
@@ -40,7 +40,7 @@ Una vez finalizado, Cloud Shell conectará automáticamente su almacenamiento (m
 Además, el directorio `$HOME` se conserva como un archivo .img en el recurso compartido de archivos Azure.
 Los archivos fuera de `$HOME` y el estado de la máquina no se conservan entre sesiones. Use los procedimientos recomendados al almacenar secretos, como las claves SSH. Los servicios como [Azure Key Vault tiene tutoriales de configuración](https://docs.microsoft.com/azure/key-vault/key-vault-manage-with-cli2#prerequisites).
 
-[Más información sobre la persistencia de archivos en Cloud Shell.](persisting-shell-storage.md)
+[Más información sobre la persistencia de archivos en Cloud Shell](persisting-shell-storage.md).
 
 ### <a name="azure-drive-azure"></a>Unidad de Azure (Azure):
 
@@ -64,7 +64,7 @@ Cloud Shell incluye autenticación configurada previamente para herramientas de 
 |Editores de texto           |código (editor de Cloud Shell)<br> vim<br> nano<br> emacs    |
 |Control de código fuente         |git                    |
 |Herramientas de compilación            |make<br> maven<br> npm<br> pip         |
-|Contenedores             |[Máquina de Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [DC/OS CLI](https://github.com/dcos/dcos-cli)         |
+|Contenedores             |[Máquina de Docker](https://github.com/docker/machine)<br> [Kubectl](https://kubernetes.io/docs/user-guide/kubectl-overview/)<br> [Helm](https://github.com/kubernetes/helm)<br> [CLI de DC/OS](https://github.com/dcos/dcos-cli)         |
 |Bases de datos              |Cliente de MySQL<br> Cliente de PostgreSql<br> [Utilidad sqlcmd](https://docs.microsoft.com/sql/tools/sqlcmd-utility)<br> [mssql-scripter](https://github.com/Microsoft/sql-xplat-cli) |
 |Otros                  |Cliente de iPython<br> [CLI de Cloud Foundry](https://github.com/cloudfoundry/cli)<br> [Terraform](https://www.terraform.io/docs/providers/azurerm/)<br> [Ansible](https://www.ansible.com/microsoft-azure)<br> [Chef InSpec](https://www.chef.io/inspec/)|
 
@@ -80,7 +80,7 @@ Cloud Shell incluye autenticación configurada previamente para herramientas de 
 |Python     |2.7 y 3.5 (predeterminadas)|
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Inicio rápido de Cloud Shell de Bash](quickstart.md) <br>
-[PowerShell en la Guía de inicio rápido de Cloud Shell](quickstart-powershell.md) <br>
-[Obtenga información acerca de la CLI de Azure](https://docs.microsoft.com/cli/azure/) <br>
-[Obtenga información acerca de Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>
+[Guía de inicio rápido de Bash en Cloud Shell](quickstart.md) <br>
+[Guía de inicio rápido de PowerShell en Cloud Shell](quickstart-powershell.md) <br>
+[Más información acerca de la CLI de Azure](https://docs.microsoft.com/cli/azure/) <br>
+[Información acerca de Azure PowerShell](https://docs.microsoft.com/powershell/azure/) <br>

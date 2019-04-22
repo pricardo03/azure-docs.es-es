@@ -9,17 +9,17 @@ ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.service: app-service
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 01/17/2018
+ms.date: 03/28/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3335163c15319e39858003032ae7113c9c26a3fd
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: 88c9996ce3f2d89ae58881c913f6bd4e549b5814
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438587"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59547311"
 ---
-# <a name="deploy-a-dockergo-web-app-in-web-app-for-containers"></a>Implementación de una aplicación Docker o Go en Web App for Containers
+# <a name="run-a-custom-linux-container-in-azure-app-service"></a>Ejecución de un contenedor Linux personalizado en Azure App Service
 
 [App Service Linux](app-service-linux-intro.md) proporciona pilas de aplicaciones predefinidas en Linux con compatibilidad con lenguajes como .NET, PHP, Node.js entre otros. También puede usar una imagen personalizada de Docker para ejecutar la aplicación web en una pila de aplicaciones aún sin definir en Azure. Esta guía de inicio rápido muestra cómo crear una aplicación web e implementar una imagen de GO desde Docker Hub. Creará la aplicación web con la [CLI de Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli).
 
@@ -75,4 +75,10 @@ http://<app_name>.azurewebsites.net/hello
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Usar una imagen de Docker personalizada](tutorial-custom-docker-image.md)
+> [Tutorial: Implementar desde el repositorio de contenedor privado](tutorial-custom-docker-image.md)
+
+> [!div class="nextstepaction"]
+> [Configurar un contenedor personalizado](configure-custom-container.md)
+
+> [!div class="nextstepaction"]
+> [Tutorial: Aplicación de WordPress con varios contenedores](tutorial-multi-container-app.md)

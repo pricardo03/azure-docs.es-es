@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 04/04/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: 7f501bf8496d1293a45c15908d4f2b21b6ed01d2
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 8ceb3d2d97c63bd19333336314beb6c7444288e9
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045412"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578414"
 ---
 # <a name="what-is-azure-event-grid"></a>¿Qué es Azure Event Grid?
 
@@ -22,7 +22,7 @@ Azure Event Grid permite crear fácilmente aplicaciones con arquitecturas basada
 
 Puede usar filtros para enrutar eventos específicos a distintos puntos de conexión, multidifusión a varios puntos de conexión y asegurarse de que los eventos se entregan de forma confiable.
 
-Actualmente, Azure Event Grid está disponible en todas las regiones públicas. No está aún disponible en las nubes de Azure Alemania, Azure China o Azure Government.
+Actualmente, Azure Event Grid está disponible en todas las regiones públicas. No está aún disponible en las nubes Azure Alemania, Azure China 21Vianet o Azure Government.
 
 Este artículo ofrece información general sobre Azure Event Grid. Para comenzar a usar rápidamente Event Grid, consulte [Creación y enrutamiento de eventos personalizados con Azure Event Grid](custom-event-quickstart.md). 
 
@@ -34,30 +34,29 @@ En esta imagen se muestra cómo se conectan los orígenes y los controladores en
 
 Para obtener una información completa sobre las funcionalidades de cada origen, así como los artículos relacionados, consulte [orígenes de eventos](event-sources.md). Actualmente, los siguientes servicios de Azure admiten el envío de eventos a Event Grid:
 
-* Suscripciones de Azure (operaciones de administración)
-* Container Registry
-* Temas personalizados
-* Event Hubs
-* IoT Hub
-* Media Services
-* Grupos de recursos (operaciones de administración)
-* Azure Service Bus
-* Storage Blob
-* Storage de uso general v2 (GPv2)
-* Azure Maps
+* [Suscripciones de Azure (operaciones de administración)](event-sources.md#azure-subscriptions)
+* [Container Registry](event-sources.md#container-registry)
+* [Temas personalizados](event-sources.md#custom-topics)
+* [Event Hubs](event-sources.md#event-hubs)
+* [IoT Hub](event-sources.md#iot-hub)
+* [Media Services](event-sources.md#media-services)
+* [Grupos de recursos (operaciones de administración)](event-sources.md#resource-groups)
+* [Service Bus](event-sources.md#service-bus)
+* [Storage Blob](event-sources.md#storage)
+* [Azure Maps](event-sources.md#maps)
 
 ## <a name="event-handlers"></a>Controladores de eventos
 
 Para obtener una información completa sobre las funcionalidades de cada controlador, así como los artículos relacionados, consulte [controladores de eventos](event-handlers.md). Actualmente, los siguientes servicios de Azure admiten el control de eventos de Event Grid: 
 
-* Azure Automation
-* Azure Functions
-* Event Hubs
-* conexiones híbridas
-* Logic Apps
-* Microsoft Flow
-* Queue Storage
-* WebHooks
+* [Azure Automation](event-handlers.md#azure-automation)
+* [Azure Functions](event-handlers.md#azure-functions)
+* [Event Hubs](event-handlers.md#event-hubs)
+* [conexiones híbridas](event-handlers.md#hybrid-connections)
+* [Logic Apps](event-handlers.md#logic-apps)
+* [Microsoft Flow](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
+* [Queue Storage](event-handlers.md#queue-storage)
+* [Webhooks](event-handlers.md#webhooks)
 
 ## <a name="concepts"></a>Conceptos
 
@@ -116,11 +115,11 @@ Azure Event Grid usa un modelo de precios de pago por evento, por lo que solo se
 
 * [Enrutamiento de los eventos de Storage Blob](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
   Permite responder a los eventos de Storage Blob mediante Event Grid.
-* [Creación de eventos personalizados y suscripción a ellos](custom-event-quickstart.md)  
+* [Crear eventos personalizados y suscribirse a ellos](custom-event-quickstart.md)  
   Para comenzar de inmediato y empezar a enviar sus propios eventos personalizados a cualquier punto de conexión con el inicio rápido de Azure Event Grid.
 * [Uso de Logic Apps como controlador de eventos](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   Tutorial sobre la creación de una aplicación con Logic Apps para reaccionar ante eventos enviados por Event Grid.
-* [Transmitir macrodatos a un almacenamiento de datos](event-grid-event-hubs-integration.md)  
+* [Transmisión de macrodatos a un almacén de datos](event-grid-event-hubs-integration.md)  
   Tutorial en el que se usa Azure Functions para transmitir datos desde Event Hubs al SQL Data Warehouse.
-* [Referencia de la API REST de Event Grid](/rest/api/eventgrid)  
+* [Referencia de la API de REST de Event Grid](/rest/api/eventgrid)  
   Proporciona contenido de referencia para la administración de suscripciones a eventos, el enrutamiento y el filtrado.

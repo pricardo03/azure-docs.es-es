@@ -10,10 +10,10 @@ ms.assetid: 63be271e-7c44-4d19-9897-c2913ee9599d
 ms.topic: conceptual
 ms.date: 06/30/2017
 ms.openlocfilehash: d1b230b40d1f880787334ebfd39e704e3a650baa
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489680"
 ---
 # <a name="u-sql-programmability-guide"></a>Guía de programación de U-SQL
@@ -85,7 +85,7 @@ OUTPUT @rs1
 
 ### <a name="use-c-expressions-for-todays-date"></a>Uso de expresiones de C# para la fecha de hoy
 
-Para extraer la fecha de hoy, podemos usar la siguiente C# expresión: `DateTime.Now.ToString("M/d/yyyy")`
+Para extraer la fecha de hoy, podemos usar la siguiente expresión de C#: `DateTime.Now.ToString("M/d/yyyy")`
 
 Este es un ejemplo de cómo utilizar esta expresión en un script:
 
@@ -533,9 +533,9 @@ La interfaz `IFormatter` serializa y deserializa un gráfico de objetos con el t
 
 * **Serialize**: serializa un objeto o un grafo de objetos con el directorio raíz especificado en el flujo proporcionado.
 
-`MyType` Instancia: instancia del tipo.  
-`IColumnWriter` sistema de escritura / `IColumnReader` lector: flujo de la columna subyacente.  
-`ISerializationContext` context: enumeración que define un conjunto de marcas que especifica el contexto de origen o destino para el flujo durante la serialización.
+Instancia de `MyType`: instancia del tipo.  
+Escritor `IColumnWriter`/lector `IColumnReader`: flujo de la columna subyacente.  
+Contexto `ISerializationContext`: enumeración que define un conjunto de marcas que especifica el contexto de origen o destino para el flujo durante la serialización.
 
 * **Intermediate**: especifica que el contexto de origen o destino no es un almacén persistente.
 
@@ -1269,7 +1269,7 @@ public class MyOutputter : IOutputter
 
 * `Output` se llama para cada fila de entrada. Devuelve el conjunto de filas `IUnstructuredWriter output`.
 * La clase Constructor se utiliza para pasar parámetros al outputter definido por el usuario.
-* `Close` se usa para invalidar opcionalmente para liberar el estado costoso o para determinar cuándo se escribió la última fila.
+* `Close` se usa para invalidar opcionalmente para liberar el estado costoso o saber cuándo se ha escrito la última fila.
 
 El atributo **SqlUserDefinedOutputter** indica que el tipo se debe registrar como un outputter definido por el usuario. Esta clase no se puede heredar.
 
