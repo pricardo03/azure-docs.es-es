@@ -1,7 +1,7 @@
 ---
 title: Datos de patrón
 titleSuffix: Azure Cognitive Services
-description: Use un patrón para extraer datos de una expresión de plantilla con el formato correcto. En la expresión de plantilla se usa una entidad sencilla y roles para extraer datos relacionados como las ubicaciones de origen y destino.
+description: Los patrones extraen datos de expresiones de plantillas con el formato correcto. En la expresión de plantilla se usa una entidad sencilla y roles para extraer datos relacionados como las ubicaciones de origen y destino.
 ms.custom: seodec18
 services: cognitive-services
 author: diberry
@@ -9,18 +9,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 04/01/2019
 ms.author: diberry
-ms.openlocfilehash: dc1be0d1d00ae64f38690f019580119b03debedf
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: d6a2c9d92d79bed3f0e9a9976a64f6e11debba88
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58106600"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523281"
 ---
 # <a name="tutorial-extract-contextually-related-patterns-using-roles"></a>Tutorial: Extracción de patrones relacionados contextualmente mediante roles
 
-En este tutorial, use un patrón para extraer datos de una expresión de plantilla con el formato correcto. En la expresión de plantilla se usa una entidad sencilla y roles para extraer datos relacionados como las ubicaciones de origen y destino.  Al usar patrones, se necesitan menos expresiones de ejemplo para la intención.
+En este tutorial, use un patrón para extraer datos de una expresión de plantilla con el formato correcto. En la expresión de plantilla se usa una [entidad sencilla](luis-concept-entity-types.md#simple-entity) y [roles](luis-concept-roles.md) para extraer datos relacionados como las ubicaciones de origen y destino.  Al usar patrones, se necesitan menos expresiones de ejemplo para la intención.
 
 
 **En este tutorial, aprenderá a:**
@@ -373,19 +373,6 @@ Las ciudades, al igual que lo que ocurre con los nombres de personas, son compli
     ```
 
 La puntuación de intención ahora es mucho más alta y los nombres de rol forman parte de la respuesta de la entidad.
-
-## <a name="hierarchical-entities-versus-roles"></a>Diferencias entre entidades jerárquicas y roles
-
-En el [tutorial sobre entidades jerárquicas](luis-quickstart-intent-and-hier-entity.md), la intención **MoveEmployee** detectó cuándo se debe trasladar un empleado existente de un edificio y oficina a otro. Las expresiones de ejemplo tenían las ubicaciones de origen y destino, pero no usaban roles. En su lugar, el origen y destino eran elementos secundarios de la entidad jerárquica. 
-
-En este tutorial, la aplicación de recursos humanos detecta expresiones sobre cómo trasladar los empleados nuevos de una ciudad a otra. Estos dos tipos de expresiones son iguales pero se resuelven mediante otras funcionalidades de LUIS.
-
-|Tutorial|Expresión de ejemplo|Ubicaciones de origen y destino|
-|--|--|--|
-|[Jerárquica (sin roles)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones from **a-2349** to **b-1298**|a-2349, b-1298|
-|Este tutorial (con roles)|Move Billy Patterson from **Yuma** to **Denver**.|Yuma, Denver|
-
-Para más información, consulte [Roles frente a entidades jerárquicas](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 

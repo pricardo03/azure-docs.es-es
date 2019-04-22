@@ -4,254 +4,195 @@ description: Aprenda a configurar el inicio de sesión único entre Azure Active
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: daveba
+manager: mtillman
+ms.reviewer: barbkess
 ms.assetid: a6799629-7546-43f8-a966-956db32864b1
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 02/15/2017
+ms.topic: tutorial
+ms.date: 04/01/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2eb3085c652be1b86b6343850c5cad3dcdc4c14
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
+ms.openlocfilehash: dc1d7032f80babf8686397ae4dcf0043f456acbd
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56168530"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59565199"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-firmplay---employee-advocacy-for-recruiting"></a>Tutorial: Integración de Azure Active Directory con FirmPlay - Employee Advocacy for Recruiting
 
 En este tutorial, aprenderá a integrar FirmPlay - Employee Advocacy for Recruiting con Azure Active Directory (Azure AD).
-
 La integración de FirmPlay - Employee Advocacy for Recruiting con Azure AD le proporciona las siguientes ventajas:
 
-- Puede controlar en Azure AD que tenga acceso a FirmPlay - Employee Advocacy for Recruiting
-- Puede permitir que los usuarios inicien sesión automáticamente en FirmPlay - Employee Advocacy for Recruiting (inicio de sesión único) con sus cuentas de Azure AD.
-- Puede administrar sus cuentas en una ubicación central: el Portal de administración de Azure
+* En Azure AD, puede controlar quién tiene acceso a FirmPlay - Employee Advocacy for Recruiting
+* Puede permitir que los usuarios inicien sesión automáticamente en FirmPlay - Employee Advocacy for Recruiting (inicio de sesión único) con sus cuentas de Azure AD.
+* Puede administrar sus cuentas en una ubicación central: Azure Portal.
 
-Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
+Si desea obtener más información sobre la integración de aplicaciones SaaS con Azure AD, vea [Qué es el acceso a las aplicaciones y el inicio de sesión único en Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/) antes de empezar.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para configurar la integración de Azure AD con FirmPlay - Employee Advocacy for Recruiting, necesita los siguientes elementos:
 
-- Una suscripción de Azure AD
-- Una suscripción habilitada para inicio de sesión única de FirmPlay - Employee Advocacy for Recruiting
-
-
-> [!NOTE]
-> Para probar los pasos de este tutorial, no se recomienda el uso de un entorno de producción.
-
-
-Para probar los pasos de este tutorial, debe seguir estas recomendaciones:
-
-- No debe usar el entorno de producción, a menos que sea necesario.
-- Si no dispone de un entorno de prueba de Azure AD, puede obtener una versión de prueba de un mes [aquí](https://azure.microsoft.com/pricing/free-trial/).
-
+* Una suscripción de Azure AD. Si no dispone de un entorno de Azure AD, puede obtener [una cuenta gratuita](https://azure.microsoft.com/free/)
+* Una suscripción habilitada para el inicio de sesión único en FirmPlay - Employee Advocacy for Recruiting
 
 ## <a name="scenario-description"></a>Descripción del escenario
-En este tutorial, puede probar el inicio de sesión único de Azure AD en un entorno de prueba. El escenario descrito en este tutorial consta de dos bloques de creación principales:
 
-1. Adición de FirmPlay - Employee Advocacy for Recruiting desde la galería
-1. Configuración y comprobación del inicio de sesión único de Azure AD
+En este tutorial, puede configurar y probar el inicio de sesión único de Azure AD en un entorno de prueba.
 
+* FirmPlay - Employee Advocacy for Recruiting admite el inicio de sesión único iniciado por **SP**
 
 ## <a name="adding-firmplay---employee-advocacy-for-recruiting-from-the-gallery"></a>Adición de FirmPlay - Employee Advocacy for Recruiting desde la galería
+
 Para configurar la integración de FirmPlay - Employee Advocacy for Recruiting en Azure AD, debe agregar FirmPlay - Employee Advocacy for Recruiting de la galería a la lista de aplicaciones administradas de SaaS.
 
 **Para agregar FirmPlay - Employee Advocacy for Recruiting desde la galería, realice los pasos siguientes:**
 
-1. En el panel de navegación izquierdo del **[Portal de administración de Azure](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**. 
+1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
-    ![Active Directory][1]
+    ![Botón Azure Active Directory](common/select-azuread.png)
 
-1. Vaya a **Aplicaciones empresariales**. A continuación, vaya a **Todas las aplicaciones**.
+2. Vaya a **Aplicaciones empresariales** y seleccione la opción **Todas las aplicaciones**.
 
-    ![APLICACIONES][2]
-    
-1. Haga clic en el botón **Agregar** situado en la parte superior del cuadro de diálogo.
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-    ![APLICACIONES][3]
+3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
 
-1. En el cuadro de búsqueda, escriba **FirmPlay - Employee Advocacy for Recruiting**.
+    ![Botón Nueva aplicación](common/add-new-app.png)
 
-    ![Creación de un usuario de prueba de Azure AD](./media/firmplay-tutorial/tutorial_firmplay_001.png)
+4. En el cuadro de búsqueda, escriba **FirmPlay - Employee Advocacy for Recruiting**, seleccione **FirmPlay - Employee Advocacy for Recruiting** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
-1. En el panel de resultados, seleccione **FirmPlay - Employee Advocacy for Recruiting** y luego haga clic en el botón **Agregar** para agregar la aplicación.
+     ![FirmPlay - Employee Advocacy for Recruiting en la lista de resultados](common/search-new-app.png)
 
-    ![Creación de un usuario de prueba de Azure AD](./media/firmplay-tutorial/tutorial_firmplay_0001.png)
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configuración y comprobación del inicio de sesión único de Azure AD
-En esta sección, configurará y probará el inicio de sesión único de Azure AD con FirmPlay - Employee Advocacy for Recruiting utilizando usuario de prueba llamado "Britta Simon".
-
-Para que el inicio de sesión único funcione, Azure AD debe saber cuál es el usuario homólogo de FirmPlay - Employee Advocacy for Recruiting para un usuario de Azure AD. Es decir, es necesario establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de FirmPlay - Employee Advocacy for Recruiting.
-
-Esta relación de vínculo se establece asignando el valor del **nombre de usuario** en Azure AD como el valor del **nombre de usuario** en FirmPlay - Employee Advocacy for Recruiting.
+En esta sección, configurará y probará el inicio de sesión único de Azure AD con FirmPlay - Employee Advocacy for Recruiting con un usuario de prueba llamado **Britta Simon**.
+Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de FirmPlay - Employee Advocacy for Recruiting.
 
 Para configurar y probar el inicio de sesión único de Azure AD con FirmPlay - Employee Advocacy for Recruiting, es preciso completar los siguientes bloques de creación:
 
-1. **[Configuración del inicio de sesión único de Azure AD](#configuring-azure-ad-single-sign-on)** : para permitir a los usuarios usar esta característica.
-1. **[Creación de un usuario de prueba de Azure AD](#creating-an-azure-ad-test-user)** : para probar el inicio de sesión único de Azure AD con Britta Simon.
-1. **[Creación de un usuario de prueba de FirmPlay - Employee Advocacy for Recruiting](#creating-a-firmplay---employee-advocacy-for-recruiting-test-user)**: para tener un homólogo de Britta Simon en FirmPlay: Employee Advocacy for Recruiting que esté vinculado a la representación de ella en Azure AD.
-1. **[Asignación del usuario de prueba de Azure AD](#assigning-the-azure-ad-test-user)** : para permitir que Britta Simon use el inicio de sesión único de Azure AD.
-1. **[Testing Single Sign-On](#testing-single-sign-on)** : para comprobar si funciona la configuración.
+1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
+2. **[Configuración del inicio de sesión único de FirmPlay - Employee Advocacy for Recruiting](#configure-firmplay---employee-advocacy-for-recruiting-single-sign-on)**: para configurar los valores de inicio de sesión único en la aplicación.
+3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de FirmPlay - Employee Advocacy for Recruiting](#create-firmplay---employee-advocacy-for-recruiting-test-user)**: para tener un equivalente de Britta Simon en FirmPlay - Employee Advocacy for Recruiting que esté vinculado a la representación de Azure AD de ese usuario.
+6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
 
-En esta sección, habilitará el inicio de sesión único de Azure AD en el Portal de administración de Azure y configurará el inicio de sesión único en la aplicación FirmPlay - Employee Advocacy for Recruiting.
+En esta sección, habilitará el inicio de sesión único de Azure AD en Azure Portal.
 
-**Para configurar el inicio de sesión único de Azure AD con FirmPlay - Employee Advocacy for Recruiting, realice los pasos siguientes:**
+Para configurar el inicio de sesión único de Azure AD con FirmPlay - Employee Advocacy for Recruiting, siga los pasos que se indican a continuación:
 
-1. En el Portal de administración de Azure, en la página de integración de la aplicación **FirmPlay - Employee Advocacy for Recruiting**, haga clic en **Inicio de sesión único**.
+1. En la página de integración de aplicaciones **FirmPlay - Employee Advocacy for Recruiting** de [Azure Portal](https://portal.azure.com/), seleccione **Inicio de sesión único**.
 
-    ![Configurar inicio de sesión único][4]
+    ![Vínculo Configurar inicio de sesión único](common/select-sso.png)
 
-1. En el cuadro de diálogo **Inicio de sesión único**, en **Modo**, seleccione **Inicio de sesión basado en SAML** para habilitar el inicio de sesión único.
- 
-    ![Configurar inicio de sesión único](./media/firmplay-tutorial/tutorial_firmplay_01.png)
+2. En el cuadro de diálogo **Seleccionar un método de inicio de sesión único**, seleccione el modo **SAML/WS-Fed** para habilitar el inicio de sesión único.
 
-1. En la sección **Dominio y direcciones URL de FirmPlay - Employee Advocacy for Recruiting**, en el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL usando el patrón siguiente: `https://<your-subdomain>.firmplay.com/`
+    ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-    ![Configurar inicio de sesión único](./media/firmplay-tutorial/tutorial_firmplay_02.png)
+3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
 
-    > [!NOTE] 
-    > Tenga en cuenta que este no es el valor real. Tiene que actualizar este valor con la dirección URL de inicio de sesión real. Póngase en contacto con [FirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com) para obtener este valor. 
+    ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-1. En la sección **Certificado de firma de SAML**, haga clic en **Crear un nuevo certificado**.
+4. En la sección **Configuración básica de SAML**, siga estos pasos:
 
-    ![Configurar inicio de sesión único](./media/firmplay-tutorial/tutorial_firmplay_03.png)     
+    ![Información de dominio y direcciones URL de inicio de sesión único de FirmPlay - Employee Advocacy for Recruiting](common/sp-signonurl.png)
 
-1. En el cuadro de diálogo **Crear nuevo certificado**, haga clic en el icono del calendario y seleccione una valor en **Fecha de expiración**. Luego haga clic en el botón **Guardar**.
+    En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<your-subdomain>.firmplay.com/`
 
-    ![Configurar inicio de sesión único](./media/firmplay-tutorial/tutorial_general_300.png)
+    > [!NOTE]
+    > Este valor no es real. Actualícelo con la dirección URL de inicio de sesión real. Póngase en contacto con el [equipo de soporte técnico deFirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com) para obtener este valor. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.
 
-1. En la sección **Certificado de firma de SAML**, seleccione **Make new certificate active** (Activar el nuevo certificado) y haga clic en el botón **Guardar**.
+5. En la página **Configurar el inicio de sesión único con SAML**, en la sección **Certificado de firma de SAML**, haga clic en **Descargar** para descargar el **certificado (Base64)** de las opciones proporcionadas según sus requisitos y guárdelo en el equipo.
 
-    ![Configurar inicio de sesión único](./media/firmplay-tutorial/tutorial_firmplay_04.png)
+    ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-1. En la ventana emergente **Rollover certificate** (Certificado de sustitución), haga clic en **Aceptar**.
+6. En la sección **Set up FirmPlay - Employee Advocacy for Recruiting** (Configurar FirmPlay - Employee Advocacy for Recruiting), copie las direcciones URL que necesite.
 
-    ![Configurar inicio de sesión único](./media/firmplay-tutorial/tutorial_general_400.png)
+    ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
-1. En la sección **Certificado de firma de SAML**, haga clic en **Certificado (Base64)** y, luego, guarde el archivo de certificado en el equipo. 
+    a. URL de inicio de sesión
 
-    ![Configurar inicio de sesión único](./media/firmplay-tutorial/tutorial_firmplay_05.png) 
+    b. Identificador de Azure AD
 
-1. En la sección **FirmPlay - Employee Advocacy for Recruiting**, haga clic en **Configurar FirmPlay - Employee Advocacy for Recruiting** para abrir el cuadro de diálogo **Configurar inicio de sesión**.
+    c. URL de cierre de sesión
 
-    ![Configurar inicio de sesión único](./media/firmplay-tutorial/tutorial_firmplay_06.png) 
+### <a name="configure-firmplay---employee-advocacy-for-recruiting-single-sign-on"></a>Configuración del inicio de sesión único de FirmPlay - Employee Advocacy for Recruiting
 
-    ![Configurar inicio de sesión único](./media/firmplay-tutorial/tutorial_firmplay_07.png)
+Para configurar el inicio de sesión único en **FirmPlay - Employee Advocacy for Recruiting**, es preciso enviar el **certificado (Base64)** descargado y las direcciones URL apropiadas copiadas de Azure Portal al [equipo de soporte técnico de FirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com). Dicho equipo lo configura para establecer la conexión de SSO de SAML correctamente en ambos lados.
 
-1. Para configurar el inicio de sesión único para su aplicación, póngase en contacto con el equipo de soporte técnico de [FirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com) y proporcione lo siguiente: 
+### <a name="create-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD 
 
-    • El **archivo de certificado** descargado
+El objetivo de esta sección es crear un usuario de prueba en Azure Portal llamado "Britta Simon".
 
-    • La **dirección URL de servicio de inicio de sesión único de SAML**
+1. En Azure Portal, en el panel izquierdo, seleccione **Azure Active Directory**, **Usuarios** y **Todos los usuarios**.
 
-    • El **identificador de entidad de SAML**
+    ![Vínculos "Usuarios y grupos" y "Todos los usuarios"](common/users.png)
 
-    • La **dirección URL de cierre de sesión**
+2. Seleccione **Nuevo usuario** en la parte superior de la pantalla.
+
+    ![Botón Nuevo usuario](common/new-user.png)
+
+3. En las propiedades Usuario, siga estos pasos.
+
+    ![Cuadro de diálogo Usuario](common/user-properties.png)
+
+    a. En el campo **Nombre**, escriba **BrittaSimon**.
   
+    b. En el campo **Nombre de usuario**, escriba brittasimon@yourcompanydomain.extension. Por ejemplo: BrittaSimon@contoso.com
 
-### <a name="creating-an-azure-ad-test-user"></a>Creación de un usuario de prueba de Azure AD
-El objetivo de esta sección es crear un usuario de prueba en el Portal de administración de Azure llamado Britta Simon.
+    c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
-![Creación de un usuario de Azure AD][100]
+    d. Haga clic en **Create**(Crear).
 
-**Siga estos pasos para crear un usuario de prueba en Azure AD:**
-
-1. En el panel de navegación izquierdo del **Portal de administración de Azure**, haga clic en el icono de **Azure Active Directory**.
-
-    ![Creación de un usuario de prueba de Azure AD](./media/firmplay-tutorial/create_aaduser_01.png) 
-
-1. Vaya a **Usuarios y grupos** y haga clic en **Todos los usuarios** para mostrar la lista de usuarios.
-    
-    ![Creación de un usuario de prueba de Azure AD](./media/firmplay-tutorial/create_aaduser_02.png) 
-
-1. En la parte superior del diálogo, haga clic en **Agregar** para abrir el diálogo **Usuario**.
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/firmplay-tutorial/create_aaduser_03.png) 
-
-1. En la página de diálogo **Usuario**, realice los siguientes pasos:
- 
-    ![Creación de un usuario de prueba de Azure AD](./media/firmplay-tutorial/create_aaduser_04.png) 
-
-     a. En el cuadro de texto **Nombre**, escriba **BrittaSimon**.
-
-    b. En el cuadro de texto **Nombre de usuario**, escriba la **dirección de correo electrónico** de Britta Simon.
-
-    c. Seleccione **Mostrar contraseña** y anote el valor del cuadro **Contraseña**.
-
-    d. Haga clic en **Create**(Crear). 
-
-
-
-### <a name="creating-a-firmplay---employee-advocacy-for-recruiting-test-user"></a>Creación de un usuario de prueba de FirmPlay - Employee Advocacy for Recruiting
-
-En esta sección, creará un usuario llamado a Britta Simon en FirmPlay - Employee Advocacy for Recruiting. Trabaje con [FirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com) para agregar usuarios a la plataforma FirmPlay - Employee Advocacy for Recruiting.
-
-
-### <a name="assigning-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
+### <a name="assign-the-azure-ad-test-user"></a>Asignación del usuario de prueba de Azure AD
 
 En esta sección, habilitará a Britta Simon para que use el inicio de sesión único de Azure concediéndole acceso a FirmPlay - Employee Advocacy for Recruiting.
 
-![Asignar usuario][200] 
+1. En Azure Portal, seleccione **Aplicaciones empresariales**, **Todas las aplicaciones** y, después, **FirmPlay - Employee Advocacy for Recruiting**.
 
-**Para asignar a Britta Simon a FirmPlay - Employee Advocacy for Recruiting desde la galería, realice los pasos siguientes:**
+    ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-1. En el Portal de administración de Azure, abra la vista de aplicaciones, vaya a la vista de directorio y vaya a **Aplicaciones empresariales**. A continuación, haga clic en **All applications** (Todas las aplicaciones).
+2. En la lista de aplicaciones, seleccione **FirmPlay - Employee Advocacy for Recruiting**.
 
-    ![Asignar usuario][201] 
+    ![Vínculo a FirmPlay - Employee Advocacy for Recruiting en la lista de aplicaciones](common/all-applications.png)
 
-1. En la lista de aplicaciones, seleccione **FirmPlay - Employee Advocacy for Recruiting**.
+3. En el menú de la izquierda, seleccione **Usuarios y grupos**.
 
-    ![Configurar inicio de sesión único](./media/firmplay-tutorial/tutorial_firmplay_50.png) 
+    ![Vínculo "Usuarios y grupos"](common/users-groups-blade.png)
 
-1. En el menú de la izquierda, haga clic en **Usuarios y grupos**.
+4. Haga clic en el botón **Agregar usuario** y, después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
 
-    ![Asignar usuario][202] 
+    ![Panel Agregar asignación](common/add-assign-user.png)
 
-1. Haga clic en el botón **Agregar**. Después, seleccione **Usuarios y grupos** en el cuadro de diálogo **Agregar asignación**.
+5. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista Usuarios y, luego, haga clic en el botón **Seleccionar** en la parte inferior de la pantalla.
 
-    ![Asignar usuario][203]
+6. Si espera cualquier valor de rol en la aserción de SAML, en el cuadro de diálogo **Seleccionar rol** seleccione en la lista el rol adecuado para el usuario y, después, haga clic en el botón **Seleccionar** de la parte inferior de la pantalla.
 
-1. En el cuadro de diálogo **Usuarios y grupos**, seleccione **Britta Simon** en la lista de usuarios.
+7. En el cuadro de diálogo **Agregar asignación**, haga clic en el botón **Asignar**.
 
-1. Haga clic en el botón **Seleccionar** del cuadro de diálogo **Usuarios y grupos**.
+### <a name="create-firmplay---employee-advocacy-for-recruiting-test-user"></a>Creación de un usuario de prueba de FirmPlay - Employee Advocacy for Recruiting
 
-1. Haga clic en el botón **Asignar** del cuadro de diálogo **Agregar asignación**.
-    
+En esta sección, creará un usuario llamado a Britta Simon en FirmPlay - Employee Advocacy for Recruiting. Trabaje con el  [equipo de soporte técnico de FirmPlay - Employee Advocacy for Recruiting](mailto:engineering@firmplay.com) para agregar usuarios a la plataforma FirmPlay - Employee Advocacy for Recruiting. Los usuarios se tienen que crear y activar antes de usar el inicio de sesión único.
 
-
-### <a name="testing-single-sign-on"></a>Prueba del inicio de sesión único 
+### <a name="test-single-sign-on"></a>Prueba de inicio de sesión único 
 
 En esta sección, probará la configuración de inicio de sesión único de Azure AD mediante el Panel de acceso.
 
-Al hacer clic en el icono de FirmPlay - Employee Advocacy for Recruiting en el Panel de acceso, debe iniciar sesión automáticamente en FirmPlay - Employee Advocacy for Recruiting.
-
+Al hacer clic en el icono de FirmPlay - Employee Advocacy for Recruiting en el Panel de acceso, debería iniciar sesión automáticamente en la instancia de FirmPlay - Employee Advocacy for Recruiting para la que configuró el inicio de sesión único. Para más información sobre el Panel de acceso, consulte [Introducción al Panel de acceso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](tutorial-list.md)
-* [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+- [Lista de tutoriales sobre cómo integrar aplicaciones SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
+- [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
+- [¿Qué es el acceso condicional en Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-<!--Image references-->
-
-[1]: ./media/firmplay-tutorial/tutorial_general_01.png
-[2]: ./media/firmplay-tutorial/tutorial_general_02.png
-[3]: ./media/firmplay-tutorial/tutorial_general_03.png
-[4]: ./media/firmplay-tutorial/tutorial_general_04.png
-
-[100]: ./media/firmplay-tutorial/tutorial_general_100.png
-
-[200]: ./media/firmplay-tutorial/tutorial_general_200.png
-[201]: ./media/firmplay-tutorial/tutorial_general_201.png
-[202]: ./media/firmplay-tutorial/tutorial_general_202.png
-[203]: ./media/firmplay-tutorial/tutorial_general_203.png

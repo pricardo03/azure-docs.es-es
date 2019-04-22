@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: jeedes
 ms.openlocfilehash: 570200a3befbe6205025a2410c4083d38dd11eb9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262931"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ontrack"></a>Tutorial: Integración de Azure Active Directory con OnTrack
@@ -107,15 +107,15 @@ Para configurar el inicio de sesión único de Azure AD con OnTrack, realice los
 
      a. En el cuadro de texto **Identificador**:
 
-    Para el entorno de pruebas, escriba la dirección URL: `https://staging.insigniagroup.com/sso`
+    Para el entorno de pruebas, escriba la dirección URL:`https://staging.insigniagroup.com/sso`
 
-    Para el entorno de producción, escriba la dirección URL: `https://oeaccessories.com/sso`
+    Para el entorno de producción, escriba la dirección URL:`https://oeaccessories.com/sso`
 
     b. En el cuadro de texto **URL de respuesta**:
 
-    Para el entorno de pruebas, escriba la dirección URL: `https://indie.staging.insigniagroup.com/sso/autonation.aspx`
+    Para el entorno de pruebas, escriba la dirección URL:`https://indie.staging.insigniagroup.com/sso/autonation.aspx`
 
-    Para el entorno de producción, escriba la dirección URL: `https://igaccessories.com/sso/autonation.aspx`
+    Para el entorno de producción, escriba la dirección URL:`https://igaccessories.com/sso/autonation.aspx`
 
     > [!NOTE]
     > Estos valores no son reales. Actualice estos valores con el identificador y la URL de respuesta reales. Póngase en contacto con el [equipo de soporte técnico de OnTrack](mailto:CustomerService@insigniagroup.com) para obtener estos valores. También puede hacer referencia a los patrones que se muestran en la sección **Configuración básica de SAML** de Azure Portal.

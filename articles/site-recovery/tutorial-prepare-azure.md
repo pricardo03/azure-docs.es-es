@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 04/08/2019
+ms.date: 04/15/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6e826bd965281d60cb6d73f325fbc5a7a06da234
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.openlocfilehash: 3d2b22fc507b209a96870daa8bf12ea9ab60a466
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59358486"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617421"
 ---
 # <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>Preparación de los recursos de Azure para la recuperación ante desastres de máquinas locales
 
@@ -54,7 +54,7 @@ Para completar estas tareas su cuenta debe tener asignado el rol integrado de co
 
 ## <a name="create-a-recovery-services-vault"></a>Creación de un almacén de Recovery Services
 
-1. En Azure Portal, haga clic en **+Crear un recurso** y, en Marketplace, busque **Recovery Services**.
+1. En Azure Portal, haga clic en **+Crear un recurso** y, en Marketplace, busque **Recuperación**.
 2. Haga clic en **Backup and Site Recovery (OMS)** y, una vez en esta página, haga clic en **Crear**. 
 1. En **Almacén de Recovery Services** > **Nombre**, escriba un nombre descriptivo para identificar el almacén. Para este conjunto de tutoriales se usa **ContosoVMVault**.
 2. En **Grupo de recursos**, seleccione un grupo de recursos existente o cree uno nuevo. En este tutorial se va a usar **contosoRG**.
@@ -73,7 +73,7 @@ Las máquinas locales se replican en los discos administrados de Azure. Cuando s
 2. Deje **Resource Manager** seleccionado como modelo de implementación.
 3. En **Nombre**, escriba un nombre de red. El nombre debe ser único dentro del grupo de recursos de Azure. Se va a usar **ContosoASRnet** en este tutorial.
 4. Especifique el grupo de recursos en el que se creará la red. Se va a usar el grupo de recursos existente **contosoRG**.
-5. En **Intervalo de direcciones**, escriba el intervalo de la red. Usamos **10.0.0.0/24** y no usamos subred.
+5. En **Intervalo de direcciones**, escriba el intervalo de la red. Usamos **10.1.0.0/24**, pero no usamos ninguna subred.
 6. En **Suscripción**, seleccione la suscripción en la que se creará la red.
 7. En **Ubicación**, seleccione la región que en que se creó el almacén de Recovery Services. En este tutorial es **Oeste de Europa**.  La red debe estar en la misma región que el almacén.
 8. Se van a dejar las opciones predeterminadas de protección básica contra DDoS, con ningún punto de conexión de servicio en la red.

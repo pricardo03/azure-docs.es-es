@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: 77be9d80d535cced48a39c47695257d4868f698c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: b9dafd31ed84298c97932b1cdb5593eb17769ef9
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59257440"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59566012"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Carga incremental de datos de varias tablas de SQL Server a Azure SQL Database
 En este tutorial, creará una factoría de datos de Azure con una canalización que carga los datos diferenciales de varias tablas de una instancia local de SQL Server a una base de datos SQL de Azure.    
@@ -491,11 +491,12 @@ La canalización toma una lista de tablas como un parámetro. La actividad ForEa
 1. Cambie a la pestaña **Sink** (Receptor) y seleccione **SinkDataset** en **Sink Dataset** (Conjunto de datos receptor). 
         
     ![Actividad de copia: configuración del receptor](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
-1. Cambie a la pestaña **Parameters** (Parámetros) y realice los siguientes pasos:
+1. Siga estos pasos:
 
-    1. En la propiedad **Sink Stored Procedure Name** (Nombre procedimiento almacenado receptor), escriba `@{item().StoredProcedureNameForMergeOperation}`.
-    1. En la propiedad **Sink Table Type** (Tipo tabla receptor), escriba `@{item().TableType}`.
-    1. En la sección **Sink Dataset** (Conjunto de datos receptor), en el parámetro **SinkTableName**, escriba `@{item().TABLE_NAME}`.
+    1. En la propiedad **Dataset** (Conjunto de datos), en el parámetro **SinkTableName**, escriba `@{item().TABLE_NAME}`.
+    1. En la propiedad **Stored Procedure Name** (Nombre del procedimiento almacenado), escriba `@{item().StoredProcedureNameForMergeOperation}`.
+    1. En la propiedad **Table Type** (Tipo de tabla), escriba `@{item().TableType}`.
+
 
         ![Actividad de copia: parámetros](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)
 1. Arrastre la actividad **Stored Procedure** (procedimiento almacenado) del cuadro de herramientas **Activities** (Actividades) y colóquela en la superficie del diseñador de canalizaciones. Conecte la actividad **Copy** (Copia) a la actividad **Stored Procedure** (Procedimiento almacenado). 
@@ -743,6 +744,6 @@ En este tutorial, realizó los pasos siguientes:
 Pase al tutorial siguiente para obtener información acerca de la transformación de datos mediante el uso de un clúster de Spark en Azure:
 
 > [!div class="nextstepaction"]
->[Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la tecnología Change Tracking](tutorial-incremental-copy-change-tracking-feature-portal.md)
+>[Incrementally load data from Azure SQL Database to Azure Blob Storage using Change Tracking technology](tutorial-incremental-copy-change-tracking-feature-portal.md) (Carga incremental de datos de Azure SQL Database a Azure Blob Storage mediante la tecnología de control de cambios)
 
 

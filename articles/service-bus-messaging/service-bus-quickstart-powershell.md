@@ -8,36 +8,34 @@ ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 01/12/2019
+ms.date: 04/10/2019
 ms.author: spelluru
-ms.openlocfilehash: ef510ca88f1b305125c7840932641c8a2359d8c9
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.openlocfilehash: 31b1b852c92ad671564fd54520af3f3a23b3e3c2
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045248"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499808"
 ---
 # <a name="quickstart-use-azure-powershell-to-create-a-service-bus-queue"></a>Inicio rápido: Uso de Azure PowerShell para crear una cola de Service Bus
-Microsoft Azure Service Bus es un agente de mensajes de integración empresarial que proporciona mensajería segura y una absoluta confiabilidad. Un escenario típico de Service Bus implica normalmente el desacoplamiento de dos o más aplicaciones, servicios o procesos, y la transferencia de los cambios de estado o de datos. Estos escenarios pueden implicar la programación de varios trabajos por lotes en otras aplicaciones o servicios, o desencadenar la realización de pedidos. Por ejemplo, una empresa minorista puede enviar los datos de un punto de ventas a un área de operaciones o centro de distribución regional para indicar las actualizaciones de reposición y de inventario. En este escenario, la aplicación cliente envía y recibe mensajes de una cola de Service Bus.
-
-![queue](./media/service-bus-quickstart-powershell/quick-start-queue.png)
-
 Esta guía de inicio rápido describe cómo enviar y recibir mensajes de una cola de Service Bus, cómo usar PowerShell para crear un espacio de nombres de mensajería y una cola dentro de este, y cómo obtener las credenciales de autorización de ese espacio de nombres. El procedimiento muestra después cómo enviar y recibir mensajes de esta cola mediante la [biblioteca de .NET Standard](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus).
 
-Si no tiene una suscripción a Azure, cree una [cuenta gratuita][] antes de empezar.
-
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
+[!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
+
 
 ## <a name="prerequisites"></a>Requisitos previos
 
 Para completar este tutorial, asegúrese de que tiene instalados los siguientes elementos:
 
-- [Visual Studio 2017 Update 3 (versión 15.3, 26730.01)](https://www.visualstudio.com/vs) o posterior.
+- Una suscripción de Azure. Si no tiene una suscripción a Azure, cree una [cuenta gratuita][] antes de empezar. 
+- [Visual Studio 2017 Update 3 (versión 15.3, 26730.01)](https://www.visualstudio.com/vs) o posterior. Use Visual Studio para compilar un ejemplo que envíe mensajes a una cola y los reciba. El ejemplo es para probar la cola que creó en el portal. 
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), versión 2.0 o posterior.
 
-Para esta guía de inicio rápido es necesario ejecutar la versión más reciente de Azure PowerShell. Si necesita instalarlo o actualizarlo, consulte [Instalación y configuración de Azure PowerShell][].
+Para esta guía de inicio rápido es necesario ejecutar la versión más reciente de Azure PowerShell. Si necesita instalarlo o actualizarlo, consulte [Instalación y configuración de Azure PowerShell][]. Si está familiarizado con Azure Cloud Shell, puede usarlo sin necesidad de instalar Azure PowerShell en el equipo. Para más información acerca de Azure Cloud Shell, consulte [Introducción a Azure Cloud Shell](../cloud-shell/overview.md)
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
 1. En primer lugar, instale el módulo de PowerShell de Service Bus, si no lo ha hecho anteriormente:
 
@@ -45,7 +43,7 @@ Para esta guía de inicio rápido es necesario ejecutar la versión más recient
    Install-Module Az.ServiceBus
    ```
 
-2. Ejecute el siguiente comando para iniciar sesión en Azure:
+2. Ejecute el siguiente comandos para iniciar sesión en Azure:
 
    ```azurepowershell-interactive
    Login-AzAccount
@@ -130,7 +128,7 @@ Esta sección contiene información más detallada acerca de lo que hace el cód
 
 ### <a name="get-connection-string-and-queue"></a>Obtención de la cadena de conexión y la cola
 
-La cadena de conexión y el nombre de la cola se pasan al método `Main()` como argumentos de la línea de comandos. `Main()` declara dos variables de cadena que contienen estos valores:
+Tanto la cadena de conexión como el nombre de la cola se usan en el método `Main()` como argumentos de la línea de comandos. `Main()` declara dos variables de cadena que contienen estos valores:
 
 ```csharp
 static void Main(string[] args)
@@ -259,10 +257,10 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este artículo, ha creado un espacio de nombres de Service Bus y otros recursos necesarios para enviar y recibir mensajes de una cola. Para más información sobre cómo escribir código para enviar y recibir mensajes, pase al tutorial siguiente de Service Bus:
+En este artículo, ha creado un espacio de nombres de Service Bus y otros recursos necesarios para enviar y recibir mensajes de una cola. Para más información sobre cómo escribir código para enviar y recibir mensajes, continúe con los tutoriales de la sección **Envío y recepción de mensajes**. 
 
 > [!div class="nextstepaction"]
-> [Actualización del inventario mediante Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)
+> [Envío y recepción de mensajes](service-bus-dotnet-get-started-with-queues.md)
 
 [cuenta gratuita]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
 [Instalación y configuración de Azure PowerShell]: /powershell/azure/install-Az-ps

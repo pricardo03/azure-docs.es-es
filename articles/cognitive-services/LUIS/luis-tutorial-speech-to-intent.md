@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 04/08/2018
 ms.author: diberry
 ms.openlocfilehash: 9d6173ee25f28aa884513d126c06a8a7c722098d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273845"
 ---
 # <a name="integrate-speech-service-with-your-language-understanding-app"></a>Integración del servicio Voz con la aplicación de Language Understanding
@@ -66,7 +66,7 @@ En este artículo se usa el dispositivo de audio en el equipo. Pueden ser unos a
 
 El SDK de Voz ya está incluido como referencia. 
 
-[![SCaptura de pantalla de Visual Studio 2017 que muestra el paquete NuGet Microsoft.CognitiveServices.Speech(./media/luis-tutorial-speech-to-intent/nuget-package.png "Screenshot of Visual Studio 2017 displaying Microsoft.CognitiveServices.Speech NuGet package")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
+[![Captura de pantalla de Visual Studio 2017 que muestra el paquete NuGet Microsoft.CognitiveServices.Speech](./media/luis-tutorial-speech-to-intent/nuget-package.png "Screenshot of Visual Studio 2017 displaying Microsoft.CognitiveServices.Speech NuGet package")](./media/luis-tutorial-speech-to-intent/nuget-package.png#lightbox)
 
 ## <a name="modify-the-c-code"></a>Modificación del código de C#
 Abra el archivo `Program.cs` y cambie las variables siguientes:
@@ -74,7 +74,7 @@ Abra el archivo `Program.cs` y cambie las variables siguientes:
 |Nombre de la variable|Propósito|
 |--|--|
 |LUIS_assigned_endpoint_key|Corresponde al valor de clave de suscripción asignado de la dirección URL del punto de conexión de la página Publicar.|
-|LUIS_endpoint_key_region|Corresponde al primer subdominio de la dirección URL del punto de conexión, por ejemplo `westus`|
+|LUIS_endpoint_key_region|Corresponde al primer subdominio de la dirección URL del punto de conexión, por ejemplo `westus`.|
 |LUIS_app_ID|Corresponde a la ruta de la dirección URL del punto de conexión que aparece después de **apps/**.|
 
 El archivo `Program.cs` ya tiene las intenciones de Human Resources asignadas.

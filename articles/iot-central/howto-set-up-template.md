@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 602c7385b252daa7db22bd47f43afec3ad072263
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: db8c8de7a8047f7aa6a81f6a3b372d161408f1be
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904209"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679353"
 ---
-# <a name="set-up-a-device-template-new-ui-design"></a>Configuración de una plantilla de dispositivo (diseño de la nueva interfaz de usuario)
+# <a name="set-up-a-device-template"></a>Configuración de una plantilla de dispositivo
 
 Una plantilla de dispositivo es un plano técnico que define las características y los comportamientos de un tipo de dispositivo que se conecta a una aplicación de Azure IoT Central.
 
@@ -198,7 +198,7 @@ Puede crear una propiedad de ubicación como una propiedad de la aplicación med
 
    Se admiten dos formatos para agregar una ubicación:
    - **Ubicación como una dirección**
-   - **Ubicación de coordenadas**
+   - **Ubicación como coordenadas**
 
 4. Seleccione **Guardar**. Un operador puede actualizar el valor de ubicación en **Device Explorer**.
 

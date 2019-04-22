@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: raynew
 ms.openlocfilehash: 1b03cf648ad65960cce4ffc874cf32ad91ef7dc1
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59490644"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Detección y evaluación de un entorno grande de VMware
@@ -18,7 +18,7 @@ ms.locfileid: "59490644"
 Azure Migrate tiene un límite de 1500 máquinas por proyecto. En este artículo se describe cómo evaluar un número elevado de máquinas virtuales (VM) locales mediante [Azure Migrate](migrate-overview.md).
 
 > [!NOTE]
-> Tenemos una versión preliminar disponible que permite la detección de hasta 10.000 máquinas virtuales de VMware en un solo proyecto con un solo dispositivo, si está interesado en probar a probarlo, suscríbase [aquí.](https://aka.ms/migratefuture)
+> Tenemos una versión preliminar disponible que permite la detección de hasta 10 000 máquinas virtuales de VMware en un solo proyecto con un solo dispositivo. Si está interesado en probarlo, regístrese [aquí.](https://aka.ms/migratefuture)
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -56,7 +56,7 @@ En el caso de una detección de una sola vez (actualmente en desuso), funciona e
 
 Planee las detecciones y evaluaciones en función de los límites siguientes:
 
-| **Entidad** | **Límite del equipo** |
+| **Entidad** | **Límite de máquinas** |
 | ---------- | ----------------- |
 | proyecto    | 1500             |
 | Detección  | 1500             |
@@ -227,7 +227,7 @@ Si tiene varios proyectos, asegúrese de identificar el identificador y la clave
 
 1. En el proyecto, seleccione **Introducción** > **Detectar y evaluar** > **Detectar máquinas**.
 2. En **Copiar las credenciales del proyecto**, copie la clave y el identificador del proyecto.
-    ![Copiar las credenciales del proyecto](./media/how-to-scale-assessment/copy-project-credentials.png)
+    ![Copia de las credenciales del proyecto](./media/how-to-scale-assessment/copy-project-credentials.png)
 
 ### <a name="run-the-collector-to-discover-vms"></a>Ejecución del recopilador para detectar VM
 

@@ -10,12 +10,12 @@ ms.subservice: knowledge-exploration
 ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: e2678200e2f8c55111e53ab0a341804fd17623a3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 00c5ed3e3ea5c083f727d06c2ed305fe35ed03db
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57994956"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523331"
 ---
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Introducción a Knowledge Exploration Service API
 
@@ -252,7 +252,7 @@ Una vez que haya creado el servicio en la nube, puede usar [`kes.exe deploy_serv
 
 [Intercambie](../../../articles/cloud-services/cloud-services-nodejs-stage-application.md) el contenido del espacio de ensayo con el espacio de producción, de modo que el tráfico en vivo ahora se dirija al servicio recién implementado. Puede repetir este proceso al implementar una versión actualizada del servicio con nuevos datos. Al igual que con todos los demás servicios en la nube de Azure, también tiene la opción de usar Azure Portal para configurar el [escalado automático](../../../articles/cloud-services/cloud-services-how-to-scale-portal.md).
 
-En este ejemplo, se implementa el índice *Academic* en el espacio de ensayo de un servicio en la nube existente con VM *< vm_size >*. Use el comando siguiente:
+En este ejemplo, se implementa el índice *Academic* en el espacio de ensayo de un servicio en la nube existente con VM *\<vm_size>*. Use el comando siguiente:
 
 `kes.exe deploy_service http://<account>.blob.core.windows.net/<container>/Academic.grammar http://<account>.blob.core.windows.net/<container>/Academic.index <serviceName> <vm_size> --slot Staging`
 

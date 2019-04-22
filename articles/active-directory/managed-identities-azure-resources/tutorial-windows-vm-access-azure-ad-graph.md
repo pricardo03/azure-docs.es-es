@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/20/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b0d9e4fad61195118c92c047340f2cd4d9e20f
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
+ms.openlocfilehash: b402fa754105b734bfc7abbd2790a2a12afc6ff4
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58480692"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523365"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Tutorial: Uso de una identidad administrada asignada por el sistema de una máquina virtual Windows para acceder a Azure AD Graph API
 
@@ -165,7 +165,7 @@ Para usar la identidad administrada asignada por el sistema de la máquina virtu
    $AccessToken = $content.access_token
    ```
 
-5. Con el identificador de objeto de la entidad de servicio de la máquina virtual (dicho valor se puede recuperar de la variable declarada en los pasos anteriores: ``$ManagedIdentitiesServicePrincipal.ObjectId``), puede consultar Azure AD Graph API para recuperar su pertenencia a un grupo. Reemplace <OBJECT ID> por el identificador de objeto del paso anterior y <ACCESS-TOKEN> por el token de acceso obtenido anteriormente:
+5. Con el identificador de objeto de la entidad de servicio de la máquina virtual (dicho valor se puede recuperar de la variable declarada en los pasos anteriores: ``$ManagedIdentitiesServicePrincipal.ObjectId``), puede consultar Azure AD Graph API para recuperar su pertenencia a un grupo. Reemplace `<OBJECT ID>` por el identificador de objeto del paso anterior y <`ACCESS-TOKEN>` por el token de acceso obtenido anteriormente:
 
    ```powershell
    Invoke-WebRequest 'https://graph.windows.net/<Tenant ID>/servicePrincipals/<VM Object ID>/getMemberGroups?api-version=1.6' -Method POST -Body '{"securityEnabledOnly":"false"}' -Headers @{Authorization="Bearer $AccessToken"} -ContentType "application/json"

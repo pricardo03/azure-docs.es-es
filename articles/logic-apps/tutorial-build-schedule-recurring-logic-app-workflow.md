@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
 ms.openlocfilehash: ebc6388f1ebc7546ffda07095ead50797bde4e8b
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58884693"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Comprobación del tráfico según una programación con Azure Logic Apps
@@ -59,8 +59,8 @@ Inicie sesión en <a href="https://portal.azure.com" target="_blank">Azure Porta
 
    | Configuración | Valor | DESCRIPCIÓN | 
    | ------- | ----- | ----------- | 
-   | **NOMBRE** | LA TravelTime | Nombre de la aplicación lógica | 
-   | **Subscription** | <*nombre-de-su-suscripción-a-Azure*> | El nombre de la suscripción a Azure | 
+   | **Nombre** | LA TravelTime | Nombre de la aplicación lógica | 
+   | **Suscripción** | <*nombre-de-su-suscripción-a-Azure*> | El nombre de la suscripción a Azure | 
    | **Grupos de recursos** | LA-TravelTime-RG | Nombre del [grupo de recursos de Azure](../azure-resource-manager/resource-group-overview.md) que se utiliza para organizar recursos relacionados | 
    | **Ubicación** | Este de EE. UU. 2 | Región en la que desea almacenar información sobre la aplicación lógica | 
    | **Log Analytics** | Off | Mantenga el valor **Off** para el registro de diagnóstico. | 
@@ -78,8 +78,7 @@ A continuación, agregue el [desencadenador](../logic-apps/logic-apps-overview.m
 
    ![Búsqueda e incorporación del desencadenador "Programación: Periodicidad"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/add-schedule-recurrence-trigger.png)
 
-2. En la forma **Periodicidad**, elija el botón de **puntos suspensivos** (**...** ) y luego **Cambiar de nombre**. Cambie el nombre del desencadenador por esta descripción:
-```Check travel time every weekday morning```
+2. En la forma **Periodicidad**, elija el botón de **puntos suspensivos** (**...** ) y luego **Cambiar de nombre**. Cambie el nombre del desencadenador por esta descripción:```Check travel time every weekday morning```
 
    ![Cambio del nombre del desencadenador](./media/tutorial-build-scheduled-recurring-logic-app-workflow/rename-recurrence-schedule-trigger.png)
 
@@ -130,8 +129,7 @@ Ahora que ya tiene un desencadenador, agregue una [acción](../logic-apps/logic-
    | **Clave de API** | <*su-clave-de-Mapas-de-Bing*> | Escriba la clave de Mapas de Bing recibida previamente. Si no tiene una clave de Mapas de Bing, consulte <a href="https://msdn.microsoft.com/library/ff428642.aspx" target="_blank">Getting a Bing Maps Key</a> (Obtención de una clave de Mapas de Bing). | 
    | | | |  
 
-4. Cambie el nombre de la acción por esta descripción:
-```Get route and travel time with traffic```
+4. Cambie el nombre de la acción por esta descripción: ```Get route and travel time with traffic```
 
 5. Proporcione los detalles de la acción **Get route** (Obtener ruta) tal como se muestra y se describe aquí, por ejemplo:
 
@@ -139,13 +137,13 @@ Ahora que ya tiene un desencadenador, agregue una [acción](../logic-apps/logic-
 
    | Configuración | Valor | DESCRIPCIÓN |
    | ------- | ----- | ----------- |
-   | **Punto de referencia 1** | <*ubicación-inicial*> | Origen de la ruta | 
-   | **Punto de referencia 2** | <*ubicación-final*> | Destino de la ruta | 
-   | **Evite** | None | Cualquier elemento para evitar en la ruta, como autopistas, peajes, etc. | 
-   | **Optimizar** | timeWithTraffic | Parámetro para optimizar la ruta, como distancia, tiempo de desplazamiento con tráfico actual, etc. Seleccione este parámetro: "timeWithTraffic". | 
-   | **Distance unit (Unidad de distancia)** | <*su preferencia*> | Unidad de distancia para la ruta. En este artículo se usa esta unidad: "Mile" (Milla)  | 
-   | **Travel mode (Modo de desplazamiento)** | Conducción | Modo de desplazamiento para la ruta. Seleccione este modo: "Driving" (Conducción) | 
-   | **Transit Date-Time (Fecha y hora de tránsito)** | None | Se aplica solo al modo de tránsito. | 
+   | **Waypoint 1** (Punto de referencia 1) | <*ubicación-inicial*> | Origen de la ruta | 
+   | **Waypoint 2** (Punto de referencia 2) | <*ubicación-final*> | Destino de la ruta | 
+   | **Avoid** (Evitar) | None | Cualquier elemento para evitar en la ruta, como autopistas, peajes, etc. | 
+   | **Optimize** (Optimizar) | timeWithTraffic | Parámetro para optimizar la ruta, como distancia, tiempo de desplazamiento con tráfico actual, etc. Seleccione este parámetro: "timeWithTraffic". | 
+   | **Distance unit** (Unidad de distancia) | <*su preferencia*> | Unidad de distancia para la ruta. En este artículo se usa esta unidad: "Mile" (Milla)  | 
+   | **Travel mode** (Modo de desplazamiento) | Conducción | Modo de desplazamiento para la ruta. Seleccione este modo: "Driving" (Conducción) | 
+   | **Transit Date-Time** (Fecha y hora de tránsito) | None | Se aplica solo al modo de tránsito. | 
    | **Tipo de fecha y hora** | None | Se aplica solo al modo de tránsito. | 
    |||| 
 
@@ -167,15 +165,14 @@ De forma predeterminada, la acción anterior **Get route** (Obtener ruta) devuel
 
    ![Selección de la acción "Variables: Inicializar variable"](./media/tutorial-build-scheduled-recurring-logic-app-workflow/select-initialize-variable-action.png)
 
-3. Cambie el nombre de esta acción por esta descripción:
-```Create variable to store travel time```
+3. Cambie el nombre de esta acción por esta descripción: ```Create variable to store travel time```
 
 4. Proporcione los detalles de la variable tal como se describen aquí:
 
    | Configuración | Valor | DESCRIPCIÓN | 
    | ------- | ----- | ----------- | 
-   | **NOMBRE** | travelTime | Nombre de la variable | 
-   | **Type** | Entero | Tipo de datos de la variable | 
+   | **Nombre** | travelTime | Nombre de la variable | 
+   | **Tipo** | Entero | Tipo de datos de la variable | 
    | **Valor** | Expresión que convierte el tiempo de desplazamiento actual de segundos a minutos (consulte los pasos a continuación de esta tabla). | Valor inicial de la variable | 
    |||| 
 
@@ -259,8 +256,7 @@ Ahora, agregue una acción que se le enviará por correo electrónico cuando el 
 
    Logic Apps crea una conexión a la cuenta de correo electrónico.
 
-4. Cambie el nombre de la acción por esta descripción:
-```Send email with travel time```
+4. Cambie el nombre de la acción por esta descripción: ```Send email with travel time```
 
 5. En el cuadro **Para**, escriba la dirección de correo electrónico del destinatario. Para las pruebas, use su dirección de correo electrónico.
 
@@ -342,4 +338,4 @@ Cuando ya no lo necesite, elimine el grupo de recursos que contiene la aplicaci�
 En este tutorial ha creado una aplicación de lógica que comprueba el tráfico según una programación definida (por las mañanas los días de entre semana) y realiza alguna acción (envío de correo electrónico) cuando el tiempo de desplazamiento supera un límite especificado. Ahora, aprenda a crear una aplicación lógica que envía solicitudes de lista de correo para su aprobación mediante la integración de servicios de Azure, servicios de Microsoft y otras aplicaciones SaaS.
 
 > [!div class="nextstepaction"]
-> [Administrar solicitudes de lista de distribución de correo](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)
+> [Administración de solicitudes de lista de distribución de correo](../logic-apps/tutorial-process-mailing-list-subscriptions-workflow.md)

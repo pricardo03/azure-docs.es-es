@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/07/2018
 ms.author: barclayn
-ms.openlocfilehash: 9b905a81751ce5f4de4a4efbb9ff4c328269fe34
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 288ad14110bd446955d6cec7439bfa40a750276c
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904855"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59521669"
 ---
 # <a name="tutorial--deploying-hsms-into-an-existing-virtual-network-using-powershell"></a>Tutorial: Implementación de HSM en una red virtual existente con PowerShell
 
@@ -78,12 +78,12 @@ Un dispositivo HSM se aprovisiona en la red virtual de un cliente. Esto conlleva
 
 Una vez que tenga los archivos, debe editar el archivo de parámetros para insertar los nombres preferidos de los recursos. Esto significa editar las líneas con "value": "".
 
-- `namingInfix` Prefijo para los nombres de los recursos de HSM
+- `namingInfix` Prefijo para los nombres de los recursos HSM
 - `ExistingVirtualNetworkName` Nombre de la red virtual que se usa para los HSM
-- `DedicatedHsmResourceName1` Nombre del recurso de HSM de la marca 1 del centro de datos
-- `DedicatedHsmResourceName2` Nombre del recurso de HSM de la marca 2 del centro de datos
-- `hsmSubnetRange` Rango de direcciones IP de la subred para los HSM
-- `ERSubnetRange` Rango de direcciones IP de la subred para la puerta de enlace de la red virtual
+- `DedicatedHsmResourceName1` Nombre del recurso HSM en la marca del centro de datos 1
+- `DedicatedHsmResourceName2` Nombre del recurso HSM en la marca del centro de datos 2
+- `hsmSubnetRange` Intervalo de direcciones IP de la subred para los HSM
+- `ERSubnetRange` Intervalo de direcciones IP de la subred para la puerta de enlace de la red virtual
 
 A continuación puede ver un ejemplo de estos cambios:
 
@@ -217,7 +217,7 @@ La herramienta SSH se usa para conectarse a la máquina virtual. El comando ser�
 `ssh adminuser@hsmlinuxvm.westus.cloudapp.azure.com`
 
 La contraseña que se va a usar es la del archivo de parámetros.
-Una vez que ha iniciado sesión en la máquina virtual Linux puede iniciar sesión en el HSM con la dirección IP privada que se encuentra en el portal para el recurso <prefix>hsm_vnic.
+Una vez que ha iniciado sesión en la máquina virtual Linux, puede iniciar sesión en el HSM con la dirección IP privada que se encuentra en el portal para el recurso \<prefix>hsm_vnic.
 
 ```powershell
 

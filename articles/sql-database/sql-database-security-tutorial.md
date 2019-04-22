@@ -1,6 +1,6 @@
 ---
 title: Protección de una base de datos única o agrupada en Azure SQL Database | Microsoft Docs
-description: Conozca las técnicas y características para proteger una base de datos única o agrupada en Azure SQL Database.
+description: Un tutorial que le permite conocer las técnicas y características para proteger una base de datos única o agrupada en Azure SQL Database.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -10,14 +10,23 @@ ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 02/08/2019
-ms.openlocfilehash: d6f14a7cdcb77c1ca47d0f79f587e0bf3606b5d5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.custom: seoapril2019
+ms.openlocfilehash: d09af0a4c2d09004d5c1bbf3261a14850eef7714
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57893278"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59496444"
 ---
 # <a name="tutorial-secure-a-single-or-pooled-database"></a>Tutorial: Protección de una base de datos única o agrupada
+
+En este tutorial, aprenderá a:
+
+> [!div class="checklist"]
+> - Crear reglas de firewall de nivel de servidor y de base de datos.
+> - Configurar un administrador de Azure Active Directory (Azure AD).
+> - Administrar el acceso de usuario con la autenticación de SQL, la autenticación de Azure AD y cadenas de conexión seguras.
+> - Habilitar características de seguridad, como la seguridad avanzada para los datos, la auditoría, el enmascaramiento de datos y el cifrado.
 
 Azure SQL Database protege los datos de una base de datos única o agrupada al permitir:
 
@@ -28,14 +37,6 @@ Azure SQL Database protege los datos de una base de datos única o agrupada al p
 
 > [!NOTE]
 > Una base de datos Azure SQL en una instancia administrada se protege mediante reglas de seguridad de red y puntos de conexión privados, como se describe en [Instancia administrada de Azure SQL Database](sql-database-managed-instance-index.yml) y [Arquitectura de conectividad](sql-database-managed-instance-connectivity-architecture.md).
-
-Puede mejorar la seguridad de la base de datos con unos sencillos pasos. En este tutorial, aprenderá a:
-
-> [!div class="checklist"]
-> - Crear reglas de firewall de nivel de servidor y de base de datos.
-> - Configurar un administrador de Azure Active Directory (Azure AD).
-> - Administrar el acceso de usuario con la autenticación de SQL, la autenticación de Azure AD y cadenas de conexión seguras.
-> - Habilitar características de seguridad, como la seguridad avanzada para los datos, la auditoría, el enmascaramiento de datos y el cifrado.
 
 Para más información, consulte los artículos [Información general sobre las funcionalidades de seguridad de Azure SQL Database](/azure/sql-database/sql-database-security-index) y [Funcionalidades](sql-database-security-overview.md).
 
@@ -141,8 +142,8 @@ Para establecer el administrador de Azure AD:
 Para más información acerca de la configuración de Azure AD, consulte:
 
 - [Integración de las identidades locales con Azure AD](../active-directory/hybrid/whatis-hybrid-identity.md)
-- [Incorporación del nombre de dominio personalizado mediante el portal de Azure Active Directory](../active-directory/active-directory-domains-add-azure-portal.md)
-- [Microsoft Azure now supports federation with Windows Server AD](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/) (Microsoft Azure ahora admite la federación con Windows Server AD)
+- [Add your own domain name to Azure AD (Adición del nombre de dominio a Azure AD)](../active-directory/active-directory-domains-add-azure-portal.md)
+- [Microsoft Azure now supports federation with Windows Server AD (Microsoft Azure ahora admite la federación con Windows Server AD)](https://azure.microsoft.com/blog/20../../windows-azure-now-supports-federation-with-windows-server-active-directory/)
 - [Administración del directorio de Azure AD](../active-directory/fundamentals/active-directory-administer.md)
 - [Administración de Azure AD con PowerShell](/powershell/azure/overview?view=azureadps-2.0)
 - [La identidad híbrida requería puertos y protocolos](../active-directory/hybrid/reference-connect-ports.md)
@@ -349,4 +350,4 @@ En este tutorial, ha aprendido a mejorar la seguridad de una base de datos con u
 En el siguiente tutorial aprenderá a implementar una distribución geográfica.
 
 > [!div class="nextstepaction"]
->[Implementación de una base de datos distribuida geográficamente](sql-database-implement-geo-distributed-database.md)
+>[Implementar una base de datos distribuida geográficamente](sql-database-implement-geo-distributed-database.md)

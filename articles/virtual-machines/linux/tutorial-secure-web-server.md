@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 04/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 79b694b877e7e26c5b9c71fb5cfbde3703ef3cb6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 7d372dfa845459a63de8ccc1b81e7b1319f47e34
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55750926"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59524385"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-linux-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Tutorial: Protección de un servidor web en una máquina virtual de Linux en Azure con certificados SSL almacenados en Key Vault
 Para proteger los servidores web, se puede utilizar un certificado Capa de sockets seguros (SSL) para cifrar el tráfico web. Estos certificados SSL pueden almacenarse en Azure Key Vault y permiten implementaciones seguras de certificados en máquinas virtuales Linux en Azure. En este tutorial, aprenderá a:
@@ -50,7 +50,7 @@ Para poder crear una instancia de Key Vault y certificados, cree un grupo de rec
 az group create --name myResourceGroupSecureWeb --location eastus
 ```
 
-Después, cree una instancia de Key Vault con [az keyvault create](/cli/azure/keyvault) y habilítela para usarla al implementar una máquina virtual. Cada almacén Key Vault requiere un nombre único, que debe estar todo en minúsculas. Reemplace *<mykeyvault>* en el siguiente ejemplo por su propio nombre único de Key Vault:
+Después, cree una instancia de Key Vault con [az keyvault create](/cli/azure/keyvault) y habilítela para usarla al implementar una máquina virtual. Cada almacén Key Vault requiere un nombre único, que debe estar todo en minúsculas. Reemplace *\<mykeyvault>* en el siguiente ejemplo por su propio nombre único de Key Vault:
 
 ```azurecli-interactive 
 keyvault_name=<mykeyvault>
@@ -137,7 +137,7 @@ az vm open-port \
 
 
 ### <a name="test-the-secure-web-app"></a>Prueba de la aplicación web segura
-Ahora puede abrir un explorador web y escribir *https://<publicIpAddress>* en la barra de direcciones. Proporcione su propia dirección IP pública obtenida del proceso de creación de la máquina virtual. Acepte la advertencia de seguridad si usó un certificado autofirmado:
+Ahora puede abrir un explorador web y escribir *http:\/\/\<Dirección_IP_Pública>* en la barra de direcciones. Proporcione su propia dirección IP pública obtenida del proceso de creación de la máquina virtual. Acepte la advertencia de seguridad si usó un certificado autofirmado:
 
 ![Aceptar la advertencia de seguridad del explorador web](./media/tutorial-secure-web-server/browser-warning.png)
 

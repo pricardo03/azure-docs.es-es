@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 5ccf978ab33226dc029d534a343a87a796ab69e8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 563668780c42ca23a1904757f886581f3ad0c5e8
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59278112"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617313"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-tableau-online"></a>Tutorial: Integración de Azure Active Directory con Tableau Online
 
@@ -51,7 +51,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 Para configurar la integración de Tableau Online en Azure AD, será preciso que agregue Tableau Online desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Tableau Online desde la galería, siga estos pasos:**
+**Para agregar Tableau Online desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -105,9 +105,9 @@ Para configurar el inicio de sesión único de Azure AD con Tableau Online, siga
 
     ![Información del dominio y las direcciones URL de inicio de sesión único de Tableau Online](common/sp-identifier.png)
 
-    a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
+     a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://sso.online.tableau.com/public/sp/login?alias=<entityid>`
 
-    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba la dirección URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`
+    b. En el cuadro de texto **Identificador (id. de entidad)**, escriba la dirección URL: `https://sso.online.tableau.com/public/sp/metadata?alias=<entityid>`.
 
     > [!NOTE]
     > El valor `<entityid>` lo obtendrá en la sección **Configuración de Tableau Online** de este tutorial. El valor del Id. de entidad será el valor de **Identificador de Azure AD** de la sección **Configuración de Tableau Online**.
@@ -144,7 +144,7 @@ Para configurar el inicio de sesión único de Azure AD con Tableau Online, siga
   
     a. Vaya a la página de integración de aplicaciones de **Tableau Online** de Azure Portal.
 
-    b. En la sección **User Attributes & Claims**** (Atributos de usuario y notificaciones), haga clic en el icono de edición.
+    b. En la sección **User Attributes & Claims** (Atributos de usuario y notificaciones), haga clic en el icono de edición.
 
    ![Configurar inicio de sesión único](./media/tableauonline-tutorial/attributesection.png)
 
@@ -189,7 +189,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
     b. En el campo **Nombre de usuario**, escriba **brittasimon@yourcompanydomain.extension**  
-    Por ejemplo: BrittaSimon@contoso.com
+    Por ejemplo, BrittaSimon\@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 

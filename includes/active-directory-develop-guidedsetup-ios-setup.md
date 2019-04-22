@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: dadobali
 ms.custom: include file
-ms.openlocfilehash: d8e249a788d80108d46a61f316b795ab04e541a2
-ms.sourcegitcommit: dec7947393fc25c7a8247a35e562362e3600552f
-ms.translationtype: MT
+ms.openlocfilehash: e72c4b0cf8f77a057ff07f8bce7acae4e834e28d
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58203547"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59503184"
 ---
 ## <a name="setting-up-your-ios-application"></a>Configuración de la aplicación de iOS
 
@@ -61,7 +61,7 @@ Copie y pegue lo siguiente. Este comando recupera las dependencias en una carpet
 carthage update
 ```
 
-> El proceso descrito anteriormente se utiliza para descargar y compilar la Biblioteca de autenticación de Microsoft (MSAL). MSAL controla la adquisición, el almacenamiento en caché y la actualización de los tokens de usuario que se utilizan para tener acceso a las API protegidas por Azure Active Directory v2.0.
+> El proceso descrito anteriormente se utiliza para descargar y compilar la Biblioteca de autenticación de Microsoft (MSAL). MSAL controla la adquisición, el almacenamiento en caché y la actualización de los tokens de usuario que se utilizan para obtener acceso a las API que protege la plataforma de identidad de Microsoft.
 
 ## <a name="add-the-msal-framework-to-your-application"></a>Adición del marco MSAL a la aplicación
 
@@ -91,7 +91,7 @@ $(SRCROOT)/Carthage/Build/iOS/MSAL.framework
 
 Debe crearse un archivo Main.storyboard automáticamente como parte de la plantilla de proyecto. Siga las instrucciones siguientes para crear la interfaz de usuario de la aplicación:
 
-1.  Presione Control y haga clic en `Main.storyboard` para mostrar el menú contextual y, a continuación, haga clic en: `Open As` > `Source Code`
+1.  Presione Control y haga clic en `Main.storyboard` para mostrar el menú contextual y, después, haga clic en: `Open As` > `Source Code`
 2.  Reemplace el nodo `<scenes>` por el código siguiente:
 
 ```xml

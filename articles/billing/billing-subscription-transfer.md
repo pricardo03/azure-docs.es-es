@@ -14,15 +14,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 04/16/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d8baa5f10aeba179ef141cfea86fded8cf44dfc
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: d9af3b1b9c267bc09b370717913722a6c53ad5a1
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878217"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678826"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Transferencia de la propiedad de una suscripción de Azure a otra cuenta
 
@@ -30,7 +30,7 @@ Transfiera su suscripción a otro usuario del Centro de cuentas para cambiar el 
 
 > [!IMPORTANT]
 > 
-> Si se transfiere una suscripción a un nuevo inquilino de Azure AD, todas las asignaciones de roles en el [control de acceso basado en roles (RBAC)](../role-based-access-control/overview.md) se eliminan permanentemente del inquilino de origen y no se migran al inquilino de destino.
+> Si se transfiere una suscripción a un nuevo inquilino de Azure AD, todas las asignaciones de roles en el [control de acceso basado en roles (RBAC)](../role-based-access-control/overview.md) se eliminan permanentemente del inquilino de origen y no se migran al inquilino de destino. También debe volver a crear manualmente las identidades administradas para los recursos de Azure. Para obtener más información, consulte [preguntas más frecuentes y problemas conocidos con managed identidades](../active-directory/managed-identities-azure-resources/known-issues.md).
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Transferencia de la propiedad de una suscripción de Azure
 
@@ -52,7 +52,7 @@ Transfiera su suscripción a otro usuario del Centro de cuentas para cambiar el 
 
    > [!IMPORTANT]
    > 
-   > Si se transfiere una suscripción a un nuevo inquilino de Azure AD, todas las asignaciones de roles en el [control de acceso basado en roles (RBAC)](../role-based-access-control/overview.md) se eliminan permanentemente del inquilino de origen y no se migran al inquilino de destino.
+   > Si se transfiere una suscripción a un nuevo inquilino de Azure AD, todas las asignaciones de roles en el [control de acceso basado en roles (RBAC)](../role-based-access-control/overview.md) se eliminan permanentemente del inquilino de origen y no se migran al inquilino de destino. También debe volver a crear manualmente las identidades administradas para los recursos de Azure. Para obtener más información, consulte [preguntas más frecuentes y problemas conocidos con managed identidades](../active-directory/managed-identities-azure-resources/known-issues.md).
 
    ![Cuadro de diálogo Transferir suscripción](./media/billing-subscription-transfer/image2.PNG)
 

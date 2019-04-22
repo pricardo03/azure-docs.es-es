@@ -12,15 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 02/14/2019
+ms.date: 03/28/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d0c51f5d4757c35319cc3f80d09c9fb1a0e1cf69
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: a386924be2f82aadafeaccbeadc68e5e27404855
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56314070"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546338"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Creación de una aplicación de Python en Azure App Service en Linux (versión preliminar)
 
@@ -168,13 +168,10 @@ El menú izquierdo proporciona distintas páginas para configurar la aplicación
 La imagen integrada de Python en App Service en Linux está actualmente en versión preliminar y se puede personalizar el comando que se usa para iniciar la aplicación. También se pueden crear aplicaciones Python de producción mediante un contenedor personalizado.
 
 > [!div class="nextstepaction"]
-> [Python con PostgreSQL](tutorial-python-postgresql-app.md)
+> [Tutorial: Aplicación de Python con PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
-> [Configuración de un comando de inicio personalizado](how-to-configure-python.md#customize-startup-command)
+> [Configuración de una aplicación de Python](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Solución de problemas](how-to-configure-python.md#troubleshooting)
-
-> [!div class="nextstepaction"]
-> [Uso de imágenes personalizadas](tutorial-custom-docker-image.md)
+> [Tutorial: Implementar desde el repositorio de contenedor privado](tutorial-custom-docker-image.md)

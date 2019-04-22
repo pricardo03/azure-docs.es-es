@@ -7,15 +7,15 @@ ms.service: firewall
 ms.date: 4/10/2019
 ms.author: victorh
 ms.openlocfilehash: c2d49defa2e0fbbd12c5403ccca74e91cf4ec981
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59502119"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-powershell"></a>Implementar y configurar Firewall de Azure con Azure PowerShell
 
-El control del acceso de red saliente es una parte importante de un plan de seguridad de red de ámbito general. Por ejemplo, es posible que desee limitar el acceso a sitios web. O bien, si desea limitar las direcciones IP y puertos que se pueden tener acceso saliente.
+El control del acceso de red saliente es una parte importante de un plan de seguridad de red de ámbito general. Por ejemplo, es posible que desee limitar el acceso a sitios web. O bien, que desee limitar las direcciones IP de salida y los puertos a los que se puede acceder.
 
 Una manera de controlar el acceso de red saliente desde una subred de Azure es con Azure Firewall. Con Azure Firewall, puede configurar:
 
@@ -24,7 +24,7 @@ Una manera de controlar el acceso de red saliente desde una subred de Azure es c
 
 El tráfico está sujeto a las reglas de firewall configuradas cuando enruta el tráfico al firewall como puerta de enlace predeterminada de la subred.
 
-En este artículo, creará una red virtual única simplificada con tres subredes para facilitar la implementación. Para las implementaciones de producción, un [modelo de concentrador y radio](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) se recomienda que el firewall está en su propia red virtual. Los servidores de carga de trabajo están en redes virtuales emparejadas en la misma región con una o varias subredes.
+En este artículo, creará una red virtual única simplificada con tres subredes para facilitar la implementación. Para las implementaciones de producción, se recomienda un [modelo de concentrador y radio](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke), en el que el firewall está en su propia red virtual. Los servidores de las cargas de trabajo están en redes virtuales emparejadas en la misma región con una o varias subredes.
 
 * **AzureFirewallSubnet**: el firewall está en esta subred.
 * **Workload-SN**: el servidor de carga de trabajo está en esta subred. El tráfico de red de esta subred va a través del firewall.
@@ -38,7 +38,7 @@ En este artículo, aprenderá a:
 > * Configurar un entorno de red de prueba
 > * Implementar un firewall
 > * Crear una ruta predeterminada
-> * Configurar una regla de aplicación para permitir el acceso a www.google.com
+> * Configurar una regla de aplicación que permita acceder a msn.com
 > * Configuración de una regla de red para permitir el acceso a los servidores DNS externos
 > * Probar el firewall
 
@@ -48,7 +48,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-Este procedimiento requiere que PowerShell se ejecuta localmente. Debe tener instalado el módulo Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Después de verificar la versión de PowerShell, ejecute `Connect-AzAccount` para crear una conexión con Azure.
+Este procedimiento requiere que PowerShell se ejecuta localmente. Debe tener instalados el módulo de Azure PowerShell. Ejecute `Get-Module -ListAvailable Az` para encontrar la versión. Si necesita actualizarla, consulte [Instalación del módulo de Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-Az-ps). Después de verificar la versión de PowerShell, ejecute `Connect-AzAccount` para crear una conexión con Azure.
 
 ## <a name="set-up-the-network"></a>Configuración de la red
 
@@ -220,7 +220,7 @@ Ahora, pruebe el firewall para confirmar que funciona según lo previsto.
    $NIC.IpConfigurations.PrivateIpAddress
    ```
 
-1. Conectarse a un escritorio remoto a **Srv salto** máquina virtual e inicie sesión. Desde ahí, abra una conexión a escritorio remota para el **Srv trabajo** dirección IP privada y el inicio de sesión.
+1. Conecte un escritorio remoto a la máquina virtual **Srv-Jump** e inicie sesión. Desde ahí, abra una conexión a escritorio remota para el **Srv trabajo** dirección IP privada y el inicio de sesión.
 
 3. En **SRV trabajo**, abra una ventana de PowerShell y ejecute los siguientes comandos:
 
@@ -258,4 +258,4 @@ Remove-AzResourceGroup -Name Test-FW-RG
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Tutorial: Supervise los registros de Firewall de Azure](./tutorial-diagnostics.md)
+* [Tutorial: Supervisión de los registros de Azure Firewall](./tutorial-diagnostics.md)

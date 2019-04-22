@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 04/16/2019
 ms.author: raynew
-ms.openlocfilehash: 0c2ca8c17abd6ac5e540beec1bde715931e022a4
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
+ms.openlocfilehash: 58d7aeb3c710610d93eda09b37374a167b444bd0
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609411"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679013"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Matriz de compatibilidad para replicar máquinas virtuales de Azure desde una región a otra
 
@@ -225,6 +225,7 @@ Disco Premium P10 o P15 | 16 KB | 4 MB/s |  336 GB por disco
 Disco Premium P10 o P15 | 32 KB, o más | 8 MB/s | 672 GB por disco
 Disco Premium P20, P30, P40 o P50 | 8 KB    | 5 MB/s | 421 GB por disco
 Disco Premium P20, P30, P40 o P50 | 16 KB, o más |20 MB/s | 1684 GB por disco
+
 ## <a name="replicated-machines---networking"></a>Máquinas replicadas: redes
 **Configuración** | **Soporte técnico** | **Detalles**
 --- | --- | ---
@@ -236,6 +237,7 @@ Grupo de seguridad de red en una tarjeta NIC | Compatible | Asocie el grupo de s
 Grupo de seguridad de red en la subred | Compatible | Asocie el grupo de seguridad de red a la subred con un script de Azure Automation de un plan de recuperación.
 Dirección IP (estática) reservada | Compatible | Si la NIC de la máquina virtual de origen tiene una dirección IP estática y la subred de destino tiene la misma dirección IP disponible, esta se asigna a la máquina virtual de conmutación por error.<br/><br/> Si la subred de destino no tiene la misma dirección IP disponible, una de las direcciones IP disponibles de la subred se reserva para esta máquina virtual.<br/><br/> También puede especificar una dirección IP fija y una subred en **Elementos replicados** > **Configuración** > **Proceso y red** > **Interfaces de red**.
 Dirección IP dinámica | Compatible | Si la NIC de origen tiene una dirección IP dinámica, la NIC de la máquina virtual de conmutación por error será también dinámica de forma predeterminada.<br/><br/> Puede modificar esta a una dirección IP fija si es necesario.
+Varias direcciones IP | No compatible | Cuando se conmuta a una máquina virtual con una NIC con varias direcciones IP, se mantiene solo la dirección IP principal de la NIC en la región de origen. Para asignar varias direcciones IP, puede agregar las máquinas virtuales a un [plan de recuperación](recovery-plan-overview.md) y adjuntará un script para asignar direcciones IP adicionales al plan o se puede realizar el cambio manualmente o con una secuencia de comandos después de la conmutación por error. 
 Traffic Manager     | Compatible | Puede configurar previamente Traffic Manager de forma que el tráfico se dirija regularmente al punto de conexión de la región de origen y al punto de conexión de la región de destino en caso de conmutación por error.
 Azure DNS | Compatible |
 DNS personalizado  | Compatible |

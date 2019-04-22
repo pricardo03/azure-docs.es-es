@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 03/25/2018
 ms.author: yushwang
 ms.openlocfilehash: d5e62bf1838c8f07068208019d28d7273c28bd63
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492352"
 ---
 # <a name="configure-vpn-gateway-transit-for-virtual-network-peering"></a>Configuración del tránsito de la puerta de enlace de VPN para el emparejamiento de red virtual
@@ -50,9 +50,9 @@ El ejemplo de este documento requiere los siguientes recursos para crearse:
 
 Para obtener instrucciones al respecto, consulte los siguientes documentos:
 
-1. [Crear una puerta de enlace VPN en una red virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
-2. [Emparejamiento de red virtual con el mismo modelo de implementación](../virtual-network/tutorial-connect-virtual-networks-portal.md)
-3. [Emparejamiento de red virtual con diferentes modelos de implementación](../virtual-network/create-peering-different-deployment-models.md)
+1. [Creación de una puerta de enlace de VPN y una red virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+2. [Creación de un emparejamiento de red virtual con el mismo modelo de implementación](../virtual-network/tutorial-connect-virtual-networks-portal.md)
+3. [Creación de un emparejamiento de red virtual con distintos modelos de implementación](../virtual-network/create-peering-different-deployment-models.md)
 
 ## <a name="permissions"></a>Permisos
 

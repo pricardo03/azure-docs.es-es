@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/08/2018
-ms.openlocfilehash: 8405624831c572f194fa0afaad2f0caa40bcf9ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 7e66f374a1f5f4fb050f366fdad0e787292101f8
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58001275"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59526748"
 ---
 # <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Creación de una plantilla base de Terraform en Azure mediante Yeoman
 
@@ -73,8 +73,8 @@ Desde un símbolo del sistema:
 1. Vaya al directorio principal que desea que incluya el directorio nuevo y vacío que estamos a punto de crear.
 1. Escriba `mkdir <new-directory-name>`.
 
-    >[!NOTE]
-    >Reemplace <new-directory-name> por el nombre de su nuevo directorio. En este ejemplo, asignamos al nuevo directorio el nombre `GeneratorDocSample`.
+    > [!NOTE]
+    > Reemplace `<new-directory-name>` por el nombre del nuevo directorio. En este ejemplo, asignamos al nuevo directorio el nombre `GeneratorDocSample`.
 
     ![mkdir](media/terraform-vscode-module-generator/ymg-mkdir-GeneratorDocSample.png)
 
@@ -250,7 +250,7 @@ Todos estos elementos ya están instalados en Cloud Shell.
 
 1. Cree la carpeta $GOPATH, si aún no existe. Escriba `mkdir ~/go`.
 
-1. Cree una carpeta dentro de la carpeta $GOPATH: Escriba `mkdir ~/go/src`. Esta carpeta se utilizará para almacenar y organizar las distintas carpetas del proyecto que pueda crear, como la carpeta <nombre-de-módulo> que se creará en el paso siguiente.
+1. Cree una carpeta dentro de la carpeta $GOPATH: Escriba `mkdir ~/go/src`. Esta carpeta se utilizará para almacenar y organizar las distintas carpetas del proyecto que pueda crear, como la carpeta `<your-module-name>` que crearemos en el paso siguiente.
 
 1. Cree una carpeta para almacenar el módulo de Terraform: Escriba `mkdir ~/go/src/<your-module-name>`.
 

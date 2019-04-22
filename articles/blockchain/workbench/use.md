@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 01/08/2019
+ms.date: 04/15/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 55207e1eb8fe1b88df7f9bfb84a1da505d0e0252
-ms.sourcegitcommit: dede0c5cbb2bd975349b6286c48456cfd270d6e9
+ms.openlocfilehash: 89c83ed6d02a60978bd54fb97d37063e34f6c0c7
+ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/16/2019
-ms.locfileid: "54332224"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59578857"
 ---
 # <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Tutorial: Uso de aplicaciones en Azure Blockchain Workbench
 
@@ -40,7 +40,7 @@ Aprenderá a:
 
 Debe iniciar sesión como miembro de Blockchain Workbench. Si no aparece ninguna aplicación, es un miembro de Blockchain Workbench, pero no es miembro de ninguna aplicación. El administrador de Blockchain Workbench puede asignar a miembros a las aplicaciones.
 
-## <a name="create-new-contract"></a>Creación de un nuevo contrato 
+## <a name="create-new-contract"></a>Creación de un nuevo contrato
 
 Para crear un contrato, debe ser un miembro especificado como un **iniciador** de contratos. Para obtener información sobre la definición de roles de aplicación e iniciadores para el contrato, vea los [flujos de trabajo de la información general de configuración](configuration.md#workflows). Para obtener información sobre la asignación de miembros a los roles de aplicación, vea cómo [agregar un miembro a la aplicación](manage-users.md#add-member-to-application).
 

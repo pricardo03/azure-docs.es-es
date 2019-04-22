@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: andret
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73d762e5bb358964b439d1dc6027abc01332da21
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a6119baf79b9323a5c1ad06d75e1410f632015f0
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58007613"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59548566"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET
 
@@ -32,7 +32,7 @@ En esta guía de inicio rápido, obtendrá información acerca de cómo implemen
 Al final de esta guía de inicio rápido, la aplicación aceptará inicios de sesión de cuentas profesionales y educativas de organizaciones que se han integrado con Azure Active Directory (Azure AD).
 
 > [!NOTE]
-> Si necesita habilitar los inicios de sesión para las cuentas personales además de hacerlo para las cuentas profesionales y educativas, puede usar el [punto de conexión v2.0](azure-ad-endpoint-comparison.md). Para obtener más información, consulte [este tutorial de ASP.NET para el punto de conexión v2.0](tutorial-v2-asp-webapp.md), así como [este artículo](active-directory-v2-limitations.md) donde se explican las limitaciones actuales del punto de conexión v2.0.
+> Si necesita habilitar los inicios de sesión para las cuentas personales además de hacerlo para las cuentas profesionales y educativas, puede usar el *[punto de conexión de la plataforma de identidad](azure-ad-endpoint-comparison.md)*. Para más información, consulte [este tutorial de ASP.NET](tutorial-v2-asp-webapp.md) y [este artículo](active-directory-v2-limitations.md), que explica el *punto de conexión de la plataforma de identidad de Microsoft*.
 
 ## <a name="prerequisites"></a>Requisitos previos
 

@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 2/28/2019
+ms.date: 04/07/2019
 ms.author: rkarlin
-ms.openlocfilehash: a1c74f0ed9fd9b9abccfb7c2762cadf948c8fce0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: ba0f584e8026fe3828ec79c4b6c0ff5a0bb89f5a
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57884802"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59492369"
 ---
 # <a name="connect-data-sources"></a>Conexión con orígenes de datos
 
@@ -34,14 +34,14 @@ Para incorporar Azure Sentinel, primero debe conectarse a sus orígenes de datos
 
 ![Recopiladores de datos](./media/collect-data/collect-data-page.png)
 
-## <a name="data-collection-methods"></a>Métodos de recopilación de datos
+## <a name="data-connection-methods"></a>Métodos de conexión de datos
 
-Los siguientes métodos de recopilación de datos son compatibles con Azure Sentinel:
+Los siguientes métodos de conexión de datos son compatibles con Azure Sentinel:
 
 - **Servicios Microsoft**:<br> Los servicios Microsoft se conectan de forma nativa, aprovechando la base de Azure de la integración lista para usar. Con solo unos clics, se pueden conectar las soluciones siguientes:
     - [Office 365](connect-office-365.md)
-    - [Azure AD audit logs and sign-ins](connect-azure-active-directory.md) (Inicios de sesión y pistas de auditoría de Azure AD)
-    - [Azure Activity](connect-azure-activity.md) (Actividad de Azure)
+    - [Inicios de sesión y pistas de auditoría de Azure AD](connect-azure-active-directory.md)
+    - [Actividad de Azure](connect-azure-activity.md)
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
     - [Azure Security Center](connect-azure-security-center.md)
     - [Azure Information Protection](connect-azure-information-protection.md)
@@ -52,18 +52,18 @@ Los siguientes métodos de recopilación de datos son compatibles con Azure Sent
 
 - **Soluciones externas mediante API**: algunos orígenes de datos se conectan mediante las API proporcionadas por el origen de datos conectado. Normalmente, la mayoría de las tecnologías de seguridad proporcionan un conjunto de API a través del cual se pueden recuperar registros de eventos. Las API se conectan a Azure Sentinel y recopilan y envían tipos de datos específicos a Azure Log Analytics. Entre los dispositivos conectados mediante API se incluyen:
     - [Barracuda](connect-barracuda.md)
-    - Symantec
+    - [Symantec](connect-symantec.md)
 - **Soluciones externas mediante agente**: Azure Sentinel se puede conectar a todos los demás orígenes de datos que pueden realizar secuencias de registro en tiempo real mediante el protocolo de Syslog, a través de un agente. <br>La mayoría de las aplicaciones usan el protocolo de Syslog para enviar mensajes de eventos que incluyen el propio registro y datos sobre este. El formato de los registros varía, pero la mayoría de los dispositivos admiten el estándar de Common Event Format (CEF). <br>El agente de Azure Sentinel, que se basa en el agente de OMS, proporciona a los registros con formato CEF un formato que Log Analytics puede ingerir. Dependiendo del tipo de dispositivo, el agente se instala directamente en el dispositivo o en un servidor Linux dedicado. El agente para Linux recibe eventos del demonio de Syslog a través de UDP; sin embargo, en los casos en los que se espera que una máquina Linux recopile un gran volumen de eventos Syslog, se envían a través de TCP del demonio de Syslog al agente y desde allí a Log Analytics.
     - Firewalls, proxies y puntos de conexión:
         - [F5](connect-f5.md)
-        - [Check Point](connect-checkpoint.md)
+        - [Punto de comprobación](connect-checkpoint.md)
         - [Cisco ASA](connect-cisco.md)
         - [Fortinet](connect-fortinet.md)
         - [Palo Alto](connect-paloalto.md)
-        - [Other CEF appliances](connect-common-event-format.md) (Otros dispositivos CEF)
-        - [Other Syslog appliances](connect-syslog.md) (Otros dispositivos de Syslog)
+        - [Otros dispositivos CEF](connect-common-event-format.md)
+        - [Otros dispositivos de Syslog](connect-syslog.md)
     - Soluciones de DLP
-    - [Threat intelligence providers](connect-threat-intelligence.md) (Proveedores de información sobre amenazas)
+    - [Proveedores de información sobre amenazas](connect-threat-intelligence.md)
     - [DNS machines](connect-dns.md) (Máquinas DNS): agente instalado directamente en la máquina DNS
     - Servidores Linux
     - Otras nubes

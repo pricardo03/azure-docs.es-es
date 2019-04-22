@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/08/2019
 ms.author: dobett
-ms.openlocfilehash: 2d759dbfc9b38aae00dd8c3a51a6c0ee2dbe523f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 6338403818259c7263fe66af7d8c8840d98efbcd
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58176572"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59491277"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Inicio rápido: Prueba de una solución basada en la nube para administrar los dispositivos IoT industriales
 
@@ -64,7 +64,7 @@ Haga clic en **Aceptar** para aceptar la solicitud de permisos; el panel de solu
 
 La vista predeterminada es el *panel*. Use el menú de la parte izquierda de la página para ir a otras áreas del portal:
 
-[![Panel de soluciones](./media/quickstart-connected-factory-deploy/dashboard-inline.png)](./media/quickstart-connected-factory-deploy/dashboard-expanded.png#lightbox)
+[![SPanel de la solución](./media/quickstart-connected-factory-deploy/dashboard-inline.png)](./media/quickstart-connected-factory-deploy/dashboard-expanded.png#lightbox)
 
 Usará el panel para administrar los dispositivos IoT industriales. Connected Factory usa una jerarquía para mostrar una configuración de fábrica global. El nivel superior de la jerarquía es la empresa, que a su vez contiene una o varias fábricas. Cada fábrica contiene líneas de producción y cada línea de producción se compone de estaciones. En cada nivel, puede ver valores de OEE y KPI, publicar nuevos nodos para telemetría y responder a las alarmas.
 
@@ -74,13 +74,13 @@ En el panel puede ver:
 
 Un panel **Eficiencia general del equipo** muestra los valores de OEE de toda la empresa o de la fábrica, línea de producción o estación que esté visualizando. Este valor se agrega desde la vista de estación hasta el nivel de empresa. La cifra de OEE y sus elementos constituyentes se pueden analizar aún más.
 
-[![Eficiencia general del equipo](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
+[![OEficiencia general del equipo](./media/quickstart-connected-factory-deploy/oee-inline.png)](./media/quickstart-connected-factory-deploy/oee-expanded.png#lightbox)
 
 OEE evalúa la eficiencia del proceso de fabricación mediante parámetros de operaciones clave relacionados con la producción. OEE es una medida estándar del sector que se calcula multiplicando la tasa de disponibilidad, la tasa de rendimiento y la tasa de calidad: OEE = disponibilidad x rendimiento x calidad.
 
 Puede analizar más a fondo los valores de OEE de cualquier nivel de datos de la jerarquía. Haga clic en la esfera de OEE, disponibilidad, rendimiento o porcentaje de calidad. Aparece un panel contextual con visualizaciones que muestran datos a lo largo de diferentes escalas de tiempo:
 
-[Detalle de la eficiencia general del equipo![](./media/quickstart-connected-factory-deploy/oeedetail-inline.png)](./media/quickstart-connected-factory-deploy/oeedetail-expanded.png#lightbox)
+[![ODetalle de la eficiencia general del equipo](./media/quickstart-connected-factory-deploy/oeedetail-inline.png)](./media/quickstart-connected-factory-deploy/oeedetail-expanded.png#lightbox)
 
 Puede hacer clic en un gráfico para analizar los datos más a fondo.
 
@@ -88,11 +88,11 @@ Puede hacer clic en un gráfico para analizar los datos más a fondo.
 
 El panel **Indicadores clave de rendimiento** muestra el número de unidades producidas por hora y energía (kWh) usadas por toda la empresa o por la fábrica, línea de producción o estación que esté visualizando. Estos valores se agregan desde la vista de estación hasta el nivel de empresa.
 
-[![Indicadores clave de rendimiento](./media/quickstart-connected-factory-deploy/kpis-inline.png)](./media/quickstart-connected-factory-deploy/kpis-expanded.png#lightbox)
+[![KIndicadores clave de rendimiento](./media/quickstart-connected-factory-deploy/kpis-inline.png)](./media/quickstart-connected-factory-deploy/kpis-expanded.png#lightbox)
 
 Puede analizar más a fondo los valores de KPI de cualquier nivel de datos de la jerarquía. Haga clic en la esfera de OEE, disponibilidad, rendimiento o porcentaje de calidad. Aparece un panel contextual con visualizaciones que muestran datos a lo largo de diferentes escalas de tiempo:
 
-[![Detalle de KPI](./media/quickstart-connected-factory-deploy/kpidetail-inline.png)](./media/quickstart-connected-factory-deploy/kpidetail-expanded.png#lightbox)
+[![KDetalle de KPI](./media/quickstart-connected-factory-deploy/kpidetail-inline.png)](./media/quickstart-connected-factory-deploy/kpidetail-expanded.png#lightbox)
 
 Puede hacer clic en un gráfico para analizar los datos más a fondo.
 
@@ -100,7 +100,7 @@ Puede hacer clic en un gráfico para analizar los datos más a fondo.
 
 Un panel **Ubicaciones de factoría** que muestra el estado, la ubicación y la configuración actual de producción de la solución. La primera vez que se ejecuta el acelerador de soluciones, el panel muestra un conjunto simulado de fábricas. Cada simulación de una línea de producción consta de tres servidores OPC UA reales que ejecutan tareas simuladas y comparten datos. Para más información sobre OPC UA, consulte las [preguntas frecuentes sobre Connected Factory](iot-accelerators-faq-cf.md):
 
-[Ubicaciones de factoría![](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
+[![FUbicaciones de factoría](./media/quickstart-connected-factory-deploy/factorylocations-inline.png)](./media/quickstart-connected-factory-deploy/factorylocations-expanded.png#lightbox)
 
 Puede navegar por la jerarquía de soluciones y ver los valores de OEE y KPI en cada nivel:
 
@@ -112,19 +112,19 @@ Puede navegar por la jerarquía de soluciones y ver los valores de OEE y KPI en 
 
 1. Haga clic en **EnergyConsumption**. Verá algunos gráficos que representan este valor a lo largo de diferentes escalas de tiempo. Puede hacer clic en un gráfico para analizar los datos más a fondo.
 
-[![Visualización del consumo de energía](./media/quickstart-connected-factory-deploy/explorelocations-inline.png)](./media/quickstart-connected-factory-deploy/explorelocations-expanded.png#lightbox)
+[![VVisualización del consumo de energía](./media/quickstart-connected-factory-deploy/explorelocations-inline.png)](./media/quickstart-connected-factory-deploy/explorelocations-expanded.png#lightbox)
 
 ### <a name="map"></a>Map
 
 Si su suscripción tiene acceso a la [API de Bing Maps](iot-accelerators-faq-cf.md), el mapa *Fábricas* muestra la ubicación geográfica y el estado de todas las fábricas incluidas en la solución. Haga clic en las ubicaciones que se muestran en el mapa para profundizar en los detalles de ubicación.
 
-[![Mapa](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
+[![MMapa](./media/quickstart-connected-factory-deploy/map-inline.png)](./media/quickstart-connected-factory-deploy/map-expanded.png#lightbox)
 
 ### <a name="alarms"></a>Alarmas
 
 El panel **Alarmas** muestra las alarmas generadas cuando un valor notificado o un valor de OEE o KPI calculado supera un umbral. Este panel muestra las alarmas en cada nivel de la jerarquía, desde el nivel de estación a la empresa. Cada alarma incluye una descripción, la fecha, la hora, la ubicación y el número de repeticiones:
 
-[![Alarmas](./media/quickstart-connected-factory-deploy/alarms-inline.png)](./media/quickstart-connected-factory-deploy/alarms-expanded.png#lightbox)
+[![AAlarmas](./media/quickstart-connected-factory-deploy/alarms-inline.png)](./media/quickstart-connected-factory-deploy/alarms-expanded.png#lightbox)
 
 Puede analizar los datos que provocaron la alarma desde el panel. Los administradores pueden realizar acciones predeterminadas sobre las alarmas, tales como:
 
@@ -133,7 +133,7 @@ Puede analizar los datos que provocaron la alarma desde el panel. Los administra
 
 Haga clic en una de las alarmas, en la lista desplegable **Elegir acción**, elija **Confirmar alerta** y, a continuación, haga clic en **Aplicar**:
 
-[![Confirmar alarma](./media/quickstart-connected-factory-deploy/acknowledge-inline.png)](./media/quickstart-connected-factory-deploy/acknowledge-expanded.png#lightbox)
+[![AConfirmar alarma](./media/quickstart-connected-factory-deploy/acknowledge-inline.png)](./media/quickstart-connected-factory-deploy/acknowledge-expanded.png#lightbox)
 
 Para analizar con mayor profundidad los datos de la alarma, haga clic en el gráfico del panel de la alarma.
 

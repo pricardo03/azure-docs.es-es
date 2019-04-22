@@ -1,6 +1,6 @@
 ---
 title: 'Tutorial: Indexación de datos semiestructurados en blobs JSON: Azure Search'
-description: Aprenda a indexar y realizar búsquedas en blobs JSON de Azure semiestructurados mediante Azure Search y Postman.
+description: Aprenda a indexar y realizar búsquedas en blobs JSON de Azure semiestructurados mediante las API REST de Azure Search y Postman.
 author: HeidiSteen
 manager: cgronlun
 services: search
@@ -9,14 +9,14 @@ ms.topic: tutorial
 ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 4df64595f83bd7280fa781f27f3030eda3729911
-ms.sourcegitcommit: 6e32f493eb32f93f71d425497752e84763070fad
+ms.openlocfilehash: 147f67f40a060f3e274fe1f3fa368ebfd01711b6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/10/2019
-ms.locfileid: "59471467"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59525354"
 ---
-# <a name="tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Tutorial: Indexación y búsqueda de datos semiestructurados (blobs JSON) en Azure Search
+# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>Tutorial de REST: Indexación y búsqueda de datos semiestructurados (blobs JSON) en Azure Search
 
 Azure Search puede indexar documentos y matrices JSON en Azure Blob Storage mediante un [indexador](search-indexer-overview.md) que sabe cómo leer datos semiestructurados. Los datos semiestructurados contienen etiquetas o marcas que separan el contenido dentro de los datos. Dividen la diferencia entre datos no estructurados, que se deben indexar completamente, y datos estructurados formalmente que se ajustan a un modelo de datos, como un esquema de base de datos relacional, que se pueden indexar por campo.
 
@@ -37,7 +37,7 @@ En este inicio rápido se usan los siguientes servicios, herramientas y datos.
 
 [Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este tutorial. 
 
-[Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) se usa para almacenar los datos de ejemplo.
+[Cree una cuenta de Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) para almacenar los datos de ejemplo.
 
 La [aplicación de escritorio Postman](https://www.getpostman.com/) se usa para enviar solicitudes a Azure Search.
 
@@ -59,9 +59,7 @@ Todas las solicitudes requieren una clave de API en cada solicitud enviada al se
 
 1. [Inicie sesión en Azure Portal](https://portal.azure.com), vaya a su cuenta de Azure Storage, haga clic en **Blobs** y, después, en **+Contenedor**.
 
-1. [Cree un contenedor de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) que contenga los datos de ejemplo. Dado que va a utilizar una clave y un nombre de cuenta de almacenamiento para la conexión, asegúrese de que nivel de acceso público del contenedor se establece en "Container (acceso de lectura anónimo para el contenedor)".
-
-   ![Establecer nivel de acceso público](media/search-semi-structured-data/container-public-access-level.png "Set public access level")
+1. [Cree un contenedor de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal) que contenga los datos de ejemplo. Puede establecer el nivel de acceso público a cualquiera de sus valores válidos.
 
 1. Una vez creado el contenedor, ábralo y seleccione **Cargar** en la barra de comandos.
 
@@ -295,7 +293,7 @@ La manera más rápida de borrar el contenido después de un tutorial es elimina
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-Puede asociar algoritmos de Cognitive Services con inteligencia artificial a una canalización del indexador. Como paso siguiente, continúe con el siguiente tutorial.
+Hay varios enfoques y varias opciones para la indexación de blobs JSON. Como paso siguiente, revise y pruebe las diversas opciones para ver qué funciona mejor en su escenario.
 
 > [!div class="nextstepaction"]
-> [Indexación con inteligencia artificial](cognitive-search-tutorial-blob.md)
+> [Indexación de blobs JSON con el indexador de blobs de Azure Search](search-howto-index-json-blobs.md)

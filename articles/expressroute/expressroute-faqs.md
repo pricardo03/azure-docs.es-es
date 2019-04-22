@@ -5,15 +5,15 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 03/19/2019
+ms.date: 04/16/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: f3f013f2e3090b54846ebba94ef54506275d6311
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 3c8a068e2f68dcd53ad7ee6cdf3a1f39524c0fa4
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59282872"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680492"
 ---
 # <a name="expressroute-faq"></a>P+F de ExpressRoute
 
@@ -116,6 +116,14 @@ Sí. Cada circuito ExpressRoute tiene un par redundante de conexiones cruzadas c
 ### <a name="will-i-lose-connectivity-if-one-of-my-expressroute-links-fail"></a>¿Se pierde conectividad si se produce un error en uno de mis vínculos de ExpressRoute?
 
 No perderá conectividad si se produce un error en una de las conexiones cruzadas. Hay disponible una conexión redundante para admitir la carga de la red y proporcionar alta disponibilidad del circuito ExpressRoute. Asimismo, puede crear un circuito en una ubicación de emparejamiento distinta para alcanzar la resistencia en el nivel de circuito.
+
+### <a name="how-do-i-implement-redundancy-on-private-peering"></a>¿Cómo se puede implementar redundancia en el emparejamiento privado?
+
+Varios circuitos ExpressRoute desde distintas ubicaciones de emparejamiento pueden estar conectados a la misma red virtual para proporcionar alta disponibilidad en el caso de que un único circuito deja de estar disponible. A continuación, puede [asignar mayor peso](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-assign-a-high-weight-to-local-connection) a la conexión local que se va a favorecer preferir un circuito concreto. Se recomienda encarecidamente que los clientes configuración al menos dos circuitos de ExpressRoute para evitar puntos únicos de error. 
+
+### <a name="how-i-do-implement-redundancy-on-microsoft-peering"></a>¿Cómo implementar redundancia en el emparejamiento de Microsoft?
+
+Se recomienda cuando los clientes usan el emparejamiento de Microsoft para obtener acceso a los servicios públicos de Azure como Azure Storage o SQL Azure, así como los clientes que usan el emparejamiento de Microsoft para Office 365 que implementen varios circuitos de emparejamiento diferente ubicaciones para evitar puntos únicos de faiure. Los clientes pueden anunciar el prefijo del mismo en ambos circuitos y usar [anteposición de AS PATH](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending) o anunciar prefijos diferentes para determinar la ruta de acceso local.
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>¿Cómo garantizo la alta disponibilidad en una red virtual conectada a ExpressRoute?
 

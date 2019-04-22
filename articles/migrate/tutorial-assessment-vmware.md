@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/31/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: cdd852e56cf966371cda62f89cee62956551f5c0
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.openlocfilehash: 9eab8a29db40118f2a15064c52419ecebcd4aecb
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58313166"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59490328"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Detección y evaluación de VM de VMware locales para migración a Azure
 
@@ -56,7 +56,7 @@ Inicie sesión en el [Azure Portal](https://portal.azure.com).
 4. Cree un nuevo grupo de recursos.
 5. Especifique la ubicación geográfica en la que desea crear el proyecto y haga clic en **Crear**. Los proyectos de Azure Migrate solo se pueden crear en las siguientes geografías. Sin embargo, todavía puede planear la migración de cualquier ubicación de Azure de destino. La ubicación geográfica especificada para el proyecto solo se utiliza para almacenar los metadatos que se recopilan a partir de máquinas virtuales locales.
 
-**Geografía** | **Ubicación de almacenamiento**
+**Geography** | **Ubicación de almacenamiento**
 --- | ---
 Azure Government | Gobierno de EE. UU. - Virginia
 Asia | Sudeste asiático
@@ -194,6 +194,9 @@ Importe el archivo descargado en el servidor vCenter Server.
     - Especifique el nombre (FQDN) o la dirección IP del servidor vCenter.
     - En **Nombre de usuario** y **Contraseña**, especifique las credenciales de cuenta de solo lectura que utilizará el recopilador para detectar las VM en el servidor vCenter.
     - En **Ámbito del grupo**, seleccione un ámbito para la detección de VM. El recopilador solo puede detectar VM dentro del ámbito especificado. El ámbito se puede establecer en una carpeta, centro de datos o clúster específico. No debe contener más de 1500 máquinas virtuales. [Obtener más información](how-to-scale-assessment.md) acerca de cómo puede detectar un entorno mayor.
+
+       > [!NOTE]
+       > El **Ámbito del grupo** enumera solo las carpetas de hosts y clústeres. Las carpetas de las máquinas virtuales no se pueden seleccionar directamente como ámbito del grupo. Sin embargo, puede detectarlas mediante una cuenta de vCenter con acceso a las máquinas virtuales individuales. [Obtenga más información](https://docs.microsoft.com/azure/migrate/how-to-scale-assessment#set-up-permissions) acerca de cómo elegir que el ámbito sea una carpeta de máquinas virtuales.
 
 7. En **Specify migration project** (Especificar proyecto de migración), especifique la clave y el identificador de proyecto de Azure Migrate que copió del portal. Si no los copió, abra Azure Portal desde la VM de recopilador. En la página **Introducción** del proyecto, haga clic en **Detectar máquinas** y copie los valores.  
 8. En **Ver el progreso de la recopilación**, supervise el estado de la detección. [Obtener más información](https://docs.microsoft.com/azure/migrate/concepts-collector) sobre qué datos reúne Azure Migrate Collector.

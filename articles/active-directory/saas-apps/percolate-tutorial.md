@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/01/2019
 ms.author: jeedes
-ms.openlocfilehash: d399e83dbd1324827cc395cbf7834672baffa791
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 2110b1ec7d5d6b317341855ff19acf7975733e71
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275851"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617876"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-percolate"></a>Tutorial: Integración de Azure Active Directory con Percolate
 
@@ -101,7 +101,7 @@ Para configurar el inicio de sesión único de Azure AD con Percolate, siga esto
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en el modo iniciado por  **IDP**, no es necesario realizar ningún paso porque la aplicación ya está integrada previamente en Azure.
+4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, no es necesario realizar ningún paso porque la aplicación ya está integrada previamente con Azure.
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Percolate](common/preintegrated.png)
 
@@ -141,7 +141,7 @@ Para configurar el inicio de sesión único de Azure AD con Percolate, siga esto
 
     b. En el cuadro de texto **Entity ID** (Identificador de entidad), pegue el valor de **Identificador de Azure AD** que copió de Azure Portal.
 
-    c. En el Bloc de notas, abra el certificado codificado en Base 64 que descargó de Azure Portal, copie el contenido y, a continuación, péguelo en el cuadro de texto  **x509 certificates**  (Certificados x509).
+    c. En el Bloc de notas, abra el certificado codificado en Base 64 que descargó de Azure Portal, copie el contenido y, después, péguelo en el cuadro de texto **x509 certificates** (Certificados x509).
 
     d. En el cuadro de texto **Atributo de correo electrónico**, escriba **emailaddress**.
 
@@ -219,9 +219,9 @@ Para permitir que los usuarios de Azure AD inicien sesión en Percolate, deben a
 
     ![Configurar inicio de sesión único](./media/percolate-tutorial/configure04.png)
 
-    a. En el cuadro de texto  **E-mail**  (Correo electrónico), escriba el correo electrónico del usuario; por ejemplo, brittasimon@contoso.com.
+     a. En el cuadro de texto **E-mail** (Correo electrónico), escriba el correo electrónico del usuario, por ejemplo, brittasimon@contoso.com.
 
-    b. En el cuadro de texto  **Fullname**  (Nombre completo), escriba el nombre de un usuario, por ejemplo,  **Britta Simon**.
+    b. En el cuadro de texto **Fullname** (Nombre), escriba el nombre de usuario **Brittasimon**.
 
     c. Haga clic en **Create users** (Crear usuarios).
 

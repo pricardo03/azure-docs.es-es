@@ -8,19 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 02/07/2019
+ms.date: 04/10/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46d8b4c20ee7aa932109c0e89904456fea8dd437
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 2ce05e904484a6d773a0132734208b87e161f960
+ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57854711"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59499927"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Tutorial: Integración de Azure Active Directory con Evernote
 
@@ -51,9 +51,9 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 Para configurar la integración de Evernote en Azure AD, es preciso agregar Evernote desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Evernote desde la galería, realice los pasos siguientes:**
+**Para agregar Evernote desde la galería, siga estos pasos:**
 
-1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
+1. En **[Azure Portal](https://portal.azure.com)**, en el panel de navegación izquierdo, haga clic en el icono de **Azure Active Directory**.
 
     ![Botón Azure Active Directory](common/select-azuread.png)
 
@@ -61,11 +61,11 @@ Para configurar la integración de Evernote en Azure AD, es preciso agregar Ever
 
     ![Hoja Aplicaciones empresariales](common/enterprise-applications.png)
 
-3. Para agregar una nueva aplicación, haga clic en el botón **Nueva aplicación** de la parte superior del cuadro de diálogo.
+3. Haga clic en el botón **Nueva aplicación** en la parte superior del cuadro de diálogo para agregar una nueva aplicación.
 
     ![Botón Nueva aplicación](common/add-new-app.png)
 
-4. En el cuadro de búsqueda, escriba **Evernote**, seleccione **Evernote** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
+4. En el cuadro de búsqueda, escriba **Evernote**, seleccione **Evernote** en el panel de resultados y haga clic en el botón **Agregar** para agregar la aplicación.
 
      ![Evernote en la lista de resultados](common/search-new-app.png)
 
@@ -97,11 +97,11 @@ Para configurar el inicio de sesión único de Azure AD con Evernote, siga estos
 
     ![Modo de selección de inicio de sesión único](common/select-saml-option.png)
 
-3. En la página **Configurar el inicio de sesión único con SAML**, haga clic en el icono **Editar** para abrir el cuadro de diálogo **Configuración básica de SAML**.
+3. En la página **Set-up Single Sign-On with SAML** (Configurar inicio de sesión único con SAML), haga clic en el icono **Edit** (Editar) para abrir el cuadro de diálogo **Basic SAML Configuration** (Configuración básica de SAML).
 
     ![Edición de la configuración básica de SAML](common/edit-urls.png)
 
-4. En la sección **Configuración básica de SAML**, si quiere configurar la aplicación en modo iniciado por **IDP**, realice los siguientes pasos:
+4. En la sección **Configuración básica de SAML**, si desea configurar la aplicación en modo iniciado por **IDP**, realice el siguiente paso:
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Evernote](common/idp-identifier.png)
 
@@ -117,7 +117,17 @@ Para configurar el inicio de sesión único de Azure AD con Evernote, siga estos
 
     ![Vínculo de descarga del certificado](common/certificatebase64.png)
 
-7. En la sección **Set up Evernote** (Configurar Evernote), copie las direcciones URL adecuadas según sus necesidades.
+7. Para modificar las opciones de **Firma**, haga clic en el botón **Editar** para abrir el cuadro de diálogo **Certificado de firma de SAML**.
+
+    ![imagen](common/edit-certificate.png) 
+
+    ![imagen](./media/evernote-tutorial/samlassertion.png)
+
+     a. Seleccione **Firmar respuesta y aserción SAML** en **Opción de firma**.
+
+    b. Haga clic en **Guardar**
+
+8. En la sección **Set up Evernote** (Configurar Evernote), copie las direcciones URL adecuadas según sus necesidades.
 
     ![Copiar direcciones URL de configuración](common/copy-configuration-urls.png)
 
@@ -169,8 +179,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
-    Por ejemplo: BrittaSimon@contoso.com
+    b. En el campo **Nombre de usuario**, escriba `brittasimon@yourcompanydomain.extension`. Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 
@@ -207,7 +216,7 @@ En esta sección, habilitará a Britta Simon para que use el inicio de sesión �
 Para permitir que los usuarios de Azure AD inicien sesión en Evernote, deben aprovisionarse en Evernote.  
 En el caso de Evernote, el aprovisionamiento es una tarea manual.
 
-**Para aprovisionar cuentas de usuario, realice estos pasos:**
+**Para aprovisionar cuentas de usuario, realice los siguientes pasos:**
 
 1. Inicie sesión en el sitio de la empresa de Evernote como administrador.
 

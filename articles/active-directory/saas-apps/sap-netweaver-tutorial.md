@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 02/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5a1034a55bc4d516244e11d035f17fcc3b94929
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: b648b8458c7f91cae6edb079fbd2ac78553dd969
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57855646"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59523790"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Tutorial: Integración de Azure Active Directory con SAP NetWeaver
 
@@ -135,7 +135,7 @@ Para configurar el inicio de sesión único de Azure AD con SAP NetWeaver, reali
 6. Reemplace el **nombre del proveedor** de T01122 por `http://T01122` y haga clic en **Guardar**.
 
     > [!NOTE]
-    > De forma predeterminada, el nombre de proveedor tiene el formato <sid><client>, pero Azure AD espera que el nombre tenga el formato <protocol>://<name>. Se recomienda que el nombre del proveedor se mantenga como https://<sid><client> para permitir la configuración de varios motores ABAP de SAP NetWeaver en Azure AD.
+    > De forma predeterminada, el nombre de proveedor tiene el formato `<sid><client>`, pero Azure AD espera que el nombre tenga el formato `<protocol>://<name>`. Se recomienda que el nombre del proveedor se mantenga como `https://<sid><client>` para permitir la configuración de varios motores ABAP de SAP NetWeaver en Azure AD.
 
     ![Vínculo de descarga del certificado](./media/sapnetweaver-tutorial/tutorial_sapnetweaver_providername.png)
 
@@ -316,7 +316,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**  
+    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
     Por ejemplo: BrittaSimon@contoso.com
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.

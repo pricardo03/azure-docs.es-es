@@ -9,10 +9,10 @@ ms.date: 03/11/2019
 ms.author: fryu
 ms.subservice: common
 ms.openlocfilehash: c15242b0c480e2da39897b850ab7b2a2fd05bf11
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59489296"
 ---
 # <a name="azure-storage-analytics-metrics-classic"></a>Métricas de análisis de Azure Storage (clásico)
@@ -227,6 +227,6 @@ La capacidad usada por las tablas de métricas también es facturable. Puede usa
 
 ## <a name="next-steps"></a>Pasos siguientes
 * [Cómo supervisar una cuenta de almacenamiento](https://www.windowsazure.com/manage/services/storage/how-to-monitor-a-storage-account/)   
-* [Esquema de tabla de métricas de Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
-* [Las operaciones y mensajes de estado registrados por Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
+* [Esquema de las tablas de métricas de Storage Analytics](/rest/api/storageservices/storage-analytics-metrics-table-schema)   
+* [Operaciones y mensajes de estado registrados por Storage Analytics](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)   
 * [Registro de Storage Analytics](storage-analytics-logging.md)

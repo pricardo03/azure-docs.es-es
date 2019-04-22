@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 99c6e7dc589a94880976a9c7abcde12377e4e5d3
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 01d982d91d772ccfd468ccdac6391f971be4f43b
+ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58101540"
+ms.lasthandoff: 04/13/2019
+ms.locfileid: "59546549"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Creación y uso de un equilibrador de carga interno con una instancia de App Service Environment #
 
@@ -170,13 +170,13 @@ Para cargar sus propios certificados y probar el acceso:
 
 4. Establezca el DNS para el dominio del ASE. Puede usar un comodín con el dominio en el DNS. Para realizar algunas pruebas sencillas, edite el archivo de hosts en su máquina virtual para establecer el nombre de la aplicación en la dirección IP de IP virtual:
 
-     a. Si el ASE tiene el nombre de dominio _.ilbase.com_ y crea una aplicación denominada _mytestapp_, su dirección será _mytestapp.ilbase.com_. A continuación, establezca _mytestapp.ilbase.com_ para que resuelva a la dirección del ILB. (en Windows, el archivo hosts se encuentra en _C:\Windows\System32\drivers\etc\_.)
+     a. Si el ASE tiene el nombre de dominio _.ilbase.com_ y crea una aplicación denominada _mytestapp_, su dirección será _mytestapp.ilbase.com_. A continuación, establezca _mytestapp.ilbase.com_ para que resuelva a la dirección del ILB. (En Windows, el archivo hosts se encuentra en _C:\Windows\System32\drivers\etc\\_).
 
     b. Para probar la publicación de la implementación web o tener acceso a la consola avanzada, cree un registro para _mytestapp.scm.ilbase.com_.
 
 5. Use un explorador en esa máquina virtual y vaya a https://mytestapp.ilbase.com. (O bien, vaya allí donde el nombre de la aplicación esté con su dominio).
 
-6. Use un explorador en esa máquina virtual y vaya a https://mytestapp.ilbase.com. Si utiliza un certificado autofirmado, acepte el aviso de seguridad.
+6. Use un explorador en esa máquina virtual y vaya a https://mytestapp.ilbase.com. Si utiliza un certificado autofirmado, acepte el aviso de seguridad.
 
     La dirección IP del ILB se incluye en **Direcciones IP**. Esta lista también incluye las direcciones IP utilizadas por la dirección VIP externa y para el tráfico de administración de entrada.
 

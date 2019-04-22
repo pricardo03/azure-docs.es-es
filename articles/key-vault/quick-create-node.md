@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: c7bf6a22da89f0bf1e3897ec8fc30238b86b7b75
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 9aa7c4a5464230abe9ac7e75854a7422534f40f6
+ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58882757"
+ms.lasthandoff: 04/12/2019
+ms.locfileid: "59522311"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-node-web-app"></a>Inicio rápido: Establecimiento y recuperación de un secreto de Azure Key Vault mediante una aplicación web de Node 
 
@@ -150,7 +150,7 @@ Vaya a la aplicación web recién creada y verá que ya está funcionando. Reemp
     ```
     http://<app name>.azurewebsites.net
     ```
-El comando anterior crea también una aplicación habilitada para Git que le permite implementarla en Azure desde el repositorio de Git local. El repositorio de Git local está configurado con la dirección URL https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git.
+El comando anterior crea también una aplicación habilitada para Git que le permite implementarla en Azure desde el repositorio de Git local. El repositorio GIT local se configura con esta dirección URL: `https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git`.
 
 Después de finalizar el comando anterior, puede agregar una instancia remota de Azure al repositorio de Git local. Reemplace `<url>` por la dirección URL del repositorio de Git.
 
@@ -194,9 +194,9 @@ Ejecute el siguiente comando para implementar la aplicación en Azure:
 git push azure master
 ```
 
-Después de esto, si navega a https://<app_name>.azurewebsites.net podrá ver el valor del secreto. Asegúrese de reemplazar el nombre <YourKeyVaultName> por el nombre de su almacén
+Una vez hecho esto, cuando navegue a `https://<app_name>.azurewebsites.net`, podrá ver el valor secreto. Asegúrese de reemplazar el nombre `<YourKeyVaultName>` por el nombre de su almacén
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Azure SDK para Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)
+> [SDK de Azure para Node](https://docs.microsoft.com/javascript/api/overview/azure/key-vault)

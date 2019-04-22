@@ -10,19 +10,19 @@ ms.subservice: workload management
 ms.date: 03/13/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.openlocfilehash: 8ae9ad4d1101c3b42c46c51546ac82e5b4a134c8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 198faf6791a4a2caa2cefee2181a13ed8185310e
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58519861"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617344"
 ---
 # <a name="quickstart-create-a-workload-classifier-using-t-sql-preview"></a>Inicio rápido: Creación un clasificador de carga de trabajo mediante T-SQL (versión preliminar)
 
 En este inicio rápido creará un clasificador de carga de trabajo rápidamente con importancia alta para el director general de su organización. Este clasificador de carga de trabajo permitirá que las consultas del director general tengan prioridad sobre otras de menor importancia en la cola.
 
 > [!Note]
-> La clasificación de la carga de trabajo está disponible en SQL Data Warehouse Gen2.
+> La versión preliminar de la clasificación de la carga de trabajo está disponible en SQL Data Warehouse Gen2. La versión preliminar de la importancia y la clasificación de la carga de trabajo es para las compilaciones publicadas a partir del 9 de abril de 2019.  Los usuarios deben evitar usar compilaciones anteriores a esta fecha para realizar pruebas de administración de cargas de trabajo.  Para determinar si la compilación es capaz de administrar cargas de trabajo, ejecute la selección @@version cuando esté conectado a la instancia de SQL Data Warehouse.
 
 Si no tiene una suscripción a Azure, cree una cuenta [gratuita](https://azure.microsoft.com/free/) antes de empezar.
 

@@ -3,7 +3,7 @@ title: 'Inicio rápido de Azure Security Center: incorporación de máquinas vir
 description: En este tutorial de inicio rápido se muestra cómo aprovisionar la extensión de máquina virtual de Azure Monitor, Update and Configuration Management en una máquina virtual de Azure Stack.
 services: security-center
 documentationcenter: na
-author: monhaber
+author: pipposera
 manager: dsavage
 editor: ''
 ms.assetid: 8982348a-0624-40c7-8a1e-642a523c7f6b
@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
-ms.author: monhaber
-ms.openlocfilehash: 9efd6514b722168f8ecb1235159e7463ce318118
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.author: fiseraci
+ms.openlocfilehash: 7a630acee079301b95e7e05f5c5333dd116abb68
+ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58904022"
+ms.lasthandoff: 04/15/2019
+ms.locfileid: "59563801"
 ---
 # <a name="quickstart--onboard-your-azure-stack-virtual-machines-to-security-center"></a>Inicio rápido:  Incorporación de máquinas virtuales de Azure Stack a Security Center
 Después de incorporar la suscripción de Azure, puede habilitar Security Center para proteger las máquinas virtuales que se ejecutan en Azure Stack mediante la incorporación de la extensión de máquina virtual de **Azure Monitor, Update and Configuration Management** desde el Marketplace de Azure Stack.
@@ -32,7 +32,7 @@ Para empezar a trabajar con el Centro de seguridad, debe disponer de una suscrip
 
 Debe tener una suscripción de Azure en el nivel de servicio Estándar de Security Center para poder iniciar este tutorial de inicio rápido. Vea [Incorporación de su suscripción de Azure al nivel Estándar de Security Center](security-center-get-started.md) para obtener instrucciones de actualización. Dicho nivel de Security Center se puede probar de forma gratuita durante 30 días. Para más información, consulte la [página de precios](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="add-an-azure-stack-virtual-machine"></a>Adición de una máquina virtual de Azure Stack
+## <a name="select-your-workspace-in-azure-security-center"></a>Selección del área de trabajo en Azure Security Center
 
 1. Inicie sesión en el [Portal de Azure](https://azure.microsoft.com/features/azure-portal/).
 2. En el menú de **Microsoft Azure**, seleccione **Security Center**. Se abre **Security Center: Información general**. 
@@ -65,6 +65,10 @@ Ahora debe agregar la extensión de máquina virtual **Azure Monitor, Update and
 3. Seleccione **Extensiones**. Se muestra la lista de extensiones de máquina virtual instaladas en esta máquina virtual.
 4. Haga clic en la pestaña **Agregar**. Se abre la hoja del menú **Nuevo recurso** y muestra la lista de extensiones de máquina virtual disponibles. 
 5. Seleccione la extensión **Azure Monitor, Update and Configuration Management** y haga clic en **Create** (Crear). Se abre la hoja de configuración **Instalar extensión**.
+
+>[!NOTE]
+> Si no ve la extensión **Azure Monitor, Update and Configuration Management** en Marketplace, póngase en contacto con su operador de Azure Stack para que se la proporcione.
+
 6. En la hoja de configuración **Instalar extensión**, pegue el **identificador del área de trabajo** y la **clave del área de trabajo (clave principal)** que copió en el Bloc de notas en el procedimiento anterior.
 7.  Cuando haya terminado de especificar los valores de configuración necesarios, haga clic en **Aceptar**.
 8. Una vez que se complete la instalación de la extensión, su estado se mostrará como **Aprovisionamiento realizado correctamente**. La máquina virtual puede tardar hasta una hora en aparecer en el portal de Security Center.
@@ -97,7 +101,7 @@ Para eliminar la extensión:
 En este tutorial de inicio rápido ha aprovisionado la extensión Azure Monitor, Update and Configuration Management en una máquina virtual que se ejecuta en Azure Stack. Para más información acerca del uso de Security Center, siga con el tutorial para configurar una directiva de seguridad y evaluar la seguridad de los recursos.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Definición y evaluación de directivas de seguridad](tutorial-security-policy.md)
+> [Tutorial: Definición y evaluación de las directivas de seguridad](tutorial-security-policy.md)
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png
