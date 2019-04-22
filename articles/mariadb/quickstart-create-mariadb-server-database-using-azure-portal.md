@@ -6,15 +6,15 @@ ms.author: andrela
 ms.service: mariadb
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 01/09/2019
-ms.openlocfilehash: 296005f68592a8c89f3ec78da8ece4d1741f253f
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/15/2019
+ms.openlocfilehash: 536d06948510dd5df05bfc2d46cc79b9cf1559ae
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57880830"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59618029"
 ---
-# <a name="quickstart-create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Inicio rápido: Creación de un servidor de Azure Database for MariaDB mediante Azure Portal
+# <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-portal"></a>Creación de un servidor de Azure Database for MariaDB mediante Azure Portal
 
 Azure Database for MariaDB es un servicio administrado que se usa para ejecutar, administrar y escalar bases de datos MariaDB de alta disponibilidad en la nube. En esta guía de inicio rápido se muestra cómo crear un servidor de Azure Database for MariaDB en unos cinco minutos mediante Azure Portal.  
 
@@ -32,7 +32,7 @@ Creación de un servidor de Azure Database for MariaDB:
 
 1. Seleccione el botón **Crear un recurso** (+) de la esquina superior izquierda del portal.
 
-2. En el cuadro de búsqueda, escriba **Azure Database for MariaDB** para encontrar el servicio.
+2. Seleccione **Bases de datos** > **Azure Database for MariaDB**. También puede escribir **MariaDB** en el cuadro de búsqueda para encontrar el servicio.
 
    ![La opción Azure Database for MariaDB](./media/quickstart-create-mariadb-server-database-using-azure-portal/2_navigate-to-mariadb.png)
 
@@ -51,7 +51,7 @@ Creación de un servidor de Azure Database for MariaDB:
     Confirmar contraseña | *la que elija*| Confirme la contraseña de la cuenta de administrador.
     Ubicación | *la región más cercana a los usuarios*| Elija la ubicación más cercana a los usuarios o a sus otras aplicaciones de Azure.
     Versión | *la versión más reciente*| La versión más reciente (a menos que tenga requisitos específicos para el uso de una versión diferente).
-    Plan de tarifa | Consulte la descripción. | Configuración de los recursos de proceso, almacenamiento y copia de seguridad para el nuevo servidor. Seleccione **Plan de tarifa** > **Uso general**. Mantenga los valores predeterminados de los siguientes valores de configuración:<br><ul><li>**Generación de procesos** (Gen 5)</li><li>**Núcleo virtual** (2 núcleos virtuales)</li><li>**Almacenamiento** (5 GB)</li><li>**Período de retención de copia de seguridad** (7 días)</li></ul><br>Para habilitar las copias de seguridad del servidor en el almacenamiento con redundancia geográfica, seleccione **Redundancia geográfica** en **Opciones de redundancia de copia de seguridad**. <br><br>Para guardar el plan de tarifa elegido, seleccione **Aceptar**. La captura de pantalla siguiente muestra estas opciones seleccionadas.
+    Plan de tarifa | Consulte la descripción. | Configuración de los recursos de proceso, almacenamiento y copia de seguridad para el nuevo servidor. Seleccione **Plan de tarifa** > **Uso general**. Mantenga los valores predeterminados de los siguientes valores de configuración:<br><ul><li>**Generación de procesos** (Gen 5)</li><li>**Núcleo virtual** (4 núcleos virtuales)</li><li>**Almacenamiento** (100 GB)</li><li>**Período de retención de copia de seguridad** (7 días)</li></ul><br>Para habilitar las copias de seguridad del servidor en el almacenamiento con redundancia geográfica, seleccione **Redundancia geográfica** en **Opciones de redundancia de copia de seguridad**. <br><br>Para guardar el plan de tarifa elegido, seleccione **Aceptar**. La captura de pantalla siguiente muestra estas opciones seleccionadas.
   
    > [!NOTE]
    > Considere la posibilidad de usar el plan de tarifa Básico si menos proceso y E/S resultan adecuados para su carga de trabajo. Tenga en cuenta que los servidores que creó en el plan de tarifa Básico no se podrán escalar más adelante a De uso general u Optimizada para memoria. Consulte la [página de precios](https://azure.microsoft.com/pricing/details/mariadb/) para más información.

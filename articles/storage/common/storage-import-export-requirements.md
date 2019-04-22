@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 12/07/2018
+ms.date: 04/15/2019
 ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: 47ecfc2ae1352ad24b5cfd7fc39bca26bae09df7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.openlocfilehash: bc244ecb62655d1e95046fb0eb8548fdacdcc2a1
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55457792"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59679733"
 ---
 # <a name="azure-importexport-system-requirements"></a>Requisitos del sistema de Azure Import/Export
 
@@ -74,7 +74,7 @@ En la siguiente lista se muestran los discos que se pueden usar con el servicio 
 
 |Tipo de disco  |Tamaño  |Compatible |No compatible  |
 |---------|---------|---------|---------|
-|SSD    |   2,5"      |         |         |
+|SSD    |   2,5"      |SATA III          |  USB       |
 |HDD     |  2,5"<br>3,5"       |SATA II, SATA III         |Unidad de disco duro externa con adaptador USB integrado <br> Disco dentro de la carcasa de una unidad de disco duro externa         |
 
 

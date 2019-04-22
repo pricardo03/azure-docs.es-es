@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 03/26/2019
-ms.openlocfilehash: 5247183f50301554a986fde474b27a9bfc67d91d
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
+ms.openlocfilehash: 7261a25251e93035c31004c9255612a0e3b45a2f
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540676"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59680915"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Preguntas más frecuentes sobre las bases de datos de hiperescalado de Azure SQL
 
@@ -216,7 +216,7 @@ Sí. Puede mover las bases de datos SQL de Azure existentes a Hiperescalado. En 
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>¿Pierdo alguna funcionalidad al migrar al nivel de servicio de Hiperescalado?
 
-Sí. Algunas de las características de Azure SQL Database no se admiten en hiperescala durante la versión preliminar pública, incluyendo pero sin limitarse a largo plazo retención copia de seguridad. Después de migrar las bases de datos a Hiperescalado, esas características dejan de funcionar.
+Sí. Copias de seguridad de retención a largo plazo en Azure SQL Database no se admite en hiperescala durante la versión preliminar pública. Después de migrar las bases de datos a gran escala, esta característica deja de funcionar.
 
 ### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>¿Puedo mover mi base de datos de SQL Server local o mi base de datos de máquina virtual de SQL Server a Hiperescalado?
 
@@ -295,7 +295,7 @@ No durante la versión preliminar pública.
 
 ### <a name="do-i-lose-any-functionality-or-capabilities-after-migration-to-the-hyperscale-service-tier"></a>¿Pierdo alguna funcionalidad al migrar al nivel de servicio de Hiperescalado?
 
-Sí. Algunas de las características de Azure SQL Database no se admiten en Hiperescalado durante la versión preliminar pública, incluyendo, entre otras, el cifrado de datos transparente y la copia de seguridad con retención a largo plazo. Después de migrar las bases de datos a Hiperescalado, esas características dejan de funcionar.
+Sí. Copias de seguridad de retención a largo plazo en Azure SQL Database no se admite en hiperescala durante la versión preliminar pública. Después de migrar las bases de datos a gran escala, esta característica deja de funcionar.
 
 ### <a name="will-polybase-work-with-sql-database-hyperscale"></a>¿Funciona Polybase con Hiperescalado de SQL Database?
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jeedes
-ms.openlocfilehash: 593948c9646304da73fd25e4975e65fa71aed6e2
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: 878d9b40172313ac6c3d816cbf0da6aba5e18542
+ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59275545"
+ms.lasthandoff: 04/16/2019
+ms.locfileid: "59617893"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-periscope-data"></a>Tutorial: Integración de Azure Active Directory con Periscope Data
 
@@ -136,7 +136,7 @@ Para configurar el inicio de sesión único de Azure AD con Periscope Data, real
 
     d. Busque la etiqueta **SingleLogoutService** y pegue el valor de **Location** (Ubicación) en el cuadro de texto **SLO URL** (URL de SLO).
 
-    e. Copie el valor de **Identifier** (Identificador) de su instancia y péguela en el cuadro de texto  **Identificador (id. de entidad)** de la sección **Configuración de SAML básica** de Azure Portal.
+    e. Copie el valor de **Identificador** de su instancia y péguelo en el cuadro de texto **Identificador (id. de entidad)** de la sección **Configuración básica de SAML** de Azure Portal.
 
     f. Busque la primera etiqueta del archivo XML, copie el valor de **entityID** y péguelo en el cuadro de texto **Issuer** (Emisor).
 

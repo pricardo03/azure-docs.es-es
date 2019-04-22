@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/24/2019
+ms.date: 04/16/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: d85c49cc8533b88382de81f8f12fde7116afb69a
-ms.sourcegitcommit: 280d9348b53b16e068cf8615a15b958fccad366a
+ms.openlocfilehash: c6f947ad6f2f8dba2df17132243eb6d918539c14
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58407596"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678435"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Solución de problemas del control de acceso basado en rol para recursos de Azure
 
@@ -29,20 +29,20 @@ En este artículo se responden preguntas comunes acerca del control de acceso ba
 ## <a name="problems-with-rbac-role-assignments"></a>Problemas con las asignaciones de roles RBAC
 
 - Si no estás no se puede agregar una asignación de roles en el portal de Azure en **control de acceso (IAM)** porque el **agregar** > **Agregar asignación de roles** opción está deshabilitada o Dado que reciben el error de permisos de "el cliente con el Id. de objeto no tiene autorización para realizar la acción", compruebe que ha iniciado sesión con un usuario que tiene asignado un rol que tiene el `Microsoft.Authorization/roleAssignments/write` permiso como [propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator) en el ámbito que se intenta asignar el rol.
-- Si recibe el mensaje de error "no se pueden crear ningún más asignaciones de roles (código: RoleAssignmentLimitExceeded) "al intentar asignar un rol, intente reducir el número de asignaciones de roles mediante la asignación de roles a los grupos en su lugar. Azure admite hasta **2000** asignaciones de roles por suscripción.
+- Si recibe el mensaje de error "no se pueden crear ningún más asignaciones de roles (código: RoleAssignmentLimitExceeded)" al intentar asignar un rol, pruebe a asignar los roles a grupos en su lugar para reducir el número de asignaciones de roles. Azure admite hasta **2000** asignaciones de roles por suscripción.
 
 ## <a name="problems-with-custom-roles"></a>Problemas con roles personalizados
 
 - Si desea conocer los pasos para crear un rol personalizado, consulte los tutoriales de rol personalizado mediante [Azure PowerShell](tutorial-custom-role-powershell.md) o [CLI de Azure](tutorial-custom-role-cli.md).
 - Si no se puede actualizar un rol personalizado existente, compruebe que ha iniciado sesión con un usuario que tiene asignado un rol que tiene el `Microsoft.Authorization/roleDefinition/write` permiso como [propietario](built-in-roles.md#owner) o [Administrador de acceso de usuario](built-in-roles.md#user-access-administrator).
-- Si no se puede eliminar un rol personalizado y obtener el mensaje de error "hay existentes que hacen referencia a la función de las asignaciones de roles (código: RoleDefinitionHasAssignments) ", posteriormente, se muestran las asignaciones de roles sigue usando el rol personalizado. Quite las asignaciones de roles y vuelva a intentar eliminar el rol personalizado.
-- Si recibe el mensaje de error "se superó el límite de definición de rol. No hay más definiciones de roles se pueden crear (código: RoleDefinitionLimitExceeded) "al intentar crear un nuevo rol personalizado, eliminar los roles personalizados que no se usan. Azure admite hasta **2000** roles personalizados en un inquilino.
-- Si se produce un error similar a "el cliente tiene permiso para realizar la acción 'Microsoft.Authorization/roleDefinitions/write' en el ámbito '/ subscriptions / {subscriptionid}', pero no se encontró la suscripción vinculada" al intentar actualizar un rol personalizado, consulte Si uno o más [ámbitos asignables](role-definitions.md#assignablescopes) se han eliminado en el inquilino. Si se eliminó el ámbito, cree una incidencia de soporte técnico porque no hay ninguna solución autoservicio disponible en este momento.
+- Si no puede eliminar un rol personalizado y obtiene el mensaje de error "Hay asignaciones de roles existentes que hacen referencia al rol (código: RoleDefinitionHasAssignments)", significa que hay asignaciones de roles que siguen usando el rol personalizado. Quite las asignaciones de roles y vuelva a intentar eliminarlo.
+- Si recibe el mensaje de error "Se ha superado el límite de definiciones de roles. No hay más definiciones de roles se pueden crear (código: RoleDefinitionLimitExceeded) "al intentar crear un nuevo rol personalizado, eliminar los roles personalizados que no se usan. Azure admite hasta **2000** roles personalizados en un inquilino.
+- Si se produce un error similar a "el cliente tiene permiso para realizar la acción 'Microsoft.Authorization/roleDefinitions/write' en el ámbito '/ subscriptions / {subscriptionid}', pero no se encontró la suscripción vinculada" al intentar actualizar un rol personalizado, consulte Si uno o más [ámbitos asignables](role-definitions.md#assignablescopes) se han eliminado en el inquilino. Si el ámbito se ha eliminado, cree una incidencia de soporte técnico porque no hay ninguna solución de autoservicio disponible en este momento.
 
 ## <a name="recover-rbac-when-subscriptions-are-moved-across-tenants"></a>Recuperación de RBAC cuando las suscripciones se trasladan de un inquilino a otro
 
 - Si desea conocer los pasos acerca de cómo transferir una suscripción a un Azure AD diferente de inquilinos, consulte [transferir la propiedad de una suscripción de Azure a otra cuenta](../billing/billing-subscription-transfer.md).
-- Si transfiere una suscripción a un Azure AD diferente de inquilinos, todas las asignaciones de roles se eliminan permanentemente del inquilino de Azure AD de origen y no se migran al inquilino de Azure AD de destino. Debe volver a crear las asignaciones de roles en el inquilino de destino.
+- Si transfiere una suscripción a un nuevo inquilino de Azure AD, todas las asignaciones de roles se eliminan permanentemente del inquilino de Azure AD de origen y no se migran al inquilino de Azure AD de destino. Debe volver a crear las asignaciones de roles en el inquilino de destino. También debe volver a crear manualmente las identidades administradas para los recursos de Azure. Para obtener más información, consulte [preguntas más frecuentes y problemas conocidos con managed identidades](../active-directory/managed-identities-azure-resources/known-issues.md).
 - Si es una instancia de Azure AD administrador Global y no tiene acceso a una suscripción después de haberse movido entre los inquilinos, use el **Access management para recursos de Azure** alternar temporalmente [elevar su acceso](elevate-access-global-admin.md) para obtener acceso a la suscripción.
 
 ## <a name="issues-with-service-admins-or-co-admins"></a>Problemas con los administradores o coadministradores de servicios
@@ -51,7 +51,7 @@ En este artículo se responden preguntas comunes acerca del control de acceso ba
 
 ## <a name="access-denied-or-permission-errors"></a>Acceso denegado o errores de permisos
 
-- Si se produce un error de permisos "el cliente con el Id. de objeto no tiene autorización para realizar la acción en el ámbito (código: AuthorizationFailed) "al intentar crear un recurso, compruebe que ha iniciado sesión con un usuario que tiene asignado un rol que tiene permiso de escritura al recurso en el ámbito seleccionado. Por ejemplo, para administrar las máquinas virtuales en un grupo de recursos, debe tener la [colaborador de máquina Virtual](built-in-roles.md#virtual-machine-contributor) rol en el grupo de recursos (o el ámbito primario). Para obtener una lista de los permisos para cada rol integrado, consulte [roles integrados para los recursos de Azure](built-in-roles.md).
+- Si recibe el error de permiso "El cliente con el identificador de objeto no está autorizado para realizar la acción sobre el ámbito (código: AuthorizationFailed)" al intentar crear un recurso, compruebe que ha iniciado sesión con un usuario que tiene asignado un rol con permiso de escritura en el recurso y en el ámbito seleccionado. Por ejemplo, para administrar las máquinas virtuales de un grupo de recursos, debe tener el rol [Colaborador de máquina virtual](built-in-roles.md#virtual-machine-contributor) en el grupo de recursos (o el ámbito primario). Para ver una lista de todos los permisos para cada uno de los roles integrados, consulte [Roles integrados en los recursos de Azure](built-in-roles.md).
 - Si se produce un error de permisos "No tiene permiso para crear una solicitud de soporte técnico" al intentar crear o actualizar una incidencia de soporte técnico, compruebe que ha iniciado sesión con un usuario que tiene asignado un rol que tiene el `Microsoft.Support/supportTickets/write` permiso, como [Colaborador de la solicitud de soporte](built-in-roles.md#support-request-contributor).
 
 ## <a name="rbac-changes-are-not-being-detected"></a>Los cambios RBAC no se detectan

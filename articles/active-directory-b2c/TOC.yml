@@ -85,8 +85,8 @@ items:
     href: add-native-application.md
   - name: Configuración de la restricción de acceso por edad
     href: basic-age-gating.md
-  - name: Configuración de tokens
-    href: active-directory-b2c-token-session-sso.md
+  - name: Configuración del comportamiento de la sesión
+    href: session-behavior.md
   - name: Personalización de idioma
     href: active-directory-b2c-reference-language-customization.md
   - name: Personalización de contraseña
@@ -111,8 +111,6 @@ items:
       href: active-directory-b2c-ui-customization-custom.md
     - name: Personalización de la interfaz de usuario de forma dinámica
       href: active-directory-b2c-ui-customization-custom-dynamic.md
-    - name: Personalización de tokens
-      href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
     - name: Definición de atributos personalizados
       href: active-directory-b2c-create-custom-attributes-profile-edit-custom.md
     - name: Habilitación de Mantener la sesión iniciada
@@ -147,8 +145,6 @@ items:
         href: active-directory-b2c-custom-setup-twitter-idp.md
     - name: Contrato de página
       href: page-contract.md
-    - name: Token de acceso Pass Through
-      href: idp-pass-through-custom.md
     - name: Complejidad de la contraseña
       href: active-directory-b2c-reference-password-complexity-custom.md
     - name: Cambio de contraseña
@@ -159,6 +155,12 @@ items:
         href: active-directory-b2c-custom-setup-adfs2016-idp.md
       - name: Salesforce
         href: active-directory-b2c-setup-sf-app-custom.md
+    - name: Tokens
+      items:
+      - name: Personalización de tokens
+        href: active-directory-b2c-reference-manage-sso-and-token-configuration.md
+      - name: Token de acceso Pass Through
+        href: idp-pass-through-custom.md
     - name: Seguimiento del comportamiento del usuario
       href: active-directory-b2c-custom-guide-eventlogger-appins.md
     - name: Referencia
@@ -272,10 +274,6 @@ items:
       href: active-directory-b2c-devquickstarts-ios.md
     - name: Android con App Auth
       href: active-directory-b2c-devquickstarts-android.md
-  - name: Obtención de tokens de acceso
-    href: active-directory-b2c-access-tokens.md
-  - name: Token de acceso Pass Through
-    href: idp-pass-through-user-flow.md
   - name: Uso de informes
     href: active-directory-b2c-reference-usage-reporting-api.md
   - name: Credenciales de contraseña del propietario del recurso
@@ -284,6 +282,14 @@ items:
     href: direct-signin.md
   - name: Configuración del restablecimiento de contraseña de autoservicio
     href: active-directory-b2c-reference-sspr.md
+  - name: Tokens
+    items:
+    - name: Configuración de tokens
+      href: configure-tokens.md
+    - name: Token de acceso Pass Through
+      href: idp-pass-through-user-flow.md
+    - name: Solicitud de un token de acceso
+      href: active-directory-b2c-access-tokens.md
   - name: Uso de b2clogin.com
     href: b2clogin.md
   - name: Usar Graph API de Azure AD
@@ -326,9 +332,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Vídeos
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: cebc59a7d10ce669fd8187687b80f291a07d1c06
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: de9ae82220bd464cbee7345b7f2421d02f0fc545
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58886580"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681138"
