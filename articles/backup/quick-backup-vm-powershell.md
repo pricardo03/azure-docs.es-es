@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 00ec813aec37697526233532b75ba6c55bf852c2
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.openlocfilehash: 850fce4e04ce07a323e830d2daf74ea1a324f1a0
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58906079"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489389"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Copia de seguridad de una máquina virtual en Azure con PowerShell
 
@@ -29,7 +29,7 @@ Para realizar los pasos de esta guía, se requiere la versión 1.0.0 del módulo
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="log-in-and-register"></a>Inicio de sesión y registro
+## <a name="sign-in-and-register"></a>Inicio de sesión y registro
 
 1. Inicie sesión en la suscripción de Azure con el comando `Connect-AzAccount` y siga las instrucciones de la pantalla.
 
@@ -53,7 +53,7 @@ Al crear el almacén:
 - Si ha usado el [script de ejemplo](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json) para crear la máquina virtual, el grupo de recursos se denomina **myResourceGroup**, la máquina virtual es ***myVM** y los recursos están en la región **WestEurope**.
 - Azure Backup administra automáticamente el almacenamiento de los datos de los que se ha hecho la copia de seguridad. De forma predeterminada, el almacén usa el [almacenamiento con redundancia geográfica (GRS)](../storage/common/storage-redundancy-grs.md). El almacenamiento con redundancia geográfica garantiza que se repliquen los datos de copia de seguridad en una región de Azure secundaria que se encuentra a cientos de kilómetros de distancia de la región primaria.
 
-Ahora, cree un almacén.
+Ahora, cree un almacén:
 
 
 1. Use [New-AzRecoveryServicesVault](/powershell/module/az.recoveryservices/new-azrecoveryservicesvault) para crear el almacén:
@@ -162,7 +162,7 @@ Si ya no necesita realizar copias de seguridad de la máquina virtual, puede lim
 - Si desea restaurar la máquina virtual, omita el paso de limpieza.
 - Si ha usado una máquina virtual existente, puede omitir el último cmdlet [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para dejar tanto el grupo de recursos como la máquina virtual en su lugar.
 
-Deshabilite la protección, quite los puntos de restauración y el almacén. A continuación, elimine el grupo de recursos y los recursos de la máquina virtual asociados de la siguiente manera:
+Deshabilite la protección, elimine los puntos de restauración y el almacén. A continuación, elimine el grupo de recursos y los recursos de máquina virtual asociados como se indica a continuación:
 
 ```powershell
 Disable-AzRecoveryServicesBackupProtection -Item $item -RemoveRecoveryPoints

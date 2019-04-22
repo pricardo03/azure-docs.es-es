@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 04/02/2019
 ms.author: monhaber
 ms.openlocfilehash: 63ee603f83d0c2de3bc89b8792ada4a61edb7e00
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006741"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Recolección de datos en Azure Security Center
@@ -77,7 +77,7 @@ Security Center puede crear automáticamente un área de trabajo predeterminada 
 Para seleccionar un área de trabajo creada por Security Center:
 
 1. En **Configuración del área de trabajo predeterminada**, seleccione Use workspace(s) created by Security center (Usar áreas de trabajo creadas por Security Center).
-   ![Seleccionar plan de tarifa][10] 
+   ![Selección del plan de tarifa][10] 
 
 1. Haga clic en **Save**(Guardar).<br>
     Security Center crea un nuevo grupo de recursos y un área de trabajo predeterminada en esa geolocalización y la conecta al agente. La convención de nomenclatura del área de trabajo y el grupo de recursos es:<br>
@@ -137,8 +137,8 @@ Para seleccionar un área de trabajo de Log Analytics existente:
      a.  En el menú principal de Security Center, seleccione **Directiva de seguridad**.
      
     b.  Para seleccionar el área de trabajo deseada en la que quiere conectar el agente, haga clic en **Editar configuración** en la columna de Configuración de la suscripción deseada en la lista.
-        ![Seleccione el área de trabajo][8] c. Establezca el plan de tarifa.
-        ![Seleccionar plan de tarifa][9] 
+        ![Selección del área de trabajo][8] c. Establezca el plan de tarifa.
+        ![Selección del plan de tarifa][9] 
    
    >[!NOTE]
    >Si el área de trabajo ya tiene una solución **Security** o **SecurityCenterFree** habilitada, los precios se establecerán automáticamente. 
@@ -256,16 +256,16 @@ Puede instalar Microsoft Monitoring Agent manualmente para que Security Center p
    b.  Seleccione el área de trabajo deseada en la que quiere conectar al agente. Asegúrese de que el área de trabajo está en la misma suscripción que se usa en Security Center y que tiene permisos de lectura/escritura en el área de trabajo.
        ![Selección del área de trabajo][8]
 3. Establezca el plan de tarifa.
-   ![Seleccionar plan de tarifa][9] 
+   ![Selección del plan de tarifa][9] 
    >[!NOTE]
    >Si el área de trabajo ya tiene una solución **Security** o **SecurityCenterFree** habilitada, los precios se establecerán automáticamente. 
    > 
 
 4. Si desea implementar los agentes en nuevas máquinas virtuales mediante una plantilla de Resource Manager, instale la extensión de máquina virtual de OMS:
 
-    a.  [Instalar la extensión de máquina virtual OMS para Windows](../virtual-machines/extensions/oms-windows.md)
+    a.  [Instalación de la extensión de máquina virtual de OMS para Windows](../virtual-machines/extensions/oms-windows.md)
     
-   b.  [Instalar la extensión de máquina virtual OMS para Linux](../virtual-machines/extensions/oms-linux.md)
+   b.  [Instalación de la extensión de máquina virtual de OMS para Linux](../virtual-machines/extensions/oms-linux.md)
 5. Para implementar las extensiones en máquinas virtuales existentes, siga las instrucciones de [Recopilación de datos acerca de máquinas virtuales de Azure](../azure-monitor/learn/quick-collect-azurevm.md).
 
    > [!NOTE]

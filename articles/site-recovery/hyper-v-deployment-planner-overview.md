@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: 43431c401f13117af1f60d3affd284fc125be7eb
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59360273"
 ---
 # <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>Información sobre Azure Site Recovery Deployment Planner para la recuperación ante desastres de Hyper-V en Azure
@@ -30,7 +30,7 @@ La herramienta proporciona los detalles siguientes:
 
 * Evaluación de la idoneidad de las máquinas virtuales en función del número de discos, el tamaño de estos, las IOPS, la actividad de datos y algunas otras características de las máquinas virtuales.
 
-**Necesidad de ancho de banda de red frente a evaluación de RPO.**
+**Necesidad de ancho de banda de red frente a evaluación de RPO**
 
 * El ancho de banda de red necesario para la replicación diferencial
 * Rendimiento que Azure Site Recovery puede obtener desde el entorno local en Azure
@@ -38,7 +38,7 @@ La herramienta proporciona los detalles siguientes:
 * Impacto en el RPO deseado si se aprovisiona un ancho de banda inferior.
 
     
-**Requisitos de infraestructura de Azure.**
+**Requisitos de infraestructura de Azure**
 
 * El tipo de almacenamiento (cuenta de almacenamiento Estándar o Premium) de cada máquina virtual
 * El número total de cuentas de almacenamiento Estándar y Premium que se van a configurar para la replicación
@@ -47,17 +47,17 @@ La herramienta proporciona los detalles siguientes:
 * El número de núcleos de Azure que se deben configurar antes de realizar una conmutación por error, de prueba o real, en la suscripción
 * El tamaño de máquina virtual de Azure que se recomienda para cada máquina virtual local
 
-**Requisitos de la infraestructura local.**
+**Requisitos de la infraestructura local**
 * El espacio de almacenamiento disponible requerido en cada volumen del almacenamiento de Hyper-V para la replicación inicial correcta y la replicación diferencial a fin de asegurarse de que la replicación de las máquinas virtuales no provocará ningún tiempo de inactividad no deseado para las aplicaciones en producción
 * Frecuencia de copias máxima que se debe establecer para la replicación de Hyper-V
 
-**Guía para el procesamiento por lotes de la replicación inicial.** 
+**Guía para el procesamiento por lotes de la replicación inicial** 
 * Número de lotes de máquina virtual que se van a utilizar para protección
 * Lista de máquinas virtuales en cada lote
 * Orden en que cada lote se va a proteger
 * Tiempo estimado para completar la replicación inicial de cada lote
 
-**Costo estimado de recuperación ante desastres en Azure**
+**Costo estimado de la recuperación ante desastres en Azure**
 * Costo total estimado de la recuperación ante desastres en Azure: costo de licencia de Azure Site Recovery, almacenamiento, red y proceso
 * Detalles del análisis del costo por máquina virtual
 
@@ -70,7 +70,7 @@ La herramienta proporciona los detalles siguientes:
 
 ## <a name="support-matrix"></a>Matrices compatibles
 
-| | **VMware en Azure** |**Hyper-V en Azure**|**Azure a Azure**|**Hyper-V en el sitio secundario**|**VMware en el sitio secundario**
+| | **VMware a Azure** |**Hyper-V en Azure**|**De Azure a Azure**|**De Hyper-V a un sitio secundario**|**Sitio VMware en un sitio secundario**
 --|--|--|--|--|--
 Escenarios admitidos |Sí|Sí|Sin |Sí*|Sin 
 Versión admitida | vCenter 6.5, 6.0 o 5.5| Windows Server 2016, Windows Server 2012 R2 | N/D |Windows Server 2016, Windows Server 2012 R2|N/D
@@ -84,7 +84,7 @@ La herramienta tiene tres fases principales de Hyper-V: obtener la lista de máq
 
 | Requisito del servidor | DESCRIPCIÓN |
 |---|---|
-|Obtención de la lista de máquinas virtuales, generación de perfiles y medición de rendimiento |<ul><li>Sistema operativo: Microsoft Windows Server 2016 o Microsoft Windows Server 2012 R2 </li><li>Configuración de la máquina: 8 vCPUs, 16 GB de RAM y disco duro de 300 GB</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acceso a través de Internet a Azure desde este servidor</li><li>Cuenta de almacenamiento de Azure</li><li>Acceso de administrador en el servidor</li><li>Mínimo de 100 GB de espacio libre en disco (asumiendo 1000 máquinas virtuales con un promedio de tres discos cada una, con perfil para 30 días)</li><li>La máquina virtual desde donde se ejecuta la herramienta Azure Site Recovery Deployment Planner debe agregarse a la lista TrustedHosts de todos los servidores Hyper-V.</li><li>Los servidores Hyper-V deben agregarse a la lista TrustedHosts de la máquina virtual del cliente desde donde se esté ejecutando la herramienta. [Más información sobre cómo agregar servidores a la lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> La herramienta debe ejecutarse con privilegios de administrador desde PowerShell o la consola de línea de comandos en el cliente</ul></ul>|
+|Obtención de la lista de máquinas virtuales, generación de perfiles y medición de rendimiento |<ul><li>Sistema operativo: Microsoft Windows Server 2016 o Microsoft Windows Server 2012 R2 </li><li>Configuración de la máquina: 8 vCPUs, 16 GB de RAM y disco duro de 300 GB</li><li>[Microsoft .NET 4.5 Framework](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ Redistributable para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acceso a través de Internet a Azure desde este servidor</li><li>Cuenta de almacenamiento de Azure</li><li>Acceso de administrador en el servidor</li><li>Mínimo de 100 GB de espacio libre en disco (asumiendo 1000 máquinas virtuales con un promedio de tres discos cada una, con perfil para 30 días)</li><li>La máquina virtual desde donde se ejecuta la herramienta Azure Site Recovery Deployment Planner debe agregarse a la lista TrustedHosts de todos los servidores Hyper-V.</li><li>Los servidores Hyper-V deben agregarse a la lista TrustedHosts de la máquina virtual del cliente desde donde se esté ejecutando la herramienta. [Más información sobre cómo agregar servidores a la lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> La herramienta debe ejecutarse con privilegios de administrador desde PowerShell o la consola de línea de comandos en el cliente</ul></ul>|
 | Generación de informes | Un PC con Windows o Windows Server con Microsoft Excel 2013, o cualquier versión posterior |
 | Permisos de usuario | Cuenta de administrador para tener acceso al clúster o al host Hyper-V durante la obtención de una lista de máquinas virtuales y las operaciones de generación de perfiles.<br>Todos los hosts cuyo perfil debe generarse deben tener una cuenta de administrador de dominio con las mismas credenciales, es decir, el nombre de usuario y la contraseña
  |

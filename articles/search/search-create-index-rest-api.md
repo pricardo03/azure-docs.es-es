@@ -11,10 +11,10 @@ ms.devlang: rest-api
 ms.topic: conceptual
 ms.custom: seodec2018
 ms.openlocfilehash: 2deba4bf941d561fcef7c2dff804646732e7ce24
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268031"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-powershell-and-the-rest-api"></a>Inicio rápido: Crear un índice de Azure Search con PowerShell y la API de REST
@@ -29,17 +29,17 @@ Este artículo le guiará a través del proceso de crear, cargar y consultar una
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-En este tutorial rápido se utilizan los siguientes servicios y herramientas. 
+En este inicio rápido se usan los siguientes servicios y herramientas. 
 
 [Cree un servicio Azure Search](search-create-service-portal.md) o [busque un servicio existente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) en su suscripción actual. Puede usar un servicio gratuito para este inicio rápido. 
 
 [PowerShell 5.1 o una versión posterior](https://github.com/PowerShell/PowerShell)con [Invoke-RestMethod](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Invoke-RestMethod) para conocer los pasos secuenciales e interactivos.
 
-## <a name="get-a-key-and-url"></a>Obtener una dirección URL y clave
+## <a name="get-a-key-and-url"></a>Obtención de una clave y una dirección URL
 
 Las llamadas de REST requieren la dirección URL del servicio y una clave de acceso en cada solicitud. Con ambos se crea un servicio de búsqueda, por lo que si ha agregado Azure Search a su suscripción, siga estos pasos para obtener la información necesaria:
 
-1. [Inicie sesión en el portal de Azure](https://portal.azure.com/)y en el servicio search **Introducción** página, obtenga la dirección URL. Un punto de conexión de ejemplo podría ser similar a `https://mydemo.search.windows.net`.
+1. [Inicie sesión en Azure Portal](https://portal.azure.com/) y en la página **Introducción** del servicio de búsqueda, obtenga la dirección URL. Un punto de conexión de ejemplo podría ser similar a `https://mydemo.search.windows.net`.
 
 2. En **Configuración** > **Claves**, obtenga una clave de administrador para tener derechos completos en el servicio. Se proporcionan dos claves de administrador intercambiables para lograr la continuidad empresarial, por si necesitara sustituir una de ellas. Puede usar la clave principal o secundaria en las solicitudes para agregar, modificar y eliminar objetos.
 
@@ -47,7 +47,7 @@ Las llamadas de REST requieren la dirección URL del servicio y una clave de acc
 
 Todas las solicitudes requieren una clave de API en cada solicitud enviada al servicio. Tener una clave válida genera la confianza, solicitud a solicitud, entre la aplicación que envía la solicitud y el servicio que se encarga de ella.
 
-## <a name="connect-to-azure-search"></a>Conectarse a Azure Search
+## <a name="connect-to-azure-search"></a>Conexión con Azure Search
 
 En PowerShell, cree un **$headers** objeto para almacenar el tipo de contenido y la clave de API. Solo tiene que establecer este encabezado de una vez por la duración de la sesión, pero se agregará a cada solicitud. 
 

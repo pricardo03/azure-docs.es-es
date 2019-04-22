@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: glenga
 ms.openlocfilehash: 5d028768c062ef7df74d48f83ccc4e27a506f1ac
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270911"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Automatización de la implementación de recursos para una aplicación de función en Azure Functions
@@ -28,7 +28,7 @@ Para más información sobre la creación de plantillas, consulte [Creación de 
 
 Para obtener las plantillas de ejemplo, vea:
 - [Aplicación de función en el plan de consumo]
-- [Aplicación de función en el plan de App Service]
+- [Aplicación de función en el plan Azure App Service]
 
 > [!NOTE]
 > El plan Premium para el hospedaje de Azure Functions está actualmente en versión preliminar. Para obtener más información, consulte [plan Premium de Azure Functions](functions-premium-plan.md).
@@ -123,7 +123,7 @@ Además, debe proporcionarse a la aplicación de función con la clave de instru
 La definición del plan de hospedaje varía y puede ser uno de los siguientes:
 * [Plan de consumo](#consumption) (valor predeterminado)
 * [Plan Premium](#premium) (en versión preliminar)
-* [Plan de App Service](#app-service-plan)
+* [plan de App Service](#app-service-plan)
 
 ### <a name="function-app"></a>Aplicación de función
 
@@ -384,7 +384,7 @@ Debe tener una aplicación de función en un plan Premium la `serverFarmId` prop
 
 En el plan de App Service, la aplicación de función se ejecuta en máquinas virtuales dedicadas en las SKU de los niveles Básico, Estándar y Premium, de un modo similar a las aplicaciones web. Para más información acerca del funcionamiento del plan de App Service, consulte [Introducción detallada sobre los planes de Azure App Service](../app-service/overview-hosting-plans.md).
 
-Para obtener una plantilla de Azure Resource Manager de ejemplo, vea [Aplicación de función en el plan de App Service].
+Para obtener una plantilla de Azure Resource Manager de ejemplo, vea [Aplicación de función en el plan Azure App Service].
 
 ### <a name="create-an-app-service-plan"></a>Creación de un plan de App Service
 
@@ -644,7 +644,7 @@ Una aplicación de función tiene muchos recursos secundarios que puede usar en 
 Puede usar cualquiera de los siguientes métodos para implementar la plantilla:
 
 * [PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-* [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md)
+* [CLI de Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
 * [Azure Portal](../azure-resource-manager/resource-group-template-deploy-portal.md)
 * [API DE REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
@@ -669,10 +669,10 @@ A continuación se muestra un ejemplo que usa HTML:
 Aprenda a desarrollar y configurar Azure Functions.
 
 * [Referencia para desarrolladores de Azure Functions](functions-reference.md)
-* [Cómo configurar la configuración de Azure function app](functions-how-to-use-azure-function-app-settings.md)
-* [Cree su primera función de Azure](functions-create-first-azure-function.md)
+* [Configuración de aplicaciones de función de Azure](functions-how-to-use-azure-function-app-settings.md)
+* [Creación de su primera función de Azure](functions-create-first-azure-function.md)
 
 <!-- LINKS -->
 
 [Aplicación de función en el plan de consumo]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dynamic/azuredeploy.json
-[Aplicación de función en el plan de App Service]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json
+[Aplicación de función en el plan Azure App Service]: https://github.com/Azure/azure-quickstart-templates/blob/master/101-function-app-create-dedicated/azuredeploy.json

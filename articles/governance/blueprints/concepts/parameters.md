@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 9b5b151c62c4294563f704dc9a0cf7daeaca874f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279982"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creación de planos técnicos mediante parámetros
@@ -76,8 +76,8 @@ Un valor de parámetro definido en la definición de un plano técnico se denomi
 
 En cada identificador URI de la API REST, hay variables usadas que se deben reemplazar por sus propios valores:
 
-- `{YourMG}` -Reemplazar por el nombre del grupo de administración
-- `{subscriptionId}` -Se reemplace por su identificador de suscripción
+- `{YourMG}`: reemplácelo por el nombre del grupo de administración
+- `{subscriptionId}`: reemplácelo por el identificador de suscripción
 
 ##### <a name="blueprint-level-parameter"></a>Parámetro en el nivel del plano técnico
 

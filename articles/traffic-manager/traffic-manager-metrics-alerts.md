@@ -11,10 +11,10 @@ ms.workload: infrastructure-services
 ms.date: 06/11/2018
 ms.author: kumud
 ms.openlocfilehash: 1c0c48efc7abf4b810e92b5cd04d1538577c71d3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268292"
 ---
 # <a name="traffic-manager-metrics-and-alerts"></a>Métricas y alertas de Traffic Manager
@@ -33,13 +33,13 @@ En el ejemplo siguiente, la figura 1 muestra todas las respuestas a consultas qu
   
 ![Vista agregada de todas las consultas](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-queries-aggregate-view.png)
 
-*Ilustración 1: Vista con todas las consultas de agregado*
+*Figura 1: Vista agregada con todas las consultas*
   
 La figura 2 muestra la misma información, sin embargo, se divide por puntos de conexión. Como resultado, puede ver el volumen de las respuestas a consultas en la que se devolvió un punto de conexión en particular.
 
 ![Métricas de Traffic Manager: vista dividida del volumen de consultas por punto de conexión](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-query-volume-per-endpoint.png)
 
-*Ilustración 2: Vista en dos paneles con el volumen de consultas que se muestran por punto de conexión devuelta*
+*Figura 2: Vista dividida con el volumen de consultas por punto de conexión devuelto*
 
 ## <a name="endpoint-status-by-endpoint"></a>Estado de punto de conexión por punto de conexión
 Use [esta métrica](../azure-monitor/platform/metrics-supported.md#microsoftnetworktrafficmanagerprofiles) para conocer el estado de mantenimiento de los puntos de conexión en el perfil. Toma dos valores:
@@ -51,12 +51,12 @@ Esta métrica puede mostrarse como valor agregado que representa el estado de to
 
 ![Métricas de Traffic Manager: vista compuesta del estado de los puntos de conexión](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-composite-view.png)
 
-*Ilustración 3: Vista compuesta de métrica de estado de punto de conexión: agregación "Promedio" seleccionado*
+*Figura 3: Vista compuesta de la métrica de estado de los puntos de conexión, agregación "Avg" seleccionada*
 
 
 ![Métricas de Traffic Manager: vista dividida del estado de los puntos de conexión](./media/traffic-manager-metrics-alerts/traffic-manager-metrics-endpoint-status-split-view.png)
 
-*Ilustración 4: Vista en dos paneles de métricas de estado de punto de conexión*
+*Figura 4: Vista dividida de las métricas de estado de los puntos de conexión*
 
 Puede consumir estas métricas a través del portal del [servicio Azure Monitor](../azure-monitor/platform/metrics-supported.md), la [API de REST](https://docs.microsoft.com/rest/api/monitor/), [CLI de Azure](https://docs.microsoft.com/cli/azure/monitor) y [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.applicationinsights), o a través de la sección de métricas de la experiencia del portal de Traffic Manager.
 

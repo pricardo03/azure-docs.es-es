@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0e87a4c7ebafd8ddcfa54c87b189316b0ce98b0f
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359007"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referencia de configuración del acceso condicional de Azure Active Directory
@@ -227,7 +227,7 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
 - Microsoft Word
 - Microsoft Yammer
 
-**Comentarios**
+**Comentarios:**
 
 - Las aplicaciones cliente aprobadas admiten la característica de administración de aplicaciones móviles de Intune.
 - Requisito de la opción **Solicitar aplicación cliente aprobada**:
@@ -244,7 +244,7 @@ Esta configuración se aplica a las aplicaciones cliente siguientes:
 - Microsoft OneDrive
 - Microsoft Outlook
 
-**Comentarios**
+**Comentarios:**
 
 - Las aplicaciones para la directiva de protección de aplicaciones admiten la característica de administración de aplicaciones móviles de Intune con la protección de la directiva.
 - El **requieren la directiva de protección de aplicaciones** requisitos:

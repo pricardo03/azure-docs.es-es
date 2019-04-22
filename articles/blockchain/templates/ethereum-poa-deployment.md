@@ -11,10 +11,10 @@ ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: vamelech
 ms.openlocfilehash: 3531b43e6aee1eedef811e81e192873c5b5ed561
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59274797"
 ---
 # <a name="ethereum-proof-of-authority-consortium"></a>Consorcio de prueba de autoridad de Ethereum
@@ -220,7 +220,7 @@ Subscription|La suscripción en la que se va a implementar la red del consorcio.
 Grupo de recursos|El grupo de recursos en el que se va a implementar la red del consorcio.||N/D
 Ubicación|La región de Azure para el grupo de recursos.||N/D
 
-A continuación se muestra una implementación de ejemplo: ![hoja básico](./media/ethereum-poa-deployment/basic-blade.png)
+A continuación se muestra una implementación de ejemplo: ![Aspectos básicos](./media/ethereum-poa-deployment/basic-blade.png)
 
 #### <a name="deployment-regions"></a>Regiones de implementación
 
@@ -237,7 +237,7 @@ A continuación se proporciona una descripción detallada de cada parámetro:
   Cuarta región|Cuarta región para implementar la red del consorcio (visible únicamente cuando se selecciona el número de regiones como 4)|Todas las regiones de Azure permitidas|N/D
   Quinta región|Quinta región para implementar la red del consorcio (visible únicamente cuando se selecciona el número de regiones como 5)|Todas las regiones de Azure permitidas|N/D
 
-A continuación se muestra una implementación de ejemplo: ![regiones de implementación](./media/ethereum-poa-deployment/deployment-regions.png)
+A continuación se muestra una implementación de ejemplo: ![Regiones de implementación](./media/ethereum-poa-deployment/deployment-regions.png)
 
 #### <a name="network-size-and-performance"></a>Tamaño de red y rendimiento
 
@@ -252,9 +252,9 @@ A continuación se proporciona una descripción detallada de cada parámetro:
   Validator node storage performance (Rendimiento del almacenamiento de los nodos de validador)|Tipo de disco administrado que realiza una copia de seguridad de cada uno de los nodos de validador implementado.|SSD estándar o Premium|SSD estándar
   Validator node virtual machine size (Tamaño de la máquina virtual del nodo de validador)|Tamaño de la máquina virtual usada para los nodos de validador.|Estándar A, Estándar D, Estándar D-v2, serie Estándar F, Estándar DS y Estándar FS|Estándar D1 v2
 
-[Detalles de precios de Storage](https://azure.microsoft.com/pricing/details/managed-disks/)
+[Detalles de precios de almacenamiento](https://azure.microsoft.com/pricing/details/managed-disks/)
 
-[Detalles de precios de máquina virtual](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
+[Detalles de precios de la máquina virtual](https://azure.microsoft.com/pricing/details/virtual-machines/windows/)
 
 Máquina virtual y la capa de almacenamiento afectará al rendimiento de red.  En función de la eficacia de costos deseada, recomendamos las siguientes SKU:
 
@@ -264,7 +264,7 @@ Máquina virtual y la capa de almacenamiento afectará al rendimiento de red.  E
   D2_v3|SSD estándar|medio|medio|medio
   F16s|SSD Premium|alta|alta|bajo
 
-A continuación se muestra una implementación de ejemplo: ![tamaño y el rendimiento de red](./media/ethereum-poa-deployment/network-size-and-performance.png)
+A continuación se muestra una implementación de ejemplo: ![Tamaño de red y rendimiento](./media/ethereum-poa-deployment/network-size-and-performance.png)
 
 #### <a name="ethereum-settings"></a>Configuración de Ethereum
 
@@ -283,7 +283,7 @@ Límite de gas del bloque (opciones avanzadas = Habilitar)|El límite de gas del
 Período de resellado del bloque (s)|La frecuencia con que se crearán bloques vacíos cuando no hay ninguna transacción en la red. Una frecuencia mayor finalizará más rápido, pero los costos de almacenamiento serán superiores.|Cualquier elemento numérico|15
 Transaction Permission Contract (Contrato de permiso de transacciones) (Opciones avanzadas = Habilitar)|Código de bytes para el contrato de permisos de la transacción. Restringe la implementación de contrato inteligente y la ejecución de una lista de cuentas de Ethereum.|Código de bytes de contrato|N/D
 
-A continuación se muestra una implementación de ejemplo: ![ethereum configuración](./media/ethereum-poa-deployment/ethereum-settings.png)
+A continuación se muestra una implementación de ejemplo: ![Configuración de Ethereum](./media/ethereum-poa-deployment/ethereum-settings.png)
 
 #### <a name="monitoring"></a>Supervisión
 
@@ -300,7 +300,7 @@ Identificador del área de trabajo existente log analytics (conectar a los regis
 Clave principal de Existing log analytics (conectar a los registros existentes de Azure Monitor = unir existente)|La clave principal que se usa para conectarse a la instancia existente de los registros de Azure Monitor||N/D
 
 
-A continuación se muestra una implementación de ejemplo: ![azure monitor](./media/ethereum-poa-deployment/azure-monitor.png)
+A continuación se muestra una implementación de ejemplo: ![Azure Monitor](./media/ethereum-poa-deployment/azure-monitor.png)
 
 #### <a name="summary"></a>Resumen
 

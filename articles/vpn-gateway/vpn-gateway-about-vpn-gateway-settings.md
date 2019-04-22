@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: cherylmc
 ms.openlocfilehash: 4030c196d6a4de721b640f5da0b692f4d8157d12
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59049870"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>Acerca de la configuración de VPN Gateway
@@ -171,7 +171,7 @@ Para más información sobre los recursos técnicos y los requisitos de sintaxis
 | --- | --- |
 | [PowerShell](/powershell/module/az.network/#networking) |[PowerShell](/powershell/module/az.network#vpn) |
 | [API DE REST](https://msdn.microsoft.com/library/jj154113) |[API DE REST](/rest/api/network/virtualnetworkgateways) |
-| No compatible | [Azure CLI](/cli/azure/network/vnet-gateway)|
+| No compatible | [CLI de Azure](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

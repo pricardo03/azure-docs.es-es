@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 04/04/2019
 ms.author: apimpm
 ms.openlocfilehash: 796bea3c64ef7fc03367707461d13e0ea2514b8b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051763"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Delegación de registros de usuario y suscripciones a producto
@@ -141,7 +141,7 @@ Estos muestran ejemplos de código cómo para:
 
 El mismo código funciona para productId y userId con pequeñas modificaciones.
 
-**C#código para generar el hash de returnUrl**
+**Código C# para generar el hash de returnUrl**
 
 ```csharp
 using System.Security.Cryptography;
@@ -184,10 +184,10 @@ Para más información acerca de la delegación, vea el siguiente vídeo:
 
 [Delegating developer sign in and sign up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[solicitar un token de inicio de sesión único (SSO)]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
-[creación de un usuario]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
-[una llamada a la API de REST para la suscripción de producto]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
+[solicite un token de inicio de sesión único (SSO)]: https://docs.microsoft.com/rest/api/apimanagement/User/GenerateSsoUrl
+[Cree un usuario]: https://docs.microsoft.com/rest/api/apimanagement/user/createorupdate
+[llamando a la API de REST para la suscripción del producto]: https://docs.microsoft.com/rest/api/apimanagement/productsubscriptions
 [Next steps]: #next-steps
-[a continuación proporcionado el código de ejemplo]: #delegate-example-code
+[se proporciona código de ejemplo a continuación]: #delegate-example-code
 
 [api-management-delegation-signin-up]: ./media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png 

@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
 ms.openlocfilehash: e98ec71f0c21fe640666b9d34e170678ec23c1ff
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359036"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Informe de estimación de costos mediante Azure Site Recovery Deployment Planner 
@@ -107,21 +107,21 @@ Para agregar las máquinas virtuales manualmente:
 
 1. Rellene las columnas siguientes en función del tamaño aproximado de máquina virtual y del número de máquinas virtuales que coincidan con esta configuración: 
 
-     a. **Número de máquinas virtuales**
+     a. **Number of VMs** (Número de máquinas virtuales)
 
-    b. **Tamaño de IaaS (Your selection)**
+    b. **IaaS size (Your selection)** (Tamaño de IaaS [su selección])
 
-    c. **Tipo de almacenamiento estándar o Premium**
+    c. **Storage type Standard/Premium** (Tipo de almacenamiento estándar/Premium)
 
-    d. **VM total storage size (GB) [Tamaño de almacenamiento total de máquinas virtuales (GB)]**
+    d. **VM total storage size (GB)** (Tamaño de almacenamiento total de máquinas virtuales [GB])
 
-    e. **Número de simulacros de recuperación ante desastres en un año**
+    e. **Number of DR drills in a year** (Número de simulacros de recuperación ante desastres en un año)
 
-    f. **Cada DR-Drill duration (días)**
+    f. **Each DR drill duration (Days)** (Duración de cada simulacro de recuperación ante desastres [días])
 
-    g. **OS Type (Tipo de SO)**
+    g. **OS Type** (Tipo de SO)
 
-    h. **Redundancia de datos**
+    h. **Data redundancy** (Redundancia de datos)
 
     i. **Ventaja de uso híbrido de Azure**
 

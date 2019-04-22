@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 04/03/2019
 ms.author: danlep
 ms.openlocfilehash: 15b67218b129b5e017e67651587c389af412d7a1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59268438"
 ---
 # <a name="restrict-access-to-an-azure-container-registry-using-an-azure-virtual-network-or-firewall-rules"></a>Restringir el acceso a Azure container registry mediante una red virtual de Azure o las reglas de firewall
@@ -373,7 +373,7 @@ Para limpiar los recursos en el portal, navegue hasta el grupo de recursos myRes
 
 En este artículo se trataron varios recursos de red virtual y características, aunque de forma breve. La documentación de Azure Virtual Network trata estos temas ampliamente:
 
-* [Virtual network](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network)
+* [Red virtual](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network)
 * [Subred](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet)
 * [Puntos de conexión de servicio](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview)
 

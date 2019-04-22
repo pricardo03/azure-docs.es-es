@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: timlt
 ms.openlocfilehash: 9e1e85d1ab1c5e7ce0cbd96c64137309c2e2916a
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425974"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Conectividad de dispositivos en Azure IoT Central
@@ -87,7 +87,7 @@ Los pasos siguientes describen cómo conectar dispositivos con IoT Central media
 
 - Implementación de muestra para [RaspberryPi.](https://aka.ms/iotcentral-docs-Raspi-releases)
 
-- [Ejemplo de cliente de dispositivo en C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
+- [Cliente de dispositivo de muestra en C.](https://github.com/Azure/azure-iot-sdk-c/blob/dps_symm_key/provisioning_client/devdoc/using_provisioning_client.md)
 
 ### <a name="for-testing-purposes-only"></a>Solo con fines de prueba
 
@@ -168,7 +168,7 @@ Cada dispositivo se conecta mediante una cadena de conexión única que identifi
 
 Toda comunicación del dispositivo con la instancia de IoT Hub utiliza las siguientes opciones de conectividad:
 
-- [Mensajería de un dispositivo a la nube](../iot-hub/iot-hub-devguide-messages-d2c.md)
+- [Mensajería del dispositivo a la nube](../iot-hub/iot-hub-devguide-messages-d2c.md)
 - [Dispositivos gemelos](../iot-hub/iot-hub-devguide-device-twins.md)
 
 En la tabla siguiente se resume cómo las características de los dispositivos de Azure IoT Central se asignan a las características de IoT Hub:
@@ -181,8 +181,8 @@ En la tabla siguiente se resume cómo las características de los dispositivos d
 
 Para más información sobre el uso de los SDK de dispositivos, consulte cualquiera de los siguientes artículos para ver código de ejemplo:
 
-- [Conectar a un cliente de Node.js genérico a una aplicación de Azure IoT Central](howto-connect-nodejs.md)
-- [Conectar un dispositivo Raspberry Pi a una aplicación de Azure IoT Central](howto-connect-raspberry-pi-python.md)
+- [Conexión de un cliente de Node.js genérico a una aplicación de Azure IoT Central](howto-connect-nodejs.md)
+- [Conexión de un dispositivo Raspberry Pi a su aplicación de Azure IoT Central](howto-connect-raspberry-pi-python.md)
 - [Conexión de un dispositivo de DevKit a su aplicación de Azure IoT Central](howto-connect-devkit.md)
 
 ### <a name="protocols"></a>Protocolos
@@ -205,7 +205,7 @@ Todos los datos intercambiados entre los dispositivos y la instancia de Azure Io
 
 Ahora que ha aprendido acerca de la conectividad de dispositivos en Azure IoT Central, estos son los siguientes pasos sugeridos:
 
-- [Preparar y conectar un dispositivo DevKit](howto-connect-devkit.md)
-- [Preparar y conexión de Raspberry Pi](howto-connect-raspberry-pi-python.md)
-- [Conectar a un cliente de Node.js genérico a una aplicación de Azure IoT Central](howto-connect-nodejs.md)
+- [Preparación y conexión de un dispositivo DevKit](howto-connect-devkit.md)
+- [Preparación y conexión de una instancia de Raspberry Pi](howto-connect-raspberry-pi-python.md)
+- [Conexión de un cliente de Node.js genérico a una aplicación de Azure IoT Central](howto-connect-nodejs.md)
 - [SDK DE C: Aprovisionamiento de SDK de cliente de dispositivo](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_provisioning_client.md)

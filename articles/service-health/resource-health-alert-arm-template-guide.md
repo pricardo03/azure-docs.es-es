@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.service: service-health
 ms.date: 9/4/2018
 ms.openlocfilehash: afa89fc90552c7ccba1fcea0945ee223d0096be4
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59047524"
 ---
 # <a name="configure-resource-health-alerts-using-resource-manager-templates"></a>Configuración de alertas de estado de los recursos con plantillas de Resource Manager
@@ -164,7 +164,7 @@ Para un ámbito a nivel de recurso, la sección de ámbito tiene este aspecto:
 ],
 ```
 
-Por ejemplo:  `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
+Por ejemplo: `"/subscriptions/d37urb3e-ed41-4670-9c19-02a1d2808ff9/resourcegroups/myRG/providers/microsoft.compute/virtualmachines/myVm"`
 
 > Puede ir a Azure Portal y observar la dirección URL del recurso de Azure para obtener esta cadena.
 
@@ -428,8 +428,8 @@ Sin embargo, usted conoce mejor las configuraciones que necesita; use las herram
 ## <a name="next-steps"></a>Pasos siguientes
 
 Más información sobre Resource Health:
--  [Introducción a Azure Resource Health](Resource-health-overview.md)
+-  [Información general sobre Azure Resource Health](Resource-health-overview.md)
 -  [Tipos de recursos y comprobaciones de mantenimiento disponibles a través de Azure Resource Health](resource-health-checks-resource-types.md)
 
 Creación de alertas de Service Health:
--  [Configurar alertas de estado del servicio](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 
+-  [Configuración de alertas de Service Health](../azure-monitor/platform/alerts-activity-log-service-notifications.md) 

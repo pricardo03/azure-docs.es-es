@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
 ms.openlocfilehash: 601a3f273a8da9100d24dfdbd13bd598b0e48884
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051570"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Creación de una instancia de Azure Network Watcher
@@ -112,7 +112,7 @@ Ahora que tiene una instancia de Network Watcher, obtenga información acerca de
 * [Comprobación de flujo de IP](network-watcher-ip-flow-verify-overview.md)
 * [Próximo salto](network-watcher-next-hop-overview.md)
 * [Vista de grupo de seguridad](network-watcher-security-group-view-overview.md)
-* [Registros de flujo de NSG](network-watcher-nsg-flow-logging-overview.md)
-* [Solución de problemas de puerta de enlace de red virtual](network-watcher-troubleshoot-overview.md)
+* [Registro de flujo de NSG](network-watcher-nsg-flow-logging-overview.md)
+* [Solución de problemas de una puerta de enlace de Virtual Network](network-watcher-troubleshoot-overview.md)
 
 Una vez que hay una instancia de Network Watcher, puede habilitar la captura de paquetes dentro de máquinas virtuales. Para información sobre cómo hacerlo, consulte [Uso de capturas de paquetes para realizar la supervisión proactiva de la red con alertas y Azure Functions](network-watcher-alert-triggered-packet-capture.md).

@@ -11,10 +11,10 @@ ms.custom: ''
 manager: mtillman
 ms.author: kfollis
 ms.openlocfilehash: fde7ffbaa3ef4d47eea48302a99948932aeb4f00
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361956"
 ---
 # <a name="export-or-delete-user-settings"></a>Exportación o eliminación de la configuración de usuario
@@ -56,4 +56,4 @@ Es una buena idea para exportar y revisar la configuración antes de eliminarlos
 ## <a name="next-steps"></a>Pasos siguientes
 
 * [Creación y uso compartido de paneles de Azure](azure-portal-dashboard-share-access.md)
-* [Adición, eliminación y ordenación de favoritos](azure-portal-add-remove-sort-favorites.md)
+* [Agregar, quitar y ordenar los favoritos](azure-portal-add-remove-sort-favorites.md)

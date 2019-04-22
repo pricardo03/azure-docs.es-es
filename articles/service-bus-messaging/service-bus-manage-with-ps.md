@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 09/21/2018
 ms.author: aschhab
 ms.openlocfilehash: 0d15aa4d7b8a922f7606b7c4d1b357a80b3cbfab
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359141"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use PowerShell para administrar recursos de Service Bus
@@ -47,9 +47,9 @@ Al trabajar con espacios de nombres de Service Bus, puede usar el [Get AzService
 
 En este ejemplo se crean algunas variables locales en el script: `$Namespace` y `$Location`.
 
-* `$Namespace` es el nombre del espacio de nombres de Service Bus con la que queremos trabajar.
+* `$Namespace` es el nombre del espacio de nombres de Service Bus con el que queremos trabajar.
 * `$Location` identifica el centro de datos en el que aprovisionamos el espacio de nombres.
-* `$CurrentNamespace` almacena el espacio de nombres de referencia que se recuperan (o crear).
+* `$CurrentNamespace` almacena el espacio de nombres de referencia que vamos a recuperar (o crear).
 
 En un script real, `$Namespace` y `$Location` se pueden pasar como parámetros.
 
@@ -170,8 +170,8 @@ Puede usar el [módulo de PowerShell de Service Bus](/powershell/module/az.servi
 
 Hay varias formas alternativas de administrar entidades de Service Bus, tal como se describe en estas entradas de blog:
 
-* [Creación de colas de Service Bus, temas y suscripciones con un script de PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [Cómo crear un Namespace de Bus de servicio y un centro de eventos mediante un script de PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+* [Cómo crear colas, temas y suscripciones de Service Bus con un script de PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [Cómo crear un espacio de nombres de Service Bus y un centro de eventos mediante un script de PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 * [Scripts de PowerShell de Service Bus](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->

@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 405fe71676de311ed7e59ea72798ff4fd2db0f62
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280475"
 ---
 # <a name="run-a-notebook-slideshow"></a>Ejecutar una presentación de un cuaderno
@@ -102,7 +102,7 @@ Dado que la presentación representa fragmentos con más espaciado vertical que 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Procedimientos para: Configurar y administrar proyectos](configure-manage-azure-notebooks-projects.md)
-- [Procedimientos para: Instalación de paquetes de un cuaderno](install-packages-jupyter-notebook.md)
-- [Procedimientos para: Uso de archivos de datos](work-with-project-data-files.md)
-- [Procedimientos para: Acceso a recursos de datos](access-data-resources-jupyter-notebooks.md)
+- [How to: Configure and manage projects](configure-manage-azure-notebooks-projects.md) (Configuración y administración de proyectos)
+- [Procedimientos: Instalación de paquetes en un cuaderno](install-packages-jupyter-notebook.md)
+- [Instrucciones: con archivos de datos en proyectos de Azure Notebooks](work-with-project-data-files.md)
+- [How to: Acceso a recursos de datos](access-data-resources-jupyter-notebooks.md)

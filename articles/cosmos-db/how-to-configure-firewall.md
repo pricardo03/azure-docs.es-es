@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/06/2018
 ms.author: govindk
 ms.openlocfilehash: 26f2131fd62ddc83c2a6d93c4cff557402a88463
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281121"
 ---
 # <a name="configure-ip-firewall-in-azure-cosmos-db"></a>Configuración del firewall de IP en Azure Cosmos DB
@@ -159,7 +159,7 @@ Las solicitudes de una subred en una red virtual que tiene habilitado un punto d
 
 Para configurar un punto de conexión de servicio de red virtual para la cuenta de Azure Cosmos DB, consulte los artículos siguientes:
 
-* [Control de acceso de red y subred virtual para la cuenta de Azure Cosmos DB](vnet-service-endpoint.md)
+* [Control de acceso a una red virtual y subred para la cuenta de Azure Cosmos DB](vnet-service-endpoint.md)
 * [Configuración del acceso basado en red virtual y subred para la cuenta de Azure Cosmos DB](how-to-configure-vnet-service-endpoint.md)
 
 

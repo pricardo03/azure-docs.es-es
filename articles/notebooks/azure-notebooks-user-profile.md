@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: b8c21b908ca9162a7e44c7af1e222babc6ee1eb7
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265617"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Perfil e identificador de usuario de Azure Notebooks
 
 En el espacio eficaz y de colaboración de Azure Notebooks, su perfil de usuario presenta su imagen pública a otros usuarios:
 
-[![Apágina de perfil de Azure Notebooks n](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
+[![Página de perfil de Azure Notebooks](media/accounts/profile-page.png)](media/accounts/profile-page.png#lightbox)
 
 El identificador de usuario forma parte de las direcciones URL que usa para compartir los proyectos y los cuadernos. En la lista siguiente se describen los distintos patrones de dirección URL:
 
@@ -69,4 +69,4 @@ Para editar su perfil, utilice el comando **Editar información de perfil** en l
 ## <a name="next-steps"></a>Pasos siguientes  
 
 > [!div class="nextstepaction"]
-> [Tutorial: crear una ejecución de un cuaderno de Jupyter notebook para realizar la regresión lineal](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: create an run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md) (Tutorial: Creación y ejecución de un cuaderno de Jupyter Notebook para hacer regresión lineal)

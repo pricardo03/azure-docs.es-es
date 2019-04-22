@@ -7,10 +7,10 @@ ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 0337b2a7a228052dacfb35982ee6e8d62372fb29
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264223"
 ---
 # <a name="set-up-the-business-glossary-for-governed-tagging"></a>Configuración del glosario empresarial para el etiquetado regulado
@@ -82,4 +82,4 @@ Mediante el uso del glosario empresarial en Azure Data Catalog y del etiquetado 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Documentación de API de REST para operaciones del glosario empresarial](/rest/api/datacatalog/data-catalog-glossary)
+* [Documentación de API de REST para las operaciones del glosario empresarial](/rest/api/datacatalog/data-catalog-glossary)

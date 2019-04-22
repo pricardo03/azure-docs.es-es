@@ -9,10 +9,10 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 84ed1632a61ae097bd2e187de4766dfc50f2503f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263787"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Obtener datos de cumplimiento de los recursos de Azure
@@ -55,8 +55,8 @@ Con una llamada a la API de REST se puede iniciar un examen de evaluación de un
 
 En cada identificador URI de la API REST, hay variables usadas que se deben reemplazar por sus propios valores:
 
-- `{YourRG}` -Reemplazar por el nombre del grupo de recursos
-- `{subscriptionId}` -Se reemplace por su identificador de suscripción
+- `{YourRG}`: reemplácelo por el nombre del grupo de recursos
+- `{subscriptionId}`: reemplácelo por el identificador de suscripción
 
 El examen admite la evaluación de recursos de una suscripción o de un grupo de recursos. Inicie un examen para el ámbito con un comando **POST** de API REST mediante las siguientes estructuras de URI:
 

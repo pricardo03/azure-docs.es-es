@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 30625423553b71e848d27d047d4b7bc3add6eaff
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265158"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Inicio rápido: Clonación de un cuaderno
@@ -52,7 +52,7 @@ La clonación crea una copia de un cuaderno de GitHub en la cuenta de Azure Note
 
 1. Una vez finalizada la clonación, Azure Notebooks le lleva al nuevo proyecto, donde podrá ver las copias de todos los archivos.
 
-    [![](media/quickstarts/completed-clone.png "Vista de un clon completada")](media/quickstarts/completed-clone.png#lightbox)
+    [![](media/quickstarts/completed-clone.png "Vista de un clon completado")](media/quickstarts/completed-clone.png#lightbox)
 
 ## <a name="share-a-notebook"></a>Uso compartido de un cuaderno
 
@@ -77,4 +77,4 @@ La clonación crea una copia de un cuaderno de GitHub en la cuenta de Azure Note
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial: crear una ejecución de un cuaderno de Jupyter notebook para realizar la regresión lineal](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: create an run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md) (Tutorial: Creación y ejecución de un cuaderno de Jupyter Notebook para hacer regresión lineal)

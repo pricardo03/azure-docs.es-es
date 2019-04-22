@@ -9,10 +9,10 @@ ms.topic: article
 ms.date: 12/01/2018
 ms.author: victorh
 ms.openlocfilehash: e0fbec8b22993345114d8d6642e42095191d0b37
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046281"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>Implementación de Azure Firewall mediante una plantilla
@@ -32,7 +32,7 @@ Para más información sobre Azure Firewall, vea [Implementación y configuraci�
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
-**Para instalar e implementar Firewall de Azure mediante la plantilla:**
+**Para instalar e implementar Azure Firewall con la plantilla**:
 
 1. Acceda a la plantilla en [https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azurefirewall-sandbox).
    
@@ -71,4 +71,4 @@ Si pretende continuar con el tutorial de supervisión de firewall, no quite aún
 A continuación, puede supervisar los registros de Azure Firewall:
 
 > [!div class="nextstepaction"]
-> [Tutorial: Supervise los registros de Firewall de Azure](./tutorial-diagnostics.md)
+> [Tutorial: Supervisión de los registros de Azure Firewall](./tutorial-diagnostics.md)

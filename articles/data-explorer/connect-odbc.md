@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/21/2019
 ms.openlocfilehash: d01c825e50e30e3545a0d47e432835c658d677af
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59043888"
 ---
 # <a name="connect-to-azure-data-explorer-with-odbc"></a>Conectar con el Explorador de datos de Azure con ODBC
@@ -100,6 +100,6 @@ Ahora que ha terminado de configurar ODBC, puede traer datos de ejemplo a Tablea
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-[Escribir consultas para el Explorador de datos de Azure](write-queries.md)
+[Write queries for Azure Data Explorer](write-queries.md) (Escritura de consultas del Explorador de datos de Azure)
 
-[Tutorial: Visualizar datos desde el Explorador de datos de Azure en Power BI](visualize-power-bi.md)
+[Tutorial: Visualización de datos desde Azure Data Explorer en Power BI](visualize-power-bi.md)

@@ -13,10 +13,10 @@ ms.date: 04/05/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: f67c2a4547ee923e5c1b49302c38693e9ffe87c4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262217"
 ---
 # <a name="install-visual-studio-and-ssdt-for-sql-data-warehouse"></a>Instalación de Visual Studio y SSDT para SQL Data Warehouse
@@ -32,7 +32,7 @@ Con Visual Studio con SSDT puede usar el Explorador de objetos de SQL Server par
 ## <a name="step-1-install-visual-studio"></a>Paso 1: Instalación de Visual Studio
 Siga estos vínculos para descargar e instalar Visual Studio. Si ya tiene Visual Studio 2013 o una versión posterior instalada, vaya directamente al paso 2 para instalar SSDT.
 
-1. [Descargue Visual Studio][].
+1. [Descarga de Visual Studio][].
 2. Siga la guía [Instalar Visual Studio][Installing Visual Studio] en MSDN y elija las configuraciones predeterminadas.
 
 ## <a name="step-2-install-ssdt"></a>Paso 2: Instalar SSDT
@@ -54,7 +54,7 @@ Ahora que tiene la versión más reciente de SSDT, ya puede [conectarse][connect
 [connect]: ./sql-data-warehouse-query-visual-studio.md
 
 <!--Other-->
-[Descargar Visual Studio]: https://www.visualstudio.com/downloads/
+[Descarga de Visual Studio]: https://www.visualstudio.com/downloads/
 [Installing Visual Studio]: https://msdn.microsoft.com/library/e2h7fzkw.aspx
 [SSDT Download]: https://msdn.microsoft.com/library/mt204009.aspx
 [UserVoice]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu

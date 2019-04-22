@@ -9,10 +9,10 @@ ms.service: iot-central
 services: iot-central
 manager: peterpr
 ms.openlocfilehash: d4f9617a5c2ba6f6cf8dc261845aa98e33d70a55
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281784"
 ---
 # <a name="create-a-new-device-template-version"></a>Creación de una nueva versión de plantilla de dispositivo
@@ -68,4 +68,4 @@ Puede crear varias versiones de la plantilla de dispositivo. Con el tiempo, tend
 Ahora que ha aprendido a usar las versiones de plantilla de un dispositivo en la aplicación de Azure IoT Central, este es el paso siguiente sugerido:
 
 > [!div class="nextstepaction"]
-> [Cómo crear reglas de telemetría](howto-create-telemetry-rules.md)
+> [Creación de reglas de telemetría](howto-create-telemetry-rules.md)

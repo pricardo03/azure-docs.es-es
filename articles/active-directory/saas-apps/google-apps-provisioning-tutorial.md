@@ -16,10 +16,10 @@ ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ea1f4d4a6b60961515826a1ba7409bf149b318e8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281308"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Tutorial: Configuración de G Suite para el aprovisionamiento automático de usuarios
@@ -176,9 +176,9 @@ Para más información sobre cómo leer los registros de aprovisionamiento de Az
 
 ## <a name="additional-resources"></a>Recursos adicionales
 
-* [Administración de aprovisionamiento de cuentas de usuario para aplicaciones empresariales](tutorial-list.md)
+* [Administración del aprovisionamiento de cuentas de usuario para aplicaciones empresariales](tutorial-list.md)
 * [¿Qué es el acceso a aplicaciones y el inicio de sesión único con Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Configurar inicio de sesión único](google-apps-tutorial.md)
+* [Configuración del inicio de sesión único](google-apps-tutorial.md)
 
 <!--Image references-->
 

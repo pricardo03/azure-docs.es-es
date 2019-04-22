@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/24/2018
 ms.author: magoedte
 ms.openlocfilehash: f7bbde98c6ef35021cc03b2646193d3601ca1cff
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425855"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Supervisión de Active Directory Replication Status con Azure Monitor
@@ -67,7 +67,7 @@ El icono de AD Replication Status muestra cuántos errores de replicación tiene
 ![Icono del Estado de replicación de AD](./media/ad-replication-status/oms-ad-replication-tile.png)
 
 Al hacer clic en el icono, se ve más información sobre los errores.
-![Panel del Estado de replicación de AD](./media/ad-replication-status/oms-ad-replication-dash.png)
+![Panel del estado de replicación de AD](./media/ad-replication-status/oms-ad-replication-dash.png)
 
 ### <a name="destination-server-status-and-source-server-status"></a>Estado del servidor de destino y estado del servidor de origen
 Estas columnas muestran el estado de los servidores de destino y los servidores de origen que experimentan errores de replicación. El número después de cada nombre de controlador de dominio indica el número de errores de replicación en ese controlador de dominio.
@@ -119,13 +119,13 @@ También puede hacer clic **Exportar** para exportar los resultados a Excel. La 
 ![errores del Estado de replicación de AD exportados en Excel](./media/ad-replication-status/oms-ad-replication-export.png)
 
 ## <a name="ad-replication-status-faq"></a>P+F del Estado de replicación de AD
-**P: ¿Con qué frecuencia están actualizar datos de estado de replicación de AD?**
+**P: ¿Con qué frecuencia se actualizan los datos del estado de replicación de AD?**
 R: La información se actualiza cada cinco días.
 
-**P: ¿Hay una manera de configurar la frecuencia de actualización de estos datos?**
+**P: ¿Existe es una manera de configurar la frecuencia de actualización de estos datos?**
 R: De momento, no.
 
-**P: ¿Necesita agregar todos mis controladores de dominio a mi área de trabajo de Log Analytics para ver el estado de replicación?**
+**P: ¿Tengo que agregar todos mis controladores de dominio a mi área de trabajo de Log Analytics para ver el estado de replicación?**
 R: No, basta con que se agregue un único controlador de dominio. Si tiene varios controladores de dominio en el área de trabajo de Log Analytics, los datos de todos ellos se envían a Azure Monitor.
 
 **P: No quiero agregar controladores de dominio a mi área de trabajo de Log Analytics. ¿Puedo usar la solución de estado de replicación de AD?**
@@ -135,13 +135,13 @@ R: Sí. Puede configurar el valor de una clave del Registro para habilitar esta 
 **P: ¿Cuál es el nombre del proceso que realiza la recopilación de datos?**
 R: AdvisorAssessment.exe
 
-**P: ¿Cuánto tarda en recopilar datos?**
+**P: ¿Cuánto tiempo tarda la recopilación de datos?**
 R: El tiempo de recopilación de datos depende del tamaño del entorno de Active Directory, pero normalmente tarda menos de 15 minutos.
 
-**P: ¿Qué tipo de datos se recopila?**
+**P: ¿Qué tipo de datos se recopilan?**
 R: La información de replicación se recopila a través de LDAP.
 
-**P: ¿Hay una manera de configurar cuando se recopilan los datos?**
+**P: ¿Se puede configurar el momento en que se recopilan los datos?**
 R: De momento, no.
 
 **P: ¿Qué permisos necesito para recopilar datos?**

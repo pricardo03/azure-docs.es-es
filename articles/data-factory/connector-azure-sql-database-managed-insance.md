@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 9cb3c028c14e6c47d47eafcf6279a918c0917442
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59272213"
 ---
 # <a name="copy-data-to-and-from-azure-sql-database-managed-instance-by-using-azure-data-factory"></a>Copia de datos hacia y desde Instancia administrada de Azure SQL Database mediante Azure Data Factory
@@ -62,7 +62,7 @@ Las siguientes propiedades se admiten en el servicio vinculado de Instancia admi
 >[!TIP]
 >Es posible que vea el código de error "UserErrorFailedToConnectToSqlServer" con un mensaje como "Se ha alcanzado el límite de la sesión para la base de datos establecido en XXX". Si se produce este error, agregue `Pooling=false` a la cadena de conexión y vuelva a intentarlo.
 
-**Ejemplo 1: Utilizar autenticación de SQL**
+**Ejemplo 1: Uso de la autenticación de SQL**
 
 ```json
 {
@@ -83,7 +83,7 @@ Las siguientes propiedades se admiten en el servicio vinculado de Instancia admi
 }
 ```
 
-**Ejemplo 2: Utilizar autenticación de SQL con contraseña en Azure Key Vault**
+**Ejemplo 2: Uso de la autenticación de SQL con contraseña en Azure Key Vault**
 
 ```json
 {
@@ -112,7 +112,7 @@ Las siguientes propiedades se admiten en el servicio vinculado de Instancia admi
 }
 ```
 
-**Ejemplo 3: Usar la autenticación de Windows**
+**Ejemplo 3: Uso de la autenticación de Windows**
 
 ```json
 {
@@ -188,7 +188,7 @@ Tenga en cuenta los siguientes puntos:
 - Si se especifica **sqlReaderQuery** para **SqlSource**, la actividad de copia ejecuta esta consulta en el origen de Instancia administrada para obtener los datos. También puede indicar un procedimiento almacenado mediante la definición de **sqlReaderStoredProcedureName** y **storedProcedureParameters** si el procedimiento almacenado adopta parámetros.
 - Si no se especifican las propiedades **sqlReaderQuery** o **sqlReaderStoredProcedureName**, se usan las columnas que se definen en la sección “structure” del JSON del conjunto de datos para construir una consulta. La consulta `select column1, column2 from mytable` se ejecuta en la instancia administrada. Si la definición del conjunto de datos no tiene la sección "structure", se seleccionan todas las columnas de la tabla.
 
-**Ejemplo: Usar una consulta SQL**
+**Ejemplo: Uso de una consulta SQL**
 
 ```json
 "activities":[
@@ -220,7 +220,7 @@ Tenga en cuenta los siguientes puntos:
 ]
 ```
 
-**Ejemplo: Usar un procedimiento almacenado**
+**Ejemplo: Uso de un procedimiento almacenado**
 
 ```json
 "activities":[
@@ -256,7 +256,7 @@ Tenga en cuenta los siguientes puntos:
 ]
 ```
 
-**La definición del procedimiento almacenado**
+**Definición del procedimiento almacenado**
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -292,7 +292,7 @@ Para copiar datos en Instancia administrada de Azure SQL Database, establezca el
 > [!TIP]
 > Cuando se copian datos en Instancia administrada de Azure SQL Database, la actividad de copia anexa datos a la tabla receptora de forma predeterminada. Para llevar a cabo una operación upsert o una lógica de negocios adicional, use el procedimiento almacenado de SqlSink. Para más información, vea [Invocación del procedimiento almacenado desde el receptor de SQL](#invoke-a-stored-procedure-from-a-sql-sink).
 
-**Ejemplo 1: Anexar datos**
+**Ejemplo 1: Anexión de datos**
 
 ```json
 "activities":[
@@ -324,7 +324,7 @@ Para copiar datos en Instancia administrada de Azure SQL Database, establezca el
 ]
 ```
 
-**Ejemplo 2: Invocar un procedimiento almacenado durante la copia de upsert**
+**Ejemplo 2: Invocación de un procedimiento almacenado durante la copia para la operación upsert**
 
 Para más información, vea [Invocación del procedimiento almacenado desde el receptor de SQL ](#invoke-a-stored-procedure-from-a-sql-sink).
 
@@ -513,9 +513,9 @@ Al copiar datos desde y hacia Instancia administrada de Azure SQL Database, se u
 | binary |Byte[] |
 | bit |Boolean |
 | char |String, Char[] |
-| date |DateTime |
-| Datetime |DateTime |
-| datetime2 |DateTime |
+| date |Datetime |
+| Datetime |Datetime |
+| datetime2 |Datetime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
@@ -529,18 +529,18 @@ Al copiar datos desde y hacia Instancia administrada de Azure SQL Database, se u
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Datetime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Object |
 | text |String, Char[] |
 | time |TimeSpan |
-| timestamp |Byte[] |
+|  timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| Xml |Xml |
 
 >[!NOTE]
 > Para los tipos de datos que se asignan al tipo decimal provisional, Azure Data Factory actualmente admite una precisión de hasta 28. Si tiene datos que requieren una precisión mayor que 28, considere la posibilidad de convertir a una cadena en una consulta SQL.

@@ -12,10 +12,10 @@ ms.date: 03/13/2019
 ms.author: erhopf
 ms.custom: seodec18
 ms.openlocfilehash: 9e6bc1264e668ba5c6593ce36e721f54e685c391
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59008499"
 ---
 # <a name="what-is-speech-to-text"></a>¿Qué es el texto a voz?
@@ -51,17 +51,17 @@ Ofrecemos guías de inicio rápido en los lenguajes de programación más popula
 
 | Guía de inicio rápido | Plataforma | Referencia de API |
 |------------|----------|---------------|
-| [C#, .NET Core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) |  Windows | [Examinar](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) |  Windows | [Examinar](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-uwp) |  Windows | [Examinar](https://aka.ms/csspeech/csharpref) |
-| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-windows) |  Windows | [Examinar](https://aka.ms/csspeech/cppref)|
-| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-linux) | Linux | [Examinar](https://aka.ms/csspeech/cppref) |
-| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-android) | Android | [Examinar](https://aka.ms/csspeech/javaref) |
-| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows, Linux | [Examinar](https://aka.ms/csspeech/javaref) |
-| [JavaScript, explorador](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-browser) | Browser, Windows, Linux, macOS | [Examinar](https://aka.ms/AA434tv) |
-| [JavaScript, Node.js](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-node) | Windows, Linux, macOS | [Examinar](https://aka.ms/AA434tv) |
-| [Objective-C](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-objectivec-ios) | iOS | [Examinar](https://aka.ms/csspeech/objectivecref) |
-| [Python](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-python) | Windows, Linux, macOS | [Examinar](https://aka.ms/AA434tr)  |
+| [C#, .NET core](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnetcore-windows) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, .NET framework](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-dotnet-windows) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C#, UWP](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-csharp-uwp) |  Windows | [Browse](https://aka.ms/csspeech/csharpref) |
+| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-windows) |  Windows | [Browse](https://aka.ms/csspeech/cppref)|
+| [C++](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-cpp-linux) | Linux | [Browse](https://aka.ms/csspeech/cppref) |
+| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-android) | Android | [Browse](https://aka.ms/csspeech/javaref) |
+| [Java](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-java-jre) | Windows, Linux | [Browse](https://aka.ms/csspeech/javaref) |
+| [JavaScript, explorador](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-browser) | Browser, Windows, Linux, macOS | [Browse](https://aka.ms/AA434tv) |
+| [JavaScript, Node.js](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-js-node) | Windows, Linux, macOS | [Browse](https://aka.ms/AA434tv) |
+| [Objective-C](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-objectivec-ios) | iOS | [Browse](https://aka.ms/csspeech/objectivecref) |
+| [Python](https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstart-python) | Windows, Linux, macOS | [Browse](https://aka.ms/AA434tr)  |
 
 Si prefiere usar el servicio REST de voz a texto, consulte [las API de REST](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis).
 
@@ -69,12 +69,12 @@ Si prefiere usar el servicio REST de voz a texto, consulte [las API de REST](htt
 
 Una vez que haya tenido la oportunidad de usar los servicios de voz, pruebe nuestro tutorial, que le enseña a reconocer intenciones a partir de contenido de voz mediante el SDK de voz y LUIS.
 
-* [Tutorial: Reconoce las intenciones del contenido de voz con el SDK de voz y LUIS,C#](how-to-recognize-intents-from-speech-csharp.md)
+* [Tutorial: Reconocimiento de intenciones a partir de contenido de voz con el SDK de voz y LUIS, C#](how-to-recognize-intents-from-speech-csharp.md)
 
 Código de ejemplo de Speech SDK está disponible en GitHub. En estos ejemplos se tratan escenarios comunes como la lectura de audio de un archivo o flujo, el reconocimiento continuo y de una sola emisión, y el trabajo con modelos personalizados.
 
 * [Ejemplos de voz a texto (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
-* [Ejemplos de transcripción de Batch (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
+* [Ejemplos de transcripción de Azure Batch (REST)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch)
 
 ## <a name="customization"></a>Personalización
 
@@ -101,13 +101,13 @@ Si sus aplicaciones, herramientas o productos usa voz personalizada o Bing Speec
 
 ## <a name="reference-docs"></a>Documentos de referencia
 
-* [SDK de voz](speech-sdk-reference.md)
-* [SDK de dispositivos de voz](speech-devices-sdk.md)
-* [API REST: Voz a texto](rest-speech-to-text.md)
-* [API REST: Texto a voz](rest-text-to-speech.md)
-* [API REST: Personalización y transcripción de lote](https://westus.cris.ai/swagger/ui/index)
+* [Speech SDK](speech-sdk-reference.md)
+* [Speech Devices SDK](speech-devices-sdk.md)
+* [API REST: Speech-to-text](rest-speech-to-text.md) (API de REST: Voz a texto)
+* [API REST: Text-to-speech](rest-text-to-speech.md) (API de REST: Texto a voz)
+* [API REST: Batch transcription and customization](https://westus.cris.ai/swagger/ui/index) (API de REST: Transcripción y personalización de Azure Batch)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Obtenga una clave de suscripción de servicios de voz de forma gratuita](get-started.md)
-* [Obtención del SDK de Voz](speech-sdk.md)
+* [Get a Speech Services subscription key for free](get-started.md) (Consiga una clave de suscripción a los servicios de voz gratis)
+* [Obtención de Speech SDK](speech-sdk.md)

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: v-erkell
 ms.openlocfilehash: 69921300163bd9a326f3baedd3182da887ad02c4
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264461"
 ---
 # <a name="avere-vfxt-for-azure-faq"></a>Preguntas frecuentes acerca de Avere vFXT for Azure
@@ -286,9 +286,9 @@ No, los clústeres de Avere vFXT requieren un servicio "siempre disponible". Los
 
 Para empezar a trabajar con Avere vFXT for Azure, lea estos artículos para obtener información sobre cómo planear e implementar su propio sistema:
 
-* [Planear un sistema de Avere vFXT](avere-vfxt-deploy-plan.md)
+* [Planeamiento de un sistema de Avere vFXT](avere-vfxt-deploy-plan.md)
 * [Descripción general de la implementación](avere-vfxt-deploy-overview.md)
-* [Preparar la creación de un clúster de vFXT Avere](avere-vfxt-prereqs.md)
-* [Implementar el clúster de vFXT Avere](avere-vfxt-deploy.md)
+* [Preparación para la creación de un clúster de Avere vFXT](avere-vfxt-prereqs.md)
+* [Implementación del clúster Avere de vFXT](avere-vfxt-deploy.md)
 
 Para más información sobre las funcionalidades y casos de uso de Avere vFXT, visite [Avere vFXT for Azure](https://azure.microsoft.com/services/storage/avere-vfxt/).

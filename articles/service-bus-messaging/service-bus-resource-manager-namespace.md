@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: spelluru
 ms.openlocfilehash: 4471c9d5b6c09bcf4d9100cccfa725f36cf9a3f8
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045089"
 ---
 # <a name="create-a-service-bus-namespace-using-an-azure-resource-manager-template"></a>Creación de un espacio de nombres de Service Bus mediante una plantilla de Azure Resource Manager
@@ -28,9 +28,9 @@ En esta guía de inicio rápido se crea una plantilla de Azure Resource Manager 
 > Las siguientes plantillas de Azure Resource Manager están disponibles para su descarga e implementación. 
 > 
 > * [Creación de un espacio de nombres de Service Bus con cola](service-bus-resource-manager-namespace-queue.md)
-> * [Crear un espacio de nombres de Service Bus con tema y suscripción](service-bus-resource-manager-namespace-topic.md)
-> * [Crear un espacio de nombres de Service Bus con regla de autorización y cola](service-bus-resource-manager-namespace-auth-rule.md)
-> * [Crear un espacio de nombres de Service Bus con tema, suscripción y regla](service-bus-resource-manager-namespace-topic-with-rule.md)
+> * [Creación de un espacio de nombres de Service Bus con un tema y una suscripción](service-bus-resource-manager-namespace-topic.md)
+> * [Creación de un espacio de nombres de Service Bus con regla de autorización y cola](service-bus-resource-manager-namespace-auth-rule.md)
+> * [Create a Service Bus namespace with topic, subscription, and rule](service-bus-resource-manager-namespace-topic-with-rule.md) (Creación de un espacio de nombres de Service Bus con tema, suscripción y regla)
 > 
 > Para buscar las últimas plantillas, visite la galería [Plantillas de inicio rápido de Azure][Azure Quickstart Templates] y busque "Service Bus".
 
@@ -40,7 +40,7 @@ En esta guía de inicio rápido se crea una plantilla de Azure Resource Manager 
 ## <a name="quick-deployment"></a>Implementación rápida
 Para ejecutar el ejemplo sin escribir ningún JSON y ejecutar el comando de PowerShell o CLI, seleccione siguiente el botón:
 
-[![Dmplementar a Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
+[![Implementación en Azure](./media/service-bus-resource-manager-namespace/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-servicebus-create-namespace%2Fazuredeploy.json)
 
 Para crear e implementar la plantilla manualmente, recorra las siguientes secciones de este artículo.
 

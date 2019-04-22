@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: briz
 ms.openlocfilehash: 07c5dbce0b98d1c197164f4fc77682f78ede57f0
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59048884"
 ---
 # <a name="tpm-attestation"></a>Atestación de TPM
@@ -67,5 +67,5 @@ El dispositivo puede firmar un token de SAS utilizando el nonce descifrado y res
 
 Ahora el dispositivo se conecta a IoT Hub y se queda con la certeza de que las claves de sus dispositivos están almacenadas de forma segura. Ahora que ya sabe cómo el servicio Device Provisioning verifica de forma segura la identidad de un dispositivo con TPM, consulte los siguientes artículos para obtener más información:
 
-* [Obtenga información sobre todos los conceptos de aprovisionamiento automático](./concepts-auto-provisioning.md)
+* [Conceptos de aprovisionamiento automático](./concepts-auto-provisioning.md)
 * [Aprenda a usar el aprovisionamiento automático](./quick-setup-auto-provision.md) mediante los SDK para ocuparse del flujo.

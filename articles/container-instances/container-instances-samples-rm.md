@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 03/07/2019
 ms.author: danlep
 ms.openlocfilehash: 3d73d05c64f4b4867c69a15089c19ab8c320b9a8
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006465"
 ---
 # <a name="azure-resource-manager-templates-for-azure-container-instances"></a>Plantillas de Azure Resource Manager para Azure Container Instances
@@ -24,7 +24,7 @@ Para opciones de implementación, consulte la sección [Implementación](#deploy
 
 | | |
 |-|-|
-| **APLICACIONES** ||
+| **Aplicaciones** ||
 | [WordPress][app-wp] | Crea un sitio Web de WordPress y su base de datos MySQL en un grupo de contenedores. El contenido del sitio de WordPress y la base de datos MySQL se conservan en un recurso compartido de Azure Files. También crea una instancia de application gateway para exponer el acceso a la red pública de WordPress. |
 | [MS NAV con IIS y SQL Server][app-nav] | Implementa un único contenedor de Windows con un entorno de Dynamics NAV y Dynamics 365 Business Central con las características completas. |
 | **Volúmenes** ||

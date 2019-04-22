@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 03/11/2019
 ms.author: yushwang
 ms.openlocfilehash: d0060d81ae44bd54ab193eb77e3117b7afbfbf73
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281056"
 ---
 # <a name="vpn-gateway-faq"></a>Preguntas más frecuentes sobre VPN Gateway
@@ -74,8 +74,8 @@ Las puertas de enlace basadas en enrutamiento implementan VPN basadas en enrutam
 1. Elimine la puerta de enlace:
 1. [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
 1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-1. [Azure Powershell: clásico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [Crear una nueva puerta de enlace del tipo deseado y completar la configuración de VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+1. [Azure PowerShell: clásico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. [Creación de una puerta de enlace del tipo deseado y configuración de VPN completa](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>¿Necesito una "GatewaySubnet"?
 
@@ -182,7 +182,7 @@ Esta sección se aplica al modelo de implementación de Resource Manager.
 
 ### <a name="can-i-use-azure-vpn-gateway-to-transit-traffic-between-my-on-premises-sites-or-to-another-virtual-network"></a>¿Puedo usar la puerta de enlace de VPN de Azure para el tráfico en tránsito entre mis sitios locales o a otra red virtual?
 
-**Modelo de implementación del Administrador de recursos**<br>
+**Modelo de implementación de Resource Manager**<br>
 Sí. Para más información, consulte la sección [BGP](#bgp).
 
 **Modelo de implementación clásica**<br>

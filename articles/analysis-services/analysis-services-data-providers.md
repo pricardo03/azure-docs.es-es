@@ -9,10 +9,10 @@ ms.date: 04/05/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: 334859aecf3a5f7a5678c0af656c6837d5661dac
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270870"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para la conexión a Azure Analysis Services
@@ -92,5 +92,5 @@ Las bibliotecas de cliente para conexiones de cliente son diferentes de los prov
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Conexión con Excel](analysis-services-connect-excel.md)    
+[Connect with Excel](analysis-services-connect-excel.md)   (Conexión con Excel)  
 [Conexión con Power BI](analysis-services-connect-pbi.md)

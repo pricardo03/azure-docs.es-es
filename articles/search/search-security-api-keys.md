@@ -11,10 +11,10 @@ ms.topic: conceptual
 ms.date: 04/06/2019
 ms.author: heidist
 ms.openlocfilehash: 64b07d37ce9267681ccfb5de3c7201586bd85b35
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273420"
 ---
 # <a name="create-and-manage-api-keys-for-an-azure-search-service"></a>Crear y administrar claves de API para un servicio de Azure Search
@@ -97,6 +97,6 @@ Los miembros de los roles siguientes pueden ver y regenerar las claves: Propieta
 
 ## <a name="see-also"></a>Vea también
 
-+ [Control de acceso basado en roles en Azure Search](search-security-rbac.md)
++ [Control de acceso basado en rol en Azure Search](search-security-rbac.md)
 + [Administración mediante PowerShell](search-manage-powershell.md) 
-+ [Artículo sobre rendimiento y optimización](search-performance-optimization.md)
++ [Artículo de rendimiento y optimización](search-performance-optimization.md)

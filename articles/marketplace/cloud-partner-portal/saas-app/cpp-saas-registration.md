@@ -15,10 +15,10 @@ ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: pbutlerm
 ms.openlocfilehash: fbc542ea2ed76d99d551d668b00bad1fb3719a9f
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59012941"
 ---
 # <a name="register-a-saas-application"></a>Registrar una aplicación SaaS
@@ -77,13 +77,13 @@ Método HTTP
 
 `GET`
 
-*URL de la solicitud*
+*Request URL* (URL de la solicitud)
 
 **https://login.microsoftonline.com/*{tenantId}*/oauth2/token**
 
-*Parámetro URI*
+*Parámetro de URI*
 
-|  **Nombre de parámetro**  | **Obligatorio**  | **DESCRIPCIÓN**                               |
+|  **Nombre de parámetro**  | **Obligatorio**  | **Descripción**                               |
 |  ------------------  | ------------- | --------------------------------------------- |
 | tenantId             | True          | Identificador de inquilino de la aplicación de AAD registrada   |
 |  |  |  |
@@ -91,7 +91,7 @@ Método HTTP
 
 *Encabezado de solicitud*
 
-|  **Nombre de encabezado**  | **Obligatorio** |  **DESCRIPCIÓN**                                   |
+|  **Nombre de encabezado**  | **Obligatorio** |  **Descripción**                                   |
 |  --------------   | ------------ |  ------------------------------------------------- |
 |  Content-Type     | True         | Tipo de contenido asociado a la solicitud. El valor predeterminado es `application/x-www-form-urlencoded`.  |
 |  |  |  |
@@ -99,7 +99,7 @@ Método HTTP
 
 *Cuerpo de la solicitud*
 
-| **Nombre de propiedad**   | **Obligatorio** |  **DESCRIPCIÓN**                                                          |
+| **Nombre de propiedad**   | **Obligatorio** |  **Descripción**                                                          |
 | -----------------   | -----------  | ------------------------------------------------------------------------- |
 |  Grant_type         | True         | Tipo de concesión. El valor predeterminado es `client_credentials`.                    |
 |  Client_id          | True         |  Identificador de cliente o aplicación asociado a la aplicación de Azure AD.                  |
@@ -108,9 +108,9 @@ Método HTTP
 |  |  |  |
 
 
-*Response*
+*Respuesta*
 
-|  **NOMBRE**  | **Type**       |  **DESCRIPCIÓN**    |
+|  **Nombre**  | **Tipo**       |  **Descripción**    |
 | ---------- | -------------  | ------------------- |
 | 200 OK    | TokenResponse  | La solicitud se realizó correctamente   |
 |  |  |  |

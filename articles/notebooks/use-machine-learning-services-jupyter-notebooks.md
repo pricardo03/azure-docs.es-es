@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 2ef327721fd42e5274381834721fd987ec7e9d75
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59263288"
 ---
 # <a name="use-azure-machine-learning-service-in-a-notebook"></a>Uso de Azure Machine Learning Service en un cuaderno
@@ -47,9 +47,9 @@ Azure Notebooks viene preconfigurado con el entorno necesario para que funcione 
 
 La documentación de Azure Machine Learning Services contiene una variedad de otros recursos que le guían a través del trabajo con Machine Learning Services dentro de cuadernos:
 
-- [Inicio rápido: Uso de Python para empezar a trabajar con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
-- [Tutorial 1 #: Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning Service](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
-- [Tutorial 2 #: Implementar un modelo de clasificación de imágenes en Azure Container instancia (ACI)](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
-- [Tutorial: Entrenar un modelo de clasificación con automatizada machine learning en el servicio de Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
+- [Guía de inicio rápido: Uso de Python para empezar a usar Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/service/quickstart-create-workspace-with-python)
+- [Tutorial 1: Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning Service](https://docs.microsoft.com/azure/machine-learning/service/tutorial-train-models-with-aml)
+- [Tutorial 2: Implementación de un modelo de clasificación de imágenes en Azure Container Instances (ACI)](https://docs.microsoft.com/azure/machine-learning/service/tutorial-deploy-models-with-aml)
+- [Tutorial: Entrenamiento de un modelo de clasificación con aprendizaje automático en Azure Machine Learning Service](https://docs.microsoft.com/azure/machine-learning/service/tutorial-auto-train-models)
 
 Consulte también la documentación del [SDK de Azure Machine Learning para Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).

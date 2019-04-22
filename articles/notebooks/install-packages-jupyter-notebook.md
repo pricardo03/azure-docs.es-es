@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: 504158f248cde3a399475cdec99de3e6a4ebfcc5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59276888"
 ---
 # <a name="install-packages-from-within-a-notebook"></a>Instalación de paquetes de un cuaderno
@@ -73,5 +73,5 @@ Paket.Package
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Procedimientos para: Configurar y administrar proyectos](configure-manage-azure-notebooks-projects.md)
-- [Procedimientos para: Presentación](present-jupyter-notebooks-slideshow.md)
+- [How to: Configure and manage projects](configure-manage-azure-notebooks-projects.md) (Configuración y administración de proyectos)
+- [Instrucciones: Presentación con diapositivas](present-jupyter-notebooks-slideshow.md)

@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 04/5/2019
 ms.author: banders
 ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
-ms.translationtype: MT
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281988"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Intercambios de autoservicio y los reembolsos para las reservas de Azure
@@ -87,9 +87,9 @@ Si tiene alguna pregunta o necesita ayuda, [cree una solicitud de soporte técni
 - Para más información sobre cómo administrar una reserva, consulte [Administración de Azure Reservations](billing-manage-reserved-vm-instance.md).
 - Para obtener más información acerca de Azure Reservations, consulte los siguientes artículos:
     - [¿Qué es Azure Reservations?](billing-save-compute-costs-reservations.md)
-    - [Administrar reservas en Azure](billing-manage-reserved-vm-instance.md)
-    - [Información sobre cómo se aplica el descuento de reserva](billing-understand-vm-reservation-charges.md)
-    - [Entender el uso de reserva para su suscripción de pago por uso](billing-understand-reserved-instance-usage.md)
-    - [Entender el uso de reserva para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
-    - [Costos de software de Windows no incluidos con las reservas de direcciones](billing-reserved-instance-windows-software-costs.md)
-    - [Reservas de Azure en el programa proveedor de soluciones en la nube (CSP) de Partner Center](/partner-center/azure-reservations)
+    - [Administración de reservas en Azure](billing-manage-reserved-vm-instance.md)
+    - [Información sobre cómo se aplica el descuento por la reserva](billing-understand-vm-reservation-charges.md)
+    - [Información sobre el uso de reservas para suscripciones de pago por uso](billing-understand-reserved-instance-usage.md)
+    - [Información sobre el uso de reservas para la inscripción Enterprise](billing-understand-reserved-instance-usage-ea.md)
+    - [Costos de software de Windows no incluidos con reservas](billing-reserved-instance-windows-software-costs.md)
+    - [Azure Reservations en el programa del Proveedor de soluciones en la nube (CSP) del Centro de partners](/partner-center/azure-reservations)

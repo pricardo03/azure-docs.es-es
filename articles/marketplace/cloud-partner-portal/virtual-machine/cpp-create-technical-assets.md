@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/20/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 6f1a93c3d3059e612d8c309b263e263dbb84c67f
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050108"
 ---
 # <a name="create-technical-assets-for-a-virtual-machine-offer"></a>Creación de recursos técnicos para una oferta de máquina virtual
@@ -53,7 +53,7 @@ El diseño, la compilación y las pruebas de estos recursos lleva tiempo y requi
 
 Elija uno o ambos de los entornos de scripting siguientes para ayudar a administrar los discos duros virtuales y las máquinas virtuales:
 -   [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)
--   [Azure CLI](https://docs.microsoft.com/cli/azure)
+-   [CLI de Azure](https://docs.microsoft.com/cli/azure)
 
 Además, se recomienda agregar las herramientas siguientes al entorno de desarrollo: 
 

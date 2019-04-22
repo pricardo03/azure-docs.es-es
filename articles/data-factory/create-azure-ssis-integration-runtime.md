@@ -13,10 +13,10 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
 ms.openlocfilehash: d30ec0765627ec173f0027e49f44cb77f6b26ac6
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361471"
 ---
 # <a name="create-azure-ssis-integration-runtime-in-azure-data-factory"></a>Creación de una instancia de Azure-SSIS Integration Runtime en Azure Data Factory
@@ -35,7 +35,7 @@ En este artículo se muestran diferentes maneras de aprovisionar Azure-SSIS IR:
 
 - [Azure Portal](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
-- [Plantilla del Administrador de recursos de Azure](#azure-resource-manager-template)
+- [Plantilla de Azure Resource Manager](#azure-resource-manager-template)
 
 Cuando se crea una instancia de Azure-SSIS IR, el servicio ADF se conecta al servidor o a la instancia administrada de Azure SQL Database para preparar SSISDB. También configura los permisos o los valores de la red virtual, si se especifica, y une la instancia de Azure-SSIS IR a la red virtual.
 
@@ -68,10 +68,10 @@ En la tabla siguiente se comparan determinadas características del servidor y l
 
 | Característica | base de datos única / grupo elástico| Instancia administrada |
 |---------|--------------|------------------|
-| **Scheduling** | El agente SQL Server no está disponible.<br/><br/>Consulte [Programar una ejecución de paquetes en una canalización de ADF](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| El agente de Instancia administrada está disponible. |
-| **Authentication** | Puede crear SSISDB con un usuario de base de datos independiente que represente cualquier grupo de AAD con la identidad administrada de ADF como miembro del rol **db_owner**.<br/><br/>Consulte [Habilitación de la autenticación de Azure AD para crear SSISDB en el servidor de Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Puede crear SSISDB con un usuario de base de datos independiente que represente la identidad administrada de ADF. <br/><br/>Consulte [Habilitación de la autenticación de Azure AD para crear SSISDB en Instancia administrada de Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
+| **Programación** | El agente SQL Server no está disponible.<br/><br/>Consulte [Programar una ejecución de paquetes en una canalización de ADF](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages?view=sql-server-2017#activity).| El agente de Instancia administrada está disponible. |
+| **Autenticación** | Puede crear SSISDB con un usuario de base de datos independiente que represente cualquier grupo de AAD con la identidad administrada de ADF como miembro del rol **db_owner**.<br/><br/>Consulte [Habilitación de la autenticación de Azure AD para crear SSISDB en el servidor de Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database). | Puede crear SSISDB con un usuario de base de datos independiente que represente la identidad administrada de ADF. <br/><br/>Consulte [Habilitación de la autenticación de Azure AD para crear SSISDB en Instancia administrada de Azure SQL Database](enable-aad-authentication-azure-ssis-ir.md#enable-azure-ad-on-azure-sql-database-managed-instance). |
 | **Nivel de servicio** | Al crear una instancia de Azure-SSIS IR con el servidor de Azure SQL Database, puede seleccionar el nivel de servicio de SSISDB. Hay varios niveles de servicio. | Cuando crea una instancia de Azure-SSIS IR con su instancia administrada, no puede seleccionar el nivel de servicio de SSISDB. Todas las bases de datos de la instancia administrada comparten el mismo recurso asignado a esa instancia. |
-| **Virtual network** | Solo admite la unión de Azure-SSIS IR a redes virtuales de Azure Resource Manager si usa el servidor de Azure SQL Database con puntos de conexión de servicio de red virtual o necesita acceso a almacenes de datos locales. | Solo admite la unión de Azure-SSIS IR a redes virtuales de Azure Resource Manager. La red virtual siempre es necesaria.<br/><br/>Si une su instancia de Azure-SSIS IR a la misma red virtual que su instancia administrada, asegúrese de que ambas instancias se encuentran en subredes diferentes. Si une la instancia de Azure-SSIS IR a una red virtual diferente de aquella de la instancia administrada, se recomienda realizar un emparejamiento de redes virtuales o una conexión de red virtual a red virtual. Consulte [Conexión de la aplicación a Instancia administrada de Azure SQL Database](../sql-database/sql-database-managed-instance-connect-app.md). |
+| **Red virtual** | Solo admite la unión de Azure-SSIS IR a redes virtuales de Azure Resource Manager si usa el servidor de Azure SQL Database con puntos de conexión de servicio de red virtual o necesita acceso a almacenes de datos locales. | Solo admite la unión de Azure-SSIS IR a redes virtuales de Azure Resource Manager. La red virtual siempre es necesaria.<br/><br/>Si une su instancia de Azure-SSIS IR a la misma red virtual que su instancia administrada, asegúrese de que ambas instancias se encuentran en subredes diferentes. Si une la instancia de Azure-SSIS IR a una red virtual diferente de aquella de la instancia administrada, se recomienda realizar un emparejamiento de redes virtuales o una conexión de red virtual a red virtual. Consulte [Conexión de la aplicación a Instancia administrada de Azure SQL Database](../sql-database/sql-database-managed-instance-connect-app.md). |
 | **Transacciones distribuidas** | Compatible mediante transacciones distribuidas. No se admiten las transacciones del Coordinador de transacciones distribuidas de Microsoft (MSDTC). Si los paquetes SSIS usan MSDTC para coordinar las transacciones distribuidas, considere la posibilidad de migrar a transacciones elásticas de Azure SQL Database. Para más información, consulte [Transacciones distribuidas en bases de datos en la nube](../sql-database/sql-database-elastic-transactions-overview.md). | No compatible. |
 | | | |
 

@@ -16,10 +16,10 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: ''
 ms.openlocfilehash: 497571a65510f806d7d7994c9dc37f9a00b65a5f
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006726"
 ---
 # <a name="understand-deny-assignments-for-azure-resources"></a>Descripción de las asignaciones de denegación para recursos de Azure
@@ -56,12 +56,12 @@ En este artículo se describe cómo se definen las asignaciones de denegación.
 
 ## <a name="system-defined-principal"></a>Entidad de seguridad definida por el sistema
 
-Con objeto de admitir las asignaciones de denegación, se ha introducido la **entidad de seguridad definida por el sistema**. Esta entidad de seguridad representa a todos los usuarios, grupos, entidades de servicio y identidades administradas de un directorio de Azure AD. Si el identificador de la entidad de seguridad es un GUID cero `00000000-0000-0000-0000-000000000000` y el tipo de entidad de seguridad es `SystemDefined`, la entidad de seguridad representa a todas las entidades de seguridad. `SystemDefined` se puede combinar con `ExcludePrincipals` para denegar todas las entidades, salvo algunos usuarios. `SystemDefined` tiene las siguientes restricciones:
+Con objeto de admitir las asignaciones de denegación, se ha introducido la **entidad de seguridad definida por el sistema**. Esta entidad de seguridad representa a todos los usuarios, grupos, entidades de servicio y identidades administradas de un directorio de Azure AD. Si el identificador de la entidad de seguridad es un GUID cero `00000000-0000-0000-0000-000000000000` y el tipo de entidad de seguridad es `SystemDefined`, la entidad de seguridad representa a todas las entidades de seguridad. `SystemDefined` se puede combinar con `ExcludePrincipals` para denegar todas las entidades de seguridad, salvo algunos usuarios. `SystemDefined` tiene las siguientes restricciones:
 
 - Solo se puede utilizar en `Principals` y no se puede usar en `ExcludePrincipals`.
-- `Principals[i].Type` Se debe establecer en `SystemDefined`.
+- `Principals[i].Type` se debe establecer en `SystemDefined`.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Visualización de las asignaciones de denegación de recursos de Azure mediante Azure Portal](deny-assignments-portal.md)
+* [Vista denegar las asignaciones de recursos de Azure mediante el portal de Azure](deny-assignments-portal.md)
 * [Descripción de definiciones de roles para los recursos de Azure](role-definitions.md)

@@ -16,10 +16,10 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: cephalin
 ms.openlocfilehash: 544ef8947f3a593071cabea018c722db96ab1475
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59266212"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configuración de entornos de ensayo en Azure App Service
@@ -339,4 +339,4 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 Para información sobre los comandos de la [CLI de Azure](https://github.com/Azure/azure-cli) que se usan con las ranuras de implementación, consulte [az webapp deployment slot](/cli/azure/webapp/deployment/slot).
 
 ## <a name="next-steps"></a>Pasos siguientes
-[Bloquear el acceso a los espacios que no sean de producción](app-service-ip-restrictions.md)
+[Bloqueo del acceso a espacios que no sean de producción](app-service-ip-restrictions.md)

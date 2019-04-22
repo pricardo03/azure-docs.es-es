@@ -14,10 +14,10 @@ ms.date: 01/28/2019
 ms.reviewer: sdash
 ms.author: mbullwin
 ms.openlocfilehash: 588b8b11a02551a790145aafb013759699004267
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009972"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: supervisión y diagnóstico con una latencia de 1 segundo
@@ -34,7 +34,7 @@ Con Live Metrics Stream, puede:
 * Supervisar cualquier contador de rendimiento de Windows en tiempo real.
 * Identifique fácilmente un servidor con problemas y filtre todos los KPI o fuente directa solo en dicho servidor.
 
-[![Lvídeo de Stream de métricas IVE](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
+[![Vídeo de Live Metrics Stream](./media/live-stream/youtube.png)](https://www.youtube.com/watch?v=zqfHf1Oi5PY)
 
 Las métricas activas actualmente se admiten para las aplicaciones ASP.NET, ASP.NET Core, las funciones de Azure, Java y Node.js.
 
@@ -60,7 +60,7 @@ Compruebe que [los puertos de salida de Live Metrics Stream](../../azure-monitor
 | |Live Stream | Explorador de métricas y Analytics |
 |---|---|---|
 |Latency|Los datos se muestran en un segundo.|La agregación se realiza en minutos.|
-|Sin retención|Los datos se conservan solo mientras se encuentren en el gráfico y luego se descartan.|[Datos que se conservan durante 90 días](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
+|Sin retención|Los datos se conservan solo mientras se encuentren en el gráfico y luego se descartan.|[Los datos se conservan durante 90 días.](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |A petición|Se transmiten datos mientras se abre Live Metrics.|Se envían datos siempre que el SDK esté instalado y habilitado.|
 |Gratuito|No se efectúa ningún cargo por los datos de Live Stream.|Están sujetos a aplicación de [precios](../../azure-monitor/app/pricing.md).
 |muestreo|Se transmiten todas las métricas y los contadores seleccionados. Se muestrean los errores y seguimientos de la pila. No se aplican elementos TelemetryProcessor.|Se pueden [muestrear](../../azure-monitor/app/api-filtering-sampling.md) eventos.|
@@ -207,7 +207,7 @@ Si quiere ver el efecto que tendría un aumento de carga, use la hoja Prueba de 
 
 
 ## <a name="next-steps"></a>Pasos siguientes
-* [Uso de la supervisión con Application Insights](../../azure-monitor/app/usage-overview.md)
-* [Uso de búsqueda de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
+* [Supervisión del uso con Application Insights](../../azure-monitor/app/usage-overview.md)
+* [Uso de la Búsqueda de diagnóstico](../../azure-monitor/app/diagnostic-search.md)
 * [Generador de perfiles](../../azure-monitor/app/profiler.md)
 * [Depurador de instantáneas](../../azure-monitor/app/snapshot-debugger.md)

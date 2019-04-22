@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: cb1b8171dc45c286d3f87a3c33e366d818cfaad9
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283416"
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copia de datos con SQL Server como origen o destino mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [versión 1](v1/data-factory-sqlserver-connector.md)
+> * [Versión 1](v1/data-factory-sqlserver-connector.md)
 > * [Versión actual](connector-sql-server.md)
 
 En este artículo se resume el uso de la actividad de copia de Azure Data Factory para copiar datos con una base de datos SQL Server como origen o destino. El documento se basa en el artículo de [introducción a la actividad de copia](copy-activity-overview.md) que describe información general de la actividad de copia.
@@ -55,16 +55,16 @@ Las propiedades siguientes son compatibles con el servicio vinculado SQL Server:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type debe establecerse en: **SqlServer** | Sí |
+| Tipo | La propiedad type debe establecerse en: **SqlServer** | Sí |
 | connectionString |Especifique la información de connectionString necesaria para conectarse a la base de datos SQL Server mediante autenticación de SQL o autenticación de Windows. Consulte los ejemplos siguientes.<br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory. También puede colocar la contraseña en Azure Key Vault y, en el caso de autenticación de SQL, extraer la configuración `password` de la cadena de conexión. Vea el ejemplo de JSON debajo de la tabla y el artículo [Almacenamiento de credenciales en Azure Key Vault](store-credentials-in-key-vault.md) con información detallada. |Sí |
 | userName |Especifique el nombre de usuario si usa la autenticación de Windows. Ejemplo: **nombreDeDominio\\nombreDeUsuario**. |Sin  |
-| password |Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sin  |
+| contraseña |Especifique la contraseña de la cuenta de usuario que se especificó para el nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sin  |
 | connectVia | El entorno [Integration Runtime](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Puede usar los entornos Integration Runtime (autohospedado) o Azure Integration Runtime (si el almacén de datos es accesible públicamente). Si no se especifica, se usará Azure Integration Runtime. |Sin  |
 
 >[!TIP]
 >Si recibió un error con código de error como "UserErrorFailedToConnectToSqlServer" y un mensaje como "The session limit for the database is XXX and has been reached" (El límite de sesión de la base de datos es XXX y ya se ha alcanzado), agregue `Pooling=false` a la cadena de conexión e inténtelo de nuevo.
 
-**Ejemplo 1: mediante autenticación de SQL**
+**Ejemplo 1: con autenticación de SQL**
 
 ```json
 {
@@ -85,7 +85,7 @@ Las propiedades siguientes son compatibles con el servicio vinculado SQL Server:
 }
 ```
 
-**Ejemplo 2: con autenticación de SQL y la contraseña en Azure Key Vault**
+**Ejemplo 2: Uso de la autenticación de SQL con contraseña en Azure Key Vault**
 
 ```json
 {
@@ -114,7 +114,7 @@ Las propiedades siguientes son compatibles con el servicio vinculado SQL Server:
 }
 ```
 
-**Ejemplo 3: uso de autenticación de Windows**
+**Ejemplo 3: Uso de autenticación de Windows**
 
 ```json
 {
@@ -148,7 +148,7 @@ Para copiar datos con la base de datos SQL Server como origen o destino, estable
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del conjunto de datos debe establecerse en: **SqlServerTable** | Sí |
+| Tipo | La propiedad type del conjunto de datos debe establecerse en: **SqlServerTable** | Sí |
 | tableName |Nombre de la tabla en la instancia de base de datos SQL Server a la que hace referencia el servicio vinculado. | No para el origen, sí para el receptor |
 
 **Ejemplo:**
@@ -180,8 +180,8 @@ Si va a copiar datos desde SQL Server, establezca el tipo de origen de la activi
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del origen de la actividad de copia debe establecerse en: **SqlSource** | Sí |
-| sqlReaderQuery |Use la consulta SQL personalizada para leer los datos. Ejemplo: `select * from MyTable`. |Sin  |
+| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **SqlSource** | Sí |
+| SqlReaderQuery |Use la consulta SQL personalizada para leer los datos. Ejemplo: `select * from MyTable`. |Sin  |
 | sqlReaderStoredProcedureName |Nombre del procedimiento almacenado que lee datos de la tabla de origen. La última instrucción SQL debe ser una instrucción SELECT del procedimiento almacenado. |Sin  |
 | storedProcedureParameters |Parámetros del procedimiento almacenado.<br/>Los valores permitidos son: pares nombre-valor. Los nombres y las mayúsculas y minúsculas de los parámetros deben coincidir con las mismas características de los parámetros de procedimiento almacenado. |Sin  |
 
@@ -190,7 +190,7 @@ Si va a copiar datos desde SQL Server, establezca el tipo de origen de la activi
 - Si se especifica **sqlReaderQuery** para SqlSource, la actividad de copia ejecuta la consulta en el origen de SQL Server para obtener los datos. Como alternativa, puede indicar un procedimiento almacenado mediante la especificación de **sqlReaderStoredProcedureName** y **storedProcedureParameters** (si el procedimiento almacenado toma parámetros).
 - Si no especifica "sqlReaderQuery" ni "sqlReaderStoredProcedureName", las columnas que se definen en la sección "structure" del JSON del conjunto de datos se usan para construir una consulta (`select column1, column2 from mytable`) para ejecutarla en SQL Server. Si la definición del conjunto de datos no tiene la sección "structure", se seleccionan todas las columnas de la tabla.
 
-**Ejemplo: uso de consulta SQL**
+**Ejemplo: con la consulta SQL**
 
 ```json
 "activities":[
@@ -222,7 +222,7 @@ Si va a copiar datos desde SQL Server, establezca el tipo de origen de la activi
 ]
 ```
 
-**Ejemplo: uso de procedimiento almacenado**
+**Ejemplo: con el procedimiento almacenado**
 
 ```json
 "activities":[
@@ -258,7 +258,7 @@ Si va a copiar datos desde SQL Server, establezca el tipo de origen de la activi
 ]
 ```
 
-**La definición del procedimiento almacenado:**
+**Definición del procedimiento almacenado:**
 
 ```sql
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
@@ -283,7 +283,7 @@ Si va a copiar datos en SQL Server, establezca el tipo de receptor de la activid
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| type | La propiedad type del receptor de la actividad de copia debe establecerse en: **SqlSink** | Sí |
+| Tipo | La propiedad type del receptor de la actividad de copia debe establecerse en: **SqlSink** | Sí |
 | writeBatchSize |Número de filas que se inserta en la tabla SQL **por lote**.<br/>Los valores permitidos son: enteros (número de filas). |No (valor predeterminado: 10000) |
 | writeBatchTimeout |Tiempo de espera para que la operación de inserción por lotes se complete antes de que se agote el tiempo de espera.<br/>Los valores permitidos son: intervalos de tiempo. Ejemplo: "00:30:00" (30 minutos). |Sin  |
 | preCopyScript |Especifique una consulta SQL para que la actividad de copia se ejecute antes de escribir datos en SQL Server. Solo se invocará una vez por cada copia que se ejecute. Puede usar esta propiedad para limpiar los datos cargados previamente. |Sin  |
@@ -294,7 +294,7 @@ Si va a copiar datos en SQL Server, establezca el tipo de receptor de la activid
 > [!TIP]
 > Cuando se copian datos en SQL Server, la actividad de copia anexa datos a la tabla receptora de forma predeterminada. Para llevar a cabo una operación UPSERT o una lógica de negocios adicional, use el procedimiento almacenado de SqlSink. Obtenga más información en [Invocación del procedimiento almacenado para el receptor de SQL](#invoking-stored-procedure-for-sql-sink).
 
-**Ejemplo 1: anexar datos**
+**Ejemplo 1: Anexo de datos**
 
 ```json
 "activities":[
@@ -326,7 +326,7 @@ Si va a copiar datos en SQL Server, establezca el tipo de receptor de la activid
 ]
 ```
 
-**Ejemplo 2: invocar un procedimiento almacenado durante la copia de upsert**
+**Ejemplo 2: Invocación de un procedimiento almacenado durante la copia para realizar la operación UPSERT**
 
 Obtenga más información en [Invocación del procedimiento almacenado para el receptor de SQL](#invoking-stored-procedure-for-sql-sink).
 
@@ -513,16 +513,16 @@ Al copiar datos con SQL Server como origen o destino, se usan las siguientes asi
 |:--- |:--- |
 | bigint |Int64 |
 | binary |Byte[] |
-| bit |Boolean |
+| bit |boolean |
 | char |String, Char[] |
-| date |DateTime |
-| Datetime |DateTime |
+| fecha |DateTime |
+| DateTime |DateTime |
 | datetime2 |DateTime |
 | Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | FILESTREAM attribute (varbinary(max)) |Byte[] |
 | Float |Double |
-| image |Byte[] |
+| imagen |Byte[] |
 | int |Int32 |
 | money |Decimal |
 | nchar |String, Char[] |
@@ -534,15 +534,15 @@ Al copiar datos con SQL Server como origen o destino, se usan las siguientes asi
 | smalldatetime |DateTime |
 | smallint |Int16 |
 | smallmoney |Decimal |
-| sql_variant |Object |
+| sql_variant |Objeto |
 | text |String, Char[] |
-| time |TimeSpan |
-| timestamp |Byte[] |
+| Twitter en tiempo |TimeSpan |
+|  timestamp |Byte[] |
 | tinyint |Int16 |
 | uniqueidentifier |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| xml |Xml |
+| xml |xml |
 
 >[!NOTE]
 > En la actualidad, ADF admite una precisión máxima de 28 en los tipos de datos que se asignan a tipos provisionales decimales. Si tiene datos con una precisión mayor de 28, considere la posibilidad de convertirlos en una cadena de consulta SQL.

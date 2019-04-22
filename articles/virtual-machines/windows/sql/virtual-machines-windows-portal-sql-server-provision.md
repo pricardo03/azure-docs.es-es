@@ -16,10 +16,10 @@ ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
 ms.openlocfilehash: bb051d37f3a1dd82d7d46bfe8b22c2ba1251be85
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259208"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Aprovisionamiento de una máquina virtual Windows con SQL Server en Azure Portal
@@ -75,12 +75,12 @@ Hay varias pestañas para configurar una máquina virtual de SQL Server. Con el 
 | **Aspectos básicos** |[Configuración básica](#1-configure-basic-settings) |
 | **Características opcionales** |[Configuración de características opcionales](#2-configure-optional-features) |
 | **Configuración de SQL Server** |[Configuración de SQL Server](#3-configure-sql-server-settings) |
-| **Revisión y creación** | [Revisión del resumen](#4-review--create) |
+| **Revisar y crear** | [Revisión del resumen](#4-review--create) |
 
 ## <a name="1-configure-basic-settings"></a>1. Configuración básica
 
 
-En el **Fundamentos** pestaña, proporcione la información siguiente:
+En la pestaña **Básico**, especifique la siguiente información:
 
 * En **Project Details**, asegúrese de que está seleccionada la suscripción correcta. 
 *  En el **grupo de recursos** sección, seleccione un recurso existente en la lista de grupo o elija **crear nuevo** para crear un nuevo grupo de recursos. Un grupo de recursos es una colección de recursos relacionados de Azure (máquinas virtuales, cuentas de almacenamiento, redes virtuales, etc.). 
@@ -91,12 +91,12 @@ En el **Fundamentos** pestaña, proporcione la información siguiente:
   > El uso de un grupo de recursos resulta útil si solo está probando o aprendiendo sobre las implementaciones de SQL Server en Azure. Cuando haya terminado la prueba, elimine el grupo de recursos. De ese modo, se eliminará automáticamente la máquina virtual y los recursos asociados a ese grupo. Para más información sobre los grupos de recursos, consulte [Información general de Azure Resource Manager](../../../azure-resource-manager/resource-group-overview.md).
 
 
-* En **detalles de la instancia**:
+* En **Detalles de instancia**:
     1. Escriba un único **nombre de máquina Virtual**.  
-    1. Elija una ubicación para su **región**. 
-    1. Con el propósito de esta guía, deje **las opciones de disponibilidad** establecido en _ninguna redundancia de infraestructura necesaria_. Para obtener más información acerca de las opciones de disponibilidad, consulte [regiones de Azure y disponibilidad](../../windows/regions-and-availability.md). 
-    1. En el **imagen** lista, seleccione _licencia gratuita de SQL Server: SQL Server 2017 Developer on Windows Server 2016_ (Licencia gratuita de SQL Server: SQL Server 2017 Developer en Windows Server 2016).  
-    1. Elegir **cambiar tamaño** para el **tamaño** de la máquina virtual y seleccione el **básico A2** oferta. Asegúrese de limpiar los recursos cuando haya terminado con ellos para evitar cargos inesperados. Para cargas de trabajo de producción, consulte las recomendaciones de tamaños de máquina y la configuración en [Procedimientos recomendados de SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
+    1. Elija una ubicación para su **Región**. 
+    1. Con el propósito de esta guía, deje **las opciones de disponibilidad** establecido en _ninguna redundancia de infraestructura necesaria_. Para más información acerca de las opciones de disponibilidad, consulte [Regiones de Azure y disponibilidad](../../windows/regions-and-availability.md). 
+    1. En la lista **Imagen** seleccione la denominada _Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016_ (Licencia gratuita de SQL Server: SQL Server 2017 Developer en Windows Server 2016).  
+    1. Elija **Cambiar el tamaño** para el **Tamaño** de la máquina virtual y seleccione la oferta **Básico A2**. Asegúrese de limpiar los recursos cuando haya terminado con ellos para evitar cargos inesperados. Para cargas de trabajo de producción, consulte las recomendaciones de tamaños de máquina y la configuración en [Procedimientos recomendados de SQL Server en Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
 
     ![Detalles de instancia](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
@@ -107,7 +107,7 @@ En el **Fundamentos** pestaña, proporcione la información siguiente:
 
    ![Cuenta de administrador](media/quickstart-sql-vm-create-portal/basics-administrator-account.png)
 
-* En **reglas de puerto de entrada**, elija **Permitir puertos seleccionados** y, a continuación, seleccione **RDP (3389)** en la lista desplegable. 
+* En **Reglas de puerto de entrada**, elija **Permitir los puertos seleccionados** y luego seleccione **RDP (3389)** en la lista desplegable. 
 
    ![Reglas de puerto de entrada](media/quickstart-sql-vm-create-portal/basics-inbound-port-rules.png)
 
@@ -158,11 +158,11 @@ En el **configuración de SQL Server** pestaña, configure las optimizaciones de
 | Configuración |
 | --- |
 | [Conectividad](#connectivity) |
-| [Authentication](#authentication) |
+| [Autenticación](#authentication) |
 | [Integración de Azure Key Vault](#azure-key-vault-integration) |
 | [Configuración de almacenamiento](#storage-configuration) |
 | [Aplicación de revisiones automatizada](#automated-patching) |
-| [Copia de seguridad automatizada](#automated-backup) |
+| [Automated Backup](#automated-backup) |
 | [Servicios de R (análisis avanzado)](#r-services-advanced-analytics) |
 
 
@@ -211,9 +211,9 @@ En la tabla siguiente se enumeran los parámetros necesarios para configurar la 
 
 | PARÁMETRO | Description | EJEMPLO: |
 | --- | --- | --- |
-| **URL de Key Vault** |La ubicación del almacén de claves. |https:\//contosokeyvault.vault.azure.net/ |
-| **Nombre principal** |Nombre de la entidad de servicio de Azure Active Directory Esto se conoce también como Id. Este nombre también se conoce como «identificador de cliente». |fde2b411-33d5-4e11-af04eb07b669ccf2 |
-| **Secreto de la entidad de seguridad** |Secreto de la entidad de seguridad de servicio de Azure Active Directory Este secreto también se conoce como «secreto de cliente». |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
+| **Dirección URL de Key Vault** |La ubicación del almacén de claves. |https:\//contosokeyvault.vault.azure.net/ |
+| **Nombre de entidad de seguridad** |Nombre de la entidad de servicio de Azure Active Directory Esto se conoce también como Id. Este nombre también se conoce como «identificador de cliente». |fde2b411-33d5-4e11-af04eb07b669ccf2 |
+| **Secreto de entidad de seguridad** |Secreto de la entidad de seguridad de servicio de Azure Active Directory Este secreto también se conoce como «secreto de cliente». |9VTJSQwzlFepD8XODnzy8n2V01Jd8dAjwm/azF1XDKM= |
 | **Nombre de credencial** |**Nombre de credencial**: La integración de AKV crea una credencial en SQL Server, permitiendo el acceso de la máquina virtual al Almacén de claves. Elija un nombre para esta credencial. |mycred1 |
 
 Para más información, consulte [Configuración de la integración de Azure Key Vault para SQL Server en máquinas virtuales de Azure](virtual-machines-windows-ps-sql-keyvault.md).
@@ -274,9 +274,9 @@ Para obtener más información, vea [Automated Backup para SQL Server en Azure V
 Tiene la opción para habilitar [SQL Server R Services (análisis avanzado)](/sql/advanced-analytics/r/sql-server-r-services/). Esta opción le permite usar el análisis avanzado con SQL Server 2017. Haga clic en **Habilitar** en la ventana **Configuración de SQL Server**.
 
 
-## <a name="4-review--create"></a>4. Revisión y creación
+## <a name="4-review--create"></a>4. Revisar y crear
 
-En el **revisar + crear** pestaña, revise el resumen y seleccione **crear** para crear SQL Server, grupo de recursos y los recursos especificados para esta máquina virtual.
+En la pestaña **Revisar y crear**, revise el resumen y seleccione **Crear** para crear la instancia de SQL Server, el grupo de recursos y los recursos especificados para esta máquina virtual.
 
 Puede supervisar la implementación desde Azure Portal. En el botón **Notificaciones** de la parte superior de la pantalla, se muestra el estado básico de la implementación.
 

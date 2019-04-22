@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.openlocfilehash: ecbdf182fe2da7413e6d27ef5775dbaa7ad60806
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59270190"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Vinculación de un Id. de partner a cuentas de Azure
@@ -126,15 +126,15 @@ C:\ az managementpartner delete --partner-id 12345
 
 Cualquier usuario de la organización asociada que administre los recursos de Azure del cliente puede vincular el identificador de partner a la cuenta.
 
-**¿Se puede cambiar un Id. de partner después de esté vinculado?**
+**¿Se puede cambiar un Id. de partner después de vincularlo?**
 
 Sí. El Id. de partner vinculado se puede cambiar, agregar o quitar.
 
-**¿Qué ocurre si un usuario tiene una cuenta en más de un inquilino de cliente?**
+**¿Qué ocurre si un usuario tiene una cuenta en varios inquilinos de cliente?**
 
 El vínculo entre el Id. de partner y la cuenta se realiza para cada inquilino de cliente. Vincule el Id. de partner en cada inquilino de cliente.
 
-**¿Otros asociados o clientes para editar o quitar el vínculo para el Id. de partner?**
+**¿Pueden otros partners o clientes editar o quitar el vínculo con el Id. de partner?**
 
 El vínculo está asociado al nivel de cuenta del usuario. Solo usted puede editar o quitar el vínculo con el Id. de partner. Ni el cliente ni ningún otro partner podrán modificar el vínculo con el Id. de partner. 
 

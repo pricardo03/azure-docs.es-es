@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/05/2019
 ms.openlocfilehash: 24bbddd28943adc929fbaea456eeae8165db290c
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261605"
 ---
 # <a name="manage-cluster-scale-out-to-accommodate-changing-demand"></a>Administración del escalado horizontal de clúster para ajustarse a los cambios en la demanda
@@ -45,18 +45,18 @@ En el gráfico siguiente se muestra el flujo de los pasos siguientes. Más detal
     | Configuración | Descripción y valor |
     | --- | --- |
     | **Agregación de tiempo** | Seleccione un criterio de agregación, como **Promedio**. |
-    | **Nombre de métrica** | Seleccione la métrica en la que quiera que se base la operación de escalado, como **Cache Utilization**. |
+    | **Nombre de la métrica** | Seleccione la métrica en la que quiera que se base la operación de escalado, como **Cache Utilization**. |
     | **Estadísticas de intervalo de agregación** | Elija entre **Promedio**, **Mínimo**, **Máximo** y **Suma**. |
     | **Operador** | Elija la opción adecuada, como **Mayor o igual que**. |
     | **Umbral** | Elija un valor apropiado. Por ejemplo, para la utilización de memoria caché, el 80 por ciento es un buen punto de partida. |
     | **Duración (en minutos)** | Elija un período apropiado para que el sistema busque al calcular las métricas. Comience con el valor predeterminado de 10 minutos. |
     |  |  |
 
-    **.**
+    **Acción**
 
     | Configuración | Descripción y valor |
     | --- | --- |
-    | **Operación** | Elija la opción adecuada para reducir o escalar horizontalmente. |
+    | **operación** | Elija la opción adecuada para reducir o escalar horizontalmente. |
     | **Recuento de instancias** | Elija el número de nodos o instancias que quiere agregar o quitar cuando se cumpla una condición de métrica. |
     | **Tiempo de finalización (minutos)** | Elija un intervalo de tiempo adecuado para esperar entre las operaciones de escalado. Comience con el valor predeterminado de cinco minutos. |
     |  |  |
@@ -67,8 +67,8 @@ En el gráfico siguiente se muestra el flujo de los pasos siguientes. Más detal
 
     | Configuración | Descripción y valor |
     | --- | --- |
-    | **Mínima** | Número de instancias por debajo del cual el clúster no se escalará, independientemente del uso. |
-    | **Máxima** | Número de instancias por encima del cual el clúster no se escalará, independientemente del uso. |
+    | **Mínimo** | Número de instancias por debajo del cual el clúster no se escalará, independientemente del uso. |
+    | **Máximo** | Número de instancias por encima del cual el clúster no se escalará, independientemente del uso. |
     | **Valor predeterminado** | El número predeterminado de instancias. Esta configuración se utiliza si hay problemas con la lectura de las métricas de recursos. |
     |  |  |
 

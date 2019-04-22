@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: rimman
 ms.openlocfilehash: 280d389875d5ac951e0a846f3331ea727176b5e0
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009774"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Optimización del costo de rendimiento aprovisionado en Azure Cosmos DB
@@ -39,7 +39,7 @@ Las siguientes son algunas directrices para decidir una estrategia de rendimient
 
 4. En lugar de establecer el rendimiento específico de un contenedor individual, le interesa obtener el rendimiento agregado en un conjunto de contenedores dentro de la base de datos.
 
-**Considere la posibilidad de aprovisionamiento de rendimiento en un contenedor individual si:**
+**Considere la posibilidad de aprovisionar el rendimiento en un contenedor individual si:**
 
 1. Tiene unos pocos contenedores de Azure Cosmos. Dado que Azure Cosmos DB es independiente del esquema, un contenedor puede contener elementos que tengan esquemas heterogéneos y no requieran que los clientes creen varios tipos de contenedor, uno para cada entidad. Siempre es una opción a tener en cuenta si tiene sentido agrupar, digamos, 10 o 20 contenedores independientes en un único contenedor. Con un mínimo de 400 RU para los contenedores, podría ser más rentable agrupar los 10 o 20 contenedores en uno. 
 

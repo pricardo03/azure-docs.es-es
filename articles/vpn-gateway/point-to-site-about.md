@@ -8,10 +8,10 @@ ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: cherylmc
 ms.openlocfilehash: 11fbf14cdeb8d22dbfdf522e1c5838634937f6cb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282107"
 ---
 # <a name="about-point-to-site-vpn"></a>Acerca de las conexiones VPN de punto a sitio
@@ -47,7 +47,7 @@ La validación del certificado de cliente se realiza mediante la puerta de enlac
 
 La autenticación de dominio de AD permite a los usuarios conectarse a Azure con sus credenciales de dominio de la organización. Requiere un servidor RADIUS que se integre con el servidor de AD. Las organizaciones también pueden aprovechar las implementaciones existentes de RADIUS.   
   
-El servidor RADIUS puede implementarse de forma local o en la red virtual de Azure. Durante la autenticación, la puerta de enlace de VPN de Azure actúa como acceso directo y reenvía los mensajes de autenticación entre el servidor RADIUS y el dispositivo que se conecta. Por lo tanto, la disponibilidad de la puerta de enlace del servidor RADIUS es importante. Si el servidor RADIUS está presente en local, una conexión VPN S2S de Azure al sitio local es necesaria para la disponibilidad.  
+El servidor RADIUS puede implementarse de forma local o en la red virtual de Azure. Durante la autenticación, la puerta de enlace de VPN de Azure actúa como acceso directo y reenvía los mensajes de autenticación entre el servidor RADIUS y el dispositivo que se conecta. Por lo tanto, la disponibilidad de la puerta de enlace del servidor RADIUS es importante. Si el servidor RADIUS está presente de forma local, se necesita una conexión VPN S2S de Azure en el sitio local para la disponibilidad.  
   
 El servidor RADIUS también se integra con los servicios de certificados de AD. Esto le permite usar el servidor RADIUS y la implementación de certificados de empresa para la autenticación de certificados de P2S como alternativa a la autenticación de certificados de Azure. La ventaja es que no es necesario cargar certificados raíz y revocados en Azure.
 
@@ -90,9 +90,9 @@ El archivo zip también proporciona los valores de algunas de las opciones de co
 
 En una configuración de P2S es necesario realizar unos pocos pasos específicos. En los siguientes artículos encontrará los pasos necesarios para realizar una configuración de P2S, así como vínculos para configurar los dispositivos de cliente VPN:
 
-* [Configurar una conexión P2S: autenticación RADIUS](point-to-site-how-to-radius-ps.md)
+* [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md) (Configurar una conexión P2S: autenticación RADIUS)
 
-* [Configurar una conexión P2S: autenticación de certificados nativos de Azure](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Configure a P2S connection - Azure native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md) (Configurar una conexión P2S: autenticación de certificados nativos de Azure)
 
 * [Configuración de OpenVPN](vpn-gateway-howto-openvpn.md)
 
@@ -106,8 +106,8 @@ En una configuración de P2S es necesario realizar unos pocos pasos específicos
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Configurar una conexión P2S: autenticación RADIUS](point-to-site-how-to-radius-ps.md)
+* [Configure a P2S connection - RADIUS authentication](point-to-site-how-to-radius-ps.md) (Configurar una conexión P2S: autenticación RADIUS)
 
-* [Configurar una conexión P2S: autenticación de certificados nativos de Azure](vpn-gateway-howto-point-to-site-rm-ps.md)
+* [Configure a P2S connection - Azure native certificate authentication](vpn-gateway-howto-point-to-site-rm-ps.md) (Configurar una conexión P2S: autenticación de certificados nativos de Azure)
 
 **"OpenVPN" es una marca de OpenVPN Inc.**

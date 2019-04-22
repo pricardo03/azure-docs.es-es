@@ -14,10 +14,10 @@ ms.date: 03/14/2019
 ms.reviewer: vitalyg
 ms.author: cithomas
 ms.openlocfilehash: b35b0c66c29805d9cd7ecd00ffaad4fc1cfe253b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046588"
 ---
 # <a name="sampling-in-application-insights"></a>Muestreo en Application Insights.
@@ -222,7 +222,7 @@ En el Explorador de métricas, las tasas, como los recuentos de solicitudes y de
     -->
     ```
 
-2. **Habilitar el módulo de muestreo de frecuencia fija.** Agregue este fragmento a [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md):
+2. **Habilite el módulo de muestreo de frecuencia fija.** Agregue este fragmento a [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md):
    
     ```XML
    
@@ -278,7 +278,7 @@ En el Explorador de métricas, las tasas, como los recuentos de solicitudes y de
     }
     ```
 
-2. **Habilitar el módulo de muestreo de frecuencia fija.** Se pueden realizar cambios en el método ```Configure``` tal como se muestra en el siguiente fragmento de código:
+2. **Habilite el módulo de muestreo de frecuencia fija.** Se pueden realizar cambios en el método ```Configure``` tal como se muestra en el siguiente fragmento de código:
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -413,7 +413,7 @@ Las principales ventajas del muestreo son:
 * Quiere un muestreo sincronizado entre cliente y servidor para que, cuando investigue eventos en [Búsqueda](../../azure-monitor/app/diagnostic-search.md), pueda desplazarse entre los eventos relacionados en el cliente y el servidor, como vistas de página y solicitudes HTTP.
 * Está seguro del porcentaje de muestreo adecuado para la aplicación. Debe ser lo bastante alto como para obtener métricas precisas, pero inferior a la frecuencia que supera la cuota de precios y los valores de limitación. 
 
-**Use el muestreo adaptable:**
+**Use el muestreo adaptable si:**
 
 Si no se cumplen las condiciones para usar las otras formas de muestreo, le recomendamos el muestreo adaptable. Esta opción está habilitada de forma predeterminada en el servidor ASP.NET/ASP.NET Core SDK. No reducirá el tráfico hasta que se alcance un determinado índice mínimo. Por lo tanto, los sitios con poco uso no se verán afectados.
 
@@ -455,7 +455,7 @@ El muestreo adaptable agrega un componente que supervisa la velocidad actual de 
 
 El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija junto con el SDK del lado servidor. Las páginas instrumentadas solo enviarán telemetría de cliente desde los mismos usuarios para los que el lado del servidor decidió tomar el muestreo. Esta lógica está diseñada para mantener la integridad de la sesión de usuario a través de los lados cliente y servidor. Como resultado, a partir de cualquier elemento específico de telemetría en Application Insights, puede encontrar todos los demás elementos de telemetría para ese usuario o esa sesión. 
 
-*Mi cliente y la telemetría del lado servidor no muestran ejemplos coordinados tal como se describe anteriormente.*
+*Las telemetrías del lado de cliente y de servidor no muestran ejemplos coordinados tal y como se describe anteriormente.*
 
 * Compruebe que habilitó el muestreo de frecuencia fija tanto en el cliente como en el servidor.
 * Asegúrese de que la versión del SDK es 2.0 o superior.
@@ -487,7 +487,7 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 
 *  No. SamplingTelemetryProcessors omitir elementos de muestreo consideraciones si el elemento ya se ha muestreado. Lo mismo puede decirse de muestreo de ingesta como también, que no aplicarán muestreo a los elementos muestreados ya en el propio SDK. "
 
-*¿Por qué no es de muestreo un simple "recopilar X por ciento de cada tipo de datos de telemetría"?*
+*¿Por qué realizar un muestreo no consiste simplemente en "recopilar X por ciento de cada tipo de telemetría"?*
 
 * Aunque este método de muestreo proporcionaría un alto nivel de precisión en las aproximaciones métricas, destruiría la capacidad para correlacionar datos de diagnóstico por usuario, la sesión y la solicitud, que es crítico para el diagnóstico. Por lo tanto, el muestreo funciona mejor con una lógica "recopilar todos los elementos de telemetría para X por ciento de los usuarios de la aplicación", o "recopilar toda la telemetría para X por ciento de las solicitudes de aplicación". Para los elementos de telemetría no asociados con las solicitudes (por ejemplo, el procesamiento asincrónico en segundo plano), la reserva es "recopilar X por ciento de todos los elementos para cada tipo de datos de telemetría". 
 
@@ -495,7 +495,7 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 
 * Sí, el muestreo adaptable cambia gradualmente el porcentaje de muestreo, en función del volumen de datos de telemetría observado en ese momento.
 
-*Si se usa el muestreo de frecuencia fija, ¿cómo puedo saber qué muestreo de porcentaje funcionará mejor para mi aplicación?*
+*Si uso el muestreo de frecuencia fija, ¿cómo sé cuál es el porcentaje de muestreo que funcionará mejor para mi aplicación?*
 
 * Una manera de comenzar es con muestreo adaptable, averigüe qué velocidad elige (consulte la pregunta anterior) y luego cambie a muestreo de tasa fija con esa velocidad. 
   
@@ -515,7 +515,7 @@ El SDK del lado cliente (JavaScript) participa en el muestreo de frecuencia fija
 * Si usa versiones de SDK de ASP.NET 2.0.0 y versiones posteriores o versión 2.2.0 del SDK de ASP.NET CORE y versiones posteriores (hospedado en Azure o en su propio servidor), obtendrá de forma predeterminada muestreo adaptable, pero puede cambiar de frecuencia fija como se describió anteriormente. Con el muestreo de frecuencia fija, el SDK del explorador se sincroniza automáticamente con los eventos relacionados con el muestreo. 
 * Si usa el SDK de Java versión 2.0.1 o posterior, puede configurar ApplicationInsights.xml para activar el muestreo de frecuencia fija. De manera predeterminada, el muestreo está desactivado. Con el muestreo de frecuencia fija, el SDK del explorador se sincroniza automáticamente con los eventos relacionados con el muestreo.
 
-*Hay ciertos eventos excepcionales que siempre quiero ver. ¿Cómo puedo consigue que reconozca el módulo de muestreo?*
+*Hay ciertos eventos excepcionales que siempre quiero ver. ¿Cómo se consigue que el módulo de muestreo los reconozca?*
 
 * La mejor forma de lograrlo es escribir un personalizado [TelemetryProcessor](../../azure-monitor/app/api-filtering-sampling.md#filtering), que establece el `SamplingPercentage` a 100 en el elemento de telemetría que desee retenido, como se muestra a continuación. Esto garantiza que todas las técnicas de muestreo pasará por alto este elemento de las consideraciones sobre el muestreo.
 

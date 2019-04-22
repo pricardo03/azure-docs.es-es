@@ -12,10 +12,10 @@ ms.date: 04/04/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: f4a0cba18f27c9cabfc03d1934469e6899c5cd18
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59010420"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Supervisión del consumo de recursos y la actividad de consulta en Azure Search
@@ -62,8 +62,8 @@ En la tabla siguiente se comparan las opciones para almacenar registros, agregar
 |----------|----------|
 | [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Los eventos registrados y las métricas de consulta, según los esquemas siguientes, se correlacionan con los eventos de usuario en la aplicación. Esta es la única solución que tiene en cuenta las acciones o señales del usuario, y asigna eventos desde la búsqueda iniciada por el usuario, por oposición al filtrado de las solicitudes enviadas por el código de aplicación. Para usar este enfoque, copie y pegue el código de instrumentación en los archivos de código fuente para enrutar la información de solicitud a Application Insights. Para más información, consulte [Análisis de tráfico de búsqueda](search-traffic-analytics.md). |
 | [Registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Los eventos registrados y las métricas de consulta, según los esquemas siguientes. Los eventos se registran en un área de trabajo de Log Analytics. Puede ejecutar consultas en un área de trabajo para devolver información detallada del registro. Para obtener más información, consulte [empezar a trabajar con registros de Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Almacenamiento de blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Los eventos registrados y las métricas de consulta, según los esquemas siguientes. Los eventos se registran en un contenedor de blobs y se almacenan en archivos JSON. Use un editor de JSON para ver el contenido del archivo.|
-| [Centro de eventos](https://docs.microsoft.com/azure/event-hubs/) | Eventos registrados y métricas de consulta, según los esquemas documentados en este artículo. Elija esta opción como un servicio alternativo de recopilación de datos para registros muy grandes. |
+| [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Los eventos registrados y las métricas de consulta, según los esquemas siguientes. Los eventos se registran en un contenedor de blobs y se almacenan en archivos JSON. Use un editor de JSON para ver el contenido del archivo.|
+| [Event Hubs](https://docs.microsoft.com/azure/event-hubs/) | Eventos registrados y métricas de consulta, según los esquemas documentados en este artículo. Elija esta opción como un servicio alternativo de recopilación de datos para registros muy grandes. |
 
 Los registros de Azure Monitor y Blob storage están disponibles como un servicio compartido gratuito, por lo que puede probarlo sin ningún costo para la duración de la suscripción de Azure. La suscripción a Application Insights y su uso son gratuitos siempre y cuando el tamaño de los datos de aplicación esté por debajo de determinados límites (consulte la [página de precios](https://azure.microsoft.com/pricing/details/monitor/) para más información).
 
@@ -96,7 +96,7 @@ El registro se habilita después de guardar el perfil. Los contenedores solo se 
 * insights-logs-operationlogs: para los registros del tráfico de búsqueda
 * insights-metrics-pt1m: para las métricas
 
-**Transcurre una hora antes de que los contenedores aparezcan en Blob Storage. Hay un blob, por hora y por contenedor.**
+**Se tarda una hora antes de que aparezcan los contenedores de Blob storage. Hay un blob, por hora y por contenedor.**
 
 Puede usar [Visual Studio Code](#download-and-open-in-visual-studio-code) u otro editor de JSON para ver los archivos. 
 
@@ -168,10 +168,10 @@ Una vez descargado el archivo, ábralo en un editor de JSON para ver el contenid
 ## <a name="use-system-apis"></a>Uso de las API del sistema
 La API REST de Azure Search y .NET SDK proporcionan acceso mediante programación a información de métricas de servicio, índice e indexadores y recuentos de documentos.
 
-* [Obtener estadísticas de servicios](/rest/api/searchservice/get-service-statistics)
+* [Get Services Statistics](/rest/api/searchservice/get-service-statistics) (Obtención de estadísticas de servicios)
 * [Obtención de estadísticas de índice](/rest/api/searchservice/get-index-statistics)
-* [Documentos de recuento](/rest/api/searchservice/count-documents)
-* [Obtener el estado del indexador](/rest/api/searchservice/get-indexer-status)
+* [Recuento de documentos](/rest/api/searchservice/count-documents)
+* [Obtención del estado del indizador](/rest/api/searchservice/get-indexer-status)
 
 Para habilitar el uso de PowerShell o la CLI de Azure, consulte la documentación [aquí](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs#how-to-enable-collection-of-diagnostic-logs).
 

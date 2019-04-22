@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: b1618e2ac997445606ce98fc72a1ec35ca1280be
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273675"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Inicio rápido: Creación y uso compartido de un cuaderno
@@ -43,7 +43,7 @@ ms.locfileid: "59273675"
 
 1. Después de unos instantes, Azure Notebooks lo lleva al proyecto nuevo. Para agregar un cuaderno al proyecto, seleccione el menú desplegable **+ Nuevo** (que puede aparecer simplemente como **+**) y seleccione **Cuaderno**:
 
-    [![](media/quickstarts/empty-project-new-notebook-button.png "Un nuevo proyecto vacío y agregar Bloc de notas (comando)")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
+    [![](media/quickstarts/empty-project-new-notebook-button.png "Un proyecto nuevo vacío y el comando para agregar cuaderno")](media/quickstarts/empty-project-new-notebook-button.png#lightbox)
 
 1. En la ventaja emergente **Create New Notebook** (Crear nuevo cuaderno) que aparece, escriba un nombre de archivo para el cuaderno, como *HelloWorldInPython.ipynb* (*.ipynb* se refiere a IronPython (Jupyter) Notebook) y seleccione **Python 3.6** en el lenguaje (que también se denomina como el *kernel*):
 
@@ -106,4 +106,4 @@ En la página del proyecto, también puede usar el menú **Compartir** para obte
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial: crear una ejecución de un cuaderno de Jupyter notebook para realizar la regresión lineal](tutorial-create-run-jupyter-notebook.md)
+> [Tutorial: create an run a Jupyter notebook to do linear regression](tutorial-create-run-jupyter-notebook.md) (Tutorial: Creación y ejecución de un cuaderno de Jupyter Notebook para hacer regresión lineal)

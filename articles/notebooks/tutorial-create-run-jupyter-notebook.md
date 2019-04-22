@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: kraigb
 ms.openlocfilehash: d5ccf3e9f35a8d35387962278577333ff92ff02b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59258545"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Tutorial: Creación y ejecución de un cuaderno de Jupyter con Python
@@ -128,7 +128,7 @@ Con el archivo de datos listo y el entorno del proyecto establecido, ya puede cr
 1. Como tiene un archivo *requirements.txt* en la configuración del entorno, verá el mensaje "Waiting for your container to finish being prepared" (Esperando que finalice la preparación del contenedor). Puede seleccionar **OK** (Aceptar) para cerrar el mensaje y continuar trabajando en el cuaderno; sin embargo; las celdas de código no se pueden ejecutar hasta que el entorno esté totalmente configurado.
 1. Abre el cuaderno en la interfaz de Jupyter con una celda única de código vacío como el valor predeterminado.
 
-    [![Ivista inicial de un nuevo cuaderno en Azure Notebooks](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Vista inicial de un cuaderno nuevo en Azure Notebooks](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Paseo por la interfaz del cuaderno
 
@@ -144,7 +144,7 @@ En la parte superior de la ventana verá los siguientes elementos:
 (F) Un indicador de si el cuaderno es de confianza; el valor predeterminado es **Not Trusted** (No es de confianza).
 (G) El kernel usado para ejecutar el cuaderno, junto con un indicador de actividad.
 
-[![Páreas de interfaz de usuario principal de la interfaz de Jupyter](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[![Áreas principales de la interfaz de usuario de Jupyter](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter incorpora un paseo por los principales elementos de la interfaz de usuario. Para iniciar la visita, seleccione el comando **Help** > **User Interface Tour** (Ayuda > Paseo por la interfaz de usuario) y haga clic en los menús emergentes.
 
@@ -421,13 +421,13 @@ Consulte también [Visual Studio Code - Jupyter support](https://code.visualstud
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Explore los cuadernos de ejemplo](azure-notebooks-samples.md)
+- [Exploración de cuadernos de ejemplo](azure-notebooks-samples.md)
 
 Artículos de procedimientos:
 
 - [Creación y clonación de proyectos](create-clone-jupyter-notebooks.md)
-- [Configurar y administrar proyectos](configure-manage-azure-notebooks-projects.md)
-- [Instalación de paquetes de un cuaderno](install-packages-jupyter-notebook.md)
+- [Configuración y administración de proyectos](configure-manage-azure-notebooks-projects.md)
+- [Instalación de paquetes en un cuaderno](install-packages-jupyter-notebook.md)
 - [Presentación](present-jupyter-notebooks-slideshow.md)
 - [Uso de archivos de datos](work-with-project-data-files.md)
 - [Acceso a recursos de datos](access-data-resources-jupyter-notebooks.md)

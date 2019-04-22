@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
 ms.openlocfilehash: b522b0bd641d0147518843b11be4cd3a1430ae20
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59265345"
 ---
 # <a name="work-with-data-files-in-azure-notebook-projects"></a>Trabajar con archivos de datos en proyectos de Azure Notebooks
@@ -122,4 +122,4 @@ También puede seleccionar un archivo y usar el comando **Download** (método ab
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Acceso a los datos en la nube en un cuaderno](access-data-resources-jupyter-notebooks.md)
+- [Access cloud data in a notebook](access-data-resources-jupyter-notebooks.md) (Acceso a los datos en la nube en un cuaderno)

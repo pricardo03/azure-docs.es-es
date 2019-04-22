@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/27/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 6abae32f5d8781735bc6a50dc888fddacbe8d0b9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 56568cfb8fc659308475e581955e5acbdfd32b44
+ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58105308"
+ms.lasthandoff: 04/11/2019
+ms.locfileid: "59489321"
 ---
 # <a name="tutorial-balance-internal-traffic-load-with-a-basic-load-balancer-in-the-azure-portal"></a>Tutorial: Equilibrio de la carga de tráfico interno con un equilibrador de carga básico en Azure Portal
 
@@ -95,11 +95,10 @@ Cree un equilibrador de carga interno Básico mediante el portal. El nombre y di
     | Grupos de recursos         | Seleccione **Crear nuevo** y escriba *MyResourceGroupLB* en el cuadro de texto.|
     | NOMBRE                   | *myLoadBalancer*                                   |
     | Region         | Seleccione **Europa Occidental**.                                        |
-    | Type          | Seleccione **Público**.                                        |
+    | Type          | seleccione **Interno**.                                        |
     | SKU           | Seleccione **Básica**.                          |
     | Virtual network           | Seleccione *MyVNet*.                          |    
-| Dirección IP pública | Seleccione **Crear nuevo**. |
-    | Asignación de dirección IP pública              | Seleccione **Estática**.   |
+    | Asignación de dirección IP              | Seleccione **Estática**.   |
     | Dirección IP privada|escriba una dirección que esté en el espacio de direcciones de la red virtual y subred, por ejemplo *10.3.0.7*.  |
 
 3. En la pestaña **Revisar y crear**, haga clic en **Crear**. 
@@ -142,7 +141,7 @@ Para distribuir el tráfico a las máquinas virtuales, el equilibrador de carga 
 
 Para permitir que el equilibrador de carga supervise el mantenimiento de la máquina virtual, utilice un sondeo de mantenimiento. El sondeo de estado agrega o quita de forma dinámica las máquinas virtuales de la rotación del equilibrador de carga en base a su respuesta a las comprobaciones de estado. 
 
-**Para crear un sondeo de mantenimiento para supervisar el mantenimiento de las máquinas virtuales:**
+**Para crear un sondeo de mantenimiento para supervisar el estado de las máquinas virtuales:**
 
 1. Seleccione **Todos los recursos** en el menú de la izquierda y, a continuación, en la lista de recursos seleccione **MyLoadBalancer**.
    
@@ -266,4 +265,4 @@ En este tutorial, ha creado un equilibrador de carga interno de nivel Básico. H
 A continuación, aprenda a equilibrar la carga de las máquinas virtuales entre las zonas de disponibilidad.
 
 > [!div class="nextstepaction"]
-> [Equilibrio de carga de máquinas virtuales en distintas zonas de disponibilidad](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+> [Equilibrio de carga de máquinas virtuales entre zonas de disponibilidad](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

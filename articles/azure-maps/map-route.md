@@ -10,10 +10,10 @@ services: azure-maps
 manager: timlt
 ms.custom: codepen
 ms.openlocfilehash: b8205383c25ba04212126e0e6ca1bd44e4efad1a
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264529"
 ---
 # <a name="show-directions-from-a-to-b"></a>Presentación de indicaciones de ruta de A a B
@@ -29,7 +29,7 @@ Hay dos formas de hacerlo. La primera es consultar la [Route API de Azure Maps](
 
 En el código anterior, el primer bloque de código construye un objeto de mapa y establece el mecanismo de autenticación para usar la clave de suscripción. Puede consultar [Creación de un mapa](./map-create.md) para obtener instrucciones.
 
-El segundo bloque de código crea un `SubscriptionKeyCredentialPolicy` para autenticar las solicitudes HTTP a Azure Maps con la clave de suscripción. El `atlas.service.MapsURL.newPipeline()` toma el `SubscriptionKeyCredential` directiva y crea un [canalización](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest) instancia. El `routeURL` representa una dirección URL de Azure Maps [ruta](https://docs.microsoft.com/rest/api/maps/route) operaciones.
+El segundo bloque de código crea un `SubscriptionKeyCredentialPolicy` para autenticar las solicitudes HTTP a Azure Maps con la clave de suscripción. `atlas.service.MapsURL.newPipeline()` toma la directiva `SubscriptionKeyCredential` y crea una instancia de [canalización](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-iot-typescript-latest). `routeURL` representa una dirección URL para las operaciones [Route](https://docs.microsoft.com/rest/api/maps/route) de Azure Maps.
 
 El tercer bloque de código crea y agrega un [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource?view=azure-iot-typescript-latest) objeto a la asignación.
 

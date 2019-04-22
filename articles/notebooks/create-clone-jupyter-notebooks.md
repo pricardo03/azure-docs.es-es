@@ -14,10 +14,10 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: kraigb
 ms.openlocfilehash: 0ee0c7162e26b875c74796b6d5379b414981e2d5
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282328"
 ---
 # <a name="create-and-clone-projects"></a>Creación y clonación de proyectos
@@ -30,20 +30,20 @@ Un proyecto también mantiene los metadatos y otras opciones de configuración q
 
 El panel **Mis proyectos** en `https://notebooks.azure.com/<userID>/projects` es donde se pueden ver, administrar y crear proyectos:
 
-[![Mpanel de proyectos y en Azure Notebooks](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
+[![Panel Mis proyectos en Azure Notebooks](media/my-projects-dashboard.png)](media/my-projects-dashboard.png#lightbox)
 
 Lo que puede hacer en el panel depende de si ha iniciado sesión con la cuenta que posee el identificador de usuario:
 
 | Get-Help | Disponible para | DESCRIPCIÓN |
 | --- | --- | --- |
-| **Ejecute** | Propietario | Inicia el servidor del proyecto y abre la carpeta del proyecto en Jupyter. (Más comúnmente, navega primero a una carpeta del proyecto y luego inicia un cuaderno desde allí). |
+| **Run** | Propietario | Inicia el servidor del proyecto y abre la carpeta del proyecto en Jupyter. (Más comúnmente, navega primero a una carpeta del proyecto y luego inicia un cuaderno desde allí). |
 | **Descargar** | Todos | Descarga una copia del proyecto seleccionado como archivo ZIP. |
 | **Compartir** | Todos | Muestra la ventana emergente para compartir a través de la cual puede obtener una dirección URL hacia un proyecto seleccionado, compartir en medios sociales, enviar un correo electrónico con la dirección URL y obtener el código HTML o Markdown con una notificación de "iniciar cuaderno" (consulte [obtención de una notificación de inicio](#obtain-a-launch-badge)) con la dirección URL. |
 | **Eliminar** | Propietario | Elimina el proyecto seleccionado. Esta operación no se puede deshacer. |
 | **Terminal** | Propietario | Inicia el servidor del proyecto y luego abre una nueva ventana del explorador con la terminal bash para ese servidor. |
 | **+ Nuevo proyecto** | Propietario | Crea un nuevo proyecto. Consulte [Creación de un nuevo proyecto](#create-a-new-project). |
-| **Cargar el repositorio de GitHub** | Propietario | Importa un proyecto desde GitHub. [Importe un proyecto desde GitHub](#import-a-project-from-github). |
-| **Clon** | Todos | Copia un proyecto seleccionado en su propia cuenta. Le pedirá que inicie sesión en aún no lo hizo. Consulte [Clonación de un proyecto](#clone-a-project). |
+| **Upload GitHub Repo** | Propietario | Importa un proyecto desde GitHub. [Importe un proyecto desde GitHub](#import-a-project-from-github). |
+| **Clonar** | Todos | Copia un proyecto seleccionado en su propia cuenta. Le pedirá que inicie sesión en aún no lo hizo. Consulte [Clonación de un proyecto](#clone-a-project). |
 
 ### <a name="obtain-a-launch-badge"></a>Obtención una notificación de inicio
 
@@ -120,10 +120,10 @@ Para clonar un proyecto:
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- [Explore los cuadernos de ejemplo](azure-notebooks-samples.md)
-- [Procedimientos para: Configurar y administrar proyectos](configure-manage-azure-notebooks-projects.md)
-- [Procedimientos para: Instalación de paquetes de un cuaderno](install-packages-jupyter-notebook.md)
-- [Procedimientos para: Presentación](present-jupyter-notebooks-slideshow.md)
-- [Procedimientos para: Uso de archivos de datos](work-with-project-data-files.md)
-- [Procedimientos para: Acceso a recursos de datos](access-data-resources-jupyter-notebooks.md)
-- [Procedimientos para: Uso de Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)
+- [Exploración de cuadernos de ejemplo](azure-notebooks-samples.md)
+- [Procedimientos: Configure and manage projects](configure-manage-azure-notebooks-projects.md) (Configuración y administración de proyectos)
+- [Procedimientos: Instalación de paquetes en un cuaderno](install-packages-jupyter-notebook.md)
+- [Procedimientos: Presentación](present-jupyter-notebooks-slideshow.md)
+- [Procedimientos: con archivos de datos en proyectos de Azure Notebooks](work-with-project-data-files.md)
+- [How to: Access data resources](access-data-resources-jupyter-notebooks.md) (Acceso a los recursos de datos)
+- [Uso de Azure Machine Learning Services en un cuaderno](use-machine-learning-services-jupyter-notebooks.md)

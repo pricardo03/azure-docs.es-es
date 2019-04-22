@@ -9,10 +9,10 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.openlocfilehash: 2f6e1e1a27e32e567cf0eaa8ff7a99046ed81bbe
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050951"
 ---
 # <a name="symmetric-key-attestation"></a>Atestación de clave simétrica
@@ -49,7 +49,7 @@ Presentamos a continuación los componentes de cada token:
 | Valor | DESCRIPCIÓN |
 | --- | --- |
 | {signature} |Una cadena de firma HMAC-SHA256. Para las inscripciones individuales, esta firma se genera mediante la clave simétrica (principal o secundaria) para realizar el hash. Para los grupos de inscripción, se usa una clave derivada de la clave de grupo de inscripción para realizar el hash. El hash se realiza en un mensaje del formulario: `URL-encoded-resourceURI + "\n" + expiry`. **Importante**: La clave debe se descodifica desde base64 antes de que se usa para realizar el cálculo de HMAC-SHA256. Además, el resultado de la firma tiene que codificarse como URL. |
-| {resourceURI} |EL URI del punto de conexión de registro al que se puede acceder con este token, empezando por el identificador de ámbito para la instancia del servicio Device Provisioning. Por ejemplo, `{Scope ID}/registrations/{Registration ID}` |
+| {resourceURI} |EL URI del punto de conexión de registro al que se puede acceder con este token, empezando por el identificador de ámbito para la instancia del servicio Device Provisioning. Por ejemplo: `{Scope ID}/registrations/{Registration ID}` |
 | {expiry} |Cadenas UTF8 para el número de segundos transcurridos desde el tiempo 00:00:00 UTC el 1 de enero de 1970. |
 | {URL-encoded-resourceURI} |Codificación de dirección URL en minúsculas del URI del recurso en minúsculas |
 | {policyName} |El nombre de la directiva de acceso compartido a la que hace referencia este token. El nombre de directiva que se usó cuando se aprovisionó con la atestación de clave simétrica es **registration**. |
@@ -115,5 +115,5 @@ Si las claves de dispositivo no se instalan en la fábrica, se debe utilizar un 
 Ahora que tiene un conocimiento de la atestación de clave simétrica, consulte los artículos siguientes para aprender más sobre el tema:
 
 * [Inicio rápido: Aprovisionamiento de un dispositivo simulado con claves simétricas](quick-create-simulated-device-symm-key.md)
-* [Obtenga información sobre los conceptos de aprovisionamiento automático](./concepts-auto-provisioning.md)
-* [Introducción al uso de aprovisionamiento automático](./quick-setup-auto-provision.md) 
+* [Conceptos de aprovisionamiento automático](./concepts-auto-provisioning.md)
+* [Introducción al uso del aprovisionamiento automático](./quick-setup-auto-provision.md) 
