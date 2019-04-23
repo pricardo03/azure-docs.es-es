@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: tutorial
 ms.date: 02/21/2019
 ms.author: jamesbak
-ms.openlocfilehash: cdb89b552d0e328e6685e2bd62ea135e15e4b074
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: a5e7fd200617661c38b65ebbd4473a1a729de457
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58013454"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682362"
 ---
 # <a name="tutorial-extract-transform-and-load-data-by-using-apache-hive-on-azure-hdinsight"></a>Tutorial: Extracción, transformación y carga de datos mediante Apache Hive en Azure HDInsight
 
@@ -347,4 +347,4 @@ Todos los recursos utilizados en este tutorial son preexistentes. No es necesari
 Para conocer otras formas de trabajar con datos en HDInsight, consulte el artículo siguiente:
 
 > [!div class="nextstepaction"]
-> [Extracción, transformación y carga de datos mediante Azure Databricks](./data-lake-storage-use-hdi-cluster.md)
+> [Uso de Data Lake Storage Gen2 con clústeres de Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/18/2019
 ms.author: borisb
 ms.openlocfilehash: fb3c0e46324a22bdd95bf7d93c28e69c195927e8
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59045429"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59786046"
 ---
 # <a name="red-hat-enterprise-linux-images-in-azure"></a>Imágenes de Red Hat Enterprise Linux en Azure
 En este artículo, se describen las imágenes disponibles de Red Hat Enterprise Linux (RHEL) en Azure Marketplace, además de directivas en relación con su nomenclatura y retención.

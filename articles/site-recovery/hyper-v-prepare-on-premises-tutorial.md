@@ -9,11 +9,11 @@ ms.date: 04/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 6e57b629a0007b06af6e37f96e1466e35afafccc
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
-ms.locfileid: "59361891"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59788085"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Preparación de servidores de Hyper-V locales para la recuperación ante desastres en Azure
 
@@ -31,11 +31,11 @@ En este tutorial, aprenderá a:
 > * Preparar las máquinas virtuales de modo que puede tener acceso a ellas después de la conmutación por error a Azure.
 
 > [!NOTE]
-> Tutoriales muestra la ruta de implementación más sencilla para un escenario. Usan opciones predeterminadas siempre que es posible y no muestran todos los valores y las rutas de acceso posibles. Para obtener instrucciones detalladas, consulte el artículo en la sección de la tabla de contenido de sitio de recuperación.
+> Los tutoriales muestran la ruta de implementación más sencilla para un escenario. Usan opciones predeterminadas siempre que es posible y no muestran todos los valores y las rutas de acceso posibles. Para obtener instrucciones detalladas, consulte el artículo de la sección de procedimientos de la tabla de contenido de Site Recovery.
 
 ## <a name="before-you-start"></a>Antes de comenzar
 
-Asegúrese de que ha preparado Azure tal y como se describe en el [primer tutorial de esta serie](tutorial-prepare-azure.md).
+Asegúrese de que ha preparado Azure como se describe en el [primer tutorial de esta serie](tutorial-prepare-azure.md).
 
 ## <a name="review-requirements-and-prerequisites"></a>Revisión de requisitos y requisitos previos
 

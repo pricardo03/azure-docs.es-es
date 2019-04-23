@@ -10,10 +10,10 @@ services: iot-central
 ms.custom: mvc
 manager: peterpr
 ms.openlocfilehash: 201b438601c9929e5ca3d292f9fc3d7b7ff64de8
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425940"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Tutorial: Adición de un dispositivo real a una aplicación de Azure IoT Central
@@ -352,14 +352,14 @@ Ahora que ha conectado un dispositivo real a la aplicación de Azure IoT Central
 
 Como operador, puede obtener información sobre:
 
-* [Administración de los dispositivos](howto-manage-devices.md)
+* [Administración de dispositivos](howto-manage-devices.md)
 * [Uso de conjuntos de dispositivos](howto-use-device-sets.md)
 * [Creación de análisis personalizados](howto-use-device-sets.md)
 
 Como desarrollador de dispositivos, puede obtener información sobre:
 
 * [Preparación y conexión de un dispositivo DevKit (C)](howto-connect-devkit.md)
-* [Preparación y conexión de una instancia de Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md)
-* [Preparación y conexión de una instancia de Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md)
+* [Preparación y conexión de un dispositivo Raspberry Pi (Python)](howto-connect-raspberry-pi-python.md)
+* [Preparación y conexión de un dispositivo Raspberry Pi (C#)](howto-connect-raspberry-pi-csharp.md)
 * [Preparación y conexión de un dispositivo Windows 10 IoT Core (C#)](howto-connect-windowsiotcore.md)
-* [Conexión de un cliente de Node.js genérico a una aplicación de Azure IoT Central](howto-connect-nodejs.md)
+* [Conexión de un cliente de Node.js genérico a una aplicación de Azure IoT Central](howto-connect-nodejs.md)

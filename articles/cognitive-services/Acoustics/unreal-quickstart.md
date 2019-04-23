@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 03/20/2019
 ms.author: kegodin
 ms.openlocfilehash: 691f49e9be8aabe9a3e229bfd3b35ab183f9fed9
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59492420"
 ---
 # <a name="project-acoustics-unrealwwise-quickstart"></a>Inicio rápido de Project Acoustics en Unreal o Wwise
@@ -50,7 +50,7 @@ El complemento Unreal de Project Acoustics requiere la exposición de comportami
 
     ![Captura de pantalla de una ventana del Explorador de Windows que muestra el proyecto de revisión del script de Wwise](media/patch-wwise-script.png)
 
-* Si no tiene instalado el SDK de DirectX, deberá convertir en comentario la línea que contiene DXSDK_DIR en `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`
+* Si no tiene instalado el SDK de DirectX, deberá convertir en comentario la línea que contiene DXSDK_DIR en `AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs`.
 
     ![Captura de pantalla del editor de código que muestra DXSDK convertido en comentario](media/directx-sdk-comment.png)
 

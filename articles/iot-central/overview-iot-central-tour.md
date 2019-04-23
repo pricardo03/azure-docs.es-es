@@ -9,14 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 4908130cc0d59e42adb4f7ab2239e5b57dc08b89
-ms.sourcegitcommit: 5fbca3354f47d936e46582e76ff49b77a989f299
+ms.openlocfilehash: edc75711d8f727d8b1c9359835c6d5ebd575ff71
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/12/2019
-ms.locfileid: "57774309"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59678656"
 ---
-# <a name="take-a-tour-of-the-azure-iot-central-ui-new-ui-design"></a>Paseo por la interfaz de usuario de Azure IoT Central (nuevo diseño de la UI)
+# <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Un paseo por la interfaz de usuario de Azure IoT Central
 
 Este artículo presenta la interfaz de usuario de Microsoft Azure IoT Central. Puede usar la interfaz de usuario para crear, administrar y usar una solución de Azure IoT Central y sus dispositivos conectados.
 

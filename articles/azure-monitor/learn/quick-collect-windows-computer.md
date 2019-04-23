@@ -15,10 +15,10 @@ ms.date: 04/09/2019
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: d1403b35319df6ef9ec45c07dc56d6f2ca38fa60
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426637"
 ---
 # <a name="configure-log-analytics-agent-for-windows-computers-in-a-hybrid-environment"></a>Configuración del agente de Log Analytics para los equipos Windows en un entorno híbrido
@@ -135,4 +135,4 @@ Ahora que ya recopila datos sobre el funcionamiento y el rendimiento del equipo 
 Para obtener información sobre cómo ver y analizar los datos, continúe con el tutorial.   
 
 > [!div class="nextstepaction"]
-> [Visualización o análisis de datos en Log Analytics](tutorial-viewdata.md)
+> [Ver o analizar datos en Log Analytics](tutorial-viewdata.md)

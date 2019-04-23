@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: d9001a10afdb92e2ebe469e3beb080c667e8559b
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e1799f2af89fd0498c11f3d695d84ccd93a9c857
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58097344"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59681937"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-java"></a>Inicio rápido: Envío de una solicitud de búsqueda a Bing Entity Search REST API con Java
 
@@ -214,8 +214,6 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
   }
 }
 ```
-
-[Volver arriba](#main)
 
 ## <a name="next-steps"></a>Pasos siguientes
 

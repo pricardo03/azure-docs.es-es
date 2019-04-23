@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 03/12/2019
 ms.author: aahi
 ms.openlocfilehash: d31be245d906ba0405a44d4482272051982c943c
-ms.sourcegitcommit: 1a19a5845ae5d9f5752b4c905a43bf959a60eb9d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59488344"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Inicio rápido: Envío de una solicitud de búsqueda a Bing Entity Search REST API con C#
@@ -174,7 +174,7 @@ Se devuelve una respuesta correcta en JSON, como se muestra en el siguiente ejem
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Compilación de una aplicación web de una sola página](../tutorial-bing-entities-search-single-page-app.md)
+> [Compilar una aplicación web de una sola página](../tutorial-bing-entities-search-single-page-app.md)
 
 * [¿Qué es Bing Entity Search API?](../overview.md )
 * [Referencia de Bing Entity Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-entities-api-v7-reference)

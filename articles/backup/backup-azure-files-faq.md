@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.service: backup
 manager: carmonm
 ms.openlocfilehash: 139ce3fd81c14f9bf97e45c8aebb83d2fb1bbe10
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426620"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Preguntas acerca de la copia de seguridad de archivos de Azure
@@ -112,6 +112,6 @@ Cuando se aplica una nueva directiva en los recursos compartidos de archivos, se
 
 ## <a name="see-also"></a>Otras referencias
 Esta información es solo sobre la copia de seguridad de archivos de Azure. Para más información sobre otras áreas de Azure Backup, consulte algunas de estas otras preguntas frecuentes acerca de las copias de seguridad:
--  [Preguntas más frecuentes acerca del almacén de Recovery Services](backup-azure-backup-faq.md)
--  [Preguntas más frecuentes acerca de la copia de seguridad de máquinas virtuales de Azure](backup-azure-vm-backup-faq.md)
+-  [Preguntas más frecuentes sobre el almacén de Recovery Services](backup-azure-backup-faq.md)
+-  [Preguntas más frecuentes sobre la copia de seguridad de máquinas virtuales de Azure](backup-azure-vm-backup-faq.md)
 -  [Preguntas más frecuentes sobre Azure Backup Agent](backup-azure-file-folder-backup-faq.md)

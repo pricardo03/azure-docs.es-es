@@ -14,13 +14,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 03/28/2018
-ms.openlocfilehash: 570f0a825f679ec5f0cc4c62b0608ec517148161
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.date: 04/20/2019
+ms.openlocfilehash: 7a2bd8ebf2e96cf2251d98501bbf42007d43a660
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57894009"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683008"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>¿Qué es Azure Machine Learning Studio?
 Microsoft Azure Machine Learning Studio es una herramienta de arrastrar y colocar que le permite crear, probar e implementar soluciones de análisis predictivo en sus datos. Machine Learning Studio publica modelos como servicios web que pueden utilizarse fácilmente en aplicaciones personalizadas o herramientas de BI como Excel.
@@ -108,7 +108,7 @@ Para que le resulte más fácil navegar por la gran biblioteca de algoritmos de 
 ## <a name="deploying-a-predictive-analytics-web-service"></a>Implementación del servicio web de análisis predictivo
 Cuando el modelo de análisis predictivo esté listo, puede implementarlo como servicio web directamente desde Machine Learning Studio. Para obtener más información vea [Implementación de un servicio web de Azure Machine Learning](publish-a-machine-learning-web-service.md).
 
-
+<a name="compare"></a>
 ## <a name="how-is-machine-learning-studio-different-from-azure-machine-learning-service"></a>¿En qué se diferencia Machine Learning Studio de Azure Machine Learning Service?
 
 [Azure Machine Learning Service](../service/overview-what-is-azure-ml.md) proporciona SDK y servicios para preparar datos, entrenar e implementar los modelos de Machine Learning con rapidez. Mejore la productividad y los costos con el proceso y las canalizaciones de escalado automático. Use estas funcionalidades con plataformas de Python de código abierto, como PyTorch, TensorFlow y scikit-learn. 

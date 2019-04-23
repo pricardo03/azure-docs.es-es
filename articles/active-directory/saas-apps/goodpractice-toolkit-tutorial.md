@@ -8,19 +8,20 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 65b2979d-9e2f-4530-bc08-546975269ebc
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/19/2018
+ms.date: 04/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9b847fd424e14eba492018887dbc28c44100f61
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.openlocfilehash: 5e55399337e06314a5079f9d0e692a771855f8ca
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58885356"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59683620"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-goodpractice-toolkit"></a>Tutorial: Integración de Azure Active Directory con GoodPractice Toolkit
 
@@ -69,7 +70,7 @@ Para configurar la integración de GoodPractice Toolkit en Azure AD, será preci
 4. En el cuadro de búsqueda, escriba **GoodPractice Toolkit**, seleccione **GoodPractice Toolkit** en el panel de resultados y, luego, haga clic en el botón **Agregar** para agregar la aplicación.
 
      ![GoodPractice Toolkit en la lista de resultados](common/search-new-app.png)
-   ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configuración y prueba del inicio de sesión único en Azure AD
 
 En esta sección, podrá configurar y probar el inicio de sesión único de Azure AD con GoodPractice Toolkit con un usuario de prueba llamado **Britta Simon**.
 Para que el inicio de sesión único funcione, es preciso establecer una relación de vínculo entre un usuario de Azure AD y el usuario relacionado de GoodPractice Toolkit.
@@ -79,8 +80,8 @@ Para configurar y probar el inicio de sesión único de Azure AD con GoodPractic
 1. **[Configuración del inicio de sesión único de Azure AD](#configure-azure-ad-single-sign-on)**: para que los usuarios puedan usar esta característica.
 2. **[Configuración del inicio de sesión único de GoodPractice Toolkit](#configure-goodpractice-toolkit-single-sign-on)**: para configurar los valores de Inicio de sesión único en la aplicación.
 3. **[Creación de un usuario de prueba de Azure AD](#create-an-azure-ad-test-user)**, para probar el inicio de sesión único de Azure AD con Britta Simon.
-4. **[Creación de un usuario de prueba de GoodPractice Toolkit](#create-goodpractice-toolkit-test-user)**: para tener un equivalente de Britta Simon en GoodPractice Toolkit que esté vinculado a la representación de Azure AD del usuario.
-5. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+4. **[Asignación del usuario de prueba de Azure AD](#assign-the-azure-ad-test-user)**, para permitir que Britta Simon use el inicio de sesión único de Azure AD.
+5. **[Creación de un usuario de prueba de GoodPractice Toolkit](#create-goodpractice-toolkit-test-user)**: para tener un equivalente de Britta Simon en GoodPractice Toolkit que esté vinculado a la representación de Azure AD del usuario.
 6. **[Prueba del inicio de sesión único](#test-single-sign-on)**: para comprobar si la configuración funciona.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Configuración del inicio de sesión único de Azure AD
@@ -146,8 +147,7 @@ El objetivo de esta sección es crear un usuario de prueba en Azure Portal llama
 
     a. En el campo **Nombre**, escriba **BrittaSimon**.
   
-    b. En el campo **Nombre de usuario**, escriba **brittasimon\@yourcompanydomain.extension**.  
-    Por ejemplo: BrittaSimon@contoso.com
+    b. En el campo **Nombre de usuario**, escriba `brittasimon\@yourcompanydomain.extension`. Por ejemplo, BrittaSimon@contoso.com.
 
     c. Active la casilla **Mostrar contraseña** y, después, anote el valor que se muestra en el cuadro Contraseña.
 

@@ -8,11 +8,11 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
 ms.openlocfilehash: b97db09c477a940ca36129316613f5ceb4eb13b1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59256199"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59789120"
 ---
 # <a name="automate-os-and-framework-patching-with-acr-tasks"></a>Automatización de la aplicación de revisiones de sistema operativo y plataforma con ACR Tasks
 
@@ -99,7 +99,7 @@ Aprenda más sobre las tareas de varios pasos en [Ejecución de tareas de varios
 
 Cuando esté listo para automatizar el sistema operativo y aplicación de revisiones de framework mediante la creación de las imágenes de contenedor en la nube, consulte las tres partes [serie de tutoriales de las tareas de ACR](container-registry-tutorial-quick-task.md).
 
-Opcionalmente, instale el [extensión Docker para Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) y [cuenta de Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extensión para trabajar con los registros de contenedor de Azure. Incorporación de cambios e insertar imágenes en Azure container registry o ejecutar tareas de ACR, todo ello en Visual Studio Code.
+Opcionalmente, instale la [extensión de Docker para Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) y la extensión de la [cuenta de Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) para trabajar con los registros de contenedor de Azure. Extraiga e inserte imágenes en un registro de contenedor de Azure o ejecute ACR Tasks y, todo ello, en Visual Studio Code.
 
 <!-- LINKS - External -->
 [base-alpine]: https://hub.docker.com/_/alpine/

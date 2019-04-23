@@ -10,11 +10,11 @@ ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
 ms.openlocfilehash: fb34be09ec08957621517c957b3570cdbcfc0468
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59283688"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59787166"
 ---
 # <a name="deprecated-use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>(EN DESUSO) Uso de Draft con Azure Container Service y Azure Container Registry para crear e implementar una aplicación en Kubernetes
 
