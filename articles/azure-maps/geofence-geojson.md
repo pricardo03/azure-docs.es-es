@@ -35,7 +35,7 @@ Los datos de la geovalla o conjunto de estas viene dado por el objeto `Feature` 
 | startTime | DateTime  | true | Fecha y hora de inicio del período de tiempo de validez. |
 | endTime   | DateTime  | true |  Fecha y hora de finalización del período de tiempo de validez. |
 | recurrenceType | string | false |   El tipo de periodicidad del período. El valor puede ser `Daily`, `Weekly`, `Monthly` o `Yearly`. El valor predeterminado es `Daily`.|
-| businessDayOnly | boolean | false |  Indica si los datos solo son válidos durante los días laborables. El valor predeterminado es `false`.|
+| businessDayOnly | Boolean | false |  Indica si los datos solo son válidos durante los días laborables. El valor predeterminado es `false`.|
 
 
 * Todos los valores de las coordenadas se representan como [latitud, longitud] que se define en `WGS84`.
