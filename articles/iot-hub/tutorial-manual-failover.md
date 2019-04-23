@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: ff8ef576a0dae0f03cc0c80f83ce0c24cf3945a2
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 40a7bba99068ebc2368e413199cf966bd2e4f25c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58093742"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002908"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub-public-preview"></a>Tutorial: Conmutación por error manual de un centro de IoT (versión preliminar pública)
 
@@ -49,9 +49,6 @@ En este tutorial se realizan las siguientes tareas:
 
     **Región**: seleccione una región cercana que forme parte de la versión preliminar. En este tutorial se usa `westus2`. Las conmutaciones por error solo se pueden realizar entre regiones de Azure emparejadas geográficamente. La región emparejada geográficamente con westus2 es WestCentralUS.
     
-   > [!NOTE]
-   > La conmutación por error manual está actualmente en versión preliminar pública y *no* está disponible en las siguientes regiones de Azure: Este de EE. UU., Oeste de EE. UU., Europa del Norte, Europa Occidental, Sur de Brasil y Centro y Sur de EE. UU.
-
    **IoT Hub Name** (Nombre del centro de IoT): especifique el nombre del centro de IoT. Dicho nombre debe ser único globalmente. 
 
    ![Captura de pantalla que muestra el panel Basics (Datos básicos) para crear un centro de IoT](./media/tutorial-manual-failover/create-hub-02-basics.png)

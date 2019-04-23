@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: tutorial
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: 4489fc82f836d8c311fcd776e211670897618b54
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
+ms.openlocfilehash: 24767f73e3e1409f81262ad57f3fd5152a4ec319
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56889484"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003483"
 ---
 # <a name="tutorial-integrate-power-bi-with-the-text-analytics-cognitive-service"></a>Tutorial: Integración de Power BI con Text Analytics de Cognitive Services
 
@@ -89,7 +89,7 @@ También podría considerar el filtrado de mensajes en blanco con el filtro Quit
 ## <a name="understand-the-api"></a>Información de la API
 <a name="UnderstandingAPI"></a>
 
-[Key Phrases API](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) del servicio Text Analytics puede procesar hasta un millar de documentos de texto por cada solicitud HTTP. Power BI prefiere trabajar con registros de uno en uno, así que en este tutorial las llamadas a la API contendrán solo un documento a la vez. Key Phrases API requiere que se procesen los siguientes campos para cada documento.
+[Key Phrases API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6) del servicio Text Analytics puede procesar hasta un millar de documentos de texto por cada solicitud HTTP. Power BI prefiere trabajar con registros de uno en uno, así que en este tutorial las llamadas a la API contendrán solo un documento a la vez. Key Phrases API requiere que se procesen los siguientes campos para cada documento.
 
 | | |
 | - | - |
@@ -120,7 +120,7 @@ Ahora, en la cinta de opciones **Inicio**, en el grupo **Consulta**, haga clic e
 // Returns key phrases from the text in a comma-separated list
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases",
+    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -223,7 +223,7 @@ La función Análisis de sentimiento siguiente devuelve una puntuación que indi
 // Returns the sentiment score of the text, from 0.0 (least favorable) to 1.0 (most favorable)
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment",
+    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -240,7 +240,7 @@ Estas son dos versiones de una función Detección de idioma. La primera devuelv
 // Returns the two-letter language code (for example, 'en' for English) of the text
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages",
+    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -254,7 +254,7 @@ in  language
 // Returns the name (for example, 'English') of the language in which the text is written
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages",
+    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -274,7 +274,7 @@ Finalmente, esta es una variante de la función Frases clave ya presentada que d
 // Returns key phrases from the text as a list object
 (text) => let
     apikey      = "YOUR_API_KEY_HERE",
-    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases",
+    endpoint    = "https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases",
     jsontext    = Text.FromBinary(Json.FromValue(Text.Start(Text.Trim(text), 5000))),
     jsonbody    = "{ documents: [ { language: ""en"", id: ""0"", text: " & jsontext & " } ] }",
     bytesbody   = Text.ToBinary(jsonbody),
@@ -291,10 +291,10 @@ in  keyphrases
 Más información sobre el servicio Text Analytics, el lenguaje de fórmulas M de Power Query o Power BI.
 
 > [!div class="nextstepaction"]
-> [Referencia de Text Analytics API](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
+> [Referencia de Text Analytics API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1/operations/56f30ceeeda5650db055a3c6)
 
 > [!div class="nextstepaction"]
-> [Referencia de Power Query M](//msdn.microsoft.com/library/mt211003.aspx)
+> [Referencia de Power Query M](https://msdn.microsoft.com/library/mt211003.aspx)
 
 > [!div class="nextstepaction"]
-> [Documentación de Power BI](//powerbi.microsoft.com/documentation/powerbi-landing-page/)
+> [Documentación de Power BI](https://powerbi.microsoft.com/documentation/powerbi-landing-page/)

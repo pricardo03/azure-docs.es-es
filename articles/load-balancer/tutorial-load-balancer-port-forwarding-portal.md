@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: kumud
 ms.custom: seodec18
-ms.openlocfilehash: 44b9e592d60c541e6b1e7f0e8c639b641af414e4
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: db94f1d241223a9c54a6e3d516840dd17fd0c576
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58118364"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007515"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Tutorial: Configuración del enrutamiento de puerto en Azure Load Balancer mediante Azure Portal
 
@@ -60,7 +60,7 @@ En primer lugar, cree un equilibrador de carga estándar público que pueda equi
     |Zona de disponibilidad| Seleccione **Redundancia de zona**.    |
      
     >[!NOTE]
-     >Asegúrese de crear el equilibrador de carga y todos los recursos para él en una ubicación compatible con Availability Zones. Para más información, vea [Regiones que admiten Availability Zones](../availability-zones/az-overview.md#regions-that-support-availability-zones). 
+     >Asegúrese de crear el equilibrador de carga y todos los recursos para él en una ubicación compatible con Availability Zones. Para más información, vea [Regiones que admiten Availability Zones](../availability-zones/az-overview.md#services-support-by-region). 
 
 3. En la pestaña **Revisar y crear**, haga clic en **Crear**.  
   
