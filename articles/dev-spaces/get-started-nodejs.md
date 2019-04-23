@@ -10,10 +10,10 @@ ms.topic: tutorial
 description: Desarrollo rápido de Kubernetes con contenedores y microservicios en Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
 ms.openlocfilehash: dc84844738e501a30f73104a76ff80bf00adff24
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425829"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Introducción a Azure Dev Spaces con Node.js
@@ -160,7 +160,7 @@ Con Azure Dev Spaces no se trata solo de conseguir que el código se ejecute en 
 Abra la aplicación web en un dispositivo móvil mediante la dirección URL pública para webfrontend. Se recomienda que copie y envíe la dirección URL desde el escritorio al dispositivo para no tener que escribir la dirección larga. Cuando la aplicación web se cargue en el dispositivo móvil, notará que la interfaz de usuario no se muestra correctamente en un dispositivo pequeño.
 
 Para solucionar este problema, va a agregar una etiqueta META `viewport`:
-1. Abra el archivo `./public/index.html`
+1. Abra el archivo `./public/index.html`.
 1. Agregue la etiqueta META `viewport` al elemento existente `head`:
 
     ```html
@@ -265,10 +265,10 @@ En esta configuración, el contenedor está configurado para iniciar *nodemon*. 
 1. Edite el mensaje de saludo de nuevo en `server.js` y guarde el archivo.
 1. Actualice el explorador o haga clic en el botón *Say It Again* (Repetir) para que los cambios surtan efecto.
 
-**Ya tiene un método para iterar rápidamente el código y depurarlo directamente en Kubernetes.** A continuación, verá cómo puede crear y llamar a un segundo contenedor.
+**Ahora tiene un método para iterar rápidamente el código y depurarlo directamente en Kubernetes.** A continuación, verá cómo puede crear y llamar a un segundo contenedor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Más información acerca del desarrollo de varios servicios](multi-service-nodejs.md)
+> [Aprenda sobre el desarrollo de varios servicios](multi-service-nodejs.md)
 

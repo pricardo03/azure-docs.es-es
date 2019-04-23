@@ -16,10 +16,10 @@ ms.date: 03/13/2019
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: dabbefa8ca2073e30948f1c70782f730bceae030
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59050013"
 ---
 # <a name="tutorial-deploy-a-service-fabric-cluster-running-windows-into-an-azure-virtual-network"></a>Tutorial: Implementación de un clúster de Service Fabric con Windows una red virtual de Azure
@@ -46,7 +46,7 @@ En esta serie de tutoriales, se aprende a:
 > [!div class="checklist"]
 > * Crear un clúster seguro en Azure
 > * [Supervisión de un clúster](service-fabric-tutorial-monitor-cluster.md)
-> * [Escalar o reducir un clúster horizontalmente](service-fabric-tutorial-scale-cluster.md)
+> * [Escalado o reducción horizontal](service-fabric-tutorial-scale-cluster.md)
 > * [Actualización del entorno en tiempo de ejecución de un clúster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Eliminación de un clúster](service-fabric-tutorial-delete-cluster.md)
 

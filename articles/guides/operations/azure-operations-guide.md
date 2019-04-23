@@ -16,10 +16,10 @@ ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
 ms.openlocfilehash: 1222395fd8efb7cf189ae6678f6c39f5a6c63157
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59051177"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Introducción para operadores de TI de Azure
@@ -468,7 +468,7 @@ Una red virtual de Azure, de forma predeterminada, es accesible solo para los re
 ### <a name="hybrid-virtual-networks"></a>Redes virtuales híbridas
 
 Puede conectar una red local con una red virtual de Azure con una conexión VPN de sitio a sitio o mediante ExpressRoute. En esta configuración, la red virtual de Azure es esencialmente una extensión basada en la nube de su red local.
-![Red virtual híbrida con VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/_images/blueprints/hybrid-network-vpn.png)
+![Virtual Network híbrido con VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/_images/blueprints/hybrid-network-vpn.png)
 
 Dado que la red virtual de Azure está conectada a la red local, las redes virtuales con entorno local deben utilizar una parte única del espacio de direcciones que usa la organización. De la misma manera que diferentes ubicaciones de la empresa se asignan a una subred IP específica, Azure se convierte en otra ubicación cuando la red se amplía.
 Hay varias opciones para implementar una red virtual.

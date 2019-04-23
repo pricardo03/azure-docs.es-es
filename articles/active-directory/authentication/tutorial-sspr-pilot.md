@@ -12,10 +12,10 @@ manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a6e1095cc2c5937fa5de762f91a9830161b8d2a5
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59362125"
 ---
 # <a name="tutorial-complete-an-azure-ad-self-service-password-reset-pilot-roll-out"></a>Tutorial: Realización de una implementación piloto del autoservicio de restablecimiento de contraseñas en Azure AD
@@ -60,7 +60,7 @@ El autoservicio de restablecimiento de contraseñas está ahora configurado para
 
 ## <a name="test-sspr-as-a-user"></a>Prueba de SSPR como un usuario
 
-Pruebe el autoservicio de restablecimiento de contraseñas con un usuario de prueba sin privilegios de administrador que sea miembro del grupo piloto. **Tenga en cuenta que si usa una cuenta que tenga roles de administrador asignados, los métodos de autenticación y su número pueden ser diferentes de los que haya seleccionado, ya que Microsoft administra la directiva del administrador.**
+Pruebe el autoservicio de restablecimiento de contraseñas con un usuario de prueba sin privilegios de administrador que sea miembro del grupo piloto. **Tenga en cuenta que, si usa una cuenta que tenga roles de administrador asignados, los métodos de autenticación y su número pueden ser diferentes de los que haya seleccionado, ya que Microsoft administra la directiva del administrador.**
 
 1. Abra una nueva ventana del explorador en modo de incógnito o InPrivate.
 1. Con un usuario de prueba, regístrese en el autoservicio de restablecimiento de contraseñas mediante el portal de registro que se encuentra en [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup).
@@ -81,4 +81,4 @@ Si decide que ya no desea utilizar la funcionalidad que se ha configurado como p
 En este tutorial, ha habilitado el autoservicio de restablecimiento de contraseñas en Azure AD. Continúe con el siguiente tutorial para ver cómo se puede integrar una infraestructura de Active Directory Domain Services local en la experiencia de autoservicio de restablecimiento de contraseñas.
 
 > [!div class="nextstepaction"]
-> [Habilitación de la integración de la escritura diferida local de SSPR](tutorial-enable-writeback.md)
+> [Habilitación de la escritura diferida local de SSPR](tutorial-enable-writeback.md)

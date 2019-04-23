@@ -12,10 +12,10 @@ ms.author: garye
 ms.date: 12/04/2018
 ms.custom: seodec18
 ms.openlocfilehash: 26248616c6b490de00028d8ecc8a0e225da0c0a6
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257117"
 ---
 # <a name="what-is-azure-machine-learning-service"></a>¿Qué es el servicio Azure Machine Learning?
@@ -32,7 +32,7 @@ Las previsiones o predicciones del aprendizaje automático pueden hacer que las 
 
 Azure Machine Learning Service proporciona un entorno basado en la nube que puede utilizar para preparar los datos, entrenar, probar, implementar, administrar y realizar un seguimiento de los modelos de aprendizaje automático.
 
-[![AFlujo de trabajo de Azure Machine Learning Service(./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
+[![Flujo de trabajo de Azure Machine Learning Service](./media/overview-what-is-azure-ml/aml.png)](./media/overview-what-is-azure-ml/aml.png#lightbox)
 
 Azure Machine Learning Service es totalmente compatible con las tecnologías de código abierto. Puede usar decenas de miles de paquetes de Python de código abierto con los componentes de aprendizaje automático. Algunos ejemplos son PyTorch, TensorFlow y scikit-learn.
 La compatibilidad con herramientas enriquecidas facilita la exploración interactiva de los datos, su preparación y el posterior desarrollo y prueba de los modelos. Algunos ejemplos son los [cuadernos de Jupyter Notebook](https://jupyter.org) o la extensión de [Azure Machine Learning for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vscode-ai#overview).
@@ -90,7 +90,7 @@ Puede obtener créditos para gastarlos en servicios de Azure. Después de que se
 
 - Siga los tutoriales completos: 
   + [Entrenamiento de un modelo de clasificación de imágenes con Azure Machine Learning Service](tutorial-train-models-with-aml.md) 
-  + [Preparación de datos y uso de aprendizaje automático automatizado para entrenar un modelo de regresión](tutorial-data-prep.md)
+  + [Preparación de datos y uso de Machine Learning automatizado para entrenar un modelo de regresión](tutorial-data-prep.md)
 
 - Use el [SDK de preparación de datos de Azure Machine Learning](https://aka.ms/data-prep-sdk) para preparar los datos.
 

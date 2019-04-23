@@ -12,10 +12,10 @@ ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 04/03/2019
 ms.openlocfilehash: cf285c18d2204da625c970a367177f86474149ab
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58880991"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-database-managed-instance-offline-using-dms"></a>Tutorial: Migración de SQL Server a una instancia administrada de Azure SQL Database sin conexión mediante DMS
@@ -188,7 +188,7 @@ Después de crear una instancia del servicio, búsquela en Azure Portal, ábrala
     |**Nombre de usuario** | Asegúrese de que el usuario de Windows tiene privilegio de control total sobre el recurso compartido de red que especificó anteriormente. Azure Database Migration Service suplanta la credencial de usuario para cargar los archivos de copia de seguridad en el contenedor de almacenamiento de Azure para la operación de restauración. Si las bases de datos con TDE habilitado se seleccionan para la migración, el usuario de Windows anterior debe ser la cuenta de administrador integrada y se debe deshabilitar [User Account Control](https://docs.microsoft.com/windows/security/identity-protection/user-account-control/user-account-control-overview) para que Azure Database Migration Service se cargue y elimine los archivos de certificados. |
     |**Contraseña** | Contraseña del usuario. |
     |**Configuración de cuentas de almacenamiento** | Identificador URI de SAS que proporciona a Azure Database Migration Service acceso al contenedor de la cuenta de almacenamiento en el que el servicio carga los archivos de copia de seguridad y que se usa para la migración de bases de datos a la instancia administrada de Azure SQL Database. [Más información sobre cómo obtener el identificador URI de SAS para el contenedor de blobs](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs#get-the-sas-for-a-blob-container).|
-    |**Configuración de TDE** | Si va a migrar las bases de datos de origen con el cifrado de datos transparente (TDE) habilitado, deberá tener privilegios de escritura en la instancia administrada de Azure SQL Database de destino.  En el menú desplegable, seleccione la suscripción en la que se aprovisiona la instancia administrada de Azure SQL Database.  En el menú desplegable, seleccione la **Instancia administrada de Azure SQL Database** de destino. |
+    |**Configuración TDE** | Si va a migrar las bases de datos de origen con el cifrado de datos transparente (TDE) habilitado, deberá tener privilegios de escritura en la instancia administrada de Azure SQL Database de destino.  En el menú desplegable, seleccione la suscripción en la que se aprovisiona la instancia administrada de Azure SQL Database.  En el menú desplegable, seleccione la **Instancia administrada de Azure SQL Database** de destino. |
 
     ![Configuración de valores de migración](media/tutorial-sql-server-to-managed-instance/dms-configure-migration-settings3.png)
 

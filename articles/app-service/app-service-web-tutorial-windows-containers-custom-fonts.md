@@ -15,10 +15,10 @@ ms.date: 04/03/2019
 ms.author: cephalin
 ms.custom: seodec18
 ms.openlocfilehash: 27102cd6b8e98b0f8b2b4940b92d4e4c4580a9cd
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58904073"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Migración de una aplicación de ASP.NET a Azure App Service con un contenedor de Windows (versión preliminar)
@@ -142,9 +142,9 @@ En la interfaz de creación, configure las opciones según la siguiente tabla:
 
 | Configuración  | Valor sugerido | Para obtener más información |
 | ----------------- | ------------ | ----|
-|**Nombre de la aplicación**| Escriba un nombre único. | La dirección URL de la aplicación web es `http://<app_name>.azurewebsites.net`, donde `<app_name>` es el nombre de la aplicación. |
+|**Nombre de aplicación**| Escriba un nombre único. | La dirección URL de la aplicación web es `http://<app_name>.azurewebsites.net`, donde `<app_name>` es el nombre de la aplicación. |
 |**Grupo de recursos**| Seleccione **Usar existente** y escriba **myResourceGroup**. |  |
-|**SO**| Windows (versión preliminar) | |
+|**SISTEMA OPERATIVO**| Windows (versión preliminar) | |
 
 ### <a name="configure-app-service-plan"></a>Configuración del plan de App Service
 
@@ -180,7 +180,7 @@ Espere unos minutos e inténtelo de nuevo hasta que llegue a la página principa
 
 ![](media/app-service-web-tutorial-windows-containers-custom-fonts/app-running.png)
 
-**Felicidades.** Ha migrado una aplicación de ASP.NET a Azure App Service en un contenedor de Windows.
+**¡Enhorabuena!** Ha migrado una aplicación de ASP.NET a Azure App Service en un contenedor de Windows.
 
 ## <a name="see-container-start-up-logs"></a>Consulta de los registros de inicio del contenedor
 

@@ -12,10 +12,10 @@ ms.topic: tutorial
 ms.date: 01/24/2019
 ms.author: diberry
 ms.openlocfilehash: d209d73d67af96e99589dddcb71b6b50214356ee
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58877285"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Tutorial: Uso de C# para crear una base de conocimiento y responder a las preguntas
@@ -32,10 +32,10 @@ Este tutorial le guía mediante la creación y publicación de una base de conoc
 
 En esta guía de inicio rápido se llama a las siguientes API de QnA Maker:
 
-* [Creación de una base de conocimientos](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+* [Creación de una base de conocimiento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 * [Obtención de los detalles de la operación](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
-* [Obtención de los detalles de la base de conocimientos](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) 
-* [Obtención de los puntos de conexión de la base de conocimientos](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys)
+* [Obtención de los detalles de la base de conocimiento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) 
+* [Obtención de los puntos de conexión de la base de conocimiento](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys)
 * [Publicar](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) 
 
 ## <a name="prerequisites"></a>Requisitos previos

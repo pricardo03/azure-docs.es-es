@@ -16,10 +16,10 @@ ms.date: 01/17/2019
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: a8f4e89adec0a6be001f3e6d6df1a252677c5916
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045737"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Tutorial: Incorporación de un punto de conexión HTTPS a un servicio de front-end de API Web de ASP.NET Core mediante Kestrel
@@ -41,19 +41,19 @@ En esta serie de tutoriales, se aprende a:
 > * [Crear una aplicación de .NET Service Fabric](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * [Implementar la aplicación en un clúster remoto](service-fabric-tutorial-deploy-app-to-party-cluster.md)
 > * Agregar un punto de conexión HTTPS a un servicio de front-end de ASP.NET Core
-> * [Configurar CI/CD con Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> * [Configuración de CI/CD con Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 > * [Configurar la supervisión y el diagnóstico para la aplicación](service-fabric-tutorial-monitoring-aspnet.md)
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Requisitos previos
+## <a name="prerequisites"></a>requisitos previos
 
 Antes de empezar este tutorial:
 
 * Si no tiene ninguna suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [Instale Visual Studio 2017](https://www.visualstudio.com/) versión 15.5 o posteriores con las cargas de trabajo de **Desarrollo de Azure** y de **Desarrollo de ASP.NET y web**.
-* [Instalación del SDK de Service Fabric](service-fabric-get-started.md)
+* [Instale el SDK de Service Fabric](service-fabric-get-started.md)
 
 ## <a name="obtain-a-certificate-or-create-a-self-signed-development-certificate"></a>Obtención de un certificado o creación de un certificado de desarrollo autofirmado
 
@@ -449,7 +449,7 @@ En esta parte del tutorial, ha aprendido a:
 
 Avance hasta el siguiente tutorial:
 > [!div class="nextstepaction"]
-> [Configurar CI/CD con Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
+> [Configuración de CI/CD con Azure Pipelines](service-fabric-tutorial-deploy-app-with-cicd-vsts.md)
 
 [image1]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/SetupBatProperties.png
 [image2]: ./media/service-fabric-tutorial-dotnet-app-enable-https-endpoint/VotingAppLocal.png

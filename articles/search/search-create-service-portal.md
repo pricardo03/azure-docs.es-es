@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: c48acf7e9074ac3c5a7d19765a9524a411fa26c8
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59264036"
 ---
 # <a name="create-an-azure-search-service-in-the-portal"></a>Creación de un servicio Azure Search en el portal
@@ -22,7 +22,7 @@ Azure Search es un recurso independiente que se usa para agregar una experiencia
 
 En este artículo, aprenderá a crear un recurso de Azure Search en [Azure Portal](https://portal.azure.com/).
 
-[![AGIF animado(./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
+[![GIF animado](./media/search-create-service-portal/AnimatedGif-AzureSearch-small.gif)](./media/search-create-service-portal/AnimatedGif-AzureSearch.gif#lightbox)
 
 ¿Prefiere PowerShell? Use la [plantilla de servicio](https://azure.microsoft.com/resources/templates/101-azure-search-create/) de Azure Resource Manager. Para obtener ayuda para empezar, consulte [Administración de Azure Search con PowerShell](search-manage-powershell.md).
 

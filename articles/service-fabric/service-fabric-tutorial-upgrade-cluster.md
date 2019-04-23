@@ -16,10 +16,10 @@ ms.date: 11/28/2017
 ms.author: aljo
 ms.custom: mvc
 ms.openlocfilehash: 7e48684024d370d64f44b55cb4df0efb8f16cd3b
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59046247"
 ---
 # <a name="tutorial-upgrade-the-runtime-of-a-service-fabric-cluster-in-azure"></a>Tutorial: Actualización del runtime de un clúster de Service Fabric en Azure
@@ -41,7 +41,7 @@ En esta serie de tutoriales, se aprende a:
 > [!div class="checklist"]
 > * Creación de un [clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) en Azure mediante una plantilla
 > * [Supervisión de un clúster](service-fabric-tutorial-monitor-cluster.md)
-> * [Escalar o reducir un clúster horizontalmente](service-fabric-tutorial-scale-cluster.md)
+> * [Escalado o reducción horizontal](service-fabric-tutorial-scale-cluster.md)
 > * Actualización del entorno en tiempo de ejecución de un clúster
 > * [Eliminación de un clúster](service-fabric-tutorial-delete-cluster.md)
 

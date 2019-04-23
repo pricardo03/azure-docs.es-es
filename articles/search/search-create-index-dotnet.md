@@ -11,10 +11,10 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/08/2019
 ms.openlocfilehash: 83842893e0ffc6bb954832cd65b6312b59bbcaa3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269051"
 ---
 # <a name="quickstart-1---create-an-azure-search-index-in-c"></a>Inicio rápido: 1 - Creación de un índice de Azure Search en C#
@@ -22,7 +22,7 @@ ms.locfileid: "59269051"
 > * [C#](search-create-index-dotnet.md)
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
-> * [postman](search-fiddler.md)
+> * [Postman](search-fiddler.md)
 >*
 
 Este artículo le guía por el proceso de creación de un [índice de Azure Search](search-what-is-an-index.md) mediante C# y el [SDK de .NET](https://aka.ms/search-sdk). Esta es la primera lección de un ejercicio que consta de tres partes para crear, cargar y consultar un índice. Para la creación de índices es preciso realizar estas tareas:
@@ -78,7 +78,7 @@ Como alternativa, puede consultar [Uso de Azure Search desde una aplicación .NE
 
 ## <a name="2---create-a-client"></a>2 - Cree un cliente
 
-Para empezar a usar el SDK de .NET de Azure Search, cree una instancia de la clase `SearchServiceClient` . Esta clase tiene varios constructores. El que desea tiene el nombre del servicio de búsqueda y un objeto `SearchCredentials` como parámetros. `SearchCredentials` encapsula su clave de API.
+Para empezar a usar el SDK de .NET de Azure Search, cree una instancia de la clase `SearchServiceClient` . Esta clase tiene varios constructores. El que desea tiene el nombre del servicio de búsqueda y un objeto `SearchCredentials` como parámetros. `SearchCredentials` incluye su clave de API.
 
 El siguiente código se puede encontrar en el archivo Program.cs. Crea un nuevo `SearchServiceClient` con valores para el nombre de servicio de búsqueda y la clave de API que se almacenan en el archivo de configuración de la aplicación (appsettings.json).
 

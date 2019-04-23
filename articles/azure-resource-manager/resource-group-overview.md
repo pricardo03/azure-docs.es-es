@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: tomfitz
 ms.openlocfilehash: 0ad1d12a4a2ca3a293546f2bac85210bb9152269
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59269306"
 ---
 # <a name="azure-resource-manager-overview"></a>Información general del Administrador de recursos de Azure
@@ -167,7 +167,7 @@ Después de definir la plantilla, está listo para implementar los recursos en A
 
 * [Implementación de recursos con las plantillas de Resource Manager y Azure PowerShell](resource-group-template-deploy.md)
 * [Implementación de recursos con plantillas de Resource Manager y la CLI de Azure](resource-group-template-deploy-cli.md)
-* [Implementación de recursos con las plantillas de Resource Manager y el Portal de Azure](resource-group-template-deploy-portal.md)
+* [Implementación de recursos con las plantillas de Resource Manager y Azure Portal](resource-group-template-deploy-portal.md)
 * [Implementación de recursos con las plantillas de Resource Manager y la API de REST de Resource Manager](resource-group-template-deploy-rest.md)
 
 ## <a name="safe-deployment-practices"></a>Procedimientos de implementación seguros

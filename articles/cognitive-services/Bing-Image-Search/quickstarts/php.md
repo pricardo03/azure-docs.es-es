@@ -13,10 +13,10 @@ ms.date: 2/12/2019
 ms.author: aahi
 ms.custom: seodec2018
 ms.openlocfilehash: c1f67fe01708f110c121f1acc5baf6d6998fe463
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256964"
 ---
 # <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-php"></a>Guía de inicio rápido: Búsqueda de imágenes con la API de REST Bing Image Search y PHP
@@ -132,13 +132,13 @@ Las respuestas de Bing Image Search API se devuelven como JSON. Esta respuesta d
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Tutorial de la aplicación de una sola página de Bing Image Search](../tutorial-bing-image-search-single-page-app.md)
+> [Tutorial de aplicación de una sola página de Bing Image Search](../tutorial-bing-image-search-single-page-app.md)
 
 ## <a name="see-also"></a>Otras referencias
 
 * [¿Qué es Bing Image Search?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
 * [Prueba de una demostración interactiva en línea](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/) 
 * [Detalles de precios](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) de Bing Search API. 
-* [Obtención de una clave de acceso gratuita de Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Obtención de una clave de acceso de Cognitive Services gratis](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Documentación de Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [Referencia de la API de Bing Image Search](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Referencia de Bing Image Search API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

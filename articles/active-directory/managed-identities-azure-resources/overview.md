@@ -16,10 +16,10 @@ ms.date: 10/23/2018
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: d70dfceb0101c4f6dbd76f3c6b34d85e5255aa72
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59261469"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>¿Qué es Managed Identities for Azure Resources?
@@ -95,7 +95,7 @@ En el diagrama siguiente se muestra cómo funcionan las identidades de servicio 
    > [!Note]
    > También puede realizar este paso antes del paso 3.
 
-5. El código que se ejecuta en la máquina virtual puede solicitar un token del punto de conexión de identidad de Azure Instance Metadata Service, accesible únicamente desde dentro de la máquina virtual: `http://169.254.169.254/metadata/identity/oauth2/token`
+5. El código que se ejecuta en la máquina virtual puede solicitar un token del punto de conexión de identidad de Azure Instance Metadata Service, accesible únicamente desde dentro de la máquina virtual: `http://169.254.169.254/metadata/identity/oauth2/token`.
     - El parámetro del recurso especifica el servicio al que se va a enviar el token. Para autenticarse en Azure Resource Manager, use `resource=https://management.azure.com/`.
     - El parámetro de identificador de cliente especifica la identidad para la que se solicita el token. Este valor es necesario para eliminar la ambigüedad cuando hay varias identidades asignadas por el usuario en la misma máquina virtual.
     - El parámetro de versión de API especifica la versión de Azure Instance Metadata Service. Use `api-version=2018-02-01` o superior.

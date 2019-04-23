@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 10/25/2018
 ms.openlocfilehash: d530ed3710a3406e5cd8115d615e91d5056a5f8c
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59047660"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-node-library"></a>Inicio rápido: Ingesta de datos mediante la biblioteca de Node de Azure Data Explorer
@@ -24,7 +24,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https:
 
 Además de una suscripción de Azure, necesita lo siguiente para completar esta guía de inicio rápido:
 
-* [Una base de datos y un clúster de prueba](create-cluster-database-portal.md)
+* [Base de datos y clúster de prueba](create-cluster-database-portal.md)
 
 * [Node.js](https://nodejs.org/en/download/) instalado en el equipo de desarrollo
 

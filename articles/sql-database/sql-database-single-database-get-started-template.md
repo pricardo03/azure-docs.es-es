@@ -13,10 +13,10 @@ ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/09/2019
 ms.openlocfilehash: 8d060ce60194e47814308bfd67bd14db996650b0
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59425787"
 ---
 # <a name="quickstart-create-a-single-database-in-azure-sql-database-using-the-azure-resource-manager-template"></a>Inicio rápido: Creación de una base de datos única en Azure SQL Database con una plantilla de Azure Resource Manager
@@ -191,7 +191,7 @@ Remove-AzResourceGroup -Name $resourceGroupName
 
 - Cree una regla de firewall de nivel de servidor para conectarse a la base de datos única desde herramientas locales o remotas. Para más información, consulte [Creación de una regla de firewall de nivel de servidor](sql-database-server-level-firewall-rule.md).
 - Después de crear una regla de firewall de nivel de servidor, puede usar varias herramientas y lenguajes para [conectarse a la base de datos y realizar consultas en ella](sql-database-connect-query.md).
-  - [Conexión y consulta mediante SQL Server Management Studio](sql-database-connect-query-ssms.md)
-  - [Conexión y consulta mediante Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
+  - [Conexión y consulta con SQL Server Management Studio](sql-database-connect-query-ssms.md)
+  - [Conexión y consulta de datos con Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-database?toc=/azure/sql-database/toc.json)
 - Para crear una base de datos única mediante la CLI de Azure, consulte [Ejemplos de la CLI de Azure](sql-database-cli-samples.md).
 - Para crear una base de datos única mediante Azure PowerShell, consulte [Ejemplos de Azure PowerShell](sql-database-powershell-samples.md).

@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 2/20/2019
 ms.author: chlandsi
 ms.openlocfilehash: ee0be31b10c86651fa36577ad0dffccc3dc7bf59
-ms.sourcegitcommit: e43ea344c52b3a99235660960c1e747b9d6c990e
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59009278"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Inicio rápido: Reconocimiento de voz en Objective-C para iOS mediante el SDK de Voz
@@ -58,7 +58,7 @@ En los cuadros de diálogo que aparecen después, realice las selecciones siguie
     1. Deshabilite la creación de un repositorio de Git para este proyecto de ejemplo.
     1. Ajuste las rutas de acceso para el SDK en *Configuración del proyecto*.
         1. En la pestaña **General**, en el encabezado **Binarios incrustados**, agregue la biblioteca del SDK como un marco de trabajo: **Add embedded binaries (Agregar archivos binarios incrustado)s** > **Add other... (Agregar otro...)** > Vaya a su directorio y elija el archivo `MicrosoftCognitiveServicesSpeech.framework`. Como resultado, se agrega automáticamente la biblioteca del SDK al encabezado **Linked Framework and Libraries** (Marcos y bibliotecas vinculados).
-        ![Marco agregado](media/sdk/qs-objectivec-framework.png)
+        ![Marco de trabajo agregado](media/sdk/qs-objectivec-framework.png)
         1. Vaya a la pestaña **Configuración de compilación** y active la configuración **Todos**.
         1. Agregue el directorio `$(SRCROOT)/..` a *Rutas de búsqueda de marco* bajo el encabezado **Rutas de búsqueda**.
         ![Opción Ruta de búsqueda de marco](media/sdk/qs-objectivec-framework-search-paths.png)

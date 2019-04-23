@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/14/2018
 ms.openlocfilehash: 4a3a688adaae8fe66c336617cdd0a4807f16ec68
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045514"
 ---
 # <a name="quickstart-visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Inicio rápido: Visualización de datos mediante el conector de Azure Data Explorer para Power BI
@@ -51,8 +51,8 @@ Normalmente se utiliza el lenguaje de consulta nativo con Azure Data Explorer, p
     **Configuración** | **Valor** | **Descripción del campo**
     |---|---|---|
     | Server | *help.kusto.windows.net* | La dirección URL para el clúster de ayuda (sin *https://*). Para otros clústeres, la dirección URL tiene el formato *\<NombreClúster\>\<Región\>.kusto.windows.net*. |
-    | Base de datos | *Ejemplos* | La base de datos de ejemplo que se hospeda en el clúster al que se va a conectar. |
-    | Modo Conectividad de datos | *Importar* | Determina si Power BI importa los datos o se conecta directamente al origen de datos. Puede usar cualquiera de las opciones con este conector. |
+    | Base de datos | *Muestras* | La base de datos de ejemplo que se hospeda en el clúster al que se va a conectar. |
+    | Modo Conectividad de datos | *Importaciónación* | Determina si Power BI importa los datos o se conecta directamente al origen de datos. Puede usar cualquiera de las opciones con este conector. |
     | Tiempo de espera del comando | Déjelo en blanco | El tiempo que la consulta se puede estar ejecutando antes de lanzar un error de tiempo de expiración. |
     | Instrucción SQL | Copie la consulta que aparece después de esta tabla | La instrucción SQL que Azure Data Explorer traduce en una consulta nativa. |
     | Otras opciones | Deje los valores predeterminados | Las opciones no se aplican a los clústeres de Azure Data Explorer. |

@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
 ms.openlocfilehash: 9d3c2c646cc713b4590a85def9813ca102198229
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59277143"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-shuccho-navi"></a>Tutorial: integración de Azure Active Directory con Shuccho Navi
@@ -51,7 +51,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 Para configurar la integración de Shuccho Navi en Azure AD, será preciso que agregue Shuccho Navi desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Shuccho Navi desde la galería, siga estos pasos:**
+**Para agregar Shuccho Navi desde la galería, siga los pasos a continuación:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 

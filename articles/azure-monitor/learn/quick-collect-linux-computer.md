@@ -15,10 +15,10 @@ ms.date: 11/13/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.openlocfilehash: 15b7c052d0e4d51cb033607c156a55c581f722b1
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893969"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Configuración del agente de Log Analytics para los equipos Linux en un entorno híbrido
@@ -72,7 +72,7 @@ Los pasos siguientes configuran la instalación del agente de Log Analytics en A
 
 Si el equipo Linux necesita comunicarse mediante un servidor proxy con Log Analytics, la configuración del proxy puede especificarse en la línea de comandos mediante la inclusión de `-p [protocol://][user:password@]proxyhost[:port]`.  La propiedad *proxyhost* acepta un nombre de dominio completo o la dirección IP del servidor proxy. 
 
-Por ejemplo:  `https://user01:password@proxy01.contoso.com:30443`
+Por ejemplo: `https://user01:password@proxy01.contoso.com:30443`
 
 1. Para configurar el equipo Linux de modo que se conecte con Log Analytics, ejecute el comando siguiente con el identificador del área de trabajo y la clave principal que ha copiado anteriormente. El siguiente comando descarga el agente, valida su suma de comprobación y lo instala. 
     
@@ -148,4 +148,4 @@ Ahora que ya recopila datos sobre el funcionamiento y el rendimiento del equipo 
 Para obtener información sobre cómo ver y analizar los datos, continúe con el tutorial.   
 
 > [!div class="nextstepaction"]
-> [Visualización o análisis de datos en Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md)
+> [Ver o analizar datos en Log Analytics](../../azure-monitor/learn/tutorial-viewdata.md)

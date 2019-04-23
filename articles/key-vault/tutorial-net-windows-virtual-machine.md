@@ -13,10 +13,10 @@ ms.date: 01/02/2019
 ms.author: pryerram
 ms.custom: mvc
 ms.openlocfilehash: fb17afa4bfe8c00c91cc8fb33ab3326452065a9e
-ms.sourcegitcommit: a60a55278f645f5d6cda95bcf9895441ade04629
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58885424"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>Tutorial: Uso de Azure Key Vault con una máquina virtual Windows en .NET
@@ -109,7 +109,7 @@ Puede crear una máquina virtual mediante uno de los métodos siguientes:
 
 * [La CLI de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-cli)
 * [PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-powershell)
-* [El Portal de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
+* [Portal de Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal)
 
 ## <a name="assign-an-identity-to-the-vm"></a>Asignación de una identidad a la máquina virtual
 En este paso, va a crear una identidad asignada por el sistema para la máquina virtual mediante la ejecución del siguiente comando en la CLI de Azure:

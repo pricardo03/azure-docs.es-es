@@ -12,10 +12,10 @@ ms.topic: quickstart
 ms.date: 11/07/2018
 ms.author: azfuncdf, cotresne, glenga
 ms.openlocfilehash: eade9f4e2a956a6542b69e93b0102169ddd32ccf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59281240"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>Creación de su primera función durable en JavaScript
@@ -170,4 +170,4 @@ Después de comprobar que la función se ejecuta correctamente en el equipo loca
 Ha usado Visual Studio Code para crear y publicar una aplicación de función durable con JavaScript.
 
 > [!div class="nextstepaction"]
-> [Más información acerca de los patrones comunes de funciones durables](durable-functions-concepts.md)
+> [Más información sobre los patrones comunes de funciones durables](durable-functions-concepts.md)

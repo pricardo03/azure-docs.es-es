@@ -10,10 +10,10 @@ ms.date: 04/05/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: 5408f920a16860972dca6450d5e51152048bbf82
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59361807"
 ---
 # <a name="what-is-azure-backup"></a>¿Qué es Azure Backup?
@@ -58,7 +58,7 @@ Ambos servicios ofrecen una funcionalidad complementaria pero diferente.
 
 Use los puntos de la tabla para ayudar a determinar las necesidades de BCDR.
 
-**Objetivo** | **Detalles** | **De comparación**
+**Objetivo** | **Detalles** | **Comparación**
 --- | --- | ---
 **Copia de seguridad y retención de datos** | Los datos de las copias de seguridad pueden conservarse y almacenarse durante días, meses o incluso años si es necesario desde el punto de vista del cumplimiento. | Las soluciones de copia de seguridad como Azure Backup le permiten recoger con precisión los datos de los que desea hacer copias de seguridad y ajustar con precisión las directivas de copia de seguridad y retención.<br/><br/> Site Recovery no permite el mismo ajuste preciso.
 **Objetivo de punto de recuperación (RPO)** | La cantidad aceptable de pérdida de datos si debe realizarse una recuperación. | Las copias de seguridad tienen un RPO más variable.<br/><br/> Las copias de seguridad de máquina virtual normalmente tienen un RPO de un día, mientras que las copias de seguridad de base de datos tienen RPO bajos, de hasta 15 minutos.<br/><br/> Site Recovery proporciona un RPO bajo ya que la replicación es continua o frecuente, por lo que la diferencia entre la copia del origen y de la réplica es pequeña.
@@ -86,7 +86,7 @@ Más información sobre [cómo funciona la copia de seguridad](backup-architectu
 
 ## <a name="what-can-i-back-up"></a>¿De qué puedo hacer copia de seguridad?
 
-**Máquina** | **Método de copia de seguridad** | **Copia de seguridad**
+**Máquina** | **Método de copia de seguridad** | **Copias de seguridad**
 --- | --- | ---
 **Máquinas virtuales Windows locales** | Ejecutar el agente de MARS | Copia de seguridad de archivos, carpetas, estado del sistema.<br/><br/> Máquinas Linux no admitidas.
 **Máquinas locales** | copia de seguridad en DPM o MABS | Haga una copia de seguridad de todo lo que esté protegido por [DPM](backup-support-matrix-mabs-dpm.md#supported-backups-to-dpm) o [MABS](backup-support-matrix-mabs-dpm.md#supported-backups-to-mabs), como archivos, carpetas, recursos compartidos, volúmenes y datos específicos de la aplicación.
@@ -96,10 +96,10 @@ Más información sobre [cómo funciona la copia de seguridad](backup-architectu
 
 ## <a name="what-backup-agents-do-i-need"></a>¿Qué agentes de copia de seguridad necesario?
 
-**Escenario** | **Agente**
+**Escenario** | **Agent**
 --- | ---
 **Copia de seguridad de máquinas virtuales de Azure** | No se necesita ningún agente. La extensión de máquina virtual de Azure para copia de seguridad se instala en la máquina virtual de Azure al ejecutar la primera copia de seguridad de máquina virtual de Azure.<br/><br/> Compatibilidad con Windows y Linux.
-**Copia de seguridad de máquinas Windows locales** | Descargue, instale y ejecute al agente de MARS directamente en la máquina.
+**Copia de seguridad de máquinas virtuales Windows locales** | Descargue, instale y ejecute al agente de MARS directamente en la máquina.
 **Copia de seguridad de máquinas virtuales de Azure con el agente de MARS** | Descargue, instale y ejecute el agente de MARS directamente en la máquina. El agente de MARS se puede ejecutar junto con la extensión de copia de seguridad.
 **Copia de seguridad de máquinas locales y máquinas virtuales de Azure en DPM o MABS** | El agente de protección de DPM o MABS se ejecuta en las máquinas que quiera proteger. El agente de MARS se ejecuta en el servidor DPM o MABS para realizar una copia de seguridad en Azure.
 

@@ -16,10 +16,10 @@ ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
 ms.openlocfilehash: 9cfb320f0623f5a93527a4dc0e8d82096980cc2c
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58893748"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Tutorial: Creación de una tabla de clasificación cache-aside en ASP.NET
@@ -663,7 +663,7 @@ En esta sección, aprovisionará una nueva base de datos SQL de Azure para que l
    | Configuración       | Valor sugerido | DESCRIPCIÓN |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nombre de la base de datos** | *ContosoTeamsDatabase* | Para conocer los nombres de base de datos válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). |
-   | **Subscription** | *Su suscripción*  | Seleccione la misma suscripción que usó para crear la memoria caché y hospedar la instancia de App Service. |
+   | **Suscripción** | *Su suscripción*  | Seleccione la misma suscripción que usó para crear la memoria caché y hospedar la instancia de App Service. |
    | **Grupos de recursos**  | *TestResourceGroup* | Haga clic en **Usar existente** y use el grupo de recursos en el que colocó la memoria caché y App Service. |
    | **Seleccionar origen** | **Base de datos en blanco** | Comience con una base de datos en blanco. |
 
@@ -671,10 +671,10 @@ En esta sección, aprovisionará una nueva base de datos SQL de Azure para que l
 
    | Configuración       | Valor sugerido | DESCRIPCIÓN |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nombre de servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
-   | **Inicio de sesión de administrador de servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). |
+   | **Nombre del servidor** | Cualquier nombre globalmente único | Para conocer cuáles son los nombres de servidor válidos, consulte el artículo [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Convenciones de nomenclatura). |
+   | **Inicio de sesión del administrador del servidor** | Cualquier nombre válido | Para conocer los nombres de inicio de sesión válidos, consulte [Database Identifiers](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers) (Identificadores de base de datos). |
    | **Contraseña** | Cualquier contraseña válida | La contraseña debe tener un mínimo de 8 caracteres y debe contener caracteres de tres de las siguientes categorías: caracteres en mayúsculas, caracteres en minúsculas, números y caracteres no alfanuméricos. |
-   | **Ubicación** | *Este de EE. UU* | Seleccione la región en la que creó la caché y la instancia de App Service. |
+   | **Ubicación** | *Este de EE. UU.* | Seleccione la región en la que creó la caché y la instancia de App Service. |
 
 1. Haga clic en **Anclar al panel** y, después, en **Crear** para crear la nueva base de datos y el servidor.
 

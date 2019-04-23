@@ -9,10 +9,10 @@ ms.service: blueprints
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 043b67d4b4c708f2d243f9be04fb2a706591947b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59273165"
 ---
 # <a name="define-and-assign-an-azure-blueprint-with-rest-api"></a>Definición y asignación de un plano técnico de Azure Blueprint con API REST
@@ -70,8 +70,8 @@ El primer paso para definir un patrón estándar de cumplimiento es elaborar un 
 
 En cada identificador URI de la API REST, hay variables usadas que se deben reemplazar por sus propios valores:
 
-- `{YourMG}` : reemplácelo por el identificador del grupo de administración
-- `{subscriptionId}` : reemplácelo por el identificador de suscripción
+- `{YourMG}`: reemplácelo por el identificador del grupo de administración
+- `{subscriptionId}`: reemplácelo por el identificador de suscripción
 
 > [!NOTE]
 > Los planos técnicos también pueden crearse en el nivel de suscripción. Para ver un ejemplo, consulte el artículo de [creación de un plano técnico en el ejemplo de suscripción](/rest/api/blueprints/blueprints/createorupdate#subscriptionblueprint).
@@ -336,9 +336,9 @@ Cuando se ha publicado un plano técnico mediante la API REST, se puede asignar 
 
 En cada identificador URI de la API REST, hay variables usadas que se deben reemplazar por sus propios valores:
 
-- `{tenantId}` : reemplácelo por su identificador de inquilino
-- `{YourMG}` : reemplácelo por el identificador del grupo de administración
-- `{subscriptionId}` : reemplácelo por el identificador de suscripción
+- `{tenantId}`: reemplácelo por su identificador de inquilino
+- `{YourMG}`: reemplácelo por el identificador del grupo de administración
+- `{subscriptionId}`: reemplácelo por el identificador de suscripción
 
 1. Proporcione a la entidad de servicio de Azure Blueprint el rol de **propietario** en la suscripción de destino. El valor de AppId es estático (`f71766dc-90d9-4b7d-bd9d-4499c4331c3f`), pero el identificador de la entidad de servicio varía según el inquilino. Los detalles se pueden solicitar para su inquilino mediante la API REST siguiente. Utiliza [Graph API de Azure Active Directory](../../active-directory/develop/active-directory-graph-api.md) que tiene una autorización diferente.
 

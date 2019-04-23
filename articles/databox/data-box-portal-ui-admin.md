@@ -9,10 +9,10 @@ ms.topic: overview
 ms.date: 01/09/2019
 ms.author: alkohli
 ms.openlocfilehash: 5d1c3e4bb1c4b3545c8f051432016348112f16b0
-ms.sourcegitcommit: 9f4eb5a3758f8a1a6a58c33c2806fa2986f702cb
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58903653"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Uso de Azure Portal para administrar Data Box Disk
@@ -55,7 +55,7 @@ Realice los pasos siguientes para clonar un pedido.
 
 El clon se crea en unos minutos y el portal se actualiza para mostrar el nuevo pedido.
 
-[![CClonación del pedido 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
+[![Clonación del pedido 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
 
 ## <a name="delete-order"></a>Eliminación del pedido
 

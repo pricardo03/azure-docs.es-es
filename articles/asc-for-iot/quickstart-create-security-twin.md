@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 03/26/2019
 ms.author: mlottner
 ms.openlocfilehash: 16b5525973b93bc6b073c50c0c657dcbb4679040
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862223"
 ---
 # <a name="quickstart-create-an-azureiotsecurity-module-twin"></a>Inicio rápido: Creación de un módulo gemelo de azureiotsecurity
@@ -80,4 +80,4 @@ Para más información acerca de cómo personalizar las propiedades de módulos 
 Pase al siguiente artículo para aprender a configurar alertas personalizadas...
 
 > [!div class="nextstepaction"]
-> [Configuración de alertas personalizadas](quickstart-create-custom-alerts.md)
+> [Configurar alertas personalizadas](quickstart-create-custom-alerts.md)

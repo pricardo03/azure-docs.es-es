@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 86f29f07df6174ecead852fada73ac05f8682fca
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59359986"
 ---
 # <a name="quickstart-use-sql-server-management-studio-to-connect-and-query-an-azure-sql-database"></a>Guía de inicio rápido: uso de SQL Server Management Studio para conectarse a una base de datos de Azure SQL Database y realizar consultas en ella
@@ -71,8 +71,8 @@ En SMSS, conéctese al servidor de Azure SQL Database.
    | Configuración      | Valor sugerido    | DESCRIPCIÓN |
    | ------------ | ------------------ | ----------- |
    | **Tipo de servidor** | Motor de base de datos | Valor requerido. |
-   | **Nombre de servidor** | Nombre completo del servidor | Algo similar a: **mynewserver20170313.database.windows.net**. |
-   | **Authentication** | Autenticación de SQL Server | Este tutorial usa Autenticación de SQL. |
+   | **Nombre del servidor** | Nombre completo del servidor | Algo similar a: **mynewserver20170313.database.windows.net**. |
+   | **Autenticación** | Autenticación de SQL Server | Este tutorial usa Autenticación de SQL. |
    | **Inicio de sesión** | Identificador de usuario de la cuenta de administrador del servidor | El identificador de usuario de la cuenta de administrador del servidor que se usó para crear el servidor. |
    | **Contraseña** | Contraseña segura de la cuenta de administrador | La contraseña de la cuenta de administrador del servidor que se usó para crear el servidor. |
    ||||

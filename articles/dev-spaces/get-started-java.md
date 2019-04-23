@@ -11,10 +11,10 @@ description: Desarrollo rápido de Kubernetes con contenedores y microservicios 
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
 manager: mmontwil
 ms.openlocfilehash: b69a793d1d860bf2f2a4d52a92d4bea5cf903c0c
-ms.sourcegitcommit: ef20235daa0eb98a468576899b590c0bc1a38394
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59426314"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-java"></a>Introducción a Azure Dev Spaces con Java
@@ -148,7 +148,7 @@ Abra esta dirección URL en una ventana del explorador y verá la aplicación we
 > Con Azure Dev Spaces no se trata solo de conseguir que el código se ejecute en Kubernetes, sino de permitirle ver rápida e iterativamente que los cambios de código surtan efecto en un entorno de Kubernetes en la nube.
 
 1. En la ventana de terminal, presione `Ctrl+C` (para detener `azds up`).
-1. Abra el archivo de código denominado `src/main/java/com/ms/sample/webfrontend/Application.java` y edite el mensaje de saludo: `return "Hello from webfrontend in Azure!";`
+1. Abra el archivo de código denominado `src/main/java/com/ms/sample/webfrontend/Application.java` y edite el mensaje de saludo: `return "Hello from webfrontend in Azure!";`.
 1. Guarde el archivo.
 1. Ejecute `azds up` en la ventana de terminal.
 
@@ -215,9 +215,9 @@ En lugar de volver a crear e implementar una nueva imagen de contenedor cada vez
 
 Actualice la aplicación web en el explorador. Verá que aparece el mensaje personalizado en la interfaz de usuario.
 
-**Ya tiene un método para iterar rápidamente el código y depurarlo directamente en Kubernetes.** A continuación, verá cómo puede crear y llamar a un segundo contenedor.
+**Ahora tiene un método para iterar rápidamente el código y depurarlo directamente en Kubernetes.** A continuación, verá cómo puede crear y llamar a un segundo contenedor.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Más información acerca del desarrollo de varios servicios](multi-service-java.md)
+> [Aprenda sobre el desarrollo de varios servicios](multi-service-java.md)

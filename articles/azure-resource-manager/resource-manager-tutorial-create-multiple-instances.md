@@ -14,10 +14,10 @@ ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: ce882ecee25f9570082a978b72a76ca903bfc12f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59279389"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>Tutorial: Creación de varias instancias de recursos con plantillas de Resource Manager
@@ -126,14 +126,14 @@ Consulte la sección [Implementación de la plantilla](./resource-manager-quicks
 
 Para mostrar las tres cuentas de almacenamiento, omita el parámetro --name:
 
-# [<a name="azure-cli"></a>Azure CLI](#tab/azure-cli)
+# <a name="azure-clitabazure-cli"></a>[CLI de Azure](#tab/azure-cli)
 ```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az storage account list --resource-group $resourceGroupName
 ```
 
-# [<a name="powershell"></a>PowerShell](#tab/azure-powershell)
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"
@@ -158,4 +158,4 @@ Cuando los recursos de Azure ya no sean necesarios, limpie los recursos que impl
 En este tutorial, aprendió a crear varias instancias de cuenta de almacenamiento.  En el tutorial siguiente, desarrollará una plantilla con varios recursos y varios tipos de recursos. Algunos de los recursos tienen recursos dependientes.
 
 > [!div class="nextstepaction"]
-> [Creación de recursos dependientes](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Creación de plantillas de Azure Resource Manager con recursos dependientes](./resource-manager-tutorial-create-templates-with-dependent-resources.md)

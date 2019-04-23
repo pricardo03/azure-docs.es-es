@@ -11,10 +11,10 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: wolfma
 ms.openlocfilehash: 9a00dfd1186d19ce9432db8e636bffa40eb977af
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280543"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Tutorial: Reconocimiento de intenciones a partir de contenido de voz mediante el SDK de Voz para C#
@@ -133,7 +133,7 @@ Ahora importe el modelo desde la aplicación LUIS mediante `LanguageUnderstandin
 
 La adición de intenciones requiere tres argumentos: el modelo LUIS (que se ha creado y se llama `model`), el nombre de la intención y un identificador de la intención. La diferencia entre el identificador y el nombre es como sigue.
 
-|`AddIntent()` Argumento|Propósito|
+|Argumento `AddIntent()`|Propósito|
 |--------|-------|
 |intentName |El nombre de la intención, tal como se define en la aplicación LUIS. Debe coincidir exactamente con el nombre de la intención de LUIS.|
 |intentID    |Identificador asignado a una intención reconocida por el SDK de Voz. Puede ser el que quiera; no necesita corresponderse con el nombre de la intención tal y como se define en la aplicación LUIS. Si se controlan varias intenciones con el mismo código, por ejemplo, se puede utilizar el mismo identificador para ellos.|

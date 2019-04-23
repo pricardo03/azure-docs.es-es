@@ -10,10 +10,10 @@ ms.date: 4/08/2019
 ms.author: raynew
 ms.custom: MVC
 ms.openlocfilehash: 9e8f450825b7b4ad0402b8976d68bc23c18ce855
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357878"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar la recuperación ante desastres para máquinas virtuales de VMware locales en Azure
@@ -195,4 +195,4 @@ Habilite la replicación para máquinas virtuales como sigue:
 ## <a name="next-steps"></a>Pasos siguientes
 Después de habilitar la replicación, realice una exploración en profundidad para comprobar que todo funciona según lo previsto.
 > [!div class="nextstepaction"]
-> [Ejecución de un simulacro de recuperación ante desastres](site-recovery-test-failover-to-azure.md)
+> [Exploración de la recuperación ante desastres](site-recovery-test-failover-to-azure.md)

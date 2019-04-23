@@ -9,10 +9,10 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 9a243dd236a8c499602a9070a7dd61e69541d58d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59256828"
 ---
 # <a name="advanced-resource-graph-queries"></a>Consultas avanzadas de Resource Graph
@@ -75,12 +75,12 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 Esta consulta busca las máquinas virtuales que coincidan con una [expresión regular](/dotnet/standard/base-types/regular-expression-language-quick-reference) (conocida como _regex_).
 **matches regex \@** nos permite definir regex para coincidir, que es `^Contoso(.*)[0-9]+$`. Esa definición de regex se explica como:
 
-- `^` - La coincidencia debe comenzar al principio de la cadena.
-- `Contoso` - La cadena distingue mayúsculas de minúsculas.
-- `(.*)` - Una coincidencia de subexpresión:
+- `^` - La coincidencia debe empezar al principio de la cadena.
+- `Contoso`: la cadena distingue mayúsculas de minúsculas.
+- `(.*)`: una coincidencia de subexpresión:
   - `.` - Coincide con cualquier carácter individual (excepto saltos de línea).
   - `*` - Coincide con el elemento anterior cero o más veces.
-- `[0-9]` - Coincidencia de grupo de caracteres para los números del 0 al 9.
+- `[0-9]` - Coincidencia de grupo caracteres para los números del 0 al 9.
 - `+` - Coincide con el elemento anterior una o más veces.
 - `$` - La coincidencia del elemento anterior se debe producir al final de la cadena.
 

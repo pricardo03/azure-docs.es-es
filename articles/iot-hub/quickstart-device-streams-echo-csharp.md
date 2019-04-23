@@ -11,10 +11,10 @@ ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: rezas
 ms.openlocfilehash: 2853bd5539a40e3b38927f619756fe37a4cec984
-ms.sourcegitcommit: 045406e0aa1beb7537c12c0ea1fbf736062708e8
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59006865"
 ---
 # <a name="quickstart-communicate-to-device-applications-in-c-via-iot-hub-device-streams-preview"></a>Inicio rápido: Comunicación con aplicaciones de dispositivo en C# mediante flujos de dispositivo de IoT Hub (versión preliminar)
@@ -33,8 +33,8 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 La versión preliminar de los flujos de dispositivos solo se admite en este momento en instancias de IoT Hub creadas en las siguientes regiones:
 
-  - **Centro de EE. UU.**
-  - **EUAP del centro de EE. UU.**
+  - **Centro de EE. UU.**
+  - **EUAP de centro de EE. UU.**
 
 Las dos aplicaciones de ejemplo que se ejecutan en este inicio rápido se escriben con C#. Necesita el SDK de .NET Core 2.1.0 o una versión posterior en el equipo de desarrollo.
 

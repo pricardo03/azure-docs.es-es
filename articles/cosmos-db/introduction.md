@@ -7,10 +7,10 @@ ms.topic: overview
 ms.date: 04/08/2019
 ms.author: rimman
 ms.openlocfilehash: a965db4334e88d032f767bd7b855dea6f3ff174f
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280951"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenido a Azure Cosmos DB
@@ -99,7 +99,7 @@ Comience a usar Azure Cosmos DB con una de nuestras guías rápidas:
 
 * [Introducción a SQL API de Azure Cosmos DB](create-sql-api-dotnet.md)
 * [Introducción a la API de Azure Cosmos DB para MongoDB](create-mongodb-nodejs.md)
-* [Introducción a Cassandra API de Azure Cosmos DB](create-cassandra-dotnet.md)
+* [Introducción a la API Cassandra de Azure Cosmos DB](create-cassandra-dotnet.md)
 * [Introducción a Gremlin API de Azure Cosmos DB](create-graph-dotnet.md)
 * [Introducción a Table API de Azure Cosmos DB](create-table-dotnet.md)
 

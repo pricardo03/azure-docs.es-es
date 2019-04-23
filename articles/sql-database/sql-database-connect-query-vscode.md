@@ -14,10 +14,10 @@ ms.reviewer: ''
 manager: craigg
 ms.date: 03/25/2019
 ms.openlocfilehash: 8901855ad68a5edb4710853dcde9311216fa2d61
-ms.sourcegitcommit: 43b85f28abcacf30c59ae64725eecaa3b7eb561a
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/09/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59357119"
 ---
 # <a name="quickstart-use-visual-studio-code-to-connect-and-query-an-azure-sql-database"></a>Inicio rápido: Uso de Visual Studio Code para conectar y consultar una instancia de Azure SQL Database
@@ -48,7 +48,7 @@ Asegúrese de haber instalado la versión más reciente de [Visual Studio Code](
 
 ## <a name="configure-visual-studio-code"></a>Configuración deVisual Studio Code
 
-### **<a name="mac-os"></a>Mac OS**
+### <a name="mac-os"></a>**Mac OS**
 
 En el caso de macOS, debe instalar OpenSSL, que es un requisito previo para .NET Core que la extensión mssql utiliza. Abra el terminal y escriba los siguientes comandos para instalar **brew** y **OpenSSL**.
 
@@ -61,11 +61,11 @@ ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
 ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
 ```
 
-### **<a name="linux-ubuntu"></a>Linux (Ubuntu)**
+### <a name="linux-ubuntu"></a>**Linux (Ubuntu)**
 
 No se necesita ninguna configuración especial.
 
-### **<a name="windows"></a> Windows**
+### <a name="windows"></a>**Windows**
 
 No se necesita ninguna configuración especial.
 
@@ -108,12 +108,12 @@ Use Visual Studio Code para establecer una conexión con el servidor de Azure SQ
 
    | Propiedad       | Valor sugerido | DESCRIPCIÓN |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nombre de servidor** | Nombre completo del servidor | Algo similar a: **mynewserver20170313.database.windows.net**. |
+   | **Nombre del servidor** | Nombre completo del servidor | Algo similar a: **mynewserver20170313.database.windows.net**. |
    | **Nombre de la base de datos** | mySampleDatabase | La base de datos a la que hay que conectarse. |
-   | **Authentication** | Inicio de sesión SQL| Este tutorial usa Autenticación de SQL. |
+   | **Autenticación** | Inicio de sesión SQL| Este tutorial usa Autenticación de SQL. |
    | **Nombre de usuario** | Nombre de usuario | El nombre de usuario de la cuenta de administrador del servidor que se usó para crear el servidor. |
-   | **Contraseña (inicio de sesión de SQL)** | Contraseña | La contraseña de la cuenta de administrador del servidor que se usó para crear el servidor. |
-   | **¿Desea guardar la contraseña?** | Sí o no | Seleccione **Sí** si no quiere escribir la contraseña cada vez que inicie sesión. |
+   | **Contraseña (Inicio de sesión de SQL)** | Contraseña | La contraseña de la cuenta de administrador del servidor que se usó para crear el servidor. |
+   | **¿Guardar la contraseña?** | Sí o no | Seleccione **Sí** si no quiere escribir la contraseña cada vez que inicie sesión. |
    | **Escribir un nombre para este perfil** | Un nombre de perfil, como **mySampleProfile** | Un perfil guardado acelera la conexión en los inicios de sesión posteriores. |
 
    Si se realiza correctamente, aparece una notificación que indica que se creó y conectó el perfil.

@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 11/18/2018
 ms.openlocfilehash: 6a068c45a13bd45a09ed51fd154b5842938e0c5e
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59044677"
 ---
 # <a name="quickstart-ingest-data-using-the-azure-data-explorer-net-standard-sdk-preview"></a>Inicio rápido: Ingesta de datos mediante el SDK de .NET Standard de Azure Data Explorer (versión preliminar)
@@ -22,7 +22,7 @@ Azure Data Explorer (ADX) es un servicio de exploración de datos altamente esca
 
 * Si no tiene una suscripción a Azure, cree una [cuenta gratuita de Azure](https://azure.microsoft.com/free/) antes de empezar.
 
-* [Una base de datos y un clúster de prueba](create-cluster-database-portal.md)
+* [Base de datos y clúster de prueba](create-cluster-database-portal.md)
 
 ## <a name="install-the-ingest-library"></a>Instalación de la biblioteca de ingesta
 

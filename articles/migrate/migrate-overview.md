@@ -8,10 +8,10 @@ ms.date: 04/04/2019
 ms.author: raynew
 ms.custom: mvc
 ms.openlocfilehash: e0249535813c6b8d652775f68a696d8c25ead5a1
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275460"
 ---
 # <a name="about-azure-migrate"></a>Acerca de Azure Migrate
@@ -37,7 +37,7 @@ Azure Migrate le ayuda a:
 - Azure Migrate solo admite discos administrados para la valoración de la migración.
 -  Los proyectos de Azure Migrate solo se pueden crear en las siguientes geografías. Sin embargo, esto no restringe su capacidad de crear evaluaciones para otras ubicaciones de Azure de destino.
 
-    **Geography** | **Ubicación de almacenamiento**
+    **Geografía** | **Ubicación de almacenamiento**
     --- | ---
     Azure Government | Gobierno de EE. UU. - Virginia
     Asia | Sudeste Asiático o Asia Oriental
@@ -65,7 +65,7 @@ La configuración de evaluación se puede personalizar según sus necesidades. L
 **Criterio de ajuste de tamaño** | El ajuste de tamaño se puede basar en el **historial de rendimiento** de las máquinas virtuales locales (opción predeterminada), o **como local**, sin tener en cuenta el historial de rendimiento.
 **Historial de rendimiento** | De forma predeterminada, Azure Migrate usa el historial de rendimiento del último día para evaluar el rendimiento de las máquinas locales, con un valor de percentil del 95 %.
 **Factor de confort** | Azure Migrate tiene en cuenta un búfer (factor de confort) durante la evaluación. Dicho búfer se aplica además de los datos de uso de la máquina en las máquinas virtuales (CPU, memoria, disco y red). El factor de confort se tiene en cuenta en problemas como el uso estacional, un historial de rendimiento corto y los posibles aumentos en el uso futuro.<br/><br/> Por ejemplo, una máquina virtual de 10 núcleos con un uso del 20 % normalmente genera una máquina virtual de 2 núcleos. Sin embargo, con un factor de confort de 2.0 x, el resultado es una máquina virtual de 4 núcleos. El valor de confort predeterminado es 1.3 x.
-**Series de máquinas virtuales** | La serie de máquinas virtuales que se usa para las estimaciones de tamaño. Por ejemplo, si tiene un entorno de producción que no vaya a migrar a la serie A de las máquinas virtuales de Azure, puede excluir la serie A de la lista o serie. El ajuste de tamaño se basa solo en la serie seleccionada.   
+**Series de VM** | La serie de máquinas virtuales que se usa para las estimaciones de tamaño. Por ejemplo, si tiene un entorno de producción que no vaya a migrar a la serie A de las máquinas virtuales de Azure, puede excluir la serie A de la lista o serie. El ajuste de tamaño se basa solo en la serie seleccionada.   
 **Moneda** | Divisa de facturación. El valor predeterminado es el dólar estadounidense.
 **Descuento (%)** | Cualquier descuento específico de la suscripción que reciba además de la oferta de Azure. La configuración predeterminada es 0 %.
 **Tiempo de actividad de VM** | Si las máquinas virtuales no se van a ejecutar todas las horas en Azure, puede especificar la duración (número de días al mes y número de horas al día) del período en el que se estarán ejecutando y las estimaciones de costo se realizarán en consecuencia. El valor predeterminado es 31 días al mes y 24 horas al día.

@@ -11,17 +11,17 @@ ms.date: 04/08/2019
 ms.author: heidist
 ms.custom: seodec2018
 ms.openlocfilehash: a1cf72d9e3f5c2c6e919304d4d886a607c54f359
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59282668"
 ---
 # <a name="quickstart-use-built-in-portal-tools-for-azure-search-import-indexing-and-queries"></a>Inicio rápido: Uso de herramientas integradas el portal para la importación, indexación y consultas de Azure Search
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
-> * [postman](search-fiddler.md)
+> * [Postman](search-fiddler.md)
 > * [C#](search-create-index-dotnet.md)
 >*
 
@@ -272,6 +272,6 @@ Si este tutorial fue el primer uso que hizo del servicio Azure Search, elimine e
 
 Puede explorar más sobre Azure Search mediante las herramientas de programación:
 
-* [Creación de un índice mediante el SDK de .NET](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
-* [Creación de un índice mediante las API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Creación de un índice mediante Postman o Fiddler y las API REST de Azure Search](search-fiddler.md)
+* [Creación de un índice con el SDK de .NET](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+* [Creación de un índice con las API REST](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
+* [Creación de un índice con Postman o Fiddler y las API REST de Azure Search](search-fiddler.md)

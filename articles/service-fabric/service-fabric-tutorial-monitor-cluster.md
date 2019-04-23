@@ -16,10 +16,10 @@ ms.date: 03/13/2019
 ms.author: srrengar
 ms.custom: mvc
 ms.openlocfilehash: 9838c6e31e3bb7031d98e615fd96049f22dd8d30
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045652"
 ---
 # <a name="tutorial-monitor-a-service-fabric-cluster-in-azure"></a>Tutorial: Supervisión de un clúster de Service Fabric en Azure
@@ -38,7 +38,7 @@ En esta serie de tutoriales, se aprende a:
 > [!div class="checklist"]
 > * Creación de un [clúster de Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) en Azure mediante una plantilla
 > * Supervisión de un clúster
-> * [Escalar o reducir un clúster horizontalmente](service-fabric-tutorial-scale-cluster.md)
+> * [Escalado o reducción horizontal](service-fabric-tutorial-scale-cluster.md)
 > * [Actualización del entorno en tiempo de ejecución de un clúster](service-fabric-tutorial-upgrade-cluster.md)
 > * [Eliminación de un clúster](service-fabric-tutorial-delete-cluster.md)
 

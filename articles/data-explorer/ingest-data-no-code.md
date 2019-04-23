@@ -8,10 +8,10 @@ ms.service: data-explorer
 ms.topic: tutorial
 ms.date: 04/07/2019
 ms.openlocfilehash: 9f4b7ee0dcc87ca03fd051be0dacedf0912b5320
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59262914"
 ---
 # <a name="tutorial-ingest-data-in-azure-data-explorer-without-one-line-of-code"></a>Tutorial: Ingesta de datos en Azure Data Explorer sin una línea de código
@@ -268,7 +268,7 @@ Los registros de diagnóstico de Azure permiten exportar métricas a una cuenta 
 
 1. Cree un centro de eventos mediante una plantilla de Azure Resource Manager en Azure Portal. Para seguir el resto de los pasos de este artículo, haga clic con el botón derecho en el botón **Implementar en Azure** y, luego, seleccione **Abrir en una nueva ventana**. El botón **Deploy to Azure** (Implementar en Azure) le lleva a Azure Portal.
 
-    [![DBotón Implementar en Azure(media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
+    [![Botón Implementar en Azure](media/ingest-data-no-code/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-event-hubs-create-event-hub-and-consumer-group%2Fazuredeploy.json)
 
 1. Cree un espacio de nombres de Event Hubs y un centro de eventos para los registros de diagnóstico.
 
@@ -276,9 +276,9 @@ Los registros de diagnóstico de Azure permiten exportar métricas a una cuenta 
 
 1. Rellene el formulario con la siguiente información. Para el caso de opciones de configuración que no se muestren en la siguiente tabla, use los valores predeterminados.
 
-    **Configuración** | **Valor sugerido** | **DESCRIPCIÓN**
+    **Configuración** | **Valor sugerido** | **Descripción**
     |---|---|---|
-    | **Subscription** | *Su suscripción* | Seleccione la suscripción de Azure que quiere usar para el centro de eventos.|
+    | **Suscripción** | *Su suscripción* | Seleccione la suscripción de Azure que quiere usar para el centro de eventos.|
     | **Grupos de recursos** | *test-resource-group* | Cree un nuevo grupo de recursos. |
     | **Ubicación** | Seleccione la región que mejor se adapte a sus necesidades. | Cree el espacio de nombres de Event Hubs en la misma ubicación que otros recursos.
     | **Nombre del espacio de nombres** | *AzureMonitoringData* | Elija un nombre único que identifique el espacio de nombres.
@@ -378,7 +378,7 @@ Ahora debe crear las conexiones de datos para sus registros de diagnóstico y re
 
      **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
-    | **Tabla** | *DiagnosticLogsRawRecords* | La tabla que creó en la base de datos *TestDatabase*. |
+    | **Table** | *DiagnosticLogsRawRecords* | La tabla que creó en la base de datos *TestDatabase*. |
     | **Formato de datos** | *JSON* | El formato usado en la tabla. |
     | **Asignación de columnas** | *DiagnosticLogsRecordsMapping* | La asignación que creó en la base de datos *TestDatabase*, que asigna los datos JSON entrantes a los nombres de columna y los tipos de datos de la tabla *DiagnosticLogsRecords*.|
     | | |
@@ -407,7 +407,7 @@ Repita los pasos de la sección Creación de la conexión de datos para los regi
 
      **Configuración** | **Valor sugerido** | **Descripción del campo**
     |---|---|---|
-    | **Tabla** | *ActivityLogsRawRecords* | La tabla que creó en la base de datos *TestDatabase*. |
+    | **Table** | *ActivityLogsRawRecords* | La tabla que creó en la base de datos *TestDatabase*. |
     | **Formato de datos** | *JSON* | El formato usado en la tabla. |
     | **Asignación de columnas** | *ActivityLogsRawRecordsMapping* | La asignación que creó en la base de datos *TestDatabase*, que asigna los datos JSON entrantes a los nombres de columna y los tipos de datos de la tabla *ActivityLogsRawRecords*.|
     | | |
@@ -460,4 +460,4 @@ Resultados de la consulta:
 Aprenda a escribir muchas más consultas de los datos que extrajo de Azure Data Explorer en el artículo siguiente:
 
 > [!div class="nextstepaction"]
-> [Escribir consultas para el Explorador de datos de Azure](write-queries.md)
+> [Write queries for Azure Data Explorer](write-queries.md) (Escritura de consultas del Explorador de datos de Azure)

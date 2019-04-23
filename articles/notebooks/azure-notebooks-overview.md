@@ -14,17 +14,17 @@ ms.topic: overview
 ms.date: 04/05/2019
 ms.author: kraigb
 ms.openlocfilehash: 4840a9839fe1f2a31470d4a67b3755b82077fd90
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280118"
 ---
 # <a name="overview-of-azure-notebooks"></a>Introducción a Azure Notebooks
 
 Azure Notebooks es un servicio hospedado gratuito para desarrollar y ejecutar cuadernos de Jupyter Notebook en la nube sin necesidad de instalación. [Jupyter](https://jupyter.org/) (anteriormente IPython) es un proyecto de código abierto que le permite combinar fácilmente texto Markdown, código ejecutable y datos, gráficos y visualizaciones persistentes en un único lienzo que se puede compartir, el *cuaderno* (imagen cortesía de jupyter.org):
 
-[![EEjemplos de cuaderno de Jupyter Notebook](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
+[![Ejemplos de Jupyter Notebooks](https://jupyter.org/assets/jupyterpreview.png)](https://jupyter.org/assets/jupyterpreview.png#lightbox)
 
 Debido a esta potente combinación de código, gráficos y texto explicativo, el uso de Jupyter se ha extendido en escenarios como la instrucción de ciencia de datos, la limpieza y transformación de datos, la simulación numérica, el modelado estadístico y el desarrollo de modelos de aprendizaje automático.
 
@@ -115,7 +115,7 @@ Para plantear sus preguntas sobre Azure Notebooks, registre un problema en el [r
   
   - [Creación y clonación de proyectos](create-clone-jupyter-notebooks.md)
   - [Configuración y administración de proyectos](configure-manage-azure-notebooks-projects.md)
-  - [Instalación de paquetes de un cuaderno](install-packages-jupyter-notebook.md)
+  - [Instalación de paquetes en un cuaderno](install-packages-jupyter-notebook.md)
   - [Presentación](present-jupyter-notebooks-slideshow.md)
   - [Uso de archivos de datos](work-with-project-data-files.md)
   - [Acceso a recursos de datos](access-data-resources-jupyter-notebooks.md)

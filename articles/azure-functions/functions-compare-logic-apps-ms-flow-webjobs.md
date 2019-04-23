@@ -13,10 +13,10 @@ ms.date: 04/09/2018
 ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: ea99c7fe9bc7fd8d6e4e26baa0afe45505949098
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58895654"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>¿Qué son Microsoft Flow, Logic Apps, Functions y WebJobs?
@@ -26,7 +26,7 @@ En este artículo se comparan los siguientes servicios en la nube de Microsoft:
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure Functions](https://azure.microsoft.com/services/functions/)
-* [Azure App Service WebJobs](../app-service/webjobs-create.md)
+* [Azure App Service](../app-service/webjobs-create.md)
 
 Todos estos servicios pueden solucionar problemas de integración y automatizar procesos empresariales. Todos pueden definir entradas, acciones, condiciones y salidas. Todos se pueden ejecutar según una programación o un desencadenador. Cada servicio tiene unas ventajas únicas y este artículo explica las diferencias.
 
@@ -86,7 +86,7 @@ Azure Functions se basa en el SDK de WebJobs, por lo que comparte muchos desenca
 | --- | --- | --- |
 |[Modelo de aplicaciones sin servidor](https://azure.microsoft.com/solutions/serverless/) con [escalado automático](functions-scale.md#how-the-consumption-and-premium-plans-work)|✔||
 |[Desarrollo y pruebas en el explorador](functions-create-first-azure-function.md) |✔||
-|[Precios de pago por uso](functions-scale.md#consumption-plan)|✔||
+|[Precio de pago por uso](functions-scale.md#consumption-plan)|✔||
 |[Integración con Logic Apps](functions-twitter-email.md)|✔||
 | Desencadenar eventos |[Temporizador](functions-bindings-timer.md)<br>[Blobs y colas de Azure Storage](functions-bindings-storage-blob.md)<br>[Colas y temas de Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[HTTP/WebHook (GitHub, Slack)](functions-bindings-http-webhook.md)<br>[Azure Event Grid](functions-bindings-event-grid.md)|[Temporizador](functions-bindings-timer.md)<br>[Blobs y colas de Azure Storage](functions-bindings-storage-blob.md)<br>[Colas y temas de Azure Service Bus](functions-bindings-service-bus.md)<br>[Azure Cosmos DB](functions-bindings-cosmosdb.md)<br>[Azure Event Hubs](functions-bindings-event-hubs.md)<br>[Sistema de archivos](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Files/FileTriggerAttribute.cs)|
 | Idiomas admitidos  |C#<br>F#<br>JavaScript<br>Java (versión preliminar) |C#<sup>1</sup>|
@@ -119,15 +119,15 @@ La integración entre Microsoft Flow, Logic Apps y Functions sigue mejorando con
 
 Puede obtener más información acerca de los servicios de integración mediante los siguientes vínculos:
 
-* [Leveraging Azure Functions &amp; Azure App Service for integration scenarios (Aprovechamiento de Azure Functions y Azure App Service para escenarios de integración) por Christopher Anderson](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/)
-* [Integrations Made Simple (Simplificación de integraciones) por Charles Lamanna](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
-* [Webcast en directo acerca de Logic Apps](https://aka.ms/logicappslive)
-* [Preguntas frecuentes acerca de Microsoft Flow](https://flow.microsoft.com/documentation/frequently-asked-questions/)
+* [Leveraging Azure Functions &amp; Azure App Service for integration scenarios](http://www.biztalk360.com/integrate-2016-resources/leveraging-azure-functions-azure-app-service-integration-scenarios/) (Aprovechamiento de Azure Functions y Azure App Service para escenarios de integración) por Christopher Anderson
+* [Integrations Made Simple](http://www.biztalk360.com/integrate-2016-resources/integrations-made-simple/)
+* [Webcast en directo sobre Logic Apps](https://aka.ms/logicappslive)
+* [Preguntas frecuentes sobre Microsoft Flow](https://flow.microsoft.com/documentation/frequently-asked-questions/)
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Para empezar, cree su primer flujo, aplicación lógica o aplicación de función. Seleccione cualquiera de los siguientes vínculos:
 
-* [Introducción a Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
+* [Get started with Microsoft Flow](https://flow.microsoft.com/en-us/documentation/getting-started/)
 * [Creación de una aplicación lógica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
-* [Creación de la primera función de Azure](functions-create-first-azure-function.md)
+* [Creación de su primera función de Azure](functions-create-first-azure-function.md)

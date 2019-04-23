@@ -10,10 +10,10 @@ ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
 ms.openlocfilehash: 1417ecdaf6a85f491e1accfb9564e27d15e13445
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59045840"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>Tutorial: Parte 2: Visualización de los mensajes enrutados
@@ -292,12 +292,12 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 En este tutorial de dos partes ha aprendido a utilizar el enrutamiento de mensajes para enrutar los mensajes de IoT Hub a diferentes destinos mediante la realización de las siguientes tareas.  
 
-**Parte I: Creación de recursos y configuración del enrutamiento de mensajes**
+**Parte I: Creación de recursos, configuración del enrutamiento de mensajes**
 > [!div class="checklist"]
 > * Cree los recursos: una instancia de IoT Hub, una cuenta de almacenamiento, una cola de Service Bus y un dispositivo simulado.
 > * Configure los puntos de conexión y las rutas de los mensajes en IoT Hub para la cuenta de almacenamiento y la cola de Service Bus.
 
-**Parte II: Envío de mensajes al centro y visualización de los resultados del enrutamiento**
+**Parte II: Envío de mensajes al centro, visualización de los resultados del enrutamiento**
 > [!div class="checklist"]
 > * Crear una aplicación lógica que se desencadena y se envía un correo electrónico cuando se agrega un mensaje a la cola de Service Bus.
 > * Descargar y ejecutar una aplicación que simule que un dispositivo IoT envía mensajes al centro para las diferentes opciones de enrutamiento.

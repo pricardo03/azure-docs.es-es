@@ -8,10 +8,10 @@ ms.topic: overview
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: 960b8145e5f53c6c37820604fd634ccf5fd77c6b
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59259429"
 ---
 # <a name="overview-of-the-azure-blueprints-service"></a>Introducción al servicio Azure Blueprints
@@ -85,9 +85,9 @@ Cada **versión** **publicada** de un plano técnico se puede asignar a una susc
 
 Para poder utilizar planos técnicos, se le deben conceder permisos mediante el [control de acceso basado en rol](../../role-based-access-control/overview.md) (RBAC). Para crear planos técnicos, su cuenta necesita los siguientes permisos:
 
-- `Microsoft.Blueprint/blueprints/write` - Creación de una definición de plano técnico
-- `Microsoft.Blueprint/blueprints/artifacts/write` - Creación de artefactos en una definición de plano técnico
-- `Microsoft.Blueprint/blueprints/versions/write` - Publicación de un plano técnico
+- `Microsoft.Blueprint/blueprints/write`: para crear una definición de plano técnico
+- `Microsoft.Blueprint/blueprints/artifacts/write`: para crear artefactos en una definición de plano técnico
+- `Microsoft.Blueprint/blueprints/versions/write`: para publicar un plano técnico
 
 Para eliminar planos técnicos, su cuenta necesita los siguientes permisos:
 
@@ -100,8 +100,8 @@ Para eliminar planos técnicos, su cuenta necesita los siguientes permisos:
 
 Para asignar o cancelar la asignación de un plano técnico, la cuenta necesita los siguientes permisos:
 
-- `Microsoft.Blueprint/blueprintAssignments/write` - Asignación de un plano técnico
-- `Microsoft.Blueprint/blueprintAssignments/delete` - Cancelación de la asignación de un plano técnico
+- `Microsoft.Blueprint/blueprintAssignments/write`: para asignar un plano técnico
+- `Microsoft.Blueprint/blueprintAssignments/delete`: para cancelar la asignación de un plano técnico
 
 > [!NOTE]
 > Como las asignaciones de planos técnicos se crean en una suscripción, los permisos de asignación y de cancelación de la asignación deben concederse o heredarse en el ámbito de una suscripción.
@@ -120,4 +120,4 @@ La siguiente introducción sobre Azure Blueprints es de Azure Fridays. Para desc
 ## <a name="next-steps"></a>Pasos siguientes
 
 - [Creación de un plano técnico: portal](create-blueprint-portal.md)
-- [Creación de un plano técnico: API de REST](create-blueprint-rest-api.md)
+- [Creación de un plano técnico: API REST](create-blueprint-rest-api.md)
