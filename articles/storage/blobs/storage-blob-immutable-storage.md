@@ -5,15 +5,15 @@ services: storage
 author: xyh1
 ms.service: storage
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/18/2019
 ms.author: hux
 ms.subservice: blobs
-ms.openlocfilehash: 32328b89e8a220269f0d07c3700566db5b899d5b
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: 7fd9992db79b2517256d85ca3fd8f3bf409afa48
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58445685"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996040"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Almacenamiento de los datos críticos para la empresa en Azure Blob Storage
 
@@ -41,7 +41,7 @@ Almacenamiento inmutable admite lo siguiente:
 
 - **Configuración en el nivel de contenedor**: los usuarios pueden configurar las directivas de retención con duración definida y las etiquetas de suspensión legal a nivel del contenedor. Mediante el uso de la configuración de nivel de contenedor simple, los usuarios pueden crear y las directivas de retención basada en tiempo de bloqueo, ampliar los intervalos de retención, conjunto y suspensiones legales claro y mucho más. Estas directivas se aplican a todos los blobs del contenedor, tanto a los nuevos como a los existentes.
 
-- **Compatibilidad con el registro de auditoría**: todos los contenedores incluyen un registro de auditoría. Muestra un máximo cinco comandos de retención con duración definida para las directivas de retención con duración definida bloqueadas, con un máximo de tres registros para las extensiones del intervalo de retención. En el caso de la retención con duración definida, el registro contiene el identificador del usuario, el tipo de comando, las marcas de tiempo y el intervalo de retención. En el caso de las suspensiones legales, el registro contiene el identificador del usuario, el tipo de comando, las marcas de tiempo y las etiquetas de suspensión legal. Este registro se conserva mientras dure el contenedor, de acuerdo con las directrices de regulación SEC 17a-4(f). El [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md) muestra un registro más completo de todas las actividades del plano de control; al habilitar [los registros de diagnóstico de Azure](../../azure-monitor/platform/diagnostic-logs-overview.md) conserva y se muestran las operaciones del plano de datos. Es responsabilidad del usuario almacenar dichos registros de forma persistente, ya que podría ser obligatorio por ley o por otros fines.
+- **Compatibilidad con el registro de auditoría**: Cada contenedor incluye un registro de auditoría de directiva. Muestra hasta siete basado en tiempo de retención de los comandos para las directivas de retención basada en el tiempo bloqueado y contiene el Id. de usuario, tipo de comando, las marcas de tiempo y el intervalo de retención. En el caso de las suspensiones legales, el registro contiene el identificador del usuario, el tipo de comando, las marcas de tiempo y las etiquetas de suspensión legal. Este registro se conserva durante la vigencia de la directiva, según las instrucciones de las normas de 17a-4(f) seg. El [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md) muestra un registro más completo de todas las actividades del plano de control; al habilitar [los registros de diagnóstico de Azure](../../azure-monitor/platform/diagnostic-logs-overview.md) conserva y se muestran las operaciones del plano de datos. Es responsabilidad del usuario almacenar dichos registros de forma persistente, ya que podría ser obligatorio por ley o por otros fines.
 
 ## <a name="how-it-works"></a>Cómo funciona
 
@@ -82,6 +82,20 @@ La tabla siguiente muestra los tipos de operaciones de blob que se deshabilitan 
 
 <sup>1</sup> la aplicación permite que estas operaciones crear un nuevo blob una vez. Todas las sobrescribir no se permiten operaciones en una ruta de acceso de blob existente en un contenedor inmutable.
 
+## <a name="supported-values"></a>Valores admitidos
+
+### <a name="time-based-retention"></a>Basado en tiempo de retención
+- Para una cuenta de almacenamiento, el número máximo de contenedores con directivas de inmutable basado en tiempo bloqueados es 1.000.
+- El intervalo de retención mínimo es 1 día. El máximo es 146,000 días (400 años).
+- Para un contenedor, el número máximo de modificaciones para ampliar un intervalo de retención para directivas de inmutable basado en tiempo bloqueados es 5.
+- Para un contenedor, un máximo de 7 registros de auditoría de directiva de retención basada en el tiempo se conservan durante la duración de la directiva.
+
+### <a name="legal-hold"></a>Suspensión legal
+- En el caso de una cuenta de almacenamiento, el número máximo de contenedores con un valor de suspensión legal es 1.000.
+- En un contenedor, el número máximo de etiquetas de suspensión legal es 10.
+- La longitud mínima de una etiqueta de suspensión legal es de 3 caracteres alfanuméricos. La longitud máxima es 23 caracteres alfanuméricos.
+- Para un contenedor, un máximo de 10 legal mantenga los registros se conservan durante la duración de la directiva de auditoría de directiva.
+
 ## <a name="pricing"></a>Precios
 
 El uso de esta característica no tiene costo adicional. El precio de los datos inmutables es el mismo que el de los datos normales, mutables. Para información detallada sobre los precios de Azure Blob Storage, consulte la [página de precios de Azure Storage](https://azure.microsoft.com/pricing/details/storage/blobs/).
@@ -90,7 +104,6 @@ El uso de esta característica no tiene costo adicional. El precio de los datos 
 Almacenamiento inmutable está disponible solo para uso General v2 y cuentas de Blob Storage. Estas cuentas deben administrarse a través de [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). Para obtener información sobre cómo actualizar una cuenta de almacenamiento de uso General v1 existente, vea [actualizar una cuenta de almacenamiento](../common/storage-account-upgrade.md).
 
 Las versiones más recientes de la [portal Azure](https://portal.azure.com), [CLI de Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), y [Azure PowerShell](https://github.com/Azure/azure-powershell/releases) admite el almacenamiento inmutable para Azure Blob storage. [Compatibilidad con bibliotecas de cliente](#client-libraries) también se proporciona.
-
 
 ### <a name="azure-portal"></a>Azure Portal
 
@@ -152,16 +165,6 @@ Las siguientes bibliotecas de cliente admiten el almacenamiento inmutable para A
 - [Biblioteca de cliente Python, versión 2.0.0 Release Candidate 2 y versiones posteriores](https://pypi.org/project/azure-mgmt-storage/2.0.0rc2/)
 - [Biblioteca cliente de Java](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/storage/resource-manager/Microsoft.Storage/preview/2018-03-01-preview)
 
-## <a name="supported-values"></a>Valores admitidos
-
-- El intervalo de retención mínimo es un día. El máximo es 146,000 días (400 años).
-- En el caso de una cuenta de almacenamiento, el número máximo de contenedores con directivas de inmutabilidad bloqueadas es 1.000.
-- En el caso de una cuenta de almacenamiento, el número máximo de contenedores con un valor de suspensión legal es 1.000.
-- En un contenedor, el número máximo de etiquetas de suspensión legal es 10.
-- La longitud máxima de una etiqueta de retención legal es de 23 caracteres alfanuméricos. La longitud mínima es de tres caracteres.
-- En un contenedor, el número máximo de extensiones del intervalo de retención permitidas para las directivas de inmutabilidad bloqueadas es de tres.
-- En un contenedor con una directiva de inmutabilidad bloqueada, se conservan un máximo de cinco registros de la directiva de retención con duración definida y un máximo de diez registros de la directiva de la suspensión legal mientras dure el contenedor.
-
 ## <a name="faq"></a>Preguntas más frecuentes
 
 **¿Puede proporcionar documentación de cumplimiento de gusano?**
@@ -178,7 +181,7 @@ No, puede usar almacenamiento inmutable con v2 de propósito General existente o
 
 **¿Puedo aplicar una suspensión legal y la directiva de retención con duración definida?**
 
-Un contenedor puede tener una suspensión legal y una directiva de retención con duración definida al mismo tiempo. Todos los blobs de ese contenedor permanecen en estado inmutable hasta que se eliminen todas las suspensiones legales, aunque haya expirado el período de retención efectivo. Por el contrario, un blob permanece en estado inmutable hasta que expire el período de retención efectivo, aunque se hayan eliminado todas las suspensiones legales.
+Sí, un contenedor puede tener una retención legal y una directiva de retención con duración definida al mismo tiempo. Todos los blobs de ese contenedor permanecen en estado inmutable hasta que se eliminen todas las suspensiones legales, aunque haya expirado el período de retención efectivo. Por el contrario, un blob permanece en estado inmutable hasta que expire el período de retención efectivo, aunque se hayan eliminado todas las suspensiones legales.
 
 **¿Las directivas de retención legal solo son para un proceso legal o hay otros escenarios de uso?**
 
@@ -202,13 +205,13 @@ En caso de impago, las directivas de retención de datos normales se aplicarán 
 
 **¿Se ofrece una evaluación o un período de gracia para probar la característica?**
 
-Sí. Cuando se crea por primera vez una directiva de retención basada en el tiempo, está en estado *desbloqueado*. En este estado, puede realizar los cambios que desee en el intervalo de retención, como por ejemplo, aumentarlo o disminuirlo, e incluso eliminar la directiva. Una vez bloqueada la directiva, permanece en este estado hasta que expira el intervalo de retención. Esta directiva bloqueada impide su eliminación y modificación en el intervalo de retención. Se recomienda encarecidamente que utilice el estado *desbloqueado* únicamente para fines de prueba y que bloquee la directiva en un periodo de 24 horas. Estas prácticas ayudan a cumplir SEC 17a-4(f) y otras normativas.
+Sí. Cuando se crea una directiva de retención con duración definida, se encuentra en un *desbloqueado* estado. En este estado, puede realizar los cambios que desee en el intervalo de retención, como por ejemplo, aumentarlo o disminuirlo, e incluso eliminar la directiva. Una vez bloqueada la directiva, permanece en este estado hasta que expira el intervalo de retención. Esta directiva bloqueada impide su eliminación y modificación en el intervalo de retención. Se recomienda encarecidamente que utilice el estado *desbloqueado* únicamente para fines de prueba y que bloquee la directiva en un periodo de 24 horas. Estas prácticas ayudan a cumplir SEC 17a-4(f) y otras normativas.
 
 **¿Puedo usar la eliminación temporal junto con las directivas de blobs inmutable?**
 
 Sí. [Eliminación temporal para Azure Blob storage](storage-blob-soft-delete.md) se aplica a todos los contenedores dentro de una cuenta de almacenamiento, independientemente de una directiva de retención con duración definida o suspensión legal. Se recomienda habilitar eliminación temporal para obtener protección adicional antes de aplicar las directivas de gusano inmutable y confirmadas. 
 
-**¿Está disponible la característica en las nubes nacionales y gubernamentales?**
+**¿Dónde está disponible la característica?**
 
 El almacenamiento inmutable está disponible en las regiones Government, China y Azure público. Si almacenamiento inmutable no está disponible en su región, póngase en contacto con soporte técnico y el correo electrónico azurestoragefeedback@microsoft.com.
 

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/14/2019
+ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: aeaf8fb5112fe9f6d8f2ca77ed9c1fd244fd9603
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 1347e28fe36ffe9595516252aea102d817a705a7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57877078"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000052"
 ---
 # <a name="azure-media-services-community"></a>Comunidad de Azure Media Services  
 
@@ -37,10 +37,13 @@ Esta página de la comunidad de Azure Media Services (AMS) describe diferentes m
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="discussion"></a>Discusión
+
 ### <a name="twitter"></a>Twitter
+
 Use el identificador de Twitter [@MSFTAzureMedia](https://twitter.com/MSFTAzureMedia) para ponerse en contacto con nosotros o para seguir las actualizaciones en Twitter. Puede usar el nombre de usuario de Twitter [@AzureSupport](https://twitter.com/azuresupport) para solicitar soporte técnico en Twitter.  
 
 ### <a name="online-forums"></a>Foros en línea
+
 Los siguientes foros se pueden usar para hacer preguntas sobre las características y los productos actuales.
 
 Actualmente, MSDN es el foro principal de la comunidad del equipo de Media Services.
@@ -48,9 +51,11 @@ Actualmente, MSDN es el foro principal de la comunidad del equipo de Media Servi
 [![MSDN](./media/media-services-community/msdn.png)](https://social.msdn.microsoft.com/forums/azure/home?forum=MediaServices) 
 
 El equipo también supervisa las preguntas etiquetadas con "azure-media-services" en Stack Overflow.
+
 [![Stackoverflow](./media/media-services-community/stack-overflow.png)](https://stackoverflow.com/questions/tagged/azure-media-services) 
 
 ## <a name="contact-the-team"></a>Póngase en contacto con el equipo
+
 Azure Media Services es el correo electrónico de soporte técnico principal: **amshelp\@microsoft.com**.
 
 La siguiente tabla enumera el correo electrónico de los subequipos de las características:

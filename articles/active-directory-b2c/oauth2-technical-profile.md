@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: fde556c60f823f4bd287ca5672503158c7292f51
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e92378cca445191f42708bd6348b1c75b29da1a1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918933"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009844"
 ---
 # <a name="define-an-oauth2-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir un perfil técnico de OAuth2 de una directiva personalizada de Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C proporciona compatibilidad con el proveedor de identidades de protocolo OAuth2. Este es el protocolo principal para la autorización y autenticación delegada. Para obtener más información, consulte el artículo [RFC 6749 The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749) (RFC 6749 Plataforma de autorización de OAuth 2.0). Con el perfil técnico de OAuth2 puede federarse con un proveedor de identidades basado en OAuth2, como Facebook y Live.com, para que los usuarios puedan iniciar sesión con sus identidades sociales o empresariales existentes.
+Azure Active Directory (Azure AD) B2C proporciona compatibilidad con el proveedor de identidades de protocolo OAuth2. OAuth2 es el protocolo principal para la autorización y autenticación delegada. Para obtener más información, consulte el artículo [RFC 6749 The OAuth 2.0 Authorization Framework](https://tools.ietf.org/html/rfc6749) (RFC 6749 Plataforma de autorización de OAuth 2.0). Con un perfil técnico de OAuth2, puede federar con un proveedor de identidades basado en OAuth2, como Facebook. Federación con un proveedor de identidades permite a los usuarios iniciar sesión con sus actuales social o identidades de empresa.
 
 ## <a name="protocol"></a>Protocolo
 
@@ -54,7 +54,7 @@ El ejemplo siguiente muestra las notificaciones devueltas por el proveedor de id
 
 - La notificación **first_name** se asigna a la notificación **givenName**.
 - La notificación **last_name** se asigna a la notificación **surname**.
-- La notificación **displayName** sin asignación de nombre.
+- El **displayName** sin asignación de nombre de notificación.
 - La notificación **email** sin asignación de nombre.
 
 El perfil técnico también devuelve notificaciones, que no son devueltas por el proveedor de identidades: 
@@ -64,7 +64,7 @@ El perfil técnico también devuelve notificaciones, que no son devueltas por el
 
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="id" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="id" />
   <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="first_name" />
   <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="last_name" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
@@ -90,7 +90,7 @@ El perfil técnico también devuelve notificaciones, que no son devueltas por el
 | ClaimsEndpointFormat | Sin  | El valor del parámetro de cadena de consulta de formato. Por ejemplo, puede establecer el valor como `json` en este punto de conexión de notificaciones de LinkedIn `https://api.linkedin.com/v1/people/~?format=json`. | 
 | ProviderName | Sin  | Nombre del proveedor de identidades. |
 | response_mode | Sin  | Método que usará el proveedor de identidades para enviar de vuelta el resultado Azure AD B2C. Valores posibles: `query`, `form_post` (predeterminado) o `fragment`. |
-| ámbito | Sin  | El ámbito de la solicitud de acceso definido según la especificación del proveedor de identidades de OAuth2. Como, por ejemplo, `openid`, `profile` y `email`. |
+| ámbito | Sin  | El ámbito de la solicitud que se define según la especificación de proveedor de identidades de OAuth2. Por ejemplo, `openid`, `profile` y `email`. |
 | HttpBinding | Sin  | Enlace HTTP esperado al token de acceso y los puntos de conexión del token de notificaciones. Valores posibles: `GET` o `POST`.  |
 | ResponseErrorCodeParamName | Sin  | El nombre del parámetro que contiene el mensaje de error devuelto a través de HTTP 200 (OK). |
 | ExtraParamsInAccessTokenEndpointResponse | Sin  | Contiene los parámetros adicionales que pueden devolverse en la respuesta de **AccessTokenEndpoint** por algunos proveedores de identidades. Por ejemplo, la respuesta de **AccessTokenEndpoint** contiene un parámetro adicional, como `openid`, que es un parámetro obligatorio además del elemento access_token en una cadena de consulta de solicitud **ClaimsEndpoint**. Varios nombres de parámetro deben convertirse en caracteres de escape y estar separados por el delimitador de coma ",". |
@@ -102,7 +102,7 @@ El elemento **CryptographicKeys** contiene el atributo siguiente:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| client_secret | Sí | Secreto de cliente de la aplicación del proveedor de identidades. La clave de cifrado es necesaria solo si los metadatos de **response_type** se establecen en `code`. En este caso, Azure AD B2C realiza otra llamada para cambiar el código de autorización por un token de acceso. Si los metadatos se establecen en `id_token`, puede omitir la clave de cifrado.  |  
+| client_secret | Sí | Secreto de cliente de la aplicación del proveedor de identidades. La clave de cifrado es necesaria solo si los metadatos de **response_type** se establecen en `code`. En este caso, Azure AD B2C realiza otra llamada para cambiar el código de autorización por un token de acceso. Si los metadatos se establecen en `id_token`, puede omitir la clave criptográfica. |  
 
 ## <a name="redirect-uri"></a>URI de redireccionamiento
 

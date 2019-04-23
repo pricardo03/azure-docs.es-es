@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/24/2018
 ms.author: pkc
-ms.openlocfilehash: aa4fd391aef3acf8e72513d91b62c7f16a13062d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: a931de8be07d41cf4daab63aa7691973ee158452
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57889444"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005050"
 ---
 # <a name="azure-service-fabric-support-options"></a>Opciones de soporte técnico de Azure Service Fabric
 
@@ -33,6 +33,11 @@ Más información sobre:
  
 - [Soporte técnico de Microsoft para Azure](https://azure.microsoft.com/support/plans/?b=16.44).
 - [Soporte técnico Premier de Microsoft](https://support.microsoft.com/en-us/premier).
+
+> [!Note]
+> Clústeres que se ejecutan en un nivel de confiabilidad bronze le permiten ejecutar cargas de trabajo de prueba solo. Si experimenta problemas con un clúster con una confiabilidad bronze, el equipo de soporte técnico de Microsoft le ayudarán a mitigar el problema, pero no llevará a cabo un análisis de causa raíz. Consulte [las características de confiabilidad del clúster](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) para obtener más detalles.
+>
+> Para obtener más información sobre lo que es necesario para un clúster listo para producción, consulte el [lista de comprobación de preparación para la producción](https://docs.microsoft.com/azure/service-fabric/service-fabric-production-readiness-checklist).
 
 <a id="getlivesitesupportonprem"></a>
 

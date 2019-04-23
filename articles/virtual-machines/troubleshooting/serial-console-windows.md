@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 57b20f9d694ae0581988762735c35cb65012fd8e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: e50243c15b5b783976374bc8b8861a0245ce1b05
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992371"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996380"
 ---
 # <a name="virtual-machine-serial-console-for-windows"></a>Consola serie de máquina virtual para Windows
 
@@ -123,7 +123,7 @@ Si tiene que habilitar los mensajes del cargador de arranque de Windows para que
     ![Abrir una instancia de PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
 
 ### <a name="use-the-serial-console-for-nmi-calls"></a>Uso de la consola serie para llamadas NMI
-Una interrupción no enmascarable (NMI) está diseñada para crear una señal que el software de una máquina virtual no pasará por alto. Históricamente, las NMI se han usado para supervisar problemas de hardware en sistemas que necesitaban tiempos de respuesta específicos. En la actualidad, los administradores del sistema y programadores suelen usar NMI como un mecanismo para depurar o solucionar los problemas de sistemas que se han bloqueado.
+Una interrupción no enmascarable (NMI) está diseñada para crear una señal que el software de una máquina virtual no pasará por alto. Históricamente, las NMI se han usado para supervisar problemas de hardware en sistemas que necesitaban tiempos de respuesta específicos. Administradores de sistemas, programadores y hoy en día suelen utilizan NMI como un mecanismo para depurar o solucionar problemas de los sistemas que no responden.
 
 La consola serie se puede usar para enviar una interrupción NMI a una máquina virtual de Azure mediante el icono de teclado de la barra de comandos. Una vez que se entrega la interrupción NMI, la configuración de la máquina virtual controla cómo responde el sistema. Windows se puede configurar para bloquearse y crear un archivo de volcado de memoria cuando recibe una interrupción NMI.
 

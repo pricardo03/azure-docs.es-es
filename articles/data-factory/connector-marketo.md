@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
-ms.openlocfilehash: 94ecf05272ecb29f914bb00fa407a564fef96c17
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
+ms.openlocfilehash: d6d6517a85997265021573b2f9d481c81283c216
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55562086"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148839"
 ---
 # <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Copia de datos de Marketo con Azure Data Factory (versión preliminar)
 
@@ -33,7 +33,7 @@ Puede copiar datos de Marketo en cualquier almacén de datos receptor admitido. 
 Azure Data Factory proporciona un controlador integrado para habilitar la conectividad. Por lo tanto, no es necesario instalar manualmente ningún controlador mediante este conector.
 
 >[!NOTE]
->Este conector de Marketo se basa en la API REST de Marketo. Tenga en cuenta que Marketo tiene un [límite de solicitudes simultáneas](http://developers.marketo.com/rest-api/) en el lado del servicio. Si recibe el error "Error while attempting to use REST API: Max rate limit '100' exceeded with in '20' secs (606)" (Error al intentar usar la API de REST: el límite de velocidad máx. ('100') se superó en '20' s (606)) o el error "Error while attempting to use REST API: Concurrent access limit '10' reached (615)" (Error al intentar usar la API de REST: se alcanzó el límite de acceso simultáneo de '10' (615)), considere la posibilidad de reducir las ejecuciones de actividad de copia simultáneas para reducir el número de solicitudes al servicio.
+>Este conector de Marketo se basa en la API REST de Marketo. Tenga en cuenta que Marketo tiene un [límite de solicitudes simultáneas](https://developers.marketo.com/rest-api/) en el lado del servicio. Si recibe el error "Error while attempting to use REST API: Max rate limit '100' exceeded with in '20' secs (606)" (Error al intentar usar la API de REST: el límite de velocidad máx. ('100') se superó en '20' s (606)) o el error "Error while attempting to use REST API: Concurrent access limit '10' reached (615)" (Error al intentar usar la API de REST: se alcanzó el límite de acceso simultáneo de '10' (615)), considere la posibilidad de reducir las ejecuciones de actividad de copia simultáneas para reducir el número de solicitudes al servicio.
 
 ## <a name="getting-started"></a>Introducción
 
@@ -47,7 +47,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Marketo:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Marketo** | Sí |
+| type | La propiedad type debe establecerse en: **Marketo** | Sí |
 | punto de conexión | Punto de conexión del servidor de Marketo (es decir, 123-ABC-321.mktorest.com).  | Sí |
 | clientId | Identificador de cliente del servicio Marketo.  | Sí |
 | clientSecret | Secreto de cliente del servicio Marketo. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
@@ -82,7 +82,7 @@ Para copiar datos de Marketo, establezca la propiedad type del conjunto de datos
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **MarketoObject** | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **MarketoObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -111,7 +111,7 @@ Para copiar datos de Marketo, establezca el tipo de origen de la actividad de co
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **MarketoSource** | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **MarketoSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Activitiy_Types"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

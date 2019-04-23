@@ -1,6 +1,6 @@
 ---
-title: Análisis de registros de actividad de Azure Active Directory mediante los registros de Azure Monitor (versión preliminar) | Microsoft Docs
-description: Aprenda a analizar los registros de actividad de Azure Active Directory mediante los registros de Azure Monitor (versión preliminar).
+title: Análisis de registros de actividad de Azure Active Directory mediante los registros de Azure Monitor | Microsoft Docs
+description: Aprenda a analizar los registros de actividad de Azure Active Directory mediante registros de Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
-ms.author: markvi
-ms.reviewer: dhanyahk
+ms.date: 04/18/2019
+ms.author: priyamo
+ms.reviewer: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e195dd0e52b4938e829ea0aec1f4cc3ef7107c0
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 1651bb2898a2bd1e3e0c3fbbce77dc4106d76e7a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436819"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005543"
 ---
-# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs-preview"></a>Análisis de registros de actividad de Azure AD con los registros de Azure Monitor (versión preliminar)
+# <a name="analyze-azure-ad-activity-logs-with-azure-monitor-logs"></a>Azure AD de analizar los registros de actividad con los registros de Azure Monitor
 
 Después de [integrar los registros de actividad de Azure AD con los registros de Azure Monitor](howto-integrate-activity-logs-with-log-analytics.md), puede usar la eficacia de estos últimos para obtener información sobre el entorno. También puede instalar las [vistas de Log Analytics para los registros de actividad de Azure AD](howto-install-use-log-analytics-views.md) para acceder a informes pregenerados sobre eventos de auditoría y de inicio de sesión en el entorno.
 

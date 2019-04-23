@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: b56cbfbc9dfde8b1a7d43d55ee85c34fde385902
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 5eba650ac2a052f264d82260e9fc07bf195235da
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58846383"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148941"
 ---
 # <a name="use-the-azure-portal-to-access-blob-or-queue-data"></a>Usar el portal de Azure para acceder a los datos blob o cola
 
@@ -41,13 +41,13 @@ Al intentar tener acceso a datos blob o cola en el portal de Azure, el portal co
 Para tener acceso a datos blob o cola desde el portal de Azure con su cuenta de Azure AD, dos de las instrucciones siguientes deben ser verdaderas para usted:
 
 - Se le ha asignado el Administrador de recursos de Azure [lector](../../role-based-access-control/built-in-roles.md#reader) rol, como mínimo, con ámbito en el nivel de la cuenta de almacenamiento o una versión posterior. El **lector** rol concede los permisos más restringidos, pero otro rol de Azure Resource Manager que concede acceso a los recursos de administración de cuenta de almacenamiento también es aceptable.
-- Se le ha asignado ya sea un rol integrado o personalizado que proporciona acceso a los blobs o los datos de la cola.
+- Se le ha asignado ya sea un rol integrado o personalizado que proporciona acceso a datos blob o cola.
 
 El **lector** otra asignación de roles de Azure Resource Manager o de asignación de roles es necesario para que el usuario puede ver y navegar por los recursos de administración de la cuenta de almacenamiento en el portal de Azure. Los roles RBAC que conceden acceso a datos blob o cola no conceder acceso a los recursos de administración de cuenta de almacenamiento. Para obtener acceso a datos blob o cola en el portal, el usuario necesita permisos para explorar los recursos de la cuenta de almacenamiento. Para obtener más información sobre este requisito, consulte [asignar el rol de lector para acceder al portal](../common/storage-auth-aad-rbac-portal.md#assign-the-reader-role-for-portal-access).
 
 Las funciones integradas que admiten el acceso a los datos blob o cola incluyen:
 
-- [Propietario del almacenamiento de datos Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Para POSIX control de acceso para Azure Data Lake Storage Gen2 (versión preliminar).
+- [Propietario del almacenamiento de datos Blob](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner): Control de acceso POSIX para Azure Data Lake Storage Gen2.
 - [Colaborador de datos de Blob de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-contributor): Permisos de lectura, escritura y eliminación para blobs.
 - [Lector de datos de Blob de almacenamiento](../../role-based-access-control/built-in-roles.md#storage-blob-data-reader): Permisos de solo lectura para blobs.
 - [Colaborador de datos de almacenamiento cola](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor): Permisos de lectura, escritura y eliminación de colas.

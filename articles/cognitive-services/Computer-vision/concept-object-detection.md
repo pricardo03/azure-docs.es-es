@@ -1,28 +1,28 @@
 ---
 title: 'Detección de objetos: Computer Vision'
 titleSuffix: Azure Cognitive Services
-description: Conceptos relacionados con la detección de objetos en Computer Vision API.
+description: Obtenga información sobre los conceptos relacionados con la característica de detección de objeto de Computer Vision API - uso y los límites.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 7e3311aab74f58e3936039393eab76dee12b83ea
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 012ab849c926de332da55361c79c76c5a1311169
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58496945"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001854"
 ---
-# <a name="object-detection"></a>Detección de objetos
+# <a name="detect-common-objects-in-images"></a>Detectar objetos comunes de imágenes
 
 La detección de objetos es similar al [etiquetado](concept-tagging-images.md), pero la API devuelve las coordenadas del rectángulo (en píxeles) que delimita cada objeto encontrado. Por ejemplo, si una imagen contiene un perro, un gato y una persona, la operación de detección mostrará estos objetos junto con sus coordenadas en la imagen. Puede usar esta funcionalidad para procesar las relaciones entre los objetos de una imagen. También le permite determinar si hay varias instancias de la misma etiqueta en una imagen.
 
-La API de detección aplica etiquetas en función de los objetos o seres vivos que se identifiquen en la imagen. En este momento, no hay ninguna relación formal entre la taxonomía de etiquetado y la taxonomía de detección de objeto. En un nivel conceptual, la API de detectar solo busca objetos y cosas de la vida, mientras que la API de la etiqueta a la que también puede incluir contextuales términos como "interiores", ya que no se pueden localizar con cuadros de límite.
+La API de detección aplica etiquetas en función de los objetos o seres vivos que se identifiquen en la imagen. Actualmente no hay ninguna relación formal entre la taxonomía de etiquetado y la taxonomía de detección de objeto. En un nivel conceptual, la API de detectar solo busca objetos y cosas de la vida, mientras que la API de la etiqueta a la que también puede incluir contextuales términos como "interiores", ya que no se pueden localizar con cuadros de límite.
 
 ## <a name="object-detection-example"></a>Ejemplo de detección de objetos
 

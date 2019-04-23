@@ -1,17 +1,17 @@
 ---
 title: Cómo configurar la directiva de Azure Active Directory para Azure Data Catalog
 description: Puede encontrar una situación que puede iniciar sesión el portal de Azure Data Catalog, pero cuando se intenta iniciar sesión en la herramienta de registro del origen de datos, se mostrará un mensaje de error.
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 04/06/2019
-ms.openlocfilehash: 558f8845f5469bf157188e20f1ec65a07ff8355f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
+ms.openlocfilehash: e69a7e3bd104d0fb82b248b6560d4fd082c88426
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59363142"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996448"
 ---
 # <a name="azure-active-directory-policy-configuration"></a>Configuración de directivas de Azure Active Directory
 

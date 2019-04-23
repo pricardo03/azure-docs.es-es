@@ -5,14 +5,14 @@ services: container-instances
 author: dlepow
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/15/2019
+ms.date: 04/17/2019
 ms.author: danlep
-ms.openlocfilehash: c311eea80c604366196a0725e4f9982bb43f8b5d
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 4a4b19338d96094f28b4f4bedd8042723f67f10a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59606895"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994782"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>Establecer variables de entorno en las instancias de contenedor
 
@@ -143,18 +143,15 @@ Azure:\
 
 ## <a name="azure-portal-example"></a>Ejemplo de Azure Portal
 
-Para establecer las variables de entorno cuando inicia un contenedor en Azure Portal, especifíquelas en la página **Configuración** cuando crea el contenedor.
+Para establecer las variables de entorno cuando se inicia un contenedor en Azure portal, puede especificarlas en el **avanzadas** página cuando se crea el contenedor.
 
-Cuando se implementa con el portal, actualmente está limitado a tres variables y debe especificarla con este formato: `"variableName":"value"`.
-
-Para ver un ejemplo, iniciar la [aci-wordcount] [ aci-wordcount] contenedor con el *NumWords* y *MinLength* variables.
-
-1. En **Configuración**, establezca **Directiva de reinicio** en *En caso de error*.
-2. Escriba `"NumWords":"5"` para la primera variable, seleccione **Sí** en **Add additional environment variables** (Agregar más variables de entorno) y escriba `"MinLength":"8"` para la segunda variable. Seleccione **Aceptar** para comprobar y luego implemente el contenedor.
+1. En el **avanzadas** , establezca el **directiva de reinicio** a *en caso de error*
+2. En **variables de entorno**, escriba `NumWords` con un valor de `5` para la primera variable y escriba `MinLength` con un valor de `8` para la segunda variable. 
+1. Seleccione **revisión + crear** para comprobar y, a continuación, implementar el contenedor.
 
 ![Página del portal que muestra el botón Habilitar de la entorno variable y cuadros de texto][portal-env-vars-01]
 
-Para ver los registros del contenedor, en **CONFIGURACIÓN**, seleccione **Contenedores** y luego **Registros**. De forma similar a la salida que se muestra en las secciones de la CLI y PowerShell anteriores, puede ver cómo se ha modificado el comportamiento del script mediante las variables de entorno. Se muestran solo cinco palabras, cada una con una longitud mínima de ocho caracteres.
+Para ver los registros del contenedor, en **configuración** seleccione **contenedores**, a continuación, **registros**. De forma similar a la salida que se muestra en las secciones de la CLI y PowerShell anteriores, puede ver cómo se ha modificado el comportamiento del script mediante las variables de entorno. Se muestran solo cinco palabras, cada una con una longitud mínima de ocho caracteres.
 
 ![Portal que muestra la salida de los registros de contenedor][portal-env-vars-02]
 

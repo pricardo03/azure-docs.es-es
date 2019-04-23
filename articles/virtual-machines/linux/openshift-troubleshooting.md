@@ -4,7 +4,7 @@ description: Solución de problemas de implementación de OpenShift en Azure.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: haroldwongms
-manager: joraio
+manager: mdotson
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/02/2019
+ms.date: 04/19/2019
 ms.author: haroldw
-ms.openlocfilehash: c65e76fb9453e93e856c76f397d187f9ee740fbd
-ms.sourcegitcommit: cf971fe82e9ee70db9209bb196ddf36614d39d10
-ms.translationtype: MT
+ms.openlocfilehash: af6746e7246b8783e5bdbef34cf1b57427aa7ebb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58540353"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001123"
 ---
 # <a name="troubleshoot-openshift-deployment-in-azure"></a>Solución de problemas de implementación de OpenShift en Azure
 
@@ -42,9 +42,9 @@ Conéctese mediante SSH al host del cuaderno de estrategias de Ansible. Para la 
 
 ## <a name="log-files"></a>Archivos de registro
 
-Los archivos de registro (stderr y stdout) para los scripts de preparación del host se encuentran en /var/lib/waagent/custom-script/download/0 en todos los hosts. Si se produjo un error durante la preparación del host, puede ver estos archivos de registro para determinar el error.
+Los archivos de registro (stderr y stdout) para las secuencias de comandos de preparación del host se encuentran en `/var/lib/waagent/custom-script/download/0` en todos los hosts. Si se produjo un error durante la preparación del host, puede ver estos archivos de registro para determinar el error.
 
-Si los scripts de preparación se han ejecutado correctamente, deberá examinar los archivos de registro del directorio /var/lib/waagent/custom-script/download/1 del host del cuaderno de estrategias de Ansible. Si se produjo el error durante la instalación actual de OpenShift, el archivo stdout mostrará el error. Utilice esta información para ponerse en contacto con soporte técnico para más ayuda.
+Si las secuencias de comandos de preparación se ha ejecutado correctamente, a continuación, los archivos de registro en el `/var/lib/waagent/custom-script/download/1` directorio del host de cuaderno de estrategias de ansible deberán ser examinadas. Si se produjo el error durante la instalación actual de OpenShift, el archivo stdout mostrará el error. Utilice esta información para ponerse en contacto con soporte técnico para más ayuda.
 
 Salida de ejemplo
 
@@ -93,11 +93,11 @@ Los errores más comunes durante la instalación son:
 
 ### <a name="private-key-has-a-passphrase"></a>La clave privada tiene una frase de contraseña
 
-Verá un error que indica que se denegó el permiso de acceso mediante SSH. Conéctese mediante SSH al host del cuaderno de estrategias de Ansible para buscar una frase de contraseña de la clave privada.
+Verá un error que se denegó el permiso para ssh. SSH en el host del cuaderno de estrategias de ansible para buscar una frase de contraseña en la clave privada.
 
 ### <a name="key-vault-secret-with-private-key-wasnt-created-correctly"></a>El secreto de Key Vault con la clave privada no se ha creado correctamente
 
-La clave privada se inserta en el host del cuaderno de estrategias de Ansible: ~/.ssh/id_rsa. Confirme que este archivo es correcto. Para comprobarlo, abra una sesión de SSH en uno de los nodos del clúster desde el host del cuaderno de estrategias de Ansible.
+La clave privada se copia en el host de cuaderno de estrategias de ansible - ~/.ssh/id_rsa. Confirme que este archivo es correcto. Para comprobarlo, abra una sesión de SSH en uno de los nodos del clúster desde el host del cuaderno de estrategias de Ansible.
 
 ### <a name="service-principal-credentials-were-entered-incorrectly"></a>Las credenciales de la entidad de servicio se especificaron incorrectamente
 

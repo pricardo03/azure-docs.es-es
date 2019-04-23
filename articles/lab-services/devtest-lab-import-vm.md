@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 9d5b7f32cb298315a5816562f548bcdafbdeb5cf
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: cb4a3ec9be82957b4c0366ec232f1147c52d0251
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682315"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148779"
 ---
 # <a name="import-vms-from-another-lab-in-azure-devtest-labs"></a>Importación de máquinas virtuales de otro laboratorio de Azure DevTest Labs
-El servicio Azure DevTest Labs mejora considerablemente la administración de máquinas virtuales (VM) para las actividades de desarrollo y pruebas. Permite mover una máquina virtual de un laboratorio a otro para responder a los cambios en las necesidades de los equipos o las infraestructuras. Estos son algunos escenarios comunes en los que puede ser necesario hacer el cambio: 
+El servicio Azure DevTest Labs mejora considerablemente la administración de máquinas virtuales (VM) para las actividades de desarrollo y pruebas. Permite mover una máquina virtual de un laboratorio a otro para responder a los cambios en las necesidades de los equipos o las infraestructuras. Estos son algunos escenarios comunes en los que puede ser necesario hacer el cambio:
 
 - Una persona del equipo cambia a otro grupo dentro de la misma empresa y desea llevarse sus máquinas virtuales de desarrollo al laboratorio del nuevo equipo.
 - El grupo ha alcanzado la cuota de su nivel de suscripción y desea dividir los equipos en varias suscripciones.
@@ -42,10 +42,10 @@ Además, para poder importar una máquina virtual de un laboratorio a otro, debe
 Actualmente, es necesario usar Azure PowerShell y la API de REST para importar una máquina virtual desde un laboratorio a otro solo.
 
 ### <a name="use-powershell"></a>Uso de PowerShell
-Descargue en su unidad local el archivo de script de PowerShell ImportVirtualMachines.ps1 desde el [repositorio de Git de Azure DevTest Lab](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines). 
+Descargue en su unidad local el archivo de script de PowerShell ImportVirtualMachines.ps1 desde el [repositorio de Git de Azure DevTest Lab](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImportVirtualMachines).
 
 #### <a name="import-a-single-vm"></a>Importación de una sola máquina virtual
-Ejecute el script ImportVirtualMachines.ps1 para importar una sola máquina virtual de un laboratorio de origen a un laboratorio de destino. Puede especificar un nombre nuevo para la máquina virtual que se está copiando. Para ello, use el parámetro DestinationVirtualMachineName. 
+Ejecute el script ImportVirtualMachines.ps1 para importar una sola máquina virtual de un laboratorio de origen a un laboratorio de destino. Puede especificar un nombre nuevo para la máquina virtual que se está copiando. Para ello, use el parámetro DestinationVirtualMachineName.
 
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source VM>" `
@@ -58,7 +58,7 @@ Ejecute el script ImportVirtualMachines.ps1 para importar una sola máquina virt
 
 
 #### <a name="importing-all-vms"></a>Importación de todas las máquinas virtuales
-Al ejecutar el script ImportVirtualMachines.ps1, si no se especifica una máquina virtual del laboratorio de origen, el script importa todas las máquinas virtuales del laboratorio de origen en el laboratorio de destino. 
+Al ejecutar el script ImportVirtualMachines.ps1, si no se especifica una máquina virtual del laboratorio de origen, el script importa todas las máquinas virtuales del laboratorio de origen en el laboratorio de destino.
 
 ```powershell
 ./ImportVirtualMachines.ps1 -SourceSubscriptionId "<ID of the subscription that contains the source VM>" `
@@ -68,7 +68,7 @@ Al ejecutar el script ImportVirtualMachines.ps1, si no se especifica una máquin
 ```
 
 ### <a name="use-rest-api"></a>Use la API de REST
-Invoque la API de REST en el laboratorio de destino y pase como parámetros el laboratorio de origen, la suscripción y la información de la máquina virtual, tal como se muestra en el ejemplo siguiente: 
+Invoque la API de REST en el laboratorio de destino y pase como parámetros el laboratorio de origen, la suscripción y la información de la máquina virtual, tal como se muestra en el ejemplo siguiente:
 
 ```json
 POST https://management.azure.com/subscriptions/<ID of the target/destination subscription>/resourceGroups/<Name of the resource group that contains the destination lab>/providers/Microsoft.DevTestLab/labs/<Name of the lab to which the VMs are copied>/ImportVirtualMachine?api-version=2017-04-26-preview
@@ -82,5 +82,3 @@ POST https://management.azure.com/subscriptions/<ID of the target/destination su
 
 - Para obtener información sobre cómo cambiar el tamaño de una máquina virtual, consulte [Cambio del tamaño de una VM](devtest-lab-resize-vm.md).
 - Para obtener información sobre cómo volver a implementar una máquina virtual, consulte [Reimplementación de una máquina virtual](devtest-lab-redeploy-vm.md).
-
-

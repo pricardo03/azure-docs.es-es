@@ -6,19 +6,25 @@ author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 03/13/2019
+ms.date: 04/13/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: 8386d1c43761cfb27746b003d136419f72d7d4ae
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: d5a13e4466234d73bafe8dbe76cae92955cf64bd
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648544"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010303"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Aplicación del descuento por reserva a Azure Cosmos DB
 
 Después de comprar capacidad reservada en Azure Cosmos DB, el descuento por la reserva se aplica automáticamente a los recursos que coincidan con los atributos y la cantidad de la reserva. Una reserva abarca el rendimiento aprovisionado para los recursos de Azure Cosmos DB. No abarca el software, redes, almacenamiento ni los cargos predefinidos de contenedor.
+
+## <a name="how-reservation-discount-is-applied"></a>Cómo se aplica el descuento de reserva
+
+Un descuento de reserva es "*-it-o-perder-usarla*". Por lo tanto, si no tiene recursos coincidentes para cualquier hora, perder una cantidad de reserva para esa hora. No se puede llevar a cabo reenviar horas reservadas no utilizadas.
+
+Cuando se apaga un recurso, el descuento de reserva se aplica automáticamente a otro recurso coincidente en el ámbito especificado. Si se encuentra ningún recurso coincidente en el ámbito especificado, que son las horas reservadas *pierde*.
 
 ## <a name="reservation-discount-applied-to-azure-cosmos-db-accounts"></a>El descuento por reserva se aplica a las cuentas de Azure Cosmos DB
 

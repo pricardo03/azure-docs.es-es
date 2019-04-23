@@ -2,18 +2,18 @@
 title: Documentación de orígenes de datos en Azure Data Catalog
 description: En este artículo de procedimientos se resalta cómo documentar recursos de datos en Azure Data Catalog.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 053b1701-b848-4ada-b726-6f485caa9961
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: a7379ffea173cdae3b10a751b0d83e06e679e3c5
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9049e0b25db37f296e27476fbb93418d13c4dcc1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406216"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005288"
 ---
 # <a name="document-data-sources"></a>Orígenes de datos de documentos
 ## <a name="introduction"></a>Introducción
@@ -39,9 +39,9 @@ La ventaja del **Azure Data Catalog** es que la documentación le permite usar D
 
 El nivel de documentación puede oscilar desde describir las características y el valor de un contenedor de recursos de datos para una descripción detallada del esquema de tabla dentro de un contenedor. El nivel de documentación proporcionado debe basarse en las necesidades del negocio. En general, hay algunas ventajas y desventajas de documentar los recursos de datos:
 
-* Documentar solo un contenedor: todo el contenido está en un solo lugar, pero puede faltar información necesaria para que los usuarios tomen una decisión informada.
-* Documentar solo las tablas: el contenido es específico de ese objeto, pero los usuarios tienen varios lugares para los documentos.
-* Documentar contenedores y tablas: el enfoque más completo, pero puede incluir un mayor mantenimiento de los documentos.
+* Documentar solo un contenedor: Todo el contenido está en un solo lugar, pero puede faltar información necesaria para que los usuarios tomar una decisión informada.
+* Documentar solo las tablas: Contenido es específico de ese objeto, pero los usuarios tienen varios lugares para documentos.
+* Contenedores de documentos y tablas: El enfoque más completo, pero puede incluir más de mantenimiento de los documentos.
 
 ## <a name="summary"></a>Resumen
 La documentación de orígenes de datos con **Azure Data Catalog** puede crear una descripción de los recursos de datos con el detalle que sea necesario.  Mediante el uso de vínculos, puede vincular al contenido almacenado en un repositorio de contenido existente, lo que reúne los recursos de datos y los documentos existentes. Una vez que los usuarios descubran los recursos de datos adecuados, pueden tener un completo conjunto de documentación.

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 536a74046f46c7f83907833846e9ec99e8d8a289
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 36879ad070848f1779804d4eb3958058b9b86689
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58370285"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996584"
 ---
 # <a name="azure-maps-render-coverage"></a>Cobertura de representación de Azure Maps
 
@@ -169,7 +169,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | Islas Cocos (Keeling)   |   | Ø |
 | República Popular Democrática de Corea |   | Ø |
 | Dokdo       |   | Ø |
-| RAE de Hong Kong                 | ✓ | ✓ |
+| RAE de Hong Kong             | ✓ | ✓ |
 | India                     | Ø | ✓ | 
 | Indonesia                 | ✓ | ✓ |
 | Irán                      |   | Ø |
@@ -182,7 +182,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | Kirguistán                |   | Ø |
 | República Democrática Popular de Laos |   | Ø |
 | Líbano                   | ✓ | ✓ |
-| RAE de Macao                     | ✓ | ✓ |
+| RAE de Macao                 | ✓ | ✓ |
 | Malasia                  | ✓ | ✓ |
 | Maldivas                  |   | Ø |
 | Mongolia                  |   | Ø |
@@ -276,7 +276,7 @@ Sin embargo, Maps no tiene el mismo nivel de información y precisión en todas 
 | Liechtenstein             | ✓ | ✓ |
 | Lituania                 | ✓ | ✓ |
 | Luxemburgo                | ✓ | ✓ |
-| República de Macedonia                 | ✓ | ✓ |
+| Macedonia del Norte           | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldova                   | ✓ | ✓ |
 | Mónaco                    | ✓ | ✓ |

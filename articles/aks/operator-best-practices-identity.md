@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 201fef6b3e773daa18ae252d1d5734d8d87419b5
-ms.sourcegitcommit: 8a59b051b283a72765e7d9ac9dd0586f37018d30
-ms.translationtype: MT
+ms.openlocfilehash: 42f6fefa930a36fbfcca7b3f792cc749723f7b99
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58287135"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001497"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para la autenticación y autorización en Azure Kubernetes Service (AKS)
 
@@ -84,6 +84,8 @@ roleRef:
 
 Cuando *developer1\@contoso.com* se autentica en el clúster de AKS, que tengan permisos completos a los recursos en el *aplicación finance* espacio de nombres. De esta forma, separa y controla el acceso a los recursos de forma lógica. RBAC de Kubernetes debe usarse junto con la integración de Azure AD, como se describe en la sección anterior.
 
+Para ver cómo usar grupos de Azure AD para controlar el acceso a los recursos de Kubernetes mediante RBAC, consulte [controlar el acceso a recursos de clúster mediante controles de acceso basado en roles y las identidades de Azure Active Directory en AKS] [ azure-ad-rbac].
+
 ## <a name="use-pod-identities"></a>Uso de identidades de pod
 
 **Guía de procedimientos recomendados**: no use credenciales fijas dentro de pods o imágenes de contenedor, ya que corren riesgo de exposición o abuso. En su lugar, use identidades de pod para solicitar acceso automáticamente mediante una solución central de identidades de Azure AD.
@@ -128,8 +130,9 @@ Para obtener más información acerca de las operaciones de clúster en AKS, con
 
 <!-- INTERNAL LINKS -->
 [aks-concepts-identity]: concepts-identity.md
-[aks-aad]: aad-integration.md
+[aks-aad]: azure-ad-integration-cli.md
 [managed-identities:]: ../active-directory/managed-identities-azure-resources/overview.md
 [aks-best-practices-scheduler]: operator-best-practices-scheduler.md
 [aks-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-best-practices-cluster-isolation]: operator-best-practices-cluster-isolation.md
+[azure-ad-rbac]: azure-ad-rbac.md

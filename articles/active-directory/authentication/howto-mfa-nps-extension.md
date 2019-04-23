@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95d19068e482722bf6cd01e44d27c2719bc419a3
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
-ms.translationtype: MT
+ms.openlocfilehash: a945316df27460fef48a8bb4d43e46d412d2ae81
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564538"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009722"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>Integración de la infraestructura existente de NPS con Azure Multi-Factor Authentication
 
@@ -76,14 +76,14 @@ Para instalar la extensión, necesita el identificador de directorio y las crede
 
 El servidor NPT necesita poder comunicarse con las siguientes direcciones URL a través de los puertos 80 y 443.
 
-* https://adnotifications.windowsazure.com  
-* https://login.microsoftonline.com
+* https:\//adnotifications.windowsazure.com  
+* https:\//login.microsoftonline.com
 
 Además, se requiere conectividad a las direcciones URL siguientes para completar la [el programa de instalación del adaptador mediante el script de PowerShell proporcionado](#run-the-powershell-script)
 
-- https://login.microsoftonline.com
-- https://provisioningapi.microsoftonline.com
-- https://aadcdn.msauth.net
+- https:\//login.microsoftonline.com
+- https:\//provisioningapi.microsoftonline.com
+- https:\//aadcdn.msauth.net
 
 ## <a name="prepare-your-environment"></a>Preparación del entorno
 
@@ -207,7 +207,7 @@ Una vez que habilite MFA para un cliente RADIUS mediante la extensión de NPS, s
 
 Si tiene usuarios que no están inscritos en MFA, puede determinar lo que sucederá cuando intenten realizar la autenticación. Use la configuración de registro *REQUIRE_USER_MATCH* en la ruta de acceso del registro *HKLM\Software\Microsoft\AzureMFA* para controlar el comportamiento de la característica. Esta opción tiene una única opción de configuración:
 
-| Clave | Valor | Valor predeterminado |
+| Clave | Value | Valor predeterminado |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | No establecido (equivalente a TRUE) |
 

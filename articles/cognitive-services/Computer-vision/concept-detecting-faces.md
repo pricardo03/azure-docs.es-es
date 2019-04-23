@@ -1,22 +1,22 @@
 ---
 title: 'Detección de caras: Computer Vision'
 titleSuffix: Azure Cognitive Services
-description: Conceptos relacionados con la característica de detección de caras de Computer Vision API.
+description: Obtenga información sobre los conceptos relacionados con la característica de detección de caras de Computer Vision API.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 1056b8be113d56342aea8f83d5325737f7ecb93b
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: 699192aba87bb009d7dbddddcc9579883bb71db9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56308458"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996159"
 ---
 # <a name="face-detection-with-computer-vision"></a>Detección de caras con Computer Vision
 

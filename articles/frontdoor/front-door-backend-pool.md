@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 2372f49c7280ee5c817f3d2f98cc80a196dae5f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 543e237a4a8390a8ebf74d0eb2a1f4be41dcd911
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58879206"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000596"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Back-end y grupos de back-end en Azure Front Door Service
 En este artículo se describe conceptos acerca de cómo asignar la implementación de aplicaciones con el servicio de puerta de entrada de Azure. También explica los distintos términos de configuración de la puerta delantera alrededor de back-ends de aplicación.
@@ -26,7 +26,7 @@ Un back-end es igual a la instancia de la implementación de una aplicación en 
 
 Back-ends de servicio de puerta de entrada hacen referencia al nombre de host o dirección IP pública de la aplicación, que puede atender solicitudes de cliente. Back-ends no deben confundirse con el nivel de base de datos, capa de almacenamiento y así sucesivamente. Back-ends deben considerarse como el punto de conexión público de un back-end. Al agregar un back-end en un grupo de back-end de la puerta delantera, también debe agregar lo siguiente:
 
-- **Tipo de host de back-end**. El tipo de recurso que desea agregar. Servicio de puerta de entrada es compatible con detección automática de la aplicación de back-ends proceden de app service, el servicio en la nube o el almacenamiento. Si desea que un recurso diferente en Azure o incluso un ajeno a Azure back-end, seleccione **host personalizado**.
+- **Tipo de host de back-end**. El tipo de recurso que desea agregar. Servicio de puerta de entrada es compatible con detección automática de sus back-ends de aplicación de app service, el servicio en la nube o el almacenamiento. Si desea que un recurso diferente en Azure o incluso un ajeno a Azure back-end, seleccione **host personalizado**.
 
     >[!IMPORTANT]
     >Durante la configuración, las API no validan si el back-end no es accesible desde la puerta delantera entornos. Asegúrese de que puerta delantera puede llegar a su back-end.
@@ -43,7 +43,7 @@ Back-ends de servicio de puerta de entrada hacen referencia al nombre de host o 
 
 Las solicitudes reenviadas por la puerta de entrada a un back-end incluyen un campo de encabezado de host que usa el back-end para recuperar el recurso de destino. El valor de este campo normalmente procede del URI del back-end y tiene el host y el puerto.
 
-Por ejemplo, una solicitud realizada para www\.contoso.com tendrá la www de encabezado de host\.contoso.com. Si usa Azure portal para configurar su back-end, el valor predeterminado para este campo es el nombre de host del backend. Si el back-end es contoso-westus.azurewebsites.net, en el portal de Azure, el valor de rellena automáticamente para el encabezado de host de back-end será westus.azurewebsites.net de contoso. Sin embargo, si usa plantillas de Azure Resource Manager u otro método sin tener que establecer explícitamente este campo, el servicio de puerta delantera enviará el nombre de host entrante como el valor para el encabezado de host. Si la solicitud se realizó para www\.contoso.com y el back-end es contoso-westus.azurewebsites.net que tiene un campo de encabezado vacío, el servicio de puerta de entrada se establecerá el encabezado de host como World Wide Web\.contoso.com.
+Por ejemplo, una solicitud realizada para www\.contoso.com tendrá la www de encabezado de host\.contoso.com. Si usa Azure portal para configurar su back-end, el valor predeterminado para este campo es el nombre de host del backend. Si el back-end es contoso-westus.azurewebsites.net, en el portal de Azure, el valor de rellena automáticamente el encabezado de host de back-end será westus.azurewebsites.net de contoso. Sin embargo, si usa plantillas de Azure Resource Manager u otro método sin tener que establecer explícitamente este campo, el servicio de puerta delantera enviará el nombre de host entrante como el valor para el encabezado de host. Si la solicitud se realizó para www\.contoso.com y el back-end es contoso-westus.azurewebsites.net que tiene un campo de encabezado vacío, el servicio de puerta de entrada se establecerá el encabezado de host como World Wide Web\.contoso.com.
 
 La mayoría backends de aplicaciones (aplicaciones Web de Azure, almacenamiento de blobs y servicios en la nube) requieren el encabezado de host para que coincida con el dominio del back-end. Sin embargo, el host de front-end que enruta el back-end va a utilizar un nombre de host diferente, como www\.contoso.azurefd.net.
 
@@ -83,7 +83,7 @@ Configuración del equilibrio de carga para el grupo de back-end define cómo se
 
 - **El tamaño del ejemplo**. Identifica el número de muestras de los sondeos de estado se debe tener en cuenta para la evaluación de mantenimiento de back-end.
 
-- **Tamaño de muestra correcta**. Define el tamaño de muestra como se mencionó anteriormente, el número de muestras correcta necesaria para llamar al back-end en buen estado. Por ejemplo, suponga un intervalo de sondeo de mantenimiento de la puerta delantera es de 30 segundos, tamaño de muestra es de 5 segundos y tamaño de muestra correcta es de 3 segundos. Cada vez que se evalúe el mantenimiento sondea el back-end, nos centramos en las cinco últimas muestras más de 150 segundos (5 x 30). Se requieren al menos tres de los sondeos correctos para declarar el back-end como en buen estado.
+- **Tamaño de muestra correcta**. Define el tamaño de muestra como se mencionó anteriormente, el número de muestras correcta necesaria para llamar al back-end en buen estado. Por ejemplo, suponga un intervalo de sondeo de mantenimiento de la puerta delantera es de 30 segundos, tamaño de muestra es 5 y tamaño de muestra correcto es 3. Cada vez que se evalúe el mantenimiento sondea el back-end, nos centramos en las cinco últimas muestras más de 150 segundos (5 x 30). Se requieren al menos tres de los sondeos correctos para declarar el back-end como en buen estado.
 
 - **Sensibilidad a la latencia (latencia adicional)**. Define si desea que la puerta de entrada para enviar la solicitud al back-ends dentro del intervalo de latencia medida confidencialidad o reenviar la solicitud para el back-end más cercano.
 

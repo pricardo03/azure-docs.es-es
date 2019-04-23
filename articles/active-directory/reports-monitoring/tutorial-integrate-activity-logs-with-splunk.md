@@ -1,6 +1,6 @@
 ---
-title: Transmisión de los registros de Azure Active Directory a Splunk mediante Azure Monitor (versión preliminar) | Microsoft Docs
-description: Obtenga información sobre cómo integrar los registros de Azure Active Directory con Splunk mediante Azure Monitor (versión preliminar).
+title: Stream registros de Azure Active Directory a Splunk mediante Azure Monitor | Microsoft Docs
+description: Obtenga información sobre cómo integrar los registros de Azure Active Directory con Splunk mediante el uso de Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94039655a6cbe7878fa1f61ce759485392dc7e98
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 70befad3208f34fe62fbb0a59cea4bf6ea01ce16
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58438859"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999525"
 ---
-# <a name="integrate-azure-ad-logs-with-splunk-using-azure-monitor-preview"></a>Integración de los registros de Azure AD con Splunk mediante Azure Monitor (versión preliminar)
+# <a name="integrate-azure-ad-logs-with-splunk-using-azure-monitor"></a>Integrar los registros de Azure AD con Splunk mediante Azure Monitor
 
 En este artículo, se ofrece información sobre cómo integrar los registros de Azure Active Directory (Azure AD) con Splunk mediante Azure Monitor. En primer lugar, se enrutan los registros a un centro de eventos de Azure y, a continuación, se integra el centro de eventos con Splunk.
 

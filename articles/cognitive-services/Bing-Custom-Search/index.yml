@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: ef8403c16358536284e0f6efbe2656a126599504
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56726030"
 documentType: LandingData
 title: Documentación de Bing Custom Search
 metadata:
@@ -23,67 +17,67 @@ metadata:
 abstract:
   description: Use Bing Custom Search API para crear una instancia de búsqueda para los temas que le interesan. Especifique los dominios y páginas web en los que se va a realizar la búsqueda y ajuste las clasificaciones para personalizar por completo la experiencia de búsqueda.
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/bing-custom-search/overview
+            html: <p>Más información acerca de Bing Custom Search API</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: ¿Qué es Bing Custom Search API?
+          - href: /azure/cognitive-services/bing-custom-search/quick-start
+            html: <p>Aprenda a adaptar la experiencia de búsqueda para crear una vista personalizada de la web.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Creación de una instancia de búsqueda personalizada de Bing
+          - href: /azure/cognitive-services/bing-custom-search/hosted-ui
+            html: <p>Aprenda a integrar fácilmente una interfaz de usuario hospedada en páginas web y aplicaciones web.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Configuración de una experiencia de interfaz de usuario hospedada
+  - title: Inicio rápido en 5 minutos
     items:
-    - href: /azure/cognitive-services/bing-custom-search/overview
-      html: <p>Más información acerca de Bing Custom Search API</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: ¿Qué es Bing Custom Search API?
-    - href: /azure/cognitive-services/bing-custom-search/quick-start
-      html: <p>Aprenda a adaptar la experiencia de búsqueda para crear una vista personalizada de la web.</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Creación de una instancia de búsqueda personalizada de Bing
-    - href: /azure/cognitive-services/bing-custom-search/hosted-ui
-      html: <p>Aprenda a integrar fácilmente una interfaz de usuario hospedada en páginas web y aplicaciones web.</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Configuración de una experiencia de interfaz de usuario hospedada
-- title: Inicio rápido en 5 minutos
-  items:
-  - type: paragraph
-    text: 'Busque la vista personalizada de la web mediante:'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 'Busque la vista personalizada de la web mediante:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/logo_Csharp.svg
+            href: sdk-csharp-quick-start
+            text: 'C&#35;'
+          - image:
+              src: media/logo_java.svg
+            href: call-endpoint-java
+            text: Java
+          - image:
+              src: media/logo_nodejs.svg
+            href: call-endpoint-nodejs
+            text: Node.js
+          - image:
+              src: media/logo_python.svg
+            href: call-endpoint-python
+            text: Python
+  - title: Tutorial detallado
     items:
-    - image:
-        src: media/logo_Csharp.svg
-      href: sdk-csharp-quick-start
-      text: C&#35;
-    - image:
-        src: media/logo_java.svg
-      href: call-endpoint-java
-      text: Java
-    - image:
-        src: media/logo_nodejs.svg
-      href: call-endpoint-nodejs
-      text: Node.js
-    - image:
-        src: media/logo_python.svg
-      href: call-endpoint-python
-      text: Python
-- title: Tutorial detallado
-  items:
-  - type: paragraph
-    text: 'Aprenda a desarrollar aplicaciones con Bing Custom Search API:'
-  - type: paragraph
-    text: <a href="tutorials/custom-search-web-page">Creación de una página web de Custom Search</a>
-- title: Referencia
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: 'Aprenda a desarrollar aplicaciones con Bing Custom Search API:'
+      - type: paragraph
+        text: <a href="tutorials/custom-search-web-page">Creación de una página web de Custom Search</a>
+  - title: Referencia
     items:
-    - title: API existentes
-      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference">Custom Search API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference">Custom Autosuggest API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference">Custom Image Search API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference">Custom Video Search API v7</a></p>
-    - title: SDK
-      html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customsearch?view=azure-java-stable">Java: Custom Search</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customimagesearch?view=azure-java-stable">Java: Custom Image Search</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/customsearch?view=azure-node-latest">Node.js</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch">Go: Custom Search</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customimagesearch">Go: Custom Image Search</a></p>'
-    - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI de Azure</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API existentes
+            html: '<p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference">Custom Search API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference">Custom Autosuggest API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference">Custom Image Search API v7</a></p> <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-videos-api-v7-reference">Custom Video Search API v7</a></p>'
+          - title: SDK
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingcustomsearch?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customsearch?view=azure-java-stable">Java: Custom Search</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/customimagesearch?view=azure-java-stable">Java: Custom Image Search</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customsearch?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-customsearch?view=azure-node-latest">Node.js</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customsearch">Go: Custom Search</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customimagesearch">Go: Custom Image Search</a></p>'
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI de Azure</a></p>'

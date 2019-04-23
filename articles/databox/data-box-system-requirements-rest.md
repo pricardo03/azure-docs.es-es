@@ -6,18 +6,18 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 02/05/2019
+ms.date: 04/19/2019
 ms.author: alkohli
-ms.openlocfilehash: 5770cd9a4955013100b7e58698eed77da10c0583
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 71e0ebf7d7851ae65a6fba67a1695d755fd98bb1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58012259"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004574"
 ---
 # <a name="azure-data-box-blob-storage-requirements"></a>Requisitos de almacenamiento de blobs de Azure Data Box
 
-En este artículo se enumeran las versiones de las herramientas, SDK y API de Azure compatibles con el almacenamiento de blobs de Azure Data Box. El almacenamiento de blobs de Azure Data Box proporciona la funcionalidad de administración de blobs con una semántica coherente con Azure. En este artículo también se resumen las diferencias conocidas entre el almacenamiento de blobs de Azure Data Box y los servicios de Azure Storage.
+En este artículo se enumera las versiones de la API de Azure, bibliotecas de cliente de Azure y herramientas compatibles con el almacenamiento de blobs de cuadro de datos. El almacenamiento de blobs de Azure Data Box proporciona la funcionalidad de administración de blobs con una semántica coherente con Azure. En este artículo también se resumen las diferencias conocidas entre el almacenamiento de blobs de Azure Data Box y los servicios de Azure Storage.
 
 Se recomienda que revise cuidadosamente la información antes de conectarse al almacenamiento de blobs de Azure Data Box y que luego vuelva a ella si es necesario.
 
@@ -38,7 +38,7 @@ Se recomienda que revise cuidadosamente la información antes de conectarse al a
 
 Se admiten las siguientes versiones de las API del servicio de Azure Storage con almacenamiento de blobs de Azure Data Box:
 
-Versión preliminar pública (Azure Data Box 1.8 y versiones posteriores)
+Azure Data Box versión 1.8 y posteriores
 
 - [2017-11-09](/rest/api/storageservices/version-2017-11-09)
 - [2017-07-29](/rest/api/storageservices/version-2017-07-29)
@@ -46,20 +46,7 @@ Versión preliminar pública (Azure Data Box 1.8 y versiones posteriores)
 - [2016-05-31](/rest/api/storageservices/version-2016-05-31)
 - [2015-12-11](/rest/api/storageservices/version-2015-12-11)
 - [2015-07-08](/rest/api/storageservices/version-2015-07-08)
-- [2015-04-05](/rest/api/storageservices/version-2015-04-05)
-
-## <a name="supported-sdk-versions"></a>Versiones de SDK compatibles
-
-|     Biblioteca de cliente     |     Versión admitida de almacenamiento de blobs de Azure Data Box     |     Vínculo             |     Especificación de punto de conexión         |
-|------------------------|-------------------------------------------------|---------------------------------------------|------------------------------------|
-|    .NET                |    De la 6.2.0 a la 8.7.0.                         |    Paquete NuGet:   https://www.nuget.org/packages/WindowsAzure.Storage/ <br>Versión de GitHub:   https://github.com/Azure/azure-storage-net/releases                                                                      |    archivo app.config                 |
-|    Java                |    De la 4.1.0 a la 6.1.0                          |    Paquete Maven:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage   <br>Versión de GitHub:   https://github.com/Azure/azure-storage-java/releases                                                      |    Configuración de la cadena de conexión         |
-|    Node.js             |    De la 1.1.0 a la 2.7.0                          |    Vínculo NPM:   https://www.npmjs.com/package/azure-storage   (Por ejemplo: ejecute "npm install azure-storage@2.7.0")   <br>Versión de GitHub:   https://github.com/Azure/azure-storage-node/releases                            |    Declaración de instancia de servicio    |
-|    C++                 |    De la 2.4.0 a la 3.1.0                          |    Paquete NuGet:   https://www.nuget.org/packages/wastorage.v140/   <br>Versión de GitHub:   https://github.com/Azure/azure-storage-cpp/releases                                                                            |    Configuración de la cadena de conexión         |
-|    PHP                 |    De la 0.15.0 a la 1.0.0                         |    Versión de GitHub:   https://github.com/Azure/azure-storage-php/releases   <br>Instalación a través de Composer (consulte los detalles a continuación)                                                                                                   |    Configuración de la cadena de conexión         |
-|    Python              |    De la 0.30.0 a la 1.0.0                         |    Versión de GitHub:   https://github.com/Azure/azure-storage-python/releases                                                                                                                                              |    Declaración de instancia de servicio    |
-|    Ruby                |    De la 0.12.1 a la 1.0.1                         |    Paquete de RubyGems:<br>Común:   https://rubygems.org/gems/azure-storage-common/   <br>Blob: https://rubygems.org/gems/azure-storage-blob/      <br>Versión de GitHub:   https://github.com/Azure/azure-storage-ruby/releases    |                                   |
-
+- [2015-04-05](/rest/api/storageservices/version-2015-04-05) |
 ## <a name="supported-azure-client-libraries"></a>Bibliotecas de clientes de Azure compatibles
 
 Para el almacenamiento en blobs de Azure Data Box, hay requisitos de bibliotecas de cliente y de sufijos de puntos de conexión que son específicos. Los puntos de conexión del almacenamiento en blobs de Azure Data Box no tienen una paridad completa con la versión más reciente de la API REST de Azure Blob Storage. Para más información, consulte [las versiones compatibles con Azure Data Box 1.8 o versiones posteriores](#supported-api-versions). En lo que respecta a las bibliotecas de cliente de almacenamiento, debe conocer cuál es la versión compatible con la API REST.
@@ -68,12 +55,12 @@ Para el almacenamiento en blobs de Azure Data Box, hay requisitos de bibliotecas
 
 | Biblioteca de cliente     |Versión admitida de almacenamiento de blobs de Azure Data Box     | Vínculo   |     Especificación de punto de conexión      |
 |--------------------|--------------------------------------------|--------|---------------------------------|
-|    .NET                |    8.7.0                                           |    Paquete NuGet:   https://www.nuget.org/packages/WindowsAzure.Storage/8.7.0    <br>Versión de GitHub:   https://github.com/Azure/azure-storage-net/releases/tag/v8.7.0                                                                                                                                                                                               |    archivo app.config                 |
-|    Java                |    6.1.0                                           |    Paquete Maven:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>Versión de GitHub:   https://github.com/Azure/azure-storage-java/releases/tag/v6.1.0                                                                                                                                                                              |    Configuración de la cadena de conexión         |
-|    Node.js             |    2.7.0                                           |    Vínculo NPM:   https://www.npmjs.com/package/azure-storage   (Ejecute: npm install azure-storage@2.7.0)   <br>Versión de GitHub:   https://github.com/Azure/azure-storage-node/releases/tag/v2.7.0                                                                                                                                                                        |    Declaración de instancia de servicio    |
-|    C++                 |    3.1.0                                           |    Paquete NuGet:   https://www.nuget.org/packages/wastorage.v140/3.1.0   <br>Versión de GitHub:   https://github.com/Azure/azure-storage-cpp/releases/tag/v3.1.0                                                                                                                                                                                                     |    Configuración de la cadena de conexión         |
-|    PHP                 |    1.0.0                                           |    Versión de GitHub:<br>Comunes: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-common   <br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.0.0-blob      <br>Instalación mediante el compositor (para obtener más información, vea los siguientes detalles).                                                                                                             |    Configuración de la cadena de conexión         |
-|    Python              |    1.0.0                                           |    Versión de GitHub:<br>Común:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>Blob:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-blob                                                                                                                                                                          |    Declaración de instancia de servicio    |
+|    .NET                |    9.2.0                                           |    Paquete NuGet:   https://www.nuget.org/packages/WindowsAzure.Storage/9.2.0    <br>Versión de GitHub:   https://github.com/Azure/azure-storage-net/releases/tag/v9.2.0                                                                                                                                                                                               |    archivo app.config                 |
+|    Java                |    7.0.0                                           |    Paquete Maven:   https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage/6.1.0   <br>Versión de GitHub:   https://github.com/Azure/azure-storage-java/releases/tag/v7.0.0                                                                                                                                                                              |    Configuración de la cadena de conexión         |
+|    Node.js             |    2.8.3                                           |    Vínculo NPM:   https://www.npmjs.com/package/azure-storage   (Ejecutar: `npm install azure-storage@2.7.0`)   <br>Versión de GitHub:   https://github.com/Azure/azure-storage-node/releases/tag/v2.8.3                                                                                                                                                                        |    Declaración de instancia de servicio    |
+|    C++                 |    5.2.0                                           |    Paquete NuGet:   https://www.nuget.org/packages/wastorage.v140/5.2.0   <br>Versión de GitHub:   https://github.com/Azure/azure-storage-cpp/releases/tag/v5.2.0                                                                                                                                                                                                     |    Configuración de la cadena de conexión         |
+|    PHP                 |    1.2.0                                           |    Versión de GitHub:<br>Comunes: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-common   <br>Blob: https://github.com/Azure/azure-storage-php/releases/tag/v1.2.0-blob      <br>Instalación mediante el compositor (para obtener más información, vea los siguientes detalles).                                                                                                             |    Configuración de la cadena de conexión         |
+|    Python              |    1.1.0                                           |    Versión de GitHub:<br>Común:   https://github.com/Azure/azure-storage-python/releases/tag/v1.0.0-common <br>Blob:   https://github.com/Azure/azure-storage-python/releases/tag/v1.1.0-blob                                                                                                                                                                          |    Declaración de instancia de servicio    |
 |    Ruby                |    1.0.1                                           |    Paquete de RubyGems:<br>Común:   https://rubygems.org/gems/azure-storage-common/versions/1.0.1   <br>Blob: https://rubygems.org/gems/azure-storage-blob/versions/1.0.1         <br>Versión de GitHub:<br>Comunes: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-common   <br>Blob: https://github.com/Azure/azure-storage-ruby/releases/tag/v1.0.1-blob          |    Configuración de la cadena de conexión         |
 
 
@@ -81,22 +68,22 @@ Para el almacenamiento en blobs de Azure Data Box, hay requisitos de bibliotecas
 ### <a name="install-php-client-via-composer---current"></a>Instalación del cliente PHP a través de compositor: actual
 
 Para instalar a través de compositor: (usaremos blob como ejemplo).
-Cree un archivo llamado composer.json en la raíz del proyecto con el siguiente código:
+1. Cree un archivo llamado composer.json en la raíz del proyecto con el siguiente código:
 
-```
- {
-   "require": {
-   "Microsoft/azure-storage-blob":"1.0.0"
-   }
-```
+    ```
+    {
+    "require": {
+    "Microsoft/azure-storage-blob":"1.2.0"
+    }
+    ```
 
-Descargue `composer.phar` a la raíz del proyecto.
+2. Descargue `composer.phar` a la raíz del proyecto.
 
-Ejecute: php composer.phar install.
+3. Ejecute: php composer.phar install.
 
 ### <a name="endpoint-declaration"></a>Declaración de punto de conexión
 
-Un punto de conexión de almacenamiento en blobs de Azure Data Box incluye dos partes: el nombre de una región y el dominio de Azure Data Box. En el SDK de almacenamiento de blobs de cuadro de datos, es el punto de conexión predeterminado \<Nº de serie. del dispositivo >. microsoftdatabox.com.  Para obtener más información sobre el punto de conexión de servicio de blob, vaya a [Connect via Data Box Blob storage](data-box-deploy-copy-data-via-rest.md) (Conectase mediante el almacenamiento en blobs de Azure Data Box).
+Un punto de conexión de almacenamiento en blobs de Azure Data Box incluye dos partes: el nombre de una región y el dominio de Azure Data Box. En el SDK de almacenamiento de blobs de cuadro de datos, es el punto de conexión predeterminado `\<serial no. of the device>.microsoftdatabox.com`.  Para obtener más información sobre el punto de conexión de servicio de blob, vaya a [Connect via Data Box Blob storage](data-box-deploy-copy-data-via-rest.md) (Conectase mediante el almacenamiento en blobs de Azure Data Box).
  
 ## <a name="examples"></a>Ejemplos
 

@@ -1,76 +1,109 @@
 ---
 title: Directivas de indexación de Azure Cosmos DB
-description: Comprenda cómo funciona la indexación en Azure Cosmos DB. Obtenga información sobre la configuración y cambio de la directiva de indexación para una indexación automática y un mayor rendimiento.
-author: rimman
+description: Aprenda a configurar y cambiar el valor predeterminado para la indexación automática y un mayor rendimiento en Azure Cosmos DB la directiva de indexación.
+author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: rimman
-ms.openlocfilehash: 6998db1679e67f8ac4bf7c81ea9373c66a9618ee
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.author: thweiss
+ms.openlocfilehash: 67bc3076be91ade140b39b7dd8037299902546a9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278571"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005101"
 ---
-# <a name="index-policy-in-azure-cosmos-db"></a>Directiva de indexación en Azure Cosmos DB
+# <a name="indexing-policies-in-azure-cosmos-db"></a>Directivas de indexación en Azure Cosmos DB
 
-Puede invalidar la directiva de indexación predeterminada en un contenedor de Azure Cosmos al configurar los parámetros siguientes:
+En Azure Cosmos DB, cada contenedor tiene una directiva de indexación que determina cómo se deben indizar los elementos del contenedor. El valor predeterminado la directiva para la indización recién había creado los índices de los contenedores todas las propiedades de cada elemento, aplicar los índices de intervalo para cualquier cadena o un número, y los índices espaciales para cualquier objeto de GeoJSON de tipo Point. Esto le permite obtener un rendimiento elevado de consultas sin tener que pensar en la indización y la administración de índices por adelantado.
 
-* **Include or exclude items and paths from the index** (Incluir o excluir elementos y rutas de acceso del índice): Puede excluir o incluir elementos específicos en el índice, al insertar o reemplazar los elementos dentro de un contenedor. También puede incluir o excluir propiedades/rutas de acceso específicas para indexarlas en contenedores. Las rutas de acceso pueden incluir patrones de caracteres comodín, por ejemplo, *.
+En algunas situaciones, puede invalidar este comportamiento automático para satisfacer mejor sus necesidades. Puede personalizar la directiva de indexación de un contenedor estableciendo su *modo de indexación*e incluir o excluir *las rutas de acceso de propiedad*.
 
-* **Configure index types** (Configurar tipos de índice): Además para rutas de acceso indizadas de intervalo, puede agregar otros tipos de índices, como espacial.
+## <a name="indexing-mode"></a>Modo de indexación
 
-* **Configure index modes** (Configurar modos de índice): al usar la directiva de indexación en un contenedor, puede configurar diferentes modos de indexación, como *Coherente* o *Ninguna*.
+Azure Cosmos DB admite dos modos de indexación:
 
-## <a name="indexing-modes"></a>Modos de indexación
+- **Coherente**: Si la directiva de indexación de un contenedor está establecida en coherente, el índice se actualiza de forma sincrónica como crear, actualizar o eliminar elementos. Esto significa que la coherencia de las consultas de lectura será el [coherencia configurado para la cuenta](consistency-levels.md).
 
-Azure Cosmos DB admite dos modos de indexación que se pueden configurar en un contenedor de Azure Cosmos mediante Directiva de indexación:
+- **Ninguna**: Si la directiva de indexación de un contenedor se establece en None, indexación está deshabilitada eficazmente en ese contenedor. Esto se utiliza normalmente cuando se usa un contenedor como un almacén de pares clave-valor puro sin necesidad de índices secundarios. Puede también ayudar a acelerar de forma masiva las operaciones de inserción.
 
-* **Coherente**: Si se establece la directiva de un contenedor Azure Cosmos *coherente*, las consultas realizadas en un contenedor específico siguen el mismo nivel de coherencia que se especificó para lecturas de punto (por ejemplo, fuerte, obsolescencia limitada, sesión y eventual). 
+## <a name="including-and-excluding-property-paths"></a>Incluir y excluir rutas de acceso de propiedad
 
-  El índice se actualiza de forma sincrónica cuando se actualizan los elementos. Por ejemplo, las operaciones de insertar, reemplazar, actualizar y eliminar en un elemento darán como resultado la actualización del índice. La indexación coherente admite consultas coherentes a costa de un impacto en el rendimiento de escritura. La reducción del rendimiento de escritura depende de las "rutas de acceso incluidas en el índice" y "nivel de coherencia". Modo de indexación coherente está diseñado para mantener al día con todas las actualizaciones de índice y para atender consultas de inmediato.
+Una directiva de indexación personalizada puede especificar rutas de acceso de propiedad que se incluyen o excluyen de la indexación de forma explícita. Al optimizar el número de rutas de acceso que se indizan, puede reducir la cantidad de almacenamiento utilizado por el contenedor y mejorar la latencia de operaciones de escritura. Estas rutas de acceso se definen siguiendo [el método descrito en la sección de información general sobre indización](index-overview.md#from-trees-to-property-paths) con las siguientes adiciones:
 
-* **Ninguna**: un contenedor marcado con el modo de indexación Ninguna no tiene ningún índice asociado. Se suele usar si la base datos de Azure Cosmos se emplea como almacenamiento de clave-valor y solo se puede acceder a los elementos mediante su propiedad de identificador.
+- ruta a un valor escalar (cadena o número) termina con `/?`
+- los elementos de una matriz se asignan entre sí a través del `/[]` notación (en lugar de `/0`, `/1` etcetera.)
+- el `/*` comodín puede utilizarse para que coincida con todos los elementos debajo del nodo
 
-  > [!NOTE]
-  > Configurar el modo de indexación como un *ninguno* tiene el efecto de quitar cualquier índice existente. Debe usar esta opción Úsela si los patrones de acceso solo requieren un identificador o la vinculación automática.
+Teniendo el mismo ejemplo nuevo:
 
-Los niveles de coherencia de consulta se mantienen similares a las operaciones de lectura normales. La base de datos de Cosmos Azure devuelve un error si consulta el contenedor que tiene un *ninguno* modo de indexación. Puede ejecutar las consultas como exámenes a través de la configuración explícita **x-ms-documentdb-enable-scan** encabezado en la API de REST o el **EnableScanInQuery** opción de solicitud mediante el SDK. NET. Algunas características de consulta, como ORDER BY, no se admiten con **EnableScanInQuery**, ya que imponen un índice correspondiente.
+    {
+        "locations": [
+            { "country": "Germany", "city": "Berlin" },
+            { "country": "France", "city": "Paris" }
+        ],
+        "headquarters": { "country": "Belgium", "employees": 250 }
+        "exports": [
+            { "city": "Moscow" },
+            { "city": "Athens" }
+        ]
+    }
+
+- el `headquarters`del `employees` es la ruta de acceso `/headquarters/employees/?`
+- el `locations`' `country` es la ruta de acceso `/locations/[]/country/?`
+- la ruta de acceso a cualquier cosa en `headquarters` es `/headquarters/*`
+
+Cuando una ruta de acceso se incluye explícitamente en la directiva de indexación, también debe definir qué tipos de índice se deben aplicar a esa ruta de acceso y para cada tipo de índice, el tipo de datos que se aplica este índice:
+
+| Tipo de índice | Tipos de datos de destino permitidos |
+| --- | --- |
+| Intervalo | Cadena o un número |
+| Espacial | Point, LineString o polígono |
+
+Por ejemplo, podríamos incluimos la `/headquarters/employees/?` ruta de acceso y especificar que un `Range` índice se debe aplicar en esa ruta de acceso para ambos `String` y `Number` valores.
+
+### <a name="includeexclude-strategy"></a>Incluir o excluir estrategia
+
+Cualquier directiva de indexación tiene que incluir la ruta de acceso raíz `/*` como un incluye o una ruta excluida.
+
+- Incluir la ruta de acceso raíz para excluir selectivamente las rutas de acceso que no es necesario indexar. Este es el enfoque recomendado, ya que permite Azure Cosmos DB de forma proactiva cualquier propiedad nueva que se puede agregar a su modelo de índice.
+- Excluir la ruta de acceso raíz para incluir las rutas de acceso que se deben indexar de manera selectiva.
+
+Consulte [en esta sección](how-to-manage-indexing-policy.md#indexing-policy-examples) para ejemplos de directivas de indexación.
 
 ## <a name="modifying-the-indexing-policy"></a>Modificación de la directiva de indexación
 
-En Azure Cosmos DB, puede actualizar la directiva de indexación de un contenedor en cualquier momento. Un cambio en la directiva de indexación en un contenedor de Azure Cosmos puede dar lugar a un cambio en la forma del índice. Este cambio afecta a las rutas de acceso que se pueden indexar, a su precisión y al modelo de coherencia del propio índice. Un cambio en la directiva de indexación requiere efectivamente una transformación del índice original en uno nuevo.
+Directiva de indexación de un contenedor se puede actualizar en cualquier momento [mediante el portal de Azure o uno de los SDK admitidos](how-to-manage-indexing-policy.md). Una actualización de la directiva de indexación desencadena una transformación del índice antiguo al nuevo, que se realiza en línea y en su lugar (por lo que no se consume ningún espacio de almacenamiento adicional durante la operación). Índice de la directiva antigua se transforma eficazmente a la nueva directiva sin que afecte a la disponibilidad de escritura o el rendimiento aprovisionado en el contenedor. Transformación de índice es una operación asincrónica, y el tiempo que tarda en completarse depende del rendimiento aprovisionado, el número de elementos y su tamaño. 
 
-### <a name="index-transformations"></a>Transformaciones del índice
+> [!NOTE]
+> Mientras la reindexación está en curso, las consultas no pueden devolver todos los resultados coincidentes y lo hará sin devolver los errores. Esto significa que los resultados de consulta no pueden ser coherentes hasta que se complete la transformación del índice. Es posible hacer un seguimiento del progreso de transformación de índice [mediante uno de los SDK](how-to-manage-indexing-policy.md).
 
-Todas las transformaciones del índice se realizan en línea. Los elementos indexados por la directiva antigua se transforman eficazmente según la directiva nueva sin que afecte a la disponibilidad de escritura o el rendimiento aprovisionado en el contenedor. La coherencia de leer y escribir las operaciones que se realizan utilizando la API de REST, SDK, o mediante procedimientos almacenan y desencadenadores no se ve afectada durante la transformación de índice.
+Si el modo de la directiva de indexación nuevo está establecido en coherente, no se puede aplicar ningún otro cambio de directiva de indexación mientras la transformación de índice está en curso. Una transformación de índice de ejecución puede cancelarse estableciendo el modo de la directiva de indexación en None (que inmediatamente se eliminará el índice).
 
-Cambiar la directiva de indexación es una operación asincrónica y el tiempo para completar la operación depende del número de elementos, el rendimiento aprovisionado y el tamaño de los elementos. Mientras la reindexación está en curso, la consulta no puede devolver todos los resultados coincidentes, si se realizan las consultas a usar el índice que se está modificando y no devuelve los errores de las consultas. Mientras la reindexación está en curso, las consultas son coherentes independientemente de la configuración del modo de indexación. Después de que se complete la transformación del índice, continuará viendo resultados coherentes. Esto se aplica a las consultas realizadas con interfaces como la API de REST, los SDK o los procedimientos almacenados y desencadenadores. Transformación de índice se realiza de forma asincrónica, en segundo plano, en las réplicas mediante el uso de los recursos de reserva que están disponibles para las réplicas específicas.
+## <a name="indexing-policies-and-ttl"></a>Las directivas de indexación y TTL
 
-Todas las transformaciones de índice se realizan in situ. Azure Cosmos DB no mantiene dos copias del índice. Por tanto, no se requiere ni se usa espacio en disco adicional en los contenedores mientras se realiza la transformación del índice.
+El [característica período de vida (TTL)](time-to-live.md) requiere la indexación para que esté activo en el contenedor está activado. Esto significa que:
 
-Al cambiar la directiva de indexación, los cambios se aplican para mover desde el índice antiguo al nuevo índice y se basan principalmente en las configuraciones de modo de indexación. Las configuraciones de modo de indexación desempeñan un rol más importante en comparación con otras propiedades, como las rutas de acceso incluidas y excluidas, los tipos de índice y la precisión.
+- no es posible activar el TTL en un contenedor donde se establece el modo de indexación en None,
+- no es posible establecer el modo de indexación en None en un contenedor donde se activa el TTL.
 
-Si las directivas de indexación antigua y nueva usan indexación **coherente**, la base de datos de Azure Cosmos DB realiza una transformación del índice en línea. No se puede aplicar otro cambio de directiva de indexación con el modo de indexación Coherente mientras la transformación está en curso. Si cambia al modo de indexación Ninguna, el índice se elimina inmediatamente. El cambio a Ninguna resulta útil cuando se quiere cancelar una transformación en curso y empezar de nuevo con una directiva de indexación distinta.
+Para escenarios donde no necesita ninguna ruta de acceso de propiedad indizar, pero el TTL es necesario, puede usar una directiva de indexación con:
 
-## <a name="modifying-the-indexing-policy---examples"></a>Modificación de la directiva de indexación: ejemplos
+- un modo de indexación establecido en coherente, y
+- ninguna ruta de acceso incluida, y
+- `/*` como la única ruta excluida.
 
-Los siguientes son los casos de uso más común cuando desea actualizar una directiva de indexación:
+## <a name="obsolete-attributes"></a>Atributos obsoletos
 
-* Si desea tener resultados coherentes durante el funcionamiento normal, pero se retrocede a la **ninguno** modo de indexación durante importaciones de datos.
+Cuando se trabaja con las directivas de indexación, puede encontrar los siguientes atributos que ahora están obsoletos:
 
-* Si quiere empezar a usar características de indexación en sus contenedores actuales de Azure Cosmos. Por ejemplo, puede usar consultas geoespaciales, que requieren el tipo de índice espacial, o bien consultas por ORDER BY o por rango de cadena, que requieren el tipo de índice por rango de cadena.
-
-* Si quiere seleccionar manualmente las propiedades para indexarlas y cambiarlas con el tiempo para adaptarse a las cargas de trabajo.
-
-* Si quiere optimizar la precisión de indexación para mejorar el rendimiento de las consultas o reducir el almacenamiento usado.
+- `automatic` es un valor booleano que se definen en la raíz de una directiva de indexación. Ahora se omite y se puede establecer en `true`, cuando lo requiera la herramienta que está utilizando.
+- `precision` es un número que se definen en el nivel de índice para rutas de acceso incluidas. Ahora se omite y se puede establecer en `-1`, cuando lo requiera la herramienta que está utilizando.
+- `hash` es un tipo de índice que ahora se reemplaza por el tipo de intervalo.
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 Obtenga más información acerca de la indexación en los siguientes artículos:
 
-* [Introducción a la indexación](index-overview.md)
-* [Tipos del índice](index-types.md)
-* [Rutas de acceso del índice](index-paths.md)
-* [Cómo administrar la directiva de indexación](how-to-manage-indexing-policy.md)
+- [Introducción a la indización](index-overview.md)
+- [Cómo administrar la directiva de indexación](how-to-manage-indexing-policy.md)

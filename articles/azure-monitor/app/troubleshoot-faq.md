@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 12/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 6834ab15f3d46b8b7116a48b0e970f553eb65ba8
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.openlocfilehash: 46c387ab175bfd3613e00be8e7b3a899aa025a7f
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521829"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149295"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Preguntas frecuentes
 
@@ -134,7 +134,7 @@ Más información sobre [ASP.NET](api-filtering-sampling.md) o [Java](java-filte
 
 ## <a name="how-are-city-country-and-other-geo-location-data-calculated"></a>¿Cómo se calculan los datos de ciudad, país y otros datos de ubicación geográfica?
 
-Buscamos la dirección IP (IPv4 o IPv6) del cliente web mediante [GeoLite2](http://dev.maxmind.com/geoip/geoip2/geolite2/).
+Buscamos la dirección IP (IPv4 o IPv6) del cliente web mediante [GeoLite2](https://dev.maxmind.com/geoip/geoip2/geolite2/).
 
 * Telemetría del explorador: recopilamos la dirección IP del remitente.
 * Telemetría del servidor: el módulo de Application Insights recopila la dirección IP del cliente. No se recopila si `X-Forwarded-For` está establecido.

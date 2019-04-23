@@ -1,7 +1,6 @@
 ---
 title: Intercambios de autoservicio y los reembolsos para las reservas de Azure | Microsoft Docs
 description: Obtenga información sobre cómo pueden intercambiar o reembolso reservas de Azure.
-services: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
@@ -11,20 +10,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/5/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: aa1a218fbf0bc7eacac65b50e4ee1f86791e2b3b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 54578746ea8029a760663edc456660f98358abc5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59281988"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009317"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Intercambios de autoservicio y los reembolsos para las reservas de Azure
 
-Las reservas de Azure proporcionan flexibilidad para ayudar a satisfacer sus necesidades en constante evolución. Puede intercambiar una reserva de la reserva otra del mismo tipo. También puede reembolsar una reserva, hasta 50.000 USD al año, si ya no lo necesita.
+Las reservas de Azure proporcionan flexibilidad para ayudar a satisfacer sus necesidades en constante evolución. Puede intercambiar una reserva por otra del mismo tipo. También puede devolver una reserva, hasta 50 000 USD al año, si ya no la necesita.
 
-Capacidad de exchange y cancelación de autoservicio no está disponible para los clientes de US Government Enterprise Agreement. Se admiten otros tipos de suscripción de US Government incluidos pago por uso y CSP.
+El autoservicio de intercambio y la funcionalidad de cancelación no están disponible para los clientes de Contrato Enterprise de US Government. Se admiten otros tipos de suscripción de US Government incluidos pago por uso y CSP.
+
+Debe tener acceso de propietario en el pedido de reserva para intercambiar o reembolso una reserva existente.
 
 ## <a name="exchange-an-existing-reserved-instance"></a>Una instancia reservada existente de Exchange
 
@@ -32,14 +33,14 @@ Puede intercambiar la reserva con tres pasos rápidos en el [portal Azure](https
 
 1. Seleccione las reservas de direcciones que desea de reembolso y haga clic en **Exchange**.  
     ![Imagen de ejemplo que muestra las reservas de direcciones para devolver](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-return.png)
-2. Seleccione el producto de la máquina virtual que desea comprar y escriba una cantidad. Asegúrese de que el nuevo total de compra es mayor que el total de devolución. [Determinar el tamaño adecuado antes de adquirir](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
+2. Seleccione el producto de máquina virtual que quiere comprar y escriba la cantidad. Asegúrese de que el nuevo total de compra es mayor que el total de devolución. [Determinar el tamaño adecuado antes de adquirir](../virtual-machines/windows/prepay-reserved-vm-instances.md#determine-the-right-vm-size-before-you-buy).  
     ![Imagen de ejemplo que muestra el producto de la máquina virtual para comprar con un intercambio](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-select-purchase.png)
 3. Revise y complete la transacción.  
     ![Imagen de ejemplo que muestra el producto de la máquina virtual para comprar con un intercambio, completar el valor devuelto](./media/billing-azure-reservations-self-service-exchange-and-refund/exchange-refund-confirm-exchange.png)
 
 Una reserva de reembolso, vaya a **detalles de la reserva** y haga clic en **reembolso**.
 
-## <a name="how-return-and-exchange-transactions-are-processed"></a>¿Cómo se devuelven y se procesan las transacciones de exchange
+## <a name="how-transactions-are-processed"></a>Cómo se procesan las transacciones
 
 En primer lugar, Microsoft cancela la reserva existente y reembolsos de la cantidad proporcional para esa reserva. Si se produce un intercambio, se procesa la compra nuevo. Microsoft procesa reembolsos mediante uno de los métodos siguientes, según el tipo de cuenta y el método de pago:
 
@@ -49,7 +50,7 @@ Dinero se agrega para el compromiso monetario para los intercambios y reembolsos
 
 Si se realizó la compra original como un exceso, Microsoft publica una nota de crédito.
 
-### <a name="pay-as-you-go-invoice-payment-customers-and-cloud-solution-provider-program"></a>Los clientes de pago de factura de pago por uso y el programa de proveedor de soluciones en la nube
+### <a name="pay-as-you-go-invoice-payments-and-csp-program"></a>Los pagos mediante factura de pago por uso y el programa CSP
 
 Se ha cancelado la factura de compra de reserva original y, a continuación, se crea una nueva factura para obtener el reembolso. Para los intercambios, muestra la nueva factura el reembolso y la compra nuevo. La cantidad de reembolso se ajusta con la compra. Si solo se devolverá una reserva, la cantidad prorrateada permanece con Microsoft y se ajusta con una compra de reserva futuras.
 
@@ -74,7 +75,7 @@ Se ha cancelado la factura original y se crea una nueva factura. Se devuelve el 
 - Solo los propietarios de reserva pueden procesar un reembolso. [Obtenga información sobre cómo agregar o cambiar los usuarios pueden administrar una reserva](billing-manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 - Microsoft reserva el derecho a cobrar una reducción del 12% para las devoluciones, aunque actualmente no se le cobrará la penalización.
 
-## <a name="exchange-a-non-premium-storage-vm-reservation-for-a-premium-storage-reservation"></a>Intercambiar una reserva de la máquina virtual para una reserva de almacenamiento premium de sin premium storage
+## <a name="exchange-non-premium-storage-for-premium-storage"></a>Exchange sin premium storage para premium storage
 
 Puede intercambiar una reserva de compra para un tamaño de máquina virtual que no es compatible con premium storage para un tamaño de máquina virtual correspondiente que hace. Por ejemplo, un _F1_ para un _F1s_. Para hacer el intercambio, vaya a detalles de la reserva y haga clic en **Exchange**. El intercambio no restablece el término de la instancia reservada o cree una nueva transacción.
 

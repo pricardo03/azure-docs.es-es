@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/30/2017
 ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: 8e082f15cff616b9dc63fbf4ad51e94d078a04f3
-ms.sourcegitcommit: 9f87a992c77bf8e3927486f8d7d1ca46aa13e849
+ms.openlocfilehash: ae6e0e186f5cc0c9e3f0cd02d45d57c079eb3539
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/28/2018
-ms.locfileid: "53811297"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995547"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Seguimiento de las operaciones personalizadas con el SDK de .NET para Application Insights
 
@@ -384,12 +384,13 @@ En algunas colas, se pueden quitar de la cola varios mensajes con una solicitud.
 Cada mensaje debe procesarse en su propio flujo de control asincrónico. Para más información, vea la sección [Seguimiento de dependencias de salida](#outgoing-dependencies-tracking).
 
 ## <a name="long-running-background-tasks"></a>Tareas en segundo plano de ejecución prolongada
+
 Algunas aplicaciones inician operaciones de larga ejecución que es posible que se deban a solicitudes del usuario. Desde la perspectiva del seguimiento o la instrumentación, no es diferente de la instrumentación de solicitudes o dependencias: 
 
 ```csharp
 async Task BackgroundTask()
 {
-    var operation = telemetryClient.StartOperation<RequestTelemetry>(taskName);
+    var operation = telemetryClient.StartOperation<DependencyTelemetry>(taskName);
     operation.Telemetry.Type = "Background";
     try
     {
@@ -414,9 +415,9 @@ async Task BackgroundTask()
 }
 ```
 
-En este ejemplo, `telemetryClient.StartOperation` crea `RequestTelemetry` y rellena el contexto de correlación. Supongamos que tiene una operación principal creada por las solicitudes de entrada que programaron la operación. Siempre que `BackgroundTask` se inicie en el mismo flujo de control asincrónico que una solicitud de entrada, se correlaciona con esa operación principal. `BackgroundTask` y todos los elementos de telemetría anidados se correlacionan automáticamente con la solicitud que la causó incluso después de que finalice la solicitud.
+En este ejemplo, `telemetryClient.StartOperation` crea `DependencyTelemetry` y rellena el contexto de correlación. Supongamos que tiene una operación principal creada por las solicitudes de entrada que programaron la operación. Siempre que `BackgroundTask` se inicie en el mismo flujo de control asincrónico que una solicitud de entrada, se correlaciona con esa operación principal. `BackgroundTask` y todos los elementos de telemetría anidados se correlacionan automáticamente con la solicitud que la causó incluso después de que finalice la solicitud.
 
-Cuando la tarea se inicia desde el subproceso en segundo plano que no tiene ninguna operación (`Activity`) asociada a él, `BackgroundTask` no tiene ningún elemento primario. Pero puede tener operaciones anidadas. Todos los elementos de telemetría notificados desde la tarea se ponen en correlación con la `RequestTelemetry` creada en `BackgroundTask`.
+Cuando la tarea se inicia desde el subproceso en segundo plano que no tiene ninguna operación (`Activity`) asociada a él, `BackgroundTask` no tiene ningún elemento primario. Pero puede tener operaciones anidadas. Todos los elementos de telemetría notificados desde la tarea se ponen en correlación con la `DependencyTelemetry` creada en `BackgroundTask`.
 
 ## <a name="outgoing-dependencies-tracking"></a>Seguimiento de dependencias de salida
 Puede realizar el seguimiento de su propio tipo de dependencia o de una operación que no es compatible con Application Insights.

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: raynew
-ms.openlocfilehash: 8269cde7c1be5ba5671bafdae850d88c43db27ea
-ms.sourcegitcommit: 5978d82c619762ac05b19668379a37a40ba5755b
+ms.openlocfilehash: d3a2ffdedda7f541fb1a3f37a8b40bc7af3dcb57
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55497934"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996516"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Instalación de Azure Backup Server en Azure Stack
 
@@ -61,7 +61,7 @@ Si se comparte con otras máquinas virtuales, el tamaño de la cuenta de almacen
 Cada máquina virtual de Azure Stack viene con un almacenamiento temporal en el disco, que está disponible para el usuario como volumen `D:\`. El área de almacenamiento provisional local necesaria para Azure Backup se puede configurar para residir en `D:\`, y la ubicación en caché puede colocarse en `C:\`. De esta manera, no es necesario reducir el almacenamiento de los discos de datos conectados a la máquina virtual de Azure Backup Server.
 
 ### <a name="storing-backup-data-on-local-disk-and-in-azure"></a>Almacenamiento de datos de copia de seguridad en un disco local y en Azure
-Azure Backup Server almacena los datos de copia de seguridad en discos de Azure conectados a la máquina virtual, para la recuperación operativa. Una vez que los discos y el espacio de almacenamiento están conectados a la máquina virtual, Azure Backup Server gestiona el almacenamiento por usted. La cantidad de almacenamiento de datos de copia de seguridad depende del número y tamaño de los discos conectados a cada [máquina virtual de Azure Stack](../azure-stack/user/azure-stack-storage-overview.md). Cada tamaño de VM de Azure Stack tiene un número máximo de discos que se pueden conectar a la máquina virtual. Por ejemplo, A2 son cuatro discos. A3 son ocho discos. A4 son 16 discos. De nuevo, el tamaño y número de discos determina el grupo de almacenamiento de copia de seguridad total.
+Azure Backup Server almacena los datos de copia de seguridad en discos de Azure conectados a la máquina virtual, para la recuperación operativa. Una vez que los discos y el espacio de almacenamiento están conectados a la máquina virtual, Azure Backup Server gestiona el almacenamiento por usted. La cantidad de almacenamiento de datos de copia de seguridad depende del número y tamaño de los discos conectados a cada [máquina virtual de Azure Stack](/azure-stack/user/azure-stack-storage-overview). Cada tamaño de VM de Azure Stack tiene un número máximo de discos que se pueden conectar a la máquina virtual. Por ejemplo, A2 son cuatro discos. A3 son ocho discos. A4 son 16 discos. De nuevo, el tamaño y número de discos determina el grupo de almacenamiento de copia de seguridad total.
 
 > [!IMPORTANT]
 > **No** debería conservar datos de recuperación operativa (copia de seguridad) en discos conectados directamente a Azure Backup Server durante más de cinco días.
@@ -73,7 +73,7 @@ Para almacenar datos de copia de seguridad en Azure, cree o use un almacén de R
  
 ### <a name="scaling-deployment"></a>Escalado de la implementación
 Si quiere escalar su implementación, tiene las siguientes opciones:
-  - Escalar verticalmente: aumente el tamaño de la máquina virtual Azure Backup Server de la serie A a la serie D y aumente el almacenamiento local [según las instrucciones de la máquina virtual de Azure Stack](../azure-stack/user/azure-stack-manage-vm-disks.md).
+  - Escalar verticalmente: aumente el tamaño de la máquina virtual Azure Backup Server de la serie A a la serie D y aumente el almacenamiento local [según las instrucciones de la máquina virtual de Azure Stack](/azure-stack/user/azure-stack-manage-vm-disks).
   - Descargar datos: envíe los datos antiguos a Azure y conserve solo los datos más recientes en el almacenamiento conectado a Azure Backup Server.
   - Escalar horizontalmente: agregue más instancias de Azure Backup Server para proteger las cargas de trabajo.
 

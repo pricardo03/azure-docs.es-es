@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlr
 manager: craigg
-ms.date: 01/25/2019
-ms.openlocfilehash: 93be58ac231ff2b88c6618c549c9d1975977b91f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.date: 04/16/2019
+ms.openlocfilehash: 886f06e8640891ac09d1e4624335a7bfebcd3def
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59799157"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009385"
 ---
 # <a name="how-to-use-a-managed-instance-in-azure-sql-database"></a>Cómo usar una instancia administrada en Azure SQL Database
 
@@ -36,7 +36,7 @@ En este artículo encontrará varias guías, scripts y explicaciones que pueden 
 - [Configurar la red virtual y la subred existentes para una instancia administrada](sql-database-managed-instance-configure-vnet-subnet.md): si quiere configurar la red virtual y la subred existentes para implementar instancias administradas en ellas, aquí puede encontrar el script que comprueba los [requisitos de red](sql-database-managed-instance-connectivity-architecture.md#network-requirements) y que configura la subred según los requisitos.
 - [Configurar el DNS personalizado](sql-database-managed-instance-custom-dns.md): debe configurar el DNS personalizado si quiere obtener acceso a los recursos externos de los dominios personalizados desde la instancia administrada y a través de un servidor vinculado de perfiles de correo de base de datos.
 - [Sincronizar la configuración de red](sql-database-managed-instance-sync-network-configuration.md): puede suceder que, aunque haya [integrado la aplicación con una red de Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md), no pueda conectarse a una instancia administrada. Puede intentar actualizar la configuración de red para el plan de servicio que tenga.
-- [Buscar la dirección IP del punto de conexión de administración](sql-database-managed-instance-find-management-endpoint-ip-address.md): la instancia administrada usa el punto de conexión público solo con fines administrativos. Puede determinar la dirección IP del punto de conexión de administración mediante el script que se describe aquí.
+- [Buscar dirección IP de punto de conexión de administración](sql-database-managed-instance-find-management-endpoint-ip-address.md) : instancia administrada utiliza el punto de conexión público para fines de administración. Puede determinar la dirección IP del punto de conexión de administración mediante el script que se describe aquí.
 - [Comprobar la protección de firewall integrado](sql-database-managed-instance-management-endpoint-verify-built-in-firewall.md): la instancia administrada está protegida con un firewall integrado que permite el tráfico solo en los puertos necesarios. Puede comprobar las reglas de firewall integradas mediante el script que se describe en esta guía.
 - [Conectar aplicaciones](sql-database-managed-instance-connect-app.md): la instancia administrada se coloca en su propia red virtual privada de Azure con la dirección IP privada. Obtenga información sobre los distintos patrones para conectar las aplicaciones a su instancia administrada.
 

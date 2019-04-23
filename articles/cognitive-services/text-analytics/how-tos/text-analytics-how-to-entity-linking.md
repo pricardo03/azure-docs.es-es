@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 02/13/2019
+ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: dfbb31ce9f61ee28fef046120474a6a170906512
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: c179620d6858658dface5f706f7994d51f1a199b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59505582"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997315"
 ---
-# <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Cómo usar el reconocimiento de entidades con nombre en Text Analytics (versión preliminar)
+# <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Cómo usar el reconocimiento de entidades con nombre en el análisis de texto
 
-[Entity Recognition API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) toma el texto no estructurado y, para cada documento JSON, devuelve una lista de entidades desambiguadas con vínculos a más información en la web (Wikipedia y Bing). 
+El [denominado Entity Recognition API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) toma texto no estructurado y para cada documento JSON, devuelve una lista de entidades de eliminar la ambigüedad con vínculos para obtener más información en la web (Wikipedia y Bing). 
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>Vinculación de entidad y reconocimiento de entidades con nombre
 
@@ -28,12 +28,10 @@ Text Analytics `entities` admite el punto de conexión tanto denominado reconoci
 ### <a name="entity-linking"></a>Entity Linking
 La vinculación de entidad es la capacidad de identificar y desambiguar la identidad de una entidad que se encuentra en el texto (por ejemplo, determinar si se está usando "Marte" como el planeta o como el dios romano de la guerra). Este proceso requiere la presencia de una knowledge base a la que se vinculan las entidades reconocidas (Wikipedia se usa como knowledge base del punto de conexión `entities` de Text Analytics).
 
-En Text Analytics [versión 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634), solo está disponible la vinculación de entidad.
-
 ### <a name="named-entity-recognition-ner"></a>Reconocimiento de entidades con nombre (NER)
 El reconocimiento de entidades con nombre (NER) es la capacidad de identificar diferentes entidades en el texto y clasificarlas en clases predefinidas. Las clases de entidades admitidas se enumeran a continuación.
 
-En Text Analytics [versión preliminar 2.1](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), están disponibles la vinculación de entidad y el reconocimiento de entidades con nombre (NER).
+En el análisis de texto [versión 2.1](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634), vinculación de entidad y de reconocimiento de entidades con nombre (ER) están disponibles.
 
 ### <a name="language-support"></a>Compatibilidad con idiomas
 
@@ -44,7 +42,7 @@ El uso de la vinculación de entidad en distintos idiomas requiere una knowledge
 | Type  | SubType | Ejemplo |
 |:-----------   |:------------- |:---------|
 | Persona        | N/D\*         | "Jeff", "Bill Gates"     |
-| Ubicación      | N/D\*         | "Redmond, Washington", "París"  |
+| Location      | N/D\*         | "Redmond, Washington", "París"  |
 | Organización  | N/D\*         | "Microsoft"   |
 | Cantidad      | Number        | "6", "seis"     | 
 | Cantidad      | Porcentaje    | "50 %", "cincuenta por ciento"| 
@@ -54,14 +52,14 @@ El uso de la vinculación de entidad en distintos idiomas requiere una knowledge
 | Cantidad      | Moneda      | "10,99 $"     | 
 | Cantidad      | Dimension Data     | "10 millas", "40 cm"     | 
 | Cantidad      | Temperatura   | "32 grados"    |
-| DateTime      | N/D\*         | "6:30 p. m., 4 de febrero de 2012"      | 
-| DateTime      | Date          | "2 de mayo de 2017", "02/05/2017"   | 
-| DateTime      | Hora          | "8 a. m.", "8:00"  | 
-| DateTime      | DateRange     | "Del 2 de mayo al 5 de mayo"    | 
-| DateTime      | TimeRange     | "De las 6 p. m. a las 7 p. m."     | 
-| DateTime      | Duration      | "1 minuto y 45 segundos"   | 
-| DateTime      | Set           | "Todos los martes"     | 
-| DateTime      | TimeZone      |    | 
+| Datetime      | N/D\*         | "6:30 p. m., 4 de febrero de 2012"      | 
+| Datetime      | Date          | "2 de mayo de 2017", "02/05/2017"   | 
+| Datetime      | Hora          | "8 a. m.", "8:00"  | 
+| Datetime      | DateRange     | "Del 2 de mayo al 5 de mayo"    | 
+| Datetime      | TimeRange     | "De las 6 p. m. a las 7 p. m."     | 
+| Datetime      | Duration      | "1 minuto y 45 segundos"   | 
+| Datetime      | Set           | "Todos los martes"     | 
+| Datetime      | TimeZone      |    | 
 | URL           | N/D\*         | "https:\//www.bing.com"    |
 | Email         | N/D\*         | "support@contoso.com" |
 
@@ -71,7 +69,7 @@ El uso de la vinculación de entidad en distintos idiomas requiere una knowledge
 
 ## <a name="preparation"></a>Preparación
 
-Debe tener documentos JSON en este formato: identificador, texto, idioma
+Debe tener los documentos JSON en este formato: Id. de texto, el lenguaje
 
 Para conocer los idiomas admitidos actualmente, consulte [esta lista](../text-analytics-supported-languages.md).
 
@@ -94,16 +92,16 @@ El tamaño del documento debe ser inferior a 5120 caracteres por documento y pue
 
 Se pueden encontrar detalles sobre la definición de la solicitud en [How to call the Text Analytics API](text-analytics-how-to-call-api.md) (Cómo llamar a Text Analytics API). Recapitulamos los siguientes puntos para su comodidad:
 
-+ Cree una solicitud **POST**. Revise la documentación de la API para esta solicitud: [Entity Linking API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
++ Cree una solicitud **POST**. Revise la documentación de la API para esta solicitud: [Entity Linking API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-+ Establezca el punto de conexión HTTP para la extracción de la entidad. Debe incluir el recurso `/entities`: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
++ Establezca el punto de conexión HTTP para la extracción de la entidad. Debe incluir el recurso `/entities`: `https://[your-region].api.cognitive.microsoft.com/text/analytics/v2.1/entities`
 
 + Establezca un encabezado de solicitud para incluir la clave de acceso para las operaciones de Text Analytics. Para obtener más información, consulte [How to find endpoints and access keys](text-analytics-how-to-access-key.md) (Cómo buscar puntos de conexión y claves de acceso).
 
 + En el cuerpo de la solicitud, proporcione la colección de documentos JSON que preparó para este análisis.
 
 > [!Tip]
-> Use [Postman](text-analytics-how-to-call-api.md) o abra la **consola de prueba de la API** en la [documentación](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) para estructurar y enviar una solicitud POST al servicio.
+> Use [Postman](text-analytics-how-to-call-api.md) o abra la **consola de prueba de la API** en la [documentación](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) para estructurar y enviar una solicitud POST al servicio.
 
 ## <a name="step-2-post-the-request"></a>Paso 2: Publicar la solicitud
 
@@ -280,18 +278,16 @@ A continuación se muestra un ejemplo de la salida de la vinculación de entidad
 
 En este artículo, ha aprendido los conceptos y el flujo de trabajo de vinculación de entidad mediante Text Analytics de Cognitive Services. En resumen:
 
-+ [Entities API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) está disponible para los idiomas seleccionados.
-+ Los documentos JSON del cuerpo de la solicitud incluyen un identificador, un texto y el código de idioma.
++ [Entities API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) está disponible para los idiomas seleccionados.
++ Documentos JSON en el cuerpo de solicitud incluyen un código de identificador, texto y lenguaje.
 + La solicitud POST se realiza a un punto de conexión `/entities`, con una [clave de acceso y un punto de conexión](text-analytics-how-to-access-key.md) personalizados, que son válidos para la suscripción.
 + La salida de respuesta, que consta de entidades vinculadas (incluidas las puntuaciones de confianza, los desplazamientos y los vínculos web de cada id. de documento) se puede usar en cualquier aplicación.
-
-## <a name="see-also"></a>Vea también 
-
- [Información general de Text Analytics](../overview.md)  
- [Preguntas más frecuentes (P+F)](../text-analytics-resource-faq.md)</br>
- [Página del producto de Text Analytics](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Text Analytics API](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)
+> [Text Analytics API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
+
+* [Información general de Text Analytics](../overview.md)  
+* [Preguntas más frecuentes (P+F)](../text-analytics-resource-faq.md)</br>
+* [Página del producto de Text Analytics](//go.microsoft.com/fwlink/?LinkID=759712) 

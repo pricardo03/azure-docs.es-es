@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 9d52114f5d01beca53ed48ee2114dc98cc20f3a2
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 6afc07f98905469b06622e7829ec4a215b94845e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59682431"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994612"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Vuelva a escribir los encabezados de solicitud y respuesta HTTP con Azure Application Gateway mediante Azure portal
 
@@ -26,7 +26,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 ## <a name="before-you-begin"></a>Antes de empezar
 
-Debe tener un v2 Application Gateway SKU, puesto que el encabezado de la capacidad de reescritura no se admite para la SKU v1. Si no tiene la SKU de v2, cree un [SKU de puerta de enlace de aplicaciones v2](<https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps>) antes de comenzar.
+Debe tener un v2 Application Gateway SKU, puesto que el encabezado de la capacidad de reescritura no se admite para la SKU v1. Si no tiene la SKU de v2, cree un [SKU de puerta de enlace de aplicaciones v2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) antes de comenzar.
 
 ## <a name="what-is-required-to-rewrite-a-header"></a>¿Qué es necesario volver a escribir un encabezado
 

@@ -11,13 +11,13 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 manager: craigg
-ms.date: 02/26/2019
-ms.openlocfilehash: 82b533f7293e00469a5b92b02e8d58967379a585
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 04/16/2019
+ms.openlocfilehash: fa19ea0c7ebeea0170822db0dae298f84e958983
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59497073"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006138"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Arquitectura de conectividad de una instancia administrada de Azure SQL Database
 
@@ -97,7 +97,7 @@ Implementar una instancia administrada en una subred dentro de la red virtual de
 
 ### <a name="mandatory-inbound-security-rules"></a>Reglas de seguridad de entrada obligatorias
 
-| NOMBRE       |Port                        |Protocolo|Origen           |Destino|.|
+| Name       |Port                        |Protocolo|Origen           |Destino|.|
 |------------|----------------------------|--------|-----------------|-----------|------|
 |management  |9000, 9003, 1438, 1440, 1452|TCP     |Cualquiera              |MI SUBNET  |PERMITIR |
 |mi_subnet   |Cualquiera                         |Cualquiera     |MI SUBNET        |MI SUBNET  |PERMITIR |
@@ -105,13 +105,13 @@ Implementar una instancia administrada en una subred dentro de la red virtual de
 
 ### <a name="mandatory-outbound-security-rules"></a>Reglas de seguridad de salida obligatorias
 
-| NOMBRE       |Port          |Protocolo|Origen           |Destino|.|
+| Name       |Port          |Protocolo|Origen           |Destino|.|
 |------------|--------------|--------|-----------------|-----------|------|
 |management  |80, 443, 12000|TCP     |MI SUBNET        |AzureCloud |PERMITIR |
 |mi_subnet   |Cualquiera           |Cualquiera     |MI SUBNET        |MI SUBNET  |PERMITIR |
 
 > [!IMPORTANT]
-> Asegúrese de que hay solo una regla de entrada para los puertos 9000, 9003, 1438, 1440, 1452 y una regla de salida de los puertos 80, 443, 12000. Administra el aprovisionamiento de la instancia a través de Azure Resource Manager implementaciones se producirá un error si las reglas de entrada y salidas se configuran por separado para cada puerto. Si estos puertos están siendo reglas independientes, se producirá un error en la implementación con código de error `VnetSubnetConflictWithIntendedPolicy`
+> Asegúrese de que hay solo una regla de entrada para los puertos 9000, 9003, 1438, 1440, 1452 y una regla de salida de los puertos 80, 443, 12000. Administra el aprovisionamiento de la instancia a través de Azure Resource Manager implementaciones se producirá un error si las reglas entrantes y salientes se configuran por separado para cada puerto. Si estos puertos están siendo reglas independientes, se producirá un error en la implementación con código de error `VnetSubnetConflictWithIntendedPolicy`
 
 \* MI subred hace referencia al intervalo de direcciones IP para la subred en el formulario de 10.x.x.x/y. Puede encontrar esta información en el portal de Azure, en Propiedades de la subred.
 
@@ -122,7 +122,7 @@ Implementar una instancia administrada en una subred dentro de la red virtual de
 
 ### <a name="user-defined-routes"></a>rutas definidas por el usuario
 
-|NOMBRE|Prefijo de dirección|Próximo salto|
+|Name|Prefijo de dirección|Próximo salto|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI SUBNET|Virtual network|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|Internet|

@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
-ms.openlocfilehash: 86de73394d96d1122abce44504d2b0fd99a01841
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 3fe839de8cbaa0b321b0b0602b000b7575224dde
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58915789"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010065"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definir un perfil técnico OAuth1 en una directiva personalizada de Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C proporciona compatibilidad con el proveedor de identidades del protocolo [OAuth 1.0](https://tools.ietf.org/html/rfc5849). En este artículo se describen los detalles para que un perfil técnico interactúe con un proveedor de notificaciones que admita este protocolo estandarizado. Con el perfil técnico de OAuth1 puede federarse con un proveedor de identidades basado en OAuth1, como Twitter, para que los usuarios puedan iniciar sesión con sus identidades sociales o empresariales existentes.
+Azure Active Directory (Azure AD) B2C proporciona compatibilidad con el proveedor de identidades del protocolo [OAuth 1.0](https://tools.ietf.org/html/rfc5849). En este artículo se describen los detalles para que un perfil técnico interactúe con un proveedor de notificaciones que admita este protocolo estandarizado. Con un perfil técnico OAuth1, puede federar con un proveedor de identidades basado en OAuth1, como Twitter. Federación con el proveedor de identidades permite a los usuarios iniciar sesión con sus actuales social o identidades de empresa.
 
 ## <a name="protocol"></a>Protocolo
 
@@ -46,7 +46,7 @@ El elemento **OutputClaimsTransformations** puede contener una colección de ele
 
 El ejemplo siguiente muestra las notificaciones devueltas por el proveedor de identidades de Twitter:
 
-- La notificación **user_id** que se asigna a la notificación **socialIdpUserId**.
+- El **user_id** notificación que se asigna a la **issuerUserId** de notificación.
 - La notificación **screen_name** que se asigna a la notificación **displayName**.
 - La notificación **email** sin asignación de nombre.
 
@@ -57,7 +57,7 @@ El perfil técnico también devuelve notificaciones, que no son devueltas por el
 
 ```xml
 <OutputClaims>
-  <OutputClaim ClaimTypeReferenceId="socialIdpUserId" PartnerClaimType="user_id" />
+  <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="user_id" />
   <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="screen_name" />
   <OutputClaim ClaimTypeReferenceId="email" />
   <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="twitter.com" />
@@ -87,7 +87,7 @@ El elemento **CryptographicKeys** contiene el atributo siguiente:
 
 ## <a name="redirect-uri"></a>URI de redireccionamiento
 
-Cuando configure la dirección URL de redireccionamiento de su proveedor de identidades, escriba `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Asegúrese de reemplazar **tenant** por el nombre de su inquilino (por ejemplo, contosob2c.onmicrosoft.com) y **policyId** por el identificador de la directiva (por ejemplo, b2c_1_policy). El URI de redireccionamiento debe estar en minúsculas. Debe agregar un URI de redireccionamiento para todas las directivas que usan el inicio de sesión del proveedor de identidades. 
+Cuando configure la dirección URL de redireccionamiento de su proveedor de identidades, escriba `https://login.microsoftonline.com/te/tenant/policyId/oauth1/authresp`. Asegúrese de reemplazar **tenant** por el nombre de su inquilino (por ejemplo, contosob2c.onmicrosoft.com) y **policyId** por el identificador de la directiva (por ejemplo, b2c_1_policy). El URI de redireccionamiento necesita estar escrito todo en minúsculas. Agregar una dirección URL de redireccionamiento para todas las directivas que usan el inicio de sesión del proveedor de identidades. 
 
 Si usa el dominio **b2clogin.com** en lugar de **login.microsoftonline.com**, asegúrese de usar b2clogin.com en lugar de login.microsoftonline.com.
 

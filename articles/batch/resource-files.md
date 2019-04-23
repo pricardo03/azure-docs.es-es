@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: lahugh
-ms.openlocfilehash: f6693de861658c7174614e80906ee83633fcb313
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
-ms.translationtype: MT
+ms.openlocfilehash: 679a1c60e44694bde86cafba21d7f1d2c6fb94d9
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58501097"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995632"
 ---
 # <a name="creating-and-using-resource-files"></a>Crear y usar archivos de recursos
 
@@ -72,7 +72,7 @@ Es una alternativa para generar una dirección URL de SAS habilitar el acceso de
 
 En lugar de configurar y crear una dirección URL de SAS, puede usar el nombre de su contenedor de almacenamiento de Azure para tener acceso a los datos blob. El contenedor de almacenamiento utilizada debe para en la cuenta de almacenamiento de Azure que esté vinculada a su cuenta de Batch, conocida como la cuenta autostorage. El nombre del contenedor de almacenamiento de una cuenta de autostorage permite omitir la configuración y la creación de una dirección URL de SAS para acceder a un contenedor de almacenamiento.
 
-En este ejemplo, se supone que los datos que se usará para la creación del archivo de recursos ya están en una cuenta de Azure Storage vinculada a su cuenta de Batch. Si no tienes una cuenta de autostorage, consulte los pasos de [crear una cuenta de Batch](/create-a-batch-account.md) para obtener más información sobre cómo crear y vincular una cuenta.
+En este ejemplo, se supone que los datos que se usará para la creación del archivo de recursos ya están en una cuenta de Azure Storage vinculada a su cuenta de Batch. Si no tienes una cuenta de autostorage, consulte los pasos de [crear una cuenta de Batch](batch-account-create-portal.md) para obtener más información sobre cómo crear y vincular una cuenta.
 
 Mediante el uso de una cuenta de almacenamiento vinculado, no es necesario crear y configurar una dirección URL de SAS para un contenedor de almacenamiento. En su lugar, proporcione el nombre del contenedor de almacenamiento en su cuenta de almacenamiento vinculada.
 

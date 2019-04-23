@@ -63,7 +63,7 @@ Para completar este proyecto necesitará lo siguiente:
 Vamos a agregar una pequeña interfaz de usuario a nuestro escenario que consistirá en un botón para desencadenar el reconocimiento de voz y un campo de texto para que aparezca el resultado.
 
 * En la [ventana de jerarquía](https://docs.unity3d.com/Manual/Hierarchy.html) (que se sitúa de forma predeterminada a la izquierda), aparece una escena de ejemplo que Unity ha creado con el nuevo proyecto.
-* Haga clic en el botón **Crear** en la parte superior de la ventana de jerarquía y seleccione el botón **IU** > ****.
+* Haga clic en el **crear** situado en la parte superior de la ventana de jerarquía y seleccione **UI** > **botón**.
 * Esto crea tres objetos de juego que se pueden ver en la ventana de jerarquía: un objeto **Button** (Botón) anidado dentro de un objeto **Canvas** (Lienzo) y un objeto **EventSystem**.
 * [Vaya a la vista de escena](https://docs.unity3d.com/Manual/SceneViewNavigation.html) para ver una buena vista del lienzo y del botón en la [vista de escena](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
 * Haga clic en el objeto **Button** (Botón) en la ventana de jerarquía para mostrar su configuración en la [ventana del inspector](https://docs.unity3d.com/Manual/UsingTheInspector.html) (que se sitúa de forma predeterminada a la derecha).

@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 manager: craigg
-ms.date: 03/12/2019
-ms.openlocfilehash: cf163b2b01b4205a4a3d2123263988998130c42a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 04/19/2019
+ms.openlocfilehash: f382cc547640969f934b94405b635c9e84f10791
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58848382"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009079"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Uso de grupos de conmutación por error automática para permitir la conmutación por error de varias bases de datos de manera transparente y coordinada
 
@@ -40,7 +40,7 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
 ## <a name="auto-failover-group-terminology-and-capabilities"></a>Funcionalidades y terminología del grupo de conmutación por error automática
 
-- **Grupo de conmutación por error**
+- **Grupo de conmutación por error (NIEBLA)**
 
   Un grupo de conmutación por error es un grupo de bases de datos administradas por un único servidor de SQL Database o en una sola instancia administrada que puede conmutar por error como una unidad a otra región en caso de que algunas o todas bases de datos principales dejen de estar disponibles debido a una interrupción en la región primaria.
 
@@ -77,11 +77,11 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
   - **Registro CNAME de DNS del servidor de SQL Database para el agente de escucha de lectura y escritura**
 
-     En un servidor de SQL Database, el registro CNAME de DNS para el grupo de conmutación por error que apunta a la dirección URL de la base de datos principal actual tiene el formato `failover-group-name.database.windows.net`.
+     En un servidor de SQL Database, el registro CNAME de DNS para el grupo de conmutación por error que apunta a la dirección URL de la base de datos principal actual tiene el formato `<fog-name>.database.windows.net`.
 
   - **Registro CNAME de DNS de Instancia administrada para el agente de escucha de lectura y escritura**
 
-     En una instancia administrada, el registro CNAME de DNS para el grupo de conmutación por error que apunta a la dirección URL de la base de datos principal tiene el formato `failover-group-name.zone_id.database.windows.net`.
+     En una instancia administrada, el registro CNAME de DNS para el grupo de conmutación por error que apunta a la dirección URL de la base de datos principal tiene el formato `<fog-name>.zone_id.database.windows.net`.
 
 - **Agente de escucha de solo lectura de grupo de conmutación por error**
 
@@ -89,11 +89,11 @@ Para lograr una verdadera continuidad empresarial, agregar redundancia de base d
 
   - **Registro CNAME de DNS del servidor de SQL Database para el agente de escucha de solo lectura**
 
-     En un servidor de SQL Database, el registro CNAME de DNS para el agente de escucha de solo lectura que apunta a la dirección URL de base de datos secundaria tiene el formato `failover-group-name.secondary.database.windows.net`.
+     En un servidor de SQL Database, el registro CNAME de DNS para el agente de escucha de solo lectura que apunta a la dirección URL de base de datos secundaria tiene el formato `'.secondary.database.windows.net`.
 
   - **Registro CNAME de DNS de Instancia administrada para el agente de escucha de solo lectura**
 
-     En una instancia administrada, el registro CNAME de DNS para el agente de escucha de solo lectura que apunta a la dirección URL de base de datos secundaria tiene el formato `failover-group-name.zone_id.database.windows.net`.
+     En una instancia administrada, el registro CNAME de DNS para el agente de escucha de solo lectura que apunta a la dirección URL de base de datos secundaria tiene el formato `<fog-name>.zone_id.database.windows.net`.
 
 - **Directiva de conmutación por error automática**
 
@@ -156,11 +156,11 @@ Al diseñar un servicio teniendo en cuenta la continuidad empresarial, siga esta
 
 - **Utilizar el agente de escucha de lectura-escritura para la carga de trabajo de OLTP**
 
-  Al realizar operaciones OLTP, use `failover-group-name.database.windows.net` como dirección URL del servidor y las conexiones se redirigirán automáticamente a la base de datos principal. Esta dirección URL no cambia después de la conmutación por error. Tenga en cuenta que la conmutación por error implica actualizar el registro DNS para que las conexiones de cliente se redirijan a la nueva base de datos principal cuando la caché DNS del cliente se haya actualizado.
+  Al realizar operaciones OLTP, use `<fog-name>.database.windows.net` como dirección URL del servidor y las conexiones se redirigirán automáticamente a la base de datos principal. Esta dirección URL no cambia después de la conmutación por error. Tenga en cuenta que la conmutación por error implica actualizar el registro DNS para que las conexiones de cliente se redirijan a la nueva base de datos principal cuando la caché DNS del cliente se haya actualizado.
 
 - **Utilizar el agente de escucha de solo lectura para la carga de trabajo de solo lectura**
 
-  Si tiene una carga de trabajo de solo lectura que es tolerante a una cierta obsolescencia de los datos, puede usar la base de datos secundaria en la aplicación. Para las sesiones de solo lectura, use `failover-group-name.secondary.database.windows.net` como dirección URL del servidor y la conexión se redirigirá automáticamente a la base de datos secundaria. También se recomienda indicar en la cadena de conexión el intento de lectura mediante **ApplicationIntent=ReadOnly**.
+  Si tiene una carga de trabajo de solo lectura que es tolerante a una cierta obsolescencia de los datos, puede usar la base de datos secundaria en la aplicación. Para las sesiones de solo lectura, use `<fog-name>.secondary.database.windows.net` como dirección URL del servidor y la conexión se redirigirá automáticamente a la base de datos secundaria. También se recomienda indicar en la cadena de conexión el intento de lectura mediante **ApplicationIntent=ReadOnly**.
 
 - **Prepararse para la degradación del rendimiento**
 
@@ -206,7 +206,7 @@ Si la aplicación usa Instancia administrada como capa de datos, siga estas dire
 
 - **Utilizar el agente de escucha de lectura-escritura para la carga de trabajo de OLTP**
 
-  Al realizar operaciones OLTP, use `failover-group-name.zone_id.database.windows.net` como dirección URL del servidor y las conexiones se redirigirán automáticamente a la base de datos principal. Esta dirección URL no cambia después de la conmutación por error. La conmutación por error implica actualizar el registro DNS para que las conexiones de cliente se redirijan a la nueva base de datos principal cuando la caché DNS del cliente se haya actualizado. Dado que la instancia secundaria comparte la zona DNS con la principal, la aplicación cliente podrá volver a conectarse a ella con el mismo certificado de SAN.
+  Al realizar operaciones OLTP, use `<fog-name>.zone_id.database.windows.net` como dirección URL del servidor y las conexiones se redirigirán automáticamente a la base de datos principal. Esta dirección URL no cambia después de la conmutación por error. La conmutación por error implica actualizar el registro DNS para que las conexiones de cliente se redirijan a la nueva base de datos principal cuando la caché DNS del cliente se haya actualizado. Dado que la instancia secundaria comparte la zona DNS con la principal, la aplicación cliente podrá volver a conectarse a ella con el mismo certificado de SAN.
 
 - **Conectar directamente a la base de datos secundaria con replicación geográfica para las consultas de solo lectura**
 
@@ -214,8 +214,8 @@ Si la aplicación usa Instancia administrada como capa de datos, siga estas dire
 
   > [!NOTE]
   > En determinados niveles de servicio, Azure SQL Database admite el uso de [réplicas de solo lectura](sql-database-read-scale-out.md) para equilibrar las cargas de trabajo de consultas de solo lectura mediante la capacidad de una réplica de solo lectura y el uso del parámetro `ApplicationIntent=ReadOnly` en la cadena de conexión. Cuando se ha configurado una base de datos secundaria con replicación geográfica, puede usar esta funcionalidad para conectarse a una réplica de solo lectura de la ubicación principal o de la ubicación con replicación geográfica.
-  > - Para conectarse a una réplica de solo lectura en la ubicación principal, use `failover-group-name.zone_id.database.windows.net`.
-  > - Para conectarse a una réplica de solo lectura en la ubicación secundaria, use `failover-group-name.secondary.zone_id.database.windows.net`.
+  > - Para conectarse a una réplica de solo lectura en la ubicación principal, use `<fog-name>.zone_id.database.windows.net`.
+  > - Para conectarse a una réplica de solo lectura en la ubicación secundaria, use `<fog-name>.secondary.zone_id.database.windows.net`.
 
 - **Prepararse para la degradación del rendimiento**
 

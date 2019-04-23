@@ -2,18 +2,18 @@
 title: Uso de orígenes de datos de perfiles de datos en Azure Data Catalog
 description: Este artículo de procedimientos destaca cómo incluir perfiles de datos de nivel de tabla y de columna al registrar orígenes de datos en Azure Data Catalog y cómo utilizar perfiles de datos para entender los orígenes de datos.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 94a8274b-5c9c-4962-a4b1-2fed38a3d919
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: b40bbe7d1eb89f934d6ae07688e698f1949f8e76
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 64185a951b25b4e04ea5fc65aeede9b0e617d0c5
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410245"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004319"
 ---
 # <a name="data-profile-data-sources"></a>Orígenes de datos de perfiles de datos
 ## <a name="introduction"></a>Introducción
@@ -83,6 +83,6 @@ Un perfil de datos del **Azure Data Catalog** muestra la información del perfil
 ## <a name="summary"></a>Resumen
 La generación de perfiles de datos proporciona estadísticas e información sobre los recursos de datos registrados para ayudar a los usuarios a determinar la idoneidad de los datos para resolver problemas empresariales. Junto con la anotación y documentación de los orígenes de datos, los perfiles de datos pueden dar a los usuarios una comprensión más profunda de los datos.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Registro de orígenes de datos](data-catalog-how-to-register.md)
 * [Introducción a Azure Data Catalog](data-catalog-get-started.md)

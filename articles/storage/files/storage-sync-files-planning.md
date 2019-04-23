@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 2/7/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: ad3b5a1d684c500eff3d20832d7aa290a13849b9
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e5078176b14835938c190daa031c12055ba9ffc3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58918644"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996363"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planeamiento de una implementación de Azure Files Sync
 Use Azure File Sync para centralizar los recursos compartidos de archivos de su organización en Azure Files sin renunciar a la flexibilidad, el rendimiento y la compatibilidad de un servidor de archivos local. Azure File Sync transforma Windows Server en una caché rápida de los recursos compartidos de archivos de Azure. Puede usar cualquier protocolo disponible en Windows Server para acceder a sus datos localmente, como SMB, NFS y FTPS. Puede tener todas las cachés que necesite en todo el mundo.
@@ -113,7 +113,7 @@ Para mostrar los resultados en CSV:
 ### <a name="system-requirements"></a>Requisitos del sistema
 - Un servidor que ejecute Windows Server 2012 R2, Windows Server 2016 o Windows Server 2019:
 
-    | Versión | SKU compatibles | Opciones de implementación compatibles |
+    | Version | SKU compatibles | Opciones de implementación compatibles |
     |---------|----------------|------------------------------|
     | Windows Server 2019 | Datacenter y Standard | Completo (servidor con una interfaz de usuario) |
     | Windows Server 2016 | Datacenter y Standard | Completo (servidor con una interfaz de usuario) |

@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 04/19/2019
 ms.author: jingwang
-ms.openlocfilehash: 5e37d9c0c242de1bd95a93f12171a2a4271b064d
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 6056df9aa9079887bfb06ca20ad564eb52baff38
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680713"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008705"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Copia de datos desde y hacia Salesforce mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -35,7 +35,7 @@ En concreto, este conector de Salesforce admite:
 - Ediciones de Salesforce Developer, Professional, Enterprise o Unlimited.
 - La copia de datos desde y hacia producción, espacio aislado y dominio personalizado de Salesforce.
 
-El conector de Salesforce se basa en la API de REST de Salesforce con [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar datos desde y [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar datos a.
+El conector de Salesforce se basa en la API de REST/Bulk Salesforce, con [v45](https://developer.salesforce.com/docs/atlas.en-us.218.0.api_rest.meta/api_rest/dome_versions.htm) para copiar datos desde y [v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api_asynch.meta/api_asynch/asynch_api_intro.htm) para copiar datos a.
 
 ## <a name="prerequisites"></a>Requisitos previos
 
@@ -64,8 +64,8 @@ Las siguientes propiedades son compatibles con el servicio vinculado Salesforce.
 |:--- |:--- |:--- |
 | Tipo |La propiedad type debe establecerse en: **Salesforce**. |Sí |
 | environmentUrl | Especifique la URL de la instancia de Salesforce. <br> - El valor predeterminado es `"https://login.salesforce.com"`. <br> - Para copiar datos desde el espacio aislado, especifique `"https://test.salesforce.com"`. <br> - Para copiar datos del dominio personalizado, especifique, por ejemplo, `"https://[domain].my.salesforce.com"`. |Sin  |
-| nombre de usuario |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
-| contraseña |Especifique la contraseña para la cuenta de usuario.<br/><br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
+| username |Especifique el nombre de usuario de la cuenta de usuario. |Sí |
+| password |Especifique la contraseña para la cuenta de usuario.<br/><br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | securityToken |Especifique el token de seguridad para la cuenta de usuario. Consulte [Get a security token](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) (Obtención de un token de seguridad) para ver instrucciones sobre cómo restablecer u obtener un token de seguridad. Para más información acerca de los tokens de seguridad en general, consulte [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm)(Seguridad y la API).<br/><br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). |Sí |
 | connectVia | El [entorno de ejecución de integración](concepts-integration-runtime.md) que se usará para conectarse al almacén de datos. Si no se especifica, se usará Azure Integration Runtime. | "No" para el origen, "Sí" para el receptor si el servicio vinculado al origen no tiene ningún entorno de ejecución de integración. |
 
@@ -315,25 +315,25 @@ Al copiar datos desde Salesforce, se usan las siguientes asignaciones de tipos d
 
 | Tipos de datos de Salesforce | Tipo de datos provisionales de Data Factory |
 |:--- |:--- |
-| Numeración automática |string |
-| Casilla de verificación |boolean |
+| Numeración automática |String |
+| Casilla de verificación |Boolean |
 | Moneda |Decimal |
-| Date |DateTime |
-| Fecha y hora |DateTime |
-| Email |string |
-| Id |string |
-| Relación de búsqueda |string |
-| Lista desplegable de selección múltiple |string |
+| Date |Datetime |
+| Fecha y hora |Datetime |
+| Email |String |
+| Id |String |
+| Relación de búsqueda |String |
+| Lista desplegable de selección múltiple |String |
 | Number |Decimal |
 | Percent |Decimal |
-| Teléfono |string |
-| Lista desplegable |string |
-| Texto |string |
-| Área de texto |string |
-| Área de texto (largo) |string |
-| Área de texto (enriquecido) |string |
-| Texto (cifrado) |string |
-| URL |string |
+| Teléfono |String |
+| Lista desplegable |String |
+| Text |String |
+| Área de texto |String |
+| Área de texto (largo) |String |
+| Área de texto (enriquecido) |String |
+| Texto (cifrado) |String |
+| URL |String |
 
 ## <a name="next-steps"></a>Pasos siguientes
 Para ver la lista de almacenes de datos que la actividad de copia de Data Factory admite como orígenes y receptores consulte [Almacenes de datos y formatos que se admiten](copy-activity-overview.md#supported-data-stores-and-formats).

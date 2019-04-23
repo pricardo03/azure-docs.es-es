@@ -3,16 +3,16 @@ title: Determinación de las causas de incumplimiento
 description: Cuando un recurso no es compatible, hay muchas razones posibles. Aprenda a averiguar la causa el incumplimiento.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 02/26/2019
+ms.date: 03/30/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 8a593e92d7f24885c35043b874528e881d2e021e
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 0af3fd8596bf558f9d5cc97c95be773aa40954cc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59276106"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995020"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinación de las causas de incumplimiento
 
@@ -124,6 +124,8 @@ Como parte de un nuevo **versión preliminar pública**, los últimos 14 días d
    ![Cambio de directiva historial Diff Visual en la página del historial de cambios](../media/determine-non-compliance/change-history-visual-diff.png)
 
 Las _diferencias visuales_ ayudan a identificar los cambios de un recurso. Los cambios detectados no pueden estar relacionadas con el estado de compatibilidad actual del recurso.
+
+Proporcionan datos del historial de cambios [recursos de Azure Graph](../../resource-graph/overview.md). Para consultar esta información fuera de Azure portal, consulte [obtener los cambios de recursos](../../resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="next-steps"></a>Pasos siguientes
 

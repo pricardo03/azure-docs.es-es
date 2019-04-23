@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: magoedte
-ms.openlocfilehash: 6fe8cccf60e60ada34e3b7847964958cf6e03c4a
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: c8baa4d2355adf99ce188d632ac50901db29a758
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788842"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997706"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Vista de los registros de contenedor en tiempo real con Azure Monitor para contenedores (versión preliminar)
 Esta característica, que se encuentra actualmente en versión preliminar, proporciona una vista en tiempo real en los registros de contenedor de Azure Kubernetes Service (AKS) (stdout/stderr) sin tener que ejecutar los comandos de kubectl. Cuando se selecciona esta opción, el nuevo panel aparece debajo de la tabla de datos de rendimiento de contenedores en la vista **Contenedores**.  Muestra el registro dinámico generado por el motor de contenedores para ayudar a solucionar los problemas en tiempo real. **Colaborador** se requiere acceso al recurso de clúster para esta característica funcione.
@@ -65,7 +65,7 @@ Si ha habilitado la autorización de RBAC de Kubernetes, deberá aplicar el enla
 2. Cree el enlace de regla de clúster mediante la ejecución del siguiente comando: `kubectl create -f LogReaderRBAC.yaml`. 
 
 ## <a name="configure-aks-with-azure-active-directory"></a>Configuración de AKS con Azure Active Directory
-Es posible configurar AKS para que utilice Azure Active Directory (AD) para la autenticación de usuarios. Si va a configurar esto por primera vez, consulte [Integración de Azure Active Directory con Azure Kubernetes Service](../../aks/aad-integration.md). Durante los pasos para crear la [aplicación cliente](../../aks/aad-integration.md#create-client-application) y especificar el **URI de redirección**, deberá agregar otro URI a la lista `https://ininprodeusuxbase.microsoft.com/*`.  
+Es posible configurar AKS para que utilice Azure Active Directory (AD) para la autenticación de usuarios. Si va a configurar esto por primera vez, consulte [Integración de Azure Active Directory con Azure Kubernetes Service](../../aks/azure-ad-integration.md). Durante los pasos para crear la [aplicación cliente](../../aks/azure-ad-integration.md#create-client-application) y especificar el **URI de redirección**, deberá agregar otro URI a la lista `https://ininprodeusuxbase.microsoft.com/*`.  
 
 >[!NOTE]
 >La configuración de la autenticación con Azure Active Directory para el inicio de sesión único solo puede lograrse durante la implementación inicial de un nuevo clúster de AKS. No puede configurar el inicio de sesión único en un clúster de AKS ya implementado.  
@@ -92,4 +92,5 @@ Para suspender el desplazamiento automático y controlar el comportamiento del p
 ![Vista activa de pausa en el panel de registros dinámicos](./media/container-insights-live-logs/live-logs-pane-pause-01.png)
 
 ## <a name="next-steps"></a>Pasos siguientes
-Para continuar aprendiendo a usar Azure Monitor y supervisar otros aspectos de su clúster de AKS, consulte [Comprender el rendimiento del clúster de AKS con Azure Monitor para contenedores](container-insights-analyze.md).
+- Para continuar aprendiendo a usar Azure Monitor y supervisar otros aspectos de su clúster de AKS, consulte [Comprender el rendimiento del clúster de AKS con Azure Monitor para contenedores](container-insights-analyze.md).
+- Vista [ejemplos de consultas de registro](container-insights-log-search.md#search-logs-to-analyze-data) para ver consultas predefinidas y ejemplos para evaluar o personalizar para las alertas, visualizar o analizar los clústeres.

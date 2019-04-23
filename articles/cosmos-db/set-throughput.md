@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/31/2019
 ms.author: rimman
-ms.openlocfilehash: 1f8bec6fbf0bce9a3ac272231058a96a5d9e84cc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ed3a171e60c078975de7003cdf599f0bac62c402
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58762504"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004761"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>Aprovisionar rendimiento en contenedores y bases de datos
 
@@ -88,7 +88,7 @@ Puede recuperar el rendimiento mínimo de un contenedor o una base de datos medi
 
 Al usar el SDK. NET, el [DocumentClient.ReadOfferAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient.readofferasync?view=azure-dotnet) método le permite recuperar el rendimiento mínimo de un contenedor o una base de datos. 
 
-Puede escalar el rendimiento aprovisionado de un contenedor o una base de datos en cualquier momento. Puede ejecutar la operación de reducción después del período de inactividad de 4 horas. El período de inactividad se define como el tiempo período cuando se ha producido ninguna oferta las operaciones de reemplazo (que incluye el escalado vertical y horizontalmente) en un contenedor o una base de datos. 
+Puede escalar el rendimiento aprovisionado de un contenedor o una base de datos en cualquier momento. 
 
 ## <a name="comparison-of-models"></a>Comparación de modelos
 

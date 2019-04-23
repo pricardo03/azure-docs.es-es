@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2017
 ms.author: alkohli
-ms.openlocfilehash: 7e35aa8120c455b8cc0d0881a9ceb5120c57deff
-ms.sourcegitcommit: 5d837a7557363424e0183d5f04dcb23a8ff966bb
+ms.openlocfilehash: ff2ea89c257a4941c801f3056450e005a9b37039
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/06/2018
-ms.locfileid: "52969675"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996057"
 ---
 # <a name="available-regions-for-your-storsimple"></a>Regiones disponibles para StorSimple
 
@@ -69,7 +69,7 @@ Los dispositivos físicos StorSimple 8100 o 8600 están disponibles en los país
 
 | #  | País        | #  | País     | #  | País      | #  | País              |
 |----|----------------|----|-------------|----|--------------|----|----------------------|
-| 1  | Australia      | 16 | RAE de Hong Kong   | 31 | Nueva Zelanda  | 46 | Sudáfrica         |
+| 1  | Australia      | 16 | RAE de Hong Kong| 31 | Nueva Zelanda  | 46 | Sudáfrica         |
 | 2  | Austria        | 17 | Hungría     | 32 | Nigeria      | 47 | Corea del Sur          |
 | 3  | Bahréin        | 18 | Islandia     | 33 | Noruega       | 48 | España                |
 | 4  | Bélgica        | 19 | India       | 34 | Perú         | 49 | Sri Lanka            |
@@ -80,7 +80,7 @@ Los dispositivos físicos StorSimple 8100 o 8600 están disponibles en los país
 | 9  | República Checa | 24 | Japón       | 39 | Qatar        | 54 | Turquía               |
 | 10 | Dinamarca        | 25 | Kenia       | 40 | Rumania      | 55 | Ucrania              |
 | 11 | Egipto          | 26 | Kuwait      | 41 | Rusia       | 56 | Emiratos Árabes Unidos |
-| 12 | Finlandia        | 27 | Macao       | 42 | Arabia Saudí | 57 | Reino Unido       |
+| 12 | Finlandia        | 27 | RAE de Macao   | 42 | Arabia Saudí | 57 | Reino Unido       |
 | 13 | Francia         | 28 | Malasia    | 43 | Singapur    | 58 | Estados Unidos        |
 | 14 | Alemania        | 29 | México      | 44 | Eslovaquia     | 59 | Vietnam              |
 | 15 | Grecia         | 30 | Países Bajos | 45 | Eslovenia     | 60 | Croacia              |

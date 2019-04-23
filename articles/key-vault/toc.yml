@@ -1,185 +1,184 @@
-items:
 - name: Documentación de Key Vault
   href: index.yml
 - name: Información general
   items:
-  - name: Acerca de Key Vault
-    href: key-vault-overview.md
+    - name: Acerca de Key Vault
+      href: key-vault-overview.md
 - name: Guías de inicio rápido
-  items:
-  - name: 'Establecimiento y recuperación de un secreto: CLI'
-    href: quick-create-cli.md
-  - name: 'Establecimiento y recuperación de un secreto: PowerShell'
-    href: quick-create-powershell.md
-  - name: 'Establecimiento y recuperación de un secreto: Portal'
-    href: quick-create-portal.md
-  - name: 'Establecimiento y recuperación de un secreto: .NET'
-    href: quick-create-net.md
-  - name: 'Establecimiento y recuperación de un secreto: Node.js'
-    href: quick-create-node.md
-  - name: 'Establecimiento y recuperación de un secreto: plantilla de Resource Manager'
-    displayName: resource manager, resource manager template, arm
-    href: quick-create-template.md
   expanded: true
+  items:
+    - name: 'Establecimiento y recuperación de un secreto: CLI'
+      href: quick-create-cli.md
+    - name: 'Establecimiento y recuperación de un secreto: PowerShell'
+      href: quick-create-powershell.md
+    - name: 'Establecimiento y recuperación de un secreto: Portal'
+      href: quick-create-portal.md
+    - name: 'Establecimiento y recuperación de un secreto: .NET'
+      href: quick-create-net.md
+    - name: 'Establecimiento y recuperación de un secreto: Node.js'
+      href: quick-create-node.md
+    - name: 'Establecimiento y recuperación de un secreto: plantilla de Resource Manager'
+      displayName: 'resource manager, resource manager template, arm'
+      href: quick-create-template.md
 - name: Tutoriales
   items:
-  - name: Azure Web Apps
-    items:
-    - name: Azure Key Vault con Azure Web App en .NET
-      href: tutorial-net-create-vault-azure-web-app.md
-  - name: Máquina virtual de Azure
-    items:
-    - name: Máquina virtual Linux
+    - name: Azure Web Apps
       items:
-      - name: .NET
-        href: tutorial-net-linux-virtual-machine.md
-      - name: Python
-        href: tutorial-python-linux-virtual-machine.md
-    - name: Máquina virtual Windows
+        - name: Azure Key Vault con Azure Web App en .NET
+          href: tutorial-net-create-vault-azure-web-app.md
+    - name: Máquina virtual de Azure
       items:
-      - name: .NET
-        href: tutorial-net-windows-virtual-machine.md
-      - name: Python
-        href: tutorial-python-windows-virtual-machine.md
-  - name: Claves de cuenta de almacenamiento
-    items:
-    - name: Claves de cuenta de almacenamiento administrada mediante la CLI de Azure
-      href: key-vault-ovw-storage-keys.md
-    - name: Claves de cuenta de almacenamiento administrada mediante PowerShell
-      href: key-vault-overview-storage-keys-powershell.md
-  - name: Contenedores de Azure
-    href: ../container-instances/container-instances-managed-identity.md
-  - name: Plantilla de Azure Resource Manager
-    href: ../azure-resource-manager/resource-manager-keyvault-parameter.md
-  - name: Configurar la auditoría y la rotación de claves
-    href: key-vault-key-rotation-log-monitoring.md
+        - name: Máquina virtual Linux
+          items:
+            - name: .NET
+              href: tutorial-net-linux-virtual-machine.md
+            - name: Python
+              href: tutorial-python-linux-virtual-machine.md
+        - name: Máquina virtual Windows
+          items:
+            - name: .NET
+              href: tutorial-net-windows-virtual-machine.md
+            - name: Python
+              href: tutorial-python-windows-virtual-machine.md
+    - name: Claves de cuenta de almacenamiento
+      items:
+        - name: Claves de cuenta de almacenamiento administrada mediante la CLI de Azure
+          href: key-vault-ovw-storage-keys.md
+        - name: Claves de cuenta de almacenamiento administrada mediante PowerShell
+          href: key-vault-overview-storage-keys-powershell.md
+    - name: Contenedores de Azure
+      href: ../container-instances/container-instances-managed-identity.md
+    - name: Plantilla de Azure Resource Manager
+      href: ../azure-resource-manager/resource-manager-keyvault-parameter.md
+    - name: Configurar la auditoría y la rotación de claves
+      href: key-vault-key-rotation-log-monitoring.md
 - name: Ejemplos
   items:
-  - name: Ejemplos de código
-    href: https://azure.microsoft.com/resources/samples/?service=key-vault
+    - name: Ejemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?service=key-vault'
 - name: Conceptos
   items:
-  - name: ¿Qué es Key Vault?
-    href: key-vault-whatis.md
-  - name: Protección de un almacén de claves
-    href: key-vault-secure-your-key-vault.md
-  - name: Espacios de seguridad
-    href: key-vault-ovw-security-worlds.md
-  - name: Eliminación temporal
-    href: key-vault-ovw-soft-delete.md
-  - name: Limitaciones
-    href: key-vault-ovw-throttling.md
-  - name: Puntos de conexión del servicio de redes virtuales
-    href: key-vault-overview-vnet-service-endpoints.md
-  - name: Autenticación, solicitudes y respuestas
-    href: authentication-requests-and-responses.md
-  - name: Parámetros y encabezados comunes
-    href: common-parameters-and-headers.md
-  - name: Certificados
-    items:
-    - name: Información acerca de claves, secretos y certificados
-      href: about-keys-secrets-and-certificates.md
-    - name: Primeros pasos con certificados
-      href: certificate-scenarios.md
-    - name: Métodos de creación de certificados
-      href: create-certificate.md
-    - name: Supervisión y administración de la creación de certificados
-      href: create-certificate-scenarios.md
-  - name: Atributos comunes de seguridad de Azure
-    href: key-vault-security-attributes.md
+    - name: Seguridad
+      items:
+        - name: Introducción a la seguridad
+          href: overview-security.md
+        - name: Atributos comunes de seguridad
+          href: key-vault-security-attributes.md
+        - name: Espacios de seguridad
+          href: key-vault-ovw-security-worlds.md
+        - name: Protección de un almacén de claves
+          href: key-vault-secure-your-key-vault.md
+    - name: ¿Qué es Key Vault?
+      href: key-vault-whatis.md
+    - name: Eliminación temporal
+      href: key-vault-ovw-soft-delete.md
+    - name: Limitaciones
+      href: key-vault-ovw-throttling.md
+    - name: Puntos de conexión del servicio de redes virtuales
+      href: key-vault-overview-vnet-service-endpoints.md
+    - name: 'Autenticación, solicitudes y respuestas'
+      href: authentication-requests-and-responses.md
+    - name: Parámetros y encabezados comunes
+      href: common-parameters-and-headers.md
+    - name: Certificados
+      items:
+        - name: 'Información acerca de claves, secretos y certificados'
+          href: about-keys-secrets-and-certificates.md
+        - name: Primeros pasos con certificados
+          href: certificate-scenarios.md
+        - name: Métodos de creación de certificados
+          href: create-certificate.md
+        - name: Supervisión y administración de la creación de certificados
+          href: create-certificate-scenarios.md
+    - name: Atributos comunes de seguridad de Azure
+      href: key-vault-security-attributes.md
 - name: Guías de procedimientos
   items:
-  - name: Registro de Azure Key Vault
-    href: key-vault-logging.md
-  - name: Acceso detrás de firewalls
-    href: key-vault-access-behind-firewall.md
-  - name: Disponibilidad y redundancia
-    href: key-vault-disaster-recovery-guidance.md
-  - name: Cambiar el identificador de inquilino
-    href: key-vault-subscription-move-fix.md
-  - name: Creación y administración mediante la CLI de Azure
-    href: key-vault-manage-with-cli2.md
-  - name: Uso de la eliminación temporal de Key Vault con la CLI
-    href: key-vault-soft-delete-cli.md
-  - name: Uso de la eliminación temporal de Key Vault con Azure PowerShell
-    href: key-vault-soft-delete-powershell.md
-  - name: Uso de grupos para conceder acceso
-    href: key-vault-group-permissions-for-apps.md
-  - name: Configuración de firewalls y redes virtuales
-    href: key-vault-network-security.md
-  - name: Desarrollo de Java
-    items:
-    - name: Uso de Spring Boot Starter
-      href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
+    - name: Registro de Azure Key Vault
+      href: key-vault-logging.md
+    - name: Acceso detrás de firewalls
+      href: key-vault-access-behind-firewall.md
+    - name: Disponibilidad y redundancia
+      href: key-vault-disaster-recovery-guidance.md
+    - name: Cambiar el identificador de inquilino
+      href: key-vault-subscription-move-fix.md
+    - name: Creación y administración mediante la CLI de Azure
+      href: key-vault-manage-with-cli2.md
+    - name: Uso de la eliminación temporal de Key Vault con la CLI
+      href: key-vault-soft-delete-cli.md
+    - name: Uso de la eliminación temporal de Key Vault con Azure PowerShell
+      href: key-vault-soft-delete-powershell.md
+    - name: Uso de grupos para conceder acceso
+      href: key-vault-group-permissions-for-apps.md
+    - name: Configuración de firewalls y redes virtuales
+      href: key-vault-network-security.md
+    - name: Desarrollo de Java
+      items:
+        - name: Uso de Spring Boot Starter
+          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-azure-key-vault
 - name: Referencia
   items:
-  - name: Azure PowerShell
-    href: /powershell/module/az.keyvault/?view=azps-1.2.0#key_vault
-  - name: Azure CLI
-    href: /cli/azure/keyvault
-  - name: .NET
-    href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
-  - name: Java
-    href: /java/api/overview/azure/keyvault?view=azure-java-stable
-  - name: Node.js
-    href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
-  - name: Python
-    href: /python/api/overview/azure/key-vault?view=azure-python
-  - name: REST
-    href: /rest/api/keyvault
-  - name: Prácticas recomendadas
-    href: key-vault-best-practices.md
-  - name: Plantilla de Resource Manager
-    href: /azure/templates/microsoft.keyvault/allversions
-  - name: Autenticación, solicitudes y respuestas
-    href: authentication-requests-and-responses.md
-  - name: Parámetros y encabezados comunes
-    href: common-parameters-and-headers.md
-  - name: Desarrollo
-    items:
-    - name: Guía del desarrollador
-      href: key-vault-developers-guide.md
-    - name: Claves protegidas con HSM
-      href: key-vault-hsm-protected-keys.md
-    - name: Migración a .NET 2.0
-      href: key-vault-dotnet2api-release-notes.md
-    - name: Guardar secretos de Web Apps
-      href: vs-secure-secret-appsettings.md
-    - name: Autenticación del servicio mediante .NET
-      href: service-to-service-authentication.md
-    - name: Uso del servicio conectado Key Vault
-      href: vs-key-vault-add-connected-service.md
+    - name: Azure PowerShell
+      href: '/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault'
+    - name: Azure CLI
+      href: /cli/azure/keyvault
+    - name: .NET
+      href: /dotnet/api/overview/azure/key-vault?view=azure-dotnet
+    - name: Java
+      href: /java/api/overview/azure/keyvault?view=azure-java-stable
+    - name: Node.js
+      href: /javascript/api/overview/azure/key-vault?view=azure-node-latest
+    - name: Python
+      href: /python/api/overview/azure/key-vault?view=azure-python
+    - name: REST
+      href: /rest/api/keyvault
+    - name: Prácticas recomendadas
+      href: key-vault-best-practices.md
+    - name: Plantilla de Resource Manager
+      href: /azure/templates/microsoft.keyvault/allversions
+    - name: 'Autenticación, solicitudes y respuestas'
+      href: authentication-requests-and-responses.md
+    - name: Parámetros y encabezados comunes
+      href: common-parameters-and-headers.md
+    - name: Desarrollo
+      items:
+        - name: Guía del desarrollador
+          href: key-vault-developers-guide.md
+        - name: Claves protegidas con HSM
+          href: key-vault-hsm-protected-keys.md
+        - name: Migración a .NET 2.0
+          href: key-vault-dotnet2api-release-notes.md
+        - name: Guardar secretos de Web Apps
+          href: vs-secure-secret-appsettings.md
+        - name: Autenticación del servicio mediante .NET
+          href: service-to-service-authentication.md
+        - name: Uso del servicio conectado Key Vault
+          href: vs-key-vault-add-connected-service.md
 - name: Recursos
   items:
-  - name: Desarrollo de aptitudes con Microsoft Learn
-    href: /learn/browse/?products=azure-key-vault
-  - name: Autenticación, solicitudes y respuestas
-    href: authentication-requests-and-responses.md
-  - name: Parámetros y encabezados comunes
-    href: common-parameters-and-headers.md
-  - name: Datos del cliente
-    href: key-vault-customer-data.md
-  - name: Notas de la versión
-    href: key-vault-versions.md
-  - name: Precios
-    href: https://azure.microsoft.com/pricing/details/key-vault/
-  - name: Disponibilidad en regiones
-    href: https://azure.microsoft.com/global-infrastructure/services/?products=key-vault
-  - name: Contrato de nivel de servicio (SLA)
-    href: https://azure.microsoft.com/support/legal/sla/key-vault/
-  - name: Límites de servicio
-    href: key-vault-service-limits.md
-  - name: Estado del servicio
-    href: https://azure.microsoft.com/status/
-  - name: Actualizaciones del servicio
-    href: https://azure.microsoft.com/updates/?product=key-vault
-  - name: Blog
-    href: https://blogs.technet.com/b/kv/
-  - name: Comentarios sobre el producto
-    href: https://feedback.azure.com/forums/906355-azure-key-vault
-ms.openlocfilehash: 884ea065833d34da17084fcee966ff34e4da02c2
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678520"
+    - name: Desarrollo de aptitudes con Microsoft Learn
+      href: /learn/browse/?products=azure-key-vault
+    - name: 'Autenticación, solicitudes y respuestas'
+      href: authentication-requests-and-responses.md
+    - name: Parámetros y encabezados comunes
+      href: common-parameters-and-headers.md
+    - name: Datos del cliente
+      href: key-vault-customer-data.md
+    - name: Notas de la versión
+      href: key-vault-versions.md
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/key-vault/'
+    - name: Disponibilidad en regiones
+      href: 'https://azure.microsoft.com/global-infrastructure/services/?products=key-vault'
+    - name: Contrato de nivel de servicio (SLA)
+      href: 'https://azure.microsoft.com/support/legal/sla/key-vault/'
+    - name: Límites de servicio
+      href: key-vault-service-limits.md
+    - name: Estado del servicio
+      href: 'https://azure.microsoft.com/status/'
+    - name: Actualizaciones del servicio
+      href: 'https://azure.microsoft.com/updates/?product=key-vault'
+    - name: Blog
+      href: 'https://blogs.technet.com/b/kv/'
+    - name: Comentarios sobre el producto
+      href: 'https://feedback.azure.com/forums/906355-azure-key-vault'

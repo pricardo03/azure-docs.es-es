@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 11/18/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bf777917bc2e09f08cbfaac6334bf9bda198f01
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: a8fefc2eb2e642b5c7ac93b8a1cfc25a54c3b646
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58439402"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996176"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>Códigos de error de los informes de actividad de inicio de sesión. 
 
@@ -174,9 +174,11 @@ También puede acceder mediante programación a los datos de inicio de sesión c
 |81012|No se trata de una condición de error. Indica que el usuario que intenta iniciar sesión en Azure AD es distinto del que inició sesión en el dispositivo. Puede omitir este código en los registros sin problemas.|
 |90010|La solicitud no se admite por diversos motivos. Por ejemplo, la solicitud se ha realizado utilizando un método de solicitud que no es compatible (se admite solo el método POST), o el algoritmo de firma de token que se solicitó no es compatible. Póngase en contacto con el desarrollador de aplicaciones.|
 |90014| Falta un campo obligatorio para un mensaje de protocolo, póngase en contacto con el propietario de la aplicación. Si es usted el propietario de la aplicación, asegúrese de que tiene todos los parámetros necesarios para la solicitud de inicio de sesión. |
+|90051| Token de delegación no válido. Se especifica el identificador de nube nacionales no válido ({cloudId}).|
 |90072| La cuenta tiene que agregarse primero como un usuario externo en el inquilino. Cierre sesión y vuelva a iniciarla con otra cuenta de Azure AD.|
 |90094| La concesión requiere permisos de administrador. Pida al administrador de inquilino que dé su consentimiento para esta aplicación.|
 |500133| La aserción no está dentro de su intervalo de tiempo válido. Asegúrese de que el token de acceso no ha expirado antes de usarlo para la aserción de usuario o solicite un nuevo token.|
+|530021|Aplicación no cumple los requisitos de aplicación aprobada de acceso condicional.|
 
 ## <a name="next-steps"></a>Pasos siguientes
 

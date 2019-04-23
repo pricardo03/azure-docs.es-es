@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 71970a74817665c97a9522fbc9a68dd3834252b9
-ms.sourcegitcommit: fec96500757e55e7716892ddff9a187f61ae81f7
-ms.translationtype: MT
+ms.openlocfilehash: 15b3fb4ae483e5b0e4f930d0dc08de6d198d0e5f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59616363"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005254"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>Supervisión y solución de problemas en el lado HANA
 
@@ -63,7 +63,7 @@ El gráfico Carga podría mostrar un uso de CPU elevado o un uso de elevado en e
 
 ![El gráfico Carga podría mostrar un uso de CPU elevado o un uso de elevado en el pasado](./media/troubleshooting-monitoring/image4-load-graph.png)
 
-Una alerta desencadenada debido al uso elevado de CPU puede tener varias causas; entre ellas, la ejecución de ciertas transacciones, la carga de datos, trabajos que no responden, instrucciones SQL de larga ejecución y un rendimiento de consulta incorrecto (por ejemplo, con BW en cubos HANA).
+Una alerta desencadenada debido al uso de CPU elevado puede deberse a varias razones, entre ellas, pero sin limitarse a: ejecución de ciertas transacciones, la carga de datos, los trabajos que no responden, cuánto tiempo ejecutando instrucciones SQL y el rendimiento de consulta incorrecto (por ejemplo, con BW en cubos HANA).
 
 Hacer referencia a la [solución de problemas de HANA de SAP: CPU relacionados causas y soluciones](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) de sitio para los pasos de solución de problemas detallada.
 

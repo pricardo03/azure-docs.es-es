@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 04/11/2019
-ms.openlocfilehash: de9eb8ff33dc6d99c386ee92118a2d737ba1e476
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: cb4ff203a69e04aeaff6d446d6ce3719f4158305
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523705"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001089"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Información general sobre las funcionalidades de seguridad de Azure SQL Database
 
@@ -88,9 +88,9 @@ SQL Database protege los datos de los clientes al ofrecer capacidades de auditor
 
 SQL Database Auditing hace un seguimiento de las actividades de la base de datos y ayuda a mantener el cumplimiento de los estándares de seguridad mediante la grabación de eventos de la base de datos en un registro de auditoría en una cuenta de Azure Storage propiedad del cliente. La auditoría permite a los usuarios supervisan las actividades de la base de datos en curso, así como analizar e investigar la actividad histórica para identificar posibles amenazas o supuestas infracciones de seguridad y abusos. Para más información, consulte la introducción a la [auditoría de base de datos de SQL](sql-database-auditing.md).  
 
-### <a name="threat-detection"></a>Detección de amenazas
+### <a name="advanced-threat-protection"></a>Protección contra amenazas avanzada
 
-La detección de amenazas mejora las auditorías mediante el análisis de registros de auditoría para un comportamiento poco habitual e intentos potencialmente peligrosos de acceder o aprovechar las bases de datos. Las alertas se crean para las actividades sospechosas o patrones anómalos de acceso, como ataques por inyección de código SQL, infiltración potencial de datos y los ataques de fuerza bruta a contraseñas. Las alertas de la detección de amenazas se ven desde [Azure Security Center](https://azure.microsoft.com/services/security-center/), donde se proporcionan detalles de las actividades sospechosas y se dan recomendaciones para una investigación más minuciosa, junto con las acciones para mitigar la amenaza. La detección de amenazas cuesta 15 USD/servidor/mes. Puede probarse gratis durante los primeros 60 días. Para más información, consulte [Introducción a Detección de amenazas de SQL Database](sql-database-threat-detection.md).
+Protección contra amenazas avanzada está analizando los registros de SQL Server para detectar un comportamiento poco habitual e intentos potencialmente dañinos de acceso o ataque a las bases de datos. Las alertas se crean para detectar actividades sospechosas, como inyección de código SQL, infiltración de datos posibles y fuerza bruta forzar ataques o para detectar anomalías en el acceso de usar patrones para detectar las elevaciones de privilegios y credenciales ha puesto en peligro. Las alertas se ven desde el [Azure Security Center](https://azure.microsoft.com/services/security-center/), donde se proporcionan los detalles de las actividades sospechosas y recomendaciones para una investigación más minuciosa dado junto con las acciones para mitigar la amenaza. Protección contra amenazas avanzada se puede habilitar por servidor para una cuota adicional. Para obtener más información, consulte [empezar a trabajar con protección contra amenazas avanzada de base de datos del SQL](sql-database-threat-detection.md).
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 

@@ -10,18 +10,21 @@ ms.date: 03/05/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 74b099c648fa4dd1c735cc76c82efbc102d9843c
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
-ms.translationtype: MT
+ms.openlocfilehash: 5e997d9e9f38fee52cd9fc007fe12cac68e3aa5a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57443052"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008688"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Seguimiento de cambios en el entorno con la solución Change Tracking
 
 Este artículo le ayuda a usar la solución Change Tracking para identificar fácilmente los cambios del entorno. La solución realiza un seguimiento de los cambios efectuados en el software de Windows y Linux, en los archivos de Windows y Linux, en las claves del registro de Windows, en los servicios de Windows y en los demonios de Linux. Identificar los cambios de configuración puede ayudarle a localizar problemas operativos.
 
-Los cambios realizados en el software instalado, los servicios de Windows, del registro de Windows y los archivos y los demonios de Linux en los servidores supervisados se envían al servicio Azure Monitor en la nube para su procesamiento. Se aplica la lógica a los datos recibidos y el servicio de nube registra los datos. Con la información en el panel de seguimiento de cambios, puede ver fácilmente los cambios realizados en la infraestructura de servidores.
+Los cambios en los demonios de Linux, en el registro y los archivos de Windows, en los servicios de Windows y en el software instalado en los servidores supervisados se envían al servicio de Azure Monitor en la nube para su procesamiento. Se aplica la lógica a los datos recibidos y el servicio de nube registra los datos. Con la información en el panel de seguimiento de cambios, puede ver fácilmente los cambios realizados en la infraestructura de servidores.
+
+> [!NOTE]
+> Seguimiento de cambios de Azure Automation realiza un seguimiento de cambios en máquinas virtuales. Para realizar el seguimiento de cambios de propiedad de Azure Resource Manager, consulte Azure recursos Graph [historial de cambios](../governance/resource-graph/how-to/get-resource-changes.md).
 
 ## <a name="supported-windows-operating-systems"></a>Sistemas operativos Windows compatibles
 
@@ -76,7 +79,7 @@ Use los pasos siguientes para configurar el seguimiento de archivos en equipos L
 
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
-|habilitado     | Determina si se aplica la configuración.        |
+|Enabled     | Determina si se aplica la configuración.        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar.        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos.        |
 |Escriba la ruta de acceso     | La ruta de acceso para buscar el archivo. Por ejemplo: "/etc/*.conf"       |
@@ -99,7 +102,7 @@ Use los pasos siguientes para configurar los archivos de los que se realizará u
 
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
-|habilitado     | Determina si se aplica la configuración.        |
+|Enabled     | Determina si se aplica la configuración.        |
 |Nombre del elemento     | Nombre descriptivo del archivo cuyo seguimiento se va a realizar.        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente los archivos.        |
 |Escriba la ruta de acceso     | La ruta de acceso para buscar el archivo, por ejemplo: "c:\temp\\\*.txt"<br>También puede usar variables de entorno, como "%winDir%\System32\\\*. *"       |
@@ -131,7 +134,7 @@ Use los pasos siguientes para configurar las claves del registro para realizar u
 
 |Propiedad  |DESCRIPCIÓN  |
 |---------|---------|
-|habilitado     | Determina si se aplica la configuración.        |
+|Enabled     | Determina si se aplica la configuración.        |
 |Nombre del elemento     | Nombre descriptivo de la clave del Registro cuyo seguimiento se va a realizar.        |
 |Grupo     | Un nombre de grupo para agrupar lógicamente las claves del Registro.        |
 |Clave del registro de Windows   | La ruta de acceso para buscar la clave del Registro. Por ejemplo:  "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\User Shell Folders\Common Startup"      |

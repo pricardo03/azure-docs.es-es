@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: b84238e8a659358f2c065eb1533f0d21a5335d43
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: be2f5fdebc5ae4f779fe6e3da74ad7ea583226ef
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59496886"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995666"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Supervise la actividad de suscripción con Azure Activity Log
 
@@ -65,6 +65,9 @@ Estas son algunas de las cosas que puede hacer con el registro de actividad:
 * Consultarlo mediante un cmdlet de PowerShell, la CLI o la API de REST.
 
 ## <a name="query-the-activity-log-in-the-azure-portal"></a>Consulta de Activity Log en Azure Portal
+
+> [!NOTE] 
+> El registro de actividad almacena los registros en el back-end durante 90 días. Si desea conservar los datos más allá de esto, configure un **perfil de registro** tal como se describe a continuación. 
 
 En Azure Portal puede ver el registro de actividad en varios lugares:
 * El **Registro de actividad** al que tiene acceso buscando Registro de actividad en **Todos los servicios** en el panel de navegación izquierdo.

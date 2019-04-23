@@ -6,30 +6,29 @@ documentationcenter: ''
 author: CelesteDG
 manager: mtillman
 editor: ''
-ms.assetid: 780eec4d-7ee1-48b7-b29f-cd0b8cb41ed3
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 04/20/2019
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14291a6e8f9c4cde3c8777969047ebaa77e42b59
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 703416788d123798774802613d71b30e8fbdaa9b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59500454"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999814"
 ---
 # <a name="microsoft-identity-platform-and-the-oauth-20-device-code-flow"></a>Flujo de código de plataforma de identidad de Microsoft y el dispositivo de OAuth 2.0
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
-Admite la plataforma Microsoft identity el [concesión de código de dispositivo](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), lo que permite que los usuarios inicien sesión dispositivos con limitaciones de entrada como un Televisor inteligente, de dispositivo IoT o impresora.  Para habilitar este flujo, el dispositivo pide que el usuario visite una página web en su explorador en otro dispositivo para iniciar sesión.  Una vez que el usuario inicia sesión, el dispositivo es capaz de obtener tokens de acceso y tokens de actualización según sea necesario.  
+La plataforma de identidad de Microsoft admite el [concesión de código de dispositivo](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), lo que permite que los usuarios inicien sesión dispositivos con limitaciones de entrada como un Televisor inteligente, de dispositivo IoT o impresora.  Para habilitar este flujo, el dispositivo pide que el usuario visite una página web en su explorador en otro dispositivo para iniciar sesión.  Una vez que el usuario inicia sesión, el dispositivo es capaz de obtener tokens de acceso y tokens de actualización según sea necesario.  
 
 > [!IMPORTANT]
 > En este momento, el punto de conexión de plataforma de identidad de Microsoft solo admite el flujo de dispositivo para inquilinos de Azure AD, pero las cuentas personales no.  Esto significa que debe usar un punto de conexión configurado como un inquilino, o el `organizations` punto de conexión.  
@@ -43,11 +42,11 @@ Admite la plataforma Microsoft identity el [concesión de código de dispositivo
 
 El flujo de código de dispositivo completo tiene un aspecto similar al diagrama siguiente. Más adelante en este artículo se describe cada uno de los pasos.
 
-![Flujo de código de dispositivo](media/v2-oauth2-device-flow/v2-oauth-device-flow.png)
+![Flujo de código de dispositivo](./media/v2-oauth2-device-code/v2-oauth-device-flow.svg)
 
 ## <a name="device-authorization-request"></a>Solicitud de autorización de dispositivo
 
-El cliente debe primero realizar una comprobación con el servidor de autenticación para obtener un código de usuario y dispositivo, utilizados para iniciar la autenticación.  El cliente recopila esta solicitud desde el punto de conexión `/devicecode`. En esta solicitud, el cliente también debe incluir los permisos que necesita obtener por parte del usuario.  Desde el momento en que se envía esta solicitud, el usuario tiene solo 15 minutos para iniciar sesión (el valor habitual de `expires_in`), por lo que solo se debe realizar esta solicitud cuando el usuario ha indicado que está listo para iniciar sesión.
+El cliente debe comprobar primero con el servidor de autenticación para un código de usuario y dispositivo que se usa para iniciar la autenticación. El cliente recopila esta solicitud desde el punto de conexión `/devicecode`. En esta solicitud, el cliente también debe incluir los permisos que necesita obtener por parte del usuario. Desde el momento en que se envía esta solicitud, el usuario tiene solo 15 minutos para iniciar sesión (el valor habitual de `expires_in`), por lo que solo se debe realizar esta solicitud cuando el usuario ha indicado que está listo para iniciar sesión.
 
 > [!TIP]
 > Pruebe a ejecutar esta solicitud en Postman
@@ -76,13 +75,13 @@ Una respuesta correcta será un objeto JSON que contiene la información necesar
 
 | Parámetro | Formato | DESCRIPCIÓN |
 | ---              | --- | --- |
-|`device_code`     | string | Cadena larga que se usa para comprobar la sesión entre el cliente y el servidor de autorización.  El cliente la utiliza para solicitar el token de acceso al servidor de autorización. |
-|`user_code`       | string | Cadena corta que se muestra al usuario y se usa para identificar la sesión en un dispositivo secundario.|
+|`device_code`     | String | Cadena larga que se usa para comprobar la sesión entre el cliente y el servidor de autorización. El cliente utiliza este parámetro para solicitar el token de acceso desde el servidor de autorización. |
+|`user_code`       | String | Una cadena corta que se muestra al usuario que se usa para identificar la sesión en un dispositivo secundario.|
 |`verification_uri`| URI | Identificador URI al que debe ir el usuario con el `user_code` para iniciar sesión. |
-|`verification_uri_complete`|URI| Identificador URI que combina `user_code` y `verification_uri` y se usa para la transmisión no textual al usuario (por ejemplo, mediante Bluetooth a un dispositivo o con un código QR).  |
-|`expires_in`      |  int| Número de segundos antes de que `device_code` y `user_code` expiren. |
+|`verification_uri_complete`| URI | Un URI que combina el `user_code` y `verification_uri`, que se usa para la transmisión de texto para el usuario (por ejemplo, a través de Bluetooth a un dispositivo o a través de un código QR).  |
+|`expires_in`      | int | Número de segundos antes de que `device_code` y `user_code` expiren. |
 |`interval`        | int | Número de segundos que el cliente debe esperar entre solicitudes de sondeo. |
-| `message`        | string | Cadena legible con instrucciones para el usuario.  Esto se puede traducir mediante la inclusión de un **parámetro de consulta** en la solicitud del formulario `?mkt=xx-XX`, con el código de referencia cultural del idioma correspondiente. |
+| `message`        | String | Cadena legible con instrucciones para el usuario. Esto se puede traducir mediante la inclusión de un **parámetro de consulta** en la solicitud del formulario `?mkt=xx-XX`, con el código de referencia cultural del idioma correspondiente. |
 
 ## <a name="authenticating-the-user"></a>Autenticación del usuario
 
@@ -107,15 +106,14 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 
 ### <a name="expected-errors"></a>Errores esperados
 
-Dado que el flujo de código de dispositivo es un protocolo de sondeo, el cliente debe esperar recibir errores antes de que el usuario haya terminado la autenticación.  
+El flujo de código de dispositivo es un protocolo de sondeo, por lo que el cliente debe esperar recibir los errores antes de que el usuario ha terminado de autenticación.  
 
 | Error | DESCRIPCIÓN | Acción del cliente |
 | ------ | ----------- | -------------|
-| `authorization_pending` | El usuario no ha terminado de autenticación, pero no ha cancelado el flujo. | Repetir la solicitud después de, por lo menos, los segundos especificados en `interval`. |
+| `authorization_pending` | El usuario no ha finalizado la autenticación, pero no ha cancelado el flujo. | Repetir la solicitud después de, por lo menos, los segundos especificados en `interval`. |
 | `authorization_declined` | El usuario final ha denegado la solicitud de autorización.| Detener el sondeo y revertir a un estado de no autenticado.  |
-| `bad_verification_code`|El valor de `device_code` enviado al punto de conexión `/token` no se ha reconocido. | Comprobar que el cliente está enviando el valor correcto de `device_code` en la solicitud. |
-| `expired_token` | Han transcurrido al menos `expires_in` segundos y la autenticación ya no es posible con este `device_code`. | Detener el sondeo y revertir a un estado de no autenticado. |
-
+| `bad_verification_code`| El `device_code` enviados a la `/token` no se reconoció el punto de conexión. | Comprobar que el cliente está enviando el valor correcto de `device_code` en la solicitud. |
+| `expired_token` | Han transcurrido al menos `expires_in` segundos y la autenticación ya no es posible con este `device_code`. | Detenga el sondeo y revertir a un estado no autenticado. |
 
 ### <a name="successful-authentication-response"></a>Respuesta de autenticación correcta
 
@@ -134,11 +132,11 @@ Una respuesta de token correcta tendrá un aspecto similar al siguiente:
 
 | Parámetro | Formato | DESCRIPCIÓN |
 | --------- | ------ | ----------- |
-| `token_type` | string| Siempre "Bearer". |
+| `token_type` | String| Siempre "Bearer". |
 | `scope` | Cadenas separadas por espacios | Si se devolvió un token de acceso, esto muestra los ámbitos para los que es válido el token de acceso. |
 | `expires_in`| int | Número de segundos antes de los que el token de acceso incluido es válido. |
 | `access_token`| Cadena opaca | Se emite para los [ámbitos](v2-permissions-and-consent.md) solicitados.  |
 | `id_token`   | JWT | Se emite si el parámetro `scope` original incluye el ámbito `openid`.  |
 | `refresh_token` | Cadena opaca | Se emite si el parámetro `scope` original incluye `offline_access`.  |
 
-El token de actualización se puede usar para obtener nuevos tokens de acceso y tokens de actualización con el mismo flujo detallado en la [Documentación del flujo de código de OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  
+Puede usar el token de actualización para adquirir nuevos tokens de acceso y actualizar tokens con el mismo flujo documentado en el [documentación de flujo de código de OAuth](v2-oauth2-auth-code-flow.md#refresh-the-access-token).  

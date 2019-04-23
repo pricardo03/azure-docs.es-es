@@ -1,6 +1,6 @@
 ---
-title: Interpretación del esquema de registro de auditoría de Azure Active Directory en Azure Monitor (versión preliminar) | Microsoft Docs
-description: Se describe el esquema de registro de auditoría de Azure AD para su uso en Azure Monitor (versión preliminar)
+title: Interpretar el esquema de registro de auditoría de Azure Active Directory en Azure Monitor | Microsoft Docs
+description: Describir el esquema de registro de auditoría de Azure AD para su uso en Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/14/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4832776dee7c478996bcfc2a903a6d8e2a3c4426
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436972"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010235"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretación del esquema de registros de auditoría de Azure AD en Azure Monitor (versión preliminar)
 
@@ -149,10 +149,10 @@ En este artículo se describe el esquema de registro de auditoría de Azure Acti
 
 | Nombre del campo | DESCRIPCIÓN |
 |------------|-------------|
-| Twitter en tiempo       | Fecha y hora (UTC) |
+| time       | Fecha y hora (UTC) |
 | operationName | Nombre de la operación. |
 | operationVersion | Versión de la API REST solicitada por el cliente. |
-| categoría | Actualmente, *Auditoría* es el único valor admitido. |
+| category | Actualmente, *Auditoría* es el único valor admitido. |
 | tenantId | GUID del inquilino asociado con los registros. |
 | resultType | Resultado de la operación. El resultado puede ser *Correcto* o *Error*. |
 | resultSignature |  Este campo no se ha asignado y puede ignorarlo de forma segura. | 
@@ -163,7 +163,7 @@ En este artículo se describe el esquema de registro de auditoría de Azure Acti
 | identidad | Identidad del token que se ha presentado al realizar la solicitud. La identidad puede ser una cuenta de usuario, una cuenta del sistema o una entidad de servicio. |
 | level | Tipo de mensaje. Para los registros de auditoría, el nivel siempre es *Informativo*. |
 | location | Ubicación del centro de datos. |
-| propiedades | Enumera las propiedades admitidas relacionadas con un registro de auditoría. Para más información, consulte la siguiente tabla. | 
+| properties | Enumera las propiedades admitidas relacionadas con un registro de auditoría. Para más información, consulte la siguiente tabla. | 
 
 <br>
 

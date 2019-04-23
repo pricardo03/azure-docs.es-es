@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: jamesbak
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: b25a47e929ef540ad3a74a86d431962d37cde434
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 8777a7504c48b22d0e670dd9f0d28016ac8918db
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58009437"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009470"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2"></a>Introducción a Azure Data Lake Storage Gen2
 
@@ -43,7 +43,7 @@ Anteriormente, los análisis basados en la nube tenían que llegar a un acuerdo 
 
 -   **Rentabilidad**: Data Lake Storage Gen2 ofrece transacciones y capacidad de almacenamiento de bajo costo. Al igual que las transiciones de datos a lo largo de su ciclo de vida completo, las tasas de facturación cambian y mantienen los costos al mínimo a través de características integradas, como el [ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md).
 
--   **Controlador optimizado**: el controlador abfs está [optimizado específicamente](data-lake-storage-abfs-driver.md) para el análisis de macrodatos. Las API REST correspondientes se exponen a través del punto de conexión dfs, dfs.core.windows.net.
+-   **Controlador optimizado**: Es el controlador ABFS [específicamente optimizado](data-lake-storage-abfs-driver.md) para análisis de macrodatos. Las API de REST correspondiente se exponen a través del extremo `dfs.core.windows.net`.
 
 ### <a name="scalability"></a>Escalabilidad
 
@@ -64,7 +64,7 @@ A continuación, se muestran las entidades equivalentes, tal como se describen e
 | Concepto                                | Organización de nivel superior | Organización de nivel inferior                                            | Contenedor de datos |
 |----------------------------------------|------------------------|---------------------------------------------------------------------|----------------|
 | Blobs: almacenamiento de objetos de uso general | Contenedor              | Directorio virtual (solo SDK, no proporciona manipulación atómica) | Blob           |
-| ADLS Gen2: almacenamiento de análisis          | Filesystem             | Directorio                                                           | Archivo           |
+| ADLS Gen2: almacenamiento de análisis          | Sistema de archivos             | Directorio                                                           | Archivo           |
 
 ## <a name="supported-open-source-platforms"></a>Plataformas de código abierto compatibles
 

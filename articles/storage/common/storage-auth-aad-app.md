@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/21/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8fdc4445e28a420b6b4f7935443d7d991d9e8a4d
-ms.sourcegitcommit: f0f21b9b6f2b820bd3736f4ec5c04b65bdbf4236
-ms.translationtype: MT
+ms.openlocfilehash: c4959d6abd1b33c81f731ad0479bd59d271c7797
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58446059"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149170"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-application-for-access-to-blobs-and-queues"></a>Autenticar con Azure Active Directory desde una aplicación para el acceso a los blobs y colas
 
@@ -192,5 +192,5 @@ Para obtener más información acerca de cómo autorizar las operaciones de alma
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener más información acerca de los roles RBAC para el almacenamiento de Azure, consulte [administrar derechos de acceso a los datos de almacenamiento con RBAC](storage-auth-aad-rbac.md).
-- Para obtener información sobre el uso de identidades administradas por los recursos de Azure con Azure Storage, consulte [autenticar el acceso a los blobs y colas de Azure administra las identidades para Azure Resources](storage-auth-aad-msi.md).
-- Para obtener información sobre cómo iniciar sesión PowerShell y CLI de Azure con una identidad de Azure AD, consulte [usar una identidad de Azure AD para acceder a Azure Storage con PowerShell o CLI](storage-auth-aad-script.md).
+- Para obtener información sobre el uso de identidades administradas por los recursos de Azure con Azure Storage, consulte [autenticar el acceso a los blobs y colas con Azure Active Directory y las identidades administradas para Azure Resources](storage-auth-aad-msi.md).
+- Para obtener información sobre cómo ejecutar comandos de PowerShell y CLI de Azure con credenciales de Azure AD, consulte [comandos ejecutar la CLI de Azure o PowerShell con credenciales de Azure AD para tener acceso a datos blob o cola](storage-auth-aad-script.md).

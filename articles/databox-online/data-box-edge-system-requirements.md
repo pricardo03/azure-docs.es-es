@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: d1e4af6e73c272a7ccc8996b0ccc854be64dd74b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59006349"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996754"
 ---
 # <a name="azure-data-box-edge-system-requirements"></a>Requisitos del sistema de borde del cuadro de datos Azure
 
@@ -82,7 +82,7 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 
 | Patrón de URL                      | Componente o funcionalidad                     |   
 |----------------------------------|---------------------------------------------|
-| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registro de contenedor de Microsoft (obligatorio)               |
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.io | Registro de contenedor de Microsoft (obligatorio)               |
 | https://\*.azurecr.io                     | Registros de contenedores personales y de terceros (opcional) | 
 | https://\*.azure-devices.net              | Acceso de IoT Hub (obligatorio)                             | 
 
@@ -94,7 +94,7 @@ Se recomienda que establezca las reglas de firewall para el tráfico saliente, b
 
 | Patrón de URL                      | Componente o funcionalidad                     |  
 |----------------------------------|---------------------------------------------|
-| https://mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Registro de contenedor de Microsoft (obligatorio)               |
+| https:\//mcr.microsoft.com<br></br>https://\*.cdn.mscr.com | Registro de contenedor de Microsoft (obligatorio)               |
 | https://\*.azure-devices.us              | Acceso de IoT Hub (obligatorio)           |
 | https://\*.azurecr.us                    | Registros de contenedores personales y de terceros (opcional) | 
 

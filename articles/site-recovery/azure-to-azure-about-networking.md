@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sujayt
-ms.openlocfilehash: 42db22d39a7c87363cf97f874c85955a09cbe653
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: a6c9c690efe8b75cd1a939de1c68cf4e5bd40d70
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58651550"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149321"
 ---
 # <a name="about-networking-in-azure-to-azure-replication"></a>Acerca de las redes en Azure para la replicación de Azure
 
@@ -48,7 +48,7 @@ Si usa un proxy de firewall basado en la dirección URL para controlar la conect
 
 **URL** | **Detalles**  
 --- | ---
-* .blob.core.windows.net | Se requiere para que los datos se puedan escribir en la cuenta de almacenamiento de la caché en la región de origen de la máquina virtual. Si conoce toda la caché de cuentas de almacenamiento para las máquinas virtuales, puede lista blanca las direcciones URL cuenta de almacenamiento específico (p. ej.: cache1.blob.core.windows.net y cache2.blob.core.windows.net) en lugar de *. blob.core.windows.net
+* .blob.core.windows.net | Se requiere para que los datos se puedan escribir en la cuenta de almacenamiento de la caché en la región de origen de la máquina virtual. Si conoce toda la caché de cuentas de almacenamiento para las máquinas virtuales, puede lista blanca las direcciones URL de cuenta de almacenamiento específico (p. ej.: cache1.blob.core.windows.net y cache2.blob.core.windows.net) en lugar de *. blob.core.windows.net
 login.microsoftonline.com | Se requiere para la autorización y la autenticación de las direcciones URL del servicio Site Recovery.
 *.hypervrecoverymanager.windowsazure.com | Se requiere para la comunicación del servicio Site Recovery desde la máquina virtual. Puede usar el "sitio de recuperación dirección IP correspondiente' Si el proxy de firewall es compatible con las direcciones IP.
 *.servicebus.windows.net | Se requiere para que se puedan escribir datos de supervisión y diagnóstico de Site Recovery desde la máquina virtual. Puede usar el correspondiente 'Site Recovery supervisión IP' Si el proxy de firewall es compatible con las direcciones IP.
@@ -96,13 +96,19 @@ Los intervalos de direcciones IP de Site Recovery son los siguientes:
    Sur del Reino Unido 2 | 13.87.37.4| 13.87.34.139
    Norte del Reino Unido | 51.142.209.167 | 13.87.102.68
    Corea Central | 52.231.28.253 | 52.231.32.85
-   Corea del Sur | 52.231.298.185 | 52.231.200.144
+   Corea del Sur | 52.231.198.185 | 52.231.200.144
    Centro de Francia | 52.143.138.106 | 52.143.136.55
    Sur de Francia | 52.136.139.227 |52.136.136.62
    Centro de Australia| 20.36.34.70 | 20.36.46.142
    Centro de Australia 2| 20.36.69.62 | 20.36.74.130
    Sudáfrica occidental | 102.133.72.51 | 102.133.26.128
    Sudáfrica septentrional | 102.133.160.44 | 102.133.154.128
+   Gobierno de EE. UU. - Virginia | 52.227.178.114 | 23.97.0.197
+   US Gov Iowa | 13.72.184.23 | 23.97.16.186
+   Gobierno de EE. UU.: Arizona | 52.244.205.45 | 52.244.48.85
+   Gobierno de EE. UU.: Texas | 52.238.119.218 | 52.238.116.60
+   Departamento de Defensa de EE. UU. Este | 52.181.164.103 | 52.181.162.129
+   Departamento de Defensa de EE. UU. Centro | 52.182.95.237 | 52.182.90.133
 ## <a name="example-nsg-configuration"></a>Configuración de NSG de ejemplo
 
 En este ejemplo se muestra cómo configurar reglas de NSG para la replicación de una máquina virtual.

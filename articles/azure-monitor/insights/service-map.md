@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 2abec4d9d74cf58503dec667080f478b1fec06ff
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: 0c654070e2bbeb8ee5dbc64fe9b4f58ee97f2e47
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58485159"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000732"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Uso de la solución Service Map en Azure
 Mapa de servicio detecta automáticamente los componentes de la aplicación en sistemas Windows y Linux y asigna la comunicación entre servicios. Con Service Map puede ver los servidores de la forma que los imagina: como sistemas interconectados que ofrecen servicios críticos. Service Map muestra las conexiones entre servidores, procesos, la latencia de conexión entrante y saliente y puertos en cualquier arquitectura conectada de TCP sin necesidad de ninguna configuración más allá de la instalación de un agente.
@@ -299,22 +299,22 @@ Para administrar el costo y la complejidad, los registros de conexión no repres
 
 | Propiedad | DESCRIPCIÓN |
 |:--|:--|
-|Dirección |Dirección de la conexión; el valor es *inbound* u *outbound* |
-|Máquina |FQDN del equipo |
-|Proceso |Identidad de proceso o grupos de procesos; iniciar/aceptar la conexión |
-|SourceIp |Dirección IP de origen |
-|DestinationIp |Dirección IP de destino. |
-|DestinationPort |Número de puerto de destino |
-|Protocolo |Protocolo utilizado para la conexión.  Los valores son *tcp*. |
+| `Direction` |Dirección de la conexión; el valor es *inbound* u *outbound* |
+| `Machine` |FQDN del equipo |
+| `Process` |Identidad de proceso o grupos de procesos; iniciar/aceptar la conexión |
+| `SourceIp` |Dirección IP de origen |
+| `DestinationIp` |Dirección IP de destino. |
+| `DestinationPort` |Número de puerto de destino |
+| `Protocol` |Protocolo utilizado para la conexión.  Los valores son *tcp*. |
 
 Para tener en cuenta el impacto de la agrupación, se proporciona información sobre el número de conexiones físicas agrupadas en las siguientes propiedades del registro:
 
 | Propiedad | DESCRIPCIÓN |
 |:--|:--|
-|LinksEstablished |Número de conexiones de red físicas que se han establecido durante el período de tiempo de generación de informes |
-|LinksTerminated |Número de conexiones de red físicas que han finalizado durante el período de tiempo de generación de informes |
-|LinksFailed |Número de conexiones de red físicas que han generado errores durante el período de tiempo de generación de informes Actualmente, esta información está disponible solo para las conexiones salientes. |
-|LinksLive |Número de conexiones de red físicas que estaban abiertas al final del período de tiempo de generación de informes|
+| `LinksEstablished` |Número de conexiones de red físicas que se han establecido durante el período de tiempo de generación de informes |
+| `LinksTerminated` |Número de conexiones de red físicas que han finalizado durante el período de tiempo de generación de informes |
+| `LinksFailed` |Número de conexiones de red físicas que han generado errores durante el período de tiempo de generación de informes Actualmente, esta información está disponible solo para las conexiones salientes. |
+| `LinksLive` |Número de conexiones de red físicas que estaban abiertas al final del período de tiempo de generación de informes|
 
 #### <a name="metrics"></a>Métricas
 
@@ -322,12 +322,12 @@ Además de las métricas de recuento de conexión, también se incluye informaci
 
 | Propiedad | DESCRIPCIÓN |
 |:--|:--|
-|BytesSent |Número total de bytes enviados durante el período de tiempo de generación de informes |
-|BytesReceived |Número total de bytes recibidos durante el período de tiempo de generación de informes |
-|Respuestas |Número de respuestas observado durante el período de tiempo de generación de informes. 
-|ResponseTimeMax |Mayor tiempo de respuesta (milisegundos) observado durante el período de tiempo de generación de informes.  Si no hay ningún valor, la propiedad está en blanco.|
-|ResponseTimeMin |Menor tiempo de respuesta (milisegundos) observado durante el período de tiempo de generación de informes.  Si no hay ningún valor, la propiedad está en blanco.|
-|ResponseTimeMin |Suma de todos los tiempos de respuesta (milisegundos) observados durante el período de tiempo de generación de informes.  Si no hay ningún valor, la propiedad está en blanco.|
+| `BytesSent` |Número total de bytes enviados durante el período de tiempo de generación de informes |
+| `BytesReceived` |Número total de bytes recibidos durante el período de tiempo de generación de informes |
+| `Responses` |Número de respuestas observado durante el período de tiempo de generación de informes. 
+| `ResponseTimeMax` |Mayor tiempo de respuesta (milisegundos) observado durante el período de tiempo de generación de informes.  Si no hay ningún valor, la propiedad está en blanco.|
+| `ResponseTimeMin` |Menor tiempo de respuesta (milisegundos) observado durante el período de tiempo de generación de informes.  Si no hay ningún valor, la propiedad está en blanco.|
+| `ResponseTimeSum` |Suma de todos los tiempos de respuesta (milisegundos) observados durante el período de tiempo de generación de informes.  Si no hay ningún valor, la propiedad está en blanco.|
 
 El tercer tipo de datos que se va a notificar es el tiempo de respuesta: ¿cuánto tiempo pasa el autor de la llamada esperando que una solicitud enviada a través de una conexión se procese y reciba respuesta del punto de conexión remoto? El tiempo de respuesta notificado es una estimación del tiempo de respuesta real del protocolo de aplicación subyacente. Se calcula utilizando la heurística basada en la observación del flujo de datos entre el origen y destino de una conexión de red física. Conceptualmente, es la diferencia entre el momento en que el último byte de una solicitud sale del remitente y el momento en que llega el último byte de la respuesta. Estas dos marcas de tiempo se utilizan para delinear los eventos de solicitud y respuesta de una conexión física concreta. La diferencia entre ellas representa el tiempo de respuesta de una única solicitud. 
 
@@ -348,26 +348,26 @@ Para mayor comodidad, la dirección IP del extremo remoto de una conexión se in
 
 | Propiedad | DESCRIPCIÓN |
 |:--|:--|
-|RemoteCountry |Nombre del país que hospeda la dirección IP de RemoteIp.  Por ejemplo: *United States* |
-|RemoteLatitude |Latitud de geolocalización.  Por ejemplo, *47.68* |
-|RemoteLongitude |Longitud de geolocalización.  Por ejemplo, *-122.12* |
+| `RemoteCountry` |Nombre del país que hospeda la dirección IP de RemoteIp.  Por ejemplo: *United States* |
+| `RemoteLatitude` |Latitud de geolocalización.  Por ejemplo, *47.68* |
+| `RemoteLongitude` |Longitud de geolocalización.  Por ejemplo, *-122.12* |
 
 #### <a name="malicious-ip"></a>Direcciones IP malintencionadas
 Todas las propiedades de RemoteIp de la tabla *VMConnection* se comparan con un conjunto de direcciones IP con actividad malintencionada conocida. Si el valor de RemoteIp se identifica como malintencionado, las propiedades siguientes se completarán (si la IP no se considera malintencionada, están vacías) en las siguientes propiedades del registro:
 
 | Propiedad | DESCRIPCIÓN |
 |:--|:--|
-|MaliciousIP |Dirección RemoteIp |
-|IndicatorThreadType |El indicador de amenazas detectado es uno de los siguientes valores: *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
-|DESCRIPCIÓN |Descripción de la amenaza observada. |
-|TLPLevel |Nivel de protocolo de semáforo (TLP) es uno de los valores definidos: *blanco*, *verde*, *ámbar*, *rojo*. |
-|Confianza |Los valores válidos se encuentran entre *0 y 100*. |
-|Gravedad |Los valores se encuentran entre *0 y 5*, donde *5* es el más grave y *0* no es grave en absoluto. El valor predeterminado es *3*.  |
-|FirstReportedDateTime |La primera vez que el proveedor informó sobre el indicador. |
-|LastReportedDateTime |La última vez que Interflow ha visto el indicador. |
-|IsActive |Indica que los indicadores se desactivan con el valor *True* o *False*. |
-|ReportReferenceLink |Vincula a informes relacionados con un objeto observable especificado. |
-|AdditionalInformation |Proporciona información adicional, si procede, sobre la amenaza observada. |
+| `MaliciousIp` |Dirección RemoteIp |
+| `IndicatorThreadType` |El indicador de amenazas detectado es uno de los siguientes valores: *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos* , *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA*, *Watchlist*.   |
+| `Description` |Descripción de la amenaza observada. |
+| `TLPLevel` |Nivel de protocolo de semáforo (TLP) es uno de los valores definidos: *blanco*, *verde*, *ámbar*, *rojo*. |
+| `Confidence` |Los valores válidos se encuentran entre *0 y 100*. |
+| `Severity` |Los valores se encuentran entre *0 y 5*, donde *5* es el más grave y *0* no es grave en absoluto. El valor predeterminado es *3*.  |
+| `FirstReportedDateTime` |La primera vez que el proveedor informó sobre el indicador. |
+| `LastReportedDateTime` |La última vez que Interflow ha visto el indicador. |
+| `IsActive` |Indica que los indicadores se desactivan con el valor *True* o *False*. |
+| `ReportReferenceLink` |Vincula a informes relacionados con un objeto observable especificado. |
+| `AdditionalInformation` |Proporciona información adicional, si procede, sobre la amenaza observada. |
 
 ### <a name="servicemapcomputercl-records"></a>Registros de ServiceMapComputer_CL
 Los registros con un tipo de *ServiceMapComputer_CL* tienen datos de inventario de servidores con agentes de Mapa de servicio. Estos registros tienen las propiedades de la tabla siguiente:
@@ -399,7 +399,7 @@ Los registros con un tipo de *ServiceMapProcess_CL* tienen datos de inventario p
 
 | Propiedad | DESCRIPCIÓN |
 |:--|:--|
-| `Type | *ServiceMapProcess_CL* |
+| `Type` | *ServiceMapProcess_CL* |
 | `SourceSystem` | *OpsManager* |
 | `ResourceId` | Identificador único de un proceso en el área de trabajo |
 | `ResourceName_s` | Identificador único de un proceso en el equipo en el que se está ejecutando|

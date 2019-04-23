@@ -1,24 +1,23 @@
 ---
 title: Administrar Azure Reservations | Microsoft Docs
 description: Aprenda a cambiar el ámbito de la suscripción y a administrar el acceso a Azure Reservations.
-services: billing
+ms.service: billing
 documentationcenter: ''
 author: yashesvi
 manager: yashesvi
 editor: ''
-ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/22/2019
+ms.date: 04/13/2019
 ms.author: banders
-ms.openlocfilehash: 1edc15261520d1c2cbf9bf85a62249826edc045b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 9a5b200ffb9441b90875c7764786004ff5f1e8a1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58904448"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994970"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Administración de reservas para los recursos de Azure
 
@@ -29,7 +28,19 @@ Si ha adquirido Azure Reserved Virtual Machine Instances, puede cambiar la confi
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="change-the-scope-for-a-reservation"></a>Cambio del ámbito de una reserva
+## <a name="reservation-order-and-reservation"></a>Reserva y pedido de reserva
+
+Cuando compra de una reserva, se crean dos objetos: **Pedido de reserva** y **reserva**.
+
+En el momento de la compra, un pedido de reserva tiene una reserva debajo de él. Acciones como la división, combinación, reembolso parcial o exchange crean nuevas reservas en el **pedido de reserva**.
+
+Para ver un pedido de reserva, vaya a **reservas** > seleccione la reserva y, a continuación, haga clic en el **Id. de pedido de reserva**.
+
+![Ejemplo de los detalles de pedido de reserva que muestra el Id. de pedido de reserva ](./media/billing-manage-reserved-vm-instance/reservation-order-details.png)
+
+Una reserva hereda los permisos de su pedido de reserva.
+
+## <a name="change-the-reservation-scope"></a>Cambiar el ámbito de reserva
 
  El descuento de reserva se aplica a las máquinas virtuales, bases de datos SQL, Azure Cosmos DB u otros recursos que coinciden con la reserva y se ejecutan en el ámbito de reserva. El contexto de facturación depende de la suscripción que se usó para comprar la reserva.
 
@@ -47,9 +58,12 @@ El ámbito solo se aplica a la oferta Pago por uso MS-AZR-0003P o MS-AZR-0023P, 
 
 ## <a name="add-or-change-users-who-can-manage-a-reservation"></a>Agregar o cambiar los usuarios que pueden administrar una reserva
 
-Para delegar la administración de una reserva, agregue usuarios a roles en dicha reserva. De forma predeterminada, la persona que compró la reserva y el administrador de cuenta tienen el rol de propietario en la reserva.
+Puede delegar la administración de reserva, agregue usuarios a roles en el pedido de reserva o la reserva. De forma predeterminada, la persona que coloca el pedido de reserva y el Administrador de cuenta tienen el rol de propietario en el pedido de reserva y la reserva.
 
-Puede administrar el acceso a las reservas de forma independiente de las suscripciones que obtienen el descuento de reserva. El hecho de que a un usuario se le concedan permisos para administrar una reserva no implica que también se le otorguen derechos para administrar la suscripción. Y si a un usuario se le conceden permisos para administrar una suscripción dentro del ámbito de la reserva, no significa que se le otorguen derechos para administrar la reserva.
+Puede administrar el acceso a los pedidos de las reservas y las reservas de direcciones independientemente de las suscripciones que obtienen el descuento de reserva. Cuando concede a alguien permisos para administrar un pedido de reserva o la reserva, no lo concederle permiso para administrar la suscripción. De forma similar, si alguien concede permisos para administrar una suscripción en el ámbito de la reserva, lo no otorguen derechos para administrar el pedido de reserva o la reserva.
+
+Para llevar a cabo un reembolso o exchange, el usuario debe tener acceso al pedido de reserva. Al conceder a alguien permisos, es mejor conceder permisos para el pedido de reserva, no la reserva.
+
 
 Para delegar la administración de acceso en una reserva:
 

@@ -13,20 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 04/17/2019
 ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b563b0fb8dc12cbdcdd256a97134f9ff02988915
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: abd1049551d7dbc4823636dfdc00f64afab72cdf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698969"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008603"
 ---
 # <a name="how-to-configure-the-multi-factor-authentication-registration-policy"></a>Instrucciones: Configuración de la directiva de registro de autenticación multifactor
 
-Azure AD Identity Protection ayuda a administrar la puesta en servicio de registro de la autenticación multifactor (MFA) configurando una directiva para requerir el registro de MFA. En este artículo se explica la directiva que puede usarse y cómo configurarla.
+Azure AD Identity Protection ayuda a administrar la puesta en servicio de registro de la autenticación multifactor (MFA) configurando una directiva para requerir el registro de MFA. Este artículo explica lo que puede usarse la directiva y cómo configurarlo.
 
 ## <a name="what-is-the-multi-factor-authentication-registration-policy"></a>¿Qué es la directiva de registro de la autenticación multifactor?
 

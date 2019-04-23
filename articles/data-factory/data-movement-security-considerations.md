@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 1a575a172e4ff567cc20442c7a9779e1d52dbbba
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: 635b45fe7f0108795c34f51081fa374c604036b2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58099991"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59996139"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Consideraciones de seguridad para el movimiento de datos en Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -137,9 +137,9 @@ En la tabla siguiente, se resumen las recomendaciones de configuración de red y
 
 | Origen      | Destino                              | Network configuration (Configuración de red)                    | Configuración de Integration Runtime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Local | Máquinas virtuales y servicios en la nube implementados en redes virtuales | VPN de IPSec (de punto a sitio o de sitio a sitio) | El entorno de ejecución de integración autohospedado se puede instalar de forma local o en una máquina virtual de Azure en una red virtual. |
-| Local | Máquinas virtuales y servicios en la nube implementados en redes virtuales | ExpressRoute (Emparejamiento privado)           | El entorno de ejecución de integración autohospedado se puede instalar de forma local o en una máquina virtual de Azure en una red virtual. |
-| Local | Servicios basados en Azure que tienen un punto de conexión público | ExpressRoute (Emparejamiento público)            | Integration Runtime autohospedado debe instalarse de forma local. |
+| Local | Máquinas virtuales y servicios en la nube implementados en redes virtuales | VPN de IPSec (de punto a sitio o de sitio a sitio) | El entorno integration runtime autohospedado debe instalarse en una máquina virtual de Azure en la red virtual.  |
+| Local | Máquinas virtuales y servicios en la nube implementados en redes virtuales | ExpressRoute (Emparejamiento privado)           | El entorno integration runtime autohospedado debe instalarse en una máquina virtual de Azure en la red virtual.  |
+| Local | Servicios basados en Azure que tienen un punto de conexión público | ExpressRoute (emparejamiento de Microsoft)            | El entorno integration runtime autohospedado puede ser instalado en el entorno local o en una máquina virtual de Azure. |
 
 Las siguientes imágenes muestran el uso del entorno de ejecución de integración autohospedado para mover datos entre una base de datos local y servicios de Azure mediante ExpressRoute e IPSec VPN (con Azure Virtual Network):
 
@@ -174,7 +174,7 @@ En la tabla siguiente, se proporcionan los requisitos del puerto de entrada para
 
 | Puertos de entrada | DESCRIPCIÓN                              |
 | ------------- | ---------------------------------------- |
-| 8050 (TCP)    | Requerido por el cmdlet de cifrado de PowerShell como se describe en el [Cifrado de credenciales de almacenes de datos locales en Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md) o en la aplicación de administrador de credenciales para establecer de forma segura credenciales para almacenes de datos locales en el entorno de ejecución de integración. |
+| 8060 (TCP)    | Requerido por el cmdlet de cifrado de PowerShell como se describe en el [Cifrado de credenciales de almacenes de datos locales en Azure Data Factory](encrypt-credentials-self-hosted-integration-runtime.md) o en la aplicación de administrador de credenciales para establecer de forma segura credenciales para almacenes de datos locales en el entorno de ejecución de integración. |
 
 ![Requisitos de puerto de la puerta de enlace](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
@@ -193,7 +193,7 @@ Los siguientes almacenes de datos en la nube necesitan una lista de direcciones 
 
 **¿El entorno de ejecución de integración autohospedado puede compartirse entre diferentes factorías de datos?**
 
-Aún no se admite esta característica. Estamos trabajando en ello.
+Sí. Más detalles [aquí](https://azure.microsoft.com/blog/sharing-a-self-hosted-integration-runtime-infrastructure-with-multiple-data-factories/).
 
 **¿Cuáles son los requisitos de puerto para que el entorno de ejecución de integración autohospedado funcione?**
 

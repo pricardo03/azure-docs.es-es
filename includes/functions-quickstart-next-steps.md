@@ -4,14 +4,14 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 01/23/2019
 ms.author: glenga
-ms.openlocfilehash: e330f5ecbfc240b048d887289224c164a91215bd
-ms.sourcegitcommit: 644de9305293600faf9c7dad951bfeee334f0ba3
+ms.openlocfilehash: 17e298d88f83716063472ce7947ba95f24dba1d1
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/25/2019
-ms.locfileid: "54904716"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60164636"
 ---
-Ahora que ha creado su primera función, vamos a agregar un enlace de salida a la función que escribe un mensaje a una cola de Storage.
+Ahora que ha creado su primera función, vamos a agregar un enlace de salida a la función que escribe un mensaje en una cola de Storage.
 
 > [!div class="nextstepaction"]
 > [Agregar mensajes a una cola de Azure Storage mediante funciones](../articles/azure-functions/functions-integrate-storage-queue-output-binding.md)

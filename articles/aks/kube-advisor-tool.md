@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 01095ac4ed8e362f1a89a53b10b5da6a547feb57
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: 29f98e334b0d2527b5159e1a5394109c5041024a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51218648"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60000137"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Comprobación de los procedimientos recomendados de Kubernetes en el clúster
 
@@ -27,7 +27,7 @@ La [herramienta kube-advisor][kube-advisor-github] es un contenedor único dise�
 
 ## <a name="running-kube-advisor"></a>Ejecución de kube-advisor
 
-Para ejecutar la herramienta en un clúster configurado para el [control de acceso basado en roles de Kubernetes (RBAC)](aad-integration.md), deben usarse los siguientes comandos. El primer comando crea una cuenta de servicio de Kubernetes. El segundo, ejecuta la herramienta en un pod con esa cuenta de servicio y configura el pod para su eliminación después de salir. 
+Para ejecutar la herramienta en un clúster configurado para el [control de acceso basado en roles de Kubernetes (RBAC)](azure-ad-integration.md), deben usarse los siguientes comandos. El primer comando crea una cuenta de servicio de Kubernetes. El segundo, ejecuta la herramienta en un pod con esa cuenta de servicio y configura el pod para su eliminación después de salir. 
 
 ```bash
 kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml

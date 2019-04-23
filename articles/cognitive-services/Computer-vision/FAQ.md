@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 04/17/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 2e04d86e7067db98c8399cfc3e202457b8f253d6
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
-ms.translationtype: MT
+ms.openlocfilehash: 579a47e70f292222914723606d032737b98822bc
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351956"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004880"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Preguntas frecuentes sobre Computer Vision API
 
@@ -37,28 +37,9 @@ ms.locfileid: "58351956"
 
 -----
 
-**Pregunta**: *¿Qué idiomas se admiten con Computer Vision?*
-
-**Respuesta**: Los lenguajes compatibles incluyen:
-
-| | | Idiomas admitidos | | |
-|---------------- |------------------ |------------------ |--------------------------- |--------------------
-| Danés (da-DK)  | Neerlandés (nl-NL)     | English           | Finés (fi-FI)            |Francés (fr-FR)
-| Alemán (de-de)  | Griego (el-GR)     | Húngaro (hu-HU) | Italiano (it-IT)            | Japonés (ja-JP)
-| Coreano (ko-KR)  | Noruego (nb-NO) | Polaco (pl-PL)    | Portugués (pt-BR) (pt-PT) | Ruso (ru-RU)
-| Español (es-ES)   | Sueco (sv-SV)     | Turco (tr-TR)   |                            |
-
------
-
 **Pregunta**: *¿Se puede usar Computer Vision para leer matrículas de entidad de almacén?*
 
 **Respuesta**: Vision API ofrece una buena detección de texto con OCR, pero en este momento no está actualizada para matrículas de entidad de almacén. En nuestro esfuerzo constante por mejorar nuestros servicios, hemos agregado OCR para el reconocimiento automático de matrículas a nuestra lista de solicitudes de características.
-
------
-
-**Pregunta**: *¿Qué idiomas se admiten para el reconocimiento de escritura a mano?*
-
-**Respuesta**: Actualmente, solo se admite inglés.
 
 -----
 

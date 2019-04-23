@@ -10,12 +10,12 @@ ms.subservice: manage
 ms.date: 12/04/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: a5b4d9fac1d2fb3ec1a45f34784552b2d41f2cf1
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: dc78fbc93d625b39379e07f240eef7fbad10d194
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679336"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003860"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Solución de problemas de Azure SQL Data Warehouse
 En este artículo figuran las preguntas habituales sobre la solución de problemas.
@@ -33,7 +33,7 @@ En este artículo figuran las preguntas habituales sobre la solución de problem
 | Problema                                                        | Resolución                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | El Explorador de objetos de Visual Studio no muestra usuarios de AAD           | Este es un problema conocido.  Como solución alternativa, vea los usuarios de [sys.database_principals][sys.database_principals].  Consulte [Autenticación a Azure SQL Data Warehouse][Authentication to Azure SQL Data Warehouse] para obtener más información sobre Azure Active Directory con SQL Data Warehouse. |
-| El scripting manual, mediante el Asistente para scripting, o la conexión a través de SSMS es lenta, se ha bloqueado o genera errores | Asegúrese de que se han creado usuarios en la base de datos maestra. En las opciones de scripting, asegúrese también de que la edición del motor se ha establecido como "Microsoft Azure SQL Data Warehouse Edition" y que el tipo de motor es "Microsoft Azure SQL Database". |
+| Manual de scripting, mediante el Asistente para secuencias de comandos o la conexión a través de SSMS es lento, no responde o generar errores | Asegúrese de que se han creado usuarios en la base de datos maestra. En las opciones de scripting, asegúrese también de que la edición del motor se ha establecido como "Microsoft Azure SQL Data Warehouse Edition" y que el tipo de motor es "Microsoft Azure SQL Database". |
 | Errores de generación de scripts en SSMS                             | La generación de un script para el almacenamiento de datos de SQL genera un error si la opción "Generar script para objetos dependientes" está establecida en "True". Como solución alternativa, los usuarios deben ir manualmente a Herramientas -> Opciones ->Explorador de objetos de SQL Server -> opción "Generar script para objetos dependientes" y establecerla en False. |
 
 ## <a name="performance"></a>Rendimiento

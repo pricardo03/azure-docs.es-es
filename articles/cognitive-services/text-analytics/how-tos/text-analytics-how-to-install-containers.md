@@ -11,12 +11,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: diberry
-ms.openlocfilehash: 3fd2f257119595311e9d31ad2068fd12c8cf51ee
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: e0e8b9f767376db8028a3ac4a2d8659bab69268b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59683383"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60005883"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Instalación y ejecución de contenedores de Text Analytics
 
@@ -36,7 +36,7 @@ Debe cumplir los siguientes requisitos previos para poder usar contenedores de T
 |--|--|
 |Motor de Docker| Necesita que el motor de Docker esté instalado en un [equipo host](#the-host-computer). Docker dispone de paquetes que configuran el entorno de Docker en [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) y [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Para conocer los principios básicos de Docker y de los contenedores, consulte [Introducción a Docker](https://docs.docker.com/engine/docker-overview/).<br><br> Docker debe configurarse para permitir que los contenedores se conecten con Azure y envíen datos de facturación a dicho servicio. <br><br> **En Windows**, Docker también debe estar configurado de forma que admita los contenedores de Linux.<br><br>|
 |Conocimientos sobre Docker | Debe tener conocimientos básicos sobre los conceptos de Docker, como los registros, los repositorios, los contenedores y las imágenes de contenedor, así como conocer los comandos `docker` básicos.| 
-|`Cognitive Services` Recurso |Para poder usar el contenedor, debe tener:<br><br>Un [ _Cognitive Services_ ](text-analytics-how-to-access-key.md) recursos de Azure para obtener la clave de facturación asociada y el URI del extremo de facturación. Ambos valores están disponibles en las páginas de información general de servicios cognitivos y las claves del portal de Azure y es necesario para iniciar el contenedor. Deberá agregar el `text/analytics/v2.0` enrutamiento para el URI del extremo, tal como se muestra en el siguiente ejemplo BILLING_ENDPOINT_URI.<br><br>**{BILLING_KEY}**: clave de recurso<br><br>**{BILLING_ENDPOINT_URI}**: el ejemplo de URI de punto de conexión es `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|
+|`Cognitive Services` Recurso |Para poder usar el contenedor, debe tener:<br><br>Un [ _Cognitive Services_ ](text-analytics-how-to-access-key.md) recursos de Azure para obtener la clave de facturación asociada y el URI del extremo de facturación. Ambos valores están disponibles en las páginas de información general de servicios cognitivos y las claves del portal de Azure y es necesario para iniciar el contenedor. Deberá agregar el `text/analytics/v2.0` enrutamiento para el URI del extremo, tal como se muestra en el siguiente ejemplo BILLING_ENDPOINT_URI.<br><br>**{BILLING_KEY}**: clave de recurso<br><br>**{BILLING_ENDPOINT_URI}**: el ejemplo de URI de punto de conexión es `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1`|
 
 ### <a name="the-host-computer"></a>El equipo host
 
@@ -110,7 +110,7 @@ Una vez que el contenedor esté en el [equipo host](#the-host-computer), utilice
 
 Utilice el comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) para ejecutar cualquiera de los tres contenedores. El comando usa los parámetros siguientes:
 
-| Marcador de posición | Valor |
+| Marcador de posición | Value |
 |-------------|-------|
 |{BILLING_KEY} | Esta clave se usa para iniciar el contenedor y está disponible en el portal de Azure `Cognitive Services` página claves.  |
 |{BILLING_ENDPOINT_URI} | El valor del identificador URI de extremo facturación está disponible en Azure `Cognitive Services` página de información general. <br><br>Ejemplo:<br>`Billing=https://westus.api.cognitive.microsoft.com/text/analytics/v2.0`|

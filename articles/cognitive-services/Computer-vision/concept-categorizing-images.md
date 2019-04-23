@@ -8,17 +8,17 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/11/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 07fdaa22532f48cc39b6c524d85fdfe625f8b80c
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: MT
+ms.openlocfilehash: 257da397e11843ee96e93f7b3e9bc5ada29822cf
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58337146"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995581"
 ---
-# <a name="categorize-images"></a>Categorización de imágenes
+# <a name="categorize-images-by-subject-matter"></a>Categorizar las imágenes en la materia
 
 Además de etiquetas y descripciones, Computer Vision devuelve las categorías basadas en la taxonomía que se detectan en una imagen. A diferencia de las etiquetas, las categorías se organizan en una jerarquía hereditaria de elementos primarios y secundarios, y son menos numerosas (86 en lugar de miles de etiquetas). Todos los nombres de categorías están en inglés. La categorización puede realizarse en solitario o junto con un nuevo modelo de etiquetas.
 
@@ -53,7 +53,7 @@ La siguiente respuesta JSON muestra lo que devuelve Computer Vision al categoriz
 
 En la tabla siguiente se muestra un conjunto típico de imágenes y la categoría devuelta por Computer Vision para cada imagen.
 
-| Imagen | Categoría |
+| Image | Category |
 |-------|----------|
 | ![Cuatro personas posando juntas como una familia](./Images/family_photo.png) | people_group |
 | ![Un cachorro sentado en un campo de hierba](./Images/cute_dog.png) | animal_dog |

@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/25/2019
 ms.author: spelluru
-ms.openlocfilehash: e51c56f54a4e30b5e9094388ed92aa0a62ba0840
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: cf1bb31614c04d6073bc40c510fc43b2f8e4e189
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59796317"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148992"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Crear un generador de imágenes personalizadas en Azure DevTest Labs
-Este artículo muestra cómo configurar una fábrica de imagen personalizada mediante el uso de scripts de ejemplo disponibles en el [repositorio de Git](https://github.com/Azure/azure-devtestlab/tree/master/Scripts/ImageFactory).
+Este artículo muestra cómo configurar una fábrica de imagen personalizada mediante el uso de scripts de ejemplo disponibles en el [repositorio de Git](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory).
 
 ## <a name="whats-an-image-factory"></a>¿Qué es un generador de imágenes?
 Un generador de imágenes es una solución de configuración como código que crea y distribuye las imágenes automáticamente de forma periódica con todas las configuraciones deseadas. Las imágenes en el generador de imágenes siempre están actualizadas y el mantenimiento en curso es casi igual a cero una vez que todo el proceso se automatiza. Y, dado que todas las configuraciones necesarias ya están en la imagen, guarda la hora de configurar manualmente el sistema una vez creada una máquina virtual con el sistema operativo base.
@@ -39,7 +39,7 @@ La solución permite que la velocidad de creación de máquinas virtuales desde 
 
 ![Visión general de la solución](./media/create-image-factory/high-level-view-of-solution.png)
 
-Hay un [extensión de VSTS de DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) que le permite ejecutar estos pasos individuales: 
+Hay un [extensión de VSTS de DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) que le permite ejecutar estos pasos individuales:
 
 - Creación de una imagen personalizada
 - Creación de una máquina virtual

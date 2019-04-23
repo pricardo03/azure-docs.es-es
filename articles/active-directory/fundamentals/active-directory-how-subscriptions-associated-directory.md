@@ -13,12 +13,12 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3322e49c6fdc590b785806f67b5081700bf8b37b
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: b141de4c22ba1ba1325982d8e027fa46e0909fbb
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59788640"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009861"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Asociación o incorporación de una suscripción de Azure al inquilino de Azure Active Directory
 
@@ -76,7 +76,7 @@ Después de asociar una suscripción a un directorio diferente, puede haber paso
 
 1. Si dispone de los almacenes de claves, debe cambiar el identificador del inquilino de almacén de claves. Para obtener más información, consulte [cambiar un identificador de inquilino de key vault después de mover una suscripción](../../key-vault/key-vault-subscription-move-fix.md).
 
-2. Si ha registrado un usando esta suscripción de Azure Stack, debe volver a registrar. Para obtener más información, consulte [registrar Azure Stack con Azure](../../azure-stack/azure-stack-registration.md).
+2. Si ha registrado un usando esta suscripción de Azure Stack, debe volver a registrar. Para obtener más información, consulte [registrar Azure Stack con Azure](/azure-stack/operator/azure-stack-registration).
 
 
 

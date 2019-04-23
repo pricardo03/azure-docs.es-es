@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: fca78c86849ef8210bb3aaeb8ad96e1fba3d7c05
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: 2fe31271fa84bc4170bd431a4aadbcafc0df9086
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57542495"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60148975"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Publicación de un anuncio en un laboratorio de Azure DevTest Labs
 
@@ -37,8 +37,8 @@ La característica de anuncios está pensada para usarla para notificaciones tem
 
 1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Si es necesario, seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista. (Puede que su laboratorio ya aparezca en el panel, en **Todos los recursos**).
-1. En la lista de laboratorios, seleccione aquel en el que desea publicar un anuncio.  
-1. En el área **Introducción** del laboratorio, seleccione **Configuración y directivas**.  
+1. En la lista de laboratorios, seleccione aquel en el que desea publicar un anuncio.
+1. En el área **Introducción** del laboratorio, seleccione **Configuración y directivas**.
 
     ![Botón Configuración y directivas](./media/devtest-lab-announcements/devtestlab-config-and-policies.png)
 
@@ -83,7 +83,7 @@ Cuando ya no quiera mostrar este anuncio a los usuarios del laboratorio, vuelva 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="azure-resource-manager-template"></a>Plantilla del Administrador de recursos de Azure
-Puede especificar un anuncio como parte de una plantilla de Azure Resource Manager, como se muestra en el ejemplo siguiente: 
+Puede especificar un anuncio como parte de una plantilla de Azure Resource Manager, como se muestra en el ejemplo siguiente:
 
 ```json
 {
@@ -119,7 +119,7 @@ Puede especificar un anuncio como parte de una plantilla de Azure Resource Manag
                 "support": {
                     "markdown": "",
                     "enabled": "Enabled"
-                }                
+                }
             },
             "resources": [
                 {
@@ -167,4 +167,4 @@ Puede implementar una plantilla de Azure Resource Manager de una de las maneras 
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Si cambia o establece una directiva de laboratorio, puede que quiera publicar un anuncio para informar a los usuarios. [Configuración de directivas y programaciones](devtest-lab-set-lab-policy.md) proporciona información acerca de cómo aplicar restricciones y convenciones en la suscripción mediante el uso de directivas personalizadas.
-* Explore la [galería de plantillas de inicio rápido de Azure Resource Manager de DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Explore la [galería de plantillas de inicio rápido de Azure Resource Manager de DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).
