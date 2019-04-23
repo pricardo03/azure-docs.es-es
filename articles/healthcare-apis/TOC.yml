@@ -1,60 +1,53 @@
-items:
 - name: API de Azure para FHIR
   href: index.yml
 - name: Información general
   items:
-  - name: Acerca de la API de Azure para FHIR
-    href: overview.md
-  - name: Acerca del servidor de FHIR para Azure
-    href: overview-open-source-server.md
+    - name: Acerca de la API de Azure para FHIR
+      href: overview.md
+    - name: Acerca del servidor de FHIR para Azure
+      href: overview-open-source-server.md
 - name: Guías de inicio rápido
-  items:
-  - name: 'Implementación de la API de Azure para FHIR: Portal'
-    href: fhir-paas-portal-quickstart.md
-  - name: 'Implementación de la API de Azure para FHIR: PowerShell'
-    href: fhir-paas-powershell-quickstart.md
-  - name: 'Implementación de la API de Azure para FHIR: CLI'
-    href: fhir-paas-cli-quickstart.md
-  - name: 'Implementación del servidor de FHIR para Azure: Portal'
-    href: fhir-oss-portal-quickstart.md
-  - name: 'Implementación del servidor de FHIR para Azure: PowerShell'
-    href: fhir-oss-powershell-quickstart.md
-  - name: 'Implementación del servidor de FHIR para Azure: CLI'
-    href: fhir-oss-cli-quickstart.md
-  - name: Configuración de CORS
-    href: configure-cross-origin-resource-sharing.md
   expanded: true
+  items:
+    - name: 'Implementación de la API de Azure para FHIR: Portal'
+      href: fhir-paas-portal-quickstart.md
+    - name: 'Implementación de la API de Azure para FHIR: PowerShell'
+      href: fhir-paas-powershell-quickstart.md
+    - name: 'Implementación de la API de Azure para FHIR: CLI'
+      href: fhir-paas-cli-quickstart.md
+    - name: 'Implementación del servidor de FHIR para Azure: Portal'
+      href: fhir-oss-portal-quickstart.md
+    - name: 'Implementación del servidor de FHIR para Azure: PowerShell'
+      href: fhir-oss-powershell-quickstart.md
+    - name: 'Implementación del servidor de FHIR para Azure: CLI'
+      href: fhir-oss-cli-quickstart.md
+    - name: Configuración de CORS
+      href: configure-cross-origin-resource-sharing.md
 - name: Tutoriales
-  items:
-  - name: Acceso a la API de FHIR con Postman
-    href: access-fhir-postman-tutorial.md
-  - name: Uso de SMART en el proxy de FHIR
-    href: use-smart-on-fhir-proxy.md
   expanded: false
+  items:
+    - name: Acceso a la API de FHIR con Postman
+      href: access-fhir-postman-tutorial.md
+    - name: Uso de SMART en el proxy de FHIR
+      href: use-smart-on-fhir-proxy.md
 - name: Guías de procedimientos
-  items:
-  - name: Registro de una aplicación de recursos
-    href: register-resource-azure-ad-client-app.md
-  - name: Registro de una aplicación cliente confidencial
-    href: register-confidential-azure-ad-client-app.md
-  - name: Registro de una aplicación cliente pública
-    href: register-public-azure-ad-client-app.md
-  - name: Registro de una aplicación cliente de servicio
-    href: register-service-azure-ad-client-app.md
-  - name: 'Obtención de un token de la API de Azure para FHIR: CLI'
-    href: get-healthcare-apis-access-token-cli.md
-  - name: Búsqueda de identificadores de objetos de identidad
-    href: find-identity-object-ids.md
   expanded: false
+  items:
+    - name: Registro de una aplicación de recursos
+      href: register-resource-azure-ad-client-app.md
+    - name: Registro de una aplicación cliente confidencial
+      href: register-confidential-azure-ad-client-app.md
+    - name: Registro de una aplicación cliente pública
+      href: register-public-azure-ad-client-app.md
+    - name: Registro de una aplicación cliente de servicio
+      href: register-service-azure-ad-client-app.md
+    - name: 'Obtención de un token de la API de Azure para FHIR: CLI'
+      href: get-healthcare-apis-access-token-cli.md
+    - name: Búsqueda de identificadores de objetos de identidad
+      href: find-identity-object-ids.md
 - name: Recursos
   items:
-  - name: Preguntas más frecuentes
-    href: fhir-faq.md
-  - name: Características compatibles
-    href: fhir-features-supported.md
-ms.openlocfilehash: e120b0775e9f0920a1deab4bd1e126f4ad06e132
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862835"
+    - name: Preguntas más frecuentes
+      href: fhir-faq.md
+    - name: Características compatibles
+      href: fhir-features-supported.md

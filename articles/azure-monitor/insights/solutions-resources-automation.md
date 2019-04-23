@@ -243,7 +243,7 @@ En la tabla siguiente se describen las propiedades para las programaciones de tr
 | Propiedad | DESCRIPCIÓN |
 |:--- |:--- |
 | schedule name |Entidad **name** única con el nombre de la programación. |
-| runbook name |Entidad **name** única con el nombre del runbook.  |
+| runbook name  |Entidad **name** única con el nombre del runbook.  |
 
 
 

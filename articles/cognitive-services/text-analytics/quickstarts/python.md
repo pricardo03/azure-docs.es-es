@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: quickstart
-ms.date: 03/28/2019
+ms.date: 04/16/2019
 ms.author: aahi
-ms.openlocfilehash: 6edcb4501feb0ac2911fed075ed4866aa267a80e
-ms.sourcegitcommit: 0a3efe5dcf56498010f4733a1600c8fe51eb7701
+ms.openlocfilehash: 69eb3789586233b824da1ef6a9c338b07281f324
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/03/2019
-ms.locfileid: "58893085"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60001395"
 ---
 # <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Inicio rápido: Uso de Python para llamar a Text Analytics de Cognitive Services 
 <a name="HOLTop"></a>
@@ -24,7 +24,7 @@ En este tutorial se muestra cómo [detectar el idioma](#Detect), [analizar opini
 
 Este ejemplo se puede ejecutar desde la línea de comandos o como Jupyter Notebook en [MyBinder](https://mybinder.org), para lo que debe hacer clic en el distintivo de inicio de Binder:
 
-[![BBinder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
+[![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
 
 ### <a name="command-line"></a>Línea de comandos
 
@@ -65,23 +65,22 @@ Consulte las [definiciones de API](//go.microsoft.com/fwlink/?LinkID=759346) par
     A continuación, agregue esta línea y compruebe que la región de `text_analytics_base_url` corresponde a la región que usó al configurar el servicio. Si usa una clave de evaluación gratuita, no es necesario realizar ningún cambio.
     
     ```python
-    text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/"
+    text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/"
     ```
 
 <a name="Detect"></a>
 
 ## <a name="detect-languages"></a>Detección de idiomas
 
-Language Detection API detecta el idioma de un documento de texto con el [método Detectar idioma](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7). El punto de conexión de servicio de la API de detección de idioma para su región está disponible a través de la dirección URL siguiente:
+Language Detection API detecta el idioma de un documento de texto con el [método Detectar idioma](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7). El punto de conexión de servicio de la API de detección de idioma para su región está disponible a través de la dirección URL siguiente:
 
 ```python
 language_api_url = text_analytics_base_url + "languages"
 print(language_api_url)
 ```
 
-```url
-https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
-```
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/languages
+
 
 La carga a la API consta de una lista de `documents`, cada uno de los cuales consta a su vez de `id` y un atributo `text`. El atributo `text` almacena el texto que se va a analizar. 
 
@@ -137,7 +136,7 @@ Respuesta JSON correcta:
 
 ## <a name="analyze-sentiment"></a>Análisis de opinión
 
-Sentiment Analysis API detecta la opinión (rango entre positivo o negativo) de un conjunto de registros de texto mediante el [método Sentiment](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). En el ejemplo siguiente se puntúan dos documentos, uno en inglés y otro en español.
+Sentiment Analysis API detecta la opinión (rango entre positivo o negativo) de un conjunto de registros de texto mediante el [método Sentiment](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9). En el ejemplo siguiente se puntúan dos documentos, uno en inglés y otro en español.
 
 El punto de conexión de servicio para el análisis de sentimiento está disponible para su región a través de la dirección URL siguiente:
 
@@ -145,7 +144,8 @@ El punto de conexión de servicio para el análisis de sentimiento está disponi
 sentiment_api_url = text_analytics_base_url + "sentiment"
 print(sentiment_api_url)
 ```
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
+
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment
 
 Como en el ejemplo de detección de idioma, el servicio se proporciona con un diccionario con una clave `documents` que consta de una lista de documentos. Cada documento es una tupla que tiene el `id`, el `text` que se va a analizar y el `language` del texto. Puede usar la API de detección de idioma de la sección anterior para rellenar este campo.
 
@@ -182,7 +182,7 @@ La puntuación de las opiniones de un documento oscila entre 0,0 y 1,0: una punt
 
 ## <a name="extract-key-phrases"></a>Extracción de frases clave
 
-Key Phrase Extraction API extrae frases clave de un documento de texto con el [método de frases clave](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). En esta sección del tutorial se extraen frases clave de documentos tanto en inglés y como en español.
+Key Phrase Extraction API extrae frases clave de un documento de texto con el [método de frases clave](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6). En esta sección del tutorial se extraen frases clave de documentos tanto en inglés y como en español.
 
 Para acceder al punto de conexión de servicio para el servicio de extracción de frases clave navegue a la dirección URL siguiente:
 
@@ -190,7 +190,8 @@ Para acceder al punto de conexión de servicio para el servicio de extracción d
 key_phrase_api_url = text_analytics_base_url + "keyPhrases"
 print(key_phrase_api_url)
 ```
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
+
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases
 
 La colección de documentos es igual a la que se usó para el análisis de sentimiento.
 
@@ -235,7 +236,7 @@ Respuesta JSON correcta:
 
 ## <a name="identify-entities"></a>Identificación de entidades
 
-Entities API identifica las entidades conocidas en un documento de texto mediante el [método Entities](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634). En el ejemplo siguiente se identifican las entidades de documentos en inglés.
+Entities API identifica las entidades conocidas en un documento de texto mediante el [método Entities](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634). En el ejemplo siguiente se identifican las entidades de documentos en inglés.
 
 Para acceder al punto de conexión de servicio para el servicio de vinculación de entidad navegue a la dirección URL siguiente:
 
@@ -244,14 +245,13 @@ entity_linking_api_url = text_analytics_base_url + "entities"
 print(entity_linking_api_url)
 ```
 
-    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities
+    https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.1/entities
 
 La colección de documentos se encuentra a continuación:
 
 ```python
 documents = {'documents' : [
-  {'id': '1', 'text': 'Jeff bought three dozen eggs because there was a 50% discount.'},
-  {'id': '2', 'text': 'The Great Depression began in 1929. By 1933, the GDP in America fell by 25%.'}
+  {'id': '1', 'text': 'Microsoft is an It company.'}
 ]}
 ```
 Ahora, los documentos pueden enviarse a Text Analytics API para recibir la respuesta.
@@ -264,167 +264,56 @@ entities = response.json()
 
 Respuesta JSON correcta:
 ```json
-{
-    "Documents": [
-        {
-            "Id": "1",
-            "Entities": [
-                {
-                    "Name": "Jeff",
-                    "Matches": [
-                        {
-                            "Text": "Jeff",
-                            "Offset": 0,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "Person"
-                },
-                {
-                    "Name": "three dozen",
-                    "Matches": [
-                        {
-                            "Text": "three dozen",
-                            "Offset": 12,
-                            "Length": 11
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50",
-                    "Matches": [
-                        {
-                            "Text": "50",
-                            "Offset": 49,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "50%",
-                    "Matches": [
-                        {
-                            "Text": "50%",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        },
-        {
-            "Id": "2",
-            "Entities": [
-                {
-                    "Name": "Great Depression",
-                    "Matches": [
-                        {
-                            "Text": "The Great Depression",
-                            "Offset": 0,
-                            "Length": 20
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Great Depression",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
-                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
-                },
-                {
-                    "Name": "1929",
-                    "Matches": [
-                        {
-                            "Text": "1929",
-                            "Offset": 30,
-                            "Length": 4
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "By 1933",
-                    "Matches": [
-                        {
-                            "Text": "By 1933",
-                            "Offset": 36,
-                            "Length": 7
-                        }
-                    ],
-                    "Type": "DateTime",
-                    "SubType": "DateRange"
-                },
-                {
-                    "Name": "Gross domestic product",
-                    "Matches": [
-                        {
-                            "Text": "GDP",
-                            "Offset": 49,
-                            "Length": 3
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "Gross domestic product",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
-                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
-                },
-                {
-                    "Name": "United States",
-                    "Matches": [
-                        {
-                            "Text": "America",
-                            "Offset": 56,
-                            "Length": 7
-                        }
-                    ],
-                    "WikipediaLanguage": "en",
-                    "WikipediaId": "United States",
-                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
-                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
-                    "Type": "Location"
-                },
-                {
-                    "Name": "25",
-                    "Matches": [
-                        {
-                            "Text": "25",
-                            "Offset": 72,
-                            "Length": 2
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Number"
-                },
-                {
-                    "Name": "25%",
-                    "Matches": [
-                        {
-                            "Text": "25%",
-                            "Offset": 72,
-                            "Length": 3
-                        }
-                    ],
-                    "Type": "Quantity",
-                    "SubType": "Percentage"
-                }
-            ]
-        }
-    ],
-    "Errors": []
+{  
+   "documents":[  
+      {  
+         "id":"1",
+         "entities":[  
+            {  
+               "name":"Microsoft",
+               "matches":[  
+                  {  
+                     "wikipediaScore":0.20872054383103444,
+                     "entityTypeScore":0.99996185302734375,
+                     "text":"Microsoft",
+                     "offset":0,
+                     "length":9
+                  }
+               ],
+               "wikipediaLanguage":"en",
+               "wikipediaId":"Microsoft",
+               "wikipediaUrl":"https://en.wikipedia.org/wiki/Microsoft",
+               "bingId":"a093e9b9-90f5-a3d5-c4b8-5855e1b01f85",
+               "type":"Organization"
+            },
+            {  
+               "name":"Technology company",
+               "matches":[  
+                  {  
+                     "wikipediaScore":0.82123868042800585,
+                     "text":"It company",
+                     "offset":16,
+                     "length":10
+                  }
+               ],
+               "wikipediaLanguage":"en",
+               "wikipediaId":"Technology company",
+               "wikipediaUrl":"https://en.wikipedia.org/wiki/Technology_company",
+               "bingId":"bc30426e-22ae-7a35-f24b-454722a47d8f"
+            }
+         ]
+      }
+   ],
+    "errors":[]
 }
 ```
 
 ## <a name="next-steps"></a>Pasos siguientes
 
 > [!div class="nextstepaction"]
-> [Text Analytics With Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
+> [Text Analytics con Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
 ## <a name="see-also"></a>Otras referencias 
 
- [Introducción a Text Analytics](../overview.md)  
+ [Información general de Text Analytics](../overview.md)  
  [Preguntas más frecuentes](../text-analytics-resource-faq.md)
