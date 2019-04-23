@@ -12,10 +12,10 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 04/02/2019
 ms.openlocfilehash: 10ed3ec8b29048a7ede51a6d98e9f1ebb7f44cf6
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58862988"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Inicio rápido: Creación y automatización de tareas, procesos y flujos de trabajo con Azure Logic Apps en Visual Studio
@@ -117,7 +117,7 @@ Después de crear el proyecto del grupo de recursos de Azure, cree y compile la 
    | Configuración | Valor de ejemplo | DESCRIPCIÓN |
    | ------- | ------------- | ----------- |
    | Lista de perfil de usuario | Contoso <br> jamalhartnett@contoso.com | De forma predeterminada, la cuenta que usó para iniciar sesión. |
-   | **Subscription** | Pay-As-You-Go <br> (jamalhartnett@contoso.com) | Nombre de la suscripción de Azure y cuenta asociada |
+   | **Suscripción** | Pay-As-You-Go <br> (jamalhartnett@contoso.com) | Nombre de la suscripción de Azure y cuenta asociada |
    | **Grupo de recursos** | MyLogicApp-RG <br> (Oeste de EE. UU.) | Grupo de recursos de Azure y ubicación para almacenar e implementar recursos para la aplicación lógica |
    | **Ubicación** | MyLogicApp-RG2 <br> (Oeste de EE. UU.) | Ubicación diferente si no desea usar la ubicación del grupo de recursos |
    ||||

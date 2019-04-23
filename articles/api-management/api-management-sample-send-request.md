@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 12/15/2016
 ms.author: apimpm
 ms.openlocfilehash: 2c4e5d0117f046343b140ef2b2c46c074c835075
-ms.sourcegitcommit: f24b62e352e0512dfa2897362021b42e0cb9549d
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59505658"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59796535"
 ---
 # <a name="using-external-services-from-the-azure-api-management-service"></a>Uso de servicios externos del servicio de administración de API de Azure
 Las directivas disponibles en el servicio Azure API Management pueden llevar a cabo una gran variedad de trabajo útil basado exclusivamente en la solicitud entrante, la respuesta saliente y la información de configuración básica. Pero la interacción con servicios externos de las directivas de API Management brinda muchas más oportunidades.
