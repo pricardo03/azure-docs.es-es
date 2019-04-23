@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/22/2019
 ms.author: yegu
 ms.custom: include file
-ms.openlocfilehash: 0f066915046e363932652c104fabe96ed0a9d4c4
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9b86f2e05e2cb42470061bd6398b4200607f2418
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227191"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012292"
 ---
 1. Para crear un almacén de configuración de aplicaciones, primero inicie sesión en [Azure Portal](https://aka.ms/azconfig/portal). En la esquina superior izquierda de la página, seleccione **+ Crear un recurso**. En el cuadro **Buscar en Marketplace**, escriba **App Configuration** y presione Entrar.
 
@@ -35,14 +35,3 @@ ms.locfileid: "58227191"
 4. Seleccione **Crear**. La implementación puede tardar unos minutos en finalizar.
 
 5. Una vez finalizada la implementación, seleccione **Configuración** > **Claves de acceso**. Anote la cadena de conexión de la clave principal de solo lectura o de la clave principal de lectura y escritura. Usará esta cadena de conexión más adelante para configurar la aplicación y que se comunique con el almacén de configuración de aplicaciones recién creado.
-
-6. Haga clic en **Explorador de pares clave-valor** > **+ Crear** para agregar los siguientes pares clave-valor:
-
-    | Clave | Valor |
-    |---|---|
-    | TestApp:Settings:BackgroundColor | Blanco |
-    | TestApp:Settings:FontSize | 24 |
-    | TestApp:Settings:FontColor | Negro |
-    | TestApp:Settings:Message | Datos de Azure App Configuration |
-
-    Deje **Etiqueta** y **Tipo de contenido** en blanco, por ahora.

@@ -1,5 +1,5 @@
 ---
-title: ¿Qué es la supervisión de Azure Active Directory? (versión preliminar) | Microsoft Docs
+title: ¿Qué es la supervisión de Azure Active Directory? | Microsoft Docs
 description: Proporciona información general de los informes de Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -13,18 +13,18 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: de416d18505d0258da446318b3dc6a9853ff13e7
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.openlocfilehash: d63f8440ca527a746f73574bc156037d85fc3599
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58434864"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60009053"
 ---
-# <a name="what-is-azure-active-directory-monitoring-preview"></a>¿Qué es la supervisión de Azure Active Directory? (versión preliminar)
+# <a name="what-is-azure-active-directory-monitoring"></a>¿Qué es la supervisión de Azure Active Directory?
 
 Con la supervisión de Azure Active Directory (Azure AD), ahora puede enrutar los registros de actividad de Azure AD a diferentes puntos de conexión. A continuación, puede conservarlo para su uso a largo plazo o integrarlo con herramientas de Administración de eventos e información de seguridad (SIEM) de terceros para obtener información sobre su entorno.
 
