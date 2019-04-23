@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/27/2019
+ms.date: 04/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 56378e94bf448da4c3047c30be3ae25887f113b5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 6182662cb0da7fa5bcd3f329ada9ca5851490724
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59792224"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007889"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Investigación de un dispositivo de IoT sospechoso
 
@@ -43,7 +43,7 @@ De forma predeterminada, ASC for IoT almacena tanto las recomendaciones como las
 Para buscar el área de trabajo de Log Analytics para el almacenamiento de datos:
 
 1. Abra IoT Hub. 
-1. Haga clic en **Security** (Seguridad) y seleccione **Settings** (Configuración).
+1. En **seguridad**, haga clic en **Introducción**y, a continuación, seleccione **configuración**.
 1. Cambie los detalles de la configuración del área de trabajo de Log Analytics. 
 1. Haga clic en **Save**(Guardar). 
 
@@ -94,7 +94,7 @@ Use estos datos para detectar:
 
 ### <a name="open-ports"></a>Abrir puertos
 
-Para buscar fuera de los puertos en el dispositivo que están actualmente en uso o se han utilizado use la siguiente consulta kql: 
+Para averiguar qué puertos en el dispositivo están actualmente en uso o se han utilizado, use la siguiente consulta kql: 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -147,12 +147,12 @@ Para averiguar los usuarios que ha iniciado sesión en el dispositivo use la sig
 
     Use the query results to discover:
   1. Qué usuarios han iniciado sesión el dispositivo.
-  2. ¿Se supone que los usuarios que ha iniciado sesión para iniciar sesión?
+  2. ¿Son los usuarios que ha iniciado sesión, supone que inicien sesión?
   3. Si los usuarios que han iniciado sesión se han conectado desde direcciones IP esperadas o inesperadas.
   
 ### <a name="process-list"></a>Lista de procesos
 
-Para averiguar si la lista de procesos es la siguiente consulta kql como uso esperado: 
+Para averiguar si la lista de procesos es según lo esperado, utilice la siguiente consulta kql: 
 
   ~~~
   let device = "YOUR_DEVICE_ID";
@@ -188,4 +188,5 @@ Para averiguar si la lista de procesos es la siguiente consulta kql como uso esp
   3. Si las ejecuciones de la línea de comandos contenían los argumentos correctos y esperados.
 
 ## <a name="next-steps"></a>Pasos siguientes
+
 Tras investigar un dispositivo y conocer mejor los riesgos, es posible que desee considerar la posibilidad de [configurar alertas personalizadas](quickstart-create-custom-alerts.md) para mejorar la postura de seguridad de su solución de IoT. Si aún no tiene un agente de dispositivos, considere la posibilidad de [implementar un agente de seguridad](how-to-deploy-agent.md) o de [cambiar la configuración de un agente de dispositivos existente](how-to-agent-configuration.md) para mejorar los resultados. 

@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
-ms.openlocfilehash: 9e30337eb8acaa6dc3386f5e60285faa80dd6307
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d7e2ecd9c9c27140fff4d483e01eaaca632e929a
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59257916"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150043"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formatos de archivo y códecs de compresión admitidos en Azure Data Factory
 
@@ -442,7 +442,7 @@ Ejemplo: establecimiento de la variable `_JAVA_OPTIONS` con el valor `-Xms256m -
 
 | Tipo de datos provisionales de Data Factory | Tipo primitivo PARQUET | Tipo original PARQUET (deserializar) | Tipo original PARQUET (serializar) |
 |:--- |:--- |:--- |:--- |
-| boolean | boolean | N/D | N/D |
+| Boolean | Boolean | N/D | N/D |
 | SByte | Int32 | Int8 | Int8 |
 | Byte | Int32 | UInt8 | Int16 |
 | Int16 | Int32 | Int16 | Int16 |
@@ -454,8 +454,8 @@ Ejemplo: establecimiento de la variable `_JAVA_OPTIONS` con el valor `-Xms256m -
 | Single | Float | N/D | N/D |
 | Double | Double | N/D | N/D |
 | Decimal | Binary | Decimal | Decimal |
-| string | Binary | Utf8 | Utf8 |
-| DateTime | Int96 | N/D | N/D |
+| String | Binary | Utf8 | Utf8 |
+| Datetime | Int96 | N/D | N/D |
 | TimeSpan | Int96 | N/D | N/D |
 | DateTimeOffset | Int96 | N/D | N/D |
 | ByteArray | Binary | N/D | N/D |
@@ -478,7 +478,7 @@ Tenga en cuenta los siguientes puntos:
 
 * No se admiten tipos de datos complejos (STRUCT, MAP, LIST, UNION).
 * No se admiten espacios en blanco en el nombre de columna.
-* El archivo ORC tiene tres [opciones relacionadas con la compresión](http://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB Y SNAPPY. Data Factory admite la lectura de datos del archivo ORC en cualquiera de los formatos comprimidos. Se utiliza el códec de compresión en los metadatos para leer los datos. Sin embargo, al escribir en un archivo ORC, Data Factory elige ZLIB que es el valor predeterminado para ORC. Por el momento, no hay ninguna opción para invalidar este comportamiento.
+* El archivo ORC tiene tres [opciones relacionadas con la compresión](https://hortonworks.com/blog/orcfile-in-hdp-2-better-compression-better-performance/): NONE, ZLIB Y SNAPPY. Data Factory admite la lectura de datos del archivo ORC en cualquiera de los formatos comprimidos. Se utiliza el códec de compresión en los metadatos para leer los datos. Sin embargo, al escribir en un archivo ORC, Data Factory elige ZLIB que es el valor predeterminado para ORC. Por el momento, no hay ninguna opción para invalidar este comportamiento.
 
 > [!IMPORTANT]
 > En el caso de las copias autorizadas por el entorno de ejecución de integración (IR) autohospedado (por ejemplo, entre almacenes de datos locales y almacenes de datos en la nube), si no va a copiar archivos ORC **tal y como están**, tendrá que instalar **JRE (Java Runtime Environment) 8 de 64 bits u OpenJDK** en la máquina de IR. Consulte el párrafo siguiente para más información.
@@ -492,7 +492,7 @@ En el caso de las copias que se ejecutan en el IR autohospedado con la serializa
 
 | Tipo de datos provisionales de Data Factory | Tipos ORC |
 |:--- |:--- |
-| boolean | boolean |
+| Boolean | Boolean |
 | SByte | Byte |
 | Byte | Breve |
 | Int16 | Breve |
@@ -500,16 +500,16 @@ En el caso de las copias que se ejecutan en el IR autohospedado con la serializa
 | Int32 | Int |
 | UInt32 | long |
 | Int64 | long |
-| UInt64 | string |
+| UInt64 | String |
 | Single | Float |
 | Double | Double |
 | Decimal | Decimal |
-| string | string |
-| DateTime | Timestamp |
+| String | String |
+| Datetime | Timestamp |
 | DateTimeOffset | Timestamp |
 | TimeSpan | Timestamp |
 | ByteArray | Binary |
-| Guid | string |
+| Guid | String |
 | Char | Char(1) |
 
 ## <a name="avro-format"></a>Formato AVRO

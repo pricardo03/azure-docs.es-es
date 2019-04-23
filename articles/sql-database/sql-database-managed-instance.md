@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 manager: craigg
-ms.date: 04/08/2019
-ms.openlocfilehash: 15b7bfc9e1d747fcefdbba03ca254a9604197b5f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.date: 04/16/2019
+ms.openlocfilehash: 46c6972e20df69da236c151516d7d889f9db6084
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59361822"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002755"
 ---
 # <a name="use-sql-database-advanced-data-security-with-virtual-networks-and-near-100-compatibility"></a>Uso de Advanced Data Security en SQL Database con redes virtuales y casi un 100 % de compatibilidad
 
@@ -126,7 +126,7 @@ La opción de implementación de instancia administrada combina características
 Un instancia administrada proporciona un aislamiento de seguridad adicional a partir de otros inquilinos en la nube de Azure. El aislamiento de seguridad incluye:
 
 - [Implementación nativa de redes virtuales](sql-database-managed-instance-connectivity-architecture.md) y conectividad al entorno local mediante Azure ExpressRoute o VPN Gateway.
-- El punto de conexión de SQL se expone solo mediante una dirección IP privada, lo que permite una conectividad segura desde una nube privada de Azure o redes híbridas.
+- En una implementación predeterminada, el punto de conexión SQL se expone solo a través de una dirección IP privada, lo que permite conexiones seguras de Azure privada o redes híbridas.
 - Inquilino único con infraestructura subyacente dedicada (proceso, almacenamiento).
 
 El diagrama siguiente describe distintas opciones de conectividad para las aplicaciones:
@@ -226,7 +226,7 @@ La opción de implementación de instancia administrada permite al administrador
 
 En la tabla siguiente se muestran varias propiedades, accesibles mediante Transact SQL, que puede utilizar para detectar si la aplicación funciona con Instancia administrada y recuperar propiedades importantes.
 
-|Propiedad|Valor|Comentario|
+|Propiedad|Value|Comentario|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Este valor es igual que en SQL Database.|
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Este valor es igual que en SQL Database.|

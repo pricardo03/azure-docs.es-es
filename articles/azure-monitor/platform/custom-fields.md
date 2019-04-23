@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2019
 ms.author: bwren
-ms.openlocfilehash: eebf3709657382eb403041e6637e32e5f5d43b15
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 974a3391c592a1caf7bdcc6d9e01032f0c73aaa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59789729"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002874"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor"></a>Crear campos personalizados en un área de trabajo de Log Analytics en Azure Monitor
 
@@ -81,7 +81,7 @@ Puede ver una lista de todos los campos personalizados en el grupo de administra
 Existen dos formas de quitar un campo personalizado.  La primera es a través de la opción **Remove** (Quitar) que aparece en cada campo cuando se consulta la lista completa, tal y como que se describió anteriormente.  El otro método consiste en recuperar un registro y hacer clic en el botón situado a la izquierda del campo.  El menú incluirá una opción para quitar el campo personalizado.
 
 ## <a name="sample-walkthrough"></a>Tutorial de ejemplo
-La siguiente sección contiene un ejemplo completo que le guiará por el proceso de creación de un campo personalizado.  En este ejemplo, se extrae el nombre de servicio de los eventos de Windows que indican un cambio de estado en el servicio.  Esto se basa en los eventos creados por el Administrador de Control de servicios en el inicio de sesión del sistema en los equipos de Windows.  Si desea seguir este ejemplo, debe [recopilar eventos de información del registro del sistema](data-sources-windows-events.md).
+La siguiente sección contiene un ejemplo completo que le guiará por el proceso de creación de un campo personalizado.  En este ejemplo, se extrae el nombre de servicio de los eventos de Windows que indican un cambio de estado en el servicio.  Esto se basa en los eventos creados por el Administrador de Control de servicios durante el inicio del sistema en los equipos de Windows.  Si desea seguir este ejemplo, debe [recopilar eventos de información del registro del sistema](data-sources-windows-events.md).
 
 En primer lugar, escribimos la siguiente consulta para que devuelva todos los eventos del Administrador de control de servicios que tengan el identificador 7036, que es el evento que indica el inicio o la detención de un servicio.
 

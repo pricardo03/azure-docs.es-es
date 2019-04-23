@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/08/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 6b25da9b2569b0185d41684c45a22a3eb3377511
-ms.sourcegitcommit: f7be3cff2cca149e57aa967e5310eeb0b51f7c77
+ms.openlocfilehash: ff7af2204f9e05a1ba4ef800c63c3ad462242350
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56313082"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998624"
 ---
 # <a name="detect-color-schemes-in-images"></a>Detección de las combinaciones de colores de las imágenes
 
@@ -30,7 +30,7 @@ Computer Vision también devuelve un valor booleano que indica si una imagen est
 
 El ejemplo siguiente muestra la respuesta JSON devuelta por Computer Vision durante la detección de la combinación de colores de la imagen de ejemplo. En este caso, la imagen de ejemplo no es una imagen en blanco y negro, pero el color predominante de primer plano y de fondo es el negro, y los colores predominantes de la imagen como un todo son el blanco y el negro.
 
-![Outdoor Mountain](./Images/mountain_vista.png)
+![Mountain exterior al anochecer, con la silueta de una persona](./Images/mountain_vista.png)
 
 ```json
 {
@@ -54,7 +54,7 @@ El ejemplo siguiente muestra la respuesta JSON devuelta por Computer Vision dura
 
 En la tabla siguiente se muestra el color de primer plano, el color de fondo y los colores de la imagen devueltos para cada imagen de ejemplo.
 
-| Imagen | Colores predominantes |
+| Image | Colores predominantes |
 |-------|-----------------|
 |![Una flor blanca con un fondo verde](./Images/flower.png)| Primer plano: Negro<br/>Fondo: Blanco<br/>Colores: negro, blanco y verde|
 ![Un tren pasando por una estación](./Images/train_station.png) | Primer plano: Negro<br/>Fondo: Negro<br/>Colores: Negro |
@@ -63,7 +63,7 @@ En la tabla siguiente se muestra el color de primer plano, el color de fondo y l
 
  En la tabla siguiente se muestran los colores de énfasis devueltos, como un valor hexadecimal de HTML, para cada imagen de ejemplo.
 
-| Imagen | Color de énfasis |
+| Image | Color de énfasis |
 |-------|--------------|
 |![Una persona en la roca de una montaña al atardecer](./Images/mountain_vista.png) | #BB6D10 |
 |![Una flor blanca con un fondo verde](./Images/flower.png) | #C6A205 |
@@ -73,7 +73,7 @@ En la tabla siguiente se muestra el color de primer plano, el color de fondo y l
 
 La siguiente tabla muestra la evaluación en blanco y negro de Computer Vision en las imágenes de ejemplo.
 
-| Imagen | ¿Blanco y negro? |
+| Image | ¿Blanco y negro? |
 |-------|----------------|
 |![Una imagen en blanco y negro de edificios en Manhattan](./Images/bw_buildings.png) | true |
 |![Una casa azul y el patio delantero](./Images/house_yard.png) | false |

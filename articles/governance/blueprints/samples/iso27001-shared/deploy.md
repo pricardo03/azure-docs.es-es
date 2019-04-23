@@ -8,11 +8,11 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: d27f2495c70dbe6e10fb3adf5370a31903be3abf
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59267930"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59792408"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Implementación del ejemplo de plano técnico de servicios compartidos según la norma ISO 27001
 
@@ -29,7 +29,7 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 
 En primer lugar, implemente el ejemplo de plano técnico mediante la creación de un plano técnico en su entorno tomando el ejemplo como punto de partida.
 
-1. Seleccione **Todos los servicios** y busque y seleccione **Directiva** en el panel izquierdo. En la página **Directiva**, seleccione **Planos técnicos**.
+1. Seleccione **Todos los servicios**, busque la opción **Directiva** en el panel izquierdo y selecciónela. En la página **Directiva**, seleccione **Planos técnicos**.
 
 1. En la página **Introducción** de la izquierda, seleccione el botón **Crear** en _Creación de un plano técnico_.
 
@@ -48,17 +48,17 @@ En primer lugar, implemente el ejemplo de plano técnico mediante la creación d
 
 La copia del ejemplo de plano técnico ahora se ha creado en el entorno. Se crea en el modo **Borrador** y debe **publicarse** antes de que se pueda asignar e implementar. La copia del ejemplo de plano técnico se puede personalizar para adecuarla a su entorno y necesidades, pero esa modificación puede apartarla de la norma ISO 27001.
 
-1. Seleccione **Todos los servicios** y busque y seleccione **Directiva** en el panel izquierdo. En la página **Directiva**, seleccione **Planos técnicos**.
+1. Seleccione **Todos los servicios**, busque la opción **Directiva** en el panel izquierdo y selecciónela. En la página **Directiva**, seleccione **Planos técnicos**.
 
 1. Seleccione la página **Definiciones del plano técnico** de la izquierda. Use los filtros para buscar su copia del ejemplo de plano técnico y, a continuación, selecciónela.
 
-1. Seleccione **Publicar plano técnico** en la parte superior de la página. En la nueva página de la derecha, proporcione una **versión** para la copia del ejemplo de plano técnico. Esta propiedad es útil si realiza una modificación posteriormente. Proporcione **Notas de cambios** como "Primera versión publicada del ejemplo de plano técnico según la norma ISO 27001". A continuación, seleccione **Publicar** en la parte inferior de la página.
+1. Seleccione **Publicar plano técnico** en la parte superior de la página. En la nueva página de la derecha, especifique una **versión** para la copia del ejemplo de plano técnico. Esta propiedad es útil si realiza una modificación posteriormente. Escriba **Notas de cambios** como "Primera versión publicada del ejemplo de plano técnico según la norma ISO 27001". A continuación, seleccione **Publicar** en la parte inferior de la página.
 
 ## <a name="assign-the-sample-copy"></a>Asignación de la copia de ejemplo
 
 Una vez que la copia del ejemplo de plano técnico se haya **publicado** correctamente, se podrá asignar a una suscripción dentro del grupo de administración donde se guardó. En este paso se proporcionan los parámetros para hacer que cada implementación de la copia del ejemplo de plano técnico sea única.
 
-1. Seleccione **Todos los servicios** y busque y seleccione **Directiva** en el panel izquierdo. En la página **Directiva**, seleccione **Planos técnicos**.
+1. Seleccione **Todos los servicios**, busque la opción **Directiva** en el panel izquierdo y selecciónela. En la página **Directiva**, seleccione **Planos técnicos**.
 
 1. Seleccione la página **Definiciones del plano técnico** de la izquierda. Use los filtros para buscar su copia del ejemplo de plano técnico y, a continuación, selecciónela.
 
@@ -69,8 +69,8 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
    - Aspectos básicos
 
      - **Suscripciones**: seleccione una o varias de las suscripciones que están en el grupo de administración donde guardó la copia del ejemplo de plano técnico. Si selecciona más de una suscripción, se creará una asignación para cada una mediante los parámetros especificados.
-     - **Nombre de asignación**: el nombre se rellena previa y automáticamente en función del nombre del plano técnico.
-       Cámbielo según sea necesario o déjelo tal cual.
+     - **Nombre de asignación**: el nombre se rellena de antemano de forma automática en función del nombre del plano técnico.
+       Cámbielo si fuera necesario o déjelo tal cual.
      - **Ubicación**: seleccione una región para la identidad administrada en la que se va a crear. Azure Blueprint usa esta identidad administrada para implementar todos los artefactos del plano técnico asignado. Para más información, consulte [Identidades administradas para recursos de Azure](../../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Versión de definición del plano técnico**: Elija una versión **publicada** de la copia del ejemplo de plano técnico.
 
@@ -94,7 +94,7 @@ Una vez que la copia del ejemplo de plano técnico se haya **publicado** correct
 
    - Parámetros de artefacto
 
-     Los parámetros definidos en esta sección se aplican al artefacto en el que se define. Estos parámetros son [parámetros dinámicos](../../concepts/parameters.md#dynamic-parameters), ya que se definen durante la asignación del plano técnico. Para obtener una lista completa o los parámetros de los artefactos y sus descripciones, consulte la [tabla de parámetros de los artefactos](#artifact-parameters-table).
+     Los parámetros definidos en esta sección se aplican al artefacto en el que se define. Estos parámetros son [parámetros dinámicos](../../concepts/parameters.md#dynamic-parameters), ya que se definen durante la asignación del plano técnico. Para obtener una lista completa de los parámetros de los artefactos y sus descripciones, consulte la [tabla de parámetros de los artefactos](#artifact-parameters-table).
 
 1. Una vez que se hayan especificado todos los parámetros, seleccione **Asignar** en la parte inferior de la página. Se crea la asignación del plano técnico y comienza la implementación del artefacto. La implementación tarda aproximadamente una hora. Para comprobar el estado de implementación, abra la asignación del plano técnico.
 
@@ -118,13 +118,13 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 |Grupo de recursos de Log Analytics|Grupos de recursos|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-sharedsvsc-log-rg` para que el grupo de recursos sea único.|
 |Grupo de recursos de Log Analytics|Grupos de recursos|Ubicación|**Bloqueado**: utiliza el parámetro del plano técnico.|
 |Plantilla de Log Analytics|Plantilla de Resource Manager|Nivel de servicio|Establece el nivel de servicio del área de trabajo de Log Analytics. El valor predeterminado es _PerNode_.|
-|Plantilla de Log Analytics|Plantilla de Resource Manager|Retención del registro en días|Retención de datos en días. El valor predeterminado es _365_.|
+|Plantilla de Log Analytics|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
 |Plantilla de Log Analytics|Plantilla de Resource Manager|Ubicación|Región que se usa para crear el área de trabajo de Log Analytics. El valor predeterminado es _Oeste de EE. UU. 2_.|
 |Grupo de recursos de red|Grupos de recursos|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-sharedsvcs-net-rg` para que el grupo de recursos sea único.|
 |Grupo de recursos de red|Grupos de recursos|Ubicación|**Bloqueado**: utiliza el parámetro del plano técnico.|
-|Plantilla de Azure Firewall|Plantilla de Resource Manager|IP privada de Azure Firewall|Configura la dirección IP privada de [Azure Firewall](../../../../firewall/overview.md). Este valor también se usa como tabla de rutas predeterminadas en la subred de servicios compartidos. Debe ser parte de la notación CIDR definida en **Prefijo de la dirección de subred de Azure Firewall**. El valor predeterminado es _10.0.4.4_.|
-|Plantilla de Azure Firewall|Plantilla de Resource Manager|Retención del registro en días|Retención de datos en días. El valor predeterminado es _365_.|
-|Plantilla del grupo de seguridad de red|Plantilla de Resource Manager|Retención del registro en días|Retención de datos en días. El valor predeterminado es _365_.|
+|Plantilla de Azure Firewall|Plantilla de Resource Manager|IP privada del firewall de Azure|Configura la dirección IP privada de [Azure Firewall](../../../../firewall/overview.md). Este valor también se usa como tabla de rutas predeterminadas en la subred de servicios compartidos. Debe ser parte de la notación CIDR definida en **Prefijo de la dirección de subred de Azure Firewall**. El valor predeterminado es _10.0.4.4_.|
+|Plantilla de Azure Firewall|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
+|Plantilla del grupo de seguridad de red|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
 |Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Prefijo de dirección de Virtual Network|La notación CIDR de la red virtual. El valor predeterminado es _10.0.0.0/16_.|
 |Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Habilitar protección contra DDoS en Virtual Network|Configura la protección contra DDoS de la red virtual. El valor predeterminado es _true_.|
 |Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Prefijo de la dirección de subred de los servicios compartidos|La notación CIDR para la subred de servicios compartidos. El valor predeterminado es _10.0.0.0/24_.|
@@ -138,8 +138,8 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 |Plantilla de Key Vault|Plantilla de Resource Manager|Contraseña o clave SSH del administrador de jumpbox|Clave o contraseña de la cuenta en el jumpbox. Debe coincidir con el mismo valor de propiedad de la **plantilla de jumpbox**. No hay ningún valor predeterminado y no puede dejarse en blanco.|
 |Plantilla de Key Vault|Plantilla de Resource Manager|Nombre de usuario del administrador de dominio|Nombre de usuario que se usa para acceder a la máquina virtual de Active Directory y unir otras máquinas virtuales a un dominio. Debe coincidir con el valor de propiedad del **usuario administrador de dominio** de la **plantilla de Active Directory Domain Services**. El valor predeterminado es _domain-admin-user_.|
 |Plantilla de Key Vault|Plantilla de Resource Manager|Contraseña del administrador de dominio|Contraseña del usuario administrador de dominio. No hay ningún valor predeterminado y no puede dejarse en blanco.|
-|Plantilla de Key Vault|Plantilla de Resource Manager|Identificador de objeto de AAD|El identificador de objeto de AAD de la cuenta que requiere acceso a la instancia de Key Vault. No hay ningún valor predeterminado y no puede dejarse en blanco. Para buscar este valor en Azure Portal, busque y seleccione "Usuarios" en _Servicios_. Use el cuadro _Nombre_ para filtrar por el nombre de cuenta y seleccione esa cuenta. En la página _Perfil de usuario_, seleccione el icono "Haga clic para copiar" que está situado junto al _identificador de objeto_.  |
-|Plantilla de Key Vault|Plantilla de Resource Manager|Retención del registro en días|Retención de datos en días. El valor predeterminado es _365_.|
+|Plantilla de Key Vault|Plantilla de Resource Manager|Identificador de objeto de AAD|El identificador de objeto de AAD de la cuenta que requiere acceso a la instancia de Key Vault. No hay ningún valor predeterminado y no se puede dejar en blanco. Para buscar este valor en Azure Portal, busque y seleccione "Usuarios" en _Servicios_. Use el cuadro _Nombre_ para filtrar por el nombre de cuenta y seleccione esa cuenta. En la página _Perfil de usuario_, seleccione el icono "Haga clic para copiar" que está situado junto al _identificador de objeto_.  |
+|Plantilla de Key Vault|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
 |Plantilla de Key Vault|Plantilla de Resource Manager|SKU de Key Vault|Especifica la SKU de Key Vault que se crea. El valor predeterminado es _Premium_.|
 |Grupo de recursos de jumpbox|Grupos de recursos|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-sharedsvcs-jb-rg` para que el grupo de recursos sea único.|
 |Grupo de recursos de jumpbox|Grupos de recursos|Ubicación|**Bloqueado**: utiliza el parámetro del plano técnico.|

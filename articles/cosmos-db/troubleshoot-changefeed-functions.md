@@ -7,12 +7,12 @@ ms.date: 04/16/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 5416c576e6392b7c5714ef83f152453aeff8d964
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.openlocfilehash: 40d9aba4ff8fd78f6369729ddc16238e65bfc169
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685959"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010897"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-trigger-in-azure-functions"></a>Diagnosticar y solucionar problemas al usar el desencadenador de Azure Cosmos DB en Azure Functions
 
@@ -31,7 +31,7 @@ En este artículo siempre hará referencia a Azure Functions V2 cada vez que se 
 
 Es la funcionalidad clave del paquete de extensión proporcionar compatibilidad con el desencadenador de Azure Cosmos DB y los enlaces. También incluye el [.NET SDK de Azure Cosmos DB](sql-api-sdk-dotnet-core.md), lo que resulta útil si desea interactuar con Azure Cosmos DB mediante programación sin usar el desencadenador y enlaces.
 
-Si desea para usar el SDK de Azure Cosmos DB, asegúrese de que no agregue al proyecto otra referencia de paquete de NuGet. En su lugar, **permiten la referencia del SDK resolver a través del paquete de extensión de Azure Functions**.
+Si desea usar el SDK de Azure Cosmos DB, asegúrese de que no agregue al proyecto otra referencia de paquete de NuGet. En su lugar, **permiten la referencia del SDK resolver a través del paquete de extensión de Azure Functions**.
 
 Además, si va a crear manualmente su propia instancia de la [cliente SDK de Azure Cosmos DB](./sql-api-sdk-dotnet-core.md), debe seguir el patrón de tener solo una instancia del cliente [mediante un enfoque de patrón Singleton](../azure-functions/manage-connections.md#documentclient-code-example-c) . Este proceso evita los problemas potenciales de socket en sus operaciones.
 

@@ -2,18 +2,18 @@
 title: Trabajo con orígenes de "macrodatos" en Azure Data Catalog
 description: Artículo de procedimientos que resalta los patrones necesarios para usar Azure Data Catalog con orígenes de "macrodatos", incluidos Azure Blob Storage, Azure Data Lake y Hadoop HDFS.
 services: data-catalog
-author: markingmyname
-ms.author: maghan
+author: JasonWHowell
+ms.author: jasonh
 ms.assetid: 626d1568-0780-4726-bad1-9c5000c6b31a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 42b002e3494d84084979f2f5b27e9679e61cbeb5
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: b6b419d575e2164fc683b8e6b5020572db74d1b4
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407729"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998675"
 ---
 # <a name="how-to-work-with-big-data-sources-in-azure-data-catalog"></a>Trabajo con orígenes de macrodatos en Azure Data Catalog
 ## <a name="introduction"></a>Introducción

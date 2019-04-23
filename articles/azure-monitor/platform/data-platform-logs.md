@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 0203/26/2019
 ms.author: bwren
-ms.openlocfilehash: 59213c5391b5b652eeead05c4a5af761571fcece
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ec037b16840afe669ac3934beaa832f850cdcfb0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59798953"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003690"
 ---
 # <a name="logs-in-azure-monitor"></a>Registros en Azure Monitor
 
@@ -112,7 +112,7 @@ Azure Monitor puede recopilar datos de registro de diversos orígenes, tanto en 
 
 | Datos | DESCRIPCIÓN |
 |:---|:---|
-| Azure Monitor para contenedores | Datos de inventario y de rendimiento recopilan por [Azure Monitor para contenedores](../insights/container-insights-overview.md). Consulte [los detalles de recopilación de datos del contenedor](../insights/container-insights-analyze.md#container-data-collection-details) para obtener una lista de las tablas. |
+| Azure Monitor para contenedores | Datos de inventario y de rendimiento recopilan por [Azure Monitor para contenedores](../insights/container-insights-overview.md). Consulte [los detalles de recopilación de datos del contenedor](../insights/container-insights-log-search.md#container-records) para obtener una lista de las tablas. |
 | Azure Monitor para máquinas virtuales | Datos de asignación y de rendimiento recopilan por [Azure Monitor para las máquinas virtuales](../insights/vminsights-overview.md). Consulte [cómo consultar los registros de Azure Monitor para las máquinas virtuales](../insights/vminsights-log-search.md) para obtener más información sobre las consultas de estos datos. |
 
 ### <a name="custom"></a>Personalizado 

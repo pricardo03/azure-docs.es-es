@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
 ms.openlocfilehash: be918ecef3a9fb346d9aa441bef9b4c3991009d6
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53606476"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60530876"
 ---
 # <a name="app-service-documentation"></a>Documentación de App Service
 Azure App Service le permite crear y hospedar aplicaciones web en el lenguaje de programación de su elección sin tener que administrar la infraestructura, el lenguaje o el entorno de ejecución del marco web. Ofrece escalado automático y alta disponibilidad, es compatible con Windows y Linux, y permite implementaciones automatizadas desde GitHub, Azure DevOps Services o cualquier repositorio Git. Aprenda a usar Azure App Service con nuestras guías de inicio rápido, tutoriales y ejemplos.
@@ -21,7 +21,7 @@ Azure App Service le permite crear y hospedar aplicaciones web en el lenguaje de
 ## <a name="windows-linux-and-docker"></a>Windows, Linux y Docker
 [Web Apps](/app-service/overview) es la oferta principal de App Service para la creación y el hospedaje de aplicaciones web mediante entornos de Windows. Los programadores que prefieran un entorno de Linux pueden elegir [App Service para Linux](/app-service/containers/app-service-linux-intro). Los desarrolladores también pueden implementar imágenes de Docker directamente en App Service para Linux para implementar entornos de tiempo de ejecución o marcos personalizados.
 
-## <a name="5-minute-quickstarts"></a>Inicios rápidos en 5 minutos
+## <a name="5-minute-quickstarts"></a>Inicio rápido en 5 minutos
 
 Aprenda a implementar su primera aplicación en la nube mediante App Service para Web Apps:
 

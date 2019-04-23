@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
 ms.openlocfilehash: a41bdda303c9e636929fba00a2fe4279002e42b3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280764"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Tutorial: Integración de Azure Active Directory con Wingspan eTMF
@@ -51,7 +51,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 Para configurar la integración de Wingspan eTMF en Azure AD, debe agregar Wingspan eTMF desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Wingspan eTMF desde la galería, siga estos pasos:**
+**Para agregar Wingspan eTMF desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con Wingspan eTMF, siga 
 
     ![Información de dominio y direcciones URL de inicio de sesión único de Wingspan eTMF](common/sp-identifier-reply.png)
 
-     a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<customer name>.<instance name>.mywingspan.com/saml`
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<customer name>.<instance name>.mywingspan.com/saml`
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `http://saml.<instance name>.wingspan.com/shibboleth`
 

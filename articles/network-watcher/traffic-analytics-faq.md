@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 3938427c23993f0546e7df62da88dadaf3353118
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.openlocfilehash: 0a5bbc0bb4b934ae9e60cbd8233b5efbae2a6e6e
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549378"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149298"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Preguntas frecuentes sobre Análisis de tráfico
 
@@ -130,12 +130,6 @@ Sí, la cuenta de Azure Storage puede estar en una suscripción y el área de tr
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>¿Qué sucede si no puedo configurar un grupo de seguridad de red para Análisis de tráfico debido a un error del tipo "No se encuentra"?
 
 Seleccione una región compatible. Si selecciona una región que no es compatible, se producirá un error de tipo "No se encuentra". Las regiones compatibles se mencionaron anteriormente en este artículo.
-
-## <a name="why-am-i-getting-the-error-failed-to-update-flow-logs-settings-for--internalservererror-when-enabling-nsgs-in-us-gov-virginia"></a>¿Por qué recibo el error "no se pudo actualizar la configuración de los registros de flujo de... InternalServerError..." ¿al habilitar NSG en Virginia gob.?
-
-Esto es debido a un error donde no se vuelva a registrar para una suscripción en Virginia gob. proveedor de recursos 'Microsoft.Network'. El equipo está trabajando para corregir este problema. Como alternativa, necesitaría [volver a registrar manualmente 'Microsoft.Network' RP](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-register-provider-errors). 
-
-Si el problema persiste, póngase en contacto con soporte técnico. 
 
 ## <a name="what-if-i-am-getting-the-status-failed-to-load-under-the-nsg-flow-logs-page"></a>¿Qué sucede si recibo el estado "No se pudo cargar" en la página de registros de flujo del grupo de seguridad de red?
 

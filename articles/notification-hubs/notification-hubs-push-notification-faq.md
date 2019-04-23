@@ -15,12 +15,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/11/2019
 ms.author: jowargo
-ms.openlocfilehash: 60dbef0f0d6532c9cd30c59902236b7ae4e70b0e
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: 642e586371a0ce6abe362f8b10b54bfd8baff678
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59524198"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998930"
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificaciones de inserción con Azure Notification Hubs: Preguntas más frecuentes
 
@@ -53,17 +53,6 @@ En el caso de los niveles Básico y Estándar de Notification Hubs, las aplicaci
 
 > [!NOTE]
 > Dado que las notificaciones push dependen de Sistemas de notificación de plataforma de terceros (como APNs de Apple y FCM de Google), no hay ninguna garantía de Acuerdo de Nivel de Servicio para la entrega de estos mensajes. Una vez que Notification Hubs envía los lotes a los Sistemas de notificación de plataforma (Acuerdo de Nivel de Servicio garantizado), entregar las notificaciones es responsabilidad de los Sistemas de notificación de plataforma (no se garantiza ningún Acuerdo de Nivel de Servicio).
-
-### <a name="which-customers-are-using-notification-hubs"></a>¿Qué clientes utilizan Notification Hubs?
-
-Muchos clientes usan Notification Hubs. Los siguientes son algunos clientes destacados:
-
-* Sochi 2014: cientos de grupos de interés, más de 3 millones de dispositivos y más de 150 millones de notificaciones enviadas en dos semanas. [Caso práctico: Sochi]
-* Skanska: [Caso práctico: Skanska]
-* Seattle Times: [Caso práctico: Seattle Times]
-* Mural.ly: [Caso práctico: Mural.ly]
-* 7Digital: [Caso práctico: 7Digital]
-* Aplicaciones de Bing: decenas de millones de dispositivos envían 3 millones de notificaciones al día.
 
 ### <a name="how-do-i-upgrade-or-downgrade-my-hub-or-namespace-to-a-different-tier"></a>¿Cómo se puede subir o bajar de nivel mi concentrador o espacio de nombres?
 
@@ -219,11 +208,6 @@ Puede acceder mediante programación a las métricas. Para más información, co
 [Azure Portal]: https://portal.azure.com
 [Precios de Notification Hubs]: https://azure.microsoft.com/pricing/details/notification-hubs/
 [Notification Hubs SLA]: https://azure.microsoft.com/support/legal/sla/
-[Caso práctico: Sochi]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=7942
-[Caso práctico: Skanska]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=5847
-[Caso práctico: Seattle Times]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=8354
-[Caso práctico: Mural.ly]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11592
-[Caso práctico: 7Digital]: https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=3684
 [API de REST de Notification Hubs]: https://msdn.microsoft.com/library/azure/dn530746.aspx
 [Tutoriales de introducción a Notification Hubs]: https://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 [Introducción a Centros de notificaciones para aplicaciones Chrome]: https://azure.microsoft.com/documentation/articles/notification-hubs-chrome-get-started/

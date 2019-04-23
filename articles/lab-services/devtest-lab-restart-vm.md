@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 0c11f5f43e0ea96a0b4bc9b4ecec30850c39b023
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 34c08a79abf6acb5ae8582ecd0743a890d850fc8
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51231981"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149884"
 ---
 # <a name="restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Reinicio de una máquina virtual en un laboratorio de Azure DevTest Labs
 Puede reiniciar una máquina virtual de forma rápida y sencilla en DevTest Labs mediante los pasos descritos en este artículo. Tenga en cuenta lo siguiente antes de reiniciar una máquina virtual:
 
 - La máquina virtual debe estar ejecutándose para que la característica de reinicio se pueda habilitar.
 - Si un usuario está conectado a una máquina virtual en ejecución cuando lleva a cabo un reinicio, debe volver a conectarse a la máquina virtual después de que se inicie la copia de seguridad.
-- Si se está aplicando un artefacto cuando se reinicia la máquina virtual, recibirá una advertencia que indica que no se puede aplicar el artefacto. 
+- Si se está aplicando un artefacto cuando se reinicia la máquina virtual, recibirá una advertencia que indica que no se puede aplicar el artefacto.
 
     ![Advertencia al reiniciar mientras se aplican artefactos](./media/devtest-lab-restart-vm/devtest-lab-restart-vm-apply-artifacts.png)
 
@@ -39,10 +39,10 @@ Puede reiniciar una máquina virtual de forma rápida y sencilla en DevTest Labs
 ## <a name="steps-to-restart-a-vm-in-a-lab-in-azure-devtest-labs"></a>Pasos para reiniciar una máquina virtual en un laboratorio de Azure DevTest Labs
 1. Inicie sesión en el [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Seleccione **Todos los servicios** y, luego, **DevTest Labs** en la lista.
-1. En la lista de laboratorios, seleccione el que incluye la máquina virtual que quiere reiniciar.  
-1. En el panel izquierdo, seleccione **Mis máquinas virtuales**. 
+1. En la lista de laboratorios, seleccione el que incluye la máquina virtual que quiere reiniciar.
+1. En el panel izquierdo, seleccione **Mis máquinas virtuales**.
 1. En la lista de máquinas virtuales, seleccione una máquina virtual en ejecución.
-1. En la parte superior del panel de administración de máquinas virtuales, seleccione **Reiniciar**.  
+1. En la parte superior del panel de administración de máquinas virtuales, seleccione **Reiniciar**.
 
     ![Botón para reiniciar la máquina virtual](./media/devtest-lab-restart-vm/devtest-lab-restart-vm.png)
 
@@ -56,4 +56,4 @@ También puede reiniciar una máquina virtual en ejecución si selecciona los pu
 
 ## <a name="next-steps"></a>Pasos siguientes
 * Una vez que se haya reiniciado, puede volver a conectarse a la máquina virtual. Para ello, seleccione **Conectar** en el panel de administración.
-* Explore la [galería de plantillas de inicio rápido de Azure Resource Manager de DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/Samples).
+* Explore la [galería de plantillas de inicio rápido de Azure Resource Manager de DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/23/2019
 ms.author: mhopkins
 ms.subservice: blobs
-ms.openlocfilehash: 78158f49748a8e9e08f3695860d95a2a6eff9fd4
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
-ms.translationtype: MT
+ms.openlocfilehash: 9be62e09fbf65081f166c89f5358cdb6677c22c6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58402446"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004234"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Almacenamiento de blobs de Azure: frecuente, esporádico y niveles de acceso de archivo
 
@@ -100,7 +100,7 @@ Los blobs en todos los niveles de acceso tres pueden coexistir en la misma cuent
 
 ### <a name="blob-lifecycle-management"></a>Administración del ciclo de vida de blobs
 
-La administración del ciclo de vida de Blob Storage (versión preliminar) ofrece una directiva enriquecida basada en reglas que se puede usar para realizar la transición de los datos al nivel de acceso mejorado y para hacer que los datos expiren cuando finalice su ciclo de vida. Para más información, consulte [Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md).  
+Administración de ciclo de vida de almacenamiento de blobs ofrece una directiva enriquecida basado en reglas que puede usar para pasar los datos en el mejor nivel de acceso y caducar los datos al final de su ciclo de vida. Para más información, consulte [Administración del ciclo de vida de Azure Blob Storage](storage-lifecycle-management-concepts.md).  
 
 ### <a name="blob-level-tiering-billing"></a>Facturación del almacenamiento por niveles de blob
 

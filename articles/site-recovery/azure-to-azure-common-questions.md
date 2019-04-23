@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 03/29/2019
 ms.topic: conceptual
 ms.author: asgang
-ms.openlocfilehash: 66d57677b216130316c6a3ddd9a6cff993540808
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
-ms.translationtype: MT
+ms.openlocfilehash: 52a5022b49bac990321c3cf8661aa2a04e93b39a
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58649890"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149740"
 ---
 # <a name="common-questions-azure-to-azure-replication"></a>Preguntas frecuentes: Replicación de Azure a Azure
 
@@ -67,7 +67,7 @@ Con Site Recovery, puede replicar y recuperar máquinas virtuales entre dos regi
 
 No, Site Recovery no requiere conectividad a Internet. Pero sí requiere acceso a los intervalos IP y direcciones URL de Site Recovery, como se menciona en [este artículo](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-about-networking#outbound-connectivity-for-ip-address-ranges).
 
-### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>¿Puedo replicar la aplicación con grupos de recursos independientes para niveles independientes? 
+### <a name="can-i-replicate-the-application-having-separate-resource-group-for-separate-tiers"></a>¿Puedo replicar la aplicación con grupos de recursos independientes para niveles independientes?
 Sí, puede replicar la aplicación y mantener también la configuración de recuperación ante desastres en un grupo de recursos independiente.
 Por ejemplo, si tiene una aplicación con los niveles de aplicación, base de datos y web en grupos de recursos independientes, debe hacer clic tres veces en el [asistente para replicación](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-how-to-enable-replication#enable-replication) para proteger todos los niveles. ASR replicará estos tres niveles en tres grupos de recursos diferentes.
 
@@ -89,11 +89,12 @@ Hoy en día, la mayoría de las aplicaciones se pueden recuperar bien a partir d
 ### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>¿Cuál es la frecuencia de generación de puntos de recuperación coherentes frente al bloqueo?
 Site Recovery crea un punto de recuperación coherente con los bloqueos cada 5 minutos.
 
-### <a name="what-is-an-application-consistent-recovery-point"></a>¿Qué es un punto de recuperación coherente con la aplicación? 
-Los puntos de recuperación coherentes con la aplicación se crean a partir de instantáneas coherentes con la aplicación. Los puntos de recuperación coherentes con la aplicación capturan los mismos datos que las instantáneas coherentes con los bloqueos, con la adición de todos los datos en memoria y todas las transacciones en curso. Debido a su contenido adicional, las instantáneas coherentes con la aplicación son las más complejas y las que más tardan en ejecutarse. Se recomiendan puntos de recuperación coherentes con la aplicación para sistemas operativos de bases de datos y aplicaciones como SQL Server.
+### <a name="what-is-an-application-consistent-recovery-point"></a>¿Qué es un punto de recuperación coherente con la aplicación?
+Los puntos de recuperación coherentes con la aplicación se crean a partir de instantáneas coherentes con la aplicación. Los puntos de recuperación coherentes con la aplicación capturan los mismos datos que las instantáneas coherentes con los bloqueos, con la adición de todos los datos en memoria y todas las transacciones en curso.
+Debido a su contenido adicional, las instantáneas coherentes con la aplicación son las más complejas y las que más tardan en ejecutarse. Se recomiendan puntos de recuperación coherentes con la aplicación para sistemas operativos de bases de datos y aplicaciones como SQL Server.
 
 ### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>¿Cómo afectan los puntos de recuperación coherentes con la aplicación en el rendimiento de la aplicación?
-Teniendo en cuenta que los puntos de recuperación coherentes con la aplicación capturan todos los datos en memoria y en curso, se requiere un marco de trabajo como VSS en las ventanas para poner la aplicación en modo inactivo. Si esto se hace con mucha frecuencia, puede afectar al rendimiento si la carga de trabajo ya está muy ocupada. Normalmente, se recomienda no utilizar una frecuencia baja para los puntos de recuperación coherentes con la aplicación para las cargas de trabajo que no sean de la base de datos e, incluso para este tipo de carga de trabajo, una hora es suficiente. 
+Teniendo en cuenta que los puntos de recuperación coherentes con la aplicación capturan todos los datos en memoria y en curso, se requiere un marco de trabajo como VSS en las ventanas para poner la aplicación en modo inactivo. Si esto se hace con mucha frecuencia, puede afectar al rendimiento si la carga de trabajo ya está muy ocupada. Normalmente, se recomienda no utilizar una frecuencia baja para los puntos de recuperación coherentes con la aplicación para las cargas de trabajo que no sean de la base de datos e, incluso para este tipo de carga de trabajo, una hora es suficiente.
 
 ### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>¿Cuál es la frecuencia mínima de generación de puntos de recuperación coherentes frente a la aplicación?
 Site Recovery puede crea un punto de recuperación coherentes con la aplicación con una frecuencia mínima de en 1 hora.
@@ -215,8 +216,12 @@ Depende de la situación. Por ejemplo, si la máquina virtual de la región de o
 ### <a name="how-much-time-does-it-take-to-fail-back"></a>¿Cuánto se tarda en conmutar por recuperación?
 Después de la reprotección, la cantidad de tiempo para la conmutación por recuperación es normalmente similar al tiempo de la conmutación por error de la región primaria a una región secundaria.
 
-## <a name="capacity"></a>Capacity
-### <a name="does-site-recovery-work-with-reserved-instance"></a>¿Site Recovery funciona con instancias reservadas?
+## <a name="capacity"></a>capacidad
+
+### <a name="how-is-capacity-assured-in-target-region-for-azure-vms"></a>¿Cómo se asegura de capacidad en la región de destino para máquinas virtuales de Azure?
+El equipo de Azure Site Recovery (ASR) funciona con el equipo de administración de capacidad de Azure para planear la capacidad de infraestructura suficiente, en un intento para asegurarse de que las máquinas virtuales protegidas por ASR para desastres recuperación correctamente se implementarán en la región de recuperación ante desastres, cada vez que se inician las operaciones de conmutación por error de ASR.
+
+### <a name="does-site-recovery-work-with-reserved-instances"></a>¿Site Recovery funciona con las instancias reservadas?
 Sí, se puede comprar [reservando instancias](https://azure.microsoft.com/pricing/reserved-vm-instances/) en la recuperación ante desastres región y las operaciones de conmutación por error de ASR se usarán. </br> Ninguna configuración adicional es necesaria que los clientes.
 
 

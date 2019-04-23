@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/14/2018
 ms.author: magoedte
-ms.openlocfilehash: 8b10cb0d66103410159a09ca156be3ea180c068b
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
-ms.translationtype: MT
+ms.openlocfilehash: 89e73a4578134493a25ec3cbd2385433a2b36156
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371934"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003509"
 ---
 # <a name="overview-of-the-azure-monitoring-agents"></a>Introducción a los agentes de supervisión de Azure 
 Microsoft Azure ofrece varias maneras de recopilar diferentes tipos de datos de máquinas virtuales hospedadas en Azure, en su centro de datos u otros proveedores de servicios en la nube que ejecutan Microsoft Windows y Linux. Los tres tipos de agentes disponibles para supervisar una VM son:
@@ -70,7 +70,7 @@ Anteriormente, se agruparon varios servicios de Azure como *Operations Managemen
 * Servicios de Azure como [Application Insights](https://docs.microsoft.com/azure/application-insights/) y [Azure Security Center](https://docs.microsoft.com/azure/security-center/), que almacenan de forma nativa sus datos directamente en Log Analytics sin necesidad de ninguna configuración.  
 
 ## <a name="dependency-agent"></a>Dependency Agent
-Dependency Agent se desarrolló como parte de la solución de Service Map, desarrollada originalmente de forma externa a Microsoft. [Service Map](../insights/service-map.md) y [Azure Monitor para VM](../insights/vminsights-overview.md) requieren un agente de Dependency Agent en las máquinas virtuales de Windows y Linux que se integra con el agente de Log Analytics para recopilar datos detectados acerca de los procesos que se ejecutan en la máquina virtual y en las dependencias de procesos externos. Almacena estos datos en un área de trabajo de Log Analytics y visualiza los componentes interconectados detectados.
+El agente de dependencia se desarrolló como parte de la solución Service Map, que no fue desarrollada originalmente por Microsoft. [Service Map](../insights/service-map.md) y [Azure Monitor para las máquinas virtuales](../insights/vminsights-overview.md) requiere un agente de dependencia en Windows y Linux virtual machines y se integra con el agente de Log Analytics para recopilar datos detectados acerca de los procesos que se ejecutan en virtual máquina y dependencias de procesos externos. Almacena estos datos en un área de trabajo de Log Analytics y visualiza los componentes interconectados detectados.
 
 Puede que necesite una combinación de estos agentes para supervisar la VM. Los agentes se pueden instalar en paralelo como extensiones de Azure, sin embargo, en Linux, el agente de Log Analytics *debe* instalarse primero o la instalación producirá un error. 
 

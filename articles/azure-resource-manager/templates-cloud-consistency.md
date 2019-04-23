@@ -12,12 +12,12 @@ ms.workload: na
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 4b1c829a417d050b4d931611d9f2952e01582f04
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 390e49a09136c21f3fd2f6555c0d56fde6e3b267
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089478"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60008229"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>Desarrollo de plantillas de Azure Resource Manager para mantener la coherencia en la nube
 
@@ -445,7 +445,7 @@ Los espacios de nombres de punto de conexión también se pueden usar en la sali
 * Cadenas de conexión (MySql, SQLServer, SQLAzure, Custom, NotificationHub, ServiceBus, EventHub, ApiHub, DocDb, RedisCache, PostgreSQL)
 * Traffic Manager
 * etiquetaDeNombreDeDominio de una dirección IP pública
-* Servicios en la nube
+* Cloud Services
 
 En general, evite los puntos de conexión codificados de forma rígida en una plantilla. El procedimiento recomendado consiste en usar la función de plantilla de referencia para recuperar los puntos de conexión de forma dinámica. Por ejemplo, el punto de conexión que se codifica de forma rígida con más frecuencia es el espacio de nombres de punto de conexión para las cuentas de almacenamiento. Cada cuenta de almacenamiento tiene un FQDN único que se crea concatenando el nombre de la cuenta de almacenamiento con el espacio de nombres de punto de conexión. Una cuenta de Blob Storage con el nombre mystorageaccount1 da como resultado otro FQDN en función de la nube:
 
@@ -673,5 +673,5 @@ Tenga en cuenta las sugerencias siguientes para las pruebas y la automatización
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-* [Consideraciones de la plantilla de Azure Resource Manager](../azure-stack/user/azure-stack-develop-templates.md)
+* [Consideraciones de la plantilla de Azure Resource Manager](/azure-stack/user/azure-stack-develop-templates)
 * [Procedimientos recomendados para plantillas de Azure Resource Manager](resource-group-authoring-templates.md)

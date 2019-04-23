@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b885098ff0efeb4d723cbaaac46fbb57cb40f2ea
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4df8e5d4560a813c47319833a8cd91726abcb8e6
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59791001"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149468"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Solución de problemas de compresión de archivos de red CDN
 Este artículo le ayudará a solucionar los problemas con la [compresión de archivos de red CDN](cdn-improve-performance.md).
@@ -117,5 +117,5 @@ Para que un archivo sea apto para la compresión, debe cumplir los siguientes re
 El encabezado **Mediante** HTTP indica al servidor web que un servidor proxy pasará la solicitud.  De forma predeterminada, los servidores web de Microsoft IIS no comprimen las respuestas si la solicitud contiene un encabezado **Mediante** .  Para anular este comportamiento, haga lo siguiente:
 
 * **IIS 6**: [Establezca HcNoCompressionForProxies = "FALSE" en las propiedades de la Metabase de IIS](/previous-versions/iis/6.0-sdk/ms525390(v=vs.90))
-* **IIS 7 y hasta**: [Se ha establecido tanto **noCompressionForHttp10** y **noCompressionForProxies** en False en la configuración del servidor](http://www.iis.net/configreference/system.webserver/httpcompression)
+* **IIS 7 y hasta**: [Se ha establecido tanto **noCompressionForHttp10** y **noCompressionForProxies** en False en la configuración del servidor](https://www.iis.net/configreference/system.webserver/httpcompression)
 

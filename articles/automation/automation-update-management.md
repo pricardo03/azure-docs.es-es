@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/11/2019
+ms.date: 04/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b938a2b3ea8ee4ab8bcc594b4b40db9384d22551
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: f49b8ef3717675ae6d93d07218a00f2c22890de0
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59679081"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149706"
 ---
 # <a name="update-management-solution-in-azure"></a>Solución Update Management de Azure
 
@@ -208,7 +208,7 @@ Para ejecutar una búsqueda de registros que devuelva información sobre la máq
 
 ## <a name="install-updates"></a>Instalación de actualizaciones
 
-Una vez que se han evaluado las actualizaciones de todos los equipos Linux y Windows del área de trabajo, puede instalar las actualizaciones necesarias mediante la creación de una *implementación de actualizaciones*. Para crear una implementación de actualización, debe tener acceso de escritura a la cuenta de Automation y acceso de escritura a cualquier VM de Azure que están diseñados en la implementación. Una implementación de actualizaciones es una instalación programada de actualizaciones necesarias en uno o más equipos. Se especifica la fecha y la hora de la implementación y el equipo o el grupo de equipos que se incluirán en el ámbito de esta. Para obtener más información acerca de los grupos de equipos, vea [grupos de equipos en los registros de Azure Monitor](../azure-monitor/platform/computer-groups.md).
+Una vez que se han evaluado las actualizaciones de todos los equipos Linux y Windows del área de trabajo, puede instalar las actualizaciones necesarias mediante la creación de una *implementación de actualizaciones*. Para crear una implementación de actualización, debe tener acceso de escritura a la cuenta de Automation y acceso de escritura a cualquier VM de Azure que tienen como destino de la implementación. Una implementación de actualizaciones es una instalación programada de actualizaciones necesarias en uno o más equipos. Se especifica la fecha y la hora de la implementación y el equipo o el grupo de equipos que se incluirán en el ámbito de esta. Para obtener más información acerca de los grupos de equipos, vea [grupos de equipos en los registros de Azure Monitor](../azure-monitor/platform/computer-groups.md).
 
 Al incluir grupos de equipos en la implementación de actualizaciones, la pertenencia al grupo se evalúa solo en el momento de la creación de la programación. Los cambios posteriores en un grupo no se reflejan. Para evitar este uso [grupos dinámicos](#using-dynamic-groups), estos grupos se resuelven en tiempo de implementación y se definen mediante una consulta para máquinas virtuales de Azure o una búsqueda guardada para máquinas virtuales que no son de Azure.
 
@@ -223,7 +223,7 @@ Para crear una nueva implementación de actualizaciones, seleccione **Programar 
 
 | Propiedad | Descripción |
 | --- | --- |
-| NOMBRE |Nombre único para identificar la implementación de actualizaciones. |
+| Name |Nombre único para identificar la implementación de actualizaciones. |
 |Sistema operativo| Linux o Windows|
 | Para actualizar los grupos |Para máquinas de Azure, defina una consulta basada en una combinación de suscripción, grupos de recursos, ubicaciones y etiquetas para crear un grupo dinámico de máquinas virtuales de Azure para incluir en la implementación. </br></br>Para las máquinas que no son de Azure, seleccione una búsqueda para seleccionar un grupo de máquinas que no son de Azure debe incluir en la implementación existente. </br></br>Para más información, consulte los [grupos dinámicos](automation-update-management.md#using-dynamic-groups).|
 | Máquinas para actualizar |Seleccione una búsqueda guardada, un grupo importado o elija la máquina en la lista desplegable y seleccione equipos individuales. Si elige **Máquinas**, la preparación de la máquina se muestra en la columna **PREPARACIÓN DE ACTUALIZACIONES DEL AGENTE**.</br> Para información sobre los distintos métodos de creación de grupos de equipos en los registros de Azure Monitor, consulte el artículo sobre los [Grupos de equipos en los registros de Azure Monitor](../azure-monitor/platform/computer-groups.md) |
@@ -333,8 +333,8 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## <a name="third-party"></a> Revisiones de aplicaciones de terceros en Windows
 
-Update Management se basa en WSUS o Windows Update para revisar los sistemas de Windows compatibles. Herramientas como [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
-) (Updates Publisher) le permiten publicar actualizaciones personalizadas en WSUS. Este escenario permite que Update Management revise las máquinas que usan WSUS como repositorio de actualizaciones con software de terceros. Para obtener información sobre cómo configurar Updates Publisher, consulte [Instalar Updates Publisher](/sccm/sum/tools/install-updates-publisher).
+Administración de actualizaciones se basa en el repositorio de actualización configuradas localmente para aplicar revisiones a sistemas de Windows compatibles. Se trata de WSUS o Windows Update. Herramientas como [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
+) (Updates Publisher) le permiten publicar actualizaciones personalizadas en WSUS. Este escenario permite la administración de actualización a las máquinas de revisiones que usan System Center Configuration Manager como su repositorio de actualizaciones de software de terceros. Para obtener información sobre cómo configurar Updates Publisher, consulte [Instalar Updates Publisher](/sccm/sum/tools/install-updates-publisher).
 
 ## <a name="ports"></a>Planeamiento de red
 

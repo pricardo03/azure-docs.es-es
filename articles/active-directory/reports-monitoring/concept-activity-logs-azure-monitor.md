@@ -1,6 +1,6 @@
 ---
-title: Registros de actividad de Azure Active Directory en Azure Monitor (versión preliminar) | Microsoft Docs
-description: Introducción a los registros de actividad de Azure Active Directory en Azure Monitor (versión preliminar)
+title: Los registros de actividad de Azure Active Directory en Azure Monitor | Microsoft Docs
+description: Introducción a la actividad de Azure Active Directory registra en Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,20 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0469f69f026c578de9598401e69262279669d19f
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 7fbb90e95c07c66f45d49076f0570ac028c37244
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436309"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011408"
 ---
-# <a name="azure-ad-activity-logs-in-azure-monitor-preview"></a>Registros de actividad de Azure AD en Azure Monitor (versión preliminar)
+# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Registra actividades de Azure AD en Azure Monitor
 
-Ahora puede enrutar los registros de actividad de Azure Active Directory (Azure AD) a varios puntos de conexión para una retención a largo plazo y conclusiones de datos. La versión preliminar pública de los registros de Azure AD en Azure Monitor le permite:
+Puede enrutar los registros de actividad de Azure Active Directory (Azure AD) a varios puntos de conexión para largo plazo retención y datos insights. Esta característica le permite:
 
 * Archivar los registros de actividad de Azure AD en una cuenta de almacenamiento de Azure para conservar los datos durante mucho tiempo.
 * Hacer streaming de los registros de actividad de Azure AD a un centro de eventos de Azure para analizarlos con herramientas conocidas de Administración de eventos e información de seguridad (SIEM), como Splunk y QRadar.

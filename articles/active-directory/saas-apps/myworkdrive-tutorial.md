@@ -15,10 +15,10 @@ ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
 ms.openlocfilehash: d16aa8442f71845e7b46377c6c290212f9c400a3
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59280509"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-myworkdrive"></a>Tutorial: Integración de Azure Active Directory con MyWorkDrive
@@ -50,7 +50,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 Para configurar la integración de MyWorkDrive en Azure AD, deberá agregar MyWorkDrive desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar MyWorkDrive desde la galería, siga estos pasos:**
+**Para agregar MyWorkDrive desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -117,7 +117,7 @@ Para configurar el inicio de sesión único de Azure AD con MyWorkDrive, siga es
     > 
     > URL de respuesta: `https://yourserver.yourdomain.com/SAML/AssertionConsumerService.aspx`
     > 
-    > URL de inicio de sesión:`https://yourserver.yourdomain.com/Account/Login-saml`
+    > URL de inicio de sesión: `https://yourserver.yourdomain.com/Account/Login-saml`
     > 
     > Póngase en contacto con el [equipo de soporte técnico de MyWorkDrive](mailto:support@myworkdrive.com) si no está seguro de cómo configurar su propio nombre de host y el certificado SSL para estos valores.
 

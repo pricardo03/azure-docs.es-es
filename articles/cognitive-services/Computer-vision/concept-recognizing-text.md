@@ -1,5 +1,5 @@
 ---
-title: 'Reconocimiento del texto manuscrito e impreso: Computer Vision'
+title: Reconocer texto manuscrito o impreso, Computer Vision
 titleSuffix: Azure Cognitive Services
 description: Conceptos relacionados con el reconocimiento del texto manuscrito e impreso en imágenes mediante Computer Vision API.
 services: cognitive-services
@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 02/19/2019
+ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9bb574fcb9782aad41ea0fd276b8addee19caf01
-ms.sourcegitcommit: 89b5e63945d0c325c1bf9e70ba3d9be6888da681
-ms.translationtype: MT
+ms.openlocfilehash: f7fd13b0b6df0b07543216e3c612520e528c1176
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/08/2019
-ms.locfileid: "57588982"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998250"
 ---
 # <a name="recognize-printed-and-handwritten-text"></a>Reconocimiento de texto manuscrito e impreso
 
@@ -45,13 +45,11 @@ Si usa una suscripción de nivel gratis, la API de lectura solo procesará las d
 
 ## <a name="ocr-optical-character-recognition-api"></a>OCR (reconocimiento óptico de caracteres) API
 
-Es similar a la API de lectura API de reconocimiento óptico de caracteres (OCR de Computer Vision), pero se ejecuta de forma sincrónica y no está optimizado para documentos de gran tamaño. Utiliza un modelo de reconocimiento anterior, pero funciona con más idiomas.
-
-OCR admite 25 idiomas: árabe, chino simplificado, chino tradicional, checo, danés, holandés, inglés, finés, francés, alemán, griego, húngaro, italiano, japonés, coreano, noruego, polaco, portugués, rumano, ruso, serbio (cirílico y latino), eslovaco, español, sueco y turco. OCR deduce automáticamente el idioma del texto detectado.
+Es similar a la API de lectura API de reconocimiento óptico de caracteres (OCR de Computer Vision), pero se ejecuta de forma sincrónica y no está optimizado para documentos de gran tamaño. Usa un modelo de reconocimiento anterior, pero funciona con más idiomas; consulte [compatibilidad con idiomas](language-support.md#text-recognition) para obtener una lista completa de los idiomas admitidos.
 
 Si es necesario, OCR corrige el giro del texto reconocido devolviendo el desplazamiento de rotación en grados alrededor del eje horizontal de la imagen. OCR también proporciona las coordenadas del marco de cada palabra, tal como se muestra en la siguiente ilustración.
 
-![Un diagrama que representa una imagen que se gira y su texto siendo leído y definido](./Images/vision-overview-ocr.png)
+![Que se va a girar una imagen y su texto que se va a leer y escriben](./Images/vision-overview-ocr.png)
 
 Consulte la [documentos de referencia de OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) para obtener más información.
 

@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 services: site-recovery
-ms.date: 04/08/2019
+ms.date: 04/18/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 2ab29c6e41204104320f4c2f583a24e53786bf3c
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d0e39f9e24b3c486eccd71eb1c19823cfd33391a
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59360549"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60004778"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Preguntas frecuentes: replicación de VMware en Azure
 
@@ -111,7 +111,7 @@ Replicación de máquinas virtuales nuevas a una cuenta de almacenamiento solo e
 
 ### <a name="can-i-change-the-managed-disk-type-after-machine-is-protected"></a>¿Puedo cambiar el tipo de disco administrado después de proteger el equipo?
 
-Sí, le resultará muy fácil [cambiar el tipo de disco administrado](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Sin embargo, si es posible que el tipo de disco administrado, espere de puntos de recuperación nuevo que se generará si necesita probar conmutación por error o conmutación por error después del cambio.
+Sí, le resultará muy fácil [cambiar el tipo de disco administrado](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage). Antes de cambiar el tipo, asegúrese de que revocar la URL de SAS para el disco, vaya al recurso de disco administrado en el portal de Azure. En la hoja de información general, cancelar cualquier exportación en curso. Una vez que se revoca la dirección URL de SAS, cambie el tipo del disco en los próximos minutos. Sin embargo, si cambia el tipo de disco administrado, espere de puntos de recuperación nuevo para generarse mediante Azure Site Recovery. Use los nuevos puntos de recuperación para cualquier prueba de conmutación por error o conmutación por error en el futuro.
 
 ### <a name="can-i-switch-replication-from-managed-disks-to-unmanaged-disks"></a>¿Puedo cambiar la replicación de discos administrados a discos no administrados?
 

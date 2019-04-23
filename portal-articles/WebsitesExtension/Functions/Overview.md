@@ -8,18 +8,18 @@ ms.service: functions
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
-ms.openlocfilehash: fa593eef1c01311d20216f3ab3af7ffcb54e12f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc37fbe218dd94da865e61e4b4275a7171fdbe7a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23073816"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344147"
 ---
 # <a name="azure-functions-documentation"></a>Documentación de Azure Functions
 
 Azure Functions es un servicio de proceso sin servidor que le permite ejecutar código a petición sin necesidad de aprovisionar ni administrar explícitamente la infraestructura. Use Azure Functions para ejecutar un script o un fragmento de código en respuesta a diversos eventos. Aprenda a usar Azure Functions con nuestros inicios rápidos, tutoriales y ejemplos.
 
-## <a name="5-minute-quickstarts"></a>Inicios rápidos en 5 minutos
+## <a name="5-minute-quickstarts"></a>Inicio rápido en 5 minutos
 
 Aprenda a crear una función de Hola mundo mediante:
 
@@ -33,7 +33,7 @@ Aprenda a compilar y administrar Azure Functions.
 - [Creación de un panel de redes sociales sin servidor](/azure/azure-functions/functions-twitter-email)
 - [Creación de una API sin servidor mediante Azure Functions](/azure/azure-functions/functions-create-serverless-api)
 
-## <a name="samples"></a>Muestras
+## <a name="samples"></a>Ejemplos
 
 Busque scripts para administrar las tareas más habituales.
 

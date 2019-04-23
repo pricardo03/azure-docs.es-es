@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 3bb829e7cc99ee0d6e2d02f7ed3880d6c0226123
-ms.sourcegitcommit: 0dd053b447e171bc99f3bad89a75ca12cd748e9c
-ms.translationtype: MT
+ms.openlocfilehash: a758cce85645e72bfd9434a69393133d3da6b57d
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58486325"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011374"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configuración de una instancia de clúster de conmutación por error de SQL Server en Azure Virtual Machines
 
@@ -399,7 +399,7 @@ Para crear el equilibrador de carga:
 
    - **Nombre**: nombre del sondeo de estado.
    - **Protocolo**: TCP.
-   - **Puerto**: se establece en un puerto TCP disponible. Dicho puerto requiere un puerto de firewall abierto. Use el [mismo puerto](#ports) que configuró para el sondeo de mantenimiento en el firewall.
+   - **Puerto**: Establecer en el puerto que creó en el firewall para el sondeo de estado en [este paso](#ports). En este artículo, el ejemplo usa el puerto TCP `59999`.
    - **Intervalo**: 5 segundos.
    - **Umbral incorrecto**: 2 errores consecutivos.
 
@@ -421,7 +421,7 @@ Para crear el equilibrador de carga:
    - **Sondeo de mantenimiento**: utilice el sondeo de estado que configuró anteriormente.
    - **Persistencia de la sesión**: Ninguno.
    - **Tiempo de espera de inactividad (minutos)**: 4.
-   - **IP flotante (Direct Server Return)**: habilitado
+   - **IP flotante (Direct Server Return)**: Enabled
 
 1. Haga clic en **OK**.
 

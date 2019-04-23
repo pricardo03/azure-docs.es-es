@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 04/18/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 33d8f2e7c65a786d1ecb389574fe186efb6fb705
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
-ms.translationtype: MT
+ms.openlocfilehash: b17978da3195b364f868d33ab7ad9faa1544e9ec
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630784"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006801"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics-workspace-in-azure-monitor"></a>Registros de diagnóstico de Azure Stream al área de trabajo de Log Analytics en Azure Monitor
 
@@ -107,7 +107,7 @@ Dado que muchos recursos enviar todos los tipos de datos se envían a la misma t
  
 La tabla AzureDiagnostics será como sigue, con algunos datos de ejemplo:  
  
-| ResourceProvider | Categoría | Una  | b | C | D | E | F | G | H | I |
+| ResourceProvider | Category | Una  | b | C | D | E | F | G | H | I |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
 | Microsoft.Resource1 | AuditLogs | x1 | y1 | z1 |
 | Microsoft.Resource2 | ErrorLogs | | | | q1 | W1 | e1 |
@@ -124,7 +124,7 @@ Azure Data Factory, debido a un conjunto muy detallado de los registros, es un r
 - *Parámetros de usuario definidos en relación con cualquier actividad en la canalización*: habrá una nueva columna que se crea para cada parámetro de forma unívoca con nombre de usuario en cualquier actividad. 
 - *Actividad entradas y salidas*: estas varían de actividad a otra y generar una gran cantidad de columnas debido a su naturaleza detallado. 
  
-Como con las propuestas más amplias de solución alternativa siguientes, se recomienda para aislar los registros ADF en su propia área de trabajo para minimizar la posibilidad de que estos registros que afectan a otros tipos de registro que se recopilan en las áreas de trabajo. Esperamos que haya mantiene los registros para Azure Data Factory disponibles mediados de abril de 2019.
+Como con las propuestas más amplias de solución alternativa siguientes, se recomienda para aislar los registros ADF en su propia área de trabajo para minimizar la posibilidad de que estos registros que afectan a otros tipos de registro que se recopilan en las áreas de trabajo. Esperamos que haya reunido registros para Azure Data Factory disponibles pronto.
  
 #### <a name="workarounds"></a>Soluciones alternativas
 A corto plazo, hasta que se vuelve a definir el límite de 500 columnas, se recomienda separar los tipos de datos detallados en las áreas de trabajo independientes para reducir las posibilidades de alcanzar el límite.

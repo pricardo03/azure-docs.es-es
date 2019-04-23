@@ -1,4 +1,4 @@
-﻿---
+---
 title: Uso de la API REST de alertas de Log Analytics
 description: Con la API REST de alertas de Log Analytics, se pueden crear y administrar alertas de Log Analytics, que forma parte de Log Analytics.  En este artículo encontrará información detallada sobre la API y varios ejemplos para realizar distintas operaciones.
 services: log-analytics
@@ -15,7 +15,7 @@ ms.date: 04/10/2018
 ms.author: bwren
 ms.openlocfilehash: bee64909c7f3b295691ef1cb1840424aa7e3fe49
 ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: es-ES
 ms.lasthandoff: 04/13/2019
 ms.locfileid: "59549719"

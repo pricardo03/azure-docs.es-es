@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 4322fd60bb30b9eb6ac18c72e75127006acf5149
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: caeef04a27cec7bbeda5dd96335d9b7bd1a8eca0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528193"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007464"
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Utilización de informes de mantenimiento del sistema para solucionar problemas
 Los componentes de Azure Service Fabric proporcionan informes de mantenimiento del sistema inmediatos sobre todas las entidades del clúster. El [almacén de estado](service-fabric-health-introduction.md#health-store) crea y elimina entidades basándose en los informes del sistema. También las organiza en una jerarquía que captura las interacciones de la entidad.
@@ -29,7 +29,7 @@ Los componentes de Azure Service Fabric proporcionan informes de mantenimiento d
 > 
 > 
 
-Los informes de mantenimiento del sistema proporcionan visibilidad sobre la funcionalidad de los clústeres y las aplicaciones y señalan los problemas. Para aplicaciones y servicios, los informes de mantenimiento del sistema comprueban que las entidades se implementan y que se comportan correctamente desde la perspectiva de Service Fabric. Los informes no proporcionan ninguna supervisión del mantenimiento de la lógica empresarial del servicio o de la detección de los procesos bloqueados. Los servicios de usuario pueden enriquecer los datos de mantenimiento con información específica de su lógica.
+Los informes de mantenimiento del sistema proporcionan visibilidad sobre la funcionalidad de los clústeres y las aplicaciones y señalan los problemas. Para aplicaciones y servicios, los informes de mantenimiento del sistema comprueban que las entidades se implementan y que se comportan correctamente desde la perspectiva de Service Fabric. Los informes no proporcionan ninguna supervisión del mantenimiento de la lógica de negocios del servicio o la detección de los procesos que no responden. Los servicios de usuario pueden enriquecer los datos de mantenimiento con información específica de su lógica.
 
 > [!NOTE]
 > Los informes de mantenimiento enviados por los guardianes de usuarios solo son visibles *después* de que los componentes del sistema hayan creado una entidad. Cuando se elimina una entidad, el almacén de estado elimina automáticamente todos los informes de mantenimiento asociados a ella. Lo mismo ocurre cuando se crea una nueva instancia de la entidad. Un ejemplo es cuando se crea una nueva instancia de réplica de servicio persistente con estado. Todos los informes asociados a la instancia anterior se eliminan y se limpian del almacén.

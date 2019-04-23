@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
 ms.openlocfilehash: 15cfa025bde3367c57255ce50f95c69293b63f92
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59283382"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-userecho"></a>Tutorial: Integración de Azure Active Directory con UserEcho
@@ -51,7 +51,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 Para configurar la integración de UserEcho en Azure AD, deberá agregar UserEcho desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar UserEcho desde la galería, siga estos pasos:**
+**Para agregar UserEcho desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -210,7 +210,7 @@ En esta sección, concederá acceso a Britta Simon a UserEcho para que use el in
 
 El objetivo de esta sección es crear una usuaria de prueba llamada Britta Simon en UserEcho.
 
-**Para crear un usuario llamado Britta Simon en UserEcho, siga estos pasos:**
+**Para crear una usuaria llamada Britta Simon en UserEcho, realice los pasos siguientes:**
 
 1. Inicie sesión en el sitio de compañía de UserEcho como administrador.
 

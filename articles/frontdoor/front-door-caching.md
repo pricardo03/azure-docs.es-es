@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: e022a7661997d231e291a4d09611bb6e95bee262
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: fb00c09680c6a80bc093c6f02ccd8d7269b8748c
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59528329"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149485"
 ---
 # <a name="caching-with-azure-front-door-service"></a>Almacenamiento en caché con Azure Front Door Service
 En el documento siguiente se especifica el comportamiento de Front Door con reglas de enrutamiento que han habilitado el almacenamiento en caché.
@@ -104,7 +104,7 @@ El siguiente orden de encabezados se usa para determinar cuánto tiempo se almac
 2. Cache-Control: maxage=\<seconds>
 3. Expira: \<http-date >
 
-Los encabezados de respuesta Cache-Control que indican que la respuesta no se almacena en caché como Cache-Control: private, Cache-Control: no-cache y Cache-Control: no-store se respetan. Sin embargo, si hay varias solicitudes en lucha en un servidor POP por la misma dirección URL, es posible que compartan la respuesta.
+Los encabezados de respuesta Cache-Control que indican que la respuesta no se almacena en caché como Cache-Control: private, Cache-Control: no-cache y Cache-Control: no-store se respetan. Sin embargo, si hay varias solicitudes en lucha en un servidor POP por la misma dirección URL, es posible que compartan la respuesta. Si ningún Control de caché está presente el comportamiento predeterminado es que AFD almacenará en caché el recurso para X cantidad de tiempo donde X se elige aleatoriamente entre 1 y 3 días.
 
 
 ## <a name="request-headers"></a>Encabezados de solicitud

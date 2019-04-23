@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2017
 ms.author: cawa
-ms.openlocfilehash: 61bb5601cf20e9f6e4fba1300d8f84c9d039e564
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 38a857b1d309b92c48137a46655155e0e131908c
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58225100"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002687"
 ---
 # <a name="get-started-with-storage-explorer"></a>Introducción al Explorador de Storage
 
@@ -99,7 +99,7 @@ Además, puede trabajar con cuentas de almacenamiento en nubes de Azure globales
 
 2. En el panel izquierdo se muestran ahora todas las cuentas de Azure en las que ha iniciado sesión. Para conectarse a otra cuenta, seleccione **Add an account** (Agregar una cuenta).
 
-3. Si quiere iniciar sesión en una nube nacional o en una instancia de Azure Stack, haga clic en la lista desplegable **Azure environment** (Entorno de Azure) para seleccionar qué nube de Azure quiere usar. Cuando haya elegido el entorno, haga clic en el botón **Sign in...** (Iniciar sesión...). Si va a iniciar sesión en Azure Stack, consulte [Conexión del Explorador de Storage a una suscripción de Azure Stack](azure-stack/user/azure-stack-storage-connect-se.md) para más información.
+3. Si quiere iniciar sesión en una nube nacional o en una instancia de Azure Stack, haga clic en la lista desplegable **Azure environment** (Entorno de Azure) para seleccionar qué nube de Azure quiere usar. Cuando haya elegido el entorno, haga clic en el botón **Sign in...** (Iniciar sesión...). Si va a iniciar sesión en Azure Stack, consulte [Conexión del Explorador de Storage a una suscripción de Azure Stack](/azure-stack/user/azure-stack-storage-connect-se) para más información.
 
     ![Opción de inicio de sesión][2]
 

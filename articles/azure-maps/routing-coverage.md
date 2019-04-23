@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: 718eefc95384dde050a4a25e6850fe6db574d294
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: ef62ec78bc7fc01bd2e6dd7c5561b15be85540d2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59258936"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007906"
 ---
 # <a name="azure-maps-routing-coverage"></a>Cobertura de enrutamiento en Azure Maps
 
@@ -136,12 +136,12 @@ En la siguiente tabla se proporciona información sobre la cobertura del enrutam
 | Camboya                       |        ✓       |                      |             |
 | Islas Fiji                           |        ✓       |                      |             |
 | Guam                           |        ✓       |                      |             |
-| RAE de Hong Kong                      |        ✓       |         ✓            |             |
+| RAE de Hong Kong                  |        ✓       |         ✓            |             |
 | India                          |        ✓       |         ✓            |             |
 | Indonesia                      |        ✓       |         ✓            |             |
 | Corea                          |        Ø       |                      |             |
 | Laos                           |        ✓       |                      |             |
-| RAE de Macao                          |        ✓       |         ✓            |             |
+| RAE de Macao                      |        ✓       |         ✓            |             |
 | Malasia                       |        ✓       |         ✓            |             |
 | Myanmar                        |        ✓       |                      |             |
 | Nueva Zelanda                    |        ✓       |         ✓            |     ✓       | 
@@ -190,7 +190,7 @@ En la siguiente tabla se proporciona información sobre la cobertura del enrutam
 | Liechtenstein                  |        ✓       |         ✓            |             |
 | Lituania                      |        ✓       |         ✓            |     ✓      | 
 | Luxemburgo                     |        ✓       |         ✓            |     ✓      | 
-| República de Macedonia                      |        ✓       |                      |             |
+| Macedonia del Norte                |        ✓       |                      |             |
 | Malta                          |        ✓       |         ✓            |             |
 | Moldova                        |        ✓       |                      |             |
 | Mónaco                         |        ✓       |         ✓            |             |

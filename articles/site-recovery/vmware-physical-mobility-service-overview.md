@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 3b354492778426d1e3c31e53e277fd9be1e22c93
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: 929a4e4366c9e94ed4e1915406914991624f6baa
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59048119"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149638"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Acerca de Mobility Service para máquinas virtuales VMware y servidores físicos
 
@@ -115,7 +115,7 @@ Durante la instalación de inserción de agente de movilidad, se realizan los pa
 #### <a name="installation-settings"></a>Configuración de la instalación
 **Configuración** | **Detalles**
 --- | ---
-Uso | UnifiedAgent.exe /Role <MS|MT> /InstallLocation <Install Location> /Platform “VmWare” /Silent
+Uso | UnifiedAgent.exe /Role < MS/MT > /InstallLocation  <Install Location> /silent / Platform "VmWare"
 Registros de configuración | En %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log.
 /Role | Parámetro de instalación obligatorio. Especifica si se debe instalar Mobility Service (MS) o el destino maestro (MT).
 /InstallLocation| Parámetro opcional. Especifique la ubicación (cualquier carpeta) de la instalación de Mobility Service.
@@ -154,7 +154,7 @@ Registros de configuración del agente | En %ProgramData%\ASRSetupLogs\ASRUnifie
 #### <a name="installation-settings"></a>Configuración de la instalación
 **Configuración** | **Detalles**
 --- | ---
-Uso | . /Install -d \<ubicación de instalación > - r < MS|MT> -v VmWare -q
+Uso | . /Install -d <Install Location> - r < MS/MT > v - VmWare - q
 -r | Parámetro de instalación obligatorio. Especifica si se debe instalar Mobility Service (MS) o el destino maestro (MT).
 -d | Parámetro opcional. Especifique la ubicación de instalación de Mobility Service: /usr/local/ASR.
 -v | Obligatorio. Especifica la plataforma en la que se instala Mobility Service. **VMware** para servidores físicos o máquinas virtuales Mware; **Azure** para máquinas virtuales de Azure.

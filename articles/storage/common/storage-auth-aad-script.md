@@ -1,29 +1,29 @@
 ---
-title: Ejecute los comandos de PowerShell o la CLI de Azure bajo una identidad de Azure AD para acceder a los datos de blob y cola | Microsoft Docs
-description: PowerShell y CLI de Azure admiten el inicio de sesión con una identidad de Azure AD para ejecutar comandos en los datos de blobs y colas de Azure Storage. Se proporciona un token de acceso para la sesión y se usa para autorizar operaciones de llamada. Los permisos dependen el rol RBAC asignado a la identidad de Azure AD.
+title: Ejecute los comandos de PowerShell o la CLI de Azure con credenciales de Azure AD para tener acceso a datos blob o cola | Microsoft Docs
+description: PowerShell y CLI de Azure admiten iniciar sesión con credenciales de Azure AD para ejecutar comandos en los datos de blobs y colas de Azure Storage. Se proporciona un token de acceso para la sesión y se usa para autorizar operaciones de llamada. Los permisos dependen el rol RBAC asignado a la entidad de seguridad de Azure AD.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 03/26/2019
+ms.date: 04/19/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: a0972beff48e07b6ce8afdcec10581300f59ed41
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 96be1e600c8d5895cc0eb5b058ce17f7265fa0a9
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787005"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149655"
 ---
-# <a name="use-an-azure-ad-identity-to-access-blob-and-queue-data-with-cli-or-powershell"></a>Usar una identidad de Azure AD para acceder a los datos de blob y cola con la CLI o PowerShell
+# <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Ejecute los comandos de PowerShell o la CLI de Azure con credenciales de Azure AD para tener acceso a datos blob o cola
 
-Almacenamiento de Azure proporciona extensiones para la CLI de Azure y PowerShell que le permiten iniciar sesión y ejecutar secuencias de comandos bajo una identidad de Azure Active Directory (Azure AD). La identidad de Azure AD puede ser un usuario, un grupo o una entidad de servicio de aplicación, o puede ser una [identidad administrada para los recursos de Azure](../../active-directory/managed-identities-azure-resources/overview.md). Puede asignar permisos para tener acceso a datos blob y cola a la identidad de Azure AD a través del control de acceso basado en roles (RBAC). Para obtener más información acerca de los roles RBAC en Azure Storage, consulte [administrar derechos de acceso a datos de Azure Storage con RBAC](storage-auth-aad-rbac.md).
+Almacenamiento de Azure proporciona extensiones para la CLI de Azure y PowerShell que le permiten iniciar sesión y ejecutar secuencias de comandos con credenciales de Azure Active Directory (Azure AD). Al iniciar sesión PowerShell o la CLI de Azure con credenciales de Azure AD, se devuelve un token de acceso de OAuth 2.0. Ese token se usa automáticamente mediante la CLI o PowerShell para autorizar las operaciones de datos subsiguientes en el almacenamiento de Blob o cola. Para las operaciones admitidas, ya no necesita pasar una clave de cuenta o token SAS con el comando.
 
-Al iniciar sesión PowerShell o la CLI de Azure con una identidad de Azure AD, se devuelve un token de acceso para acceder al almacenamiento de Azure con esa identidad. Después, la CLI de Azure o PowerShell usan automáticamente ese token para autorizar operaciones en Azure Storage. Para las operaciones admitidas, ya no necesita pasar una clave de cuenta o token SAS con el comando.
+Puede asignar permisos a los datos de blob y cola a una entidad de seguridad de Azure AD a través del control de acceso basado en roles (RBAC). Para obtener más información acerca de los roles RBAC en Azure Storage, consulte [administrar derechos de acceso a datos de Azure Storage con RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="supported-operations"></a>Operaciones compatibles
 
-Se admiten las extensiones para las operaciones en contenedores y las colas. Las operaciones que puede llamar a depende de los permisos concedidos a la identidad de Azure AD con el que iniciar sesión en PowerShell o la CLI de Azure. Los permisos para los contenedores o colas de Azure Storage se asignan mediante el control de acceso basado en rol (RBAC). Por ejemplo, si se asigna un rol de lector de datos a la identidad, puede ejecutar comandos de scripting que lean datos de un contenedor o cola. Si se asigna un rol de colaborador de datos a la identidad, podrá ejecutar comandos de scripting que lean, escriban o eliminen un contenedor o cola, o los datos que estos contienen. 
+Se admiten las extensiones para las operaciones en contenedores y las colas. Las operaciones que puede llamar a depende de los permisos concedidos a la entidad de seguridad de Azure AD con el que iniciar sesión en PowerShell o la CLI de Azure. Los permisos para los contenedores o colas de Azure Storage se asignan mediante el control de acceso basado en rol (RBAC). Por ejemplo, si se le asigna el **lector de datos de Blob** rol y, después, se pueden ejecutar secuencias de comandos que leen datos de un contenedor o una cola. Si se le asigna el **colaborador de datos de Blob** rol y, después, se pueden ejecutar secuencias de comandos que leer, escribirán o eliminación un contenedor o la cola o los datos que contienen. 
 
 Para más información sobre los permisos requeridos para cada operación de Azure Storage, consulte [Permissions for calling REST operations](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-azure-active-directory#permissions-for-calling-rest-operations) (Permisos para llamar a operaciones de REST).  
 
@@ -129,5 +129,5 @@ El ejemplo siguiente muestra cómo crear un contenedor en una nueva cuenta de al
 ## <a name="next-steps"></a>Pasos siguientes
 
 - Para obtener más información acerca de los roles RBAC para el almacenamiento de Azure, consulte [administrar derechos de acceso a los datos de almacenamiento con RBAC](storage-auth-aad-rbac.md).
-- Para obtener información sobre el uso de identidades administradas por los recursos de Azure con Azure Storage, consulte [autenticar el acceso a los blobs y colas de Azure administra las identidades para Azure Resources](storage-auth-aad-msi.md).
+- Para obtener información sobre el uso de identidades administradas por los recursos de Azure con Azure Storage, consulte [autenticar el acceso a los blobs y colas con Azure Active Directory y las identidades administradas para Azure Resources](storage-auth-aad-msi.md).
 - Para información sobre la autorización de acceso a los contenedores y las colas desde las aplicaciones de almacenamiento, consulte el artículo sobre el [uso de Azure AD con aplicaciones de almacenamiento](storage-auth-aad-app.md).

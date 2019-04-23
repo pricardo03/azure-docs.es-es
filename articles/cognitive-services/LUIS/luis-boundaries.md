@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: article
-ms.date: 03/12/2019
+ms.date: 04/18/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 51f5355e365d0dcf7a103deab3356f015e75641e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: 58f6d6cf8bf16f7c35bab35a69cfcdf8759f66ae
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897527"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006835"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>Límites de las claves y el modelo de LUIS
 LUIS tiene varias áreas de límites. La primera es el [límite de modelo](#model-boundaries), que controla las intenciones, entidades y características de LUIS. La segunda área son los [límites de cuota](#key-limits) según el tipo de clave. Una tercera área de límites es la [combinación de teclas](#keyboard-controls), para controlar el sitio web de LUIS. Una cuarta área es la [asignación de regiones del mundo](luis-reference-regions.md) entre el sitio web de creación de LUIS y las API de [punto de conexión](luis-glossary.md#endpoint) de LUIS. 
@@ -47,16 +47,16 @@ Si la aplicación supera los límites del modelo LUIS, puede usar una aplicació
 
 *El valor máximo predeterminado de caracteres es 50. 
 
-## <a name="intent-and-entity-naming"></a>Nomenclatura de intenciones y entidades
-No use los siguientes caracteres en los nombres de intenciones y entidades:
+<a name="intent-and-entity-naming"></a>
 
-|Character|NOMBRE|
+## <a name="object-naming"></a>Denominación de objeto
+
+No utilice los siguientes caracteres en los siguientes nombres.
+
+|Object|Excluir caracteres adicionales.|
 |--|--|
-|`{`|Llave de apertura|
-|`}`|Llave de cierre|
-|`[`|Corchete de apertura|
-|`]`|Corchete de cierre|
-|`\`|Barra diagonal inversa|
+|Nombres de intenciones, entidades y rol|`:`<br>`$`|
+|Nombre de la versión|`\`<br> `/`<br> `:`<br> `?`<br> `&`<br> `=`<br> `*`<br> `+`<br> `(`<br> `)`<br> `%`<br> `@`<br> `$`<br> `~`<br> `!`<br> `#`|
 
 ## <a name="key-usage"></a>Uso de las claves
 

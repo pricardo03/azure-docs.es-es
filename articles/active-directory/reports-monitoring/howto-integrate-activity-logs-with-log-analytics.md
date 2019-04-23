@@ -1,6 +1,6 @@
 ---
-title: Transmisión en secuencias registros de Azure Active Directory a registros de Azure Monitor (versión preliminar) | Microsoft Docs
-description: Aprenda a integrar registros de Azure Active Directory con registros de Azure Monitor (versión preliminar)
+title: Stream registros de Azure Active Directory a los registros de Azure Monitor | Microsoft Docs
+description: Obtenga información sobre cómo integrar los registros de Azure Active Directory con los registros de Azure Monitor
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -13,18 +13,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 11/13/2018
+ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 056a529101ffc39170ea057832bcd50b283505be
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
-ms.translationtype: MT
+ms.openlocfilehash: 213fb6e73ae2fc4314320d0e3e593632d8eb7f85
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436276"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010942"
 ---
-# <a name="integrate-azure-ad-logs-with-azure-monitor-logs-preview"></a>Integración de registros de Azure AD con registros de Azure Monitor (versión preliminar)
+# <a name="integrate-azure-ad-logs-with-azure-monitor-logs"></a>Integrar los registros de Azure AD con registros de Azure Monitor
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 Registros de Azure Monitor permite consultar los datos para buscar eventos concretos, analizar tendencias y realizar la correlación entre varios orígenes de datos. Con la integración de los registros de actividad de Azure AD en registros de Azure Monitor, ahora puede realizar tareas como:
 
@@ -37,8 +39,6 @@ El siguiente vídeo es de una sesión de Ignite y muestra las ventajas del uso d
 > [!VIDEO https://www.youtube.com/embed/MP5IaCTwkQg?start=1894]
 
 En este artículo, se aprende a integrar los registros de Azure Active Directory (Azure AD) con Azure Monitor.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ## <a name="supported-reports"></a>Informes admitidos
 
@@ -60,7 +60,7 @@ Para usar esta característica, necesita:
 * Un usuario que sea *administrador global* o *administrador de seguridad* para el inquilino de Azure AD.
 * Un área de trabajo de Log Analytics en la suscripción a Azure. Aprenda a [crear un área de trabajo de Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
-## <a name="send-logs-to-azure-monitor-logs"></a>Envío de registros a registros de Azure Monitor
+## <a name="send-logs-to-azure-monitor"></a>Enviar registros a Azure Monitor
 
 1. Inicie sesión en el [Azure Portal](https://portal.azure.com). 
 

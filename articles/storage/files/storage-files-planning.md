@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d4361fc37d01b351d20a273aa39f558e9b00faa4
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: MT
+ms.openlocfilehash: e2b2621ac8ee5b9ee84aaa978e8b915c98c5b702
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59525932"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998471"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planeamiento de una implementación de Azure Files
 
@@ -92,20 +92,22 @@ Azure Files ofrece dos niveles de rendimiento: estándar y premium.
 |Europa del Norte  | Sin  |
 |Europa occidental   | Sí|
 |Asia Sureste       | Sí|
+|Asia oriental     | Sin  |
 |Este de Japón    | Sin  |
+|Oeste de Japón    | Sin  |
 |Corea Central | Sin  |
 |Este de Australia| Sin  |
 
 ### <a name="provisioned-shares"></a>Recursos compartidos aprovisionados
 
-Recursos compartidos de archivos de Premium (versión preliminar) se aprovisionan en función de una relación fija de GiB/IOPS/rendimiento. Por cada GiB aprovisionado, se generará un IOPS y un rendimiento de 0,1 MiB por segundo en el recurso compartido hasta los límites máximos por recurso compartido. El aprovisionamiento mínimo que se permite es 100 GiB con un IOPS/rendimiento mínimos. Tamaño del recurso compartido puede aumentar a cualquier hora y una disminución en cualquier momento, pero se puede reducir una vez cada 24 horas desde el último incremento.
+Recursos compartidos de archivos de Premium (versión preliminar) se aprovisionan en función de una relación fija de GiB/IOPS/rendimiento. Por cada GiB aprovisionado, se generará un IOPS y un rendimiento de 0,1 MiB por segundo en el recurso compartido hasta los límites máximos por recurso compartido. El aprovisionamiento mínimo que se permite es 100 GiB con un IOPS/rendimiento mínimos.
 
 En su máximo esfuerzo, todos los recursos compartidos pueden aumentar hasta tres IOPS por GiB de almacenamiento aprovisionado durante 60 minutos, o más, según el tamaño del recurso compartido. Los nuevos recursos compartidos comienzan con todos los créditos de aumento según la capacidad aprovisionada.
 
-Todos los recursos compartidos se pueden ampliar hasta el rendimiento de e/s por segundo y de destino al menos 100 de 100 MiB/s. Los recursos compartidos deben aprovisionarse en incrementos de 1 GB. Tamaño mínimo es 100 GB, siguiente tamaño es GIB 101 y así sucesivamente.
+Los recursos compartidos deben aprovisionarse en incrementos de 1 GB. Tamaño mínimo es 100 GB, siguiente tamaño es GIB 101 y así sucesivamente.
 
 > [!TIP]
-> Línea de base de e/s por segundo = 100 + 1 * aprovisionado GiB. (Hasta un máximo de 100 000 e/s por segundo).
+> Línea de base de e/s por segundo = 1 * aprovisionado GiB. (Hasta un máximo de 100 000 e/s por segundo).
 >
 > Límite de ráfaga = 3 * la línea de base de e/s por segundo. (Hasta un máximo de 100 000 e/s por segundo).
 >
@@ -113,13 +115,13 @@ Todos los recursos compartidos se pueden ampliar hasta el rendimiento de e/s por
 >
 > tasa de entrada = 40 MiB/s + 0,04 * aprovisionado GiB
 
-Tamaño del recurso compartido puede aumentar a cualquier hora y una disminución en cualquier momento, pero se puede reducir una vez cada 24 horas desde el último incremento. Cambios de escala IOPS/rendimiento entrarán dentro de 24 horas después del cambio de tamaño.
+Tamaño del recurso compartido se puede aumentar en cualquier momento, pero se puede reducir únicamente después de 24 horas desde el último incremento. Después de esperar 24 horas sin un aumento de tamaño, puede reducir el tamaño del recurso compartido tantas veces hasta que aumente de nuevo. Los cambios de escala IOPS/rendimiento será efectivos en cuestión de minutos después del cambio de tamaño.
 
 En la tabla siguiente se muestra algunos ejemplos de estas fórmulas para los tamaños de recurso compartido aprovisionado:
 
 (Los tamaños que se indican con un * están en versión preliminar pública limitada)
 
-|Capacidad (GiB) | IOPS base | Límite de aumento | Salida (MiB/s) | Entrada (MiB/s) |
+|Capacidad (GiB) | IOPS base | Ráfaga de e/s por segundo | Salida (MiB/s) | Entrada (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | Hasta 300     | 66   | 44   |
 |500         | 500     | 1.500   | 90   | 60   |
@@ -136,20 +138,20 @@ Actualmente, los tamaños de recurso compartido de archivos hasta 5 TB están en
 
 Recursos compartidos de archivos Premium pueden ampliar sus IOPS hasta un factor de tres. Ampliación es automatizada y opera basándose en un sistema de crédito. Ampliación funciona en base al mejor esfuerzo y el límite de ráfaga no es una garantía, pueden aumentar los recursos compartidos de archivos *hasta* el límite.
 
-Créditos se acumulan en un depósito de ráfaga, siempre que el tráfico para los recursos compartidos de archivos está por debajo de la línea de base de e/s por segundo. Por ejemplo, un recurso compartido de GiB 100 tiene previsto 100 IOPS. Si tráfico real en el recurso compartido estaba 40 IOPS para un intervalo específico de 1 segundo, el número de 60 IOPS sin usar se abona a un depósito de ráfaga. Estos créditos, a continuación, se usará más adelante cuando las operaciones, se superará la línea de base de e/s por segundo.
+Créditos se acumulan en un depósito de ráfaga, siempre que el tráfico para el recurso compartido de archivos está por debajo de la línea de base de e/s por segundo. Por ejemplo, un recurso compartido de GiB 100 tiene previsto 100 IOPS. Si tráfico real en el recurso compartido estaba 40 IOPS para un intervalo específico de 1 segundo, el número de 60 IOPS sin usar se abona a un depósito de ráfaga. Estos créditos, a continuación, se usará más adelante cuando las operaciones, se superará la línea de base de e/s por segundo.
 
 > [!TIP]
-> Tamaño del depósito de límite de ráfaga = Baseline_IOPS * 2 * 3600.
+> Tamaño del depósito ráfaga = Baseline_IOPS * 2 * 3600.
 
-Cada vez que un recurso compartido supera la línea de base de e/s por segundo y tiene créditos en un depósito de ráfaga, emite ráfagas. Pueden seguir los recursos compartidos de ráfaga siempre quedan créditos, aunque los recursos compartidos de menores que 50 tiB sólo permanecerán en el límite de ráfagas de hasta una hora. Recursos compartidos de mayores que 50 TiB técnicamente puede superar este límite de una hora, de dos horas, pero esto se basa en el número de créditos de ráfaga acumulados. Cada E/S más allá de la línea de base de e/s por segundo consume un crédito y una vez que se consumen todos los créditos devolvería el recurso compartido a la línea de base de e/s por segundo.
+Cada vez que un recurso compartido supera la línea de base de e/s por segundo y tiene créditos en un depósito de ráfaga, emite ráfagas. Pueden seguir los recursos compartidos de ráfaga siempre quedan créditos, aunque los recursos compartidos de menores que 50 TiB sólo permanecerán en el límite de ráfagas de hasta una hora. Recursos compartidos de mayores que 50 TiB técnicamente puede superar este límite de una hora, de dos horas, pero esto se basa en el número de créditos de ráfaga acumulados. Cada E/S más allá de la línea de base de e/s por segundo consume un crédito y una vez que se consumen todos los créditos devolvería el recurso compartido a la línea de base de e/s por segundo.
 
 Los créditos de recurso compartido tienen tres estados:
 
 - Acumulado, cuando el recurso compartido de archivos usa menos de la línea de base de e/s por segundo.
 - Disminuye cuando el recurso compartido de archivos es ampliación.
-- Restantes a cero, cuando no hay créditos o la línea de base de e/s por segundo están en uso.
+- Restante constante, cuando hay ninguna créditos o la línea de base de e/s por segundo están en uso.
 
-Inicio de los recursos compartidos de archivo nuevo con el número total de créditos en el depósito de ráfaga.
+Inicio de los recursos compartidos de archivo nuevo con el número total de créditos en el depósito de ráfaga. Si el recurso compartido de IOPS cae por debajo de la línea de base de e/s por segundo debido a la limitación por el servidor, no se acumularán créditos de ráfaga.
 
 ## <a name="file-share-redundancy"></a>Redundancia del recurso compartido de archivos
 

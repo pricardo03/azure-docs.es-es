@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: c29d2e1df0979481c0c8a1e1f2cd4d22b013212a
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
-ms.translationtype: MT
+ms.openlocfilehash: 2db588a0cf67d7826408139e8facb43a2e897951
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58227709"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003452"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network-preview"></a>Implementación de Azure Databricks en la red virtual (versión preliminar)
 
@@ -37,7 +37,7 @@ Puede usar la interfaz de implementación del área de trabajo de Azure Databric
 
 La red virtual que se implementa en el área de trabajo Azure Databricks debe cumplir los siguientes requisitos:
 
-### <a name="location"></a>Ubicación
+### <a name="location"></a>Location
 
 La red virtual debe residir en la misma ubicación que el área de trabajo de Azure Databricks.
 
@@ -188,7 +188,7 @@ Causa posible: Contenedor no puede comunicarse con la instancia que hospeda o cu
 
 ### <a name="notebook-command-errors"></a>Errores del comando de Bloc de notas
 
-**Comando se bloquea**
+**Comando no responde**
 
 Causa posible: se bloquea la comunicación de trabajo para el trabajo. Corregir asegurándose de que las reglas de seguridad de entrada cumplen los requisitos.
 

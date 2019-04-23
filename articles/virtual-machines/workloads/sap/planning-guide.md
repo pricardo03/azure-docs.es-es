@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/05/2019
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a9e12171a8596bc9caba3bf9065bbb943139ccde
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: d4798f8c3e262129135a6677ccf90dc0fb3be7f2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59501338"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999542"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Implementación y planeamiento de Azure Virtual Machines para SAP NetWeaver
 
@@ -1141,8 +1141,8 @@ También puede copiar discos duros virtuales entre suscripciones. Para más info
 
 El flujo básico de la lógica de los cmdlets de PowerShell se compone, a grandes rasgos, de estos pasos:
 
-* Cree un contexto de la cuenta de almacenamiento para el **origen** cuenta de almacenamiento con *New AzStorageContext* -consulte <https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext>
-* Cree un contexto de la cuenta de almacenamiento para el **destino** cuenta de almacenamiento con *New AzStorageContext* -consulte <https://docs.microsoft.com/powershell/module/azure.storage/new-AzStoragecontext>
+* Cree un contexto de la cuenta de almacenamiento para el **origen** cuenta de almacenamiento con *New AzStorageContext* -consulte <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
+* Cree un contexto de la cuenta de almacenamiento para el **destino** cuenta de almacenamiento con *New AzStorageContext* -consulte <https://docs.microsoft.com/powershell/module/az.storage/new-AzStoragecontext>
 * Inicie la copia con
 
 ```powershell

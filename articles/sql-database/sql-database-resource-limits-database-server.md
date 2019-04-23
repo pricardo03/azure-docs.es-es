@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake,josack
 manager: craigg
-ms.date: 03/01/2019
-ms.openlocfilehash: 5b11f9bc25cd0fcc8a83a2eeaf5cc1746a63200e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.date: 04/18/2019
+ms.openlocfilehash: 04a5b98daf94275c6a95503c518248abeaeaeaa6
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58093895"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59998284"
 ---
 # <a name="sql-database-resource-limits-for-azure-sql-database-server"></a>Límites de recursos de SQL Database para un servidor de Azure SQL Database
 
@@ -75,7 +75,7 @@ Al encontrar un uso elevado de sesión o de trabajo, las opciones de mitigación
 - Optimizar las consultas para reducir el uso de recursos de cada consulta si la causa del mayor uso de trabajo es debida a la contención de los recursos de proceso. Para más información, consulte [Optimización y sugerencias de consultas](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ## <a name="transaction-log-rate-governance"></a>Gobierno de tasa de registro de transacciones 
-Gobierno de tasa de registro de transacciones es un proceso en Azure SQL Database utiliza para limitar las tasas de ingesta alto para cargas de trabajo, como bulk insert, SELECT INTO, y las compilaciones de índice. Estos límites se realiza un seguimiento y se aplican en el nivel de fracciones de segundo para la velocidad de generación de registros de log, rendimiento de limitación, independientemente de cuántas IOs se puede emitir en los archivos de datos.  Las tasas de generación de registro de transacciones actualmente se escalan linealmente hasta un punto que es depende del hardware, con el registro de la máxima velocidad permitida que se va a 48 MB/s con el modelo de compra de núcleos virtuales. 
+Gobierno de tasa de registro de transacciones es un proceso en Azure SQL Database utiliza para limitar las tasas de ingesta alto para cargas de trabajo, como bulk insert, SELECT INTO, y las compilaciones de índice. Estos límites se realiza un seguimiento y se aplican en el nivel de fracciones de segundo para la velocidad de generación de registros de log, rendimiento de limitación, independientemente de cuántas IOs se puede emitir en los archivos de datos.  Las tasas de generación de registro de transacciones actualmente se escalan linealmente hasta un punto que es depende del hardware, con el registro de la máxima velocidad permitida que se va a 96 MB/s con el modelo de compra de núcleos virtuales. 
 
 > [!NOTE]
 > No se rige las E/s físicas reales para los archivos de registro de transacciones o que estén limitadas. 
@@ -98,7 +98,7 @@ Tráfico trazado de regulador de velocidad de registro se expone mediante los si
 |||
 
 Al encontrar un límite de tasa de registro que se que dificultan la escalabilidad deseada, tenga en cuenta las siguientes opciones:
-- Escalar verticalmente a un nivel mayor con el fin de obtener la máxima velocidad de 48 MB/s registro. 
+- Escalar verticalmente a un nivel mayor con el fin de obtener la máxima velocidad de 96 MB/s registro. 
 - Si se cargan datos están transitorios, es decir, almacenamiento provisional de datos en un proceso ETL, se puede cargar en tempdb (que se registra al mínimo). 
 - Para escenarios de análisis, cargar en una tabla de almacén de columnas agrupados cubierto. Esto reduce la velocidad de registros obligatoria debido a la compresión. Esta técnica aumentar la utilización de CPU y solo es aplicable a conjuntos de datos que se benefician de los índices de almacén de columnas agrupado. 
 

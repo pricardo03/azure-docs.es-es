@@ -9,14 +9,17 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/29/2017
-ms.openlocfilehash: b5ad1a790f79b11b978c32c5751a6b9333f24c85
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
-ms.translationtype: MT
+ms.openlocfilehash: abb2a89f41340e8e2e26fa36cc20b790341618d0
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57994928"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003707"
 ---
 # <a name="real-time-twitter-sentiment-analysis-in-azure-stream-analytics"></a>Análisis de sentimiento de Twitter en tiempo real en Azure Stream Analytics
+
+> [!IMPORTANT] 
+> Creación de aplicaciones de Twitter ya no está disponible a través de [apps.twitter.com](https://apps.twitter.com/). Este tutorial es se está actualizando para incluir la nueva API de Twitter.
 
 Aprenda a crear una solución de análisis de sentimiento para análisis de redes sociales al poner eventos en tiempo real de Twitter en Azure Event Hubs. Después, va a escribir una consulta de Azure Stream Analytics para analizar los datos y o bien almacenar los resultados para un uso posterior o bien usar un panel y [Power BI](https://powerbi.com/) para ofrecer información en tiempo real.
 
@@ -282,7 +285,7 @@ En la tabla siguiente se enumeran los campos que forman parte de los datos de st
 |Tema | El tema que coincide con la palabra clave especificada|
 |SentimentScore | La puntuación de opinión de Sentiment140|
 |Autor | El identificador de Twitter que envía el tweet|
-|Texto | El cuerpo completo del tweet|
+|Text | El cuerpo completo del tweet|
 
 
 ## <a name="create-an-output-sink"></a>Creación de un receptor de salida

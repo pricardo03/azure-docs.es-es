@@ -9,10 +9,10 @@ ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
 ms.openlocfilehash: 46eea21e1eafce1696ed1cf77a1f334798f0bc17
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58848404"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Características de Apache Cassandra admitidas por Cassandra API de Azure Cosmos DB 
@@ -46,7 +46,7 @@ Cassandra API de Azure Cosmos DB admite los siguientes tipos de datos CQL:
 * blob  
 * boolean  
 * counter  
-* fecha  
+* date  
 * decimal  
 * double  
 * float  
@@ -57,7 +57,7 @@ Cassandra API de Azure Cosmos DB admite los siguientes tipos de datos CQL:
 * set  
 * smallint  
 * text  
-* Twitter en tiempo  
+* time  
 *  timestamp  
 * timeuuid  
 * tinyint  

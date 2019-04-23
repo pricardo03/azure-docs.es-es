@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: normesta
-ms.openlocfilehash: 89cfdbdaa034bae5ca736ccb9164255b833ed75d
-ms.sourcegitcommit: cdf0e37450044f65c33e07aeb6d115819a2bb822
-ms.translationtype: MT
+ms.openlocfilehash: d56fb411eb032e5e6227d68cd8abe02c0e30850b
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/01/2019
-ms.locfileid: "57194715"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60006869"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemas conocidos con Azure Data Lake Storage Gen2
 
@@ -47,13 +47,13 @@ Los discos de máquina virtual (VM) no administrados dependen de las API de Blob
 
 Las API de Blob Storage y las API de Azure Data Lake Gen2 no son interoperables entre sí.
 
-Si tiene herramientas, aplicaciones, servicios o scripts que usan las API de Blob y quiere usarlas para trabajar con todo el contenido que cargue en su cuenta, no habilite espacios de nombres jerárquicos en su cuenta de Blob Storage hasta que las API de Blob sean interoperables con las API de Azure Data Lake Gen 2. Al usar una cuenta de almacenamiento sin un espacio de nombres jerárquico, carecerá de acceso a características específicas de Data Lake Storage Gen2, como listas de control de acceso al directorio y al sistema de archivos.
+Si tiene herramientas, aplicaciones, servicios o scripts que usan las API de Blob y quiere usarlas para trabajar con todo el contenido que cargue en su cuenta, no habilite espacios de nombres jerárquicos en su cuenta de Blob Storage hasta que las API de Blob sean interoperables con las API de Azure Data Lake Gen 2. Con una cuenta de almacenamiento sin un espacio de nombres jerárquico significa que, a continuación, no tiene acceso a características específicas de Data Lake Storage Gen2, como archivos y directorios listas de control de acceso del sistema.
 
 ## <a name="azure-storage-explorer"></a>Explorador de Azure Storage
 
 Para ver o administrar las cuentas de Data Lake Storage Gen2 mediante el Explorador de Azure Storage, debe tener al menos la versión `1.6.0` de la herramienta que está disponible como [descarga gratuita](https://azure.microsoft.com/features/storage-explorer/).
 
-Tenga en cuenta que la versión del explorador de Storage insertada en Azure Portal actualmente no admite la visualización o administración de las cuentas de Data Lake Storage Gen2 con la característica de espacios de nombres jerárquicos habilitada.
+Tenga en cuenta que la versión del explorador de Storage que se incrusta en el portal de Azure actualmente no se admite ver o administrar las cuentas de Data Lake Storage Gen2 con la característica de espacio de nombres jerárquico habilitada.
 
 ## <a name="blob-viewing-tool"></a>Herramienta de visualización de blobs
 

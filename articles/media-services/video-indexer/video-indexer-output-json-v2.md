@@ -1,5 +1,5 @@
 ---
-title: Examen de la salida de Video Indexer producida por la API v2
+title: Examine la salida de vídeo de Azure Media Services Indexer producida por la API v2
 titlesuffix: Azure Media Services
 description: En este tema se examina la salida de Video Indexer producida por la API v2.
 services: media-services
@@ -9,12 +9,12 @@ ms.service: media-services
 ms.topic: article
 ms.date: 04/07/2019
 ms.author: juliako
-ms.openlocfilehash: 91cd8ab0565279f88a0949f873d6e44d564427af
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: d55e246e6fc3a5eeb182a49d1e159887f66d6872
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59280220"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011333"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-api"></a>Examine la salida de Video Indexer producida por la API
 
@@ -279,40 +279,24 @@ Ejemplo:
 |instances|Lista de los intervalos de tiempo donde apareció esta palabra clave (una palabra clave puede aparecer varias veces).|
 
 ```json
-"keywords": [
 {
-    "id": 0,
-    "text": "office",
-    "confidence": 1.6666666666666667,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:00.5100000",
-        "end": "00:00:02.7200000"
+    id: 0,
+    text: "technology",
+    confidence: 1,
+    language: "en-US",
+    instances: [{
+            adjustedStart: "0:05:15.782",
+            adjustedEnd: "0:05:16.249",
+            start: "0:05:15.782",
+            end: "0:05:16.249"
     },
     {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    }
-    ]
-},
-{
-    "id": 1,
-    "text": "icons",
-    "confidence": 1.4,
-    "language": "en-US",
-    "instances": [
-    {
-        "start": "00:00:03.9600000",
-        "end": "00:00:12.2700000"
-    },
-    {
-        "start": "00:00:13.9900000",
-        "end": "00:00:15.6100000"
-    }
-    ]
+            adjustedStart: "0:04:54.761",
+            adjustedEnd: "0:04:55.228",
+            start: "0:04:54.761",
+            end: "0:04:55.228"
+    }]
 }
-] 
 ```
 
 #### <a name="faces"></a>faces
@@ -421,7 +405,7 @@ Ejemplo:
 
 #### <a name="scenes"></a>scenes
 
-|NOMBRE|Descripción|
+|Name|Descripción|
 |---|---|
 |id|Identificador de la escena.|
 |instances|Una lista de intervalos de tiempo de esta escena (una escena puede tener solo 1 instancia).|
@@ -573,7 +557,7 @@ Nombres de empresas y marcas de productos detectados en la transcripción de voz
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
-|NOMBRE|Descripción|
+|Name|Descripción|
 |---|---|
 |id|Identificador del efecto de audio.|
 |Tipo|Tipo de efecto de audio (por ejemplo, aplausos, voz, silencio).|
@@ -677,7 +661,7 @@ Los vídeos en los que se encuentre contenido para adultos o subido de tono podr
 
 #### <a name="textualcontentmoderation"></a>textualContentModeration 
 
-|NOMBRE|Descripción|
+|Name|Descripción|
 |---|---|
 |id|Identificador de la moderación de contenido textual.|
 |bannedWordsCount |Número de palabras no permitidas.|
@@ -687,7 +671,7 @@ Los vídeos en los que se encuentre contenido para adultos o subido de tono podr
 
 Video Indexer identifica emociones en función de las indicaciones para voz y audio. La emoción identificada podría ser: felicidad, tristeza, ira o miedo.
 
-|NOMBRE|Descripción|
+|Name|Descripción|
 |---|---|
 |id|Identificador de la emoción.|
 |Tipo|Momento de la emoción que se identificó en función de las indicaciones para voz y audio. La emoción podría ser: felicidad, tristeza, ira o miedo.|
@@ -777,7 +761,7 @@ Video Indexer identifica emociones en función de las indicaciones para voz y au
 
 Video Indexer saca conclusiones de los temas principales a partir de las transcripciones. Cuando es posible, se incluye la taxonomía [IPTC](https://iptc.org/standards/media-topics/) de primer nivel. 
 
-|NOMBRE|Descripción|
+|Name|Descripción|
 |---|---|
 |id|Identificador del tema.|
 |Nombre|El nombre del tema, por ejemplo: "productos farmacéuticos".|

@@ -16,10 +16,10 @@ ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6304f4afa05850ced8b88bb81c0f94e4a31fb5be
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59277279"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jostle"></a>Tutorial: Integración de Azure Active Directory con Jostle
@@ -51,7 +51,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 Para configurar la integración de Jostle en Azure AD, deberá agregar Jostle desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Jostle desde la galería, siga estos pasos:**
+**Para agregar Jostle desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -105,7 +105,7 @@ Para configurar el inicio de sesión único de Azure AD con Jostle, siga estos p
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Jostle](common/sp-identifier-reply.png)
 
-     a. En el cuadro de texto **URL de inicio de sesión**, escriba la dirección URL: `https://login-prod.jostle.us`
+     a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba la dirección URL: `https://login-prod.jostle.us`
 
     b. En el cuadro **Identificador**, escriba la dirección URL: `https://jostle.us`
 

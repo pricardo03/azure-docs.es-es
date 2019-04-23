@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: 61f82771e53ac9bb594484b29bb109a03cee674b
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
-ms.translationtype: MT
+ms.openlocfilehash: b701183fa270b1aad9a622a21c5ce0795fc8057f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57554201"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60012508"
 ---
 #### <a name="process-automation"></a>Automatización de procesos
 
@@ -22,6 +22,7 @@ ms.locfileid: "57554201"
 | Número máximo de trabajos nuevos que se pueden enviar cada 30 segundos por cuenta de Azure Automation (trabajos no programados) |100 |Cuando se alcanza este límite, las solicitudes posteriores para crear un trabajo producirá un error. El cliente recibe una respuesta de error.|
 | Número máximo de trabajos simultáneos en ejecución en la misma instancia de tiempo por cuenta de Automation (trabajos no programados) |200 |Cuando se alcanza este límite, las solicitudes posteriores para crear un trabajo producirá un error. El cliente recibe una respuesta de error.|
 | Tamaño máximo de almacenamiento de metadatos de trabajo para un período sucesivo de 30 días | 10 GB (aproximadamente 4 millones de trabajos)|Cuando se alcanza este límite, las solicitudes posteriores para crear un trabajo producirá un error. |
+| Límite de flujo de trabajo máximo|1MB|Una sola secuencia no puede ser superior a 1 MB.|
 | Número máximo de módulos que se puede importar cada 30 segundos por cuenta de Automation |5 ||
 | Tamaño máximo de un módulo |100 MB ||
 | Tiempo de ejecución, nivel gratis de trabajo |500 minutos por suscripción por mes del calendario ||

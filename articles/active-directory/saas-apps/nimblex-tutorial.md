@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: jeedes
 ms.openlocfilehash: 7bbba92b7a26f74c636cc97134a1a2f2303347bb
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59275645"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-nimblex"></a>Tutorial: integración de Azure Active Directory con Nimblex
@@ -53,7 +53,7 @@ En este tutorial, puede configurar y probar el inicio de sesión único de Azure
 
 Para configurar la integración de Nimblex en Azure AD, deberá agregarla desde la galería a la lista de aplicaciones SaaS administradas.
 
-**Para agregar Nimblex desde la galería, siga estos pasos:**
+**Para agregar Nimblex desde la galería, realice los pasos siguientes:**
 
 1. En el panel de navegación izquierdo de **[Azure Portal](https://portal.azure.com)**, haga clic en el icono de **Azure Active Directory**.
 
@@ -107,7 +107,7 @@ Para configurar el inicio de sesión único de Azure AD con Nimblex, realice los
 
     ![Información sobre dominio y direcciones URL de inicio de sesión único de Nimblex](common/sp-identifier-reply.png)
 
-     a. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YOUR APPLICATION PATH>/Login.aspx`
+     a. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<YOUR APPLICATION PATH>/Login.aspx`
 
     b. En el cuadro de texto **Identificador**, escriba una dirección URL con el siguiente patrón: `https://<YOUR APPLICATION PATH>/`
 

@@ -9,12 +9,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 02/28/2019
 ms.author: ellacroi
-ms.openlocfilehash: 29e64a02cd4af3e1679283ffddb4afab065f8747
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.openlocfilehash: 5a07ea4d1d27dcc054d64cb4ce8893a13adc4aad
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59609139"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60007668"
 ---
 # <a name="geographic-availability-and-currency-support"></a>Disponibilidad geográfica y soporte técnico de moneda
 
@@ -42,7 +42,7 @@ Se pueden adquirir ofertas de Azure Marketplace en 141 geografías tal como se d
 | Bolivia                             | BO        | USD          |
 | Bosnia y Herzegovina              | BA        | USD          |
 | Botsuana                            | BW        | USD          |
-| Brasil                              | BR        | BRL          |
+| Brasil                              | BR        | BRL\*        |
 | Brunei                              | BN        | USD          |
 | Bulgaria                            | BG        | EUR          |
 | Camerún                            | CM        | USD          |
@@ -164,3 +164,5 @@ Se pueden adquirir ofertas de Azure Marketplace en 141 geografías tal como se d
 | Zambia                              | ZM        | USD          |
 | Zimbabue                            | ZW        | USD          |
 |   |   |   |
+
+\* Para los clientes de Brasil, Marketplace a través de proveedores de soluciones de nube (CSP) usa USD.

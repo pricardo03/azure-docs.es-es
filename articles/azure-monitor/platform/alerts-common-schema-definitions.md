@@ -1,6 +1,6 @@
 ---
-title: Definiciones de alerta de esquema comunes para Webhooks/Logic Apps y Azure Functions
-description: Descripción de las definiciones de esquema de alerta comunes para Webhooks/Logic Apps y Azure Functions
+title: Definiciones de alerta de esquema comunes Webhooks/Logic Apps o Azure funciones/para Runbooks de Automation
+description: Descripción de las definiciones de esquema de alerta comunes Webhooks/Logic Apps o Azure funciones/para Runbooks de Automation
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: 0ca9d63f62de6a0b2385b3fb9651c34379b846d7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: e29a1f5d1e258ab66540010dc12f9326b8fd57a2
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59010403"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60149417"
 ---
 # <a name="common-alert-schema-definitions"></a>Definiciones de esquemas de alertas comunes
 
-Este artículo se describe la [definiciones de alerta de esquema comunes](https://aka.ms/commonAlertSchemaDocs) para Webhooks/Logic Apps y Azure Functions. 
+Este artículo se describe la [definiciones de alerta de esquema comunes](https://aka.ms/commonAlertSchemaDocs) Webhooks/Logic Apps o Azure funciones/para Runbooks de Automation. 
 
 ## <a name="overview"></a>Información general
 

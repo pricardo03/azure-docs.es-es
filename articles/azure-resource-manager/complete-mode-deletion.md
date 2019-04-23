@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 02/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: b38b1af8c72b814813804a49642668c28f3898d6
-ms.sourcegitcommit: f863ed1ba25ef3ec32bd188c28153044124cacbc
+ms.openlocfilehash: fded37fee844a01f4d51518f2ca56dcf575704b2
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/15/2019
-ms.locfileid: "56302649"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150156"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Eliminación de recursos de Azure en implementaciones en modo completo
 En este artículo, se describe cómo se eliminan los tipos de recursos cuando no están en una plantilla implementada en modo completo.
@@ -633,7 +633,7 @@ Para obtener los mismos datos que un archivo de valores separados por comas, des
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 | Tipo de recurso | Eliminación del modo completo |
 | ------------- | ----------- |
-| clusters | Sí | 
+| clusters | Sin  | 
 | clusters/applications | Sin  | 
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport

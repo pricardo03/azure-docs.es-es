@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: conceptual
 ms.date: 4/17/2019
 ms.author: victorh
-ms.openlocfilehash: a89a7e3abbb94465a2ea5eb61eda3e967c26d1f0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.openlocfilehash: fcff4ff141dbac84d0b96c166c36018b0cc09d8e
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680833"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59997570"
 ---
 # <a name="azure-firewall-faq"></a>Preguntas frecuentes sobre Azure Firewall
 
@@ -137,7 +137,7 @@ Sí. El firewall, la subred, la red virtual y la dirección IP pública deben es
 
  No. Las reglas NAT agregan de forma implícita una regla de red correspondiente implícita para permitir el tráfico traducido. Para invalidar este comportamiento, agregue explícitamente una colección de reglas de red con reglas de denegación que coinciden con el tráfico traducido. Para más información acerca de la lógica de procesamiento de reglas Azure Firewall, consulte [Lógica de procesamiento de reglas de Azure Firewall](/articles/firewall/rule-processing.md).
 
-## <a name="how-to-wildcards-work-in-an-application-rule-target-fqdn"></a>¿Cómo a caracteres comodín funcionan en un FQDN de destino de la regla de aplicación?
+## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>¿Cómo funcionan los caracteres comodín en un FQDN de destino de la regla de aplicación?
 
 Si configura ***. contoso.com**, permite *anyvalue*. contoso.com, pero no contoso.com (el vértice de dominio). Si desea permitir que el vértice de dominio, debe configurar explícitamente como un FQDN de destino.
 
