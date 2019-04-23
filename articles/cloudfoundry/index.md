@@ -12,11 +12,11 @@ ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
 ms.openlocfilehash: 850ed1418a8880e30273f62aec3b3420c41b2ef6
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44294524"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60198075"
 ---
 <div class="content">
     <h1>Cloud Foundry en Azure</h1>
@@ -26,7 +26,7 @@ ms.locfileid: "44294524"
 Cloud Foundry es una plataforma como servicio (PaaS) de código abierto para compilar, implementar y operar aplicaciones de factor 12 desarrolladas en diversos lenguajes y marcos.  Obtenga información sobre cómo usar Cloud Foundry en Azure con nuestros inicios rápidos y tutoriales.
         </div>
     </div>
-<h2>Inicios rápidos en 5 minutos</h2>
+<h2>Inicio rápido en 5 minutos</h2>
 <a href="https://azuremarketplace.microsoft.com/marketplace/apps/pivotal.pivotal-cloud-foundry">Implementación de Cloud Foundry en Azure</a>
 <h2 style="margin-top: 36px">Tutoriales detallados</h2>
 <ol>

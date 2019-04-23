@@ -1,14 +1,8 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 854e944d91c5d43131cf6a9c05e69d5684267022
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55161807"
 documentType: LandingData
 title: Informes y supervisión de Azure Active Directory
 metadata:
-  document_id: 
+  document_id: null
   title: 'Documentación sobre los informes y la supervisión de Azure Active Directory: Tutoriales, guías de inicio rápido, conceptos | Microsoft Docs'
   description: Aprenda a configurar y probar las soluciones de informes y supervisión de Azure Active Directory.
   services: active-directory
@@ -22,33 +16,33 @@ metadata:
   ms.date: 08/14/2018
   ms.author: priyamo
 abstract:
-  description: Aprenda a ver los informes de seguridad y de auditoría de su entorno, o a supervisarlos durante un período de tiempo para conocer información sobre los patrones de uso. Con los informes de Azure Active Directory (Azure AD), puede conocer información sobre los patrones de seguridad y de uso del entorno. Por ejemplo, puede responder a las siguientes preguntas:<ul><li>¿Cómo son las aplicaciones o servicios que utilizan los usuarios?</li><li>¿Cuáles son los posibles riesgos que afectan al estado de su entorno?</li><li>¿Cómo solucionar problemas que impiden a los usuarios finalizar su trabajo?</li>
+  description: 'Aprenda a ver los informes de seguridad y de auditoría de su entorno, o a supervisarlos durante un período de tiempo para conocer información sobre los patrones de uso. Con los informes de Azure Active Directory (Azure AD), puede conocer información sobre los patrones de seguridad y de uso del entorno. Por ejemplo, puede responder a las siguientes preguntas:<ul><li>¿Cómo son las aplicaciones o servicios que utilizan los usuarios?</li><li>¿Cuáles son los posibles riesgos que afectan al estado de su entorno?</li><li>¿Cómo solucionar problemas que impiden a los usuarios finalizar su trabajo?</li>'
 sections:
-- title: Inicios rápidos en 5 minutos
-  items:
-  - type: paragraph
-    text: Aprenda a descargar los informes de actividad y a enrutar los registros a una cuenta de almacenamiento de Azure
-  - type: list
-    style: unordered
+  - title: Inicios rápidos en 5 minutos
     items:
-    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-sign-in-report">Descarga de un informe de inicio de sesión</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-audit-report">Descarga de un informe de auditoría</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-install-power-bi-content-pack">Instalación del paquete de contenido de Power BI para informes</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account">Enrutamiento de registros a la cuenta de almacenamiento</a>
-- title: Tutoriales detallados
-  items:
-  - type: paragraph
-    text: Aprenda a acceder a los informes y a transmitir en secuencias los registros de actividad al sistema de supervisión de su elección
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Aprenda a descargar los informes de actividad y a enrutar los registros a una cuenta de almacenamiento de Azure
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-sign-in-report">Descarga de un informe de inicio de sesión</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-audit-report">Descarga de un informe de auditoría</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-install-power-bi-content-pack">Instalación del paquete de contenido de Power BI para informes</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account">Enrutamiento de registros a la cuenta de almacenamiento</a>
+  - title: Tutoriales detallados
     items:
-    - html: <a href="/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates">Acceso mediante programación a la API de informes mediante certificados</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub">Transmisión en secuencias de registros de actividad a un centro de eventos</a>
-- title: Referencia
-  items:
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Aprenda a acceder a los informes y a transmitir en secuencias los registros de actividad al sistema de supervisión de su elección
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates">Acceso mediante programación a la API de informes mediante certificados</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub">Transmisión en secuencias de registros de actividad a un centro de eventos</a>
+  - title: Referencia
     items:
-    - html: <a href="/azure/active-directory/reports-monitoring/reference-sign-ins-error-codes">Códigos de error de inicios de sesión</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema">Esquema de registro de auditoría de Azure AD en Azure Monitor</a>
-    - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema">Esquema de inicios de sesión de Azure AD en Azure Monitor</a>
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/reports-monitoring/reference-sign-ins-error-codes">Códigos de error de inicios de sesión</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema">Esquema de registro de auditoría de Azure AD en Azure Monitor</a>
+          - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema">Esquema de inicios de sesión de Azure AD en Azure Monitor</a>

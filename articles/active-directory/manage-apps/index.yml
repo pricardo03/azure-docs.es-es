@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 3d7b9dff034aca6c7602ea72fadfcdc53b11fe15
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58335885"
 documentType: LandingData
 title: Documentación sobre la administración de aplicaciones
 metadata:
@@ -14,44 +8,44 @@ metadata:
   author: barbkess
   manager: daveba
   layout: LandingPage
-  ms.assetid: 
+  ms.assetid: null
   ms.service: active-directory
   ms.topic: landing-page
   ms.date: 09/14/2018
   ms.author: barbkess
 abstract:
-  description: Azure Active Directory proporciona un acceso seguro y sin problemas a aplicaciones locales y en la nube. Además, no es necesario administrar contraseñas. Los usuarios finales pueden iniciar sesión una vez para acceder a Office 365 y a miles de otras aplicaciones. Aprenda a administrar e implementar aplicaciones con nuestras guías de inicio rápido, tutoriales y guías.
+  description: 'Azure Active Directory proporciona un acceso seguro y sin problemas a aplicaciones locales y en la nube. Además, no es necesario administrar contraseñas. Los usuarios finales pueden iniciar sesión una vez para acceder a Office 365 y a miles de otras aplicaciones. Aprenda a administrar e implementar aplicaciones con nuestras guías de inicio rápido, tutoriales y guías.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: media/index/video.png
       width: 250
-    title: Protección del acceso a sus aplicaciones con Azure AD (1:47)
-    href: https://youtu.be/BSUuXXcJKCk/
+    title: 'Protección del acceso a sus aplicaciones con Azure AD (1:47)'
+    href: 'https://youtu.be/BSUuXXcJKCk/'
     width: 250
 sections:
-- title: Inicio rápido en 5 minutos
-  items:
-  - type: paragraph
-    text: Aprenda a agregar una aplicación para que los usuarios accedan mediante Azure Active Directory.
-  - type: list
-    style: icon48
+  - title: Inicio rápido en 5 minutos
     items:
-    - image:
-        src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: Adición de una aplicación
-      href: https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal
-    - image:
-        src: https://docs.microsoft.com/media/common/i_protect.svg
-      text: Visualización de sus aplicaciones
-      href: https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal
-- title: Tutoriales detallados
-  items:
-  - type: paragraph
-    text: Aprenda a habilitar un proceso sencillo y seguro de inicio de sesión para sus aplicaciones.
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Aprenda a agregar una aplicación para que los usuarios accedan mediante Azure Active Directory.
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
+            text: Adición de una aplicación
+            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/add-application-portal'
+          - image:
+              src: 'https://docs.microsoft.com/media/common/i_protect.svg'
+            text: Visualización de sus aplicaciones
+            href: 'https://docs.microsoft.com/azure/active-directory/manage-apps/view-applications-portal'
+  - title: Tutoriales detallados
     items:
-    - html: <a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">Tutoriales de aplicaciones Saas</a>
-    - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Configuración del inicio de sesión único</a>
+      - type: paragraph
+        text: Aprenda a habilitar un proceso sencillo y seguro de inicio de sesión para sus aplicaciones.
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="https://docs.microsoft.com/azure/active-directory/saas-apps/">Tutoriales de aplicaciones Saas</a>'
+          - html: <a href="/azure/active-directory/manage-apps/configure-single-sign-on-portal">Configuración del inicio de sesión único</a>

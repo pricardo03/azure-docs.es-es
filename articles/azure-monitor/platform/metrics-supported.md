@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 09/14/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 55258dc0c99a918a6314be8317f19c03576a95f5
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: MT
+ms.openlocfilehash: b49c6733fd148fc6fb8b9fe535ac839f5b7402f9
+ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58851168"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60150173"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatibles con Azure Monitor
 
@@ -84,7 +84,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |FailedRequests|Solicitudes de puerta de enlace con error|Número|Total|Número de errores en solicitudes de puerta de enlace|Ubicación, Nombre de host|
 |OtherRequests|Otras solicitudes de puerta de enlace|Número|Total|Número de otras solicitudes de puerta de enlace|Ubicación, Nombre de host|
 |Duration|Duración total de las solicitudes de puerta de enlace|Milisegundos|Media|Duración total de las solicitudes de puerta de enlace en milisegundos|Ubicación, Nombre de host|
-|Capacity|Capacity|Percent|Media|Métrica de uso para el servicio ApiManagement|Ubicación|
+|Capacity|Capacity|Percent|Media|Métrica de uso para el servicio ApiManagement|Location|
 
 ## <a name="microsoftautomationautomationaccounts"></a>Microsoft.Automation/automationAccounts
 
@@ -506,10 +506,10 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |---|---|---|---|---|---|
 |JobEndedSuccess|Trabajos correctos|Número|Total|Recuento de trabajos realizados correctamente|Sin dimensiones|
 |JobEndedFailure|Trabajos con error|Número|Total|Recuento de trabajos con error|Sin dimensiones|
-|JobEndedCancelled|Trabajos cancelados|Número|Total|Recuento de trabajos cancelados|Sin dimensiones|
+|JobEndedCanceled|Trabajos cancelados|Número|Total|Recuento de trabajos cancelados.|Sin dimensiones|
 |JobAUEndedSuccess|Tiempo AU correcto|Segundos|Total|Tiempo total AU para trabajos realizados correctamente|Sin dimensiones|
 |JobAUEndedFailure|Error de tiempo AU|Segundos|Total|Tiempo total AU para trabajos con error|Sin dimensiones|
-|JobAUEndedCancelled|Tiempo AU para cancelados|Segundos|Total|Tiempo total AU para trabajos cancelados|Sin dimensiones|
+|JobAUEndedCanceled|Tiempo AU canceladas|Segundos|Total|Tiempo total AU para trabajos cancelados.|Sin dimensiones|
 
 ## <a name="microsoftdatalakestoreaccounts"></a>Microsoft.DataLakeStore/accounts
 
@@ -876,7 +876,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |RunsCompleted|Ejecuciones completadas|Número|Total|Número de ejecuciones de flujo de trabajo completadas|Sin dimensiones|
 |RunsSucceeded|Ejecuciones correctas|Número|Total|Número de ejecuciones de flujo de trabajo correctas|Sin dimensiones|
 |RunsFailed|Ejecuciones con errores|Número|Total|Número de ejecuciones de flujo de trabajo con errores|Sin dimensiones|
-|RunsCancelled|Ejecuciones canceladas|Número|Total|Número de ejecuciones de flujo de trabajo canceladas|Sin dimensiones|
+|RunsCanceled|Ejecuciones canceladas|Número|Total|Número de flujo de trabajo se ejecuta cancelado.|Sin dimensiones|
 |RunLatency|Latencia de ejecución|Segundos|Media|Latencia de ejecuciones de flujo de trabajo completadas|Sin dimensiones|
 |RunSuccessLatency|Latencia de ejecuciones correctas|Segundos|Media|Latencia de ejecuciones de flujo de trabajo correctas|Sin dimensiones|
 |RunThrottledEvents|Ejecución de eventos limitados|Número|Total|Número de eventos limitados de desencadenador o acciones de flujo de trabajo|Sin dimensiones|
@@ -1092,8 +1092,8 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |registration.get|Operaciones de lectura de registros|Número|Total|El recuento de todas las consultas de registros correctas.|Sin dimensiones|
 |registration.delete|Operaciones de eliminación de registros|Número|Total|El recuento de todas las eliminaciones de registros correctas.|Sin dimensiones|
 |incoming|Mensajes entrantes|Número|Total|El recuento de todas las llamadas a la API de envío. |Sin dimensiones|
-|incoming.scheduled|Notificaciones push programadas enviadas|Número|Total|Notificaciones push programadas canceladas|Sin dimensiones|
-|incoming.scheduled.cancel|Notificaciones push programadas canceladas|Número|Total|Notificaciones push programadas canceladas|Sin dimensiones|
+|incoming.scheduled|Notificaciones push programadas enviadas|Número|Total|Notificaciones Push programadas canceladas|Sin dimensiones|
+|incoming.scheduled.cancel|Notificaciones Push programadas canceladas|Número|Total|Notificaciones Push programadas canceladas|Sin dimensiones|
 |scheduled.pending|Notificaciones programadas pendientes|Número|Total|Notificaciones programadas pendientes|Sin dimensiones|
 |installation.all|Operaciones de administración de instalaciones|Número|Total|Operaciones de administración de instalaciones|Sin dimensiones|
 |installation.get|Obtener operaciones de instalación|Número|Total|Obtener operaciones de instalación|Sin dimensiones|
@@ -1513,7 +1513,7 @@ Azure Monitor proporciona varias maneras de interactuar con las métricas, como 
 |Http5xx|Errores de servidor HTTP|Número|Total|Errores de servidor HTTP|Instance|
 |MemoryWorkingSet|Espacio de trabajo de memoria|Bytes|Media|Espacio de trabajo de memoria|Instance|
 |AverageMemoryWorkingSet|Espacio de trabajo de memoria promedio|Bytes|Media|Espacio de trabajo de memoria promedio|Instance|
-|FunctionExecutionUnits|Unidades de ejecución de función|Número|Total|Unidades de ejecución de función|Instance|
+|FunctionExecutionUnits|Unidades de ejecución de función|MB / milisegundos|Total|[Unidades de ejecución de función](https://github.com/Azure/Azure-Functions/wiki/Consumption-Plan-Cost-Billing-FAQ#how-can-i-view-graphs-of-execution-count-and-gb-seconds)|Instance|
 |FunctionExecutionCount|Recuento de ejecución de funciones|Número|Total|Recuento de ejecución de funciones|Instance|
 |PrivateBytes|Bytes privados|Bytes|Media|Bytes privados|Instance|
 |IoReadBytesPerSecond|Bytes de lectura de E/S por segundo|BytesPerSecond|Total|Bytes de lectura de E/S por segundo|Instance|

@@ -1,239 +1,232 @@
-items:
 - name: Documentación sobre autenticación
   href: index.yml
 - name: Información general
   items:
-  - name: ¿Qué es la autenticación?
-    href: overview-authentication.md
+    - name: ¿Qué es la autenticación?
+      href: overview-authentication.md
 - name: Guía de inicio rápido
   items:
-  - name: Configuración del restablecimiento de contraseña
-    href: quickstart-sspr.md
+    - name: Configuración del restablecimiento de contraseña
+      href: quickstart-sspr.md
 - name: Tutoriales
   items:
-  - name: 1 Habilitar MFA para aplicaciones
-    href: tutorial-mfa-applications.md
-  - name: 2 Habilitar piloto de SSPR
-    href: tutorial-sspr-pilot.md
-  - name: Habilitar integración local de SSPR
-    href: tutorial-enable-writeback.md
-  - name: Habilitar el restablecimiento de contraseña de Windows 10
-    href: tutorial-sspr-windows.md
-  - name: Integración de Azure Identity Protection
-    href: tutorial-risk-based-sspr-mfa.md
+    - name: 1 Habilitar MFA para aplicaciones
+      href: tutorial-mfa-applications.md
+    - name: 2 Habilitar piloto de SSPR
+      href: tutorial-sspr-pilot.md
+    - name: Habilitar integración local de SSPR
+      href: tutorial-enable-writeback.md
+    - name: Habilitar el restablecimiento de contraseña de Windows 10
+      href: tutorial-sspr-windows.md
+    - name: Integración de Azure Identity Protection
+      href: tutorial-risk-based-sspr-mfa.md
 - name: Conceptos
-  items:
-  - name: Métodos de autenticación
-    href: concept-authentication-methods.md
-  - name: Registro combinado
-    href: concept-registration-mfa-sspr-combined.md
-  - name: Restablecimiento de contraseña
-    items:
-    - name: Funcionamiento del restablecimiento de contraseñas
-      href: concept-sspr-howitworks.md
-    - name: Opciones de restablecimiento de contraseña
-      href: concept-sspr-customization.md
-    - name: Directivas de restablecimiento de contraseña
-      href: concept-sspr-policy.md
-    - name: ¿Qué licencia necesito?
-      href: concept-sspr-licensing.md
-    - name: Integración local
-      href: concept-sspr-writeback.md
-  - name: Multi-Factor Authentication
-    items:
-    - name: Funcionamiento de Multi-Factor Authentication
-      href: concept-mfa-howitworks.md
-    - name: ¿Qué versión es la adecuada?
-      href: concept-mfa-whichversion.md
-    - name: Concesión de licencias a sus usuarios
-      href: concept-mfa-licensing.md
-    - name: Administración de un proveedor de autenticación
-      href: concept-mfa-authprovider.md
-    - name: Guía de seguridad
-      href: multi-factor-authentication-security-best-practices.md
-    - name: Multi-Factor Authentication para Office 365
-      href: https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide
-    - name: Preguntas frecuentes sobre Multi-Factor Authentication
-      href: multi-factor-authentication-faq.md
-  - name: Protección de contraseñas de Azure AD
-    items:
-    - name: Eliminación de contraseñas no seguras en la nube
-      href: concept-password-ban-bad.md
-    - name: Eliminación de contraseñas no seguras en dispositivos locales
-      href: concept-password-ban-bad-on-premises.md
-  - name: Controles de acceso resistentes
-    href: concept-resilient-controls.md
   expanded: true
+  items:
+    - name: Métodos de autenticación
+      href: concept-authentication-methods.md
+    - name: Registro combinado
+      href: concept-registration-mfa-sspr-combined.md
+    - name: Restablecimiento de contraseña
+      items:
+        - name: Funcionamiento del restablecimiento de contraseñas
+          href: concept-sspr-howitworks.md
+        - name: Opciones de restablecimiento de contraseña
+          href: concept-sspr-customization.md
+        - name: Directivas de restablecimiento de contraseña
+          href: concept-sspr-policy.md
+        - name: ¿Qué licencia necesito?
+          href: concept-sspr-licensing.md
+        - name: Integración local
+          href: concept-sspr-writeback.md
+    - name: Multi-Factor Authentication
+      items:
+        - name: Funcionamiento de Multi-Factor Authentication
+          href: concept-mfa-howitworks.md
+        - name: ¿Qué versión es la adecuada?
+          href: concept-mfa-whichversion.md
+        - name: Concesión de licencias a sus usuarios
+          href: concept-mfa-licensing.md
+        - name: Administración de un proveedor de autenticación
+          href: concept-mfa-authprovider.md
+        - name: Guía de seguridad
+          href: multi-factor-authentication-security-best-practices.md
+        - name: Multi-Factor Authentication para Office 365
+          href: 'https://docs.microsoft.com/office365/admin/security-and-compliance/set-up-multi-factor-authentication?view=o365-worldwide'
+        - name: Preguntas frecuentes sobre Multi-Factor Authentication
+          href: multi-factor-authentication-faq.md
+    - name: Protección de contraseñas de Azure AD
+      items:
+        - name: Eliminación de contraseñas no seguras en la nube
+          href: concept-password-ban-bad.md
+        - name: Eliminación de contraseñas no seguras en dispositivos locales
+          href: concept-password-ban-bad-on-premises.md
+    - name: Controles de acceso resistentes
+      href: concept-resilient-controls.md
 - name: Guías de procedimientos
   items:
-  - name: Restablecimiento de la contraseña de autoservicio
-    items:
-    - name: Implementación del autoservicio de restablecimiento de contraseña
-      href: howto-sspr-deployment.md
-    - name: Registro previo de los datos de autenticación
-      href: howto-sspr-authenticationdata.md
-    - name: Habilitar escritura diferida de contraseñas
-      href: howto-sspr-writeback.md
-    - name: SSPR para Windows 7, 8 y 8.1
-      href: howto-sspr-windows-7-8.md
-  - name: Multi-Factor Authentication basado en la nube
-    items:
-    - name: Implementación de Multi-Factor Authentication basado en la nube
-      href: howto-mfa-getstarted.md
-    - name: Multi-Factor Authentication por usuario
-      href: howto-mfa-userstates.md
-    - name: Configuración de usuario y de dispositivo
-      href: howto-mfa-userdevicesettings.md
-    - name: Definición de la configuración
-      href: howto-mfa-mfasettings.md
-    - name: Federación de directorios
+    - name: Restablecimiento de la contraseña de autoservicio
       items:
-      - name: Adaptador de AD FS para Windows Server 2016
-        href: https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa
-      - name: Servicios de federación
-        href: multi-factor-authentication-get-started-adfs.md
-      - name: Uso de AD FS
-        href: howto-mfa-adfs.md
-    - name: Integración de RADIUS
+        - name: Implementación del autoservicio de restablecimiento de contraseña
+          href: howto-sspr-deployment.md
+        - name: Registro previo de los datos de autenticación
+          href: howto-sspr-authenticationdata.md
+        - name: Habilitar escritura diferida de contraseñas
+          href: howto-sspr-writeback.md
+        - name: 'SSPR para Windows 7, 8 y 8.1'
+          href: howto-sspr-windows-7-8.md
+    - name: Multi-Factor Authentication basado en la nube
       items:
-      - name: Uso de servidores de directivas de red existentes
-        href: howto-mfa-nps-extension.md
-      - name: Configuración avanzada para extensión NPS
-        href: howto-mfa-nps-extension-advanced.md
-      - name: Azure VPN y Azure MFA
-        href: ../../vpn-gateway/vpn-gateway-radiuis-mfa-nsp.md
-      - name: Puerta de enlace de escritorio remoto
-        href: howto-mfa-nps-extension-rdg.md
-      - name: VPN
-        href: howto-mfa-nps-extension-vpn.md
-  - name: Registro combinado
-    items:
-    - name: Habilitar registro combinado
-      href: howto-registration-mfa-sspr-combined.md
-    - name: Solución de problemas de registro combinado
-      href: howto-registration-mfa-sspr-combined-troubleshoot.md
-  - name: Protección de contraseñas de Azure AD
-    items:
-    - name: Configuración de la lista de contraseñas prohibidas
-      href: howto-password-ban-bad-configure.md
-    - name: Integración local
+        - name: Implementación de Multi-Factor Authentication basado en la nube
+          href: howto-mfa-getstarted.md
+        - name: Multi-Factor Authentication por usuario
+          href: howto-mfa-userstates.md
+        - name: Configuración de usuario y de dispositivo
+          href: howto-mfa-userdevicesettings.md
+        - name: Definición de la configuración
+          href: howto-mfa-mfasettings.md
+        - name: Federación de directorios
+          items:
+            - name: Adaptador de AD FS para Windows Server 2016
+              href: 'https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa'
+            - name: Servicios de federación
+              href: multi-factor-authentication-get-started-adfs.md
+            - name: Uso de AD FS
+              href: howto-mfa-adfs.md
+        - name: Integración de RADIUS
+          items:
+            - name: Uso de servidores de directivas de red existentes
+              href: howto-mfa-nps-extension.md
+            - name: Configuración avanzada para extensión NPS
+              href: howto-mfa-nps-extension-advanced.md
+            - name: Azure VPN y Azure MFA
+              href: ../../vpn-gateway/vpn-gateway-radiuis-mfa-nsp.md
+            - name: Puerta de enlace de escritorio remoto
+              href: howto-mfa-nps-extension-rdg.md
+            - name: VPN
+              href: howto-mfa-nps-extension-vpn.md
+    - name: Registro combinado
       items:
-      - name: Implementación de la protección de contraseñas de Azure AD
-        href: howto-password-ban-bad-on-premises-deploy.md
-      - name: Configuración de la protección de contraseñas de Azure AD
-        href: howto-password-ban-bad-on-premises-operations.md
-      - name: Supervisión de la protección de contraseñas de Azure AD
-        href: howto-password-ban-bad-on-premises-monitor.md
-      - name: Solución de problemas de la protección de contraseñas de Azure AD
-        href: howto-password-ban-bad-on-premises-troubleshoot.md
-      - name: Preguntas más frecuentes
-        href: howto-password-ban-bad-on-premises-faq.md
-      - name: Historial de versiones del agente local
-        href: howto-password-ban-bad-on-premises-agent-versions.md
-  - name: Bloqueo inteligente de Azure AD
-    href: howto-password-smart-lockout.md
-  - name: Windows Hello para empresas
-    href: https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification
-  - name: Inicio de sesión telefónico sin contraseña
-    href: howto-authentication-phone-sign-in.md
-  - name: Autenticación basada en certificados
-    items:
-    - name: Introducción a la autenticación de certificados
-      href: active-directory-certificate-based-authentication-get-started.md
+        - name: Habilitar registro combinado
+          href: howto-registration-mfa-sspr-combined.md
+        - name: Solución de problemas de registro combinado
+          href: howto-registration-mfa-sspr-combined-troubleshoot.md
+    - name: Protección de contraseñas de Azure AD
       items:
-      - name: CBA en dispositivos Android
-        href: active-directory-certificate-based-authentication-android.md
-      - name: CBA en dispositivos iOS
-        href: active-directory-certificate-based-authentication-ios.md
-  - name: Desarrollo
-    items:
-    - name: Compilación de MFA en aplicaciones personalizadas
-      href: howto-mfa-sdk.md
-  - name: Informes
-    items:
-    - name: Informes de SSPR
-      href: howto-sspr-reporting.md
-    - name: Informes de MFA
-      href: howto-mfa-reporting.md
-    - name: Colección de datos
-      href: howto-mfa-reporting-datacollection.md
-  - name: Servidor MFA
-    items:
-    - name: Implementación de Multi-Factor Authentication local
-      href: howto-mfaserver-deploy.md
-    - name: Instalación del Portal de usuarios
-      href: howto-mfaserver-deploy-userportal.md
-    - name: Servicio web de aplicación móvil
-      href: howto-mfaserver-deploy-mobileapp.md
-    - name: Configuración para alta disponibilidad
-      href: howto-mfaserver-deploy-ha.md
-    - name: Actualización del servidor MFA
-      href: howto-mfaserver-deploy-upgrade.md
-    - name: Actualización de PhoneFactor
-      href: howto-mfaserver-deploy-upgrade-pf.md
-    - name: Autenticación de Windows
-      href: howto-mfaserver-windows.md
-    - name: Aplicaciones web de IIS
-      href: howto-mfaserver-iis.md
-    - name: Integración de directorios
+        - name: Configuración de la lista de contraseñas prohibidas
+          href: howto-password-ban-bad-configure.md
+        - name: Integración local
+          items:
+            - name: Implementación de la protección de contraseñas de Azure AD
+              href: howto-password-ban-bad-on-premises-deploy.md
+            - name: Configuración de la protección de contraseñas de Azure AD
+              href: howto-password-ban-bad-on-premises-operations.md
+            - name: Supervisión de la protección de contraseñas de Azure AD
+              href: howto-password-ban-bad-on-premises-monitor.md
+            - name: Solución de problemas de la protección de contraseñas de Azure AD
+              href: howto-password-ban-bad-on-premises-troubleshoot.md
+            - name: Preguntas más frecuentes
+              href: howto-password-ban-bad-on-premises-faq.md
+            - name: Historial de versiones del agente local
+              href: howto-password-ban-bad-on-premises-agent-versions.md
+    - name: Bloqueo inteligente de Azure AD
+      href: howto-password-smart-lockout.md
+    - name: Windows Hello para empresas
+      href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
+    - name: Inicio de sesión telefónico sin contraseña
+      href: howto-authentication-phone-sign-in.md
+    - name: Autenticación basada en certificados
       items:
-      - name: Autenticación LDAP
-        href: howto-mfaserver-dir-ldap.md
-      - name: Autenticación RADIUS
-        href: howto-mfaserver-dir-radius.md
-      - name: Active Directory
-        href: howto-mfaserver-dir-ad.md
-    - name: Federación de directorios
+        - name: Introducción a la autenticación de certificados
+          href: active-directory-certificate-based-authentication-get-started.md
+          items:
+            - name: CBA en dispositivos Android
+              href: active-directory-certificate-based-authentication-android.md
+            - name: CBA en dispositivos iOS
+              href: active-directory-certificate-based-authentication-ios.md
+    - name: Desarrollo
       items:
-      - name: Uso de AD FS 2.0
-        href: howto-mfaserver-adfs-2.md
-      - name: Uso de Windows Server 2012 R2 AD FS
-        href: howto-mfaserver-adfs-2012.md
-    - name: Integración de RADIUS
+        - name: Compilación de MFA en aplicaciones personalizadas
+          href: howto-mfa-sdk.md
+    - name: Informes
       items:
-      - name: Puerta de enlace de escritorio remoto
-        href: howto-mfaserver-nps-rdg.md
-      - name: Configuraciones VPN avanzadas
-        href: howto-mfaserver-nps-vpn.md
-      - name: Errores de extensión NPS
-        href: howto-mfa-nps-extension-errors.md
-  - name: Solución de problemas
-    items:
-    - name: Solución de problemas de SSPR
-      href: active-directory-passwords-troubleshoot.md
-    - name: Preguntas frecuentes sobre SSPR
-      href: active-directory-passwords-faq.md
-    - name: Preguntas frecuentes sobre Multi-Factor Authentication
-      href: multi-factor-authentication-faq.md
-    - name: Extensión NPS
-      href: howto-mfa-nps-extension-errors.md
+        - name: Informes de SSPR
+          href: howto-sspr-reporting.md
+        - name: Informes de MFA
+          href: howto-mfa-reporting.md
+        - name: Colección de datos
+          href: howto-mfa-reporting-datacollection.md
+    - name: Servidor MFA
+      items:
+        - name: Implementación de Multi-Factor Authentication local
+          href: howto-mfaserver-deploy.md
+        - name: Instalación del Portal de usuarios
+          href: howto-mfaserver-deploy-userportal.md
+        - name: Servicio web de aplicación móvil
+          href: howto-mfaserver-deploy-mobileapp.md
+        - name: Configuración para alta disponibilidad
+          href: howto-mfaserver-deploy-ha.md
+        - name: Actualización del servidor MFA
+          href: howto-mfaserver-deploy-upgrade.md
+        - name: Actualización de PhoneFactor
+          href: howto-mfaserver-deploy-upgrade-pf.md
+        - name: Autenticación de Windows
+          href: howto-mfaserver-windows.md
+        - name: Aplicaciones web de IIS
+          href: howto-mfaserver-iis.md
+        - name: Integración de directorios
+          items:
+            - name: Autenticación LDAP
+              href: howto-mfaserver-dir-ldap.md
+            - name: Autenticación RADIUS
+              href: howto-mfaserver-dir-radius.md
+            - name: Active Directory
+              href: howto-mfaserver-dir-ad.md
+        - name: Federación de directorios
+          items:
+            - name: Uso de AD FS 2.0
+              href: howto-mfaserver-adfs-2.md
+            - name: Uso de Windows Server 2012 R2 AD FS
+              href: howto-mfaserver-adfs-2012.md
+        - name: Integración de RADIUS
+          items:
+            - name: Puerta de enlace de escritorio remoto
+              href: howto-mfaserver-nps-rdg.md
+            - name: Configuraciones VPN avanzadas
+              href: howto-mfaserver-nps-vpn.md
+            - name: Errores de extensión NPS
+              href: howto-mfa-nps-extension-errors.md
+    - name: Solución de problemas
+      items:
+        - name: Solución de problemas de SSPR
+          href: active-directory-passwords-troubleshoot.md
+        - name: Preguntas frecuentes sobre SSPR
+          href: active-directory-passwords-faq.md
+        - name: Preguntas frecuentes sobre Multi-Factor Authentication
+          href: multi-factor-authentication-faq.md
+        - name: Extensión NPS
+          href: howto-mfa-nps-extension-errors.md
 - name: Referencia
   items:
-  - name: Guía de usuario de MFA
-    href: ./end-user/current/multi-factor-authentication-end-user.md
-  - name: Ejemplos de código
-    href: https://azure.microsoft.com/resources/samples/?service=active-directory
-  - name: Cmdlets de Azure PowerShell
-    href: /powershell/azure/overview
-  - name: Restricciones y límites del servicio
-    href: ../users-groups-roles/directory-service-limits-restrictions.md
+    - name: Guía de usuario de MFA
+      href: ./end-user/current/multi-factor-authentication-end-user.md
+    - name: Ejemplos de código
+      href: 'https://azure.microsoft.com/resources/samples/?service=active-directory'
+    - name: Cmdlets de Azure PowerShell
+      href: /powershell/azure/overview
+    - name: Restricciones y límites del servicio
+      href: ../users-groups-roles/directory-service-limits-restrictions.md
 - name: Recursos
   items:
-  - name: Foro de comentarios de Azure
-    href: https://feedback.azure.com/forums/169401-azure-active-directory
-  - name: Foro de MSDN
-    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
-  - name: Precios
-    href: https://azure.microsoft.com/pricing/details/active-directory/
-  - name: Actualizaciones del servicio
-    href: ../fundamentals/whats-new.md
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-active-directory
-  - name: Vídeos
-    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: c109feb0e75268027e0732efc8e922285c65e81e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58174297"
+    - name: Foro de comentarios de Azure
+      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
+    - name: Foro de MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
+    - name: Actualizaciones del servicio
+      href: ../fundamentals/whats-new.md
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-active-directory'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'

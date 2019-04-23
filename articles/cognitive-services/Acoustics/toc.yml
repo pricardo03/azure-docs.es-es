@@ -1,52 +1,45 @@
-items:
 - name: Documentación sobre los elementos acústicos del proyecto
 - name: Información general
   items:
-  - name: ¿Qué son los elementos acústicos de un proyecto?
-    href: what-is-acoustics.md
+    - name: ¿Qué son los elementos acústicos de un proyecto?
+      href: what-is-acoustics.md
 - name: Guías de inicio rápido
   items:
-  - name: Inicio rápido con Unity
-    href: unity-quickstart.md
-  - name: Inicio rápido con Unreal
-    href: unreal-quickstart.md
+    - name: Inicio rápido con Unity
+      href: unity-quickstart.md
+    - name: Inicio rápido con Unreal
+      href: unreal-quickstart.md
 - name: Tutoriales
   items:
-  - name: Unity
-    items:
-    - name: Simulación acústica mediante "bake" con Unity
-      href: unity-baking.md
-    - name: Flujo de trabajo de diseño de Unity
-      href: unity-workflow.md
-  - name: Unreal/Wwise
-    items:
-    - name: Simulación acústica mediante "bake" con Unreal/Wwise
-      href: unreal-baking.md
-    - name: Flujo de trabajo de diseño de Unreal/Wwise
-      href: unreal-workflow.md
+    - name: Unity
+      items:
+        - name: Simulación acústica mediante "bake" con Unity
+          href: unity-baking.md
+        - name: Flujo de trabajo de diseño de Unity
+          href: unity-workflow.md
+    - name: Unreal/Wwise
+      items:
+        - name: Simulación acústica mediante "bake" con Unreal/Wwise
+          href: unreal-baking.md
+        - name: Flujo de trabajo de diseño de Unreal/Wwise
+          href: unreal-workflow.md
 - name: Conceptos
   items:
-  - name: Conceptos de diseño con simulación acústica
-    href: design-process.md
-  - name: Resolución de simulación acústica mediante "bake"
-    href: bake-resolution.md
+    - name: Conceptos de diseño con simulación acústica
+      href: design-process.md
+    - name: Resolución de simulación acústica mediante "bake"
+      href: bake-resolution.md
 - name: Procedimientos
   items:
-  - name: Creación de una cuenta de Azure Batch
-    href: create-azure-account.md
-  - name: Integración de Project Acoustics en Unity
-    href: unity-integration.md
-  - name: Integración de Project Acoustics en Unreal/Wwise
-    href: unreal-integration.md
+    - name: Creación de una cuenta de Azure Batch
+      href: create-azure-account.md
+    - name: Integración de Project Acoustics en Unity
+      href: unity-integration.md
+    - name: Integración de Project Acoustics en Unreal/Wwise
+      href: unreal-integration.md
 - name: Recursos
   items:
-  - name: Preguntas frecuentes
-    href: faq.md
-  - name: Problemas conocidos
-    href: known-issues.md
-ms.openlocfilehash: 0a445890369e48f61dfa545d7107f46e3d0675a1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59787890"
+    - name: Preguntas frecuentes
+      href: faq.md
+    - name: Problemas conocidos
+      href: known-issues.md

@@ -1,113 +1,106 @@
-items:
 - name: Documentación de ayuda para el usuario
   href: index.md
 - name: Ayuda para la verificación en dos pasos
   items:
-  - name: Información general
-    href: user-help-two-step-verification-overview.md
-  - name: Configuración de mi cuenta
-    href: multi-factor-authentication-end-user-first-time.md
-  - name: Administración de la configuración
-    href: multi-factor-authentication-end-user-manage-settings.md
-  - name: Obtención de ayuda
-    href: multi-factor-authentication-end-user-troubleshoot.md
-  - name: Administración de las contraseñas de aplicación
-    href: multi-factor-authentication-end-user-app-passwords.md
-  - name: Inicio de sesión
-    href: user-help-sign-in.md?toc=./toc.json
+    - name: Información general
+      href: user-help-two-step-verification-overview.md
+    - name: Configuración de mi cuenta
+      href: multi-factor-authentication-end-user-first-time.md
+    - name: Administración de la configuración
+      href: multi-factor-authentication-end-user-manage-settings.md
+    - name: Obtención de ayuda
+      href: multi-factor-authentication-end-user-troubleshoot.md
+    - name: Administración de las contraseñas de aplicación
+      href: multi-factor-authentication-end-user-app-passwords.md
+    - name: Inicio de sesión
+      href: user-help-sign-in.md?toc=./toc.json
 - name: Ayuda para el restablecimiento de contraseña
   items:
-  - name: Información general
-    href: user-help-password-reset-overview.md
-  - name: Registro para restablecer la contraseña
-    href: active-directory-passwords-reset-register.md
-  - name: Restablecimiento de la contraseña
-    href: user-help-reset-password.md
+    - name: Información general
+      href: user-help-password-reset-overview.md
+    - name: Registro para restablecer la contraseña
+      href: active-directory-passwords-reset-register.md
+    - name: Restablecimiento de la contraseña
+      href: user-help-reset-password.md
 - name: Ayuda de la aplicación Microsoft Authenticator
   items:
-  - name: Información general
-    href: user-help-auth-app-overview.md
-  - name: Descarga e instalación de la aplicación
-    href: user-help-auth-app-download-install.md
-  - name: Adición de información adicional de las cuentas
-    href: user-help-auth-app-add-account-overview.md
-    items:
-    - name: Adición de una cuenta profesional o educativa
-      href: user-help-auth-app-add-work-school-account.md
-    - name: Adición de una cuenta Microsoft personal
-      href: user-help-auth-app-add-personal-ms-account.md
-    - name: Adición de una cuenta que no sea de Microsoft
-      href: user-help-auth-app-add-non-ms-account.md
-    - name: Incorporación manual de una cuenta
-      href: user-help-auth-app-add-account-manual.md
-  - name: Inicio de sesión con la aplicación Microsoft Authenticator
-    href: user-help-auth-app-sign-in.md
-  - name: Copia de seguridad y recuperación de las cuentas
-    href: user-help-auth-app-backup-recovery.md
-  - name: Preguntas más frecuentes
-    href: user-help-auth-app-faq.md
+    - name: Información general
+      href: user-help-auth-app-overview.md
+    - name: Descarga e instalación de la aplicación
+      href: user-help-auth-app-download-install.md
+    - name: Adición de información adicional de las cuentas
+      href: user-help-auth-app-add-account-overview.md
+      items:
+        - name: Adición de una cuenta profesional o educativa
+          href: user-help-auth-app-add-work-school-account.md
+        - name: Adición de una cuenta Microsoft personal
+          href: user-help-auth-app-add-personal-ms-account.md
+        - name: Adición de una cuenta que no sea de Microsoft
+          href: user-help-auth-app-add-non-ms-account.md
+        - name: Incorporación manual de una cuenta
+          href: user-help-auth-app-add-account-manual.md
+    - name: Inicio de sesión con la aplicación Microsoft Authenticator
+      href: user-help-auth-app-sign-in.md
+    - name: Copia de seguridad y recuperación de las cuentas
+      href: user-help-auth-app-backup-recovery.md
+    - name: Preguntas más frecuentes
+      href: user-help-auth-app-faq.md
 - name: Ayuda del portal Mi Perfil (versión preliminar)
   items:
-  - name: Información general
-    href: myprofile-portal-overview.md
-  - name: Administración de la información de seguridad
-    href: user-help-security-info-overview.md
-  - name: Administración de las organizaciones
-    href: myprofile-portal-organizations-page.md
-  - name: Administración de los dispositivos conectados
-    href: myprofile-portal-devices-page.md
-  - name: Ver la información de privacidad
-    href: myprofile-portal-privacy-page.md
+    - name: Información general
+      href: myprofile-portal-overview.md
+    - name: Administración de la información de seguridad
+      href: user-help-security-info-overview.md
+    - name: Administración de las organizaciones
+      href: myprofile-portal-organizations-page.md
+    - name: Administración de los dispositivos conectados
+      href: myprofile-portal-devices-page.md
+    - name: Ver la información de privacidad
+      href: myprofile-portal-privacy-page.md
 - name: Ayuda sobre la información de seguridad (versión preliminar)
   items:
-  - name: Información general
-    href: user-help-security-info-overview.md
-  - name: Incorporación de la información de seguridad durante el inicio de sesión
-    href: security-info-setup-signin.md
-  - name: Introducción a la incorporación o actualización de los métodos de información de seguridad
-    href: security-info-add-update-methods-overview.md
-    items:
-    - name: Configuración de una aplicación autenticadora
-      href: security-info-setup-auth-app.md
-    - name: Configuración de mensajería de texto
-      href: security-info-setup-text-msg.md
-    - name: Configuración de llamadas telefónicas
-      href: security-info-setup-phone-number.md
-    - name: Configuración del correo electrónico
-      href: security-info-setup-email.md
-    - name: Configuración de preguntas de seguridad
-      href: security-info-setup-questions.md
-  - name: Administración de las contraseñas de aplicación
-    href: security-info-app-passwords.md
-  - name: Inicio de sesión
-    href: user-help-sign-in.md?toc=./toc.json
+    - name: Información general
+      href: user-help-security-info-overview.md
+    - name: Incorporación de la información de seguridad durante el inicio de sesión
+      href: security-info-setup-signin.md
+    - name: Introducción a la incorporación o actualización de los métodos de información de seguridad
+      href: security-info-add-update-methods-overview.md
+      items:
+        - name: Configuración de una aplicación autenticadora
+          href: security-info-setup-auth-app.md
+        - name: Configuración de mensajería de texto
+          href: security-info-setup-text-msg.md
+        - name: Configuración de llamadas telefónicas
+          href: security-info-setup-phone-number.md
+        - name: Configuración del correo electrónico
+          href: security-info-setup-email.md
+        - name: Configuración de preguntas de seguridad
+          href: security-info-setup-questions.md
+    - name: Administración de las contraseñas de aplicación
+      href: security-info-app-passwords.md
+    - name: Inicio de sesión
+      href: user-help-sign-in.md?toc=./toc.json
 - name: Ayuda para la administración de dispositivos
   items:
-  - name: Información general
-    href: user-help-device-mgmt-overview.md
-  - name: Unión del dispositivo de trabajo
-    href: user-help-join-device-on-network.md
-  - name: Registro de un dispositivo personal para el trabajo
-    href: user-help-register-device-on-network.md
-  - name: Solución de problemas relacionados con el mensaje "You can't get there" (No puede acceder)
-    href: user-help-device-remediation.md
+    - name: Información general
+      href: user-help-device-mgmt-overview.md
+    - name: Unión del dispositivo de trabajo
+      href: user-help-join-device-on-network.md
+    - name: Registro de un dispositivo personal para el trabajo
+      href: user-help-register-device-on-network.md
+    - name: Solución de problemas relacionados con el mensaje "You can't get there" (No puede acceder)
+      href: user-help-device-remediation.md
 - name: Ayuda del portal Mis aplicaciones
   items:
-  - name: Información general
-    href: my-apps-portal-end-user-overview.md
-  - name: Acceso y uso del portal Mis aplicaciones
-    href: my-apps-portal-end-user-access.md
-  - name: Actualización de la información del perfil y de la cuenta
-    href: my-apps-portal-end-user-update-profile.md
-  - name: Actualización de la información de tus grupos
-    href: my-apps-portal-end-user-groups.md
-  - name: Realice sus propias revisiones de acceso
-    href: my-apps-portal-end-user-access-reviews.md
-  - name: Solución de problemas
-    href: my-apps-portal-end-user-troubleshoot.md
-ms.openlocfilehash: be7c20053ab6ee3a18f81aec9dc973a3032aa5c6
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58339558"
+    - name: Información general
+      href: my-apps-portal-end-user-overview.md
+    - name: Acceso y uso del portal Mis aplicaciones
+      href: my-apps-portal-end-user-access.md
+    - name: Actualización de la información del perfil y de la cuenta
+      href: my-apps-portal-end-user-update-profile.md
+    - name: Actualización de la información de tus grupos
+      href: my-apps-portal-end-user-groups.md
+    - name: Realice sus propias revisiones de acceso
+      href: my-apps-portal-end-user-access-reviews.md
+    - name: Solución de problemas
+      href: my-apps-portal-end-user-troubleshoot.md

@@ -8,11 +8,11 @@ ms.topic: sample
 ms.service: blueprints
 manager: carmonm
 ms.openlocfilehash: 78f608aedd53aa1071eaf88864f5a63f8f9e6072
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59281206"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59791018"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Implementación del ejemplo de plano técnico de cargas de trabajo de App Service Environment y SQL Database según la norma ISO 27001
 
@@ -123,7 +123,7 @@ En la tabla siguiente se proporciona una lista de los parámetros del artefacto 
 |Grupo de recursos de red|Grupos de recursos|NOMBRE|**Bloqueado**: concatena el **nombre de la organización** con `-workload-net-rg` para que el grupo de recursos sea único.|
 |Grupo de recursos de red|Grupos de recursos|Ubicación|**Bloqueado**: utiliza el parámetro del plano técnico.|
 |Plantilla del grupo de seguridad de red|Plantilla de Resource Manager|Retención del registro, en días|Retención de datos, en días. El valor predeterminado es _365_.|
-|Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|IP privada del firewall de Azure|Configura la dirección IP privada del [firewall de Azure](../../../../firewall/overview.md). Debe formar parte de la notación CIDR definida en el parámetro **Prefijo de la dirección de subred de Azure Firewall** del artefacto de _ISO 27001: servicios compartidos_. El valor predeterminado es: _10.0.4.4_.|
+|Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|IP privada del firewall de Azure|Configura la dirección IP privada del [firewall de Azure](../../../../firewall/overview.md). Debe formar parte de la notación CIDR definida en el parámetro _Prefijo de la dirección de subred de Azure Firewall_ del artefacto de **ISO 27001: servicios compartidos.** El valor predeterminado es: _10.0.4.4_.|
 |Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Identificador de suscripción de servicios compartidos|Valor utilizado para habilitar el emparejamiento de VNET entre una carga de trabajo y los servicios compartidos.|
 |Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Prefijo de dirección de Virtual Network|La notación CIDR de la red virtual. El valor predeterminado es _10.1.0.0/16_.|
 |Plantilla de Virtual Network y de la tabla de rutas|Plantilla de Resource Manager|Prefijo de la dirección de la subred predeterminada|La notación CIDR de la subred predeterminada de la red virtual. El valor predeterminado es _10.1.0.0/16_.|

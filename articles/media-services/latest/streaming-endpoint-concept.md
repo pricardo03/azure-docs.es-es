@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 04/16/2019
 ms.author: juliako
-ms.openlocfilehash: 2e715e5280794172451a333624a954340a1a60fe
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 4a29da2b070133f87ca5fdab0be607368c83790f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58881025"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999457"
 ---
 # <a name="streaming-endpoints"></a>Extremos de streaming
 
@@ -52,7 +52,6 @@ Característica|Estándar|Premium
 ---|---|---
 Gratis los primeros 15 días| Sí |Sin 
 Throughput |Hasta 600 Mbps cuando no se utiliza Azure CDN. Se puede ampliar con la red CDN.|200 Mbps por unidad de streaming. Se puede ampliar con la red CDN.
-Contrato de nivel de servicio | 99,9|99,9 (200 Mbps por unidad de streaming).
 CDN|Azure CDN, red de entrega de contenido de terceros o ninguna red de entrega de contenido.|Azure CDN, red de entrega de contenido de terceros o ninguna red de entrega de contenido.
 La facturación se prorratea| Diario|Diario
 Cifrado dinámico|Sí|Sí
@@ -86,7 +85,7 @@ En esta sección se proporciona detalles sobre algunas de las propiedades del ex
 
     Las siguientes son las zonas DNS esperadas que se usará en el registro de comprobación para diferentes regiones de Azure.
   
-  - Norteamérica, Europa, Singapur, Hong Kong, Japón:
+  - América del Norte, Europa, Singapur, RAE de Hong Kong, Japón:
       
     - `media.azure.net`
     - `verifydns.media.azure.net`

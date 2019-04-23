@@ -1,16 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 00752e0b42b907699e9f314c2f216b69c9d3b2e8
-ms.sourcegitcommit: fea5a47f2fee25f35612ddd583e955c3e8430a95
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55506743"
 documentType: LandingData
 title: Documentación sobre administración de usuarios empresariales con Azure Active Directory
 metadata:
-  document_id: 
-  title: Documentación sobre usuarios, grupos, roles y licencias de Azure Active Directory
-  description: Aprenda a usar usuarios, grupos, roles y licencias para administrar la autenticación en los servicios en la nube de Azure del inquilino.
+  document_id: null
+  title: 'Documentación sobre usuarios, grupos, roles y licencias de Azure Active Directory'
+  description: 'Aprenda a usar usuarios, grupos, roles y licencias para administrar la autenticación en los servicios en la nube de Azure del inquilino.'
   services: active-directory
   ms.subservice: users-groups-roles
   author: curtand
@@ -20,33 +14,33 @@ metadata:
   ms.date: 01/31/2019
   ms.author: curtand
 abstract:
-  description: Las herramientas de administración de usuarios de Azure AD como, por ejemplo, las asignaciones de roles, le ayudarán a realizar las principales tareas más rápidamente y a adaptarse al crecimiento. Puede asignar licencias o acceso a aplicaciones SaaS a grupos en lugar de a individuos, o delegar permisos para distribuir la sobrecarga de administración de identidades de Azure AD.
+  description: 'Las herramientas de administración de usuarios de Azure AD como, por ejemplo, las asignaciones de roles, le ayudarán a realizar las principales tareas más rápidamente y a adaptarse al crecimiento. Puede asignar licencias o acceso a aplicaciones SaaS a grupos en lugar de a individuos, o delegar permisos para distribuir la sobrecarga de administración de identidades de Azure AD.'
 sections:
-- title: Inicios rápidos en 5 minutos
-  items:
-  - type: paragraph
-    text: Aprenda a usar herramientas de administración de Azure Active Directory
-  - type: list
-    style: unordered
+  - title: Inicios rápidos en 5 minutos
     items:
-    - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Adición de usuarios a Azure AD</a>
-    - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Asignación de licencias a usuarios</a>
-    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Suscripción a Azure AD Premium</a>
-    - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-expiration">Establezca la expiración de los grupos creados por el usuario</a>
-    - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-naming-policy">Establezca la directiva de nomenclatura de los grupos creados por el usuario</a>
-- title: Tutoriales detallados
-  items:
-  - type: paragraph
-    text: Aprenda a rellenar dinámicamente los grupos en Azure Active Directory
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: Aprenda a usar herramientas de administración de Azure Active Directory
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Adición de usuarios a Azure AD</a>
+          - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Asignación de licencias a usuarios</a>
+          - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Suscripción a Azure AD Premium</a>
+          - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-expiration">Establezca la expiración de los grupos creados por el usuario</a>
+          - html: <a href="/azure/active-directory/users-groups-roles/groups-quickstart-naming-policy">Establezca la directiva de nomenclatura de los grupos creados por el usuario</a>
+  - title: Tutoriales detallados
     items:
-    - html: <a href="/azure/active-directory/users-groups-roles/groups-dynamic-tutorial">Creación de un grupo rellenado dinámicamente</a>
-- title: Referencia
-  items:
-  - type: list
-    style: cards
-    className: cardsD
+      - type: paragraph
+        text: Aprenda a rellenar dinámicamente los grupos en Azure Active Directory
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="/azure/active-directory/users-groups-roles/groups-dynamic-tutorial">Creación de un grupo rellenado dinámicamente</a>
+  - title: Referencia
     items:
-    - title: Vínculos de referencia
-      html: <p><a href="https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0">Cmdlets de Azure AD PowerShell</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Vínculos de referencia
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0">Cmdlets de Azure AD PowerShell</a></p>'

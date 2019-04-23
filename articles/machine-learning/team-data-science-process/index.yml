@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 193250708b953b2bf2e2db84b3eef2dc4a09834b
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55451927"
 documentType: LandingData
 title: Documentación del proceso de ciencia de datos en equipo
 metadata:
   title: Documentación del proceso de ciencia de datos en equipo
-  description: Aprenda a usar el proceso de ciencia de datos en equipo, una metodología de ciencia de datos ágil e iterativa que proporciona soluciones de análisis predictivo y aplicaciones inteligentes de manera eficiente. TDSP ayuda a mejorar la colaboración en equipo y el aprendizaje. Contiene una extracción de los mejores procedimientos y estructuras de Microsoft y otros fabricantes del sector que facilitan la correcta implementación de iniciativas de ciencia de datos. El objetivo es ayudar a las empresas a que se den cuenta de las ventajas de su programa de análisis.
+  description: 'Aprenda a usar el proceso de ciencia de datos en equipo, una metodología de ciencia de datos ágil e iterativa que proporciona soluciones de análisis predictivo y aplicaciones inteligentes de manera eficiente. TDSP ayuda a mejorar la colaboración en equipo y el aprendizaje. Contiene una extracción de los mejores procedimientos y estructuras de Microsoft y otros fabricantes del sector que facilitan la correcta implementación de iniciativas de ciencia de datos. El objetivo es ayudar a las empresas a que se den cuenta de las ventajas de su programa de análisis.'
   services: machine-learning
   author: cjgronlund
   ms.service: machine-learning
@@ -22,24 +16,24 @@ metadata:
 abstract:
   description: El proceso de ciencia de datos en equipo es una metodología de ciencia de datos ágil e iterativa para proporcionar soluciones de análisis predictivo y aplicaciones inteligentes de manera eficiente. TDSP ayuda a mejorar la colaboración en equipo y el aprendizaje. Contiene una extracción de los mejores procedimientos y estructuras de Microsoft y otros fabricantes del sector que facilitan la correcta implementación de iniciativas de ciencia de datos. El objetivo es ayudar a las empresas a que se den cuenta de las ventajas de su programa de análisis.
 sections:
-- title: Inicios rápidos en 5 minutos
-  items:
-  - type: paragraph
-    text: 'Información acerca del proceso de ciencia de datos en equipo:'
-  - type: list
-    style: unordered
+  - title: Inicios rápidos en 5 minutos
     items:
-    - html: <a href="overview">Información general</a>
-    - html: <a href="lifecycle">Ciclo de vida</a>
-- title: Tutoriales detallados
-  items:
-  - type: paragraph
-    text: 'Aprenda a usar el proceso de ciencia de datos en equipo en diversos escenarios:'
-  - type: list
-    style: ordered
+      - type: paragraph
+        text: 'Información acerca del proceso de ciencia de datos en equipo:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="overview">Información general</a>
+          - html: <a href="lifecycle">Ciclo de vida</a>
+  - title: Tutoriales detallados
     items:
-    - html: <a href="walkthroughs-spark">Spark con PySpark y Scala</a>
-    - html: <a href="walkthroughs-hdinsight-hadoop">Hive con HDInsight Hadoop</a>
-    - html: <a href="walkthroughs-azure-data-lake">U-SQL con Azure Data Lake</a>
-    - html: <a href="walkthroughs-sql-server">R, Python y T-SQL con SQL Server</a>
-    - html: <a href="walkthroughs-sql-data-warehouse">T-SQL y Python con almacenamiento de datos SQL</a>
+      - type: paragraph
+        text: 'Aprenda a usar el proceso de ciencia de datos en equipo en diversos escenarios:'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="walkthroughs-spark">Spark con PySpark y Scala</a>
+          - html: <a href="walkthroughs-hdinsight-hadoop">Hive con HDInsight Hadoop</a>
+          - html: <a href="walkthroughs-azure-data-lake">U-SQL con Azure Data Lake</a>
+          - html: '<a href="walkthroughs-sql-server">R, Python y T-SQL con SQL Server</a>'
+          - html: <a href="walkthroughs-sql-data-warehouse">T-SQL y Python con almacenamiento de datos SQL</a>

@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: a59bc4f320cb0c7a1c99bf6983da2414a5bae69e
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56733612"
 documentType: LandingData
 title: Documentación de Bing Visual Search API
 metadata:
@@ -22,78 +16,78 @@ metadata:
   ms.date: 01/16/2019
   ms.author: scottwhi
 abstract:
-  description: Bing Visual Search API ofrece detalles de imagen similares a los que se muestran en Bing.com/images. Al cargar una imagen o proporcionar una dirección URL de esta, esta API puede identificar diversos datos sobre ella, como, por ejemplo, imágenes similares visualmente, orígenes de compra, páginas web que incluyen la imagen y mucho más.
+  description: 'Bing Visual Search API ofrece detalles de imagen similares a los que se muestran en Bing.com/images. Al cargar una imagen o proporcionar una dirección URL de esta, esta API puede identificar diversos datos sobre ella, como, por ejemplo, imágenes similares visualmente, orígenes de compra, páginas web que incluyen la imagen y mucho más.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/bing-visual-search/overview
+            html: <p>Más información acerca de Bing Visual Search API</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: ¿Qué es Bing Visual Search API?
+          - href: /azure/cognitive-services/bing-visual-search/concepts/sending-queries
+            html: <p>Aprenda a enviar solicitudes de búsqueda a Bing Visual Search API.</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Envío de consultas de búsqueda
+          - href: /azure/cognitive-services/bing-visual-search/tutorial-visual-search-insights-token
+            html: <p>Uso de un token de conclusiones en Bing Image Search API para cargar una imagen en Bing Visual Search API</p>
+            image:
+              src: ../media/index/i_guidelines.svg
+            title: Búsqueda de noticias
+  - title: Inicio rápido en 5 minutos
     items:
-    - href: /azure/cognitive-services/bing-visual-search/overview
-      html: <p>Más información acerca de Bing Visual Search API</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: ¿Qué es Bing Visual Search API?
-    - href: /azure/cognitive-services/bing-visual-search/concepts/sending-queries
-      html: <p>Aprenda a enviar solicitudes de búsqueda a Bing Visual Search API.</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Envío de consultas de búsqueda
-    - href: /azure/cognitive-services/bing-visual-search/tutorial-visual-search-insights-token
-      html: <p>Uso de un token de conclusiones en Bing Image Search API para cargar una imagen en Bing Visual Search API</p>
-      image:
-        src: ../media/index/i_guidelines.svg
-      title: Búsqueda de noticias
-- title: Inicio rápido en 5 minutos
-  items:
-  - type: paragraph
-    text: 'Obtenga información sobre una imagen mediante Bing Visual Search API:'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 'Obtenga información sobre una imagen mediante Bing Visual Search API:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            href: visual-search-sdk-c-sharp
+            text: 'C&#35;'
+          - image:
+              src: media/index/logo_java.svg
+            href: quickstarts/java
+            text: Java
+          - image:
+              src: media/index/logo_nodejs.svg
+            href: visual-search-sdk-node
+            text: Node.js
+          - image:
+              src: media/index/logo_python.svg
+            href: visual-search-sdk-python
+            text: Python
+        rows:
+          - title: ''
+            values:
+              - href: visual-search-sdk-c-sharp
+              - href: java
+              - href: visual-search-sdk-node
+              - href: visual-search-sdk-python
+  - title: Tutoriales detallados
     items:
-    - image:
-        src: media/index/logo_csharp.svg
-      href: visual-search-sdk-c-sharp
-      text: C&#35;
-    - image:
-        src: media/index/logo_java.svg
-      href: quickstarts/java
-      text: Java
-    - image:
-        src: media/index/logo_nodejs.svg
-      href: visual-search-sdk-node
-      text: Node.js
-    - image:
-        src: media/index/logo_python.svg
-      href: visual-search-sdk-python
-      text: Python
-    rows:
-    - title: ''
-      values:
-      - href: visual-search-sdk-c-sharp
-      - href: java
-      - href: visual-search-sdk-node
-      - href: visual-search-sdk-python
-- title: Tutoriales detallados
-  items:
-  - type: paragraph
-    text: 'Aprenda a desarrollar aplicaciones mediante Bing Visual Search API:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Aprenda a desarrollar aplicaciones mediante Bing Visual Search API:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial-bing-visual-search-single-page-app">Aplicación web de una sola página</a>
+  - title: Referencia
     items:
-    - html: <a href="tutorial-bing-visual-search-single-page-app">Aplicación web de una sola página</a>
-- title: Referencia
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: API REST v7
-      html: <p><a href="https://aka.ms/bingvisualsearchreferencedoc">Referencia de API</a></p>
-    - title: SDK
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/visualsearch?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python">Python</a></p>
-    - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI de Azure</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API REST v7
+            html: '<p><a href="https://aka.ms/bingvisualsearchreferencedoc">Referencia de API</a></p>'
+          - title: SDK
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/bingvisualsearch?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/visualsearch?view=azure-java-stable">Java</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/visualsearch?view=azure-python">Python</a></p>'
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI de Azure</a></p>'

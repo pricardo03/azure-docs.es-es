@@ -26,7 +26,7 @@ abstract:
     href: 'https://azure.microsoft.com/resources/videos/create-linux-virtual-machine/'
     width: 250
 sections:
-  - title: Inicios rápidos en 5 minutos
+  - title: Inicio rápido en 5 minutos
     items:
       - type: paragraph
         text: 'Aprenda a implementar un servidor web NGINX dentro de una máquina virtual que ejecuta Ubuntu:'
@@ -68,6 +68,24 @@ sections:
           - html: <a href="/azure/virtual-machines/linux/tutorial-build-deploy-jenkins">CI/CD con Azure Pipelines</a>
           - html: 'Creación de una pila de servidor web con <a href="/azure/virtual-machines/linux/tutorial-lamp-stack">LAMP</a>, <a href="/azure/virtual-machines/linux/tutorial-lemp-stack">LEMP</a> o <a href="/azure/virtual-machines/linux/tutorial-mean-stack">MEAN</a>'
           - html: <a href="/azure/virtual-machines/linux/tutorial-secure-web-server">Protección de servidor web con SSL</a>
+  - title: Desarrollo de aptitudes con Microsoft Learn
+    items:
+      - type: list
+        style: cards
+        className: cardsFTitle
+        items:
+          - title: "\_Creación de una máquina virtual Linux en Azure"
+            href: /learn/modules/create-linux-virtual-machine-in-azure/
+            image:
+              src: /learn/achievements/create-linux-virtual-machine-in-azure.svg
+              href: /learn/modules/create-linux-virtual-machine-in-azure/
+          - title: Creación y ejecución de una aplicación web con pila MEAN en una máquina virtual Linux de Azure
+            href: /learn/modules/build-a-web-app-with-mean-on-a-linux-vm/
+            image:
+              src: /learn/achievements/build-a-web-app-with-mean-on-a-linux-vm.svg
+              href: /learn/modules/build-a-web-app-with-mean-on-a-linux-vm/
+      - type: paragraph
+        text: <a href="/learn/browse/?products=azure-virtual-machines">Más aprendizaje interactivo...</a>
   - title: Vídeo gratuito de aprendizaje de PluralSight
     items:
       - type: list

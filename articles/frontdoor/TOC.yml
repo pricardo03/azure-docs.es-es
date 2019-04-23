@@ -1,107 +1,100 @@
-items:
 - name: Documentación de Front Door Service
   href: index.yml
 - name: Información general
   items:
-  - name: ¿Qué es Azure Front Door Service?
-    href: front-door-overview.md
+    - name: ¿Qué es Azure Front Door Service?
+      href: front-door-overview.md
 - name: Guías de inicio rápido
   items:
-  - name: Creación de una instancia de Front Door
-    href: quickstart-create-front-door.md
+    - name: Creación de una instancia de Front Door
+      href: quickstart-create-front-door.md
 - name: Tutoriales
   items:
-  - name: Incorporación de un dominio personalizado a Front Door
-    href: front-door-custom-domain.md
-  - name: Habilitar HTTPS para un dominio personalizado
-    href: front-door-custom-domain-https.md
-  - name: Configuración de una directiva de filtrado geográfico para Front Door
-    href: front-door-tutorial-geo-filtering.md
+    - name: Incorporación de un dominio personalizado a Front Door
+      href: front-door-custom-domain.md
+    - name: Habilitar HTTPS para un dominio personalizado
+      href: front-door-custom-domain-https.md
+    - name: Configuración de una directiva de filtrado geográfico para Front Door
+      href: front-door-tutorial-geo-filtering.md
 - name: Ejemplos
   items:
-  - name: Plantillas de Resource Manager
-    href: front-door-quickstart-template-samples.md
+    - name: Plantillas de Resource Manager
+      href: front-door-quickstart-template-samples.md
 - name: Conceptos
   items:
-  - name: Back-ends y grupos de back-ends
-    href: front-door-backend-pool.md
-  - name: Almacenamiento en caché con Front Door
-    href: front-door-caching.md
-  - name: Filtrado geográfico
-    href: front-door-geo-filtering.md
-  - name: Sondeos de estado
-    href: front-door-health-probes.md
-  - name: Cómo Front Door combina el enrutamiento para una solicitud
-    href: front-door-route-matching.md
-  - name: Compatibilidad con HTTP/2
-    href: front-door-http2.md
-  - name: Compatibilidad con el protocolo de encabezados HTTP
-    href: front-door-http-headers-protocol.md
-  - name: Equilibrio de carga con el conjunto de entrega de aplicaciones de Azure
-    href: front-door-lb-with-azure-app-delivery-suite.md
-  - name: Supervisión
-    href: front-door-diagnostics.md
-  - name: Arquitectura de enrutamiento
-    href: front-door-routing-architecture.md
-  - name: Métodos de enrutamiento del tráfico
-    href: front-door-routing-methods.md
-  - name: Reescritura de direcciones URL
-    href: front-door-url-rewrite.md
-  - name: WAF
-    items:
-    - name: Información general
-      href: waf-overview.md
-    - name: Reglas personalizadas
-      href: waf-front-door-custom-rules.md
-    - name: Configuración de directiva
-      href: waf-front-door-policy-settings.md
-    - name: Supervisión y registro
-      href: waf-front-door-monitor.md
+    - name: Back-ends y grupos de back-ends
+      href: front-door-backend-pool.md
+    - name: Almacenamiento en caché con Front Door
+      href: front-door-caching.md
+    - name: Filtrado geográfico
+      href: front-door-geo-filtering.md
+    - name: Sondeos de estado
+      href: front-door-health-probes.md
+    - name: Cómo Front Door combina el enrutamiento para una solicitud
+      href: front-door-route-matching.md
+    - name: Compatibilidad con HTTP/2
+      href: front-door-http2.md
+    - name: Compatibilidad con el protocolo de encabezados HTTP
+      href: front-door-http-headers-protocol.md
+    - name: Equilibrio de carga con el conjunto de entrega de aplicaciones de Azure
+      href: front-door-lb-with-azure-app-delivery-suite.md
+    - name: Supervisión
+      href: front-door-diagnostics.md
+    - name: Arquitectura de enrutamiento
+      href: front-door-routing-architecture.md
+    - name: Métodos de enrutamiento del tráfico
+      href: front-door-routing-methods.md
+    - name: Reescritura de direcciones URL
+      href: front-door-url-rewrite.md
+    - name: WAF
+      items:
+        - name: Información general
+          href: waf-overview.md
+        - name: Reglas personalizadas
+          href: waf-front-door-custom-rules.md
+        - name: Configuración de directiva
+          href: waf-front-door-policy-settings.md
+        - name: Supervisión y registro
+          href: waf-front-door-monitor.md
 - name: Guías de procedimientos
   items:
-  - name: Solución de problemas
-    items:
-    - name: Solución de problemas de enrutamiento
-      href: front-door-troubleshoot-routing.md
-    - name: Entidades de certificación permitidas
-      href: front-door-troubleshoot-allowed-ca.md
-  - name: Configuración de WAF
-    items:
-    - name: 'Configuración de la directiva WAF: Portal'
-      href: waf-front-door-create-portal.md
-    - name: 'Configuración de la directiva de WAF: Azure PowerShell'
-      href: waf-front-door-custom-rules-powershell.md
-    - name: Configuración de código de respuesta personalizado
-      href: waf-front-door-configure-custom-response-code.md
-    - name: 'Configuración de límite de WAF: Azure PowerShell'
-      href: waf-front-door-rate-limit-powershell.md
+    - name: Solución de problemas
+      items:
+        - name: Solución de problemas de enrutamiento
+          href: front-door-troubleshoot-routing.md
+        - name: Entidades de certificación permitidas
+          href: front-door-troubleshoot-allowed-ca.md
+    - name: Configuración de WAF
+      items:
+        - name: 'Configuración de la directiva WAF: Portal'
+          href: waf-front-door-create-portal.md
+        - name: 'Configuración de la directiva de WAF: Azure PowerShell'
+          href: waf-front-door-custom-rules-powershell.md
+        - name: Configuración de código de respuesta personalizado
+          href: waf-front-door-configure-custom-response-code.md
+        - name: 'Configuración de límite de WAF: Azure PowerShell'
+          href: waf-front-door-rate-limit-powershell.md
 - name: Preguntas más frecuentes
   items:
-  - name: Preguntas más frecuentes sobre Front Door
-    href: front-door-faq.md
-  - name: Preguntas más frecuentes sobre el firewall de aplicaciones web
-    href: waf-faq.md
+    - name: Preguntas más frecuentes sobre Front Door
+      href: front-door-faq.md
+    - name: Preguntas más frecuentes sobre el firewall de aplicaciones web
+      href: waf-faq.md
 - name: Referencia
   items:
-  - name: Azure CLI
-    href: /cli/azure/ext/front-door/
-  - name: Azure PowerShell
-    href: /powershell/module/az.frontdoor
-  - name: API DE REST
-    href: /rest/api/frontdoor
+    - name: Azure CLI
+      href: /cli/azure/ext/front-door/
+    - name: Azure PowerShell
+      href: /powershell/module/az.frontdoor
+    - name: API DE REST
+      href: /rest/api/frontdoor
 - name: Recursos
   items:
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Precios
-    href: https://azure.microsoft.com/pricing/details/frontdoor/
-  - name: Calculadora de precios
-    href: https://azure.microsoft.com/pricing/calculator/
-  - name: Actualizaciones del servicio
-    href: https://azure.microsoft.com/updates/?product=frontdoor
-ms.openlocfilehash: 7ac4e84bf714dabdbfb0c587122287d02b6b3bbe
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59680118"
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/frontdoor/'
+    - name: Calculadora de precios
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Actualizaciones del servicio
+      href: 'https://azure.microsoft.com/updates/?product=frontdoor'
