@@ -18,11 +18,11 @@ ms.date: 04/20/2018
 ms.author: jdial
 ms.custom: ''
 ms.openlocfilehash: 6624ded670ef506dfef225a8b595da2e5ea19427
-ms.sourcegitcommit: 8313d5bf28fb32e8531cdd4a3054065fa7315bfd
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2019
-ms.locfileid: "59051621"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59794416"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-powershell"></a>Diagnosticar problemas de enrutamiento en una red de máquinas virtuales: Azure PowerShell
 
@@ -63,7 +63,7 @@ Para probar la comunicación de red con Network Watcher, primero debe habilitar 
 
 ## <a name="enable-network-watcher"></a>Habilitación de Network Watcher
 
-Si ya tiene un monitor de red habilitado en la región Este de Estados Unidos, use [Get AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher) para recuperar el Monitor de red. En el ejemplo siguiente, se recupera un monitor de red existente llamado *NetworkWatcher_eastus* que se encuentra en el grupo de recursos *NetworkWatcherRG*:
+Si ya tiene un monitor de red habilitado en la región Este de EE. UU., use [Get-AzNetworkWatcher](/powershell/module/az.network/get-aznetworkwatcher) para recuperarlo. En el ejemplo siguiente, se recupera un monitor de red existente llamado *NetworkWatcher_eastus* que se encuentra en el grupo de recursos *NetworkWatcherRG*:
 
 ```azurepowershell-interactive
 $networkWatcher = Get-AzNetworkWatcher `
@@ -71,7 +71,7 @@ $networkWatcher = Get-AzNetworkWatcher `
   -ResourceGroupName NetworkWatcherRG
 ```
 
-Si aún no tiene un monitor de red habilitado en la región Este de Estados Unidos, use [New AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher) para crear un monitor de red en la región Este de Estados Unidos:
+Si aún no tiene un monitor de red habilitado en la región Este de EE. UU., use [New-AzNetworkWatcher](/powershell/module/az.network/new-aznetworkwatcher) para crearlo:
 
 ```azurepowershell-interactive
 $networkWatcher = New-AzNetworkWatcher `
@@ -135,7 +135,7 @@ Como puede ver en la salida anterior, la ruta con **AddressPrefix** de **0.0.0.0
 
 ## <a name="clean-up-resources"></a>Limpieza de recursos
 
-Cuando ya no es necesario, puede usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene:
+Cuando ya no lo necesite, puede usar [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) para quitar el grupo de recursos y todos los recursos que contiene:
 
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroup -Force

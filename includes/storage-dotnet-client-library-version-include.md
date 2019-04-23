@@ -5,11 +5,11 @@ ms.topic: include
 ms.date: 10/26/2018
 ms.author: tamram
 ms.openlocfilehash: 64fd5c80f082ba05591fd6ab66d4a8787a75d74a
-ms.sourcegitcommit: 04716e13cc2ab69da57d61819da6cd5508f8c422
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58852080"
+ms.lasthandoff: 04/18/2019
+ms.locfileid: "59793798"
 ---
 > [!NOTE]
 > Para completar este tutorial, se requiere la biblioteca común de Azure Storage para .NET (versión preliminar). Dicha versión se puede encontrar en [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/).
