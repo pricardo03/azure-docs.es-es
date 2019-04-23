@@ -1,5 +1,5 @@
 ---
-title: 'Guía de inicio rápido: Uso del Explorador de Azure Storage para crear un blob en el almacenamiento de objetos'
+title: 'Inicio rápido: Uso del Explorador de Azure Storage para crear un blob en el almacenamiento de objetos'
 description: En esta guía de inicio rápido, aprenderá a usar el Explorador de Azure Storage para crear un contenedor y un blob. A continuación, aprenderá a descargar el blob en un equipo local y a ver todos los blobs en un contenedor. También aprenderá a crear una instantánea de un blob, a administrar directivas de acceso al contenedor y a crear una firma de acceso compartido.
 services: storage
 author: tamram
@@ -8,14 +8,14 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 11/15/2018
 ms.author: tamram
-ms.openlocfilehash: eef05a5b52e807a4db058682f034f6762cb93b9f
-ms.sourcegitcommit: a4e4e0236197544569a0a7e34c1c20d071774dd6
+ms.openlocfilehash: 3424b46dff8f2904f41d0e8c1acf96788c51773f
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/15/2018
-ms.locfileid: "51711198"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59994476"
 ---
-# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Guía de inicio rápido: Uso del Explorador de Azure Storage para crear un blob en el almacenamiento de objetos
+# <a name="quickstart-use-azure-storage-explorer-to-create-a-blob-in-object-storage"></a>Inicio rápido: Uso del Explorador de Azure Storage para crear un blob en el almacenamiento de objetos
 
 En esta guía de inicio rápido, aprenderá a usar el [Explorador de Azure Storage](https://azure.microsoft.com/features/storage-explorer/) para crear un contenedor y un blob. A continuación, aprenderá a descargar el blob en un equipo local y a ver todos los blobs en un contenedor. También aprenderá a crear una instantánea de un blob, a administrar directivas de acceso al contenedor y a crear una firma de acceso compartido.
 
@@ -29,7 +29,7 @@ Esta guía de inicio rápido requiere que se instale el Explorador de Azure Stor
 
 La primera vez, se muestra la ventana **Explorador de Microsoft Azure Storage: Conectar**. El Explorador de Microsoft Azure Storage proporciona varias maneras de conectar con las cuentas de almacenamiento. En la tabla siguiente se enumeran las distintas maneras en que puede conectarse:
 
-|Task|Propósito|
+|Tarea|Propósito|
 |---|---|
 |Agregar una cuenta de Azure | Le redirige a la página de inicio de sesión de las organizaciones para autenticarlo en Azure. |
 |Usar una cadena de conexión o un identificador URI de firma de acceso compartido | Puede utilizarse para tener acceso directamente a un contenedor o a la cuenta de almacenamiento con un token de SAS o una cadena de conexión compartida. |
@@ -39,7 +39,7 @@ Seleccione **Add an Azure Account** (Agregar una cuenta de Azure) y haga clic en
 
 ![Explorador de Microsoft Azure Storage: ventana Conectar](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
-Cuando se completa la conexión, el Explorador de Microsoft Azure Storage se carga y se muestra la pestaña **Explorador**. Esta vista proporciona una visión general de todas sus cuentas de Azure Storage, así como del almacenamiento local configurado mediante el [Emulador de Microsoft Azure Storage](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), las cuentas de [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o los entornos de [Azure Stack](../../azure-stack/user/azure-stack-storage-connect-se.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+Cuando se completa la conexión, el Explorador de Microsoft Azure Storage se carga y se muestra la pestaña **Explorador**. Esta vista proporciona una visión general de todas sus cuentas de Azure Storage, así como del almacenamiento local configurado mediante el [Emulador de Microsoft Azure Storage](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json), las cuentas de [Cosmos DB](../../cosmos-db/storage-explorer.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) o los entornos de [Azure Stack](/azure-stack/user/azure-stack-storage-connect-se?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ![Explorador de Microsoft Azure Storage: ventana Conectar](media/storage-quickstart-blobs-storage-explorer/mainpage.png)
 
