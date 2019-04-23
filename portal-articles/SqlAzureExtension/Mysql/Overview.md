@@ -8,20 +8,20 @@ ms.service: mysql
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
-ms.openlocfilehash: a1d5458a2b815591fc7126d429bd16a718910b30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ff389f52da0db4e394e8f6a6c37955a5f0c3861
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23073901"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475759"
 ---
 # <a name="azure-database-for-mysql-documentation"></a>Documentación sobre Base de datos MySQL en Azure
 
 Base de datos MySQL en Azure es un servicio de base de datos relacional basado en el motor de código abierto del servidor de MySQL.  Es una base de datos como servicio completamente administrada que ofrece la capacidad de manejar cargas de trabajo críticas con un rendimiento predecible y escalabilidad dinámica. Desarrolle aplicaciones con la Base de datos MySQL en Azure para aprovechar las herramientas y plataformas de código abierto de su elección. Aprenda a usar Base de datos MySQL en Azure con nuestros inicios rápidos, tutoriales y ejemplos.
 
-## <a name="5-minute-quickstarts"></a>Inicios rápidos en 5 minutos
+## <a name="5-minute-quickstarts"></a>Inicio rápido en 5 minutos
 
-Creación de una base de datos MySQL en Azure mediante:
+Creación de una instancia de MySQL Database on Azure mediante:
 
 - [Azure Portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal)
 - [CLI de Azure](/azure/mysql/quickstart-create-mysql-server-database-using-azure-cli)
@@ -31,9 +31,9 @@ Creación de una base de datos MySQL en Azure mediante:
 Aprenda a diseñar la base de datos y a desarrollar aplicaciones:
 
 - Diseño de una base de datos: [Azure Portal](/azure/mysql/tutorial-design-database-using-portal) |  [CLI de Azure](/azure/mysql/tutorial-design-database-using-cli)
-- Creación de una aplicación web: [Wordpress ( Portal)](https://portal.azure.com/#create/WordPress.WordPress) |  [PHP (CLI de Azure)](/azure/app-service/app-service-web-tutorial-php-mysql?toc=%2fazure%2fmysql%2ftoc.json)
+- Creación de una aplicación web: [Wordpress: Portal](https://portal.azure.com/#create/WordPress.WordPress) |  [PHP: CLI de Azure](/azure/app-service/app-service-web-tutorial-php-mysql?toc=%2fazure%2fmysql%2ftoc.json)
 
-## <a name="samples"></a>Muestras 
+## <a name="samples"></a>Ejemplos 
 
 Busque scripts para administrar las tareas más habituales.
 
