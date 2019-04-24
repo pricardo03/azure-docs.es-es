@@ -16,12 +16,12 @@ ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b83f5e6735f5b2554af2f5e6c74a7c9095d23fd
-ms.sourcegitcommit: 48a41b4b0bb89a8579fc35aa805cea22e2b9922c
+ms.openlocfilehash: 786ace2ef88fc4b94372041cbdd5bc16586b5193
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59579485"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59682566"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Inicio rápido: Adición de inicio de sesión con Microsoft a una aplicación web ASP.NET
 
@@ -74,6 +74,7 @@ Seleccione el menú **Autenticación**, establezca los **Tokens de identificador
 
 1. Extraiga el archivo ZIP en la carpeta local más próxima a la carpeta raíz (por ejemplo, **C:\Azure-Samples**).
 1. Abra la solución en Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
+1. Según la versión de Visual Studio que use, es posible que necesite hacer clic con el botón derecho en el proyecto `AppModelv2-WebApp-OpenIDConnect-DotNet` y **Restaurar paquetes NuGet**.
 1. Edite **Web.config** y reemplace los parámetros `ClientId` y `Tenant` por:
 
     ```xml
@@ -103,7 +104,7 @@ Puede configurar la canalización de autenticación con la autenticación basada
 ```powershell
 Install-Package Microsoft.Owin.Security.OpenIdConnect
 Install-Package Microsoft.Owin.Security.Cookies
-Install-Package Microsoft.Owin.Host.SystemWeb
+Install-Package Microsoft.Owin.Host.SystemWeb  
 ```
 
 ### <a name="owin-startup-class"></a>Clase de inicio OWIN
