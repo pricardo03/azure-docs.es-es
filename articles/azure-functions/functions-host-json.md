@@ -171,7 +171,7 @@ Configuración del [monitor de estado de host](https://github.com/Azure/azure-we
 
 |Propiedad  |Valor predeterminado | DESCRIPCIÓN |
 |---------|---------|---------| 
-|Enabled|true|Especifica si está habilitada la característica. | 
+|enabled|true|Especifica si está habilitada la característica. | 
 |healthCheckInterval|10 segundos|El intervalo de tiempo entre las comprobaciones periódicas de mantenimiento en segundo plano. | 
 |healthCheckWindow|2 minutes|Una ventana de tiempo deslizante usada en combinación con el valor `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Número máximo de veces que puede producirse un error en la comprobación de mantenimiento antes de que se inicie un reciclaje del host.| 
