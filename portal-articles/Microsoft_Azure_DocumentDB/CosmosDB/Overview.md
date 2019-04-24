@@ -8,18 +8,18 @@ ms.service: cosmos-db
 ms.topic: article
 ms.date: 12/13/2017
 ms.author: sewatson
-ms.openlocfilehash: 13fe8d81c656aeb07947fcd8b2c8a9157b810ca6
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: bd5951fe86bde7e71c77d5564216421c1d2d1ea4
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32187894"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61227120"
 ---
 # <a name="azure-cosmos-db-documentation"></a>Documentación sobre Azure Cosmos DB
 
 Azure Cosmos DB es un servicio de base de datos de distribución global diseñado para permitirle escalar de forma elástica e independiente el rendimiento y el almacenamiento en todas las regiones geográficas con un Acuerdo de Nivel de Servicio completo. Puede desarrollar documentos, pares clave/valor o bases de datos de grafos con Cosmos DB mediante una serie de API y modelos de programación muy conocidos. Aprenda a usar Cosmos DB con nuestros inicios rápidos, tutoriales y ejemplos.
 
-## <a name="5-minute-quickstarts"></a>Inicios rápidos en 5 minutos
+## <a name="5-minute-quickstarts"></a>Inicio rápido en 5 minutos
 
 Aprenda a usar Azure Cosmos DB para crear una base de datos distribuida globalmente mediante alguna de las API de varios modelos:
 
@@ -54,7 +54,7 @@ Aprenda a desarrollar aplicaciones mediante Azure Cosmos DB:
 - Desarrollo de una aplicación con Cosmos DB: [SQL](/azure/cosmos-db/tutorial-develop-sql-api-dotnet) | [MongoDB](/azure/cosmos-db/tutorial-develop-mongodb-nodejs) | [Table](/azure/cosmos-db/tutorial-develop-table-dotnet) | [Graph](/azure/cosmos-db/tutorial-develop-graph-dotnet)
 - Importación de datos en Cosmos DB: [SQL](/azure/cosmos-db/sql-api-import-data) | [MongoDB](/azure/cosmos-db/mongodb-migrate) 
 - Consulta de datos con Cosmos DB: [SQL](/azure/cosmos-db/tutorial-query-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-query-mongodb) | [Table](/azure/cosmos-db/tutorial-query-table) | [Graph](/azure/cosmos-db/tutorial-query-graph)
-- Replicación de una base de datos global con Cosmos DB: [SQL](/azure/cosmos-db/tutorial-global-distribution-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Table] (/azure/cosmos-db/tutorial-global-distribution-table | [Graph](/azure/cosmos-db/tutorial-global-distribution-graph)
+- Replicación global de bases de datos con Cosmos DB: [SQL](/azure/cosmos-db/tutorial-global-distribution-sql-api) | [MongoDB](/azure/cosmos-db/tutorial-global-distribution-mongodb) | [Table](/azure/cosmos-db/tutorial-global-distribution-table | [Graph](/azure/cosmos-db/tutorial-global-distribution-graph)
 - [Desarrollo de la aplicación localmente mediante el emulador](/azure/cosmos-db/local-emulator)
 
 ## <a name="samples"></a>Ejemplos

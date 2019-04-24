@@ -1,221 +1,210 @@
-items:
 - name: Documentación sobre el servicio Azure Machine Learning
   href: index.yml
 - name: Información general
-  items:
-  - name: ¿Qué es el servicio Azure Machine Learning?
-    displayName: AML services overview
-    href: overview-what-is-azure-ml.md
-  - name: ¿Qué le ha ocurrido a Workbench?
-    displayName: desktop ui Workbench upgrade update transfer
-    href: overview-what-happened-to-workbench.md
   expanded: true
+  items:
+    - name: ¿Qué es el servicio Azure Machine Learning?
+      displayName: AML services overview
+      href: overview-what-is-azure-ml.md
+    - name: ¿Qué le ha ocurrido a Workbench?
+      displayName: desktop ui Workbench upgrade update transfer
+      href: overview-what-happened-to-workbench.md
 - name: Configuración
   items:
-  - name: Crear un área de trabajo
-    displayName: install sdk workspace
-    href: setup-create-workspace.md
+    - name: Crear un área de trabajo
+      displayName: install sdk workspace
+      href: setup-create-workspace.md
 - name: Guías de inicio rápido
   items:
-  - name: Experimento con un bloc de notas en la nube
-    displayName: workspace
-    href: quickstart-run-cloud-notebook.md
-  - name: Experimento con un bloc de notas local
-    displayName: workspace, install, sdk
-    href: quickstart-run-local-notebook.md
+    - name: Experimento con un bloc de notas en la nube
+      displayName: workspace
+      href: quickstart-run-cloud-notebook.md
+    - name: Experimento con un bloc de notas local
+      displayName: 'workspace, install, sdk'
+      href: quickstart-run-local-notebook.md
 - name: Tutoriales
   items:
-  - name: Clasificación de imágenes (datos MNIST)
-    items:
-    - name: 1. Entrenamiento de un modelo
-      displayName: build modeling
-      href: tutorial-train-models-with-aml.md
-    - name: 2. Implementar un modelo
-      href: tutorial-deploy-models-with-aml.md
-  - name: Regresión (datos de taxis de Nueva York)
-    items:
-    - name: 1. Preparación de datos para el modelado
-      displayName: data prep
-      href: tutorial-data-prep.md
-    - name: 2. Entrenamiento automático de un modelo de Machine Learning
-      displayName: automl, automated, auto ml,
-      href: tutorial-auto-train-models.md
+    - name: Clasificación de imágenes (datos MNIST)
+      items:
+        - name: 1. Entrenamiento de un modelo
+          displayName: build modeling
+          href: tutorial-train-models-with-aml.md
+        - name: 2. Implementar un modelo
+          href: tutorial-deploy-models-with-aml.md
+    - name: Regresión (datos de taxis de Nueva York)
+      items:
+        - name: 1. Preparación de datos para el modelado
+          displayName: data prep
+          href: tutorial-data-prep.md
+        - name: 2. Entrenamiento automático de un modelo de Machine Learning
+          displayName: 'automl, automated, auto ml,'
+          href: tutorial-auto-train-models.md
 - name: Ejemplos
-  displayName: example, examples, Jupyter, azure notebooks, python, notebook, GitHub
+  displayName: 'example, examples, Jupyter, azure notebooks, python, notebook, GitHub'
   href: samples-notebooks.md
 - name: Conceptos
   items:
-  - name: Funcionamiento del servicio
-    displayName: architecture concepts definitions
-    href: concept-azure-machine-learning-architecture.md
-  - name: Automated Machine Learning
-    displayName: automl, auto ml
-    href: concept-automated-ml.md
-  - name: Administración de modelos
-    displayName: deploy, deployment
-    href: concept-model-management-and-deployment.md
-  - name: Interoperabilidad del modelo
-    displayName: explainability
-    href: machine-learning-interpretability-explainability.md
-  - name: Aceleración con FPGA
-    href: concept-accelerate-with-fpgas.md
-  - name: Canalizaciones de Machine Learning
-    href: concept-ml-pipelines.md
-  - name: Seguridad
-    items:
-    - name: Introducción sobre la seguridad en la empresa
-      displayName: authorization authentication encryption
-      href: concept-enterprise-security.md
-    - name: Administración de usuarios y roles
-      href: how-to-assign-roles.md
-    - name: Uso de redes virtuales
-      displayName: vnet
-      href: how-to-enable-virtual-network.md
-    - name: Protección de servicios web con SSL
-      href: how-to-secure-web-service.md
+    - name: Funcionamiento del servicio
+      displayName: architecture concepts definitions
+      href: concept-azure-machine-learning-architecture.md
+    - name: Automated Machine Learning
+      displayName: 'automl, auto ml'
+      href: concept-automated-ml.md
+    - name: Administración de modelos
+      displayName: 'deploy, deployment'
+      href: concept-model-management-and-deployment.md
+    - name: Interoperabilidad del modelo
+      displayName: explainability
+      href: machine-learning-interpretability-explainability.md
+    - name: Aceleración con FPGA
+      href: concept-accelerate-with-fpgas.md
+    - name: Canalizaciones de Machine Learning
+      href: concept-ml-pipelines.md
+    - name: Seguridad
+      items:
+        - name: Introducción sobre la seguridad en la empresa
+          displayName: authorization authentication encryption
+          href: concept-enterprise-security.md
+        - name: Administración de usuarios y roles
+          href: how-to-assign-roles.md
+        - name: Uso de redes virtuales
+          displayName: vnet
+          href: how-to-enable-virtual-network.md
+        - name: Protección de servicios web con SSL
+          href: how-to-secure-web-service.md
 - name: Guías de procedimientos
   items:
-  - name: Administración de áreas de trabajo
-    items:
-    - name: Uso del portal para áreas de trabajo
-      href: how-to-manage-workspace.md
-    - name: Usar una plantilla de Resource Manager
-      href: how-to-create-workspace-template.md
-  - name: Configuración del entorno de desarrollo 
-    items:
-    - name: Configuración de entornos de desarrollo
-      displayName: local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB
-      href: how-to-configure-environment.md
-    - name: Extensión de Visual Studio Code
-      displayName: Visual Studio Code, VSCode, tools, ai, vs
+    - name: Administración de áreas de trabajo
       items:
-      - name: Introducción
-        href: how-to-vscode-tools.md
-      - name: Entrenamiento e implementación
-        href: how-to-vscode-train-deploy.md
-  - name: Trabajar con datos
-    displayName: data prep, ETL, ELT, data preparation
-    items:
-    - name: Exploración y preparación de datos
-      displayName: data prep, ETL, ELT, data preparation
+        - name: Uso del portal para áreas de trabajo
+          href: how-to-manage-workspace.md
+        - name: Usar una plantilla de Resource Manager
+          href: how-to-create-workspace-template.md
+    - name: "Configuración del entorno de desarrollo\_"
       items:
-      - name: Carga de datos
-        href: how-to-load-data.md
-      - name: Transformación de datos
-        href: how-to-transform-data.md
-      - name: Escritura de datos
-        href: how-to-write-data.md
-  - name: Obtención de datos del almacén de datos
-    displayName: blob get fileshare access storage
-    href: how-to-access-data.md
-  - name: Entrenamiento de modelos
-    items:
-    - name: Configuración de entornos de entrenamiento
-      displayName: compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight
-      href: how-to-set-up-training-targets.md
-    - name: Creación de estimadores de entrenamiento
-      href: how-to-train-ml-models.md
-    - name: Uso de PyTorch
-      href: how-to-train-pytorch.md
-    - name: Uso de TensorFlow y Keras
-      href: how-to-train-tensorflow.md
-    - name: Ajuste de hiperparámetros
-      displayName: parameter
-      href: how-to-tune-hyperparameters.md
-  - name: Seguimiento y supervisión de experimentos
-    items:
-    - name: Inicio, supervisión o cancelación de ejecuciones
-      displayName: cancel, fail, status, child run
-      href: how-to-manage-runs.md
-    - name: Métricas de registro de las ejecuciones de entrenamientos
-      href: how-to-track-experiments.md
-  - name: Automatizar el aprendizaje automático
-    displayName: automl, auto ml
-    items:
-    - name: Uso de Machine Learning automatizado (Python)
-      displayName: SDK automl
-      href: how-to-configure-auto-train.md
-    - name: Uso de destinos de proceso remoto
-      displayName: automl automated auto ml
-      href: how-to-auto-train-remote.md
-    - name: Entrenamiento automático de un modelo de previsión
-      displayName: time series
-      href: how-to-auto-train-forecast.md
-  - name: Modelos de ONNX
-    href: how-to-build-deploy-onnx.md
-  - name: Implementación de modelos
-    items:
-    - name: Dónde y cómo implementar
-      displayName: publish azure kubernetes azure container instances
-      href: how-to-deploy-and-where.md
-    - name: FPGA
-      href: how-to-deploy-fpga-web-service.md
-    - name: Solución de problemas
-      href: how-to-troubleshoot-deployment.md
-  - name: Consumo de servicios web
-    items:
-    - name: Consumo en tiempo real
-      displayName: create client consume request response synchronous
-      href: how-to-consume-web-service.md
-    - name: Ejecutar predicciones por lotes
-      displayName: score scoring asynchronous consume pipeline
-      href: how-to-run-batch-predictions.md
-  - name: Supervisión de servicios web
-    items:
-    - name: Recopilación y evaluación de datos del modelo
-      displayName: track production
-      href: how-to-enable-data-collection.md
-    - name: Supervisión con Application Insights
-      href: how-to-enable-app-insights.md
-  - name: Cree su primera canalización
-    href: how-to-create-your-first-pipeline.md
-  - name: Habilitación del registro
-    displayName: logging
-    href: how-to-enable-logging.md
-  - name: Administración de cuotas de recursos
-    displayName: limits
-    href: how-to-manage-quotas.md
-  - name: Uso de la CLI de Machine Learning
-    displayName: cli extension command line command-line az ci/cd automate automated
-    href: reference-azure-machine-learning-cli.md
-  - name: Exportación y eliminación de datos
-    displayName: GDPR
-    href: how-to-export-delete-data.md
+        - name: Configuración de entornos de desarrollo
+          displayName: 'local, remote, azure notebooks, notebook, Jupyter, dsvm, Databricks, ADB'
+          href: how-to-configure-environment.md
+        - name: Uso de la extensión de Visual Studio Code
+          displayName: 'Visual Studio Code, VSCode, tools, ai, vs'
+          href: how-to-vscode-tools.md
+    - name: Trabajar con datos
+      displayName: 'data prep, ETL, ELT, data preparation'
+      items:
+        - name: Exploración y preparación de datos
+          displayName: 'data prep, ETL, ELT, data preparation'
+          items:
+            - name: Carga de datos
+              href: how-to-load-data.md
+            - name: Transformación de datos
+              href: how-to-transform-data.md
+            - name: Escritura de datos
+              href: how-to-write-data.md
+    - name: Obtención de datos del almacén de datos
+      displayName: blob get fileshare access storage
+      href: how-to-access-data.md
+    - name: Entrenamiento de modelos
+      items:
+        - name: Configuración de entornos de entrenamiento
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+          href: how-to-set-up-training-targets.md
+        - name: Creación de estimadores de entrenamiento
+          href: how-to-train-ml-models.md
+        - name: Uso de PyTorch
+          href: how-to-train-pytorch.md
+        - name: Uso de TensorFlow y Keras
+          href: how-to-train-tensorflow.md
+        - name: Ajuste de hiperparámetros
+          displayName: parameter
+          href: how-to-tune-hyperparameters.md
+    - name: Seguimiento y supervisión de experimentos
+      items:
+        - name: 'Inicio, supervisión o cancelación de ejecuciones'
+          displayName: 'cancel, fail, status, child run'
+          href: how-to-manage-runs.md
+        - name: Métricas de registro de las ejecuciones de entrenamientos
+          href: how-to-track-experiments.md
+    - name: Automatizar el aprendizaje automático
+      displayName: 'automl, auto ml'
+      items:
+        - name: Uso de Machine Learning automatizado (Python)
+          displayName: SDK automl
+          href: how-to-configure-auto-train.md
+        - name: Uso de destinos de proceso remoto
+          displayName: automl automated auto ml
+          href: how-to-auto-train-remote.md
+        - name: Entrenamiento automático de un modelo de previsión
+          displayName: time series
+          href: how-to-auto-train-forecast.md
+    - name: Modelos de ONNX
+      href: how-to-build-deploy-onnx.md
+    - name: Implementación de modelos
+      items:
+        - name: Dónde y cómo implementar
+          displayName: publish azure kubernetes azure container instances
+          href: how-to-deploy-and-where.md
+        - name: FPGA
+          href: how-to-deploy-fpga-web-service.md
+        - name: Solución de problemas
+          href: how-to-troubleshoot-deployment.md
+    - name: Consumo de servicios web
+      items:
+        - name: Consumo en tiempo real
+          displayName: create client consume request response synchronous
+          href: how-to-consume-web-service.md
+        - name: Ejecutar predicciones por lotes
+          displayName: score scoring asynchronous consume pipeline
+          href: how-to-run-batch-predictions.md
+    - name: Supervisión de servicios web
+      items:
+        - name: Recopilación y evaluación de datos del modelo
+          displayName: track production
+          href: how-to-enable-data-collection.md
+        - name: Supervisión con Application Insights
+          href: how-to-enable-app-insights.md
+    - name: Cree su primera canalización
+      href: how-to-create-your-first-pipeline.md
+    - name: Habilitación del registro
+      displayName: logging
+      href: how-to-enable-logging.md
+    - name: Administración de cuotas de recursos
+      displayName: limits
+      href: how-to-manage-quotas.md
+    - name: Uso de la CLI de Machine Learning
+      displayName: cli extension command line command-line az ci/cd automate automated
+      href: reference-azure-machine-learning-cli.md
+    - name: Exportación y eliminación de datos
+      displayName: GDPR
+      href: how-to-export-delete-data.md
 - name: Referencia
   items:
-  - name: SDK de Machine Learning
-    displayName: api core package python
-    href: https://aka.ms/aml-sdk
-  - name: SDK de preparación de datos
-    displayName: api preparation package python
-    href: https://aka.ms/data-prep-sdk
-  - name: Supervisión de SDK
-    displayName: api package python monitor
-    href: https://aka.ms/aml-monitoring-sdk
+    - name: SDK de Machine Learning
+      displayName: api core package python
+      href: 'https://aka.ms/aml-sdk'
+    - name: SDK de preparación de datos
+      displayName: api preparation package python
+      href: 'https://aka.ms/data-prep-sdk'
+    - name: Supervisión de SDK
+      displayName: api package python monitor
+      href: 'https://aka.ms/aml-monitoring-sdk'
 - name: Recursos
   items:
-  - name: Notas de la versión
-    displayName: what's new issues bugs
-    href: azure-machine-learning-release-notes.md
-  - name: Azure Roadmap
-    href: https://azure.microsoft.com/roadmap/
-  - name: Precios
-    href: https://azure.microsoft.com/pricing/details/machine-learning-services/
-  - name: Disponibilidad regional
-    href: https://azure.microsoft.com/regions/services/
-  - name: Problemas conocidos
-    displayName: bugs errors troubleshoot
-    href: resource-known-issues.md
-  - name: Foro de usuarios
-    href: https://aka.ms/aml-forum-service
-  - name: Stack Overflow
-    href: https://stackoverflow.com/questions/tagged/azure-machine-learning
-  - name: Comparación entre nuestros productos de aprendizaje automático
-    href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
-    maintainContext: true
-ms.openlocfilehash: 647c949a8f999a34963ddfa49f1df8a1606a1295
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521774"
+    - name: Notas de la versión
+      displayName: what's new issues bugs
+      href: azure-machine-learning-release-notes.md
+    - name: Azure Roadmap
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Precios
+      href: 'https://azure.microsoft.com/pricing/details/machine-learning-services/'
+    - name: Disponibilidad regional
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Problemas conocidos
+      displayName: bugs errors troubleshoot
+      href: resource-known-issues.md
+    - name: Foro de usuarios
+      href: 'https://aka.ms/aml-forum-service'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/azure-machine-learning'
+    - name: Comparación entre nuestros productos de aprendizaje automático
+      href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning
+      maintainContext: true

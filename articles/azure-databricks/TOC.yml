@@ -17,6 +17,8 @@
   items:
     - name: Consulta de SQL Server en ejecución en el contenedor de Docker
       href: vnet-injection-sql-server.md
+    - name: Uso del punto de conexión de servicio de Cosmos DB
+      href: service-endpoint-cosmosdb.md
     - name: Realización de operaciones de ETL
       href: databricks-extract-load-sql-data-warehouse.md
     - name: Streaming de datos mediante Event Hubs

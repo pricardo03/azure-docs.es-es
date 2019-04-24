@@ -1,10 +1,4 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 8153bc1865d1c1fbbb1affb950bd5c245d87ad1a
-ms.sourcegitcommit: 24906eb0a6621dfa470cb052a800c4d4fae02787
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 02/27/2019
-ms.locfileid: "56888923"
 documentType: LandingData
 title: Documentación sobre Computer Vision API
 metadata:
@@ -22,84 +16,92 @@ metadata:
   ms.author: nitinme
 ms.custom: seodec18
 abstract:
-  description: Computer Vision API, basada en la nube, provee a los desarrolladores de acceso a algoritmos avanzados para procesar imágenes y devolver información. Al cargar una imagen o al especificar una URL de imagen, los algoritmos del servicio Computer Vision pueden analizar el contenido visual de diferentes maneras basándose en las entradas y las opciones del usuario. Aprenda a analizar el contenido visual de varias maneras con guías de inicio rápido, tutoriales y ejemplos.
+  description: 'Computer Vision API, basada en la nube, provee a los desarrolladores de acceso a algoritmos avanzados para procesar imágenes y devolver información. Al cargar una imagen o al especificar una URL de imagen, los algoritmos del servicio Computer Vision pueden analizar el contenido visual de diferentes maneras basándose en las entradas y las opciones del usuario. Aprenda a analizar el contenido visual de varias maneras con guías de inicio rápido, tutoriales y ejemplos.'
   aside:
     image:
-      alt: 
+      alt: null
       height: 110
       src: ../media/index/computer-vision-landing-page-video.png
       width: 250
-    title: Incorporación de inteligencia en sus aplicaciones con Vision API (05:41)
-    href: https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-put-intelligence-into-your-business-apps/
+    title: 'Incorporación de inteligencia en sus aplicaciones con Vision API (05:41)'
+    href: 'https://azure.microsoft.com/resources/videos/connect-2017-microsoft-cognitive-services-put-intelligence-into-your-business-apps/'
     width: 250
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/computer-vision/home
+            html: <p>Más información sobre Computer Vision API.</p>
+            image:
+              src: ../media/index/i_overview.svg
+              alt: icono de información general
+            title: ¿Qué es Computer Vision?
+          - href: /azure/cognitive-services/computer-vision/concept-recognizing-text
+            html: <p>Más información sobre los conceptos de reconocimiento de texto.</p>
+            image:
+              src: ../media/index/i_tasks.svg
+              alt: icono de lista de tareas
+            title: Reconocimiento de texto manuscrito e impreso
+          - href: /azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi
+            html: <p>Aspectos fundamentales de la llamada a Computer Vision API.</p>
+            image:
+              src: ../media/index/i_tasks.svg
+              alt: icono de lista de tareas
+            title: Llamada a Computer Vision API
+  - title: Inicio rápido en 5 minutos
     items:
-    - href: /azure/cognitive-services/computer-vision/home
-      html: <p>Más información sobre Computer Vision API.</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: ¿Qué es Computer Vision?
-    - href: /azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtosubscribe
-      html: <p>Aprenda a obtener claves de suscripción de Computer Vision API.</p>
-      image:
-        src: ../media/index/i_tasks.svg
-      title: Claves de suscripción de Computer Vision API
-    - href: /azure/cognitive-services/computer-vision/vision-api-how-to-topics/howtocallvisionapi
-      html: <p>Aspectos fundamentales de la llamada a Computer Vision API.</p>
-      image:
-        src: ../media/index/i_tasks.svg
-      title: Llamada a Computer Vision API
-- title: Inicio rápido en 5 minutos
-  items:
-  - type: paragraph
-    text: 'Analice las imágenes, genere miniaturas y extraiga el texto de una imagen mediante:'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 'Analice las imágenes, genere miniaturas y extraiga el texto de una imagen mediante:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_Csharp.svg
+            text: 'C&#35;'
+            alt: Logotipo de C sharp
+            href: quickstarts-sdk/csharp-analyze-sdk
+          - image:
+              src: media/index/logo_java.svg
+            text: Java
+            alt: Logotipo de Java
+            href: QuickStarts/java-analyze
+          - image:
+              src: media/index/logo_nodejs.svg
+            text: Node.js
+            alt: Logotipo de Node.js
+            href: QuickStarts/node-analyze
+          - image:
+              src: media/index/logo_python.svg
+            text: Python
+            alt: Logotipo de C Python
+            href: quickstarts-sdk/python-sdk
+          - image:
+              src: media/index/logo_go.svg
+            text: Go
+            alt: Logotipo de Go
+            href: QuickStarts/go-analyze
+  - title: Tutoriales detallados
     items:
-    - image:
-        src: media/index/logo_Csharp.svg
-      text: C&#35;
-      href: quickstarts-sdk/csharp-analyze-sdk
-    - image:
-        src: media/index/logo_java.svg
-      text: Java
-      href: QuickStarts/java-analyze
-    - image:
-        src: media/index/logo_nodejs.svg
-      text: Node.js
-      href: QuickStarts/node-analyze
-    - image:
-        src: media/index/logo_python.svg
-      text: Python
-      href: quickstarts-sdk/python-sdk
-    - image:
-        src: media/index/logo_go.svg
-      text: Go
-      href: QuickStarts/go-analyze
-- title: Tutoriales detallados
-  items:
-  - type: paragraph
-    text: 'Aprenda a desarrollar aplicaciones mediante Computer Vision:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Aprenda a desarrollar aplicaciones mediante Computer Vision:'
+      - type: list
+        style: unordered
+        items:
+          - html: '<a href="Tutorials/CSharpTutorial.md">Creación de una aplicación de Computer Vision mediante C#</a>'
+  - title: Referencia
     items:
-    - html: <a href="Tutorials/CSharpTutorial.md">Creación de una aplicación de Computer Vision mediante C#</a>
-- title: Referencia
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: API existentes
-      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44">Computer Vision API v2.0</a></p> <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739">Computer Vision API v1.0</a></p>
-    - title: SDK
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/computervision?view=azure-node-latest">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable">Android (Java)</a></p> <p><a href="https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK">Swift</a></p>
-    - title: PowerShell
-      html: <p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">CLI de Azure</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: API existentes
+            html: '<p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44">Computer Vision API v2.0</a></p> <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739">Computer Vision API v1.0</a></p>'
+          - title: SDK
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/computervision?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-computervision?view=azure-node-latest">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/computervision?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/computervision">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/computervision?view=azure-java-stable">Android (Java)</a></p> <p><a href="https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK">Swift</a></p>'
+          - title: PowerShell
+            html: '<p><a href="https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az-cognitiveservices-list">CLI de Azure</a></p>'

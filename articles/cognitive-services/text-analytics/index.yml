@@ -1,15 +1,9 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 77c69ea24adeef7960b1f16670a2e34ffaf5aca7
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
-ms.translationtype: HT
-ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56728274"
 documentType: LandingData
 title: Documentación de la API de Text Analytics
 metadata:
   title: 'Documentación sobre Text Analytics API: tutoriales y referencia de API: Azure Cognitive Services | Microsoft Docs'
-  description: Aprenda a usar Text Analytics API para realizar un procesamiento avanzado de lenguaje natural sobre texto. Los tutoriales le muestran cómo escribir código que utilice el servicio Text Analytics.
+  description: 'Text Analytics API es un servicio basado en la nube que proporciona un procesamiento avanzado de idioma natural sobre texto sin formato, e incluye cuatro funciones principales: análisis de opiniones, extracción de frases clave, reconocimiento de entidades con nombre y detección de lenguaje.'
   services: cognitive-services
   author: nitinme
   manager: cgronlun
@@ -22,76 +16,76 @@ metadata:
   ms.date: 09/24/2018
   ms.author: nitinme
 abstract:
-  description: 'Text Analytics API es un servicio basado en la nube que proporciona un procesamiento avanzado de lenguaje natural sobre texto sin formato, e incluye tres funciones principales: análisis de sentimiento, extracción de frases clave y detección de idioma. Aprenda a analizar el contenido de varias maneras con nuestros inicios rápidos, tutoriales y ejemplos.'
+  description: 'Text Analytics API es un servicio basado en la nube que proporciona un procesamiento avanzado de idioma natural sobre texto sin formato, e incluye cuatro funciones principales: análisis de opiniones, extracción de frases clave, reconocimiento de entidades con nombre y detección de idioma. Aprenda a analizar el contenido de varias maneras con nuestros inicios rápidos, tutoriales y ejemplos.'
 sections:
-- items:
-  - type: list
-    style: cards
-    className: cardsM
-    columns: 3
+  - items:
+      - type: list
+        style: cards
+        className: cardsM
+        columns: 3
+        items:
+          - href: /azure/cognitive-services/text-analytics/overview
+            html: <p>Más información sobre Text Analytics API.</p>
+            image:
+              src: ../media/index/i_overview.svg
+            title: ¿Qué es Text Analytics?
+          - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-signup
+            html: <p>Más información sobre el registro en Text Analytics API.</p>
+            image:
+              src: ../media/index/i_get-started.svg
+            title: Registro en Text Analytics API
+          - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-access-key
+            html: <p>Más información sobre cómo obtener las claves de acceso y los puntos de conexión para Text Analytics API.</p>
+            image:
+              src: ../media/index/i_tasks.svg
+            title: Claves de acceso para Text Analytics API
+  - title: Inicio rápido en 5 minutos
     items:
-    - href: /azure/cognitive-services/text-analytics/overview
-      html: <p>Más información sobre Text Analytics API.</p>
-      image:
-        src: ../media/index/i_overview.svg
-      title: ¿Qué es Text Analytics?
-    - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-signup
-      html: <p>Más información sobre el registro en Text Analytics API.</p>
-      image:
-        src: ../media/index/i_get-started.svg
-      title: Registro en Text Analytics API
-    - href: /azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-access-key
-      html: <p>Más información sobre cómo obtener las claves de acceso y los puntos de conexión para Text Analytics API.</p>
-      image:
-        src: ../media/index/i_tasks.svg
-      title: Claves de acceso para Text Analytics API
-- title: Inicio rápido en 5 minutos
-  items:
-  - type: paragraph
-    text: 'Empiece a usar Text Analytics API mediante la detección de idioma, el análisis de opiniones y la extracción de frases clave:'
-  - type: list
-    style: icon48
+      - type: paragraph
+        text: 'Empiece a usar Text Analytics API con la detección de idioma, el análisis de opiniones, la extracción de frases clave y el reconocimiento de entidades:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: media/index/logo_csharp.svg
+            text: 'C&#35;'
+            href: quickstarts/csharp
+          - image:
+              src: media/index/logo_java.svg
+            text: Java
+            href: quickstarts/java
+          - image:
+              src: media/index/logo_nodejs.svg
+            text: Node.js
+            href: quickstarts/nodejs
+          - image:
+              src: media/index/logo_python.svg
+            text: Python
+            href: quickstarts/python
+          - image:
+              src: media/index/logo_go.svg
+            text: Go
+            href: quickstarts/go
+  - title: Tutoriales detallados
     items:
-    - image:
-        src: media/index/logo_csharp.svg
-      text: C&#35;
-      href: quickstarts/csharp
-    - image:
-        src: media/index/logo_java.svg
-      text: Java
-      href: quickstarts/java
-    - image:
-        src: media/index/logo_nodejs.svg
-      text: Node.js
-      href: quickstarts/nodejs
-    - image:
-        src: media/index/logo_python.svg
-      text: Python
-      href: quickstarts/python
-    - image:
-        src: media/index/logo_go.svg
-      text: Go
-      href: quickstarts/go
-- title: Tutoriales detallados
-  items:
-  - type: paragraph
-    text: 'Aprenda a desarrollar aplicaciones mediante Text Analytics API:'
-  - type: list
-    style: unordered
+      - type: paragraph
+        text: 'Aprenda a desarrollar aplicaciones mediante Text Analytics API:'
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorials/tutorial-power-bi-key-phrases.md">Text Analytics con Power BI</a>
+          - html: '<a href="https://powerapps.microsoft.com/tutorials/cognitive-services-api/">Text Analytics en PowerApps</a>'
+  - title: Referencia
     items:
-    - html: <a href="tutorials/tutorial-power-bi-key-phrases.md">Text Analytics con Power BI</a>
-    - html: <a href="https://powerapps.microsoft.com/tutorials/cognitive-services-api/">Text Analytics en PowerApps</a>
-- title: Referencia
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: REST
-      html: <p><a href="https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7">Referencia de API</a></p>
-    - title: SDK
-      html: <p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/overview/azure/cognitiveservices/textanalytics?view=azure-node-latest">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.0/textanalytics">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable">Java</a></p>
-    - title: PowerShell
-      html: <p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>
-    - title: CLI
-      html: <p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI de Azure</a></p>
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: REST
+            html: '<p><a href="https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7">Referencia de API</a></p>'
+          - title: SDK
+            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet">.NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics?view=azure-node-latest">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python">Python</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics">Go</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable">Java</a></p>'
+          - title: PowerShell
+            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
+          - title: CLI
+            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">CLI de Azure</a></p>'
