@@ -8,18 +8,18 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: 9a61b5d25d554ea7e39490b0ca64cde3dcb396d6
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: b0a8deb5f656fafde358dbcf2e1a2724f1a84113
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186496"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "61225446"
 ---
 # <a name="linux-virtual-machines-documentation"></a>Documentación sobre máquinas virtuales Linux
 
 Las máquinas virtuales Linux de Azure proporcionan una infraestructura bajo demanda, a gran escala, segura y virtualizada con Red Hat, Ubuntu o la distribución de Linux de su elección. Aprenda a crear, configurar, administrar y escalar máquinas virtuales Linux con nuestros inicios rápidos, tutoriales y ejemplos.
 
-## <a name="5-minute-quickstarts"></a>Inicios rápidos en 5 minutos
+## <a name="5-minute-quickstarts"></a>Inicio rápido en 5 minutos
 
 Aprenda a implementar un servidor web NGINX dentro de una máquina virtual que ejecuta Ubuntu:
 
