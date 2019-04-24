@@ -9,11 +9,11 @@ ms.date: 04/23/2018
 ms.author: sngun
 ms.subservice: tables
 ms.openlocfilehash: 97373f6f0138d3ed8028ed4327b7e6cf90ad76a7
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55470746"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325874"
 ---
 # <a name="design-for-querying"></a>Diseño de consulta
 Las soluciones de Table service pueden requerir mucha lectura, escritura o una combinación de ambas. Este artículo se centra en los aspectos que se deben tener en cuenta al diseñar su instancia de Table service para admitir operaciones de lectura de forma eficaz. Normalmente, un diseño que admite operaciones de lectura eficazmente también es eficaz para las operaciones de escritura. Sin embargo, hay algunos otros aspectos que hay que tener en cuenta durante el diseño para admitir operaciones de escritura y que se explican en el artículo [Diseño para la modificación de datos](table-storage-design-for-modification.md).

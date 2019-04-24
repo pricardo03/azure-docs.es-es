@@ -15,15 +15,15 @@ ms.topic: article
 ms.date: 10/19/2018
 ms.author: pbutlerm
 ms.openlocfilehash: 35ac9d0c4b0188724c91cdcf4f33b645dd92e98a
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49639514"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343228"
 ---
 # <a name="virtual-machine-support-tab"></a>Pestaña Soporte técnico de máquina virtual
 
-La pestaña **Soporte técnico** de la página **Nueva oferta** permite proporcionar recursos técnicos y de soporte de usuario para la oferta.  Se divide en tres áreas: **Ingeniería**, **Asistencia al cliente** y **Direcciones URL de soporte técnico**.
+La pestaña **Soporte técnico** de la página **Nueva oferta** permite proporcionar recursos técnicos y de soporte de usuario para la oferta.  Se divide en tres áreas: **Ingeniería**, **soporte al cliente**, y **admite direcciones URL**.
 
 ![Pestaña Soporte técnico en el formulario Nueva oferta para máquinas virtuales](./media/publishvm_012.png)
 

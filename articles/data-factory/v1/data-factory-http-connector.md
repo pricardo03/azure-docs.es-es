@@ -13,11 +13,11 @@ ms.date: 05/22/2018
 ms.author: jingwang
 robots: noindex
 ms.openlocfilehash: f7e070788d2fc11addcafc30d9f232f194f44782
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54017266"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318485"
 ---
 # <a name="move-data-from-an-http-source-by-using-azure-data-factory"></a>Movimiento de datos desde un origen HTTP mediante Azure Data Factory
 
@@ -53,9 +53,9 @@ En la tabla siguiente se describen los elementos JSON específicos del servicio 
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| Tipo | La propiedad **type** debe establecerse en **Http**. | SÍ |
-| URL | La dirección URL base para el servidor web. | SÍ |
-| authenticationType | Especifica el tipo de autenticación. Los valores permitidos son: **Anonymous**, **Basic**, **Digest**, **Windows** y **ClientCertificate**. <br><br> Consulte las secciones posteriores de este artículo para obtener más propiedades y ejemplos de JSON para estos tipos de autenticación. | SÍ |
+| Tipo | La propiedad **type** debe establecerse en **Http**. | Sí |
+| url | La dirección URL base para el servidor web. | Sí |
+| authenticationType | Especifica el tipo de autenticación. Los valores permitidos son: **Anonymous**, **Basic**, **Digest**, **Windows** y **ClientCertificate**. <br><br> Consulte las secciones posteriores de este artículo para obtener más propiedades y ejemplos de JSON para estos tipos de autenticación. | Sí |
 | enableServerCertificateValidation | Especifique si desea habilitar la validación de certificados SSL de servidor si el origen es un servidor web HTTPS. Si el servidor HTTPS usa un certificado autofirmado, establezca esta propiedad en **false**. | Sin <br /> (El valor predeterminado es: **true**) |
 | gatewayName | El nombre de la instancia de Data Management Gateway que se usará para conectarse a un origen HTTP local. | Sí, si va a copiar datos de un origen HTTP local. |
 | encryptedCredential | Las credenciales cifradas para acceder al punto de conexión HTTP. El valor se genera automáticamente cuando configura la información de autenticación en el Asistente para copia o al usar el cuadro de diálogo **ClickOnce**. | Sin <br /> (se aplica solo cuando copia datos de un servidor HTTP local) |
@@ -68,8 +68,8 @@ Establezca **authenticationType** en **Basic**, **Digest** o **Windows**. Ademá
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 | --- | --- | --- |
-| nombre de usuario | El nombre de usuario para acceder al punto de conexión HTTP. | SÍ |
-| contraseña | La contraseña para el usuario (**username**). | SÍ |
+| username | El nombre de usuario para acceder al punto de conexión HTTP. | Sí |
+| password | La contraseña para el usuario (**username**). | Sí |
 
 **Ejemplo: Uso de la autenticación Basic, Digest o Windows**
 
@@ -98,7 +98,7 @@ Para usar la autenticación básica, establezca **authenticationType** a **Clien
 | --- | --- | --- |
 | embeddedCertData | El contenido codificado en base 64 de los datos binarios del archivo PFX. | Especifique **embeddedCertData** o **certThumbprint** |
 | certThumbprint | La huella digital del certificado que se instaló en el almacén de certificados de la máquina de la puerta de enlace. Se aplica solo cuando copia datos de un origen HTTP local. | Especifique **embeddedCertData** o **certThumbprint** |
-| contraseña | La contraseña asociada con el certificado. | Sin  |
+| password | La contraseña asociada con el certificado. | Sin  |
 
 Si utiliza **certThumbprint** para la autenticación y el certificado está instalado en el almacén personal del equipo local, tiene que conceder el permiso de lectura al servicio de puerta de enlace:
 
@@ -160,7 +160,7 @@ La sección **typeProperties** es diferente para cada tipo de conjunto de datos.
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad **type** del conjunto de datos debe establecerse en **Http**. | SÍ |
+| Tipo | La propiedad **type** del conjunto de datos debe establecerse en **Http**. | Sí |
 | relativeUrl | Dirección URL relativa al recurso que contiene los datos. Cuando no se especifica la ruta de acceso, se solo se usa la dirección URL especificada en la definición del servicio vinculado. <br><br> Para construir la dirección URL dinámica, puede usar [funciones de Data Factory y variables del sistema](data-factory-functions-variables.md). Ejemplo: **relativeUrl**: **$$Text.Format('/my/report?month={0:yyyy}-{0:MM}&fmt=csv', SliceStart)**. | Sin  |
 | requestMethod | Método HTTP. Los valores permitidos son **GET** y **POST**. | Sin  <br />(el valor predeterminado es **GET**) |
 | additionalHeaders | Encabezados de solicitud HTTP adicionales. | Sin  |

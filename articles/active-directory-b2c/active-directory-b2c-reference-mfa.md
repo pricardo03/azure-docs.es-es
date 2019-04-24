@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: davidmu
+origin.date: 11/30/2018
+ms.date: 04/02/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: 931fd0714977fb4c5f79aa32691881f9794a44cd
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198323"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317230"
 ---
 # <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Habilitación de la autenticación multifactor en Azure Active Directory B2C
 
@@ -47,5 +48,6 @@ Para habilitar la autenticación multifactor:
 1. Abra el flujo de usuario y, a continuación, seleccione **Propiedades**. 
 2. Junto a **Autenticación multifactor**, seleccione **Habilitado**.
 3. Haga clic en **Guardar** en la parte superior de la página.
+
 
 

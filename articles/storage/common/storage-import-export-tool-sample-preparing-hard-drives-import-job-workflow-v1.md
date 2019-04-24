@@ -9,18 +9,18 @@ ms.date: 01/23/2017
 ms.author: muralikk
 ms.subservice: common
 ms.openlocfilehash: b80ba1cbe168270ec591bdd38859408eae387bbf
-ms.sourcegitcommit: 90dcc3d427af1264d6ac2b9bde6cdad364ceefcc
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58311720"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60320591"
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Flujo de trabajo de ejemplo para preparar las unidades de disco duro para un trabajo de importación
 Este tema le guiará por el proceso completo de preparar las unidades para un trabajo de importación.  
   
 Este ejemplo importa los datos siguientes en una cuenta de Azure Storage denominada `mystorageaccount`:  
   
-|Ubicación|DESCRIPCIÓN|  
+|Location|DESCRIPCIÓN|  
 |--------------|-----------------|  
 |H:\Video|Una colección de vídeos, 5 TB en total.|  
 |H:\Photo|Una colección de fotos, 30 GB en total.|  
@@ -44,7 +44,7 @@ A continuación, para determinar cuántas unidades de disco duro se necesitan, c
   
 En este ejemplo, dos unidades de disco duro de 3 TB deberían ser suficientes. Sin embargo, dado que el directorio de origen `H:\Video` tiene 5 TB de datos y la capacidad de la unidad de disco duro es de solo 3 TB, es necesario dividir `H:\Video` en dos directorios más pequeños antes de ejecutar la herramienta Microsoft Azure Import/Export: `H:\Video1` y `H:\Video2`. Este paso genera los siguientes directorios de origen:  
   
-|Ubicación|Tamaño|Directorio virtual o blob de destino|  
+|Location|Tamaño|Directorio virtual o blob de destino|  
 |--------------|----------|-------------------------------------------|  
 |H:\Video1|2,5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  
 |H:\Video2|2,5 TB|https:\//mystorageaccount.blob.core.windows.net/video|  

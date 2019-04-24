@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: bb0e146ef32ba24c3911bae86806c84768c005ef
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54023814"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405960"
 ---
 # <a name="copy-data-from-oracle-eloqua-using-azure-data-factory-preview"></a>Copiar datos de Oracle Eloqua con Azure Data Factory (versión preliminar)
 
@@ -44,10 +44,10 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Oracle E
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Eloqua** | SÍ |
-| punto de conexión | Punto de conexión del servidor de Eloqua. Eloqua admite varios centros de datos; para determinar su punto de conexión, inicie sesión en https://login.eloqua.com mediante sus credenciales, y copie la porción de la **URL base** de la URL redirigida con el patrón de `xxx.xxx.eloqua.com`. | SÍ |
-| nombre de usuario | Nombre del sitio y del usuario de la cuenta de Eloqua con el siguiente formato: `SiteName\Username`por ejemplo, `Eloqua\Alice`.  | SÍ |
-| contraseña | Contraseña que corresponde al nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
+| type | La propiedad type debe establecerse en: **Eloqua** | Sí |
+| punto de conexión | Punto de conexión del servidor de Eloqua. Eloqua admite varios centros de datos; para determinar su punto de conexión, inicie sesión en https://login.eloqua.com mediante sus credenciales, y copie la porción de la **URL base** de la URL redirigida con el patrón de `xxx.xxx.eloqua.com`. | Sí |
+| username | Nombre del sitio y del usuario de la cuenta de Eloqua con el siguiente formato: `SiteName\Username`por ejemplo, `Eloqua\Alice`.  | Sí |
+| password | Contraseña que corresponde al nombre de usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
@@ -79,7 +79,7 @@ Para copiar datos de Oracle Eloqua, establezca la propiedad type del conjunto de
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **EloquaObject** | SÍ |
+| type | La propiedad type del conjunto de datos debe establecerse en: **EloquaObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -108,7 +108,7 @@ Para copiar datos desde Oracle Eloqua, establezca el tipo de origen de la activi
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **EloquaSource** | SÍ |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **EloquaSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Accounts"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

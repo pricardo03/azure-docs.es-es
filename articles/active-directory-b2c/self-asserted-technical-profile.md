@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
+origin.date: 09/10/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: dcc94daeb19174b85fface05222f8842e9544adf
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55188871"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60419499"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definición de un perfil técnico autoafirmado en una directiva personalizada en Azure Active Directory B2C
 
@@ -132,7 +133,7 @@ También puede llamar a un perfil técnico de la API de REST con la lógica de n
 | setting.showContinueButton | Sin  | Muestra el botón para continuar. Valores posibles: `true` (opción predeterminada) o `false` |
 | setting.showCancelButton | Sin  | Muestra el botón para cancelar. Valores posibles: `true` (opción predeterminada) o `false` |
 | setting.operatingMode | Sin  | En una página de inicio de sesión, esta propiedad controla el comportamiento del campo de nombre de usuario, como la validación de entrada y los mensajes de error. Valores esperados: `Username` o `Email`. |
-| ContentDefinitionReferenceId | SÍ | El identificador de la [definición de contenido](contentdefinitions.md) asociada a este perfil técnico. |
+| ContentDefinitionReferenceId | Sí | El identificador de la [definición de contenido](contentdefinitions.md) asociada a este perfil técnico. |
 | EnforceEmailVerification | Sin  | Para registrarse o editar el perfil, exige la comprobación del correo electrónico. Valores posibles: `true` (opción predeterminada) o `false`. | 
 | setting.showSignupLink | Sin  | Muestra el botón para registrarse. Valores posibles: `true` (opción predeterminada) o `false` |
 | setting.retryLimit | Sin  | Controla el número de veces que un usuario puede intentar proporcionar los datos que se comprueban con un perfil técnico de validación. Por ejemplo, si un usuario intenta registrarse con una cuenta que ya existe y sigue intentándolo hasta que alcance el límite.
@@ -141,6 +142,7 @@ También puede llamar a un perfil técnico de la API de REST con la lógica de n
 ## <a name="cryptographic-keys"></a>Claves de cifrado
 
 El elemento **CryptographicKeys** no se usa.
+
 
 
 

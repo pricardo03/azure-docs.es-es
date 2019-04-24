@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.openlocfilehash: 218c89e403673c16c72da95aa2c1d685bbed5a86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: 7dac26b058b959011e38b4373369b8a1115d2705
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109283"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303268"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-backup-policies"></a>Use Administrador de instantáneas StorSimple para crear y administrar directivas de copia de seguridad
 ## <a name="overview"></a>Información general
@@ -58,7 +58,7 @@ Use el procedimiento siguiente para crear una nueva directiva de copia de seguri
    2. En **Configuración**, seleccione **Una vez**, **Diario**, **Semanal** o **Mensual**.
    3. En el cuadro de texto **Inicio** , haga clic en el icono de calendario y seleccione una fecha de inicio.
    4. En **Configuración avanzada**, puede establecer programaciones de repetición opcionales y una fecha de finalización.
-   5. Haga clic en **Aceptar**.
+   5. Haga clic en **OK**.
 
 Después de crear una directiva de copia de seguridad, aparece la siguiente información en el panel **Resultados** :
 
@@ -67,7 +67,7 @@ Después de crear una directiva de copia de seguridad, aparece la siguiente info
 * **Grupo de volúmenes** : grupo de volúmenes asociado a la directiva.
 * **Retención** : número de instantáneas retenidas; el número máximo es 64.
 * **Creado** : fecha en que se creó esta directiva.
-* **Habilitado**: si la directiva está actualmente en vigor. **True** indica que está en vigor; **False** indica que no está en vigor.
+* **Habilitado** : indica si la directiva está actualmente en vigor: **True** indica que está en vigor; **False** indica que no está en vigor.
 
 ## <a name="edit-a-backup-policy"></a>Edición de una directiva de copia de seguridad
 Use el procedimiento siguiente para editar una directiva de copia de seguridad existente.

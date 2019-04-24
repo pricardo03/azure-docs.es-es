@@ -10,11 +10,11 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
 ms.openlocfilehash: 83742a4f82fb4d67fd258ff0d242847eab634c78
-ms.sourcegitcommit: c31a2dd686ea1b0824e7e695157adbc219d9074f
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/18/2019
-ms.locfileid: "54402292"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60334113"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Análisis de registros de sitios web mediante Azure Data Lake Analytics
 Aprenda a analizar registros de sitios web mediante Análisis de Data Lake, especialmente en lo que se refiere a averiguar qué sitios de referencia presentaban errores cuando intentaron visitar el sitio web.
@@ -168,7 +168,7 @@ Puede agregar operadores de suma definidos por el usuario a la aplicación.  Par
 3. Haga doble clic en **UnsuccessfulResponses.log**.
 4. También puede hacer doble clic en el archivo de salida en la vista de gráfico del trabajo para ir directamente a la salida.
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 Para empezar a trabajar con Análisis de Data Lake usando diferentes herramientas, consulte:
 
 * [Introducción a Data Lake Analytics mediante Azure Portal](data-lake-analytics-get-started-portal.md)

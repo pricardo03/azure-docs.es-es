@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: tamram
-ms.openlocfilehash: 86bb7e736754cbc6a93bba5fff5d8d1877b1e3b4
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: e85cfb6d7b44924ce7f17fdedb7f1b52350ab598
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58916587"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392405"
 ---
 # <a name="set-and-retrieve-properties-and-metadata"></a>Establecimiento y recuperación de propiedades y metadatos
 
@@ -27,7 +27,7 @@ El proceso de recuperación de los valores de propiedad y metadatos de un recurs
 > [!IMPORTANT]
 > Si descubre que no se han rellenado los valores de propiedad ni metadatos para un recurso de almacenamiento, compruebe que su código llama al método **FetchAttributes** o **FetchAttributesAsync**.
 >
-> Pares de nombre/valor de metadatos son encabezados HTTP válidos y, por lo que deben cumplir todas las restricciones que rigen los encabezados HTTP. Los nombres de metadatos deben ser nombres válidos de encabezado HTTP, pueden contener sólo caracteres ASCII y deben tratarse como mayúsculas y minúsculas. Los valores de metadatos que contiene caracteres no ASCII deben estar codificados en Base64 o codificados de dirección URL.
+> Pares de nombre/valor de metadatos son encabezados HTTP válidos y, por lo que deben cumplir todas las restricciones que rigen los encabezados HTTP. Los nombres de los metadatos deben ser nombres válidos de encabezado HTTP válido y C# identificadores, puede contener únicamente caracteres ASCII y debe tratarse como mayúsculas y minúsculas. Los valores de metadatos que contiene caracteres no ASCII deben estar codificados en Base64 o codificados de dirección URL.
 
 ## <a name="setting-and-retrieving-properties"></a>Establecimiento y recuperación de propiedades
 Para recuperar valores de propiedad, llame al método **FetchAttributesAsync** en el blob o contenedor para rellenar las propiedades y, a continuación, lea los valores.

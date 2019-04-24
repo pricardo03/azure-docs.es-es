@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 6793fbcc50711e10231b87fa6e1f11f54f90d325
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54018439"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445441"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory-preview"></a>Copiar datos de Xero mediante Azure Data Factory (versión preliminar)
 
@@ -49,10 +49,10 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Xero:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Xero** | SÍ |
-| host | El punto de conexión del servidor de Xero (`api.xero.com`).  | SÍ |
-| consumerKey | Clave de consumidor asociada a la aplicación de Xero. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
-| privateKey | La clave privada del archivo .pem que se generó para la aplicación privada de Xero; consulte [Create a public/private key pair](https://developer.xero.com/documentation/api-guides/create-publicprivate-key) (Creación de un par de claves pública y privada). Asegúrese de **generar el archivo privatekey.pem con numbits de 512** con `openssl genrsa -out privatekey.pem 512`; 1024 no se admite. Incluya todo el texto del archivo .pem, así como los finales de línea Unix (\n). Vea el ejemplo a continuación.<br/><br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | SÍ |
+| type | La propiedad type debe establecerse en: **Xero** | Sí |
+| host | El punto de conexión del servidor de Xero (`api.xero.com`).  | Sí |
+| consumerKey | Clave de consumidor asociada a la aplicación de Xero. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
+| privateKey | La clave privada del archivo .pem que se generó para la aplicación privada de Xero; consulte [Create a public/private key pair](https://developer.xero.com/documentation/api-guides/create-publicprivate-key) (Creación de un par de claves pública y privada). Asegúrese de **generar el archivo privatekey.pem con numbits de 512** con `openssl genrsa -out privatekey.pem 512`; 1024 no se admite. Incluya todo el texto del archivo .pem, así como los finales de línea Unix (\n). Vea el ejemplo a continuación.<br/><br/>Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sí |
 | useEncryptedEndpoints | Especifica si los puntos de conexión de origen de datos se cifran mediante HTTPS. El valor predeterminado es true.  | Sin  |
 | useHostVerification | Especifica si se requiere que el nombre de host del certificado del servidor coincida con el nombre de host del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
 | usePeerVerification | Especifica si se debe verificar la identidad del servidor al conectarse a través de SSL. El valor predeterminado es true.  | Sin  |
@@ -95,7 +95,7 @@ Para copiar datos de Xero, establezca la propiedad type del conjunto de datos en
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **XeroObject** | SÍ |
+| type | La propiedad type del conjunto de datos debe establecerse en: **XeroObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -124,7 +124,7 @@ Para copiar datos de Xero, establezca el tipo de origen de la actividad de copia
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **XeroSource** | SÍ |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **XeroSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM Contacts"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

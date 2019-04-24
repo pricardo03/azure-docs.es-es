@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 11/20/2018
 ms.author: ergreenl
 ms.openlocfilehash: ba1507cd228b10972fb9e16a316b7f7e20982dbe
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55198272"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60416556"
 ---
 # <a name="suspended-domains"></a>Dominios suspendidos
 Cuando Azure Active Directory Domain Services (Azure AD DS) no puede atender un dominio administrado durante un largo período de tiempo, coloca el dominio administrado en un estado suspendido. En este artículo se explica por qué se suspenden los dominios administrados y cómo corregir un dominio suspendido.

@@ -12,16 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+origin.date: 07/13/2017
+ms.date: 04/09/2019
 ms.subservice: hybrid
-ms.author: billmath
+ms.author: v-junlch
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 10a4078f49abbdf431f42c6cde7cf882112e5848
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57839175"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384720"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Atributos paralelos del servicio de sincronización de Azure AD Connect
 La mayoría de los atributos se representan del mismo modo en Azure AD, ya que se encuentran en el Active Directory local. Pero algunos atributos tienen algún tratamiento especial y el valor del atributo en Azure AD puede ser distinto de lo que sincroniza Azure AD Connect.
@@ -38,11 +39,11 @@ Tienen varios sufijos UPN en su instancia de Active Directory local, pero solo s
 ### <a name="userprincipalname"></a>userPrincipalName
 Un usuario tiene los siguientes valores de atributo en un dominio no comprobado:
 
-| Atributo | Valor |
+| Atributo | Value |
 | --- | --- |
 | userPrincipalName local | lee.sperry@fabrikam.com |
 | shadowUserPrincipalName de Azure AD | lee.sperry@fabrikam.com |
-| userPrincipalName de Azure AD | lee.sperry@fabrikam.onmicrosoft.com |
+| userPrincipalName de Azure AD | lee.sperry@fabrikam.partner.onmschina.cn |
 
 El atributo userPrincipalName es el valor que aparece cuando se usa PowerShell.
 
@@ -53,7 +54,7 @@ El mismo proceso para incluir solo dominios comprobados también se produce para
 
 Para un usuario del buzón, de forma local o en Exchange Online, aparecen únicamente los valores para los dominios comprobados. Debería ser parecido a esto:
 
-| Atributo | Valor |
+| Atributo | Value |
 | --- | --- |
 | proxyAddresses local | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | ProxyAddresses de Exchange Online | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |
@@ -77,3 +78,5 @@ Los atributos paralelos también se utilizan cuando hay valores de atributo dupl
 ## <a name="see-also"></a>Vea también
 * [Sincronización de Azure AD Connect](how-to-connect-sync-whatis.md)
 * [Integración de las identidades locales con Azure Active Directory](whatis-hybrid-identity.md).
+
+<!-- Update_Description: wording update -->

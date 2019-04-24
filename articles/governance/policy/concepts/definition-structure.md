@@ -9,11 +9,11 @@ ms.service: azure-policy
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 7bb25aa1f77a49363fe2e08d1430282b9b33caae
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59549361"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311648"
 ---
 # <a name="azure-policy-definition-structure"></a>Estructura de definición de Azure Policy
 
@@ -287,7 +287,7 @@ En el ejemplo siguiente, `concat` se usa para crear una búsqueda de campos de e
 }
 ```
 
-### <a name="value"></a>Valor
+### <a name="value"></a>Value
 
 Las condiciones también se pueden formar mediante el uso de **value**. **value** comprueba las condiciones en [parámetros](#parameters), [funciones de plantilla admitidas](#policy-functions) o literales.
 **value** se empareja con cualquier [condición](#conditions) admitida.

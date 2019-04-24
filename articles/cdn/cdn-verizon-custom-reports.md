@@ -1,6 +1,6 @@
 ---
 title: Informes personalizados de Verizon | Microsoft Docs
-description: 'Puede ver los patrones de uso de la red CDN mediante los siguientes informes: Ancho de banda, Datos transferidos, Aciertos, Estados de la memoria caché, Frecuencia de aciertos de caché, Datos de IPV4/IPV6 transferidos.'
+description: 'Puede ver los patrones de uso de la red CDN mediante los siguientes informes: Ancho de banda, datos transferidos, aciertos, Estados de la memoria caché, datos de IPV4/IPV6 transferidos proporción de aciertos de caché.'
 services: cdn
 documentationcenter: ''
 author: mdgattuso
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/11/2017
 ms.author: magattus
 ms.openlocfilehash: 75a1fb4beb4025dc3ec63d29944331d07be35d8a
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092073"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60323609"
 ---
 # <a name="custom-reports-from-verizon"></a>Informes personalizados de Verizon
 
@@ -45,17 +45,17 @@ El registro de datos de informes personalizados comienza una hora después de ha
 
 Generación de un informe personalizado mediante la definición de las siguientes opciones de informe:
 
-- Métricas: se admiten las siguientes opciones:
+- Métricas: Se admiten las siguientes opciones:
 
-   - Aciertos: indica el número total de solicitudes que se dirigen a un CNAME perimetral en el que la funcionalidad de informes personalizados está habilitada. Esta métrica no incluye el código de estado devuelto al cliente.
+   - Aciertos: Indica el número total de solicitudes que se dirigen a un CNAME perimetral que tienen habilitada la funcionalidad de informes personalizados. Esta métrica no incluye el código de estado devuelto al cliente.
 
-   - Transferencia de datos: indica la cantidad total de datos transferidos entre los servidores perimetrales a los clientes HTTP (por ejemplo, los exploradores web) para las solicitudes que se dirigen a un CNAME perimetral en el que la funcionalidad de informes personalizados está habilitada. La cantidad de datos transferidos se calcula agregando encabezados de respuesta HTTP al cuerpo de respuesta. Como resultado, la cantidad de datos transferidos para cada recurso es mayor que el tamaño real del archivo.
+   - Datos transferidos: Indica la cantidad total de datos transferidos entre los servidores perimetrales a los clientes HTTP (por ejemplo, los exploradores web) para las solicitudes que se dirigen a un CNAME perimetral que tienen habilitada la funcionalidad de informes personalizados. La cantidad de datos transferidos se calcula agregando encabezados de respuesta HTTP al cuerpo de respuesta. Como resultado, la cantidad de datos transferidos para cada recurso es mayor que el tamaño real del archivo.
 
-- Agrupaciones: determina el tipo de estadísticas que se muestra debajo del gráfico de barras. Se admiten las siguientes opciones:
+- Agrupaciones: Determina el tipo de estadísticas que se muestran debajo del gráfico de barras. Se admiten las siguientes opciones:
 
-   - Códigos de respuesta HTTP: organiza las estadísticas por código de respuesta HTTP (por ejemplo, 200, 403, etc.) devuelto al cliente. 
+   - Códigos de respuesta HTTP: Organiza las estadísticas por código de respuesta HTTP (por ejemplo, 200, 403, etc.) devuelto al cliente. 
 
-   - Estado de la caché: organiza las estadísticas por estado de la caché.
+   - Estado de la caché: Organiza las estadísticas por estado de la caché.
 
 
 Para establecer el intervalo de fechas para el informe, puede seleccionar un intervalo de fechas predefinido, como **Hoy** o **Esta semana**, desde la lista desplegable o puede seleccionar **Personalizado** y escribir manualmente un intervalo de fechas haciendo clic en los iconos del calendario. 

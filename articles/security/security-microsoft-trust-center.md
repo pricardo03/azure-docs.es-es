@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 794c78e6e31c58563b68a58774db90af98a44d95
-ms.sourcegitcommit: fec0e51a3af74b428d5cc23b6d0835ed0ac1e4d8
-ms.translationtype: HT
+ms.openlocfilehash: 289b9b0cb2532069c01fc9c687c844bd917355f7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/12/2019
-ms.locfileid: "56111042"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60445692"
 ---
 # <a name="microsoft-trust-center"></a>Centro de confianza de Microsoft
 El sitio de información de seguridad de Azure en Azure.com proporciona la información que necesita para planear, diseñar, implementar, configurar y administrar soluciones en la nube de forma segura. El Centro de confianza de Microsoft proporciona la información que necesita para tener la seguridad de que la plataforma de Azure en la que se ejecutan sus servicios es segura.

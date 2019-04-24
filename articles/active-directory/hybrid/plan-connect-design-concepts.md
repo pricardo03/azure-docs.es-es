@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 311ba489073805fdb034b435ab9e5e1ddc2c4e3c
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57535049"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60382286"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Conceptos de diseño
 El propósito de este documento es describir las áreas que se deben tener en cuenta durante el diseño de implementación de Azure AD Connect. Este documento trata de una profundización en determinadas áreas y estos conceptos se describen también brevemente en otros documentos.

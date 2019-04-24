@@ -17,11 +17,11 @@ ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a168c3415996ff97137c4e312348f74a48e9531b
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59564999"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291456"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Deshabilitación de los inicios de sesión de usuario de una aplicación empresarial en Azure Active Directory
 Es fácil deshabilitar una aplicación empresarial, por lo que ningún usuario puede iniciar sesión en ella en Azure Active Directory (Azure AD). Necesita los permisos adecuados para administrar la aplicación empresarial. Y debe ser administrador global en el directorio.

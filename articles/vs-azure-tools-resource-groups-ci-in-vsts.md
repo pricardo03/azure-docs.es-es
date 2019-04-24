@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
 ms.openlocfilehash: a2a730e2c3ca466a2705f053d7db0db12d7941da
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59786951"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60458904"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Integración continua de Azure DevOps Services con proyectos del grupo de recursos de Azure
 Para implementar una plantilla de Azure, realizar tareas en varias fases: Compilación, prueba, copia en Azure (también denominado "Ensayo") y plantilla de implementación. Hay dos maneras distintas de implementar plantillas en Azure DevOps Services. Ambos métodos proporcionan los mismos resultados, así que puede elegir el que mejor se adapte a su flujo de trabajo.

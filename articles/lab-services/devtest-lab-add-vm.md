@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
 ms.openlocfilehash: be5ff2c59878cc966e73d89c18343b0a6ea3d89c
-ms.sourcegitcommit: c884e2b3746d4d5f0c5c1090e51d2056456a1317
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60149587"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60311627"
 ---
 # <a name="add-a-vm-to-a-lab-in-azure-devtest-labs"></a>Incorporación de una máquina virtual a un laboratorio de Azure DevTest Labs
 Si ya ha [creado su primera máquina virtual](tutorial-create-custom-lab.md#add-a-vm-to-the-lab), es probable que lo hiciera desde una [imagen de Marketplace](devtest-lab-configure-marketplace-images.md) precargada. Ahora, si desea agregar máquinas virtuales posteriores al laboratorio, también puede elegir una *base* que sea una [imagen personalizada](devtest-lab-create-template.md) o una [fórmula](devtest-lab-manage-formulas.md). En este tutorial se explica cómo usar Azure Portal para agregar una máquina virtual a un laboratorio de DevTest Labs.

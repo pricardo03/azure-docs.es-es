@@ -19,11 +19,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2f4a7f2a4fe0e1ca455b1140e83f31f6b30a7511
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59523467"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60250089"
 ---
 # <a name="microsoft-identity-platform-and-openid-connect-protocol"></a>Plataforma de identidad de Microsoft y el protocolo OpenID Connect
 
@@ -52,7 +52,7 @@ https://login.microsoftonline.com/{tenant}/v2.0/.well-known/openid-configuration
 
 `{tenant}` puede tomar uno de estos cuatro valores:
 
-| Valor | DESCRIPCIÓN |
+| Value | DESCRIPCIÓN |
 | --- | --- |
 | `common` |Los usuarios con una cuenta Microsoft personal y una cuenta profesional o educativa de Azure AD pueden iniciar sesión la aplicación. |
 | `organizations` |Solo los usuarios con cuentas profesionales o educativas de Azure AD pueden iniciar sesión en la aplicación. |

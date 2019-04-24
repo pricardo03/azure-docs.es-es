@@ -9,11 +9,11 @@ ms.date: 02/22/2019
 ms.author: nikiest
 ms.subservice: logs
 ms.openlocfilehash: b6009471048232b52020e4bef6272ed8cb1bd35b
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58497761"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345854"
 ---
 # <a name="archive-the-azure-activity-log"></a>Archivo del registro de actividades de Azure
 En este artículo, le mostraremos cómo puede usar Azure Portal, los cmdlets de PowerShell o la CLI multiplataforma para archivar el [**registro de actividades de Azure**](../../azure-monitor/platform/activity-logs-overview.md) en una cuenta de almacenamiento. Esta opción es útil si desea conservar el registro de actividades más de 90 días (con control total sobre la directiva de retención) para auditorías, análisis estáticos o copias de seguridad. Si solo necesita conservar los eventos durante 90 días o menos, no es necesario configurar el archivado en una cuenta de almacenamiento, ya que los eventos del registro de actividades se conservan en la plataforma de Azure durante 90 días sin necesidad de habilitar el archivado.
@@ -154,10 +154,10 @@ En el archivo PT1H.json, cada evento se almacena en la matriz de "registros" con
 
 | Nombre del elemento | DESCRIPCIÓN |
 | --- | --- |
-| Twitter en tiempo |Marca de tiempo de cuándo el servicio de Azure generó el evento que procesó la solicitud correspondiente al evento. |
-| ResourceId |Identificador de recurso del recurso afectado. |
+| time |Marca de tiempo de cuándo el servicio de Azure generó el evento que procesó la solicitud correspondiente al evento. |
+| resourceId |Identificador de recurso del recurso afectado. |
 | operationName |Nombre de la operación. |
-| categoría |Categoría de la acción, p. ej. Write, Read, Action. |
+| category |Categoría de la acción, p. ej. Write, Read, Action. |
 | resultType |Tipo del resultado, p. ej. Success, Failure, Start |
 | resultSignature |Depende del tipo de recurso. |
 | durationMs |Duración de la operación en milisegundos |
@@ -167,7 +167,7 @@ En el archivo PT1H.json, cada evento se almacena en la matriz de "registros" con
 | authorization |Blob de propiedades RBAC del evento. Normalmente incluye las propiedades "action", "role" y "scope". |
 | level |Nivel del evento. Uno de los valores siguientes: "Critical", "Error", "Warning", "Informational" y "Verbose". |
 | location |Región en la que se ha producido la ubicación (o global). |
-| propiedades |Conjunto de pares `<Key, Value>` (es decir, diccionario) que describe los detalles del evento. |
+| properties |Conjunto de pares `<Key, Value>` (es decir, diccionario) que describe los detalles del evento. |
 
 > [!NOTE]
 > Las propiedades y el uso de estas propiedades pueden variar según el recurso.

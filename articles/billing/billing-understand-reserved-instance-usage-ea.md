@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 03/13/2019
 ms.author: banders
 ms.openlocfilehash: daa7f6a116578fa8d1f2b5bf825a6f4cd48f7f64
-ms.sourcegitcommit: 22ad896b84d2eef878f95963f6dc0910ee098913
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58648306"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370695"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Información sobre el uso de reservas de Azure para la inscripción Enterprise
 
@@ -31,7 +31,7 @@ Si compró la reserva en un contexto de facturación de pago por uso, consulte [
 
 En las secciones siguientes se dará por hecho que está ejecutando una máquina virtual Windows Standard_D1_v2 en la región Este de EE. UU. y que la información de la reserva tiene una apariencia similar a la de la siguiente tabla:
 
-| Campo | Valor |
+| Campo | Value |
 |---| --- |
 |ReservationId |8f82d880-d33e-4e0d-bcb5-6bcb5de0c719|
 |Cantidad |1|
@@ -57,7 +57,7 @@ En las siguientes secciones se usa Azure SQL Database como ejemplo para describi
 
 Imagine que ejecuta una instancia de SQL Database Gen 4 en la región Este de EE. UU. y que la información de la reserva tiene una apariencia similar a la de esta tabla:
 
-| Campo | Valor |
+| Campo | Value |
 |---| --- |
 |ReservationId |8244e673-83e9-45ad-b54b-3f5295d37cae|
 |Cantidad |2|

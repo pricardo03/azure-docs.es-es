@@ -11,11 +11,11 @@ ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.openlocfilehash: ebbcbcc3d0934800980b7d8e00895b11ff2747b7
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57838942"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60310441"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Restauración de una instancia de Azure SQL Data Warehouse 
 En este artículo, aprenderá cómo hacer lo siguiente en Azure Portal y PowerShell:

@@ -15,11 +15,11 @@ ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
 ms.openlocfilehash: cb414abcbbf2db7b7cd6a3d724e50010beeef647
-ms.sourcegitcommit: 8d88a025090e5087b9d0ab390b1207977ef4ff7c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52275742"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60318416"
 ---
 # <a name="how-to-use-perfinsights"></a>Cómo usar PerfInsights
 
@@ -119,23 +119,23 @@ Se recopila información acerca de la máquina virtual Windows, la configuració
 | Configuración del firewall            | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
 | Configuración de SQL Server          | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
 | Seguimientos de diagnóstico de rendimiento *  | Sí                        | Sí                                | Sí                      | Sí                  | Sí                  |
-| Seguimiento de contadores de rendimiento **      |                            |                                    | SÍ                      |                      | SÍ                  |
+| Seguimiento de contadores de rendimiento **      |                            |                                    | Sí                      |                      | Sí                  |
 | Seguimiento del contador de SMB **              |                            |                                    |                          | Sí                  |                      |
-| Seguimiento del contador de SQL Server **       |                            |                                    | SÍ                      |                      | SÍ                  |
+| Seguimiento del contador de SQL Server **       |                            |                                    | Sí                      |                      | Sí                  |
 | Seguimiento de Xperf                       |                            |                                    |                          |                      | Sí                  |
 | Seguimiento de StorPort                    |                            |                                    |                          |                      | Sí                  |
 | Seguimiento de la red                     |                            |                                    |                          | Sí                  | Sí                  |
-| Seguimiento del banco de pruebas Diskspd ***       |                            | SÍ                                |                          |                      |                      |
+| Seguimiento del banco de pruebas Diskspd ***       |                            | Sí                                |                          |                      |                      |
 |       |                            |                         |                                                   |                      |                      |
 
 ### <a name="performance-diagnostics-trace-"></a>Seguimiento del diagnóstico de rendimiento (*)
 
 Se ejecuta un motor basado en reglas en segundo plano para recopilar datos y diagnosticar problemas de rendimiento en curso. Actualmente se admiten las reglas siguientes:
 
-- Regla de HighCpuUsage: detecta períodos de uso elevado de la CPU y muestra los principales consumidores de uso de la CPU durante dichos períodos.
-- Regla de HighDiskUsage: detecta períodos de uso elevado de los discos físicos y muestra los principales consumidores de uso de los discos en dichos períodos.
-- Regla de HighResolutionDiskMetric: muestra métricas de IOPS, rendimiento y latencia de E/S por 50 milisegundos de cada disco físico. Ayuda a identificar rápidamente los períodos de limitación de disco.
-- Regla de HighMemoryUsage: detecta períodos de uso de memoria elevados y muestra los principales consumidores de uso de memoria durante esos períodos.
+- Regla de HighCpuUsage: Detecta períodos de uso elevados de CPU y muestra los principales consumidores de uso de CPU durante esos períodos.
+- Regla de HighDiskUsage: Detecta períodos de uso de disco alta en discos físicos y muestra el disco principales consumidores de uso durante esos períodos.
+- Regla de HighResolutionDiskMetric: Muestra las métricas de latencia de e/s por segundo, el rendimiento y E/S por 50 milisegundos para cada disco físico. Ayuda a identificar rápidamente los períodos de limitación de disco.
+- Regla de HighMemoryUsage: Detecta períodos de uso de memoria alta y muestra los consumidores de uso de la memoria superior durante esos períodos.
 
 > [!NOTE] 
 > Actualmente, se admiten las versiones de Windows que incluyen .NET Framework 4.5 o versiones posteriores.
@@ -167,7 +167,7 @@ Pruebas de carga de trabajo de E/S de Diskspd [disco del sistema operativo (escr
 
 -  Esta herramienta se debe ejecutar en la máquina virtual que tiene el problema de rendimiento. 
 
--  El script es compatible con los siguientes sistemas operativos: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 y Windows Server 2016; Windows 8.1 y Windows 10.
+-  Se admiten los siguientes sistemas operativos: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 y Windows Server 2016; Windows 8.1 y Windows 10.
 
 #### <a name="possible-problems-when-you-run-the-tool-on-production-vms"></a>Posibles problemas al ejecutar la herramienta en máquinas virtuales de producción
 

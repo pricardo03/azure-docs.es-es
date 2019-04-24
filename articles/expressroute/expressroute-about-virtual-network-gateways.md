@@ -9,11 +9,11 @@ ms.date: 02/20/2019
 ms.author: mialdrid
 ms.custom: seodec18
 ms.openlocfilehash: d9c607114d6c6c56c25303a88dcc11f4ab804eb4
-ms.sourcegitcommit: 94305d8ee91f217ec98039fde2ac4326761fea22
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57404355"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60367981"
 ---
 # <a name="about-virtual-network-gateways-for-expressroute"></a>Acerca de las puertas de enlace de red virtual para ExpressRoute
 Una puerta de enlace de red virtual se usa para enviar tráfico de red entre redes virtuales y ubicaciones locales de Azure. Puede usar una puerta de enlace de red virtual para tráfico de ExpressRoute o tráfico VPN. Este artículo se centra en las puertas de enlace de red virtual de ExpressRoute y contiene información sobre las SKU, el rendimiento estimado por SKU y los tipos de puerta de enlace.

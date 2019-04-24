@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 8f5e3958588a597bde04ae1c8e4873006b281458
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57992212"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405824"
 ---
 # <a name="copy-data-from-quickbooks-online-using-azure-data-factory-preview"></a>Copia de datos de QuickBooks Online con Azure Data Factory (versión preliminar)
 
@@ -46,7 +46,7 @@ Las siguientes propiedades son compatibles con el servicio vinculado de QuickBoo
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **QuickBooks** | Sí |
+| type | La propiedad type debe establecerse en: **QuickBooks** | Sí |
 | punto de conexión | Punto de conexión del servidor de QuickBooks Online. (es decir, quickbooks.api.intuit.com)  | Sí |
 | companyId | Id. de empresa de la compañía de QuickBooks que se debe autorizar. Para obtener información sobre cómo buscar el identificador de empresa, consulte [How do I find my Company ID?](https://quickbooks.intuit.com/community/Getting-Started/How-do-I-find-my-Company-ID/m-p/185551) (¿Cómo puedo buscar el identificador de empresa?). | Sí |
 | consumerKey | La clave del consumidor para la autenticación OAuth 1.0. | Sí |
@@ -92,7 +92,7 @@ Para copiar datos de QuickBooks Online, establezca la propiedad type del conjunt
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **QuickBooksObject** | Sí |
+| type | La propiedad type del conjunto de datos debe establecerse en: **QuickBooksObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -121,7 +121,7 @@ Para copiar datos de QuickBooks Online, establezca el tipo de origen de la activ
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **QuickBooksSource** | Sí |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **QuickBooksSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM "Bill" WHERE Id = '123'"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

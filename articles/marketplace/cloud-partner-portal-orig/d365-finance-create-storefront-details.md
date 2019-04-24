@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: f69a7f9ca94c0a83098300f01e9413b342bd4ae8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389395"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397964"
 ---
 <a name="how-to-fill-out-the-storefront-details-form"></a>Cómo rellenar el formulario de detalles del escaparate electrónico
 ===========================================
@@ -68,7 +68,7 @@ Seleccione los idiomas que admite la aplicación. Si la aplicación es compatibl
 
 ### <a name="app-version"></a>Versión de la aplicación
 
-Escriba el número de versión de la aplicación.
+Escriba el número de versión de la aplicación
 
 ### <a name="products-your-app-works-with-max-3"></a>Productos con los que funciona la aplicación (3 como máximo)
 
@@ -119,7 +119,7 @@ Debe haber una página de soporte técnico específica que ofrezca a los cliente
 
 ### <a name="lead-destination"></a>Destino de clientes potenciales
 
-Seleccione un sistema de CRM donde se guardará el cliente potencial. Seleccione \"Tabla de Azure\" aquí si tiene uno de los siguientes sistemas de CRM: Salesforce, Marketo, Microsoft Dynamics CRM. El sistema de CRM que seleccione aquí es donde escribiremos los detalles de los usuarios finales que prueben su aplicación en AppSource (clientes potenciales). En función del sistema de CRM que seleccione, haga clic en la dirección URL correspondiente para obtener información sobre cómo completar el siguiente conjunto de campos.
+Seleccione un sistema de CRM donde se guardará el cliente potencial. Seleccione \"Azure Table\" aquí si tiene uno de los siguientes sistemas CRM: Salesforce, Marketo o Microsoft Dynamics CRM. El sistema de CRM que seleccione aquí es donde escribiremos los detalles de los usuarios finales que prueben su aplicación en AppSource (clientes potenciales). En función del sistema de CRM que seleccione, haga clic en la dirección URL correspondiente para obtener información sobre cómo completar el siguiente conjunto de campos
 
 -   [Tabla de Azure](./cloud-partner-portal-lead-management-instructions-azure-table.md)
 -   [Marketo](./cloud-partner-portal-lead-management-instructions-marketo.md)

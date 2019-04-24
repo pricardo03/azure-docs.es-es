@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
+origin.date: 09/10/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: 88d447f86dd54fc9479a6d7d2006b9a8639ad09e
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58089240"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60396856"
 ---
 # <a name="json-claims-transformations"></a>Transformaciones de notificaciones de JSON
 
@@ -191,7 +192,7 @@ Convierte los datos XML en formato JSON.
 
 | item | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | xml | string | ClaimTypes usados por la transformación de notificaciones para convertir los datos XML en formato JSON. |
+| InputClaim | Xml | string | ClaimTypes usados por la transformación de notificaciones para convertir los datos XML en formato JSON. |
 | OutputClaim | json | string | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation, con los datos en formato JSON. |
 
 ```XML
@@ -227,4 +228,5 @@ Notificación de salida:
   }
 }
 ```
+
 

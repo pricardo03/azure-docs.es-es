@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: shants
-ms.openlocfilehash: db8fd40b9c573d04d9442c64fb058902a771eca0
-ms.sourcegitcommit: 72cc94d92928c0354d9671172979759922865615
+ms.openlocfilehash: cfd88118b483067f4c6ee62ee013a2202f0d7e67
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58418880"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60301770"
 ---
 # <a name="handling-planned-maintenance-notifications-for-windows-virtual-machines"></a>Control de las notificaciones de mantenimiento planeado de máquinas virtuales Windows
 
@@ -81,7 +81,7 @@ También puede usar Azure Powershell para ver cuándo está programado el manten
  
 La información de mantenimiento se devuelve solo si hay mantenimiento planeado. Si no está programado ningún mantenimiento que afecte a la máquina virtual, el cmdlet no devuelve ninguna información de mantenimiento. 
 
-[!INCLUDE [updated-for-az-vm.md](../../../includes/updated-for-az-vm.md)]
+[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
 ```powershell
 Get-AzVM -ResourceGroupName rgName -Name vmName -Status
@@ -89,7 +89,7 @@ Get-AzVM -ResourceGroupName rgName -Name vmName -Status
 
 Las siguientes propiedades se devuelven en MaintenanceRedeployStatus: 
 
-| Valor | DESCRIPCIÓN   |
+| Value | DESCRIPCIÓN   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | Indica si puede iniciar el mantenimiento en la máquina virtual en este momento |
 | PreMaintenanceWindowStartTime         | El comienzo de la ventana de autoservicio de mantenimiento en la que puede iniciar el mantenimiento en la máquina virtual |

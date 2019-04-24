@@ -16,11 +16,11 @@ ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f795571de275453738d23e80885f4d9006ca3a20
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56804457"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60195032"
 ---
 # <a name="custom-roles-for-azure-resources"></a>Roles personalizados en los recursos de Azure
 

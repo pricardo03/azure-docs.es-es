@@ -13,11 +13,11 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a4757be00a3633f56aed52dd7af22923e49b0b62
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58102390"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475725"
 ---
 # <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>Configuración de la información de seguridad (versión preliminar) para usar una aplicación autenticadora
 Puede seguir estos pasos para agregar sus métodos de restablecimiento de contraseña y verificación en dos pasos. Una vez que haya configurado esto por primera vez, puede volver a la página **Información de seguridad** para agregar, actualizar o eliminar su información de seguridad.

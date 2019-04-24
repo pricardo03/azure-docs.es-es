@@ -13,11 +13,11 @@ ms.author: lizross
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 8d710a86bb63765ea8a1a777818ca5f99e38d3a7
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59548056"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60248087"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Adición o actualización de la información de perfil de un usuario mediante Azure Active Directory
 Agregue información de perfil de usuario, como la imagen de perfil, información específica del trabajo y algunos valores de configuración mediante Azure Active Directory (Azure AD). Para obtener más información acerca de la adición de nuevos usuarios, consulte [cómo agregar o eliminar usuarios en Azure Active Directory](add-users-azure-active-directory.md).

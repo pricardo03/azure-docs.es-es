@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
 ms.openlocfilehash: ca2523a1101a21740a318a304f9bec491d4de2f9
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58106243"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60307107"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Uso de la consola serie para acceder a GRUB y al modo de usuario único
 GRUB son las siglas de GRand Unified Bootloader, que es probablemente lo primero que verá al arrancar una máquina virtual. Al mostrarse antes de que se haya iniciado el sistema operativo, no se puede acceder a él mediante SSH. Con GRUB es posible modificar la configuración de arranque para arrancar en modo usuario único, entre otras cosas.

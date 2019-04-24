@@ -18,11 +18,11 @@ ms.reviewer: hirsin
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 07e140ef9f561625bb89498c6b6591734e8a9b10
-ms.sourcegitcommit: b8a8d29fdf199158d96736fbbb0c3773502a092d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/15/2019
-ms.locfileid: "59563766"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411421"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Tokens de acceso de plataforma de identidad de Microsoft
 
@@ -101,7 +101,7 @@ Las notificaciones están presentes solo si existe un valor que las rellene. Por
 | `azp` | Cadena, un identificador GUID | Solo está presente en los tokens de la versión 2.0. El identificador de aplicación del cliente mediante el token. La aplicación puede actuar por sí misma o en nombre de un usuario. Normalmente, el id. de aplicación representa un objeto de aplicación, pero también puede representar un objeto de entidad de servicio en Azure AD. |
 | `azpacr` | 0, 1 o 2 | Solo está presente en los tokens de la versión 2.0. Indica cómo se autenticó el cliente. Para un cliente público, el valor es 0. Si se usan el identificador y el secreto de cliente, el valor es 1. Si se usa un certificado de cliente para la autenticación, el valor es 2. |
 | `groups` | Matriz JSON de identificadores GUID | Proporciona identificadores de objeto que representan la pertenencia al grupo del firmante. Estos valores son únicos (vea el id. de objeto) y se pueden usar de forma segura para administrar el acceso, por ejemplo, para exigir autorización para tener acceso a un recurso. Los grupos incluidos en la notificación de grupos se configuran por aplicación mediante la propiedad `groupMembershipClaims` del [manifiesto de aplicación](reference-app-manifest.md). Un valor null excluirá todos los grupos, un valor de "SecurityGroup" incluirá únicamente la pertenencia a grupos de seguridad de Active Directory y un valor de "All" incluirá grupos de seguridad y listas de distribución de Office 365. <br><br>Consulte la notificación `hasgroups` que aparece a continuación para más información sobre el uso de la notificación `groups` con la concesión implícita. <br>Para los demás flujos, si el número de grupos en el usuario supera un límite (150 para SAML, 200 para JWT), se agrega una notificación por encima del límite a los orígenes de notificaciones que apuntan al punto de conexión de Graph que contiene la lista de grupos del usuario. |
-| `hasgroups` | boolean | Si está presente, siempre es `true`, lo cual indica que el usuario está en al menos un grupo. Se usa en lugar de la notificación `groups` para métodos JWT en flujos de concesión implícita si las notificaciones completas de los grupos amplían el fragmento URI por encima de los límites de longitud de la URL (actualmente 6 o más grupos). Indica que el cliente debe utilizar Graph para determinar los grupos del usuario (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
+| `hasgroups` | Boolean | Si está presente, siempre es `true`, lo cual indica que el usuario está en al menos un grupo. Se usa en lugar de la notificación `groups` para métodos JWT en flujos de concesión implícita si las notificaciones completas de los grupos amplían el fragmento URI por encima de los límites de longitud de la URL (actualmente 6 o más grupos). Indica que el cliente debe utilizar Graph para determinar los grupos del usuario (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
 | `groups:src1` | Objeto JSON | Las solicitudes de tokens que no son de longitud limitada (consulte `hasgroups` anteriormente) pero todavía es demasiado grande para el token, se incluye un vínculo a la lista de grupos completa para el usuario. Para métodos JWT como una notificación distribuida, para SAML como una nueva notificación en lugar de la notificación `groups`. <br><br>**Valor de JWT de ejemplo**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }` |
 | `preferred_username` | string | El nombre de usuario principal que representa al usuario. Puede ser una dirección de correo electrónico, un número de teléfono o un nombre de usuario genérico sin un formato especificado. Su valor es mutable y podría cambiar en el tiempo. Puesto que es mutable, este valor no debe usarse para tomar decisiones de autorización.  También se puede usar para las sugerencias de nombre de usuario. El `profile` ámbito se requiere para recibir esta notificación. |
 | `name` | string | Proporciona un valor en lenguaje natural que identifica al firmante del token. El valor no está garantizado que es único, es mutable y está diseñado para usarse solo con fines de visualización. El `profile` ámbito se requiere para recibir esta notificación. |
@@ -135,7 +135,7 @@ Las siguientes notificaciones se incluirán en los tokens de v1.0, si procede, p
 
 Pueden autenticar las identidades de Microsoft de maneras diferentes, que pueden ser pertinentes para la aplicación. La notificación `amr` es una matriz que puede contener varios elementos, como `["mfa", "rsa", "pwd"]`, para una autenticación que utiliza tanto una contraseña como la aplicación Autenticator.
 
-| Valor | DESCRIPCIÓN |
+| Value | DESCRIPCIÓN |
 |-----|-------------|
 | `pwd` | Autenticación de contraseña, ya sea la contraseña de un usuario de Microsoft o el secreto de cliente de una aplicación. |
 | `rsa` | La autenticación se basaba en la prueba de una clave RSA, por ejemplo con la [aplicación Microsoft Authenticator](https://aka.ms/AA2kvvu). Esto incluye si se ha realizado la autenticación mediante un JWT autofirmado con un servicio en la propiedad X509 certificado. |

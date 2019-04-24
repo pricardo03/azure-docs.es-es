@@ -18,11 +18,11 @@ ms.author: joflore
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4f5127342f97a90103ef56efbd7465832440ec0f
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521821"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381823"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Inicio rápido: Bloqueo del acceso cuando se detecta riesgo en una sesión con Azure Active Directory Identity Protection  
 
@@ -67,7 +67,7 @@ El escenario de esta guía de inicio rápido usa un inicio de sesión desde Tor 
 
 En esta sección se muestra cómo crear la directiva de acceso condicional por riesgo de inicio de sesión que se requiere. En la directiva, establezca:
 
-|Configuración |Valor|
+|Configuración |Value|
 |---     | --- |
 | Usuarios  | Alain Charon  |
 | Condiciones | Riesgo de inicio de sesión, medio y superior |

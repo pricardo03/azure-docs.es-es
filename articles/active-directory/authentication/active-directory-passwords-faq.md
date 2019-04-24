@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb825a193071d263d800dafdd6296246eb74aec
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 77154ef35242c55724becb77595dbd5ecf8a4da9
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57878200"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359065"
 ---
 # <a name="password-management-frequently-asked-questions"></a>Preguntas más frecuentes sobre la administración de contraseñas
 
@@ -46,7 +46,7 @@ Estas preguntas más frecuentes se dividen en las siguientes secciones:
   >
 * **P:  ¿Puedo definir los datos de restablecimiento de contraseña en nombre de mis usuarios?**
 
-  > **R:** Sí, puede hacerlo en Azure AD Connect, PowerShell, [Azure Portal](https://portal.azure.com) o el Centro de administración de Office 365. Para obtener más información, consulte los [Datos usados en el autoservicio de restablecimiento de contraseña de Azure AD](howto-sspr-authenticationdata.md).
+  > **R:** Sí, puede hacerlo con Azure AD Connect, PowerShell, la [portal Azure](https://portal.azure.com), o el [centro de administración de Microsoft 365](https://admin.microsoft.com). Para obtener más información, consulte los [Datos usados en el autoservicio de restablecimiento de contraseña de Azure AD](howto-sspr-authenticationdata.md).
   >
   >
 * **P:  ¿Puedo sincronizar localmente los datos de las preguntas de seguridad?**

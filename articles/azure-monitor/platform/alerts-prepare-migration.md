@@ -8,11 +8,11 @@ ms.date: 03/19/2018
 ms.author: snmuvva
 ms.subservice: alerts
 ms.openlocfilehash: 3c47404826d5055d4a82d4842523f790fb11f000
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58632515"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60346892"
 ---
 # <a name="prepare-your-logic-apps-and-run-books-for-classic-alert-rules-migration"></a>Preparar las aplicaciones lógicas y ejecutar los libros en pantalla para la migración de las reglas de alerta clásica
 
@@ -60,7 +60,7 @@ Puede usar la tabla siguiente para asignar los campos de carga de webhook de la 
 | Tipo del recurso afectado | context.resourceType | data.context.resourceType |
 |  Id. de recurso del recurso afectado | context.resourceId | data.context.resourceId |
 | Un vínculo directo a la página de resumen de recursos del portal | context.portalLink | data.context.portalLink|
-| Campos de carga personalizada que se pasarán al webhook o aplicación lógica | propiedades |data.properties |
+| Campos de carga personalizada que se pasarán al webhook o aplicación lógica | properties |data.properties |
 
 Como puede ver, las cargas de ambos son similares. Sección siguiente tiene los detalles sobre las aplicaciones lógicas de ejemplo y un runbook de ejemplo para analizar la carga de notificación para las alertas nuevas.
 

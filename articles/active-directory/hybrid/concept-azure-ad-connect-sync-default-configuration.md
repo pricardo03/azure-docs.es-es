@@ -17,11 +17,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: b42a6b667a8708aeb2edeb0c80a5ab747b6c60a9
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57891144"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60246143"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronización de Azure AD Connect: Introducción a la configuración predeterminada
 En este artículo se explican las reglas de configuración rápida. Se documentan las reglas y cómo afectan a la configuración. Este artículo lo guía en la configuración predeterminada de la sincronización de Azure AD Connect. El objetivo es que el lector comprenda cómo funciona el modelo de configuración, denominado "aprovisionamiento declarativo", en un ejemplo real. En este artículo se supone que ya instaló y configuró Azure AD Connect Sync mediante el asistente para instalación.
@@ -220,7 +220,7 @@ El asistente para instalación establece la precedencia para las reglas de sincr
 ### <a name="putting-it-all-together"></a>Resumen
 Ahora conocemos lo suficiente de las reglas de sincronización para poder comprender cómo funciona la configuración con las distintas reglas de sincronización. Si tomamos un usuario y los atributos que se aportan al metaverso, las reglas se aplican en el orden siguiente:
 
-| NOMBRE | Comentario |
+| Name | Comentario |
 |:--- |:--- |
 | In from AD – User Join |Regla para unir objetos del espacio del conector con el metaverso. |
 | In from AD – UserAccount Enabled |Atributos necesarios para iniciar sesión en Azure AD y Office 365. Estos atributos deben ser de la cuenta habilitada. |

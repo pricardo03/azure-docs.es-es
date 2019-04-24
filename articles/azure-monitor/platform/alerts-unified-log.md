@@ -9,11 +9,11 @@ ms.date: 2/20/2019
 ms.author: vinagara
 ms.subservice: alerts
 ms.openlocfilehash: 194fba3296359f5f7d29a37425a938fe08f1332b
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56452889"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345895"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertas de registro en Azure Monitor
 
@@ -31,7 +31,7 @@ Alertas de Azure crea las reglas de búsqueda de registros para ejecutar automá
 
 Las reglas de búsqueda de registros se definen mediante los siguientes detalles:
 
-- **Consulta de registro**.  La consulta que se ejecuta cada vez que se activa la regla de alertas.  Los registros devueltos por esta consulta se usan para determinar si se desencadena una alerta. La consulta de Analytics puede ser para un área de trabajo de Log Analytics específica o una aplicación de Application Insights, e incluso puede abarcar [varios recursos de Log Analytics y de Application Insights](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights), siempre que el usuario tenga derechos de acceso y de consulta a todos los recursos. 
+- **Consulta de registro**.  La consulta que se ejecuta cada vez que se activa la regla de alertas.  Los registros devueltos por esta consulta se usan para determinar si se desencadena una alerta. La consulta de Analytics puede ser para un área de trabajo específica de Log Analytics o una aplicación de Application Insights, e incluso puede abarcar [varios recursos de Log Analytics y de Application Insights](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) siempre que el usuario tenga derechos de acceso y de consulta a todos los recursos. 
     > [!IMPORTANT]
     > Las alertas de registro **no** admiten el uso de [funciones](../log-query/functions.md) por motivos de seguridad. También admiten [consultas entre recursos](../../azure-monitor/log-query/cross-workspace-query.md#querying-across-log-analytics-workspaces-and-from-application-insights) para alertas de registro de Application Insights y para alertas de registro de [Log Analytics que se configuran únicamente mediante scheduledQueryRules API](../../azure-monitor/platform/alerts-log-api-switch.md).
 
@@ -102,13 +102,13 @@ Considere la posibilidad de un escenario en el que desearía tener una alerta en
 - **Período de tiempo:** 30 minutos<br>
 - **Frecuencia de alerta:** cinco minutos<br>
 - **Lógica de alertas: estado y umbral:** mayor que 90<br>
-- **Campo de grupo (Agregado en):** Equipo
+- **Campo de grupo (Agregado en):** Computer
 - **Activación de alerta según:** infracciones totales mayores que 2<br>
 
 La consulta crearía un valor medio para cada equipo a intervalos de cinco minutos.  Esta consulta se ejecutaría cada 5 minutos para los datos recopilados en los 30 minutos anteriores. Puesto que la opción Campo de grupo (Agregado en) seleccionada es la tabla "Computer" en columnas, el valor AggregatedValue se divide en varios valores de "Computer" y se determina la utilización media del procesador para cada equipo que viene determinada por un intervalo temporal de 5 minutos.  El resultado de la consulta de ejemplo para (supongamos) tres equipos sería el siguiente.
 
 
-|TimeGenerated [UTC] |Equipo  |AggregatedValue  |
+|TimeGenerated [UTC] |Computer  |AggregatedValue  |
 |---------|---------|---------|
 |20xx-xx-xxT01:00:00Z     |   srv01.contoso.com      |    72     |
 |20xx-xx-xxT01:00:00Z     |   srv02.contoso.com      |    91     |

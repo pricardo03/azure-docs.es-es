@@ -13,11 +13,11 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6f94ba30c06fc6975ab212c895cecefe5d383fa
-ms.sourcegitcommit: 75fef8147209a1dcdc7573c4a6a90f0151a12e17
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56453654"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60473913"
 ---
 # <a name="add-your-non-microsoft-accounts"></a>Adición de cuentas que no sean de Microsoft
 Agregue sus cuentas que no sean de Microsoft, como las de Google, Facebook o GitHub, a la aplicación Microsoft Authenticator para la verificación en dos fases. La aplicación Microsoft Authenticator funciona con cualquier aplicación que utilice la verificación de dos fases y con cualquier cuenta que admita los estándares de contraseña de un solo uso y duración definida (TOTP).

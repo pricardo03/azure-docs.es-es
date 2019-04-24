@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: e27be86a7a14a38c5083949a1a7255574d2d0dc6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 3996f22db2f5dc597939995a2699c4fe228821e3
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956088"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392574"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Administración del acceso de lectura anónimo a contenedores y blobs
 Puede habilitar el acceso de lectura anónimo y público a un contenedor y sus blobs en Azure Blob Storage. Al hacerlo, puede conceder acceso de solo lectura a estos recursos sin compartir la clave de cuenta y sin necesidad de una firma de acceso compartido (SAS).
@@ -24,9 +24,9 @@ De forma predeterminada, solamente el dueño de la cuenta de almacenamiento pued
 
 Puede configurar un contenedor con los permisos siguientes:
 
-* **Sin acceso de lectura público:** solo puede obtener acceso al contenedor y a sus blobs el propietario de cuenta de almacenamiento. Este es el valor predeterminado para todos los contenedores nuevos.
-* **Acceso de lectura público solo para blobs:** los blobs dentro del contenedor pueden leerse mediante una solicitud anónima, pero los datos del contenedor no están disponibles. Los clientes anónimos no pueden enumerar los blobs dentro del contenedor.
-* **Acceso de lectura público completo**: todos los datos del contenedor y de los blobs se pueden leer mediante una solicitud anónima. Los clientes pueden enumerar los blobs del contenedor a través de una solicitud anónima, pero no pueden enumerar los contenedores que están en la cuenta de almacenamiento.
+* **No hay acceso de lectura público:** El contenedor y sus blobs pueden tener acceso a solo el propietario de la cuenta de almacenamiento. Este es el valor predeterminado para todos los contenedores nuevos.
+* **Acceso de lectura público solo para blobs:** Los blobs del contenedor pueden leerse mediante una solicitud anónima, pero los datos del contenedor no están disponibles. Los clientes anónimos no pueden enumerar los blobs dentro del contenedor.
+* **Acceso de lectura público completo:** Todos los datos de blob y contenedor pueden leerse mediante una solicitud anónima. Los clientes pueden enumerar los blobs del contenedor a través de una solicitud anónima, pero no pueden enumerar los contenedores que están en la cuenta de almacenamiento.
 
 Puede usar lo siguiente para establecer permisos de contenedor:
 

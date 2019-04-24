@@ -12,11 +12,11 @@ ms.date: 04/16/2019
 ms.author: diberry
 ms.custom: seodec18
 ms.openlocfilehash: 42c08864c6908e92a7ecea336f8b1bd0606760db
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678690"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60203556"
 ---
 # <a name="configure-recognize-text-docker-containers"></a>Configuración de contenedores de Docker de Reconocer texto
 
@@ -51,7 +51,7 @@ Este valor se puede encontrar en el siguiente lugar:
 
 No olvide agregar el `vision/v1.0` enrutamiento para el URI del extremo, tal como se muestra en la tabla siguiente. 
 
-|Obligatorio| NOMBRE | Tipo de datos | DESCRIPCIÓN |
+|Obligatorio| Name | Tipo de datos | DESCRIPCIÓN |
 |--|------|-----------|-------------|
 |Sí| `Billing` | string | Identificador URI del punto de conexión de facturación<br><br>Ejemplo:<br>`Billing=https://westcentralus.api.cognitive.microsoft.com/vision/v1.0` |
 
@@ -79,7 +79,7 @@ El contenedor de Computer Vision no usa los montajes de entrada o salida para al
 
 La sintaxis exacta de la ubicación de montaje del host varía según el sistema operativo del host. Además, la ubicación de montaje del [equipo host](computer-vision-how-to-install-containers.md#the-host-computer) puede no ser accesible debido a un conflicto entre los permisos que usa la cuenta de servicio de Docker y los permisos de la ubicación de montaje del host. 
 
-|Opcional| NOMBRE | Tipo de datos | DESCRIPCIÓN |
+|Opcional| Name | Tipo de datos | DESCRIPCIÓN |
 |-------|------|-----------|-------------|
 |No permitida| `Input` | string | Los contenedores de Computer Vision no usan esto.|
 |Opcional| `Output` | string | Destino del montaje de salida. El valor predeterminado es `/output`. Esta es la ubicación de los registros. Esto incluye los registros de contenedor. <br><br>Ejemplo:<br>`--mount type=bind,src=c:\output,target=/output`|
@@ -95,7 +95,7 @@ No olvide agregar el `vision/v1.0` enrutamiento para el URI del extremo, tal com
 
 Reemplace {_argument_name_} por sus propios valores:
 
-| Marcador de posición | Valor | Formato o ejemplo |
+| Marcador de posición | Value | Formato o ejemplo |
 |-------------|-------|---|
 |{BILLING_KEY} | La clave de punto de conexión del recurso de Cognitive Services. |xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx|
 |{BILLING_ENDPOINT_URI} | El valor del punto de conexión de facturación, incluida la región.|`https://westcentralus.api.cognitive.microsoft.com/vision/v1.0`|

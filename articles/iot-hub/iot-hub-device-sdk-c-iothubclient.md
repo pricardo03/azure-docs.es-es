@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 08/29/2017
 ms.author: yizhon
 ms.openlocfilehash: dd3b693271326c85688a275a65b67ad6257220e3
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024785"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60400701"
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-iothubclient"></a>SDK de dispositivo IoT de Microsoft Azure para C: más información sobre IoTHubClient
 
@@ -235,7 +235,7 @@ Los argumentos de **IoTHubClient\_CreateFromConnectionString** son la cadena de 
 HostName=IOTHUBNAME.IOTHUBSUFFIX;DeviceId=DEVICEID;SharedAccessKey=SHAREDACCESSKEY
 ```
 
-Hay cuatro grupos de información en esta cadena: nombre de IoT Hub, sufijo de IoT Hub, identificador de dispositivo y clave de acceso compartido. Obtendrá el nombre de dominio completo (FQDN) de un centro de IoT cuando cree la instancia del centro de IoT en el portal de Azure. Así obtiene el nombre del centro de IoT (la primera parte del FQDN) y el sufijo del centro de IoT (el resto del FQDN). Obtendrá el identificador de dispositivo y la clave de acceso compartido al registrar el dispositivo con IoT Hub (como se describe en el [artículo anterior](iot-hub-device-sdk-c-intro.md)).
+Hay cuatro fragmentos de información de esta cadena: Nombre de IoT Hub, sufijo de IoT Hub, Id. de dispositivo y clave de acceso compartido. Obtendrá el nombre de dominio completo (FQDN) de un centro de IoT cuando cree la instancia del centro de IoT en el portal de Azure. Así obtiene el nombre del centro de IoT (la primera parte del FQDN) y el sufijo del centro de IoT (el resto del FQDN). Obtendrá el identificador de dispositivo y la clave de acceso compartido al registrar el dispositivo con IoT Hub (como se describe en el [artículo anterior](iot-hub-device-sdk-c-intro.md)).
 
 **IoTHubClient\_CreateFromConnectionString** le ofrece una manera de inicializar la biblioteca. Pero si lo prefiere, puede crear un nuevo **IOTHUB\_CLIENT\_HANDLE** usando estos parámetros individuales en lugar de la cadena de conexión de dispositivo. Esto se consigue con el código siguiente:
 

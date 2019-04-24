@@ -15,11 +15,11 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
 ms.openlocfilehash: a050a8cfdd67f662786fc0b9b7ed5451c88dccb1
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48808442"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397828"
 ---
 <a name="how-to-fill-out-the-offer-settings-form"></a>Cumplimentación del formulario de configuración de oferta
 =======================================
@@ -42,7 +42,7 @@ Si, por ejemplo, el asociado "Contoso" crea un identificador de oferta denominad
 Esta lista desplegable permite elegir el perfil del publicador en el que desea publicar esta oferta. Este campo queda bloqueado en cuanto se lanza una oferta.
 
 
-### <a name="name"></a>NOMBRE
+### <a name="name"></a>Name
 
 Este es el nombre para mostrar de la aplicación u oferta que aparece en Microsoft [AppSource](https://appsource.microsoft.com/). Puede tener un máximo de 50 caracteres.
 

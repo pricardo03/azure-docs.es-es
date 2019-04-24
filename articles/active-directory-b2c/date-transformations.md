@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
+origin.date: 09/10/2018
+ms.date: 04/04/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: d36abb669490b3d3f6818c018b3844a82ecd0617
-ms.sourcegitcommit: ba035bfe9fab85dd1e6134a98af1ad7cf6891033
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/01/2019
-ms.locfileid: "55564803"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384249"
 ---
 # <a name="date-claims-transformations"></a>Transformaciones de notificaciones de fecha
 
@@ -91,7 +92,7 @@ Convierte un ClaimType **Date** en un ClaimType **DateTime**. La transformación
 
 | item | TransformationClaimType | Tipo de datos | Notas |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim | fecha | ClaimType que se va a convertir. |
+| InputClaim | inputClaim | date | ClaimType que se va a convertir. |
 | OutputClaim | outputClaim | dateTime | El valor ClaimType que se genera después de que se haya invocado esta ClaimsTransformation. |
 
 En el ejemplo siguiente se muestra la conversión de la notificación `dateOfBirth` (tipo de datos date) en otra notificación `dateOfBirthWithTime` (tipo de datos dateTime).
@@ -176,3 +177,4 @@ Para ejecutar la transformación de notificaciones, primero deberá obtener el v
     - **timeSpanInSeconds**: 7776000 (90 días)
 - Notificaciones de salida:
     - **result**: true
+

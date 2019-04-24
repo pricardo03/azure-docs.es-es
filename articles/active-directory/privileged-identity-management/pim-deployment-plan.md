@@ -15,11 +15,11 @@ ms.author: rolyon
 ms.custom: ''
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 1755d627473b0ae47bbc4bc74a3f0d2210e5372b
-ms.sourcegitcommit: c63fe69fd624752d04661f56d52ad9d8693e9d56
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/28/2019
-ms.locfileid: "58578210"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60440652"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Implementación de Azure AD Privileged Identity Management (PIM)
 
@@ -40,7 +40,7 @@ Azure AD Privileged Identity Management (PIM) le permite administrar roles con p
 
 **Administrar riesgos**: proteja su organización al aplicar el principio de [acceso con privilegios mínimos](/windows-server/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) y acceso Just-In-Time. Al reducir el número de asignaciones permanentes de usuarios a roles con privilegios y aplicar aprobaciones y MFA para elevación, puede reducir considerablemente los riesgos de seguridad relativos al acceso con privilegios en su organización. La aplicación de acceso con privilegios mínimos y Just-In-Time también permitirá ver un historial de acceso a roles con privilegios y realizar un seguimiento de los problemas de seguridad cuando ocurran.
 
-**Abordar el cumplimiento y el gobierno**: la implementación de PIM crea un entorno para el gobierno de identidades en curso. La elevación Just-In-Time de identidades con privilegios ofrece una forma para que PIM realice un seguimiento de las actividades de acceso con privilegios en la organización. También podrá ver y recibir notificaciones de todas las asignaciones de roles aptos y permanentes dentro de la organización. Mediante una revisión de acceso, puede auditar y eliminar con regularidad las identidades con privilegios innecesarias y asegurarse de que su organización cumple las normas de seguridad, acceso e identidad más estrictas.
+**Abordar el cumplimiento y la gobernanza**: la implementación de PIM crea un entorno para la gobernanza de identidades en curso. La elevación Just-In-Time de identidades con privilegios ofrece una forma para que PIM realice un seguimiento de las actividades de acceso con privilegios en la organización. También podrá ver y recibir notificaciones de todas las asignaciones de roles aptos y permanentes dentro de la organización. Mediante una revisión de acceso, puede auditar y eliminar con regularidad las identidades con privilegios innecesarias y asegurarse de que su organización cumple las normas de seguridad, acceso e identidad más estrictas.
 
 **Reducir los costos**: reduzca los costos mediante la eliminación de deficiencias, errores humanos y problemas de seguridad mediante la implementación de PIM correctamente. El resultado neto es una reducción de los delitos cibernéticos asociados con identidades con privilegios, de los que resulta difícil y costoso recuperarse. PIM también ayudará a su organización a reducir los costos asociados con la auditoría de la información de acceso a efectos de cumplir con reglamentos y normas.
 
@@ -99,7 +99,7 @@ La siguiente sección le ayuda a identificar a todas las partes interesadas que 
 
 #### <a name="stakeholders-pim-for-azure-ad-roles"></a>Partes interesadas: PIM para roles de Azure AD
 
-| NOMBRE | Rol | . |
+| Name | Rol | . |
 | --- | --- | --- |
 | Nombre y correo electrónico | **Arquitecto de identidades o administrador global de Azure**<br/>Un representante del equipo de administración de identidades responsable de definir cómo este cambio se alinea con la infraestructura de administración de identidades principal de su organización. | SO/R/I |
 | Nombre y correo electrónico | **Propietario del servicio/Administrador de línea**<br/>Un representante de los propietarios de TI de un servicio o un grupo de servicios. Son fundamentales para tomar decisiones y ayudar a implementar PIM para su equipo. | SO/R/I |
@@ -109,7 +109,7 @@ La siguiente sección le ayuda a identificar a todas las partes interesadas que 
 
 #### <a name="stakeholders-pim-for-azure-resource-roles"></a>Partes interesadas: PIM para roles de recursos de Azure
 
-| NOMBRE | Rol | . |
+| Name | Rol | . |
 | --- | --- | --- |
 | Nombre y correo electrónico | **Propietario de recurso/suscripción**<br/>Un representante de los propietarios de TI de cada suscripción o recurso para los que desea implementar PIM. | SO/R/I |
 | Nombre y correo electrónico | **Propietario de seguridad**<br/>Un representante del equipo de seguridad que puede aprobar que el plan cumple los requisitos de seguridad de la organización. | SO/R |

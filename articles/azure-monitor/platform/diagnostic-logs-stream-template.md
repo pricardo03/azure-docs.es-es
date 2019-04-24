@@ -9,11 +9,11 @@ ms.date: 3/26/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: 7edce5175a1dda66abf3316cb8f0eb33e9f64ef7
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371476"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236034"
 ---
 # <a name="automatically-enable-diagnostic-settings-at-resource-creation-using-a-resource-manager-template"></a>Habilitación automática de Configuración de diagnóstico al crear recursos con una plantilla de Resource Manager
 En este artículo se muestra cómo usar una [plantilla de Azure Resource Manager](../../azure-resource-manager/resource-group-authoring-templates.md) para establecer Configuración de diagnóstico en un recurso cuando se crea. Esto le permite iniciar automáticamente la transmisión por secuencias sus registros de diagnóstico y métricas a Event Hubs, archivarlos en una cuenta de almacenamiento o enviarlos a un área de trabajo de Log Analytics cuando se crea un recurso.

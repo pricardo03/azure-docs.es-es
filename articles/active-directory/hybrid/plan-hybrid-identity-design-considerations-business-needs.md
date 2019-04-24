@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 47273bf687d88e82afba5de878f08bd53422479c
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56204784"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60381380"
 ---
 # <a name="determine-identity-requirements-for-your-hybrid-identity-solution"></a>Determinación de los requisitos de identidad para la solución de identidad híbrida
 El primer paso para diseñar una solución de identidad híbrida es determinar los requisitos de la organización que aprovechará esta solución.  Un identidad híbrida se inicia como un rol de soporte (admite todas las demás soluciones de nube mediante la autenticación) y avanza proporcionando capacidades nuevas e interesantes que desbloquean nuevas cargas de trabajo para los usuarios.  Estas cargas de trabajo o servicios que se quieran adoptar para los usuarios, determinan los requisitos para el diseño de la identidad híbrida.  Estos servicios y cargas de trabajo tienen que aprovechar la identidad híbrida tanto a nivel local como en la nube.  
@@ -110,6 +110,6 @@ También es necesario evaluar los requisitos del usuario. Esta evaluación es im
 ## <a name="next-steps"></a>Pasos siguientes
 [Determinación de los requisitos de sincronización de directorios](plan-hybrid-identity-design-considerations-directory-sync-requirements.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 [Información general sobre las consideraciones de diseño](plan-hybrid-identity-design-considerations-overview.md)
 

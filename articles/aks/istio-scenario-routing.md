@@ -2,17 +2,18 @@
 title: Enrutamiento inteligente y versiones de valor controlado con Istio en Azure Kubernetes Service (AKS)
 description: Obtenga información sobre cómo usar Istio para proporcionar enrutamiento inteligente e implementar versiones de valor controlado en un clúster de Azure Kubernetes Service (AKS).
 services: container-service
-author: paulbouwer
+author: rockboyfor
 ms.service: container-service
 ms.topic: article
-ms.date: 12/3/2018
-ms.author: pabouwer
+origin.date: 12/03/2018
+ms.date: 03/04/2019
+ms.author: v-yeche
 ms.openlocfilehash: 0a4e5e7e310a9949ee59291c2032eafda46955a9
-ms.sourcegitcommit: 2bb46e5b3bcadc0a21f39072b981a3d357559191
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/05/2018
-ms.locfileid: "52893341"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60465944"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Uso del enrutamiento inteligente y de las versiones de valor controlado con Istio en Azure Kubernetes Service (AKS)
 
@@ -128,7 +129,7 @@ Containers:
     Image:         mcr.microsoft.com/aks/samples/voting/app:1.0
     ...
   istio-proxy:
-    Image:         docker.io/istio/proxyv2:1.0.4
+    Image:         dockerhub.azk8s.cn/istio/proxyv2:1.0.4
 [...]
 ```
 
@@ -254,7 +255,7 @@ Puede visualizar con más facilidad que ahora solo se nos redirige a la versión
 
 Puede visualizar que ahora solo se le redirige a la versión *1.1* del componente *voting-analytics* como sigue. Recuerde usar la dirección IP de su propia puerta de enlace de entrada de Istio:
 
-```azurecli-interactive
+```azurecli
 INGRESS_IP=52.187.250.239
 for i in {1..5}; do curl -si $INGRESS_IP | grep results; done
 ```
@@ -340,7 +341,7 @@ deployment.apps/voting-app-2-0 created
 
 Espere hasta que todos los pods de la versión *2.0* estén en ejecución. Use el comando [kubectl get pods][kubectl-get] para ver todos los pods en el espacio de nombres *voting*:
 
-```azurecli-interactive
+```azurecli
 kubectl get pods --namespace voting
 ```
 

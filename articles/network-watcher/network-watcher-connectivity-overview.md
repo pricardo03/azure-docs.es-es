@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: jdial
-ms.openlocfilehash: 0268c7e54aa82df12243f98fd72de836fbc82070
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
-ms.translationtype: HT
+ms.openlocfilehash: 4b1164c3dedc5d8a2fa02d70f66ff00afe604836
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30834006"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60532464"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Introducción a la solución de problemas de conexiones en Azure Network Watcher
 
@@ -74,7 +74,7 @@ A continuación, se muestra un ejemplo de un problema encontrado en un salto.
 
 La solución de problemas de conexiones devuelve tipos de error sobre la conexión. En la tabla siguiente se proporciona una lista de los tipos de errores actuales devueltos.
 
-|type  |DESCRIPCIÓN  |
+|Type  |DESCRIPCIÓN  |
 |---------|---------|
 |CPU     | Alta utilización de CPU.       |
 |Memoria     | Alta utilización de memoria.       |

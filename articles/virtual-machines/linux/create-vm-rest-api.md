@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 06/05/2018
 ms.author: cynthn
 ms.openlocfilehash: 2b078cd769a9b4e5e66fe132fd4ef73ec4621efc
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57447853"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60391368"
 ---
 # <a name="create-a-linux-virtual-machine-that-uses-ssh-authentication-with-the-rest-api"></a>Creación de una máquina virtual Linux que usa la autenticación de SSH con la API REST
 
@@ -63,7 +63,7 @@ Para obtener información general sobre cómo trabajar con solicitudes de la API
 
 Para crear el cuerpo de la solicitud, se usan las siguientes definiciones comunes:
 
-| NOMBRE                       | Obligatorio | Type                                                                                | DESCRIPCIÓN  |
+| Name                       | Obligatorio | Type                                                                                | DESCRIPCIÓN  |
 |----------------------------|----------|-------------------------------------------------------------------------------------|--------------|
 | location                   | True     | string                                                                              | Ubicación del recurso |
 | Nombre                       |          | string                                                                              | Escriba un nombre para la máquina virtual. |
@@ -137,7 +137,7 @@ Puede usar al cliente de su preferencia para enviar esta solicitud HTTP. Tambié
 
 Hay dos respuestas correctas a la operación para crear o actualizar una máquina virtual:
 
-| NOMBRE        | Type                                                                              | DESCRIPCIÓN |
+| Name        | Type                                                                              | DESCRIPCIÓN |
 |-------------|-----------------------------------------------------------------------------------|-------------|
 | 200 OK      | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | OK          |
 | 201 Creado | [VirtualMachine](/rest/api/compute/virtualmachines/createorupdate#virtualmachine) | Creado     |

@@ -9,11 +9,11 @@ ms.date: 10/11/2018
 ms.author: johnkem
 ms.subservice: logs
 ms.openlocfilehash: 6e67b049ca179b1e93bcf645afd89b4a2eb0048d
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57436509"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60236177"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Servicios, esquemas y categorías admitidos en los registros de diagnóstico de Azure
 
@@ -23,14 +23,14 @@ Una combinación del tipo de recurso (disponible en la propiedad `resourceId`) y
 
 ## <a name="top-level-diagnostic-logs-schema"></a>Esquema de registros de diagnósticos de nivel superior
 
-| NOMBRE | Obligatorio/opcional | DESCRIPCIÓN |
+| Name | Obligatorio/opcional | DESCRIPCIÓN |
 |---|---|---|
-| Twitter en tiempo | Obligatorio | Marca de tiempo (UTC) del evento. |
-| ResourceId | Obligatorio | Identificador del recurso que ha emitido el evento. Para los servicios de inquilino, presenta la forma /tenants/tenant-id/providers/provider-name. |
+| time | Obligatorio | Marca de tiempo (UTC) del evento. |
+| resourceId | Obligatorio | Identificador del recurso que ha emitido el evento. Para los servicios de inquilino, presenta la forma /tenants/tenant-id/providers/provider-name. |
 | tenantId | Necesario para los registros de inquilinos | El identificador del inquilino de Active Directory al que está asociado este evento. Esta propiedad solo se usa para los registros de nivel de inquilino; no aparece en los registros de nivel de recurso. |
 | operationName | Obligatorio | Nombre de la operación representada por este evento. Si el evento representa una operación de RBAC, este es el nombre de la operación de RBAC (p. ej. Microsoft.Storage/storageAccounts/blobServices/blobs/Read). Se suele modelar con la forma de una operación de Resource Manager, incluso si no son operaciones de Resource Manager documentadas reales (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Opcional | La versión de API asociada con la operación, si operationName se ha realizado mediante una API (p. ej. `http://myservice.windowsazure.net/object?api-version=2016-06-01`). Si no hay ninguna API que se corresponde con esta operación, la versión representa la versión de esa operación en caso de que las propiedades asociadas con la operación cambien en el futuro. |
-| categoría | Obligatorio | Categoría de registro del evento. La categoría es la granularidad con la que se pueden habilitar o deshabilitar los registros en un recurso determinado. Las propiedades que aparecen en el blob de propiedades de un evento son las mismas dentro de una categoría de registro y un tipo de recurso concretos. Las categorías de registro típicas son "Audit", "Operational" "Execution" y "Request". |
+| category | Obligatorio | Categoría de registro del evento. La categoría es la granularidad con la que se pueden habilitar o deshabilitar los registros en un recurso determinado. Las propiedades que aparecen en el blob de propiedades de un evento son las mismas dentro de una categoría de registro y un tipo de recurso concretos. Las categorías de registro típicas son "Audit", "Operational" "Execution" y "Request". |
 | resultType | Opcional | Estado del evento. Entre los valores habituales, se incluyen Started, In Progress, Succeeded, Failed, Active y Resolved. |
 | resultSignature | Opcional | Subestado del evento. Si esta operación se corresponde con una llamada API REST, este es el código de estado HTTP de la llamada REST correspondiente. |
 | resultDescription | Opcional | Descripción de texto estático de esta operación, por ejemplo. "Obtener el archivo de almacenamiento". |
@@ -40,7 +40,7 @@ Una combinación del tipo de recurso (disponible en la propiedad `resourceId`) y
 | identidad | Opcional | Blob JSON que describe la identidad del usuario o la aplicación que realizó la operación. Normalmente esto incluirá la autorización y las notificaciones o el token JWT de Active Directory. |
 | Nivel | Opcional | Nivel de gravedad del evento. Debe ser uno de entre Informativo, Advertencia, Error o Crítico. |
 | location | Opcional | Región del recurso que emite el evento, por ejemplo, "Este de EE. UU." o "Sur de Francia". |
-| propiedades | Opcional | Todas las propiedades extendidas relacionadas con esta categoría de eventos determinada. Todas las propiedades personalizadas o únicas se deben colocar dentro de esta "Parte B" del esquema. |
+| properties | Opcional | Todas las propiedades extendidas relacionadas con esta categoría de eventos determinada. Todas las propiedades personalizadas o únicas se deben colocar dentro de esta "Parte B" del esquema. |
 
 ## <a name="service-specific-schemas-for-resource-diagnostic-logs"></a>Esquemas específicos del servicio para los registros de diagnóstico de recursos
 El esquema para los registros de diagnóstico de recursos varía según la categoría de registro y el recurso. En esta lista se muestran todos los servicios que hacen que los registros de diagnóstico y los vínculos estén disponibles para el servicio y el esquema específico de la categoría cuando sea posible.
@@ -81,7 +81,7 @@ El esquema para los registros de diagnóstico de recursos varía según la categ
 | Puertas de enlace de red virtual | Esquema no disponible. |
 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorías de registro admitidas por tipo de recurso
-|Tipo de recurso|Categoría|Nombre para mostrar de categoría|
+|Tipo de recurso|Category|Nombre para mostrar de categoría|
 |---|---|---|
 |Microsoft.AnalysisServices/servers|Motor|Motor|
 |Microsoft.AnalysisServices/servers|Servicio|Servicio|

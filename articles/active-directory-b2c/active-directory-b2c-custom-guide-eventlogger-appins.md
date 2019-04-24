@@ -11,11 +11,11 @@ ms.date: 10/12/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 51342a7544295b465d1f2dfc3e1b27d8285b3588
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58403823"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60384823"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Seguimiento del comportamiento del usuario en Azure Active Directory B2C mediante Application Insights
 
@@ -28,7 +28,7 @@ Cuando se usa Azure Active Directory (Azure AD) B2C junto con Azure Application 
 * Medir el rendimiento.
 * Crear notificaciones de Application Insights.
 
-## <a name="how-it-works"></a>Funcionamiento
+## <a name="how-it-works"></a>Cómo funciona
 
 El marco de experiencia de identidad de Azure AD B2C incluye ahora el proveedor `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0`. Este proveedor envía los datos de eventos directamente a Application Insights mediante la clave de instrumentación proporcionada a Azure AD B2C.
 

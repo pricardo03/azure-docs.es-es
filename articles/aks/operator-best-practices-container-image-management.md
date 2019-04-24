@@ -8,11 +8,11 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: iainfou
 ms.openlocfilehash: 1cc91f55d3895f06176875cb9ae620685dc09a26
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53605558"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60464818"
 ---
 # <a name="best-practices-for-container-image-management-and-security-in-azure-kubernetes-service-aks"></a>Procedimientos recomendados para la administración y la protección de las imágenes de contenedor en Azure Kubernetes Service (AKS)
 

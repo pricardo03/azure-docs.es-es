@@ -19,11 +19,11 @@ ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 74c79dbfb397a8e6d87de75b5468414f2b7adf2b
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56191595"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60251705"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>Llamadas entre servicios mediante las credenciales del cliente (secreto compartido o certificado)
 
@@ -125,6 +125,6 @@ En el ejemplo siguiente se muestra una respuesta correcta a una solicitud de un 
 }
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [OAuth 2.0 en Azure AD](v1-protocols-oauth-code.md)
 * [Ejemplo en C# de la llamada entre servicios con un secreto compartido](https://github.com/Azure-Samples/active-directory-dotnet-daemon) y [Ejemplo en C# de la llamada entre servicios con un certificado](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)

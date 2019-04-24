@@ -18,11 +18,11 @@ ms.date: 01/30/2019
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e6c80ee5d2a4d72be131c6a781cf793d1981e780
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58521081"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353260"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Referencia de la configuración de movilidad de Windows 10
 Lo siguiente es una lista completa de todas las opciones que se movilizan o de las que se realiza una copia de seguridad en Windows 10. 
@@ -76,7 +76,7 @@ Las configuraciones que no se movilizan o sincronizan no pertenecerán a ningún
 | **Lista de aplicaciones**: lista de aplicaciones instaladas |X |backup |Otros |
 | **Bluetooth**: toda la configuración de Bluetooth |X |X | |
 | **Símbolo del sistema**: configuración de los "valores predeterminados" del símbolo del sistema |sync |X |interno |
-| **Credenciales**: Caja de seguridad de credenciales |sync |sync |contraseña |
+| **Credenciales**: Caja de seguridad de credenciales |sync |sync |password |
 | **Fecha, hora y región**: hora automática (sincronización de hora de Internet) |sync |sync |language |
 | **Fecha, hora y región**: formato de 24 horas |sync |X |language |
 | **Fecha, hora y región**: fecha y hora |sync |X |language |

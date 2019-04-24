@@ -11,11 +11,11 @@ ms.author: amlstudiodocs
 ms.custom: seodec18
 ms.date: 11/03/2017
 ms.openlocfilehash: 0d79bc167ea0416218a4d4822bcd6221699643ca
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57852899"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60347386"
 ---
 # <a name="manage-azure-machine-learning-studio-web-services-using-api-management"></a>Administración de servicios web de Azure Machine Learning Studio con API Management
 ## <a name="overview"></a>Información general
@@ -168,7 +168,7 @@ Después de invocar una operación, el portal para desarrolladores mostrará el 
 ### <a name="creating-the-experiment"></a>Creación del experimento
 A continuación se muestran los pasos para crear un experimento de Aprendizaje automático de Azure sencillo e implementarlo como un servicio web. El servicio web toma como entrada una columna de texto arbitrario de entrada y devuelve un conjunto de características representadas como números enteros. Por ejemplo: 
 
-| Texto | Texto con hash |
+| Text | Texto con hash |
 | --- | --- |
 | Este es un buen día |1 1 2 2 0 2 0 1 |
 

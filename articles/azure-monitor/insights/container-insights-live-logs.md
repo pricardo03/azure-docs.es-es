@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: magoedte
 ms.openlocfilehash: c8baa4d2355adf99ce188d632ac50901db29a758
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "59997706"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60497682"
 ---
 # <a name="how-to-view-container-logs-real-time-with-azure-monitor-for-containers-preview"></a>Vista de los registros de contenedor en tiempo real con Azure Monitor para contenedores (versión preliminar)
 Esta característica, que se encuentra actualmente en versión preliminar, proporciona una vista en tiempo real en los registros de contenedor de Azure Kubernetes Service (AKS) (stdout/stderr) sin tener que ejecutar los comandos de kubectl. Cuando se selecciona esta opción, el nuevo panel aparece debajo de la tabla de datos de rendimiento de contenedores en la vista **Contenedores**.  Muestra el registro dinámico generado por el motor de contenedores para ayudar a solucionar los problemas en tiempo real. **Colaborador** se requiere acceso al recurso de clúster para esta característica funcione.

@@ -18,11 +18,11 @@ ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6d69ddbd38798d0667ce69fb7696597a972b5098
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56167004"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60455642"
 ---
 # <a name="plan-for-hybrid-identity-lifecycle"></a>Plan para el ciclo de vida de identidad híbrida
 La identidad es una de las bases de la estrategia de acceso a las aplicaciones y movilidad de la empresa. Si va a iniciar sesión en su dispositivo móvil o aplicación SaaS, su identidad es la clave para obtener acceso a todo. En su nivel más alto, una solución de administración de identidades abarca la unificación y la sincronización entre los repositorios de identidad, lo que incluye la automatización y la centralización del proceso de aprovisionamiento de recursos. La solución de identidad debe ser una identidad centralizada entre el entorno local y la nube y también usar algún tipo de federación de identidades para mantener la autenticación centralizada y compartir y colaborar de forma segura con usuarios y empresas externos. Los recursos van desde sistemas operativos y aplicaciones hasta personas de una organización o afiliadas a ella. Se puede modificar la estructura organizativa para dar cabida a las directivas y procedimientos de aprovisionamiento.
@@ -68,6 +68,6 @@ Uno de los objetivos de un administrador de identidades es poder reunir todos lo
 ## <a name="next-steps"></a>Pasos siguientes
 [Determinación de la estrategia de adopción de administración de identidad híbrida](plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 [Información general sobre las consideraciones de diseño](plan-hybrid-identity-design-considerations-overview.md)
 

@@ -11,11 +11,11 @@ ms.date: 09/20/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 30f3301fd404f23705e8ba04dc750cb82eed89b7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009266"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387118"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con una cuenta de Google en Azure Active Directory B2C mediante directivas personalizadas
 

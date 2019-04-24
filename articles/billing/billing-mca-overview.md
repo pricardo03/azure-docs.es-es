@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: ea625a61ed600dbaa22fef85987e9570a6fb7dbc
-ms.sourcegitcommit: 8b41b86841456deea26b0941e8ae3fcdb2d5c1e1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/05/2019
-ms.locfileid: "57337420"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371467"
 ---
 # <a name="get-started-with-your-billing-account-for-a-microsoft-customer-agreement"></a>Empezar a trabajar con su cuenta de facturación para un contrato de cliente de Microsoft
 
@@ -30,7 +30,7 @@ En este artículo se aplica a una cuenta de facturación para un contrato de cli
 
 Su cuenta de facturación para el acuerdo de cliente de Microsoft contiene uno o varios perfiles de facturación que le permiten administrar sus facturas y los métodos de pago. Cada perfil de facturación contiene uno o más secciones de factura que le permiten organizar los costos en la factura del perfil de facturación.
 
-El siguiente diagrama muestra la relación entre una cuenta de facturación, la facturación de perfiles y secciones de la factura.
+El siguiente diagrama muestra la relación entre una cuenta de facturación, los perfiles de facturación y las secciones de factura.
 
 ![Diagrama que muestra la jerarquía de facturación para el contrato de cliente de Microsoft](./media/billing-mca-overview/mca-billing-hierarchy.png)
 

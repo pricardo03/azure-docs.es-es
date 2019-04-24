@@ -7,15 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
-ms.author: davidmu
+origin.date: 09/10/2018
+ms.date: 04/03/2019
+ms.author: v-junlch
 ms.subservice: B2C
 ms.openlocfilehash: afa064232c10d3e84e9c301d44b82faae4904253
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55152984"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60383973"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 
@@ -29,9 +30,9 @@ El elemento **BuildingBlocks** se agrega dentro del elemento [TrustFrameworkPoli
   xmlns:xsd="https://www.w3.org/2001/XMLSchema"
   xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
   PolicySchemaVersion="0.3.0.0"
-  TenantId="mytenant.onmicrosoft.com"
+  TenantId="mytenant.partner.onmschina.cn"
   PolicyId="B2C_1A_TrustFrameworkBase"
-  PublicPolicyUri="http://mytenant.onmicrosoft.com/B2C_1A_TrustFrameworkBase">
+  PublicPolicyUri="http://mytenant.partner.onmschina.cn/B2C_1A_TrustFrameworkBase">
 
   <BuildingBlocks>
     <ClaimsSchema>
@@ -71,5 +72,6 @@ El elemento **BuildingBlocks** contiene los siguientes elementos que deben espec
 - [ContentDefinitions](contentdefinitions.md): contiene las URL para las plantillas HTML5 que va a usar en su recorrido del usuario. En una directiva personalizada, una definición de contenido define el identificador URI de la página HTML5 que se usa en un paso concreto del recorrido del usuario. Por ejemplo, páginas de error, de registro o inicio de sesión, o de restablecimiento de contraseña. Para modificar la apariencia, invalide el elemento LoadUri del archivo HTML5. También puede crear nuevas definiciones de contenido según sus necesidades. Este elemento puede contener una referencia a recursos localizados mediante un identificador de localización.
 
 - [Localización](localization.md): le ofrece compatibilidad con varios idiomas. La compatibilidad de localización en directivas permite configurar la lista de idiomas admitidos en una directiva y elegir un idioma predeterminado. Las cadenas y colecciones específicas del idioma también se admiten.
+
 
 

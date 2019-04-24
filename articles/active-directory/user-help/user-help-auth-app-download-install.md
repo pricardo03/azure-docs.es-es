@@ -14,11 +14,11 @@ ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 67393e19a72777d105f1f35a16986c52f52133be
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58079816"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60473828"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Descarga e instalación de la aplicación Microsoft Authenticator
 >[!Important]
@@ -32,10 +32,10 @@ Puede usar la aplicación Microsoft Authenticator de varias formas, por ejemplo:
 
 - **Inicio de sesión en el teléfono.** Versión de la comprobación en dos pasos que le permite iniciar sesión sin requerir contraseña, mediante el uso de su nombre de usuario y dispositivo móvil con su huella digital, cara o PIN.
 
-- **Generación de código.** Como un generador de código de otras cuentas que admiten aplicaciones de autenticador.
+- **Generación de código.** Como generador de código de cualquier otra cuenta que admite aplicaciones de autenticación.
 
 > [!Important]
-> La aplicación Microsoft Authenticator funciona con cualquier cuenta que utiliza la verificación de dos fases y es compatible con los estándares de duración definida una contraseña (TOTP).
+> La aplicación Microsoft Authenticator funciona con cualquier cuenta que use la comprobación en dos fases y admita los estándares de contraseña de un solo uso y duración definida (TOTP).
 > 
 > Su organización puede exigirle que use una aplicación autenticadora para iniciar sesión y acceder a sus datos y documentos. Aunque su nombre de usuario puede aparecer en la aplicación, la cuenta no estará configurada para actuar como un método de comprobación hasta que se complete el proceso de registro. Para más información, consulte [Adición de una cuenta profesional o educativa](user-help-auth-app-add-work-school-account.md).
 > 

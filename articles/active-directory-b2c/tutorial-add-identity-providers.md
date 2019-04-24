@@ -11,11 +11,11 @@ ms.date: 02/01/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: ef264622be1e66c98f8c7f17cf3e04b3239e8553
-ms.sourcegitcommit: 02d17ef9aff49423bef5b322a9315f7eab86d8ff
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/21/2019
-ms.locfileid: "58338282"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360102"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>Tutorial: Incorporación de proveedores de identidades a las aplicaciones en Azure Active Directory B2C
 

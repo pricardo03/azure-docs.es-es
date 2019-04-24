@@ -9,11 +9,11 @@ ms.date: 3/20/2019
 ms.author: yzheng
 ms.subservice: common
 ms.openlocfilehash: 2de194e501c05ba0bdb9971ca6045e67a42b0fd9
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59681733"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60392473"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Administrar el ciclo de vida de almacenamiento de blobs de Azure
 
@@ -116,7 +116,7 @@ Cada regla dentro de la directiva tiene varios parámetros:
 | Nombre de parámetro | Tipo de parámetro | Notas | Obligatorio |
 |----------------|----------------|-------|----------|
 | Nombre           | string |Nombre de una regla puede incluir hasta 256 caracteres alfanuméricos. El nombre de regla distingue mayúsculas de minúsculas.  Debe ser único dentro de una directiva. | True |
-| Enabled | boolean | Un valor booleano opcional para permitir que una regla ser temporal deshabilitada. Valor predeterminado es true si no se establece. | False | 
+| Enabled | Boolean | Un valor booleano opcional para permitir que una regla ser temporal deshabilitada. Valor predeterminado es true si no se establece. | False | 
 | Tipo           | Un valor de enumeración | El tipo actual válido es `Lifecycle`. | True |
 | definición     | Un objeto que define la regla del ciclo de vida | Cada definición se compone de un conjunto de filtros y un conjunto de acciones. | True |
 

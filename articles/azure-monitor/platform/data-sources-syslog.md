@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: magoedte
 ms.openlocfilehash: 41ea6222689516f224fc23ce6a658d17f7f81866
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58372308"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60240837"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Orígenes de datos de Syslog en Azure Monitor
 Syslog es un protocolo de registro de eventos que es común a Linux. Las aplicaciones envían mensajes que pueden almacenarse en la máquina local o entregarse a un recopilador de Syslog. Al instalar el agente de Log Analytics para Linux, este configura el demonio Syslog local para que reenvíe mensajes al agente. En ese momento, el agente envía el mensaje a Azure Monitor, donde se crea un registro correspondiente.  
@@ -203,7 +203,7 @@ Los registros de Syslog tienen un tipo **Syslog** y las propiedades que aparecen
 
 | Propiedad | Descripción |
 |:--- |:--- |
-| Equipo |Nombre del equipo desde el que se recopiló el evento. |
+| Computer |Nombre del equipo desde el que se recopiló el evento. |
 | Facility |Define la parte del sistema que ha generado el mensaje. |
 | HostIP |Dirección IP del sistema que envía el mensaje. |
 | HostName |Nombre del sistema que envía el mensaje. |

@@ -16,11 +16,11 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 934562147fedcc81b16fd1ad2534af5662ef4b78
-ms.sourcegitcommit: 70550d278cda4355adffe9c66d920919448b0c34
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/26/2019
-ms.locfileid: "58436836"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60437703"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Uso del paquete de contenido de Power BI de Azure Active Directory
 
@@ -59,7 +59,7 @@ También puede filtrar los resultados mediante la selección de una fecha o ubic
 
 - User Name
 - Dirección IP
-- Ubicación 
+- Location 
 - Estado de inicio de sesión 
 
 **Embudo de SSPR**: este informe le ayuda a comprender cómo se usa la herramienta SSPR dentro de su organización. Puede ver cuántos restablecimientos de contraseña se intentaron con la herramienta SSPR y cuántos de ellos se realizaron correctamente. También puede profundizar más en los errores de restablecimiento de contraseña y comprender por qué se produjeron determinados errores. 

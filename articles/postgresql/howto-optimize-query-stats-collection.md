@@ -1,17 +1,18 @@
 ---
 title: Optimización de la recopilación de estadísticas de consulta en un servidor de Azure Database for PostgreSQL
 description: En este artículo se describe cómo puede optimizar la recopilación de estadísticas de consulta en un servidor de Azure Database for PostgreSQL.
-author: dianaputnam
-ms.author: dianas
+author: WenJason
+ms.author: v-jay
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/25/2018
+origin.date: 10/25/2018
+ms.date: 02/18/2019
 ms.openlocfilehash: 428a22f79008130448bef65f14322d6880b1b367
-ms.sourcegitcommit: 359b0b75470ca110d27d641433c197398ec1db38
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/07/2019
-ms.locfileid: "55814374"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60422717"
 ---
 # <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql-server"></a>Optimización de la recopilación de estadísticas de consulta en un servidor de Azure Database for PostgreSQL 
 En este artículo se describe cómo optimizar la recopilación de estadísticas de consulta en un servidor de Azure Database for PostgreSQL.

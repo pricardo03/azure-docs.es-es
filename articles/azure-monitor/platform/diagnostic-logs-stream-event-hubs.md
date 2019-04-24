@@ -9,11 +9,11 @@ ms.date: 07/25/2018
 ms.author: johnkem
 ms.subservice: ''
 ms.openlocfilehash: b5299af375646e7759d0770139df2cd6d7ce105c
-ms.sourcegitcommit: 3f4ffc7477cff56a078c9640043836768f212a06
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/04/2019
-ms.locfileid: "57314085"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237703"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Transmisión de registros de diagnóstico de Azure a un centro de eventos
 Los **[registros de diagnóstico de Azure](diagnostic-logs-overview.md)** se pueden transmitir casi en tiempo real a cualquier aplicación mediante la opción "Exportar a Event Hubs" integrada en el Portal o habilitando el identificador de regla de autorización de Event Hubs en una configuración de diagnóstico por medio de los cmdlets de Azure PowerShell o la CLI de Azure.
@@ -182,12 +182,12 @@ Estos son datos de salida de ejemplo de Event Hubs:
 | Nombre del elemento | DESCRIPCIÓN |
 | --- | --- |
 | records |Matriz de todos los eventos de registro de esta carga. |
-| Twitter en tiempo |Hora a la que se produjo el error. |
-| categoría |Categoría de registro para este evento. |
-| ResourceId |Id. de recurso del recurso que generó este evento. |
+| time |Hora a la que se produjo el error. |
+| category |Categoría de registro para este evento. |
+| resourceId |Id. de recurso del recurso que generó este evento. |
 | operationName |Nombre de la operación. |
 | level |Opcional. Indica el nivel de registro de eventos. |
-| propiedades |Propiedades del evento. |
+| properties |Propiedades del evento. |
 
 Puede ver una lista de todos los proveedores de recursos que admiten el streaming a Event Hubs [aquí](diagnostic-logs-overview.md).
 

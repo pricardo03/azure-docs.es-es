@@ -14,11 +14,11 @@ ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 68b6c1e037992930a70630b0d218cc98beba931d
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56187039"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60249260"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Incorporación o eliminación de un grupo de otro grupo con Azure Active Directory
 En este artículo encontrará ayuda para agregar y quitar un grupo de otro grupo con Azure Active Directory.

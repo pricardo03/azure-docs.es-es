@@ -8,12 +8,12 @@ ms.author: divswa
 ms.reviewer: estfan, LADocs
 ms.topic: article
 ms.date: 08/19/2018
-ms.openlocfilehash: 7e058b7cebb9c2cdc3fb8b97bf99554b2f26dd8c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
-ms.translationtype: HT
+ms.openlocfilehash: d6d3a7111f3a5e49e32eba8ca4f09d692538cb87
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121582"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60428021"
 ---
 # <a name="send-edi-messages-in-batches-to-trading-partners-with-azure-logic-apps"></a>Envío de mensajes EDI por lotes a socios comerciales con Azure Logic Apps
 
@@ -59,13 +59,13 @@ Para la receptora de lotes, especifique el modo del lote, el nombre, los criteri
 
 2. [Vincule la aplicación lógica a la cuenta de integración](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md#link-account).
 
-3. En el Diseñador de Logic Apps, agregue el desencadenador de **lotes** que inicia el flujo de trabajo de la aplicación lógica. En el cuadro de búsqueda, escriba "lotes" como filtro. Seleccione este desencadenador: **Batch messages**
+3. En el Diseñador de Logic Apps, agregue el desencadenador de **lotes** que inicia el flujo de trabajo de la aplicación lógica. En el cuadro de búsqueda, escriba "lotes" como filtro. Seleccione este desencadenador: **Mensajes de lote**
 
    ![Agregar desencadenador de lotes](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-receiver-trigger.png)
 
 4. Establezca las propiedades de la receptora de lotes: 
 
-   | Propiedad | Valor | Notas | 
+   | Propiedad | Value | Notas | 
    |----------|-------|-------|
    | **Batch Mode** | En línea |  |  
    | **Batch Name** | TestBatch | Disponible solo con Batch Mode **Inline** | 
@@ -84,7 +84,7 @@ Para la receptora de lotes, especifique el modo del lote, el nombre, los criteri
 
    1. En el desencadenador de lotes, elija **Nuevo paso**.
 
-   2. En el cuadro de búsqueda, escriba "X12 batch" como filtro y seleccione esta acción (para cualquier versión): **Batch encode <*versión*> - X12** 
+   2. En el cuadro de búsqueda, escriba "Lote X 12" como filtro y seleccione esta acción (cualquier versión): **Batch permite codificar <*versión*>-X12** 
 
       ![Seleccione la acción de codificación por lotes X12.](./media/logic-apps-scenario-EDI-send-batch-messages/add-batch-encode-action.png)
 
@@ -118,7 +118,7 @@ Para asegurarse de que la receptora de lotes funciona según lo previsto, puede 
 
 1. En la acción de codificación de X12, elija **Nuevo paso**. 
 
-2. En el cuadro de búsqueda, escriba "http" como filtro. Seleccione esta acción: **HTTP - HTTP**.
+2. En el cuadro de búsqueda, escriba "http" como filtro. Seleccione esta acción: **HTTP - HTTP**
     
    ![Selección de la acción de HTTP](./media/logic-apps-scenario-EDI-send-batch-messages/batch-receiver-add-http-action.png)
 
@@ -151,7 +151,7 @@ Ahora cree una o más aplicaciones lógicas que envíen mensajes a la aplicació
 
 1. Cree otra aplicación lógica con este nombre: "SendX12MessagesToBatch" 
 
-2. En el cuadro de búsqueda, escriba "when a http request" como filtro. Seleccione este desencadenador: **When a HTTP request is received**. 
+2. En el cuadro de búsqueda, escriba "when a http request" como filtro. Seleccione este desencadenador: **Cuando se recibe una solicitud HTTP** 
    
    ![Adición del desencadenador Request](./media/logic-apps-scenario-EDI-send-batch-messages/add-request-trigger-sender.png)
 
@@ -160,7 +160,7 @@ Ahora cree una o más aplicaciones lógicas que envíen mensajes a la aplicació
    1. En la acción de solicitud HTTP, elija **Nuevo paso**.
 
    2. En el cuadro de búsqueda, escriba "lotes" como filtro. 
-   Seleccione la lista **Acciones** y esta acción: **Choose a Logic Apps workflow with batch trigger - Send messages to batch**
+   En la lista de **acciones**, seleccione la siguiente: **Choose a Logic Apps workflow with batch trigger - Send messages to batch** (Escoger un flujo de trabajo de Logic Apps con el desencadenador de lotes: Enviar mensajes al lote)
 
       ![Seleccione "Choose a Logic Apps workflow with batch trigger"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-trigger.png)
 
@@ -168,7 +168,7 @@ Ahora cree una o más aplicaciones lógicas que envíen mensajes a la aplicació
 
       ![Seleccionar aplicación lógica "receptora de lotes"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-receiver.png)
 
-   4. Seleccione esta acción: **Batch_messages - <*batch-receiver*>**
+   4. Seleccione esta acción: **Batch_messages - <*su-receptor-de-lotes*>**
 
       ![Selección de la acción "Batch_messages"](./media/logic-apps-scenario-EDI-send-batch-messages/batch-sender-select-batch-messages-action.png)
 

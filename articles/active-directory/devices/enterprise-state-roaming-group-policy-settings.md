@@ -18,11 +18,11 @@ ms.date: 10/25/2018
 ms.author: joflore
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5f1b23862edeabbf8e03d4589fa3f22a3fab9f72
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58520996"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60353166"
 ---
 # <a name="group-policy-and-mdm-settings"></a>Configuración de MDM y directivas de grupo
 Use esta configuración de directiva de grupo y de dispositivos móviles (MDM) de solo en dispositivos de empresa, dado que estas directivas se aplican en todo el dispositivo del usuario. Aplicar una directiva MDM para deshabilitar la sincronización de configuración para un dispositivo de usuario personal ejercerá un impacto negativo en el uso de ese dispositivo. Además, otras cuentas de usuario en el dispositivo también se verán afectadas por la directiva.
@@ -33,7 +33,7 @@ Las tablas siguientes describen la configuración de la directiva disponible.
 ## <a name="mdm-settings"></a>Configuración de MDM
 La configuración de directiva MDM se aplica a Windows 10 y Windows 10 Mobile.  El soporte para Windows 10 Mobile existe solo para la itinerancia basada en cuentas de Microsoft a través de la cuenta OneDrive del usuario.  Consulte la sección [Dispositivos y puntos de conexión](enterprise-state-roaming-windows-settings-reference.md) para información detallada sobre qué dispositivos se admiten para la sincronización basada en Azure AD.
 
-| NOMBRE | DESCRIPCIÓN |
+| Name | DESCRIPCIÓN |
 | --- | --- |
 | Permitir la conexión con una cuenta de Microsoft |Permite a los usuarios autenticarse con una cuenta de Microsoft en el dispositivo. |
 | Permitir la sincronización de mi configuración |Permite a los usuarios usar un perfil itinerante para la configuración de Windows y los datos de la aplicación; si deshabilita esta directiva se deshabilitará la sincronización, así como las copias de seguridad en dispositivos móviles |
@@ -43,7 +43,7 @@ La configuración de directiva de grupo se aplica a dispositivos de Windows 10 q
 
 Esta configuración se encuentran en: `Computer Configuration > Administrative Templates > Windows Components > Sync your settings` 
 
-| NOMBRE | DESCRIPCIÓN |
+| Name | DESCRIPCIÓN |
 | --- | --- |
 | Cuentas: Bloquear cuentas Microsoft |Esta configuración de directiva impide a los usuarios agregar nuevas cuentas de Microsoft en este equipo. |
 | No sincronizar |Impide a los usuarios usar un perfil itinerante para los datos de la aplicación y la configuración de Windows. |

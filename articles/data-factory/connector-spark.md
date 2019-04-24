@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: jingwang
 ms.openlocfilehash: 370da046e5a964d91b668ea80730b8d331065d29
-ms.sourcegitcommit: 25936232821e1e5a88843136044eb71e28911928
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/04/2019
-ms.locfileid: "54019969"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322879"
 ---
 # <a name="copy-data-from-spark-using-azure-data-factory"></a>Copiar datos de Spark con Azure Data Factory 
 
@@ -41,14 +41,14 @@ Las siguientes propiedades son compatibles con el servicio vinculado de Spark:
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type debe establecerse en: **Spark** | SÍ |
-| host | Dirección IP o nombre de host del servidor de Spark  | SÍ |
-| puerto | Puerto TCP que el servidor de Spark utiliza para escuchar las conexiones del cliente. Si se conecta a Azure HDInsights, especifique el puerto 443. | SÍ |
+| type | La propiedad type debe establecerse en: **Spark** | Sí |
+| host | Dirección IP o nombre de host del servidor de Spark  | Sí |
+| puerto | Puerto TCP que el servidor de Spark utiliza para escuchar las conexiones del cliente. Si se conecta a Azure HDInsights, especifique el puerto 443. | Sí |
 | serverType | Tipo de servidor de Spark. <br/>Los valores permitidos son: **SharkServer**, **SharkServer2** y **SparkThriftServer** | Sin  |
 | thriftTransportProtocol | Protocolo de transporte que se va a usar en la capa de Thrift. <br/>Los valores permitidos son: **Binary**, **SASL** y **HTTP** | Sin  |
-| authenticationType | Método de autenticación que se usa para tener acceso al servidor de Spark. <br/>Los valores permitidos son: **Anonymous**, **Username**, **UsernameAndPassword** y **WindowsAzureHDInsightService** | SÍ |
-| nombre de usuario | Nombre de usuario que utiliza para acceder al servidor de Spark.  | Sin  |
-| contraseña | Contraseña que corresponde al usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
+| authenticationType | Método de autenticación que se usa para tener acceso al servidor de Spark. <br/>Los valores permitidos son: **Anonymous**, **Username**, **UsernameAndPassword** y **WindowsAzureHDInsightService** | Sí |
+| username | Nombre de usuario que utiliza para acceder al servidor de Spark.  | Sin  |
+| password | Contraseña que corresponde al usuario. Marque este campo como SecureString para almacenarlo de forma segura en Data Factory o [para hacer referencia a un secreto almacenado en Azure Key Vault](store-credentials-in-key-vault.md). | Sin  |
 | httpPath | Dirección URL parcial correspondiente al servidor de Spark.  | Sin  |
 | enableSsl | Especifica si las conexiones al servidor se cifran mediante SSL. El valor predeterminado es false.  | Sin  |
 | trustedCertPath | Ruta de acceso completa del archivo .pem que contiene certificados de CA de confianza para comprobar el servidor al conectarse a través de SSL. Esta propiedad solo puede establecerse al utilizar SSL en IR autohospedados. El valor predeterminado es el archivo cacerts.pem instalado con el IR.  | Sin  |
@@ -86,7 +86,7 @@ Para copiar datos de Spark, establezca la propiedad type del conjunto de datos e
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del conjunto de datos debe establecerse en: **SparkObject** | SÍ |
+| type | La propiedad type del conjunto de datos debe establecerse en: **SparkObject** | Sí |
 | tableName | Nombre de la tabla. | No (si se especifica "query" en el origen de la actividad) |
 
 **Ejemplo**
@@ -115,7 +115,7 @@ Para copiar datos de Spark, establezca el tipo de origen de la actividad de copi
 
 | Propiedad | DESCRIPCIÓN | Obligatorio |
 |:--- |:--- |:--- |
-| Tipo | La propiedad type del origen de la actividad de copia debe establecerse en: **SparkSource** | SÍ |
+| type | La propiedad type del origen de la actividad de copia debe establecerse en: **SparkSource** | Sí |
 | query | Use la consulta SQL personalizada para leer los datos. Por ejemplo: `"SELECT * FROM MyTable"`. | No (si se especifica "tableName" en el conjunto de datos) |
 
 **Ejemplo:**

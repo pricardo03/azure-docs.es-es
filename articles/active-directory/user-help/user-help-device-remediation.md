@@ -15,11 +15,11 @@ ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a317680a39d4594aacdf84ccdf963bb84bfbf07b
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57452045"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60473810"
 ---
 # <a name="potential-reasons-for-the-you-cant-get-there-from-here-error-message"></a>Solución de problemas de los posibles motivos por los que obtiene el mensaje de error "No se puede llegar allí desde aquí".
 Durante el acceso a servicios o aplicaciones web internos de su organización, es posible que obtenga un mensaje de error que dice, **No se puede llegar allí desde aquí**. Este mensaje indica que la organización ha establecido una directiva que impide el acceso del dispositivo a los recursos de la organización. Si bien es posible que tenga que ponerse en contacto con su departamento de soporte técnico para solucionar este problema, aquí tiene algunas cosas que puede probar primero.

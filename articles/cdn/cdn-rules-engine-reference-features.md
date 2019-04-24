@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/09/2018
 ms.author: magattus
 ms.openlocfilehash: 205a8dae55394a82a60f54ed32bad95324a59517
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57996927"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324273"
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Características del motor de reglas de Azure CDN
 En este tema se muestran descripciones detalladas de las características disponibles para el [motor de reglas](cdn-rules-engine.md)de Azure Content Delivery Network (CDN).
@@ -30,7 +30,7 @@ La tercera parte de una regla es la característica. Una característica define 
 
 Estas características están diseñadas para controlar el acceso al contenido.
 
-NOMBRE | Propósito
+Name | Propósito
 -----|--------
 [Denegar acceso (403)](#deny-access-403) | Determina si todas las solicitudes se rechazan con una respuesta 403-Prohibido.
 [Autenticación de token](#token-auth) | Determina si se aplica una solicitud de autenticación basada en tokens a una solicitud.
@@ -43,7 +43,7 @@ NOMBRE | Propósito
 
 Estas características están diseñadas para personalizar cuándo y cómo se almacena el contenido en caché.
 
-NOMBRE | Propósito
+Name | Propósito
 -----|--------
 [Parámetros de ancho de banda](#bandwidth-parameters) | Determina si los parámetros de limitación de ancho de banda (por ejemplo, ec_rate y ec_prebuf) están activos.
 [Limitación de ancho de banda](#bandwidth-throttling) | Limita el ancho de banda de la respuesta proporcionada por el punto de presencia (POP).
@@ -73,7 +73,7 @@ NOMBRE | Propósito
 
 Esta característica está diseñada para proporcionar información adicional dentro de una regla.
 
-NOMBRE | Propósito
+Name | Propósito
 -----|--------
 [Comment](#comment) | Permite agregar una nota en una regla.
  
@@ -81,7 +81,7 @@ NOMBRE | Propósito
 
 Estas características están diseñadas para agregar, modificar o eliminar encabezados de la solicitud o respuesta.
 
-NOMBRE | Propósito
+Name | Propósito
 -----|--------
 [Encabezado de respuesta Age](#age-response-header) | Determina si se incluye un encabezado de respuesta Age en la respuesta enviada al solicitante.
 [Depurar encabezados de respuesta de la caché](#debug-cache-response-headers) | Determina si una respuesta puede incluir el encabezado de respuesta X-EC-Debug que proporciona información sobre la directiva de caché del recurso solicitado.
@@ -94,7 +94,7 @@ NOMBRE | Propósito
 
 Estas características están diseñadas para personalizar los datos almacenados en archivos de registro sin procesar.
 
-NOMBRE | Propósito
+Name | Propósito
 -----|--------
 [Campo de registro personalizado 1](#custom-log-field-1) | Determina el formato y el contenido que se asigna al campo de registro personalizado en un archivo de registro sin procesar.
 [Cadena de consulta del registro](#log-query-string) | Determina si una cadena de consulta se almacena con la dirección URL en los registros de acceso.
@@ -148,7 +148,7 @@ If the desired site does not appear in the list, then you should edit its config
 
 Estas características están diseñadas para controlar la forma en que la red CDN se comunica con un servidor de origen.
 
-NOMBRE | Propósito
+Name | Propósito
 -----|--------
 [Número máximo de solicitudes de conexión persistente](#maximum-keep-alive-requests) | Define el número máximo de solicitudes de conexión persistente antes de cerrarse.
 [Encabezados de proxy especiales](#proxy-special-headers) | Define el conjunto de encabezados de solicitud específicos de la red CDN que se reenvían desde un punto de presencia a un servidor de origen.
@@ -158,7 +158,7 @@ NOMBRE | Propósito
 
 Estas características ofrecen funcionalidades avanzadas que solo deben utilizar los usuarios avanzados.
 
-NOMBRE | Propósito
+Name | Propósito
 -----|--------
 [Métodos HTTP almacenables en caché](#cacheable-http-methods) | Determina el conjunto de métodos HTTP adicionales que pueden almacenarse en caché en la red.
 [Tamaño del cuerpo de solicitud almacenable en caché](#cacheable-request-body-size) | Define el umbral que determina si una respuesta POST se puede almacenar en caché.
@@ -169,7 +169,7 @@ NOMBRE | Propósito
 
 Estas características permiten reescribir una solicitud o redirigirla a una dirección URL diferente.
 
-NOMBRE | Propósito
+Name | Propósito
 -----|--------
 [Seguir redireccionamientos](#follow-redirects) | Determina si las solicitudes se pueden redirigir al nombre de host definido en el encabezado Ubicación que devuelve el servidor de origen de un cliente.
 [Redirección de direcciones URL](#url-redirect) | Redirige las solicitudes a través del encabezado Ubicación.
@@ -183,9 +183,9 @@ NOMBRE | Propósito
 ### <a name="age-response-header"></a>Encabezado de respuesta Age
 **Propósito**: Determina si se incluye un encabezado de respuesta Age en la respuesta enviada al solicitante.
 
-Valor|Resultado
+Value|Resultado
 --|--
-habilitado | El encabezado de respuesta Age se incluye en la respuesta enviada al solicitante.
+Enabled | El encabezado de respuesta Age se incluye en la respuesta enviada al solicitante.
 Disabled | El encabezado de respuesta Age se excluye de la respuesta enviada al solicitante.
 
 **El comportamiento predeterminado de**: Deshabilitado.
@@ -200,9 +200,9 @@ Disabled | El encabezado de respuesta Age se excluye de la respuesta enviada al 
 
 Los parámetros de limitación de ancho de banda determinan si la velocidad de transferencia de datos para la solicitud de un cliente se limita a una velocidad personalizada.
 
-Valor|Resultado
+Value|Resultado
 --|--
-habilitado|Permite que los puntos de presencia admitan las solicitudes de limitación de ancho de banda.
+Enabled|Permite que los puntos de presencia admitan las solicitudes de limitación de ancho de banda.
 Disabled|Hace que los puntos de presencia omitan los parámetros de limitación de ancho de banda. El contenido solicitado se sirve normalmente (es decir, sin limitación de ancho de banda).
 
 **Comportamiento predeterminado:** habilitado.
@@ -232,9 +232,9 @@ Segundos de búfer previo|Establezca esta opción en el número de segundos que 
 ### <a name="bypass-cache"></a>Omisión de la memoria caché
 **Propósito:** determina si la solicitud debe omitir el almacenamiento en caché.
 
-Valor|Resultado
+Value|Resultado
 --|--
-habilitado|Hace que todas las solicitudes pasen al servidor de origen, aunque el contenido se haya almacenado antes en caché en los puntos de presencia.
+Enabled|Hace que todas las solicitudes pasen al servidor de origen, aunque el contenido se haya almacenado antes en caché en los puntos de presencia.
 Disabled|Hace que los puntos de presencia almacenen en caché los recursos según la directiva de caché definida en sus encabezados de respuesta.
 
 **Comportamiento predeterminado**:
@@ -294,7 +294,7 @@ Información importante:
 
 La manera más fácil de lograr este tipo de configuración es colocar las características Max-Age externa y Tratamiento de encabezados Cache-Control en la misma instrucción.
 
-Valor|Resultado
+Value|Resultado
 --|--
 Sobrescribir|Garantiza que se llevarán a cabo las siguientes acciones:<br/> -Sobrescribe el `Cache-Control` encabezado generado por el servidor de origen. <br/>: Agrega el `Cache-Control` encabezado generado por la característica Max-Age externa a la respuesta.
 Pass Through|Garantiza que el `Cache-Control` encabezado generado por la característica Max-Age externa nunca se agregará a la respuesta. <br/> Si el servidor de origen genera un `Cache-Control` encabezado, pasa al usuario final. <br/> Si el servidor de origen no genera un `Cache-Control` encabezado, esta opción puede provocar que el encabezado de respuesta no contenga un `Cache-Control` encabezado.
@@ -431,9 +431,9 @@ Un error de caché parcial normalmente se produce después de que un usuario anu
 
 Deje la configuración predeterminada de la plataforma HTTP Large, ya que reduce la carga en el servidor de origen del cliente y aumenta la velocidad con la que los clientes descargan el contenido.
 
-Valor|Resultado
+Value|Resultado
 --|--
-habilitado|Restablece el comportamiento predeterminado. El comportamiento predeterminado consiste en forzar al punto de presencia a que inicie una captura en segundo plano del recurso desde el servidor de origen. Después de eso, el recurso estará en la caché local del punto de presencia.
+Enabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado consiste en forzar al punto de presencia a que inicie una captura en segundo plano del recurso desde el servidor de origen. Después de eso, el recurso estará en la caché local del punto de presencia.
 Disabled|Evita que un punto de presencia realice una captura en segundo plano del recurso. Como resultado, la próxima solicitud de ese recurso realizada desde esa región hace que un punto de presencia lo solicite desde el servidor de origen del cliente.
 
 **Comportamiento predeterminado:** habilitado.
@@ -534,9 +534,9 @@ Para solicitar los encabezados de respuesta de caché de depuración, incluya el
 
 X-EC-Debug: x-ec-cache,x-ec-check-cacheable,x-ec-cache-key,x-ec-cache-state
 
-Valor|Resultado
+Value|Resultado
 -|-
-habilitado|Las solicitudes de los encabezados de respuesta de caché de depuración devolverá una respuesta que incluye el encabezado X-EC-Debug.
+Enabled|Las solicitudes de los encabezados de respuesta de caché de depuración devolverá una respuesta que incluye el encabezado X-EC-Debug.
 Disabled|El encabezado de respuesta X-EC-Debug se excluirá de la respuesta.
 
 **Comportamiento predeterminado:** deshabilitado.
@@ -591,9 +591,9 @@ Debido a la manera en que se realiza el seguimiento de la configuración de la m
 ### <a name="deny-access-403"></a>Denegar acceso (403)
 **Propósito**: Determina si todas las solicitudes se rechazan con una respuesta 403-Prohibido.
 
-Valor | Resultado
+Value | Resultado
 ------|-------
-habilitado| Hace que todas las solicitudes que cumplen los criterios de coincidencia se rechacen con respuesta 403 Prohibido.
+Enabled| Hace que todas las solicitudes que cumplen los criterios de coincidencia se rechacen con respuesta 403 Prohibido.
 Disabled| Restablece el comportamiento predeterminado. El comportamiento predeterminado es permitir que el servidor de origen determine el tipo de respuesta que se devolverá.
 
 **El comportamiento predeterminado de**: Disabled
@@ -611,7 +611,7 @@ Disabled| Restablece el comportamiento predeterminado. El comportamiento predete
 
 La manera más fácil de lograr este tipo de configuración es colocar las características Max-Age externa y Tratamiento de encabezados Expires en la misma instrucción.
 
-Valor|Resultado
+Value|Resultado
 --|--
 Sobrescribir|Garantiza que se llevarán a cabo las siguientes acciones:<br/>-Sobrescribe el `Expires` encabezado generado por el servidor de origen.<br/>: Agrega el `Expires` encabezado generado por la característica Max-Age externa a la respuesta.
 Pass Through|Garantiza que el `Expires` encabezado generado por la característica Max-Age externa nunca se agregará a la respuesta. <br/> Si el servidor de origen genera un `Expires` encabezado, se pasará directamente al usuario final. <br/>Si el servidor de origen no genera un `Expires` encabezado, esta opción puede provocar que el encabezado de respuesta no contenga un `Expires` encabezado.
@@ -651,9 +651,9 @@ Información importante:
 
 - Las solicitudes solo se pueden redirigir a los servidores perimetrales CNAME que correspondan a la misma plataforma.
 
-Valor|Resultado
+Value|Resultado
 -|-
-habilitado|Las solicitudes se pueden redirigir.
+Enabled|Las solicitudes se pueden redirigir.
 Disabled|Las solicitudes no se redirigirán.
 
 **Comportamiento predeterminado:** deshabilitado.
@@ -724,9 +724,9 @@ Información importante:
 
 Una solicitud de no almacenar en caché se produce cuando el cliente HTTP envía un `Cache-Control: no-cache` o `Pragma: no-cache` encabezado en la solicitud HTTP.
 
-Valor|Resultado
+Value|Resultado
 --|--
-habilitado|Permite reenviar las solicitudes de no almacenar en caché de un cliente HTTP al servidor de origen, y el servidor de origen devolverá los encabezados y el cuerpo de respuesta a través del punto de presencia al cliente HTTP.
+Enabled|Permite reenviar las solicitudes de no almacenar en caché de un cliente HTTP al servidor de origen, y el servidor de origen devolverá los encabezados y el cuerpo de respuesta a través del punto de presencia al cliente HTTP.
 Disabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado es impedir que las solicitudes de no almacenar en caché se reenvíen al servidor de origen.
 
 Para todo el tráfico de producción, se recomienda dejar esta característica deshabilitada de forma predeterminada. De lo contrario, los servidores de origen no estarán protegidos frente a usuarios finales que accidentalmente podrían desencadenar muchas solicitudes de no almacenar en caché al actualizar las páginas web, o frente a muchos reproductores de medios populares que están codificados para enviar un encabezado de no almacenar en caché con cada solicitud de vídeo. No obstante, esta característica puede ser útil para aplicarla a determinados directorios de ensayo o pruebas que no son de producción, para poder extraer contenido nuevo a petición desde el servidor de origen.
@@ -786,9 +786,9 @@ Debido a la manera en que se realiza el seguimiento de la configuración de la m
 
 De forma predeterminada, este código de estado se devuelve cuando no puede satisfacer la solicitud de intervalo de bytes especificado por un punto de presencia y no se especificó un campo de encabezado de solicitud If-Range.
 
-Valor|Resultado
+Value|Resultado
 -|-
-habilitado|Impide que los puntos de presencia respondan a una solicitud de intervalo de bytes no válida con un código de estado 416 intervalo no se puede satisfacer solicitado. En su lugar, los servidores se proporcionarán al recurso solicitado y devolverán 200 OK al cliente.
+Enabled|Impide que los puntos de presencia respondan a una solicitud de intervalo de bytes no válida con un código de estado 416 intervalo no se puede satisfacer solicitado. En su lugar, los servidores se proporcionarán al recurso solicitado y devolverán 200 OK al cliente.
 Disabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado es respetar el código de estado 416 intervalo no se puede satisfacer solicitado.
 
 **Comportamiento predeterminado:** deshabilitado.
@@ -847,9 +847,9 @@ Debido a la manera en que se realiza el seguimiento de la configuración de la m
 ### <a name="log-query-string"></a>Cadena de consulta del registro
 **Propósito:** determina si una cadena de consulta se almacenará junto con la dirección URL en los registros de acceso.
 
-Valor|Resultado
+Value|Resultado
 -|-
-habilitado|Permite almacenar cadenas de consulta cuando se anotan direcciones URL en un registro de acceso. Si una dirección URL no contiene una cadena de consulta, esta opción no tendrá efecto.
+Enabled|Permite almacenar cadenas de consulta cuando se anotan direcciones URL en un registro de acceso. Si una dirección URL no contiene una cadena de consulta, esta opción no tendrá efecto.
 Disabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado es pasar por alto las cadenas de consulta cuando se anotan direcciones URL en un registro de acceso.
 
 **Comportamiento predeterminado:** deshabilitado.
@@ -945,7 +945,7 @@ Información importante:
     - content-encoding
     - content-length
     - content-range
-    - fecha
+    - date
     - Servidor
     - trailer
     - transfer-encoding
@@ -965,9 +965,9 @@ Información importante:
 
 Esta caché parcial puede utilizarse para atender nuevas solicitudes de ese contenido hasta que se almacene en caché todo el contenido solicitado.
 
-Valor|Resultado
+Value|Resultado
 -|-
-habilitado|Las solicitudes pueden generar contenido almacenado parcialmente en caché.
+Enabled|Las solicitudes pueden generar contenido almacenado parcialmente en caché.
 Disabled|Las solicitudes solamente pueden generar una versión completamente almacenada en caché del contenido solicitado.
 
 **Comportamiento predeterminado:** deshabilitado.
@@ -1023,9 +1023,9 @@ En la lista predeterminada, se incluyen los siguientes encabezados HTTP:
 
 Los valores válidos son:
 
-Valor|Resultado
+Value|Resultado
 --|--
-habilitado|Hace que el punto de presencia vuelva a capturar el recurso desde el servidor de origen.
+Enabled|Hace que el punto de presencia vuelva a capturar el recurso desde el servidor de origen.
 Disabled|Restablece el comportamiento predeterminado. El comportamiento predeterminado es atender los recursos de caché válidos cuando se soliciten.
 
 Esta característica no es necesaria para la entrega de contenido y un almacenamiento en caché correcto, pero puede resultar útil para solucionar este problema. Por ejemplo, los generadores de contenido dinámico en los servidores de origen pueden provocar accidentalmente que se envíen respuestas de 0 bytes a los puntos de presencia. Normalmente, los puntos de presencia almacenan estos tipos de respuestas en la caché. Si sabe que una respuesta de 0 bytes nunca es una respuesta válida 
@@ -1086,9 +1086,9 @@ Asegúrese de que el nombre de encabezado especificado no coincida con ninguno d
 ### <a name="stale-content-delivery-on-error"></a>Entrega de contenido obsoleto en caso de error
 **Propósito:** determina si se entregará el contenido almacenado en caché expirado cuando se produce un error durante la revalidación de caché o al recuperar el contenido solicitado desde el servidor de origen de cliente.
 
-Valor|Resultado
+Value|Resultado
 -|-
-habilitado|Cuando se produce un error durante una conexión a un servidor de origen, se sirve contenido obsoleto al solicitante.
+Enabled|Cuando se produce un error durante una conexión a un servidor de origen, se sirve contenido obsoleto al solicitante.
 Disabled|El error del servidor de origen se reenvía al solicitante.
 
 **Comportamiento predeterminado:** deshabilitado
@@ -1126,9 +1126,9 @@ La clave de cifrado que se utiliza para cifrar y descifrar los valores de token 
 
 Esta característica tiene prioridad sobre la mayoría de las características con la excepción de la característica Reescritura de direcciones URL.
 
-Valor | Resultado
+Value | Resultado
 ------|---------
-habilitado | Protege el contenido solicitado con autenticación basada en token. Solo se admitirán las solicitudes de los clientes que proporcionen un token válido y cumplan los requisitos. Las transacciones de FTP se excluyen de la autenticación basada en token.
+Enabled | Protege el contenido solicitado con autenticación basada en token. Solo se admitirán las solicitudes de los clientes que proporcionen un token válido y cumplan los requisitos. Las transacciones de FTP se excluyen de la autenticación basada en token.
 Disabled| Restablece el comportamiento predeterminado. El comportamiento predeterminado es permitir la configuración de la autenticación basada en token para determinar si se protegerá una solicitud.
 
 #### <a name="compatibility"></a>Compatibilidad
@@ -1198,9 +1198,9 @@ Los parámetros que se ve afectados por esta característica son:
 
 Los valores válidos son:
 
-Valor|Resultado
+Value|Resultado
 ---|----
-habilitado|Hace que el punto de presencia no tenga en cuenta las mayúsculas y minúsculas al comparar las direcciones URL de los parámetros de autenticación basada en tokens.
+Enabled|Hace que el punto de presencia no tenga en cuenta las mayúsculas y minúsculas al comparar las direcciones URL de los parámetros de autenticación basada en tokens.
 Disabled|Restablece el comportamiento predeterminado. Es el comportamiento predeterminado de la comparación de direcciones URL es que la autenticación basada en token distinga mayúsculas de minúsculas.
 
 **Comportamiento predeterminado:** deshabilitado.
@@ -1219,9 +1219,9 @@ Información importante:
 - La opción de valor no puede establecerse en "ec_token."
 - Asegúrese de que el nombre definido en la opción de valor contiene caracteres de dirección URL solo es válidos.
 
-Valor|Resultado
+Value|Resultado
 ----|----
-habilitado|La opción de valor define el nombre del parámetro de cadena de consulta a través del cual se deben definir los tokens.
+Enabled|La opción de valor define el nombre del parámetro de cadena de consulta a través del cual se deben definir los tokens.
 Disabled|Un token se puede especificar como un parámetro de cadena de consulta no definido en la dirección URL de la solicitud.
 
 **Comportamiento predeterminado:** deshabilitado. Un token se puede especificar como un parámetro de cadena de consulta no definido en la dirección URL de la solicitud.

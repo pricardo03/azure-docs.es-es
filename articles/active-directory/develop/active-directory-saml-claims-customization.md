@@ -19,11 +19,11 @@ ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: c6fe74852824c10d24729f785e5e33a17b793161
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58878577"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60411337"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedimientos para: Personalización de las notificaciones emitidas en el token SAML para aplicaciones empresariales
 
@@ -73,7 +73,7 @@ Para obtener más información sobre el atributo NameIDPolicy, consulte [protoco
 
 Seleccione el origen que desee para la notificación `NameIdentifier` (o NameID). Puede seleccionar entre las opciones siguientes:
 
-| NOMBRE | DESCRIPCIÓN |
+| Name | DESCRIPCIÓN |
 |------|-------------|
 | Email | Dirección de correo electrónico del usuario |
 | userprincipalName | Nombre principal de usuario (UPN) del usuario |

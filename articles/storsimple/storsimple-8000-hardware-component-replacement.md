@@ -16,11 +16,11 @@ ms.date: 06/02/2017
 ms.author: alkohli
 ms.custom: ''
 ms.openlocfilehash: e05a37122647d4979089f0ba00b1fc15f9b84b0f
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57433661"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60321828"
 ---
 # <a name="replace-a-hardware-component-on-your-storsimple-8000-series-device"></a>Sustitución de un componente de hardware en el dispositivo StorSimple serie 8000
 
@@ -34,7 +34,7 @@ En los tutoriales de reemplazo de componentes de hardware se describen los compo
 ### <a name="safety-icon-conventions"></a>Convenciones de iconos de seguridad
 En la tabla siguiente se describen los iconos de seguridad usados en estos tutoriales. Preste mucha atención a estos iconos de seguridad al avanzar por los pasos para quitar y cambiar los componentes del dispositivo.
 
-| Icono | Texto | Información adicional |
+| Icono | Text | Información adicional |
 |:--- |:--- |:--- |
 | ![Icono Advertencia](./media/storsimple-hardware-component-replacement/Warning.png) |**PELIGRO** |Indica una situación peligrosa que, si no se evita, causará la muerte o lesiones graves. Esta palabra de aviso se debe limitar a las situaciones más extremas. |
 | ![Icono Advertencia](./media/storsimple-hardware-component-replacement/Warning.png) |**¡ADVERTENCIA** |Indica una situación peligrosa que, si no se evita, podría causar la muerte o lesiones graves. |

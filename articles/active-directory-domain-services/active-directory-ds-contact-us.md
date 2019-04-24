@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 08/23/2017
 ms.author: ergreenl
 ms.openlocfilehash: f45ecfb438d23539787780093e726064cda7a480
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55157999"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359422"
 ---
 # <a name="azure-ad-domain-services---contact-us"></a>Azure AD Domain Services: contacto
 ## <a name="contact-the-product-team"></a>Póngase en contacto con el equipo de productos

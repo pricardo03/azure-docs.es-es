@@ -15,18 +15,18 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 2dcbcbec9054b31312043ef6642f59fa64728b30
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58005807"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194366"
 ---
 # <a name="view-deny-assignments-for-azure-resources-using-the-azure-portal"></a>Visualización de las asignaciones de denegación de recursos de Azure mediante Azure Portal
 
 Las [asignaciones de denegación](deny-assignments.md) impiden que los usuarios realicen acciones concretas en recursos de Azure, aunque una asignación de roles les conceda acceso. En este artículo se describe cómo usar Azure Portal para ver las asignaciones de denegación.
 
 > [!NOTE]
-> En este momento, la única manera de agregar los suyos propios denegar asignaciones es mediante el uso de proyectos de Azure. Para obtener más información, consulte [proteger nuevos recursos con los bloqueos de recursos de Azure planos](../governance/blueprints/tutorials/protect-new-resources.md).
+> En este momento, la única manera de agregar sus propias asignaciones de denegación es usar Azure Blueprints. Para más información, consulte [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md) (Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

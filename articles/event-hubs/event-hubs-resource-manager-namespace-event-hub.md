@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/16/2018
 ms.author: shvija
 ms.openlocfilehash: d5dc65dc225d11a996d9b9d3c329151a17321fb6
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59678248"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60343501"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-resource-manager-template"></a>Inicio rápido: Creación de un centro de eventos mediante una plantilla de Azure Resource Manager
 Azure Event Hubs es una plataforma de streaming de macrodatos y servicio de ingesta de eventos de gran escalabilidad capaz de recibir y procesar millones de eventos por segundo. Event Hubs puede procesar y almacenar eventos, datos o telemetría generados por dispositivos y software distribuido. Los datos enviados a un centro de eventos se pueden transformar y almacenar con cualquier proveedor de análisis en tiempo real o adaptadores de procesamiento por lotes y almacenamiento. Para más información sobre Event Hubs, consulte [Introducción a Event Hubs](event-hubs-about.md) y [Características de Event Hubs](event-hubs-features.md).

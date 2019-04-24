@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: article
-ms.date: 01/31/2019
+ms.date: 03/18/2019
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9aba12a2bca882b5f0e6e95d8e4f6014b318a12e
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 58ca814551d8c7d309328f236052e1d07ac6f035
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58119756"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60469135"
 ---
 # <a name="delegate-app-administrator-roles-in-azure-active-directory"></a>Delegación de roles de administrador de aplicaciones en Azure Active Directory
 
@@ -58,7 +58,7 @@ Cuando un usuario registra una aplicación, se agrega automáticamente como prim
 
 ## <a name="delegate-app-ownership"></a>Delegación de la propiedad de las aplicaciones
 
-Los propietarios de aplicaciones y los propietarios de registros de aplicaciones solo pueden administrar las aplicaciones o los registros de aplicaciones de los que son propietarios. Por ejemplo, cuando agrega un propietario a la aplicación Salesforce, ese propietario puede administrar el acceso a Salesforce y la configuración de esta aplicación, pero no de otras aplicaciones. Una aplicación puede tener muchos propietarios y un usuario puede ser el propietario de muchas aplicaciones.
+Los propietarios de la aplicación y los propietarios de registro de aplicación pueden cada administrar solo las aplicaciones o los registros de aplicaciones que les pertenecen. Por ejemplo, cuando agrega un propietario a la aplicación Salesforce, ese propietario puede administrar el acceso a Salesforce y la configuración de esta aplicación, pero no de otras aplicaciones. Una aplicación puede tener muchos propietarios y un usuario puede ser el propietario de muchas aplicaciones.
 
 Un propietario de la aplicación puede:
 

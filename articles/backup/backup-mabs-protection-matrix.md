@@ -10,11 +10,11 @@ ms.topic: conceptual
 ms.author: raynew
 manager: carmonm
 ms.openlocfilehash: 050e3032d47b8215ae1aef8492c247031275ab86
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58094650"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60237612"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Matriz de protección de Azure Backup Server
 
@@ -22,7 +22,7 @@ En este artículo se indican los diferentes servidores y cargas de trabajo que p
 
 ## <a name="protection-support-matrix"></a>Matriz de compatibilidad de protección
 
-|Carga de trabajo|Versión|Servidor de Azure Backup</br> installation|Azure Backup</br> Servidor V3|Azure Backup</br> Servidor V2|Protección y recuperación|
+|Carga de trabajo|Version|Servidor de Azure Backup</br> installation|Azure Backup</br> Servidor V3|Azure Backup</br> Servidor V2|Protección y recuperación|
 |------------|-----------|---------------|--------------|---------------|-----------------|
 |Equipos cliente (64 bits y 32 bits)|Windows 10|Servidor físico<br /><br />Máquina virtual de Hyper-V<br /><br />Máquina virtual de VMware|Y|Y|Volumen, recurso compartido, carpeta, archivos, volúmenes desduplicados<br /><br />Los volúmenes protegidos deben ser NTFS. No se admiten FAT ni FAT32.<br /><br />Los volúmenes deben ser de al menos 1 GB. DPM usa Volume Shadow Copy Service (VSS) para tomar la instantánea de datos y esta solo funciona si el volumen es de al menos 1 GB.|
 |Equipos cliente (64 bits y 32 bits)|Windows 8.1|Servidor físico<br /><br />Máquina virtual de Hyper-V|Y|Y|Archivos<br /><br />Los volúmenes protegidos deben ser NTFS. No se admiten FAT ni FAT32.<br /><br />Los volúmenes deben ser de al menos 1 GB. DPM usa Volume Shadow Copy Service (VSS) para tomar la instantánea de datos y esta solo funciona si el volumen es de al menos 1 GB.|

@@ -9,11 +9,11 @@ ms.topic: article
 ms.date: 08/17/2018
 ms.author: iainfou
 ms.openlocfilehash: ae92a5c894b186a1c8b471c1b446a88299742aec
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004863"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60466382"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Preguntas más frecuentes sobre Azure Kubernetes Service (AKS)
 

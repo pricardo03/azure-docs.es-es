@@ -11,11 +11,11 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
 ms.openlocfilehash: 6436193dadb5933074fdce861a31672a0f4849de
-ms.sourcegitcommit: 95822822bfe8da01ffb061fe229fbcc3ef7c2c19
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55227342"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60313160"
 ---
 # <a name="demo-password-reset"></a>Demostración: Restablecimiento de contraseña
 En este tutorial se muestra un bot simple de soporte técnico que puede ayudar a restablecer la contraseña, que utiliza la tecnología de Conversation Learner. El modelo de bot puede aprender flujos de diálogos no triviales y secuencias de varios turnos, incluidas clases fuera del dominio. La tarea puede realizarse sin código o entidades.

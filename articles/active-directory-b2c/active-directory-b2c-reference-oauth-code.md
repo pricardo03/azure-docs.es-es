@@ -11,11 +11,11 @@ ms.date: 02/19/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 4ee67f07965036a71151d7b6a5092b9a76d94999
-ms.sourcegitcommit: 9aa9552c4ae8635e97bdec78fccbb989b1587548
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/20/2019
-ms.locfileid: "56428693"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60317163"
 ---
 # <a name="oauth-20-authorization-code-flow-in-azure-active-directory-b2c"></a>Flujo de código de autorización de OAuth 2.0 en Azure Active Directory B2C
 

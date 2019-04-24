@@ -9,11 +9,11 @@ ms.date: 08/01/2016
 ms.author: jeconnoc
 ms.subservice: diagnostic-extension
 ms.openlocfilehash: 23379e9d9bb29efb7fb026260e8245e8eb8a2d71
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468529"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60395074"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Almacenamiento y visualización de los datos de diagnóstico en Azure Storage
 Los datos de diagnóstico no se almacenan de forma permanente a menos que se transfieran al emulador de almacenamiento de Microsoft Azure o a Almacenamiento de Azure. Una vez que se encuentren almacenados, los datos se pueden ver con una de las diversas herramientas disponibles.

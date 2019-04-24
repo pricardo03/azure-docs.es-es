@@ -12,11 +12,11 @@ ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: diberry
 ms.openlocfilehash: 202b9632b7a7faaf955874a0300edbe5134b7fa1
-ms.sourcegitcommit: 1c2cf60ff7da5e1e01952ed18ea9a85ba333774c
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/12/2019
-ms.locfileid: "59521261"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60196702"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>Adición de patrones para mejorar la precisión de predicción
 Una vez que una aplicación de LUIS recibe grabaciones de voz de punto de conexión, utilice un [patrón](luis-concept-patterns.md) para mejorar la precisión de predicción para declaraciones que revelan ningún patrón en el orden de las palabras y opciones de word. Patrones de utilizar específico [sintaxis](luis-concept-patterns.md#pattern-syntax) para indicar la ubicación de: [entidades](luis-concept-entity-types.md), entidad [roles](luis-concept-roles.md)y texto opcional.

@@ -1,7 +1,6 @@
 ---
 title: Configuración de la programación de la aplicación de revisión del SO para clústeres de HDInsight basado en Linux para Azure
 description: Aprenda a configurar la programación de la aplicación de revisión del SO para clústeres de HDInsight basado en Linux.
-services: hdinsight
 author: omidm1
 ms.author: omidm
 ms.service: hdinsight
@@ -9,11 +8,11 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.openlocfilehash: ef57608d092c05b30be63a54bb41ba87558eabc3
-ms.sourcegitcommit: a65b424bdfa019a42f36f1ce7eee9844e493f293
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/04/2019
-ms.locfileid: "55694625"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60333696"
 ---
 # <a name="os-patching-for-hdinsight"></a>Aplicación de revisión del SO para HDInsight 
 

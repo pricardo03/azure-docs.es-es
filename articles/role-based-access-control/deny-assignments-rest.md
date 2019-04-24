@@ -16,18 +16,18 @@ ms.date: 03/13/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.openlocfilehash: 59bcf2b33d203ae216b4965b963a727a6b34ae72
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57998411"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194674"
 ---
 # <a name="list-deny-assignments-for-azure-resources-using-the-rest-api"></a>Enumeración de las asignaciones de denegación para recursos de Azure mediante la API de REST
 
 Las [asignaciones de denegación](deny-assignments.md) impiden que los usuarios realicen acciones concretas en recursos de Azure, aunque una asignación de roles les conceda acceso. En este artículo se describe cómo usar la API de REST a la lista Denegar las asignaciones.
 
 > [!NOTE]
-> En este momento, la única manera de agregar los suyos propios denegar asignaciones es mediante el uso de proyectos de Azure. Para obtener más información, consulte [proteger nuevos recursos con los bloqueos de recursos de Azure planos](../governance/blueprints/tutorials/protect-new-resources.md).
+> En este momento, la única manera de agregar sus propias asignaciones de denegación es usar Azure Blueprints. Para más información, consulte [Protect new resources with Azure Blueprints resource locks](../governance/blueprints/tutorials/protect-new-resources.md) (Protección de los nuevos recursos con bloqueos de recursos de Azure Blueprints).
 
 ## <a name="prerequisites"></a>Requisitos previos
 

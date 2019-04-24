@@ -11,11 +11,11 @@ ms.topic: reference
 ms.date: 02/01/2019
 ms.author: v-jansko
 ms.openlocfilehash: f69fd7af23c360edc208561f915bd351c3fd373c
-ms.sourcegitcommit: 5f348bf7d6cf8e074576c73055e17d7036982ddb
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/16/2019
-ms.locfileid: "59608442"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60336803"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
 
@@ -53,7 +53,7 @@ Los parámetros de solicitud que se pasaron en la cadena de consulta son:
     <td><em>Parámetro opcional</em>.<br/>Define si el texto que se está traduciendo es texto sin formato o texto HTML. El código HTML debe ser un elemento completo y bien formado. Los valores posibles son <code>plain</code> (valor predeterminado) o <code>html</code>.</td>
   </tr>
   <tr>
-    <td>categoría</td>
+    <td>category</td>
     <td><em>Parámetro opcional</em>.<br/>Una cadena que especifica la categoría (dominio) de la traducción. Este parámetro se utiliza para obtener las traducciones de un sistema personalizado creado con [Custom Translator](../customization.md). Añada el identificador de categoría de su proyecto de Traductor personalizado a este parámetro para usar el sistema personalizado implementado. El valor predeterminado es <code>general</code>.</td>
   </tr>
   <tr>

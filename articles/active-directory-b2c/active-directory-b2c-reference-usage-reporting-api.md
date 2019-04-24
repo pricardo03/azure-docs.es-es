@@ -11,11 +11,11 @@ ms.date: 08/04/2017
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 5ccd9ea36fcf20c56684ac5892a7fa32e0345633
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55166006"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60316857"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>Acceso a informes de uso en Azure AD B2C a través de la API de informes
 

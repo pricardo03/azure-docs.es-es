@@ -7,13 +7,13 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
-ms.subservice: alerts
+ms.component: alerts
 ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54465673"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60345793"
 ---
 # <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>Cómo hacer que una alerta de métrica clásica notifique a un sistema que no es de Azure mediante un webhook
 Puede usar los webhooks para redirigir una notificación de alerta de Azure a otros sistemas para su procesamiento posterior o acciones personalizadas. Puede usar un webhook en una alerta para redirigirla a servicios que envían SMS, registran errores, notifican a un equipo mediante servicios de chat y mensajería o llevan a cabo otras acciones. 
@@ -90,10 +90,10 @@ La operación POST contiene el siguiente esquema y carga útil de JSON para toda
 | resourceGroupName |Y | |Nombre del grupo de recursos del recurso afectado. |
 | resourceName |Y | |Nombre del recurso afectado. |
 | resourceType |Y | |Tipo del recurso afectado. |
-| ResourceId |Y | |Identificador de recurso del recurso afectado. |
+| resourceId |Y | |Identificador de recurso del recurso afectado. |
 | resourceRegion |Y | |Región o ubicación del recurso afectado. |
 | portalLink |Y | |Vínculo directo a la página de resumen de recursos del portal. |
-| propiedades |N |Opcional |Conjunto de pares clave/valor que incluye detalles sobre el evento. Por ejemplo, `Dictionary<String, String>`. El campo de propiedades es opcional. En un flujo de trabajo basado en una aplicación lógica o una interfaz de usuario personalizada, los usuarios pueden especificar pares clave/valores que se pueden pasar con la carga útil. Una forma alternativa para pasar propiedades personalizadas a la webhook es mediante el propio URI de webhook (como parámetros de consulta). |
+| properties |N |Opcional |Conjunto de pares clave/valor que incluye detalles sobre el evento. Por ejemplo, `Dictionary<String, String>`. El campo de propiedades es opcional. En un flujo de trabajo basado en una aplicación lógica o una interfaz de usuario personalizada, los usuarios pueden especificar pares clave/valores que se pueden pasar con la carga útil. Una forma alternativa para pasar propiedades personalizadas a la webhook es mediante el propio URI de webhook (como parámetros de consulta). |
 
 > [!NOTE]
 > Solo se puede establecer el campo de **propiedades** mediante la [API de REST de Azure Monitor](https://msdn.microsoft.com/library/azure/dn933805.aspx).
@@ -106,4 +106,3 @@ La operación POST contiene el siguiente esquema y carga útil de JSON para toda
 * Aprenda a [usar una aplicación lógica para enviar un mensaje SMS a través de Twilio desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-text-message-with-logic-app).
 * Sepa cómo [usar una aplicación lógica para enviar un mensaje de Slack desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-slack-with-logic-app).
 * Obtenga información sobre cómo [usar una aplicación lógica para enviar un mensaje a una cola de Azure desde una alerta de Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/201-alert-to-queue-with-logic-app).
-

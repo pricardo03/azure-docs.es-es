@@ -16,11 +16,11 @@ ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
 ms.openlocfilehash: b9977965dc076ec36aa90680a1732b6640b1e41a
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57861849"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60325822"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introducción a grupos de disponibilidad de SQL Server AlwaysOn en Azure Virtual Machines #
 
@@ -40,7 +40,7 @@ Además, en un clúster de conmutación por error invitado de máquina virtual d
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
 | [CLI DE MÁQUINA VIRTUAL DE SQL](virtual-machines-windows-sql-availability-group-cli.md) | 2016 | 2017 </br>2016   | ente | Testigo en la nube | Sin  | Sí | Sí | Sí | No | Sin  |
 | [Plantillas de inicio rápido](virtual-machines-windows-sql-availability-group-quickstart-template.md) | 2016 | 2017</br>2016  | ente | Testigo en la nube | Sin  | Sí | Sí | Sí | No | Sin  |
-| [Plantilla del portal](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | ente | Recurso compartido de File | Sin  | No | No | No | No | Sin  |
+| [Plantilla del portal](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) | 2016 </br>2012 R2 | 2016</br>2014 | ente | Recurso compartido de archivos | Sin  | No | No | No | No | Sin  |
 | [Manual](virtual-machines-windows-portal-sql-availability-group-prereq.md) | Todo | Todo | Todo | Todo | Sí | Sí | Sí | Sí | Sí | Sí |
 | &nbsp; | &nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |&nbsp; |
 

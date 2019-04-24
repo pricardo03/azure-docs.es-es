@@ -7,11 +7,11 @@ ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
 ms.openlocfilehash: 9fd9eaf1e62d063026e0e656346baaaade87064f
-ms.sourcegitcommit: 63b996e9dc7cade181e83e13046a5006b275638d
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/10/2019
-ms.locfileid: "54187151"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60410147"
 ---
 # <a name="avere-cluster-dns-configuration"></a>Configuración de DNS del clúster de Avere
 
@@ -41,7 +41,7 @@ Para obtener un rendimiento óptimo, configure el servidor DNS para controlar la
 
 Un vserver de clúster se muestra a la izquierda y las direcciones IP aparecen en el centro y a la derecha. Configure todos los puntos de acceso de cliente con registros A y punteros como se muestra en la ilustración.
 
-![Diagrama de DNS round robin del clúster de Avere](media/avere-vfxt-rrdns-diagram.png) 
+![Diagrama DNS de round robin de clúster Avere](media/avere-vfxt-rrdns-diagram.png) 
 <!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
 
 Cada dirección IP orientada al cliente debe tener un nombre único para que el clúster la use internamente. (En este diagrama, las direcciones IP del cliente se denominan vs1-client-IP-* por motivos de claridad, pero en producción debería usar probablemente algo más conciso, como client*.)

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 02/24/2016
 ms.author: genli
 ms.openlocfilehash: 0ac488a67d8b9debf6539d199395997cf44cf1e4
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51247184"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60232738"
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>Especificar la configuración DNS en un archivo de configuración de servicio
 ## <a name="dns-elements"></a>Elementos DNS
@@ -38,7 +38,7 @@ Un archivo de configuración de servicio puede contener un elemento DnsServers c
 > 
 > 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 [Esquema de configuración del servicio de Azure (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
 [Esquema de configuración de Azure Virtual Network](https://go.microsoft.com/fwlink/?LinkId=248093)

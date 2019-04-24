@@ -9,11 +9,11 @@ ms.date: 02/24/2019
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
 ms.openlocfilehash: c372b86861452c48b2114073419d4ed709ff115c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58109889"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60303374"
 ---
 # <a name="azure-spatial-anchors-support-options"></a>Opciones de soporte técnico de Azure delimitadores espacial
 
@@ -32,7 +32,7 @@ Para abrir una incidencia de soporte técnico en el Portal de Azure para Azure e
 1. Al completar los campos de la incidencia de soporte técnico: 
 
 - Tipo de problema: Requisitos previos técnicos
-- Servicio: Delimitadores espaciales
+- Servicio: Spatial Anchors
 
 ![Campos de la incidencia de soporte técnico de Azure portal](./media/spatial-anchor-support3.png)
 

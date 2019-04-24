@@ -8,22 +8,22 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 01/05/2018
 ms.author: cristyg
-ms.openlocfilehash: 171593483fc94c1c67013ab520b0085ca98f3a82
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
-ms.translationtype: HT
+ms.openlocfilehash: 685c978ff206e75d770918f2528a826ad522b706
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33768335"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60427111"
 ---
 # <a name="view-container-registry-repositories-in-the-azure-portal"></a>Visualización de los repositorios de registros de contenedor en Azure Portal
 
 Azure Container Registry permite almacenar imágenes de contenedor Docker en repositorios. Mediante el almacenamiento de imágenes en repositorios, puede almacenar grupos de imágenes (o versiones de imágenes) en entornos aislados. Puede especificar estos repositorios al insertar imágenes en el registro y ver el contenido en Azure Portal.
 
-## <a name="prerequisites"></a>requisitos previos
+## <a name="prerequisites"></a>Requisitos previos
 
-* **Registro de contenedor**: cree un registro de contenedor en la suscripción de Azure. Por ejemplo, use [Azure Portal](container-registry-get-started-portal.md) o la [CLI de Azure](container-registry-get-started-azure-cli.md).
-* **CLI de Docker**: instale [Docker][docker-install] en la máquina local, lo que proporciona la interfaz de la línea de comandos de Docker.
-* **Imagen de contenedor**: inserte una imagen en el registro de contenedor. Para instrucciones sobre cómo insertar y extraer imágenes, consulte [Inserción y extracción de una imagen](container-registry-get-started-docker-cli.md).
+* **Registro de contenedor**: Cree un registro de contenedor en su suscripción de Azure. Por ejemplo, use [Azure Portal](container-registry-get-started-portal.md) o la [CLI de Azure](container-registry-get-started-azure-cli.md).
+* **CLI de docker**: Instalar [Docker] [ docker-install] en el equipo local, lo que proporciona la interfaz de línea de comandos de Docker.
+* **Imagen de contenedor**: Insertar una imagen en el registro de contenedor. Para instrucciones sobre cómo insertar y extraer imágenes, consulte [Inserción y extracción de una imagen](container-registry-get-started-docker-cli.md).
 
 ## <a name="view-repositories-in-azure-portal"></a>Visualización de repositorios en Azure Portal
 

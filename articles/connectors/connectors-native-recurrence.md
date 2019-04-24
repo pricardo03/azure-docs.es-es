@@ -12,11 +12,11 @@ tags: connectors
 ms.topic: article
 ms.date: 01/08/2019
 ms.openlocfilehash: eb22539d1f433e396935f82e4cb3786d5699d21a
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58083961"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60447520"
 ---
 # <a name="create-and-run-recurring-tasks-and-workflows-with-azure-logic-apps"></a>Creación y ejecución de tareas y flujos de trabajo repetitivos con Azure Logic Apps
 
@@ -95,7 +95,7 @@ Para desencadenar la aplicación lógica y ejecutarla solo una vez en el futuro,
 
 Puede configurar estas propiedades en el desencadenador de periodicidad.
 
-| NOMBRE | Obligatorio | Nombre de propiedad | Type | DESCRIPCIÓN | 
+| Name | Obligatorio | Nombre de propiedad | Type | DESCRIPCIÓN | 
 |----- | -------- | ------------- | ---- | ----------- | 
 | **Frecuencia** | Sí | frequency | string | Unidad de tiempo que se usa para la periodicidad: **Segundo**, **Minuto**, **Hora**, **Día**, **Semana** o **Mes** | 
 | **Intervalo** | Sí | interval | Entero | Entero positivo que describe la frecuencia con la que se ejecuta el flujo de trabajo. <p>El intervalo predeterminado es 1. Estos son los intervalos mínimo y máximo: <p>- Mes: 1-16 meses </br>- Día: 1-500 días </br>- Hora: 1-12 000 horas </br>- Minuto: 1-72 000 minutos </br>- Segundo: 1-9 999 999 segundos<p>Por ejemplo, si el intervalo es 6 y la frecuencia es "month", la periodicidad es cada 6 meses. | 
@@ -153,7 +153,7 @@ O bien, si usa una aplicación lógica en blanco, inicie la aplicación lógica 
 **P:** ¿Qué otros ejemplos hay de programas de periodicidad? </br>
 **R:** Estos son otros ejemplos:
 
-| Periodicidad | Intervalo | Frecuencia | Hora de inicio | En estos días | A estas horas | En estos minutos | Nota: |
+| Periodicidad | Interval | Frecuencia | Hora de inicio | En estos días | A estas horas | En estos minutos | Nota: |
 | ---------- | -------- | --------- | ---------- | ------------- | -------------- | ---------------- | ---- |
 | Ejecutar cada 15 minutos (ninguna fecha y hora de inicio) | 15 | Minuto | {none} | {unavailable} | {none} | {none} | Esta programación se inicia inmediatamente y después calcula las futuras periodicidades en función de la hora de la última ejecución. | 
 | Ejecutar cada 15 minutos (con fecha y hora de inicio) | 15 | Minuto | *startDate*T*startTime*Z | {unavailable} | {none} | {none} | Esta programación no se inicia *antes* de la fecha y hora de inicio especificadas y después calcula las futuras periodicidades en función de la hora de la última ejecución. | 

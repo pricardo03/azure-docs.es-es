@@ -3,22 +3,23 @@ title: Límites de solicitudes de Azure Resource Manager
 description: En este artículo se describe cómo usar la limitación con las solicitudes de Azure Resource Manager cuando se han alcanzado los límites de suscripción.
 services: azure-resource-manager
 documentationcenter: na
-author: tfitzmac
+author: rockboyfor
 ms.assetid: e1047233-b8e4-4232-8919-3268d93a3824
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/05/2019
-ms.author: tomfitz
+origin.date: 03/05/2019
+ms.date: 03/18/2019
+ms.author: v-yeche
 ms.custom: seodec18
 ms.openlocfilehash: 91a776ba13ffaeeb4f8184371ae45a80d829ae46
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57550650"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60389736"
 ---
 # <a name="throttling-resource-manager-requests"></a>Limitación de solicitudes de Resource Manager
 
@@ -60,7 +61,7 @@ response.Headers.GetValues("x-ms-ratelimit-remaining-subscription-reads").GetVal
 En **PowerShell**, recupere el valor del encabezado de una operación Invoke-WebRequest.
 
 ```powershell
-$r = Invoke-WebRequest -Uri https://management.azure.com/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
+$r = Invoke-WebRequest -Uri https://management.chinacloudapi.cn/subscriptions/{guid}/resourcegroups?api-version=2016-09-01 -Method GET -Headers $authHeaders
 $r.Headers["x-ms-ratelimit-remaining-subscription-reads"]
 ```
 
@@ -88,7 +89,7 @@ x-ms-ratelimit-remaining-subscription-reads: 11999
 Para obtener los límites de escritura, utilice una operación de escritura: 
 
 ```powershell
-New-AzResourceGroup -Name myresourcegroup -Location westus -Debug
+New-AzResourceGroup -Name myresourcegroup -Location chinanorth -Debug
 ```
 
 Esta operación devuelve muchos valores, incluidos los siguientes:
@@ -127,7 +128,7 @@ msrest.http_logger :     'x-ms-ratelimit-remaining-subscription-reads': '11998'
 Para obtener los límites de escritura, utilice una operación de escritura: 
 
 ```azurecli
-az group create -n myresourcegroup --location westus --verbose --debug
+az group create -n myresourcegroup --location chinanorth --verbose --debug
 ```
 
 Esta operación devuelve muchos valores, incluidos los siguientes:
@@ -151,3 +152,5 @@ Cuando alcance el límite de solicitudes, Azure Resource Manager devuelve el có
 * Para obtener un ejemplo completo de PowerShell, consulte [comprobación de los límites de Resource Manager para una suscripción](https://github.com/Microsoft/csa-misc-utils/tree/master/psh-GetArmLimitsViaAPI).
 * Para más información acerca de límites y cuotas, consulte [Límites, cuotas y restricciones de suscripción y servicios de Microsoft Azure](../azure-subscription-service-limits.md).
 * Para obtener información sobre el control de solicitudes asincrónicas de REST, vea [Seguimiento de las operaciones asincrónicas de Azure](resource-manager-async-operations.md).
+
+<!--Update_Description: update meta properties, update cmdlet -->

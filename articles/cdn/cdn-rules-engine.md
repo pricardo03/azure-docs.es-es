@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/11/2018
 ms.author: magattus
 ms.openlocfilehash: 2ac43b472758f3403bc87bf3d64321eb97109f53
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092408"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60335613"
 ---
 # <a name="override-http-behavior-using-the-azure-cdn-rules-engine"></a>Invalidación del comportamiento HTTP mediante el motor de reglas de Azure CDN
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -96,10 +96,10 @@ Para acceder al motor de reglas, primero debe seleccionar **Manage** (Administra
    > 
    > 
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 * [Información general de Azure CDN](cdn-overview.md)
 * [Referencia del motor de reglas](cdn-rules-engine-reference.md)
 * [Condiciones de coincidencia del motor de reglas](cdn-rules-engine-reference-match-conditions.md)
 * [Expresiones condicionales del motor de reglas](cdn-rules-engine-reference-conditional-expressions.md)
 * [Características del motor de reglas](cdn-rules-engine-reference-features.md)
-* [Azure Fridays: Azure CDN's powerful new Premium Features](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (Azure Fridays: Características nuevas y eficaces de la edición Premium de Azure CDN) (vídeo)
+* [Azure Fridays: Potentes nuevas características premium la red Azure CDN](https://azure.microsoft.com/documentation/videos/azure-cdns-powerful-new-premium-features/) (vídeo)
