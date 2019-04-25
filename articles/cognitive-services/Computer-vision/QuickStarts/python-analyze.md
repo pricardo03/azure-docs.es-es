@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 03/27/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 23a85a84cfd2f938bd32e42925c07177203bf636
-ms.sourcegitcommit: 956749f17569a55bcafba95aef9abcbb345eb929
+ms.openlocfilehash: fddf853b90297cb75ffbd7c74cf81dd368370aa1
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/29/2019
-ms.locfileid: "58630221"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60011221"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Inicio rápido: Análisis de imágenes remotas mediante API REST y Python en Computer Vision
 
@@ -31,9 +31,9 @@ Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.m
 ## <a name="prerequisites"></a>Requisitos previos
 
 - Debe tener [Python](https://www.python.org/downloads/) instalado si desea ejecutar el ejemplo localmente.
-- Debe tener una clave de suscripción para Computer Vision. Para obtener una clave de suscripción, consulte [Obtaining Subscription Keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Cómo obtener las claves de suscripción).
+- Debe tener una clave de suscripción para Computer Vision. Puede obtener una clave de evaluación gratuita en la página [Pruebe Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). O bien, siga las instrucciones que se indican en [Creación de una cuenta de Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) para suscribirse a Computer Vision y obtener su clave.
 - Debe tener instalados los siguientes paquetes Python: Puede usar [pip](https://packaging.python.org/tutorials/installing-packages/) para instalar los paquetes de Python.
-    - [requests](http://docs.python-requests.org/en/master/)
+    - Solicitudes
     - [matplotlib](https://matplotlib.org/)
     - [pillow](https://python-pillow.org/)
 

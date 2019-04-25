@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: 6a576f2817069d7095ea863198168be083d0c6b5
-ms.sourcegitcommit: 7e772d8802f1bc9b5eb20860ae2df96d31908a32
+ms.openlocfilehash: 3e83c1629848083ae4d899ae01ae32c2c946b2b3
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/06/2019
-ms.locfileid: "57450953"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59995071"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Uso de servicios conectados en Visual Studio para conectarse a Computer Vision API
 
@@ -38,15 +38,15 @@ En este artículo y sus artículos complementarios se proporcionan detalles sobr
 1. En el **Explorador de soluciones**, elija **Agregar** > **Servicio conectado**.
    Aparece la página del servicio conectado con los servicios que puede agregar al proyecto.
 
-   ![Captura de pantalla de un menú contextual en un proyecto de Visual Studio: Agregar > Servicio conectado](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Menú contextual en un proyecto de Visual Studio: Agregar > Servicio conectado](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. En el menú de servicios disponibles, elija **Cognitive Services Computer Vision API**.
 
-   ![Menú Servicios conectados, con Analizar imágenes con Computer Vision resaltado](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![Se describe el menú Servicios conectados: Analizar imágenes...](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
    Si ha iniciado sesión en Visual Studio y tiene una suscripción de Azure asociada a su cuenta, aparece una página con una lista desplegable con las suscripciones.
 
-   ![Una ventana "Computer Vision API" de Visual Studio con la lista desplegable Suscripciones resaltada](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
+   ![Ventana de Computer Vision API con la lista desplegable de suscripciones resaltada](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
 1. Seleccione la suscripción que desea utilizar y, a continuación, elija un nombre para Computer Vision API, o elija el vínculo Editar para modificar el nombre generado automáticamente, elija el grupo de recursos y el plan de tarifa.
 
@@ -98,7 +98,7 @@ En este artículo y sus artículos complementarios se proporcionan detalles sobr
 
 1. Haga clic con el botón derecho en el archivo de imagen, elija Propiedades y luego seleccione **Copiar si es posterior**. 
 
-   ![Una ventana de propiedades; Copiar en el directorio de salida está establecida en Copiar si es posterior](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
+   ![Ventana de propiedades de imagen; Copiar en el directorio de salida establecido en Copiar si es posterior](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
 1. Reemplace el método de configuración con el código siguiente para acceder a Computer Vision API y probar una imagen.
 

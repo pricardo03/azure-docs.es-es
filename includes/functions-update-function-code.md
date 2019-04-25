@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 03/12/2019
 ms.author: glenga
 ms.custom: include file, fasttrack-edit
-ms.openlocfilehash: 3b0be31afbce78c0de8dc919245e92bee7af04b0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 5b009fafc818a06bdda309b3e025251cc0997e47
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57964275"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59737286"
 ---
 ## <a name="update-the-function"></a>Actualización de la función
 
@@ -33,7 +33,7 @@ public static async Task<IActionResult> Run(
 
 ### <a name="javascript"></a>JavaScript
 
-Abra el archivo function.json de la nueva función, ábralo en un editor de texto, actualice la propiedad **authLevel** en **bindings.httpTrigger** a `anonymous` y guarde los cambios.
+Abra el archivo function.json de la nueva función en un editor de texto, actualice la propiedad **authLevel** en **bindings** a `anonymous` y guarde los cambios.
 
 ```json
   "bindings": [

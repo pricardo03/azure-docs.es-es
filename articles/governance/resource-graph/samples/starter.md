@@ -9,10 +9,10 @@ ms.service: resource-graph
 manager: carmonm
 ms.custom: seodec18
 ms.openlocfilehash: 2ba48e2a21bdee0c5698bdfa314dd3bf462c1c7e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59267776"
 ---
 # <a name="starter-resource-graph-queries"></a>Consultas de inicio de Resource Graph
@@ -167,7 +167,7 @@ Search-AzGraph -Query "where type contains 'storage' | distinct type"
 
 De forma similar a la consulta anterior, encontrará todos los tipos que contienen la palabra **publicIPAddresses**.
 Esta consulta se expande en ese patrón para incluir solo los resultados donde **properties.ipAddress**
-`isnotempty` es nulo para devolver solo **properties.ipAddress** y para `limit` los resultados a los primeros.
+`isnotempty` es nulo para devolver solo **properties.ipAddress** y para definir `limit` para limitar los resultados a los primeros.
 100. Es posible que sea necesario escapar las comillas según su shell elegido.
 
 ```Query

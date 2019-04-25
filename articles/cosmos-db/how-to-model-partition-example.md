@@ -7,10 +7,10 @@ ms.topic: sample
 ms.date: 3/27/2019
 ms.author: thweiss
 ms.openlocfilehash: ac1b94de4b439aab202d53b23b0d0da616a9f851
-ms.sourcegitcommit: f093430589bfc47721b2dc21a0662f8513c77db1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/04/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "58919898"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Procedimientos para modelar y crear particiones de datos en Azure Cosmos DB mediante un ejemplo real
@@ -124,7 +124,7 @@ Esta solicitud es fácil de implementar, ya que acabamos de crear o actualizar u
 
 ![Escritura de un elemento individual en el contenedor users](./media/how-to-model-partition-example/V1-C1.png)
 
-| **Latencia** | **Carga de unidad de solicitud** | **Rendimiento** |
+| **Latency** | **Carga de unidad de solicitud** | **Rendimiento** |
 | --- | --- | --- |
 | 7 ms | 5,71 RU | ✅ |
 
@@ -134,7 +134,7 @@ La recuperación de los usuarios se realiza mediante la lectura del elemento cor
 
 ![Recuperación de un elemento individual del contenedor users](./media/how-to-model-partition-example/V1-Q1.png)
 
-| **Latencia** | **Carga de unidad de solicitud** | **Rendimiento** |
+| **Latency** | **Carga de unidad de solicitud** | **Rendimiento** |
 | --- | --- | --- |
 | 2 ms | 1 RU | ✅ |
 
@@ -144,7 +144,7 @@ Del mismo modo que **[C1]**, solo tenemos que escribir en el contenedor `posts`.
 
 ![Escritura de un elemento individual en el contenedor posts](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Latencia** | **Carga de unidad de solicitud** | **Rendimiento** |
+| **Latency** | **Carga de unidad de solicitud** | **Rendimiento** |
 | --- | --- | --- |
 | 9 ms | 8,76 RU | ✅ |
 
@@ -156,7 +156,7 @@ Empezaremos por recuperar el documento correspondiente del contenedor `posts`. P
 
 Cada uno de los filtros de consultas adicionales de la clave de partición de su respectivo contenedor, que es exactamente lo que deseamos para maximizar el rendimiento y la escalabilidad. Pero eventualmente tenemos que realizar cuatro operaciones para devolver una publicación individual, lo que mejoraremos en una iteración posterior.
 
-| **Latencia** | **Carga de unidad de solicitud** | **Rendimiento** |
+| **Latency** | **Carga de unidad de solicitud** | **Rendimiento** |
 | --- | --- | --- |
 | 9 ms | 19,54 RU | ⚠ |
 
@@ -171,7 +171,7 @@ Esta implementación presenta muchas desventajas:
 - las consultas que agregan el número de comentarios y "Me gusta" deben emitirse para cada publicación que devuelve la primera consulta,
 - la consulta principal no se filtra por la clave de partición del contenedor `posts`, lo que provoca una distribución ramificada y un examen de las particiones del contenedor.
 
-| **Latencia** | **Carga de unidad de solicitud** | **Rendimiento** |
+| **Latency** | **Carga de unidad de solicitud** | **Rendimiento** |
 | --- | --- | --- |
 | 130 ms | 619,41 RU | ⚠ |
 
@@ -181,7 +181,7 @@ Los comentarios se crean mediante la escritura del elemento correspondiente en e
 
 ![Escritura de un elemento individual en el contenedor posts](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Latencia** | **Carga de unidad de solicitud** | **Rendimiento** |
+| **Latency** | **Carga de unidad de solicitud** | **Rendimiento** |
 | --- | --- | --- |
 | 7 ms | 8,57 RU | ✅ |
 
@@ -193,7 +193,7 @@ Comenzamos con una consulta que captura todos los comentarios de la publicación
 
 Aunque la consulta principal filtrar por la clave de partición del contenedor, agregar los nombres de usuario por separado penaliza el rendimiento general. Eso lo mejoraremos más adelante.
 
-| **Latencia** | **Carga de unidad de solicitud** | **Rendimiento** |
+| **Latency** | **Carga de unidad de solicitud** | **Rendimiento** |
 | --- | --- | --- |
 | 23 ms | 27,72 RU | ⚠ |
 
@@ -203,7 +203,7 @@ Al igual que **[C3]**, creamos el elemento correspondiente en el contenedor `pos
 
 ![Escritura de un elemento individual en el contenedor posts](./media/how-to-model-partition-example/V1-C2.png)
 
-| **Latencia** | **Carga de unidad de solicitud** | **Rendimiento** |
+| **Latency** | **Carga de unidad de solicitud** | **Rendimiento** |
 | --- | --- | --- |
 | 6 ms | 7,05 RU | ✅ |
 
@@ -213,7 +213,7 @@ Al igual que **[Q4]**, se consulta los "Me gusta" para la publicación y, despu�
 
 ![Recuperación de todos los "Me gusta" de una publicación y agregación de sus datos adicionales](./media/how-to-model-partition-example/V1-Q5.png)
 
-| **Latencia** | **Carga de unidad de solicitud** | **Rendimiento** |
+| **Latency** | **Carga de unidad de solicitud** | **Rendimiento** |
 | --- | --- | --- |
 | 59 ms | 58,92 RU | ⚠ |
 
@@ -225,7 +225,7 @@ Para capturar las publicaciones más recientes, consultamos el contenedor `posts
 
 Una vez más, la consulta inicial no filtra por la clave de partición del contenedor `posts`, lo que desencadena una costosa distribución ramificada. Esta es incluso peor, ya que el destino es un conjunto de resultados mucho mayor y los resultados se ordenan con una cláusula `ORDER BY`, lo que hace que sea más cara en términos de unidades de solicitud.
 
-| **Latencia** | **Carga de unidad de solicitud** | **Rendimiento** |
+| **Latency** | **Carga de unidad de solicitud** | **Rendimiento** |
 | --- | --- | --- |
 | 306 ms | 2063,54 RU | ⚠ |
 
@@ -314,7 +314,7 @@ function createComment(postId, comment) {
 Este procedimiento almacenado toma el identificador de la publicación y el cuerpo del nuevo comentario como parámetros y luego:
 
 - recupera la publicación
-- incrementa `commentCount`
+- incrementa el valor de `commentCount`
 - reemplaza la publicación
 - agrega el nuevo comentario
 
@@ -356,7 +356,7 @@ Este procedimiento almacenado toma el identificador del usuario y el nuevo nombr
 
 - recupera todos los elementos que coinciden con `userId` (que puede ser publicaciones, comentarios, o "Me gusta")
 - en cada uno de los elementos
-  - reemplaza `userUsername`
+  - reemplaza el valor de `userUsername`
   - reemplaza el elemento
 
 > [!IMPORTANT]
@@ -370,7 +370,7 @@ Ahora que la desnormalización está en vigor, solo tenemos que capturar un elem
 
 ![Recuperación de un elemento individual del contenedor posts](./media/how-to-model-partition-example/V2-Q2.png)
 
-| **Latencia** | **Carga de unidad de solicitud** | **Rendimiento** |
+| **Latency** | **Carga de unidad de solicitud** | **Rendimiento** |
 | --- | --- | --- |
 | 2 ms | 1 RU | ✅ |
 
@@ -380,7 +380,7 @@ Aquí podemos volver a compartir solicitudes adicionales que han capturado los e
 
 ![Recuperación de los comentarios de una publicación](./media/how-to-model-partition-example/V2-Q4.png)
 
-| **Latencia** | **Carga de unidad de solicitud** | **Rendimiento** |
+| **Latency** | **Carga de unidad de solicitud** | **Rendimiento** |
 | --- | --- | --- |
 | 4 ms | 7,72 RU | ✅ |
 
@@ -390,7 +390,7 @@ Exactamente la misma cuando se enumeran los "Me gusta".
 
 ![Recuperación de los "Me gusta" de una publicación](./media/how-to-model-partition-example/V2-Q5.png)
 
-| **Latencia** | **Carga de unidad de solicitud** | **Rendimiento** |
+| **Latency** | **Carga de unidad de solicitud** | **Rendimiento** |
 | --- | --- | --- |
 | 4 ms | 8,92 RU | ✅ |
 
@@ -409,8 +409,8 @@ Pero la consulta restante no se filtra por la clave de partición del contenedor
 La manera de pensar en esta situación es realmente sencilla:
 
 1. Esta solicitud *tiene* que filtrar por `userId`, ya que deseamos capturar todas las publicaciones de un usuario concreto
-1. No funciona bien porque se ejecuta en el contenedor `posts`, en el que no crea particiones `userId`
-1. Empezando por lo obvio, podríamos resolver nuestro problema de rendimiento mediante la ejecución de esta solicitud en un contenedor en el que *crea* particiones `userId`
+1. No funciona bien porque se ejecuta en el contenedor `posts`, en el que no se crean particiones mediante `userId`.
+1. Empezando por lo obvio, podríamos resolver nuestro problema de rendimiento mediante la ejecución de esta solicitud en un contenedor en el que *se crean* particiones mediante `userId`.
 1. Resulta que ya tenemos ese contenedor: el contenedor `users`.
 
 Por tanto, introducimos un segundo nivel de desnormalización mediante la duplicación de publicaciones completas en el contenedor `users`. Al hacerlo, obtenemos una copia de nuestras publicaciones, en las que solo se crean particiones en dimensiones diferentes, lo que sea mucho más eficaz recuperarlas por `userId`.
@@ -450,7 +450,7 @@ Ahora podemos enrutar nuestra consulta al contenedor `users`, filtrando por la c
 
 ![Recuperación de todas las publicaciones de un usuario](./media/how-to-model-partition-example/V3-Q3.png)
 
-| **Latencia** | **Carga de unidad de solicitud** | **Rendimiento** |
+| **Latency** | **Carga de unidad de solicitud** | **Rendimiento** |
 | --- | --- | --- |
 | 4 ms | 6,46 RU | ✅ |
 
@@ -534,7 +534,7 @@ El último paso es para volver a enrutar nuestra consulta a nuestro nuevo conten
 
 ![Recuperación de las publicaciones más recientes](./media/how-to-model-partition-example/V3-Q6.png)
 
-| **Latencia** | **Carga de unidad de solicitud** | **Rendimiento** |
+| **Latency** | **Carga de unidad de solicitud** | **Rendimiento** |
 | --- | --- | --- |
 | 9 ms | 16,97 RU | ✅ |
 
@@ -575,4 +575,4 @@ Después de esta introducción práctica al modelado de datos y a la creación d
 
 - [Uso de bases de datos, contenedores y elementos](databases-containers-items.md)
 - [Creación de particiones en Azure Cosmos DB](partitioning-overview.md)
-- [Fuente de cambios en Azure Cosmos DB](change-feed.md)
+- [Fuente de cambios en Azure Cosmos DB](change-feed.md)

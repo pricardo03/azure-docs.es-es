@@ -1,44 +1,42 @@
 ---
-title: Configuración de una puerta de enlace de aplicaciones con terminación SSL- Azure Portal | Microsoft Docs
-description: Aprenda a configurar una puerta de enlace de aplicaciones y a agregar un certificado para la terminación SSL mediante Azure Portal.
+title: 'Tutorial: Configuración de una puerta de enlace de aplicaciones con terminación SSL (Azure Portal)'
+description: En este tutorial, aprenderá a configurar una puerta de enlace de aplicaciones y a agregar un certificado para la terminación SSL mediante Azure Portal.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
-tags: azure-resource-manager
 ms.service: application-gateway
-ms.topic: article
-ms.date: 5/15/2018
+ms.topic: tutorial
+ms.date: 4/17/2019
 ms.author: victorh
-ms.openlocfilehash: 92db27aa486936d53c2e2e1c92db7d728b7d99c5
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.openlocfilehash: f3ba3eb12dc85a72c4e49c374e62209b83400d33
+ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58091841"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59677857"
 ---
-# <a name="configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Configuración de una puerta de enlace de aplicaciones con terminación SSL mediante de Azure Portal
+# <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Tutorial: Configuración de una puerta de enlace de aplicaciones con terminación SSL mediante de Azure Portal
 
 Puede usar Azure Portal para configurar una [puerta de enlace de aplicaciones](overview.md) con un certificado para terminación SSL que use máquinas virtuales para servidores back-end.
 
-En este artículo, aprenderá a:
+En este tutorial, aprenderá a:
 
 > [!div class="checklist"]
 > * Creación de un certificado autofirmado
 > * Crear una puerta de enlace de aplicaciones con el certificado
 > * Crear las máquinas virtuales que se utilizan como servidores back-end
+> * Prueba de la puerta de enlace de aplicaciones
 
 Si no tiene una suscripción a Azure, cree una [cuenta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de empezar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="log-in-to-azure"></a>Inicio de sesión en Azure
+## <a name="sign-in-to-azure"></a>Inicio de sesión en Azure
 
-Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com)
+Inicie sesión en Azure Portal en [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-self-signed-certificate"></a>Creación de un certificado autofirmado
 
-En esta sección, utilice [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) para crear un certificado autofirmado que carga en Azure Portal al crear el agente de escucha para la puerta de enlace de aplicaciones.
+En esta sección, usará [New-SelfSignedCertificate](https://docs.microsoft.com/powershell/module/pkiclient/new-selfsignedcertificate) para crear un certificado autofirmado. Cargará el certificado en Azure Portal al crear el agente de escucha para la puerta de enlace de aplicaciones.
 
 En el equipo local, abra una ventana de Windows PowerShell como administrador. Ejecute el siguiente comando para crear el certificado:
 
@@ -72,11 +70,11 @@ Export-PfxCertificate \
 
 Se necesita una red virtual para la comunicación entre los recursos que se crean. En este ejemplo se crean dos subredes: una para la puerta de enlace de aplicaciones y la otra para los servidores back-end. Puede crear una red virtual a la vez que crea la puerta de enlace de aplicaciones.
 
-1. Haga clic en **Nuevo** en la esquina superior izquierda de Azure Portal.
+1. Seleccione **Nuevo** en la esquina superior izquierda de Azure Portal.
 2. Seleccione **Redes** y **Application Gateway** en la lista de destacados.
 3. Escriba *myAppGateway* para el nombre de la puerta de enlace de aplicaciones y *myResourceGroupAG* para el nuevo grupo de recursos.
-4. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
-5. Haga clic en **Elegir una red virtual**, luego en **Crear nueva** y, después, especifique estos valores para la red virtual:
+4. Acepte los valores predeterminados para las demás opciones y seleccione **Aceptar**.
+5. Seleccione **Elegir una red virtual**, **Crear nueva** y, después, especifique estos valores para la red virtual:
 
    - *myVNet*: como nombre de la red virtual.
    - *10.0.0.0/16*: como espacio de direcciones de la red virtual.
@@ -85,33 +83,33 @@ Se necesita una red virtual para la comunicación entre los recursos que se crea
 
      ![Creación de una red virtual](./media/create-ssl-portal/application-gateway-vnet.png)
 
-6. Haga clic en **Aceptar** para crear la red virtual y la subred.
-7. Haga clic en **Elegir una dirección IP pública** y en **Crear nueva** y, a continuación, escriba el nombre de la dirección IP pública. En este ejemplo, la dirección IP pública se llama *myAGPublicIPAddress*. Acepte los valores predeterminados para las demás opciones y haga clic en **Aceptar**.
-8. Haga clic en **HTTPS** para el protocolo del agente de escucha y asegúrese de que el puerto esté definido como **443**.
-9. Haga clic en el icono de la carpeta y busque el certificado *appgwcert.pfx* que creó anteriormente para cargarlo.
-10. Escriba *mycert1* para el nombre del certificado y *Azure123456!* para la contraseña y, después, haga clic en **Aceptar**.
+6. Seleccione **Aceptar** para crear la red virtual y la subred.
+7. Seleccione **Elegir una dirección IP pública**, **Crear nueva** y, luego, escriba el nombre de la dirección IP pública. En este ejemplo, la dirección IP pública se llama *myAGPublicIPAddress*. Acepte los valores predeterminados para las demás opciones y seleccione **Aceptar**.
+8. Seleccione **HTTPS** como protocolo del agente de escucha y asegúrese de que el puerto esté definido como **443**.
+9. Seleccione el icono de la carpeta y busque el certificado *appgwcert.pfx* que creó anteriormente para cargarlo.
+10. Escriba *mycert1* para el nombre del certificado y *Azure123456!* para la contraseña y, después, seleccione **Aceptar**.
 
     ![Creación de una nueva puerta de enlace de aplicaciones](./media/create-ssl-portal/application-gateway-create.png)
 
-11. Revise la configuración en la página de resumen y, a continuación, haga clic en **Aceptar** para crear los recursos de red y la puerta de enlace de aplicaciones. La creación de la puerta de enlace de aplicaciones puede tardar varios minutos, espere a que finalice correctamente la implementación antes de pasar a la sección siguiente.
+11. Revise la configuración en la página de resumen y, a continuación, seleccione **Aceptar** para crear los recursos de red y la puerta de enlace de aplicaciones. La creación de la puerta de enlace de aplicaciones puede tardar varios minutos, espere a que finalice correctamente la implementación antes de pasar a la sección siguiente.
 
 ### <a name="add-a-subnet"></a>Incorporación de una subred
 
-1. Haga clic en **Todos los recursos** en el menú izquierdo y, después, haga clic en **myVNet** en la lista de recursos.
-2. Haga clic en **Subredes** y en **Subred**.
+1. Seleccione **Todos los recursos** en el menú izquierdo y, después, seleccione **myVNet** en la lista de recursos.
+2. Seleccione **Subredes** y, después, **Subred**.
 
     ![Creación de una subred](./media/create-ssl-portal/application-gateway-subnet.png)
 
-3. Escriba *myBackendSubnet* como nombre de la subred y, a continuación, haga clic en **Aceptar**.
+3. Escriba *myBackendSubnet* como nombre de la subred y, luego, seleccione **Aceptar**.
 
 ## <a name="create-backend-servers"></a>Creación de servidores back-end
 
-En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores back-end para la puerta de enlace de aplicaciones. También se instala IIS en las máquinas virtuales para comprobar que la puerta de enlace de aplicaciones se ha creado correctamente.
+En este ejemplo, se crearán dos máquinas virtuales que se usarán como servidores back-end para la puerta de enlace de aplicaciones. También puede instalar IIS en las máquinas virtuales para comprobar que la puerta de enlace de aplicaciones se ha creado correctamente.
 
 ### <a name="create-a-virtual-machine"></a>de una máquina virtual
 
-1. Haga clic en **Nuevo**.
-2. Haga clic en **Compute** y, después, seleccione **Windows Server 2016 Datacenter** en la lista de destacados.
+1. Seleccione **Nuevo**.
+2. Haga clic en **Compute** y, a continuación, seleccione **Windows Server 2016 Datacenter** en la lista de destacados.
 3. Especifique estos valores para la máquina virtual:
 
     - *myVM*: como nombre de la máquina virtual.
@@ -119,11 +117,11 @@ En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores
     - *Azure123456!* como contraseña.
     - Seleccione **Usar existente** y *myResourceGroupAG*.
 
-4. Haga clic en **OK**.
+4. Seleccione **Aceptar**.
 5. Seleccione **DS1_V2** como tamaño de la máquina virtual y haga clic en **Seleccionar**.
 6. Asegúrese de que **myVNet** está seleccionada como red virtual y que la subred es **myBackendSubnet**. 
-7. Haga clic en **Deshabilitado** para deshabilitar los diagnósticos de arranque.
-8. Haga clic en **Aceptar**, revise la configuración en la página de resumen y haga clic en **Crear**.
+7. Seleccione **Deshabilitado** para deshabilitar los diagnósticos de arranque.
+8. Seleccione **Aceptar**, revise la configuración en la página de resumen y seleccione **Crear**.
 
 ### <a name="install-iis"></a>Instalación de IIS
 
@@ -145,21 +143,21 @@ En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores
       -Location EastUS
     ```
 
-3. Cree una segunda máquina virtual e instale IIS según los pasos que acaba de finalizar. Escriba *myVM2* para su nombre y como VMName en Set-AzVMExtension.
+3. Cree una segunda máquina virtual e instale IIS según los pasos que acaba de finalizar. Escriba *myVM2* como su nombre y como valor de VMName en Set-AzVMExtension.
 
 ### <a name="add-backend-servers"></a>Incorporación de servidores back-end
 
-1. Haga clic en **Todos los recursos** y en **myAppGateway**.
-1. Haga clic en **Grupos de back-end**. Con la puerta de enlace de aplicaciones se crea un grupo predeterminado. Haga clic en **appGatewayBackendPool**.
-1. Haga clic en **Agregar destino** para agregar las máquinas virtuales que creó en el grupo de servidores back-end.
+1. Seleccione **Todos los recursos** y, después, seleccione **myAppGateway**.
+1. Seleccione **Grupos de back-end**. Con la puerta de enlace de aplicaciones se crea un grupo predeterminado. Seleccione **appGatewayBackendPool**.
+1. Seleccione **Agregar destino** para agregar las máquinas virtuales creadas al grupo back-end.
 
     ![Incorporación de servidores back-end](./media/create-ssl-portal/application-gateway-backend.png)
 
-1. Haga clic en **Save**(Guardar).
+1. Seleccione **Guardar**.
 
 ## <a name="test-the-application-gateway"></a>Prueba de la puerta de enlace de aplicaciones
 
-1. Haga clic en **Todos los recursos** y, a continuación, haga clic en **myAGPublicIPAddress**.
+1. Seleccione **Todos los recursos** y, después, **myAGPublicIPAddress**.
 
     ![Registro de la dirección IP pública de la puerta de enlace de aplicaciones](./media/create-ssl-portal/application-gateway-ag-address.png)
 
@@ -173,11 +171,5 @@ En este ejemplo, se crean dos máquinas virtuales que se usarán como servidores
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-En este tutorial aprendió lo siguiente:
-
-> [!div class="checklist"]
-> * Creación de un certificado autofirmado
-> * Crear una puerta de enlace de aplicaciones con el certificado
-> * Crear las máquinas virtuales que se utilizan como servidores back-end
-
-Para más información acerca de las puertas de enlace de aplicaciones y sus recursos asociados, vaya a los artículos de procedimientos.
+> [!div class="nextstepaction"]
+> [Más información sobre lo que se puede hacer con Azure Application Gateway](application-gateway-introduction.md)

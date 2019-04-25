@@ -13,17 +13,17 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/29/2019
+ms.date: 04/18/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: c65c797612e179a9f3c02696d827131f5c830b3c
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 6876ffd76c5a7ba5745e8014bca2abdc5e5264a2
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58755902"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "59999831"
 ---
-# <a name="what-is-azure-media-services-v3"></a>¿Qué es Azure Media Services v3?
+# <a name="azure-media-services-v3-overview"></a>Introducción a Azure Media Services v3
 
 Azure Media Services es una plataforma basada en la nube que le permite compilar soluciones que consiguen un streaming de vídeo con calidad de difusión, mejoran la accesibilidad y la distribución, analizan el contenido, etc. Tanto si es un desarrollador de aplicaciones, un centro de llamadas, una autoridad gubernamental o una empresa de entretenimiento, Media Services le ayuda a crear aplicaciones que ofrecen experiencias multimedia de alta calidad a grandes audiencias de los navegadores y dispositivos móviles más populares en la actualidad. 
 
@@ -79,6 +79,10 @@ Los artículos contienen ejemplos de código que muestran cómo realizar una tar
 * [Supervisión de eventos: Portal](monitor-events-portal-how-to.md)
 * [Cifrado dinámico con varias soluciones de DRM: .NET](protect-with-drm.md) 
 * [Procedimiento de codificación con una transformación personalizada: CLI](custom-preset-cli-howto.md)
+
+## <a name="provide-feedback"></a>Envío de comentarios
+
+Consulte el artículo [Comunidad de Azure Media Services](media-services-community.md) para ver diferentes formas de formular preguntas, enviar comentarios y obtener actualizaciones de Media Services.
 
 ## <a name="next-steps"></a>Pasos siguientes
 

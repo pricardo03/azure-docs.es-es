@@ -7,37 +7,37 @@ ms.reviewer: chipalost
 ms.service: iot-edge
 services: iot-edge
 ms.topic: overview
-ms.date: 02/25/2019
+ms.date: 04/17/2019
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 2d1e4ce719311a28fb4b2075864f8f411cd2713d
-ms.sourcegitcommit: 50ea09d19e4ae95049e27209bd74c1393ed8327e
+ms.openlocfilehash: 70a8e17ecdd318a800c51e04b4453c182d1fbdc1
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/26/2019
-ms.locfileid: "56877460"
+ms.lasthandoff: 04/17/2019
+ms.locfileid: "59699156"
 ---
 # <a name="what-is-azure-iot-edge"></a>¿Qué es Azure IoT Edge?
 
-Azure IoT Edge mueve el análisis en la nube y lógica de negocios personalizada a los dispositivos para que su organización pueda centrarse en la información empresarial en lugar de en la administración de los datos. Configure el software de IoT, impleméntelo en dispositivos a través de contenedores estándar y supervise todo desde la nube.
+Azure IoT Edge mueve el análisis en la nube y lógica de negocios personalizada a los dispositivos para que su organización pueda centrarse en la información empresarial en lugar de en la administración de los datos. Escale horizontalmente la solución de IoT mediante el empaquetado de la lógica de negocios en contenedores estándar y, después, podrá implementar esos contenedores en cualquiera de los dispositivos y supervisarlo todo desde la nube. 
+
+Los análisis son un valor añadido empresarial para las soluciones de IoT, pero no es necesario que todos los análisis estén en la nube. Si quiere responder a emergencias lo antes posible, puede ejecutar las cargas de trabajo de detección de anomalías en el borde. Si quiere reducir los costos de ancho de banda y evitar la transferencia de terabytes de datos sin procesar, puede limpiar y agregar los datos localmente y enviar solo la información a la nube para su análisis. 
+
+Azure IoT Edge está formado por tres componentes:
+* Los **módulos de IoT Edge** son contenedores que ejecutan servicios de Azure, de terceros o código propio del usuario. Se implementan en los dispositivos de IoT Edge y se ejecutan en ellos. 
+* El **entorno en tiempo de ejecución de IoT Edge** se ejecuta en todos los dispositivos de IoT Edge y administra los módulos que se implementan en cada dispositivo. 
+* Una **interfaz basada en la nube** permite supervisar y administrar los dispositivos de IoT Edge de forma remota.
 
 >[!NOTE]
 >Azure IoT Edge está disponible en el nivel gratuito y estándar de IoT Hub. El nivel gratuito está pensado únicamente para pruebas y evaluación. Para más información acerca de los niveles básico y estándar, consulte el artículo sobre [cómo elegir el nivel de IoT Hub correcto](../iot-hub/iot-hub-scaling.md).
-
-Los análisis son un valor añadido empresarial para las soluciones de IoT, pero no es necesario que todos los análisis estén en la nube. Si desea que un dispositivo responda a emergencias lo antes posible, puede realizar la detección de anomalías en el propio dispositivo. Análogamente, si desea reducir los costos de ancho de banda y evitar la transferencia de terabytes de datos sin procesar, puede realizar la limpieza y la agregación de datos localmente. A continuación, envíe la información detallada a la nube para su análisis. 
-
-Azure IoT Edge está formado por tres componentes:
-* Los módulos de IoT Edge son contenedores que ejecutan servicios de Azure, de terceros o código propio del usuario. Se implementan en los dispositivos de IoT Edge y se ejecutan en ellos. 
-* El entorno de tiempo de ejecución de IoT Edge se ejecuta en todos los dispositivos de IoT Edge y administra los módulos que se implementan en cada dispositivo. 
-* Una interfaz basada en la nube permite supervisar y administrar los dispositivos de IoT Edge de forma remota.
 
 ## <a name="iot-edge-modules"></a>Módulos de IoT Edge
 
 Los módulos de IoT Edge son unidades de ejecución implementadas como contenedores compatibles con Docker, que ejecutan la lógica de negocios en los dispositivos perimetrales. Se pueden configurar varios módulos para que se comuniquen entre sí al crear una canalización de procesamiento de datos. Puede desarrollar módulos personalizados o empaquetar determinados servicios de Azure en módulos que proporcionen información sin conexión y en el dispositivo perimetral. 
 
-### <a name="artificial-intelligence-on-the-edge"></a>Inteligencia artificial en los dispositivos perimetrales
+### <a name="artificial-intelligence-at-the-edge"></a>Inteligencia artificial perimetral
 
-Azure IoT Edge permite implementar el procesamiento de eventos complejos, el aprendizaje automático, el reconocimiento de imágenes y otros tipos de inteligencia artificial de gran valor sin necesidad de escribirla internamente. Los servicios de Azure como Azure Functions, Azure Stream Analytics y Azure Machine Learning se pueden ejecutar de manera local mediante Azure IoT Edge; sin embargo, esto no se limita únicamente a los servicios de Azure. Cualquier persona puede crear módulos de inteligencia artificial y ponerlos a disposición de la comunidad mediante Azure Marketplace. 
+Azure IoT Edge permite implementar el procesamiento de eventos complejos, el aprendizaje automático, el reconocimiento de imágenes y otros tipos de inteligencia artificial de gran valor sin necesidad de escribirla internamente. Los servicios de Azure, como Azure Functions, Azure Stream Analytics y Azure Machine Learning, se pueden ejecutar de manera local mediante Azure IoT Edge. Sin embargo, esto no se limita únicamente a los servicios de Azure. Cualquier persona puede crear módulos de inteligencia artificial y ponerlos a disposición de la comunidad mediante Azure Marketplace. 
 
 ### <a name="bring-your-own-code"></a>Traiga su propio código
 
@@ -55,13 +55,13 @@ El entorno de tiempo de ejecución de Azure IoT Edge permite lógica de la nube 
 
 ![El entorno de tiempo de ejecución de IoT Edge envía información e informes a IoT Hub](./media/about-iot-edge/runtime.png)
 
-La manera de usar los dispositivos de Azure IoT Edge es decisión suya. El runtime se utiliza a menudo para implementar inteligencia artificial en puertas de enlace que agregan y procesan datos de otros dispositivos locales, pero este modelo de implementación es solo una de las opciones disponibles. Los dispositivos de hoja también pueden ser dispositivos de Azure IoT Edge, independientemente de si están conectados a una puerta de enlace o directamente a la nube.
+La manera de usar los dispositivos de Azure IoT Edge es decisión suya. El entorno en tiempo de ejecución se utiliza a menudo para implementar inteligencia artificial en puertas de enlace que agregan y procesan datos de otros dispositivos locales, pero este modelo de implementación es solo una de las opciones disponibles. 
 
-El entorno de tiempo de ejecución de Azure IoT Edge se ejecuta en un gran conjunto de dispositivos de IoT para habilitar el su uso de numerosas maneras distintas. Admite los sistemas operativos Windows y Linux y abstrae los detalles del hardware. Use un dispositivo más pequeño que un Raspberry Pi 3 si no procesa muchos datos, o utilice un servidor industrializado para ejecutar cargas de trabajo que consumen numerosos recursos.
+El entorno de tiempo de ejecución de Azure IoT Edge se ejecuta en un gran conjunto de dispositivos de IoT para habilitar el su uso de numerosas maneras distintas. Admite los sistemas operativos Windows y Linux y abstrae los detalles del hardware. Use un dispositivo más pequeño que un Raspberry Pi 3 si no procesa muchos datos o utilice un servidor industrial para ejecutar cargas de trabajo que consumen numerosos recursos.
 
 ## <a name="iot-edge-cloud-interface"></a>Interfaz en la nube de IoT Edge
 
-Administrar el ciclo de vida del software para los dispositivos de la empresa es complicado. Administrar el ciclo de vida del software para millones de dispositivos de IoT heterogéneos es incluso más difícil. Las cargas de trabajo deben crearse y configurarse para un determinado tipo de dispositivo, implementarse a escala en los millones de dispositivos de la solución y supervisarse para detectar los comportamientos incorrectos de los dispositivos. Estas actividades no se pueden realizar en cada dispositivo y deben realizarse a escala.
+Es difícil administrar el ciclo de vida de software de millones de dispositivos de IoT que, con frecuencia, tienen marcas y modelos diferentes o están geográficamente dispersos. Las cargas de trabajo se crean y configuran para un determinado tipo de dispositivo, se implementan en todos los dispositivos y se supervisan para detectar los comportamientos incorrectos de los dispositivos. Estas actividades no se pueden realizar en cada dispositivo y deben realizarse a escala.
 
 Azure IoT Edge se integra perfectamente con los aceleradores de soluciones de IoT de Azure para conseguir un plan de control que se adapte a las necesidades de la solución. Los servicios en la nube le permiten:
 

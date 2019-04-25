@@ -16,10 +16,10 @@ ms.topic: tutorial
 ms.date: 03/11/2019
 ms.author: jeedes
 ms.openlocfilehash: e94fe3156677a507eab91eee339ed29bf7b4ad2e
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
+ms.lasthandoff: 04/18/2019
 ms.locfileid: "59257644"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-fiori"></a>Tutorial: Integración de Azure Active Directory con SAP Fiori
@@ -135,7 +135,7 @@ Para configurar el inicio de sesión único de Azure AD con SAP Fiori, siga esto
 6. Reemplace el **nombre del proveedor** de T01122 por `http://T01122` y haga clic en **Guardar**.
 
     > [!NOTE]
-    > De forma predeterminada, el nombre de proveedor tiene el formato <sid><client>, pero Azure AD espera que el nombre tenga el formato <protocol>://<name>. Se recomienda que el nombre del proveedor se mantenga como https://<sid><client> para permitir la configuración de varios motores ABAP de SAP Fiori en Azure AD.
+    > De forma predeterminada, el nombre del proveedor tiene el formato <sid><client>, pero Azure AD espera que tenga el formato <protocol>://<name>. Se recomienda que el nombre del proveedor se mantenga como https://<sid><client> para permitir la configuración de varios motores ABAP de SAP Fiori en Azure AD.
 
     ![Vínculo de descarga del certificado](./media/sapfiori-tutorial/tutorial-sapnetweaver-providername.png)
 
@@ -175,8 +175,7 @@ Para configurar el inicio de sesión único de Azure AD con SAP Fiori, siga esto
 
     ![Información de dominio y direcciones URL de inicio de sesión único de SAP Fiori](common/sp-identifier-reply.png)
 
-    d. En el cuadro de texto **Dirección URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón:
-    `https://<your company instance of SAP Fiori>`
+    d. En el cuadro de texto **URL de inicio de sesión**, escriba una dirección URL con el siguiente patrón: `https://<your company instance of SAP Fiori>`
 
     > [!NOTE]
     > Hemos visto que algunos clientes informan de que se ha producido un error al configurar una dirección URL de respuesta incorrecta para su instancia. Si recibe algún error de ese tipo, puede usar el siguiente script de PowerShell como forma provisional de establecer la dirección URL de respuesta correcta para la instancia:

@@ -3,16 +3,16 @@ title: Información general de Azure Resource Graph
 description: Sepa en modo en que el servicio Azure Resource Graph permite realizar consultas complejas de recursos a escala.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 03/29/2019
+ms.date: 03/30/2019
 ms.topic: overview
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: 28efdabc024fd32c83ba966b15284ec6ff368d4d
-ms.sourcegitcommit: 62d3a040280e83946d1a9548f352da83ef852085
+ms.openlocfilehash: d76a5b32403bd14f18181580f891925130808922
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/08/2019
-ms.locfileid: "59269297"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60002891"
 ---
 # <a name="overview-of-the-azure-resource-graph-service"></a>Introducción al servicio Azure Resource Graph
 
@@ -21,11 +21,13 @@ Azure Resource Graph es un servicio de Azure diseñado para extender Azure Resou
 - Capacidad para consultar recursos con propiedades complejas de filtrado, agrupación y ordenación por recursos.
 - Capacidad de explorar recursos según los requisitos de gobernanza de forma iterativa y convertir la expresión resultante en una definición de directiva.
 - Capacidad de evaluar el impacto de aplicar directivas en un entorno de nube de gran capacidad.
+- Capacidad de [detallar los cambios realizados en las propiedades de los recursos](./how-to/get-resource-changes.md) (versión preliminar).
 
 En esta documentación, repasará cada característica en detalle.
 
 > [!NOTE]
-> Azure Resource Graph se usa en la nueva experiencia de exploración de "Todos los recursos" de Azure Portal. Se ha diseñado para ayudar a los clientes que necesitan administrar entornos a gran escala.
+> Azure Resource Graph se usa en la nueva experiencia de exploración de "Todos los recursos" de Azure Portal y en el [historial de cambios](../policy/how-to/determine-non-compliance.md#change-history-preview) de Azure Policy.
+> _diferencia visual_. Se ha diseñado para ayudar a los clientes a administrar entornos a gran escala.
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Cómo Resource Graph complementa Azure Resource Manager
 
@@ -33,13 +35,19 @@ Actualmente, Azure Resource Manager envía datos a una caché de recursos limita
 
 Con Azure Resource Graph, puede tener acceso a estas propiedades que devuelven los proveedores de recursos sin necesidad de realizar llamadas individuales a cada proveedor de recursos. Para obtener una lista de tipos de recurso compatibles, busque **Sí** en la tabla [Resources for complete mode deployments](../../azure-resource-manager/complete-mode-deletion.md) (Recursos para implementaciones en modo completo).
 
+Con Azure Resource Graph, puede:
+
+- Acceder a las propiedades que devuelven los proveedores de recursos sin necesidad de realizar llamadas individuales a cada uno de ellos.
+- Ver los últimos 14 días del historial de cambios realizados en el recurso para ver qué propiedades cambiaron y cuándo lo hicieron. (versión preliminar)
+
 ## <a name="the-query-language"></a>El lenguaje de consulta
 
 Ahora que comprende mejor qué es Azure Resource Graph, vamos a profundizar en cómo crear consultas.
 
 Es importante entender que el lenguaje de consulta de Azure Resource Graph se basa en el [lenguaje de consulta de Kusto](../../data-explorer/data-explorer-overview.md) que usa Azure Data Explorer.
 
-En primer lugar, para obtener información sobre las operaciones y funciones que se pueden usar con Azure Resource Graph, consulte [Lenguaje de consulta de Resource Graph](./concepts/query-language.md). Para examinar los recursos, consulte [Explorar recursos](./concepts/explore-resources.md).
+En primer lugar, para obtener información sobre las operaciones y funciones que se pueden usar con Azure Resource Graph, consulte [Lenguaje de consulta de Resource Graph](./concepts/query-language.md).
+Para examinar los recursos, consulte [Explorar recursos](./concepts/explore-resources.md).
 
 ## <a name="permissions-in-azure-resource-graph"></a>Permisos en Azure Resource Graph
 
@@ -58,7 +66,7 @@ Resource Graph admite la CLI de Azure, Azure PowerShell, y el SDK para .NET de A
 
 ## <a name="next-steps"></a>Pasos siguientes
 
-- Ejecución de la primera consulta con la [CLI de Azure](first-query-azurecli.md)
-- Ejecución de la primera consulta con [Azure PowerShell](first-query-powershell.md)
-- Comience con [consultas de inicio](./samples/starter.md)
-- Mejore sus conocimientos con [consultas avanzadas](./samples/advanced.md)
+- Ejecute la primera consulta con la [CLI de Azure](first-query-azurecli.md).
+- Ejecute la primera consulta con [Azure PowerShell](first-query-powershell.md).
+- Comience con [consultas de inicio](./samples/starter.md).
+- Mejore sus conocimientos con [consultas avanzadas](./samples/advanced.md).

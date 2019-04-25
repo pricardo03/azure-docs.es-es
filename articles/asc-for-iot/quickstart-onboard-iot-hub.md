@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/25/2019
+ms.date: 04/18/2019
 ms.author: mlottner
-ms.openlocfilehash: 59021d09f2af9d430b118acdeb8aa977094e683e
-ms.sourcegitcommit: d83fa82d6fec451c0cb957a76cfba8d072b72f4f
+ms.openlocfilehash: cac2f740c1b2ae109f29ce44cd035fc6a83dd148
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/02/2019
-ms.locfileid: "58862393"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60010567"
 ---
 # <a name="quickstart-enable-service-in-iot-hub"></a>Inicio rápido: Habilitación del servicio en IoT Hub
 
@@ -45,7 +45,7 @@ En este artículo se explica cómo habilitar el servicio de la versión prelimin
 Para habilitar la seguridad en IoT Hub, haga lo siguiente: 
 
 1. Abra **IoT Hub** en Azure Portal. 
-2. Seleccione y abra **Security** (Seguridad) en el menú izquierdo. 
+2. En el menú **Security** (Seguridad), haga clic en **Overview** (Información general) y, a continuación, haga clic en **Start preview** (Iniciar vista previa). 
 3. Elija **Enable IoT Security** (Habilitar seguridad de IoT). 
 4. Especifique sus datos del área de trabajo de Log Analytics. 
    - Si opta por almacenar **eventos sin procesar**, además de los tipos de información predeterminada de almacenamiento, deje el conmutador de **eventos sin procesar** en la posición **On** (Activar). 
@@ -60,4 +60,4 @@ Felicidades. Ha completado la habilitación de ASC for IoT en IoT Hub.
 Pase al siguiente artículo para aprender a configurar una solución...
 
 > [!div class="nextstepaction"]
-> [Configuración de la solución](quickstart-configure-your-solution.md)
+> [Configuración de una solución](quickstart-configure-your-solution.md)

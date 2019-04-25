@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 12/11/2018
 ms.author: rogarana
-ms.openlocfilehash: d1e941e41871de4a11641254f40c53285b096807
-ms.sourcegitcommit: bd15a37170e57b651c54d8b194e5a99b5bcfb58f
+ms.openlocfilehash: f2569b29ab6124f1cfa22fa745d45082c213a6be
+ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/07/2019
-ms.locfileid: "57546318"
+ms.lasthandoff: 04/22/2019
+ms.locfileid: "60003486"
 ---
 # <a name="set-file-and-directory-level-permissions-using-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Establecimiento de permisos en el nivel de archivo y directorio mediante el Explorador de Azure Storage con Azure Data Lake Storage Gen2
 
@@ -33,7 +33,7 @@ Para describir mejor el proceso, es necesario que complete la guía de [inicio r
 
 ## <a name="managing-access"></a>Administración del acceso
 
-Puede establecer permisos en la raíz del sistema de archivos. Para ello, debe iniciar sesión en el Explorador de Azure Storage con su cuenta individual con derechos para hacerlo (en contraposición al uso de una cadena de conexión). Haga clic con el botón derecho en el sistema de archivos y seleccione **Administrar permisos**, con lo que aparece el cuadro de diálogo **Administrar permiso**.
+Puede establecer permisos en la raíz del sistema de archivos. Para ello, debe iniciar sesión en el Explorador de Azure Storage con su cuenta individual con derechos para hacerlo (en contraposición al uso de una cadena de conexión). Haga clic con el botón derecho en el sistema de archivos y seleccione **Administrar permisos** y aparecerá el cuadro de diálogo **Administrar permiso**.
 
 ![Explorador de Microsoft Azure Storage: administración del acceso al directorio](media/storage-quickstart-blobs-storage-Explorer/manageperms.png)
 
