@@ -19,11 +19,11 @@ ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2fcc400f952cc89f5fb4bf6e8d6f0f331483868e
-ms.sourcegitcommit: 81fa781f907405c215073c4e0441f9952fe80fe5
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/25/2019
-ms.locfileid: "58401308"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60298281"
 ---
 # <a name="whats-new-for-authentication"></a>Novedades en la autenticación 
 
@@ -63,9 +63,9 @@ La mayoría de los clientes no será necesario cambiar el comportamiento para ev
 
 * Los ámbitos o recurso que se solicita
 
-* Identificador de cliente
+* Id. de cliente
 
-* URI de redirección
+* URI de redireccionamiento
 
 * Modo y el tipo de respuesta
 

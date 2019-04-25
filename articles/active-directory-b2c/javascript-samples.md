@@ -3,7 +3,7 @@ title: Ejemplos de JavaScript para usar en Azure Active Directory B2C | Microsof
 description: Obtenga información acerca de cómo usar JavaScript en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 12/05/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 3645945400bcc58cdf11721458bfab529d89f0b7
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60009997"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60397097"
 ---
 # <a name="javascript-samples-for-use-in-azure-active-directory-b2c"></a>Ejemplos de JavaScript para usar en Azure Active Directory B2C
 

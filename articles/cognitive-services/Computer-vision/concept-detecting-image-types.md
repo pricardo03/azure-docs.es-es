@@ -12,11 +12,11 @@ ms.date: 03/11/2019
 ms.author: pafarley
 ms.custom: seodec18
 ms.openlocfilehash: 37cdac16a51a30bdaf1ba0266bab7fdd1f2990f0
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57895454"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60368361"
 ---
 # <a name="detecting-image-types-with-computer-vision"></a>Detección de tipos de imagen con Computer Vision
 
@@ -26,7 +26,7 @@ Con el [análisis de imagen](https://westus.dev.cognitive.microsoft.com/docs/ser
 
 Computer Vision analiza una imagen y evalúa la probabilidad de que sea una imagen prediseñada en una escala de 0 a 3, tal y como se describe en la tabla siguiente.
 
-| Valor | Significado |
+| Value | Significado |
 |-------|---------|
 | 0 | No es imagen prediseñada |
 | 1 | Ambigua |

@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 0e87a4c7ebafd8ddcfa54c87b189316b0ce98b0f
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59359007"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60301315"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referencia de configuración del acceso condicional de Azure Active Directory
 
@@ -142,7 +142,7 @@ Para implementar automáticamente esta extensión en los exploradores de Chrome,
 |    |    |
 | --- | --- |
 | Ruta de acceso | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| NOMBRE | 1 |
+| Name | 1 |
 | Type | REG_SZ (String) |
 | Datos | ppnbnpeolgkicgegkbkbjmhlideopiji; https://clients2.google.com/service/update2/crx |
 
@@ -151,7 +151,7 @@ Para la compatibilidad con Chrome en **Windows 8.1 y 7**, cree la siguiente clav
 |    |    |
 | --- | --- |
 | Ruta de acceso | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| NOMBRE | 1 |
+| Name | 1 |
 | Type | REG_SZ (String) |
 | Datos | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
 

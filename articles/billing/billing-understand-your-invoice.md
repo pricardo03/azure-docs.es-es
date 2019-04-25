@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 77c1a85136b2117af7396b8eec2d8b92b335d61d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57897459"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369963"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Descripción de los términos en su factura de Microsoft Azure
 
@@ -99,7 +99,7 @@ La tabla siguiente describe los encabezados de columna de los cargos de uso que 
 
 | Término |DESCRIPCIÓN |
 | --- | --- |
-| NOMBRE |Identifica el servicio de nivel superior para el uso. |
+| Name |Identifica el servicio de nivel superior para el uso. |
 | Type |Define el tipo de servicio de Azure que puede afectar a la tarifa. |
 | Recurso |Identifica la unidad de medida del medidor que se está utilizando. |
 | Region |Identifica la ubicación del centro de datos para ciertos servicios cuyos precios se establecen según la ubicación del centro de datos. |
@@ -107,7 +107,7 @@ La tabla siguiente describe los encabezados de columna de los cargos de uso que 
 | Se incluye |El importe del medidor incluido sin cargo en el período de facturación actual. |
 | Facturable |Muestra la diferencia entre la cantidad consumida y la cantidad incluida. Se factura este importe. En el caso de ofertas de pago por uso que no incluyen el importe en la oferta, este total será igual a la cantidad consumida. |
 | Tarifa |La tarifa que se le carga por unidad facturable. |
-| Valor |Muestra el resultado de multiplicar las columnas Cantidad superior al límite y Tarifa. Si la cantidad consumida no supera la cantidad incluida, no hay ningún cargo en esta columna. |
+| Value |Muestra el resultado de multiplicar las columnas Cantidad superior al límite y Tarifa. Si la cantidad consumida no supera la cantidad incluida, no hay ningún cargo en esta columna. |
 | Subtotal |La suma de todos los cargos antes de impuestos para este período de facturación. |
 | Total general |La suma de todos los cargos después de impuestos para este período de facturación. |
 

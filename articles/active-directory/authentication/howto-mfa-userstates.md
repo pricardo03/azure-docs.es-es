@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 2d5a196af8ee6a7d41833185136a76255be4082a
-ms.sourcegitcommit: 49c8204824c4f7b067cd35dbd0d44352f7e1f95e
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58371760"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359014"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>Exigencia de verificación en dos pasos para un usuario
 
@@ -44,7 +44,7 @@ Las cuentas de usuario de Azure Multi-Factor Authentication tienen los siguiente
 | Status | DESCRIPCIÓN | Aplicaciones que no son de explorador afectadas | Aplicaciones que son de explorador afectadas | Autenticación moderna afectada |
 |:---:|:---:|:---:|:--:|:--:|
 | Disabled |Estado predeterminado para un usuario nuevo no inscrito en Azure MFA. |Sin  |No |Sin  |
-| habilitado |El usuario se ha inscrito en Azure MFA, pero no se ha registrado. La próxima vez que inicie sesión, se le pedirá registrarse. | No.  Continúa funcionando hasta que se complete el proceso de registro. | Sí. Una vez que expire la sesión, se requerirá el registro de Azure MFA.| Sí. Una vez que expire el token de acceso, se requerirá el registro de Azure MFA. |
+| Enabled |El usuario se ha inscrito en Azure MFA, pero no se ha registrado. La próxima vez que inicie sesión, se le pedirá registrarse. | No.  Continúa funcionando hasta que se complete el proceso de registro. | Sí. Una vez que expire la sesión, se requerirá el registro de Azure MFA.| Sí. Una vez que expire el token de acceso, se requerirá el registro de Azure MFA. |
 | Aplicado |El usuario se ha inscrito y ha completado el proceso de registro de Azure MFA. |Sí. Las aplicaciones requieren contraseñas de aplicación. |Sí. Se requiere Azure MFA en el inicio de sesión. | Sí. Se requiere Azure MFA en el inicio de sesión. |
 
 El estado de un usuario refleja si un administrador lo ha inscrito en Azure MFA, y si ha completado el proceso de registro.
@@ -82,7 +82,7 @@ Después de habilitar los usuarios, notifíquelos por correo electrónico. Debe 
 
 Para cambiar el estado del usuario mediante [Azure AD PowerShell](/powershell/azure/overview), debe cambiar `$st.State`. Hay tres estados posibles:
 
-* habilitado
+* Enabled
 * Aplicado
 * Disabled  
 

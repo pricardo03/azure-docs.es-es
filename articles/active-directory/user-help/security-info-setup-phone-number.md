@@ -13,11 +13,11 @@ ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 9c1620be30d8cdf3a592ab0fc118938783579689
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58085089"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60475000"
 ---
 # <a name="set-up-security-info-preview-to-use-phone-calls"></a>Configuración de la información de seguridad (versión preliminar) para usar llamadas de teléfono
 Puede seguir estos pasos para agregar sus métodos de restablecimiento de contraseña y comprobación en dos pasos. Una vez que haya configurado esto por primera vez, puede volver a la página **Información de seguridad** para agregar, actualizar o eliminar su información de seguridad.

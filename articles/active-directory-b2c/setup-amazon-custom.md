@@ -3,7 +3,7 @@ title: Configuración del inicio de sesión con una cuenta de Amazon mediante di
 description: Configure el inicio de sesión con una cuenta de Amazon en Azure Active Directory B2C mediante directivas personalizadas.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 10/05/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: f62238543f1c24d05702ee0679610934d308538d
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55182547"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360391"
 ---
 # <a name="set-up-sign-in-with-an-amazon-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configuración del inicio de sesión con una cuenta de Amazon mediante directivas personalizadas en Azure Active Directory B2C
 

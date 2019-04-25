@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: 90f832319fa2343003af58bd99eb64c0cbd94dd8
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57894553"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371804"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Configuración de su cuenta de facturación para un contrato de cliente de Microsoft
 
@@ -209,7 +209,7 @@ Para completar la instalación, necesita acceso a la nueva cuenta de facturació
 
    ![Captura de pantalla que muestra la búsqueda en Azure Portal](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Seleccione el perfil de facturación. Según el acceso, debe seleccionar una cuenta de facturación. En la cuenta de facturación, seleccione **facturación perfiles** y, a continuación, el perfil de facturación.
+3. Seleccione el perfil de facturación. Dependiendo de su acceso, es posible que tenga que seleccionar una cuenta de facturación. En la cuenta de facturación, seleccione **facturación perfiles** y, a continuación, el perfil de facturación.
 
 4. Seleccione **suscripciones de Azure** del lado izquierdo.
 
@@ -225,7 +225,7 @@ Las suscripciones de Azure que se realiza la transición desde su inscripción a
 
    ![Captura de pantalla que muestra la búsqueda en Azure Portal](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Seleccione una sección de la factura. Según el acceso, debe seleccionar una cuenta de facturación o un perfil de facturación.  En la cuenta de facturación o el perfil de facturación, seleccione **factura secciones** y, a continuación, una sección de factura.
+3. Seleccione una sección de la factura. Dependiendo de su acceso, es posible que tenga que seleccionar una cuenta de facturación o un perfil de facturación.  En la cuenta de facturación o el perfil de facturación, seleccione **factura secciones** y, a continuación, una sección de factura.
 
     ![Captura de pantalla que muestra la lista de transición de entrada de sección de factura](./media/billing-mca-setup-account/billing-mca-invoice-sections-post-transition.png)
 
@@ -245,7 +245,7 @@ Las reservas de Azure que se han movido desde su inscripción al contrato Enterp
 
    ![Captura de pantalla que muestra la búsqueda en Azure Portal](./media/billing-mca-setup-account/billing-search-cost-management-billing.png)
 
-3. Seleccione el perfil de facturación que creó para su inscripción. Según el acceso, debe seleccionar una cuenta de facturación.  En la cuenta de facturación, seleccione **facturación perfiles** y, a continuación, el perfil de facturación.
+3. Seleccione el perfil de facturación que creó para su inscripción. Dependiendo de su acceso, es posible que tenga que seleccionar una cuenta de facturación.  En la cuenta de facturación, seleccione **facturación perfiles** y, a continuación, el perfil de facturación.
 
 4. Seleccione **control de acceso (IAM)** del lado izquierdo.
 

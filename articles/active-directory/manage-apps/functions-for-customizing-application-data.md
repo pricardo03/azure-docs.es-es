@@ -15,11 +15,11 @@ ms.date: 01/21/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: ed081b32fd8ac464f7ec66f97c6867708a6f8533
-ms.sourcegitcommit: f7f4b83996640d6fa35aea889dbf9073ba4422f0
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/28/2019
-ms.locfileid: "56991487"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60291439"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Escritura de expresiones para la asignación de atributos en Azure Active Directory
 Al configurar el aprovisionamiento para una aplicación SaaS, uno de los tipos de asignaciones de atributos que puede especificar es una asignación de expresiones. En estos casos, debe escribir una expresión similar a un script que permite transformar los datos de los usuarios en formatos más aceptables para la aplicación SaaS.
@@ -48,7 +48,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| Name | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen. |
 | **suffix** |Obligatorio |string |La cadena que se va a anexar al final del valor de origen. |
@@ -61,7 +61,7 @@ La sintaxis de expresiones para asignaciones de atributos recuerda a las funcion
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| Name | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen. |
 | **inputFormat** |Obligatorio |string |Formato esperado del valor de origen. Para conocer los formatos admitidos, consulte [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
@@ -77,7 +77,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| Name | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
 | **separator** |Obligatorio |string |Cadena utilizada para separar los valores de origen cuando se concatenan en una sola cadena. Puede ser "" si no es necesario ningún separador. |
 | **source1  … sourceN** |Obligatorio, número variable de veces |string |Valores de cadena que se van a agrupar. |
@@ -90,7 +90,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| Name | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string |Normalmente el nombre del atributo. |
 | **start** |Obligatorio |integer |Índice de la cadena de **source** donde debe empezar la subcadena. El primer carácter de la cadena tendrá el índice de 1, el segundo carácter tendrá el índice de 2, y así sucesivamente. |
@@ -104,7 +104,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| Name | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string | Normalmente un atributo de nombre o de apellido. |
 
@@ -116,7 +116,7 @@ Si uno de los valores de origen es un atributo multivalor, cada valor de ese atr
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| Name | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |Cadena booleana |Los valores de **source** esperados son "True" o "False". |
 
@@ -143,7 +143,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| Name | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen. |
 | **oldValue** |Opcional |string |Valor que se va a reemplazar en **source** o **template**. |
@@ -166,7 +166,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| Name | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
 | **uniqueValueRule1  … uniqueValueRuleN** |Al menos se requieren dos, sin límite superior |string | Lista de reglas de generación de valor único para realizar la evaluación. |
 
@@ -179,7 +179,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| Name | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
 | **[appRoleAssignments]** |Obligatorio |string |Objeto **[appRoleAssignments]**. |
 
@@ -191,7 +191,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| Name | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string |**de origen** que se actualiza. |
 | **delimitador** |Obligatorio |string |Especifica el carácter que se usará para dividir la cadena (ejemplo: ","). |
@@ -204,7 +204,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| Name | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string |**de origen** que se actualiza. |
 
@@ -216,7 +216,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| Name | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string |**Source** que se actualiza. |
 | **defaultValue** |Opcional |string |Valor predeterminado que se usará si el origen no coincide con ninguna clave. Puede tratarse de una cadena vacía (""). |
@@ -231,7 +231,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| Name | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen |
 | **referencia cultural** |Opcional |string |El formato para el nombre de la referencia cultural según RFC 4646 es *languagecode2-country/regioncode2*, donde *languagecode2* es el código de idioma de dos letras y *country/regioncode2* es el código de referencia de subcultura de dos letras. Algunos ejemplos son a ja-JP para japonés (Japón) y en-US para inglés (Estados Unidos). En casos donde un código de idioma de dos letras no está disponible, se usa un código de tres letras derivado de ISO 639-2.|
@@ -244,7 +244,7 @@ Reemplaza valores dentro de una cadena. Funciona de forma diferente dependiendo 
 
 **Parámetros:**<br> 
 
-| NOMBRE | Obligatorio/Repetición | Type | Notas |
+| Name | Obligatorio/Repetición | Type | Notas |
 | --- | --- | --- | --- |
 | **de origen** |Obligatorio |string |Normalmente el nombre del atributo del objeto de origen. |
 | **referencia cultural** |Opcional |string |El formato para el nombre de la referencia cultural según RFC 4646 es *languagecode2-country/regioncode2*, donde *languagecode2* es el código de idioma de dos letras y *country/regioncode2* es el código de referencia de subcultura de dos letras. Algunos ejemplos son a ja-JP para japonés (Japón) y en-US para inglés (Estados Unidos). En casos donde un código de idioma de dos letras no está disponible, se usa un código de tres letras derivado de ISO 639-2.|

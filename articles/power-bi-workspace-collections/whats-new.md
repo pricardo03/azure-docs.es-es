@@ -3,17 +3,17 @@ title: Novedades de las colección de áreas de trabajo de Power BI
 description: Obtenga la información más reciente sobre las novedades en las colecciones de áreas de trabajo de Power BI.
 services: power-bi-workspace-collections
 ms.service: power-bi-workspace-collections
-author: markingmyname
-ms.author: maghan
+author: rkarlin
+ms.author: rkarlin
 ms.topic: article
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.openlocfilehash: b29996b8e2cd9a95b9c1566036b1009b65c18bfa
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58518072"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60341988"
 ---
 # <a name="whats-new-in-power-bi-workspace-collections"></a>Novedades de las colección de áreas de trabajo de Power BI
 

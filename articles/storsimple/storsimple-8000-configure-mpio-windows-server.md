@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 03/26/2018
 ms.author: alkohli
 ms.openlocfilehash: eda134257edb851eea076459b44e02fc59028f46
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58078149"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60363399"
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurar E/S de múltiples rutas para el dispositivo StorSimple
 
@@ -82,12 +82,10 @@ MPIO se debe configurar para identificar los volúmenes de StorSimple. Haga lo s
 1. Abra la **configuración de MPIO**. Haga clic en **Administrador del servidor > Panel > Herramientas > MPIO**.
 2. En el cuadro de diálogo **MPIO Properties** (Propiedades de MPIO), seleccione la pestaña **Detectar múltiples rutas**.
 3. Seleccione **Agregar compatibilidad con dispositivos iSCSI** y, luego, haga clic en **Agregar**.  
-   
-  ![Propiedades de MPIO &gt; Detectar múltiples rutas](./media/storsimple-configure-mpio-windows-server/IC741003.png)
+   ![Propiedades de MPIO &amp;gt; Detectar múltiples rutas](./media/storsimple-configure-mpio-windows-server/IC741003.png)
 4. Reinicie el servidor cuando se le pida.
 5. En el cuadro de diálogo **Propiedades de MPIO**, haga clic en la pestaña **Dispositivos con MPIO**. Haga clic en **Agregar**.
-    </br>
-  ![Propiedades de MPIO &gt; Dispositivo con MPIO](./media/storsimple-configure-mpio-windows-server/IC741004.png)
+    </br>![Propiedades de MPIO &amp;gt; Dispositivo con MPIO](./media/storsimple-configure-mpio-windows-server/IC741004.png)
 6. En el cuadro de diálogo **Agregar compatibilidad con MPIO**, en **Identificador de hardware de dispositivo**, escriba el número de serie del dispositivo. Para obtener el número de serie del dispositivo, acceda al servicio StorSimple Device Manager. Navegue a **Dispositivos > Panel**. El número de serie del dispositivo se muestra en el panel de **Vista rápida** derecho del panel del dispositivo.
     </br>
     ![Agregar compatibilidad con MPIO](./media/storsimple-configure-mpio-windows-server/IC741005.png)

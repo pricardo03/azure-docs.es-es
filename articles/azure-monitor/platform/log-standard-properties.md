@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: bwren
 ms.openlocfilehash: c01cdb967fd7f9516b4403aa4f0c76f2577d5050
-ms.sourcegitcommit: ab6fa92977255c5ecbe8a53cac61c2cd2a11601f
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58294729"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60394530"
 ---
 # <a name="standard-properties-in-azure-monitor-log-records"></a>Propiedades estándar de los registros de Azure Monitor
 Los datos de los registros de Azure Monitor [se almacenan como un conjunto de registros](../log-query/log-query-overview.md), cada uno con un tipo de datos determinado que tiene un único conjunto de propiedades. Muchos tipos de datos tendrán propiedades estándar que son comunes en varios tipos. En este artículo se describen estas propiedades y se proporcionan ejemplos de cómo puede usarlas en las consultas.

@@ -18,11 +18,11 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 5fe7d3ea7d4f6d648438efc1a484d5909ade2f23
-ms.sourcegitcommit: 301128ea7d883d432720c64238b0d28ebe9aed59
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/13/2019
-ms.locfileid: "56208221"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60382902"
 ---
 # <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Sincronización de Azure AD Connect: Habilitar la papelera de reciclaje de AD
 Se recomienda que habilite la característica Papelera de reciclaje de AD en sus instancias locales de Active Directory, que se sincronizan con Azure AD. 

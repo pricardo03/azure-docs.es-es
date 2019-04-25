@@ -2,26 +2,26 @@
 title: 'Azure AD Connect: actualización del certificado SSL para una granja de AD FS | Microsoft Docs'
 description: En este documento se detallan los pasos para actualizar el certificado SSL de una granja de AD FS mediante Azure AD Connect.
 services: active-directory
-manager: daveba
+manager: mtillman
 editor: billmath
 ms.assetid: 7c781f61-848a-48ad-9863-eb29da78f53c
 ms.service: active-directory  
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 07/09/2018
-ms.subservice: hybrid
+ms.topic: article
+origin.date: 07/09/2018
+ms.date: 11/09/2018
+ms.component: hybrid
 author: billmath
 ms.custom: seohack1
-ms.author: billmath
-ms.collection: M365-identity-device-management
+ms.author: v-junlch
 ms.openlocfilehash: 39ac0e9cf11a0c6c212c4beadb6635ad2b6b056d
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56734717"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60244704"
 ---
 # <a name="update-the-ssl-certificate-for-an-active-directory-federation-services-ad-fs-farm"></a>Actualizar el certificado SSL para una granja de Servicios de federación de Active Directory (AD FS)
 
@@ -38,8 +38,8 @@ Puede realizar toda la operación de actualización del certificado SSL para la 
 
 ## <a name="prerequisites"></a>Requisitos previos
 
-* **Granja de AD FS**: asegúrese de que la granja de AD FS se base en Windows Server 2012 R2 o una versión posterior.
-* **Azure AD Connect**: asegúrese de que la versión de Azure AD Connect sea 1.1.553.0 o posterior. Usará la tarea **Actualización del certificado SSL de AD FS**.
+- **Granja de AD FS**: asegúrese de que la granja de AD FS se base en Windows Server 2012 R2 o una versión posterior.
+- **Azure AD Connect**: asegúrese de que la versión de Azure AD Connect sea 1.1.553.0 o posterior. Usará la tarea **Actualización del certificado SSL de AD FS**.
 
 ![Tarea de actualización de SSL](./media/how-to-connect-fed-ssl-update/updatessltask.png)
 
@@ -85,23 +85,23 @@ Una vez completada la configuración, Azure AD Connect muestra el mensaje que in
 
 ## <a name="faqs"></a>Preguntas más frecuentes
 
-* **¿Cuál debe ser el nombre de sujeto del certificado para el nuevo certificado SSL de AD FS?**
+- **¿Cuál debe ser el nombre de sujeto del certificado para el nuevo certificado SSL de AD FS?**
 
     Azure AD Connect comprueba si el nombre de sujeto o el nombre alternativo de sujeto del certificado contiene el nombre del servicio de federación. Por ejemplo, si el nombre del servicio de federación es fs.contoso.com, el nombre de sujeto o el nombre de sujeto alternativo debe ser fs.contoso.com.  También se aceptan certificados comodín.
 
-* **¿Por qué me piden de nuevo las credenciales en la página del servidor de WAP?**
+- **¿Por qué me piden de nuevo las credenciales en la página del servidor de WAP?**
 
     Si las credenciales proporcionadas para conectarse a servidores de AD FS no tienen el privilegio para administrar también los servidores de WAP, Azure AD Connect pide las credenciales que tienen privilegios administrativos en los servidores de WAP.
 
-* **El servidor se muestra como sin conexión. ¿qué debo hacer?**
+- **El servidor se muestra como sin conexión. ¿qué debo hacer?**
 
     Azure AD Connect no puede realizar ninguna operación si el servidor está sin conexión. Si el servidor forma parte de la granja de AD FS, compruebe la conectividad con el servidor. Después de resolver el problema, pulse el icono de actualización para actualizar el estado en el asistente. Si el servidor formó parte de la granja anteriormente pero ahora ya no existe, haga clic en **Quitar** para eliminarlo de la lista de servidores que mantiene Azure AD Connect. El hecho de quitar el servidor de la lista en Azure AD Connect no modifica la propia configuración de AD FS. Si usa AD FS en Windows Server 2016 o posterior, el servidor permanece en las opciones de configuración y se mostrará la próxima vez que se ejecute la tarea.
 
-* **¿Puedo actualizar un subconjunto de los servidores de la granja con el nuevo certificado SSL?**
+- **¿Puedo actualizar un subconjunto de los servidores de la granja con el nuevo certificado SSL?**
 
     Sí. Siempre puede ejecutar la tarea **Actualizar certificado SSL** de nuevo para actualizar el resto de servidores. En la página **Seleccionar servidores para la actualización del certificado SSL**, puede ordenar la lista de servidores por **Fecha de expiración de SSL** para tener acceso fácilmente a los servidores que todavía no se han actualizado.
 
-* **Quité el servidor en la ejecución anterior, pero todavía se muestra como sin conexión y aparece en la página de servidores de AD FS. ¿Por qué sigue estando sin conexión el servidor incluso después de la eliminación?**
+- **Quité el servidor en la ejecución anterior, pero todavía se muestra como sin conexión y aparece en la página de servidores de AD FS. ¿Por qué sigue estando sin conexión el servidor incluso después de la eliminación?**
 
     Quitar el servidor de la lista en Azure AD Connect no lo quita de la configuración de AD FS. Azure AD Connect hace referencia a AD FS (Windows Server 2016 o posterior) para cualquier información sobre la granja. Si el servidor sigue estando presente en la configuración de AD FS, aparecerá de nuevo en la lista.  
 

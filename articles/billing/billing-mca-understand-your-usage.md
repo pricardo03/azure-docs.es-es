@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: 8f71f42386ce49d4d7178cb03d28d74edacd7e39
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57836953"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371315"
 ---
 # <a name="understand-terms-on-your-azure-usage-and-charges-csv-for-a-microsoft-customer-agreement"></a>Descripción de los términos en los CSV de cargos y el uso de Azure para un contrato de cliente de Microsoft
 
@@ -38,10 +38,10 @@ Si fuese un cliente EA, observará que los términos en el perfil de facturació
 
 | Uso de Azure EA CSV | Uso de contrato de cliente de Microsoft Azure y los cargos de CSV |
 | --- | --- |
-| Date | fecha |
-| Mes| fecha |
-| Día | fecha |
-| Year | fecha |
+| Date | date |
+| Mes| date |
+| Día | date |
+| Year | date |
 | Producto | product |
 | Id. del medidor | meterID |
 | Categoría del medidor | meterCategory |
@@ -86,7 +86,7 @@ billingPeriodStartDate | La fecha de inicio del período de facturación para el
 billingPeriodEndDate | La fecha de finalización del período de facturación para el que se genera la factura
 servicePeriodStartDate | La fecha de inicio del período de evaluación que tiene definido y bloquea los precios del servicio consumido o adquirido
 servicePeriodEndDate | La fecha de finalización del período de evaluación que tiene definido y bloquea los precios del servicio consumido o adquirido
-fecha | Para Azure y Marketplace cargos de basada en uso, esta es la fecha de clasificación. Para las compras de un solo uso (las reservas de direcciones, Marketplace) o los cargos periódicos fijos (ofertas de soporte técnico), esta es la fecha de compra.
+date | Para Azure y Marketplace cargos de basada en uso, esta es la fecha de clasificación. Para las compras de un solo uso (las reservas de direcciones, Marketplace) o los cargos periódicos fijos (ofertas de soporte técnico), esta es la fecha de compra.
 serviceFamily | Familia de servicio que pertenece el servicio
 productOrderId | Identificador único para el pedido de producto
 productOrderName | Nombre único para el pedido de producto
@@ -107,7 +107,7 @@ publisherType | Tipo de publicador (valores: firstParty, thirdPartyReseller, thi
 publisherName | Publicador para los servicios de Marketplace
 resourceGroupId | Identificador único para el grupo de recursos asociado al recurso
 resourceGroupName | Nombre del grupo de recursos asociado al recurso
-ResourceId | Identificador único para la instancia del recurso
+resourceId | Identificador único para la instancia del recurso
 resourceType | Tipo de instancia del recurso
 resourceLocation | Identifica la ubicación del centro de datos donde se ejecuta el recurso.
 location | Ubicación normalizada del recurso si se configuran las ubicaciones de recursos diferente para las mismas regiones

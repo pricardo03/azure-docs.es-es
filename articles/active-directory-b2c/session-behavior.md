@@ -3,7 +3,7 @@ title: Configurar el comportamiento de sesión - Azure Active Directory B2C | Mi
 description: Configurar el comportamiento de la sesión en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -11,11 +11,11 @@ ms.date: 04/16/2019
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 1140a3cbb43e86bf222c73c95a03b11871f7a2d0
-ms.sourcegitcommit: c3d1aa5a1d922c172654b50a6a5c8b2a6c71aa91
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59685992"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360441"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Configurar el comportamiento de la sesión en Azure Active Directory B2C
 
@@ -56,7 +56,7 @@ Los siguientes casos de uso se habilitan mediante estas propiedades:
 6. Seleccione **Propiedades**.
 7. Configurar **aplicación Web de duración de la sesión (minutos)**, **tiempo de espera de sesión de aplicación de Web**, **configuración del inicio de sesión único**, y **requieren el Token de identificador en las solicitudes de cierre de sesión**  según sea necesario.
 
-    ![Configurar el comportamiento de la sesión](./media/session-behavior/session-behavior.png)
+    ![Configuración del comportamiento de la sesión](./media/session-behavior/session-behavior.png)
     
 8. Haga clic en **Save**(Guardar).
 

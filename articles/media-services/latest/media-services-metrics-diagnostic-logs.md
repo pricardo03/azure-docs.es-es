@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/05/2019
 ms.author: juliako
 ms.openlocfilehash: 23c87ae92a0f22b4a1a31c054df730af2efc07d1
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59785092"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322104"
 ---
 # <a name="monitor-media-services-metrics-and-diagnostic-logs"></a>Supervisar las métricas de Media Services y los registros de diagnóstico
 
@@ -34,7 +34,7 @@ Las métricas se recopilan a intervalos regulares independientemente de si cambi
 
 Actualmente, los siguientes servicios de medios [extremos de Streaming](https://docs.microsoft.com/rest/api/media/streamingendpoints) métricas se emiten por Azure:
 
-|NOMBRE|DESCRIPCIÓN|
+|Name|DESCRIPCIÓN|
 |---|---|
 |Requests|Proporciona información sobre el número total de solicitudes tramitadas por el extremo de streaming.|
 |Salida|Número total de bytes de salida. Por ejemplo, los bytes transmitidos por secuencias por extremo de streaming.|
@@ -54,7 +54,7 @@ Para obtener información sobre cómo crear alertas de métricas, consulte [crea
 
 Actualmente, puede obtener los registros de diagnóstico siguientes:
 
-|NOMBRE|DESCRIPCIÓN|
+|Name|DESCRIPCIÓN|
 |---|---|
 |Solicitud de servicio de entrega de claves|Registros que muestran la información de solicitud de servicio de entrega de claves. Para obtener más información, consulte [esquemas](media-services-diagnostic-logs-schema.md).|
 

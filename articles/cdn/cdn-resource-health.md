@@ -1,6 +1,6 @@
 ---
-title: Supervisión del estado de los recursos de una red CDN de Azure | Microsoft Docs
-description: Obtenga información sobre cómo supervisar el estado de los recursos de una red CDN de Azure con Estado de los recursos de Azure.
+title: Supervisión del estado de los recursos de Azure CDN | Microsoft Docs
+description: Obtenga información sobre cómo supervisar el estado de los recursos de Azure CDN con Estado de los recursos de Azure.
 services: cdn
 documentationcenter: .net
 author: zhangmanling
@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 37fe208f5087f318e665e76825127854b4a11c98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
-ms.translationtype: HT
+ms.openlocfilehash: ad4bf7ae97a08f89b9d82e1d4e025a5bd5d47fc1
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22997930"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60324715"
 ---
-# <a name="monitor-the-health-of-azure-cdn-resources"></a>Supervisión del estado de los recursos de una red CDN de Azure
+# <a name="monitor-the-health-of-azure-cdn-resources"></a>Supervisión del estado de los recursos de Azure CDN
   
-El estado de los recursos de la red CDN de Azure es un subconjunto de [Estado de los recursos de Azure](../resource-health/resource-health-overview.md).  Puede usar Estado de los recursos de Azure para supervisar el estado de los recursos de una red CDN y recibir instrucciones procesables para solucionar problemas.
+El estado de los recursos de Azure CDN es un subconjunto de [Estado de los recursos de Azure](../resource-health/resource-health-overview.md).  Puede usar Estado de los recursos de Azure para supervisar el estado de los recursos de una red CDN y recibir instrucciones procesables para solucionar problemas.
 
 >[!IMPORTANT] 
->El estado de los recursos de la red CDN de Azure solo tiene en cuenta el estado de la entrega de la red CDN global y las funciones de la API.  El estado de los recursos de la red CDN de Azure no comprueba los puntos de conexión individuales de la red CDN.
+>El estado de los recursos de Azure CDN solo tiene en cuenta el estado de la entrega de la red CDN global y las funciones de la API.  El estado de los recursos de Azure CDN no comprueba los puntos de conexión individuales de la red CDN.
 >
->Las señales que recibe el estado de los recursos de la red CDN de Azure pueden retrasarse hasta 15 minutos.
+>Las señales que recibe el estado de los recursos de Azure CDN pueden retrasarse hasta 15 minutos.
 
-## <a name="how-to-find-azure-cdn-resource-health"></a>Buscar el estado de los recursos de una red CDN de Azure
+## <a name="how-to-find-azure-cdn-resource-health"></a>Buscar el estado de los recursos de Azure CDN
 
 1. En [Azure Portal](https://portal.azure.com), vaya a su perfil de la red CDN.
 
@@ -47,11 +47,11 @@ El estado de los recursos de la red CDN de Azure es un subconjunto de [Estado de
 >
 > ![Ayuda y soporte técnico](./media/cdn-resource-health/cdn-help-support.png)
 
-## <a name="azure-cdn-specific-messages"></a>Mensajes específicos de la red CDN de Azure
+## <a name="azure-cdn-specific-messages"></a>Mensajes específicos de Azure CDN
 
-Los estados relacionados con el estado de los recursos de una red CDN de Azure se muestra a continuación.
+Los estados relacionados con el estado de los recursos de Azure CDN se muestra a continuación.
 
-|Message | Acción recomendada |
+|Message | Acción recomendada |
 |---|---|
 |Es posible que haya detenido, quitado o configurado de forma incorrecta uno o más de los puntos de conexión de la red CDN. | Es posible que haya detenido, quitado o configurado de forma incorrecta uno o más de los puntos de conexión de la red CDN.|
 |El servicio de administración de la red CDN no está disponible en estos momentos. | Vuelva aquí para ver actualizaciones de estado. Si el problema persiste después del tiempo de resolución esperado, póngase en contacto con el soporte técnico.|

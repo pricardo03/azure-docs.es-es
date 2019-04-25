@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 02/28/2019
 ms.author: banders
 ms.openlocfilehash: be8c7fcebca224196d9eac7d22387989b1bdfd46
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57890940"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60371960"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-users"></a>Obtener la propiedad de las suscripciones de Azure a otros usuarios de facturación
 
@@ -39,12 +39,12 @@ En este artículo se aplica a una cuenta de facturación para un contrato de cli
 
    ![Captura de pantalla que muestra la búsqueda de Azure portal de administración de costos + facturación](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. Vaya a la sección de factura. Según el acceso, debe seleccionar una cuenta de facturación o el perfil de facturación. En la cuenta o perfil de facturación, seleccione **factura secciones** y, a continuación, una sección de factura.
+3. Vaya a la sección de facturas. Según el acceso, debe seleccionar una cuenta de facturación o el perfil de facturación. En la cuenta o perfil de facturación, seleccione **factura secciones** y, a continuación, una sección de factura.
    <!-- Todo - Add a screenshot -->
 
 4. Seleccione **solicitudes de transferencia** desde el lado inferior izquierdo.
 
-5. En la parte superior de la página, seleccione **agregar**.
+5. En la parte superior de la página, seleccione **Agregar**.
 
 6. Escriba la dirección de correo electrónico del usuario que está solicitando la propiedad de facturación de. El usuario debe ser un administrador de cuenta en una cuenta de facturación del programa de servicio de Microsoft Online o el propietario de la cuenta en un contrato Enterprise. Para obtener más información, consulte [ver sus cuentas de facturación en Azure portal](billing-view-all-accounts.md).
 
@@ -68,7 +68,7 @@ En este artículo se aplica a una cuenta de facturación para un contrato de cli
 
    ![Captura de pantalla que muestra la búsqueda de Azure portal de administración de costos + facturación](./media/billing-mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. Vaya a la sección de factura. Según el acceso, debe seleccionar una cuenta de facturación o el perfil de facturación. En la cuenta o perfil de facturación, seleccione **factura secciones** y, a continuación, una sección de factura.
+3. Vaya a la sección de facturas. Según el acceso, debe seleccionar una cuenta de facturación o el perfil de facturación. En la cuenta o perfil de facturación, seleccione **factura secciones** y, a continuación, una sección de factura.
    <!-- Todo - Add a screenshot -->
 
 4. Seleccione **solicitudes de transferencia** desde el lado inferior izquierdo.

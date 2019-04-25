@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: banders
-ms.openlocfilehash: 9ba52951565c910138a5a49ecc97ad5748411e6d
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.openlocfilehash: 4303b79a7ee69d029504bf6ca2359f6e6070e5b8
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57842318"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60370191"
 ---
 # <a name="understand-your-microsoft-azure-bill"></a>Comprender la factura de Microsoft Azure
 Para entender la factura de Azure, compare la factura con el archivo de uso diario detallado y los informes de administración de costos en Azure Portal.
@@ -46,7 +46,7 @@ Los cargos de uso se muestran en el nivel de medidor. Los siguientes términos s
  | Factura (PDF) | Uso detallado (CSV)|
  | --- | --- |
 |Ciclo de facturación | Período de facturación |
- |NOMBRE |Categoría de medidor |
+ |Name |Categoría de medidor |
  |Type |Subcategoría de medidor |
  |Recurso |Nombre de medidor |
  |Region |Medidor de la región |

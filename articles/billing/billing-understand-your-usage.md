@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: banders
 ms.openlocfilehash: a143fc6d9dbd78ae365f943a00ac9f8492d5e51c
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
-ms.translationtype: MT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "57897153"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60369631"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Descripción de los términos de los cargos de uso detallados de Microsoft Azure 
 
@@ -57,7 +57,7 @@ La sección superior del archivo CSV de uso detallado muestra los servicios usad
 |Superávit |Muestra los cargos por medidor que superan el importe comprometido asociado a su oferta de 6 o 12 meses. |
 |Tarifa de compromiso |Muestra la tarifa comprometida basada en el importe comprometido total asociado a su oferta de 6 o 12 meses. |
 |Tarifa |La tarifa que se le carga por unidad facturable. |
-|Valor |Muestra el resultado de multiplicar las columnas Cantidad superior al límite y Tarifa. Si la cantidad consumida no supera la cantidad incluida, no hay ningún cargo en esta columna. |
+|Value |Muestra el resultado de multiplicar las columnas Cantidad superior al límite y Tarifa. Si la cantidad consumida no supera la cantidad incluida, no hay ningún cargo en esta columna. |
 
 ### <a name="daily-usage"></a>Uso diario
 

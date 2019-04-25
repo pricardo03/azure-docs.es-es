@@ -16,11 +16,11 @@ ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: ergreenl
 ms.openlocfilehash: f18d3409d53123733d7f423c77864cd0739765eb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "57900597"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60360086"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Unión de una máquina virtual de Windows Server a un dominio administrado
 Este artículo muestra cómo implementar una máquina virtual de Windows Server mediante Azure Portal. A continuación, muestra cómo unir la máquina virtual a un dominio administrado de Azure Active Directory Domain Services (Azure AD DS).

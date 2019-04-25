@@ -13,11 +13,11 @@ ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: jingwang
 ms.openlocfilehash: 28d8c077f106f12812f7ed710217febd24d81efc
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59267164"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60387797"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Actividad de copia en Azure Data Factory
 
@@ -182,9 +182,9 @@ Los detalles de la ejecución de la actividad de copia y las características de
 | rowsSkipped | Número de filas incompatibles que se omiten. Puede establecer "enableSkipIncompatibleRow" en true para activar la característica. | Valor Int64 (sin unidad) |
 | throughput | Velocidad de transferencia de los datos | Número de punto flotante en **KB/s** |
 | copyDuration | Duración de la copia | Valor Int32 en segundos |
-| sqlDwPolyBase | Si se usa PolyBase cuando se copian datos en SQL Data Warehouse. | boolean |
-| redshiftUnload | Si se usa UNLOAD cuando se copian datos desde Redshift. | boolean |
-| hdfsDistcp | Si se usa DistCp cuando se copian datos desde HDFS. | boolean |
+| sqlDwPolyBase | Si se usa PolyBase cuando se copian datos en SQL Data Warehouse. | Boolean |
+| redshiftUnload | Si se usa UNLOAD cuando se copian datos desde Redshift. | Boolean |
+| hdfsDistcp | Si se usa DistCp cuando se copian datos desde HDFS. | Boolean |
 | effectiveIntegrationRuntime | Muestra el tipo de Integration Runtime que se usa para impulsar la ejecución de actividad con el formato "`<IR name> (<region if it's Azure IR>)`". | Texto (cadena) |
 | usedDataIntegrationUnits | Unidades de integración de datos vigentes durante la copia. | Valor Int32 |
 | usedParallelCopies | El número de parallelCopies efectivo durante la copia. | Valor Int32|

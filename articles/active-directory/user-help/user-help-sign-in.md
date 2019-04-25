@@ -14,11 +14,11 @@ ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 60e4d9a4cb555dfbc9f05961487a8f794d19e1bf
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59268366"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60472976"
 ---
 # <a name="sign-in-using-two-step-verification-or-security-info"></a>Inicio de sesión con la información de seguridad o la verificación en dos pasos
 Una vez configurada la verificación en dos pasos o la información de seguridad, podrá iniciar sesión en la cuenta con el método de autenticación que especifique.

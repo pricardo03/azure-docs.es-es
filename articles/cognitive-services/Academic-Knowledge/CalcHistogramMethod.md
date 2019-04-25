@@ -11,11 +11,11 @@ ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
 ms.openlocfilehash: a228c5b90e47c9c24c5da70484a1a28f9a3054b1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58100486"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60498839"
 ---
 # <a name="calchistogram-method"></a>Método CalcHistogram
 
@@ -30,7 +30,7 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 
 ## <a name="request-parameters"></a>Parámetros de solicitud
 
-NOMBRE  |Valor | ¿Necesario?  |DESCRIPCIÓN
+Name  |Value | ¿Necesario?  |DESCRIPCIÓN
 -----------|----------|--------|----------
 **expr**    |Cadena de texto | Sí  |Una expresión de consulta que especifica las entidades en las que se deben calcular los histogramas.
 **model** |Cadena de texto | Sin  |Seleccione el nombre del modelo que quiere consultar.  Actualmente, el valor predeterminado es *latest*.
@@ -41,7 +41,7 @@ NOMBRE  |Valor | ¿Necesario?  |DESCRIPCIÓN
 
 ## <a name="response-json"></a>Respuesta (JSON)
 
-NOMBRE | DESCRIPCIÓN
+Name | DESCRIPCIÓN
 --------|---------
 **expr**  |El parámetro expr de la solicitud.
 **num_entities** | Número total de entidades coincidentes.

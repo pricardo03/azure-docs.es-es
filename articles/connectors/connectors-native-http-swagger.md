@@ -12,11 +12,11 @@ tags: connectors
 ms.topic: article
 ms.date: 07/18/2016
 ms.openlocfilehash: 9408b66f74391b080ef46c758b07850b2ae8de57
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58893408"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60448655"
 ---
 # <a name="call-rest-endpoints-with-http--swagger-connector-in-azure-logic-apps"></a>Llamada a puntos de conexión REST con el conector HTTP + Swagger para Azure Logic Apps
 
@@ -113,7 +113,7 @@ Respuesta HTTP
 ### <a name="http-responses"></a>Respuestas HTTP
 Al realizar llamadas a diversas acciones, es posible que obtenga determinadas respuestas. A continuación se incluye una tabla que describe las respuestas y descripciones correspondientes.
 
-| NOMBRE | DESCRIPCIÓN |
+| Name | DESCRIPCIÓN |
 | --- | --- |
 | 200 |OK |
 | 202 |Accepted |

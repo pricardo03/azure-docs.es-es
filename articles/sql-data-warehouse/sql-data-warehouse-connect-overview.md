@@ -11,11 +11,11 @@ ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
 ms.openlocfilehash: 85bce59563cf0424816661c97406060bcbb423ec
-ms.sourcegitcommit: 698a3d3c7e0cc48f784a7e8f081928888712f34b
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/31/2019
-ms.locfileid: "55460461"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402825"
 ---
 # <a name="connect-to-azure-sql-data-warehouse"></a>Conexión a Azure SQL Data Warehouse
 Conéctese a Azure SQL Data Warehouse.
@@ -61,7 +61,7 @@ jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user
 ## <a name="connection-settings"></a>Configuración de conexión
 SQL Data Warehouse normaliza algunas opciones de configuración durante la conexión y la creación de objetos. Estas opciones de configuración no se pueden invalidar e incluyen:
 
-| Configuración de base de datos | Valor |
+| Configuración de base de datos | Value |
 |:--- |:--- |
 | [ANSI_NULLS][ANSI_NULLS] |ACTIVAR |
 | [QUOTED_IDENTIFIERS][QUOTED_IDENTIFIERS] |ACTIVAR |

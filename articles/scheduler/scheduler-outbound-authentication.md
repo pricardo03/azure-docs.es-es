@@ -9,12 +9,12 @@ ms.reviewer: klam
 ms.assetid: 6707f82b-7e32-401b-a960-02aae7bb59cc
 ms.topic: article
 ms.date: 08/15/2016
-ms.openlocfilehash: 88f2fe0781bad4b652826b6a8d1961dd39b063e1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
-ms.translationtype: HT
+ms.openlocfilehash: 42d6ec93a3382f494b49fb574c4aee5e8eec142a
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993347"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60344355"
 ---
 # <a name="outbound-authentication-for-azure-scheduler"></a>Autenticación de salida en Azure Scheduler
 
@@ -47,9 +47,9 @@ Al agregar autenticación mediante el modelo `ClientCertificate`, especifique es
 | Elemento | Obligatorio | DESCRIPCIÓN |
 |---------|----------|-------------|
 | **autenticación** (elemento principal) | El objeto de autenticación para usar un certificado de cliente SSL |
-| **type** | SÍ | El tipo de autenticación. Para los certificados de cliente SSL, el valor es `ClientCertificate`. |
-| **pfx** | SÍ | El contenido con codificación base64 del archivo PFX |
-| **password** | SÍ | La contraseña para acceder al archivo PFX |
+| **type** | Sí | El tipo de autenticación. Para los certificados de cliente SSL, el valor es `ClientCertificate`. |
+| **pfx** | Sí | El contenido con codificación base64 del archivo PFX |
+| **password** | Sí | La contraseña para acceder al archivo PFX |
 ||| 
 
 ### <a name="response-body---client-certificate"></a>Cuerpo de respuesta: Certificado de cliente 
@@ -158,7 +158,7 @@ Date: Wed, 16 Mar 2016 19:04:23 GMT
 }
 ```
 
-## <a name="basic"></a>Básico
+## <a name="basic"></a>Básica
 
 ### <a name="request-body---basic"></a>Cuerpo de la solicitud - Básico
 
@@ -167,9 +167,9 @@ Al agregar autenticación mediante el modelo `Basic`, especifique estos elemento
 | Elemento | Obligatorio | DESCRIPCIÓN |
 |---------|----------|-------------|
 | **autenticación** (elemento principal) | El objeto de autenticación para usar la autenticación básica | 
-| **type** | SÍ | El tipo de autenticación. En autenticación básica, el valor es `Basic`. | 
-| **username** | SÍ | El nombre de usuario que se autentica | 
-| **password** | SÍ | La contraseña que se autentica |
+| **type** | Sí | El tipo de autenticación. En autenticación básica, el valor es `Basic`. | 
+| **username** | Sí | El nombre de usuario que se autentica | 
+| **password** | Sí | La contraseña que se autentica |
 |||| 
 
 ### <a name="response-body---basic"></a>Cuerpo de respuesta: Básico
@@ -284,12 +284,12 @@ Al agregar autenticación mediante el modelo `ActiveDirectoryOAuth`, especifique
 
 | Elemento | Obligatorio | DESCRIPCIÓN |
 |---------|----------|-------------|
-| **autenticación** (elemento principal) | SÍ | El objeto de autenticación para usar la autenticación de ActiveDirectoryOAuth |
-| **type** | SÍ | El tipo de autenticación. En autenticación ActiveDirectoryOAuth, el valor es `ActiveDirectoryOAuth`. |
-| **tenant** | SÍ | Identificador del inquilino de Azure AD. Para encontrar el identificador del inquilino de Azure AD, ejecute `Get-AzureAccount` en Azure PowerShell. |
-| **audience** | SÍ | Este valor se establece en `https://management.core.windows.net/`. | 
-| **clientId** | SÍ | Identificador de cliente para la aplicación de Azure AD | 
-| **secret** | SÍ | El secreto del cliente que solicita el token | 
+| **autenticación** (elemento principal) | Sí | El objeto de autenticación para usar la autenticación de ActiveDirectoryOAuth |
+| **type** | Sí | El tipo de autenticación. En autenticación ActiveDirectoryOAuth, el valor es `ActiveDirectoryOAuth`. |
+| **tenant** | Sí | Identificador del inquilino de Azure AD. Para encontrar el identificador del inquilino de Azure AD, ejecute `Get-AzureAccount` en Azure PowerShell. |
+| **audience** | Sí | Este valor se establece en `https://management.core.windows.net/`. | 
+| **clientId** | Sí | Identificador de cliente para la aplicación de Azure AD | 
+| **secret** | Sí | El secreto del cliente que solicita el token | 
 |||| 
 
 ### <a name="response-body---active-directory-oauth"></a>Cuerpo de respuesta: Active Directory OAuth
@@ -403,7 +403,7 @@ Date: Wed, 16 Mar 2016 19:10:02 GMT
 }
 ```
 
-## <a name="see-also"></a>Otras referencias
+## <a name="see-also"></a>Vea también
 
 * [¿Qué es Azure Scheduler?](scheduler-intro.md)
 * [Conceptos, terminología y jerarquía de entidades de Azure Scheduler](scheduler-concepts-terms.md)

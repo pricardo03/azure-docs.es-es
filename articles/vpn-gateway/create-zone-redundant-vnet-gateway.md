@@ -9,11 +9,11 @@ ms.topic: conceptual
 ms.date: 03/13/2019
 ms.author: cherylmc
 ms.openlocfilehash: f2b459ccfd7e3f513b9b6526864321ce247ae7aa
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
-ms.translationtype: HT
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60004523"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60405871"
 ---
 # <a name="create-a-zone-redundant-virtual-network-gateway-in-azure-availability-zones"></a>Crear una puerta de enlace de red virtual con redundancia de zona en Azure Availability Zones
 

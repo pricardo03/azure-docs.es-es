@@ -3,7 +3,7 @@ title: Localization - Azure Active Directory B2C | Microsoft Docs
 description: Especifique el elemento Localization de una directiva personalizada en Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
-manager: daveba
+manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
@@ -11,11 +11,11 @@ ms.date: 09/10/2018
 ms.author: davidmu
 ms.subservice: B2C
 ms.openlocfilehash: 8f252b536c80ad997f3c0eb10b10d5cb8c330fc6
-ms.sourcegitcommit: d3200828266321847643f06c65a0698c4d6234da
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: HT
 ms.contentlocale: es-ES
-ms.lasthandoff: 01/29/2019
-ms.locfileid: "55187562"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60401755"
 ---
 # <a name="localization"></a>Localización
 
@@ -41,7 +41,7 @@ El elemento **Localization** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| habilitado | Sin  | Valores posibles: `true` o `false`. |
+| Enabled | Sin  | Valores posibles: `true` o `false`. |
 
 El elemento **Localization** contiene los siguientes elementos XML:
 
@@ -56,7 +56,7 @@ El elemento **SupportedLanguages** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| DefaultLanguage | SÍ | El idioma que se usará como el predeterminado para los recursos localizados. |
+| DefaultLanguage | Sí | El idioma que se usará como el predeterminado para los recursos localizados. |
 | MergeBehavior | Sin  | Valores de enumeración de los valores combinados con cualquier elemento ClaimType presente en una directiva principal con el mismo identificador. Use este atributo al sobrescribir una notificación especificada en la directiva de base. Valores posibles: `Append`, `Prepend` o `ReplaceAll`. El valor `Append` especifica que la colección de datos presente tiene que anexarse al final de la colección especificada en la directiva principal. El valor `Prepend` especifica que la colección de datos presente tiene que agregarse antes de la colección especificada en la directiva principal. El valor `ReplaceAll` especifica que la colección de datos definidos en la directiva principal tiene que omitirse y, en su lugar, tienen que usarse los datos definidos en la directiva actual. |
 
 ### <a name="supportedlanguages"></a>SupportedLanguages
@@ -73,7 +73,7 @@ El elemento **LocalizedResources** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Id | SÍ | Identificador único para recursos localizados. |
+| Id | Sí | Identificador único para recursos localizados. |
 
 El elemento **LocalizedResources** contiene los elementos siguientes:
 
@@ -96,9 +96,9 @@ El elemento **LocalizedCollection** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| ElementType | SÍ | Hace referencia a un elemento ClaimType o a un elemento de la interfaz de usuario en el archivo de directiva. |
-| ElementId | SÍ | Cadena que contiene una referencia a un tipo de notificación que ya se ha definido en la sección ClaimsSchema y que se usa si se establece **ElementType** en un elemento ClaimType. |
-| TargetCollection | SÍ | La colección de destino. |
+| ElementType | Sí | Hace referencia a un elemento ClaimType o a un elemento de la interfaz de usuario en el archivo de directiva. |
+| ElementId | Sí | Cadena que contiene una referencia a un tipo de notificación que ya se ha definido en la sección ClaimsSchema y que se usa si se establece **ElementType** en un elemento ClaimType. |
+| TargetCollection | Sí | La colección de destino. |
 
 El elemento **LocalizedCollection** contiene los elementos siguientes:
 
@@ -110,8 +110,8 @@ El elemento **Item** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| Texto | SÍ | Cadena para mostrar fácil de identificar que se mostrará al usuario en la interfaz de usuario para esta opción. |
-| Valor | SÍ | Valor de notificación de cadena asociado a la selección de esta opción. |
+| Text | Sí | Cadena para mostrar fácil de identificar que se mostrará al usuario en la interfaz de usuario para esta opción. |
+| Value | Sí | Valor de notificación de cadena asociado a la selección de esta opción. |
 
 En el ejemplo siguiente, se muestra cómo usar el elemento **LocalizedCollections**. Contiene dos elementos **LocalizedCollection**, uno para inglés y otro para español. Ambos establecen la colección **Restriction** de la notificación `Gender` con una lista de elementos para inglés y español.
 
@@ -146,9 +146,9 @@ El elemento **LocalizedString** contiene los atributos siguientes:
 
 | Atributo | Obligatorio | DESCRIPCIÓN |
 | --------- | -------- | ----------- |
-| ElementType | SÍ | Referencia a un elemento de tipo de notificación o a un elemento de la interfaz de usuario en la directiva. Valores posibles: `ClaimType`, `UxElement`, `ErrorMessage` o `Predicate`. El valor `ClaimType` se usa para localizar uno de los atributos de la notificación, según se especifica en el elemento StringId. El valor `UxElement` se usa para localizar uno de los elementos de la interfaz de usuario, según se especifica en el elemento StringId. El valor `ErrorMessage` se usa para localizar uno de los mensajes de error del sistema, según se especifica en el elemento StringId. El valor `Predicate` se usa para localizar uno de los mensajes de error de [Predicate](predicates.md), según se especifica en el elemento StringId. El valor `InputValidation` se usa para localizar uno de los mensajes de error de grupo de [PredicateValidation](predicates.md), según se especifica en el elemento StringId. |
-| ElementId | SÍ | Si **ElementType** se establece en `ClaimType`, `Predicate` o `InputValidation`, este elemento contiene una referencia a un tipo de notificación que ya se ha definido en la sección ClaimsSchema. | 
-| StringId | SÍ | Si **ElementType** se establece en `ClaimType`, este elemento contiene una referencia a un atributo de un tipo de notificación. Valores posibles: `DisplayName`, `AdminHelpText` o `PatternHelpText`. El valor `DisplayName` se usa para establecer el nombre para mostrar de la notificación. El valor `AdminHelpText` se usa para establecer el nombre del texto de ayuda del usuario de la notificación. El valor `PatternHelpText` se usa para establecer el texto de ayuda del patrón de la notificación. Si **ElementType** se establece en `UxElement`, este elemento contiene una referencia a un atributo de un elemento de la interfaz de usuario. Si **ElementType** se establece en `ErrorMessage`, este elemento especifica el identificador de un mensaje de error. Vea la lista completa de los identificadores de `UxElement` en [Id. de cadena Localization](localization-string-ids.md).|
+| ElementType | Sí | Referencia a un elemento de tipo de notificación o a un elemento de la interfaz de usuario en la directiva. Valores posibles: `ClaimType`, `UxElement`, `ErrorMessage` o `Predicate`. El valor `ClaimType` se usa para localizar uno de los atributos de la notificación, según se especifica en el elemento StringId. El valor `UxElement` se usa para localizar uno de los elementos de la interfaz de usuario, según se especifica en el elemento StringId. El valor `ErrorMessage` se usa para localizar uno de los mensajes de error del sistema, según se especifica en el elemento StringId. El valor `Predicate` se usa para localizar uno de los mensajes de error de [Predicate](predicates.md), según se especifica en el elemento StringId. El valor `InputValidation` se usa para localizar uno de los mensajes de error de grupo de [PredicateValidation](predicates.md), según se especifica en el elemento StringId. |
+| ElementId | Sí | Si **ElementType** se establece en `ClaimType`, `Predicate` o `InputValidation`, este elemento contiene una referencia a un tipo de notificación que ya se ha definido en la sección ClaimsSchema. | 
+| StringId | Sí | Si **ElementType** se establece en `ClaimType`, este elemento contiene una referencia a un atributo de un tipo de notificación. Valores posibles: `DisplayName`, `AdminHelpText` o `PatternHelpText`. El valor `DisplayName` se usa para establecer el nombre para mostrar de la notificación. El valor `AdminHelpText` se usa para establecer el nombre del texto de ayuda del usuario de la notificación. El valor `PatternHelpText` se usa para establecer el texto de ayuda del patrón de la notificación. Si **ElementType** se establece en `UxElement`, este elemento contiene una referencia a un atributo de un elemento de la interfaz de usuario. Si **ElementType** se establece en `ErrorMessage`, este elemento especifica el identificador de un mensaje de error. Vea la lista completa de los identificadores de `UxElement` en [Id. de cadena Localization](localization-string-ids.md).|
 
 
 En el ejemplo siguiente, se muestra una página de registro localizada. Los primeros tres valores de **LocalizedString** establecen el atributo de la notificación. El tercero cambia el valor del botón Continuar. El último cambia el mensaje de error.

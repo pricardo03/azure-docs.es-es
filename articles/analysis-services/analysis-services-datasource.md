@@ -9,11 +9,11 @@ ms.date: 04/17/2019
 ms.author: owend
 ms.reviewer: minewiskan
 ms.openlocfilehash: ed18fd985173a4d978edccedc8b6e5cf527f16dd
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/17/2019
-ms.locfileid: "59698738"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60327146"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Orígenes de datos admitidos en Azure Analysis Services
 
@@ -72,7 +72,7 @@ Para conectarse a los orígenes de datos locales desde el servidor AS de Azure, 
 |IBM Informix<sup>[1](#tab1400b)</sup> (Beta) |
 |Documento JSON<sup>[1](#tab1400b)</sup>     |  
 |Líneas de archivo binario<sup>[1](#tab1400b)</sup>     | 
-|Base de datos MySQL     | 
+|MySQL Database     | 
 |Fuente OData<sup>[1](#tab1400b)</sup>     |  
 |Consulta ODBC     | 
 |OLE DB     |   

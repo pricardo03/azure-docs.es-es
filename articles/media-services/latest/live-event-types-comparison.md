@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 03/01/2019
 ms.author: juliako
 ms.openlocfilehash: 9952a7bbac1eb79de0d3425f839e3bd30196844e
-ms.sourcegitcommit: ad019f9b57c7f99652ee665b25b8fef5cd54054d
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/02/2019
-ms.locfileid: "57243897"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60322291"
 ---
 # <a name="live-event-types-comparison"></a>Comparación de tipos de objetos LiveEvent
 
@@ -57,7 +57,7 @@ En la tabla siguiente se comparan las características de dos tipos de LiveEvent
 
 ## <a name="system-presets"></a>Valores preestablecidos del sistema
 
-Cuando se usa la codificación en directo (evento en directo se establece en **estándar**), el valor preestablecido de codificación define cómo se codifica la secuencia entrante en varias velocidades de bits o capas. Actualmente, el único valor permitido para el valor predeterminado es *Default720p* (valor predeterminado).
+Cuando se usa la codificación en directo (el evento LiveEvent se establece en **Standard**), la codificación preestablecida define cómo se codifica la transmisión entrante en varias velocidades de bits o capas. Actualmente, el único valor permitido para el valor predeterminado es *Default720p* (valor predeterminado).
 
 **Default720p** codificará el vídeo en las 6 capas siguientes.
 
@@ -73,7 +73,7 @@ Cuando se usa la codificación en directo (evento en directo se establece en **e
 | 200 |340 |192 |30 |Alto |Video_340x192_200kbps |
 
 > [!NOTE]
-> Si necesita usar un valor preestablecido personalizado de codificación en directo, póngase en contacto con amshelp@microsoft.com. Debe especificar la tabla deseada de resolución y velocidades de bits. Compruebe que hay solo una capa a 720p y a lo sumo, 6 capas.
+> Si necesita usar un valor preestablecido personalizado para la codificación en directo, póngase en contacto con amshelp@microsoft.com. Debe especificar la tabla de resoluciones y velocidades de bits deseadas. Compruebe que hay solo una capa a 720p y, como máximo, 6 capas.
 
 ### <a name="output-audio-stream"></a>Secuencia de audio de salida
 

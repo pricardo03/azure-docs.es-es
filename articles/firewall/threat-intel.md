@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 3/11/2019
 ms.author: victorh
 ms.openlocfilehash: 4ef9089c94d9e806cc519c4f8243cdcb7e73953a
-ms.sourcegitcommit: 1902adaa68c660bdaac46878ce2dec5473d29275
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/11/2019
-ms.locfileid: "57730533"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60194060"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering---public-preview"></a>Filtrado de amenazas de Firewall de Azure basado en inteligencia - versión preliminar pública
 
-Filtrado basado en inteligencia de amenazas puede habilitarse para que el firewall con la alerta y denegar el tráfico desde y hacia los dominios y direcciones IP malintencionadas. La direcciones IP y los dominios proceden de la fuente Inteligencia sobre amenazas de Microsoft. [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence) alimenta la inteligencia de amenazas de Microsoft y se usa en varios servicios, incluidos Azure Security Center.
+El filtrado basado en inteligencia sobre amenazas puede habilitarse para que el firewall alerte y deniegue el tráfico desde y hacia los dominios y las direcciones IP malintencionados. La direcciones IP y los dominios proceden de la fuente Inteligencia sobre amenazas de Microsoft. [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence) alimenta la inteligencia de amenazas de Microsoft y se usa en varios servicios, incluidos Azure Security Center.
 
 ![Inteligencia de amenazas de Firewall](media/threat-intel/firewall-threat.png)
 

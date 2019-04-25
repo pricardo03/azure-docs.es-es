@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 01/23/2019
 ms.author: aschhab
 ms.openlocfilehash: c22ba0b57ed1161e1f7e2082d2ba21f27b656da1
-ms.sourcegitcommit: 2d0fb4f3fc8086d61e2d8e506d5c2b930ba525a7
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58121577"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60402690"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>El protocolo AMQP 1.0 de Microsoft Azure Service Bus: operaciones de respuesta/solicitud
 
@@ -505,7 +505,7 @@ La asignación **correlation-filter** debe incluir, al menos, una de las siguien
 |session-id|string|Sin ||  
 |reply-to-session-id|string|Sin ||  
 |content-type|string|Sin ||  
-|propiedades|map|Sin |Se asigna [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) a Service Bus.|  
+|properties|map|Sin |Se asigna [BrokeredMessage.Properties](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) a Service Bus.|  
   
 La asignación**sql-rule-action** debe incluir las siguientes entradas:  
   
@@ -591,7 +591,7 @@ Cada entrada de mapa de la matriz incluye las siguientes propiedades:
 
 `filter` puede ser de uno de los siguientes tipos:
 
-| Nombre de descriptor | Código de descriptor | Valor |
+| Nombre de descriptor | Código de descriptor | Value |
 | --- | --- | ---|
 | `com.microsoft:sql-filter:list` | 0x000001370000006 | Filtro SQL |
 | `com.microsoft:correlation-filter:list` | 0x000001370000009 | Filtro de correlación |
@@ -620,7 +620,7 @@ Cada entrada de mapa de la matriz incluye las siguientes propiedades:
 
 `ruleAction` puede ser cualquiera de los siguientes tipos:
 
-| Nombre de descriptor | Código de descriptor | Valor |
+| Nombre de descriptor | Código de descriptor | Value |
 | --- | --- | ---|
 | `com.microsoft:empty-rule-action:list` | 0x0000013700000005 | Acción de regla vacía: no hay existe ninguna acción de regla |
 | `com.microsoft:sql-rule-action:list` | 0x0000013700000006 | Acción de regla SQL |

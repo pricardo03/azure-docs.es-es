@@ -12,11 +12,11 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 6c2c5006eb050b70b783ab8199724e0e98766381
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
 ms.translationtype: MT
 ms.contentlocale: es-ES
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59358112"
+ms.lasthandoff: 04/23/2019
+ms.locfileid: "60359346"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication"></a>Planeamiento de Azure Multi-factor Authentication en la nube
 
@@ -237,7 +237,7 @@ Si tiene una instancia NPS implementa y está en uso, hacen referencia a [integr
 
 Elija qué sucede cuando los usuarios que no están inscritos en MFA intentan autenticarse. Use la configuración del registro `REQUIRE_USER_MATCH` en la ruta de acceso del registro `HKLM\Software\Microsoft\AzureMFA` para controlar el comportamiento de la característica. Esta configuración tiene una opción de configuración único.
 
-| Clave | Valor | Valor predeterminado |
+| Clave | Value | Valor predeterminado |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE / FALSE | No establecido (equivalente a TRUE) |
 
@@ -304,7 +304,7 @@ Informes para Azure MFA
 
 Azure Multi-factor Authentication proporciona informes a través del portal de Azure:
 
-| Informe | Ubicación | DESCRIPCIÓN |
+| Informe | Location | DESCRIPCIÓN |
 | --- | --- | --- |
 | Alertas de fraude y de uso | Azure AD > Inicios de sesión | Proporciona información sobre el uso general, el resumen del usuario, detalles del usuario; así como un historial de alertas de fraude enviadas durante el intervalo de fechas especificado. |
 
